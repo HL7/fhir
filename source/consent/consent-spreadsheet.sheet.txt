@@ -263,17 +263,18 @@
   Comments = If the policy reference is not known, the resource cannot be processed. Where the reference is absent, there is no particular policy other than what is expressed directly in the consent resource
 
  -- Row 13 -----------------------------------
-  Element = Consent.actor
+  Element = Consent.recipient
   Card. = 0..*
   Summary = Y
-  Short Label = Who|what controlled by this concept (or group, by role)
-  Definition = Who or what is controlled by this Consent.
-  Comments = may be specialized in exceptions
-  Missing Meaning = There is no specific actor associated with the consent
+  Type = Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson)
+  Short Label = Who|what the consent is in regard to
+  Definition = Who or what is this Consent statement is intended for - which entity is being targeted for the consent statement
+  Comments = The Consent recipient is the person/organization who is being granted or denied permission according to the stated policy
+  Missing Meaning = There is no specific actor who is the focus of the consent
   w5 = who.actor
 
  -- Row 14 -----------------------------------
-  Element = Consent.actor.role
+  Element = !Consent.actor.role
   Card. = 1..1
   Type = CodeableConcept
   Binding = ConsentActorRole
@@ -281,14 +282,14 @@
   Definition = How the individual is or was involved in the resources
 
  -- Row 15 -----------------------------------
-  Element = Consent.actor.reference
+  Element = !Consent.actor.reference
   Card. = 1..1
   Type = Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson)
   Short Label = Resource for the actor (or group, by role)
   Definition = The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
 
  -- Row 16 -----------------------------------
-  Element = Consent.action
+  Element = !Consent.action
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
@@ -300,7 +301,7 @@
   Missing Meaning = all actions
 
  -- Row 17 -----------------------------------
-  Element = Consent.securityLabel
+  Element = !Consent.securityLabel
   Card. = 0..*
   Summary = Y
   Type = Coding
@@ -310,7 +311,7 @@
   Comments = If the consent specifies a security label of \"R\" then it applies to all resources that are labelled \"R\" or lower. E.g. for Confidentiality, it\'s a high water mark. For other kinds of security labels, subsumption logic applies. Not all of the security labels make sense for use in this element (may define a narrower value set?)
 
  -- Row 18 -----------------------------------
-  Element = Consent.purpose
+  Element = !Consent.purpose
   Card. = 0..*
   Summary = Y
   Type = Coding
@@ -320,7 +321,7 @@
   Comments = E.g. if the purpose is \'research\', then the operational context must be research, in order for the consent to apply. Not all of the security labels make sense for use in this element (may define a narrower value set?)
 
  -- Row 19 -----------------------------------
-  Element = Consent.data
+  Element = !Consent.data
   Card. = 0..*
   Summary = Y
   Short Label = Data controlled by this Consent
@@ -331,7 +332,7 @@
   w5 = what
 
  -- Row 20 -----------------------------------
-  Element = Consent.data.meaning
+  Element = !Consent.data.meaning
   Card. = 1..1
   Summary = Y
   Type = code
@@ -340,7 +341,7 @@
   Definition = How the resource reference is interpreted when testing consent restrictions
 
  -- Row 21 -----------------------------------
-  Element = Consent.data.reference
+  Element = !Consent.data.reference
   Card. = 1..1
   Summary = Y
   Type = Reference(Any)
@@ -378,12 +379,26 @@
   Element = Consent.except.actor
   Card. = 0..*
   Summary = Y
-  Type = @Consent.actor
   Short Label = Who|what controlled by this exception (or group, by role)
   Definition = Who or what is controlled by this Exception. Use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
   Missing Meaning = There is no specific actor associated with the exception
 
  -- Row 26 -----------------------------------
+  Element = Consent.except.actor.role
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ConsentActorRole
+  Short Label = How the actor is/was involved
+  Definition = How the individual is or was involved in the resourcescontent that is described in the exception
+
+ -- Row 27 -----------------------------------
+  Element = Consent.except.actor.reference
+  Card. = 1..1
+  Type = Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson)
+  Short Label = Resource for the actor (or group, by role)
+  Definition = The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
+
+ -- Row 28 -----------------------------------
   Element = Consent.except.action
   Card. = 0..*
   Summary = Y
@@ -393,7 +408,7 @@
   Definition = Actions controlled by this Exception
   Missing Meaning = all actions
 
- -- Row 27 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Consent.except.securityLabel
   Card. = 0..*
   Summary = Y
@@ -403,7 +418,7 @@
   Definition = A set of security labels that define which resources are controlled by this exception. If more than one label is specified, all resources must have all the specified labels
   Comments = If the consent specifies a security label of \"R\" then it applies to all resources that are labelled \"R\" or lower. E.g. for Confidentiality, it\'s a high water mark. For other kinds of security labels, subsumption logic applies. Not all of the security labels make sense for use in this element (may define a narrower value set?)
 
- -- Row 28 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Consent.except.purpose
   Card. = 0..*
   Summary = Y
@@ -413,24 +428,38 @@
   Definition = A set of security labels that define the context of which actions are controlled by this exception. If more than one label is specified, operations must have all the specified labels
   Comments = E.g. if the purpose is \'research\', then the operational context must be research, in order for the consent to apply. Not all of the security labels make sense for use in this element (may define a narrower value set?)
 
- -- Row 29 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Consent.except.data
   Card. = 0..*
   Summary = Y
-  Type = @Consent.data
   Short Label = Data controlled by this exception
   Definition = The resources controlled by this exception, if specific resources are referenced
-  Requirements = must be a subset of Consent.data
   RIM Mapping = Role
   Missing Meaning = all data
+
+ -- Row 32 -----------------------------------
+  Element = Consent.except.data.meaning
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = ConsentDataMeaning
+  Short Label = instance | related | dependents | profile | valueset
+  Definition = How the resource reference is interpreted when testing consent restrictions
+
+ -- Row 33 -----------------------------------
+  Element = Consent.except.data.reference
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Any)
+  Short Label = The actual data reference
+  Definition = A reference to a specific resource that defines which resources are covered by this consent
 
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
   Name = data
   Type = reference
-  Description = The identity of the topic of the consent
-  Path = Consent.data.reference | Consent.except.data.reference
+  Path = Consent.except.data.reference
 
  -- Row 2 -----------------------------------
   Name = patient
@@ -480,22 +509,27 @@
  -- Row 11 -----------------------------------
   Name = actor
   Type = reference
-  Path = Consent.actor.reference | Consent.except.actor.reference
+  Path = Consent.except.actor.reference
 
  -- Row 12 -----------------------------------
-  Name = action
-  Type = token
-  Path = Consent.action | Consent.except.action
+  Name = recipient
+  Type = reference
+  Path = Consent.recipient
 
  -- Row 13 -----------------------------------
-  Name = security
+  Name = action
   Type = token
-  Path = Consent.securityLabel | Consent.except.securityLabel
+  Path = Consent.except.action
 
  -- Row 14 -----------------------------------
+  Name = security
+  Type = token
+  Path = Consent.except.securityLabel
+
+ -- Row 15 -----------------------------------
   Name = purpose
   Type = token
-  Path = Consent.purpose | Consent.except.purpose
+  Path = Consent.except.purpose
 
 === Sheet Profiles =====================================
 
