@@ -120,7 +120,8 @@ import java.util.concurrent.TimeUnit;
  *
  */
 
-public class Publisher {
+public class Publisher implements IGLogger {
+
   public enum GenerationTool {
     Jekyll
   }
@@ -167,7 +168,9 @@ public class Publisher {
 
   private long globalStart;
 
-  private void execute() throws Exception {
+  private IGLogger logger = this;
+
+  public void execute() throws Exception {
     globalStart = System.nanoTime();
     initialize();
     log("Load Implementation Guide");
@@ -958,9 +961,9 @@ public class Publisher {
 
   private void log(String s) {
     if (first)
-      System.out.println(Utilities.padRight(s, ' ', 80)+" ("+presentDuration(System.nanoTime()-globalStart)+"sec)");
+      logger.logMessage(Utilities.padRight(s, ' ', 80)+" ("+presentDuration(System.nanoTime()-globalStart)+"sec)");
     else
-      System.out.println(s);
+      logger.logMessage(s);
   }
 
   private void generateOutputs(FetchedFile f) throws Exception {
@@ -1264,7 +1267,7 @@ public class Publisher {
     } else {
     System.out.println("FHIR Implementation Guide Publisher");
     Publisher self = new Publisher();
-    self.configFile = getNamedParam(args, "-ig");
+    self.setConfigFile(getNamedParam(args, "-ig"));
     self.setTxServer(getNamedParam(args, "-tx"));
     self.watch = hasParam(args, "-watch");
 
@@ -1298,6 +1301,10 @@ public class Publisher {
         e.printStackTrace();
       }
     }
+  }
+
+  public void setConfigFile(String configFile) {
+    this.configFile = configFile;
   }
 
   private static void runGUI() {
@@ -1339,5 +1346,18 @@ public class Publisher {
     return null;
   }
 
+  public void setLogger(IGLogger logger) {
+    this.logger = logger;
+    
+  }
+
+  @Override
+  public void logMessage(String msg) {
+    System.out.println(msg);    
+  }
+
+  public String getQAFile() {
+    return Utilities.path(qaDir, "validation.html");
+  }
 
 }
