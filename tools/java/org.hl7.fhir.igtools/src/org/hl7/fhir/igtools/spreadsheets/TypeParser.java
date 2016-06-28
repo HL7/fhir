@@ -33,10 +33,12 @@ import java.util.List;
 
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
+import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.AggregationMode;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.utils.BaseWorkerContext;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
+import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 
 public class TypeParser {
 
@@ -127,7 +129,7 @@ public class TypeParser {
 		return a;
 	}
 
-  public List<TypeRefComponent> convert(IWorkerContext context, String path, List<TypeRef> types) throws Exception {
+  public List<TypeRefComponent> convert(IWorkerContext context, String path, List<TypeRef> types, boolean resource, ElementDefinition ed) throws Exception {
     List<TypeRefComponent> list = new ArrayList<TypeRefComponent>();
     for (TypeRef t : types) {
       // Expand any Resource(A|B|C) references
@@ -148,6 +150,12 @@ public class TypeParser {
         // this list is filled out manually because it may be running before the types referred to have been loaded
         for (String n : wildcardTypes()) 
           list.add(new TypeRefComponent().setCode(n));
+      } else if (t.getName().startsWith("=")){
+        if (resource)
+          list.add(new TypeRefComponent().setCode("BackboneElement"));
+        else
+          list.add(new TypeRefComponent().setCode("Element"));
+        ToolingExtensions.addStringExtension(ed, "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name", t.getName().substring(1));
       } else {
         StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+t.getName());
         if (sd == null)

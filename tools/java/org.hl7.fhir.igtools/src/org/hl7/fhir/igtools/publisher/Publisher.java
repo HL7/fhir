@@ -173,7 +173,7 @@ public class Publisher implements IGLogger {
   public void execute() throws Exception {
     globalStart = System.nanoTime();
     initialize();
-    log("Load Implementation Guide");
+    log("Load Implementation Guide: "+Constants.VERSION+"-"+Constants.REVISION);
     load();
 
     long startTime = System.nanoTime();
@@ -353,6 +353,8 @@ public class Publisher implements IGLogger {
       findRubyExe();
     JsonObject paths = configuration.getAsJsonObject("paths");
     String root = Utilities.getDirectoryForFile(configFile);
+    if (Utilities.noString(root))
+      root = getCurentDirectory();
     resourcesDir = Utilities.path(root, str(paths, "resources", "resources"));
     pagesDir =  Utilities.path(root, str(paths, "pages", "pages"));
     tempDir = Utilities.path(root, str(paths, "temp", "temp"));
@@ -404,6 +406,14 @@ public class Publisher implements IGLogger {
       }
   }
 
+  private String getCurentDirectory() {
+      String currentDirectory;
+      File file = new File(".");
+      currentDirectory = file.getAbsolutePath();
+      log("Use Current directory: "+currentDirectory);
+      return currentDirectory;
+  }
+
   private void findRubyExe() {
     String[] paths = System.getenv("path").split(File.pathSeparator);
     for (String s : paths) {
@@ -415,6 +425,7 @@ public class Publisher implements IGLogger {
             jekyllGem = Utilities.path(s, "jekyll");
             if (!(new File(jekyllGem).exists()))
                 throw new Error("Found Ruby, but unable to find Jekyll Gem");
+            log("Use Ruby at "+rubyExe);
             return;
           }
     }

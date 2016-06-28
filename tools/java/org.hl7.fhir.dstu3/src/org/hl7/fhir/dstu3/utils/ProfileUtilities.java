@@ -2349,9 +2349,12 @@ public class ProfileUtilities {
     for (ElementDefinition ed : sd.getSnapshot().getElement())
       for (Extension ex : ed.getExtension()) {
         String ndx = ToolingExtensions.readStringExtension(ex, "index");
-        Type value = ToolingExtensions.getExtension(ex, "exValue").getValue();
-        if (index.equals(ndx) && value != null)
-          return true;
+        Extension exv = ToolingExtensions.getExtension(ex, "exValue");
+        if (exv != null) {
+          Type value = exv.getValue();
+          if (index.equals(ndx) && value != null)
+            return true;
+        }
        }
     return false;
   }

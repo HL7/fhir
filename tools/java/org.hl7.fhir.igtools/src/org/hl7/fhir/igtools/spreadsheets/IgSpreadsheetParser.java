@@ -534,7 +534,7 @@ public class IgSpreadsheetParser {
     if (types.size() == 1 && types.get(0).getName().startsWith("@"))  
       e.setContentReference("#"+types.get(0).getName().substring(1));
     else
-      e.getType().addAll(tp.convert(context, e.getPath(), types));
+      e.getType().addAll(tp.convert(context, e.getPath(), types, true, e));
     String regex = sheet.getColumn(row, "Regex");
     if (!Utilities.noString(regex) && e.hasType())
       ToolingExtensions.addStringExtension(e.getType().get(0), ToolingExtensions.EXT_REGEX, regex);
@@ -960,7 +960,7 @@ public class IgSpreadsheetParser {
         exv.setMaxLength(Integer.parseInt(s));
       TypeParser tp = new TypeParser();
       List<TypeRef> types = tp.parse(sheet.getColumn(row, "Type"), true, "??", context, false);
-      exv.getType().addAll(tp.convert(context, exv.getPath(), types));
+      exv.getType().addAll(tp.convert(context, exv.getPath(), types, false, exv));
       exv.setExample(processValue(sheet, row, "Example", sheet.getColumn(row, "Example"), exv));
     }
   }
