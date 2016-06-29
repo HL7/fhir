@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Jun 28, 2016 21:54+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 29, 2016 09:39+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1860,8 +1860,96 @@ public class JsonParser extends JsonParserBase {
 
   protected void parseActivityDefinitionProperties(JsonObject json, ActivityDefinition res) throws IOException, FHIRFormatError {
     parseDomainResourceProperties(json, res);
-    if (json.has("moduleMetadata"))
-      res.setModuleMetadata(parseModuleMetadata(json.getAsJsonObject("moduleMetadata")));
+    if (json.has("url"))
+      res.setUrlElement(parseUri(json.get("url").getAsString()));
+    if (json.has("_url"))
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("version"))
+      res.setVersionElement(parseString(json.get("version").getAsString()));
+    if (json.has("_version"))
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionElement());
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("title"))
+      res.setTitleElement(parseString(json.get("title").getAsString()));
+    if (json.has("_title"))
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
+    if (json.has("status"))
+      res.setStatusElement(parseCode(json.get("status").getAsString()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
+    if (json.has("experimental"))
+      res.setExperimentalElement(parseBoolean(json.get("experimental").getAsBoolean()));
+    if (json.has("_experimental"))
+      parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimentalElement());
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("purpose"))
+      res.setPurposeElement(parseString(json.get("purpose").getAsString()));
+    if (json.has("_purpose"))
+      parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurposeElement());
+    if (json.has("usage"))
+      res.setUsageElement(parseString(json.get("usage").getAsString()));
+    if (json.has("_usage"))
+      parseElementProperties(json.getAsJsonObject("_usage"), res.getUsageElement());
+    if (json.has("publicationDate"))
+      res.setPublicationDateElement(parseDate(json.get("publicationDate").getAsString()));
+    if (json.has("_publicationDate"))
+      parseElementProperties(json.getAsJsonObject("_publicationDate"), res.getPublicationDateElement());
+    if (json.has("lastReviewDate"))
+      res.setLastReviewDateElement(parseDate(json.get("lastReviewDate").getAsString()));
+    if (json.has("_lastReviewDate"))
+      parseElementProperties(json.getAsJsonObject("_lastReviewDate"), res.getLastReviewDateElement());
+    if (json.has("effectivePeriod"))
+      res.setEffectivePeriod(parsePeriod(json.getAsJsonObject("effectivePeriod")));
+    if (json.has("coverage")) {
+      JsonArray array = json.getAsJsonArray("coverage");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCoverage().add(parseUsageContext(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("topic")) {
+      JsonArray array = json.getAsJsonArray("topic");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTopic().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("contributor")) {
+      JsonArray array = json.getAsJsonArray("contributor");
+      for (int i = 0; i < array.size(); i++) {
+        res.getContributor().add(parseContributor(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("publisher"))
+      res.setPublisherElement(parseString(json.get("publisher").getAsString()));
+    if (json.has("_publisher"))
+      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisherElement());
+    if (json.has("contact")) {
+      JsonArray array = json.getAsJsonArray("contact");
+      for (int i = 0; i < array.size(); i++) {
+        res.getContact().add(parseContactDetail(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("copyright"))
+      res.setCopyrightElement(parseString(json.get("copyright").getAsString()));
+    if (json.has("_copyright"))
+      parseElementProperties(json.getAsJsonObject("_copyright"), res.getCopyrightElement());
+    if (json.has("relatedResource")) {
+      JsonArray array = json.getAsJsonArray("relatedResource");
+      for (int i = 0; i < array.size(); i++) {
+        res.getRelatedResource().add(parseRelatedResource(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("library")) {
       JsonArray array = json.getAsJsonArray("library");
       for (int i = 0; i < array.size(); i++) {
@@ -1899,10 +1987,6 @@ public class JsonParser extends JsonParserBase {
       res.setProduct(product);
     if (json.has("quantity"))
       res.setQuantity(parseSimpleQuantity(json.getAsJsonObject("quantity")));
-    if (json.has("description"))
-      res.setDescriptionElement(parseString(json.get("description").getAsString()));
-    if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
   }
 
   protected AllergyIntolerance parseAllergyIntolerance(JsonObject json) throws IOException, FHIRFormatError {
@@ -5659,6 +5743,18 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("purpose");
       for (int i = 0; i < array.size(); i++) {
         res.getPurpose().add(parseCoding(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("class")) {
+      JsonArray array = json.getAsJsonArray("class");
+      for (int i = 0; i < array.size(); i++) {
+        res.getClass_().add(parseCoding(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("code")) {
+      JsonArray array = json.getAsJsonArray("code");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCode().add(parseCoding(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("data")) {
@@ -13481,8 +13577,96 @@ public class JsonParser extends JsonParserBase {
 
   protected void parsePlanDefinitionProperties(JsonObject json, PlanDefinition res) throws IOException, FHIRFormatError {
     parseDomainResourceProperties(json, res);
-    if (json.has("moduleMetadata"))
-      res.setModuleMetadata(parseModuleMetadata(json.getAsJsonObject("moduleMetadata")));
+    if (json.has("url"))
+      res.setUrlElement(parseUri(json.get("url").getAsString()));
+    if (json.has("_url"))
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("version"))
+      res.setVersionElement(parseString(json.get("version").getAsString()));
+    if (json.has("_version"))
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionElement());
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("title"))
+      res.setTitleElement(parseString(json.get("title").getAsString()));
+    if (json.has("_title"))
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
+    if (json.has("status"))
+      res.setStatusElement(parseCode(json.get("status").getAsString()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
+    if (json.has("experimental"))
+      res.setExperimentalElement(parseBoolean(json.get("experimental").getAsBoolean()));
+    if (json.has("_experimental"))
+      parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimentalElement());
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("purpose"))
+      res.setPurposeElement(parseString(json.get("purpose").getAsString()));
+    if (json.has("_purpose"))
+      parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurposeElement());
+    if (json.has("usage"))
+      res.setUsageElement(parseString(json.get("usage").getAsString()));
+    if (json.has("_usage"))
+      parseElementProperties(json.getAsJsonObject("_usage"), res.getUsageElement());
+    if (json.has("publicationDate"))
+      res.setPublicationDateElement(parseDate(json.get("publicationDate").getAsString()));
+    if (json.has("_publicationDate"))
+      parseElementProperties(json.getAsJsonObject("_publicationDate"), res.getPublicationDateElement());
+    if (json.has("lastReviewDate"))
+      res.setLastReviewDateElement(parseDate(json.get("lastReviewDate").getAsString()));
+    if (json.has("_lastReviewDate"))
+      parseElementProperties(json.getAsJsonObject("_lastReviewDate"), res.getLastReviewDateElement());
+    if (json.has("effectivePeriod"))
+      res.setEffectivePeriod(parsePeriod(json.getAsJsonObject("effectivePeriod")));
+    if (json.has("coverage")) {
+      JsonArray array = json.getAsJsonArray("coverage");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCoverage().add(parseUsageContext(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("topic")) {
+      JsonArray array = json.getAsJsonArray("topic");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTopic().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("contributor")) {
+      JsonArray array = json.getAsJsonArray("contributor");
+      for (int i = 0; i < array.size(); i++) {
+        res.getContributor().add(parseContributor(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("publisher"))
+      res.setPublisherElement(parseString(json.get("publisher").getAsString()));
+    if (json.has("_publisher"))
+      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisherElement());
+    if (json.has("contact")) {
+      JsonArray array = json.getAsJsonArray("contact");
+      for (int i = 0; i < array.size(); i++) {
+        res.getContact().add(parseContactDetail(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("copyright"))
+      res.setCopyrightElement(parseString(json.get("copyright").getAsString()));
+    if (json.has("_copyright"))
+      parseElementProperties(json.getAsJsonObject("_copyright"), res.getCopyrightElement());
+    if (json.has("relatedResource")) {
+      JsonArray array = json.getAsJsonArray("relatedResource");
+      for (int i = 0; i < array.size(); i++) {
+        res.getRelatedResource().add(parseRelatedResource(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("library")) {
       JsonArray array = json.getAsJsonArray("library");
       for (int i = 0; i < array.size(); i++) {
@@ -20873,9 +21057,97 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeActivityDefinitionInner(ActivityDefinition element) throws IOException {
       composeDomainResourceElements(element);
-      if (element.hasModuleMetadata()) {
-        composeModuleMetadata("moduleMetadata", element.getModuleMetadata());
+      if (element.hasUrlElement()) {
+        composeUriCore("url", element.getUrlElement(), false);
+        composeUriExtras("url", element.getUrlElement(), false);
       }
+      if (element.hasIdentifier()) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      if (element.hasVersionElement()) {
+        composeStringCore("version", element.getVersionElement(), false);
+        composeStringExtras("version", element.getVersionElement(), false);
+      }
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasTitleElement()) {
+        composeStringCore("title", element.getTitleElement(), false);
+        composeStringExtras("title", element.getTitleElement(), false);
+      }
+      if (element.hasStatusElement()) {
+        composeCodeCore("status", element.getStatusElement(), false);
+        composeCodeExtras("status", element.getStatusElement(), false);
+      }
+      if (element.hasExperimentalElement()) {
+        composeBooleanCore("experimental", element.getExperimentalElement(), false);
+        composeBooleanExtras("experimental", element.getExperimentalElement(), false);
+      }
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+      if (element.hasPurposeElement()) {
+        composeStringCore("purpose", element.getPurposeElement(), false);
+        composeStringExtras("purpose", element.getPurposeElement(), false);
+      }
+      if (element.hasUsageElement()) {
+        composeStringCore("usage", element.getUsageElement(), false);
+        composeStringExtras("usage", element.getUsageElement(), false);
+      }
+      if (element.hasPublicationDateElement()) {
+        composeDateCore("publicationDate", element.getPublicationDateElement(), false);
+        composeDateExtras("publicationDate", element.getPublicationDateElement(), false);
+      }
+      if (element.hasLastReviewDateElement()) {
+        composeDateCore("lastReviewDate", element.getLastReviewDateElement(), false);
+        composeDateExtras("lastReviewDate", element.getLastReviewDateElement(), false);
+      }
+      if (element.hasEffectivePeriod()) {
+        composePeriod("effectivePeriod", element.getEffectivePeriod());
+      }
+      if (element.hasCoverage()) {
+        openArray("coverage");
+        for (UsageContext e : element.getCoverage()) 
+          composeUsageContext(null, e);
+        closeArray();
+      };
+      if (element.hasTopic()) {
+        openArray("topic");
+        for (CodeableConcept e : element.getTopic()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasContributor()) {
+        openArray("contributor");
+        for (Contributor e : element.getContributor()) 
+          composeContributor(null, e);
+        closeArray();
+      };
+      if (element.hasPublisherElement()) {
+        composeStringCore("publisher", element.getPublisherElement(), false);
+        composeStringExtras("publisher", element.getPublisherElement(), false);
+      }
+      if (element.hasContact()) {
+        openArray("contact");
+        for (ContactDetail e : element.getContact()) 
+          composeContactDetail(null, e);
+        closeArray();
+      };
+      if (element.hasCopyrightElement()) {
+        composeStringCore("copyright", element.getCopyrightElement(), false);
+        composeStringExtras("copyright", element.getCopyrightElement(), false);
+      }
+      if (element.hasRelatedResource()) {
+        openArray("relatedResource");
+        for (RelatedResource e : element.getRelatedResource()) 
+          composeRelatedResource(null, e);
+        closeArray();
+      };
       if (element.hasLibrary()) {
         openArray("library");
         for (Reference e : element.getLibrary()) 
@@ -20912,10 +21184,6 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasQuantity()) {
         composeSimpleQuantity("quantity", element.getQuantity());
-      }
-      if (element.hasDescriptionElement()) {
-        composeStringCore("description", element.getDescriptionElement(), false);
-        composeStringExtras("description", element.getDescriptionElement(), false);
       }
   }
 
@@ -24982,6 +25250,18 @@ public class JsonParser extends JsonParserBase {
       if (element.hasPurpose()) {
         openArray("purpose");
         for (Coding e : element.getPurpose()) 
+          composeCoding(null, e);
+        closeArray();
+      };
+      if (element.hasClass_()) {
+        openArray("class");
+        for (Coding e : element.getClass_()) 
+          composeCoding(null, e);
+        closeArray();
+      };
+      if (element.hasCode()) {
+        openArray("code");
+        for (Coding e : element.getCode()) 
           composeCoding(null, e);
         closeArray();
       };
@@ -33604,9 +33884,97 @@ public class JsonParser extends JsonParserBase {
 
   protected void composePlanDefinitionInner(PlanDefinition element) throws IOException {
       composeDomainResourceElements(element);
-      if (element.hasModuleMetadata()) {
-        composeModuleMetadata("moduleMetadata", element.getModuleMetadata());
+      if (element.hasUrlElement()) {
+        composeUriCore("url", element.getUrlElement(), false);
+        composeUriExtras("url", element.getUrlElement(), false);
       }
+      if (element.hasIdentifier()) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      if (element.hasVersionElement()) {
+        composeStringCore("version", element.getVersionElement(), false);
+        composeStringExtras("version", element.getVersionElement(), false);
+      }
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasTitleElement()) {
+        composeStringCore("title", element.getTitleElement(), false);
+        composeStringExtras("title", element.getTitleElement(), false);
+      }
+      if (element.hasStatusElement()) {
+        composeCodeCore("status", element.getStatusElement(), false);
+        composeCodeExtras("status", element.getStatusElement(), false);
+      }
+      if (element.hasExperimentalElement()) {
+        composeBooleanCore("experimental", element.getExperimentalElement(), false);
+        composeBooleanExtras("experimental", element.getExperimentalElement(), false);
+      }
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+      if (element.hasPurposeElement()) {
+        composeStringCore("purpose", element.getPurposeElement(), false);
+        composeStringExtras("purpose", element.getPurposeElement(), false);
+      }
+      if (element.hasUsageElement()) {
+        composeStringCore("usage", element.getUsageElement(), false);
+        composeStringExtras("usage", element.getUsageElement(), false);
+      }
+      if (element.hasPublicationDateElement()) {
+        composeDateCore("publicationDate", element.getPublicationDateElement(), false);
+        composeDateExtras("publicationDate", element.getPublicationDateElement(), false);
+      }
+      if (element.hasLastReviewDateElement()) {
+        composeDateCore("lastReviewDate", element.getLastReviewDateElement(), false);
+        composeDateExtras("lastReviewDate", element.getLastReviewDateElement(), false);
+      }
+      if (element.hasEffectivePeriod()) {
+        composePeriod("effectivePeriod", element.getEffectivePeriod());
+      }
+      if (element.hasCoverage()) {
+        openArray("coverage");
+        for (UsageContext e : element.getCoverage()) 
+          composeUsageContext(null, e);
+        closeArray();
+      };
+      if (element.hasTopic()) {
+        openArray("topic");
+        for (CodeableConcept e : element.getTopic()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasContributor()) {
+        openArray("contributor");
+        for (Contributor e : element.getContributor()) 
+          composeContributor(null, e);
+        closeArray();
+      };
+      if (element.hasPublisherElement()) {
+        composeStringCore("publisher", element.getPublisherElement(), false);
+        composeStringExtras("publisher", element.getPublisherElement(), false);
+      }
+      if (element.hasContact()) {
+        openArray("contact");
+        for (ContactDetail e : element.getContact()) 
+          composeContactDetail(null, e);
+        closeArray();
+      };
+      if (element.hasCopyrightElement()) {
+        composeStringCore("copyright", element.getCopyrightElement(), false);
+        composeStringExtras("copyright", element.getCopyrightElement(), false);
+      }
+      if (element.hasRelatedResource()) {
+        openArray("relatedResource");
+        for (RelatedResource e : element.getRelatedResource()) 
+          composeRelatedResource(null, e);
+        closeArray();
+      };
       if (element.hasLibrary()) {
         openArray("library");
         for (Reference e : element.getLibrary()) 

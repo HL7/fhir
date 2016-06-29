@@ -51,7 +51,9 @@ import org.hl7.fhir.dstu3.validation.IResourceValidator;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.utilities.CSFileInputStream;
+import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.OIDUtils;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
 /*
@@ -68,6 +70,9 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	private Questionnaire questionnaire;
 	private Map<String, byte[]> binaries = new HashMap<String, byte[]>();
   private boolean allowLoadingDuplicates;
+  private String version;
+  private String revision;
+  private String date;
 
 	// -- Initializations
 	/**
@@ -201,12 +206,38 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 			if (ze.getName().endsWith(".xml")) {
 				String name = ze.getName();
 				loadFromFile(zip, name);
+			} else if (ze.getName().equals("version.info")) {
+			  readVersionInfo(ze, zip);
 			} else
 			  loadBytes(ze.getName(), ze, zip);
 			zip.closeEntry();
 		}
 		zip.close();
 	}
+
+  private void readVersionInfo(ZipEntry entry, ZipInputStream zip) throws IOException {
+    int size;
+    byte[] buffer = new byte[2048];
+
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    BufferedOutputStream bos = new BufferedOutputStream(bytes, buffer.length);
+
+    while ((size = zip.read(buffer, 0, buffer.length)) != -1) {
+      bos.write(buffer, 0, size);
+    }
+    bos.flush();
+    bos.close();
+    
+    String[] vi = new String(bytes.toByteArray()).split("\\r?\\n");
+    for (String s : vi) {
+      if (s.startsWith("version="))
+        version = s.substring(8);
+      if (s.startsWith("revision="))
+        revision = s.substring(9);
+      if (s.startsWith("date="))
+        date = s.substring(5);
+    }
+  }
 
 
 	private void loadBytes(String name, ZipEntry entry, ZipInputStream zip) throws IOException {
@@ -493,6 +524,10 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   @Override
   public boolean hasCache() {
     return false;
+  }
+
+  public String getVersionRevision() {
+    return version+"-"+revision;
   }
 
   

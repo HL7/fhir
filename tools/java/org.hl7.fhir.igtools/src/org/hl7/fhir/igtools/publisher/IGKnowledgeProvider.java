@@ -307,10 +307,13 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   }
 
   public String getLinkFor(FetchedFile f, FetchedResource r) {
-    // TODO Auto-generated method stub
-    return null;
+    if (r.getConfig() != null) {
+      JsonElement e = r.getConfig().get("base");
+      if (e != null)
+        return e.getAsString();
+    }
+    return r.getElement().fhirType()+"-"+r.getId()+".html";
   }
 
- 
 
 }

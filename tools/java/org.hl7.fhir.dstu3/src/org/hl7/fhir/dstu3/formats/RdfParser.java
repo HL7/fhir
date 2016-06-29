@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Jun 28, 2016 21:54+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 29, 2016 09:39+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1343,8 +1343,46 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeDomainResource(t, "ActivityDefinition", name, element, index);
-    if (element.hasModuleMetadata())
-      composeModuleMetadata(t, "ActivityDefinition", "moduleMetadata", element.getModuleMetadata(), -1);
+    if (element.hasUrlElement())
+      composeUri(t, "ActivityDefinition", "url", element.getUrlElement(), -1);
+    for (int i = 0; i < element.getIdentifier().size(); i++)
+      composeIdentifier(t, "ActivityDefinition", "identifier", element.getIdentifier().get(i), i);
+    if (element.hasVersionElement())
+      composeString(t, "ActivityDefinition", "version", element.getVersionElement(), -1);
+    if (element.hasNameElement())
+      composeString(t, "ActivityDefinition", "name", element.getNameElement(), -1);
+    if (element.hasTitleElement())
+      composeString(t, "ActivityDefinition", "title", element.getTitleElement(), -1);
+    if (element.hasStatusElement())
+      composeCode(t, "ActivityDefinition", "status", element.getStatusElement(), -1);
+    if (element.hasExperimentalElement())
+      composeBoolean(t, "ActivityDefinition", "experimental", element.getExperimentalElement(), -1);
+    if (element.hasDescriptionElement())
+      composeString(t, "ActivityDefinition", "description", element.getDescriptionElement(), -1);
+    if (element.hasPurposeElement())
+      composeString(t, "ActivityDefinition", "purpose", element.getPurposeElement(), -1);
+    if (element.hasUsageElement())
+      composeString(t, "ActivityDefinition", "usage", element.getUsageElement(), -1);
+    if (element.hasPublicationDateElement())
+      composeDate(t, "ActivityDefinition", "publicationDate", element.getPublicationDateElement(), -1);
+    if (element.hasLastReviewDateElement())
+      composeDate(t, "ActivityDefinition", "lastReviewDate", element.getLastReviewDateElement(), -1);
+    if (element.hasEffectivePeriod())
+      composePeriod(t, "ActivityDefinition", "effectivePeriod", element.getEffectivePeriod(), -1);
+    for (int i = 0; i < element.getCoverage().size(); i++)
+      composeUsageContext(t, "ActivityDefinition", "coverage", element.getCoverage().get(i), i);
+    for (int i = 0; i < element.getTopic().size(); i++)
+      composeCodeableConcept(t, "ActivityDefinition", "topic", element.getTopic().get(i), i);
+    for (int i = 0; i < element.getContributor().size(); i++)
+      composeContributor(t, "ActivityDefinition", "contributor", element.getContributor().get(i), i);
+    if (element.hasPublisherElement())
+      composeString(t, "ActivityDefinition", "publisher", element.getPublisherElement(), -1);
+    for (int i = 0; i < element.getContact().size(); i++)
+      composeContactDetail(t, "ActivityDefinition", "contact", element.getContact().get(i), i);
+    if (element.hasCopyrightElement())
+      composeString(t, "ActivityDefinition", "copyright", element.getCopyrightElement(), -1);
+    for (int i = 0; i < element.getRelatedResource().size(); i++)
+      composeRelatedResource(t, "ActivityDefinition", "relatedResource", element.getRelatedResource().get(i), i);
     for (int i = 0; i < element.getLibrary().size(); i++)
       composeReference(t, "ActivityDefinition", "library", element.getLibrary().get(i), i);
     if (element.hasCategoryElement())
@@ -1361,8 +1399,6 @@ public class RdfParser extends RdfParserBase {
       composeType(t, "ActivityDefinition", "product", element.getProduct(), -1);
     if (element.hasQuantity())
       composeQuantity(t, "ActivityDefinition", "quantity", element.getQuantity(), -1);
-    if (element.hasDescriptionElement())
-      composeString(t, "ActivityDefinition", "description", element.getDescriptionElement(), -1);
   }
 
   protected void composeAllergyIntolerance(Complex parent, String parentType, String name, AllergyIntolerance element, int index) {
@@ -3879,6 +3915,10 @@ public class RdfParser extends RdfParserBase {
       composeCoding(t, "Consent", "securityLabel", element.getSecurityLabel().get(i), i);
     for (int i = 0; i < element.getPurpose().size(); i++)
       composeCoding(t, "Consent", "purpose", element.getPurpose().get(i), i);
+    for (int i = 0; i < element.getClass_().size(); i++)
+      composeCoding(t, "Consent", "class", element.getClass_().get(i), i);
+    for (int i = 0; i < element.getCode().size(); i++)
+      composeCoding(t, "Consent", "code", element.getCode().get(i), i);
     for (int i = 0; i < element.getData().size(); i++)
       composeConsentExceptDataComponent(t, "Consent", "data", element.getData().get(i), i);
   }
@@ -9417,8 +9457,46 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeDomainResource(t, "PlanDefinition", name, element, index);
-    if (element.hasModuleMetadata())
-      composeModuleMetadata(t, "PlanDefinition", "moduleMetadata", element.getModuleMetadata(), -1);
+    if (element.hasUrlElement())
+      composeUri(t, "PlanDefinition", "url", element.getUrlElement(), -1);
+    for (int i = 0; i < element.getIdentifier().size(); i++)
+      composeIdentifier(t, "PlanDefinition", "identifier", element.getIdentifier().get(i), i);
+    if (element.hasVersionElement())
+      composeString(t, "PlanDefinition", "version", element.getVersionElement(), -1);
+    if (element.hasNameElement())
+      composeString(t, "PlanDefinition", "name", element.getNameElement(), -1);
+    if (element.hasTitleElement())
+      composeString(t, "PlanDefinition", "title", element.getTitleElement(), -1);
+    if (element.hasStatusElement())
+      composeCode(t, "PlanDefinition", "status", element.getStatusElement(), -1);
+    if (element.hasExperimentalElement())
+      composeBoolean(t, "PlanDefinition", "experimental", element.getExperimentalElement(), -1);
+    if (element.hasDescriptionElement())
+      composeString(t, "PlanDefinition", "description", element.getDescriptionElement(), -1);
+    if (element.hasPurposeElement())
+      composeString(t, "PlanDefinition", "purpose", element.getPurposeElement(), -1);
+    if (element.hasUsageElement())
+      composeString(t, "PlanDefinition", "usage", element.getUsageElement(), -1);
+    if (element.hasPublicationDateElement())
+      composeDate(t, "PlanDefinition", "publicationDate", element.getPublicationDateElement(), -1);
+    if (element.hasLastReviewDateElement())
+      composeDate(t, "PlanDefinition", "lastReviewDate", element.getLastReviewDateElement(), -1);
+    if (element.hasEffectivePeriod())
+      composePeriod(t, "PlanDefinition", "effectivePeriod", element.getEffectivePeriod(), -1);
+    for (int i = 0; i < element.getCoverage().size(); i++)
+      composeUsageContext(t, "PlanDefinition", "coverage", element.getCoverage().get(i), i);
+    for (int i = 0; i < element.getTopic().size(); i++)
+      composeCodeableConcept(t, "PlanDefinition", "topic", element.getTopic().get(i), i);
+    for (int i = 0; i < element.getContributor().size(); i++)
+      composeContributor(t, "PlanDefinition", "contributor", element.getContributor().get(i), i);
+    if (element.hasPublisherElement())
+      composeString(t, "PlanDefinition", "publisher", element.getPublisherElement(), -1);
+    for (int i = 0; i < element.getContact().size(); i++)
+      composeContactDetail(t, "PlanDefinition", "contact", element.getContact().get(i), i);
+    if (element.hasCopyrightElement())
+      composeString(t, "PlanDefinition", "copyright", element.getCopyrightElement(), -1);
+    for (int i = 0; i < element.getRelatedResource().size(); i++)
+      composeRelatedResource(t, "PlanDefinition", "relatedResource", element.getRelatedResource().get(i), i);
     for (int i = 0; i < element.getLibrary().size(); i++)
       composeReference(t, "PlanDefinition", "library", element.getLibrary().get(i), i);
     for (int i = 0; i < element.getActionDefinition().size(); i++)

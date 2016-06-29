@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jun 28, 2016 21:54+1000 for FHIR v1.4.0
+// Generated on Wed, Jun 29, 2016 09:39+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -306,18 +306,6 @@ public class Consent extends DomainResource {
          */
         DEPENDENTS, 
         /**
-         * The consent applies to any resources that conform to the profile referenced
-         */
-        PROFILE, 
-        /**
-         * The consent applies to any resource where the primary code is in the referenced value set
-         */
-        VALUESET, 
-        /**
-         * The document applies to any document with a type in the nominated value set
-         */
-        DOCUMENT, 
-        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -330,12 +318,6 @@ public class Consent extends DomainResource {
           return RELATED;
         if ("dependents".equals(codeString))
           return DEPENDENTS;
-        if ("profile".equals(codeString))
-          return PROFILE;
-        if ("valueset".equals(codeString))
-          return VALUESET;
-        if ("document".equals(codeString))
-          return DOCUMENT;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -346,9 +328,6 @@ public class Consent extends DomainResource {
             case INSTANCE: return "instance";
             case RELATED: return "related";
             case DEPENDENTS: return "dependents";
-            case PROFILE: return "profile";
-            case VALUESET: return "valueset";
-            case DOCUMENT: return "document";
             default: return "?";
           }
         }
@@ -357,9 +336,6 @@ public class Consent extends DomainResource {
             case INSTANCE: return "http://hl7.org/fhir/consent-data-meaning";
             case RELATED: return "http://hl7.org/fhir/consent-data-meaning";
             case DEPENDENTS: return "http://hl7.org/fhir/consent-data-meaning";
-            case PROFILE: return "http://hl7.org/fhir/consent-data-meaning";
-            case VALUESET: return "http://hl7.org/fhir/consent-data-meaning";
-            case DOCUMENT: return "http://hl7.org/fhir/consent-data-meaning";
             default: return "?";
           }
         }
@@ -368,9 +344,6 @@ public class Consent extends DomainResource {
             case INSTANCE: return "The consent applies directly to the instance of the resource";
             case RELATED: return "The consent applies directly to the instance of the resource, and instances it refers to";
             case DEPENDENTS: return "The consent applies directly to the instance of the resource, and instances that refer to it";
-            case PROFILE: return "The consent applies to any resources that conform to the profile referenced";
-            case VALUESET: return "The consent applies to any resource where the primary code is in the referenced value set";
-            case DOCUMENT: return "The document applies to any document with a type in the nominated value set";
             default: return "?";
           }
         }
@@ -379,9 +352,6 @@ public class Consent extends DomainResource {
             case INSTANCE: return "Instance";
             case RELATED: return "Related";
             case DEPENDENTS: return "Dependents";
-            case PROFILE: return "Profile";
-            case VALUESET: return "ValueSet";
-            case DOCUMENT: return "Document";
             default: return "?";
           }
         }
@@ -398,12 +368,6 @@ public class Consent extends DomainResource {
           return ConsentDataMeaning.RELATED;
         if ("dependents".equals(codeString))
           return ConsentDataMeaning.DEPENDENTS;
-        if ("profile".equals(codeString))
-          return ConsentDataMeaning.PROFILE;
-        if ("valueset".equals(codeString))
-          return ConsentDataMeaning.VALUESET;
-        if ("document".equals(codeString))
-          return ConsentDataMeaning.DOCUMENT;
         throw new IllegalArgumentException("Unknown ConsentDataMeaning code '"+codeString+"'");
         }
         public Enumeration<ConsentDataMeaning> fromType(Base code) throws FHIRException {
@@ -418,12 +382,6 @@ public class Consent extends DomainResource {
           return new Enumeration<ConsentDataMeaning>(this, ConsentDataMeaning.RELATED);
         if ("dependents".equals(codeString))
           return new Enumeration<ConsentDataMeaning>(this, ConsentDataMeaning.DEPENDENTS);
-        if ("profile".equals(codeString))
-          return new Enumeration<ConsentDataMeaning>(this, ConsentDataMeaning.PROFILE);
-        if ("valueset".equals(codeString))
-          return new Enumeration<ConsentDataMeaning>(this, ConsentDataMeaning.VALUESET);
-        if ("document".equals(codeString))
-          return new Enumeration<ConsentDataMeaning>(this, ConsentDataMeaning.DOCUMENT);
         throw new FHIRException("Unknown ConsentDataMeaning code '"+codeString+"'");
         }
     public String toCode(ConsentDataMeaning code) {
@@ -433,12 +391,6 @@ public class Consent extends DomainResource {
         return "related";
       if (code == ConsentDataMeaning.DEPENDENTS)
         return "dependents";
-      if (code == ConsentDataMeaning.PROFILE)
-        return "profile";
-      if (code == ConsentDataMeaning.VALUESET)
-        return "valueset";
-      if (code == ConsentDataMeaning.DOCUMENT)
-        return "document";
       return "?";
       }
     public String toSystem(ConsentDataMeaning code) {
@@ -491,13 +443,27 @@ public class Consent extends DomainResource {
         protected List<Coding> purpose;
 
         /**
+         * The class of information covered by this exception. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to.
+         */
+        @Child(name = "class", type = {Coding.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="e.g. Resource Type, Profile, or CDA etc", formalDefinition="The class of information covered by this exception. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to." )
+        protected List<Coding> class_;
+
+        /**
+         * If this code is found in an instance, then the exception applies. TODO: where do you not have to look? This is a problematic element.
+         */
+        @Child(name = "code", type = {Coding.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="e.g. LOINC or SNOMED CT code, etc in the content", formalDefinition="If this code is found in an instance, then the exception applies. TODO: where do you not have to look? This is a problematic element." )
+        protected List<Coding> code;
+
+        /**
          * The resources controlled by this exception, if specific resources are referenced.
          */
-        @Child(name = "data", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "data", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Data controlled by this exception", formalDefinition="The resources controlled by this exception, if specific resources are referenced." )
         protected List<ExceptDataComponent> data;
 
-        private static final long serialVersionUID = 122920591L;
+        private static final long serialVersionUID = 2059823139L;
 
     /**
      * Constructor
@@ -796,6 +762,112 @@ public class Consent extends DomainResource {
         }
 
         /**
+         * @return {@link #class_} (The class of information covered by this exception. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to.)
+         */
+        public List<Coding> getClass_() { 
+          if (this.class_ == null)
+            this.class_ = new ArrayList<Coding>();
+          return this.class_;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ExceptComponent setClass_(List<Coding> theClass_) { 
+          this.class_ = theClass_;
+          return this;
+        }
+
+        public boolean hasClass_() { 
+          if (this.class_ == null)
+            return false;
+          for (Coding item : this.class_)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public Coding addClass_() { //3
+          Coding t = new Coding();
+          if (this.class_ == null)
+            this.class_ = new ArrayList<Coding>();
+          this.class_.add(t);
+          return t;
+        }
+
+        public ExceptComponent addClass_(Coding t) { //3
+          if (t == null)
+            return this;
+          if (this.class_ == null)
+            this.class_ = new ArrayList<Coding>();
+          this.class_.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #class_}, creating it if it does not already exist
+         */
+        public Coding getClass_FirstRep() { 
+          if (getClass_().isEmpty()) {
+            addClass_();
+          }
+          return getClass_().get(0);
+        }
+
+        /**
+         * @return {@link #code} (If this code is found in an instance, then the exception applies. TODO: where do you not have to look? This is a problematic element.)
+         */
+        public List<Coding> getCode() { 
+          if (this.code == null)
+            this.code = new ArrayList<Coding>();
+          return this.code;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ExceptComponent setCode(List<Coding> theCode) { 
+          this.code = theCode;
+          return this;
+        }
+
+        public boolean hasCode() { 
+          if (this.code == null)
+            return false;
+          for (Coding item : this.code)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public Coding addCode() { //3
+          Coding t = new Coding();
+          if (this.code == null)
+            this.code = new ArrayList<Coding>();
+          this.code.add(t);
+          return t;
+        }
+
+        public ExceptComponent addCode(Coding t) { //3
+          if (t == null)
+            return this;
+          if (this.code == null)
+            this.code = new ArrayList<Coding>();
+          this.code.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #code}, creating it if it does not already exist
+         */
+        public Coding getCodeFirstRep() { 
+          if (getCode().isEmpty()) {
+            addCode();
+          }
+          return getCode().get(0);
+        }
+
+        /**
          * @return {@link #data} (The resources controlled by this exception, if specific resources are referenced.)
          */
         public List<ExceptDataComponent> getData() { 
@@ -856,6 +928,8 @@ public class Consent extends DomainResource {
           childrenList.add(new Property("action", "CodeableConcept", "Actions controlled by this Exception.", 0, java.lang.Integer.MAX_VALUE, action));
           childrenList.add(new Property("securityLabel", "Coding", "A set of security labels that define which resources are controlled by this exception. If more than one label is specified, all resources must have all the specified labels.", 0, java.lang.Integer.MAX_VALUE, securityLabel));
           childrenList.add(new Property("purpose", "Coding", "A set of security labels that define the context of which actions are controlled by this exception. If more than one label is specified, operations must have all the specified labels.", 0, java.lang.Integer.MAX_VALUE, purpose));
+          childrenList.add(new Property("class", "Coding", "The class of information covered by this exception. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to.", 0, java.lang.Integer.MAX_VALUE, class_));
+          childrenList.add(new Property("code", "Coding", "If this code is found in an instance, then the exception applies. TODO: where do you not have to look? This is a problematic element.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("data", "", "The resources controlled by this exception, if specific resources are referenced.", 0, java.lang.Integer.MAX_VALUE, data));
         }
 
@@ -868,6 +942,8 @@ public class Consent extends DomainResource {
         case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // CodeableConcept
         case -722296940: /*securityLabel*/ return this.securityLabel == null ? new Base[0] : this.securityLabel.toArray(new Base[this.securityLabel.size()]); // Coding
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : this.purpose.toArray(new Base[this.purpose.size()]); // Coding
+        case 94742904: /*class*/ return this.class_ == null ? new Base[0] : this.class_.toArray(new Base[this.class_.size()]); // Coding
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : this.code.toArray(new Base[this.code.size()]); // Coding
         case 3076010: /*data*/ return this.data == null ? new Base[0] : this.data.toArray(new Base[this.data.size()]); // ExceptDataComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -895,6 +971,12 @@ public class Consent extends DomainResource {
         case -220463842: // purpose
           this.getPurpose().add(castToCoding(value)); // Coding
           break;
+        case 94742904: // class
+          this.getClass_().add(castToCoding(value)); // Coding
+          break;
+        case 3059181: // code
+          this.getCode().add(castToCoding(value)); // Coding
+          break;
         case 3076010: // data
           this.getData().add((ExceptDataComponent) value); // ExceptDataComponent
           break;
@@ -917,6 +999,10 @@ public class Consent extends DomainResource {
           this.getSecurityLabel().add(castToCoding(value));
         else if (name.equals("purpose"))
           this.getPurpose().add(castToCoding(value));
+        else if (name.equals("class"))
+          this.getClass_().add(castToCoding(value));
+        else if (name.equals("code"))
+          this.getCode().add(castToCoding(value));
         else if (name.equals("data"))
           this.getData().add((ExceptDataComponent) value);
         else
@@ -932,6 +1018,8 @@ public class Consent extends DomainResource {
         case -1422950858:  return addAction(); // CodeableConcept
         case -722296940:  return addSecurityLabel(); // Coding
         case -220463842:  return addPurpose(); // Coding
+        case 94742904:  return addClass_(); // Coding
+        case 3059181:  return addCode(); // Coding
         case 3076010:  return addData(); // ExceptDataComponent
         default: return super.makeProperty(hash, name);
         }
@@ -958,6 +1046,12 @@ public class Consent extends DomainResource {
         }
         else if (name.equals("purpose")) {
           return addPurpose();
+        }
+        else if (name.equals("class")) {
+          return addClass_();
+        }
+        else if (name.equals("code")) {
+          return addCode();
         }
         else if (name.equals("data")) {
           return addData();
@@ -991,6 +1085,16 @@ public class Consent extends DomainResource {
           for (Coding i : purpose)
             dst.purpose.add(i.copy());
         };
+        if (class_ != null) {
+          dst.class_ = new ArrayList<Coding>();
+          for (Coding i : class_)
+            dst.class_.add(i.copy());
+        };
+        if (code != null) {
+          dst.code = new ArrayList<Coding>();
+          for (Coding i : code)
+            dst.code.add(i.copy());
+        };
         if (data != null) {
           dst.data = new ArrayList<ExceptDataComponent>();
           for (ExceptDataComponent i : data)
@@ -1008,7 +1112,8 @@ public class Consent extends DomainResource {
         ExceptComponent o = (ExceptComponent) other;
         return compareDeep(type, o.type, true) && compareDeep(period, o.period, true) && compareDeep(actor, o.actor, true)
            && compareDeep(action, o.action, true) && compareDeep(securityLabel, o.securityLabel, true) && compareDeep(purpose, o.purpose, true)
-           && compareDeep(data, o.data, true);
+           && compareDeep(class_, o.class_, true) && compareDeep(code, o.code, true) && compareDeep(data, o.data, true)
+          ;
       }
 
       @Override
@@ -1023,7 +1128,7 @@ public class Consent extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, period, actor, action
-          , securityLabel, purpose, data);
+          , securityLabel, purpose, class_, code, data);
       }
 
   public String fhirType() {
@@ -1244,7 +1349,7 @@ public class Consent extends DomainResource {
          * How the resource reference is interpreted when testing consent restrictions.
          */
         @Child(name = "meaning", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="instance | related | dependents | profile | valueset | document", formalDefinition="How the resource reference is interpreted when testing consent restrictions." )
+        @Description(shortDefinition="instance | related | dependents", formalDefinition="How the resource reference is interpreted when testing consent restrictions." )
         protected Enumeration<ConsentDataMeaning> meaning;
 
         /**

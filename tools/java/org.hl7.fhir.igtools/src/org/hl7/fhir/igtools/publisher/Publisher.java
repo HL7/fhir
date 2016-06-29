@@ -140,7 +140,8 @@ public class Publisher implements IGLogger {
   private String outputDir;
   private String specPath;
   private String qaDir;
-  private String instanceTemplate;
+  private String instanceTemplateFmt;
+  private String instanceTemplateBase;
 
   private String rubyExe;
   private String jekyllGem;
@@ -361,7 +362,8 @@ public class Publisher implements IGLogger {
     outputDir = Utilities.path(root, str(paths, "output", "output"));
     qaDir = Utilities.path(root, str(paths, "qa"));
     specPath = str(paths, "specification");
-    instanceTemplate = Utilities.path(root, str(paths, "instance-template"));
+    instanceTemplateBase = Utilities.path(root, str(paths, "instance-template-base"));
+    instanceTemplateFmt = Utilities.path(root, str(paths, "instance-template-format"));
 
     igName = Utilities.path(resourcesDir, configuration.get("source").getAsString());
 
@@ -375,7 +377,8 @@ public class Publisher implements IGLogger {
     forceDir(Utilities.path(tempDir, "data"));
     forceDir(outputDir);
     forceDir(qaDir);
-    checkFile(instanceTemplate);
+    checkFile(instanceTemplateBase);
+    checkFile(instanceTemplateFmt);
 
     log("Load Validation Pack (internal)");
     try {
@@ -1056,20 +1059,22 @@ public class Publisher implements IGLogger {
    * @throws Exception
    */
   private void saveDirectResourceOutputs(FetchedResource f) throws FileNotFoundException, Exception {
+    genWrapperBase(f);
+    
     if (wantGen(f, "xml")) {
       new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+".xml")), OutputStyle.PRETTY, "??");
       if (tool == GenerationTool.Jekyll)
-        genWrapper(f, "xml");  
+        genWrapperFmt(f, "xml");  
     }
     if (wantGen(f, "json")) {
       new org.hl7.fhir.dstu3.elementmodel.JsonParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+".json")), OutputStyle.PRETTY, "??");
       if (tool == GenerationTool.Jekyll)
-        genWrapper(f, "json");  
+        genWrapperFmt(f, "json");  
     }
     if (wantGen(f, "ttl")) {
       new org.hl7.fhir.dstu3.elementmodel.TurtleParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+".ttl")), OutputStyle.PRETTY, "??");
       if (tool == GenerationTool.Jekyll)
-        genWrapper(f, "ttl");  
+        genWrapperFmt(f, "ttl");  
     }
 
     if (wantGen(f, "xml-html")) {
@@ -1107,11 +1112,18 @@ public class Publisher implements IGLogger {
     //  fragment(f.getId()+"-gen-html", html);
   }
 
-  private void genWrapper(FetchedResource f, String format) throws FileNotFoundException, IOException {
-    String template = TextFile.fileToString(instanceTemplate);
+  private void genWrapperFmt(FetchedResource f, String format) throws FileNotFoundException, IOException {
+    String template = TextFile.fileToString(instanceTemplateFmt);
     template = template.replace("{{[title]}}", f.getTitle());
     template = template.replace("{{[name]}}", f.getId()+"-"+format+"-html");
     TextFile.stringToFile(template, Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+"."+format+".html"), false);
+  }
+
+  private void genWrapperBase(FetchedResource f) throws FileNotFoundException, IOException {
+    String template = TextFile.fileToString(instanceTemplateBase);
+    template = template.replace("{{[title]}}", f.getTitle());
+    template = template.replace("{{[name]}}", f.getId()+"-xml-html");
+    TextFile.stringToFile(template, Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+".html"), false);
   }
 
   /**
