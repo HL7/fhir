@@ -7,7 +7,8 @@
     "output" : "output",
     "qa" : "qa",
     "specification" : "c:\\work\\org.hl7.fhir\\build\\publish",
-    "instance-template" : "instance-template.html"
+    "instance-template-format" : "instance-template-format.html",
+    "instance-template-base" : "instance-template-base.html"
   },
 	"canonicalBase": "http://hl7.org/fhir/daf",  
 	"source": "daf.xml",
