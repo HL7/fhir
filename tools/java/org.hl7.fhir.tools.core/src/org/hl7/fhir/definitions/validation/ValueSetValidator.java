@@ -299,6 +299,8 @@ public class ValueSetValidator extends BaseValidator {
         system.equals("http://www.whocc.no/atc") ||
         system.equals("http://hl7.org/fhir/sid/cvx") ||
         system.equals("urn:ietf:bcp:47") ||
+        system.equals("urn:ietf:bcp:13") ||
+        system.equals("urn:ietf:rfc:3986") ||
         system.equals("urn:iso:std:iso:11073:10101") ||
         system.equals("urn:iso:std:iso:3166") ||
         system.startsWith("http://example.com") ||

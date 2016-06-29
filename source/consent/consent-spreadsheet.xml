@@ -9,18 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-06-28T06:00:25Z</LastSaved>
+  <LastSaved>2016-06-28T21:20:46Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10524</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>17724</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1084,9 +1084,9 @@
  <Worksheet ss:Name="Data Elements">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='Data Elements'!R1C1:R100C24" ss:Hidden="1"/>
+    ss:RefersTo="='Data Elements'!R1C1:R102C24" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="100" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="102" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:Width="227.39999999999998"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="77.399999999999991"/>
@@ -2215,6 +2215,74 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="90" ss:StyleID="s96">
+    <Cell ss:StyleID="s97"><Data ss:Type="String">Consent.except.class</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">0..*</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Coding</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ConsentContentClass</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">e.g. Resource Type, Profile, or CDA etc</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">The class of information covered by this exception. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Multiple types are or'ed together. The intention of the contentType element is that the codes refer to profiles or document types defined in a standard or an implementation guide somewhere </Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="90" ss:StyleID="s96">
+    <Cell ss:StyleID="s97"><Data ss:Type="String">Consent.except.code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">0..*</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Coding</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ConsentContentCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">e.g. LOINC or SNOMED CT code, etc in the content</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">If this code is found in an instance, then the exception applies. TODO: where do you not have to look? This is a problematic element</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Typical use of this is a Document code with class = CDA</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s96">
     <Cell ss:StyleID="s97"><Data ss:Type="String">Consent.except.data</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2266,7 +2334,7 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">instance | related | dependents | profile | valueset | document</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">instance | related | dependents</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">How the resource reference is interpreted when testing consent restrictions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4042,12 +4110,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>28</TopRowBottomPane>
+   <TopRowBottomPane>25</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4055,7 +4124,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4083,7 +4151,7 @@
    <Value>&quot;N/A&quot;</Value>
    <ErrorHide/>
   </DataValidation>
-  <AutoFilter x:Range="R1C1:R100C24"
+  <AutoFilter x:Range="R1C1:R102C24"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
@@ -5997,6 +6065,20 @@
     <Cell><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="String">#consent-data-meaning</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ConsentContentClass</Data></Cell>
+    <Cell><Data ss:Type="String">The class (type) of information a consent rule covers</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">valueset-consent-content-class</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ConsentContentCode</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">If this code is found in an instance, then the exception applies</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">valueset-consent-content-code</Data></Cell>
+   </Row>
    <Row ss:Index="12" ss:AutoFitHeight="0">
     <Cell ss:StyleID="s98"/>
    </Row>
@@ -6036,7 +6118,6 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>5</ActiveRow>
-     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6769,7 +6850,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7581,34 +7661,34 @@
     <Cell ss:StyleID="s183"><Data ss:Type="String">The scope of the references needs to be clarified, but can't be…</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s182"><Data ss:Type="String">profile</Data></Cell>
-    <Cell ss:StyleID="s171"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s182"/>
+    <Cell ss:StyleID="s171"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s188"/>
-    <Cell ss:StyleID="s188"><Data ss:Type="String">Profile</Data></Cell>
-    <Cell ss:StyleID="s188"><Data ss:Type="String">The consent applies to any resources that conform to the profile referenced</Data></Cell>
+    <Cell ss:StyleID="s188"/>
+    <Cell ss:StyleID="s188"/>
     <Cell ss:StyleID="s171"/>
     <Cell ss:StyleID="s171"/>
     <Cell ss:StyleID="s183"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s182"><Data ss:Type="String">valueset</Data></Cell>
-    <Cell ss:StyleID="s171"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s182"/>
+    <Cell ss:StyleID="s171"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s188"/>
-    <Cell ss:StyleID="s188"><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell ss:StyleID="s188"><Data ss:Type="String">The consent applies to any resource where the primary code is in the referenced value set</Data></Cell>
+    <Cell ss:StyleID="s188"/>
+    <Cell ss:StyleID="s188"/>
     <Cell ss:StyleID="s171"/>
     <Cell ss:StyleID="s171"/>
-    <Cell ss:StyleID="s183"><Data ss:Type="String">&quot;The primary Code&quot; is a concept that isn't (yet) defined</Data></Cell>
+    <Cell ss:StyleID="s183"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s188"><Data ss:Type="String">document</Data></Cell>
-    <Cell ss:StyleID="s171"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s188"/>
+    <Cell ss:StyleID="s171"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s188"/>
-    <Cell ss:StyleID="s188"><Data ss:Type="String">Document</Data></Cell>
-    <Cell ss:StyleID="s188"><Data ss:Type="String">The document applies to any document with a type in the nominated value set</Data></Cell>
+    <Cell ss:StyleID="s188"/>
+    <Cell ss:StyleID="s188"/>
     <Cell ss:StyleID="s171"/>
     <Cell ss:StyleID="s171"/>
     <Cell ss:StyleID="s183"/>
@@ -8114,8 +8194,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

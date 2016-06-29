@@ -71,11 +71,9 @@
         <code value="read"/>
       </coding>
     </action>
-    <data>
-      <meaning value="profile"/>
-      <reference>
-        <reference value="http://hl7.org/fhir/StructureDefinition/MedicationOrder"/>
-      </reference>
-    </data>
- </except>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="MedicationOrder"/>
+    </type>
+  </except>
 </Consent>

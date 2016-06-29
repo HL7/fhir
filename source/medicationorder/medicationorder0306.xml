@@ -20,7 +20,7 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345689"/>
     </identifier>
-    <status value="completed"/>
+    <status value="active"/>
     <medicationReference>
         <reference value="#med0304"/>
         <display value="Myleran 2mg tablet"/>

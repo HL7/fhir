@@ -430,7 +430,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
           write("    if (json.has(\""+name+"\")) {\r\n");
           write("      JsonArray array = json.getAsJsonArray(\""+name+"\");\r\n");
           write("      for (int i = 0; i < array.size(); i++) {\r\n");
-          write("        res.get"+upFirst(name)+"().add("+aprsr+");\r\n");
+          write("        res.get"+upFirst(getElementName(name, false))+"().add("+aprsr+");\r\n");
           write("      }\r\n");
           write("    };\r\n");
         }
@@ -921,7 +921,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
           comp = "composeReference";
           tn = "Reference";
         }
-        write("      if (element.has"+upFirst(name)+"()) {\r\n");
+        write("      if (element.has"+upFirst(getElementName(name, false))+"()) {\r\n");
         if (en == null) {
           if (tn.equals("String"))
             tn = "StringType";

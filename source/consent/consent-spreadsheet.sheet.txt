@@ -43,6 +43,20 @@
   Definition = How a resource reference is interpreted when testing consent restrictions
   Conformance = required
 
+ -- Row 7 -----------------------------------
+  Binding Name = ConsentContentClass
+  Binding = value set
+  Reference = valueset-consent-content-class
+  Definition = The class (type) of information a consent rule covers
+  Conformance = extensible
+
+ -- Row 8 -----------------------------------
+  Binding Name = ConsentContentCode
+  Binding = value set
+  Reference = valueset-consent-content-code
+  Definition = If this code is found in an instance, then the exception applies
+  Conformance = example
+
 === Sheet consent-status =====================================
 
  -- Row 1 -----------------------------------
@@ -114,24 +128,6 @@
   Code = dependents
   Display = Dependents
   Definition = The consent applies directly to the instance of the resource, and instances that refer to it
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = profile
-  Display = Profile
-  Definition = The consent applies to any resources that conform to the profile referenced
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = valueset
-  Display = ValueSet
-  Definition = The consent applies to any resource where the primary code is in the referenced value set
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = document
-  Display = Document
-  Definition = The document applies to any document with a type in the nominated value set
 
 === Sheet Invariants =====================================
 
@@ -435,6 +431,26 @@
   Comments = E.g. if the purpose is \'research\', then the operational context must be research, in order for the consent to apply. Not all of the security labels make sense for use in this element (may define a narrower value set?)
 
  -- Row 31 -----------------------------------
+  Element = Consent.except.class
+  Card. = 0..*
+  Summary = Y
+  Type = Coding
+  Binding = ConsentContentClass
+  Short Label = e.g. Resource Type, Profile, or CDA etc
+  Definition = The class of information covered by this exception. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to
+  Comments = Multiple types are or\'ed together. The intention of the contentType element is that the codes refer to profiles or document types defined in a standard or an implementation guide somewhere
+
+ -- Row 32 -----------------------------------
+  Element = Consent.except.code
+  Card. = 0..*
+  Summary = Y
+  Type = Coding
+  Binding = ConsentContentCode
+  Short Label = e.g. LOINC or SNOMED CT code, etc in the content
+  Definition = If this code is found in an instance, then the exception applies. TODO: where do you not have to look? This is a problematic element
+  Comments = Typical use of this is a Document code with class = CDA
+
+ -- Row 33 -----------------------------------
   Element = Consent.except.data
   Card. = 0..*
   Summary = Y
@@ -443,16 +459,16 @@
   RIM Mapping = Role
   Missing Meaning = all data
 
- -- Row 32 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = Consent.except.data.meaning
   Card. = 1..1
   Summary = Y
   Type = code
   Binding = ConsentDataMeaning
-  Short Label = instance | related | dependents | profile | valueset | document
+  Short Label = instance | related | dependents
   Definition = How the resource reference is interpreted when testing consent restrictions
 
- -- Row 33 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Consent.except.data.reference
   Card. = 1..1
   Summary = Y

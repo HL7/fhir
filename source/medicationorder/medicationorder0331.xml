@@ -32,7 +32,7 @@
     </identifier>
     <status value="active"/>
     <medicationReference>
-        <reference value="#0351"></reference>
+        <reference value="#med0350"></reference>
     </medicationReference>
     <patient>
         <!-- Linked to the resource patient who needs the medication -->

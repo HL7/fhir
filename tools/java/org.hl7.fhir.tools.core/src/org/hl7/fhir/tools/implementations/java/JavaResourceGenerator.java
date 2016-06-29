@@ -1013,7 +1013,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           cn = "castTo"+upFirst(e.getTypes().get(0).getName())+"(value)";
         }
         if (e.unbounded()) {
-          write(indent+"      this.get"+upFirst(name)+"().add("+cn+");\r\n");
+          write(indent+"      this.get"+upFirst(getElementName(name, false))+"().add("+cn+");\r\n");
         } else {
           write(indent+"      this."+getElementName(name, true)+" = "+cn+"; // "+tn+"\r\n");
         }
@@ -1117,7 +1117,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     else if (isAbstract(e.typeCode()))
       write(indent+"      throw new FHIRException(\"Cannot call addChild on an abstract type "+parent+"."+e.getName()+"\");\r\n"); 
     else if (e.unbounded()) {
-      write(indent+"      return add"+upFirst(name)+"();\r\n");
+      write(indent+"      return add"+upFirst(getElementName(name, false))+"();\r\n");
     } else {
       write(indent+"      this."+getElementName(name, true)+" = new "+tn+"();\r\n");
       write(indent+"      return this."+getElementName(name, true)+";\r\n");

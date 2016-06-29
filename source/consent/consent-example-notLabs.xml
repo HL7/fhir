@@ -57,19 +57,14 @@
         <code value="write"/>
       </coding>
     </action> 
-    <data>
-      <meaning value="profile"/>
-      <reference>
-        <reference value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
-      </reference>
-    </data>
-    <data>
-      <meaning value="profile"/>
-      <reference>
-        <!-- todo: define LabObservation somewhere as any Observation with a category of lab -->
-        <reference value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-      </reference>
-    </data>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="DiagnosticReport"/>
+    </type>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="Observation"/>
+    </type>
+    <!-- todo - labs value set? -->
   </except>  
-
 </Consent>

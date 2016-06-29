@@ -509,7 +509,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
 //      } else 
       if (e.unbounded()) {
         write("      "+(!first ? "} else " : "")+"if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\""+name+"\")) {\r\n");
-        write("        res.get"+upFirst(name)+"().add("+prsr+");\r\n");
+        write("        res.get"+upFirst(getElementName(name, false))+"().add("+prsr+");\r\n");
       } else {
         write("      "+(!first ? "} else " : "")+"if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\""+name+"\")) {\r\n");
         write("        res.set"+upFirst(getElementName(name, false))+(isJavaPrimitive(e) ? "Element" : "")+"("+prsr+");\r\n");
