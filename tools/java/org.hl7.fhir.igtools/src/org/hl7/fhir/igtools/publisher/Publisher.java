@@ -180,6 +180,8 @@ public class Publisher implements IGLogger {
     long startTime = System.nanoTime();
     log("Processing Conformance Resources");
     loadConformance();
+    log("Generating Narratives");
+    generateNarratives();
     log("Validating Resources");
     validate();
     log("Generating Outputs in "+outputDir);
@@ -197,6 +199,7 @@ public class Publisher implements IGLogger {
           log("Processing changes to "+Integer.toString(changeList.size())+(changeList.size() == 1 ? " file" : " files")+" @ "+genTime());
           startTime = System.nanoTime();
           loadConformance();
+          generateNarratives();
           checkDependencies();
           validate();
           generate();
@@ -207,6 +210,22 @@ public class Publisher implements IGLogger {
       }
     } else
       log("Done");
+  }
+
+  private void generateNarratives() throws IOException {
+//    NarrativeGenerator gen = new NarrativeGenerator("", "", context);
+//    for (FetchedFile f : fileList) {
+//      for (FetchedResource r : f.getResources()) {
+//        if (!hasNarrative(r.getElement())) {
+//          gen.generate(r.getElement(), true);
+//        }
+//      }
+//    }
+  }
+
+  private boolean hasNarrative(Element element) {
+//    return element.hasChild("text") && element.getChildByName("text").hasChild("div");
+    return false;
   }
 
   private void clean() throws Exception {
@@ -1059,7 +1078,8 @@ public class Publisher implements IGLogger {
    * @throws Exception
    */
   private void saveDirectResourceOutputs(FetchedResource f) throws FileNotFoundException, Exception {
-    genWrapperBase(f);
+    if (wantGen(f, "wrapper")) 
+      genWrapperBase(f);
     
     if (wantGen(f, "xml")) {
       new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+".xml")), OutputStyle.PRETTY, "??");
@@ -1103,7 +1123,7 @@ public class Publisher implements IGLogger {
     if (wantGen(f, "html")) {
       XhtmlNode xhtml = getXhtml(f);
       String html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
-      fragment(f.getId()+"-html", html);  
+      fragment(f.getId()+"-html", html);
     }
     //  NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
     //  gen.generate(f.getElement(), false);
@@ -1122,7 +1142,7 @@ public class Publisher implements IGLogger {
   private void genWrapperBase(FetchedResource f) throws FileNotFoundException, IOException {
     String template = TextFile.fileToString(instanceTemplateBase);
     template = template.replace("{{[title]}}", f.getTitle());
-    template = template.replace("{{[name]}}", f.getId()+"-xml-html");
+    template = template.replace("{{[name]}}", f.getId()+"-html");
     TextFile.stringToFile(template, Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+".html"), false);
   }
 
@@ -1267,7 +1287,7 @@ public class Publisher implements IGLogger {
   private void fragment(String name, String content) throws IOException {
     File f = new File(Utilities.path(tempDir, "_includes", name+".xhtml"));
     String s = f.exists() ? TextFile.fileToString(f.getAbsolutePath()) : "";
-    if (!s.equals(content)) { 
+    if (!f.exists() || !s.equals(content)) { 
       TextFile.stringToFile(content, Utilities.path(tempDir, "_includes", name+".xhtml"), false);
       TextFile.stringToFile(pageWrap(content, name), Utilities.path(qaDir, name+".html"), true);
     }

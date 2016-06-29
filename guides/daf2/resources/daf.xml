@@ -36,7 +36,6 @@
     <resource><example value="false"/><sourceReference><reference value="ValueSet/medication-drugclass"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="ValueSet/problem-severity"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="ValueSet/problem-type"/></sourceReference></resource>
-    <resource><example value="false"/><sourceReference><reference value="ValueSet/bodysite"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="ValueSet/concern-status"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="ValueSet/cvx"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="ValueSet/daf-bodysite"/></sourceReference></resource>
