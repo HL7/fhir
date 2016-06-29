@@ -60,18 +60,18 @@
     </actor>
     
     <!-- CDA documents -->
-    <type>
+    <class>
       <system value="urn:ietf:bcp:13"/>
       <code value="application/hl7-cda+xml"/>
-    </type>    
+    </class>    
     <!-- code rules -->
-    <type>
+    <code>
       <system value="http://loinc.org"/>
       <code value="34133-9"/>
-    </type>    
-    <type>
+    </code>    
+    <code>
       <system value="http://loinc.org"/>
       <code value="18842-5"/>
-    </type>    
+    </code>    
   </except>
 </Consent>

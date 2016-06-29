@@ -7,6 +7,17 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://hl7.org/fhir/v3/ActCode|null|HEALTHREC|health record",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "HEALTHREC",
+        "definition": null,
+        "display": "health record"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|73761001|Colonoscopy",
       "severity": "error",
       "message": "None of the codes are in the specified value set"

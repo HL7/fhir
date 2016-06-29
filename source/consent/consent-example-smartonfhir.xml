@@ -71,9 +71,9 @@
         <code value="read"/>
       </coding>
     </action>
-    <type>
+    <class>
       <system value="http://hl7.org/fhir/resource-types"/>
       <code value="MedicationOrder"/>
-    </type>
+    </class>
   </except>
 </Consent>
