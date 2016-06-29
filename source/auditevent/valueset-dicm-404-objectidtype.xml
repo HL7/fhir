@@ -3,11 +3,11 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://nema.org/dicom/dicm/404"/>
   <version value="20100826"/>
-  <name value="Type of participant in a Audit Event"/>
+  <name value="Type of entity (participant) in a Audit Event"/>
   <status value="active"/>
   <publisher value="NEMA/DICOM"/>
   <date value="2010-08-26"/>
-  <description value="Type of participant in a Audit Event"/>
+  <description value="Type of entity (participant) in a Audit Event"/>
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
   <compose>
     <include>

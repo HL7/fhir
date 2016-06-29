@@ -3,11 +3,11 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://nema.org/dicom/dicm/402"/>
   <version value="20100826"/>
-  <name value="Audit Active Participant Role ID Code"/>
+  <name value="Audit agent Role ID Code"/>
   <status value="active"/>
   <publisher value="NEMA/DICOM"/>
   <date value="2010-08-26"/>
-  <description value="Audit Active Participant Role ID Code"/>
+  <description value="Audit agent Role ID Code"/>
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
   <compose>
     <include>

@@ -30,41 +30,41 @@
   Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
 
  -- Row 4 -----------------------------------
-  Binding Name = AuditEventParticipantNetworkType
+  Binding Name = AuditEventAgentNetworkType
   Binding = code list
   Reference = #network-type
-  Definition = The type of network access point of this participant in the audit event
+  Definition = The type of network access point of this agent in the audit event
   Description = DICOM Audit Event Network Type
   Conformance = required
   Uri = http://nema.org/dicom/dicm
   Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
 
  -- Row 5 -----------------------------------
-  Binding Name = AuditEventObjectType
+  Binding Name = AuditEventEntityType
   Binding = code list
   Reference = #object-type
-  Definition = Code for the object type involved audited.
-  Description = DICOM Audit Event Object Type
+  Definition = Code for the entity type involved audited.
+  Description = DICOM Audit Event Entity Type
   Conformance = extensible
   Uri = http://nema.org/dicom/dicm
   Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
 
  -- Row 6 -----------------------------------
-  Binding Name = AuditEventObjectRole
+  Binding Name = AuditEventEntityRole
   Binding = code list
   Reference = #object-role
-  Definition = Code representing the role the Object played in the event.
-  Description = DICOM Audit Event Object Role
+  Definition = Code representing the role the entity played in the event.
+  Description = DICOM Audit Event Entity Role
   Conformance = extensible
   Uri = http://nema.org/dicom/dicm
   Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
 
  -- Row 7 -----------------------------------
-  Binding Name = AuditEventObjectLifecycle
+  Binding Name = AuditEventEntityLifecycle
   Binding = code list
   Reference = #object-lifecycle
-  Definition = Identifier for the data life-cycle stage for the object.
-  Description = DICOM Audit Event Object Lifecycle
+  Definition = Identifier for the data life-cycle stage for the entity.
+  Description = DICOM Audit Event Entity Lifecycle
   Conformance = extensible
   Uri = http://nema.org/dicom/dicm
   Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
@@ -87,7 +87,7 @@
   Binding Name = DICOMRoleId
   Binding = value set
   Reference = valueset-dicm-402-roleid
-  Definition = Role(s) the user plays (from RBAC).
+  Definition = How the agent participated in the event.
   Conformance = extensible
 
  -- Row 11 -----------------------------------
@@ -646,7 +646,7 @@
   Type = CodeableConcept
   Binding = DICOMRoleId
   Short Label = Agent role in the event
-  Definition = Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context
+  Definition = Specification of the role(s) the user plays when performing the event. Additional may contain security role codes that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context
   Requirements = This value ties an audited event to a user\'s role(s). It is an optional value that might be used to group events for analysis by user functional role categories
   Comments = should be roles relevant to the event. Should  not be an exhaustive list of roles.
   RIM Mapping = .typeCode and/or .functionCode
@@ -781,7 +781,7 @@
   Element = AuditEvent.agent.network.type
   Card. = 0..1
   Type = code
-  Binding = AuditEventParticipantNetworkType
+  Binding = AuditEventAgentNetworkType
   Short Label = The type of network access point
   Definition = An identifier for the type of network access point that originated the audit event
   Requirements = This datum identifies the type of network access point identifier of the user device for the audit event. It is an optional value that may be used to group events recorded on separate servers for analysis of access according to a network access point\'s type
@@ -805,7 +805,8 @@
   Element = AuditEvent.source
   Card. = 1..1
   UML = 520;80
-  Short Label = Application systems and processes
+  Short Label = Audit Event Reporter
+  Definition = The system that is reporting the event.
   Requirements = The event is reported by one source
   Comments = Since multi-tier, distributed, or composite applications make source identification ambiguous, this collection of fields may repeat for each application or process actively involved in the event. For example, multiple value-sets can identify participating web servers, application processes, and database server threads in an n-tier distributed application. Passive event participants (e.g. low-level network transports) need not be identified
   RIM Mapping = .participation[typeCode=INF].role[classCode=ASSIGN].player[classCode=DEV, determinerCode=INSTANCE]
@@ -860,7 +861,7 @@
   Card. = 0..*
   Aliases = ParticipantObject
   UML = 340;300
-  Short Label = Specific instances of data or objects that have been accessed
+  Short Label = Data or objects used
   Definition = Specific instances of data or objects that have been accessed
   Requirements = The event may have other entities involved
   Comments = Required unless the values for event identification, agent identification, and audit source identification are sufficient to document the entire auditable event. Because events may have more than one entity, this group can be a repeating set of values.
@@ -875,7 +876,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Label = Specific instance of object (e.g. versioned)
+  Short Label = Specific instance of object
   Definition = Identifies a specific instance of the entity. The reference should always be version specific
   Comments = Identifier detail depends on entity type
   RIM Mapping = .id.extension
@@ -887,8 +888,8 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Any)
-  Short Label = Specific instance of resource (e.g. versioned)
-  Definition = Identifies a specific instance of the entity. The reference should always be version specific
+  Short Label = Specific instance of resource
+  Definition = Identifies a specific instance of the entity. The reference should be version specific
   RIM Mapping = [self]
   DICOM Mapping = ParticipantObjectID
   Provenance Mapping = Provenance.target, Provenance.entity.reference
@@ -908,8 +909,8 @@
   Element = AuditEvent.entity.type
   Card. = 0..1
   Type = Coding
-  Binding = AuditEventObjectType
-  Short Label = Type of object involved
+  Binding = AuditEventEntityType
+  Short Label = Type of entity involved
   Definition = The type of the object that was involved in this audit event.
   Requirements = To describe the object being acted upon. In addition to queries on the subject of the action in an auditable event, it is also important to be able to query on the object type for the action
   Comments = This value is distinct from the user\'s role or any user relationship to the entity
@@ -923,7 +924,7 @@
   Element = AuditEvent.entity.role
   Card. = 0..1
   Type = Coding
-  Binding = AuditEventObjectRole
+  Binding = AuditEventEntityRole
   Short Label = What role the entity played
   Definition = Code representing the role the entity played in the event being audited
   Requirements = For some detailed audit analysis it may be necessary to indicate a more granular type of entity, based on the application role it serves
@@ -936,9 +937,9 @@
   Element = AuditEvent.entity.lifecycle
   Card. = 0..1
   Type = Coding
-  Binding = AuditEventObjectLifecycle
-  Short Label = Life-cycle stage for the object
-  Definition = Identifier for the data life-cycle stage for the entity
+  Binding = AuditEventEntityLifecycle
+  Short Label = Life-cycle stage for the entity
+  Definition = Identifier for the data life-cycle stage for the entity.
   Requirements = Institutional policies for privacy and security may optionally fall under different accountability rules based on data life cycle. This provides a differentiating value for those cases
   Comments = This can be used to provide an audit trail for data, over time, as it passes through the system
   RIM Mapping = target of ObservationEvent[code=\"lifecycle\"].value
@@ -952,9 +953,10 @@
   Card. = 0..*
   Type = Coding
   Binding = SecurityLabels
-  Short Label = Security labels applied to the object
+  Short Label = Security labels on the entity
   Definition = Denotes security labels for the identified entity.
   Requirements = This field identifies the security labels for a specific instance of an object, such as a patient, to detect/track privacy and security issues
+  Comments = copied from entity meta security tags
   RIM Mapping = .confidentialityCode
   DICOM Mapping = ParticipantObjectSensitivity
   w5 = context
