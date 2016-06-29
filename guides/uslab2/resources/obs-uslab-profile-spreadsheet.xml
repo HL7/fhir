@@ -10,19 +10,19 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-09-05T16:09:02Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17610</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>16440</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>913</TabRatio>
-  <ActiveSheet>5</ActiveSheet>
-  <FirstVisibleSheet>5</FirstVisibleSheet>
+  <ActiveSheet>18</ActiveSheet>
+  <FirstVisibleSheet>11</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -13426,7 +13426,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <TopRowVisible>2</TopRowVisible>
    <Panes>
     <Pane>
@@ -27116,7 +27115,7 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Codes identifying interpretations of observations</Data></Cell>
     <Cell ss:StyleID="s141"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s141"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s141"><Data ss:Type="String">valueset-obs-interpretation</Data></Cell>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">ValueSet/valueset-obs-interpretation</Data></Cell>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"/>
@@ -27131,7 +27130,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">UCUM Codes for units of measure</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">valueset-units</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">ValueSet/valueset-units</Data></Cell>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
@@ -27146,7 +27145,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">Specimen Rejection Reasons codes for identifying why a test was not performed.</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s141"><Data ss:Type="String">valueset-obs-spec-reject</Data></Cell>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">ValueSet/valueset-obs-spec-reject</Data></Cell>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
@@ -27161,7 +27160,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">Code to classify the kind of observation in Observation.value[x]</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">#obs-kind</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">ValueSet/valuset-obs-kind</Data></Cell>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
@@ -27176,7 +27175,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">LOINC codes</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">valueset-obs-codes</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">ValueSet/valueset-obs-codes</Data></Cell>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
@@ -27191,7 +27190,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">SNOMED CT for coded results</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">valueset-obs-codedresults</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">ValueSet/valueset-obs-codedresults</Data></Cell>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
@@ -27560,6 +27559,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -27580,7 +27580,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
@@ -28210,8 +28210,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R2C1:R4C6</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
