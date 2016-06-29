@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+<li>file: org-uslab-example1.xml</li>
+				<li> id: uslab-example1</li>
+				<li> Name: USLab Organization Example1 </li>
+				<li>Description: USLab Ordering Organization Profile Canonical Example: University Hospital</li>
+
+Published by HL7 Orders and Observation Work Group
+Authored by: Eric M Haas  Health eData Inc.
+
+ -->
+<Organization xmlns="http://hl7.org/fhir">
+  <id value="org-uslab-example1"/>
+  <identifier>
+    <use value="official"/>
+    <system value="http://hl7.org/fhir/sid/us-npi"/>
+  <!--  NPI  -->
+    <value value="1235349085"/>
+  </identifier>
+  <name value="University Hospital"/>
+  <telecom>
+    <system value="phone"/>
+    <value value="(+1) 555-227-1234"/>
+  </telecom>
+  <telecom>
+    <system value="fax"/>
+    <value value="(+1) 555-227-6622"/>
+  </telecom>
+  <address>
+    <use value="work"/>
+    <line value="Firstcare Way"/>
+    <line value="Building 1"/>
+    <city value="Harrisburg"/>
+    <district value="42043"/>
+    <state value="PA"/>
+    <postalCode value="17111"/>
+    <country value="USA"/>
+  </address>
+</Organization>

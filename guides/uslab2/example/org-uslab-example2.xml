@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+<li>file: org-uslab-example2.xml</li>
+				<li> id: uslab-example2</li>
+				<li> Name: USLab Organization Example2 </li>
+				<li>Description: USLab Copy to Organization Profile Canonical Example: Children's Hospital</li>
+
+Published by HL7 Orders and Observation Work Group
+Authored by: Eric M Haas  Health eData Inc.
+
+ -->
+<Organization xmlns="http://hl7.org/fhir">
+  <id value="org-uslab-example2"/>
+  <identifier>
+    <use value="official"/>
+    <system value="http://hl7.org/fhir/sid/us-npi"/>
+  <!--  NPI  -->
+    <value value="8235849085"/>
+  </identifier>
+  <name value="Children&#39;s Hospital"/>
+  <telecom>
+    <system value="phone"/>
+    <value value="+1 617 555 1234"/>
+  </telecom>
+  <telecom>
+    <system value="fax"/>
+    <value value="+1 555 227 6622"/>
+  </telecom>
+  <address>
+    <use value="work"/>
+    <line value="Massachusetts Avenue"/>
+    <line value="Building 1"/>
+    <city value="Boston"/>
+    <state value="MA"/>
+    <postalCode value="25025"/>
+    <country value="USA"/>
+  </address>
+  <contact>
+    <name>
+      <family value="Fran"/>
+      <given value="Desk"/>
+      <given value="T"/>
+      <prefix value="Dr"/>
+      <suffix value="Jr"/>
+    </name>
+  </contact>
+</Organization>

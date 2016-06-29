@@ -1,0 +1,157 @@
+{
+	"tool": "jekyll",
+	"paths": {
+		"resources": "resources",
+		"pages": "pages",
+		"temp": "temp",
+		"output": "output",
+		"qa": "qa",
+		"example": "example",
+		"specification": "c:\\work\\org.hl7.fhir\\build\\publish",
+		"instance-template": "instance-template.html",
+		"instance-template-format" : "instance-template-format.html",
+    "instance-template-base" : "instance-template-base.html"
+	},
+	"canonicalBase": "http://hl7.org/fhir/uslab",
+	"source": "uslab.xml",
+	"spreadsheets": [
+		"cond-uslab-profile-spreadsheet.xml", "do-uslab-profile-spreadsheet.xml", "dr-uslab-profile-spreadsheet.xml", "obs-uslab-profile-spreadsheet.xml", "org-uslab-profile-spreadsheet.xml", "patient-uslab-profile-spreadsheet.xml", "pract-uslab-profile-spreadsheet.xml", "spec-uslab-profile-spreadsheet.xml"
+	],
+	"resources": {
+		"StructureDefinition/uslab-pract": {
+			"base": "uslab-pract.html",
+			"defns": "uslab-pract-definitions.html"
+		},
+		"StructureDefinition/uslab-spec": {
+			"base": "uslab-spec.html",
+			"defns": "uslab-spec-definitions.html"
+		},
+		"StructureDefinition/uslab-phpatient": {
+			"base": "uslab-phpatient.html",
+			"defns": "uslab-phpatient-definitions.html"
+		},
+		"StructureDefinition/uslab-cctarget": {
+			"base": "uslab-cctarget.html",
+			"defns": "uslab-cctarget-definitions.html"
+		},
+		"StructureDefinition/uslab-patient": {
+			"base": "uslab-patient.html",
+			"defns": "uslab-patient-definitions.html"
+		},
+		"StructureDefinition/uslab-performinglab": {
+			"base": "uslab-performinglab.html",
+			"defns": "uslab-performinglab-definitions.html"
+		},
+		"StructureDefinition/uslab-obspanel": {
+			"base": "uslab-obspanel.html",
+			"defns": "uslab-obspanel-definitions.html"
+		},
+		"StructureDefinition/uslab-obsratio": {
+			"base": "uslab-obsratio.html",
+			"defns": "uslab-obsratio-definitions.html"
+		},
+		"StructureDefinition/uslab-orderfacility": {
+			"base": "uslab-orderfacility.html",
+			"defns": "uslab-orderfacility-definitions.html"
+		},
+		"StructureDefinition/uslab-obsrange": {
+			"base": "uslab-obsrange.html",
+			"defns": "uslab-obsrange-definitions.html"
+		},
+		"StructureDefinition/uslab-obsother": {
+			"base": "uslab-obsother.html",
+			"defns": "uslab-obsother-definitions.html"
+		},
+		"StructureDefinition/uslab-obsquantity": {
+			"base": "uslab-obsquantity.html",
+			"defns": "uslab-obsquantity-definitions.html"
+		},
+		"StructureDefinition/uslab-dr": {
+			"base": "uslab-dr.html",
+			"defns": "uslab-dr-definitions.html"
+		},
+		"StructureDefinition/uslab-obscode": {
+			"base": "uslab-obscode.html",
+			"defns": "uslab-obscode-definitions.html"
+		},
+		"StructureDefinition/uslab-cond": {
+			"base": "uslab-cond.html",
+			"defns": "uslab-cond-definitions.html"
+		},
+		"StructureDefinition/uslab-do": {
+			"base": "uslab-do.html",
+			"defns": "uslab-do-definitions.html"
+		},
+		"StructureDefinition/uslab-reasonforstudy": {
+			"base": "uslab-reasonforstudy.html",
+			"defns": "uslab-reasonforstudy-definitions.html"
+		},
+		"StructureDefinition/uslab-phpract": {
+			"base": "uslab-phpract.html",
+			"defns": "uslab-phpract-definitions.html"
+		},
+		"ValueSet/uslab-do-event": {
+			"base": "valueset-uslab-do-event.html"
+		},
+		"ValueSet/uslab-clinical-findings": {
+			"base": "valueset-uslab-clinical-findings.html"
+		},
+		"ValueSet/uslab-spec-bodysite": {
+			"base": "valueset-uslab-spec-bodysite.html"
+		},
+		"ValueSet/uslab-obs-codes": {
+			"base": "valueset-uslab-obs-codes.html"
+		},
+		"ValueSet/uslab-cond-reasonforstudy": {
+			"base": "valueset-uslab-cond-reasonforstudy.html"
+		},
+		"ValueSet/uslab-obs-codedresults": {
+			"base": "valueset-uslab-obs-codedresults.html"
+		},
+		"ValueSet/uslab-obs-kind": {
+			"base": "valueset-uslab-obs-kind.html"
+		},
+		"ValueSet/uslab-patient-uslab-nameuse": {
+			"base": "valueset-uslab-patient-uslab-nameuse.html"
+		},
+		"ValueSet/uslab-obs-spec-reject": {
+			"base": "valueset-uslab-obs-spec-reject.html"
+		},
+		"ValueSet/uslab-spec-type": {
+			"base": "valueset-uslab-spec-type.html"
+		},
+		"ValueSet/uslab-obs-interpretation": {
+			"base": "valueset-uslab-obs-interpretation.html"
+		},
+		"ValueSet/uslab-patient-uslabph-nameuse": {
+			"base": "valueset-uslab-patient-uslabph-nameuse.html"
+		},
+		"ValueSet/uslab-units": {
+			"base": "valueset-uslab-units.html"
+		},
+		"StructureDefinition/extension-uslab-cc-practitioner": {
+			"base": "extension-uslab-cc-practitioner.html",
+			"defns": "extension-uslab-cc-practitioner-definitions.html"
+		},
+		"StructureDefinition/extension-uslab-observationkind": {
+			"base": "extension-uslab-observationkind.html",
+			"defns": "extension-uslab-observationkind-definitions.html"
+		},
+		"StructureDefinition/extension-uslab-specimenrejectreason": {
+			"base": "extension-uslab-specimenrejectreason.html",
+			"defns": "extension-uslab-specimenrejectreason-definitions.html"
+		},
+		"ValueSet/conformance-uslaborder-receiver": {
+			"base": "conformance-uslaborder-receiver.html"
+		},
+		"ValueSet/conformance-uslabreport-receiver": {
+			"base": "conformance-uslabreport-receiver.html"
+		},
+		"ValueSet/conformance-uslabreport-sender": {
+			"base": "conformance-uslabreport-sender.html"
+		},
+		"ValueSet/conformance-uslaborder-orderer": {
+			"base": "conformance-uslaborder-orderer.html"
+		}
+	}
+}

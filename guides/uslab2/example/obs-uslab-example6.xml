@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ Observation/uslab-example 6
+ file: obs-uslab-example6.xml
+ id: uslab-example6
+ Name: USLab Observation Example6
+ Description: USLab Panel Observation Profile Example: GC/CT Aptima 2 Combo panel
+
+ see narrative
+ -->
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="obs-uslab-example6"/>
+<!--  FHIR build is generating the narratives
+<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<ul>
+				<li>file: obs-uslab-example3.xml</li>
+				<li>id: uslab-example3</li>
+				<li>Name: USLab Observation Example3</li>
+				<li>Description: USLab Other (String) Observation Profile Canonical Example: S aureus</li>
+			</ul>
+		</div>
+	</text>
+ -->
+<!--  extension for specimen reject goes here - not for this use case
+	<extension url="http://hl7.org/fhir/StructureDefinition/uslab-specimenrejectreason">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0490"/>
+				<code value="EX"/>
+				<display value="Expired"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+ -->
+<!--  extension for observation kind goes here  -->
+  <extension url="http://hl7.org/fhir/StructureDefinition/uslab-observationkind">
+    <valueCode value="result"/>
+  </extension>
+  <identifier>
+    <use value="official"/>
+    <type>
+      <text value="lab test result ID"/>
+    </type>
+    <system value="http://lis.acmelabs.org/identifiers/labtestresult"/>
+    <value value="8901"/>
+  </identifier>
+  <status value="final"/>
+<!-- EH :  The local and LOINC test codes go here  -->
+  <code>
+  <!--  EH: LOINC code goes here -->
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="64017-7"/>
+      <display value="Chlamydia trachomatis and Neisseria gonorrhoeae rRNA panel - Unspecified specimen by Probe and target amplification method"/>
+    <!--  EH: LOCAL code goes here -->
+    </coding>
+    <coding>
+      <system value="urn:oid:2.16.840.1.113883.3.72.5.24"/>
+      <code value="GCCTPCR"/>
+      <display value="GC CT PCR"/>
+    </coding>
+    <text value="GC CT RNA Panel"/>
+  </code>
+  <subject>
+    <reference value="Patient/patient-uslab-example1"/>
+    <display value="Todd Lerr"/>
+  </subject>
+<!-- EH :  NO value or interpretation for panel   -->
+  <effectiveDateTime value="2014-12-05"/>
+<!--  EH: Showing dateTime to ss with TZO although only needed to Day  -->
+  <issued value="2014-12-06T15:42:15-08:00"/>
+  <performer>
+    <reference value="Practitioner/pract-uslab-example1"/>
+    <display value="Dr Leonard T Bloodraw Jr"/>
+  </performer>
+  <specimen>
+    <reference value="Specimen/spec-uslab-example2"/>
+    <display value="Urine First Void"/>
+  </specimen>
+  <related>
+    <type value="has-member"/>
+    <target>
+      <reference value="Observation/obs-uslab-example7"/>
+      <display value="CT RNA"/>
+    </target>
+  </related>
+  <related>
+    <type value="has-member"/>
+    <target>
+      <reference value="Observation/obs-uslab-example2"/>
+      <display value="GC-RNA"/>
+    </target>
+  </related>
+</Observation>

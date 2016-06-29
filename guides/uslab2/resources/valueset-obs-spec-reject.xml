@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="US Laboratory Observation Specimen Rejection Codes"/>
+  <status value="draft"/>
+<!--  USLabObsInterpretation  -->
+  <publisher value="HL7 International - Orders and Observations WG"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines the set of code for identifying the reason why the specimen condition prevented the test form being completed. "/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v2/0490"/>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="USLab Specimen Body Site"/>
+  <status value="draft"/>
+  <publisher value="Published by:  HL7 Orders and Observations Workgroup"/>
+<!--  Primary Author/Editor:  Eric M Haas, Health eData Inc"  -->
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="USLab Specimen Body Site: Codes to describe the specimen collection body site. This value set includes all SNOMED CT concepts that are descendents of Anatomical Structure (91723000)"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <compose>
+  <!--     EH remove for draft
+ <include>
+      <system value="http://hl7.org/fhir/v2/0487"/>
+    </include>
+  -->
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="91723000"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

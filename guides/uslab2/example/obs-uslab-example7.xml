@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ Observation/uslab-example 7
+ file: obs-uslab-example7.xml
+ id: uslab-example7
+ Name: USLab Observation Example7
+ Description: USLab Coded Observation Profile Example: C trachomatis PCR
+
+
+ see narrative
+ -->
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="obs-uslab-example7"/>
+<!--  FHIR build is generating the narratives
+<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<ul>
+				<li>file: obs-uslab-example3.xml</li>
+				<li>id: uslab-example3</li>
+				<li>Name: USLab Observation Example3</li>
+				<li>USLab Coded Observation Profile Example: C trachomatis PCR</li>
+			</ul>
+		</div>
+	</text>
+ -->
+<!--  extension for specimen reject goes here - not for this use case
+	<extension url="http://hl7.org/fhir/StructureDefinition/uslab-specimenrejectreason">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0490"/>
+				<code value="EX"/>
+				<display value="Expired"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+ -->
+<!--  extension for observation kind goes here  -->
+  <extension url="http://hl7.org/fhir/StructureDefinition/uslab-observationkind">
+    <valueCode value="result"/>
+  </extension>
+  <identifier>
+    <use value="official"/>
+    <type>
+      <text value="lab test result ID"/>
+    </type>
+    <system value="http://lis.acmelabs.org/identifiers/labtestresult"/>
+    <value value="9012"/>
+  </identifier>
+  <status value="final"/>
+<!-- EH :  The local and LOINC test codes go here  -->
+  <code>
+  <!--  EH: LOINC code goes here -->
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="43304-5"/>
+      <display value="Chlamydia trachomatis rRNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+    <!--  EH: LOCAL code goes here -->
+    </coding>
+    <coding>
+      <system value="urn:oid:2.16.840.1.113883.3.72.5.24"/>
+      <code value="CTPCR"/>
+      <display value="APTIMA CT"/>
+    </coding>
+    <text value="Chlamydia trachomatis by PCR"/>
+  </code>
+  <subject>
+    <reference value="Patient/patient-uslab-example1"/>
+    <display value="Todd Lerr"/>
+  </subject>
+  <effectiveDateTime value="2014-12-05"/>
+<!--  EH: Showing dateTime to ss with TZO although only needed to Day  -->
+  <issued value="2014-12-06T15:42:15-08:00"/>
+  <performer>
+    <reference value="Practitioner/pract-uslab-example1"/>
+    <display value="Dr Leonard T Bloodraw Jr"/>
+  </performer>
+<!-- EH :  The local and SNOMED Result codes go here  -->
+  <valueCodeableConcept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="260385009"/>
+      <display value="Negative"/>
+    </coding>
+    <coding>
+      <system value="urn:oid:2.16.840.1.113883.3.72.5.24"/>
+      <code value="NEG"/>
+      <display value="Negative"/>
+    </coding>
+    <text value="Negative for Chlamydia Trachomatis rRNA"/>
+  </valueCodeableConcept>
+<!--   eH dataabsent reason  would go here if valueQuantity was empty e.g.:
+	<dataAbsentReason value="error"</dataAbsentReason>  -->
+  <interpretation>
+    <coding>
+      <system value="http://hl7.org/fhir/v2/0078"/>
+      <code value="N"/>
+    </coding>
+  </interpretation>
+  <specimen>
+    <reference value="Specimen/spec-uslab-example2"/>
+    <display value="Urine First Void"/>
+  </specimen>
+</Observation>
