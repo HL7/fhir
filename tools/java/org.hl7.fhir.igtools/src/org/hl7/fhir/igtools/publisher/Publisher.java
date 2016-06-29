@@ -23,6 +23,7 @@ import javax.swing.UIManager;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.apache.commons.lang3.SystemUtils;
 import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
@@ -438,19 +439,28 @@ public class Publisher implements IGLogger {
   }
 
   private void findRubyExe() {
-    String[] paths = System.getenv("path").split(File.pathSeparator);
-    for (String s : paths) {
-      String[] files = new File(s).list();
-      if (files != null)
-        for (String file : files)
-          if (file.equals("ruby.exe")) {
-            rubyExe = Utilities.path(s, file);
-            jekyllGem = Utilities.path(s, "jekyll");
-            if (!(new File(jekyllGem).exists()))
-              throw new Error("Found Ruby, but unable to find Jekyll Gem");
-            log("Use Ruby at "+rubyExe);
-            return;
-          }
+    if (SystemUtils.IS_OS_WINDOWS) {
+      String[] paths = System.getenv("path").split(File.pathSeparator);
+      for (String s : paths) {
+        String[] files = new File(s).list();
+        if (files != null)
+          for (String file : files)
+            if (file.equals("ruby.exe")) {
+              rubyExe = Utilities.path(s, file);
+              jekyllGem = Utilities.path(s, "jekyll");
+              if (!(new File(jekyllGem).exists()))
+                throw new Error("Found Ruby, but unable to find Jekyll Gem");
+              log("Use Ruby at "+rubyExe);
+              return;
+            }
+      }
+    } else {
+      rubyExe = "/usr/bin/ruby";
+      if (!(new File(jekyllGem).exists()))
+        throw new Error("Unable to find Ruby at "+rubyExe);
+      jekyllGem = "/usr/bin/jekyll";
+      if (!(new File(jekyllGem).exists()))
+        throw new Error("Found Ruby, but unable to find Jekyll at "+jekyllGem);
     }
     throw new Error("Unable to find Ruby Processor");  
   }
