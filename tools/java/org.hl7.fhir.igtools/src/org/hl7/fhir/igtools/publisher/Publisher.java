@@ -370,8 +370,6 @@ public class Publisher implements IGLogger {
     tool = GenerationTool.Jekyll;
     if (!configuration.has("paths") || !(configuration.get("paths") instanceof JsonObject)) 
       throw new Exception("Error: configuration file must include a \"paths\" object");
-    if (tool == GenerationTool.Jekyll)
-      findRubyExe();
     JsonObject paths = configuration.getAsJsonObject("paths");
     String root = Utilities.getDirectoryForFile(configFile);
     if (Utilities.noString(root))
@@ -880,6 +878,8 @@ public class Publisher implements IGLogger {
   }
 
   private boolean runJekyll() throws IOException, InterruptedException {
+    findRubyExe();
+    
     // set up jekyll 
     List<String> command = new ArrayList<String>();
     command.add(rubyExe);
