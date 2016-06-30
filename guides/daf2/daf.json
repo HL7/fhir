@@ -18,6 +18,7 @@
 	"source": "daf.xml",
   "spreadsheets" : [  
     "allergyintolerance-daf-profile-spreadsheet.xml",
+	"allergyintolerance-daf-core-profile-spreadsheet.xml",
     "condition-daf-profile-spreadsheet.xml",
     "diagnosticorder-daf-profile-spreadsheet.xml",
     "diagnosticreport-daf-profile-spreadsheet.xml",
@@ -46,6 +47,10 @@
 		"StructureDefinition/daf-allergyintolerance": {
 			"defns": "daf-allergyintolerance-definitions.html",
 			"base": "daf-allergyintolerance.html"
+		},
+		"StructureDefinition/daf-core-allergyintolerance": {
+			"defns": "daf-core-allergyintolerance-definitions.html",
+			"base": "daf-core-allergyintolerance.html"
 		},
 		"StructureDefinition/daf-allergylist": {
 			"defns": "daf-allergylist-definitions.html",

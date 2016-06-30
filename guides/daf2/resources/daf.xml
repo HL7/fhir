@@ -54,6 +54,7 @@
     
   <!--  profiles -->    
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-allergyintolerance"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-core-allergyintolerance"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-allergylist"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-condition"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-diagnosticorder"/></sourceReference></resource>
@@ -129,6 +130,18 @@
       <format value="generated"/>
       <page>
         <source value="daf-allergyintolerance.html"/>
+        <name value="Allergy/Intolerance Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+    <page>
+      <source value="allergyintolerance-daf-core.html"/>
+      <name value="Allergy/Intolerance"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="daf-core-allergyintolerance.html"/>
         <name value="Allergy/Intolerance Details"/>
         <kind value="resource"/>
         <format value="generated"/>
