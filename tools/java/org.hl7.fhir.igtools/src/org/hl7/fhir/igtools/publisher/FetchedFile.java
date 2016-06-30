@@ -2,7 +2,9 @@ package org.hl7.fhir.igtools.publisher;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.model.Bundle;
@@ -28,7 +30,8 @@ public class FetchedFile {
   private boolean folder;
   private List<String> files; // if it's a folder
   private boolean noProcess;
-  
+  private Set<String> outputNames = new HashSet<String>();
+
   public String getPath() {
     return path;
   }
@@ -118,5 +121,8 @@ public class FetchedFile {
     this.noProcess = noProcess;
   }
   
-  
+  public Set<String> getOutputNames() {
+    return outputNames;
+  }
+ 
 }

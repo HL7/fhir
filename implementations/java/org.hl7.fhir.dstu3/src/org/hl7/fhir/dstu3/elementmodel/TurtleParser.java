@@ -326,7 +326,8 @@ public class TurtleParser extends ParserBase {
 	  return b.toString();
   }
   private void composeElement(Section section, Complex ctxt, Element element, Element parent) {
-    String en = "Extension".equals(element.getType())? "extension" : getFormalName(element);
+    String en = "Extension".equals(element.getType())?
+            (element.getProperty().getDefinition().getIsModifier()? "modifierExtension" : "extension") : getFormalName(element);
 
 	  Complex t;
 	  if (element.getSpecial() == SpecialElement.BUNDLE_ENTRY && parent != null && parent.getNamedChildValue("fullUrl") != null) {
@@ -347,6 +348,13 @@ public class TurtleParser extends ParserBase {
 	  	decorateCoding(t, element);
     if ("Reference".equals(element.getType()))
       decorateReference(t, element);
+//    if ("Extension".equals(element.getType())) {
+//      Complex e = ctxt.linkedPredicate("<" + element.getChildValue("url") + ">", null);
+//      for(Element child: element.getChildren()) {
+//        if(!"url".equals(child.getName()))
+//          composeElement(section, e, child, element);
+//      }
+//    }
 	  		
 		for (Element child : element.getChildren()) {
       if ("xhtml".equals(child.getType())) {
@@ -387,7 +395,7 @@ public class TurtleParser extends ParserBase {
     return true;
   }
 
-	protected String ttlLiteral(String value, String type) {
+  static public String ttlLiteral(String value, String type) {
 	  String xst = "";
 	  if (type.equals("boolean"))
 	    xst = "^^xsd:boolean";

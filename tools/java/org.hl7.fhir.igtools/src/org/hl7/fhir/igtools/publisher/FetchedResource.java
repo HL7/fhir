@@ -16,7 +16,7 @@ public class FetchedResource {
   private Element element;
   private JsonObject config;
   private boolean validated;
-  private List<String> profiles = new ArrayList<String>(); 
+  private List<String> profiles = new ArrayList<String>();
 
   public Resource getResource() {
     return resource;
