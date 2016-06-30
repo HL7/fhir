@@ -68,7 +68,7 @@
 			<name value="USLab Condition Example1"/>
 			<description value="USLab Condition Profile Canonical Example: Lead Exposure"/>
 			<sourceReference>
-				<reference value="example\cond-uslab-example1"/>
+				<reference value="Condition/cond-uslab-example1"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-cond"/>
@@ -79,7 +79,7 @@
 			<name value="USLab Condition Example2"/>
 			<description value="USLab Reason for Study Profile Canonical Example: Lead Exposure"/>
 			<sourceReference>
-				<reference value="Condition\cond-uslab-example2"/>
+				<reference value="Condition/cond-uslab-example2"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-cond"/>
@@ -90,7 +90,7 @@
 			<name value="USLab DiagnosticOrder Example1"/>
 			<description value="USLabOrder  Blood Lead "/>
 			<sourceReference>
-				<reference value="DiagnosticOrder\do-uslab-example1"/>
+				<reference value="DiagnosticOrder/do-uslab-example1"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-do"/>
@@ -101,7 +101,7 @@
 			<name value="USLab DiagnosticReport Example1"/>
 			<description value="USLabReport DiagnosticReport Profile Canonical Example: Childhood Blood Lead Report"/>
 			<sourceReference>
-				<reference value="DiagnosticReport\dr-uslab-example1"/>
+				<reference value="DiagnosticReport/dr-uslab-example1"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-dr"/>
@@ -112,7 +112,7 @@
 			<name value="USLab Observation Example1"/>
 			<description value="USLab Quantitative Observation Profile Example: Capillary Blood Lead"/>
 			<sourceReference>
-				<reference value="Observation\obs-uslab-example1"/>
+				<reference value="Observation/obs-uslab-example1"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-obsquantity"/>
@@ -123,7 +123,7 @@
 			<name value="USLab Observation Example2"/>
 			<description value="USLab Coded Observation Profile Example: N gonorrhoeae PCR"/>
 			<sourceReference>
-				<reference value="Observation\obs-uslab-example2"/>
+				<reference value="Observation/obs-uslab-example2"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-obscode"/>
@@ -134,7 +134,7 @@
 			<name value="USLab Observation Example3"/>
 			<description value="USLab Other (string) Observation Profile Example: S.aureus"/>
 			<sourceReference>
-				<reference value="Observation\obs-uslab-example3"/>
+				<reference value="Observation/obs-uslab-example3"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-obsother"/>
@@ -145,7 +145,7 @@
 			<name value="USLab Observation Example4"/>
 			<description value="USLab Ratio Observation Profile Example: Dengue Titer"/>
 			<sourceReference>
-				<reference value="Observation\obs-uslab-example4"/>
+				<reference value="Observation/obs-uslab-example4"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-obsratio"/>
@@ -156,7 +156,7 @@
 			<name value="USLab Observation Example5"/>
 			<description value="USLab Quantitative Observation Profile Example: Blood Lead"/>
 			<sourceReference>
-				<reference value="Observation\obs-uslab-example5"/>
+				<reference value="Observation/obs-uslab-example5"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-obsquantity"/>
@@ -167,7 +167,7 @@
 			<name value="USLab Observation Example6"/>
 			<description value="USLab Panel Observation Profile Example: GC/CT Aptima 2 Combo panel"/>
 			<sourceReference>
-				<reference value="Observation\obs-uslab-example6"/>
+				<reference value="Observation/obs-uslab-example6"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-obspanel"/>
@@ -178,7 +178,7 @@
 			<name value="USLab Observation Example7"/>
 			<description value="USLab Coded Observation Profile Example: C trachomatis PCR"/>
 			<sourceReference>
-				<reference value="Observation\obs-uslab-example7"/>
+				<reference value="Observation/obs-uslab-example7"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-obscode"/>
@@ -189,7 +189,7 @@
 			<name value="USLab Observation Example8"/>
 			<description value="USLab Range Observation Profile  Example: WBCs in Urine"/>
 			<sourceReference>
-				<reference value="Observation\obs-uslab-example8"/>
+				<reference value="Observation/obs-uslab-example8"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-obsrange"/>
@@ -200,7 +200,7 @@
 			<name value="USLab Observation Example1"/>
 			<description value="USLab Ordering Organization Profile Canonical Example: University Hospital"/>
 			<sourceReference>
-				<reference value="Organization\org-uslab-example1"/>
+				<reference value="Organization/org-uslab-example1"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-orderfacility"/>
@@ -211,7 +211,7 @@
 			<name value="USLab Observation Example2"/>
 			<description value="USLab Copy to Organization Profile Canonical Example: Children&#39;s Hospital"/>
 			<sourceReference>
-				<reference value="Organization\org-uslab-example2"/>
+				<reference value="Organization/org-uslab-example2"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-cctarget"/>
@@ -222,7 +222,7 @@
 			<name value="USLab Observation Example3"/>
 			<description value="USLab Performing Lab Organization Profile Canonical Example: Acme Labs"/>
 			<sourceReference>
-				<reference value="Organization\org-uslab-example3"/>
+				<reference value="Organization/org-uslab-example3"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-performinglab"/>
@@ -233,7 +233,7 @@
 			<name value="USLab Patient Example1"/>
 			<description value="Description: USLab Patient Profile Canonical Example: Todd Lerr"/>
 			<sourceReference>
-				<reference value="Patient\patient-uslab-example1"/>
+				<reference value="Patient/patient-uslab-example1"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-patient"/>
@@ -244,7 +244,7 @@
 			<name value="USLab Patient Example2"/>
 			<description value="Description: USLab PHPatient Profile Canonical Example: Todd Lerr"/>
 			<sourceReference>
-				<reference value="Patient\patient-uslab-example2"/>
+				<reference value="Patient/patient-uslab-example2"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-patient"/>
@@ -255,7 +255,7 @@
 			<name value="USLab Practitioner Example1"/>
 			<description value="USLab Practitioner Canonical Example: Dr Leonard T Bloodraw Jr"/>
 			<sourceReference>
-				<reference value="Practitioner\pract-uslab-example1"/>
+				<reference value="Practitioner/pract-uslab-example1"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-pract"/>
@@ -266,7 +266,7 @@
 			<name value="USLab PHPractitioner Example2"/>
 			<description value="USLab PHPractitioner Canonical Example: Dr Bill T Lookafter Jr"/>
 			<sourceReference>
-				<reference value="Practitioner\pract-uslab-example2"/>
+				<reference value="Practitioner/pract-uslab-example2"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-pract"/>
@@ -277,7 +277,7 @@
 			<name value="USLab PHPractitioner Example3"/>
 			<description value="USLab PHPractitioner Canonical Example: Gregory F House PhD"/>
 			<sourceReference>
-				<reference value="Practitioner\pract-uslab-example3"/>
+				<reference value="Practitioner/pract-uslab-example3"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-pract"/>
@@ -288,7 +288,7 @@
 			<name value="USLab Specimen Example1"/>
 			<description value="USLab Specimen Profile Canonical Example: Blood"/>
 			<sourceReference>
-				<reference value="Specimen\spec-uslab-example1"/>
+				<reference value="Specimen/spec-uslab-example1"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-spec"/>
@@ -299,7 +299,7 @@
 			<name value="USLab Specimen Example2"/>
 			<description value="USLab Specimen Profile  Example: Urine- first catch"/>
 			<sourceReference>
-				<reference value="Specimen\spec-uslab-example2"/>
+				<reference value="Specimen/spec-uslab-example2"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/uslab-spec"/>
@@ -311,7 +311,7 @@
 			<name value="USLabOrder Orderer"/>
 			<description value="USLabOrder Orderer"/>
 			<sourceReference>
-				<reference value="Conformance\conformance-uslaborder-orderer"/>
+				<reference value="Conformance/conformance-uslaborder-orderer"/>
 			</sourceReference>
 		</resource>
 		<resource>
@@ -319,7 +319,7 @@
 			<name value="USLabOrder Receiver"/>
 			<description value="USLabOrder Receiver"/>
 			<sourceReference>
-				<reference value="Conformance\conformance-uslaborder-receiver"/>
+				<reference value="Conformance/conformance-uslaborder-receiver"/>
 			</sourceReference>
 		</resource>
 		<resource>
@@ -327,7 +327,7 @@
 			<name value="USLabReport Sender"/>
 			<description value="USLabReport Sender"/>
 			<sourceReference>
-				<reference value="Conformance\conformance-uslabreport-sender"/>
+				<reference value="Conformance/conformance-uslabreport-sender"/>
 			</sourceReference>
 		</resource>
 		<resource>
@@ -335,7 +335,7 @@
 			<name value="USLabReport Receiver"/>
 			<description value="USLabReport Receiver"/>
 			<sourceReference>
-				<reference value="Conformance\conformance-uslabreport-receiver"/>
+				<reference value="Conformance/conformance-uslabreport-receiver"/>
 			</sourceReference>
 		</resource>
 	</package>

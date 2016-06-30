@@ -1,14 +1,13 @@
 {
-	"tool": "jekyll",
-	"paths": {
-		"resources": "resources",
-		"pages": "pages",
-		"temp": "temp",
-		"output": "output",
-		"qa": "qa",
-		"example": "example",
-		"specification": "c:\\work\\org.hl7.fhir\\build\\publish"
-	},
+  "tool" : "jekyll",
+  "paths" : {
+    "resources" : "resources",
+    "pages" : "pages",
+    "temp" : "temp",
+    "output" : "output",
+    "qa" : "qa",
+    "specification" : "c:\\work\\org.hl7.fhir\\build\\publish"
+  },
   "defaults" : {
     "Any" : {
 	  	"template-format" : "instance-template-format.html",
