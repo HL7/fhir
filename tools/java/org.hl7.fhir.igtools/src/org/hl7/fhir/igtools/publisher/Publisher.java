@@ -1412,23 +1412,25 @@ public class Publisher implements IGLogger {
       runGUI();
     } else if (hasParam(args, "-multi")) {
       for (String ig : TextFile.fileToString(getNamedParam(args, "-multi")).split("\\r?\\n")) {
-        System.out.println("=======================================================================================");
-        System.out.println("Publish IG "+ig);
-        Publisher self = new Publisher();
-        self.setConfigFile(ig);
-        self.setTxServer(getNamedParam(args, "-tx"));
-        try {
-          self.execute();
-        } catch (Exception e) {
-          System.out.println("Publishing Implementation Guide Failed: "+e.getMessage());
+        if (!ig.startsWith(";")) {
+          System.out.println("=======================================================================================");
+          System.out.println("Publish IG "+ig);
+          Publisher self = new Publisher();
+          self.setConfigFile(ig);
+          self.setTxServer(getNamedParam(args, "-tx"));
+          try {
+            self.execute();
+          } catch (Exception e) {
+            System.out.println("Publishing Implementation Guide Failed: "+e.getMessage());
+            System.out.println("");
+            System.out.println("Stack Dump (for debugging):");
+            e.printStackTrace();
+            break;
+          }
+          System.out.println("=======================================================================================");
           System.out.println("");
-          System.out.println("Stack Dump (for debugging):");
-          e.printStackTrace();
-          break;
+          System.out.println("");
         }
-        System.out.println("=======================================================================================");
-        System.out.println("");
-        System.out.println("");
       }
     } else {
       System.out.println("FHIR Implementation Guide Publisher ("+Constants.VERSION+"-"+Constants.REVISION+")");
