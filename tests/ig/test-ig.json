@@ -6,8 +6,7 @@
     "temp" : "temp",
     "output" : "output",
     "qa" : "qa",
-    "specification" : "c:\\work\\org.hl7.fhir\\build\\publish",
-    "instance-template" : "instance-template.html"
+    "specification" : "c:\\work\\org.hl7.fhir\\build\\publish"
   },
 	"canonicalBase": "http://hl7.org/fhir/test",
 	"defaults": {
@@ -18,7 +17,9 @@
 			"ttl": true,
 			"xml-html": true,
 			"json-html": true,
-			"ttl-html": true
+			"ttl-html": true,
+	  	"template-format" : "instance-template-format.html",
+      "template-base" : "instance-template-base.html"
 		},
     "CodeSystem": {
 			"summary": true,

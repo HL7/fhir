@@ -6,9 +6,13 @@
     "temp" : "temp",
     "output" : "output",
     "qa" : "qa",
-    "specification" : "c:\\work\\org.hl7.fhir\\build\\publish",
-    "instance-template-format" : "instance-template-format.html",
-    "instance-template-base" : "instance-template-base.html"
+    "specification" : "c:\\work\\org.hl7.fhir\\build\\publish"
+  },
+  "defaults" : {
+    "Any" : {
+	  	"template-format" : "instance-template-format.html",
+      "template-base" : "instance-template-base.html"
+    }
   },
 	"canonicalBase": "http://hl7.org/fhir/daf",  
 	"source": "daf.xml",
@@ -161,119 +165,119 @@
 		},
 		"ValueSet/daf-substance": {
 			"base": "valueset-daf-substance.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-procedure-type": {
 			"base": "valueset-daf-procedure-type.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-product-form": {
 			"base": "valueset-daf-product-form.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-race": {
 			"base": "valueset-daf-race.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-substance-ndfrt": {
 			"base": "valueset-daf-substance-ndfrt.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-substance-rxnorm": {
 			"base": "valueset-daf-substance-rxnorm.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-substance-sct": {
 			"base": "valueset-daf-substance-sct.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-substance-unii": {
 			"base": "valueset-daf-substance-unii.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-ucum-vitals-common": {
 			"base": "valueset-daf-ucum-vitals-common.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-ingredient-name": {
 			"base": "valueset-daf-ingredient-name.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-medication-brandname": {
 			"base": "valueset-daf-medication-brandname.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-medication-clinicalname": {
 			"base": "valueset-daf-medication-clinicalname.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-medication-drugclass": {
 			"base": "valueset-daf-medication-drugclass.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-problem-severity": {
 			"base": "valueset-daf-problem-severity.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-problem-type": {
 			"base": "valueset-daf-problem-type.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-bodysite": {
 			"base": "valueset-daf-bodysite.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-concern-status": {
 			"base": "valueset-daf-concern-status.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-cvx": {
 			"base": "valueset-daf-cvx.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-encounter-dischargedisposition": {
 			"base": "valueset-daf-encounter-dischargedisposition.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-encounter-reason": {
 			"base": "valueset-daf-encounter-reason.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-encounter-type": {
 			"base": "valueset-daf-encounter-type.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-ethnicity": {
 			"base": "valueset-daf-ethnicity.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-list-MedListCode": {
 			"base": "valueset-daf-list-MedListCode.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-manifestation-ccda-codes": {
 			"base": "valueset-daf-manifestation-ccda-codes.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-medication-codes": {
 			"base": "valueset-daf-medication-codes.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-medication-route": {
 			"base": "valueset-daf-medication-route.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-observation-ccdasmokingstatus": {
 			"base": "valueset-daf-observation-ccdasmokingstatus.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-observation-CCDAVitalSignResult": {
 			"base": "valueset-daf-observation-CCDAVitalSignResult.html",
-      "wrapper" : false
+      "template-base" : null
 		},
 		"ValueSet/daf-problem": {
 			"base": "valueset-daf-problem.html",
-      "wrapper" : false
+      "template-base" : null
 		}
 	}
 }

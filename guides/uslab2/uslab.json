@@ -7,11 +7,14 @@
 		"output": "output",
 		"qa": "qa",
 		"example": "example",
-		"specification": "c:\\work\\org.hl7.fhir\\build\\publish",
-		"instance-template": "instance-template.html",
-		"instance-template-format" : "instance-template-format.html",
-    "instance-template-base" : "instance-template-base.html"
+		"specification": "c:\\work\\org.hl7.fhir\\build\\publish"
 	},
+  "defaults" : {
+    "Any" : {
+	  	"template-format" : "instance-template-format.html",
+      "template-base" : "instance-template-base.html"
+    }
+  },
 	"canonicalBase": "http://hl7.org/fhir/uslab",
 	"source": "uslab.xml",
 	"spreadsheets": [

@@ -23,6 +23,8 @@ import javax.swing.UIManager;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.apache.commons.exec.CommandLine;
+import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.lang3.SystemUtils;
 import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
@@ -75,6 +77,7 @@ import org.hl7.fhir.rdf.RdfGenerator;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.ZipGenerator;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.w3c.dom.Document;
@@ -83,6 +86,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import java.util.concurrent.TimeUnit;
@@ -123,6 +127,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Publisher implements IGLogger {
 
+  public static final boolean USE_COMMONS_EXEC = false;
+  
   public enum GenerationTool {
     Jekyll
   }
@@ -141,9 +147,6 @@ public class Publisher implements IGLogger {
   private String outputDir;
   private String specPath;
   private String qaDir;
-  private String instanceTemplateFmt;
-  private String instanceTemplateBase;
-
   private String rubyExe;
   private String jekyllGem;
 
@@ -380,8 +383,6 @@ public class Publisher implements IGLogger {
     outputDir = Utilities.path(root, str(paths, "output", "output"));
     qaDir = Utilities.path(root, str(paths, "qa"));
     specPath = str(paths, "specification");
-    instanceTemplateBase = Utilities.path(root, str(paths, "instance-template-base"));
-    instanceTemplateFmt = Utilities.path(root, str(paths, "instance-template-format"));
 
     igName = Utilities.path(resourcesDir, configuration.get("source").getAsString());
 
@@ -395,8 +396,6 @@ public class Publisher implements IGLogger {
     forceDir(Utilities.path(tempDir, "data"));
     forceDir(outputDir);
     forceDir(qaDir);
-    checkFile(instanceTemplateBase);
-    checkFile(instanceTemplateFmt);
 
     log("Load Validation Pack (internal)");
     try {
@@ -437,30 +436,32 @@ public class Publisher implements IGLogger {
   }
 
   private void findRubyExe() {
-    if (SystemUtils.IS_OS_WINDOWS) {
-      String[] paths = System.getenv("path").split(File.pathSeparator);
-      for (String s : paths) {
-        String[] files = new File(s).list();
-        if (files != null)
-          for (String file : files)
-            if (file.equals("ruby.exe")) {
-              rubyExe = Utilities.path(s, file);
-              jekyllGem = Utilities.path(s, "jekyll");
-              if (!(new File(jekyllGem).exists()))
-                throw new Error("Found Ruby, but unable to find Jekyll Gem");
-              log("Use Ruby at "+rubyExe);
-              return;
-            }
+    if (!USE_COMMONS_EXEC) {
+      if (SystemUtils.IS_OS_WINDOWS) {
+        String[] paths = System.getenv("path").split(File.pathSeparator);
+        for (String s : paths) {
+          String[] files = new File(s).list();
+          if (files != null)
+            for (String file : files)
+              if (file.equals("ruby.exe")) {
+                rubyExe = Utilities.path(s, file);
+                jekyllGem = Utilities.path(s, "jekyll");
+                if (!(new File(jekyllGem).exists()))
+                  throw new Error("Found Ruby, but unable to find Jekyll Gem");
+                log("Use Ruby at "+rubyExe);
+                return;
+              }
+        }
+      } else {
+        rubyExe = "/usr/bin/ruby";
+        if (!(new File(jekyllGem).exists()))
+          throw new Error("Unable to find Ruby at "+rubyExe);
+        jekyllGem = "/usr/bin/jekyll";
+        if (!(new File(jekyllGem).exists()))
+          throw new Error("Found Ruby, but unable to find Jekyll at "+jekyllGem);
       }
-    } else {
-      rubyExe = "/usr/bin/ruby";
-      if (!(new File(jekyllGem).exists()))
-        throw new Error("Unable to find Ruby at "+rubyExe);
-      jekyllGem = "/usr/bin/jekyll";
-      if (!(new File(jekyllGem).exists()))
-        throw new Error("Found Ruby, but unable to find Jekyll at "+jekyllGem);
+      throw new Error("Unable to find Ruby Processor");
     }
-    throw new Error("Unable to find Ruby Processor");  
   }
 
   private void checkDir(String dir) throws Exception {
@@ -656,7 +657,7 @@ public class Publisher implements IGLogger {
         String url = fv.getResources().get(0).getElement().getChildValue("url");
         String id = fv.getResources().get(0).getId();
         if (!tail(url).equals(id)) 
-          throw new Exception("resource id/url mismatch: "+id+" vs "+url);
+          throw new Exception("resource id/url mismatch: "+id+" vs "+url+" for "+fv.getResources().get(0).getTitle()+" in "+fv.getName());
         //        if (!url.startsWith(igpkp.getCanonical())) 
         //          throw new Exception("base/ resource url mismatch: "+igpkp.getCanonical()+" vs "+url);
 
@@ -866,7 +867,57 @@ public class Publisher implements IGLogger {
     if (!changeList.isEmpty())
       generateSummaryOutputs();
 
-    runTool();
+    if (runTool()) 
+      if (!changeList.isEmpty())
+        generateZips();
+  }
+
+  private void generateZips() throws Exception {
+    if (generateExampleZip(FhirFormat.XML))
+      generateDefinitions(FhirFormat.XML);
+    if (generateExampleZip(FhirFormat.JSON))
+      generateDefinitions(FhirFormat.JSON);
+    if (generateExampleZip(FhirFormat.TURTLE))
+      generateDefinitions(FhirFormat.TURTLE);
+  }
+
+  private void generateDefinitions(FhirFormat fmt)  throws Exception {
+    Set<String> files = new HashSet<String>();
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
+          String fn = Utilities.path(outputDir, r.getElement().fhirType()+"-"+r.getId()+"."+fmt.getExtension());
+          if (new File(fn).exists())
+            files.add(fn);
+        }
+      }
+    }
+    if (!files.isEmpty()) {
+      ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "definitions."+fmt.getExtension()+".zip"));
+      for (String fn : files)
+        zip.addFileName(fn.substring(fn.lastIndexOf(File.separator)+1), fn, false);
+      zip.close();
+
+    }
+  }
+
+  private boolean generateExampleZip(FhirFormat fmt) throws Exception {
+    Set<String> files = new HashSet<String>();
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        String fn = Utilities.path(outputDir, r.getElement().fhirType()+"-"+r.getId()+"."+fmt.getExtension());
+        if (new File(fn).exists())
+          files.add(fn);
+      }
+    }
+    if (!files.isEmpty()) {
+      ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "examples."+fmt.getExtension()+".zip"));
+      for (String fn : files)
+        zip.addFileName(fn.substring(fn.lastIndexOf(File.separator)+1), fn, false);
+      zip.close();
+
+    }
+    return !files.isEmpty();
   }
 
   private boolean runTool() throws Exception {
@@ -878,27 +929,35 @@ public class Publisher implements IGLogger {
   }
 
   private boolean runJekyll() throws IOException, InterruptedException {
-    findRubyExe();
-    
-    // set up jekyll 
-    List<String> command = new ArrayList<String>();
-    command.add(rubyExe);
-    command.add(jekyllGem);
-    command.add("build");
-    command.add("--destination");
-    command.add(outputDir);
-    ProcessBuilder builder = new ProcessBuilder(command);
-    builder.directory(new File(tempDir));
+    if (USE_COMMONS_EXEC) {
+      // using commons.exec
+      CommandLine cmd = CommandLine.parse("jekyll build --destination "+outputDir);
+      DefaultExecutor exec = new DefaultExecutor();
+//      exec.setStreamHandler(streamHandler);
+      exec.execute(cmd);
+    } else {
+      findRubyExe();
 
-    // run and capture the output
-    final Process process = builder.start();
-    BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getInputStream()));
-    String s;
-    while ((s = stdError.readLine()) != null) {
-      if (passJekyllFilter(s))
-        log("Jekyll: "+s);
+      // set up jekyll 
+      List<String> command = new ArrayList<String>();
+      command.add(rubyExe);
+      command.add(jekyllGem);
+      command.add("build");
+      command.add("--destination");
+      command.add(outputDir);
+      ProcessBuilder builder = new ProcessBuilder(command);
+      builder.directory(new File(tempDir));
+
+      // run and capture the output
+      final Process process = builder.start();
+      BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getInputStream()));
+      String s;
+      while ((s = stdError.readLine()) != null) {
+        if (passJekyllFilter(s))
+          log("Jekyll: "+s);
+      }
+      process.waitFor();
     }
-    process.waitFor();
     return true;
   }
 
@@ -1067,6 +1126,22 @@ public class Publisher implements IGLogger {
     return true;
   }
 
+  private String getTemplate(FetchedResource f, String propertyName) {
+    if (f.getConfig() != null && hasString(f.getConfig(), propertyName))
+      return getString(f.getConfig(), propertyName);
+    JsonObject cfg = configuration.getAsJsonObject("defaults");
+    if (cfg != null)
+      cfg = cfg.getAsJsonObject(f.getElement().fhirType());
+    if (cfg != null && hasString(cfg, propertyName))
+      return getString(cfg, propertyName);
+    cfg = configuration.getAsJsonObject("defaults");
+    if (cfg != null)
+      cfg = cfg.getAsJsonObject("Any");
+    if (cfg != null && hasString(cfg, propertyName))
+      return getString(cfg, propertyName);
+    return null;
+  }
+
 
   private boolean hasBoolean(JsonObject obj, String code) {
     JsonElement e = obj.get(code);
@@ -1076,6 +1151,19 @@ public class Publisher implements IGLogger {
   private boolean getBoolean(JsonObject obj, String code) {
     JsonElement e = obj.get(code);
     return e != null && e instanceof JsonPrimitive && ((JsonPrimitive) e).getAsBoolean();
+  }
+
+  private boolean hasString(JsonObject obj, String code) {
+    JsonElement e = obj.get(code);
+    return e != null && (e instanceof JsonPrimitive && ((JsonPrimitive) e).isString()) || e instanceof JsonNull;
+  }
+
+  private String getString(JsonObject obj, String code) {
+    JsonElement e = obj.get(code);
+    if (e instanceof JsonNull)
+      return null;
+    else 
+      return ((JsonPrimitive) e).getAsString();
   }
 
   /**
@@ -1088,23 +1176,23 @@ public class Publisher implements IGLogger {
    * @throws Exception
    */
   private void saveDirectResourceOutputs(FetchedResource f) throws FileNotFoundException, Exception {
-    if (wantGen(f, "wrapper")) 
-      genWrapperBase(f);
+    genWrapperBase(f, getTemplate(f, "template-base"));
     
+    String template = getTemplate(f, "template-format");
     if (wantGen(f, "xml")) {
       new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+".xml")), OutputStyle.PRETTY, "??");
       if (tool == GenerationTool.Jekyll)
-        genWrapperFmt(f, "xml");  
+        genWrapperFmt(f, template, "xml");  
     }
     if (wantGen(f, "json")) {
       new org.hl7.fhir.dstu3.elementmodel.JsonParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+".json")), OutputStyle.PRETTY, "??");
       if (tool == GenerationTool.Jekyll)
-        genWrapperFmt(f, "json");  
+        genWrapperFmt(f, template, "json");  
     }
     if (wantGen(f, "ttl")) {
       new org.hl7.fhir.dstu3.elementmodel.TurtleParser(context).compose(f.getElement(), new FileOutputStream(Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+".ttl")), OutputStyle.PRETTY, "??");
       if (tool == GenerationTool.Jekyll)
-        genWrapperFmt(f, "ttl");  
+        genWrapperFmt(f, template, "ttl");  
     }
 
     if (wantGen(f, "xml-html")) {
@@ -1142,18 +1230,22 @@ public class Publisher implements IGLogger {
     //  fragment(f.getId()+"-gen-html", html);
   }
 
-  private void genWrapperFmt(FetchedResource f, String format) throws FileNotFoundException, IOException {
-    String template = TextFile.fileToString(instanceTemplateFmt);
-    template = template.replace("{{[title]}}", f.getTitle());
-    template = template.replace("{{[name]}}", f.getId()+"-"+format+"-html");
-    TextFile.stringToFile(template, Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+"."+format+".html"), false);
+  private void genWrapperFmt(FetchedResource f, String template, String format) throws FileNotFoundException, IOException {
+    if (template != null) {
+      template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), template));
+      template = template.replace("{{[title]}}", f.getTitle());
+      template = template.replace("{{[name]}}", f.getId()+"-"+format+"-html");
+      TextFile.stringToFile(template, Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+"."+format+".html"), false);
+    }
   }
 
-  private void genWrapperBase(FetchedResource f) throws FileNotFoundException, IOException {
-    String template = TextFile.fileToString(instanceTemplateBase);
-    template = template.replace("{{[title]}}", f.getTitle());
-    template = template.replace("{{[name]}}", f.getId()+"-html");
-    TextFile.stringToFile(template, Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+".html"), false);
+  private void genWrapperBase(FetchedResource f, String template) throws FileNotFoundException, IOException {
+    if (template != null) {
+      template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), template));
+      template = template.replace("{{[title]}}", f.getTitle());
+      template = template.replace("{{[name]}}", f.getId()+"-html");
+      TextFile.stringToFile(template, Utilities.path(tempDir, f.getElement().fhirType()+"-"+f.getId()+".html"), false);
+    }
   }
 
   /**
@@ -1318,6 +1410,26 @@ public class Publisher implements IGLogger {
   public static void main(String[] args) throws Exception {
     if (hasParam(args, "-gui") || args.length == 0) {
       runGUI();
+    } else if (hasParam(args, "-multi")) {
+      for (String ig : TextFile.fileToString(getNamedParam(args, "-multi")).split("\\r?\\n")) {
+        System.out.println("=======================================================================================");
+        System.out.println("Publish IG "+ig);
+        Publisher self = new Publisher();
+        self.setConfigFile(ig);
+        self.setTxServer(getNamedParam(args, "-tx"));
+        try {
+          self.execute();
+        } catch (Exception e) {
+          System.out.println("Publishing Implementation Guide Failed: "+e.getMessage());
+          System.out.println("");
+          System.out.println("Stack Dump (for debugging):");
+          e.printStackTrace();
+          break;
+        }
+        System.out.println("=======================================================================================");
+        System.out.println("");
+        System.out.println("");
+      }
     } else {
       System.out.println("FHIR Implementation Guide Publisher ("+Constants.VERSION+"-"+Constants.REVISION+")");
       Publisher self = new Publisher();
