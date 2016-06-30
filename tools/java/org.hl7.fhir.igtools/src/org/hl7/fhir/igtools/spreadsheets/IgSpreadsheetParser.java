@@ -202,8 +202,12 @@ public class IgSpreadsheetParser {
         throw new Exception("Logical Models must derive from Element");
       sd.setBaseType(sd.getDifferential().getElementFirstRep().getTypeFirstRep().getCode());
       sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+sd.getBaseType());
+      sd.setDerivation(TypeDerivationRule.SPECIALIZATION);
+      sd.setAbstract(false);
     } else {
-      sd.setKind(StructureDefinitionKind.RESOURCE);  
+      sd.setKind(StructureDefinitionKind.RESOURCE);
+      sd.setDerivation(TypeDerivationRule.CONSTRAINT);
+      sd.setAbstract(false);
       sd.setId(n.toLowerCase());
       sd.setBaseType(sd.getDifferential().getElementFirstRep().getPath());
       sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+sd.getBaseType());
@@ -264,6 +268,12 @@ public class IgSpreadsheetParser {
     else
       sd.setStatus(ConformanceResourceStatus.DRAFT);
 
+    StructureDefinition base = this.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Extension");
+    List<String> errors = new ArrayList<String>();
+    ProfileUtilities utils = new ProfileUtilities(this.context, issues, null);
+    utils.sortDifferential(base, sd, "profile "+sd.getUrl(), errors);
+    assert(errors.size() == 0);
+    utils.setIds(sd, sd.getName());
   }
 
   private ElementDefinition findContext(StructureDefinition sd, String context, String message) throws Exception {
@@ -861,8 +871,10 @@ public class IgSpreadsheetParser {
     
     StructureDefinition base = this.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Extension");
     List<String> errors = new ArrayList<String>();
-    new ProfileUtilities(this.context, issues, null).sortDifferential(base, ex, "extension "+ex.getUrl(), errors);
+    ProfileUtilities utils = new ProfileUtilities(this.context, issues, null);
+    utils.sortDifferential(base, ex, "extension "+ex.getUrl(), errors);
     assert(errors.size() == 0);
+    utils.setIds(ex, ex.getName());
     return row;
   }
 
