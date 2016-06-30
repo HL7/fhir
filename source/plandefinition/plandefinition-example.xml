@@ -7,55 +7,43 @@
   </text>
 
 	<!-- The referral request here is only partially specified, additional information will be provided from context, see the action definition below -->
-	<!--contained>
-		<ReferralDefinition>
-			<id value="referralDefinition"/>
-			<type>
-				<coding>
-					<code value="306206005"/>
-				</coding>
-			</type>
-			<specialty>
-				<coding>
-					<code value="261QM0850X"/>
-				</coding>
-			</specialty>
-			<description value="refer to primary care-mental health integrated care program for evaluation and treatment of mental health conditions now"/>
-			<serviceRequested>
-				<coding>
-					<code value="385893007"/>
-				</coding>
-			</serviceRequested>
-		</ReferralDefinition>
-	</contained-->
-	<!--<contained>
+	<contained>
 		<ActivityDefinition>
-			<id value="activityDefinition"/>-->
-			<!--category value="referral"/>--> <!-- TODO: Cannot determine where this definition is coming from... -->
-			<!--<category value="drug"/>
+			<id value="referralToMentalHealthCare"/>
+			<status value="draft"/>
+			<description value="refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now"/>
+			<relatedResource>
+				<type value="citation"/>
+				<document>
+					<url value="blah blah blah"/>
+					<title value="citation title"/>
+				</document>
+				<resource>
+					<reference value="blah blah blah"/> <!-- DocumentReference -->
+					<display value="citation title"/>
+				</resource>
+			</relatedResource>
+			<category value="referral"/>
 			<code>
-				<coding>-->
+				<coding>
 					<!-- Error: Connection to http://localhost:960 refused -->
 					<!--<system value="http://snomed.info/sct"/>-->
-					<!--<code value="306206005"/>
+					<code value="306206005"/>
 				</coding>
 			</code>
-			<timingTiming>
+			<!-- Specifying this this way results in a null reference exception in the validator -->
+			<!--timingTiming>
 				<event>
 					<extension url="http://fhir.org/cql-expression">
 						<valueString value="Now()"/>
 					</extension>
 				</event>
-			</timingTiming>
+			</timingTiming-->
 			<participantType value="practitioner"/>
-			<description value="refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now"/>-->
-			<!--customization>
-				<path value="specialty"/>
-				<expression value="Code '261QM0850X' from &quot;urn:oid:2.16.840.1.113883.11.19462&quot;"/>
-			</customization-->
-		<!--</ActivityDefinition>
-	</contained>-->
-	<!--contained>
+		</ActivityDefinition>
+	</contained>
+	<!--
+	<contained>
 		<MedicationOrderDefinition>
 			<id value="citalopramPrescription"/>
 			<medicationReference>
@@ -90,23 +78,23 @@
 				</quantity>
 			</dispenseRequest>
 		</MedicationOrderDefinition>
-	</contained-->
-	<!--<contained>
+	</contained> -->
+	<contained>
 		<Medication>
 			<id value="citalopramMedication"/>
 			<code>
-				<coding>-->
+				<coding>
 					<!-- Error: Connection to http://localhost:960 refused -->
-					<!--<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+					<!--<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>-->
 					<code value="200371"/>
 				</coding>
 				<text value="citalopram"/>
 			</code>
 			<product>
 				<form>
-					<coding>-->
+					<coding>
 						<!-- Error: Connection to http://localhost:960 refused -->
-						<!--<system value="http://snomed.info/sct"/>
+						<!--<system value="http://snomed.info/sct"/>-->
 						<code value="385055001"/>
 						<display value="Tablet dose form"/>
 					</coding>
@@ -134,15 +122,15 @@
 		<Substance>
 			<id value="citalopramSubstance"/>
 			<code>
-				<coding>-->
+				<coding>
 					<!-- Error: Connection to http://localhost:960 refused -->
-					<!--<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+					<!--<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>-->
 					<code value="2556"/>
 				</coding>
 				<text value="citalopram"/>
 			</code>
 		</Substance>
-	</contained>-->
+	</contained>
 	
 	<identifier>
 	  <use value="official"/>
@@ -269,10 +257,10 @@
 	
 	<!-- Actions -->
 	<!-- Suicide Risk Assessment and Outpatient Management -->
-	<!--<actionDefinition>
-		<title value="Suicide Risk Assessment and Outpatient Management"/>-->
+	<actionDefinition>
+		<title value="Suicide Risk Assessment and Outpatient Management"/>
 		<!-- Consults and Referrals -->
-		<!--<actionDefinition>
+		<actionDefinition>
 			<title value="Consults and Referrals"/>
 			<behavior>
 				<type><code value="grouping-behavior"/></type>
@@ -281,48 +269,21 @@
 			<behavior>
 				<type><code value="selection-behavior"/></type>
 				<value><code value="any"/></value>
-			</behavior>-->
-
-			<!-- Action specified conceptually inline -->
-			<!--<actionDefinition>-->
+			</behavior>
+			<actionDefinition>
 				<!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now -->
-				<!--<textEquivalent value="Refer to outpatient mental health program for evaluation and treatment of mental health conditions now"/>
+				<textEquivalent value="Refer to outpatient mental health program for evaluation and treatment of mental health conditions now"/>
 				<activityDefinition>
-					<reference value="activityDefinition"/>
+					<reference value="#referralToMentalHealthCare"/>
 				</activityDefinition>
-					<customization>
-						<path value="specialty"/>
-						<expression value="Code '261QM0850X' from &quot;urn:oid:2.16.840.1.113883.11.19462&quot;"/>
-					</customization>
-					<customization>
-						<path value="fulfillmentTime"/>
-						<expression value="ReferralRequestFulfillmentTime"/>
-					</customization>
-					<customization>
-						<path value="patient"/>
-						<expression value="Patient"/>
-					</customization>
-					<customization>
-						<path value="requester"/>
-						<expression value="Practitioner"/>
-					</customization>
-					<customization>
-						<path value="reason"/>
-						<expression value="RiskAssessmentScore"/>
-					</customization>
-					<customization>
-						<path value="supportingInformation"/>
-						<expression value="RiskAssessment"/>
-					</customization>
-			</actionDefinition>-->
-
-			<!-- Action specified as an ActivityDefinition or ReferralDefinition resource -->
-			<!--<actionDefinition>-->
-				<!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now -->
-				<!--<textEquivalent value="Refer to outpatient mental health program for evaluation and treatment of mental health conditions now"/>
-				<activityDefinition>
-					<reference value="#referralDefinition"/>
-				</activityDefinition>
+				<customization>
+					<path value="timing.event"/>
+					<expression value="Now()"/>
+				</customization>
+				<customization>
+					<path value="specialty"/>
+					<expression value="Code '261QM0850X' from &quot;urn:oid:2.16.840.1.113883.11.19462&quot;"/>
+				</customization>
 				<customization>
 					<path value="fulfillmentTime"/>
 					<expression value="ReferralRequestFulfillmentTime"/>
@@ -344,10 +305,9 @@
 					<expression value="RiskAssessment"/>
 				</customization>
 			</actionDefinition>
-
-		</actionDefinition>-->
+		</actionDefinition>
 		<!-- Medications -->
-		<!--<actionDefinition>
+		<actionDefinition>
 			<title value="Medications"/>
 			<behavior>
 				<type><code value="grouping-behavior"/></type>
@@ -357,10 +317,10 @@
 				<type><code value="selection-behavior"/></type>
 				<value><code value="at-most-one"/></value>
 			</behavior>
-			<actionDefinition>-->
+			<actionDefinition>
 
 				<!-- First-Line Antidepressants -->
-				<!--<title value="First-Line Antidepressants"/>
+				<title value="First-Line Antidepressants"/>
 				<supportingEvidence>
 					<contentType value="text/html"/>
 					<url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
@@ -374,9 +334,9 @@
 					<type><code value="selection-behavior"/></type>
 					<value><code value="at-most-one"/></value>
 				</behavior>
-				<actionDefinition>-->
+				<actionDefinition>
 					<!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) -->
-					<!--<title value="Selective Serotonin Reuptake Inhibitors (Choose a mazimum of one or document reasons for exception)"/>
+					<title value="Selective Serotonin Reuptake Inhibitors (Choose a mazimum of one or document reasons for exception)"/>
 					<documentation>
 						<contentType value="text/html"/>
 						<url value="http://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6daeb45c-451d-b135-bf8f-2d6dff4b6b01"/>
@@ -390,70 +350,12 @@
 						<type><code value="selection-behavior"/></type>
 						<value><code value="at-most-one"/></value>
 					</behavior>
-					<actionDefinition>-->
+					<actionDefinition>
 						<!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) -->
-						<!--<textEquivalent value="citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills)"/>-->
+						<textEquivalent value="citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills)"/>
 
-						<!-- Activity inline as conceptual elements -->
 						<!--
-						<activity>
-							<category value="medication"/>
-							<medicationReference>
-								<reference value="#citalopramMedication"/>
-							</medicationReference>
-							<dosageInstruction>
-								<text value="1 tablet oral 1 time daily"/>
-								<timing>
-									<repeat>
-										<frequency value="1"/>
-										<period value="1"/>
-										<periodUnit value="d"/>
-									</repeat>
-								</timing>
-								<route>
-									<coding>
-										<code value="26643006"/>
-										<display value="Oral route (qualifier value)"/>
-									</coding>
-									<text value="Oral route (qualifier value)"/>
-								</route>
-								<doseQuantity>
-									<value value="1"/>
-									<unit value="{tbl}"/>
-								</doseQuantity>
-							</dosageInstruction>
-							<dispenseRequest>
-								<numberOfRepeatsAllowed value="3"/>
-								<quantity>
-									<value value="30"/>
-									<unit value="{tbl}"/>
-								</quantity>
-							</dispenseRequest>
-							<customization>
-								<path value="status"/>
-								<expression value="'draft'"/>
-							</customization>
-							<customization>
-								<path value="patient"/>
-								<expression value="Patient"/>
-							</customization>
-							<customization>
-								<path value="prescriber"/>
-								<expression value="Practitioner"/>
-							</customization>
-							<customization>
-								<path value="reasonCode"/>
-								<expression value="RiskAssessmentScore"/>
-							</customization>
-							<customization>
-								<path value="reasonReference"/>
-								<expression value="RiskAssessment"/>
-							</customization>
-						</activity>
-						-->
-						
-						<!-- Activity as a specific definitional resource -->
-						<!--<activityDefinition>
+						<activityDefinition>
 							<reference value="#citalopramPrescription"/>
 						</activityDefinition>
 						<customization>
@@ -476,45 +378,46 @@
 							<path value="reasonReference"/>
 							<expression value="RiskAssessment"/>
 						</customization>
+						-->
 
 					</actionDefinition>
-					<actionDefinition>-->
+					<actionDefinition>
 						<!-- escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) -->
-						<!--<textEquivalent value="escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>-->
+						<textEquivalent value="escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
 						<!-- Follows pattern established above -->
-					<!--</actionDefinition>
-					<actionDefinition>-->
+					</actionDefinition>
+					<actionDefinition>
 						<!-- fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills) -->
-						<!--<textEquivalent value="fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills)"/>-->
+						<textEquivalent value="fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills)"/>
 						<!-- Follows pattern established above -->
-					<!--</actionDefinition>
-					<actionDefinition>-->
+					</actionDefinition>
+					<actionDefinition>
 						<!-- paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) -->
-						<!--<textEquivalent value="paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>-->
+						<textEquivalent value="paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
 						<!-- Follows pattern established above -->
-					<!--</actionDefinition>
-					<actionDefinition>-->
+					</actionDefinition>
+					<actionDefinition>
 						<!-- sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) -->
-						<!--<textEquivalent value="sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>-->
+						<textEquivalent value="sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
 						<!-- Follows pattern established above -->
-					<!--</actionDefinition>
+					</actionDefinition>
 				</actionDefinition>
-				<actionDefinition>-->
+				<actionDefinition>
 					<!-- Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) -->
-					<!--<textEquivalent value="Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception)"/>-->
+					<textEquivalent value="Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception)"/>
 					<!-- Follows pattern established above -->
-				<!--</actionDefinition>
-				<actionDefinition>-->
+				</actionDefinition>
+				<actionDefinition>
 					<!-- Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception) -->
-					<!--<textEquivalent value="Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception)"/>-->
+					<textEquivalent value="Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception)"/>
 					<!-- Follows pattern established above -->
-				<!--</actionDefinition>
-				<actionDefinition>-->
+				</actionDefinition>
+				<actionDefinition>
 					<!-- Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception) -->
-					<!--<textEquivalent value="Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception)"/>-->
+					<textEquivalent value="Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception)"/>
 					<!-- Follows pattern established above -->
-				<!--</actionDefinition>
+				</actionDefinition>
 			</actionDefinition>
 		</actionDefinition>
-	</actionDefinition>-->
+	</actionDefinition>
 </PlanDefinition>
