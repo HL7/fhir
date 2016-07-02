@@ -476,6 +476,23 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         }
         write(" }");
       }
+      
+      Set<String> targets = sp.getWorkingTargets();
+      if (targets != null && !targets.isEmpty() && !targets.contains("Any")) {
+        write(", target={");
+        boolean first = true;
+        for (String nextTarget : new TreeSet<String>(targets)) {
+          if (first) {
+            first = false;
+          } else {
+            write(", ");
+          }
+          write(nextTarget);
+          write(".class");
+        }
+        write(" }");
+      }
+      
     }
     
     write(" )\r\n");
@@ -1778,8 +1795,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     
     if (HAPI_16) {
       if (e.getBinding() != null) {
-        if (isNotBlank(e.getBinding().getUri())) {
-          write(indent+"@ca.uhn.fhir.model.api.annotation.Binding(valueSet=\"" + e.getBinding().getUri() + "\")\r\n");
+        if (e.getBinding().getValueSet() != null && isNotBlank(e.getBinding().getValueSet().getUrl())) {
+          write(indent+"@ca.uhn.fhir.model.api.annotation.Binding(valueSet=\"" + e.getBinding().getValueSet().getUrl() + "\")\r\n");
         }
       }
     }
