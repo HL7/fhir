@@ -2494,8 +2494,13 @@ public class Publisher implements URIResolver, SectionNumberer {
       if (sd.hasUserData("path"))
         paths.addProperty(sd.getUrl(), sd.getUserString("path").replace("\\", "/"));
     }
+    for (String s : page.getCodeSystems().keySet()) {
+      CodeSystem cs = page.getCodeSystems().get(s);
+      if (cs == null)
+        System.out.println("No code system for "+s);
+    }
     for (CodeSystem cs : page.getCodeSystems().values()) {
-      if (cs.hasUserData("path"))
+      if (cs != null && cs.hasUserData("path"))
         paths.addProperty(cs.getUrl(), cs.getUserString("path").replace("\\", "/"));
     }
     for (ValueSet vs : page.getValueSets().values()) {
