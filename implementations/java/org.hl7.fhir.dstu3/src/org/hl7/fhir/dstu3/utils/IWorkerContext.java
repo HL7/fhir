@@ -3,6 +3,7 @@ package org.hl7.fhir.dstu3.utils;
 import java.util.List;
 import java.util.Set;
 
+import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.ParserType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
@@ -193,8 +194,9 @@ public interface IWorkerContext {
    * 
    * @param inc
    * @return
+   * @throws FHIRException 
    */
-  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc);
+  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws FHIRException;
   
   public class ValidationResult {
     private ConceptDefinitionComponent definition;

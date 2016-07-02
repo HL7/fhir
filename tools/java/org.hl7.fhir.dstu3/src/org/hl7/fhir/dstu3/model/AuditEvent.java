@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jun 29, 2016 09:39+1000 for FHIR v1.4.0
+// Generated on Fri, Jul 1, 2016 08:26+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -308,7 +308,7 @@ public class AuditEvent extends DomainResource {
       }
     }
 
-    public enum AuditEventParticipantNetworkType {
+    public enum AuditEventAgentNetworkType {
         /**
          * The machine name, including DNS name.
          */
@@ -333,7 +333,7 @@ public class AuditEvent extends DomainResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static AuditEventParticipantNetworkType fromCode(String codeString) throws FHIRException {
+        public static AuditEventAgentNetworkType fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("1".equals(codeString))
@@ -349,7 +349,7 @@ public class AuditEvent extends DomainResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown AuditEventParticipantNetworkType code '"+codeString+"'");
+          throw new FHIRException("Unknown AuditEventAgentNetworkType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -393,55 +393,55 @@ public class AuditEvent extends DomainResource {
         }
     }
 
-  public static class AuditEventParticipantNetworkTypeEnumFactory implements EnumFactory<AuditEventParticipantNetworkType> {
-    public AuditEventParticipantNetworkType fromCode(String codeString) throws IllegalArgumentException {
+  public static class AuditEventAgentNetworkTypeEnumFactory implements EnumFactory<AuditEventAgentNetworkType> {
+    public AuditEventAgentNetworkType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("1".equals(codeString))
-          return AuditEventParticipantNetworkType._1;
+          return AuditEventAgentNetworkType._1;
         if ("2".equals(codeString))
-          return AuditEventParticipantNetworkType._2;
+          return AuditEventAgentNetworkType._2;
         if ("3".equals(codeString))
-          return AuditEventParticipantNetworkType._3;
+          return AuditEventAgentNetworkType._3;
         if ("4".equals(codeString))
-          return AuditEventParticipantNetworkType._4;
+          return AuditEventAgentNetworkType._4;
         if ("5".equals(codeString))
-          return AuditEventParticipantNetworkType._5;
-        throw new IllegalArgumentException("Unknown AuditEventParticipantNetworkType code '"+codeString+"'");
+          return AuditEventAgentNetworkType._5;
+        throw new IllegalArgumentException("Unknown AuditEventAgentNetworkType code '"+codeString+"'");
         }
-        public Enumeration<AuditEventParticipantNetworkType> fromType(Base code) throws FHIRException {
+        public Enumeration<AuditEventAgentNetworkType> fromType(Base code) throws FHIRException {
           if (code == null || code.isEmpty())
             return null;
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("1".equals(codeString))
-          return new Enumeration<AuditEventParticipantNetworkType>(this, AuditEventParticipantNetworkType._1);
+          return new Enumeration<AuditEventAgentNetworkType>(this, AuditEventAgentNetworkType._1);
         if ("2".equals(codeString))
-          return new Enumeration<AuditEventParticipantNetworkType>(this, AuditEventParticipantNetworkType._2);
+          return new Enumeration<AuditEventAgentNetworkType>(this, AuditEventAgentNetworkType._2);
         if ("3".equals(codeString))
-          return new Enumeration<AuditEventParticipantNetworkType>(this, AuditEventParticipantNetworkType._3);
+          return new Enumeration<AuditEventAgentNetworkType>(this, AuditEventAgentNetworkType._3);
         if ("4".equals(codeString))
-          return new Enumeration<AuditEventParticipantNetworkType>(this, AuditEventParticipantNetworkType._4);
+          return new Enumeration<AuditEventAgentNetworkType>(this, AuditEventAgentNetworkType._4);
         if ("5".equals(codeString))
-          return new Enumeration<AuditEventParticipantNetworkType>(this, AuditEventParticipantNetworkType._5);
-        throw new FHIRException("Unknown AuditEventParticipantNetworkType code '"+codeString+"'");
+          return new Enumeration<AuditEventAgentNetworkType>(this, AuditEventAgentNetworkType._5);
+        throw new FHIRException("Unknown AuditEventAgentNetworkType code '"+codeString+"'");
         }
-    public String toCode(AuditEventParticipantNetworkType code) {
-      if (code == AuditEventParticipantNetworkType._1)
+    public String toCode(AuditEventAgentNetworkType code) {
+      if (code == AuditEventAgentNetworkType._1)
         return "1";
-      if (code == AuditEventParticipantNetworkType._2)
+      if (code == AuditEventAgentNetworkType._2)
         return "2";
-      if (code == AuditEventParticipantNetworkType._3)
+      if (code == AuditEventAgentNetworkType._3)
         return "3";
-      if (code == AuditEventParticipantNetworkType._4)
+      if (code == AuditEventAgentNetworkType._4)
         return "4";
-      if (code == AuditEventParticipantNetworkType._5)
+      if (code == AuditEventAgentNetworkType._5)
         return "5";
       return "?";
       }
-    public String toSystem(AuditEventParticipantNetworkType code) {
+    public String toSystem(AuditEventAgentNetworkType code) {
       return code.getSystem();
       }
     }
@@ -449,10 +449,10 @@ public class AuditEvent extends DomainResource {
     @Block()
     public static class AuditEventAgentComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.
+         * Specification of the role(s) the user plays when performing the event. Additional may contain security role codes that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.
          */
         @Child(name = "role", type = {CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Agent role in the event", formalDefinition="Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context." )
+        @Description(shortDefinition="Agent role in the event", formalDefinition="Specification of the role(s) the user plays when performing the event. Additional may contain security role codes that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context." )
         protected List<CodeableConcept> role;
 
         /**
@@ -553,7 +553,7 @@ public class AuditEvent extends DomainResource {
       }
 
         /**
-         * @return {@link #role} (Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.)
+         * @return {@link #role} (Specification of the role(s) the user plays when performing the event. Additional may contain security role codes that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.)
          */
         public List<CodeableConcept> getRole() { 
           if (this.role == null)
@@ -1019,7 +1019,7 @@ public class AuditEvent extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("role", "CodeableConcept", "Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("role", "CodeableConcept", "Specification of the role(s) the user plays when performing the event. Additional may contain security role codes that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("reference", "Reference(Practitioner|Organization|Device|Patient|RelatedPerson)", "Direct reference to a resource that identifies the agent.", 0, java.lang.Integer.MAX_VALUE, reference));
           childrenList.add(new Property("userId", "Identifier", "Unique identifier for the user actively participating in the event.", 0, java.lang.Integer.MAX_VALUE, userId));
           childrenList.add(new Property("altId", "string", "Alternative agent Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g. single sign-on), if available.", 0, java.lang.Integer.MAX_VALUE, altId));
@@ -1262,9 +1262,9 @@ public class AuditEvent extends DomainResource {
          */
         @Child(name = "type", type = {CodeType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The type of network access point", formalDefinition="An identifier for the type of network access point that originated the audit event." )
-        protected Enumeration<AuditEventParticipantNetworkType> type;
+        protected Enumeration<AuditEventAgentNetworkType> type;
 
-        private static final long serialVersionUID = -1355220390L;
+        private static final long serialVersionUID = -160715924L;
 
     /**
      * Constructor
@@ -1325,12 +1325,12 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #type} (An identifier for the type of network access point that originated the audit event.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<AuditEventParticipantNetworkType> getTypeElement() { 
+        public Enumeration<AuditEventAgentNetworkType> getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventAgentNetworkComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Enumeration<AuditEventParticipantNetworkType>(new AuditEventParticipantNetworkTypeEnumFactory()); // bb
+              this.type = new Enumeration<AuditEventAgentNetworkType>(new AuditEventAgentNetworkTypeEnumFactory()); // bb
           return this.type;
         }
 
@@ -1345,7 +1345,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @param value {@link #type} (An identifier for the type of network access point that originated the audit event.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public AuditEventAgentNetworkComponent setTypeElement(Enumeration<AuditEventParticipantNetworkType> value) { 
+        public AuditEventAgentNetworkComponent setTypeElement(Enumeration<AuditEventAgentNetworkType> value) { 
           this.type = value;
           return this;
         }
@@ -1353,19 +1353,19 @@ public class AuditEvent extends DomainResource {
         /**
          * @return An identifier for the type of network access point that originated the audit event.
          */
-        public AuditEventParticipantNetworkType getType() { 
+        public AuditEventAgentNetworkType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value An identifier for the type of network access point that originated the audit event.
          */
-        public AuditEventAgentNetworkComponent setType(AuditEventParticipantNetworkType value) { 
+        public AuditEventAgentNetworkComponent setType(AuditEventAgentNetworkType value) { 
           if (value == null)
             this.type = null;
           else {
             if (this.type == null)
-              this.type = new Enumeration<AuditEventParticipantNetworkType>(new AuditEventParticipantNetworkTypeEnumFactory());
+              this.type = new Enumeration<AuditEventAgentNetworkType>(new AuditEventAgentNetworkTypeEnumFactory());
             this.type.setValue(value);
           }
           return this;
@@ -1381,7 +1381,7 @@ public class AuditEvent extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1147692044: /*address*/ return this.address == null ? new Base[0] : new Base[] {this.address}; // StringType
-        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<AuditEventParticipantNetworkType>
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<AuditEventAgentNetworkType>
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1394,7 +1394,7 @@ public class AuditEvent extends DomainResource {
           this.address = castToString(value); // StringType
           break;
         case 3575610: // type
-          this.type = new AuditEventParticipantNetworkTypeEnumFactory().fromType(value); // Enumeration<AuditEventParticipantNetworkType>
+          this.type = new AuditEventAgentNetworkTypeEnumFactory().fromType(value); // Enumeration<AuditEventAgentNetworkType>
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -1406,7 +1406,7 @@ public class AuditEvent extends DomainResource {
         if (name.equals("address"))
           this.address = castToString(value); // StringType
         else if (name.equals("type"))
-          this.type = new AuditEventParticipantNetworkTypeEnumFactory().fromType(value); // Enumeration<AuditEventParticipantNetworkType>
+          this.type = new AuditEventAgentNetworkTypeEnumFactory().fromType(value); // Enumeration<AuditEventAgentNetworkType>
         else
           super.setProperty(name, value);
       }
@@ -1415,7 +1415,7 @@ public class AuditEvent extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1147692044: throw new FHIRException("Cannot make property address as it is not a complex type"); // StringType
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<AuditEventParticipantNetworkType>
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<AuditEventAgentNetworkType>
         default: return super.makeProperty(hash, name);
         }
 
@@ -1763,18 +1763,18 @@ public class AuditEvent extends DomainResource {
          * Identifies a specific instance of the entity. The reference should always be version specific.
          */
         @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Specific instance of object (e.g. versioned)", formalDefinition="Identifies a specific instance of the entity. The reference should always be version specific." )
+        @Description(shortDefinition="Specific instance of object", formalDefinition="Identifies a specific instance of the entity. The reference should always be version specific." )
         protected Identifier identifier;
 
         /**
-         * Identifies a specific instance of the entity. The reference should always be version specific.
+         * Identifies a specific instance of the entity. The reference should be version specific.
          */
         @Child(name = "reference", type = {}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Specific instance of resource (e.g. versioned)", formalDefinition="Identifies a specific instance of the entity. The reference should always be version specific." )
+        @Description(shortDefinition="Specific instance of resource", formalDefinition="Identifies a specific instance of the entity. The reference should be version specific." )
         protected Reference reference;
 
         /**
-         * The actual object that is the target of the reference (Identifies a specific instance of the entity. The reference should always be version specific.)
+         * The actual object that is the target of the reference (Identifies a specific instance of the entity. The reference should be version specific.)
          */
         protected Resource referenceTarget;
 
@@ -1782,7 +1782,7 @@ public class AuditEvent extends DomainResource {
          * The type of the object that was involved in this audit event.
          */
         @Child(name = "type", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Type of object involved", formalDefinition="The type of the object that was involved in this audit event." )
+        @Description(shortDefinition="Type of entity involved", formalDefinition="The type of the object that was involved in this audit event." )
         protected Coding type;
 
         /**
@@ -1796,14 +1796,14 @@ public class AuditEvent extends DomainResource {
          * Identifier for the data life-cycle stage for the entity.
          */
         @Child(name = "lifecycle", type = {Coding.class}, order=5, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Life-cycle stage for the object", formalDefinition="Identifier for the data life-cycle stage for the entity." )
+        @Description(shortDefinition="Life-cycle stage for the entity", formalDefinition="Identifier for the data life-cycle stage for the entity." )
         protected Coding lifecycle;
 
         /**
          * Denotes security labels for the identified entity.
          */
         @Child(name = "securityLabel", type = {Coding.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Security labels applied to the object", formalDefinition="Denotes security labels for the identified entity." )
+        @Description(shortDefinition="Security labels on the entity", formalDefinition="Denotes security labels for the identified entity." )
         protected List<Coding> securityLabel;
 
         /**
@@ -1868,7 +1868,7 @@ public class AuditEvent extends DomainResource {
         }
 
         /**
-         * @return {@link #reference} (Identifies a specific instance of the entity. The reference should always be version specific.)
+         * @return {@link #reference} (Identifies a specific instance of the entity. The reference should be version specific.)
          */
         public Reference getReference() { 
           if (this.reference == null)
@@ -1884,7 +1884,7 @@ public class AuditEvent extends DomainResource {
         }
 
         /**
-         * @param value {@link #reference} (Identifies a specific instance of the entity. The reference should always be version specific.)
+         * @param value {@link #reference} (Identifies a specific instance of the entity. The reference should be version specific.)
          */
         public AuditEventEntityComponent setReference(Reference value) { 
           this.reference = value;
@@ -1892,14 +1892,14 @@ public class AuditEvent extends DomainResource {
         }
 
         /**
-         * @return {@link #reference} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies a specific instance of the entity. The reference should always be version specific.)
+         * @return {@link #reference} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies a specific instance of the entity. The reference should be version specific.)
          */
         public Resource getReferenceTarget() { 
           return this.referenceTarget;
         }
 
         /**
-         * @param value {@link #reference} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies a specific instance of the entity. The reference should always be version specific.)
+         * @param value {@link #reference} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies a specific instance of the entity. The reference should be version specific.)
          */
         public AuditEventEntityComponent setReferenceTarget(Resource value) { 
           this.referenceTarget = value;
@@ -2234,7 +2234,7 @@ public class AuditEvent extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "Identifies a specific instance of the entity. The reference should always be version specific.", 0, java.lang.Integer.MAX_VALUE, identifier));
-          childrenList.add(new Property("reference", "Reference(Any)", "Identifies a specific instance of the entity. The reference should always be version specific.", 0, java.lang.Integer.MAX_VALUE, reference));
+          childrenList.add(new Property("reference", "Reference(Any)", "Identifies a specific instance of the entity. The reference should be version specific.", 0, java.lang.Integer.MAX_VALUE, reference));
           childrenList.add(new Property("type", "Coding", "The type of the object that was involved in this audit event.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("role", "Coding", "Code representing the role the entity played in the event being audited.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("lifecycle", "Coding", "Identifier for the data life-cycle stage for the entity.", 0, java.lang.Integer.MAX_VALUE, lifecycle));
@@ -2728,17 +2728,17 @@ public class AuditEvent extends DomainResource {
     protected List<AuditEventAgentComponent> agent;
 
     /**
-     * Application systems and processes.
+     * The system that is reporting the event.
      */
     @Child(name = "source", type = {}, order=8, min=1, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Application systems and processes", formalDefinition="Application systems and processes." )
+    @Description(shortDefinition="Audit Event Reporter", formalDefinition="The system that is reporting the event." )
     protected AuditEventSourceComponent source;
 
     /**
      * Specific instances of data or objects that have been accessed.
      */
     @Child(name = "entity", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Specific instances of data or objects that have been accessed", formalDefinition="Specific instances of data or objects that have been accessed." )
+    @Description(shortDefinition="Data or objects used", formalDefinition="Specific instances of data or objects that have been accessed." )
     protected List<AuditEventEntityComponent> entity;
 
     private static final long serialVersionUID = 945153702L;
@@ -3136,7 +3136,7 @@ public class AuditEvent extends DomainResource {
     }
 
     /**
-     * @return {@link #source} (Application systems and processes.)
+     * @return {@link #source} (The system that is reporting the event.)
      */
     public AuditEventSourceComponent getSource() { 
       if (this.source == null)
@@ -3152,7 +3152,7 @@ public class AuditEvent extends DomainResource {
     }
 
     /**
-     * @param value {@link #source} (Application systems and processes.)
+     * @param value {@link #source} (The system that is reporting the event.)
      */
     public AuditEvent setSource(AuditEventSourceComponent value) { 
       this.source = value;
@@ -3222,7 +3222,7 @@ public class AuditEvent extends DomainResource {
         childrenList.add(new Property("outcomeDesc", "string", "A free text description of the outcome of the event.", 0, java.lang.Integer.MAX_VALUE, outcomeDesc));
         childrenList.add(new Property("purposeOfEvent", "Coding", "The purposeOfUse (reason) that was used during the event being recorded.", 0, java.lang.Integer.MAX_VALUE, purposeOfEvent));
         childrenList.add(new Property("agent", "", "An actor taking an active role in the event or activity that is logged.", 0, java.lang.Integer.MAX_VALUE, agent));
-        childrenList.add(new Property("source", "", "Application systems and processes.", 0, java.lang.Integer.MAX_VALUE, source));
+        childrenList.add(new Property("source", "", "The system that is reporting the event.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("entity", "", "Specific instances of data or objects that have been accessed.", 0, java.lang.Integer.MAX_VALUE, entity));
       }
 
@@ -3462,17 +3462,17 @@ public class AuditEvent extends DomainResource {
  /**
    * Search parameter: <b>entity-type</b>
    * <p>
-   * Description: <b>Type of object involved</b><br>
+   * Description: <b>Type of entity involved</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AuditEvent.entity.type</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="entity-type", path="AuditEvent.entity.type", description="Type of object involved", type="token" )
+  @SearchParamDefinition(name="entity-type", path="AuditEvent.entity.type", description="Type of entity involved", type="token" )
   public static final String SP_ENTITY_TYPE = "entity-type";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>entity-type</b>
    * <p>
-   * Description: <b>Type of object involved</b><br>
+   * Description: <b>Type of entity involved</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AuditEvent.entity.type</b><br>
    * </p>
@@ -3754,17 +3754,17 @@ public class AuditEvent extends DomainResource {
  /**
    * Search parameter: <b>entity</b>
    * <p>
-   * Description: <b>Specific instance of resource (e.g. versioned)</b><br>
+   * Description: <b>Specific instance of resource</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>AuditEvent.entity.reference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="entity", path="AuditEvent.entity.reference", description="Specific instance of resource (e.g. versioned)", type="reference" )
+  @SearchParamDefinition(name="entity", path="AuditEvent.entity.reference", description="Specific instance of resource", type="reference" )
   public static final String SP_ENTITY = "entity";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>entity</b>
    * <p>
-   * Description: <b>Specific instance of resource (e.g. versioned)</b><br>
+   * Description: <b>Specific instance of resource</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>AuditEvent.entity.reference</b><br>
    * </p>
@@ -3780,17 +3780,17 @@ public class AuditEvent extends DomainResource {
  /**
    * Search parameter: <b>entity-id</b>
    * <p>
-   * Description: <b>Specific instance of object (e.g. versioned)</b><br>
+   * Description: <b>Specific instance of object</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AuditEvent.entity.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="entity-id", path="AuditEvent.entity.identifier", description="Specific instance of object (e.g. versioned)", type="token" )
+  @SearchParamDefinition(name="entity-id", path="AuditEvent.entity.identifier", description="Specific instance of object", type="token" )
   public static final String SP_ENTITY_ID = "entity-id";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>entity-id</b>
    * <p>
-   * Description: <b>Specific instance of object (e.g. versioned)</b><br>
+   * Description: <b>Specific instance of object</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AuditEvent.entity.identifier</b><br>
    * </p>

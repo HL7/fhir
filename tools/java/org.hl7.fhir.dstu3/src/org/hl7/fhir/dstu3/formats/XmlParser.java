@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Jun 29, 2016 09:39+1000 for FHIR v1.4.0
+// Generated on Fri, Jul 1, 2016 08:26+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -2329,7 +2329,7 @@ public class XmlParser extends XmlParserBase {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("address")) {
         res.setAddressElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
-        res.setTypeElement(parseEnumeration(xpp, AuditEvent.AuditEventParticipantNetworkType.NULL, new AuditEvent.AuditEventParticipantNetworkTypeEnumFactory()));
+        res.setTypeElement(parseEnumeration(xpp, AuditEvent.AuditEventAgentNetworkType.NULL, new AuditEvent.AuditEventAgentNetworkTypeEnumFactory()));
       } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
     return true;
@@ -20508,7 +20508,7 @@ public class XmlParser extends XmlParserBase {
         composeString("address", element.getAddressElement());
       }
       if (element.hasTypeElement())
-        composeEnumeration("type", element.getTypeElement(), new AuditEvent.AuditEventParticipantNetworkTypeEnumFactory());
+        composeEnumeration("type", element.getTypeElement(), new AuditEvent.AuditEventAgentNetworkTypeEnumFactory());
   }
 
   protected void composeAuditEventAuditEventSourceComponent(String name, AuditEvent.AuditEventSourceComponent element) throws IOException {

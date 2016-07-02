@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Jun 29, 2016 09:39+1000 for FHIR v1.4.0
+// Generated on Fri, Jul 1, 2016 08:26+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -2367,7 +2367,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_address"))
       parseElementProperties(json.getAsJsonObject("_address"), res.getAddressElement());
     if (json.has("type"))
-      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), AuditEvent.AuditEventParticipantNetworkType.NULL, new AuditEvent.AuditEventParticipantNetworkTypeEnumFactory()));
+      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), AuditEvent.AuditEventAgentNetworkType.NULL, new AuditEvent.AuditEventAgentNetworkTypeEnumFactory()));
     if (json.has("_type"))
       parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
   }
@@ -21593,8 +21593,8 @@ public class JsonParser extends JsonParserBase {
         composeStringExtras("address", element.getAddressElement(), false);
       }
       if (element.hasTypeElement()) {
-        composeEnumerationCore("type", element.getTypeElement(), new AuditEvent.AuditEventParticipantNetworkTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getTypeElement(), new AuditEvent.AuditEventParticipantNetworkTypeEnumFactory(), false);
+        composeEnumerationCore("type", element.getTypeElement(), new AuditEvent.AuditEventAgentNetworkTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getTypeElement(), new AuditEvent.AuditEventAgentNetworkTypeEnumFactory(), false);
       }
   }
 

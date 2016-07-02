@@ -245,8 +245,9 @@ public class Element extends Base {
 
   @Override
 	public boolean hasPrimitiveValue() {
-		return (property.isPrimitive(name) || property.IsLogicalAndHasPrimitiveValue(name));
+		return property.isPrimitive(name) || property.IsLogicalAndHasPrimitiveValue(name);
 	}
+
 
 	@Override
 	public String primitiveValue() {
