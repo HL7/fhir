@@ -42,6 +42,7 @@ import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.Constants;
+import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
@@ -137,6 +138,7 @@ public class Publisher implements IGLogger {
 
   private String configFile;
   private String txServer = "http://fhir3.healthintersections.com.au/open";
+//  private String txServer = "http://local.healthintersections.com.au:960/open";
   private boolean watch;
 
   private GenerationTool tool;
@@ -177,9 +179,9 @@ public class Publisher implements IGLogger {
 
   private IGLogger logger = this;
 
-  public void execute() throws Exception {
+  public void execute(boolean clearCache) throws Exception {
     globalStart = System.nanoTime();
-    initialize();
+    initialize(clearCache);
     log("Load Implementation Guide");
     load();
 
@@ -218,15 +220,22 @@ public class Publisher implements IGLogger {
       log("Done");
   }
 
-  private void generateNarratives() throws IOException {
-//    NarrativeGenerator gen = new NarrativeGenerator("", "", context);
-//    for (FetchedFile f : fileList) {
-//      for (FetchedResource r : f.getResources()) {
-//        if (!hasNarrative(r.getElement())) {
-//          gen.generate(r.getElement(), true);
-//        }
-//      }
-//    }
+  private void generateNarratives() throws IOException, EOperationOutcome, FHIRException {
+    dlog("gen narratives");
+    NarrativeGenerator gen = new NarrativeGenerator("", "", context);
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        dlog("narrative for "+f.getName()+" : "+r.getId());
+        if (r.getResource() != null) {
+          if (r.getResource() instanceof DomainResource && ((DomainResource) r.getResource()).getText().hasDiv())
+            gen.generate((DomainResource) r.getResource());
+        } else {
+          if ("http://hl7.org/fhir/StructureDefinition/DomainResource".equals(r.getElement().getProperty().getStructure().getBaseDefinition()) && !hasNarrative(r.getElement())) {
+            gen.generate(r.getElement(), true);
+          }
+        }
+      }
+    }
   }
 
   private boolean hasNarrative(Element element) {
@@ -365,7 +374,7 @@ public class Publisher implements IGLogger {
     return res;  
   }
 
-  private void initialize() throws Exception {
+  private void initialize(boolean clearCache) throws Exception {
     first = true;
     log("Load Configuration");
 
@@ -414,6 +423,11 @@ public class Publisher implements IGLogger {
     Utilities.createDirectory(vsCache);
     context.initTS(vsCache, txServer);
     context.connectToTSServer(txServer);
+    if (clearCache) {
+      log("Terminology Cache is at "+vsCache+". Clearing now");
+      Utilities.clearDirectory(vsCache);
+    } else 
+      log("Terminology Cache is at "+vsCache);
     // ;
     validator = new InstanceValidator(context);
     validator.setAllowXsiLocation(true);
@@ -759,8 +773,10 @@ public class Publisher implements IGLogger {
   }
 
   private void load(String type) throws Exception {
+    dlog("process type: "+type);
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
+        dlog("process res: "+r.getId());
         if (r.getElement().fhirType().equals(type)) {
           if (!r.isValidated()) 
             validate(f, r);
@@ -776,6 +792,10 @@ public class Publisher implements IGLogger {
         }
       }
     }
+  }
+
+  private void dlog(String string) {
+//    logMessage("   - "+string);
   }
 
   private void generateAdditionalExamples() throws Exception {
@@ -851,7 +871,7 @@ public class Publisher implements IGLogger {
   private void validate() throws Exception {
     for (FetchedFile f : fileList) {
       if (first)
-        log(" .. "+f.getName());
+        dlog(" .. "+f.getName());
       for (FetchedResource r : f.getResources()) {
         if (!r.isValidated()) {
           validate(f, r);
@@ -1105,7 +1125,7 @@ public class Publisher implements IGLogger {
   }
 
   private void generateOutputs(FetchedFile f) throws Exception {
-    log(" * "+f.getName());
+//    log(" * "+f.getName());
 
     if (f.isNoProcess()) {
       String dst = tempDir + f.getPath().substring(pagesDir.length());
@@ -1466,7 +1486,7 @@ public class Publisher implements IGLogger {
           self.setConfigFile(ig);
           self.setTxServer(getNamedParam(args, "-tx"));
           try {
-            self.execute();
+            self.execute(hasParam(args, "-resetTx"));
           } catch (Exception e) {
             System.out.println("Publishing Implementation Guide Failed: "+e.getMessage());
             System.out.println("");
@@ -1508,7 +1528,7 @@ public class Publisher implements IGLogger {
         System.out.println("For additional information, see http://wiki.hl7.org/index.php?title=Proposed_new_FHIR_IG_build_Process");
       } else 
         try {
-          self.execute();
+          self.execute(hasParam(args, "-resetTx"));
         } catch (Exception e) {
           System.out.println("Publishing Implementation Guide Failed: "+e.getMessage());
           System.out.println("");

@@ -93,7 +93,7 @@ public class FHIRToolingClient {
 		preferredResourceFormat = ResourceFormat.RESOURCE_XML;
     detectProxy();
     initialize(baseServiceUrl);
-	}
+  }
 
 	public void configureProxy(String proxyHost, int proxyPort) {
 		proxy = new HttpHost(proxyHost, proxyPort);

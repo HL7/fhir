@@ -269,10 +269,12 @@ public class IgSpreadsheetParser {
       sd.setStatus(ConformanceResourceStatus.DRAFT);
 
     StructureDefinition base = this.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Extension");
-    List<String> errors = new ArrayList<String>();
     ProfileUtilities utils = new ProfileUtilities(this.context, issues, null);
-    utils.sortDifferential(base, sd, "profile "+sd.getUrl(), errors);
-    assert(errors.size() == 0);
+    if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
+      List<String> errors = new ArrayList<String>();
+      utils.sortDifferential(base, sd, "profile "+sd.getUrl(), errors);
+      assert(errors.size() == 0);
+    }
     utils.setIds(sd, sd.getName());
   }
 

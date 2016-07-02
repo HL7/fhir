@@ -781,7 +781,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   // dom based version, for build program
-  public String generate(org.hl7.fhir.dstu3.elementmodel.Element er, boolean showCodeDetails) throws IOException {
+  public String generate(org.hl7.fhir.dstu3.elementmodel.Element er, boolean showCodeDetails) throws IOException, DefinitionException {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("p").addTag("b").addText("Generated Narrative"+(showCodeDetails ? " with Details" : ""));
     try {
@@ -2074,10 +2074,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
     new XhtmlComposer().compose(div, x);
   }
 
-  private void inject(org.hl7.fhir.dstu3.elementmodel.Element er, XhtmlNode x, NarrativeStatus status) {
+  private void inject(org.hl7.fhir.dstu3.elementmodel.Element er, XhtmlNode x, NarrativeStatus status) throws DefinitionException, IOException {
     org.hl7.fhir.dstu3.elementmodel.Element txt = er.getNamedChild("text");
     if (txt == null) {
-      txt = new org.hl7.fhir.dstu3.elementmodel.Element("text");
+      txt = new org.hl7.fhir.dstu3.elementmodel.Element("text", er.getProperty().getChild(null, "text"));
       int i = 0;
       while (i < er.getChildren().size() && (er.getChildren().get(i).getName().equals("id") || er.getChildren().get(i).getName().equals("meta") || er.getChildren().get(i).getName().equals("implicitRules") || er.getChildren().get(i).getName().equals("language")))
         i++;
@@ -2088,14 +2088,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
     org.hl7.fhir.dstu3.elementmodel.Element st = txt.getNamedChild("status");
     if (st == null) {
-      st = new org.hl7.fhir.dstu3.elementmodel.Element("status");
+      st = new org.hl7.fhir.dstu3.elementmodel.Element("status", txt.getProperty().getChild(null, "status"));
       txt.getChildren().add(0, st);
     }
     st.setValue(status.toCode());
     org.hl7.fhir.dstu3.elementmodel.Element div = txt.getNamedChild("div");
     if (div == null) {
-      div = new org.hl7.fhir.dstu3.elementmodel.Element("div");
+      div = new org.hl7.fhir.dstu3.elementmodel.Element("div", txt.getProperty().getChild(null, "div"));
       txt.getChildren().add(div);
+      div.setValue(new XhtmlComposer().compose(x));
     }
     div.setXhtml(x);
   }
@@ -2253,21 +2254,21 @@ public class NarrativeGenerator implements INarrativeGenerator {
    *
    * @param vs
    * @param codeSystems
+   * @throws FHIRException 
    * @throws Exception
    */
-  public void generate(ValueSet vs, boolean header) {
+  public void generate(ValueSet vs, boolean header) throws FHIRException {
     generate(vs, null, header);
   }
 
-  public void generate(ValueSet vs, ValueSet src, boolean header) {
+  public void generate(ValueSet vs, ValueSet src, boolean header) throws FHIRException {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     boolean hasExtensions;
     if (vs.hasExpansion()) {
       // for now, we just accept an expansion if there is one
       hasExtensions = generateExpansion(x, vs, src, header);
     } else {
-      Map<ConceptSetComponent, ValueSetExpansionComponent> expansionCache = new HashMap<ConceptSetComponent, ValueSetExpansionComponent>();
-      hasExtensions = generateComposition(x, vs, header, expansionCache);
+      hasExtensions = generateComposition(x, vs, header);
     }
     inject(vs, x, hasExtensions ? NarrativeStatus.EXTENSIONS :  NarrativeStatus.GENERATED);
   }
@@ -2734,7 +2735,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return mappings;
   }
 
-  private boolean generateComposition(XhtmlNode x, ValueSet vs, boolean header, Map<ConceptSetComponent, ValueSetExpansionComponent> expansionCache) {
+  private boolean generateComposition(XhtmlNode x, ValueSet vs, boolean header) throws FHIRException {
     boolean hasExtensions = false;
     if (header) {
       XhtmlNode h = x.addTag("h2");
@@ -2755,10 +2756,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
       AddVsRef(imp.getValue(), li);
     }
     for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
-      hasExtensions = genInclude(ul, inc, "Include", expansionCache) || hasExtensions;
+      hasExtensions = genInclude(ul, inc, "Include") || hasExtensions;
     }
     for (ConceptSetComponent exc : vs.getCompose().getExclude()) {
-      hasExtensions = genInclude(ul, exc, "Exclude", expansionCache) || hasExtensions;
+      hasExtensions = genInclude(ul, exc, "Exclude") || hasExtensions;
     }
     return hasExtensions;
   }
@@ -2800,7 +2801,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return prefix+ref;
   }
 
-  private boolean genInclude(XhtmlNode ul, ConceptSetComponent inc, String type, Map<ConceptSetComponent, ValueSetExpansionComponent> expansionCache) {
+  private boolean genInclude(XhtmlNode ul, ConceptSetComponent inc, String type) throws FHIRException {
     boolean hasExtensions = false;
     XhtmlNode li;
     li = ul.addTag("li");
@@ -2827,7 +2828,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         for (ConceptReferenceComponent c : inc.getConcept()) {
           XhtmlNode tr = t.addTag("tr");
           tr.addTag("td").addText(c.getCode());
-          ConceptDefinitionComponent cc = getConceptForCode(e, c.getCode(), inc, expansionCache);
+          ConceptDefinitionComponent cc = getConceptForCode(e, c.getCode(), inc);
 
           XhtmlNode td = tr.addTag("td");
           if (!Utilities.noString(c.getDisplay()))
@@ -2882,7 +2883,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return null;
   }
 
-  private ConceptDefinitionComponent getConceptForCode(CodeSystem e, String code, ConceptSetComponent inc, Map<ConceptSetComponent, ValueSetExpansionComponent> expansionCache) {
+  private ConceptDefinitionComponent getConceptForCode(CodeSystem e, String code, ConceptSetComponent inc) {
     // first, look in the code systems
     if (e == null)
     e = context.fetchCodeSystem(inc.getSystem());
@@ -2894,11 +2895,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
     
     if (!context.hasCache()) {
       ValueSetExpansionComponent vse;
-      if (!expansionCache.containsKey(inc.getSystem())) {
+      try {
         vse = context.expandVS(inc);
-        expansionCache.put(inc, vse);
-      } else
-        vse = expansionCache.get(inc);
+      } catch (FHIRException e1) {
+        return null;
+      }
       if (vse != null) {
         ConceptDefinitionComponent v = getConceptForCodeFromExpansion(vse.getContains(), code);
         if (v != null)

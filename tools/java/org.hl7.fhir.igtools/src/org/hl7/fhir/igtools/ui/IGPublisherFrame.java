@@ -232,7 +232,7 @@ public class IGPublisherFrame extends javax.swing.JFrame {
       pu.setConfigFile((String) cbxIGName.getSelectedItem());
       pu.setLogger(this);
       try {
-        pu.execute();
+        pu.execute(false);
         qa = pu.getQAFile();
       } catch (Exception e) {
         logMessage("Error : "+e.getMessage());
