@@ -435,14 +435,14 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   }
 
   @Override
-  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws FHIRException {
+  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws TerminologyServiceException {
     ValueSet vs = new ValueSet();
     vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().getInclude().add(inc);
     ValueSetExpansionOutcome vse = expandVS(vs, true);
     ValueSet valueset = vse.getValueset();
     if (valueset == null)
-      throw new FHIRException("Error Expanding ValueSet: "+vse.getError());
+      throw new TerminologyServiceException("Error Expanding ValueSet: "+vse.getError());
     return valueset.getExpansion();
   }
 

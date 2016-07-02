@@ -196,7 +196,7 @@ public interface IWorkerContext {
    * @return
    * @throws FHIRException 
    */
-  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws FHIRException;
+  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws TerminologyServiceException;
   
   public class ValidationResult {
     private ConceptDefinitionComponent definition;

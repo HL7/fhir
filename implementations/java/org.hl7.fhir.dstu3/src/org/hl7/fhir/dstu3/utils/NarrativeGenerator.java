@@ -129,6 +129,7 @@ import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ValidationResult;
+import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -2896,7 +2897,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       ValueSetExpansionComponent vse;
       try {
         vse = context.expandVS(inc);
-      } catch (FHIRException e1) {
+      } catch (TerminologyServiceException e1) {
         return null;
       }
       if (vse != null) {
