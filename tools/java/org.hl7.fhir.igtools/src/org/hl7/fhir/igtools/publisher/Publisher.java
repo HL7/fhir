@@ -8,6 +8,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +27,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
+import org.apache.commons.exec.PumpStreamHandler;
 import org.apache.commons.lang3.SystemUtils;
 import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
@@ -66,6 +69,7 @@ import org.hl7.fhir.dstu3.utils.Turtle;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.igtools.publisher.Publisher.GenerationTool;
+import org.hl7.fhir.igtools.publisher.Publisher.MyFilterHandler;
 import org.hl7.fhir.igtools.renderers.CodeSystemRenderer;
 import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
 import org.hl7.fhir.igtools.renderers.StructureDefinitionRenderer;
@@ -128,7 +132,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Publisher implements IGLogger {
 
-  public static final boolean USE_COMMONS_EXEC = false;
+  public static final boolean USE_COMMONS_EXEC = true;
   
   public enum GenerationTool {
     Jekyll
@@ -474,7 +478,7 @@ public class Publisher implements IGLogger {
         }
       } else {
         rubyExe = "/usr/bin/ruby";
-        if (!(new File(jekyllGem).exists()))
+        if (!(new File(rubyExe).exists()))
           throw new Error("Unable to find Ruby at "+rubyExe);
         jekyllGem = "/usr/bin/jekyll";
         if (!(new File(jekyllGem).exists()))
@@ -983,13 +987,71 @@ public class Publisher implements IGLogger {
     }
   }
 
+  public class MyFilterHandler extends OutputStream {
+
+    private byte[] buffer;
+    private int length;
+
+    public MyFilterHandler() {
+      buffer = new byte[256];
+    }
+
+    private boolean passJekyllFilter(String s) {
+      if (Utilities.noString(s))
+        return false;
+      if (s.contains("Source:"))
+        return false;
+      if (s.contains("Destination:"))
+        return false;
+      if (s.contains("Configuration"))
+        return false;
+      if (s.contains("Incremental build:"))
+        return false;
+      if (s.contains("Auto-regeneration:"))
+        return false;
+      return true;
+    }
+
+    @Override
+    public void write(int b) throws IOException {
+      buffer[length] = (byte) b;
+      length++;
+      if (b == 10) { // eoln
+        String s = new String(buffer, 0, length);
+        if (passJekyllFilter(s))
+          log("Jekyll: "+s.trim());
+        length = 0;  
+      }
+    }
+  }
+
+  private boolean passJekyllFilter(String s) {
+    if (Utilities.noString(s))
+      return false;
+    if (s.contains("Source:"))
+      return false;
+    if (s.contains("Destination:"))
+      return false;
+    if (s.contains("Configuration"))
+      return false;
+    if (s.contains("Incremental build:"))
+      return false;
+    if (s.contains("Auto-regeneration:"))
+      return false;
+    return true;
+  }
+
   private boolean runJekyll() throws IOException, InterruptedException {
     if (USE_COMMONS_EXEC) {
-      // using commons.exec
-      CommandLine cmd = CommandLine.parse("jekyll build --destination "+outputDir);
       DefaultExecutor exec = new DefaultExecutor();
-//      exec.setStreamHandler(streamHandler);
-      exec.execute(cmd);
+      exec.setExitValue(0);
+      PumpStreamHandler pump = new PumpStreamHandler(new MyFilterHandler());
+      exec.setStreamHandler(pump);
+      exec.setWorkingDirectory(new File(tempDir));
+      if (SystemUtils.IS_OS_WINDOWS) 
+        exec.execute(org.apache.commons.exec.CommandLine.parse("cmd /C jekyll build --destination "+outputDir));
+      else
+        exec.execute(org.apache.commons.exec.CommandLine.parse("jekyll build --destination "+outputDir));      
     } else {
       findRubyExe();
 
@@ -1013,18 +1075,6 @@ public class Publisher implements IGLogger {
       }
       process.waitFor();
     }
-    return true;
-  }
-
-  private boolean passJekyllFilter(String s) {
-    if (s.contains("Source:"))
-      return false;
-    if (s.contains("Destination:"))
-      return false;
-    if (s.contains("Incremental build:"))
-      return false;
-    if (s.contains("Auto-regeneration:"))
-      return false;
     return true;
   }
 

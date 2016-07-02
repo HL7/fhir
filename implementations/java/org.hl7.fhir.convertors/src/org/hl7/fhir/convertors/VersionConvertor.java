@@ -2561,20 +2561,20 @@ public class VersionConvertor {
 		return tgt;
 	}
 
-	public org.hl7.fhir.dstu3.model.AuditEvent.AuditEventParticipantNetworkType convertAuditEventParticipantNetworkType(org.hl7.fhir.dstu2.model.AuditEvent.AuditEventParticipantNetworkType src) throws FHIRException {
+	public org.hl7.fhir.dstu3.model.AuditEvent.AuditEventAgentNetworkType convertAuditEventParticipantNetworkType(org.hl7.fhir.dstu2.model.AuditEvent.AuditEventParticipantNetworkType src) throws FHIRException {
 		if (src == null)
 			return null;
 		switch (src) {
-		case _1: return org.hl7.fhir.dstu3.model.AuditEvent.AuditEventParticipantNetworkType._1;
-		case _2: return org.hl7.fhir.dstu3.model.AuditEvent.AuditEventParticipantNetworkType._2;
-		case _3: return org.hl7.fhir.dstu3.model.AuditEvent.AuditEventParticipantNetworkType._3;
-		case _4: return org.hl7.fhir.dstu3.model.AuditEvent.AuditEventParticipantNetworkType._4;
-		case _5: return org.hl7.fhir.dstu3.model.AuditEvent.AuditEventParticipantNetworkType._5;
-		default: return org.hl7.fhir.dstu3.model.AuditEvent.AuditEventParticipantNetworkType.NULL;
+		case _1: return org.hl7.fhir.dstu3.model.AuditEvent.AuditEventAgentNetworkType._1;
+		case _2: return org.hl7.fhir.dstu3.model.AuditEvent.AuditEventAgentNetworkType._2;
+		case _3: return org.hl7.fhir.dstu3.model.AuditEvent.AuditEventAgentNetworkType._3;
+		case _4: return org.hl7.fhir.dstu3.model.AuditEvent.AuditEventAgentNetworkType._4;
+		case _5: return org.hl7.fhir.dstu3.model.AuditEvent.AuditEventAgentNetworkType._5;
+		default: return org.hl7.fhir.dstu3.model.AuditEvent.AuditEventAgentNetworkType.NULL;
 		}
 	}
 
-	public org.hl7.fhir.dstu2.model.AuditEvent.AuditEventParticipantNetworkType convertAuditEventParticipantNetworkType(org.hl7.fhir.dstu3.model.AuditEvent.AuditEventParticipantNetworkType src) throws FHIRException {
+	public org.hl7.fhir.dstu2.model.AuditEvent.AuditEventParticipantNetworkType convertAuditEventParticipantNetworkType(org.hl7.fhir.dstu3.model.AuditEvent.AuditEventAgentNetworkType src) throws FHIRException {
 		if (src == null)
 			return null;
 		switch (src) {
