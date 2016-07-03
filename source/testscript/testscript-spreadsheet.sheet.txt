@@ -1140,6 +1140,7 @@
  -- Row 97 -----------------------------------
   Element = TestScript.setup.action.assert.rule.param
   Card. = 0..*
+  Type = =ActionAssertRuleParam
   Short Label = Rule parameter template
   Definition = Each rule template can take one or more parameters for rule evaluation
   Comments = The parameter value can be dynamic at runtime.
@@ -1163,6 +1164,7 @@
  -- Row 100 -----------------------------------
   Element = TestScript.setup.action.assert.ruleset
   Card. = 0..1
+  Type = =ActionAssertRuleset
   Short Label = The reference to a TestScript.ruleset
   Definition = The TestScript.ruleset this assert will evaluate
   Comments = Each rule within a ruleset should get evaluated by test engines as a separate assertion.  The impact of negative rule evaluation on test script execution is the same as an assertion failure which is descibed elsewhere in the TestScript resource.  If the first rule within the ruleset results in a failed assertion, then test engines do not have to evaluate the rest of the rules within the ruleset.

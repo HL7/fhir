@@ -253,6 +253,7 @@
  -- Row 27 -----------------------------------
   Element = MeasureReport.group.supplementalData.group
   Card. = 0..*
+  Type = =SupplementalDataGroup
   Short Label = Supplemental data results, one for each unique supplemental data value
   Definition = This element contains the results for a single value within the supplemental data. For example, when reporting supplemental data for administrative gender, there will be four groups, one for each possible gender value
 
