@@ -761,6 +761,7 @@
   Inv. = 11
   Short Label = ValueSet details if this is coded
   Definition = Binds to a value set if this element is coded (code, Coding, CodeableConcept)
+  Comments = For a CodeableConcept, when no codes are allowed - only text, use a binding of strength \"required\" with a description explaining that no coded values are allowed and what sort of information to put in the \"text\" element.
   v2 Mapping = OM3, OMC.11
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = .domain
