@@ -472,7 +472,7 @@
   Element = ElementDefinition.base
   Card. = 0..1
   Short Label = Base definition information for tools
-  Definition = Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. This information is only provided where the element definition represents a constraint on another element definition, and must be present if there is a base element definition.
+  Definition = Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. This information is provided when the element definition is not the original definition of an element - i.g. either in a constraint on another type, or for elements from a super type in a snap shot.
   Comments = The base information does not carry any information that could not be determined from the path and related profiles, but making this determination requires both that the related profiles are available, and that the algorithm to determine them be available. So they are deformalised into this location for tooling convenience, and to ensure that the base information is available without dependencies.
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = n/a
@@ -523,7 +523,7 @@
   Type = =TypeRef
   Short Label = Data type and Profile for this element
   Definition = The data type or resource that the value of this element is permitted to be
-  Comments = The Type of the element can be left blank, in which case the type is inherited from the resource. The type can only be listed in this field if it is an allowed option in the base resource
+  Comments = The Type of the element can be left blank in a differential constraint, in which case the type is inherited from the resource. Abstract types are not permitted to appear as a type when multiple types are listed.  (I.e. Abstract types cannot be part of a choice)
   IHE DEX mapping = valueDomain.dataType
   v2 Mapping = OM1.3, OMC.9
   RIM Mapping = N/A (MIF territory)
