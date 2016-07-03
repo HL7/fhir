@@ -190,6 +190,7 @@
  -- Row 18 -----------------------------------
   Element = MeasureReport.group.stratifier.group
   Card. = 0..*
+  Type = =StratifierGroup
   Short Label = Stratum results, one for each unique value in the stratifier
   Definition = This element contains the results for a single stratum within the stratifier. For example, when stratifying on administrative gender, there will be four strata, one for each possible gender value
 
@@ -203,6 +204,7 @@
  -- Row 20 -----------------------------------
   Element = MeasureReport.group.stratifier.group.population
   Card. = 0..*
+  Type = =StratifierGroupPopulation
   Short Label = Population results in this stratum
   Definition = The populations that make up the stratum, one for each type of population appropriate to the measure
 

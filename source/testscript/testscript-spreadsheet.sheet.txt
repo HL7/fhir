@@ -744,6 +744,7 @@
  -- Row 48 -----------------------------------
   Element = TestScript.rule.param
   Card. = 0..*
+  Type = =RuleParam
   Short Label = Rule parameter template
   Definition = Each rule template can take one or more parameters for rule evaluation
   Comments = The parameter value can be dynamic at runtime.
@@ -781,6 +782,7 @@
  -- Row 53 -----------------------------------
   Element = TestScript.ruleset.rule
   Card. = 1..*
+  Type = =RulesetRule
   Short Label = The referenced rule within the ruleset
   Definition = The referenced rule within the external ruleset template
   Comments = This qualifies each param name so that  a parameter with the same name can be used differently by the different rules with the ruleset.
@@ -795,6 +797,7 @@
  -- Row 55 -----------------------------------
   Element = TestScript.ruleset.rule.param
   Card. = 0..*
+  Type = =RulesetRuleParam
   Short Label = Ruleset rule parameter template
   Definition = Each rule template can take one or more parameters for rule evaluation
   Comments = The parameter value can be dynamic at runtime.
@@ -1122,6 +1125,7 @@
  -- Row 95 -----------------------------------
   Element = TestScript.setup.action.assert.rule
   Card. = 0..1
+  Type = =ActionAssertRule
   Short Label = The reference to a TestScript.rule
   Definition = The TestScript.rule this assert will evaluate
   Comments = Each rule should get evaluated by test engines as one assertion regardless of how many assertions are contained within the external rule template.  The impact of negative rule evaluation on test script execution is the same as an assertion failure which is descibed elsewhere in the TestScript resource.

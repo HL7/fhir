@@ -262,6 +262,7 @@
   Element = ImagingManifest.study.baseLocation
   Card. = 0..*
   UML = 300;175
+  Type = =StudyBaseLocation
   Short Label = Study access service endpoint
   Definition = Methods of accessing  (e.g., retrieving, viewing) the study.
   Requirements = Access methods for viewing (e.g. IHE’s IID profile) or retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the study or the study’s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type.
@@ -310,6 +311,7 @@
   Element = ImagingManifest.study.series.baseLocation
   Card. = 0..*
   UML = 300;300
+  Type = =SeriesBaseLocation
   Short Label = Series access endpoint
   Definition = Methods of accessing (e.g. retrieving) the series
   Requirements = Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the series or the series’ instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level.
