@@ -213,7 +213,7 @@
   Id = 8
   Context = ElementDefinition
   English = Pattern and value are mutually exclusive
-  XPath = not(exists(f:*[starts-with(local-name(.), \'pattern\')])) or not(exists(f:*[starts-with(local-name(.), \'value\')]))
+  XPath = not(exists(f:*[starts-with(local-name(.), \'pattern\')])) or not(exists(f:*[starts-with(local-name(.), \'fixed\')]))
   Expression = pattern.empty() or fixed.empty()
 
  -- Row 9 -----------------------------------
