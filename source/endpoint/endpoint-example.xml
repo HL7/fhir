@@ -16,7 +16,10 @@
 	<!--<contact>
     <value value="Grahame" />
   </contact>-->
-	<connectionType value="rest-hook" />
+	<connectionType>
+		<system value="http://hl7.org/fhir/ValueSet/subscription-channel-type" />
+		<code value="rest-hook" />
+	</connectionType>
 	<method>
 		<system value="http://hl7.org/fhir/ValueSet/http-verb" />
 		<code value="PUT" />

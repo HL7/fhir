@@ -13,13 +13,19 @@
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/subscription-channel-type
   Definition = The type of the subscription.
-  Conformance = required
+  Conformance = extensible
 
  -- Row 3 -----------------------------------
   Binding Name = http-verb
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/http-verb
-  Conformance = required
+  Conformance = extensible
+
+ -- Row 4 -----------------------------------
+  Binding Name = PayloadType
+  Binding = value set
+  Reference = valueset-endpoint-payload-type
+  Conformance = example
 
 === Sheet endpoint-status =====================================
 
@@ -107,7 +113,7 @@
   Element = Endpoint.connectionType
   Card. = 1..1
   Summary = Y
-  Type = code
+  Type = Coding
   Binding = SubscriptionChannelType
   Short Label = rest-hook | websocket | email | sms | message
   Definition = The type of channel to send notifications on
@@ -156,6 +162,7 @@
   Card. = 1..*
   Summary = Y
   Type = CodeableConcept
+  Binding = PayloadType
   Short Label = The type of content that may be used at this endpoint (e.g. XDS Discharge summaries)
   Definition = The payload type describes the acceptable content that can be communicated on the endpoint
   Comments = The payloadFormat describes the wire format of the data, where the payloadType indicates the specific document/schema that is being transferred. E.g. DischargeSummary or CarePlan

@@ -22,7 +22,10 @@
         <managingOrganization>
           <display value="[%managingOrganization%]"/>
         </managingOrganization>
-        <connectionType value="[%connectionType%]" />
+        <connectionType>
+          <!-- system value="http://hl7.org/fhir/ValueSet/http-verb" />-->
+          <code value="[%connectionType%]" />
+        </connectionType>
         <method>
           <system value="http://hl7.org/fhir/ValueSet/http-verb" />
           <code value="[%method%]" />

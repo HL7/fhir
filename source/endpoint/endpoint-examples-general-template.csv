@@ -5,5 +5,11 @@ active,Referral Requests,Telstra Health,Brian Postlethwaite,rest-hook,POST,https
 active,Referral Requests,Epic demo organization,Kevin Paprocki,rest-hook,POST,https://open.epic.com/Interface/FHIR,application/json+fhir,ReferralRequest QuestionnaireResponse,Authorization 234522345
 active,Subscription receiver,Telstra Health,Brian Postlethwaite,email,POST PUT DELETE,subscriptions@example.org,application/xml+fhir,ReferralRequest, 
 active,valid usecase?,Telstra Health,Brian Postlethwaite,message,POST,https://sqlonfhir-dstu2.azurewebsites.net/fhir,PDF,CDA-EventSummary, 
-active,v2 referral Requests,Epic demo organization,Kevin Paprocki,message,POST,127.0.0.1,HL7v2,REF-I12, 
-active,xds event summaries,Epic demo organization,Kevin Paprocki,message,POST,https://open.epic.com/Interface/XDS.b,XDA/XDS,CDA-EventSummary, 
+active,v2 referral Requests,Epic demo organization,Kevin Paprocki,MLLP,POST,127.0.0.1,HL7v2,REF-I12, 
+active,xds event summaries,Epic demo organization,Kevin Paprocki,SOAP,POST,https://open.epic.com/Interface/XDS.b,XDA/XDS,CDA-EventSummary, 
+active,Enterprise Image Archive,Multi-site Co.,Elliot Silver,rest-hook,GET OPTIONS,https://pacs.hospital.org/dicomweb,DICOM WADO-RS,"varies (application/dicom, application/dicom+xml, image/jpeg, and many more)",
+active,Enterprise Image Archive,Multi-site Co.,Elliot Silver,rest-hook,GET OPTIONS,https://pacs.hospital.org/dicomweb,DICOM QIDO-RS,"varies (application/dicom, application/dicom+xml, image/jpeg, and many more)",
+active,Enterprise Image Archive,Multi-site Co.,Elliot Silver,rest-hook,POST OPTIONS,https://pacs.hospital.org/dicomweb,DICOM STOW-RS,"varies (application/dicom, application/dicom+xml, image/jpeg, and many more)",
+active,Enterprise Image Archive,Multi-site Co.,Elliot Silver,rest-hook,GET PUT POST DELETE OPTIONS,https://pacs.hospital.org/dicomweb,DICOM STOW-RS,"varies (application/dicom, application/dicom+xml, image/jpeg, and many more)",
+active,Enterprise Image Archive,Multi-site Co.,Elliot Silver,websocket,GET,https://pacs.hospital.org/wadoUri,DICOM WADO-URI,"varies (application/dicom, application/dicom+xml, image/jpeg, and many more)",
+active,Enterprise Image Archive,Multi-site Co.,Elliot Silver,websocket,GET,https://pacs.hospital.org/IHEInvokeImageDisplay,IHE IID,"varies (application/dicom, application/dicom+xml, image/jpeg, and many more)",
