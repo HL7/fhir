@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-endpoint-payload-type"/>
+  </meta>
+  <name value="Endpoint Payload Type"/>
+  <status value="draft"/>
+  <publisher value="HL7 Patient Administration"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This is an example value set defined by the FHIR project, that could be used to represent possible payload document types."/>
+  <!--<compose>
+    <include>
+      <system value="http://hl7.org/fhir/encounter-priority"/>
+    </include>
+  </compose>-->
+</ValueSet>
