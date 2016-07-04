@@ -4362,7 +4362,8 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String" x:Ticked="1">=ActionAssertRulesetRule</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6796,7 +6797,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>104</ActiveRow>
+     <ActiveRow>102</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>

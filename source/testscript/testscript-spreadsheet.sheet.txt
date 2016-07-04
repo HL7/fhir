@@ -1179,6 +1179,7 @@
  -- Row 102 -----------------------------------
   Element = TestScript.setup.action.assert.ruleset.rule
   Card. = 0..*
+  Type = =ActionAssertRulesetRule
   Short Label = The referenced rule within the ruleset
   Definition = The referenced rule within the external ruleset template
   Comments = This qualifies each param name so that  a parameter with the same name can be used differently by the different rules with the ruleset.
