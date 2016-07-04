@@ -79,6 +79,17 @@
       }
     },
     {
+      "hash": "#|http://loinc.org|null|13457-7|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
+      }
+    },
+    {
       "hash": "#|http://loinc.org|null|13654-9|Epithelial cells.squamous [#/volume] in Urine sediment",
       "severity": null,
       "message": null,
@@ -428,17 +439,6 @@
         "code": null,
         "definition": null,
         "display": "Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|26464-8|Leukocytes [#/volume] in Blood",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Leukocytes [#/volume] in Blood"
       }
     },
     {

@@ -34,7 +34,6 @@ import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.io.Writer;
 
-import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.IXMLWriter;
 import org.w3c.dom.Element;
@@ -66,7 +65,7 @@ public class XhtmlComposer {
 
   private Writer dst;
 
-  public String compose(XhtmlDocument doc) throws IOException, FHIRException  {
+  public String compose(XhtmlDocument doc) throws IOException  {
     StringWriter sdst = new StringWriter();
     dst = sdst;
     composeDoc(doc);
@@ -80,7 +79,7 @@ public class XhtmlComposer {
     return sdst.toString();
   }
 
-  public void compose(OutputStream stream, XhtmlDocument doc) throws IOException, FHIRException  {
+  public void compose(OutputStream stream, XhtmlDocument doc) throws IOException  {
     byte[] bom = new byte[] { (byte)0xEF, (byte)0xBB, (byte)0xBF };
     stream.write(bom);
     dst = new OutputStreamWriter(stream, "UTF-8");
@@ -88,7 +87,7 @@ public class XhtmlComposer {
     dst.flush();
   }
 
-  private void composeDoc(XhtmlDocument doc) throws IOException, FHIRException  {
+  private void composeDoc(XhtmlDocument doc) throws IOException  {
     // headers....
 //    dst.append("<html>" + (isPretty() ? "\r\n" : ""));
     for (XhtmlNode c : doc.getChildNodes())
@@ -107,8 +106,10 @@ public class XhtmlComposer {
       writeElement(indent, node);
     else if (node.getNodeType() == NodeType.Text)
       writeText(node);
+    else if (node.getNodeType() == null)
+      throw new IOException("Null node type");
     else
-      throw new Error("Unknown node type: "+node.getNodeType().toString());
+      throw new IOException("Unknown node type: "+node.getNodeType().toString());
   }
 
   private void writeText(XhtmlNode node) throws IOException  {

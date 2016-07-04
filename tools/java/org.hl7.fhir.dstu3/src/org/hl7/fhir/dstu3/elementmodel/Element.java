@@ -353,5 +353,22 @@ public class Element extends Base {
     return elementProperty != null;
   }
 
+  public boolean hasChild(String name) {
+    return getNamedChild(name) != null;
+  }
+
+//  @Override
+//  public boolean equalsDeep(Base other) {
+//    if (!super.equalsDeep(other))
+//      return false;
+//    
+//  }
+//
+//  @Override
+//  public boolean equalsShallow(Base other) {
+//    if (!super.equalsShallow(other))
+//      return false;
+//  }
+
 
 }

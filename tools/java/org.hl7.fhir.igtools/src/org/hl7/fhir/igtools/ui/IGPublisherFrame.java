@@ -8,14 +8,8 @@ import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.util.List;
 
-import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
-import javafx.scene.Scene;
-import javafx.scene.web.WebView;
-
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import javax.swing.SwingWorker;
 
@@ -24,6 +18,10 @@ import org.hl7.fhir.igtools.publisher.IGLogger;
 import org.hl7.fhir.igtools.publisher.Publisher;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
+
+import javafx.application.Platform;
+import javafx.scene.Scene;
+import javafx.scene.web.WebView;
 
 public class IGPublisherFrame extends javax.swing.JFrame {
 

@@ -1,7 +1,6 @@
 package org.hl7.fhir.igtools.renderers;
 
 import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;

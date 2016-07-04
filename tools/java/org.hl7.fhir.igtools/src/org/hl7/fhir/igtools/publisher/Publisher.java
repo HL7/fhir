@@ -9,7 +9,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,22 +19,18 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.UIManager;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.PumpStreamHandler;
 import org.apache.commons.lang3.SystemUtils;
 import org.hl7.fhir.dstu3.elementmodel.Element;
-import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
 import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
-import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
-import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
@@ -63,29 +58,24 @@ import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcom
 import org.hl7.fhir.dstu3.utils.EOperationOutcome;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
-import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.utils.Turtle;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
-import org.hl7.fhir.igtools.publisher.Publisher.GenerationTool;
-import org.hl7.fhir.igtools.publisher.Publisher.MyFilterHandler;
 import org.hl7.fhir.igtools.renderers.CodeSystemRenderer;
 import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
 import org.hl7.fhir.igtools.renderers.StructureDefinitionRenderer;
 import org.hl7.fhir.igtools.renderers.ValidationPresenter;
+import org.hl7.fhir.igtools.renderers.ValueSetRenderer;
 import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
 import org.hl7.fhir.igtools.spreadsheets.IgSpreadsheetParser;
 import org.hl7.fhir.igtools.ui.GraphicalPublisher;
-import org.hl7.fhir.igtools.renderers.ValueSetRenderer;
-import org.hl7.fhir.rdf.RdfGenerator;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
-import org.w3c.dom.Document;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -94,7 +84,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Implementation Guide Publisher
@@ -231,7 +220,7 @@ public class Publisher implements IGLogger {
       for (FetchedResource r : f.getResources()) {
         dlog("narrative for "+f.getName()+" : "+r.getId());
         if (r.getResource() != null) {
-          if (r.getResource() instanceof DomainResource && ((DomainResource) r.getResource()).getText().hasDiv())
+          if (r.getResource() instanceof DomainResource && !((DomainResource) r.getResource()).getText().hasDiv())
             gen.generate((DomainResource) r.getResource());
         } else {
           if ("http://hl7.org/fhir/StructureDefinition/DomainResource".equals(r.getElement().getProperty().getStructure().getBaseDefinition()) && !hasNarrative(r.getElement())) {
@@ -243,8 +232,7 @@ public class Publisher implements IGLogger {
   }
 
   private boolean hasNarrative(Element element) {
-//    return element.hasChild("text") && element.getChildByName("text").hasChild("div");
-    return false;
+    return element.hasChild("text") && element.getNamedChild("text").hasChild("div");
   }
 
   private void clean() throws Exception {
@@ -1174,44 +1162,52 @@ public class Publisher implements IGLogger {
       logger.logMessage(s);
   }
 
-  private void generateOutputs(FetchedFile f) throws Exception {
+  private void generateOutputs(FetchedFile f) {
 //    log(" * "+f.getName());
 
     if (f.isNoProcess()) {
       String dst = tempDir + f.getPath().substring(pagesDir.length());
-      if (f.isFolder()) {
-        f.getOutputNames().add(dst);
-        Utilities.createDirectory(dst);
-      } else
-        checkMakeFile(f.getSource(), dst, f.getOutputNames()); 
+      try {
+        if (f.isFolder()) {
+          f.getOutputNames().add(dst);
+          Utilities.createDirectory(dst);
+        } else
+          checkMakeFile(f.getSource(), dst, f.getOutputNames());
+      } catch (IOException e) {
+        log("Exception generating page "+dst+": "+e.getMessage());
+      } 
     } else {
       for (FetchedResource r : f.getResources()) {
-        saveDirectResourceOutputs(f, r);
+        try {
+          saveDirectResourceOutputs(f, r);
 
-        // now, start generating resource type specific stuff 
-        if (r.getResource() != null) { // we only do this for conformance resources we've already loaded
-          switch (r.getResource().getResourceType()) {
-          case CodeSystem:
-            generateOutputsCodeSystem(f, r, (CodeSystem) r.getResource());
-            break;
-          case ValueSet:
-            generateOutputsValueSet(f, r, (ValueSet) r.getResource());
-            break;
-          case ConceptMap:
-            generateOutputsConceptMap(f, r, (ConceptMap) r.getResource());
-            break;
+          // now, start generating resource type specific stuff 
+          if (r.getResource() != null) { // we only do this for conformance resources we've already loaded
+            switch (r.getResource().getResourceType()) {
+            case CodeSystem:
+              generateOutputsCodeSystem(f, r, (CodeSystem) r.getResource());
+              break;
+            case ValueSet:
+              generateOutputsValueSet(f, r, (ValueSet) r.getResource());
+              break;
+            case ConceptMap:
+              generateOutputsConceptMap(f, r, (ConceptMap) r.getResource());
+              break;
 
-          case DataElement:
-            break;
-          case StructureDefinition:
-            generateOutputsStructureDefinition(f, r, (StructureDefinition) r.getResource());
-            break;
-          case StructureMap:
-            break;
-          default:
-            // nothing to do...    
-          }      
-        }
+            case DataElement:
+              break;
+            case StructureDefinition:
+              generateOutputsStructureDefinition(f, r, (StructureDefinition) r.getResource());
+              break;
+            case StructureMap:
+              break;
+            default:
+              // nothing to do...    
+            }      
+          }
+        } catch (Exception e) {
+          log("Exception generating resource "+f.getName()+"::"+r.getElement().fhirType()+"/"+r.getId()+": "+e.getMessage());
+        } 
       }
     }
   }
@@ -1312,14 +1308,14 @@ public class Publisher implements IGLogger {
       org.hl7.fhir.dstu3.elementmodel.XmlParser xp = new org.hl7.fhir.dstu3.elementmodel.XmlParser(context);
       xp.setLinkResolver(igpkp);
       xp.compose(r.getElement(), x);
-      fragment(r.getId()+"-xml-html", x.toString(), f.getOutputNames());
+      fragment(r.getElement().fhirType()+"-"+r.getId()+"-xml-html", x.toString(), f.getOutputNames());
     }
     if (wantGen(r, "json-html")) {
       JsonXhtmlRenderer j = new JsonXhtmlRenderer();
       org.hl7.fhir.dstu3.elementmodel.JsonParser jp = new org.hl7.fhir.dstu3.elementmodel.JsonParser(context);
       jp.setLinkResolver(igpkp);
       jp.compose(r.getElement(), j);
-      fragment(r.getId()+"-json-html", j.toString(), f.getOutputNames());
+      fragment(r.getElement().fhirType()+"-"+r.getId()+"-json-html", j.toString(), f.getOutputNames());
     }
 
     if (wantGen(r, "ttl-html")) {
@@ -1327,13 +1323,13 @@ public class Publisher implements IGLogger {
       ttl.setLinkResolver(igpkp);
       Turtle rdf = new Turtle();
       ttl.compose(r.getElement(), rdf, "??");
-      fragment(r.getId()+"-ttl-html", rdf.asHtml(), f.getOutputNames());
+      fragment(r.getElement().fhirType()+"-"+r.getId()+"-ttl-html", rdf.asHtml(), f.getOutputNames());
     }
 
     if (wantGen(r, "html")) {
       XhtmlNode xhtml = getXhtml(r);
       String html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
-      fragment(r.getId()+"-html", html, f.getOutputNames());
+      fragment(r.getElement().fhirType()+"-"+r.getId()+"-html", html, f.getOutputNames());
     }
     //  NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
     //  gen.generate(f.getElement(), false);
@@ -1347,6 +1343,8 @@ public class Publisher implements IGLogger {
       template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), template));
       template = template.replace("{{[title]}}", r.getTitle());
       template = template.replace("{{[name]}}", r.getId()+"-"+format+"-html");
+      template = template.replace("{{[id]}}", r.getId());
+      template = template.replace("{{[type]}}", r.getElement().fhirType());
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+"."+format+".html");
       TextFile.stringToFile(template, path, false);
       outputTracker.add(path);
@@ -1357,6 +1355,8 @@ public class Publisher implements IGLogger {
     if (template != null) {
       template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), template));
       template = template.replace("{{[title]}}", r.getTitle());
+      template = template.replace("{{[type]}}", r.getElement().fhirType());
+      template = template.replace("{{[id]}}", r.getId());
       template = template.replace("{{[name]}}", r.getId()+"-html");
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".html");
       TextFile.stringToFile(template, path, false);
@@ -1373,8 +1373,9 @@ public class Publisher implements IGLogger {
    * @throws IOException 
    * @throws FHIRException 
    * @throws EOperationOutcome 
+   * @throws org.hl7.fhir.exceptions.FHIRException 
    */
-  private void generateOutputsCodeSystem(FetchedFile f, FetchedResource fr, CodeSystem cs) throws IOException, EOperationOutcome, FHIRException {
+  private void generateOutputsCodeSystem(FetchedFile f, FetchedResource fr, CodeSystem cs) throws IOException, EOperationOutcome, FHIRException, org.hl7.fhir.exceptions.FHIRException {
     CodeSystemRenderer csr = new CodeSystemRenderer(context, specPath, cs, igpkp);
     if (wantGen(fr, "summary")) 
       fragment(cs.getId()+"-cs-summary", csr.summary(wantGen(fr, "xml"), wantGen(fr, "json"), wantGen(fr, "ttl")), f.getOutputNames());
@@ -1394,8 +1395,9 @@ public class Publisher implements IGLogger {
    * @param vs
    * @throws IOException
    * @throws FHIRException 
+   * @throws org.hl7.fhir.exceptions.FHIRException 
    */
-  private void generateOutputsValueSet(FetchedFile f, FetchedResource r, ValueSet vs) throws IOException, FHIRException {
+  private void generateOutputsValueSet(FetchedFile f, FetchedResource r, ValueSet vs) throws IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
     ValueSetRenderer vsr = new ValueSetRenderer(context, specPath, vs, igpkp);
     if (wantGen(r, "summary")) 
       fragment(vs.getId()+"-vs-summary", vsr.summary(wantGen(r, "xml"), wantGen(r, "json"), wantGen(r, "ttl")), f.getOutputNames());
@@ -1492,6 +1494,13 @@ public class Publisher implements IGLogger {
   }
 
   private XhtmlNode getXhtml(FetchedResource r) {
+    if (r.getResource() != null && r.getResource() instanceof DomainResource) {
+      DomainResource dr = (DomainResource) r.getResource();
+      if (dr.getText().hasDiv())
+        return dr.getText().getDiv();
+      else
+        return null;
+    }
     Element text = r.getElement().getNamedChild("text");
     if (text == null)
       return null;

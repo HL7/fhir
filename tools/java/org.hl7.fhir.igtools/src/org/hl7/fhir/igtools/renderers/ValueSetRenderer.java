@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.ArrayBlockingQueue;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.BaseConformance;
@@ -17,7 +16,6 @@ import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
-import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
@@ -64,7 +62,7 @@ public class ValueSetRenderer extends BaseRenderer {
     return b.toString();
   }
 
-  public String cld() throws EOperationOutcome, FHIRException, IOException  {
+  public String cld() throws EOperationOutcome, FHIRException, IOException, org.hl7.fhir.exceptions.FHIRException  {
     if (vs.hasText() && vs.getText().hasDiv())
       return new XhtmlComposer().compose(vs.getText().getDiv());
     ValueSet vsc = vs.copy();
