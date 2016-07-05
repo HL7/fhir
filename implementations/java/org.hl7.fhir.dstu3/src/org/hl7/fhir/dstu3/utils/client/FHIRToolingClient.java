@@ -32,6 +32,7 @@ package org.hl7.fhir.dstu3.utils.client;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
