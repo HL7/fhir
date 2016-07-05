@@ -95,6 +95,18 @@
 
 === Sheet Examples =====================================
 
+ -- Row 1 -----------------------------------
+  Name = Assessment
+  Identity = example
+  Description = Assessment Example
+  Filename = decisionsupportservicemodule-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = InfoButton
+  Identity = infobutton
+  Description = InfoButton Module Example
+  Filename = decisionsupportservicemodule-infobutton.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

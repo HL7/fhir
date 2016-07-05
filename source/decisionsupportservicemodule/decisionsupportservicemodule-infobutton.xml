@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DecisionSupportServiceModule xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/decisionsupportservicemodule.xsd">
+  <id value="infobutton"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">InfoButton Module</div>
+  </text>
+  
+  <moduleMetadata>
+	<identifier>
+	  <use value="official"/>
+	  <value value="infobutton"/>
+	</identifier>
+	<version value="1.0.0"/>
+	<title value="InfoButton Module"/>
+	<type value="module"/>
+	<status value="draft"/>
+	<description value="The InfoButton specification defines a mechanism for retrieving relevant clinical context based a particular set of search criteria.."/>
+	<publicationDate value="2016-07-05"/>
+	<topic>
+		<text value="InfoButton Module"/>
+	</topic>
+	<topic>
+		<text value="InfoButton"/>
+	</topic>
+  </moduleMetadata>
+  
+	<!-- Main Search Criteria -->
+	<parameter>
+		<name value="mainSearchCriteria"/>
+		<use value="in"/>
+		<min value="0"/>
+		<max value="*"/>
+		<type value="CodeableConcept"/>
+	</parameter>
+	
+	<!-- Patient Data Requirement -->
+	<dataRequirement>
+		<type value="Patient"/>
+		<mustSupport value="gender"/>
+		<mustSupport value="birthDate"/>
+	</dataRequirement>
+	
+	<!-- Problem List -->
+	<dataRequirement>
+		<type value="Condition"/>
+	</dataRequirement>
+	
+	<!-- Medication List -->
+	<dataRequirement>
+		<type value="MedicationStatement"/>
+	</dataRequirement>
+
+</DecisionSupportServiceModule>
+
