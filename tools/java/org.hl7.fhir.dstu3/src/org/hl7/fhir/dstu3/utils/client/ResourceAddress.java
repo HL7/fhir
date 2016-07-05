@@ -75,23 +75,28 @@ public class ResourceAddress {
 	}
 	
 	public <T extends Resource> URI resolveOperationURLFromClass(Class<T> resourceClass, String name, String parameters) {
-		return baseServiceUri.resolve(nameForClass(resourceClass) +"/$"+name+"?"+ parameters);
+		return baseServiceUri.resolve(nameForClassWithSlash(resourceClass) +"$"+name+"?"+ parameters);
 	}
 	
 	public <T extends Resource> URI resolveSearchUri(Class<T> resourceClass, Map<String,String> parameters) {
-		return appendHttpParameters(baseServiceUri.resolve(nameForClass(resourceClass) +"/_search"), parameters);
+		return appendHttpParameters(baseServiceUri.resolve(nameForClassWithSlash(resourceClass) +"_search"), parameters);
 	}
 	
+  private <T extends Resource> String nameForClassWithSlash(Class<T> resourceClass) {
+    String n = nameForClass(resourceClass);
+    return n == null ? "" : n +"/";
+  }
+
   public <T extends Resource> URI resolveOperationUri(Class<T> resourceClass, String opName) {
-    return baseServiceUri.resolve(nameForClass(resourceClass) +"/$"+opName);
+    return baseServiceUri.resolve(nameForClassWithSlash(resourceClass) +"/"+opName);
   }
   
   public <T extends Resource> URI resolveOperationUri(Class<T> resourceClass, String opName, Map<String,String> parameters) {
-    return appendHttpParameters(baseServiceUri.resolve(nameForClass(resourceClass) +"/$"+opName), parameters);
+    return appendHttpParameters(baseServiceUri.resolve(nameForClassWithSlash(resourceClass) +"$"+opName), parameters);
   }
   
 	public <T extends Resource> URI resolveValidateUri(Class<T> resourceClass, String id) {
-		return baseServiceUri.resolve(nameForClass(resourceClass) +"/_validate/"+id);
+		return baseServiceUri.resolve(nameForClassWithSlash(resourceClass) +"$validate/"+id);
 	}
 	
 	public <T extends Resource> URI resolveGetUriFromResourceClass(Class<T> resourceClass) {
@@ -192,6 +197,8 @@ public class ResourceAddress {
 	
 
 	public <T extends Resource> String nameForClass(Class<T> resourceClass) {
+	  if (resourceClass == null)
+	    return null;
 		String res = resourceClass.getSimpleName();
 		if (res.equals("List_"))
 			return "List";

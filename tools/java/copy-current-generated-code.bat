@@ -7,7 +7,7 @@ REM Dirmerge is a utility that scans source, and copies to dest. if the file alr
 ..\..\tools\bin\dirmerge ..\..\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\validation ..\..\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\validation java
 ..\..\tools\bin\dirmerge ..\..\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\terminologies ..\..\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\terminologies java
 ..\..\tools\bin\dirmerge ..\..\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\test ..\..\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\test java
-..\..\tools\bin\dirmerge ..\..\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\client ..\..\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\client java
+..\..\tools\bin\dirmerge ..\..\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\utils\client ..\..\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\utils\client java
 ..\..\tools\bin\dirmerge ..\..\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\elementmodel ..\..\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\elementmodel java "// Generated on"
 
 

@@ -2953,9 +2953,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
         ref = ref + ".html";
       XhtmlNode a = li.addTag("a");
       a.setAttribute("href", prefix+ref.replace("\\", "/"));
-      a.addText(inc.getSystem().toString());
+      a.addText(inc.getSystem());
     } else
-      li.addText(inc.getSystem().toString());
+      li.addText(inc.getSystem());
   }
 
   private String getCsRef(String system) {

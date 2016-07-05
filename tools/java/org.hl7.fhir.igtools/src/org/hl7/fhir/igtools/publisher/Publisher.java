@@ -880,6 +880,11 @@ public class Publisher implements IGLogger {
   }
 
   private void generate() throws Exception {
+    Utilities.clearDirectory(tempDir);
+    forceDir(tempDir);
+    forceDir(Utilities.path(tempDir, "_includes"));
+    forceDir(Utilities.path(tempDir, "data"));
+    
     otherFilesRun.clear();
     for (FetchedFile f : changeList) 
       generateOutputs(f);
@@ -1378,11 +1383,11 @@ public class Publisher implements IGLogger {
   private void generateOutputsCodeSystem(FetchedFile f, FetchedResource fr, CodeSystem cs) throws IOException, EOperationOutcome, FHIRException, org.hl7.fhir.exceptions.FHIRException {
     CodeSystemRenderer csr = new CodeSystemRenderer(context, specPath, cs, igpkp);
     if (wantGen(fr, "summary")) 
-      fragment(cs.getId()+"-cs-summary", csr.summary(wantGen(fr, "xml"), wantGen(fr, "json"), wantGen(fr, "ttl")), f.getOutputNames());
+      fragment("CodeSystem-"+cs.getId()+"-summary", csr.summary(wantGen(fr, "xml"), wantGen(fr, "json"), wantGen(fr, "ttl")), f.getOutputNames());
     if (wantGen(fr, "content")) 
-      fragment(cs.getId()+"-cs-content", csr.content(), f.getOutputNames());
+      fragment("CodeSystem-"+cs.getId()+"-content", csr.content(), f.getOutputNames());
     if (wantGen(fr, "xref")) 
-      fragment(cs.getId()+"-cs-xref", csr.xref(), f.getOutputNames());
+      fragment("CodeSystem-"+cs.getId()+"-xref", csr.xref(), f.getOutputNames());
   }
 
   /**
@@ -1400,16 +1405,16 @@ public class Publisher implements IGLogger {
   private void generateOutputsValueSet(FetchedFile f, FetchedResource r, ValueSet vs) throws IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
     ValueSetRenderer vsr = new ValueSetRenderer(context, specPath, vs, igpkp);
     if (wantGen(r, "summary")) 
-      fragment(vs.getId()+"-vs-summary", vsr.summary(wantGen(r, "xml"), wantGen(r, "json"), wantGen(r, "ttl")), f.getOutputNames());
+      fragment("ValueSet-"+vs.getId()+"-summary", vsr.summary(wantGen(r, "xml"), wantGen(r, "json"), wantGen(r, "ttl")), f.getOutputNames());
     if (wantGen(r, "cld")) 
       try {
-        fragment(vs.getId()+"-vs-cld", vsr.cld(), f.getOutputNames());
+        fragment("ValueSet-"+vs.getId()+"-cld", vsr.cld(), f.getOutputNames());
       } catch (Exception e) {
-        fragmentError(vs.getId()+"-vs-cld", e.getMessage(), f.getOutputNames());
+        fragmentError(vs.getId()+"-cld", e.getMessage(), f.getOutputNames());
       }
 
     if (wantGen(r, "xref")) 
-      fragment(vs.getId()+"-vs-xref", vsr.xref(), f.getOutputNames());
+      fragment("ValueSet-"+vs.getId()+"-xref", vsr.xref(), f.getOutputNames());
     if (wantGen(r, "expansion")) { 
       ValueSetExpansionOutcome exp = context.expandVS(vs, true);
       if (exp.getValueset() != null) {
@@ -1419,11 +1424,11 @@ public class Publisher implements IGLogger {
         exp.getValueset().setText(null);
         gen.generate(exp.getValueset(), false);
         String html = new XhtmlComposer().compose(exp.getValueset().getText().getDiv());
-        fragment(vs.getId()+"-expansion", html, f.getOutputNames());
+        fragment("ValueSet-"+vs.getId()+"-expansion", html, f.getOutputNames());
       } else if (exp.getError() != null) 
-        fragmentError(vs.getId()+"-expansion", exp.getError(), f.getOutputNames());
+        fragmentError("ValueSet-"+vs.getId()+"-expansion", exp.getError(), f.getOutputNames());
       else 
-        fragmentError(vs.getId()+"-expansion", "Unknown Error", f.getOutputNames());
+        fragmentError("ValueSet-"+vs.getId()+"-expansion", "Unknown Error", f.getOutputNames());
     }
   }
 
@@ -1441,56 +1446,56 @@ public class Publisher implements IGLogger {
    */
   private void generateOutputsConceptMap(FetchedFile f, FetchedResource r, ConceptMap cm) throws IOException {
     if (wantGen(r, "summary")) 
-      fragmentError(cm.getId()+"-cm-summary", "yet to be done: concept map summary", f.getOutputNames());
+      fragmentError("ConceptMap-"+cm.getId()+"-summary", "yet to be done: concept map summary", f.getOutputNames());
     if (wantGen(r, "content")) 
-      fragmentError(cm.getId()+"-cm-content", "yet to be done: table presentation of the concept map", f.getOutputNames());
+      fragmentError("ConceptMap-"+cm.getId()+"-content", "yet to be done: table presentation of the concept map", f.getOutputNames());
     if (wantGen(r, "xref")) 
-      fragmentError(cm.getId()+"-cm-xref", "yet to be done: list of all places where concept map is used", f.getOutputNames());
+      fragmentError("ConceptMap-"+cm.getId()+"-xref", "yet to be done: list of all places where concept map is used", f.getOutputNames());
   }
 
   private void generateOutputsStructureDefinition(FetchedFile f, FetchedResource r, StructureDefinition sd) throws Exception {
     // todo : generate shex itself
     if (wantGen(r, "shex")) 
-      fragmentError(sd.getId()+"-shex", "yet to be done: shex as html", f.getOutputNames());
+      fragmentError("StructureDefinition-"+sd.getId()+"-shex", "yet to be done: shex as html", f.getOutputNames());
 
     // todo : generate schematron itself
     if (wantGen(r, "sch")) 
-      fragmentError(sd.getId()+"-sch", "yet to be done: schematron as html", f.getOutputNames());
+      fragmentError("StructureDefinition-"+sd.getId()+"-sch", "yet to be done: schematron as html", f.getOutputNames());
 
     // todo : generate json schema itself
     if (wantGen(r, "json-schema")) 
-      fragmentError(sd.getId()+"-json-schema", "yet to be done: json schema as html", f.getOutputNames());
+      fragmentError("StructureDefinition-"+sd.getId()+"-json-schema", "yet to be done: json schema as html", f.getOutputNames());
 
     StructureDefinitionRenderer sdr = new StructureDefinitionRenderer(context, specPath+"/", sd, Utilities.path(tempDir), igpkp, specDetails.getAsJsonObject("maps"));
     if (wantGen(r, "summary")) 
-      fragment(sd.getId()+"-sd-summary", sdr.summary(), f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-summary", sdr.summary(), f.getOutputNames());
     if (wantGen(r, "header")) 
-      fragment(sd.getId()+"-header", sdr.header(), f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-header", sdr.header(), f.getOutputNames());
     if (wantGen(r, "diff")) 
-      fragment(sd.getId()+"-diff", sdr.diff(igpkp.getDefinitions(sd)), f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-diff", sdr.diff(igpkp.getDefinitions(sd)), f.getOutputNames());
     if (wantGen(r, "snapshot")) 
-      fragment(sd.getId()+"-snapshot", sdr.snapshot(igpkp.getDefinitions(sd)), f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-snapshot", sdr.snapshot(igpkp.getDefinitions(sd)), f.getOutputNames());
     if (wantGen(r, "template-xml")) 
-      fragmentError(sd.getId()+"-template-xml", "yet to be done: Xml template", f.getOutputNames());
+      fragmentError("StructureDefinition-"+sd.getId()+"-template-xml", "yet to be done: Xml template", f.getOutputNames());
     if (wantGen(r, "template-json")) 
-      fragmentError(sd.getId()+"-template-json", "yet to be done: Json template", f.getOutputNames());
+      fragmentError("StructureDefinition-"+sd.getId()+"-template-json", "yet to be done: Json template", f.getOutputNames());
     if (wantGen(r, "template-ttl")) 
-      fragmentError(sd.getId()+"-template-ttl", "yet to be done: Turtle template", f.getOutputNames());
+      fragmentError("StructureDefinition-"+sd.getId()+"-template-ttl", "yet to be done: Turtle template", f.getOutputNames());
     if (wantGen(r, "uml")) 
-      fragmentError(sd.getId()+"-uml", "yet to be done: UML as SVG", f.getOutputNames());
+      fragmentError("StructureDefinition-"+sd.getId()+"-uml", "yet to be done: UML as SVG", f.getOutputNames());
     if (wantGen(r, "tx")) 
-      fragment(sd.getId()+"-tx", sdr.tx(), f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-tx", sdr.tx(), f.getOutputNames());
     if (wantGen(r, "inv")) 
-      fragment(sd.getId()+"-inv", sdr.inv(), f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-inv", sdr.inv(), f.getOutputNames());
     if (wantGen(r, "dict")) 
-      fragment(sd.getId()+"-dict", sdr.dict(), f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-dict", sdr.dict(), f.getOutputNames());
     if (wantGen(r, "maps")) 
-      fragment(sd.getId()+"-maps", sdr.mappings(), f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-maps", sdr.mappings(), f.getOutputNames());
     if (wantGen(r, "xref")) 
-      fragmentError(sd.getId()+"-sd-xref", "Yet to be done: xref", f.getOutputNames());
+      fragmentError("StructureDefinition-"+sd.getId()+"-sd-xref", "Yet to be done: xref", f.getOutputNames());
 
     if (wantGen(r, "example-list")) 
-      fragment("example-list-"+sd.getId(), sdr.exampleList(fileList), f.getOutputNames());
+      fragment("StructureDefinition-example-list-"+sd.getId(), sdr.exampleList(fileList), f.getOutputNames());
   }
 
   private XhtmlNode getXhtml(FetchedResource r) {

@@ -32,6 +32,7 @@ package org.hl7.fhir.dstu3.utils.client;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -39,14 +40,18 @@ import org.apache.http.Header;
 import org.apache.http.HttpHost;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.Coding;
+import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.Conformance;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.Parameters;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.utilities.Utilities;
+import org.stringtemplate.v4.compiler.StringTable;
 
 /**
  * Very Simple RESTful client. This is purely for use in the standalone
@@ -681,6 +686,43 @@ public class FHIRToolingClient {
 
   public String getAddress() {
     return base;
+  }
+
+  public ConceptMap initializeClosure(String name) {
+    Parameters params = new Parameters();
+    params.addParameter().setName("name").setValue(new StringType(name));
+    List<Header> headers = null;
+    ResourceRequest<Resource> result = ClientUtils.issuePostRequest(resourceAddress.resolveOperationUri(null, "closure", new HashMap<String, String>()),
+        ClientUtils.getResourceAsByteArray(params, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), headers, proxy);
+    result.addErrorStatus(410);//gone
+    result.addErrorStatus(404);//unknown
+    result.addErrorStatus(405);
+    result.addErrorStatus(422);//Unprocessable Entity
+    result.addSuccessStatus(200);
+    result.addSuccessStatus(201);
+    if(result.isUnsuccessfulRequest()) {
+      throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload());
+    }
+    return (ConceptMap) result.getPayload();
+  }
+
+  public ConceptMap updateClosure(String name, Coding coding) {
+    Parameters params = new Parameters();
+    params.addParameter().setName("name").setValue(new StringType(name));
+    params.addParameter().setName("concept").setValue(coding);
+    List<Header> headers = null;
+    ResourceRequest<Resource> result = ClientUtils.issuePostRequest(resourceAddress.resolveOperationUri(null, "closure", new HashMap<String, String>()),
+        ClientUtils.getResourceAsByteArray(params, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), headers, proxy);
+    result.addErrorStatus(410);//gone
+    result.addErrorStatus(404);//unknown
+    result.addErrorStatus(405);
+    result.addErrorStatus(422);//Unprocessable Entity
+    result.addSuccessStatus(200);
+    result.addSuccessStatus(201);
+    if(result.isUnsuccessfulRequest()) {
+      throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload());
+    }
+    return (ConceptMap) result.getPayload();
   }
 
 }

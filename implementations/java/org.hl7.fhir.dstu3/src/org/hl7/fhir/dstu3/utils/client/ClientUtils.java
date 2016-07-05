@@ -65,6 +65,8 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.conn.params.ConnRoutePNames;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
@@ -242,6 +244,10 @@ public class ClientUtils {
 		HttpResponse response = null;
 		try {
 			HttpClient httpclient = new DefaultHttpClient();
+			
+			HttpParams params = httpclient.getParams();
+			HttpConnectionParams.setConnectionTimeout(params, 5000);
+			HttpConnectionParams.setSoTimeout(params, 5000);
 			if(proxy != null) {
 				httpclient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, proxy);
 			}
