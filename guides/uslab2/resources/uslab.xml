@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://Mac/Home/Documents/FHIR/build/schema/implementationguide.xsd">
 	<id value="uslab"/>
 	<url value="http://hl7.org/fhir/uslab"/>
 	<name value="US Lab Implementation Guides"/>
@@ -12,58 +12,266 @@
 			<code value="US"/>
 		</coding>
 	</useContext>
-	<!-- causes build error probably due to cross dependency - check with gg
-	<dependency>
-		<type value="reference"/>
-		<uri value="http://hl7.org/fhir/daf"/>
-	</dependency>
--->
 	<package>
-		<!--  US Lab Profiles  -->
-		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-			<valueUri value="profile\cond-uslab-profile-spreadsheet.xml"/>
-		</extension>
-		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-			<valueUri value="profile\do-uslab-profile-spreadsheet.xml"/>
-		</extension>
-		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-			<valueUri value="profile\dr-uslab-profile-spreadsheet.xml"/>
-		</extension>
-		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-			<valueUri value="profile\obs-uslab-profile-spreadsheet.xml"/>
-		</extension>
-		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-			<valueUri value="profile\org-uslab-profile-spreadsheet.xml"/>
-		</extension>
-		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-			<valueUri value="profile\patient-uslab-profile-spreadsheet.xml"/>
-		</extension>
-		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-			<valueUri value="profile\pract-uslab-profile-spreadsheet.xml"/>
-		</extension>
-		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-			<valueUri value="profile\spec-uslab-profile-spreadsheet.xml"/>
-		</extension>
-		<!-- 
-    <acronym target="uslab-dr" id="usl-pdr"/>
-    <acronym target="uslab-obscode" id="usl-cod"/>
-    <acronym target="uslab-obsquantity" id="usl-qty"/>
-    <acronym target="uslab-obsother" id="usl-oth"/>
-    <acronym target="uslab-obsratio" id="usl-rto"/>
-    <acronym target="uslab-orderfacility" id="usl-bdf"/>
-    <acronym target="uslab-performinglab" id="usl-pfl"/>
-    <acronym target="uslab-cctarget" id="usl-cct"/>
-    <acronym target="uslab-spec" id="usl-spm"/>
-    <acronym target="uslab-patient" id="usl-pat"/>
-    <acronym target="uslab-phpatient" id="usl-php"/>
-    <acronym target="uslab-do" id="usl-do"/>
-    <acronym target="uslab-pract" id="usl-prc"/>
-    <acronym target="uslab-phpract" id="usl-prh"/>
-   -->
 		<name value="base"/>
 		<description value="A US Realm laboratory guides making use of Diagnostic Order, Diagnostic Report, and FHIR resources referenced by them to support ordering reporting of laboratory tests in ambulatory care and for reporting of reportable lab tests to Public Health jurisdictions. "/>
-		<!--  examples  -->
+			<!--valueset-->
+
+<!--	
+		
 		<resource>
+	
+
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/do-event"/>
+			</sourceReference>
+		</resource>
+	<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/clinical-findings"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/spec-bodysite"/>
+			</sourceReference>
+		</resource>
+
+
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/obs-codes"/>
+			</sourceReference>
+		</resource>
+-->	
+		
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/cond-reasonforstudy"/>
+			</sourceReference>
+		</resource>
+<!--
+
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/obs-codedresults"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/obs-kind"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/patient-nameuse"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/obs-spec-reject"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/spec-type"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/obs-interpretation"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/phpatient-nameuse"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/units"/>
+			</sourceReference>
+		</resource>
+		-->
+		<!--		
+		<resource>
+			-->
+		<!--profiles-->
+		<!--
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-pract"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-spec"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-phpatient"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-cctarget"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-patient"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-performinglab"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-obspanel"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-obsratio"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-orderfacility"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-obsrange"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-obsother"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-obsquantity"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-dr"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-obscode"/>
+			</sourceReference>
+		</resource>
+
+-->
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-cond"/>
+			</sourceReference>
+		</resource>
+		
+<!--
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-do"/>
+			</sourceReference>
+		</resource>	-->
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-reasonforstudy"/>
+			</sourceReference>
+		</resource>
+		<!--
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-phpract"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-cc-practitioner"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-observationkind"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/uslab-specimenrejectreason"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			-->
+		<!--conformance-->
+		<!--
+			<example value="false"/>
+			<sourceReference>
+				<reference value="Conformance/uslaborder-receiver"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="Conformance/uslabreport-receiver"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="Conformance/uslabreport-sender"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="Conformance/uslaborder-orderer"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			-->
+		<!--examples-->
+		<!--
 			<example value="true"/>
 			<name value="USLab Condition Example1"/>
 			<description value="USLab Condition Profile Canonical Example: Lead Exposure"/>
@@ -88,7 +296,7 @@
 		<resource>
 			<example value="true"/>
 			<name value="USLab DiagnosticOrder Example1"/>
-			<description value="USLabOrder  Blood Lead "/>
+			<description value="USLabOrder Blood Lead"/>
 			<sourceReference>
 				<reference value="DiagnosticOrder/do-uslab-example1"/>
 			</sourceReference>
@@ -140,6 +348,10 @@
 				<reference value="StructureDefinition/uslab-obsother"/>
 			</exampleFor>
 		</resource>
+
+-->
+		<!--
+
 		<resource>
 			<example value="true"/>
 			<name value="USLab Observation Example4"/>
@@ -187,7 +399,7 @@
 		<resource>
 			<example value="true"/>
 			<name value="USLab Observation Example8"/>
-			<description value="USLab Range Observation Profile  Example: WBCs in Urine"/>
+			<description value="USLab Range Observation Profile Example: WBCs in Urine"/>
 			<sourceReference>
 				<reference value="Observation/obs-uslab-example8"/>
 			</sourceReference>
@@ -209,7 +421,7 @@
 		<resource>
 			<example value="true"/>
 			<name value="USLab Observation Example2"/>
-			<description value="USLab Copy to Organization Profile Canonical Example: Children&#39;s Hospital"/>
+			<description value="USLab Copy to Organization Profile Canonical Example: Children's Hospital"/>
 			<sourceReference>
 				<reference value="Organization/org-uslab-example2"/>
 			</sourceReference>
@@ -250,6 +462,8 @@
 				<reference value="StructureDefinition/uslab-patient"/>
 			</exampleFor>
 		</resource>
+		
+		
 		<resource>
 			<example value="true"/>
 			<name value="USLab Practitioner Example1"/>
@@ -297,7 +511,7 @@
 		<resource>
 			<example value="true"/>
 			<name value="USLab Specimen Example2"/>
-			<description value="USLab Specimen Profile  Example: Urine- first catch"/>
+			<description value="USLab Specimen Profile Example: Urine- first catch"/>
 			<sourceReference>
 				<reference value="Specimen/spec-uslab-example2"/>
 			</sourceReference>
@@ -305,63 +519,34 @@
 				<reference value="StructureDefinition/uslab-spec"/>
 			</exampleFor>
 		</resource>
-		<!--conformance-->
-		<resource>
-			<example value="true"/>
-			<name value="USLabOrder Orderer"/>
-			<description value="USLabOrder Orderer"/>
-			<sourceReference>
-				<reference value="Conformance/conformance-uslaborder-orderer"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="true"/>
-			<name value="USLabOrder Receiver"/>
-			<description value="USLabOrder Receiver"/>
-			<sourceReference>
-				<reference value="Conformance/conformance-uslaborder-receiver"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="true"/>
-			<name value="USLabReport Sender"/>
-			<description value="USLabReport Sender"/>
-			<sourceReference>
-				<reference value="Conformance/conformance-uslabreport-sender"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="true"/>
-			<name value="USLabReport Receiver"/>
-			<description value="USLabReport Receiver"/>
-			<sourceReference>
-				<reference value="Conformance/conformance-uslabreport-receiver"/>
-			</sourceReference>
-		</resource>
+
+-->
 	</package>
-	<!--  not necessary
-  <resource>
-    <example value=""/>
-    <name value="USLab Value Set List"/>
-    <description value="USLab Value Set List"/>
-    <sourceReference><reference  value="list-uslab-valuesets.xml"/></sourceReference>
-  </resource>
-   -->
+	<!--
+	
 	<binary value="uslabreportpushrest.png"/>
 	<binary value="uslabreportpullrest.png"/>
 	<binary value="uslabreportcontext.png"/>
 	<binary value="uslaborderpushrest.png"/>
 	<binary value="uslaborderpullrest.png"/>
 	<binary value="uslabordercontext.png"/>
+	
+	-->
 	<page>
+	
+
+	
 		<source value="uslab.html"/>
 		<name value="US Lab Implementation Guide Home Page"/>
 		<kind value="page"/>
+		
+				
 		<page>
 			<source value="uslab-toc.html"/>
 			<name value="Table of Contents"/>
 			<kind value="toc"/>
 		</page>
+		<!---
 		<page>
 			<source value="uslaborder.html"/>
 			<name value="US Laboratory Order Overview Page"/>
@@ -375,13 +560,11 @@
 				<source value="conformance-uslaborder-orderer.html"/>
 				<name value="US Laboratory Order Orderer Conformance Page"/>
 				<kind value="resource"/>
-				<format value="generated"/>
 			</page>
 			<page>
 				<source value="conformance-uslaborder-receiver.html"/>
 				<name value="US Laboratory Order Receiver Conformance Page"/>
 				<kind value="resource"/>
-				<format value="generated"/>
 			</page>
 		</page>
 		<page>
@@ -397,13 +580,11 @@
 				<source value="conformance-uslabreport-sender.html"/>
 				<name value="US Laboratory Report Sender Conformance Page"/>
 				<kind value="resource"/>
-				<format value="generated"/>
 			</page>
 			<page>
 				<source value="conformance-uslabreport-receiver.html"/>
 				<name value="US Laboratory Report Receiver Conformance Page"/>
 				<kind value="resource"/>
-				<format value="generated"/>
 			</page>
 		</page>
 		<page>
@@ -419,323 +600,173 @@
 				<source value="conformance-uslabreport-sender.html"/>
 				<name value="US Laboratory Report Sender Conformance Page"/>
 				<kind value="resource"/>
-				<format value="generated"/>
 			</page>
 			<page>
 				<source value="conformance-uslabreport-receiver.html"/>
 				<name value="US Laboratory Report Receiver Conformance Page"/>
 				<kind value="resource"/>
-				<format value="generated"/>
 			</page>
 		</page>
 		<page>
 			<source value="do-uslab.html"/>
-			<name value="US Laboratory Diagnostic Order Profile "/>
+			<name value="US Laboratory Diagnostic Order Profile"/>
 			<kind value="page"/>
-			<format value="generated"/>
 			<page>
 				<source value="uslab-do.html"/>
 				<name value="US Laboratory Diagnostic Order Details"/>
 				<kind value="resource"/>
-				<format value="generated"/>
 			</page>
 			<page>
 				<source value="extension-uslab-cc-practitioner.html"/>
-				<name value="Extension: Copy to practitioner "/>
+				<name value="Extension: Copy to practitioner"/>
 				<kind value="resource"/>
-				<format value="generated"/>
 			</page>
 			<page>
 				<source value="do-uslab-example1.html"/>
 				<name value="USLab DiagnosticOrder Example 1"/>
 				<kind value="example"/>
-				<format value="generated"/>
 			</page>
 		</page>
 		<page>
 			<source value="dr-uslab.html"/>
-			<name value="US Laboratory Diagnostic Report Profile "/>
+			<name value="US Laboratory Diagnostic Report Profile"/>
 			<kind value="page"/>
-			<format value="generated"/>
 			<page>
 				<source value="uslab-dr.html"/>
 				<name value="US Laboratory Diagnostic Report Details"/>
 				<kind value="resource"/>
-				<format value="generated"/>
 			</page>
 			<page>
 				<source value="dr-uslab-example1.html"/>
 				<name value="USLab DiagnosticReport Example 1"/>
 				<kind value="example"/>
-				<format value="generated"/>
 			</page>
 		</page>
 		<page>
 			<source value="obs-uslab.html"/>
-			<name value="US Laboratory Observation Profiles "/>
+			<name value="US Laboratory Observation Profiles"/>
 			<kind value="page"/>
-			<format value="generated"/>
 			<page>
 				<source value="uslab-obsquantity.html"/>
 				<name value="US Laboratory result using Quantity Data Type for numeric results"/>
 				<kind value="resource"/>
-				<format value="generated"/>
-				<page>
-					<source value="obs-uslab-example1.html"/>
-					<name value="USLab Quantitative Observation Profile Example: Capillary Blood Lead"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
-				<page>
-					<source value="obs-uslab-example5.html"/>
-					<name value="USLab Quantitative Observation Profile Example: Blood Lead"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
 			</page>
 			<page>
 				<source value="uslab-obscode.html"/>
 				<name value="US Laboratory result using CodeableConcept Data Type for non-numeric results"/>
 				<kind value="resource"/>
-				<format value="generated"/>
-				<page>
-					<source value="obs-uslab-example2.html"/>
-					<name value="USLab Coded Observation Profile Example: N gonorrhoeae PCR"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
-				<page>
-					<source value="obs-uslab-example6.html"/>
-					<name value="USLab Coded Observation Profile Example: C trachomatis PCR"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
 			</page>
 			<page>
 				<source value="uslab-obspanel.html"/>
 				<name value="US Laboratory result panel observations"/>
 				<kind value="resource"/>
-				<format value="generated"/>
-				<page>
-					<source value="obs-uslab-example6.html"/>
-					<name value="USLab Panel Observation Profile Example: GC/CT Aptima 2 Combo panel"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
 			</page>
 			<page>
 				<source value="uslab-obsrange.html"/>
 				<name value="US Laboratory result using Range Data Type for numeric results"/>
 				<kind value="resource"/>
-				<format value="generated"/>
-				<page>
-					<source value="obs-uslab-example8.html"/>
-					<name value="USLab Range Observation Profile Example: WBCs in Urine"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
 			</page>
 			<page>
 				<source value="uslab-obsratio.html"/>
 				<name value="US Laboratory result using Ratio Data Type for non-numeric results"/>
 				<kind value="resource"/>
-				<format value="generated"/>
-				<page>
-					<source value="obs-uslab-example4.html"/>
-					<name value="USLab Ratio Observation Profile Example: Dengue Titer"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
 			</page>
 			<page>
 				<source value="uslab-obsother.html"/>
 				<name value="US Laboratory result using one of Attachment|dateTime|Period|SampledData|string|timeData Type for results."/>
 				<kind value="resource"/>
-				<format value="generated"/>
-				<page>
-					<source value="obs-uslab-example3.html"/>
-					<name value="USLab Other (string) Observation Profile Example: S.aureus"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
 			</page>
 			<page>
 				<source value="extension-uslab-specimenrejectreason.html"/>
 				<name value="Extension: Specimen Rejection Reason"/>
 				<kind value="resource"/>
-				<format value="generated"/>
 			</page>
 			<page>
 				<source value="extension-uslab-observationkind.html"/>
 				<name value="Extension: Kind of observation"/>
 				<kind value="resource"/>
-				<format value="generated"/>
 			</page>
 		</page>
 		<page>
 			<source value="patient-uslab.html"/>
-			<name value="US Laboratory Patient Profiles "/>
+			<name value="US Laboratory Patient Profiles"/>
 			<kind value="page"/>
-			<format value="generated"/>
 			<page>
 				<source value="uslab-patient.html"/>
 				<name value="US Laboratory Patient Details"/>
 				<kind value="resource"/>
-				<format value="generated"/>
-				<page>
-					<source value="patient-uslab-example1.html"/>
-					<name value="USLab Patient Example"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
 			</page>
 			<page>
 				<source value="uslab-phpatient.html"/>
 				<name value="US Laboratory Patient with expanded contact information Details"/>
 				<kind value="resource"/>
-				<format value="generated"/>
-				<page>
-					<source value="patient-uslab-example2.html"/>
-					<name value="USLab Public Health Patient Example"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
 			</page>
 		</page>
 		<page>
 			<source value="pract-uslab.html"/>
-			<name value="US Laboratory Practitioner Profiles "/>
+			<name value="US Laboratory Practitioner Profiles"/>
 			<kind value="page"/>
-			<format value="generated"/>
 			<page>
 				<source value="uslab-pract.html"/>
 				<name value="US Laboratory Practitioner Details"/>
 				<kind value="resource"/>
-				<format value="generated"/>
-				<page>
-					<source value="pract-uslab-example1.html"/>
-					<name value="USLab Practitioner Example 1"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
-				<page>
-					<source value="pract-uslab-example3.html"/>
-					<name value="USLab Practitioner Example 3"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
 			</page>
 			<page>
 				<source value="uslab-phpract.html"/>
 				<name value="US Laboratory Practitioner with expanded contact information Details"/>
 				<kind value="resource"/>
-				<format value="generated"/>
-				<page>
-					<source value="pract-uslab-example2.html"/>
-					<name value="USLab Practitioner for Public Health Reporting Example"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
 			</page>
 		</page>
 		<page>
 			<source value="org-uslab.html"/>
-			<name value="US Laboratory Organization Profiles "/>
+			<name value="US Laboratory Organization Profiles"/>
 			<kind value="page"/>
-			<format value="generated"/>
 			<page>
 				<source value="uslab-orderfacility.html"/>
 				<name value="US Laboratory Orderer's Organization ( clinic, hospital,etc ) Details"/>
 				<kind value="resource"/>
-				<format value="generated"/>
-				<page>
-					<source value="org-uslab-example1.html"/>
-					<name value="USLab Ordering Organization Example"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
 			</page>
 			<page>
 				<source value="uslab-performinglab.html"/>
 				<name value="US Laboratory Performing Laboratory Details"/>
 				<kind value="resource"/>
-				<format value="generated"/>
-				<page>
-					<source value="org-uslab-example3.html"/>
-					<name value="USLab Performing Lab Example"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
 			</page>
 			<page>
 				<source value="uslab-cctarget.html"/>
 				<name value="US Laboratory Copy to Organization Details"/>
 				<kind value="resource"/>
-				<format value="generated"/>
-				<page>
-					<source value="org-uslab-example2.html"/>
-					<name value="USLab Copy to Organization Example"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
 			</page>
 		</page>
 		<page>
 			<source value="spec-uslab.html"/>
-			<name value="US Laboratory Specimen Profiles "/>
+			<name value="US Laboratory Specimen Profiles"/>
 			<kind value="page"/>
-			<format value="generated"/>
 			<page>
 				<source value="uslab-spec.html"/>
 				<name value="US Laboratory Specimen Detail"/>
 				<kind value="resource"/>
-				<format value="generated"/>
-				<page>
-					<source value="spec-uslab-example1.html"/>
-					<name value="USLab Specimen Profile Canonical Example: Blood"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
-				<page>
-					<source value="spec-uslab-example2.html"/>
-					<name value="USLab Specimen Profile Example: Urine- first catch"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
 			</page>
 		</page>
 		<page>
 			<source value="cond-uslab.html"/>
-			<name value="US Laboratory Condition Profiles "/>
+			<name value="US Laboratory Condition Profiles"/>
 			<kind value="page"/>
-			<format value="generated"/>
 			<page>
 				<source value="uslab-cond.html"/>
 				<name value="US Laboratory Condition Detail"/>
 				<kind value="resource"/>
-				<format value="generated"/>
-				<page>
-					<source value="cond-uslab-example1.html"/>
-					<name value="USLab Condition Example"/>
-					<kind value="example"/>
-					<format value="generated"/>
-				</page>
 			</page>
 			<page>
 				<source value="uslab-reasonforstudy.html"/>
 				<name value="US Laboratory Reason for Study Details"/>
 				<kind value="resource"/>
-				<format value="generated"/>
 			</page>
 		</page>
 		<page>
 			<source value="registry.html"/>
 			<name value="Registry"/>
 			<kind value="list"/>
-			<type value="Conformance"/>
-			<type value="StructureDefinition"/>
-			<type value="ValueSet"/>
-			<type value="ConceptMap"/>
 		</page>
+		-->
 	</page>
 </ImplementationGuide>

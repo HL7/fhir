@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
-	<id value="valueset-uslab-nameuse"/>
-	<meta>
+	<id value="uslab-nameuse"/>
+	<!--meta>
 		<lastUpdated value="2016-06-01T19:45:02.356-07:00"/>
 		<profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
 	</meta>
@@ -40,7 +40,7 @@
 	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
 		<valueUri value="urn:oid:2.16.840.1.113883.4.642.2.573"/>
 	</extension>
-	<url value="http://hl7.org/fhir/ValueSet/uslab-patient-uslab-nameuse"/>
+	<!url value="http://hl7.org/fhir/uslab/ValueSet/uslab-patient-uslab-nameuse"/-->
 	<version value="1.4.0"/>
 	<name value="USLabNameUse"/>
 	<status value="draft"/>

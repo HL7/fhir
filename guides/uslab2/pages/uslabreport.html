@@ -1,15 +1,35 @@
+---
+# jekyll prompt
+---
 <!DOCTYPE HTML>
-[%settitle US Laboratory Report Implementation%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
    <head>
-      [%file newheader%]
-   </head>
-   <body>
-      [%file newnavbar%]
-      <div class="col-9">
+  <meta charset="UTF-8">
+  <title>USLabReport/uslabreport - FHIR v1.4.0</title>
+
+  {% include header.html %}
+
+</head>
+<body>
+{% include navbar.html %}
+ <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+  <div class="container">  <!-- container -->
+   <ul class="breadcrumb">
+        
+        <li title="FHIR US Lab Report Implementation"><b>USLab Report</b></li>
+
+   </ul>
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+<div class="col-9">
+  <!-- CONTENT CONTENT -->
          <a name="USLabReport"> </a>
-        <p>Published by:  HL7 Orders and Observations Workgroup</p>
-		<p>Primary Author/Editor:  Eric M Haas, Health eData Inc.</p>
+
          <h2>US Laboratory Report Implementation</h2>
          <p>
             The <i>US Laboratory Report Implementation (USLabReport)</i> consists of the guidance documentation,  profiles, operations, value sets and conformance
@@ -124,7 +144,12 @@ In addition to defining the the <i>USLabReport</i> bundle this implementation co
 
             </li>
          </ul>
-      </div>
-      [%file newfooter%]
-   </body>
+               <p>Published by:  HL7 Orders and Observations Workgroup</p>
+		<p>Primary Author/Editor:  Eric M Haas, Health eData Inc.</p>
+
+  </div>  <!-- /inner-wrapper -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-footer -->
+{% include footer.html %}
+</body>
 </html>

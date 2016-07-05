@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
-	<id value="valueset-uslabph-nameuse"/>
+	<id value="uslab-patient-nameuse"/>
 	<meta>
 		<lastUpdated value="2016-06-01T19:45:02.356-07:00"/>
 		<profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
@@ -8,8 +8,8 @@
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
-			<h2>USLabPHNameUse</h2>
-			<p>The name types for US Laboratory reporting to Public Health</p>
+			<h2>USLabNameUse</h2>
+			<p>The name types for US Laboratory ordering and reporting in ambulatory care setting</p>
 			<p>This value set includes codes from the following code systems:</p>
 			<ul>
 				<li>Include these codes as defined in <a href="../codesystem-name-use.html">http://hl7.org/fhir/name-use</a>
@@ -32,22 +32,17 @@
 							<td>Anonymous</td>
 							<td>Anonymous assigned name, alias, or pseudonym (used to protect a person&#39;s identity for privacy reasons)</td>
 						</tr>
-						<tr>
-							<td>maiden</td>
-							<td>Maiden</td>
-							<td>A name used prior to marriage. Marriage naming customs vary greatly around the world. This name use is for use by applications that collect and store &quot;maiden&quot; names. Though the concept of maiden name is often gender specific, the use of this term is not gender specific. The use of this term does not imply any particular history for a person&#39;s name, nor should the maiden name be determined algorithmically.</td>
-						</tr>
 					</table>
 				</li>
 			</ul>
 		</div>
 	</text>
 	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
-		<valueUri value="urn:oid:2.16.840.1.113883.4.642.2.574"/>
+		<valueUri value="urn:oid:2.16.840.1.113883.4.642.2.573"/>
 	</extension>
-	<url value="http://hl7.org/fhir/ValueSet/uslab-patient-uslabph-nameuse"/>
+	<!--url value="http://hl7.org/fhir/uslab/ValueSet/uslab-patient-uslab-nameuse"/-->
 	<version value="1.4.0"/>
-	<name value="USLabPHNameUse"/>
+	<name value="USLabNameUse"/>
 	<status value="draft"/>
 	<experimental value="false"/>
 	<publisher value="HL7 (FHIR Project)"/>
@@ -62,7 +57,7 @@
 		</telecom>
 	</contact>
 	<date value="2016-06-01T19:45:02-07:00"/>
-	<description value="The name types for US Laboratory reporting to Public Health"/>
+	<description value="The name types for US Laboratory ordering and reporting in ambulatory care setting"/>
 	<compose>
 		<include>
 			<system value="http://hl7.org/fhir/name-use"/>
@@ -71,9 +66,6 @@
 			</concept>
 			<concept>
 				<code value="anonymous"/>
-			</concept>
-			<concept>
-				<code value="maiden"/>
 			</concept>
 		</include>
 	</compose>
