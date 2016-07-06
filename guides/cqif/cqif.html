@@ -11,16 +11,16 @@
 <div class="col-9">
 
 <a name="cqif"/> 
-<h3>Clinical Quality Improvement Framework (CQIF) Implementation Guide</h3>
+<h3>Clinical Quality Framework (CQF) Implementation Guide</h3>
 
-<p><i>This draft of the CQIF IG is being balloted as the FHIR-Based Clinical Quality Framework (CQF-on-FHIR) as a comment-only ballot for the May 2016 ballot cycle. In addition, this IG will be used to support the SOA/CDS track in the May 2016 FHIR connect-a-thon.</i></p>
+<p><i>This draft of the CQF IG is being balloted as FHIR-Based Clinical Quality Framework (CQF-on-FHIR) as an STU ballot for the September 2016 ballot cycle. In addition, this IG will be used to support the CQF-on-FHIR and Payer Extract tracks in the September 2016 FHIR connect-a-thon.</i></p>
 
-<p><i>This Implementation Guide is prepared as a Universal Realm Specification with support from the <a href="http://cqframework.info">Clinical Quality Framework (CQF) initiative</a>, which is a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the U.S. Office of the National Coordinator for Health Information Technology (ONC) to harmonize standards for clinical decision support and electronic clinical quality measurement.</i></p>
+<p><i>This Implementation Guide is prepared as a Universal Realm Specification with support from the <a href="http://cqframework.info">Clinical Quality Framework (CQF) initiative</a>, which is a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the U.S. Office of the National Coordinator for Health Information Technology (ONC) to identify, develop, and harmonize standards for clinical decision support and electronic clinical quality measurement.</i></p>
 
 <a name="introduction"/>
 <h4>Introduction</h4>
 
-<p>The CQIF Implementation Guide describes a framework for health quality measurement and improvement using Fast Healthcare Interoperability Resources (FHIR). The IG covers a broad range of topics related to healthcare quality in both the decision support and quality measurement domains.</p>
+<p>The CQF Implementation Guide describes a framework for health quality measurement and improvement using Fast Healthcare Interoperability Resources (FHIR). The IG covers a broad range of topics related to healthcare quality in both the decision support and quality measurement domains.</p>
 
 <table class="grid">
 	<thead>
@@ -40,7 +40,7 @@
 <a name="background"/>
 <h4>Background</h4>
 
-<p>The CQIF Implementation Guide is sponsored by the Clinical Decision Support (CDS) and Clinical Quality Information (CQI) HL7 Work Groups, with input and coordination from the FHIR Infrastructure and Service Oriented Architecture HL7 Work Groups.</p>
+<p>The CQF Implementation Guide is sponsored by the Clinical Decision Support (CDS) and Clinical Quality Information (CQI) HL7 Work Groups, with input and coordination from the FHIR Infrastructure and Service Oriented Architecture HL7 Work Groups.</p>
 
 <p>The Clinical Quality Framework initiative has focused on harmonizing the historically disjointed specifications used by the Clinical Quality Measurement and Clinical Decision Support communities. Specifically, the initiative has focused on the specifications used to represent knowledge artifacts within the two communities. The strategy employed has been to break the conceptual content of knowledge artifacts into three core components:</p>
 
@@ -139,7 +139,7 @@ as the author decides with no implications
 <a name="ballot-objectives"/>
 <h4>Ballot Objectives</h4>
 
-<p>For this ballot cycle, we are presenting this implementation guide as a comment-only ballot with the objective of gathering community feedback. We welcome any comments, criticisms and suggestions on any topic, but in particular, we seek feedback on the following areas:</p>
+<p>For this ballot cycle, we are presenting this implementation guide as an STU ballot with the objective of providing a basis for the representation and evaluation of shareable clinical knowledge artifacts. We welcome any comments, criticisms and suggestions on any topic, but in particular, we seek feedback on the following areas:</p>
 
 <ul>
 	<li>The use of FHIR operations as the protocol for defining artifact evaluation requests and responses. In particular, the ability to bundle multiple requests into a single operation, as well as the use of a generic FHIR operation for any module evaluation, versus defining an evaluation specific to a given knowledge module.</li>
@@ -169,12 +169,13 @@ This implementation guide is the work of a joint project between the HL7 Clinica
 		<tr><td><b>Editor</b></td><td>Marc Hadley</td><td>The MITRE Corporation</td><td>mhadley@mitre.org</td></tr>
 		<tr><td><b>Modeling Facilitator</b></td><td>Gay Dolin</td><td>Intelligent Medical Objects</td><td>gdolin@imo-online.com</td></tr>
 		<tr><td><b>Publishing Facilitator</b></td><td>Lloyd McKenzie</td><td>Gevity</td><td>lmckenzie@gevityinc.com</td></tr>
-		<tr><td><b>Domain Expert</b></td><td>KP Sethi</td><td>Lantana Consulting Group</td><td>kp.sethi@lantanagroup.com</td></tr>
+		<tr><td><b>Domain Expert</b></td><td>Claude Nanjo</td><td>Cognitive Medical Systems</td><td>cnanjo@cognitivemedicine.com</td></tr>
+		<tr><td><b>Domain Expert</b></td><td>Esteban Aliverti</td><td>Cognitive Medical Systems</td><td>ealiverti@cognitivemedicine.com</td></tr>
 		<tr><td><b>Domain Expert</b></td><td>Chris Moesel</td><td>The MITRE Corporation</td><td>cmoesel@mitre.org</td></tr>
 		<tr><td><b>Domain Expert</b></td><td>Darrell Woelk</td><td>SocialCare</td><td>dwoelk@socialcare.com</td></tr>
 		<tr><td><b>Vocabulary Facilitator</b></td><td>Sarah Ryan</td><td>The MITRE Corporation</td><td>sarahryan@mitre.org</td></tr>
 		<tr><td><b>Vocabulary Facilitator</b></td><td>Rob McClure</td><td>MD Partners</td><td>rmcclure@mdpartners.com</td></tr>
-		<tr><td><b>Co-Chair</b></td><td>Crystal Kallem</td><td>Lantana Consulting Group</td><td>crystal.kallem@lantanagroup.com</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>KP Sethi</td><td>Lantana Consulting Group</td><td>kp.sethi@lantanagroup.com</td></tr>
 		<tr><td><b>Co-Chair</b></td><td>Patricia Craig</td><td>The Joint Commission</td><td>pcraig@jointcommission.org</td></tr>
 		<tr><td><b>Co-Chair</b></td><td>Floyd Eisenberg</td><td>iParsimony LLC</td><td>feisenberg@iparsimony.com</td></tr>
 		<tr><td><b>Co-Chair</b></td><td>Chris Millet</td><td>National Quality Forum</td><td>cmillet@qualityforum.org</td></tr>

@@ -4,7 +4,6 @@
 	<contained>
 			<DocumentReference>
 				<id value="InfoButtonResponse1"/>
-				<!-- QUESTION: Is the subject of the DocumentReference really the patient? Isn't this document a general purpose resource that applies to anyone with the given condition? -->
 				<subject>
 					<reference value="Patient/example"/>
 				</subject>
@@ -53,7 +52,7 @@
 	<status value="success"/>
 	<action>
 		<title value="Healthwise Search Results"/>
-		<!-- NOTE: This is commented out until the structures are changed to accomodate this (see tracker #10257)
+		<!-- NOTE: This is commented out until the structures are changed to accommodate this (see tracker #10257)
 		<documentation>
 			<reference value="DocumentReference/#InfoButtonResponse1"/>
 		</documentation>

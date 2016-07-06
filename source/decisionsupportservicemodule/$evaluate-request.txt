@@ -3,3 +3,8 @@ POST [base]/DecisionSupportServiceModule/example/$evaluate
 
 $include evaluate-operation-request-example.xml
 
+--------------------------------------
+// Request an InfoButton evaluate
+POST [base]/DecisionSupportServiceModule/infobutton/$evaluate
+
+$include infobutton-evaluate-request.xml
