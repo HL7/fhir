@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.codec.Charsets;
-import org.hl7.fhir.dstu2.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu2.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu2.test.TestingUtilities;
 import org.hl7.fhir.dstu2.utils.SimpleWorkerContext;
@@ -26,7 +25,7 @@ public class InstanceValidatorTests {
     ByteArrayInputStream file = new ByteArrayInputStream(cnt.getBytes(Charsets.UTF_8));
     InstanceValidator val = new InstanceValidator(TestingUtilities.context);
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
-    val.validate(errors, file, json ? FhirFormat.JSON : FhirFormat.XML);
+//    val.validate(errors, file, json ? FhirFormat.JSON : FhirFormat.XML);
     int ec = 0;
     for (ValidationMessage m : errors) {
       if (m.getLevel() == IssueSeverity.ERROR || m.getLevel() == IssueSeverity.FATAL) {
@@ -35,7 +34,6 @@ public class InstanceValidatorTests {
       }
     }
     Assert.assertTrue(ec == errorCount);
-    System.out.println(val.reportTimes());
   }
     
 
