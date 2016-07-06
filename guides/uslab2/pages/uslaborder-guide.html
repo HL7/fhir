@@ -1,20 +1,38 @@
-
+---
+# jekyll prompt
+fhir-path: http://hl7-fhir.github.io/
+---
 <!DOCTYPE HTML>
-<!--<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">-->
-   <head>
- <!--     [%file newheader%] -->
-   </head>
-   <body>
- <!--     [%file newnavbar%]-->
-      <div class="col-9">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>USLAB/uslab - FHIR v1.4.0</title>
+
+  {% include header.html %}
+
+</head>
+<body>
+{% include navbar.html %}
+
+ {% include breadcrumb.html %}
+
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+  <!-- CONTENT CONTENT -->
+
+<div class="col-9">
+
          <a name="uslaborder-guide"> </a>
          <a name="purpose"></a>
          <h2>Purpose</h2>
          <p>
             The FHIR USLab Order Implementation focuses on identifying the requirements, specifications and
             standards, and on providing the implementation guidance for electronic ordering of laboratory tests in
-            the US Realm using <a href="[%fhir-path%]http.html">the FHIR in the RESTful framework</a>. The scope of the Laboratory Orders Interface Use Case includes requirements to enable a
-            the US Realm using <a href="[%fhir-path%]http.html">the FHIR in the RESTful framework</a>. The scope of the Laboratory Orders Interface Use Case includes requirements to enable a
+            the US Realm using <a href="{{page.fhir-path}}http.html">the FHIR in the RESTful framework</a>. The scope of the Laboratory Orders Interface Use Case includes requirements to enable a
+            the US Realm using <a href="{{page.fhir-path}}http.html">the FHIR in the RESTful framework</a>. The scope of the Laboratory Orders Interface Use Case includes requirements to enable a
             particular implementation of Electronic Health Record System (EHR-S) to use standardized structured
             data in a defined inter-organizational laboratory transaction. The Use Case requirements are directed at
             laboratory test orders between an Ambulatory Provider's EHR-S and a Laboratory's Laboratory
@@ -35,15 +53,15 @@
          </p>
          <ul>
             <li>The guide is constructed assuming the implementer has access to the FHIR Specification. Although some information from the standard is included in this implementation guide, much information from the standard has not been repeated here. </li>
-            <li>The guide is constructed assuming the implementer SHALL conform to the <a href="[%fhir-path%]http.html"> FHIR RESTful API</a></li>
+            <li>The guide is constructed assuming the implementer SHALL conform to the <a href="{{page.fhir-path}}http.html"> FHIR RESTful API</a></li>
             <!-- EH:  todo create the messaging and document version of uslaborder-->
             <li>The rules defined in the FHIR Conformance Profile were used to document the use case for, and constraints applied to, the resources described in this guide. </li>
          </ul>
          <!--  EH not needed :  The rules outlined in HL7 2.7.1, Chapter 2B, Section 2B5, Conformance Using Message Profiles,
             were used to document the use case for, and constraints applied to, the messages described in this
             guide. -->
-         <!--  EH not needed :  • Data types have been described separately from the fields that use the data types.  -->
-         <!--  EH not needed :  •o conformance information is provided for fully optional message elements and segments ("O") or
+         <!--  EH not needed :  â€¢ Data types have been described separately from the fields that use the data types.  -->
+         <!--  EH not needed :  â€¢o conformance information is provided for fully optional message elements and segments ("O") or
             unsupported message elements and segments ("X"). This includes cardinality, value sets and
             descriptive information. Implementers who want to use optional message elements should refer to
             the base HL7 V2.5.1 Standard to determine how these optional message elements will be used.
@@ -152,7 +170,7 @@
          </ul>
          <a name="usecasesandcontext"></a>
          <h2>Orders for Ambulatory Care Context Diagram</h2>
-<!--  
+<!--
          <p><b>Figure 2-1. Use Case Diagram</b></p>
          <img alt="Figure 2-1. Use Case Diagram" src="uslaborder-contextdiagram.png"/>
 -->
@@ -305,7 +323,7 @@
             <b>Figure 2-3</b>
          </p>
          <img alt="REST behavior: USLabOrder Orderer is the server (i.e. in Pull mode)" src="uslaborderpushrest.png"/>
-          <p>           
+          <p>
                      <b>Figure 2-2</b>
          </p>
          <img alt="REST behavior: USLabOrder Receiver is the server (i.e. in Push mode)" src="uslaborderpullrest.png"/>
@@ -362,7 +380,7 @@
             <b>Figure 2-4</b>
          </p>
          <img alt="REST behavior: USLabOrder Orderer is the server (i.e. in Pull mode)" src="uslaborderpushrest.png"/>
-          <p>           
+          <p>
                      <b>Figure 2-5</b>
          </p>
          <img alt="REST behavior: USLabOrder Receiver is the server (i.e. in Push mode)" src="uslaborderpullrest.png"/>
@@ -432,7 +450,7 @@
             the reader to HL7 Version 2.7.1, Chapter 2 Control for informative guidance.  -->
          <a name="implementationscope"></a>
          <h3>Scope Of Implementation</h3>
-         <!--EH not needed: The base standard indicates that receiving applications "…shall process (save/print/archive/etc.)…". For
+         <!--EH not needed: The base standard indicates that receiving applications "â€¦shall process (save/print/archive/etc.)â€¦". For
             order-specific segments, e.g., ORC, OBR, SPM, this typically means saving that data. For other
             segments, e.g., MSH, the receiving application may not always have to save the data as the segment is
             focused on ensuring the order-specific data arrives in the appropriate place and therefore may have
@@ -489,7 +507,7 @@
             <li>The extension us-core-ethnicity(http://hl7.org/fhir/StructureDefinition/us-core-ethnicity) is provided for demographic (administrative/billing), not clinical use and is bound to specify two ethnicity categories as  prescribed by federal standards. The lab must provide an AOE where Ethnicity drives the interpretation of results. The value must be determined by the Ordering Provider and must be sent as the .supporting information element with type Reference(Observation.  Note that state and/or national regulations may dictate other behaviors. </li>
          </ul>
          <p> More specific race and ethnicity values are available, but not limited to,
-         those found   <a href="[%fhir-path%]v3/Race/cs.html">v3 Code System Race</a> and  <a href="[%fhir-path%]v3/Ethnicity/cs.html"> v3 Code System Ethnicity</a>.<!-- Eh todo see if these value set align with the text-->
+         those found   <a href="{{page.fhir-path}}v3/Race/cs.html">v3 Code System Race</a> and  <a href="{{page.fhir-path}}v3/Ethnicity/cs.html"> v3 Code System Ethnicity</a>.<!-- Eh todo see if these value set align with the text-->
          </p>
          <!--EH not needed: 2.7.6.2  EXAMPLES
             Example AOE using OBX for blood lead test in adults; the highlighted 1 and 2 indicate how to use
@@ -516,7 +534,7 @@
               (REST takes care of this )-->
          <a name="errorhandling"></a>
          <h2>Error Handling</h2>
-         <p>Refer to the FHIR Specification on <a href="[%fhir-path%]http.html#httpstatuscodes"> REST status codes</a> and the use of the <a href="[%fhir-path%]operationoutcome.html">OperationOutcome Resource</a> when further information about the transaction error is needed.  Note: The error handling specifications are currently not fully defined for this implementation.</p>
+         <p>Refer to the FHIR Specification on <a href="{{page.fhir-path}}http.html#httpstatuscodes"> REST status codes</a> and the use of the <a href="{{page.fhir-path}}operationoutcome.html">OperationOutcome Resource</a> when further information about the transaction error is needed.  Note: The error handling specifications are currently not fully defined for this implementation.</p>
          <!--EH needed?  these are covered by functional requirments  ? 2.7.9  ERROR HANDLING -->
          <!-- EH  Not needed: 2.8  Referenced Profiles - Antecedents-->
          <!--- EH  Not needed: 2.9  Conformance to this Guide  (covered in the actual profiles -->
@@ -585,7 +603,7 @@
                <td>The source (type) of the specimen, when appropriate.</td>
             </tr>
             <tr>
-               <td>Specimen.collection.collected[x]</td>
+               <td>Specimen.collection.collected{x}</td>
                <td>The date and, if appropriate, time of specimen collection.</td>
             </tr>
             <tr>
@@ -648,7 +666,7 @@
                <li>Mosby's Medical Dictionary, 8th edition. &copy; 2009, Elsevier </li>
                <li>World Health Organization - provides standardization for perinatal definitions </li>
                <li>Management of HyperbilirubiHyperbilirubinemiarn Infant 35 or More Weeks of Gestation </li>
-               <li> <a href="http:/pediatrics.aappublications.org/content/114/1/297.full.html ">http:/pediatrics.aappublications.org/content/114/1/297.full.html</a></li>
+               <li> <a href="http://pediatrics.aappublications.org/content/114/1/297.full.html ">http:/pediatrics.aappublications.org/content/114/1/297.full.html</a></li>
             </ul>
             </li>
              <li><b>Orderable Test:  </b>A request to perform an individual test or panel. It always refers to a single  DiagnosticOrder Resource item. and 		may have one or more associated analytes (bservations).observations  </li>
@@ -673,7 +691,27 @@
                medical condition, planning or evaluating treatment, or monitoring the course of a disease.
             </li>
          </ul>
-      </div>
- <!--     [%file newfooter%] -->
-   </body>
+
+
+<p>Published by: HL7 Orders and Observations Workgroup</p>
+
+<p>Primary Author/Editor: Eric M Haas, Health eData Inc.</p>
+
+</div>
+
+<!-- END CONTENT -->
+
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+
+{% include footer.html %}
+</body>
+</html>e footer.html %}
+</body>
 </html>

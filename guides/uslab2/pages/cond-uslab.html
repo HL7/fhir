@@ -1,11 +1,13 @@
 ---
 # jekyll prompt
+profile: cond
+title: USLab Condition(Problem)
 ---
 <!DOCTYPE HTML>
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>USLAB/uslab - FHIR v1.4.0</title>
+  <title>{{page.title}} - FHIR v1.4.0</title>
 
   {% include header.html %}
 
@@ -13,8 +15,12 @@
 <body>
 {% include navbar.html %}
 
- {% include breadcrumb.html %}
-
+ <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+  <div class="container">  <!-- container -->
+   <ul class="breadcrumb">
+          <!-- condition-daf / profile:Condition/condition-daf / U.S. Data Access Framework (DAF) Condition (a.k.a Problem) Profile -->
+        <li title="Data Access Framework"><a href="daf.html"><b>DAF</b></a></li>
+        <li><b>Conditions (a.k.a Problem)</b></li>
 
    </ul>
   </div>  <!-- /container -->
@@ -24,27 +30,18 @@
  <div class="container">  <!-- container -->
             <div class="row">
              <div class="inner-wrapper">
-  <!-- CONTENT CONTENT -->
-  
+
+
 <div class="col-9">
 
-<h2>Conformance Resource Registry</h2>
+  <!-- CONTENT CONTENT -->
 
-<p>
-This table contains a list of all the conformance resources 
-defined as part of the <%ig.title%>:
-</p>
-<%ig.registry ValueSet,ConceptMap,StructureDefinition,Conformance%>
+{% capture my-include %}{% include {{page.profile}}-uslab.md %}{% endcapture %}
+{{ my-include | markdownify }}
 
-</div>
-
-<p>Published by: HL7 Orders and Observations Workgroup</p>
-
-<p>Primary Author/Editor: Eric M Haas, Health eData Inc.</p>
+  <!-- end CONTENT -->
 
 </div>
-
-<!-- END CONTENT -->
 
 
     </div>  <!-- /inner-wrapper -->
@@ -52,8 +49,6 @@ defined as part of the <%ig.title%>:
         </div>  <!-- /container -->
 
     </div>  <!-- /segment-content -->
-    
-
 
 {% include footer.html %}
 </body>

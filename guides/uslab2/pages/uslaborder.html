@@ -5,18 +5,16 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>USLab/uslab - FHIR v1.4.0</title>
+  <title>USLAB/uslab - FHIR v1.4.0</title>
 
   {% include header.html %}
 
 </head>
 <body>
 {% include navbar.html %}
- <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
-  <div class="container">  <!-- container -->
-   <ul class="breadcrumb">
-        
-        <li title="FHIR US Lab Implementation Guides"><b>USLab</b></li>
+
+ {% include breadcrumb.html %}
+
 
    </ul>
   </div>  <!-- /container -->
@@ -26,8 +24,10 @@
  <div class="container">  <!-- container -->
             <div class="row">
              <div class="inner-wrapper">
-<div class="col-9">
   <!-- CONTENT CONTENT -->
+  
+<div class="col-9">
+
          <a name="USLabOrder"> </a>
          <h2>US Laboratory Order Implementation</h2>
          <p>
@@ -193,12 +193,24 @@ In addition to defining the <i>USLabOrder</i> bundle this implementation consist
 
             </li>
          </ul>
-           <p>Published by:  HL7 Orders and Observations Workgroup</p>
-		<p>Primary Author/Editor:  Eric M Haas, Health eData Inc.</p>
 
-  </div>  <!-- /inner-wrapper -->
-  </div>  <!-- /container -->
- </div>  <!-- /segment-footer -->
+<p>Published by: HL7 Orders and Observations Workgroup</p>
+
+<p>Primary Author/Editor: Eric M Haas, Health eData Inc.</p>
+
+</div>
+
+<!-- END CONTENT -->
+
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+    
+
+
 {% include footer.html %}
 </body>
 </html>
