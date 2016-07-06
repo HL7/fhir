@@ -18,7 +18,7 @@
 	"source": "daf.xml",
   "spreadsheets" : [  
     "allergyintolerance-daf-profile-spreadsheet.xml",
-	"allergyintolerance-daf-core-profile-spreadsheet.xml",
+  	"allergyintolerance-daf-core-profile-spreadsheet.xml",
     "condition-daf-profile-spreadsheet.xml",
     "diagnosticorder-daf-profile-spreadsheet.xml",
     "diagnosticreport-daf-profile-spreadsheet.xml",

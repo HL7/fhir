@@ -504,7 +504,8 @@ public class StructureMap extends BaseConformance {
         /**
          * something
          */
-        EVALUATE, 
+        EVALUATE,
+        CC, C,
         /**
          * added to help the parsers with the generic types
          */
@@ -536,6 +537,10 @@ public class StructureMap extends BaseConformance {
           return POINTER;
         if ("evaluate".equals(codeString))
           return EVALUATE;
+        if ("cc".equals(codeString))
+          return CC;
+        if ("c".equals(codeString))
+          return C;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -555,6 +560,8 @@ public class StructureMap extends BaseConformance {
             case UUID: return "uuid";
             case POINTER: return "pointer";
             case EVALUATE: return "evaluate";
+            case CC: return "cc";
+            case C: return "c";
             default: return "?";
           }
         }

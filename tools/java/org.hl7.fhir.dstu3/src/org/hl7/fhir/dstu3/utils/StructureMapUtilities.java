@@ -1,5 +1,6 @@
 package org.hl7.fhir.dstu3.utils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.UUID;
 import javax.naming.Context;
 
 import org.hl7.fhir.dstu3.elementmodel.Property;
+import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.BooleanType;
@@ -22,6 +24,7 @@ import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.DecimalType;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.Enumerations.ConceptMapEquivalence;
@@ -31,12 +34,15 @@ import org.hl7.fhir.dstu3.model.ExpressionNode.TypeDetails;
 import org.hl7.fhir.dstu3.model.Group;
 import org.hl7.fhir.dstu3.model.IdType;
 import org.hl7.fhir.dstu3.model.IntegerType;
+import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceFactory;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionContactComponent;
+import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent;
+import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionSnapshotComponent;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.Type;
@@ -56,7 +62,10 @@ import org.hl7.fhir.dstu3.model.StructureMap.StructureMapStructureComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapTransform;
 import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xhtml.NodeType;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public class StructureMapUtilities {
 
@@ -192,6 +201,9 @@ public class StructureMapUtilities {
 			renderDoco(b, r.getDocumentation());
 			for (int i = 0; i < indent; i++)
 				b.append(' ');
+			for (StructureMapGroupRuleComponent ir : r.getRule()) {
+			  renderRule(b, ir, indent+2);
+			}
 			b.append("}\r\n");
 		} else {
 			if (r.hasDependent()) {
@@ -569,6 +581,15 @@ public class StructureMapUtilities {
 			lexer.token(".");
 			source.setElement(lexer.take());
 		}
+		if (lexer.hasToken(":")) {
+		  // type and cardinality
+		  lexer.token(":");
+		  String type = lexer.takeDottedToken();
+		  String min = lexer.take();
+      lexer.token("..");
+		  String max = lexer.take();
+		  // now ignore 
+		}
 		if (Utilities.existsInList(lexer.getCurrent(), "first", "last", "only_one"))
 			if (lexer.getCurrent().equals("only_one")) { 
 				source.setListMode(StructureMapListMode.SHARE);
@@ -596,44 +617,52 @@ public class StructureMapUtilities {
 
 	private void parseTarget(StructureMapGroupRuleComponent rule, FHIRLexer lexer) throws FHIRException {
 		StructureMapGroupRuleTargetComponent target = rule.addTarget();
-		target.setContext(lexer.take());
+		String start = lexer.take();
 		if (lexer.hasToken(".")) {
+	    target.setContext(start);
+	    start = null;
 			lexer.token(".");
 			target.setElement(lexer.take());
 		}
+		String name;
+		boolean isConstant = false;
 		if (lexer.hasToken("=")) {
+		  if (start != null)
+	      target.setContext(start);
 			lexer.token("=");
-			boolean isConstant = lexer.isConstant(true);
-			String name = lexer.take();
-			if (lexer.hasToken("(")) {
-				target.setTransform(StructureMapTransform.fromCode(name));
-				lexer.token("(");
-				if (target.getTransform() == StructureMapTransform.EVALUATE) {
-					parseParameter(target, lexer);
-					lexer.token(",");
-					ExpressionNode node = fpe.parse(lexer);
-					target.setUserData(MAP_EXPRESSION, node);
-					target.addParameter().setValue(new StringType(node.toString()));
-				} else { 
-					while (!lexer.hasToken(")")) {
-						parseParameter(target, lexer);
-						if (!lexer.hasToken(")"))
-							lexer.token(",");
-					}       
-				}
-				lexer.token(")");
-			} else {
-				target.setTransform(StructureMapTransform.COPY);
-				if (!isConstant) {
-					String id = name;
-					while (lexer.hasToken(".")) {
-						id = id + lexer.take() + lexer.take();
-					}
-					target.addParameter().setValue(new IdType(id));
-				}
-				else 
-					target.addParameter().setValue(readConstant(name, lexer));
-			}
+			isConstant = lexer.isConstant(true);
+			name = lexer.take();
+		} else 
+		  name = start;
+		
+		if (lexer.hasToken("(")) {
+		  target.setTransform(StructureMapTransform.fromCode(name));
+		  lexer.token("(");
+		  if (target.getTransform() == StructureMapTransform.EVALUATE) {
+		    parseParameter(target, lexer);
+		    lexer.token(",");
+		    ExpressionNode node = fpe.parse(lexer);
+		    target.setUserData(MAP_EXPRESSION, node);
+		    target.addParameter().setValue(new StringType(node.toString()));
+		  } else { 
+		    while (!lexer.hasToken(")")) {
+		      parseParameter(target, lexer);
+		      if (!lexer.hasToken(")"))
+		        lexer.token(",");
+		    }       
+		  }
+		  lexer.token(")");
+		} else {
+		  target.setTransform(StructureMapTransform.COPY);
+		  if (!isConstant) {
+		    String id = name;
+		    while (lexer.hasToken(".")) {
+		      id = id + lexer.take() + lexer.take();
+		    }
+		    target.addParameter().setValue(new IdType(id));
+		  }
+		  else 
+		    target.addParameter().setValue(readConstant(name, lexer));
 		}
 		if (lexer.hasToken("as")) {
 			lexer.take();
@@ -1411,6 +1440,73 @@ public class StructureMapUtilities {
       }
     }
     throw new Exception("Unable to find structure definition for "+type+" in imports");
+  }
+
+
+  public StructureMap generateMapFromMappings(StructureDefinition sd) throws IOException, FHIRException {
+    String id = getLogicalMappingId(sd);
+    if (id == null) 
+        return null;
+    // we build this by text. Any element that has a mapping, we put it's mappings inside it....
+    StringBuilder b = new StringBuilder();
+    b.append("map \""+sd.getUrl()+"-map\" = \"Map for "+sd.getId()+"\"\r\n");
+    b.append("\r\n");
+    b.append("uses \""+sd.getUrl()+"\" as source\r\n\r\n");
+    ElementDefinition root = sd.getSnapshot().getElementFirstRep();
+    b.append(getMapping(root, id)+"\r\n\r\n");
+    addChildMappings(b, id, "", sd, root, false);
+    b.append("endgroup\r\n");
+    TextFile.stringToFile(b.toString(), "c:\\temp\\test.map");
+    StructureMap map = parse(b.toString());
+    map.setId(sd.getId()+"-map");
+    map.getText().setStatus(NarrativeStatus.GENERATED);
+    map.getText().setDiv(new XhtmlNode(NodeType.Element));
+    map.getText().getDiv().addTag("pre").addText(render(map));
+    return map;
+  }
+
+
+  private void addChildMappings(StringBuilder b, String id, String indent, StructureDefinition sd, ElementDefinition ed, boolean inner) throws DefinitionException {
+    boolean first = true;
+    List<ElementDefinition> children = ProfileUtilities.getChildMap(sd, ed);
+    for (ElementDefinition child : children) {
+      if (first && inner) {
+        b.append(" then {\r\n");
+        first = false;
+      }
+      String map = getMapping(child, id);
+      if (map != null) {
+        b.append(indent+"  "+child.getPath()+": "+map);
+        addChildMappings(b, id, indent+"  ", sd, child, true);
+        b.append("\r\n");
+      }
+    }
+    if (!first && inner)
+      b.append(indent+"}");
+    
+  }
+
+
+  private String getMapping(ElementDefinition ed, String id) {
+    for (ElementDefinitionMappingComponent map : ed.getMapping())
+      if (id.equals(map.getIdentity()))
+        return map.getMap();
+    return null;
+  }
+
+
+  private String getLogicalMappingId(StructureDefinition sd) {
+    String id = null;
+    for (StructureDefinitionMappingComponent map : sd.getMapping()) {
+      if ("http://hl7.org/fhir/logical".equals(map.getUri()))
+        id = map.getIdentity();
+    }
+    if (id == null)
+      return null;
+    for (ElementDefinitionMappingComponent map : sd.getSnapshot().getElementFirstRep().getMapping())
+      if (id.equals(map.getIdentity()))
+        return id;
+    return null;
   }
 	
 }

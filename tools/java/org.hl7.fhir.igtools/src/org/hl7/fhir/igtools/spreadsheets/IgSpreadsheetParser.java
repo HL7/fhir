@@ -1,12 +1,16 @@
 package org.hl7.fhir.igtools.spreadsheets;
 
 import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
@@ -54,7 +58,9 @@ import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.ExtensionContext;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
+import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.TimeType;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UnsignedIntType;
@@ -63,6 +69,7 @@ import org.hl7.fhir.dstu3.model.UuidType;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
+import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
@@ -71,6 +78,9 @@ import org.hl7.fhir.igtools.publisher.FetchedFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser;
 import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
+import org.hl7.fhir.utilities.xml.XMLUtil;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import com.trilead.ssh2.crypto.Base64;
 
@@ -91,13 +101,37 @@ public class IgSpreadsheetParser {
   private List<String> valuesetsToLoad;
   private boolean first;
 
-  public IgSpreadsheetParser(SimpleWorkerContext context, Calendar genDate, String base, List<String> valuesetsToLoad, boolean first) {
+  public IgSpreadsheetParser(SimpleWorkerContext context, Calendar genDate, String base, List<String> valuesetsToLoad, boolean first, byte[] msSource) throws Exception {
     this.context = context;
     this.genDate = genDate;
     this.base = base;
     this.first = first;
     this.valuesetsToLoad = valuesetsToLoad;
     valuesetsToLoad.clear();
+    loadMappingSpaces(msSource);
+  }
+
+  private void loadMappingSpaces(byte[] source) throws Exception {
+    ByteArrayInputStream is = null;
+    try {
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      factory.setNamespaceAware(true);
+      DocumentBuilder builder = factory.newDocumentBuilder();
+      is = new ByteArrayInputStream(source);
+      Document doc = builder.parse(is);
+      Element e = XMLUtil.getFirstChild(doc.getDocumentElement());
+      while (e != null) {
+        MappingSpace m = new MappingSpace(XMLUtil.getNamedChild(e, "columnName").getTextContent(), XMLUtil.getNamedChild(e, "title").getTextContent(), 
+            XMLUtil.getNamedChild(e, "id").getTextContent(), Integer.parseInt(XMLUtil.getNamedChild(e, "sort").getTextContent()));
+        mappings.put(XMLUtil.getNamedChild(e, "url").getTextContent(), m);
+        Element p = XMLUtil.getNamedChild(e, "preamble");
+        if (p != null)
+          m.setPreamble(XMLUtil.elementToString(XMLUtil.getFirstChild(p)));
+        e = XMLUtil.getNextSibling(e);
+      }
+    } catch (Exception e) {
+      throw new Exception("Error processing mappingSpaces.details: "+e.getMessage(), e);
+    }
   }
 
   private void message(FetchedFile f, String msg, String html, IssueType type, IssueSeverity level) {
@@ -272,7 +306,7 @@ public class IgSpreadsheetParser {
       utils.sortDifferential(base, sd, "profile "+sd.getUrl(), errors);
       assert(errors.size() == 0);
     }
-    utils.setIds(sd, sd.getName());
+    utils.setIds(sd, sd.getName());    
   }
 
   private ElementDefinition findContext(StructureDefinition sd, String context, String message) throws Exception {
@@ -574,6 +608,17 @@ public class IgSpreadsheetParser {
         ElementDefinitionMappingComponent map = e.addMapping();
         map.setIdentity(m.getId());
         map.setMap(sm);
+        boolean found = false;
+        for (StructureDefinitionMappingComponent mm : sd.getMapping()) {
+          if (mm.getIdentity().equals(m.getId()))
+            found = true;
+        }
+        if (!found) {
+          StructureDefinitionMappingComponent mm = sd.addMapping();
+          mm.setIdentity(m.getId());
+          mm.setName(m.getTitle());
+          mm.setUri(n);          
+        }
       }
     }
     e.setExample(processValue(sheet, row, "Example", sheet.getColumn(row, "Example"), e));

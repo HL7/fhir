@@ -14,7 +14,6 @@
   <description value="Defines the basic properties of every data value. This is an abstract type, meaning that no value can be just a data value without belonging to any concrete type. Every concrete type is a specialization of this general abstract DataValue type."/>
   <kind value="logical"/>
   <abstract value="true"/>
-  <derivation value="specialization"/>
   <differential>
     <element>
       <path value="ANY"/>

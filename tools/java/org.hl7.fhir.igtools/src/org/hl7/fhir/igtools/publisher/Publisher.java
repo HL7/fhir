@@ -50,6 +50,7 @@ import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
@@ -59,6 +60,7 @@ import org.hl7.fhir.dstu3.utils.EOperationOutcome;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
+import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
 import org.hl7.fhir.dstu3.utils.Turtle;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
@@ -649,7 +651,7 @@ public class Publisher implements IGLogger {
     boolean changed = noteFile("Spreadsheet/"+be.getAsString(), f);
     if (changed) {
       f.getValuesetsToLoad().clear();
-      f.setBundle(new IgSpreadsheetParser(context, execTime, igpkp.getCanonical(), f.getValuesetsToLoad(), first).parse(f));
+      f.setBundle(new IgSpreadsheetParser(context, execTime, igpkp.getCanonical(), f.getValuesetsToLoad(), first, context.getBinaries().get("mappingSpaces.details")).parse(f));
       for (BundleEntryComponent b : f.getBundle().getEntry()) {
         FetchedResource r = f.addResource();
         r.setResource(b.getResource());
@@ -696,6 +698,7 @@ public class Publisher implements IGLogger {
     load("ConceptMap");
     load("StructureMap");
     generateSnapshots();
+    generateLogicalMaps();
     generateAdditionalExamples();
   }
 
@@ -849,6 +852,29 @@ public class Publisher implements IGLogger {
       }
     }
   }
+  
+  private void generateLogicalMaps() throws Exception {
+    StructureMapUtilities mu = new StructureMapUtilities(context, null, null);
+    for (FetchedFile f : fileList) {
+      List<StructureMap> maps = new ArrayList<StructureMap>();
+      for (FetchedResource r : f.getResources()) {
+        if (r.getResource() instanceof StructureDefinition) {
+          StructureMap map = mu.generateMapFromMappings((StructureDefinition) r.getResource());
+          if (map != null) {
+            maps.add(map);
+          }
+        }
+      }
+      for (StructureMap map : maps) {
+        FetchedResource nr = f.addResource();
+        nr.setResource(map);
+        nr.setElement(new ObjectConverter(context).convert(map));
+        nr.setId(map.getId());
+        nr.setTitle(map.getName());
+        igpkp.findConfiguration(f, nr);
+      }
+    }
+  }
 
   private Resource parse(FetchedFile file) throws Exception {
 
@@ -880,7 +906,6 @@ public class Publisher implements IGLogger {
   }
 
   private void generate() throws Exception {
-    Utilities.clearDirectory(tempDir);
     forceDir(tempDir);
     forceDir(Utilities.path(tempDir, "_includes"));
     forceDir(Utilities.path(tempDir, "data"));
@@ -1205,6 +1230,7 @@ public class Publisher implements IGLogger {
               generateOutputsStructureDefinition(f, r, (StructureDefinition) r.getResource());
               break;
             case StructureMap:
+              generateOutputsStructureMap(f, r, (StructureMap) r.getResource());
               break;
             default:
               // nothing to do...    
@@ -1212,11 +1238,13 @@ public class Publisher implements IGLogger {
           }
         } catch (Exception e) {
           log("Exception generating resource "+f.getName()+"::"+r.getElement().fhirType()+"/"+r.getId()+": "+e.getMessage());
+          e.printStackTrace();
         } 
       }
     }
   }
 
+ 
   private boolean wantGen(FetchedResource r, String code) {
     if (r.getConfig() != null && hasBoolean(r.getConfig(), code))
       return getBoolean(r.getConfig(), code);
@@ -1496,6 +1524,10 @@ public class Publisher implements IGLogger {
 
     if (wantGen(r, "example-list")) 
       fragment("StructureDefinition-example-list-"+sd.getId(), sdr.exampleList(fileList), f.getOutputNames());
+  }
+
+  private void generateOutputsStructureMap(FetchedFile f, FetchedResource r, StructureMap resource) {
+    
   }
 
   private XhtmlNode getXhtml(FetchedResource r) {

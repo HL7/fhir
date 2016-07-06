@@ -1,8 +1,12 @@
 package org.hl7.fhir.ui;
 
 import java.awt.EventQueue;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import javax.swing.UIManager;
+
+import com.google.gson.JsonSyntaxException;
 
 
 public class ClosureTestingForm {
@@ -26,15 +30,21 @@ public class ClosureTestingForm {
 
   /**
    * Create the application.
+   * @throws IOException 
+   * @throws FileNotFoundException 
+   * @throws JsonSyntaxException 
    */
-  public ClosureTestingForm() {
+  public ClosureTestingForm() throws JsonSyntaxException, FileNotFoundException, IOException {
     initialize();
   }
 
   /**
    * Initialize the contents of the frame.
+   * @throws IOException 
+   * @throws FileNotFoundException 
+   * @throws JsonSyntaxException 
    */
-  private void initialize() {
+  private void initialize() throws JsonSyntaxException, FileNotFoundException, IOException {
     frame = new ClosureTestingFrame();
   }
 

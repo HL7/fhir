@@ -2455,6 +2455,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("conceptmaps.xml", page.getFolders().dstDir + "conceptmaps.xml", false);
       zip.addFileName("dataelements.xml", page.getFolders().dstDir + "dataelements.xml", false);
       zip.addFileName("version.info", page.getFolders().dstDir + "version.info", false);
+      zip.addFileName("mappingSpaces.details", page.getFolders().srcDir + "mappingSpaces.xml", false);
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "publish", ""), "", ".png", null);
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "publish", ""), "", ".gif", null);
       zip.close();

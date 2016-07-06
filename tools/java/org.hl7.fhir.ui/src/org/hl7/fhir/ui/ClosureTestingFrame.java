@@ -10,7 +10,9 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EventListener;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.UUID;
 
@@ -26,6 +28,9 @@ import javax.swing.plaf.synth.Region;
 import javax.swing.text.JTextComponent;
 
 import org.eclipse.swt.internal.ole.win32.GUID;
+import org.hl7.fhir.dstu2016may.model.Parameters;
+import org.hl7.fhir.dstu2016may.model.Parameters.ParametersParameterComponent;
+import org.hl7.fhir.dstu2016may.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
@@ -81,10 +86,17 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
   private WebView webView;
   private String cache;
   private String source;
+  private org.hl7.fhir.dstu2016may.utils.client.FHIRToolingClient client2;
+  private org.hl7.fhir.dstu3.utils.client.FHIRToolingClient client3;
+  private JsonObject displayCache;
 
-  public ClosureTestingFrame() {
+  public ClosureTestingFrame() throws JsonSyntaxException, FileNotFoundException, IOException {
     ini = new IniFile(Utilities.path(System.getProperty("user.home"), "fhir-test.ini"));
     cache = Utilities.path(System.getProperty("user.home"), "fhircache");
+    if (new File(Utilities.path(cache, "display.cache")).exists())
+      displayCache = (JsonObject) new JsonParser().parse(TextFile.fileToString(Utilities.path(cache, "display.cache")));
+    else
+      displayCache = new JsonObject();
     initComponents();
   }
 
@@ -303,7 +315,7 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
     if (ini.getProperties("servers") == null) {
       ini.setStringProperty("servers", "selected", "0", null);
       ini.setStringProperty("servers", "count", "5", null);
-      ini.setStringProperty("servers", "file0", "http://local.healthintersections.com.au:960/stu3", null); 
+      ini.setStringProperty("servers", "file0", "http://local.healthintersections.com.au:960/open", null); 
       ini.setStringProperty("servers", "file1", "http://fhir3.healthintersections.com.au/open", null); 
       ini.setStringProperty("servers", "file2", "http://terminology.hl7.org.au/open", null);
       ini.setStringProperty("servers", "file3", "http://fhir.ext.apelon.com/dtsserverws/fhir", null);
@@ -335,6 +347,23 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
         txtNameEdit();
       }
     });
+    txtCode.getDocument().addDocumentListener(new DocumentListener() {
+
+      @Override
+      public void changedUpdate(DocumentEvent arg0) {
+        txtCodeEdit();
+      }
+
+      @Override
+      public void insertUpdate(DocumentEvent arg0) {
+        txtCodeEdit();
+      }
+
+      @Override
+      public void removeUpdate(DocumentEvent arg0) {
+        txtCodeEdit();
+      }
+    });
     if (ini.getProperties("closure") != null) { 
       txtCode.setText(ini.getStringProperty("closure", "code")); 
       txtSystem.setText(ini.getStringProperty("closure", "system"));
@@ -361,6 +390,11 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
     ini.setStringProperty("closure", "system", txtSystem.getText(), null); 
     ini.setStringProperty("closure", "name", txtName.getText(), null); 
     ini.save();    
+    try {
+      TextFile.stringToFile(new Gson().toJson(displayCache), Utilities.path(cache, "display.cache"));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }    
 
     if (ini.getProperties("layout") != null && ini.getProperties("layout").containsKey("X")) {
       setLocation(ini.getIntegerProperty("layout", "X"), ini.getIntegerProperty("layout", "Y")); 
@@ -376,6 +410,11 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
   }                                          
 
   private void txtNameEdit() {
+    updateButton();
+    updateView();
+  }
+
+  private void txtCodeEdit() {
     updateButton();
     updateView();
   }
@@ -413,29 +452,73 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
   private void btnAddClick(java.awt.event.ActionEvent evt) {
     try {
       if (btnAdd.getText().equals("Initialize"))
-        initialise(ini.getStringProperty("servers", "file"+Integer.toString(cbxServer.getSelectedIndex())), txtName.getText());
-      else
-        add(ini.getStringProperty("servers", "file"+Integer.toString(cbxServer.getSelectedIndex())), txtName.getText(), txtSystem.getText(), txtCode.getText());
+        initialise(getServer(), txtName.getText());
+      else 
+        for (String c : txtCode.getText().split("\\,"))
+          add(getServer(), txtName.getText(), txtSystem.getText(), c);
     } catch (Exception e) {
       JOptionPane.showMessageDialog(this, "Error: "+e.getMessage());
       e.printStackTrace();
     }
+  }
+
+  private String getServer() {
+    return ini.getStringProperty("servers", "file"+Integer.toString(cbxServer.getSelectedIndex()));
   } 
 
   private void initialise(String url, String name) throws URISyntaxException, IOException {
-    if (serverIs2016May(url))
+    connect(url);
+    if (client2 != null)
       initialise2016May(url, name);
     else
       initialise3(url, name);
   }
   
   private boolean serverIs2016May(String url) {
-    return true; // Utilities.existsInList(url, "http://terminology.hl7.org.au/open", "http://fhir.ext.apelon.com/dtsserverws/fhir", "http://ontoserver.csiro.au/stu3");
+    return Utilities.existsInList(url, "http://terminology.hl7.org.au/open", "http://fhir.ext.apelon.com/dtsserverws/fhir", "http://ontoserver.csiro.au/stu3");
   }
 
+  private void connect(String url) throws URISyntaxException {
+    if (serverIs2016May(url)) {
+      if (client2 == null || url.equals(client2.getAddress())) 
+        client2 = new org.hl7.fhir.dstu2016may.utils.client.FHIRToolingClient(url);
+      client3 = null;
+    } else {
+      if (client3 == null || url.equals(client3.getAddress())) 
+        client3 = new org.hl7.fhir.dstu3.utils.client.FHIRToolingClient(url);
+      client2 = null;
+    }
+  }
+
+  private String getDisplay(String url, String sys, String code) throws URISyntaxException {
+    String key = sys+"::"+code;
+    if (displayCache.has(key))
+      return readStr(displayCache, key);
+    connect(url);
+    String res = null;
+    Map<String, String> pIn = new HashMap<String, String>();
+    pIn.put("system", sys);
+    pIn.put("code", code);
+    if (client2 != null) {
+      Parameters pOut = client2.lookupCode(pIn);
+      for (ParametersParameterComponent param : pOut.getParameter()) {
+        if (param.getName().equals("display"))
+          res = ((PrimitiveType) param.getValue()).asStringValue();
+      }
+    } else {
+      org.hl7.fhir.dstu3.model.Parameters pOut = client3.lookupCode(pIn);
+      for (org.hl7.fhir.dstu3.model.Parameters.ParametersParameterComponent param : pOut.getParameter()) {
+        if (param.getName().equals("display"))
+          res = ((org.hl7.fhir.dstu3.model.PrimitiveType) param.getValue()).asStringValue();
+      }
+    }
+    if (res != null)
+      writeStr(displayCache, key, res);
+    return res;
+  }
+  
   private void initialise2016May(String url, String name) throws URISyntaxException, IOException {
-    org.hl7.fhir.dstu2016may.utils.client.FHIRToolingClient client = new org.hl7.fhir.dstu2016may.utils.client.FHIRToolingClient(url);
-    org.hl7.fhir.dstu2016may.model.ConceptMap cm = client.initializeClosure(name);
+    org.hl7.fhir.dstu2016may.model.ConceptMap cm = client2.initializeClosure(name);
     JsonObject json = new JsonObject();
     json.addProperty("version", cm.getVersion());
     json.addProperty("name", cm.getName());
@@ -445,8 +528,7 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
   }
 
   private void initialise3(String url, String name) throws URISyntaxException, IOException {
-    FHIRToolingClient client = new FHIRToolingClient(url);
-    ConceptMap cm = client.initializeClosure(name);
+    ConceptMap cm = client3.initializeClosure(name);
     JsonObject json = new JsonObject();
     json.addProperty("version", cm.getVersion());
     json.addProperty("name", cm.getName());
@@ -456,7 +538,8 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
   }
 
   private void add(String url, String name, String system, String code) throws URISyntaxException, IOException {
-    if (serverIs2016May(url))
+    connect(url);
+    if (client2 != null)
       add2016May(url, name, system, code);
     else
       add3(url, name, system, code);
@@ -465,8 +548,7 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
   }
   
   private void add2016May(String url, String name, String system, String code) throws URISyntaxException, IOException {
-    org.hl7.fhir.dstu2016may.utils.client.FHIRToolingClient client = new org.hl7.fhir.dstu2016may.utils.client.FHIRToolingClient(url);
-    org.hl7.fhir.dstu2016may.model.ConceptMap cm = client.updateClosure(name, new org.hl7.fhir.dstu2016may.model.Coding().setSystem(system).setCode(code));
+    org.hl7.fhir.dstu2016may.model.ConceptMap cm = client2.updateClosure(name, new org.hl7.fhir.dstu2016may.model.Coding().setSystem(system).setCode(code));
     JsonObject json = getCurrentTable();
     writeStr(json, "version", cm.getVersion());
     writeStr(json, "name", cm.getName());
@@ -482,8 +564,7 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
   }
 
   private void add3(String url, String name, String system, String code) throws URISyntaxException, IOException {
-    FHIRToolingClient client = new FHIRToolingClient(url);
-    ConceptMap cm = client.updateClosure(name, new Coding(system, code, null));
+    ConceptMap cm = client3.updateClosure(name, new Coding(system, code, null));
     JsonObject json = getCurrentTable();
     writeStr(json, "version", cm.getVersion());
     writeStr(json, "name", cm.getName());
@@ -547,7 +628,10 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
       txtCode.setEnabled(false);
       txtSystem.setEnabled(false);
     } else {
-      btnAdd.setText("Add");
+      if (Utilities.noString(txtCode.getText()))
+        btnAdd.setText("Initialize");
+      else
+        btnAdd.setText("Add");
       txtCode.setEnabled(true);
       txtSystem.setEnabled(true);
     }
@@ -559,7 +643,7 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
       if (table == null)
         source = saveNoState();
       else
-        source = buildSummary(table);
+        source = buildSummary(table, getServer());
     } catch (Exception e) {
       source = "<html><body>"+Utilities.escapeXml(e.getMessage())+"</body></html>";
     }
@@ -571,7 +655,7 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
     });
   }
 
-  private String buildSummary(JsonObject json) {
+  private String buildSummary(JsonObject json, String srvr) throws URISyntaxException {
     StringBuilder b = new StringBuilder();
     b.append("<html><body style=\"font-family: sans-serif\">");
     b.append("<p>"+readStr(json, "name")+" version "+readStr(json, "version")+"</p>\r\n");
@@ -580,7 +664,7 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
     
     for (String p : propertyNames(json)) {
       if (p.contains(":")) {
-        processSources(b, p, json.getAsJsonObject(p));
+        processSources(b, p, json.getAsJsonObject(p), srvr);
       }
     }
     b.append("</table>\r\n");
@@ -596,26 +680,32 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
     return res;
   }
 
-  private void processSources(StringBuilder b, String ss, JsonObject obj) {
+  private void processSources(StringBuilder b, String ss, JsonObject obj, String srvr) throws URISyntaxException {
     for (String p : propertyNames(obj)) {
       JsonObject osc = obj.getAsJsonObject(p);
       for (String pt : propertyNames(osc)) {
-        processTargets(b, ss, p, pt, osc.getAsJsonArray(pt));
+        processTargets(b, srvr, ss, p, pt, osc.getAsJsonArray(pt));
       }
     }    
   }
 
-  private void processTargets(StringBuilder b, String ss, String sc, String ts, JsonArray otc) {
+  private void processTargets(StringBuilder b, String srvr, String ss, String sc, String ts, JsonArray otc) throws URISyntaxException {
     for (JsonElement tc : otc) {
       b.append("<tr><td>");
       b.append(sys(ss));
       b.append(" ");
       b.append(sc);
-      b.append("</td><td>&nbsp;&nbsp;</td><td>");
+      b.append(" ");
+      b.append("<span style=\"color: grey\">");
+      b.append(getDisplay(srvr, ss, sc));
+      b.append("</span></td><td>&nbsp;&nbsp;</td><td>");
       b.append(sys(ts));
       b.append(" ");
       b.append(((JsonPrimitive) tc).getAsString());
-      b.append("</td></tr>\r\n");
+      b.append(" ");
+      b.append("<span style=\"color: grey\">");
+      b.append(getDisplay(srvr, ts, ((JsonPrimitive) tc).getAsString()));
+      b.append("</span></tr>\r\n");
     }
   }
 
