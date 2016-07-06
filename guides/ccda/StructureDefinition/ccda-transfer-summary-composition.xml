@@ -689,7 +689,7 @@
       <type>
         <code value="string" />
       </type>
-      <exampleString value="History of hospitalizations+History of outpatient visits " />
+      <exampleString value="History of hospitalizations+History of outpatient visits" />
       <isSummary value="true" />
     </element>
     <element>
@@ -1455,7 +1455,7 @@
       <type>
         <code value="string" />
       </type>
-      <exampleString value="History of medication use " />
+      <exampleString value="History of medication use" />
       <isSummary value="true" />
     </element>
     <element>
@@ -1952,7 +1952,7 @@
       <type>
         <code value="string" />
       </type>
-      <exampleString value="History of procedures " />
+      <exampleString value="History of procedures" />
       <isSummary value="true" />
     </element>
     <element>
@@ -2562,7 +2562,7 @@
       <type>
         <code value="string" />
       </type>
-      <exampleString value="Physical findings" />
+      <exampleString value="Physical findings of General status" />
       <isSummary value="true" />
     </element>
     <element>
@@ -3410,7 +3410,7 @@
       <type>
         <code value="string" />
       </type>
-      <exampleString value="Evaluation note " />
+      <exampleString value="Evaluation note" />
       <isSummary value="true" />
     </element>
     <element>
