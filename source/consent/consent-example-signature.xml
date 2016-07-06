@@ -29,9 +29,9 @@
   <patient>
     <reference value="Patient/72"/> <!-- one of the stock examples -->
   </patient>
-  <author>
+  <consentor>
     <reference value="Patient/72"/> <!-- author is patient themselves, and they sign -->
-  </author>
+  </consentor>
   <organization>
     <reference value="Organization/example"/> 
   </organization>

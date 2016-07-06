@@ -42,12 +42,12 @@
    if, on the other case, the user picks a single patient record, or there
    is a single patient record in scope, then 
   -->
-  <author>
+  <consentor>
     <!-- this is the patient record that matches the user account.
       note: it's not always a patient  
     -->
     <reference value="Patient/example"/>
-  </author>
+  </consentor>
   <organization>
     <!-- The organization running the Authentication server -->
     <reference value="Organization/example"/>

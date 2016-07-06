@@ -138,7 +138,7 @@
   UML = 0;0
   Type = DomainResource
   Short Label = Information about a healthcare consumer’s consent statements
-  Definition = Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:
+  Definition = Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organizational, and patient authored  privacy policies that grant or withhold consent:
   Comments = Broadly, there are 3 key areas of consent for patients: Consent around sharing information (aka Privacy Consent Directive - Authorization to Collect, Use, or Disclose information), consent for specific treatment, or kinds of treatment, and general advance care directives
   RIM Mapping = FinancialConsent
   w5 = infrastructure.information
@@ -216,12 +216,12 @@
   w5 = who.focus
 
  -- Row 8 -----------------------------------
-  Element = Consent.author
-  Card. = 0..1
+  Element = Consent.consentor
+  Card. = 0..*
   Summary = Y
   Type = Reference(Organization|Patient|Practitioner|RelatedPerson)
-  Short Label = Who made the consent statement
-  Definition = Who made the Consent statement - this is the persion who takes responsibility for the content, not the scribe who recorded it
+  Short Label = Who is agreeing to the policy and exceptions
+  Definition = Who is responsible for agreeing to the consent represented by this resource. This is the person (usually) that agreed to the policy, along with the exceptions, e.g. the persion who takes responsibility for the agreement. In the signature this corresponds to the role \"Consent Signature\"
   Comments = Commonly, the patient the consent pertains to is the author, but particularly for young and old people, it may be some other person
   w5 = who.actor
 
@@ -239,7 +239,7 @@
   Element = Consent.source[x]
   Card. = 0..1
   Summary = Y
-  Type = Attachment|Identifier|Reference(Consent | DocumentReference | Contract | Questionnaire)
+  Type = Attachment|Identifier|Reference(Consent | DocumentReference | Contract | QuestionnaireResponse)
   Short Label = Source from which this consent is taken
   Definition = The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document
   Comments = The source can be contained inline (Attachment), referenced directly (Consent), referenced in a consent repository (DocumentReference), or simply by an identifier (Identifier), e.g. a CDA document id
@@ -268,7 +268,7 @@
   Element = Consent.recipient
   Card. = 0..*
   Summary = Y
-  Type = Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson)
+  Type = Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson|CareTeam)
   Short Label = Who|what the consent is in regard to
   Definition = Who or what is this Consent statement is intended for - which entity is being targeted for the consent statement
   Comments = The Consent recipient is the person/organization who is being granted or denied permission according to the stated policy
@@ -396,7 +396,7 @@
  -- Row 27 -----------------------------------
   Element = Consent.except.actor.reference
   Card. = 1..1
-  Type = Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson)
+  Type = Reference(Device|Group|CareTeam|Organization|Patient|Practitioner|RelatedPerson)
   Short Label = Resource for the actor (or group, by role)
   Definition = The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
 
@@ -519,9 +519,9 @@
   Path = Consent.category
 
  -- Row 9 -----------------------------------
-  Name = author
+  Name = consentor
   Type = reference
-  Path = Consent.author
+  Path = Consent.consentor
 
  -- Row 10 -----------------------------------
   Name = source

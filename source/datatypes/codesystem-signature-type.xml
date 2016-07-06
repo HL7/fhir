@@ -36,7 +36,7 @@
   </concept>
   <concept>
     <code value="1.2.840.10065.1.12.1.6"/>
-    <display value="Validation Sianature"/>
+    <display value="Validation Signature"/>
     <definition value="a signature validating a health information document for inclusion in the patient record. (Example a medical student or resident is credentialed to perform history or physical examinations and to write progress notes. The attending physician signs the history and physical examination to validate the entry for inclusion in the patient&#39;s medical record.)"/>
   </concept>
   <concept>
