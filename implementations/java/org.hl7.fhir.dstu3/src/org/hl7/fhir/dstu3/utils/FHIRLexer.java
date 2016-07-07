@@ -120,6 +120,11 @@ public class FHIRLexer {
         if (cursor < path.length() && (path.charAt(cursor) == '=' || path.charAt(cursor) == '~' || path.charAt(cursor) == '-')) 
           cursor++;
         current = path.substring(currentStart, cursor);
+      } else if (ch == '.' ) {
+        cursor++;
+        if (cursor < path.length() && (path.charAt(cursor) == '.')) 
+          cursor++;
+        current = path.substring(currentStart, cursor);
       } else if (ch >= '0' && ch <= '9') {
           cursor++;
         boolean dotted = false;

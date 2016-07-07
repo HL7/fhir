@@ -775,7 +775,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   // dom based version, for build program
-  public String generate(Element doc) throws IOException {
+  public String generate(Element doc) throws IOException, org.hl7.fhir.exceptions.FHIRException {
     String rt = "http://hl7.org/fhir/StructureDefinition/"+doc.getNodeName();
     StructureDefinition p = context.fetchResource(StructureDefinition.class, rt);
     return generateByProfile(doc, p, true);
@@ -811,7 +811,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     inject(r, x,  NarrativeStatus.GENERATED);
   }
 
-  private String generateByProfile(Element er, StructureDefinition profile, boolean showCodeDetails) throws IOException {
+  private String generateByProfile(Element er, StructureDefinition profile, boolean showCodeDetails) throws IOException, org.hl7.fhir.exceptions.FHIRException {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("p").addTag("b").addText("Generated Narrative"+(showCodeDetails ? " with Details" : ""));
     try {
@@ -2952,9 +2952,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
           ref = ref + ".html";
       XhtmlNode a = li.addTag("a");
       a.setAttribute("href", prefix+ref.replace("\\", "/"));
-      a.addText(inc.getSystem().toString());
+      a.addText(inc.getSystem());
     } else
-      li.addText(inc.getSystem().toString());
+      li.addText(inc.getSystem());
   }
 
   private String getCsRef(String system) {
