@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 4, 2016 07:30+1000 for FHIR v1.4.0
+// Generated on Fri, Jul 8, 2016 06:52+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -3173,9 +3173,9 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "param", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Rule parameter template", formalDefinition="Each rule template can take one or more parameters for rule evaluation." )
-        protected List<TestScriptRuleParamComponent> param;
+        protected List<RuleParamComponent> param;
 
-        private static final long serialVersionUID = -524260474L;
+        private static final long serialVersionUID = -1869267735L;
 
     /**
      * Constructor
@@ -3234,16 +3234,16 @@ public class TestScript extends BaseConformance {
         /**
          * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
          */
-        public List<TestScriptRuleParamComponent> getParam() { 
+        public List<RuleParamComponent> getParam() { 
           if (this.param == null)
-            this.param = new ArrayList<TestScriptRuleParamComponent>();
+            this.param = new ArrayList<RuleParamComponent>();
           return this.param;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public TestScriptRuleComponent setParam(List<TestScriptRuleParamComponent> theParam) { 
+        public TestScriptRuleComponent setParam(List<RuleParamComponent> theParam) { 
           this.param = theParam;
           return this;
         }
@@ -3251,25 +3251,25 @@ public class TestScript extends BaseConformance {
         public boolean hasParam() { 
           if (this.param == null)
             return false;
-          for (TestScriptRuleParamComponent item : this.param)
+          for (RuleParamComponent item : this.param)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public TestScriptRuleParamComponent addParam() { //3
-          TestScriptRuleParamComponent t = new TestScriptRuleParamComponent();
+        public RuleParamComponent addParam() { //3
+          RuleParamComponent t = new RuleParamComponent();
           if (this.param == null)
-            this.param = new ArrayList<TestScriptRuleParamComponent>();
+            this.param = new ArrayList<RuleParamComponent>();
           this.param.add(t);
           return t;
         }
 
-        public TestScriptRuleComponent addParam(TestScriptRuleParamComponent t) { //3
+        public TestScriptRuleComponent addParam(RuleParamComponent t) { //3
           if (t == null)
             return this;
           if (this.param == null)
-            this.param = new ArrayList<TestScriptRuleParamComponent>();
+            this.param = new ArrayList<RuleParamComponent>();
           this.param.add(t);
           return this;
         }
@@ -3277,7 +3277,7 @@ public class TestScript extends BaseConformance {
         /**
          * @return The first repetition of repeating field {@link #param}, creating it if it does not already exist
          */
-        public TestScriptRuleParamComponent getParamFirstRep() { 
+        public RuleParamComponent getParamFirstRep() { 
           if (getParam().isEmpty()) {
             addParam();
           }
@@ -3294,7 +3294,7 @@ public class TestScript extends BaseConformance {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -341064690: /*resource*/ return this.resource == null ? new Base[0] : new Base[] {this.resource}; // Reference
-        case 106436749: /*param*/ return this.param == null ? new Base[0] : this.param.toArray(new Base[this.param.size()]); // TestScriptRuleParamComponent
+        case 106436749: /*param*/ return this.param == null ? new Base[0] : this.param.toArray(new Base[this.param.size()]); // RuleParamComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -3307,7 +3307,7 @@ public class TestScript extends BaseConformance {
           this.resource = castToReference(value); // Reference
           break;
         case 106436749: // param
-          this.getParam().add((TestScriptRuleParamComponent) value); // TestScriptRuleParamComponent
+          this.getParam().add((RuleParamComponent) value); // RuleParamComponent
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -3319,7 +3319,7 @@ public class TestScript extends BaseConformance {
         if (name.equals("resource"))
           this.resource = castToReference(value); // Reference
         else if (name.equals("param"))
-          this.getParam().add((TestScriptRuleParamComponent) value);
+          this.getParam().add((RuleParamComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -3328,7 +3328,7 @@ public class TestScript extends BaseConformance {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -341064690:  return getResource(); // Reference
-        case 106436749:  return addParam(); // TestScriptRuleParamComponent
+        case 106436749:  return addParam(); // RuleParamComponent
         default: return super.makeProperty(hash, name);
         }
 
@@ -3352,8 +3352,8 @@ public class TestScript extends BaseConformance {
         copyValues(dst);
         dst.resource = resource == null ? null : resource.copy();
         if (param != null) {
-          dst.param = new ArrayList<TestScriptRuleParamComponent>();
-          for (TestScriptRuleParamComponent i : param)
+          dst.param = new ArrayList<RuleParamComponent>();
+          for (RuleParamComponent i : param)
             dst.param.add(i.copy());
         };
         return dst;
@@ -3391,7 +3391,7 @@ public class TestScript extends BaseConformance {
   }
 
     @Block()
-    public static class TestScriptRuleParamComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class RuleParamComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Descriptive name for this parameter that matches the external assert rule parameter name.
          */
@@ -3411,14 +3411,14 @@ public class TestScript extends BaseConformance {
     /**
      * Constructor
      */
-      public TestScriptRuleParamComponent() {
+      public RuleParamComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public TestScriptRuleParamComponent(StringType name) {
+      public RuleParamComponent(StringType name) {
         super();
         this.name = name;
       }
@@ -3429,7 +3429,7 @@ public class TestScript extends BaseConformance {
         public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TestScriptRuleParamComponent.name");
+              throw new Error("Attempt to auto-create RuleParamComponent.name");
             else if (Configuration.doAutoCreate())
               this.name = new StringType(); // bb
           return this.name;
@@ -3446,7 +3446,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value {@link #name} (Descriptive name for this parameter that matches the external assert rule parameter name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public TestScriptRuleParamComponent setNameElement(StringType value) { 
+        public RuleParamComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -3461,7 +3461,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value Descriptive name for this parameter that matches the external assert rule parameter name.
          */
-        public TestScriptRuleParamComponent setName(String value) { 
+        public RuleParamComponent setName(String value) { 
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
@@ -3474,7 +3474,7 @@ public class TestScript extends BaseConformance {
         public StringType getValueElement() { 
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TestScriptRuleParamComponent.value");
+              throw new Error("Attempt to auto-create RuleParamComponent.value");
             else if (Configuration.doAutoCreate())
               this.value = new StringType(); // bb
           return this.value;
@@ -3491,7 +3491,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value {@link #value} (The explict or dynamic value for the parameter that will be passed on to the external rule template.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public TestScriptRuleParamComponent setValueElement(StringType value) { 
+        public RuleParamComponent setValueElement(StringType value) { 
           this.value = value;
           return this;
         }
@@ -3506,7 +3506,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value The explict or dynamic value for the parameter that will be passed on to the external rule template.
          */
-        public TestScriptRuleParamComponent setValue(String value) { 
+        public RuleParamComponent setValue(String value) { 
           if (Utilities.noString(value))
             this.value = null;
           else {
@@ -3579,8 +3579,8 @@ public class TestScript extends BaseConformance {
           return super.addChild(name);
       }
 
-      public TestScriptRuleParamComponent copy() {
-        TestScriptRuleParamComponent dst = new TestScriptRuleParamComponent();
+      public RuleParamComponent copy() {
+        RuleParamComponent dst = new RuleParamComponent();
         copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.value = value == null ? null : value.copy();
@@ -3591,9 +3591,9 @@ public class TestScript extends BaseConformance {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof TestScriptRuleParamComponent))
+        if (!(other instanceof RuleParamComponent))
           return false;
-        TestScriptRuleParamComponent o = (TestScriptRuleParamComponent) other;
+        RuleParamComponent o = (RuleParamComponent) other;
         return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
       }
 
@@ -3601,9 +3601,9 @@ public class TestScript extends BaseConformance {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof TestScriptRuleParamComponent))
+        if (!(other instanceof RuleParamComponent))
           return false;
-        TestScriptRuleParamComponent o = (TestScriptRuleParamComponent) other;
+        RuleParamComponent o = (RuleParamComponent) other;
         return compareValues(name, o.name, true) && compareValues(value, o.value, true);
       }
 
@@ -3637,9 +3637,9 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "rule", type = {}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="The referenced rule within the ruleset", formalDefinition="The referenced rule within the external ruleset template." )
-        protected List<TestScriptRulesetRuleComponent> rule;
+        protected List<RulesetRuleComponent> rule;
 
-        private static final long serialVersionUID = 5813554L;
+        private static final long serialVersionUID = 1260261423L;
 
     /**
      * Constructor
@@ -3698,16 +3698,16 @@ public class TestScript extends BaseConformance {
         /**
          * @return {@link #rule} (The referenced rule within the external ruleset template.)
          */
-        public List<TestScriptRulesetRuleComponent> getRule() { 
+        public List<RulesetRuleComponent> getRule() { 
           if (this.rule == null)
-            this.rule = new ArrayList<TestScriptRulesetRuleComponent>();
+            this.rule = new ArrayList<RulesetRuleComponent>();
           return this.rule;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public TestScriptRulesetComponent setRule(List<TestScriptRulesetRuleComponent> theRule) { 
+        public TestScriptRulesetComponent setRule(List<RulesetRuleComponent> theRule) { 
           this.rule = theRule;
           return this;
         }
@@ -3715,25 +3715,25 @@ public class TestScript extends BaseConformance {
         public boolean hasRule() { 
           if (this.rule == null)
             return false;
-          for (TestScriptRulesetRuleComponent item : this.rule)
+          for (RulesetRuleComponent item : this.rule)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public TestScriptRulesetRuleComponent addRule() { //3
-          TestScriptRulesetRuleComponent t = new TestScriptRulesetRuleComponent();
+        public RulesetRuleComponent addRule() { //3
+          RulesetRuleComponent t = new RulesetRuleComponent();
           if (this.rule == null)
-            this.rule = new ArrayList<TestScriptRulesetRuleComponent>();
+            this.rule = new ArrayList<RulesetRuleComponent>();
           this.rule.add(t);
           return t;
         }
 
-        public TestScriptRulesetComponent addRule(TestScriptRulesetRuleComponent t) { //3
+        public TestScriptRulesetComponent addRule(RulesetRuleComponent t) { //3
           if (t == null)
             return this;
           if (this.rule == null)
-            this.rule = new ArrayList<TestScriptRulesetRuleComponent>();
+            this.rule = new ArrayList<RulesetRuleComponent>();
           this.rule.add(t);
           return this;
         }
@@ -3741,7 +3741,7 @@ public class TestScript extends BaseConformance {
         /**
          * @return The first repetition of repeating field {@link #rule}, creating it if it does not already exist
          */
-        public TestScriptRulesetRuleComponent getRuleFirstRep() { 
+        public RulesetRuleComponent getRuleFirstRep() { 
           if (getRule().isEmpty()) {
             addRule();
           }
@@ -3758,7 +3758,7 @@ public class TestScript extends BaseConformance {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -341064690: /*resource*/ return this.resource == null ? new Base[0] : new Base[] {this.resource}; // Reference
-        case 3512060: /*rule*/ return this.rule == null ? new Base[0] : this.rule.toArray(new Base[this.rule.size()]); // TestScriptRulesetRuleComponent
+        case 3512060: /*rule*/ return this.rule == null ? new Base[0] : this.rule.toArray(new Base[this.rule.size()]); // RulesetRuleComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -3771,7 +3771,7 @@ public class TestScript extends BaseConformance {
           this.resource = castToReference(value); // Reference
           break;
         case 3512060: // rule
-          this.getRule().add((TestScriptRulesetRuleComponent) value); // TestScriptRulesetRuleComponent
+          this.getRule().add((RulesetRuleComponent) value); // RulesetRuleComponent
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -3783,7 +3783,7 @@ public class TestScript extends BaseConformance {
         if (name.equals("resource"))
           this.resource = castToReference(value); // Reference
         else if (name.equals("rule"))
-          this.getRule().add((TestScriptRulesetRuleComponent) value);
+          this.getRule().add((RulesetRuleComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -3792,7 +3792,7 @@ public class TestScript extends BaseConformance {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -341064690:  return getResource(); // Reference
-        case 3512060:  return addRule(); // TestScriptRulesetRuleComponent
+        case 3512060:  return addRule(); // RulesetRuleComponent
         default: return super.makeProperty(hash, name);
         }
 
@@ -3816,8 +3816,8 @@ public class TestScript extends BaseConformance {
         copyValues(dst);
         dst.resource = resource == null ? null : resource.copy();
         if (rule != null) {
-          dst.rule = new ArrayList<TestScriptRulesetRuleComponent>();
-          for (TestScriptRulesetRuleComponent i : rule)
+          dst.rule = new ArrayList<RulesetRuleComponent>();
+          for (RulesetRuleComponent i : rule)
             dst.rule.add(i.copy());
         };
         return dst;
@@ -3855,7 +3855,7 @@ public class TestScript extends BaseConformance {
   }
 
     @Block()
-    public static class TestScriptRulesetRuleComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class RulesetRuleComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Id of the referenced rule within the external ruleset template.
          */
@@ -3868,21 +3868,21 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "param", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Ruleset rule parameter template", formalDefinition="Each rule template can take one or more parameters for rule evaluation." )
-        protected List<TestScriptRulesetRuleParamComponent> param;
+        protected List<RulesetRuleParamComponent> param;
 
-        private static final long serialVersionUID = 155033950L;
+        private static final long serialVersionUID = -1399866981L;
 
     /**
      * Constructor
      */
-      public TestScriptRulesetRuleComponent() {
+      public RulesetRuleComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public TestScriptRulesetRuleComponent(IdType ruleId) {
+      public RulesetRuleComponent(IdType ruleId) {
         super();
         this.ruleId = ruleId;
       }
@@ -3893,7 +3893,7 @@ public class TestScript extends BaseConformance {
         public IdType getRuleIdElement() { 
           if (this.ruleId == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TestScriptRulesetRuleComponent.ruleId");
+              throw new Error("Attempt to auto-create RulesetRuleComponent.ruleId");
             else if (Configuration.doAutoCreate())
               this.ruleId = new IdType(); // bb
           return this.ruleId;
@@ -3910,7 +3910,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value {@link #ruleId} (Id of the referenced rule within the external ruleset template.). This is the underlying object with id, value and extensions. The accessor "getRuleId" gives direct access to the value
          */
-        public TestScriptRulesetRuleComponent setRuleIdElement(IdType value) { 
+        public RulesetRuleComponent setRuleIdElement(IdType value) { 
           this.ruleId = value;
           return this;
         }
@@ -3925,7 +3925,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value Id of the referenced rule within the external ruleset template.
          */
-        public TestScriptRulesetRuleComponent setRuleId(String value) { 
+        public RulesetRuleComponent setRuleId(String value) { 
             if (this.ruleId == null)
               this.ruleId = new IdType();
             this.ruleId.setValue(value);
@@ -3935,16 +3935,16 @@ public class TestScript extends BaseConformance {
         /**
          * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
          */
-        public List<TestScriptRulesetRuleParamComponent> getParam() { 
+        public List<RulesetRuleParamComponent> getParam() { 
           if (this.param == null)
-            this.param = new ArrayList<TestScriptRulesetRuleParamComponent>();
+            this.param = new ArrayList<RulesetRuleParamComponent>();
           return this.param;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public TestScriptRulesetRuleComponent setParam(List<TestScriptRulesetRuleParamComponent> theParam) { 
+        public RulesetRuleComponent setParam(List<RulesetRuleParamComponent> theParam) { 
           this.param = theParam;
           return this;
         }
@@ -3952,25 +3952,25 @@ public class TestScript extends BaseConformance {
         public boolean hasParam() { 
           if (this.param == null)
             return false;
-          for (TestScriptRulesetRuleParamComponent item : this.param)
+          for (RulesetRuleParamComponent item : this.param)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public TestScriptRulesetRuleParamComponent addParam() { //3
-          TestScriptRulesetRuleParamComponent t = new TestScriptRulesetRuleParamComponent();
+        public RulesetRuleParamComponent addParam() { //3
+          RulesetRuleParamComponent t = new RulesetRuleParamComponent();
           if (this.param == null)
-            this.param = new ArrayList<TestScriptRulesetRuleParamComponent>();
+            this.param = new ArrayList<RulesetRuleParamComponent>();
           this.param.add(t);
           return t;
         }
 
-        public TestScriptRulesetRuleComponent addParam(TestScriptRulesetRuleParamComponent t) { //3
+        public RulesetRuleComponent addParam(RulesetRuleParamComponent t) { //3
           if (t == null)
             return this;
           if (this.param == null)
-            this.param = new ArrayList<TestScriptRulesetRuleParamComponent>();
+            this.param = new ArrayList<RulesetRuleParamComponent>();
           this.param.add(t);
           return this;
         }
@@ -3978,7 +3978,7 @@ public class TestScript extends BaseConformance {
         /**
          * @return The first repetition of repeating field {@link #param}, creating it if it does not already exist
          */
-        public TestScriptRulesetRuleParamComponent getParamFirstRep() { 
+        public RulesetRuleParamComponent getParamFirstRep() { 
           if (getParam().isEmpty()) {
             addParam();
           }
@@ -3995,7 +3995,7 @@ public class TestScript extends BaseConformance {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -919875273: /*ruleId*/ return this.ruleId == null ? new Base[0] : new Base[] {this.ruleId}; // IdType
-        case 106436749: /*param*/ return this.param == null ? new Base[0] : this.param.toArray(new Base[this.param.size()]); // TestScriptRulesetRuleParamComponent
+        case 106436749: /*param*/ return this.param == null ? new Base[0] : this.param.toArray(new Base[this.param.size()]); // RulesetRuleParamComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -4008,7 +4008,7 @@ public class TestScript extends BaseConformance {
           this.ruleId = castToId(value); // IdType
           break;
         case 106436749: // param
-          this.getParam().add((TestScriptRulesetRuleParamComponent) value); // TestScriptRulesetRuleParamComponent
+          this.getParam().add((RulesetRuleParamComponent) value); // RulesetRuleParamComponent
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -4020,7 +4020,7 @@ public class TestScript extends BaseConformance {
         if (name.equals("ruleId"))
           this.ruleId = castToId(value); // IdType
         else if (name.equals("param"))
-          this.getParam().add((TestScriptRulesetRuleParamComponent) value);
+          this.getParam().add((RulesetRuleParamComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -4029,7 +4029,7 @@ public class TestScript extends BaseConformance {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -919875273: throw new FHIRException("Cannot make property ruleId as it is not a complex type"); // IdType
-        case 106436749:  return addParam(); // TestScriptRulesetRuleParamComponent
+        case 106436749:  return addParam(); // RulesetRuleParamComponent
         default: return super.makeProperty(hash, name);
         }
 
@@ -4047,13 +4047,13 @@ public class TestScript extends BaseConformance {
           return super.addChild(name);
       }
 
-      public TestScriptRulesetRuleComponent copy() {
-        TestScriptRulesetRuleComponent dst = new TestScriptRulesetRuleComponent();
+      public RulesetRuleComponent copy() {
+        RulesetRuleComponent dst = new RulesetRuleComponent();
         copyValues(dst);
         dst.ruleId = ruleId == null ? null : ruleId.copy();
         if (param != null) {
-          dst.param = new ArrayList<TestScriptRulesetRuleParamComponent>();
-          for (TestScriptRulesetRuleParamComponent i : param)
+          dst.param = new ArrayList<RulesetRuleParamComponent>();
+          for (RulesetRuleParamComponent i : param)
             dst.param.add(i.copy());
         };
         return dst;
@@ -4063,9 +4063,9 @@ public class TestScript extends BaseConformance {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof TestScriptRulesetRuleComponent))
+        if (!(other instanceof RulesetRuleComponent))
           return false;
-        TestScriptRulesetRuleComponent o = (TestScriptRulesetRuleComponent) other;
+        RulesetRuleComponent o = (RulesetRuleComponent) other;
         return compareDeep(ruleId, o.ruleId, true) && compareDeep(param, o.param, true);
       }
 
@@ -4073,9 +4073,9 @@ public class TestScript extends BaseConformance {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof TestScriptRulesetRuleComponent))
+        if (!(other instanceof RulesetRuleComponent))
           return false;
-        TestScriptRulesetRuleComponent o = (TestScriptRulesetRuleComponent) other;
+        RulesetRuleComponent o = (RulesetRuleComponent) other;
         return compareValues(ruleId, o.ruleId, true);
       }
 
@@ -4091,7 +4091,7 @@ public class TestScript extends BaseConformance {
   }
 
     @Block()
-    public static class TestScriptRulesetRuleParamComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class RulesetRuleParamComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Descriptive name for this parameter that matches the external assert ruleset rule parameter name.
          */
@@ -4111,14 +4111,14 @@ public class TestScript extends BaseConformance {
     /**
      * Constructor
      */
-      public TestScriptRulesetRuleParamComponent() {
+      public RulesetRuleParamComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public TestScriptRulesetRuleParamComponent(StringType name) {
+      public RulesetRuleParamComponent(StringType name) {
         super();
         this.name = name;
       }
@@ -4129,7 +4129,7 @@ public class TestScript extends BaseConformance {
         public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TestScriptRulesetRuleParamComponent.name");
+              throw new Error("Attempt to auto-create RulesetRuleParamComponent.name");
             else if (Configuration.doAutoCreate())
               this.name = new StringType(); // bb
           return this.name;
@@ -4146,7 +4146,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value {@link #name} (Descriptive name for this parameter that matches the external assert ruleset rule parameter name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public TestScriptRulesetRuleParamComponent setNameElement(StringType value) { 
+        public RulesetRuleParamComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -4161,7 +4161,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value Descriptive name for this parameter that matches the external assert ruleset rule parameter name.
          */
-        public TestScriptRulesetRuleParamComponent setName(String value) { 
+        public RulesetRuleParamComponent setName(String value) { 
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
@@ -4174,7 +4174,7 @@ public class TestScript extends BaseConformance {
         public StringType getValueElement() { 
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TestScriptRulesetRuleParamComponent.value");
+              throw new Error("Attempt to auto-create RulesetRuleParamComponent.value");
             else if (Configuration.doAutoCreate())
               this.value = new StringType(); // bb
           return this.value;
@@ -4191,7 +4191,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value {@link #value} (The value for the parameter that will be passed on to the external ruleset rule template.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public TestScriptRulesetRuleParamComponent setValueElement(StringType value) { 
+        public RulesetRuleParamComponent setValueElement(StringType value) { 
           this.value = value;
           return this;
         }
@@ -4206,7 +4206,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value The value for the parameter that will be passed on to the external ruleset rule template.
          */
-        public TestScriptRulesetRuleParamComponent setValue(String value) { 
+        public RulesetRuleParamComponent setValue(String value) { 
           if (Utilities.noString(value))
             this.value = null;
           else {
@@ -4279,8 +4279,8 @@ public class TestScript extends BaseConformance {
           return super.addChild(name);
       }
 
-      public TestScriptRulesetRuleParamComponent copy() {
-        TestScriptRulesetRuleParamComponent dst = new TestScriptRulesetRuleParamComponent();
+      public RulesetRuleParamComponent copy() {
+        RulesetRuleParamComponent dst = new RulesetRuleParamComponent();
         copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.value = value == null ? null : value.copy();
@@ -4291,9 +4291,9 @@ public class TestScript extends BaseConformance {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof TestScriptRulesetRuleParamComponent))
+        if (!(other instanceof RulesetRuleParamComponent))
           return false;
-        TestScriptRulesetRuleParamComponent o = (TestScriptRulesetRuleParamComponent) other;
+        RulesetRuleParamComponent o = (RulesetRuleParamComponent) other;
         return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
       }
 
@@ -4301,9 +4301,9 @@ public class TestScript extends BaseConformance {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof TestScriptRulesetRuleParamComponent))
+        if (!(other instanceof RulesetRuleParamComponent))
           return false;
-        TestScriptRulesetRuleParamComponent o = (TestScriptRulesetRuleParamComponent) other;
+        RulesetRuleParamComponent o = (RulesetRuleParamComponent) other;
         return compareValues(name, o.name, true) && compareValues(value, o.value, true);
       }
 
@@ -6130,14 +6130,14 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "rule", type = {}, order=16, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The reference to a TestScript.rule", formalDefinition="The TestScript.rule this assert will evaluate." )
-        protected SetupActionAssertRuleComponent rule;
+        protected ActionAssertRuleComponent rule;
 
         /**
          * The TestScript.ruleset this assert will evaluate.
          */
         @Child(name = "ruleset", type = {}, order=17, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The reference to a TestScript.ruleset", formalDefinition="The TestScript.ruleset this assert will evaluate." )
-        protected SetupActionAssertRulesetComponent ruleset;
+        protected ActionAssertRulesetComponent ruleset;
 
         /**
          * Fixture to evaluate the XPath/JSONPath expression or the headerField  against.
@@ -6167,7 +6167,7 @@ public class TestScript extends BaseConformance {
         @Description(shortDefinition="Will this assert produce a warning only on error?", formalDefinition="Whether or not the test execution will produce a warning only on error for this assert." )
         protected BooleanType warningOnly;
 
-        private static final long serialVersionUID = -775036667L;
+        private static final long serialVersionUID = -1496515975L;
 
     /**
      * Constructor
@@ -6910,12 +6910,12 @@ public class TestScript extends BaseConformance {
         /**
          * @return {@link #rule} (The TestScript.rule this assert will evaluate.)
          */
-        public SetupActionAssertRuleComponent getRule() { 
+        public ActionAssertRuleComponent getRule() { 
           if (this.rule == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SetupActionAssertComponent.rule");
             else if (Configuration.doAutoCreate())
-              this.rule = new SetupActionAssertRuleComponent(); // cc
+              this.rule = new ActionAssertRuleComponent(); // cc
           return this.rule;
         }
 
@@ -6926,7 +6926,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value {@link #rule} (The TestScript.rule this assert will evaluate.)
          */
-        public SetupActionAssertComponent setRule(SetupActionAssertRuleComponent value) { 
+        public SetupActionAssertComponent setRule(ActionAssertRuleComponent value) { 
           this.rule = value;
           return this;
         }
@@ -6934,12 +6934,12 @@ public class TestScript extends BaseConformance {
         /**
          * @return {@link #ruleset} (The TestScript.ruleset this assert will evaluate.)
          */
-        public SetupActionAssertRulesetComponent getRuleset() { 
+        public ActionAssertRulesetComponent getRuleset() { 
           if (this.ruleset == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SetupActionAssertComponent.ruleset");
             else if (Configuration.doAutoCreate())
-              this.ruleset = new SetupActionAssertRulesetComponent(); // cc
+              this.ruleset = new ActionAssertRulesetComponent(); // cc
           return this.ruleset;
         }
 
@@ -6950,7 +6950,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value {@link #ruleset} (The TestScript.ruleset this assert will evaluate.)
          */
-        public SetupActionAssertComponent setRuleset(SetupActionAssertRulesetComponent value) { 
+        public SetupActionAssertComponent setRuleset(ActionAssertRulesetComponent value) { 
           this.ruleset = value;
           return this;
         }
@@ -7190,8 +7190,8 @@ public class TestScript extends BaseConformance {
         case -341064690: /*resource*/ return this.resource == null ? new Base[0] : new Base[] {this.resource}; // CodeType
         case -340323263: /*response*/ return this.response == null ? new Base[0] : new Base[] {this.response}; // Enumeration<AssertionResponseTypes>
         case 1438723534: /*responseCode*/ return this.responseCode == null ? new Base[0] : new Base[] {this.responseCode}; // StringType
-        case 3512060: /*rule*/ return this.rule == null ? new Base[0] : new Base[] {this.rule}; // SetupActionAssertRuleComponent
-        case 1548678118: /*ruleset*/ return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // SetupActionAssertRulesetComponent
+        case 3512060: /*rule*/ return this.rule == null ? new Base[0] : new Base[] {this.rule}; // ActionAssertRuleComponent
+        case 1548678118: /*ruleset*/ return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // ActionAssertRulesetComponent
         case 1746327190: /*sourceId*/ return this.sourceId == null ? new Base[0] : new Base[] {this.sourceId}; // IdType
         case 1555541038: /*validateProfileId*/ return this.validateProfileId == null ? new Base[0] : new Base[] {this.validateProfileId}; // IdType
         case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // StringType
@@ -7250,10 +7250,10 @@ public class TestScript extends BaseConformance {
           this.responseCode = castToString(value); // StringType
           break;
         case 3512060: // rule
-          this.rule = (SetupActionAssertRuleComponent) value; // SetupActionAssertRuleComponent
+          this.rule = (ActionAssertRuleComponent) value; // ActionAssertRuleComponent
           break;
         case 1548678118: // ruleset
-          this.ruleset = (SetupActionAssertRulesetComponent) value; // SetupActionAssertRulesetComponent
+          this.ruleset = (ActionAssertRulesetComponent) value; // ActionAssertRulesetComponent
           break;
         case 1746327190: // sourceId
           this.sourceId = castToId(value); // IdType
@@ -7305,9 +7305,9 @@ public class TestScript extends BaseConformance {
         else if (name.equals("responseCode"))
           this.responseCode = castToString(value); // StringType
         else if (name.equals("rule"))
-          this.rule = (SetupActionAssertRuleComponent) value; // SetupActionAssertRuleComponent
+          this.rule = (ActionAssertRuleComponent) value; // ActionAssertRuleComponent
         else if (name.equals("ruleset"))
-          this.ruleset = (SetupActionAssertRulesetComponent) value; // SetupActionAssertRulesetComponent
+          this.ruleset = (ActionAssertRulesetComponent) value; // ActionAssertRulesetComponent
         else if (name.equals("sourceId"))
           this.sourceId = castToId(value); // IdType
         else if (name.equals("validateProfileId"))
@@ -7338,8 +7338,8 @@ public class TestScript extends BaseConformance {
         case -341064690: throw new FHIRException("Cannot make property resource as it is not a complex type"); // CodeType
         case -340323263: throw new FHIRException("Cannot make property response as it is not a complex type"); // Enumeration<AssertionResponseTypes>
         case 1438723534: throw new FHIRException("Cannot make property responseCode as it is not a complex type"); // StringType
-        case 3512060:  return getRule(); // SetupActionAssertRuleComponent
-        case 1548678118:  return getRuleset(); // SetupActionAssertRulesetComponent
+        case 3512060:  return getRule(); // ActionAssertRuleComponent
+        case 1548678118:  return getRuleset(); // ActionAssertRulesetComponent
         case 1746327190: throw new FHIRException("Cannot make property sourceId as it is not a complex type"); // IdType
         case 1555541038: throw new FHIRException("Cannot make property validateProfileId as it is not a complex type"); // IdType
         case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
@@ -7397,11 +7397,11 @@ public class TestScript extends BaseConformance {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.responseCode");
         }
         else if (name.equals("rule")) {
-          this.rule = new SetupActionAssertRuleComponent();
+          this.rule = new ActionAssertRuleComponent();
           return this.rule;
         }
         else if (name.equals("ruleset")) {
-          this.ruleset = new SetupActionAssertRulesetComponent();
+          this.ruleset = new ActionAssertRulesetComponent();
           return this.ruleset;
         }
         else if (name.equals("sourceId")) {
@@ -7497,7 +7497,7 @@ public class TestScript extends BaseConformance {
   }
 
     @Block()
-    public static class SetupActionAssertRuleComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ActionAssertRuleComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The TestScript.rule id value this assert will evaluate.
          */
@@ -7510,21 +7510,21 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "param", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Rule parameter template", formalDefinition="Each rule template can take one or more parameters for rule evaluation." )
-        protected List<SetupActionAssertRuleParamComponent> param;
+        protected List<ActionAssertRuleParamComponent> param;
 
-        private static final long serialVersionUID = -319928210L;
+        private static final long serialVersionUID = -1860715431L;
 
     /**
      * Constructor
      */
-      public SetupActionAssertRuleComponent() {
+      public ActionAssertRuleComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public SetupActionAssertRuleComponent(IdType ruleId) {
+      public ActionAssertRuleComponent(IdType ruleId) {
         super();
         this.ruleId = ruleId;
       }
@@ -7535,7 +7535,7 @@ public class TestScript extends BaseConformance {
         public IdType getRuleIdElement() { 
           if (this.ruleId == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SetupActionAssertRuleComponent.ruleId");
+              throw new Error("Attempt to auto-create ActionAssertRuleComponent.ruleId");
             else if (Configuration.doAutoCreate())
               this.ruleId = new IdType(); // bb
           return this.ruleId;
@@ -7552,7 +7552,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value {@link #ruleId} (The TestScript.rule id value this assert will evaluate.). This is the underlying object with id, value and extensions. The accessor "getRuleId" gives direct access to the value
          */
-        public SetupActionAssertRuleComponent setRuleIdElement(IdType value) { 
+        public ActionAssertRuleComponent setRuleIdElement(IdType value) { 
           this.ruleId = value;
           return this;
         }
@@ -7567,7 +7567,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value The TestScript.rule id value this assert will evaluate.
          */
-        public SetupActionAssertRuleComponent setRuleId(String value) { 
+        public ActionAssertRuleComponent setRuleId(String value) { 
             if (this.ruleId == null)
               this.ruleId = new IdType();
             this.ruleId.setValue(value);
@@ -7577,16 +7577,16 @@ public class TestScript extends BaseConformance {
         /**
          * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
          */
-        public List<SetupActionAssertRuleParamComponent> getParam() { 
+        public List<ActionAssertRuleParamComponent> getParam() { 
           if (this.param == null)
-            this.param = new ArrayList<SetupActionAssertRuleParamComponent>();
+            this.param = new ArrayList<ActionAssertRuleParamComponent>();
           return this.param;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public SetupActionAssertRuleComponent setParam(List<SetupActionAssertRuleParamComponent> theParam) { 
+        public ActionAssertRuleComponent setParam(List<ActionAssertRuleParamComponent> theParam) { 
           this.param = theParam;
           return this;
         }
@@ -7594,25 +7594,25 @@ public class TestScript extends BaseConformance {
         public boolean hasParam() { 
           if (this.param == null)
             return false;
-          for (SetupActionAssertRuleParamComponent item : this.param)
+          for (ActionAssertRuleParamComponent item : this.param)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public SetupActionAssertRuleParamComponent addParam() { //3
-          SetupActionAssertRuleParamComponent t = new SetupActionAssertRuleParamComponent();
+        public ActionAssertRuleParamComponent addParam() { //3
+          ActionAssertRuleParamComponent t = new ActionAssertRuleParamComponent();
           if (this.param == null)
-            this.param = new ArrayList<SetupActionAssertRuleParamComponent>();
+            this.param = new ArrayList<ActionAssertRuleParamComponent>();
           this.param.add(t);
           return t;
         }
 
-        public SetupActionAssertRuleComponent addParam(SetupActionAssertRuleParamComponent t) { //3
+        public ActionAssertRuleComponent addParam(ActionAssertRuleParamComponent t) { //3
           if (t == null)
             return this;
           if (this.param == null)
-            this.param = new ArrayList<SetupActionAssertRuleParamComponent>();
+            this.param = new ArrayList<ActionAssertRuleParamComponent>();
           this.param.add(t);
           return this;
         }
@@ -7620,7 +7620,7 @@ public class TestScript extends BaseConformance {
         /**
          * @return The first repetition of repeating field {@link #param}, creating it if it does not already exist
          */
-        public SetupActionAssertRuleParamComponent getParamFirstRep() { 
+        public ActionAssertRuleParamComponent getParamFirstRep() { 
           if (getParam().isEmpty()) {
             addParam();
           }
@@ -7637,7 +7637,7 @@ public class TestScript extends BaseConformance {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -919875273: /*ruleId*/ return this.ruleId == null ? new Base[0] : new Base[] {this.ruleId}; // IdType
-        case 106436749: /*param*/ return this.param == null ? new Base[0] : this.param.toArray(new Base[this.param.size()]); // SetupActionAssertRuleParamComponent
+        case 106436749: /*param*/ return this.param == null ? new Base[0] : this.param.toArray(new Base[this.param.size()]); // ActionAssertRuleParamComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -7650,7 +7650,7 @@ public class TestScript extends BaseConformance {
           this.ruleId = castToId(value); // IdType
           break;
         case 106436749: // param
-          this.getParam().add((SetupActionAssertRuleParamComponent) value); // SetupActionAssertRuleParamComponent
+          this.getParam().add((ActionAssertRuleParamComponent) value); // ActionAssertRuleParamComponent
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -7662,7 +7662,7 @@ public class TestScript extends BaseConformance {
         if (name.equals("ruleId"))
           this.ruleId = castToId(value); // IdType
         else if (name.equals("param"))
-          this.getParam().add((SetupActionAssertRuleParamComponent) value);
+          this.getParam().add((ActionAssertRuleParamComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -7671,7 +7671,7 @@ public class TestScript extends BaseConformance {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -919875273: throw new FHIRException("Cannot make property ruleId as it is not a complex type"); // IdType
-        case 106436749:  return addParam(); // SetupActionAssertRuleParamComponent
+        case 106436749:  return addParam(); // ActionAssertRuleParamComponent
         default: return super.makeProperty(hash, name);
         }
 
@@ -7689,13 +7689,13 @@ public class TestScript extends BaseConformance {
           return super.addChild(name);
       }
 
-      public SetupActionAssertRuleComponent copy() {
-        SetupActionAssertRuleComponent dst = new SetupActionAssertRuleComponent();
+      public ActionAssertRuleComponent copy() {
+        ActionAssertRuleComponent dst = new ActionAssertRuleComponent();
         copyValues(dst);
         dst.ruleId = ruleId == null ? null : ruleId.copy();
         if (param != null) {
-          dst.param = new ArrayList<SetupActionAssertRuleParamComponent>();
-          for (SetupActionAssertRuleParamComponent i : param)
+          dst.param = new ArrayList<ActionAssertRuleParamComponent>();
+          for (ActionAssertRuleParamComponent i : param)
             dst.param.add(i.copy());
         };
         return dst;
@@ -7705,9 +7705,9 @@ public class TestScript extends BaseConformance {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof SetupActionAssertRuleComponent))
+        if (!(other instanceof ActionAssertRuleComponent))
           return false;
-        SetupActionAssertRuleComponent o = (SetupActionAssertRuleComponent) other;
+        ActionAssertRuleComponent o = (ActionAssertRuleComponent) other;
         return compareDeep(ruleId, o.ruleId, true) && compareDeep(param, o.param, true);
       }
 
@@ -7715,9 +7715,9 @@ public class TestScript extends BaseConformance {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof SetupActionAssertRuleComponent))
+        if (!(other instanceof ActionAssertRuleComponent))
           return false;
-        SetupActionAssertRuleComponent o = (SetupActionAssertRuleComponent) other;
+        ActionAssertRuleComponent o = (ActionAssertRuleComponent) other;
         return compareValues(ruleId, o.ruleId, true);
       }
 
@@ -7733,7 +7733,7 @@ public class TestScript extends BaseConformance {
   }
 
     @Block()
-    public static class SetupActionAssertRuleParamComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ActionAssertRuleParamComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Descriptive name for this parameter that matches the external assert rule parameter name.
          */
@@ -7753,14 +7753,14 @@ public class TestScript extends BaseConformance {
     /**
      * Constructor
      */
-      public SetupActionAssertRuleParamComponent() {
+      public ActionAssertRuleParamComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public SetupActionAssertRuleParamComponent(StringType name, StringType value) {
+      public ActionAssertRuleParamComponent(StringType name, StringType value) {
         super();
         this.name = name;
         this.value = value;
@@ -7772,7 +7772,7 @@ public class TestScript extends BaseConformance {
         public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SetupActionAssertRuleParamComponent.name");
+              throw new Error("Attempt to auto-create ActionAssertRuleParamComponent.name");
             else if (Configuration.doAutoCreate())
               this.name = new StringType(); // bb
           return this.name;
@@ -7789,7 +7789,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value {@link #name} (Descriptive name for this parameter that matches the external assert rule parameter name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public SetupActionAssertRuleParamComponent setNameElement(StringType value) { 
+        public ActionAssertRuleParamComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -7804,7 +7804,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value Descriptive name for this parameter that matches the external assert rule parameter name.
          */
-        public SetupActionAssertRuleParamComponent setName(String value) { 
+        public ActionAssertRuleParamComponent setName(String value) { 
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
@@ -7817,7 +7817,7 @@ public class TestScript extends BaseConformance {
         public StringType getValueElement() { 
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SetupActionAssertRuleParamComponent.value");
+              throw new Error("Attempt to auto-create ActionAssertRuleParamComponent.value");
             else if (Configuration.doAutoCreate())
               this.value = new StringType(); // bb
           return this.value;
@@ -7834,7 +7834,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value {@link #value} (The value for the parameter that will be passed on to the external rule template.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public SetupActionAssertRuleParamComponent setValueElement(StringType value) { 
+        public ActionAssertRuleParamComponent setValueElement(StringType value) { 
           this.value = value;
           return this;
         }
@@ -7849,7 +7849,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value The value for the parameter that will be passed on to the external rule template.
          */
-        public SetupActionAssertRuleParamComponent setValue(String value) { 
+        public ActionAssertRuleParamComponent setValue(String value) { 
             if (this.value == null)
               this.value = new StringType();
             this.value.setValue(value);
@@ -7918,8 +7918,8 @@ public class TestScript extends BaseConformance {
           return super.addChild(name);
       }
 
-      public SetupActionAssertRuleParamComponent copy() {
-        SetupActionAssertRuleParamComponent dst = new SetupActionAssertRuleParamComponent();
+      public ActionAssertRuleParamComponent copy() {
+        ActionAssertRuleParamComponent dst = new ActionAssertRuleParamComponent();
         copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.value = value == null ? null : value.copy();
@@ -7930,9 +7930,9 @@ public class TestScript extends BaseConformance {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof SetupActionAssertRuleParamComponent))
+        if (!(other instanceof ActionAssertRuleParamComponent))
           return false;
-        SetupActionAssertRuleParamComponent o = (SetupActionAssertRuleParamComponent) other;
+        ActionAssertRuleParamComponent o = (ActionAssertRuleParamComponent) other;
         return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
       }
 
@@ -7940,9 +7940,9 @@ public class TestScript extends BaseConformance {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof SetupActionAssertRuleParamComponent))
+        if (!(other instanceof ActionAssertRuleParamComponent))
           return false;
-        SetupActionAssertRuleParamComponent o = (SetupActionAssertRuleParamComponent) other;
+        ActionAssertRuleParamComponent o = (ActionAssertRuleParamComponent) other;
         return compareValues(name, o.name, true) && compareValues(value, o.value, true);
       }
 
@@ -7958,7 +7958,7 @@ public class TestScript extends BaseConformance {
   }
 
     @Block()
-    public static class SetupActionAssertRulesetComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ActionAssertRulesetComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The TestScript.ruleset id value this assert will evaluate.
          */
@@ -7971,21 +7971,21 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "rule", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="The referenced rule within the ruleset", formalDefinition="The referenced rule within the external ruleset template." )
-        protected List<SetupActionAssertRulesetRuleComponent> rule;
+        protected List<ActionAssertRulesetRuleComponent> rule;
 
-        private static final long serialVersionUID = 2070600738L;
+        private static final long serialVersionUID = -976736025L;
 
     /**
      * Constructor
      */
-      public SetupActionAssertRulesetComponent() {
+      public ActionAssertRulesetComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public SetupActionAssertRulesetComponent(IdType rulesetId) {
+      public ActionAssertRulesetComponent(IdType rulesetId) {
         super();
         this.rulesetId = rulesetId;
       }
@@ -7996,7 +7996,7 @@ public class TestScript extends BaseConformance {
         public IdType getRulesetIdElement() { 
           if (this.rulesetId == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SetupActionAssertRulesetComponent.rulesetId");
+              throw new Error("Attempt to auto-create ActionAssertRulesetComponent.rulesetId");
             else if (Configuration.doAutoCreate())
               this.rulesetId = new IdType(); // bb
           return this.rulesetId;
@@ -8013,7 +8013,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value {@link #rulesetId} (The TestScript.ruleset id value this assert will evaluate.). This is the underlying object with id, value and extensions. The accessor "getRulesetId" gives direct access to the value
          */
-        public SetupActionAssertRulesetComponent setRulesetIdElement(IdType value) { 
+        public ActionAssertRulesetComponent setRulesetIdElement(IdType value) { 
           this.rulesetId = value;
           return this;
         }
@@ -8028,7 +8028,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value The TestScript.ruleset id value this assert will evaluate.
          */
-        public SetupActionAssertRulesetComponent setRulesetId(String value) { 
+        public ActionAssertRulesetComponent setRulesetId(String value) { 
             if (this.rulesetId == null)
               this.rulesetId = new IdType();
             this.rulesetId.setValue(value);
@@ -8038,16 +8038,16 @@ public class TestScript extends BaseConformance {
         /**
          * @return {@link #rule} (The referenced rule within the external ruleset template.)
          */
-        public List<SetupActionAssertRulesetRuleComponent> getRule() { 
+        public List<ActionAssertRulesetRuleComponent> getRule() { 
           if (this.rule == null)
-            this.rule = new ArrayList<SetupActionAssertRulesetRuleComponent>();
+            this.rule = new ArrayList<ActionAssertRulesetRuleComponent>();
           return this.rule;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public SetupActionAssertRulesetComponent setRule(List<SetupActionAssertRulesetRuleComponent> theRule) { 
+        public ActionAssertRulesetComponent setRule(List<ActionAssertRulesetRuleComponent> theRule) { 
           this.rule = theRule;
           return this;
         }
@@ -8055,25 +8055,25 @@ public class TestScript extends BaseConformance {
         public boolean hasRule() { 
           if (this.rule == null)
             return false;
-          for (SetupActionAssertRulesetRuleComponent item : this.rule)
+          for (ActionAssertRulesetRuleComponent item : this.rule)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public SetupActionAssertRulesetRuleComponent addRule() { //3
-          SetupActionAssertRulesetRuleComponent t = new SetupActionAssertRulesetRuleComponent();
+        public ActionAssertRulesetRuleComponent addRule() { //3
+          ActionAssertRulesetRuleComponent t = new ActionAssertRulesetRuleComponent();
           if (this.rule == null)
-            this.rule = new ArrayList<SetupActionAssertRulesetRuleComponent>();
+            this.rule = new ArrayList<ActionAssertRulesetRuleComponent>();
           this.rule.add(t);
           return t;
         }
 
-        public SetupActionAssertRulesetComponent addRule(SetupActionAssertRulesetRuleComponent t) { //3
+        public ActionAssertRulesetComponent addRule(ActionAssertRulesetRuleComponent t) { //3
           if (t == null)
             return this;
           if (this.rule == null)
-            this.rule = new ArrayList<SetupActionAssertRulesetRuleComponent>();
+            this.rule = new ArrayList<ActionAssertRulesetRuleComponent>();
           this.rule.add(t);
           return this;
         }
@@ -8081,7 +8081,7 @@ public class TestScript extends BaseConformance {
         /**
          * @return The first repetition of repeating field {@link #rule}, creating it if it does not already exist
          */
-        public SetupActionAssertRulesetRuleComponent getRuleFirstRep() { 
+        public ActionAssertRulesetRuleComponent getRuleFirstRep() { 
           if (getRule().isEmpty()) {
             addRule();
           }
@@ -8098,7 +8098,7 @@ public class TestScript extends BaseConformance {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -2073977951: /*rulesetId*/ return this.rulesetId == null ? new Base[0] : new Base[] {this.rulesetId}; // IdType
-        case 3512060: /*rule*/ return this.rule == null ? new Base[0] : this.rule.toArray(new Base[this.rule.size()]); // SetupActionAssertRulesetRuleComponent
+        case 3512060: /*rule*/ return this.rule == null ? new Base[0] : this.rule.toArray(new Base[this.rule.size()]); // ActionAssertRulesetRuleComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -8111,7 +8111,7 @@ public class TestScript extends BaseConformance {
           this.rulesetId = castToId(value); // IdType
           break;
         case 3512060: // rule
-          this.getRule().add((SetupActionAssertRulesetRuleComponent) value); // SetupActionAssertRulesetRuleComponent
+          this.getRule().add((ActionAssertRulesetRuleComponent) value); // ActionAssertRulesetRuleComponent
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -8123,7 +8123,7 @@ public class TestScript extends BaseConformance {
         if (name.equals("rulesetId"))
           this.rulesetId = castToId(value); // IdType
         else if (name.equals("rule"))
-          this.getRule().add((SetupActionAssertRulesetRuleComponent) value);
+          this.getRule().add((ActionAssertRulesetRuleComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -8132,7 +8132,7 @@ public class TestScript extends BaseConformance {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -2073977951: throw new FHIRException("Cannot make property rulesetId as it is not a complex type"); // IdType
-        case 3512060:  return addRule(); // SetupActionAssertRulesetRuleComponent
+        case 3512060:  return addRule(); // ActionAssertRulesetRuleComponent
         default: return super.makeProperty(hash, name);
         }
 
@@ -8150,13 +8150,13 @@ public class TestScript extends BaseConformance {
           return super.addChild(name);
       }
 
-      public SetupActionAssertRulesetComponent copy() {
-        SetupActionAssertRulesetComponent dst = new SetupActionAssertRulesetComponent();
+      public ActionAssertRulesetComponent copy() {
+        ActionAssertRulesetComponent dst = new ActionAssertRulesetComponent();
         copyValues(dst);
         dst.rulesetId = rulesetId == null ? null : rulesetId.copy();
         if (rule != null) {
-          dst.rule = new ArrayList<SetupActionAssertRulesetRuleComponent>();
-          for (SetupActionAssertRulesetRuleComponent i : rule)
+          dst.rule = new ArrayList<ActionAssertRulesetRuleComponent>();
+          for (ActionAssertRulesetRuleComponent i : rule)
             dst.rule.add(i.copy());
         };
         return dst;
@@ -8166,9 +8166,9 @@ public class TestScript extends BaseConformance {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof SetupActionAssertRulesetComponent))
+        if (!(other instanceof ActionAssertRulesetComponent))
           return false;
-        SetupActionAssertRulesetComponent o = (SetupActionAssertRulesetComponent) other;
+        ActionAssertRulesetComponent o = (ActionAssertRulesetComponent) other;
         return compareDeep(rulesetId, o.rulesetId, true) && compareDeep(rule, o.rule, true);
       }
 
@@ -8176,9 +8176,9 @@ public class TestScript extends BaseConformance {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof SetupActionAssertRulesetComponent))
+        if (!(other instanceof ActionAssertRulesetComponent))
           return false;
-        SetupActionAssertRulesetComponent o = (SetupActionAssertRulesetComponent) other;
+        ActionAssertRulesetComponent o = (ActionAssertRulesetComponent) other;
         return compareValues(rulesetId, o.rulesetId, true);
       }
 
@@ -8194,7 +8194,7 @@ public class TestScript extends BaseConformance {
   }
 
     @Block()
-    public static class SetupActionAssertRulesetRuleComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ActionAssertRulesetRuleComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Id of the referenced rule within the external ruleset template.
          */
@@ -8207,21 +8207,21 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "param", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Rule parameter template", formalDefinition="Each rule template can take one or more parameters for rule evaluation." )
-        protected List<SetupActionAssertRulesetRuleParamComponent> param;
+        protected List<ActionAssertRulesetRuleParamComponent> param;
 
-        private static final long serialVersionUID = 52246314L;
+        private static final long serialVersionUID = -1850698529L;
 
     /**
      * Constructor
      */
-      public SetupActionAssertRulesetRuleComponent() {
+      public ActionAssertRulesetRuleComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public SetupActionAssertRulesetRuleComponent(IdType ruleId) {
+      public ActionAssertRulesetRuleComponent(IdType ruleId) {
         super();
         this.ruleId = ruleId;
       }
@@ -8232,7 +8232,7 @@ public class TestScript extends BaseConformance {
         public IdType getRuleIdElement() { 
           if (this.ruleId == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SetupActionAssertRulesetRuleComponent.ruleId");
+              throw new Error("Attempt to auto-create ActionAssertRulesetRuleComponent.ruleId");
             else if (Configuration.doAutoCreate())
               this.ruleId = new IdType(); // bb
           return this.ruleId;
@@ -8249,7 +8249,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value {@link #ruleId} (Id of the referenced rule within the external ruleset template.). This is the underlying object with id, value and extensions. The accessor "getRuleId" gives direct access to the value
          */
-        public SetupActionAssertRulesetRuleComponent setRuleIdElement(IdType value) { 
+        public ActionAssertRulesetRuleComponent setRuleIdElement(IdType value) { 
           this.ruleId = value;
           return this;
         }
@@ -8264,7 +8264,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value Id of the referenced rule within the external ruleset template.
          */
-        public SetupActionAssertRulesetRuleComponent setRuleId(String value) { 
+        public ActionAssertRulesetRuleComponent setRuleId(String value) { 
             if (this.ruleId == null)
               this.ruleId = new IdType();
             this.ruleId.setValue(value);
@@ -8274,16 +8274,16 @@ public class TestScript extends BaseConformance {
         /**
          * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
          */
-        public List<SetupActionAssertRulesetRuleParamComponent> getParam() { 
+        public List<ActionAssertRulesetRuleParamComponent> getParam() { 
           if (this.param == null)
-            this.param = new ArrayList<SetupActionAssertRulesetRuleParamComponent>();
+            this.param = new ArrayList<ActionAssertRulesetRuleParamComponent>();
           return this.param;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public SetupActionAssertRulesetRuleComponent setParam(List<SetupActionAssertRulesetRuleParamComponent> theParam) { 
+        public ActionAssertRulesetRuleComponent setParam(List<ActionAssertRulesetRuleParamComponent> theParam) { 
           this.param = theParam;
           return this;
         }
@@ -8291,25 +8291,25 @@ public class TestScript extends BaseConformance {
         public boolean hasParam() { 
           if (this.param == null)
             return false;
-          for (SetupActionAssertRulesetRuleParamComponent item : this.param)
+          for (ActionAssertRulesetRuleParamComponent item : this.param)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public SetupActionAssertRulesetRuleParamComponent addParam() { //3
-          SetupActionAssertRulesetRuleParamComponent t = new SetupActionAssertRulesetRuleParamComponent();
+        public ActionAssertRulesetRuleParamComponent addParam() { //3
+          ActionAssertRulesetRuleParamComponent t = new ActionAssertRulesetRuleParamComponent();
           if (this.param == null)
-            this.param = new ArrayList<SetupActionAssertRulesetRuleParamComponent>();
+            this.param = new ArrayList<ActionAssertRulesetRuleParamComponent>();
           this.param.add(t);
           return t;
         }
 
-        public SetupActionAssertRulesetRuleComponent addParam(SetupActionAssertRulesetRuleParamComponent t) { //3
+        public ActionAssertRulesetRuleComponent addParam(ActionAssertRulesetRuleParamComponent t) { //3
           if (t == null)
             return this;
           if (this.param == null)
-            this.param = new ArrayList<SetupActionAssertRulesetRuleParamComponent>();
+            this.param = new ArrayList<ActionAssertRulesetRuleParamComponent>();
           this.param.add(t);
           return this;
         }
@@ -8317,7 +8317,7 @@ public class TestScript extends BaseConformance {
         /**
          * @return The first repetition of repeating field {@link #param}, creating it if it does not already exist
          */
-        public SetupActionAssertRulesetRuleParamComponent getParamFirstRep() { 
+        public ActionAssertRulesetRuleParamComponent getParamFirstRep() { 
           if (getParam().isEmpty()) {
             addParam();
           }
@@ -8334,7 +8334,7 @@ public class TestScript extends BaseConformance {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -919875273: /*ruleId*/ return this.ruleId == null ? new Base[0] : new Base[] {this.ruleId}; // IdType
-        case 106436749: /*param*/ return this.param == null ? new Base[0] : this.param.toArray(new Base[this.param.size()]); // SetupActionAssertRulesetRuleParamComponent
+        case 106436749: /*param*/ return this.param == null ? new Base[0] : this.param.toArray(new Base[this.param.size()]); // ActionAssertRulesetRuleParamComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -8347,7 +8347,7 @@ public class TestScript extends BaseConformance {
           this.ruleId = castToId(value); // IdType
           break;
         case 106436749: // param
-          this.getParam().add((SetupActionAssertRulesetRuleParamComponent) value); // SetupActionAssertRulesetRuleParamComponent
+          this.getParam().add((ActionAssertRulesetRuleParamComponent) value); // ActionAssertRulesetRuleParamComponent
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -8359,7 +8359,7 @@ public class TestScript extends BaseConformance {
         if (name.equals("ruleId"))
           this.ruleId = castToId(value); // IdType
         else if (name.equals("param"))
-          this.getParam().add((SetupActionAssertRulesetRuleParamComponent) value);
+          this.getParam().add((ActionAssertRulesetRuleParamComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -8368,7 +8368,7 @@ public class TestScript extends BaseConformance {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -919875273: throw new FHIRException("Cannot make property ruleId as it is not a complex type"); // IdType
-        case 106436749:  return addParam(); // SetupActionAssertRulesetRuleParamComponent
+        case 106436749:  return addParam(); // ActionAssertRulesetRuleParamComponent
         default: return super.makeProperty(hash, name);
         }
 
@@ -8386,13 +8386,13 @@ public class TestScript extends BaseConformance {
           return super.addChild(name);
       }
 
-      public SetupActionAssertRulesetRuleComponent copy() {
-        SetupActionAssertRulesetRuleComponent dst = new SetupActionAssertRulesetRuleComponent();
+      public ActionAssertRulesetRuleComponent copy() {
+        ActionAssertRulesetRuleComponent dst = new ActionAssertRulesetRuleComponent();
         copyValues(dst);
         dst.ruleId = ruleId == null ? null : ruleId.copy();
         if (param != null) {
-          dst.param = new ArrayList<SetupActionAssertRulesetRuleParamComponent>();
-          for (SetupActionAssertRulesetRuleParamComponent i : param)
+          dst.param = new ArrayList<ActionAssertRulesetRuleParamComponent>();
+          for (ActionAssertRulesetRuleParamComponent i : param)
             dst.param.add(i.copy());
         };
         return dst;
@@ -8402,9 +8402,9 @@ public class TestScript extends BaseConformance {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof SetupActionAssertRulesetRuleComponent))
+        if (!(other instanceof ActionAssertRulesetRuleComponent))
           return false;
-        SetupActionAssertRulesetRuleComponent o = (SetupActionAssertRulesetRuleComponent) other;
+        ActionAssertRulesetRuleComponent o = (ActionAssertRulesetRuleComponent) other;
         return compareDeep(ruleId, o.ruleId, true) && compareDeep(param, o.param, true);
       }
 
@@ -8412,9 +8412,9 @@ public class TestScript extends BaseConformance {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof SetupActionAssertRulesetRuleComponent))
+        if (!(other instanceof ActionAssertRulesetRuleComponent))
           return false;
-        SetupActionAssertRulesetRuleComponent o = (SetupActionAssertRulesetRuleComponent) other;
+        ActionAssertRulesetRuleComponent o = (ActionAssertRulesetRuleComponent) other;
         return compareValues(ruleId, o.ruleId, true);
       }
 
@@ -8430,7 +8430,7 @@ public class TestScript extends BaseConformance {
   }
 
     @Block()
-    public static class SetupActionAssertRulesetRuleParamComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ActionAssertRulesetRuleParamComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Descriptive name for this parameter that matches the external assert ruleset rule parameter name.
          */
@@ -8450,14 +8450,14 @@ public class TestScript extends BaseConformance {
     /**
      * Constructor
      */
-      public SetupActionAssertRulesetRuleParamComponent() {
+      public ActionAssertRulesetRuleParamComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public SetupActionAssertRulesetRuleParamComponent(StringType name, StringType value) {
+      public ActionAssertRulesetRuleParamComponent(StringType name, StringType value) {
         super();
         this.name = name;
         this.value = value;
@@ -8469,7 +8469,7 @@ public class TestScript extends BaseConformance {
         public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SetupActionAssertRulesetRuleParamComponent.name");
+              throw new Error("Attempt to auto-create ActionAssertRulesetRuleParamComponent.name");
             else if (Configuration.doAutoCreate())
               this.name = new StringType(); // bb
           return this.name;
@@ -8486,7 +8486,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value {@link #name} (Descriptive name for this parameter that matches the external assert ruleset rule parameter name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public SetupActionAssertRulesetRuleParamComponent setNameElement(StringType value) { 
+        public ActionAssertRulesetRuleParamComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -8501,7 +8501,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value Descriptive name for this parameter that matches the external assert ruleset rule parameter name.
          */
-        public SetupActionAssertRulesetRuleParamComponent setName(String value) { 
+        public ActionAssertRulesetRuleParamComponent setName(String value) { 
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
@@ -8514,7 +8514,7 @@ public class TestScript extends BaseConformance {
         public StringType getValueElement() { 
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SetupActionAssertRulesetRuleParamComponent.value");
+              throw new Error("Attempt to auto-create ActionAssertRulesetRuleParamComponent.value");
             else if (Configuration.doAutoCreate())
               this.value = new StringType(); // bb
           return this.value;
@@ -8531,7 +8531,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value {@link #value} (The value for the parameter that will be passed on to the external ruleset rule template.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public SetupActionAssertRulesetRuleParamComponent setValueElement(StringType value) { 
+        public ActionAssertRulesetRuleParamComponent setValueElement(StringType value) { 
           this.value = value;
           return this;
         }
@@ -8546,7 +8546,7 @@ public class TestScript extends BaseConformance {
         /**
          * @param value The value for the parameter that will be passed on to the external ruleset rule template.
          */
-        public SetupActionAssertRulesetRuleParamComponent setValue(String value) { 
+        public ActionAssertRulesetRuleParamComponent setValue(String value) { 
             if (this.value == null)
               this.value = new StringType();
             this.value.setValue(value);
@@ -8615,8 +8615,8 @@ public class TestScript extends BaseConformance {
           return super.addChild(name);
       }
 
-      public SetupActionAssertRulesetRuleParamComponent copy() {
-        SetupActionAssertRulesetRuleParamComponent dst = new SetupActionAssertRulesetRuleParamComponent();
+      public ActionAssertRulesetRuleParamComponent copy() {
+        ActionAssertRulesetRuleParamComponent dst = new ActionAssertRulesetRuleParamComponent();
         copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.value = value == null ? null : value.copy();
@@ -8627,9 +8627,9 @@ public class TestScript extends BaseConformance {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof SetupActionAssertRulesetRuleParamComponent))
+        if (!(other instanceof ActionAssertRulesetRuleParamComponent))
           return false;
-        SetupActionAssertRulesetRuleParamComponent o = (SetupActionAssertRulesetRuleParamComponent) other;
+        ActionAssertRulesetRuleParamComponent o = (ActionAssertRulesetRuleParamComponent) other;
         return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
       }
 
@@ -8637,9 +8637,9 @@ public class TestScript extends BaseConformance {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof SetupActionAssertRulesetRuleParamComponent))
+        if (!(other instanceof ActionAssertRulesetRuleParamComponent))
           return false;
-        SetupActionAssertRulesetRuleParamComponent o = (SetupActionAssertRulesetRuleParamComponent) other;
+        ActionAssertRulesetRuleParamComponent o = (ActionAssertRulesetRuleParamComponent) other;
         return compareValues(name, o.name, true) && compareValues(value, o.value, true);
       }
 

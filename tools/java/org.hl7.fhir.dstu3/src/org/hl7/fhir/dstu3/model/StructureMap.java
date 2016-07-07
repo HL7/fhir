@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 4, 2016 07:30+1000 for FHIR v1.4.0
+// Generated on Fri, Jul 8, 2016 06:52+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -504,8 +504,7 @@ public class StructureMap extends BaseConformance {
         /**
          * something
          */
-        EVALUATE,
-        CC, C,
+        EVALUATE, 
         /**
          * added to help the parsers with the generic types
          */
@@ -537,10 +536,6 @@ public class StructureMap extends BaseConformance {
           return POINTER;
         if ("evaluate".equals(codeString))
           return EVALUATE;
-        if ("cc".equals(codeString))
-          return CC;
-        if ("c".equals(codeString))
-          return C;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -560,8 +555,6 @@ public class StructureMap extends BaseConformance {
             case UUID: return "uuid";
             case POINTER: return "pointer";
             case EVALUATE: return "evaluate";
-            case CC: return "cc";
-            case C: return "c";
             default: return "?";
           }
         }

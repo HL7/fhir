@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 4, 2016 07:30+1000 for FHIR v1.4.0
+// Generated on Fri, Jul 8, 2016 06:52+1000 for FHIR v1.4.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2386,7 +2386,7 @@ public class Enumerations {
          */
         CONFORMANCE, 
         /**
-         * Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:.
+         * Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organizational, and patient authored  privacy policies that grant or withhold consent:.
          */
         CONSENT, 
         /**
@@ -3572,7 +3572,7 @@ public class Enumerations {
             case CONCEPTMAP: return "A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.";
             case CONDITION: return "Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.";
             case CONFORMANCE: return "A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
-            case CONSENT: return "Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:.";
+            case CONSENT: return "Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organizational, and patient authored  privacy policies that grant or withhold consent:.";
             case CONTRACT: return "A formal agreement between parties regarding the conduct of business, exchange of information or other matters.";
             case COVERAGE: return "Financial instrument which may be used to pay for or reimburse health care products and services.";
             case DATAELEMENT: return "The formal description of a single piece of information that can be gathered and reported.";
@@ -5241,7 +5241,7 @@ public class Enumerations {
          */
         CONFORMANCE, 
         /**
-         * Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:.
+         * Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organizational, and patient authored  privacy policies that grant or withhold consent:.
          */
         CONSENT, 
         /**
@@ -6411,7 +6411,7 @@ public class Enumerations {
             case CONCEPTMAP: return "A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.";
             case CONDITION: return "Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.";
             case CONFORMANCE: return "A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
-            case CONSENT: return "Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:.";
+            case CONSENT: return "Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organizational, and patient authored  privacy policies that grant or withhold consent:.";
             case CONTRACT: return "A formal agreement between parties regarding the conduct of business, exchange of information or other matters.";
             case COVERAGE: return "Financial instrument which may be used to pay for or reimburse health care products and services.";
             case DATAELEMENT: return "The formal description of a single piece of information that can be gathered and reported.";
@@ -8281,7 +8281,7 @@ public class Enumerations {
          */
         CONFORMANCE, 
         /**
-         * Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:.
+         * Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organizational, and patient authored  privacy policies that grant or withhold consent:.
          */
         CONSENT, 
         /**
@@ -9176,7 +9176,7 @@ public class Enumerations {
             case CONCEPTMAP: return "A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.";
             case CONDITION: return "Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.";
             case CONFORMANCE: return "A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
-            case CONSENT: return "Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:.";
+            case CONSENT: return "Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organizational, and patient authored  privacy policies that grant or withhold consent:.";
             case CONTRACT: return "A formal agreement between parties regarding the conduct of business, exchange of information or other matters.";
             case COVERAGE: return "Financial instrument which may be used to pay for or reimburse health care products and services.";
             case DATAELEMENT: return "The formal description of a single piece of information that can be gathered and reported.";

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Jul 4, 2016 07:30+1000 for FHIR v1.4.0
+// Generated on Fri, Jul 8, 2016 06:52+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -2882,7 +2882,7 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getFilter().size(); i++)
       composeCodeSystemCodeSystemFilterComponent(t, "CodeSystem", "filter", element.getFilter().get(i), i);
     for (int i = 0; i < element.getProperty().size(); i++)
-      composeCodeSystemCodeSystemPropertyComponent(t, "CodeSystem", "property", element.getProperty().get(i), i);
+      composeCodeSystemPropertyComponent(t, "CodeSystem", "property", element.getProperty().get(i), i);
     for (int i = 0; i < element.getConcept().size(); i++)
       composeCodeSystemConceptDefinitionComponent(t, "CodeSystem", "concept", element.getConcept().get(i), i);
   }
@@ -2923,7 +2923,7 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "CodeSystem", "value", element.getValueElement(), -1);
   }
 
-  protected void composeCodeSystemCodeSystemPropertyComponent(Complex parent, String parentType, String name, CodeSystem.CodeSystemPropertyComponent element, int index) {
+  protected void composeCodeSystemPropertyComponent(Complex parent, String parentType, String name, CodeSystem.PropertyComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -2962,7 +2962,7 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getDesignation().size(); i++)
       composeCodeSystemConceptDefinitionDesignationComponent(t, "CodeSystem", "designation", element.getDesignation().get(i), i);
     for (int i = 0; i < element.getProperty().size(); i++)
-      composeCodeSystemConceptDefinitionPropertyComponent(t, "CodeSystem", "property", element.getProperty().get(i), i);
+      composeCodeSystemConceptPropertyComponent(t, "CodeSystem", "property", element.getProperty().get(i), i);
     for (int i = 0; i < element.getConcept().size(); i++)
       composeCodeSystemConceptDefinitionComponent(t, "CodeSystem", "concept", element.getConcept().get(i), i);
   }
@@ -2985,7 +2985,7 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "CodeSystem", "value", element.getValueElement(), -1);
   }
 
-  protected void composeCodeSystemConceptDefinitionPropertyComponent(Complex parent, String parentType, String name, CodeSystem.ConceptDefinitionPropertyComponent element, int index) {
+  protected void composeCodeSystemConceptPropertyComponent(Complex parent, String parentType, String name, CodeSystem.ConceptPropertyComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -3879,8 +3879,8 @@ public class RdfParser extends RdfParserBase {
       composePeriod(t, "Consent", "period", element.getPeriod(), -1);
     if (element.hasPatient())
       composeReference(t, "Consent", "patient", element.getPatient(), -1);
-    if (element.hasAuthor())
-      composeReference(t, "Consent", "author", element.getAuthor(), -1);
+    for (int i = 0; i < element.getConsentor().size(); i++)
+      composeReference(t, "Consent", "consentor", element.getConsentor().get(i), i);
     if (element.hasOrganization())
       composeReference(t, "Consent", "organization", element.getOrganization(), -1);
     if (element.hasSource())
@@ -5243,8 +5243,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "Endpoint", "managingOrganization", element.getManagingOrganization(), -1);
     for (int i = 0; i < element.getContact().size(); i++)
       composeContactPoint(t, "Endpoint", "contact", element.getContact().get(i), i);
-    if (element.hasConnectionTypeElement())
-      composeCode(t, "Endpoint", "connectionType", element.getConnectionTypeElement(), -1);
+    if (element.hasConnectionType())
+      composeCoding(t, "Endpoint", "connectionType", element.getConnectionType(), -1);
     for (int i = 0; i < element.getMethod().size(); i++)
       composeCoding(t, "Endpoint", "method", element.getMethod().get(i), i);
     if (element.hasPeriod())
@@ -7614,10 +7614,10 @@ public class RdfParser extends RdfParserBase {
     if (element.hasIdentifier())
       composeIdentifier(t, "MeasureReport", "identifier", element.getIdentifier(), -1);
     for (int i = 0; i < element.getGroup().size(); i++)
-      composeMeasureReportMeasureReportGroupStratifierGroupComponent(t, "MeasureReport", "group", element.getGroup().get(i), i);
+      composeMeasureReportStratifierGroupComponent(t, "MeasureReport", "group", element.getGroup().get(i), i);
   }
 
-  protected void composeMeasureReportMeasureReportGroupStratifierGroupComponent(Complex parent, String parentType, String name, MeasureReport.MeasureReportGroupStratifierGroupComponent element, int index) {
+  protected void composeMeasureReportStratifierGroupComponent(Complex parent, String parentType, String name, MeasureReport.StratifierGroupComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -7630,12 +7630,12 @@ public class RdfParser extends RdfParserBase {
     if (element.hasValueElement())
       composeString(t, "MeasureReport", "value", element.getValueElement(), -1);
     for (int i = 0; i < element.getPopulation().size(); i++)
-      composeMeasureReportMeasureReportGroupStratifierGroupPopulationComponent(t, "MeasureReport", "population", element.getPopulation().get(i), i);
+      composeMeasureReportStratifierGroupPopulationComponent(t, "MeasureReport", "population", element.getPopulation().get(i), i);
     if (element.hasMeasureScoreElement())
       composeDecimal(t, "MeasureReport", "measureScore", element.getMeasureScoreElement(), -1);
   }
 
-  protected void composeMeasureReportMeasureReportGroupStratifierGroupPopulationComponent(Complex parent, String parentType, String name, MeasureReport.MeasureReportGroupStratifierGroupPopulationComponent element, int index) {
+  protected void composeMeasureReportStratifierGroupPopulationComponent(Complex parent, String parentType, String name, MeasureReport.StratifierGroupPopulationComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -7666,10 +7666,10 @@ public class RdfParser extends RdfParserBase {
     if (element.hasIdentifier())
       composeIdentifier(t, "MeasureReport", "identifier", element.getIdentifier(), -1);
     for (int i = 0; i < element.getGroup().size(); i++)
-      composeMeasureReportMeasureReportGroupSupplementalDataGroupComponent(t, "MeasureReport", "group", element.getGroup().get(i), i);
+      composeMeasureReportSupplementalDataGroupComponent(t, "MeasureReport", "group", element.getGroup().get(i), i);
   }
 
-  protected void composeMeasureReportMeasureReportGroupSupplementalDataGroupComponent(Complex parent, String parentType, String name, MeasureReport.MeasureReportGroupSupplementalDataGroupComponent element, int index) {
+  protected void composeMeasureReportSupplementalDataGroupComponent(Complex parent, String parentType, String name, MeasureReport.SupplementalDataGroupComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -11878,10 +11878,10 @@ public class RdfParser extends RdfParserBase {
     if (element.hasResource())
       composeReference(t, "TestScript", "resource", element.getResource(), -1);
     for (int i = 0; i < element.getParam().size(); i++)
-      composeTestScriptTestScriptRuleParamComponent(t, "TestScript", "param", element.getParam().get(i), i);
+      composeTestScriptRuleParamComponent(t, "TestScript", "param", element.getParam().get(i), i);
   }
 
-  protected void composeTestScriptTestScriptRuleParamComponent(Complex parent, String parentType, String name, TestScript.TestScriptRuleParamComponent element, int index) {
+  protected void composeTestScriptRuleParamComponent(Complex parent, String parentType, String name, TestScript.RuleParamComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -11910,10 +11910,10 @@ public class RdfParser extends RdfParserBase {
     if (element.hasResource())
       composeReference(t, "TestScript", "resource", element.getResource(), -1);
     for (int i = 0; i < element.getRule().size(); i++)
-      composeTestScriptTestScriptRulesetRuleComponent(t, "TestScript", "rule", element.getRule().get(i), i);
+      composeTestScriptRulesetRuleComponent(t, "TestScript", "rule", element.getRule().get(i), i);
   }
 
-  protected void composeTestScriptTestScriptRulesetRuleComponent(Complex parent, String parentType, String name, TestScript.TestScriptRulesetRuleComponent element, int index) {
+  protected void composeTestScriptRulesetRuleComponent(Complex parent, String parentType, String name, TestScript.RulesetRuleComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -11926,10 +11926,10 @@ public class RdfParser extends RdfParserBase {
     if (element.hasRuleIdElement())
       composeId(t, "TestScript", "ruleId", element.getRuleIdElement(), -1);
     for (int i = 0; i < element.getParam().size(); i++)
-      composeTestScriptTestScriptRulesetRuleParamComponent(t, "TestScript", "param", element.getParam().get(i), i);
+      composeTestScriptRulesetRuleParamComponent(t, "TestScript", "param", element.getParam().get(i), i);
   }
 
-  protected void composeTestScriptTestScriptRulesetRuleParamComponent(Complex parent, String parentType, String name, TestScript.TestScriptRulesetRuleParamComponent element, int index) {
+  protected void composeTestScriptRulesetRuleParamComponent(Complex parent, String parentType, String name, TestScript.RulesetRuleParamComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -12076,9 +12076,9 @@ public class RdfParser extends RdfParserBase {
     if (element.hasResponseCodeElement())
       composeString(t, "TestScript", "responseCode", element.getResponseCodeElement(), -1);
     if (element.hasRule())
-      composeTestScriptSetupActionAssertRuleComponent(t, "TestScript", "rule", element.getRule(), -1);
+      composeTestScriptActionAssertRuleComponent(t, "TestScript", "rule", element.getRule(), -1);
     if (element.hasRuleset())
-      composeTestScriptSetupActionAssertRulesetComponent(t, "TestScript", "ruleset", element.getRuleset(), -1);
+      composeTestScriptActionAssertRulesetComponent(t, "TestScript", "ruleset", element.getRuleset(), -1);
     if (element.hasSourceIdElement())
       composeId(t, "TestScript", "sourceId", element.getSourceIdElement(), -1);
     if (element.hasValidateProfileIdElement())
@@ -12089,7 +12089,7 @@ public class RdfParser extends RdfParserBase {
       composeBoolean(t, "TestScript", "warningOnly", element.getWarningOnlyElement(), -1);
   }
 
-  protected void composeTestScriptSetupActionAssertRuleComponent(Complex parent, String parentType, String name, TestScript.SetupActionAssertRuleComponent element, int index) {
+  protected void composeTestScriptActionAssertRuleComponent(Complex parent, String parentType, String name, TestScript.ActionAssertRuleComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -12102,10 +12102,10 @@ public class RdfParser extends RdfParserBase {
     if (element.hasRuleIdElement())
       composeId(t, "TestScript", "ruleId", element.getRuleIdElement(), -1);
     for (int i = 0; i < element.getParam().size(); i++)
-      composeTestScriptSetupActionAssertRuleParamComponent(t, "TestScript", "param", element.getParam().get(i), i);
+      composeTestScriptActionAssertRuleParamComponent(t, "TestScript", "param", element.getParam().get(i), i);
   }
 
-  protected void composeTestScriptSetupActionAssertRuleParamComponent(Complex parent, String parentType, String name, TestScript.SetupActionAssertRuleParamComponent element, int index) {
+  protected void composeTestScriptActionAssertRuleParamComponent(Complex parent, String parentType, String name, TestScript.ActionAssertRuleParamComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -12121,7 +12121,7 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "TestScript", "value", element.getValueElement(), -1);
   }
 
-  protected void composeTestScriptSetupActionAssertRulesetComponent(Complex parent, String parentType, String name, TestScript.SetupActionAssertRulesetComponent element, int index) {
+  protected void composeTestScriptActionAssertRulesetComponent(Complex parent, String parentType, String name, TestScript.ActionAssertRulesetComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -12134,10 +12134,10 @@ public class RdfParser extends RdfParserBase {
     if (element.hasRulesetIdElement())
       composeId(t, "TestScript", "rulesetId", element.getRulesetIdElement(), -1);
     for (int i = 0; i < element.getRule().size(); i++)
-      composeTestScriptSetupActionAssertRulesetRuleComponent(t, "TestScript", "rule", element.getRule().get(i), i);
+      composeTestScriptActionAssertRulesetRuleComponent(t, "TestScript", "rule", element.getRule().get(i), i);
   }
 
-  protected void composeTestScriptSetupActionAssertRulesetRuleComponent(Complex parent, String parentType, String name, TestScript.SetupActionAssertRulesetRuleComponent element, int index) {
+  protected void composeTestScriptActionAssertRulesetRuleComponent(Complex parent, String parentType, String name, TestScript.ActionAssertRulesetRuleComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -12150,10 +12150,10 @@ public class RdfParser extends RdfParserBase {
     if (element.hasRuleIdElement())
       composeId(t, "TestScript", "ruleId", element.getRuleIdElement(), -1);
     for (int i = 0; i < element.getParam().size(); i++)
-      composeTestScriptSetupActionAssertRulesetRuleParamComponent(t, "TestScript", "param", element.getParam().get(i), i);
+      composeTestScriptActionAssertRulesetRuleParamComponent(t, "TestScript", "param", element.getParam().get(i), i);
   }
 
-  protected void composeTestScriptSetupActionAssertRulesetRuleParamComponent(Complex parent, String parentType, String name, TestScript.SetupActionAssertRulesetRuleParamComponent element, int index) {
+  protected void composeTestScriptActionAssertRulesetRuleParamComponent(Complex parent, String parentType, String name, TestScript.ActionAssertRulesetRuleParamComponent element, int index) {
     if (element == null) 
       return;
     Complex t;

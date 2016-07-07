@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Jul 4, 2016 07:30+1000 for FHIR v1.4.0
+// Generated on Fri, Jul 8, 2016 06:52+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -4165,7 +4165,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("property")) {
       JsonArray array = json.getAsJsonArray("property");
       for (int i = 0; i < array.size(); i++) {
-        res.getProperty().add(parseCodeSystemCodeSystemPropertyComponent(array.get(i).getAsJsonObject(), res));
+        res.getProperty().add(parseCodeSystemPropertyComponent(array.get(i).getAsJsonObject(), res));
       }
     };
     if (json.has("concept")) {
@@ -4233,13 +4233,13 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_value"), res.getValueElement());
   }
 
-  protected CodeSystem.CodeSystemPropertyComponent parseCodeSystemCodeSystemPropertyComponent(JsonObject json, CodeSystem owner) throws IOException, FHIRFormatError {
-    CodeSystem.CodeSystemPropertyComponent res = new CodeSystem.CodeSystemPropertyComponent();
-    parseCodeSystemCodeSystemPropertyComponentProperties(json, owner, res);
+  protected CodeSystem.PropertyComponent parseCodeSystemPropertyComponent(JsonObject json, CodeSystem owner) throws IOException, FHIRFormatError {
+    CodeSystem.PropertyComponent res = new CodeSystem.PropertyComponent();
+    parseCodeSystemPropertyComponentProperties(json, owner, res);
     return res;
   }
 
-  protected void parseCodeSystemCodeSystemPropertyComponentProperties(JsonObject json, CodeSystem owner, CodeSystem.CodeSystemPropertyComponent res) throws IOException, FHIRFormatError {
+  protected void parseCodeSystemPropertyComponentProperties(JsonObject json, CodeSystem owner, CodeSystem.PropertyComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
     if (json.has("code"))
       res.setCodeElement(parseCode(json.get("code").getAsString()));
@@ -4288,7 +4288,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("property")) {
       JsonArray array = json.getAsJsonArray("property");
       for (int i = 0; i < array.size(); i++) {
-        res.getProperty().add(parseCodeSystemConceptDefinitionPropertyComponent(array.get(i).getAsJsonObject(), owner));
+        res.getProperty().add(parseCodeSystemConceptPropertyComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
     if (json.has("concept")) {
@@ -4319,13 +4319,13 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_value"), res.getValueElement());
   }
 
-  protected CodeSystem.ConceptDefinitionPropertyComponent parseCodeSystemConceptDefinitionPropertyComponent(JsonObject json, CodeSystem owner) throws IOException, FHIRFormatError {
-    CodeSystem.ConceptDefinitionPropertyComponent res = new CodeSystem.ConceptDefinitionPropertyComponent();
-    parseCodeSystemConceptDefinitionPropertyComponentProperties(json, owner, res);
+  protected CodeSystem.ConceptPropertyComponent parseCodeSystemConceptPropertyComponent(JsonObject json, CodeSystem owner) throws IOException, FHIRFormatError {
+    CodeSystem.ConceptPropertyComponent res = new CodeSystem.ConceptPropertyComponent();
+    parseCodeSystemConceptPropertyComponentProperties(json, owner, res);
     return res;
   }
 
-  protected void parseCodeSystemConceptDefinitionPropertyComponentProperties(JsonObject json, CodeSystem owner, CodeSystem.ConceptDefinitionPropertyComponent res) throws IOException, FHIRFormatError {
+  protected void parseCodeSystemConceptPropertyComponentProperties(JsonObject json, CodeSystem owner, CodeSystem.ConceptPropertyComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
     if (json.has("code"))
       res.setCodeElement(parseCode(json.get("code").getAsString()));
@@ -5682,8 +5682,12 @@ public class JsonParser extends JsonParserBase {
       res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
     if (json.has("patient"))
       res.setPatient(parseReference(json.getAsJsonObject("patient")));
-    if (json.has("author"))
-      res.setAuthor(parseReference(json.getAsJsonObject("author")));
+    if (json.has("consentor")) {
+      JsonArray array = json.getAsJsonArray("consentor");
+      for (int i = 0; i < array.size(); i++) {
+        res.getConsentor().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("organization"))
       res.setOrganization(parseReference(json.getAsJsonObject("organization")));
     Type source = parseType("source", json);
@@ -7631,9 +7635,7 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("connectionType"))
-      res.setConnectionTypeElement(parseCode(json.get("connectionType").getAsString()));
-    if (json.has("_connectionType"))
-      parseElementProperties(json.getAsJsonObject("_connectionType"), res.getConnectionTypeElement());
+      res.setConnectionType(parseCoding(json.getAsJsonObject("connectionType")));
     if (json.has("method")) {
       JsonArray array = json.getAsJsonArray("method");
       for (int i = 0; i < array.size(); i++) {
@@ -11051,18 +11053,18 @@ public class JsonParser extends JsonParserBase {
     if (json.has("group")) {
       JsonArray array = json.getAsJsonArray("group");
       for (int i = 0; i < array.size(); i++) {
-        res.getGroup().add(parseMeasureReportMeasureReportGroupStratifierGroupComponent(array.get(i).getAsJsonObject(), owner));
+        res.getGroup().add(parseMeasureReportStratifierGroupComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
   }
 
-  protected MeasureReport.MeasureReportGroupStratifierGroupComponent parseMeasureReportMeasureReportGroupStratifierGroupComponent(JsonObject json, MeasureReport owner) throws IOException, FHIRFormatError {
-    MeasureReport.MeasureReportGroupStratifierGroupComponent res = new MeasureReport.MeasureReportGroupStratifierGroupComponent();
-    parseMeasureReportMeasureReportGroupStratifierGroupComponentProperties(json, owner, res);
+  protected MeasureReport.StratifierGroupComponent parseMeasureReportStratifierGroupComponent(JsonObject json, MeasureReport owner) throws IOException, FHIRFormatError {
+    MeasureReport.StratifierGroupComponent res = new MeasureReport.StratifierGroupComponent();
+    parseMeasureReportStratifierGroupComponentProperties(json, owner, res);
     return res;
   }
 
-  protected void parseMeasureReportMeasureReportGroupStratifierGroupComponentProperties(JsonObject json, MeasureReport owner, MeasureReport.MeasureReportGroupStratifierGroupComponent res) throws IOException, FHIRFormatError {
+  protected void parseMeasureReportStratifierGroupComponentProperties(JsonObject json, MeasureReport owner, MeasureReport.StratifierGroupComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
     if (json.has("value"))
       res.setValueElement(parseString(json.get("value").getAsString()));
@@ -11071,7 +11073,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("population")) {
       JsonArray array = json.getAsJsonArray("population");
       for (int i = 0; i < array.size(); i++) {
-        res.getPopulation().add(parseMeasureReportMeasureReportGroupStratifierGroupPopulationComponent(array.get(i).getAsJsonObject(), owner));
+        res.getPopulation().add(parseMeasureReportStratifierGroupPopulationComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
     if (json.has("measureScore"))
@@ -11080,13 +11082,13 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_measureScore"), res.getMeasureScoreElement());
   }
 
-  protected MeasureReport.MeasureReportGroupStratifierGroupPopulationComponent parseMeasureReportMeasureReportGroupStratifierGroupPopulationComponent(JsonObject json, MeasureReport owner) throws IOException, FHIRFormatError {
-    MeasureReport.MeasureReportGroupStratifierGroupPopulationComponent res = new MeasureReport.MeasureReportGroupStratifierGroupPopulationComponent();
-    parseMeasureReportMeasureReportGroupStratifierGroupPopulationComponentProperties(json, owner, res);
+  protected MeasureReport.StratifierGroupPopulationComponent parseMeasureReportStratifierGroupPopulationComponent(JsonObject json, MeasureReport owner) throws IOException, FHIRFormatError {
+    MeasureReport.StratifierGroupPopulationComponent res = new MeasureReport.StratifierGroupPopulationComponent();
+    parseMeasureReportStratifierGroupPopulationComponentProperties(json, owner, res);
     return res;
   }
 
-  protected void parseMeasureReportMeasureReportGroupStratifierGroupPopulationComponentProperties(JsonObject json, MeasureReport owner, MeasureReport.MeasureReportGroupStratifierGroupPopulationComponent res) throws IOException, FHIRFormatError {
+  protected void parseMeasureReportStratifierGroupPopulationComponentProperties(JsonObject json, MeasureReport owner, MeasureReport.StratifierGroupPopulationComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
     if (json.has("type"))
       res.setTypeElement(parseCode(json.get("type").getAsString()));
@@ -11113,18 +11115,18 @@ public class JsonParser extends JsonParserBase {
     if (json.has("group")) {
       JsonArray array = json.getAsJsonArray("group");
       for (int i = 0; i < array.size(); i++) {
-        res.getGroup().add(parseMeasureReportMeasureReportGroupSupplementalDataGroupComponent(array.get(i).getAsJsonObject(), owner));
+        res.getGroup().add(parseMeasureReportSupplementalDataGroupComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
   }
 
-  protected MeasureReport.MeasureReportGroupSupplementalDataGroupComponent parseMeasureReportMeasureReportGroupSupplementalDataGroupComponent(JsonObject json, MeasureReport owner) throws IOException, FHIRFormatError {
-    MeasureReport.MeasureReportGroupSupplementalDataGroupComponent res = new MeasureReport.MeasureReportGroupSupplementalDataGroupComponent();
-    parseMeasureReportMeasureReportGroupSupplementalDataGroupComponentProperties(json, owner, res);
+  protected MeasureReport.SupplementalDataGroupComponent parseMeasureReportSupplementalDataGroupComponent(JsonObject json, MeasureReport owner) throws IOException, FHIRFormatError {
+    MeasureReport.SupplementalDataGroupComponent res = new MeasureReport.SupplementalDataGroupComponent();
+    parseMeasureReportSupplementalDataGroupComponentProperties(json, owner, res);
     return res;
   }
 
-  protected void parseMeasureReportMeasureReportGroupSupplementalDataGroupComponentProperties(JsonObject json, MeasureReport owner, MeasureReport.MeasureReportGroupSupplementalDataGroupComponent res) throws IOException, FHIRFormatError {
+  protected void parseMeasureReportSupplementalDataGroupComponentProperties(JsonObject json, MeasureReport owner, MeasureReport.SupplementalDataGroupComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
     if (json.has("value"))
       res.setValueElement(parseString(json.get("value").getAsString()));
@@ -17224,18 +17226,18 @@ public class JsonParser extends JsonParserBase {
     if (json.has("param")) {
       JsonArray array = json.getAsJsonArray("param");
       for (int i = 0; i < array.size(); i++) {
-        res.getParam().add(parseTestScriptTestScriptRuleParamComponent(array.get(i).getAsJsonObject(), owner));
+        res.getParam().add(parseTestScriptRuleParamComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
   }
 
-  protected TestScript.TestScriptRuleParamComponent parseTestScriptTestScriptRuleParamComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
-    TestScript.TestScriptRuleParamComponent res = new TestScript.TestScriptRuleParamComponent();
-    parseTestScriptTestScriptRuleParamComponentProperties(json, owner, res);
+  protected TestScript.RuleParamComponent parseTestScriptRuleParamComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
+    TestScript.RuleParamComponent res = new TestScript.RuleParamComponent();
+    parseTestScriptRuleParamComponentProperties(json, owner, res);
     return res;
   }
 
-  protected void parseTestScriptTestScriptRuleParamComponentProperties(JsonObject json, TestScript owner, TestScript.TestScriptRuleParamComponent res) throws IOException, FHIRFormatError {
+  protected void parseTestScriptRuleParamComponentProperties(JsonObject json, TestScript owner, TestScript.RuleParamComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
     if (json.has("name"))
       res.setNameElement(parseString(json.get("name").getAsString()));
@@ -17260,18 +17262,18 @@ public class JsonParser extends JsonParserBase {
     if (json.has("rule")) {
       JsonArray array = json.getAsJsonArray("rule");
       for (int i = 0; i < array.size(); i++) {
-        res.getRule().add(parseTestScriptTestScriptRulesetRuleComponent(array.get(i).getAsJsonObject(), owner));
+        res.getRule().add(parseTestScriptRulesetRuleComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
   }
 
-  protected TestScript.TestScriptRulesetRuleComponent parseTestScriptTestScriptRulesetRuleComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
-    TestScript.TestScriptRulesetRuleComponent res = new TestScript.TestScriptRulesetRuleComponent();
-    parseTestScriptTestScriptRulesetRuleComponentProperties(json, owner, res);
+  protected TestScript.RulesetRuleComponent parseTestScriptRulesetRuleComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
+    TestScript.RulesetRuleComponent res = new TestScript.RulesetRuleComponent();
+    parseTestScriptRulesetRuleComponentProperties(json, owner, res);
     return res;
   }
 
-  protected void parseTestScriptTestScriptRulesetRuleComponentProperties(JsonObject json, TestScript owner, TestScript.TestScriptRulesetRuleComponent res) throws IOException, FHIRFormatError {
+  protected void parseTestScriptRulesetRuleComponentProperties(JsonObject json, TestScript owner, TestScript.RulesetRuleComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
     if (json.has("ruleId"))
       res.setRuleIdElement(parseId(json.get("ruleId").getAsString()));
@@ -17280,18 +17282,18 @@ public class JsonParser extends JsonParserBase {
     if (json.has("param")) {
       JsonArray array = json.getAsJsonArray("param");
       for (int i = 0; i < array.size(); i++) {
-        res.getParam().add(parseTestScriptTestScriptRulesetRuleParamComponent(array.get(i).getAsJsonObject(), owner));
+        res.getParam().add(parseTestScriptRulesetRuleParamComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
   }
 
-  protected TestScript.TestScriptRulesetRuleParamComponent parseTestScriptTestScriptRulesetRuleParamComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
-    TestScript.TestScriptRulesetRuleParamComponent res = new TestScript.TestScriptRulesetRuleParamComponent();
-    parseTestScriptTestScriptRulesetRuleParamComponentProperties(json, owner, res);
+  protected TestScript.RulesetRuleParamComponent parseTestScriptRulesetRuleParamComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
+    TestScript.RulesetRuleParamComponent res = new TestScript.RulesetRuleParamComponent();
+    parseTestScriptRulesetRuleParamComponentProperties(json, owner, res);
     return res;
   }
 
-  protected void parseTestScriptTestScriptRulesetRuleParamComponentProperties(JsonObject json, TestScript owner, TestScript.TestScriptRulesetRuleParamComponent res) throws IOException, FHIRFormatError {
+  protected void parseTestScriptRulesetRuleParamComponentProperties(JsonObject json, TestScript owner, TestScript.RulesetRuleParamComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
     if (json.has("name"))
       res.setNameElement(parseString(json.get("name").getAsString()));
@@ -17492,9 +17494,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_responseCode"))
       parseElementProperties(json.getAsJsonObject("_responseCode"), res.getResponseCodeElement());
     if (json.has("rule"))
-      res.setRule(parseTestScriptSetupActionAssertRuleComponent(json.getAsJsonObject("rule"), owner));
+      res.setRule(parseTestScriptActionAssertRuleComponent(json.getAsJsonObject("rule"), owner));
     if (json.has("ruleset"))
-      res.setRuleset(parseTestScriptSetupActionAssertRulesetComponent(json.getAsJsonObject("ruleset"), owner));
+      res.setRuleset(parseTestScriptActionAssertRulesetComponent(json.getAsJsonObject("ruleset"), owner));
     if (json.has("sourceId"))
       res.setSourceIdElement(parseId(json.get("sourceId").getAsString()));
     if (json.has("_sourceId"))
@@ -17513,13 +17515,13 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_warningOnly"), res.getWarningOnlyElement());
   }
 
-  protected TestScript.SetupActionAssertRuleComponent parseTestScriptSetupActionAssertRuleComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
-    TestScript.SetupActionAssertRuleComponent res = new TestScript.SetupActionAssertRuleComponent();
-    parseTestScriptSetupActionAssertRuleComponentProperties(json, owner, res);
+  protected TestScript.ActionAssertRuleComponent parseTestScriptActionAssertRuleComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
+    TestScript.ActionAssertRuleComponent res = new TestScript.ActionAssertRuleComponent();
+    parseTestScriptActionAssertRuleComponentProperties(json, owner, res);
     return res;
   }
 
-  protected void parseTestScriptSetupActionAssertRuleComponentProperties(JsonObject json, TestScript owner, TestScript.SetupActionAssertRuleComponent res) throws IOException, FHIRFormatError {
+  protected void parseTestScriptActionAssertRuleComponentProperties(JsonObject json, TestScript owner, TestScript.ActionAssertRuleComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
     if (json.has("ruleId"))
       res.setRuleIdElement(parseId(json.get("ruleId").getAsString()));
@@ -17528,18 +17530,18 @@ public class JsonParser extends JsonParserBase {
     if (json.has("param")) {
       JsonArray array = json.getAsJsonArray("param");
       for (int i = 0; i < array.size(); i++) {
-        res.getParam().add(parseTestScriptSetupActionAssertRuleParamComponent(array.get(i).getAsJsonObject(), owner));
+        res.getParam().add(parseTestScriptActionAssertRuleParamComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
   }
 
-  protected TestScript.SetupActionAssertRuleParamComponent parseTestScriptSetupActionAssertRuleParamComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
-    TestScript.SetupActionAssertRuleParamComponent res = new TestScript.SetupActionAssertRuleParamComponent();
-    parseTestScriptSetupActionAssertRuleParamComponentProperties(json, owner, res);
+  protected TestScript.ActionAssertRuleParamComponent parseTestScriptActionAssertRuleParamComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
+    TestScript.ActionAssertRuleParamComponent res = new TestScript.ActionAssertRuleParamComponent();
+    parseTestScriptActionAssertRuleParamComponentProperties(json, owner, res);
     return res;
   }
 
-  protected void parseTestScriptSetupActionAssertRuleParamComponentProperties(JsonObject json, TestScript owner, TestScript.SetupActionAssertRuleParamComponent res) throws IOException, FHIRFormatError {
+  protected void parseTestScriptActionAssertRuleParamComponentProperties(JsonObject json, TestScript owner, TestScript.ActionAssertRuleParamComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
     if (json.has("name"))
       res.setNameElement(parseString(json.get("name").getAsString()));
@@ -17551,13 +17553,13 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_value"), res.getValueElement());
   }
 
-  protected TestScript.SetupActionAssertRulesetComponent parseTestScriptSetupActionAssertRulesetComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
-    TestScript.SetupActionAssertRulesetComponent res = new TestScript.SetupActionAssertRulesetComponent();
-    parseTestScriptSetupActionAssertRulesetComponentProperties(json, owner, res);
+  protected TestScript.ActionAssertRulesetComponent parseTestScriptActionAssertRulesetComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
+    TestScript.ActionAssertRulesetComponent res = new TestScript.ActionAssertRulesetComponent();
+    parseTestScriptActionAssertRulesetComponentProperties(json, owner, res);
     return res;
   }
 
-  protected void parseTestScriptSetupActionAssertRulesetComponentProperties(JsonObject json, TestScript owner, TestScript.SetupActionAssertRulesetComponent res) throws IOException, FHIRFormatError {
+  protected void parseTestScriptActionAssertRulesetComponentProperties(JsonObject json, TestScript owner, TestScript.ActionAssertRulesetComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
     if (json.has("rulesetId"))
       res.setRulesetIdElement(parseId(json.get("rulesetId").getAsString()));
@@ -17566,18 +17568,18 @@ public class JsonParser extends JsonParserBase {
     if (json.has("rule")) {
       JsonArray array = json.getAsJsonArray("rule");
       for (int i = 0; i < array.size(); i++) {
-        res.getRule().add(parseTestScriptSetupActionAssertRulesetRuleComponent(array.get(i).getAsJsonObject(), owner));
+        res.getRule().add(parseTestScriptActionAssertRulesetRuleComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
   }
 
-  protected TestScript.SetupActionAssertRulesetRuleComponent parseTestScriptSetupActionAssertRulesetRuleComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
-    TestScript.SetupActionAssertRulesetRuleComponent res = new TestScript.SetupActionAssertRulesetRuleComponent();
-    parseTestScriptSetupActionAssertRulesetRuleComponentProperties(json, owner, res);
+  protected TestScript.ActionAssertRulesetRuleComponent parseTestScriptActionAssertRulesetRuleComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
+    TestScript.ActionAssertRulesetRuleComponent res = new TestScript.ActionAssertRulesetRuleComponent();
+    parseTestScriptActionAssertRulesetRuleComponentProperties(json, owner, res);
     return res;
   }
 
-  protected void parseTestScriptSetupActionAssertRulesetRuleComponentProperties(JsonObject json, TestScript owner, TestScript.SetupActionAssertRulesetRuleComponent res) throws IOException, FHIRFormatError {
+  protected void parseTestScriptActionAssertRulesetRuleComponentProperties(JsonObject json, TestScript owner, TestScript.ActionAssertRulesetRuleComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
     if (json.has("ruleId"))
       res.setRuleIdElement(parseId(json.get("ruleId").getAsString()));
@@ -17586,18 +17588,18 @@ public class JsonParser extends JsonParserBase {
     if (json.has("param")) {
       JsonArray array = json.getAsJsonArray("param");
       for (int i = 0; i < array.size(); i++) {
-        res.getParam().add(parseTestScriptSetupActionAssertRulesetRuleParamComponent(array.get(i).getAsJsonObject(), owner));
+        res.getParam().add(parseTestScriptActionAssertRulesetRuleParamComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
   }
 
-  protected TestScript.SetupActionAssertRulesetRuleParamComponent parseTestScriptSetupActionAssertRulesetRuleParamComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
-    TestScript.SetupActionAssertRulesetRuleParamComponent res = new TestScript.SetupActionAssertRulesetRuleParamComponent();
-    parseTestScriptSetupActionAssertRulesetRuleParamComponentProperties(json, owner, res);
+  protected TestScript.ActionAssertRulesetRuleParamComponent parseTestScriptActionAssertRulesetRuleParamComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
+    TestScript.ActionAssertRulesetRuleParamComponent res = new TestScript.ActionAssertRulesetRuleParamComponent();
+    parseTestScriptActionAssertRulesetRuleParamComponentProperties(json, owner, res);
     return res;
   }
 
-  protected void parseTestScriptSetupActionAssertRulesetRuleParamComponentProperties(JsonObject json, TestScript owner, TestScript.SetupActionAssertRulesetRuleParamComponent res) throws IOException, FHIRFormatError {
+  protected void parseTestScriptActionAssertRulesetRuleParamComponentProperties(JsonObject json, TestScript owner, TestScript.ActionAssertRulesetRuleParamComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
     if (json.has("name"))
       res.setNameElement(parseString(json.get("name").getAsString()));
@@ -23572,8 +23574,8 @@ public class JsonParser extends JsonParserBase {
       };
       if (element.hasProperty()) {
         openArray("property");
-        for (CodeSystem.CodeSystemPropertyComponent e : element.getProperty()) 
-          composeCodeSystemCodeSystemPropertyComponent(null, e);
+        for (CodeSystem.PropertyComponent e : element.getProperty()) 
+          composeCodeSystemPropertyComponent(null, e);
         closeArray();
       };
       if (element.hasConcept()) {
@@ -23642,15 +23644,15 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  protected void composeCodeSystemCodeSystemPropertyComponent(String name, CodeSystem.CodeSystemPropertyComponent element) throws IOException {
+  protected void composeCodeSystemPropertyComponent(String name, CodeSystem.PropertyComponent element) throws IOException {
     if (element != null) {
       open(name);
-      composeCodeSystemCodeSystemPropertyComponentInner(element);
+      composeCodeSystemPropertyComponentInner(element);
       close();
     }
   }
 
-  protected void composeCodeSystemCodeSystemPropertyComponentInner(CodeSystem.CodeSystemPropertyComponent element) throws IOException {
+  protected void composeCodeSystemPropertyComponentInner(CodeSystem.PropertyComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasCodeElement()) {
         composeCodeCore("code", element.getCodeElement(), false);
@@ -23700,8 +23702,8 @@ public class JsonParser extends JsonParserBase {
       };
       if (element.hasProperty()) {
         openArray("property");
-        for (CodeSystem.ConceptDefinitionPropertyComponent e : element.getProperty()) 
-          composeCodeSystemConceptDefinitionPropertyComponent(null, e);
+        for (CodeSystem.ConceptPropertyComponent e : element.getProperty()) 
+          composeCodeSystemConceptPropertyComponent(null, e);
         closeArray();
       };
       if (element.hasConcept()) {
@@ -23735,15 +23737,15 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  protected void composeCodeSystemConceptDefinitionPropertyComponent(String name, CodeSystem.ConceptDefinitionPropertyComponent element) throws IOException {
+  protected void composeCodeSystemConceptPropertyComponent(String name, CodeSystem.ConceptPropertyComponent element) throws IOException {
     if (element != null) {
       open(name);
-      composeCodeSystemConceptDefinitionPropertyComponentInner(element);
+      composeCodeSystemConceptPropertyComponentInner(element);
       close();
     }
   }
 
-  protected void composeCodeSystemConceptDefinitionPropertyComponentInner(CodeSystem.ConceptDefinitionPropertyComponent element) throws IOException {
+  protected void composeCodeSystemConceptPropertyComponentInner(CodeSystem.ConceptPropertyComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasCodeElement()) {
         composeCodeCore("code", element.getCodeElement(), false);
@@ -25185,9 +25187,12 @@ public class JsonParser extends JsonParserBase {
       if (element.hasPatient()) {
         composeReference("patient", element.getPatient());
       }
-      if (element.hasAuthor()) {
-        composeReference("author", element.getAuthor());
-      }
+      if (element.hasConsentor()) {
+        openArray("consentor");
+        for (Reference e : element.getConsentor()) 
+          composeReference(null, e);
+        closeArray();
+      };
       if (element.hasOrganization()) {
         composeReference("organization", element.getOrganization());
       }
@@ -27344,9 +27349,8 @@ public class JsonParser extends JsonParserBase {
           composeContactPoint(null, e);
         closeArray();
       };
-      if (element.hasConnectionTypeElement()) {
-        composeCodeCore("connectionType", element.getConnectionTypeElement(), false);
-        composeCodeExtras("connectionType", element.getConnectionTypeElement(), false);
+      if (element.hasConnectionType()) {
+        composeCoding("connectionType", element.getConnectionType());
       }
       if (element.hasMethod()) {
         openArray("method");
@@ -31080,21 +31084,21 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasGroup()) {
         openArray("group");
-        for (MeasureReport.MeasureReportGroupStratifierGroupComponent e : element.getGroup()) 
-          composeMeasureReportMeasureReportGroupStratifierGroupComponent(null, e);
+        for (MeasureReport.StratifierGroupComponent e : element.getGroup()) 
+          composeMeasureReportStratifierGroupComponent(null, e);
         closeArray();
       };
   }
 
-  protected void composeMeasureReportMeasureReportGroupStratifierGroupComponent(String name, MeasureReport.MeasureReportGroupStratifierGroupComponent element) throws IOException {
+  protected void composeMeasureReportStratifierGroupComponent(String name, MeasureReport.StratifierGroupComponent element) throws IOException {
     if (element != null) {
       open(name);
-      composeMeasureReportMeasureReportGroupStratifierGroupComponentInner(element);
+      composeMeasureReportStratifierGroupComponentInner(element);
       close();
     }
   }
 
-  protected void composeMeasureReportMeasureReportGroupStratifierGroupComponentInner(MeasureReport.MeasureReportGroupStratifierGroupComponent element) throws IOException {
+  protected void composeMeasureReportStratifierGroupComponentInner(MeasureReport.StratifierGroupComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasValueElement()) {
         composeStringCore("value", element.getValueElement(), false);
@@ -31102,8 +31106,8 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasPopulation()) {
         openArray("population");
-        for (MeasureReport.MeasureReportGroupStratifierGroupPopulationComponent e : element.getPopulation()) 
-          composeMeasureReportMeasureReportGroupStratifierGroupPopulationComponent(null, e);
+        for (MeasureReport.StratifierGroupPopulationComponent e : element.getPopulation()) 
+          composeMeasureReportStratifierGroupPopulationComponent(null, e);
         closeArray();
       };
       if (element.hasMeasureScoreElement()) {
@@ -31112,15 +31116,15 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  protected void composeMeasureReportMeasureReportGroupStratifierGroupPopulationComponent(String name, MeasureReport.MeasureReportGroupStratifierGroupPopulationComponent element) throws IOException {
+  protected void composeMeasureReportStratifierGroupPopulationComponent(String name, MeasureReport.StratifierGroupPopulationComponent element) throws IOException {
     if (element != null) {
       open(name);
-      composeMeasureReportMeasureReportGroupStratifierGroupPopulationComponentInner(element);
+      composeMeasureReportStratifierGroupPopulationComponentInner(element);
       close();
     }
   }
 
-  protected void composeMeasureReportMeasureReportGroupStratifierGroupPopulationComponentInner(MeasureReport.MeasureReportGroupStratifierGroupPopulationComponent element) throws IOException {
+  protected void composeMeasureReportStratifierGroupPopulationComponentInner(MeasureReport.StratifierGroupPopulationComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasTypeElement()) {
         composeCodeCore("type", element.getTypeElement(), false);
@@ -31150,21 +31154,21 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasGroup()) {
         openArray("group");
-        for (MeasureReport.MeasureReportGroupSupplementalDataGroupComponent e : element.getGroup()) 
-          composeMeasureReportMeasureReportGroupSupplementalDataGroupComponent(null, e);
+        for (MeasureReport.SupplementalDataGroupComponent e : element.getGroup()) 
+          composeMeasureReportSupplementalDataGroupComponent(null, e);
         closeArray();
       };
   }
 
-  protected void composeMeasureReportMeasureReportGroupSupplementalDataGroupComponent(String name, MeasureReport.MeasureReportGroupSupplementalDataGroupComponent element) throws IOException {
+  protected void composeMeasureReportSupplementalDataGroupComponent(String name, MeasureReport.SupplementalDataGroupComponent element) throws IOException {
     if (element != null) {
       open(name);
-      composeMeasureReportMeasureReportGroupSupplementalDataGroupComponentInner(element);
+      composeMeasureReportSupplementalDataGroupComponentInner(element);
       close();
     }
   }
 
-  protected void composeMeasureReportMeasureReportGroupSupplementalDataGroupComponentInner(MeasureReport.MeasureReportGroupSupplementalDataGroupComponent element) throws IOException {
+  protected void composeMeasureReportSupplementalDataGroupComponentInner(MeasureReport.SupplementalDataGroupComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasValueElement()) {
         composeStringCore("value", element.getValueElement(), false);
@@ -37816,21 +37820,21 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasParam()) {
         openArray("param");
-        for (TestScript.TestScriptRuleParamComponent e : element.getParam()) 
-          composeTestScriptTestScriptRuleParamComponent(null, e);
+        for (TestScript.RuleParamComponent e : element.getParam()) 
+          composeTestScriptRuleParamComponent(null, e);
         closeArray();
       };
   }
 
-  protected void composeTestScriptTestScriptRuleParamComponent(String name, TestScript.TestScriptRuleParamComponent element) throws IOException {
+  protected void composeTestScriptRuleParamComponent(String name, TestScript.RuleParamComponent element) throws IOException {
     if (element != null) {
       open(name);
-      composeTestScriptTestScriptRuleParamComponentInner(element);
+      composeTestScriptRuleParamComponentInner(element);
       close();
     }
   }
 
-  protected void composeTestScriptTestScriptRuleParamComponentInner(TestScript.TestScriptRuleParamComponent element) throws IOException {
+  protected void composeTestScriptRuleParamComponentInner(TestScript.RuleParamComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
@@ -37857,21 +37861,21 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasRule()) {
         openArray("rule");
-        for (TestScript.TestScriptRulesetRuleComponent e : element.getRule()) 
-          composeTestScriptTestScriptRulesetRuleComponent(null, e);
+        for (TestScript.RulesetRuleComponent e : element.getRule()) 
+          composeTestScriptRulesetRuleComponent(null, e);
         closeArray();
       };
   }
 
-  protected void composeTestScriptTestScriptRulesetRuleComponent(String name, TestScript.TestScriptRulesetRuleComponent element) throws IOException {
+  protected void composeTestScriptRulesetRuleComponent(String name, TestScript.RulesetRuleComponent element) throws IOException {
     if (element != null) {
       open(name);
-      composeTestScriptTestScriptRulesetRuleComponentInner(element);
+      composeTestScriptRulesetRuleComponentInner(element);
       close();
     }
   }
 
-  protected void composeTestScriptTestScriptRulesetRuleComponentInner(TestScript.TestScriptRulesetRuleComponent element) throws IOException {
+  protected void composeTestScriptRulesetRuleComponentInner(TestScript.RulesetRuleComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasRuleIdElement()) {
         composeIdCore("ruleId", element.getRuleIdElement(), false);
@@ -37879,21 +37883,21 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasParam()) {
         openArray("param");
-        for (TestScript.TestScriptRulesetRuleParamComponent e : element.getParam()) 
-          composeTestScriptTestScriptRulesetRuleParamComponent(null, e);
+        for (TestScript.RulesetRuleParamComponent e : element.getParam()) 
+          composeTestScriptRulesetRuleParamComponent(null, e);
         closeArray();
       };
   }
 
-  protected void composeTestScriptTestScriptRulesetRuleParamComponent(String name, TestScript.TestScriptRulesetRuleParamComponent element) throws IOException {
+  protected void composeTestScriptRulesetRuleParamComponent(String name, TestScript.RulesetRuleParamComponent element) throws IOException {
     if (element != null) {
       open(name);
-      composeTestScriptTestScriptRulesetRuleParamComponentInner(element);
+      composeTestScriptRulesetRuleParamComponentInner(element);
       close();
     }
   }
 
-  protected void composeTestScriptTestScriptRulesetRuleParamComponentInner(TestScript.TestScriptRulesetRuleParamComponent element) throws IOException {
+  protected void composeTestScriptRulesetRuleParamComponentInner(TestScript.RulesetRuleParamComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
@@ -38108,10 +38112,10 @@ public class JsonParser extends JsonParserBase {
         composeStringExtras("responseCode", element.getResponseCodeElement(), false);
       }
       if (element.hasRule()) {
-        composeTestScriptSetupActionAssertRuleComponent("rule", element.getRule());
+        composeTestScriptActionAssertRuleComponent("rule", element.getRule());
       }
       if (element.hasRuleset()) {
-        composeTestScriptSetupActionAssertRulesetComponent("ruleset", element.getRuleset());
+        composeTestScriptActionAssertRulesetComponent("ruleset", element.getRuleset());
       }
       if (element.hasSourceIdElement()) {
         composeIdCore("sourceId", element.getSourceIdElement(), false);
@@ -38131,15 +38135,15 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  protected void composeTestScriptSetupActionAssertRuleComponent(String name, TestScript.SetupActionAssertRuleComponent element) throws IOException {
+  protected void composeTestScriptActionAssertRuleComponent(String name, TestScript.ActionAssertRuleComponent element) throws IOException {
     if (element != null) {
       open(name);
-      composeTestScriptSetupActionAssertRuleComponentInner(element);
+      composeTestScriptActionAssertRuleComponentInner(element);
       close();
     }
   }
 
-  protected void composeTestScriptSetupActionAssertRuleComponentInner(TestScript.SetupActionAssertRuleComponent element) throws IOException {
+  protected void composeTestScriptActionAssertRuleComponentInner(TestScript.ActionAssertRuleComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasRuleIdElement()) {
         composeIdCore("ruleId", element.getRuleIdElement(), false);
@@ -38147,21 +38151,21 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasParam()) {
         openArray("param");
-        for (TestScript.SetupActionAssertRuleParamComponent e : element.getParam()) 
-          composeTestScriptSetupActionAssertRuleParamComponent(null, e);
+        for (TestScript.ActionAssertRuleParamComponent e : element.getParam()) 
+          composeTestScriptActionAssertRuleParamComponent(null, e);
         closeArray();
       };
   }
 
-  protected void composeTestScriptSetupActionAssertRuleParamComponent(String name, TestScript.SetupActionAssertRuleParamComponent element) throws IOException {
+  protected void composeTestScriptActionAssertRuleParamComponent(String name, TestScript.ActionAssertRuleParamComponent element) throws IOException {
     if (element != null) {
       open(name);
-      composeTestScriptSetupActionAssertRuleParamComponentInner(element);
+      composeTestScriptActionAssertRuleParamComponentInner(element);
       close();
     }
   }
 
-  protected void composeTestScriptSetupActionAssertRuleParamComponentInner(TestScript.SetupActionAssertRuleParamComponent element) throws IOException {
+  protected void composeTestScriptActionAssertRuleParamComponentInner(TestScript.ActionAssertRuleParamComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
@@ -38173,15 +38177,15 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  protected void composeTestScriptSetupActionAssertRulesetComponent(String name, TestScript.SetupActionAssertRulesetComponent element) throws IOException {
+  protected void composeTestScriptActionAssertRulesetComponent(String name, TestScript.ActionAssertRulesetComponent element) throws IOException {
     if (element != null) {
       open(name);
-      composeTestScriptSetupActionAssertRulesetComponentInner(element);
+      composeTestScriptActionAssertRulesetComponentInner(element);
       close();
     }
   }
 
-  protected void composeTestScriptSetupActionAssertRulesetComponentInner(TestScript.SetupActionAssertRulesetComponent element) throws IOException {
+  protected void composeTestScriptActionAssertRulesetComponentInner(TestScript.ActionAssertRulesetComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasRulesetIdElement()) {
         composeIdCore("rulesetId", element.getRulesetIdElement(), false);
@@ -38189,21 +38193,21 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasRule()) {
         openArray("rule");
-        for (TestScript.SetupActionAssertRulesetRuleComponent e : element.getRule()) 
-          composeTestScriptSetupActionAssertRulesetRuleComponent(null, e);
+        for (TestScript.ActionAssertRulesetRuleComponent e : element.getRule()) 
+          composeTestScriptActionAssertRulesetRuleComponent(null, e);
         closeArray();
       };
   }
 
-  protected void composeTestScriptSetupActionAssertRulesetRuleComponent(String name, TestScript.SetupActionAssertRulesetRuleComponent element) throws IOException {
+  protected void composeTestScriptActionAssertRulesetRuleComponent(String name, TestScript.ActionAssertRulesetRuleComponent element) throws IOException {
     if (element != null) {
       open(name);
-      composeTestScriptSetupActionAssertRulesetRuleComponentInner(element);
+      composeTestScriptActionAssertRulesetRuleComponentInner(element);
       close();
     }
   }
 
-  protected void composeTestScriptSetupActionAssertRulesetRuleComponentInner(TestScript.SetupActionAssertRulesetRuleComponent element) throws IOException {
+  protected void composeTestScriptActionAssertRulesetRuleComponentInner(TestScript.ActionAssertRulesetRuleComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasRuleIdElement()) {
         composeIdCore("ruleId", element.getRuleIdElement(), false);
@@ -38211,21 +38215,21 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasParam()) {
         openArray("param");
-        for (TestScript.SetupActionAssertRulesetRuleParamComponent e : element.getParam()) 
-          composeTestScriptSetupActionAssertRulesetRuleParamComponent(null, e);
+        for (TestScript.ActionAssertRulesetRuleParamComponent e : element.getParam()) 
+          composeTestScriptActionAssertRulesetRuleParamComponent(null, e);
         closeArray();
       };
   }
 
-  protected void composeTestScriptSetupActionAssertRulesetRuleParamComponent(String name, TestScript.SetupActionAssertRulesetRuleParamComponent element) throws IOException {
+  protected void composeTestScriptActionAssertRulesetRuleParamComponent(String name, TestScript.ActionAssertRulesetRuleParamComponent element) throws IOException {
     if (element != null) {
       open(name);
-      composeTestScriptSetupActionAssertRulesetRuleParamComponentInner(element);
+      composeTestScriptActionAssertRulesetRuleParamComponentInner(element);
       close();
     }
   }
 
-  protected void composeTestScriptSetupActionAssertRulesetRuleParamComponentInner(TestScript.SetupActionAssertRulesetRuleParamComponent element) throws IOException {
+  protected void composeTestScriptActionAssertRulesetRuleParamComponentInner(TestScript.ActionAssertRulesetRuleParamComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
