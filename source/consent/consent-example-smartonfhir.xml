@@ -4,7 +4,7 @@
 
   In SMART on FHIR, the user grants (consents) to a set 
   of actions that the server can take when with regard to 
-  release of information to the application
+  release of information from their own record to the application
 
   This is not the main intended use of the Consent resource,
   and there's no need for the consent resource as part of 
@@ -16,9 +16,13 @@
   or between systems in a multi-system virtual RS a very
   common scenario) 
 
-  Note that which ever system builds this Content resource,
+  Note that whichever system builds this Content resource,
   it needs access to information from both the AS and the 
   RS.
+  
+  Note also, that a situation where a practitioner type user
+  authorises the application to access information on a general
+  set of patients does not count as 'consent'. 
 -->
 <Consent xmlns="http://hl7.org/fhir"> 
   <id value="consent-example-smartonfhir"/>
@@ -35,18 +39,19 @@
     <start value="2016-06-23T17:02:33+10:00"/>
     <end value="2016-06-23T17:32:33+10:00"/>
   </period>
-  <!-- 
-   for a SMART on FHIR login, the user can consent for data sharing relating 
-   to any patient to which they have access, so there's no patient in this case 
 
-   if, on the other case, the user picks a single patient record, or there
-   is a single patient record in scope, then 
+  <!-- 
+   In this SMART on FHIR login, the user consents for data sharing 
+   for their elderly parent's record
   -->
+  <patient>
+    <reference value="Patient/xcda"/>
+  </patient>
   <consentor>
-    <!-- this is the patient record that matches the user account.
-      note: it's not always a patient  
+    <!-- this is the patient record that matches the person
+      making the decision. note: it's not always a related person
     -->
-    <reference value="Patient/example"/>
+    <reference value="RelatedPerson/peter"/>
   </consentor>
   <organization>
     <!-- The organization running the Authentication server -->
