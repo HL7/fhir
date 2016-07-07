@@ -2,4 +2,39 @@
 
 <!-- insert xhtml content here -->
 
+<h3>Category Mapping</h3>
+
+<p>The following table defines the mapping from ActivityDefinition categories to the appropriate <i>intent</i> resource:</p>
+
+<table>
+	<thead>
+		<tr><th>Category code</th><th>Resource</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>communication</td><td>CommunicationRequest</td></tr>
+		<tr><td>device</td><td>DeviceUseRequest</td></tr>
+		<tr><td>diagnostic</td><td>DiagnosticOrder</td></tr>
+		<tr><td>diet</td><td>NutritionOrder</td></tr>
+		<tr><td>drug</td><td>MedicationOrder</td></tr>
+		<tr><td>encounter</td><td>Appointment</td></tr>
+		<tr><td>immunization</td><td>ImmunizationRecommendation</td></tr>
+		<tr><td>observation</td><td>Observation</td></tr>
+		<tr><td>procedure</td><td>ProcedureRequest</td></tr>
+		<tr><td>referral</td><td>ReferralRequest</td></tr>
+		<tr><td>supply</td><td>SupplyRequest</td></tr>
+		<tr><td>vision</td><td>VisionPrescription</td></tr>
+		<tr><td>other</td><td>N/A</td></tr>
+	</tbody>
+</table>
+
+<h3>Realizing an ActivityDefinition</h3>
+
+<p>An ActivityDefinition resource provides a description, or template, of an action to performed. These actions can be purely text-based descriptions of the action to be performed, only interpretable by a human user, or they can be structured definitions with enough information to construct a resource to represent the request directly. This process of converting the ActivityDefinition into a specific intent resource in a particular context is performed with the $apply operation.</p>
+
+<p>In the simplest case, the process maps the elements specified in the ActivityDefinition to the corresponding elements on the intent resource of the appropriate type, based on the category of the definition as described in the category mapping table above.</p>
+
+<p>More dynamic scenarios can be achieved in one of two ways, either by providing dynamicValue expressions, or by specifying a StructureMap that transforms the definition into the appropriate intent resource.</p>
+
+<p>Note that systems will likely vary widely in the degree of support they provide for the $apply operation. In particular, the fact that a system supports applying definitions of one category, does not imply that it supports applying definitions for all categories. For example, a service focused on medication order sets may have sophisticated supported for the medication category, but no support at all for the encounter category.</p>
+
 </div>

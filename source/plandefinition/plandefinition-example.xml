@@ -12,17 +12,6 @@
 			<id value="referralToMentalHealthCare"/>
 			<status value="draft"/>
 			<description value="refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now"/>
-			<relatedResource>
-				<type value="citation"/>
-				<document>
-					<url value="blah blah blah"/>
-					<title value="citation title"/>
-				</document>
-				<resource>
-					<reference value="blah blah blah"/> <!-- DocumentReference -->
-					<display value="citation title"/>
-				</resource>
-			</relatedResource>
 			<category value="referral"/>
 			<code>
 				<coding>
@@ -31,24 +20,28 @@
 					<code value="306206005"/>
 				</coding>
 			</code>
-			<!-- Specifying this this way results in a null reference exception in the validator -->
-			<!--timingTiming>
+			<!-- Null reference exception due to no primitive value, fix pending...
+			<timingTiming>
 				<event>
 					<extension url="http://fhir.org/cql-expression">
 						<valueString value="Now()"/>
 					</extension>
 				</event>
-			</timingTiming-->
+			</timingTiming>
+            -->
 			<participantType value="practitioner"/>
 		</ActivityDefinition>
 	</contained>
-	<!--
+
 	<contained>
-		<MedicationOrderDefinition>
+		<ActivityDefinition>
 			<id value="citalopramPrescription"/>
-			<medicationReference>
+			<status value="draft"/>
+			<category value="drug"/>
+			<productReference>
 				<reference value="#citalopramMedication"/>
-			</medicationReference>
+			</productReference>
+			<!-- Need a DosageInstruction type
 			<dosageInstruction>
 				<text value="1 tablet oral 1 time daily"/>
 				<timing>
@@ -70,6 +63,8 @@
 					<unit value="{tbl}"/>
 				</doseQuantity>
 			</dosageInstruction>
+			-->
+			<!-- Need a DispenseRequest type
 			<dispenseRequest>
 				<numberOfRepeatsAllowed value="3"/>
 				<quantity>
@@ -77,8 +72,10 @@
 					<unit value="{tbl}"/>
 				</quantity>
 			</dispenseRequest>
-		</MedicationOrderDefinition>
-	</contained> -->
+			-->
+		</ActivityDefinition>
+	</contained>
+
 	<contained>
 		<Medication>
 			<id value="citalopramMedication"/>
@@ -276,34 +273,34 @@
 				<activityDefinition>
 					<reference value="#referralToMentalHealthCare"/>
 				</activityDefinition>
-				<customization>
+				<dynamicValue>
 					<path value="timing.event"/>
 					<expression value="Now()"/>
-				</customization>
-				<customization>
+				</dynamicValue>
+				<dynamicValue>
 					<path value="specialty"/>
 					<expression value="Code '261QM0850X' from &quot;urn:oid:2.16.840.1.113883.11.19462&quot;"/>
-				</customization>
-				<customization>
+				</dynamicValue>
+				<dynamicValue>
 					<path value="fulfillmentTime"/>
 					<expression value="ReferralRequestFulfillmentTime"/>
-				</customization>
-				<customization>
+				</dynamicValue>
+				<dynamicValue>
 					<path value="patient"/>
 					<expression value="Patient"/>
-				</customization>
-				<customization>
+				</dynamicValue>
+				<dynamicValue>
 					<path value="requester"/>
 					<expression value="Practitioner"/>
-				</customization>
-				<customization>
+				</dynamicValue>
+				<dynamicValue>
 					<path value="reason"/>
 					<expression value="RiskAssessmentScore"/>
-				</customization>
-				<customization>
+				</dynamicValue>
+				<dynamicValue>
 					<path value="supportingInformation"/>
 					<expression value="RiskAssessment"/>
-				</customization>
+				</dynamicValue>
 			</actionDefinition>
 		</actionDefinition>
 		<!-- Medications -->
@@ -354,31 +351,29 @@
 						<!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) -->
 						<textEquivalent value="citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills)"/>
 
-						<!--
 						<activityDefinition>
 							<reference value="#citalopramPrescription"/>
 						</activityDefinition>
-						<customization>
+						<dynamicValue>
 							<path value="status"/>
 							<expression value="'draft'"/>
-						</customization>
-						<customization>
+						</dynamicValue>
+						<dynamicValue>
 							<path value="patient"/>
 							<expression value="Patient"/>
-						</customization>
-						<customization>
+						</dynamicValue>
+						<dynamicValue>
 							<path value="prescriber"/>
 							<expression value="Practitioner"/>
-						</customization>
-						<customization>
+						</dynamicValue>
+						<dynamicValue>
 							<path value="reasonCode"/>
 							<expression value="RiskAssessmentScore"/>
-						</customization>
-						<customization>
+						</dynamicValue>
+						<dynamicValue>
 							<path value="reasonReference"/>
 							<expression value="RiskAssessment"/>
-						</customization>
-						-->
+						</dynamicValue>
 
 					</actionDefinition>
 					<actionDefinition>

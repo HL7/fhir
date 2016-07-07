@@ -10,8 +10,8 @@
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-12-07T23:17:54Z</LastSaved>
-  <Version>15.00</Version>
+  <LastSaved>2016-07-07T04:40:11Z</LastSaved>
+  <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">9ee7feee-6dc1-4ecb-a6a9-c526240425ac</WorkbookGuid>
@@ -20,12 +20,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8370</WindowHeight>
-  <WindowWidth>21570</WindowWidth>
+  <WindowHeight>9090</WindowHeight>
+  <WindowWidth>19275</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>4</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -938,7 +937,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4328,7 +4327,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R35C23"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="81" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="89" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s84" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:Width="227.25"/>
    <Column ss:StyleID="s84" ss:Width="51"/>
@@ -6593,6 +6592,86 @@
     <Cell ss:Index="14"><Data ss:Type="String">A calculated value</Data></Cell>
     <Cell><Data ss:Type="String">The name of an expression in a referenced library that determines a calculated value</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">!parameter</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">parameter</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">ParameterDefinition</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Parameter to any logic within the scope</Data></Cell>
+    <Cell><Data ss:Type="String">The definition of a parameter that is available to any expressions within the scope of the parameter. Parameter values are provided as part of the evaluation request</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">!dataRequirement</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">dataRequirement</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">DataRequirement</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Data requirements for any logic within the scope</Data></Cell>
+    <Cell><Data ss:Type="String">The definition of required data that is available to any logic within the scope</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">fpExpression</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">fpExpression</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">FluentPath expression</Data></Cell>
+    <Cell><Data ss:Type="String">A FluentPath expression that provides the value for the element on which it appears</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">fpDataTypeExpression</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">fpDataTypeExpression</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">FluentPath expression</Data></Cell>
+    <Cell><Data ss:Type="String">A FluentPath expression that provides the value for the element on which it appears</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">fpExtensionExpression</Data></Cell>
+    <Cell><Data ss:Type="String">Extension</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">fpExtensionExpression</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">FluentPath expression</Data></Cell>
+    <Cell><Data ss:Type="String">A FluentPath expression that provides the value for the element on which it appears</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">cqlExpression</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">cqlExpression</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">CQL expression</Data></Cell>
+    <Cell><Data ss:Type="String">A CQL expression that provides the value for the element on which it appears</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">cqlDataTypeExpression</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">cqlDataTypeExpression</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">CQL expression</Data></Cell>
+    <Cell><Data ss:Type="String">A CQL expression that provides the value for the element on which it appears</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">cqlExtensionExpression</Data></Cell>
+    <Cell><Data ss:Type="String">Extension</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">cqlExtensionExpression</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">CQL expression</Data></Cell>
+    <Cell><Data ss:Type="String">A CQL expression that provides the value for the element on which it appears</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -6610,7 +6689,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>70</TopRowBottomPane>
+   <TopRowBottomPane>69</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6627,7 +6706,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>77</ActiveRow>
+     <ActiveRow>82</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

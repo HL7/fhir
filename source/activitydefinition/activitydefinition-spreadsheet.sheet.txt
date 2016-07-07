@@ -66,41 +66,61 @@
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = diet
-  Definition = To consume food of a specified nature
+  Code = device
+  Definition = To use a specific device
 
  -- Row 3 -----------------------------------
   Id = 3
-  Code = drug
-  Definition = To consume/receive a drug, vaccine or other product
+  Code = diagnostic
+  Definition = To perform a particular diagnostic
 
  -- Row 4 -----------------------------------
   Id = 4
-  Code = encounter
-  Definition = To meet with the patient (in-patient, out-patient, etc.)
+  Code = diet
+  Definition = To consume food of a specified nature
 
  -- Row 5 -----------------------------------
   Id = 5
-  Code = observation
-  Definition = To capture information about a patient (vitals, labs, diagnostic images, etc.)
+  Code = drug
+  Definition = To consume/receive a drug or other product
 
  -- Row 6 -----------------------------------
   Id = 6
-  Code = procedure
-  Definition = To modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)
+  Code = encounter
+  Definition = To meet with the patient (in-patient, out-patient, etc.)
 
  -- Row 7 -----------------------------------
   Id = 7
-  Code = referral
-  Definition = To refer the patient to receive some service
+  Code = immunization
+  Definition = To administer a particular immunization
 
  -- Row 8 -----------------------------------
   Id = 8
-  Code = supply
-  Definition = To provide something to the patient (medication, medical supply, etc.)
+  Code = observation
+  Definition = To capture information about a patient (vitals, labs, etc.)
 
  -- Row 9 -----------------------------------
   Id = 9
+  Code = procedure
+  Definition = To modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)
+
+ -- Row 10 -----------------------------------
+  Id = 10
+  Code = referral
+  Definition = To refer the patient to receive some service
+
+ -- Row 11 -----------------------------------
+  Id = 11
+  Code = supply
+  Definition = To provide something to the patient (medication, medical supply, etc.)
+
+ -- Row 12 -----------------------------------
+  Id = 12
+  Code = vision
+  Definition = To receive a particular vision correction device
+
+ -- Row 13 -----------------------------------
+  Id = 13
   Code = other
   Definition = Some other form of action
 
@@ -301,7 +321,7 @@
   Card. = 0..1
   Type = code
   Binding = ActivityDefinitionCategory
-  Short Label = communication | diet | drug | encounter | observation | procedure | referral | supply | other
+  Short Label = communication | device | diagnostic | diet | drug | encounter | immunization | observation | procedure | referral | supply | vision | other
   Definition = High-level categorization of the type of activity.
   Requirements = May determine what types of extensions are permitted
 
@@ -364,6 +384,40 @@
   Type = string
   Short Label = Extra info on activity occurrence
   Definition = This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
+
+ -- Row 31 -----------------------------------
+  Element = ActivityDefinition.transform
+  Card. = 0..1
+  Type = Reference(StructureMap)
+  Short Label = Transform to apply the template
+  Definition = A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input
+
+ -- Row 32 -----------------------------------
+  Element = ActivityDefinition.dynamicValue
+  Card. = 0..*
+  Short Label = Dynamic aspects of the definition
+  Definition = Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient\'s weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result
+
+ -- Row 33 -----------------------------------
+  Element = ActivityDefinition.dynamicValue.path
+  Card. = 1..1
+  Type = string
+  Short Label = The path to the element to be set dynamically
+  Definition = The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression
+
+ -- Row 34 -----------------------------------
+  Element = ActivityDefinition.dynamicValue.language
+  Card. = 0..1
+  Type = string
+  Short Label = Language of the expression
+  Definition = The media type of the language for the expression
+
+ -- Row 35 -----------------------------------
+  Element = ActivityDefinition.dynamicValue.expression
+  Card. = 1..1
+  Type = string
+  Short Label = An expression that provides the dynamic value for the customization
+  Definition = An expression specifying the value of the customized element
 
 === Sheet Search =====================================
 

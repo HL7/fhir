@@ -211,20 +211,27 @@
   Definition = An optional indicator for how the relationship is anchored to the related action. For example \"before the start\" or \"before the end\" of the related action
 
  -- Row 20 -----------------------------------
+  Element = GuidanceResponse.action.relatedAction.timing[x]
+  Card. = 0..1
+  Type = dateTime|Period|Duration|Range
+  Short Label = When the action should take place
+  Definition = An optional value describing when the action should be performed
+
+ -- Row 21 -----------------------------------
   Element = GuidanceResponse.action.documentation
   Card. = 0..*
   Type = Attachment
   Short Label = Supporting documentation for the intended performer of the action
   Definition = Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = GuidanceResponse.action.participant
   Card. = 0..*
   Type = Reference(Patient|Person|Practitioner|RelatedPerson)
   Short Label = Participant
   Definition = The participant in the action
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = GuidanceResponse.action.type
   Card. = 0..1
   Type = code
@@ -232,13 +239,13 @@
   Short Label = create | update | remove | fire-event
   Definition = The type of action to perform (create, update, remove)
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = GuidanceResponse.action.behavior
   Card. = 0..*
   Short Label = Defines behaviors such as selection and grouping
   Definition = A behavior associated with the action. Behaviors define how the action is to be presented and/or executed within the receiving environment
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = GuidanceResponse.action.behavior.type
   Card. = 1..1
   Type = Coding
@@ -246,28 +253,28 @@
   Short Label = The type of behavior (grouping, precheck, selection, cardinality, etc)
   Definition = The type of the behavior to be described, such as grouping, visual, or selection behaviors
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = GuidanceResponse.action.behavior.value
   Card. = 1..1
   Type = Coding
   Short Label = Specific behavior (e.g. required, at-most-one, single, etc)
   Definition = The specific behavior. The code used here is determined by the type of behavior being described. For example, the grouping behavior uses the grouping-behavior-type valueset
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = GuidanceResponse.action.resource
   Card. = 0..1
   Type = Reference(Any)
   Short Label = The target of the action
   Definition = The resource that is the target of the action (e.g. CommunicationRequest)
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = GuidanceResponse.action.action
   Card. = 0..*
   Type = @GuidanceResponse.action
   Short Label = Sub action
   Definition = Sub actions
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = GuidanceResponse.dataRequirement
   Card. = 0..*
   Type = DataRequirement

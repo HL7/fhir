@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- xsi:schemaLocation="http://hl7.org/fhir ../../schema/activitydefinition.xsd">-->
+	<id value="citalopramPrescription"/>
+	<status value="draft"/>
+	<category value="drug"/>
+	<productReference>
+		<reference value="#citalopramMedication"/>
+	</productReference>
+	<!-- Need a DosageInstruction type
+	<dosageInstruction>
+		<text value="1 tablet oral 1 time daily"/>
+		<timing>
+			<repeat>
+				<frequency value="1"/>
+				<period value="1"/>
+				<periodUnit value="d"/>
+			</repeat>
+		</timing>
+		<route>
+			<coding>
+				<code value="26643006"/>
+				<display value="Oral route (qualifier value)"/>
+			</coding>
+			<text value="Oral route (qualifier value)"/>
+		</route>
+		<doseQuantity>
+			<value value="1"/>
+			<unit value="{tbl}"/>
+		</doseQuantity>
+	</dosageInstruction>
+	-->
+	<!-- Need a DispenseRequest type
+	<dispenseRequest>
+		<numberOfRepeatsAllowed value="3"/>
+		<quantity>
+			<value value="30"/>
+			<unit value="{tbl}"/>
+		</quantity>
+	</dispenseRequest>
+	-->
+</ActivityDefinition>

@@ -630,6 +630,13 @@
   Definition = An optional indicator for how the relationship is anchored to the related action. For example \"before the start\" or \"before the end\" of the related action
 
  -- Row 39 -----------------------------------
+  Element = PlanDefinition.actionDefinition.timing[x]
+  Card. = 0..1
+  Type = dateTime|Period|Duration|Range|Timing
+  Short Label = When the action should take place
+  Definition = An optional value describing when the action should be performed
+
+ -- Row 40 -----------------------------------
   Element = PlanDefinition.actionDefinition.type
   Card. = 0..1
   Type = code
@@ -637,13 +644,13 @@
   Short Label = create | update | remove | fire-event
   Definition = The type of action to perform (create, update, remove)
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = PlanDefinition.actionDefinition.behavior
   Card. = 0..*
   Short Label = Defines behaviors such as selection and grouping
   Definition = A behavior associated with the action. Behaviors define how the action is to be presented and/or executed within the receiving environment
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = PlanDefinition.actionDefinition.behavior.type
   Card. = 1..1
   Type = Coding
@@ -651,14 +658,14 @@
   Short Label = The type of behavior (grouping, precheck, selection, cardinality, etc)
   Definition = The type of the behavior to be described, such as grouping, visual, or selection behaviors
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = PlanDefinition.actionDefinition.behavior.value
   Card. = 1..1
   Type = Coding
   Short Label = Specific behavior (e.g. required, at-most-one, single, etc)
   Definition = The specific behavior. The code used here is determined by the type of behavior being described. For example, the grouping behavior uses the grouping-behavior-type valueset
 
- -- Row 43 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = PlanDefinition.actionDefinition.activityDefinition
   Card. = 0..1
   Type = Reference(ActivityDefinition)
@@ -666,27 +673,41 @@
   Definition = The resource that is the target of the action (e.g. CommunicationRequest). The resource described here defines any aspects of the action that can be specified statically (i.e. are known at the time of definition)
   Comments = Note that the resource is optional, and if no resource is specified, a customization with a root (/) path can be used to define the entire resource dynamically
 
- -- Row 44 -----------------------------------
-  Element = PlanDefinition.actionDefinition.customization
+ -- Row 45 -----------------------------------
+  Element = PlanDefinition.actionDefinition.transform
+  Card. = 0..1
+  Type = Reference(StructureMap)
+  Short Label = Transform to apply the template
+  Definition = A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input
+
+ -- Row 46 -----------------------------------
+  Element = PlanDefinition.actionDefinition.dynamicValue
   Card. = 0..*
   Short Label = Dynamic aspects of the definition
   Definition = Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient\'s weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result
 
- -- Row 45 -----------------------------------
-  Element = PlanDefinition.actionDefinition.customization.path
+ -- Row 47 -----------------------------------
+  Element = PlanDefinition.actionDefinition.dynamicValue.path
   Card. = 1..1
   Type = string
   Short Label = The path to the element to be set dynamically
   Definition = The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression
 
- -- Row 46 -----------------------------------
-  Element = PlanDefinition.actionDefinition.customization.expression
+ -- Row 48 -----------------------------------
+  Element = PlanDefinition.actionDefinition.dynamicValue.language
+  Card. = 0..1
+  Type = string
+  Short Label = Language of the expression
+  Definition = The media type of the language for the expression
+
+ -- Row 49 -----------------------------------
+  Element = PlanDefinition.actionDefinition.dynamicValue.expression
   Card. = 1..1
   Type = string
   Short Label = An expression that provides the dynamic value for the customization
   Definition = An expression specifying the value of the customized element
 
- -- Row 47 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = PlanDefinition.actionDefinition.actionDefinition
   Card. = 0..*
   Type = @PlanDefinition.actionDefinition
