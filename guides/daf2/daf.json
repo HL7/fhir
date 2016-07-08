@@ -20,6 +20,7 @@
     "allergyintolerance-daf-profile-spreadsheet.xml",
   	"allergyintolerance-daf-core-profile-spreadsheet.xml",
     "condition-daf-profile-spreadsheet.xml",
+	"condition-daf-core-profile-spreadsheet.xml",
     "diagnosticorder-daf-profile-spreadsheet.xml",
     "diagnosticreport-daf-profile-spreadsheet.xml",
 	"diagnosticreport-daf-core-profile-spreadsheet.xml",
@@ -48,6 +49,7 @@
 	"patient-daf-core-profile-spreadsheet.xml",
     "practitioner-daf-profile-spreadsheet.xml",
     "procedure-daf-profile-spreadsheet.xml",
+	"procedure-daf-core-profile-spreadsheet.xml",
     "relatedperson-daf-profile-spreadsheet.xml",
     "spec-daf-profile-spreadsheet.xml",
     "substance-daf-profile-spreadsheet.xml"
@@ -68,6 +70,10 @@
 		"StructureDefinition/daf-condition": {
 			"defns": "daf-condition-definitions.html",
 			"base": "daf-condition.html"
+		},
+		"StructureDefinition/daf-core-condition": {
+			"defns": "daf-core-condition-definitions.html",
+			"base": "daf-core-condition.html"
 		},
 		"StructureDefinition/daf-diagnosticorder": {
 			"defns": "daf-diagnosticorder-definitions.html",
@@ -148,6 +154,10 @@
 		"StructureDefinition/daf-procedure": {
 			"defns": "daf-procedure-definitions.html",
 			"base": "daf-procedure.html"
+		},
+		"StructureDefinition/daf-core-procedure": {
+			"defns": "daf-core-procedure-definitions.html",
+			"base": "daf-core-procedure.html"
 		},
 		"StructureDefinition/daf-relatedperson": {
 			"defns": "daf-relatedperson-definitions.html",

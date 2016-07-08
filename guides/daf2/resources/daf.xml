@@ -57,6 +57,7 @@
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-core-allergyintolerance"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-allergylist"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-condition"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-core-condition"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-diagnosticorder"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-diagnosticreport"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-core-diagnosticreport"/></sourceReference></resource>
@@ -82,6 +83,7 @@
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-pract"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-problemlist"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-procedure"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-core-procedure"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-procedurelist"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-relatedperson"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-resultlist"/></sourceReference></resource>
@@ -402,12 +404,36 @@
       </page>
     </page>
     <page>
+      <source value="condition-daf-core.html"/>
+      <name value="Conditions (a.k.a Problem)"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="daf-core-condition.html"/>
+        <name value="Condition Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+    <page>
       <source value="procedure-daf.html"/>
       <name value="Procedures"/>
       <kind value="page"/>
       <format value="generated"/>
       <page>
         <source value="daf-procedure.html"/>
+        <name value="Procedure Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+    <page>
+      <source value="procedure-daf-core.html"/>
+      <name value="Procedures"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="daf-core-procedure.html"/>
         <name value="Procedure Details"/>
         <kind value="resource"/>
         <format value="generated"/>
