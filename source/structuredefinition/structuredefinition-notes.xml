@@ -132,33 +132,8 @@ are (or may be) created by the specification, but can also be defined by other i
 
 <h3>Rules for Constrained Types</h3>
 <p>
-When the structure is a constraint (constrainedType is not null), then the following rules apply:
+When the structure is a constraint (constrainedType is not null), see <a href="profiling.html#resources">Extending and Restricting Resources</a> for the rules that apply. 
 </p>
-<ul>
- <li>The structure must nominate a base resource from which it is derived</li>
- <li>The structure definition cannot introduce any new elements or value domains that are not valid in the structure - e.g. the structure must be a true constraint, and anything that meets the description of this structure must also be valid following the description of the base structure</li>
- <li>In practice, this means that:
-   <ul>
-     <li>no new paths may be introduced that are not found in the base structure</li> 
-     <li>the list of types for an element must be the same or a subset of the list of types for the same element in the base structure</li> 
-     <li>The definition can be changed in the derived structure, but it must still be logically consistent with the definition in the base; e.g. the base element may be defined as "Result value" and this structure could define it as "Plasma Cholesterol Test Value", but not "Result status".</li>
-     <li>The cardinality must be a subset of the allowable cardinality in the base structure i.e. the minimum must be >= the base minimum, and the maximum must be &lt;= the base maximum</li>
-   </ul>
-  </li>
-  <li>Note that because of slicing, there can be more than one element for the same path. For details, see <a href="profiling.html">Profiling resources</a></li>
-</ul>
-  
-<!-- 
-<li>For an extension definition, the cardinality constraints are limits on the constraints of any reference to the extension in a profile. 
-For example, if the minimum cardinality of an extension is 1 when it is defined, then any profile that includes that extension in the instance
-SHALL include it with a minimum cardinality of 1 and therefore any instance that conforms to the profile SHALL include the extension. Note, however,
-that if the extension is  directly referenced in an instance rather than applied through a profile, the minimum cardinality doesn't apply, 
-though the maximum one still does.
-</li>  
-<li>For an element with a maximum cardinality of 1, there can only be one entry in the value list, which is either a literal fixed type (with an element name matching the type of the fixed value) or a name,
-  which is a reference to a named constraint pattern. If the element has a maximum cardinality of &gt;1, then there can be multiple values - again, either fixed values with a type or a named constraint. 
-  Each of these appears in the list with the order and cardinality specified. By this means, a list may be "sliced" into a series of different components.</li>
---> 
   
 <h3>Common Mapping Targets</h3>
 <p>
