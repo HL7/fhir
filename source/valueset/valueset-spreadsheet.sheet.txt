@@ -250,7 +250,7 @@
   Card. = 0..1
   Aliases = Scope; Purpose
   Summary = y
-  Type = string
+  Type = markdown
   Short Label = Human language description of the value set
   Definition = A free text natural language description of the use of the value set - reason for definition, \"the semantic space\" to be included in the value set, conditions of use, etc. The description may include a list of expected usages for the value set and can also describe the approach taken to build the value set.
   Requirements = Human understandability
@@ -281,7 +281,7 @@
  -- Row 17 -----------------------------------
   Element = ValueSet.requirements
   Card. = 0..1
-  Type = string
+  Type = markdown
   Short Label = Why needed
   Definition = Explains why this value set is needed and why it has been constrained as it has
   Comments = This element does not describe the usage of the value set (that is done in comments), rather it\'s for traceability of \'\'why\'\' the element is either needed or \'\'why\'\' the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element

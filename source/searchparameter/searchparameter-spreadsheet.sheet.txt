@@ -171,7 +171,7 @@
  -- Row 12 -----------------------------------
   Element = SearchParameter.requirements
   Card. = 0..1
-  Type = string
+  Type = markdown
   Short Label = Why this search parameter is defined
   Definition = The Scope and Usage that this search parameter was created to meet
   w5 = why
@@ -208,7 +208,7 @@
   Element = SearchParameter.description
   Card. = 1..1
   Summary = y
-  Type = string
+  Type = markdown
   Short Label = Documentation for  search parameter
   Definition = A description of the search parameters and how it used
 

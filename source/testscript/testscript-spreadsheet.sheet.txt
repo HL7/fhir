@@ -469,7 +469,7 @@
   Element = TestScript.description
   Card. = 0..1
   Summary = y
-  Type = string
+  Type = markdown
   Short Label = Natural language description of the TestScript
   Definition = A free text natural language description of the TestScript and its use
   Comments = This field can be used for things such as why the TestScript was written, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc.  It is *not* a rendering of the TestScript as conveyed in TestScript.text. This item SHOULD be populated unless the information is available from context
@@ -488,7 +488,7 @@
  -- Row 15 -----------------------------------
   Element = TestScript.requirements
   Card. = 0..1
-  Type = string
+  Type = markdown
   Short Label = Scope and Usage this Test Script is for
   Definition = Explains why this Test Script is needed and why it\'s been constrained as it has
   Comments = This element does not describe the usage of the Test Script (that\'s done in comments), rather it\'s for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element

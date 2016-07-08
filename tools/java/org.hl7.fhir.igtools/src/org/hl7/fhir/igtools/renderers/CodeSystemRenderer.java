@@ -30,13 +30,13 @@ public class CodeSystemRenderer extends BaseRenderer {
     this.cs = cs;
   }
 
-  public String summary(boolean xml, boolean json, boolean ttl) {
+  public String summary(boolean xml, boolean json, boolean ttl) throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">\r\n");
     b.append(" <tbody><tr><td>Defining URL:</td><td>"+Utilities.escapeXml(cs.getUrl())+"</td></tr>\r\n");
     b.append(" <tr><td>Name:</td><td>"+Utilities.escapeXml(cs.getName())+"</td></tr>\r\n");
     b.append(" <tr><td>Status:</td><td>"+describeContent(cs.getContent())+"</td></tr>\r\n");
-    b.append(" <tr><td>Definition:</td><td>"+Utilities.escapeXml(cs.getDescription())+"</td></tr>\r\n");
+    b.append(" <tr><td>Definition:</td><td>"+processMarkdown("description", cs.getDescription())+"</td></tr>\r\n");
     if (cs.hasPublisher())
       b.append(" <tr><td>Publisher:</td><td>"+Utilities.escapeXml(cs.getPublisher())+"</td></tr>\r\n");
     if (ToolingExtensions.hasOID(cs))

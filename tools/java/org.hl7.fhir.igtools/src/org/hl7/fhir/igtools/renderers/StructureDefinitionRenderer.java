@@ -837,14 +837,14 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     return null;
   }
 
-  public String header() {
+  public String header() throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("<p>\r\n");
     b.append("The official URL for this profile is:\r\n");
     b.append("</p>\r\n");
     b.append("<pre>"+sd.getUrl()+"</pre>\r\n");
     b.append("<p>\r\n");
-    b.append(sd.getDescription());
+    b.append(processMarkdown("description", sd.getDescription()));
     b.append("</p>\r\n");
     b.append("<p>\r\n");
     b.append("This profile was published on "+sd.getDate().toString()+" as a "+sd.getStatus().toCode()+" by "+sd.getPublisher()+".\r\n");

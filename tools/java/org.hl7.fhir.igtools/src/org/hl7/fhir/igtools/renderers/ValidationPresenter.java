@@ -13,6 +13,7 @@ import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.igtools.publisher.FetchedFile;
 import org.hl7.fhir.utilities.TextFile;
+import org.hl7.fhir.utilities.Utilities;
 import org.stringtemplate.v4.ST;
 
 public class ValidationPresenter implements Comparator<FetchedFile> {
@@ -46,8 +47,23 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
     }    
     b.append(genFooter(title));
     TextFile.stringToFile(b.toString(), path);
+
+    b = new StringBuilder();
+    b.append(genHeaderTxt(title));
+    files = sorted(files);
+    for (FetchedFile f : files) 
+      b.append(genSummaryRowTxt(f));
+    b.append(genEnd());
+    for (FetchedFile f : files) {
+      b.append(genStartTxt(f));
+      for (ValidationMessage vm : f.getErrors())
+        b.append(genDetailsTxt(vm));
+      b.append(genEndTxt());
+    }    
+    b.append(genFooterTxt(title));
+    TextFile.stringToFile(b.toString(), Utilities.changeFileExt(path, ".txt"));
     return path;
-  }
+}
 
   // HTML templating
   private final String headerTemplate = 
@@ -91,12 +107,41 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
       "</body>\r\n"+
       "</html>\r\n";
 
+  // Text templates
+  private final String headerTemplateText = 
+      "$title$ : Validation Results\r\n"+
+      "=========================================\r\n\r\n"+
+      "Generated $time$. FHIR version $version$\r\n\r\n";
+  
+  private final String summaryTemplateText = 
+      " $filename$ : $errcount$ / $other$\r\n";
+  
+  private final String endTemplateText = 
+      "\r\n";
+
+  private final String startTemplateText = 
+      "\r\n== $path$ ==\r\n";
+
+  private final String detailsTemplateText = 
+      " * $level$ : $path$ ==> $msg$\r\n";
+  
+  private final String footerTemplateText = 
+      "\r\n";
+  
   private ST template(String t) {
     return new ST(t, '$', '$');
   }
 
   private String genHeader(String title) {
     ST t = template(headerTemplate);
+    t.add("version", Constants.VERSION);
+    t.add("title", title);
+    t.add("time", new Date().toString());
+    return t.render();
+  }
+
+  private String genHeaderTxt(String title) {
+    ST t = template(headerTemplateText);
     t.add("version", Constants.VERSION);
     t.add("title", title);
     t.add("time", new Date().toString());
@@ -110,8 +155,23 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
     return t.render();
   }
 
+  private String genEndTxt() {
+    ST t = template(endTemplateText);
+    t.add("version", Constants.VERSION);
+    t.add("time", new Date().toString());
+    return t.render();
+  }
+
   private String genFooter(String title) {
     ST t = template(footerTemplate);
+    t.add("version", Constants.VERSION);
+    t.add("title", title);
+    t.add("time", new Date().toString());
+    return t.render();
+  }
+
+  private String genFooterTxt(String title) {
+    ST t = template(footerTemplateText);
     t.add("version", Constants.VERSION);
     t.add("title", title);
     t.add("time", new Date().toString());
@@ -130,6 +190,16 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
       t.add("color", "#EFFFEF");
     else
       t.add("color", colorForLevel(IssueSeverity.ERROR));
+      
+    return t.render();
+  }
+
+  private String genSummaryRowTxt(FetchedFile f) {
+    ST t = template(summaryTemplateText);
+    t.add("filename", f.getName());
+    String ec = errCount(f);
+    t.add("errcount", ec);
+    t.add("other", otherCount(f));
       
     return t.render();
   }
@@ -163,8 +233,24 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
     t.add("path", f.getPath());
     return t.render();
   }
+  private String genStartTxt(FetchedFile f) {
+    ST t = template(startTemplateText);
+    t.add("link", makelink(f));
+    t.add("filename", f.getName());
+    t.add("path", f.getPath());
+    return t.render();
+  }
   private String genDetails(ValidationMessage vm) {
     ST t = template(detailsTemplate);
+    t.add("path", vm.getLocation());
+    t.add("level", vm.getLevel().toCode());
+    t.add("color", colorForLevel(vm.getLevel()));
+    t.add("msg", vm.getHtml());
+    return t.render();
+  }
+
+  private String genDetailsTxt(ValidationMessage vm) {
+    ST t = template(detailsTemplateText);
     t.add("path", vm.getLocation());
     t.add("level", vm.getLevel().toCode());
     t.add("color", colorForLevel(vm.getLevel()));

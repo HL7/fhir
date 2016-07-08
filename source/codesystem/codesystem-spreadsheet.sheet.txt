@@ -239,7 +239,7 @@
   Card. = 0..1
   Aliases = Scope; Purpose
   Summary = y
-  Type = string
+  Type = markdown
   Short Label = Human language description of the code system
   Definition = A free text natural language description of the use of the code system - reason for definition, \"the semantic space\" to be included in the code system, conditions of use, etc. The description may include a list of expected usages for the code system and can also describe the approach taken to build the code system.
   Requirements = Human understandability
@@ -261,7 +261,7 @@
  -- Row 15 -----------------------------------
   Element = CodeSystem.requirements
   Card. = 0..1
-  Type = string
+  Type = markdown
   Short Label = Why needed
   Definition = Explains why this code system is needed and why it has been constrained as it has
   Comments = This element does not describe the usage of the code system (that is done in comments), rather it\'s for traceability of \'\'why\'\' the element is either needed or \'\'why\'\' the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element

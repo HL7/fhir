@@ -102,9 +102,9 @@
   Type = DomainResource
   Short Label = System of unique identification
   Definition = A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a \"System\" used within the Identifier and Coding data types.
-  Object Impl = BaseConformance
   v2 Mapping = N/A
   RIM Mapping = N/A
+  Object Impl = BaseConformance
   w5 = conformance.terminology
 
  -- Row 2 -----------------------------------
@@ -205,7 +205,7 @@
  -- Row 12 -----------------------------------
   Element = NamingSystem.description
   Card. = 0..1
-  Type = string
+  Type = markdown
   Short Label = What does naming system identify?
   Definition = Details about what the namespace identifies including scope, granularity, version labeling, etc.
 

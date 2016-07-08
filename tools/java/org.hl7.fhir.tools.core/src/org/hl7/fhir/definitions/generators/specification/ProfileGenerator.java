@@ -1255,7 +1255,7 @@ public class ProfileGenerator {
     for (String s : e.getAliases())
       ce.addAlias(s);
 
-    if (e.hasSummaryItem())
+    if (e.hasSummaryItem() && ce.getPath().contains("."))
       ce.setIsSummaryElement(Factory.newBoolean(e.isSummary()));
 
     for (String n : definitions.getMapTypes().keySet()) {
@@ -1518,7 +1518,7 @@ public class ProfileGenerator {
       dst.setMustSupport(src.isMustSupport());
     if (src.hasModifier())
       dst.setIsModifier(src.isModifier());
-    if (src.hasSummaryItem())
+    if (src.hasSummaryItem() && dst.getPath().contains("."))
       dst.setIsSummaryElement(Factory.newBoolean(src.isSummary()));
     for (Invariant id : src.getStatedInvariants()) 
       dst.addCondition(id.getId());

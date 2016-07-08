@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Fri, Jul 8, 2016 10:15+1000 for FHIR v1.4.0
+// Generated on Fri, Jul 8, 2016 16:12+1000 for FHIR v1.4.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -2860,11 +2860,11 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDateElement())
       composeDateTime(t, "CodeSystem", "date", element.getDateElement(), -1);
     if (element.hasDescriptionElement())
-      composeString(t, "CodeSystem", "description", element.getDescriptionElement(), -1);
+      composeMarkdown(t, "CodeSystem", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
       composeCodeableConcept(t, "CodeSystem", "useContext", element.getUseContext().get(i), i);
     if (element.hasRequirementsElement())
-      composeString(t, "CodeSystem", "requirements", element.getRequirementsElement(), -1);
+      composeMarkdown(t, "CodeSystem", "requirements", element.getRequirementsElement(), -1);
     if (element.hasCopyrightElement())
       composeString(t, "CodeSystem", "copyright", element.getCopyrightElement(), -1);
     if (element.hasCaseSensitiveElement())
@@ -3132,9 +3132,9 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDateElement())
       composeDateTime(t, "CompartmentDefinition", "date", element.getDateElement(), -1);
     if (element.hasDescriptionElement())
-      composeString(t, "CompartmentDefinition", "description", element.getDescriptionElement(), -1);
+      composeMarkdown(t, "CompartmentDefinition", "description", element.getDescriptionElement(), -1);
     if (element.hasRequirementsElement())
-      composeString(t, "CompartmentDefinition", "requirements", element.getRequirementsElement(), -1);
+      composeMarkdown(t, "CompartmentDefinition", "requirements", element.getRequirementsElement(), -1);
     if (element.hasCodeElement())
       composeEnum(t, "CompartmentDefinition", "code", element.getCodeElement(), -1);
     if (element.hasSearchElement())
@@ -3310,11 +3310,11 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDateElement())
       composeDateTime(t, "ConceptMap", "date", element.getDateElement(), -1);
     if (element.hasDescriptionElement())
-      composeString(t, "ConceptMap", "description", element.getDescriptionElement(), -1);
+      composeMarkdown(t, "ConceptMap", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
       composeCodeableConcept(t, "ConceptMap", "useContext", element.getUseContext().get(i), i);
     if (element.hasRequirementsElement())
-      composeString(t, "ConceptMap", "requirements", element.getRequirementsElement(), -1);
+      composeMarkdown(t, "ConceptMap", "requirements", element.getRequirementsElement(), -1);
     if (element.hasCopyrightElement())
       composeString(t, "ConceptMap", "copyright", element.getCopyrightElement(), -1);
     if (element.hasSource())
@@ -3522,11 +3522,11 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getContact().size(); i++)
       composeConformanceConformanceContactComponent(t, "Conformance", "contact", element.getContact().get(i), i);
     if (element.hasDescriptionElement())
-      composeString(t, "Conformance", "description", element.getDescriptionElement(), -1);
+      composeMarkdown(t, "Conformance", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
       composeCodeableConcept(t, "Conformance", "useContext", element.getUseContext().get(i), i);
     if (element.hasRequirementsElement())
-      composeString(t, "Conformance", "requirements", element.getRequirementsElement(), -1);
+      composeMarkdown(t, "Conformance", "requirements", element.getRequirementsElement(), -1);
     if (element.hasCopyrightElement())
       composeString(t, "Conformance", "copyright", element.getCopyrightElement(), -1);
     if (element.hasKindElement())
@@ -5406,7 +5406,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDateElement())
       composeDateTime(t, "ExpansionProfile", "date", element.getDateElement(), -1);
     if (element.hasDescriptionElement())
-      composeString(t, "ExpansionProfile", "description", element.getDescriptionElement(), -1);
+      composeMarkdown(t, "ExpansionProfile", "description", element.getDescriptionElement(), -1);
     if (element.hasCodeSystem())
       composeExpansionProfileExpansionProfileCodeSystemComponent(t, "ExpansionProfile", "codeSystem", element.getCodeSystem(), -1);
     if (element.hasIncludeDesignationsElement())
@@ -7022,7 +7022,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDateElement())
       composeDateTime(t, "ImplementationGuide", "date", element.getDateElement(), -1);
     if (element.hasDescriptionElement())
-      composeString(t, "ImplementationGuide", "description", element.getDescriptionElement(), -1);
+      composeMarkdown(t, "ImplementationGuide", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
       composeCodeableConcept(t, "ImplementationGuide", "useContext", element.getUseContext().get(i), i);
     if (element.hasCopyrightElement())
@@ -8542,7 +8542,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasType())
       composeCodeableConcept(t, "NamingSystem", "type", element.getType(), -1);
     if (element.hasDescriptionElement())
-      composeString(t, "NamingSystem", "description", element.getDescriptionElement(), -1);
+      composeMarkdown(t, "NamingSystem", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
       composeCodeableConcept(t, "NamingSystem", "useContext", element.getUseContext().get(i), i);
     if (element.hasUsageElement())
@@ -8892,11 +8892,11 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getContact().size(); i++)
       composeOperationDefinitionOperationDefinitionContactComponent(t, "OperationDefinition", "contact", element.getContact().get(i), i);
     if (element.hasDescriptionElement())
-      composeString(t, "OperationDefinition", "description", element.getDescriptionElement(), -1);
+      composeMarkdown(t, "OperationDefinition", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
       composeCodeableConcept(t, "OperationDefinition", "useContext", element.getUseContext().get(i), i);
     if (element.hasRequirementsElement())
-      composeString(t, "OperationDefinition", "requirements", element.getRequirementsElement(), -1);
+      composeMarkdown(t, "OperationDefinition", "requirements", element.getRequirementsElement(), -1);
     if (element.hasIdempotentElement())
       composeBoolean(t, "OperationDefinition", "idempotent", element.getIdempotentElement(), -1);
     if (element.hasCodeElement())
@@ -10630,7 +10630,7 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getUseContext().size(); i++)
       composeCodeableConcept(t, "SearchParameter", "useContext", element.getUseContext().get(i), i);
     if (element.hasRequirementsElement())
-      composeString(t, "SearchParameter", "requirements", element.getRequirementsElement(), -1);
+      composeMarkdown(t, "SearchParameter", "requirements", element.getRequirementsElement(), -1);
     if (element.hasCodeElement())
       composeCode(t, "SearchParameter", "code", element.getCodeElement(), -1);
     if (element.hasBaseElement())
@@ -10638,7 +10638,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasTypeElement())
       composeEnum(t, "SearchParameter", "type", element.getTypeElement(), -1);
     if (element.hasDescriptionElement())
-      composeString(t, "SearchParameter", "description", element.getDescriptionElement(), -1);
+      composeMarkdown(t, "SearchParameter", "description", element.getDescriptionElement(), -1);
     if (element.hasExpressionElement())
       composeString(t, "SearchParameter", "expression", element.getExpressionElement(), -1);
     if (element.hasXpathElement())
@@ -11032,11 +11032,11 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDateElement())
       composeDateTime(t, "StructureDefinition", "date", element.getDateElement(), -1);
     if (element.hasDescriptionElement())
-      composeString(t, "StructureDefinition", "description", element.getDescriptionElement(), -1);
+      composeMarkdown(t, "StructureDefinition", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
       composeCodeableConcept(t, "StructureDefinition", "useContext", element.getUseContext().get(i), i);
     if (element.hasRequirementsElement())
-      composeString(t, "StructureDefinition", "requirements", element.getRequirementsElement(), -1);
+      composeMarkdown(t, "StructureDefinition", "requirements", element.getRequirementsElement(), -1);
     if (element.hasCopyrightElement())
       composeString(t, "StructureDefinition", "copyright", element.getCopyrightElement(), -1);
     for (int i = 0; i < element.getCode().size(); i++)
@@ -11158,11 +11158,11 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDateElement())
       composeDateTime(t, "StructureMap", "date", element.getDateElement(), -1);
     if (element.hasDescriptionElement())
-      composeString(t, "StructureMap", "description", element.getDescriptionElement(), -1);
+      composeMarkdown(t, "StructureMap", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
       composeCodeableConcept(t, "StructureMap", "useContext", element.getUseContext().get(i), i);
     if (element.hasRequirementsElement())
-      composeString(t, "StructureMap", "requirements", element.getRequirementsElement(), -1);
+      composeMarkdown(t, "StructureMap", "requirements", element.getRequirementsElement(), -1);
     if (element.hasCopyrightElement())
       composeString(t, "StructureMap", "copyright", element.getCopyrightElement(), -1);
     for (int i = 0; i < element.getStructure().size(); i++)
@@ -11688,11 +11688,11 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDateElement())
       composeDateTime(t, "TestScript", "date", element.getDateElement(), -1);
     if (element.hasDescriptionElement())
-      composeString(t, "TestScript", "description", element.getDescriptionElement(), -1);
+      composeMarkdown(t, "TestScript", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
       composeCodeableConcept(t, "TestScript", "useContext", element.getUseContext().get(i), i);
     if (element.hasRequirementsElement())
-      composeString(t, "TestScript", "requirements", element.getRequirementsElement(), -1);
+      composeMarkdown(t, "TestScript", "requirements", element.getRequirementsElement(), -1);
     if (element.hasCopyrightElement())
       composeString(t, "TestScript", "copyright", element.getCopyrightElement(), -1);
     for (int i = 0; i < element.getOrigin().size(); i++)
@@ -12264,13 +12264,13 @@ public class RdfParser extends RdfParserBase {
     if (element.hasLockedDateElement())
       composeDate(t, "ValueSet", "lockedDate", element.getLockedDateElement(), -1);
     if (element.hasDescriptionElement())
-      composeString(t, "ValueSet", "description", element.getDescriptionElement(), -1);
+      composeMarkdown(t, "ValueSet", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
       composeCodeableConcept(t, "ValueSet", "useContext", element.getUseContext().get(i), i);
     if (element.hasImmutableElement())
       composeBoolean(t, "ValueSet", "immutable", element.getImmutableElement(), -1);
     if (element.hasRequirementsElement())
-      composeString(t, "ValueSet", "requirements", element.getRequirementsElement(), -1);
+      composeMarkdown(t, "ValueSet", "requirements", element.getRequirementsElement(), -1);
     if (element.hasCopyrightElement())
       composeString(t, "ValueSet", "copyright", element.getCopyrightElement(), -1);
     if (element.hasExtensibleElement())

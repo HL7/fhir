@@ -347,7 +347,7 @@
   Element = StructureMap.description
   Card. = 0..1
   Summary = y
-  Type = string
+  Type = markdown
   Short Label = Natural language description of the StructureMap
   Definition = A free text natural language description of the StructureMap and its use
   To Do = This field can be used for things such as why the StructureMap was written, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc.  It is *not* a rendering of the StructureMap as conveyed in StructureMap.text. This item SHOULD be populated unless the information is available from context
@@ -366,7 +366,7 @@
  -- Row 15 -----------------------------------
   Element = StructureMap.requirements
   Card. = 0..1
-  Type = string
+  Type = markdown
   Short Label = Scope and Usage this structure map is for
   Definition = Explains why this structure map is needed and why it\'s been designed as it has
   To Do = This element does not describe the usage of the structure map (that\'s done in comments), rather it\'s for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element

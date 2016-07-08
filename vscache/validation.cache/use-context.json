@@ -50,6 +50,17 @@
       "hash": "#|null|null|Healthcare Event Reporting Form|Patient safety event report - hospital: healthcare event reporting form",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
+    },
+    {
+      "hash": "#|urn:iso:std:iso:3166|null|AU|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Austria"
+      }
     }
   ]
 }

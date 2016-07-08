@@ -38,7 +38,7 @@
   Element = ValueSet.description
   Card. = 1..1
   Aliases = scope
-  Type = string
+  Type = markdown
   RIM Mapping = N/A
 
  -- Row 8 -----------------------------------

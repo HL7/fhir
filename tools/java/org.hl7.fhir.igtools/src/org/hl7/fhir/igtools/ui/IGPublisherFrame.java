@@ -1,23 +1,36 @@
 package org.hl7.fhir.igtools.ui;
 
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
+import java.awt.datatransfer.*;
+import java.awt.Toolkit;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import javax.swing.SwingWorker;
 
 import org.hl7.fhir.dstu3.model.Constants;
+import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
+import org.hl7.fhir.dstu3.validation.InstanceValidator;
+import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.igtools.publisher.IGLogger;
 import org.hl7.fhir.igtools.publisher.Publisher;
+import org.hl7.fhir.igtools.publisher.Publisher.GenerationTool;
 import org.hl7.fhir.utilities.IniFile;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+
+import com.google.gson.JsonObject;
 
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -25,9 +38,11 @@ import javafx.scene.web.WebView;
 
 public class IGPublisherFrame extends javax.swing.JFrame {
 
+  private static final String LOG_PREFIX = "--$%^^---";
+  
   private javax.swing.JButton btnExecute;
   private javax.swing.JButton btnChoose;
-  private javax.swing.JLabel lblStatus;
+  private javax.swing.JButton btnGetHelp;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JScrollPane jScrollPane2;
@@ -40,6 +55,9 @@ public class IGPublisherFrame extends javax.swing.JFrame {
 
   private BackgroundPublisherTask task;
   private WebView webView;
+  private StringBuilder fullLog = new StringBuilder();
+  private String qa;
+  
   /**
    * Creates new form IGPublisherFrame
    */
@@ -66,7 +84,7 @@ public class IGPublisherFrame extends javax.swing.JFrame {
     btnChoose = new javax.swing.JButton();
     cbxIGName = new javax.swing.JComboBox<String>();
     jPanel1 = new javax.swing.JPanel();
-    lblStatus = new javax.swing.JLabel();
+    btnGetHelp = new javax.swing.JButton();
     jSplitPane1 = new javax.swing.JSplitPane();
     jScrollPane1 = new javax.swing.JScrollPane();
     txtLog = new javax.swing.JTextArea();
@@ -112,21 +130,26 @@ public class IGPublisherFrame extends javax.swing.JFrame {
     });
     jToolBar1.add(cbxIGName);
 
-    lblStatus.setText("FHIR Version "+Constants.VERSION+"-"+Constants.REVISION);
-
+    btnGetHelp.setText("Debug Summary");
+    btnGetHelp.setEnabled(false);
+    btnGetHelp.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnGetHelpClick(evt);
+      }
+    });
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel1Layout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(lblStatus)
+            .addComponent(btnGetHelp)
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     jPanel1Layout.setVerticalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel1Layout.createSequentialGroup()
-            .addComponent(lblStatus)
+            .addComponent(btnGetHelp)
             .addGap(0, 13, Short.MAX_VALUE))
         );
 
@@ -176,9 +199,10 @@ public class IGPublisherFrame extends javax.swing.JFrame {
       setSize(ini.getIntegerProperty("layout", "W"), ini.getIntegerProperty("layout", "H")); 
     }
 
-  }// </editor-fold>                        
+  }                        
 
 
+  
   private void btnChooseClick(java.awt.event.ActionEvent evt) {                                         
     JFileChooser jfc = new JFileChooser();
     if (cbxIGName.getSelectedItem() != null)
@@ -222,7 +246,6 @@ public class IGPublisherFrame extends javax.swing.JFrame {
 
   public class BackgroundPublisherTask extends SwingWorker<String, String> implements IGLogger  {
 
-    private String qa;
     
     @Override
     public String doInBackground() {
@@ -246,9 +269,19 @@ public class IGPublisherFrame extends javax.swing.JFrame {
     }
 
     @Override
+    public void logDebugMessage(String msg) {
+      publish(LOG_PREFIX+msg);
+      
+    }    
+    @Override
     protected void process(List<String> msgs) {
       for (String msg : msgs) {
-        txtLog.append(msg+"\r\n");
+        if (msg.startsWith(LOG_PREFIX)) {
+          fullLog.append(msg.substring(LOG_PREFIX.length())+"\r\n");
+        } else {
+          txtLog.append(msg+"\r\n");
+          fullLog.append(msg+"\r\n");
+        }
       }
       txtLog.setCaretPosition(txtLog.getText().length() - 1);
     }
@@ -258,6 +291,7 @@ public class IGPublisherFrame extends javax.swing.JFrame {
       btnExecute.setEnabled(true);
       btnChoose.setEnabled(true);
       cbxIGName.setEnabled(true);
+      btnGetHelp.setEnabled(true);      
       btnExecute.setLabel("Execute");
       Platform.runLater( () -> { // FX components need to be managed by JavaFX
         webView = new WebView();
@@ -265,20 +299,87 @@ public class IGPublisherFrame extends javax.swing.JFrame {
         txtValidation.setScene( new Scene( webView ) );
      });
     }
+
+
   }
 
   private void btnExecuteClick(java.awt.event.ActionEvent evt) {
     btnExecute.setEnabled(false);
     btnChoose.setEnabled(false);
     cbxIGName.setEnabled(false);
+    btnGetHelp.setEnabled(false);
     btnExecute.setLabel("Running");
     txtLog.setText("");
+    fullLog.setLength(0);
     Platform.runLater( () -> { // FX components need to be managed by JavaFX
       webView.getEngine().loadContent( "<html> Publication in Process!" );
       txtValidation.setScene( new Scene( webView ) );
    });
     task = new BackgroundPublisherTask();
     task.execute();
+  }
+
+  protected void btnGetHelpClick(ActionEvent evt) {
+    try {
+      StringBuilder b = new StringBuilder();
+      b.append("= Log =\r\n");
+      b.append(fullLog);
+      b.append("\r\n\r\n");
+      b.append("= System =\r\n");
+
+      b.append("ig: ");
+      b.append((String) cbxIGName.getSelectedItem());
+      b.append("\r\n");
+
+      b.append("current.dir: ");
+      b.append(getCurentDirectory());
+      b.append("\r\n");
+
+      b.append("user.dir: ");
+      b.append(System.getProperty("user.home"));
+      b.append("\r\n");
+
+      b.append("tx.server: ");
+      b.append("http://fhir3.healthintersections.com.au/open");
+      b.append("\r\n");
+
+      b.append("tx.cache: ");
+      b.append(Utilities.path(System.getProperty("user.home"), "fhircache"));
+      b.append("\r\n");
+
+      b.append("\r\n");
+
+      b.append("= Validation =\r\n");
+      b.append(TextFile.fileToString(Utilities.changeFileExt(qa, ".txt")));
+
+      b.append("\r\n");
+      b.append("\r\n");
+      
+      b.append("= IG =\r\n");
+      b.append(TextFile.fileToString((String) cbxIGName.getSelectedItem()));
+
+      b.append("\r\n");
+      b.append("\r\n");
+      b.append("= VS.cache =\r\n");
+      for (String s : new File(Utilities.path(System.getProperty("user.home"), "fhircache")).list()) {
+        b.append(s);
+        b.append("\r\n");
+      }
+      StringSelection stringSelection = new StringSelection(b.toString());
+      Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
+      clpbrd.setContents(stringSelection, null);
+      JOptionPane.showMessageDialog(this, "Report copied to clipboard. Now paste it into an email to grahame@hl7.org");
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(this, e.getMessage());
+      e.printStackTrace();
+    }
+  }
+
+  private String getCurentDirectory() {
+    String currentDirectory;
+    File file = new File(".");
+    currentDirectory = file.getAbsolutePath();
+    return currentDirectory;
   }
 
 }

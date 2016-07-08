@@ -64,6 +64,7 @@ import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
 import org.hl7.fhir.dstu3.utils.Turtle;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
+import org.hl7.fhir.igtools.renderers.BaseRenderer;
 import org.hl7.fhir.igtools.renderers.CodeSystemRenderer;
 import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
 import org.hl7.fhir.igtools.renderers.StructureDefinitionRenderer;
@@ -789,8 +790,8 @@ public class Publisher implements IGLogger {
     }
   }
 
-  private void dlog(String string) {
-//    logMessage("   - "+string);
+  private void dlog(String s) {
+    logger.logDebugMessage(Utilities.padRight(s, ' ', 80)+" ("+presentDuration(System.nanoTime()-globalStart)+"sec)");
   }
 
   private void generateAdditionalExamples() throws Exception {
@@ -1018,7 +1019,7 @@ public class Publisher implements IGLogger {
       if (Utilities.noString(s))
         return false;
       if (s.contains("Source:"))
-        return false;
+        return true;
       if (s.contains("Destination:"))
         return false;
       if (s.contains("Configuration"))
@@ -1096,7 +1097,7 @@ public class Publisher implements IGLogger {
     return true;
   }
 
-  private void generateSummaryOutputs() throws IOException {
+  private void generateSummaryOutputs() throws Exception {
     generateResourceReferences();
 
     JsonObject data = new JsonObject();
@@ -1115,13 +1116,13 @@ public class Publisher implements IGLogger {
     TextFile.stringToFile(json, Utilities.path(tempDir, "data", "fhir.json"));
   }
 
-  private void generateResourceReferences() throws IOException {
+  private void generateResourceReferences() throws Exception {
     for (ResourceType rt : ResourceType.values()) {
       generateResourceReferences(rt);
     }
   }
 
-  private void generateResourceReferences(ResourceType rt) throws IOException {
+  private void generateResourceReferences(ResourceType rt) throws Exception {
     StringBuilder list = new StringBuilder();
     StringBuilder table = new StringBuilder();
     boolean found = false;
@@ -1139,7 +1140,7 @@ public class Publisher implements IGLogger {
             desc = getDesc((BaseConformance) r.getResource(), desc);
           }
           list.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a>"+Utilities.escapeXml(desc)+"</li>/r/n");
-          table.append(" <tr><td><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a></td><td>"+Utilities.escapeXml(desc)+"</td></tr>\r\n");
+          table.append(" <tr><td><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a></td><td>"+new BaseRenderer(context, null, igpkp).processMarkdown("description", desc)+"</td></tr>\r\n");
         }
       }
     }
@@ -1403,12 +1404,10 @@ public class Publisher implements IGLogger {
    *   content as html
    *   xref
    * @param resource
-   * @throws IOException 
-   * @throws FHIRException 
-   * @throws EOperationOutcome 
    * @throws org.hl7.fhir.exceptions.FHIRException 
+   * @throws Exception 
    */
-  private void generateOutputsCodeSystem(FetchedFile f, FetchedResource fr, CodeSystem cs) throws IOException, EOperationOutcome, FHIRException, org.hl7.fhir.exceptions.FHIRException {
+  private void generateOutputsCodeSystem(FetchedFile f, FetchedResource fr, CodeSystem cs) throws Exception {
     CodeSystemRenderer csr = new CodeSystemRenderer(context, specPath, cs, igpkp);
     if (wantGen(fr, "summary")) 
       fragment("CodeSystem-"+cs.getId()+"-summary", csr.summary(wantGen(fr, "xml"), wantGen(fr, "json"), wantGen(fr, "ttl")), f.getOutputNames());
@@ -1426,11 +1425,10 @@ public class Publisher implements IGLogger {
    *   
    * and save the expansion as html. todo: should we save it as a resource too? at this time, no: it's not safe to do that; encourages abuse
    * @param vs
-   * @throws IOException
-   * @throws FHIRException 
    * @throws org.hl7.fhir.exceptions.FHIRException 
+   * @throws Exception 
    */
-  private void generateOutputsValueSet(FetchedFile f, FetchedResource r, ValueSet vs) throws IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
+  private void generateOutputsValueSet(FetchedFile f, FetchedResource r, ValueSet vs) throws Exception {
     ValueSetRenderer vsr = new ValueSetRenderer(context, specPath, vs, igpkp);
     if (wantGen(r, "summary")) 
       fragment("ValueSet-"+vs.getId()+"-summary", vsr.summary(wantGen(r, "xml"), wantGen(r, "json"), wantGen(r, "ttl")), f.getOutputNames());
@@ -1689,6 +1687,13 @@ public class Publisher implements IGLogger {
 
   public String getQAFile() {
     return Utilities.path(qaDir, "validation.html");
+  }
+
+  @Override
+  public void logDebugMessage(String msg) {
+    // ignore 
+    // System.out.println(msg);    
+    
   }
 
 }

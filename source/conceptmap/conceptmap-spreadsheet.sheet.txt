@@ -146,7 +146,7 @@
   Element = ConceptMap.description
   Card. = 0..1
   Summary = y
-  Type = string
+  Type = markdown
   Short Label = Human language description of the concept map
   Definition = A free text natural language description of the use of the concept map - reason for definition, conditions of use, etc.
   Requirements = Human understandability
@@ -168,7 +168,7 @@
  -- Row 15 -----------------------------------
   Element = ConceptMap.requirements
   Card. = 0..1
-  Type = string
+  Type = markdown
   Short Label = Why needed
   Definition = Explains why this concept map is needed and why it has been constrained as it has
   Comments = This element does not describe the usage of the concept map (that is done in comments), rather it\'s for traceability of \'\'why\'\' the element is either needed or \'\'why\'\' the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element

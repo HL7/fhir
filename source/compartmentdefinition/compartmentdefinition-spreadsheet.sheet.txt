@@ -52,9 +52,9 @@
   Short Label = Compartment Definition for a resource
   Definition = A compartment definition that defines how resources are accessed on a server
   Comments = In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content
-  Object Impl = BaseConformance
   v2 Mapping = n/a
   RIM Mapping = n/a
+  Object Impl = BaseConformance
   w5 = conformance.behavior
 
  -- Row 2 -----------------------------------
@@ -153,14 +153,14 @@
   Element = CompartmentDefinition.description
   Card. = 0..1
   Summary = y
-  Type = string
+  Type = markdown
   Short Label = Natural language description of the CompartmentDefinition
   Definition = A free text natural language description of the CompartmentDefinition and its use
 
  -- Row 12 -----------------------------------
   Element = CompartmentDefinition.requirements
   Card. = 0..1
-  Type = string
+  Type = markdown
   Short Label = Why this compartment definition is defined
   Definition = The Scope and Usage that this compartment definition was created to meet
   w5 = why

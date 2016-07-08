@@ -625,7 +625,7 @@
   Card. = 0..1
   Summary = y
   Inv. = 2
-  Type = string
+  Type = markdown
   Short Label = Human description of the conformance statement
   Definition = A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP
   Comments = This field may include the purpose of this conformance statement, comments about its context etc. This does not need to be populated if the description is adequately implied by the software or implementation details
@@ -644,7 +644,7 @@
  -- Row 14 -----------------------------------
   Element = Conformance.requirements
   Card. = 0..1
-  Type = string
+  Type = markdown
   Short Label = Why this resource has been created
   Definition = Explains why this conformance statement is needed and why it\'s been constrained as it has
   Comments = This element does not describe the usage of the conformance statement (that\'s done in comments), rather it\'s for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element

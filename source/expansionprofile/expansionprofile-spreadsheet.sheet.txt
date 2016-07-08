@@ -168,7 +168,7 @@
   Element = ExpansionProfile.description
   Card. = 0..1
   Summary = y
-  Type = string
+  Type = markdown
   Short Label = Human language description of the expansion profile
   Definition = A free text natural language description of the use of the expansion profile - reason for definition,  conditions of use, etc. The description may include a list of expected usages for the expansion profile and can also describe the approach taken to build the expansion profile.
   Requirements = Human understandability

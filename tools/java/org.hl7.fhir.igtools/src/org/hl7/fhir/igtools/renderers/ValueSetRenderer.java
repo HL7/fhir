@@ -28,12 +28,12 @@ public class ValueSetRenderer extends BaseRenderer {
     this.vs = vs;
   }
 
-  public String summary(boolean xml, boolean json, boolean ttl) {
+  public String summary(boolean xml, boolean json, boolean ttl) throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">\r\n");
     b.append(" <tbody><tr><td>Defining URL:</td><td>"+Utilities.escapeXml(vs.getUrl())+"</td></tr>\r\n");
     b.append(" <tr><td>Name:</td><td>"+Utilities.escapeXml(vs.getName())+"</td></tr>\r\n");
-    b.append(" <tr><td>Definition:</td><td>"+Utilities.escapeXml(vs.getDescription())+"</td></tr>\r\n");
+    b.append(" <tr><td>Definition:</td><td>"+processMarkdown("description", vs.getDescription())+"</td></tr>\r\n");
     if (vs.hasPublisher())
       b.append(" <tr><td>Publisher:</td><td>"+Utilities.escapeXml(vs.getPublisher())+"</td></tr>\r\n");
     if (ToolingExtensions.hasOID(vs))

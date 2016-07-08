@@ -1828,7 +1828,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
 
-  public void generate(ConceptMap cm) {
+  public void generate(ConceptMap cm) throws FHIRFormatError, DefinitionException, IOException {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("h2").addText(cm.getName()+" ("+cm.getUrl()+")");
 
@@ -1869,7 +1869,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     p.addText(". ");
     p.addText(cm.getCopyright());
     if (!Utilities.noString(cm.getDescription()))
-      x.addTag("p").addText(cm.getDescription());
+      addMarkdown(x.addTag("p"), cm.getDescription());
 
     x.addTag("br");
 
@@ -2158,16 +2158,19 @@ public class NarrativeGenerator implements INarrativeGenerator {
    *
    * @param vs
    * @param codeSystems
+   * @throws IOException 
+   * @throws DefinitionException 
+   * @throws FHIRFormatError 
    * @throws Exception
    */
-  public void generate(CodeSystem cs, boolean header) {
+  public void generate(CodeSystem cs, boolean header) throws FHIRFormatError, DefinitionException, IOException {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     boolean hasExtensions = false;
     hasExtensions = generateDefinition(x, cs, header);
     inject(cs, x, hasExtensions ? NarrativeStatus.EXTENSIONS :  NarrativeStatus.GENERATED);
   }
 
-  private boolean generateDefinition(XhtmlNode x, CodeSystem cs, boolean header) {
+  private boolean generateDefinition(XhtmlNode x, CodeSystem cs, boolean header) throws FHIRFormatError, DefinitionException, IOException {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
     for (ConceptMap a : context.findMapsForSource(cs.getValueSet())) {
@@ -2196,7 +2199,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       XhtmlNode h = x.addTag("h2");
       h.addText(cs.getName());
       XhtmlNode p = x.addTag("p");
-      smartAddText(p, cs.getDescription());
+      addMarkdown(p, cs.getDescription());
       if (cs.hasCopyright())
         generateCopyright(x, cs);
     }
@@ -2256,13 +2259,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
    * @param vs
    * @param codeSystems
    * @throws FHIRException 
+   * @throws IOException 
    * @throws Exception
    */
-  public void generate(ValueSet vs, boolean header) throws FHIRException {
+  public void generate(ValueSet vs, boolean header) throws FHIRException, IOException {
     generate(vs, null, header);
   }
 
-  public void generate(ValueSet vs, ValueSet src, boolean header) throws FHIRException {
+  public void generate(ValueSet vs, ValueSet src, boolean header) throws FHIRException, IOException {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     boolean hasExtensions;
     if (vs.hasExpansion()) {
@@ -2312,7 +2316,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return count;
   }
 
-  private boolean generateExpansion(XhtmlNode x, ValueSet vs, ValueSet src, boolean header) {
+  private boolean generateExpansion(XhtmlNode x, ValueSet vs, ValueSet src, boolean header) throws FHIRFormatError, DefinitionException, IOException {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
     for (ConceptMap a : context.findMapsForSource(vs.getUrl())) {
@@ -2327,7 +2331,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       XhtmlNode h = x.addTag("h3");
       h.addText("Value Set Contents");
       if (IsNotFixedExpansion(vs))
-        x.addTag("p").addText(vs.getDescription());
+        addMarkdown(x.addTag("p"), vs.getDescription());
       if (vs.hasCopyright())
         generateCopyright(x, vs);
     }
@@ -2454,13 +2458,16 @@ public class NarrativeGenerator implements INarrativeGenerator {
       scanLangs(g, langs);
   }
 
-  private void addMapHeaders(XhtmlNode tr, Map<ConceptMap, String> mymaps) {
+  private void addMapHeaders(XhtmlNode tr, Map<ConceptMap, String> mymaps) throws FHIRFormatError, DefinitionException, IOException {
     for (ConceptMap m : mymaps.keySet()) {
       XhtmlNode td = tr.addTag("td");
       XhtmlNode b = td.addTag("b");
       XhtmlNode a = b.addTag("a");
       a.setAttribute("href", prefix+mymaps.get(m));
-      a.addText(m.hasDescription() ? m.getDescription() : m.getName());
+      if (m.hasDescription())
+        addMarkdown(a, m.getDescription());
+      else
+        a.addText(m.getName());
     }
   }
 
@@ -2736,13 +2743,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return mappings;
   }
 
-  private boolean generateComposition(XhtmlNode x, ValueSet vs, boolean header) throws FHIRException {
+  private boolean generateComposition(XhtmlNode x, ValueSet vs, boolean header) throws FHIRException, IOException {
     boolean hasExtensions = false;
     if (header) {
       XhtmlNode h = x.addTag("h2");
       h.addText(vs.getName());
       XhtmlNode p = x.addTag("p");
-      smartAddText(p, vs.getDescription());
+      addMarkdown(p, vs.getDescription());
       if (vs.hasCopyrightElement())
         generateCopyright(x, vs);
     }
@@ -3198,10 +3205,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
 
-  public void generate(Conformance conf) {
+  public void generate(Conformance conf) throws FHIRFormatError, DefinitionException, IOException {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("h2").addText(conf.getName());
-    smartAddText(x.addTag("p"), conf.getDescription());
+    addMarkdown(x.addTag("p"), conf.getDescription());
     ConformanceRestComponent rest = conf.getRest().get(0);
     XhtmlNode t = x.addTag("table");
     addTableRow(t, "Mode", rest.getMode().toString());
