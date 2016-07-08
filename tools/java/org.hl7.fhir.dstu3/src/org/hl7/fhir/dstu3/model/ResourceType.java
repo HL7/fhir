@@ -2,7 +2,7 @@ package org.hl7.fhir.dstu3.model;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
-// Generated on Fri, Jul 8, 2016 06:52+1000 for FHIR v1.4.0
+// Generated on Fri, Jul 8, 2016 10:15+1000 for FHIR v1.4.0
 
 public enum ResourceType {
     Account,

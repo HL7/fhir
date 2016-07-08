@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Jul 8, 2016 06:52+1000 for FHIR v1.4.0
+// Generated on Fri, Jul 8, 2016 10:15+1000 for FHIR v1.4.0
 
 import java.util.*;
 
@@ -490,21 +490,41 @@ public class StructureMap extends BaseConformance {
          */
         REFERENCE, 
         /**
-         * something
+         * Perform a date operation. Parameters to be documented
          */
         DATEOP, 
         /**
-         * something
+         * Generate a random UUID (in lowercase). No Parameters
          */
         UUID, 
         /**
-         * something
+         * Return the appropriate string to put in a Reference that refers to the resource provided as a parameter
          */
         POINTER, 
         /**
-         * something
+         * Execute the supplied fluentpath expression and use the value returned by that
          */
         EVALUATE, 
+        /**
+         * Create a CodeableConcept. Parameters = (text) or (system. Code[, display])
+         */
+        CC, 
+        /**
+         * Create a Coding. Parameters = (system. Code[, display])
+         */
+        C, 
+        /**
+         * Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text =s the natural represenation e.g. [comparator]value[space]unit
+         */
+        QTY, 
+        /**
+         * Create an identifier. Parameters = (system, value[, type]) where type is a code from the identifier type value set
+         */
+        ID, 
+        /**
+         * Create a contact details. Parameters = (value) or (system, value). If no system is provided, the system should be inferred from the content of the value
+         */
+        CP, 
         /**
          * added to help the parsers with the generic types
          */
@@ -536,6 +556,16 @@ public class StructureMap extends BaseConformance {
           return POINTER;
         if ("evaluate".equals(codeString))
           return EVALUATE;
+        if ("cc".equals(codeString))
+          return CC;
+        if ("c".equals(codeString))
+          return C;
+        if ("qty".equals(codeString))
+          return QTY;
+        if ("id".equals(codeString))
+          return ID;
+        if ("cp".equals(codeString))
+          return CP;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -555,6 +585,11 @@ public class StructureMap extends BaseConformance {
             case UUID: return "uuid";
             case POINTER: return "pointer";
             case EVALUATE: return "evaluate";
+            case CC: return "cc";
+            case C: return "c";
+            case QTY: return "qty";
+            case ID: return "id";
+            case CP: return "cp";
             default: return "?";
           }
         }
@@ -572,6 +607,11 @@ public class StructureMap extends BaseConformance {
             case UUID: return "http://hl7.org/fhir/map-transform";
             case POINTER: return "http://hl7.org/fhir/map-transform";
             case EVALUATE: return "http://hl7.org/fhir/map-transform";
+            case CC: return "http://hl7.org/fhir/map-transform";
+            case C: return "http://hl7.org/fhir/map-transform";
+            case QTY: return "http://hl7.org/fhir/map-transform";
+            case ID: return "http://hl7.org/fhir/map-transform";
+            case CP: return "http://hl7.org/fhir/map-transform";
             default: return "?";
           }
         }
@@ -585,10 +625,15 @@ public class StructureMap extends BaseConformance {
             case APPEND: return "append(source...) - source is element or string";
             case TRANSLATE: return "translate(source, uri_of_map) - use the translate operation";
             case REFERENCE: return "reference(source : object) - return a string that references the provided tree properly";
-            case DATEOP: return "something";
-            case UUID: return "something";
-            case POINTER: return "something";
-            case EVALUATE: return "something";
+            case DATEOP: return "Perform a date operation. Parameters to be documented";
+            case UUID: return "Generate a random UUID (in lowercase). No Parameters";
+            case POINTER: return "Return the appropriate string to put in a Reference that refers to the resource provided as a parameter";
+            case EVALUATE: return "Execute the supplied fluentpath expression and use the value returned by that";
+            case CC: return "Create a CodeableConcept. Parameters = (text) or (system. Code[, display])";
+            case C: return "Create a Coding. Parameters = (system. Code[, display])";
+            case QTY: return "Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text =s the natural represenation e.g. [comparator]value[space]unit";
+            case ID: return "Create an identifier. Parameters = (system, value[, type]) where type is a code from the identifier type value set";
+            case CP: return "Create a contact details. Parameters = (value) or (system, value). If no system is provided, the system should be inferred from the content of the value";
             default: return "?";
           }
         }
@@ -606,6 +651,11 @@ public class StructureMap extends BaseConformance {
             case UUID: return "uuid";
             case POINTER: return "pointer";
             case EVALUATE: return "evaluate";
+            case CC: return "cc";
+            case C: return "c";
+            case QTY: return "qty";
+            case ID: return "id";
+            case CP: return "cp";
             default: return "?";
           }
         }
@@ -640,6 +690,16 @@ public class StructureMap extends BaseConformance {
           return StructureMapTransform.POINTER;
         if ("evaluate".equals(codeString))
           return StructureMapTransform.EVALUATE;
+        if ("cc".equals(codeString))
+          return StructureMapTransform.CC;
+        if ("c".equals(codeString))
+          return StructureMapTransform.C;
+        if ("qty".equals(codeString))
+          return StructureMapTransform.QTY;
+        if ("id".equals(codeString))
+          return StructureMapTransform.ID;
+        if ("cp".equals(codeString))
+          return StructureMapTransform.CP;
         throw new IllegalArgumentException("Unknown StructureMapTransform code '"+codeString+"'");
         }
         public Enumeration<StructureMapTransform> fromType(Base code) throws FHIRException {
@@ -672,6 +732,16 @@ public class StructureMap extends BaseConformance {
           return new Enumeration<StructureMapTransform>(this, StructureMapTransform.POINTER);
         if ("evaluate".equals(codeString))
           return new Enumeration<StructureMapTransform>(this, StructureMapTransform.EVALUATE);
+        if ("cc".equals(codeString))
+          return new Enumeration<StructureMapTransform>(this, StructureMapTransform.CC);
+        if ("c".equals(codeString))
+          return new Enumeration<StructureMapTransform>(this, StructureMapTransform.C);
+        if ("qty".equals(codeString))
+          return new Enumeration<StructureMapTransform>(this, StructureMapTransform.QTY);
+        if ("id".equals(codeString))
+          return new Enumeration<StructureMapTransform>(this, StructureMapTransform.ID);
+        if ("cp".equals(codeString))
+          return new Enumeration<StructureMapTransform>(this, StructureMapTransform.CP);
         throw new FHIRException("Unknown StructureMapTransform code '"+codeString+"'");
         }
     public String toCode(StructureMapTransform code) {
@@ -699,6 +769,16 @@ public class StructureMap extends BaseConformance {
         return "pointer";
       if (code == StructureMapTransform.EVALUATE)
         return "evaluate";
+      if (code == StructureMapTransform.CC)
+        return "cc";
+      if (code == StructureMapTransform.C)
+        return "c";
+      if (code == StructureMapTransform.QTY)
+        return "qty";
+      if (code == StructureMapTransform.ID)
+        return "id";
+      if (code == StructureMapTransform.CP)
+        return "cp";
       return "?";
       }
     public String toSystem(StructureMapTransform code) {

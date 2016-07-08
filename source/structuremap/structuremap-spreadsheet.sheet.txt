@@ -144,25 +144,55 @@
   Id = 9
   Code = dateOp
   Display = dateOp
-  Definition = something
+  Definition = Perform a date operation. Parameters to be documented
 
  -- Row 10 -----------------------------------
   Id = 10
   Code = uuid
   Display = uuid
-  Definition = something
+  Definition = Generate a random UUID (in lowercase). No Parameters
 
  -- Row 11 -----------------------------------
   Id = 11
   Code = pointer
   Display = pointer
-  Definition = something
+  Definition = Return the appropriate string to put in a Reference that refers to the resource provided as a parameter
 
  -- Row 12 -----------------------------------
   Id = 12
   Code = evaluate
   Display = evaluate
-  Definition = something
+  Definition = Execute the supplied fluentpath expression and use the value returned by that
+
+ -- Row 13 -----------------------------------
+  Id = 13
+  Code = cc
+  Display = cc
+  Definition = Create a CodeableConcept. Parameters = (text) or (system. Code[, display])
+
+ -- Row 14 -----------------------------------
+  Id = 14
+  Code = c
+  Display = c
+  Definition = Create a Coding. Parameters = (system. Code[, display])
+
+ -- Row 15 -----------------------------------
+  Id = 15
+  Code = qty
+  Display = qty
+  Definition = Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text =s the natural represenation e.g. [comparator]value[space]unit
+
+ -- Row 16 -----------------------------------
+  Id = 16
+  Code = id
+  Display = id
+  Definition = Create an identifier. Parameters = (system, value[, type]) where type is a code from the identifier type value set
+
+ -- Row 17 -----------------------------------
+  Id = 17
+  Code = cp
+  Display = cp
+  Definition = Create a contact details. Parameters = (value) or (system, value). If no system is provided, the system should be inferred from the content of the value
 
 === Sheet map-list-mode =====================================
 
@@ -195,8 +225,8 @@
   Type = DomainResource
   Short Label = A Map of relationships between 2 structures that can be used to transform data
   Definition = A Map of relationships between 2 structures that can be used to transform data
-  Object Impl = BaseConformance
   v2 Mapping = n/a
+  Object Impl = BaseConformance
   Committee Notes = 0;0
   w5 = conformance.content
 
