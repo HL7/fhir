@@ -1,6 +1,40 @@
 ﻿
 === Sheet Bindings =====================================
 
+ -- Row 1 -----------------------------------
+  Binding Name = LibraryType
+  Binding = code list
+  Reference = #library-type
+  Definition = The type of knowledge asset this library contains
+  Conformance = extensible
+
+ -- Row 2 -----------------------------------
+  Binding Name = LibraryStatus
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/module-metadata-status
+  Definition = The status of the knowledge asset
+  Conformance = required
+
+=== Sheet library-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = logic-library
+  Display = Logic Library
+  Definition = The resource is a shareable library of formalized knowledge
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = model-definition
+  Display = Model Definition
+  Definition = The resource is a definition of an information model
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = asset-collection
+  Display = Asset Collection
+  Definition = The resource is a collection of knowledge assets
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -13,150 +47,202 @@
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
-  Element = Library.moduleMetadata
+  Element = Library.url
   Card. = 0..1
-  Type = ModuleMetadata
-  Short Label = The metadata information for the library
-  Definition = The metadata for the library, including publishing, life-cycle, version, documentation, and supporting evidence
+  Summary = Y
+  Type = uri
+  Short Label = Logical URL to reference this module
+  Definition = An absolute URL that is used to identify this module when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this module definition is (or will be) published
+  Requirements = Allows the module to be referenced by a single globally unique identifier
+  w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Library.model
+  Element = Library.identifier
   Card. = 0..*
-  Short Label = A model used by the library
-  Definition = A model element describes the model and version used by the library
+  Summary = Y
+  Type = Identifier
+  Short Label = Logical identifier(s) for the module
+  Definition = A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact
+  Requirements = Allows external business identifiers to be easily associated with the module
+  w5 = id
 
  -- Row 4 -----------------------------------
-  Element = Library.model.name
+  Element = Library.version
   Card. = 0..1
+  Summary = Y
   Type = string
-  Short Label = Name of the model
-  Definition = The name element defines the local name of the model as used within the library
+  Short Label = The version of the module, if any
+  Definition = The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification. Note that the version is required for non-experimental published artifact
+  Requirements = Allows for versioning of the content of the module
 
  -- Row 5 -----------------------------------
-  Element = Library.model.identifier
-  Card. = 1..1
+  Element = Library.name
+  Card. = 0..1
+  Summary = Y
   Type = string
-  Short Label = The identifier of the model
-  Definition = The identifier element specifies the global, non-version-specific identifier for the model
+  Short Label = A machine-friendly name for the module
+  Definition = A machine-friendly name for the module. This name should be usable as an identifier for the module by machine processing applications such as code generation
+  Requirements = Simplifies machine-processing tasks related to the module such as code-generation or logging
+  Comments = This identifier for the module should be unique within the intended scope of use, and should conform to the traditional syntactic definition of an identifier within most programming languages. regex: ([A-Za-z_][A-Za-z0-9_]*)
 
  -- Row 6 -----------------------------------
-  Element = Library.model.version
+  Element = Library.title
   Card. = 0..1
+  Summary = Y
   Type = string
-  Short Label = The version of the model, if any
-  Definition = The version element, if present, identifies the specific version of the model to be used. If no version is specified, the most recent published version of the model is implied
+  Short Label = A user-friendly title for the module
+  Definition = A short, descriptive, user-friendly title for the module
 
  -- Row 7 -----------------------------------
-  Element = Library.library
-  Card. = 0..*
-  Short Label = A library referenced by this library
-  Definition = A library element describes a library referenced by this library
+  Element = Library.type
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = CodeableConcept
+  Binding = LibraryType
+  Short Label = logic-library | model-definition | asset-collection
+  Definition = Identifies the type of knowledge module, such as a rule, library, documentation template, or measure
+  w5 = what
 
  -- Row 8 -----------------------------------
-  Element = Library.library.name
-  Card. = 0..1
-  Type = string
-  Short Label = Name of the library
-  Definition = The name element defines the local name of the referenced library
+  Element = Library.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = LibraryStatus
+  Short Label = draft | active | inactive
+  Definition = The status of the module
+  Requirements = Enables tracking the life-cycle of the content of the module
 
  -- Row 9 -----------------------------------
-  Element = Library.library.identifier
-  Card. = 1..1
-  Type = string
-  Short Label = The identifier of the library
-  Definition = The identifier element specifies the global, non-version-specific identifier for the library
+  Element = Library.experimental
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = Y
+  Type = boolean
+  Short Label = If for testing purposes, not real usage
+  Definition = Determines whether the module was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments
+  Requirements = Enables experimental content to be developed following the same life-cycle as a production-level module would
 
  -- Row 10 -----------------------------------
-  Element = Library.library.version
+  Element = Library.description
   Card. = 0..1
   Type = string
-  Short Label = The version of the library, if any
-  Definition = The version element, if present, identifies the specific version of the library to be used. If no version is specified, the most recent published version of the library is implied
+  Short Label = Natural language description of the module
+  Definition = A free text natural language description of the module from the consumer\'s perspective
+  Comments = This description can be used to capture details such as why the module was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context
 
  -- Row 11 -----------------------------------
-  Element = Library.library.document[x]
+  Element = Library.purpose
   Card. = 0..1
-  Type = Attachment|Reference(ModuleDefinition)
-  Short Label = The content of the library
-  Definition = The content of the referenced library as an Attachment, or a reference to the Library resource. If the document is an attachment, it may be a reference to a url from which the library document may be retrieved, or it may be directly embedded as a base-64 string. Either way, the content is expected to be a CQL or ELM document
+  Type = string
+  Short Label = Describes the purpose of the module
+  Definition = A brief description of the purpose of the module
+  Comments = This description should address the question of why this module was built, though not necessarily in as much detail as the justification, rationale, or clinical recommendation statement of a measure would. That information would typically be provided in the related resource element
 
  -- Row 12 -----------------------------------
-  Element = Library.codeSystem
-  Card. = 0..*
-  Short Label = A code system used by the library
-  Definition = A code system definition used within the library
+  Element = Library.usage
+  Card. = 0..1
+  Type = string
+  Short Label = Describes the clinical usage of the module
+  Definition = A detailed description of how the module is used from a clinical perspective
 
  -- Row 13 -----------------------------------
-  Element = Library.codeSystem.name
+  Element = Library.publicationDate
   Card. = 0..1
-  Type = string
-  Short Label = Name of the code system
-  Definition = The name element specifies the local name of the code system as used within the library. This name is also used when the code system is referenced from a value set element to determine the version of the code system to be used when computed the expansion of the value set definition
+  Type = date
+  Short Label = Publication date for this version of the module
+  Definition = The date on which the module was published
 
  -- Row 14 -----------------------------------
-  Element = Library.codeSystem.identifier
-  Card. = 1..1
-  Type = string
-  Short Label = The identifier of the code system
-  Definition = The identifier element specifies the global, non-version-specific identifier for the code system
+  Element = Library.lastReviewDate
+  Card. = 0..1
+  Type = date
+  Short Label = Last review date for the module
+  Definition = The date on which the module content was last reviewed
 
  -- Row 15 -----------------------------------
-  Element = Library.codeSystem.version
+  Element = Library.effectivePeriod
   Card. = 0..1
-  Type = string
-  Short Label = The version of the code system, if any
-  Definition = The version element, if present, identifies the specific version of the library to be used. If no code system is specified, the most recent published version of the code system is implied
+  Type = Period
+  Short Label = The effective date range for the module
+  Definition = The period during which the module content is effective
+  Comments = The effective period for a module determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015
 
  -- Row 16 -----------------------------------
-  Element = Library.valueSet
+  Element = Library.coverage
   Card. = 0..*
-  Short Label = A value set used by the library
-  Definition = A value set definition referenced by the library
+  Type = UsageContext
+  Short Label = Describes the context of use for this module
+  Definition = Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable
+  Requirements = Consumers of the module must be able to determine the intended applicability for the module. Ideally, this information would be used programmatically to determine when and how it should be incorporated or exposed
 
  -- Row 17 -----------------------------------
-  Element = Library.valueSet.name
-  Card. = 0..1
-  Type = string
-  Short Label = Name of the value set
-  Definition = The name element specifies the local name of the value set used within the library
+  Element = Library.topic
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = Descriptional topics for the module
+  Definition = Clinical topics related to the content of the module
+  Requirements = Repositories must be able to determine how to categorize the module so that it can be found by topical searches
 
  -- Row 18 -----------------------------------
-  Element = Library.valueSet.identifier
-  Card. = 1..1
-  Type = string
-  Short Label = The identifier of the value set
-  Definition = The identifier element specifies the global, non-version-specific identifier for the value set
+  Element = Library.contributor
+  Card. = 0..*
+  Type = Contributor
+  Short Label = A content contributor
+  Definition = A contributor to the content of the module, including authors, editors, reviewers, and endorsers
+  Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the knowledge module
 
  -- Row 19 -----------------------------------
-  Element = Library.valueSet.version
+  Element = Library.publisher
   Card. = 0..1
   Type = string
-  Short Label = The version of the value set
-  Definition = The version element, if present, determines the specific version of the value set definition that is used by the library. If no version is specified, the latest published version of the value set definition is implied
+  Short Label = Name of the publisher (Organization or individual)
+  Definition = The name of the individual or organization that published the module (also known as the steward for the module). This information is required for non-experimental published artifacts
+  Requirements = Consumers of the module must be able to determine where to obtain support in the use of this module, as well as where to direct questions and concerns about the content
+  Comments = The publisher (or steward) of the module is the organization or individual primarily responsible for the maintenance and upkeep of the module. This is not necessarily the same organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the module
 
  -- Row 20 -----------------------------------
-  Element = Library.valueSet.codeSystem
+  Element = Library.contact
   Card. = 0..*
-  Type = string
-  Short Label = The code system binding for this value set definition
-  Definition = The codeSystem element determines which code system binding to use to compute the expansion of the value set definition. The codeSystem element specified here will correspond to a code system element, which is used to determine the code system version
+  Type = ContactDetail
+  Short Label = Contact details of the publisher
+  Definition = Contact details to assist a user in finding and communicating with the publisher
 
  -- Row 21 -----------------------------------
+  Element = Library.copyright
+  Card. = 0..1
+  Type = string
+  Short Label = Use and/or publishing restrictions
+  Definition = A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module
+  Requirements = Consumers of the module must be able to determine any legal restrictions on the use of the module and/or its content
+
+ -- Row 22 -----------------------------------
+  Element = Library.relatedResource
+  Card. = 0..*
+  Type = RelatedResource
+  Short Label = Related resources for the module
+  Definition = Related resources such as additional documentation, justification, or bibliographic references
+  Requirements = Modules must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
+  Comments = Each related resource is either an attachment, or a reference to another resource, but not both
+
+ -- Row 23 -----------------------------------
   Element = Library.parameter
   Card. = 0..*
   Type = ParameterDefinition
   Short Label = Parameters defined by the library
   Definition = The parameter element defines parameters used by the library
 
- -- Row 22 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Library.dataRequirement
   Card. = 0..*
   Type = DataRequirement
   Short Label = Data requirements of the library
   Definition = The dataRequirement element specifies a data requirement used by some expression within the library
 
- -- Row 23 -----------------------------------
-  Element = Library.document
+ -- Row 25 -----------------------------------
+  Element = Library.content
   Card. = 1..1
   Type = Attachment
   Short Label = The content of the library
@@ -168,37 +254,37 @@
   Name = identifier
   Type = token
   Description = Logical identifier for the module (e.g. CMS-143)
-  Path = Library.moduleMetadata.identifier
+  Path = Library.identifier
 
  -- Row 2 -----------------------------------
   Name = topic
   Type = token
   Description = Topics associated with the module
-  Path = Library.moduleMetadata.topic
+  Path = Library.topic
 
  -- Row 3 -----------------------------------
   Name = title
   Type = string
   Description = Text search against the title
-  Path = Library.moduleMetadata.title
+  Path = Library.title
 
  -- Row 4 -----------------------------------
   Name = description
   Type = string
   Description = Text search against the description
-  Path = Library.moduleMetadata.description
+  Path = Library.description
 
  -- Row 5 -----------------------------------
   Name = version
   Type = string
   Description = Version of the module (e.g. 1.0.0)
-  Path = Library.moduleMetadata.version
+  Path = Library.version
 
  -- Row 6 -----------------------------------
   Name = status
   Type = token
   Description = Status of the module
-  Path = Library.moduleMetadata.status
+  Path = Library.status
 
  -- Row 7 -----------------------------------
   Name = !minScore

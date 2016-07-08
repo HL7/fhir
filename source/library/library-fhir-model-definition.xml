@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
+  <id value="library-fhir-model-definition"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">FHIR Model Definition</div>
+  </text>
+  
+	<identifier>
+	  <use value="official"/>
+	  <value value="FHIR"/>
+	</identifier>
+	<version value="1.5.0"/>
+	<title value="FHIR Model Definition"/>
+	<type>
+		<coding>
+			<code value="model-definition"/>
+		</coding>
+	</type>
+	<status value="draft"/>
+	<description value="Model definition for the FHIR Model"/>
+	<publicationDate value="2016-07-08"/>
+	<topic>
+		<text value="FHIR"/>
+	</topic>
+  
+  <content>
+    <contentType value="application/xml"/>
+    <url value="http://cqlrepository.org/fhirmodel-modelinfo.xml"/>
+  </content>
+  
+</Library>
+

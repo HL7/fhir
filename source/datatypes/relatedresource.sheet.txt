@@ -46,6 +46,18 @@
   Display = Derived From
   Definition = The module is derived from the resource. This is intended to capture the relationship when a particular module is based on the content of another module, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting
 
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = depends-on
+  Display = Depends On
+  Definition = The module depends on the given resource
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = composed-of
+  Display = Composed Of
+  Definition = The module is composed of the given resource
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -64,7 +76,7 @@
   Card. = 1..1
   Type = code
   Binding = RelatedResourceType
-  Short Label = documentation | justification | citation | predecessor | successor | derived-from
+  Short Label = documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of
   Definition = The type of related resource
 
  -- Row 3 -----------------------------------
