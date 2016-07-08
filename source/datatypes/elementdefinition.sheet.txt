@@ -281,7 +281,7 @@
   Element = ElementDefinition.path
   Card. = 1..1
   Type = string
-  Short Label = The path of the element (see the Detailed Descriptions)
+  Short Label = Path of the element in the heirarchy of elements
   Definition = The path identifies the element and is expressed as a \".\"-separated list of ancestor elements, beginning with the name of the resource or extension
   v2 Mapping = N/A
   RIM Mapping = N/A

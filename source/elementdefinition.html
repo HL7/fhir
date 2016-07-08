@@ -52,8 +52,33 @@ Content
 [%dt.constraints ElementDefinition%]
 </div>
 
-<a name="interpretation"> </a>
+<p>&nbsp;</p>
 
+<a name="path"> </a>
+<h2>Use of ElementDefinition.path</h2>
+
+<p>
+The <code>path</code> element is the most important property of the element definition. It both names the element, and locates the element 
+within a heirarchy of defined within a particular context. Within the FHIR specification, there is only one original
+definition for each path (that is, an element definition with no base element). This is the master definition to which all the 
+other definitions with the same path must conform. 
+</p>
+<p>
+StructureDefinitions of type constraint (e.g. Resource and Data Type profiles) are not allowed to include ElementDefinitions 
+with a new path not defined within the FHIR specification. However Logical Models and new custom resource definitions (see 
+<a href="http://wiki.hl7.org/index.php?title=FHIR_Custom_Resources">Custom Resource Policy</a>) are allowed to define 
+new elements. When new Elements are defined, the following rules apply:
+</p>
+<ul>
+ <li>Element names (the parts of a path delineated by the '.' character) SHALL not conain whitespace (i.e. unicode characters marked as whitespace)</li>
+ <li>Element names SHALL not contain the characters ,:;'"/|?|!@#$%^&amp;*()[]{}</li>
+ <li>Element names SHOULD not contain non-ASCII characters</li>
+ <li>Element paths SHALL not exceed 64 characters in length</li>
+ <li>Element paths cannot imply elements that are not explicitly defined i.e. a.b.c.d cannot be defined unless a.b.c is explicitly defined</li>
+ <li>By convention, the paths starts with an uppercase letter (type) but all the element names that follow this are lowercase (not type names). All resources and data types follow this convention, but logical models are not required to do so</li>
+</ul>
+
+<a name="interpretation"> </a>
 <h2>Interpretation of ElementDefinition in different contexts</h2>
 
 <p>The data type <code>ElementDefinition</code> is used both in <a href="structuredefinition.html">StructureDefinition</a> and <a href="dataelement.html">DataElement</a>, and within those resources, the way its elements are to be used and interpreted depend on the context where <code>ElementDefinition</code> used:</p>
