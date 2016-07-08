@@ -59,13 +59,17 @@ Content
 <p>The data type <code>ElementDefinition</code> is used both in <a href="structuredefinition.html">StructureDefinition</a> and <a href="dataelement.html">DataElement</a>, and within those resources, the way its elements are to be used and interpreted depend on the context where <code>ElementDefinition</code> used:</p>
 
 <table class="grid">
- <tr> <td><b>ElementDefinition field</b></td> <td><b>DataElement</b></td> <td><b>Base definition, first element</b></td> <td><b>Base definition, following elements</b></td> <td><b>Constraint Definition, first element</b></td> <td><b>Constraint Definition, following elements</b></td> </tr>
+ <tr> <td><b>ElementDefinition field</b></td> <td><b>DataElement</b></td> <td><b>Type definition, first element</b></td> <td><b>Type definition, following elements</b></td> <td><b>Constraint Definition, first element</b></td> <td><b>Constraint Definition, following elements</b></td> </tr>
  <tr> <td>name</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional, for profile re-use</td> </tr>
+ <tr> <td>label</td> <td>optional</td> <td>optional</td> <td>optional</td> <td>recommended</td> <td>recommended</td> </tr>
+ <tr> <td>code</td> <td>optional</td> <td>optional</td> <td>optional</td> <td>optional</td> <td>optional</td> </tr>
  <tr> <td>slicing</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> </tr>
  <tr> <td>short/definition</td> <td>optional</td> <td>required</td> <td>required</td> <td>required<sup>‡</sup></td> <td>required<sup>‡</sup></td> </tr>
  <tr> <td>requirements/<br/>comments/alias</td> <td>optional</td> <td>prohibited</td> <td>optional</td> <td>prohibited<sup>‡</sup></td> <td>optional<sup>‡</sup></td> </tr>
  <tr> <td>base</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>required</td> <td>required</td> </tr>
+ <tr> <td>type</td> <td>required</td> <td>required</td> <td>required</td> <td>optional</td> <td>optional</td> </tr>
  <tr> <td>nameReference</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional</td> </tr>
+ <tr> <td>min/max</td> <td>optional</td> <td>optional (irrelevant)</td> <td>required</td> <td>optional</td> <td>optional<sup>†</sup></td> </tr>
  <tr> <td>defaultValue[x]</td> <td>optional</td> <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional<sup>†</sup></td> </tr>
  <tr> <td>meaningWhenMissing</td> <td>optional</td> <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional<sup>†</sup></td> </tr>
  <tr> <td>fixed[x]</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> </tr>
@@ -78,14 +82,16 @@ Content
  <tr> <td>isModifier</td> <td>prohibited</td>  <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional<sup>†</sup></td> </tr>
  <tr> <td>isSummary</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional<sup>†</sup></td> </tr>
  <tr> <td>binding</td> <td>optional</td> <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional</td> </tr>
- <tr> <td>constraint/mapping</td> <td>optional</td> <td>prohibited</td> <td>optional</td> <td>optional<sup>∆</sup></td> <td>optional<sup>∆</sup></td> </tr>
+ <tr> <td>constraint</td> <td>optional</td> <td>optional</td> <td>optional</td> <td>optional<sup>∆</sup></td> <td>optional<sup>∆</sup></td> </tr>
+ <tr> <td>condition</td> <td>optional</td> <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional<sup>∆</sup></td> </tr>
+ <tr> <td>mapping</td> <td>optional</td> <td>optional</td> <td>optional</td> <td>optional<sup>∆</sup></td> <td>optional<sup>∆</sup></td> </tr>
 </table>
 <p>
 Notes:
 </p>
 <ul>
- <li>Base definition: A StructureDefinition without a <code>base</code> element - e.g. a definition of a structure that doesn't constrain another structure</li>
- <li>Constraint definition: A StructureDefinition with a <code>base</code> element - e.g. a definition of a structure that constrains another base structure</li>
+ <li>Type definition: A StructureDefinition without a <code>base</code> element, or where the derivation type is 'specialization'</li>
+ <li>Constraint definition: A StructureDefinition with a <code>base</code> element and a derivation of 'constraint' - e.g. a definition of a structure that constrains another base structure, referring to the differential portion</li>
  <li><sup>†</sup>: The element's presence, and value, must match the definition in the base structure</li>
  <li><sup>‡</sup>: The element content must be consistent with that matching element in the base structure</li>
  <li><sup>∆</sup>: Additional constraints and mappings can be defined, but they do not replace the ones in the base structure</li>
