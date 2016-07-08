@@ -17,7 +17,7 @@
         </telecom>
     </contact>
     <description value="A History and Physical (H&amp;P) note is a medical report that documents the current and past conditions of the patient. It contains essential information that helps determine an individual's health status.  &#xA;&#xA;The first portion of the report is a current collection of organized information unique to an individual. This is typically supplied by the patient or the caregiver, concerning the current medical problem or the reason for the patient encounter. This information is followed by a description of any past or ongoing medical issues, including current medications and allergies. Information is also obtained about the patient's lifestyle, habits, and diseases among family members.&#xA;The next portion of the report contains information obtained by physically examining the patient and gathering diagnostic information in the form of laboratory tests, imaging, or other diagnostic procedures.&#xA; &#xA;The report ends with the clinician's assessment of the patient's situation and the intended plan to address those issues.&#xA; &#xA;A History and Physical Examination is required upon hospital admission as well as before operative procedures. An initial evaluation in an ambulatory setting is often documented in the form of an H&amp;P note.&#xA;&#xA;The H&amp;P Note recommends use of a single document type code, 34117-2 display: History and physical note" />
-    <fhirVersion value="1.4.0" />
+    <fhirVersion value="1.5.0" />
     <kind value="resource" />
 	<abstract value="false" />
     <baseType value="Composition" />

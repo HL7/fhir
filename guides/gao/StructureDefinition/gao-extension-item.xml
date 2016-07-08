@@ -25,7 +25,7 @@
   <date value="2013-07-04"></date>
   <description value="Describes an orderable service being evaluated."></description>
   <requirements value="In order to evaluate an order, the service that may be ordered must be identified."></requirements>
-  <fhirVersion value="1.4.0"></fhirVersion>
+  <fhirVersion value="1.5.0"></fhirVersion>
   <kind value="complex-type"></kind>
   <abstract value="false"></abstract>
   <contextType value="resource"></contextType>

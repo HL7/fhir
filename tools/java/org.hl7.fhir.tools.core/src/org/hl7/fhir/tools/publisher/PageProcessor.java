@@ -5153,8 +5153,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
     String n = res.getSourceUriType().getValue();
     s.append("<tr><td><a href=\""+prefix+Utilities.changeFileExt(n, ".html")+"\">"+Utilities.escapeXml(res.getDescription())+"</a></td>");
+    s.append("<td>"+res.getId()+"</td>");
     s.append("<td><a href=\""+prefix+Utilities.changeFileExt(n, ".xml.html")+"\">XML</a></td>");
     s.append("<td><a href=\""+prefix+Utilities.changeFileExt(n, ".json.html")+"\">JSON</a></td>");
+    s.append("<td><a href=\""+prefix+Utilities.changeFileExt(n, ".ttl.html")+"\">Turtle</a></td>");
     s.append("<td>from <a href=\""+ig.getHomePage()+"\">"+Utilities.escapeXml(ig.getName())+"</a> IG</td>");
     s.append("</tr>");
   }
@@ -5165,6 +5167,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
     else
       s.append("<tr><td><a href=\""+prefix+e.getTitle()+".html\">"+Utilities.escapeXml(e.getDescription())+"</a></td>");
+    s.append("<td>"+e.getId()+"</td>");
     s.append("<td><a href=\""+prefix+e.getTitle()+".xml.html\">XML</a></td>");
     s.append("<td><a href=\""+prefix+e.getTitle()+".json.html\">JSON</a></td>");
     s.append("<td><a href=\""+prefix+e.getTitle()+".ttl.html\">Turtle</a></td>");

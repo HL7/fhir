@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="a Universal Resource Identifier (URI) as defined in IETF RFC 3986. CTS2 implementations are encouraged to consider implementing this data type&#xa;&#x9;&#x9;&#x9;&#x9;using the IRI (RFC3987) specification."/>
-   <fhirVersion value="1.4.0"/>
+   <fhirVersion value="1.5.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/uri"/>

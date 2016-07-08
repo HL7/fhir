@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Jul 8, 2016 16:12+1000 for FHIR v1.4.0
+// Generated on Sat, Jul 9, 2016 08:30+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -72,6 +72,14 @@ public class RelatedResource extends Type implements ICompositeType {
          */
         DERIVEDFROM, 
         /**
+         * The module depends on the given resource
+         */
+        DEPENDSON, 
+        /**
+         * The module is composed of the given resource
+         */
+        COMPOSEDOF, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -90,6 +98,10 @@ public class RelatedResource extends Type implements ICompositeType {
           return SUCCESSOR;
         if ("derived-from".equals(codeString))
           return DERIVEDFROM;
+        if ("depends-on".equals(codeString))
+          return DEPENDSON;
+        if ("composed-of".equals(codeString))
+          return COMPOSEDOF;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -103,6 +115,8 @@ public class RelatedResource extends Type implements ICompositeType {
             case PREDECESSOR: return "predecessor";
             case SUCCESSOR: return "successor";
             case DERIVEDFROM: return "derived-from";
+            case DEPENDSON: return "depends-on";
+            case COMPOSEDOF: return "composed-of";
             default: return "?";
           }
         }
@@ -114,6 +128,8 @@ public class RelatedResource extends Type implements ICompositeType {
             case PREDECESSOR: return "http://hl7.org/fhir/related-resource-type";
             case SUCCESSOR: return "http://hl7.org/fhir/related-resource-type";
             case DERIVEDFROM: return "http://hl7.org/fhir/related-resource-type";
+            case DEPENDSON: return "http://hl7.org/fhir/related-resource-type";
+            case COMPOSEDOF: return "http://hl7.org/fhir/related-resource-type";
             default: return "?";
           }
         }
@@ -125,6 +141,8 @@ public class RelatedResource extends Type implements ICompositeType {
             case PREDECESSOR: return "The previous version of the module";
             case SUCCESSOR: return "The next version of the module";
             case DERIVEDFROM: return "The module is derived from the resource. This is intended to capture the relationship when a particular module is based on the content of another module, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting";
+            case DEPENDSON: return "The module depends on the given resource";
+            case COMPOSEDOF: return "The module is composed of the given resource";
             default: return "?";
           }
         }
@@ -136,6 +154,8 @@ public class RelatedResource extends Type implements ICompositeType {
             case PREDECESSOR: return "Predecessor";
             case SUCCESSOR: return "Successor";
             case DERIVEDFROM: return "Derived From";
+            case DEPENDSON: return "Depends On";
+            case COMPOSEDOF: return "Composed Of";
             default: return "?";
           }
         }
@@ -158,6 +178,10 @@ public class RelatedResource extends Type implements ICompositeType {
           return RelatedResourceType.SUCCESSOR;
         if ("derived-from".equals(codeString))
           return RelatedResourceType.DERIVEDFROM;
+        if ("depends-on".equals(codeString))
+          return RelatedResourceType.DEPENDSON;
+        if ("composed-of".equals(codeString))
+          return RelatedResourceType.COMPOSEDOF;
         throw new IllegalArgumentException("Unknown RelatedResourceType code '"+codeString+"'");
         }
         public Enumeration<RelatedResourceType> fromType(Base code) throws FHIRException {
@@ -178,6 +202,10 @@ public class RelatedResource extends Type implements ICompositeType {
           return new Enumeration<RelatedResourceType>(this, RelatedResourceType.SUCCESSOR);
         if ("derived-from".equals(codeString))
           return new Enumeration<RelatedResourceType>(this, RelatedResourceType.DERIVEDFROM);
+        if ("depends-on".equals(codeString))
+          return new Enumeration<RelatedResourceType>(this, RelatedResourceType.DEPENDSON);
+        if ("composed-of".equals(codeString))
+          return new Enumeration<RelatedResourceType>(this, RelatedResourceType.COMPOSEDOF);
         throw new FHIRException("Unknown RelatedResourceType code '"+codeString+"'");
         }
     public String toCode(RelatedResourceType code) {
@@ -193,6 +221,10 @@ public class RelatedResource extends Type implements ICompositeType {
         return "successor";
       if (code == RelatedResourceType.DERIVEDFROM)
         return "derived-from";
+      if (code == RelatedResourceType.DEPENDSON)
+        return "depends-on";
+      if (code == RelatedResourceType.COMPOSEDOF)
+        return "composed-of";
       return "?";
       }
     public String toSystem(RelatedResourceType code) {
@@ -204,7 +236,7 @@ public class RelatedResource extends Type implements ICompositeType {
      * The type of related resource.
      */
     @Child(name = "type", type = {CodeType.class}, order=0, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="documentation | justification | citation | predecessor | successor | derived-from", formalDefinition="The type of related resource." )
+    @Description(shortDefinition="documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of", formalDefinition="The type of related resource." )
     protected Enumeration<RelatedResourceType> type;
 
     /**

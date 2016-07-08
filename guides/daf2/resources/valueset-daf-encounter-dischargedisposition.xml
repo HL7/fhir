@@ -21,7 +21,7 @@
     <valueUri value="urn:oid:2.16.840.1.113883.4.642.2.592"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/daf-encounter-dischargedisposition"/>
-  <version value="1.4.0"/>
+  <version value="1.5.0"/>
   <name value="DAF Encounter Discharge Disposition"/>
   <status value="draft"/>
   <experimental value="true"/>

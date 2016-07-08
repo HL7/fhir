@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="&quot;An enumeration defines a set of literals that can beused as its values&quot; UML Infrastructure, Version 2.3, Section 10.3.2. Because enumeration is a built in part of the UML meta model, the&#xa;&#x9;&#x9;&#x9;&#x9;\guillemotleft enumeration \guillemotright ~stereotype is used to represent them in the UML rendering."/>
-   <fhirVersion value="1.4.0"/>
+   <fhirVersion value="1.5.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/string"/>

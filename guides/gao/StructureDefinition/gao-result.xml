@@ -18,7 +18,7 @@
   <date value="2015-09-22T20:02:49+10:00"></date>
   <description value="The result resource provides the result of the evaluation."></description>
   <requirements value="Enables the evaluation results to be reported."></requirements>
-  <fhirVersion value="1.4.0"></fhirVersion>
+  <fhirVersion value="1.5.0"></fhirVersion>
   
   
   <kind value="resource"></kind>

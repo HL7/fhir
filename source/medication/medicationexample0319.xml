@@ -37,7 +37,7 @@
             <coding>
                <system value="http://snomed.info/sct"/>
                <code value="396458002"/>
-               <display value="Salicyclic Acid (substance)"/>
+               <display value="Hydrocortisone (substance)"/>
             </coding>
          </itemCodeableConcept>
          <amount>

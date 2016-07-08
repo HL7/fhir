@@ -84,7 +84,7 @@
     <valueUri value="urn:oid:2.16.840.1.113762.1.4.1010.1"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/daf-substance"/>
-  <version value="1.4.0"/>
+  <version value="1.5.0"/>
   <name value="DAF Substance-Reactant for Intolerance and Negation Codes"/>
   <status value="draft"/>
   <experimental value="true"/>

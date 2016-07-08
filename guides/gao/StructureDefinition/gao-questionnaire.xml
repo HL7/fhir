@@ -19,7 +19,7 @@
   <date value="2015-09-22T20:02:49+10:00"></date>
   <description value="The Questionnaire resource is used to support an interactive question/answer implementation driven by the client.  This interaction may result in a more favorable evaluation of the proposed order."></description>
   <requirements value="This resource enables interactive question/answer implementations driven by the server, but where the user interface can be implemented by the client."></requirements>
-  <fhirVersion value="1.4.0"></fhirVersion>
+  <fhirVersion value="1.5.0"></fhirVersion>
   
   
   <kind value="resource"></kind>

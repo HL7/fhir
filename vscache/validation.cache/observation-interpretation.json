@@ -24,6 +24,17 @@
       }
     },
     {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|H|High",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "H",
+        "definition": null,
+        "display": "High"
+      }
+    },
+    {
       "hash": "#|http://hl7.org/fhir/v2/0078|null|H|null",
       "severity": null,
       "message": null,
@@ -57,6 +68,17 @@
       }
     },
     {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|low",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "L",
+        "definition": null,
+        "display": "Low"
+      }
+    },
+    {
       "hash": "#|http://hl7.org/fhir/v2/0078|null|L|null",
       "severity": null,
       "message": null,
@@ -68,6 +90,17 @@
       }
     },
     {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|N|Normal",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "N",
+        "definition": null,
+        "display": "Normal"
+      }
+    },
+    {
       "hash": "#|http://hl7.org/fhir/v2/0078|null|N|null",
       "severity": null,
       "message": null,
@@ -76,6 +109,61 @@
         "code": "N",
         "definition": null,
         "display": "Normal"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|POS|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "POS",
+        "definition": null,
+        "display": "Positive"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|R|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "R",
+        "definition": null,
+        "display": "Resistant"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|S|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "S",
+        "definition": null,
+        "display": "Susceptible"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|166698001|Serum bicarbonate level normal#|http://hl7.org/fhir/v2/0078|null|N|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "N",
+        "definition": null,
+        "display": "Normal"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|166717003|Serum creatinine raised#|http://hl7.org/fhir/v2/0078|null|H|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "H",
+        "definition": null,
+        "display": "High"
       }
     }
   ]

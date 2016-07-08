@@ -19,7 +19,7 @@
   <date value="2015-09-22T20:02:49+10:00"></date>
   <description value="An identifier representing the ordering practitioner."></description>
   <requirements value="This field SHALL be provided unless the evaluation was issued manually, in which case it is optional."></requirements>
-  <fhirVersion value="1.4.0"></fhirVersion>
+  <fhirVersion value="1.5.0"></fhirVersion>
   <kind value="complex-type"></kind>
   <abstract value="false"></abstract>
   <contextType value="resource"></contextType>

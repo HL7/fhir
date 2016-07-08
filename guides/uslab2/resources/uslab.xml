@@ -350,7 +350,6 @@
 		</resource>
 
 -->
-		<!--
 
 		<resource>
 			<example value="true"/>
@@ -363,6 +362,7 @@
 				<reference value="StructureDefinition/uslab-obsratio"/>
 			</exampleFor>
 		</resource>
+		<!--
 		<resource>
 			<example value="true"/>
 			<name value="USLab Observation Example5"/>
