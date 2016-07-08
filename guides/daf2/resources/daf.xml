@@ -63,7 +63,8 @@
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-encounterlist"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-familymemberhistory"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-immunization"/></sourceReference></resource>
-    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-immunizationlist"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-core-immunization"/></sourceReference></resource>
+     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-immunizationlist"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-location"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-medication"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-core-medication"/></sourceReference></resource>
@@ -206,6 +207,18 @@
       <format value="generated"/>
       <page>
         <source value="daf-immunization.html"/>
+        <name value="Immunization Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+    <page>
+      <source value="immunization-daf-core.html"/>
+      <name value="Immunizations"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="daf-core-immunization.html"/>
         <name value="Immunization Details"/>
         <kind value="resource"/>
         <format value="generated"/>

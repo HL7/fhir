@@ -25,6 +25,7 @@
     "encounter-daf-profile-spreadsheet.xml",
     "familymemberhistory-daf-profile-spreadsheet.xml",
     "immunization-daf-profile-spreadsheet.xml",
+	"immunization-daf-core-profile-spreadsheet.xml",
     "list-daf-profile-spreadsheet.xml",
     "location-daf-profile-spreadsheet.xml",
     "medication-daf-profile-spreadsheet.xml",
@@ -171,6 +172,10 @@
 		"StructureDefinition/daf-immunization": {
 			"defns": "daf-immunization-definitions.html",
 			"base": "daf-immunization.html"
+		},
+		"StructureDefinition/daf-core-immunization": {
+			"defns": "daf-core-immunization-definitions.html",
+			"base": "daf-core-immunization.html"
 		},
 		"StructureDefinition/daf-medicationdispense": {
 			"defns": "daf-medicationdispense-definitions.html",
