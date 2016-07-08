@@ -1087,24 +1087,20 @@ but with no entries, and no prev/next/last links.
 <a name="revinclude"> </a>
 <h4>Including other resources in result (<code>_include</code> and <code>_revinclude</code>)</h4>
 <p>
-Clients may request that the engine return resources related to
-the search results, in order to reduce the overall network delay of repeated 
-retrievals of related resources.
-This is useful when the client is searching on
-a clinical resource, but for every such resource returned,
-the client will also need the subject (patient) resource that the
-clinical resource refers to. The client can use the <code>_include</code> parameter 
-to indicate that the subject resources be included in the results. 
-An alternative scenario is where the client 
-wishes to fetch a particular resource, and any resources that refer
-to it. For example, the client may wish to fetch a MedicationOrder,
-and any provenance resources that refer to the prescription. This is known
-as a reverse include, and is specified by providing a <code>_revinclude</code> parameter.
+Clients may request that the engine return resources related to the search results, in order to reduce 
+the overall network delay of repeated retrievals of related resources. This is useful when the client 
+is searching on a clinical resource, but for every such resource returned, the client will also need 
+the subject (patient) resource that the clinical resource refers to. The client can use the 
+<code>_include</code> parameter to indicate that the subject resources be included in the results. 
+An alternative scenario is where the client wishes to fetch a particular resource, and any resources 
+that refer to it. For example, the client may wish to fetch a MedicationOrder, and any provenance 
+resources that refer to the prescription. This is known as a reverse include, and is specified by 
+providing a <code>_revinclude</code> parameter.
 </p>
 <p>
-Both <code>_include</code> and <code>_revinclude</code> are based on search parameters, rather 
-than paths in the resource, since joins, such as <a href="#chaining">chaining</a>,
-are already done by search parameter.
+Both <code>_include</code> and <code>_revinclude</code> are based on search parameters, rather than 
+paths in the resource, since joins, such as <a href="#chaining">chaining</a>, are already done by 
+search parameter.
 </p> 
 <p>
 Each <code>_include</code> parameter specifies a search parameter to join on:
@@ -1114,7 +1110,7 @@ Each <code>_include</code> parameter specifies a search parameter to join on:
  GET [base]/MedicationOrder?_revinclude=Provenance:target&amp;criteria...
 </pre>
 <p>
-  The first search requests all matching MedicationOrders, to include 
+The first search requests all matching MedicationOrders, to include 
 any patient that the medication prescriptions in the result set refer to. 
 The second search requests all matching prescriptions, return all 
 the provenance resources that refer to them. 
@@ -1146,7 +1142,7 @@ for the matching <a href="medicationdispense.html">Medication Dispense</a> resou
 </p>
 <pre>
 GET [base]/MedicationDispense?_include=MedicationDispense:authorizingPrescription
-    &amp;_include:recurse=MedicationOrder.prescriber&amp;criteria...
+    &amp;_include:recurse=MedicationOrder:prescriber&amp;criteria...
 </pre>
 <p>
 This technique applies to circular relationships as well. For example, 
@@ -1158,7 +1154,7 @@ also any related observations to any other included observation.
 </p>
 <pre>
 GET [base]/Observation?_include=Observation:related-target&amp;criteria...
-GET [base]/Observation?_include:recurse=Observation.related-target&amp;criteria...
+GET [base]/Observation?_include:recurse=Observation:related-target&amp;criteria...
 </pre>
 <p>
 Both <code>_include</code> and <code>_revInclude</code> use the wild card "*" for the search parameter

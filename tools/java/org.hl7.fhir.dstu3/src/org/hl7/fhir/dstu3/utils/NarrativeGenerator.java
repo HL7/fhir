@@ -1869,7 +1869,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     p.addText(". ");
     p.addText(cm.getCopyright());
     if (!Utilities.noString(cm.getDescription()))
-      addMarkdown(x.addTag("p"), cm.getDescription());
+      addMarkdown(x, cm.getDescription());
 
     x.addTag("br");
 
@@ -2198,8 +2198,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (header) {
       XhtmlNode h = x.addTag("h2");
       h.addText(cs.getName());
-      XhtmlNode p = x.addTag("p");
-      addMarkdown(p, cs.getDescription());
+      addMarkdown(x, cs.getDescription());
       if (cs.hasCopyright())
         generateCopyright(x, cs);
     }
@@ -2331,7 +2330,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       XhtmlNode h = x.addTag("h3");
       h.addText("Value Set Contents");
       if (IsNotFixedExpansion(vs))
-        addMarkdown(x.addTag("p"), vs.getDescription());
+        addMarkdown(x, vs.getDescription());
       if (vs.hasCopyright())
         generateCopyright(x, vs);
     }
@@ -2464,10 +2463,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
       XhtmlNode b = td.addTag("b");
       XhtmlNode a = b.addTag("a");
       a.setAttribute("href", prefix+mymaps.get(m));
+      a.addText(m.getName());
       if (m.hasDescription())
-        addMarkdown(a, m.getDescription());
-      else
-        a.addText(m.getName());
+        addMarkdown(td, m.getDescription());
     }
   }
 
@@ -2748,8 +2746,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (header) {
       XhtmlNode h = x.addTag("h2");
       h.addText(vs.getName());
-      XhtmlNode p = x.addTag("p");
-      addMarkdown(p, vs.getDescription());
+      addMarkdown(x, vs.getDescription());
       if (vs.hasCopyrightElement())
         generateCopyright(x, vs);
     }
@@ -3208,7 +3205,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   public void generate(Conformance conf) throws FHIRFormatError, DefinitionException, IOException {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("h2").addText(conf.getName());
-    addMarkdown(x.addTag("p"), conf.getDescription());
+    addMarkdown(x, conf.getDescription());
     ConformanceRestComponent rest = conf.getRest().get(0);
     XhtmlNode t = x.addTag("table");
     addTableRow(t, "Mode", rest.getMode().toString());

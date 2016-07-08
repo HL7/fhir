@@ -88,7 +88,7 @@ public class FluentPathTests {
   @SuppressWarnings("deprecation")
   private void test(Resource resource, String expression, int count, String... types) throws FileNotFoundException, IOException, FHIRException {
     if (TestingUtilities.context == null)
-    	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
+    	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip");
     FHIRPathEngine fp = new FHIRPathEngine(TestingUtilities.context);
 
     ExpressionNode node = fp.parse(expression);
@@ -143,7 +143,7 @@ public class FluentPathTests {
 
   private void testWrong(Resource resource, String expression) throws FileNotFoundException, IOException, FHIRException {
     if (TestingUtilities.context == null)
-    	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
+    	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip");
     FHIRPathEngine fp = new FHIRPathEngine(TestingUtilities.context);
 
     try {
@@ -842,6 +842,7 @@ public class FluentPathTests {
   public void testDivide() throws FileNotFoundException, FHIRFormatError, IOException, FHIRException {
     testBoolean(patient(), "1 / 1 = 1", true);
     testBoolean(patient(), "4 / 2 = 2", true);
+    testBoolean(patient(), "4.0 / 2.0 = 2.0", true);
     testBoolean(patient(), "1 / 2 = 0.5", true);
     testBoolean(patient(), "1.2 / 1.8 = 0.67", true);    
   }
