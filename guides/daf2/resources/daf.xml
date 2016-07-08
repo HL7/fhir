@@ -59,6 +59,7 @@
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-condition"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-diagnosticorder"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-diagnosticreport"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-core-diagnosticreport"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-encounter"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-encounterlist"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-familymemberhistory"/></sourceReference></resource>
@@ -85,10 +86,13 @@
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-relatedperson"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-resultlist"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-resultobs"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-core-resultobs"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-smokingstatus"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-core-smokingstatus"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-spec"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-substance"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-vitalsigns"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-core-vitalsigns"/></sourceReference></resource>
 
   <!--  search parameters -->    
     <resource><example value="false"/><sourceReference><reference value="SearchParameter/familymemberhistory-daf-FamilyMemberHistory-condition"/></sourceReference></resource>
@@ -177,6 +181,18 @@
       </page>
     </page>
     <page>
+      <source value="diagnosticreport-core-daf.html"/>
+      <name value="Diagnostic Reports"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="daf-core-diagnosticreport.html"/>
+        <name value="Diagnostic Report Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+    <page>
       <source value="encounter-daf.html"/>
       <name value="Encounter"/>
       <kind value="page"/>
@@ -231,6 +247,18 @@
       <format value="generated"/>
       <page>
         <source value="daf-resultobs.html"/>
+        <name value="Result Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+    <page>
+      <source value="observation-daf-core-results.html"/>
+      <name value="Results"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="daf-core-resultobs.html"/>
         <name value="Result Details"/>
         <kind value="resource"/>
         <format value="generated"/>
@@ -398,12 +426,36 @@
       </page>
     </page>
     <page>
+      <source value="observation-daf-core-smokingstatus.html"/>
+      <name value="Smoking Status"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="daf-core-smokingstatus.html"/>
+        <name value="Smoking Status Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+    <page>
       <source value="observation-daf-vitalsigns.html"/>
       <name value="Vital Signs"/>
       <kind value="page"/>
       <format value="generated"/>
       <page>
         <source value="daf-vitalsigns.html"/>
+        <name value="Vital Signs Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+    <page>
+      <source value="observation-daf-core-vitalsigns.html"/>
+      <name value="Vital Signs"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="daf-core-vitalsigns.html"/>
         <name value="Vital Signs Details"/>
         <kind value="resource"/>
         <format value="generated"/>

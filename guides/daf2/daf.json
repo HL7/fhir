@@ -22,6 +22,7 @@
     "condition-daf-profile-spreadsheet.xml",
     "diagnosticorder-daf-profile-spreadsheet.xml",
     "diagnosticreport-daf-profile-spreadsheet.xml",
+	"diagnosticreport-daf-core-profile-spreadsheet.xml",
     "encounter-daf-profile-spreadsheet.xml",
     "familymemberhistory-daf-profile-spreadsheet.xml",
     "immunization-daf-profile-spreadsheet.xml",
@@ -37,8 +38,11 @@
 	"medicationstatement-daf-profile-spreadsheet.xml",   
     "medicationstatement-daf-core-profile-spreadsheet.xml",
     "observation-daf-vitalsigns-profile-spreadsheet.xml",
+	"observation-daf-core-vitalsigns-profile-spreadsheet.xml",
     "observation-daf-results-profile-spreadsheet.xml",
+	"observation-daf-core-results-profile-spreadsheet.xml",
     "observation-daf-smokingstatus-profile-spreadsheet.xml",
+	"observation-daf-core-smokingstatus-profile-spreadsheet.xml",
     "organization-daf-profile-spreadsheet.xml",
     "patient-daf-profile-spreadsheet.xml",
 	"patient-daf-core-profile-spreadsheet.xml",
@@ -72,6 +76,10 @@
 		"StructureDefinition/daf-diagnosticreport": {
 			"defns": "daf-diagnosticreport-definitions.html",
 			"base": "daf-diagnosticreport.html"
+		},
+		"StructureDefinition/daf-core-diagnosticreport": {
+			"defns": "daf-core-diagnosticreport-definitions.html",
+			"base": "daf-core-diagnosticreport.html"
 		},
 		"StructureDefinition/daf-encounter": {
 			"defns": "daf-encounter-definitions.html",
@@ -153,9 +161,17 @@
 			"defns": "daf-resultobs-definitions.html",
 			"base": "daf-resultobs.html"
 		},
+		"StructureDefinition/daf-core-resultobs": {
+			"defns": "daf-core-resultobs-definitions.html",
+			"base": "daf-core-resultobs.html"
+		},
 		"StructureDefinition/daf-smokingstatus": {
 			"defns": "daf-smokingstatus-definitions.html",
 			"base": "daf-smokingstatus.html"
+		},
+		"StructureDefinition/daf-core-smokingstatus": {
+			"defns": "daf-core-smokingstatus-definitions.html",
+			"base": "daf-core-smokingstatus.html"
 		},
 		"StructureDefinition/daf-spec": {
 			"defns": "daf-spec-definitions.html",
@@ -168,6 +184,10 @@
 		"StructureDefinition/daf-vitalsigns": {
 			"defns": "daf-vitalsigns-definitions.html",
 			"base": "daf-vitalsigns.html"
+		},
+		"StructureDefinition/daf-core-vitalsigns": {
+			"defns": "daf-core-vitalsigns-definitions.html",
+			"base": "daf-core-vitalsigns.html"
 		},
 		"StructureDefinition/daf-immunization": {
 			"defns": "daf-immunization-definitions.html",
