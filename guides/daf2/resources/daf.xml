@@ -66,13 +66,17 @@
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-immunizationlist"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-location"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-medication"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-core-medication"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-medicationadministration"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-medicationdispense"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-medicationlist"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-medicationorder"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-core-medicationorder"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-medicationstatement"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-core-medicationstatement"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-organization"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-patient"/></sourceReference></resource>
+    <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-core-patient"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-pract"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-problemlist"/></sourceReference></resource>
     <resource><example value="false"/><sourceReference><reference value="StructureDefinition/daf-procedure"/></sourceReference></resource>
@@ -237,12 +241,36 @@
       </page>
     </page>
     <page>
+      <source value="medication-daf-core.html"/>
+      <name value="Medications"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="daf-core-medication.html"/>
+        <name value="Medication Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+    <page>
       <source value="medicationstatement-daf.html"/>
       <name value="Medication Statements"/>
       <kind value="page"/>
       <format value="generated"/>
       <page>
         <source value="daf-medicationstatement.html"/>
+        <name value="Medication Statement Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+    <page>
+      <source value="medicationstatement-daf-core.html"/>
+      <name value="Medication Statements"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="daf-core-medicationstatement.html"/>
         <name value="Medication Statement Details"/>
         <kind value="resource"/>
         <format value="generated"/>
@@ -285,12 +313,36 @@
       </page>
     </page>
     <page>
+      <source value="medicationorder-daf-core.html"/>
+      <name value="Medication Orders"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="daf-medicationorder-core.html"/>
+        <name value="Medication Order Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+    <page>
       <source value="patient-daf.html"/>
       <name value="Patients"/>
       <kind value="page"/>
       <format value="generated"/>
       <page>
         <source value="daf-patient.html"/>
+        <name value="Patient Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+    <page>
+      <source value="patient-daf-core.html"/>
+      <name value="Patients"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="daf-patient-core.html"/>
         <name value="Patient Details"/>
         <kind value="resource"/>
         <format value="generated"/>

@@ -28,15 +28,19 @@
     "list-daf-profile-spreadsheet.xml",
     "location-daf-profile-spreadsheet.xml",
     "medication-daf-profile-spreadsheet.xml",
+	"medication-daf-core-profile-spreadsheet.xml",
     "medicationadministration-daf-profile-spreadsheet.xml",
     "medicationdispense-daf-profile-spreadsheet.xml",
     "medicationorder-daf-profile-spreadsheet.xml",
-    "medicationstatement-daf-profile-spreadsheet.xml",
+    "medicationorder-daf-core-profile-spreadsheet.xml",
+	"medicationstatement-daf-profile-spreadsheet.xml",   
+    "medicationstatement-daf-core-profile-spreadsheet.xml",
     "observation-daf-vitalsigns-profile-spreadsheet.xml",
     "observation-daf-results-profile-spreadsheet.xml",
     "observation-daf-smokingstatus-profile-spreadsheet.xml",
     "organization-daf-profile-spreadsheet.xml",
     "patient-daf-profile-spreadsheet.xml",
+	"patient-daf-core-profile-spreadsheet.xml",
     "practitioner-daf-profile-spreadsheet.xml",
     "procedure-daf-profile-spreadsheet.xml",
     "relatedperson-daf-profile-spreadsheet.xml",
@@ -92,6 +96,10 @@
 			"defns": "daf-medication-definitions.html",
 			"base": "daf-medication.html"
 		},
+		"StructureDefinition/daf-core-medication": {
+			"defns": "daf-core-medication-definitions.html",
+			"base": "daf-core-medication.html"
+		},
 		"StructureDefinition/daf-medicationadministration": {
 			"defns": "daf-medicationadministration-definitions.html",
 			"base": "daf-medicationadministration.html"
@@ -104,6 +112,10 @@
 			"defns": "daf-medicationstatement-definitions.html",
 			"base": "daf-medicationstatement.html"
 		},
+		"StructureDefinition/daf-core-medicationstatement": {
+			"defns": "daf-medicationstatement-definitions.html",
+			"base": "daf-medicationstatement.html"
+		},
 		"StructureDefinition/daf-organization": {
 			"defns": "daf-organization-definitions.html",
 			"base": "daf-organization.html"
@@ -111,6 +123,10 @@
 		"StructureDefinition/daf-patient": {
 			"defns": "daf-patient-definitions.html",
 			"base": "daf-patient.html"
+		},
+		"StructureDefinition/daf-core-patient": {
+			"defns": "daf-core-patient-definitions.html",
+			"base": "daf-core-patient.html"
 		},
 		"StructureDefinition/daf-pract": {
 			"defns": "daf-pract-definitions.html",
@@ -163,6 +179,10 @@
 		"StructureDefinition/daf-medicationorder": {
 			"defns": "daf-medicationorder-definitions.html",
 			"base": "daf-medicationorder.html"
+		},
+		"StructureDefinition/daf-core-medicationorder": {
+			"defns": "daf-core-medicationorder-definitions.html",
+			"base": "daf-core-medicationorder.html"
 		},
 		"StructureDefinition/daf-procedurelist": {
 			"defns": "daf-procedurelist-definitions.html",
