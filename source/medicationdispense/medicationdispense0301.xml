@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
+ xmlns="http://hl7.org/fhir">
+    <id value="meddisp0301"/>
+    <contained>
+        <Medication>
+            <id value="med0301"/>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/sid/ndc"/>
+                    <code value="0069-2587-10"/>
+                    <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
+                </coding>
+            </code>
+        </Medication>
+    </contained>
+    <status value="in-progress"/>
+    <medicationReference>
+        <!-- Linked to a RESOURCE Medication -->
+        <reference value="#med0301"/>
+        <display value="Vancomycin Hydrochloride"></display>
+    </medicationReference>
+    <patient>
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/> 
+    </patient>
+    <dispenser>
+        <reference value="Practitioner/f006"/>
+        <display value="Rob van den Berk"/>
+    </dispenser>
+    <authorizingPrescription>
+        <reference value="MedicationOrder/medrx0318"/>
+    </authorizingPrescription>
+    <type>
+        <coding>
+            <system value="http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType"/>
+            <code value="EF"/>
+            <display value="emergency Fill"/>
+        </coding>
+    </type>
+    <quantity>
+        <value value="12"/>
+        <unit value="Vial"/>
+        <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+        <code value="Vial"/> 
+    </quantity>
+    <daysSupply>
+        <value value="3"/>
+        <unit value="Day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+    </daysSupply>
+    <whenPrepared value="2015-01-15T10:20:00Z"/>
+    <dosageInstruction>
+        <text value="500mg IV q6h x 3 days" />
+        <timing>
+            <repeat>
+                <frequency value="1"/>
+                <period value="6"/>
+                <periodUnit value="h"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="25556000"/>
+                <display value="Intravenous"/>
+            </coding>
+        </route>
+        <method>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="420620005"/>
+                <display value="Push - dosing instruction imperative (qualifier value)"/>
+            </coding>
+        </method>
+        <doseQuantity>
+            <value value="500"/>
+            <unit value="mg"/>
+            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <code value="mg"/>
+        </doseQuantity>
+    </dosageInstruction>
+</MedicationDispense>
+
+

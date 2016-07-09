@@ -419,37 +419,43 @@
  -- Row 1 -----------------------------------
   Name = Fully Populated
   Identity = example001
-  Description = Example of a medication statement where the Patient reported - I\'m taking med x at this dose (from bottle) - most complete example
+  Description = Patient reports they are taking Tylenol PM and has the bottle
   Filename = medicationstatementexample1.xml
 
  -- Row 2 -----------------------------------
   Name = Not Taking
   Identity = example002
-  Description = Example of a medication statement where the patient reported \"I am not taking Med x\"
+  Description = Patient reports they are not taking Tylenol PM
   Filename = medicationstatementexample2.xml
 
  -- Row 3 -----------------------------------
   Name = Past
   Identity = example004
-  Description = Example of a medication statement where the patient reported \"I took this in the past but am not taking it now\"
+  Description = Patient reports they were taking Amoxycillin in the past but are not taking it now
   Filename = medicationstatementexample4.xml
 
  -- Row 4 -----------------------------------
   Name = Nullified
   Identity = example005
-  Description = Example of a medication statement where the patient reported that \"I said I took this but I really didn\'t\" - nullified
+  Description = Patient reports they previous said they took Amoxycillin but really didn\'t
   Filename = medicationstatementexample5.xml
 
  -- Row 5 -----------------------------------
   Name = Care Giver
   Identity = example006
-  Description = Example of a medication statement that is reported by someone other than the patient (for example a care giver).
+  Description = Care Giver reports that the Patient took Amoxicillin
   Filename = medicationstatementexample6.xml
 
  -- Row 6 -----------------------------------
   Name = Intend
   Identity = example007
-  Description = Example of a medication statement where the patient reported that \"I intend to take this in the future\"
+  Description = Patient reports they intend to use Mometasone in the future
   Filename = medicationstatementexample7.xml
+
+ -- Row 7 -----------------------------------
+  Name = Little pink pill
+  Identity = example003
+  Description = Patient reports that they are taking the \"little pink pill\"
+  Filename = medicationstatementexample3.xml
 
 === Sheet Examples =====================================

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationadministration.xsd"
+ xmlns="http://hl7.org/fhir"> 
+  <id value="medadmin0305"/>
+  <contained>
+    <Medication>
+        <id value="med0306"/>
+        <code>
+          <coding>
+            <system value="http://hl7.org/fhir/sid/ndc"/>
+            <code value="51144-050-01"/>
+            <display value="Adcetris"/>
+          </coding>
+        </code>
+        <isBrand value="true"/>
+        <manufacturer>
+          <reference value="Organization/mmanu" />
+        </manufacturer>
+        <product>
+          <form>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="421637006"/>
+              <display value="Lyophilized powder for injectable solution (qualifier value) "/>
+            </coding>
+          </form>
+          <batch>
+            <lotNumber value="12345"/>
+            <expirationDate value="2019-10-31"/>
+          </batch>
+        </product>
+      
+    </Medication>
+  </contained>
+  <status value="completed" />
+  <medicationReference>
+    <reference value="#med0306"/> 
+  </medicationReference>
+ <patient>
+   <reference value="Patient/pat1"/>
+   <display value="Donald Duck"/> 
+  </patient>
+  <encounter> 
+    <reference value="Encounter/f001"/>
+    <display value="encounter who leads to this prescription"/>
+  </encounter>
+ <effectiveTimePeriod>
+  <start value="2015-01-15T04:30:00+01:00"/>
+   <end value="2015-01-15T14:30:00+01:00"/>
+</effectiveTimePeriod>
+  <performer>
+    <reference value="Practitioner/f007"/>
+    <display value="Patrick Pump"/>
+  </performer>
+  <prescription>
+    <reference value="MedicationOrder/medrx0316"/>
+  </prescription>
+  <dosage>
+    <text value="1.8 mg/kg IV infusion over 30 minutes" />
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="25556000"/>
+        <display value="Intravenous"/>
+      </coding>
+    </route>
+    <dose>
+      <value value="1.8"/>
+      <unit value="mg/kg"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mg/kg"/> 
+    </dose>
+    <rateQuantity>
+      <value value="20"/>
+      <unit value="min"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="min"/> 
+    </rateQuantity>
+  </dosage>
+</MedicationAdministration>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationadministration.xsd"
+ xmlns="http://hl7.org/fhir"> 
+  <id value="medadmin0313"/>
+  <status value="completed" />
+  <medicationCodeableConcept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="322254008"/>
+      <display value="Paracetamol 240mg suppository (product)"/>
+    </coding>
+  </medicationCodeableConcept>
+ <patient>
+   <reference value="Patient/pat1"/>
+   <display value="Donald Duck"/> 
+  </patient>
+ <effectiveTimePeriod>
+  <start value="2015-01-15T22:03:00+01:00"/>
+   <end value="2015-01-16T02:03:00+01:00"/>
+</effectiveTimePeriod>
+  <performer>
+    <reference value="Practitioner/f007"/>
+    <display value="Patrick Pump"/>
+  </performer>
+  <prescription>
+    <reference value="MedicationOrder/medrx0324"/>
+  </prescription>
+  <reasonGiven>
+    <coding>
+      <system value="http://hl7.org/fhir/reason-medication-given"/>
+      <code value="c"/>
+      <display value="Emergency"/>
+    </coding>
+  </reasonGiven>
+  <dosage>
+    <text value="Insert one suppository rectally twice daily as needed for fever to a maximim of 3 per day"/>
+    <siteCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="34402009"/>
+        <display value="Rectum structure"/>
+      </coding>
+    </siteCodeableConcept>
+    <dose>
+      <value value="240"/>
+      <unit value="mg"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mg"/>
+    </dose>
+  </dosage>
+</MedicationAdministration>

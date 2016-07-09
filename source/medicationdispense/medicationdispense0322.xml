@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="meddisp0322"/>
+    <status value="completed"/>
+   <medicationCodeableConcept>
+       <coding>
+           <system value="http://hl7.org/fhir/sid/ndc"/>
+           <code value="0071-2214-20"/>
+           <display value="Dilantin 125mg/5ml Oral Suspension"/>
+       </coding>
+   </medicationCodeableConcept>
+    <patient>
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </patient>
+    <dispenser>
+        <reference value="Practitioner/f006"/>
+        <display value="Rob van den Berk"/>
+    </dispenser>
+    <authorizingPrescription>
+        <reference value="MedicationOrder/medrx0312"/>
+    </authorizingPrescription>
+    <type>
+        <coding>
+            <system value="http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType"/>
+            <code value="PF"/>
+            <display value="partial Fill"/>
+        </coding>
+    </type>
+    <quantity>
+        <value value="360"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="ml"/>
+    </quantity>
+    <daysSupply>
+        <value value="30"/>
+        <unit value="Day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+    </daysSupply>
+    <whenPrepared value="2015-01-16T07:13:00+05:00"/>
+    <whenHandedOver value="2015-01-18T07:13:00+05:00"/>
+    <dosageInstruction>
+        <text value="100mg (4ml) three times daily" />
+        <timing>
+            <repeat>
+                <frequency value="3"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="26643006"/>
+                <display value="Oral Route (qualifier value)"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="4"/>
+            <unit value="ml"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="ml"/>
+        </doseQuantity>
+    </dosageInstruction> 
+</MedicationDispense>
+
+
+

@@ -1,5 +1,16 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- content goes here -->
+    <p>The following are examples of Medication Statement resources:
+    </p>
+    <ul>
+        <li><a href="medicationstatementexample1.html">Patient reports they are taking Tylenol PM and has the bottle</a></li>
+        <li><a href="medicationstatementexample2.html">Patient reports they are not taking Tylenol PM</a></li>
+        <li><a href="medicationstatementexample4.html">Patient reports they took Amoxycillin in the past but are not taking it now</a></li>
+        <li><a href="medicationstatementexample5.html">Patient reports they previous said they took Amoxycillin but really didn’t</a></li>
+        <li><a href="medicationstatementexample6.html">Care Giver reports that Patient took Amoxycillin</a></li>
+        <li><a href="medicationstatementexample7.html">Patient reports that they intend to use Mometasone in the future</a></li>
+        <li><a href="medicationstatementexample3.html">Patient reports they are taking the “little pink pill for water retention</a></li> 
+    </ul>
 
 </div>

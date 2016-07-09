@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationadministration.xsd"
+ xmlns="http://hl7.org/fhir"> 
+  <id value="medadmin0301"/>
+  <contained>
+    <Medication>
+      <id value="med0301"/>
+      <code>
+        <coding>
+          <system value="http://hl7.org/fhir/sid/ndc"/>
+          <code value="0069-2587-10"/>
+          <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
+        </coding>
+      </code>
+    </Medication>
+  </contained>
+  <status value="in-progress" />
+  <medicationReference>
+    <reference value="#med0301"/> 
+  </medicationReference>
+ <patient>
+   <reference value="Patient/pat1"/>
+   <display value="Donald Duck"/> 
+  </patient>
+  <encounter> 
+    <reference value="Encounter/f001"/>
+    <display value="encounter who leads to this prescription"/>
+  </encounter>
+ <effectiveTimePeriod>
+  <start value="2015-01-15T14:30:00+01:00"/>
+</effectiveTimePeriod>
+  <performer>
+    <reference value="Practitioner/f007"/>
+    <display value="Patrick Pump"/>
+  </performer>
+  <prescription>
+    <reference value="MedicationOrder/medrx0318"/>
+  </prescription>
+  <reasonGiven>
+    <coding>
+      <system value="http://hl7.org/fhir/reason-medication-given"/>
+      <code value="b"/>
+      <display value="Given as Ordered"/>
+    </coding>
+  </reasonGiven>
+  <dosage>
+    <text value="500mg IV q6h x 3 days" />
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="47625008"/>
+        <display value="Intravenous route (qualifier value)"/>
+      </coding>
+    </route>
+    <method>
+      <text value="IV Push"></text>
+    </method>
+    <dose>
+      <value value="500"/>
+      <unit value="mg"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mg"/>
+    </dose>
+  </dosage>
+</MedicationAdministration>

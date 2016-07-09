@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="meddisp0319"/>
+    <contained>
+        <Medication>
+            <id value="med0320"/>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/sid/ndc"/>
+                    <code value="33261-403-02"/>
+                    <display value="Azithromycin 250mg tablet, film coated (Aidarex Pharmaceuticals LLC)"/>
+                </coding>
+            </code>
+        </Medication>
+    </contained>
+    <status value="completed"/>
+    <medicationReference>
+        <reference value="#med0320"></reference>
+        <display value="Azithromycin 250mg capsule (product)"/>
+    </medicationReference>
+    <patient>
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </patient>
+    <dispenser>
+        <reference value="Practitioner/f006"/>
+        <display value="Rob van den Berk"/>
+    </dispenser>
+    <authorizingPrescription>
+        <reference value="MedicationOrder/medrx032"/>
+    </authorizingPrescription>
+    <type>
+        <coding>
+            <system value="http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType"/>
+            <code value="FFC"/>
+            <display value="First Fill - Complete"/>
+        </coding>
+    </type>
+    <quantity>
+        <value value="6"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="TAB"/>
+    </quantity>
+    <daysSupply>
+        <value value="5"/>
+        <unit value="Day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+    </daysSupply>
+    <whenPrepared value="2015-03-16T17:13:00+05:00"/>
+    <whenHandedOver value="2015-03-17T17:13:00+05:00"/>
+    <note>
+        <text value="Patient told to take with food"/>
+    </note>
+    <dosageInstruction>
+        <text value="Two tablets at once" />
+        <additionalInstructions>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="311504000"/>
+                <display value="With or after food"/>
+            </coding>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <frequency value="1"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="26643006"/>
+                <display value="Oral Route"/>
+            </coding>
+        </route>
+        <method>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="421521009"/>
+                <display value="Swallow - dosing instruction imperative (qualifier value)"/>
+            </coding>
+        </method>
+        <doseQuantity>
+            <value value="2"/>
+            <unit value="TAB"/>
+            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <code value="TAB"/>
+        </doseQuantity>
+    </dosageInstruction>
+    <dosageInstruction>
+        <text value="One tablet daily for 4 days" />
+        <additionalInstructions>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="311504000"/>
+                <display value="With or after food"/>
+            </coding>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <frequency value="4"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="26643006"/>
+                <display value="Oral Route"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="1"/>
+            <unit value="TAB"/>
+            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <code value="TAB"/>
+        </doseQuantity>
+    </dosageInstruction>   
+</MedicationDispense>
+
+
+
+
+

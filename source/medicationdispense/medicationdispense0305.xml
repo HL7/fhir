@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="meddisp0305"/>
+    <contained>
+        <Medication>
+            <id value="med0311"/>
+            <code>
+                <coding>
+                    <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                    <code value="763179"/>
+                    <display value="Prednisone 5mg Oral Tablet 48 Count Pack"/>
+                </coding>
+            </code>
+        </Medication>
+    </contained>
+    <status value="entered-in-error"/>
+    <medicationReference>
+        <!-- Linked to a RESOURCE Medication -->
+        <reference value="#med0311"/>
+        <display value="Prednisone"/>
+    </medicationReference>
+    <patient>
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </patient>
+    <dispenser>
+        <reference value="Practitioner/f006"/>
+        <display value="Rob van den Berk"/>
+    </dispenser>
+    <authorizingPrescription>
+        <reference value="MedicationOrder/medrx0303"/>
+    </authorizingPrescription>
+    <type>
+        <coding>
+            <system value="http:hl7.org/fhir"/>
+            <code value="FF"/>
+            <display value="First Fill"/>
+        </coding>
+    </type>
+    <quantity>
+        <value value="49"/>
+        <unit value="TAB"/>
+        <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+        <code value="TAB"/> 
+    </quantity>
+    <daysSupply>
+        <value value="21"/>
+        <unit value="Day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+    </daysSupply>
+    <whenPrepared value="2015-01-15T10:20:00Z"/>
+    <whenHandedOver value="2015-01-15T16:20:00Z"/>
+    <dosageInstruction>
+        <text value="Take 4 tablets daily for 7 days starting January 16, 2015" />
+        <additionalInstructions>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="311504000"/>
+                <display value="With or after Food"/>
+            </coding>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <boundsPeriod>
+                    <start value="2015-01-16"/>
+                    <end value="2015-01-20"/>
+                </boundsPeriod>
+                <frequency value="1"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="26643006"/>
+                <display value="Oral Route"/>
+            </coding>
+        </route>
+        <method>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="421521009"/>
+                <display value="Swallow - dosing instruction imperative (qualifier value)"/>
+            </coding>
+        </method>
+        <doseQuantity>
+            <value value="4"/>
+            <unit value="TAB"/>
+            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <code value="TAB"/> 
+        </doseQuantity>
+    </dosageInstruction>
+    <dosageInstruction>
+        <text value="Take 2 tablets daily for 7 days starting January 23, 2015" />
+        <additionalInstructions>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="311504000"/>
+                <display value="With or after Food"/>
+            </coding>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <boundsPeriod>
+                    <start value="2015-01-23"/>
+                    <end value="2015-01-30"/>
+                </boundsPeriod>
+                <frequency value="1"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="26643006"/>
+                <display value="Oral Route"/>
+            </coding>
+        </route>
+        <method>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="421521009"/>
+                <display value="Swallow - dosing instruction imperative (qualifier value)"/>
+            </coding>
+        </method>
+        <doseQuantity>
+            <value value="2"/>
+            <unit value="TAB"/>
+            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <code value="TAB"/> 
+        </doseQuantity>
+    </dosageInstruction>
+    <dosageInstruction>
+        <text value="Take 1 tablets daily for 7 days starting January 31, 2015" />
+        <additionalInstructions>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="311504000"/>
+                <display value="With or after Food"/>
+            </coding>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <boundsPeriod>
+                    <start value="2015-01-31"/>
+                    <end value="2015-02-06"/>
+                </boundsPeriod>
+                <frequency value="1"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="26643006"/>
+                <display value="Oral Route"/>
+            </coding>
+        </route>
+        <method>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="421521009"/>
+                <display value="Swallow - dosing instruction imperative (qualifier value)"/>
+            </coding>
+        </method>
+        <doseQuantity>
+            <value value="1"/>
+            <unit value="TAB"/>
+            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <code value="TAB"/> 
+        </doseQuantity>
+    </dosageInstruction>
+    <eventHistory>
+        <status value="completed"></status>
+        <dateTime value="2015-01-15T16:20:00Z"/>
+    </eventHistory>
+    <eventHistory>
+        <status value="in-progress"></status>
+        <dateTime value="2015-01-15T16:20:00Z"/>
+    </eventHistory>
+</MedicationDispense>
+
+
+

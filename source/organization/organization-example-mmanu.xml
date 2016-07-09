@@ -1,0 +1,14 @@
+<Organization xmlns="http://hl7.org/fhir"> 
+ <id value="mmanu"/>
+ <text>
+   <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Acme Corporation, Proud member of the pharma industry</p>
+    </div>
+ </text>
+ <active value="true"/>
+ <name value="Acme Corporation"/>
+ <address>
+   <country value="Swizterland"/>
+ </address>
+</Organization>

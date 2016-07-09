@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationadministration.xsd"
+ xmlns="http://hl7.org/fhir"> 
+  <id value="medadmin0304"/>
+  <contained>
+    <Medication>
+      <id value="med0303"/>
+      <code>
+        <coding>
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+          <code value="1594660"/>
+          <display value="Alemtuzumab 10mg/ml (Lemtrada)"/>
+        </coding>
+      </code>
+    </Medication>
+  </contained>
+  <status value="completed" />
+  <medicationReference>
+    <reference value="#med0303"/> 
+  </medicationReference>
+ <patient>
+   <reference value="Patient/pat1"/>
+   <display value="Donald Duck"/> 
+  </patient>
+  <encounter> 
+    <reference value="Encounter/f001"/>
+    <display value="encounter who leads to this prescription"/>
+  </encounter>
+ <effectiveTimePeriod>
+  <start value="2015-01-15T04:30:00+01:00"/>
+   <end value="2015-01-15T14:30:00+01:00"/>
+</effectiveTimePeriod>
+  <performer>
+    <reference value="Practitioner/f007"/>
+    <display value="Patrick Pump"/>
+  </performer>
+  <prescription>
+    <reference value="MedicationOrder/medrx0319"/>
+  </prescription>
+  <dosage>
+    <text value="Rapid daily-dose escalation, until tolerated, from 3 mg/d, and then 10 mg/d, to the recommended maintenance dose of 30 mg IV over 120 min, 3 times per wk on alternate days for up to 12 wk"/>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="47625008"/>
+        <display value="Intravenous route (qualifier value)"/>
+      </coding>
+    </route>
+    <method>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="422145002"/>
+        <display value="Inject - dosing instruction imperative (qualifier value)"/>
+      </coding>
+    </method>
+    <dose>
+      <value value="3"/>
+      <unit value="mg"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mg"/>
+    </dose>
+  </dosage>
+</MedicationAdministration>

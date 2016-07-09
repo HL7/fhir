@@ -1,5 +1,62 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<!-- content goes here -->
-
+    <p>ORAL DOSAGE FORMS</p>
+    <p>The following examples are MedicationDispense resources for Oral Dosage Forms that reference Medication Resources for a manufactured product:
+    </p>
+    <ul>
+        <li><a href="medicationdispenseexample8.html">Dispense for Oral Chemotherapy - Capecitabine (RxNorm code)</a></li>
+        <li><a href="medicationdispense0303.html">Dispense for Oxycodone (RxNorm code) - PRN dose with dose range, coded additional instructions and PRN coded pre-condition</a></li>
+        <li><a href="medicationdispense0305.html">Dispense for Prednisone (RxNorm code) Tapering Dose - entered-in-error with multiple DosageInstruction lines that include coded additionalInstructions and multiple EventHistory elements</a></li>
+        <li><a href="medicationdispense0310.html">Dispense for Percocet (NDC Code) - in-progress with additionalInstructions, and as needed dosage with condition</a></li>
+        <li><a href="medicationdispense0312.html">Dispense for Over the Counter medication - Tylenol PM (NDC code) - on hold with  as needed dosage with a condition, a dose Range and an Event History</a></li>
+        <li><a href="medicationdispense0315.html">Dispense for Alprazolam (Rx Norm code) - in progress</a></li>
+        <li><a href="medicationdispense0319.html">Dispense for Azithromycin (NDC code) - completed with multiple dosage lines</a></li>
+        <li><a href="medicationdispense0330.html">Dispense for Warfarin 5mg (NDC Code) where the product is dispensed as multiple strengths based on prescribe dosage </a></li>
+        <li><a href="medicationdispense0331.html">Dispense for Warfarin 2mg (NDC Code) where the product is dispensed as multiple strengths based on prescribe dosage</a></li>
+    </ul>
+    <p>The following examples are MedicationDispenses resources for Oral Dosage Forms that include a Medication Code
+    </p>
+    <ul>
+        <li><a href="medicationdispense0318.html">Dispense for Levothyroxine (NDC code) in-progress with authorizing prescription</a></li>
+        <li><a href="medicationdispense0326.html">Dispense for Azithromycin (RxNorm Code) - in-progress with coded additionalInstructions</a></li>
+        <li><a href="medicationdispense0322.html">Dispense for Dilantin Oral Suspension (NDC code) - completed </a></li>
+        <li><a href="medicationdispense0307.html">Dispense for Busulfan (Myleran) - completed</a></li>
+        <li><a href="medicationdispense0321.html">Dispense for Vicodin - in progress - PRN with pre-condition</a></li>
+    </ul>
+    <p>INJECTABLE DOSAGE FORMS</p>
+    <p>The following examples of MedicationOrder resources for Injectable Dosage Forms that reference a Medication Resource for a manufactured product:
+    </p>
+    <ul>
+        <li><a href="medicationdispense0301.html">Dispense for IV Antibiotic - in progress - Vancomycin IV (NDC Code) - in-progress</a></li>
+        <li><a href="medicationdispense0302.html">Dispense for Subcutaneous injection with multiple dosage lines - Insulin - Novolog (NDC Code) - active - includes Destination, Receiver, note.  DosageInstruction includes additionalInstructions as text</a></li>
+        <li><a href="medicationdispense0304.html">Dispense for Intravenous Antibiotic with a Dosage Rate - Piperacillin (NDC code) - completed with a coded site and route of administration and a rate expressed as a ratio</a></li>
+        <li><a href="medicationdispense0306.html">Dispense for Intravenous Chemotherapy (inpatient order) - Alemtuzumab (RxNorm Code) - completed with multiple dosageInstruction lines</a></li>
+        <li><a href="medicationdispense0314.html">Dispense for Lorazepam (Rx norm code) - completed with rate range</a></li>
+        <li><a href="medicationdispense0317.html">ispense for Brentuximab Vedotin (NDC code)  - IV Chemo - stopped</a></li>
+    </ul>
+    <p>The following examples of MedicationDispense resources for Injectable Dosage Forms that include a Medication Code:
+    </p>
+    <ul>
+        <li><a href="medicationdispense0316.html">Dispense for Insulin (Lantus) (NDC code) - in-progress with SC dosage</a></li>
+        
+    </ul>
+    <p>The following examples of MedicationDispense resources for Injectable Dosage Forms  for Injectable Dosage Forms where the medication is a compounded (aka extemporaneous or magistral) product:
+    </p>
+    <ul>
+        <li><a href="medicationdispense0313.xml">Dispense for Potassium Chloride Admixture - stopped - with eventHistory and rate range for dosage</a></li>
+        <li><a href="medicationdispense0320.xml">Dispense for a TPN solution - completed</a></li>
+    </ul>
+    <p>MISCELLAENOUS DOSAGE FORMS</p>
+    <p>The following examples of MedicationDispense resources including miscellaneous dosage forms:
+    </p>
+    <ul>
+        <li><a href="medicationdispense0308.html">Dispense for Timoptic Opthalmic Drops - (NDC code) - completed</a></li>
+        <li><a href="medicationdispense0309.html">Dispense for Nystatin drops (Snomed Code) - entered-in-error</a></li>
+        <li><a href="medicationdispense0327.html">Dispense for Proventil (RxNorm Code) - completed - with additionalInstructions as text</a></li>
+        <li><a href="medicationdispense0324.html">Dispense for Nystatin Topical Ointment (RxNorm code) - completed</a></li>
+        <li><a href="medicationdispense0328.html">Dispense for Nasonex Inhaler (RxNorm Code) - in progress with additionalInstructions as text</a></li>
+        <li><a href="medicationdispense0329.html">Dispense for Compounded ointment (HC 1%, SA 5% in White Petrolatum) - completed with additionalInstructions as text and a coded site in dosageInstructions</a></li>
+        <li><a href="medicationdispense0325.html">Dispense for Fentanyl Patch (NDC code) - in progress</a></li>
+        <li><a href="medicationdispense0311.html">Dispense for Paracetamol Suppositories - completed</a></li>
+    </ul>
 </div>
+

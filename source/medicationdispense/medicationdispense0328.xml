@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="meddisp0328"/>
+    <status value="in-progress"/>
+    <medicationCodeableConcept>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+            <code value="746201"/>
+            <display value="Nasonex 0.05mg/ACTUAT Nasal Inhaler"/>
+        </coding>
+    </medicationCodeableConcept>
+    <patient>
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </patient>
+    <dispenser>
+        <reference value="Practitioner/f006"/>
+        <display value="Rob van den Berk"/>
+    </dispenser>
+    <authorizingPrescription>
+        <reference value="MedicationOrder/medrx0321"/>
+    </authorizingPrescription>
+    <type>
+        <coding>
+            <system value="http://hl7.org/fhir/v3/ActPharmacySupplyType"/>
+            <code value="EF"/>
+            <display value="emergency Fill"/>
+        </coding>
+    </type>
+    <quantity>
+        <value value="30"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="ml"/>
+    </quantity>
+    <daysSupply>
+        <value value="30"/>
+        <unit value="Day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+    </daysSupply>
+    <whenPrepared value="2015-01-15T10:20:00Z"/>
+    <dosageInstruction>
+        <text value="Use two sprays twice daily"/>
+        <additionalInstructions>
+            <text value="Shake Well"/>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <frequency value="2"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <doseQuantity>
+            <value value="1"/>
+            <unit value="ea"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="ea"/>
+        </doseQuantity>
+    </dosageInstruction>
+</MedicationDispense>
+
+
+

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationadministration.xsd"
+ xmlns="http://hl7.org/fhir"> 
+  <id value="medadmin0302"/>
+  <contained>
+    <Medication>
+      <id value="med0317"/>
+      <product>
+        <form>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="385219001"/>
+            <display value="Injection Solution (qualifier value)"/>
+          </coding>
+          <text value="Injection Solution (qualifier value)"/>
+        </form>
+        <ingredient>
+          <itemCodeableConcept>
+            <coding>
+              <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+              <code value="204520"/>
+              <display value="Potassium Chloride"/>
+            </coding>
+          </itemCodeableConcept>
+          <amount>
+            <numerator>
+              <value value="2"/>
+              <system value="http://unitsofmeasure.org"/>
+              <code value="mEq"/>
+            </numerator>
+            <denominator>
+              <value value="1"/>
+              <system value="http://unitsofmeasure.org"/>
+              <code value="mL"/>
+            </denominator>
+          </amount>
+        </ingredient>
+        <ingredient>
+          <itemCodeableConcept>
+            <coding>
+              <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+              <code value="313002"/>
+              <display value="Sodium Chloride 0.9% injectable solution"/>
+            </coding>
+          </itemCodeableConcept>
+          <amount>
+            <numerator>
+              <value value="0.9"/>
+              <system value="http://unitsofmeasure.org"/>
+              <code value="g"/>
+            </numerator>
+            <denominator>
+              <value value="100"/>
+              <system value="http://unitsofmeasure.org"/>
+              <code value="mL"/>
+            </denominator>
+          </amount>
+        </ingredient>
+      </product>
+    </Medication>
+  </contained>
+  <status value="completed" />
+  <medicationReference>
+    <reference value="#med0317"/> 
+  </medicationReference>
+ <patient>
+   <reference value="Patient/pat1"/>
+   <display value="Donald Duck"/> 
+  </patient>
+  <encounter> 
+    <reference value="Encounter/f001"/>
+    <display value="encounter who leads to this prescription"/>
+  </encounter>
+ <effectiveTimePeriod>
+  <start value="2015-01-15T04:30:00+01:00"/>
+   <end value="2015-01-15T14:30:00+01:00"/>
+</effectiveTimePeriod>
+  <performer>
+    <reference value="Practitioner/f007"/>
+    <display value="Patrick Pump"/>
+  </performer>
+  <prescription>
+    <reference value="MedicationOrder/medrx0322"/>
+  </prescription>
+  <reasonGiven>
+    <coding>
+      <system value="http://hl7.org/fhir/reason-medication-given"/>
+      <code value="b"/>
+      <display value="Given as Ordered"/>
+    </coding>
+  </reasonGiven>
+  <dosage>
+    <text value="KCl 20 mEq in 1 L 0.9%NS IV at 100 ml/hr" />
+    <siteCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="6073002"/>
+        <display value="Structure of ligament of left superior vena cava"/>
+      </coding>
+    </siteCodeableConcept>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="47625008"/>
+        <display value="Intravenous route (qualifier value)"/>
+      </coding>
+    </route>
+    <method>
+      <text value="Continuous infusion"></text>
+    </method>
+    <dose>
+      <value value="20"/>
+      <unit value="mEq"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mEq"/>
+    </dose>
+    <rateRatio>
+      <numerator>
+        <value value="100"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mL"/>
+      </numerator>
+      <denominator>
+        <value value="1"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="h"/>
+      </denominator>
+    </rateRatio>
+  </dosage>
+</MedicationAdministration>

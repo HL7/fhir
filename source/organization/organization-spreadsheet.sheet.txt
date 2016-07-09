@@ -431,4 +431,10 @@
   Description = Real-world organization example (ENT)
   Filename = organization-example-f003-burgers-ENT.xml
 
+ -- Row 11 -----------------------------------
+  Name = Manufacturer
+  Identity = mmanu
+  Description = Medication Manufacturer
+  Filename = organization-example-mmanu.xml
+
 === Sheet Examples =====================================

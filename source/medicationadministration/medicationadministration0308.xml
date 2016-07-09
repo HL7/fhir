@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationadministration.xsd"
+ xmlns="http://hl7.org/fhir"> 
+  <id value="medadmin0308"/>
+  <status value="completed" />
+  <medicationCodeableConcept>
+    <coding>
+      <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+      <code value="285018"/>
+      <display value="Lantus 100 unit/ml injectable solution"/>
+    </coding>
+  </medicationCodeableConcept>
+ <patient>
+   <reference value="Patient/pat1"/>
+   <display value="Donald Duck"/> 
+  </patient>
+ <effectiveTimePeriod>
+  <start value="2015-01-15T04:30:00+01:00"/>
+   <end value="2015-01-15T14:30:00+01:00"/>
+</effectiveTimePeriod>
+  <performer>
+    <reference value="Practitioner/f007"/>
+    <display value="Patrick Pump"/>
+  </performer>
+  <prescription>
+    <reference value="MedicationOrder/medrx0320"/>
+  </prescription>
+  <dosage>
+    <text value="20 Units SC before breakfast" />
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="263887005"/>
+        <display value="Subcutaneous (qualifier value)"/>
+      </coding>
+    </route>
+    <dose>
+      <value value="20"/>
+      <unit value="U"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="U"/>
+    </dose>
+  </dosage>
+</MedicationAdministration>

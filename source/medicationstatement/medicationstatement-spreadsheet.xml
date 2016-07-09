@@ -6114,66 +6114,66 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"><Data ss:Type="String">Fully Populated</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">Example of a medication statement where the Patient reported - I'm taking med x at this dose (from bottle) - most complete example</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">example001</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">medicationstatementexample1.xml</Data></Cell>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s164"><Data ss:Type="String">Fully Populated</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">Patient reports they are taking Tylenol PM and has the bottle</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">example001</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">medicationstatementexample1.xml</Data></Cell>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s145"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"><Data ss:Type="String">Not Taking</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s146"><Data ss:Type="String">Example of a medication statement where the patient reported &quot;I am not taking Med x&quot;</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">example002</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">medicationstatementexample2.xml</Data></Cell>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s164"><Data ss:Type="String">Not Taking</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">Patient reports they are not taking Tylenol PM</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">example002</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">medicationstatementexample2.xml</Data></Cell>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s145"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"><Data ss:Type="String">Past</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s146"><Data ss:Type="String">Example of a medication statement where the patient reported &quot;I took this in the past but am not taking it now&quot;</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">example004</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">medicationstatementexample4.xml</Data></Cell>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s164"><Data ss:Type="String">Past</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">Patient reports they were taking Amoxycillin in the past but are not taking it now</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">example004</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">medicationstatementexample4.xml</Data></Cell>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s145"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"><Data ss:Type="String">Nullified</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s146"><Data ss:Type="String">Example of a medication statement where the patient reported that &quot;I said I took this but I really didn't&quot; - nullified</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">example005</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">medicationstatementexample5.xml</Data></Cell>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s164"><Data ss:Type="String">Nullified</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">Patient reports they previous said they took Amoxycillin but really didn't</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">example005</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">medicationstatementexample5.xml</Data></Cell>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s145"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"><Data ss:Type="String">Care Giver</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s146"><Data ss:Type="String">Example of a medication statement that is reported by someone other than the patient (for example a care giver).</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">example006</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">medicationstatementexample6.xml</Data></Cell>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s164"><Data ss:Type="String">Care Giver</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">Care Giver reports that the Patient took Amoxicillin</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">example006</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">medicationstatementexample6.xml</Data></Cell>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s145"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"><Data ss:Type="String">Intend</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s146"><Data ss:Type="String">Example of a medication statement where the patient reported that &quot;I intend to take this in the future&quot;</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">example007</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">medicationstatementexample7.xml</Data></Cell>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s164"><Data ss:Type="String">Intend</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">Patient reports they intend to use Mometasone in the future</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">example007</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">medicationstatementexample7.xml</Data></Cell>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s145"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s164"><Data ss:Type="String">Little pink pill</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">Patient reports that they are taking the &quot;little pink pill&quot;</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">example003</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">medicationstatementexample3.xml</Data></Cell>
+    <Cell ss:StyleID="s168"/>
     <Cell ss:StyleID="s147"/>
    </Row>
    <Row ss:AutoFitHeight="0">

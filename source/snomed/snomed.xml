@@ -1904,6 +1904,11 @@
   <concept id="263796003" display="Lesser (qualifier value)">
     <display value="Lesser"/>
   </concept>
+  <concept id="263887005" display="Subcutaneous">
+    <display value="Subcutaneous"/>
+    <display value="SC - Subcutaneous"/>
+    <display value="Subcutaneous (qualifier value)"/>
+  </concept>
   <concept id="263922001" display="Unstable status (qualifier value)">
     <display value="Unstable status"/>
   </concept>
@@ -2570,6 +2575,16 @@
     <display value="Paracetamol 500mg tablet"/>
     <display value="Paracetamol 500mg tablet (substance)"/>
   </concept>
+  <concept id="322254008" display="Paracetamol 240mg suppository (product)">
+    <display value="Paracetamol 240mg suppository (product)"/>
+    <display value="Paracetamol 240mg suppository"/>
+    <display value="Acetaminophen 240mg suppository"/>
+    <display value="Paracetamol 240mg suppository"/>
+    <display value="Acetaminophen 240mg suppository"/>
+    <display value="Paracetamol 240mg suppository"/>
+    <display value="Acetaminophen 240mg suppository"/>
+    <display value="Paracetamol 240mg suppository (substance)"/>
+  </concept>
   <concept id="323418000" display="Phenoxymethylpenicillin 125mg/5mL oral solution (product)">
     <display value="Phenoxymethylpenicillin 125mg/5mL oral solution (product)"/>
     <display value="Phenoxymethylpenicillin 125mg/5mL oral solution"/>
@@ -2703,6 +2718,11 @@
     <display value="Silver nitrate 20% solution (product)"/>
     <display value="Silver nitrate 20% solution"/>
     <display value="Silver nitrate 20% solution (substance)"/>
+  </concept>
+  <concept id="333919005" display="Fentanyl 25micrograms/hour patch (product)">
+    <display value="Fentanyl 25micrograms/hour patch (product)"/>
+    <display value="Fentanyl 25micrograms/hour patch"/>
+    <display value="Fentanyl 25micrograms/hour patch (substance)"/>
   </concept>
   <concept id="33463005" display="Liquid substance (substance)">
     <display value="Fluid"/>
@@ -3096,6 +3116,12 @@
   </concept>
   <concept id="373121007" display="Test not done (qualifier value)">
     <display value="Test not done"/>
+  </concept>
+  <concept id="373147003" display="Medication not administered because contraindicated">
+    <display value="Medication not administered because contraindicated (procedure)"/>
+    <display value="Medication not administered because contraindicated"/>
+    <display value="Administration of medication not done due to contraindication (situation)"/>
+    <display value="Administration of medication not done due to contraindication"/>
   </concept>
   <concept id="373200003" display="pT1: Tumor invades submucosa (colon/rectum) (finding)">
     <display value="pT1: Tumor invades submucosa (colon/rectum)"/>
@@ -4353,6 +4379,10 @@
     <display value="Pediatric immunology"/>
     <display value="Paediatric immunology"/>
   </concept>
+  <concept id="418637003" display="Do not take with any other paracetamol products (qualifier value)">
+    <display value="Do not take with any other paracetamol products (qualifier value)"/>
+    <display value="Do not take with any other paracetamol products"/>
+  </concept>
   <concept id="418652005" display="Pediatric hematology (qualifier value)">
     <display value="Pediatric hematology (qualifier value)"/>
     <display value="Pediatric hematology"/>
@@ -4502,6 +4532,11 @@
     <display value="Swallow - dosing instruction imperative (qualifier value)"/>
     <display value="Swallow"/>
     <display value="Swallow - dosing instruction imperative"/>
+  </concept>
+  <concept id="421538008" display="Instill - dosing instruction imperative (qualifier value)">
+    <display value="Instill - dosing instruction imperative (qualifier value)"/>
+    <display value="Instill"/>
+    <display value="Instill - dosing instruction imperative"/>
   </concept>
   <concept id="421606006" display="Aerosol spray (qualifier value)">
     <display value="Aerosol spray (product)"/>
@@ -5503,6 +5538,14 @@
     <display value="pT1 stage"/>
     <display value="pT1"/>
   </concept>
+  <concept id="54485002" display="Ophthalmic route (qualifier value)">
+    <display value="Ophthalmic use"/>
+    <display value="Ophthalmic"/>
+    <display value="In eye"/>
+    <display value="Ophthalmic route (qualifier value)"/>
+    <display value="Ophthalmic route"/>
+    <display value="A route that begins in the eye region."/>
+  </concept>
   <concept id="54535009" display="Cone biopsy of cervix (procedure)">
     <display value="Conisation of uterine cervix"/>
     <display value="Cone biopsy of cervix (procedure)"/>
@@ -5675,6 +5718,13 @@
     <display value="Sigmoid colon structure"/>
     <display value="Sigmoid colon structure (body structure)"/>
     <display value="Sigmoid colon"/>
+  </concept>
+  <concept id="6073002" display="Structure of ligament of left superior vena cava">
+    <display value="Ligament of left superior vena cava"/>
+    <display value="Fold of Marshall"/>
+    <display value="Fold of left superior vena cava"/>
+    <display value="Structure of ligament of left superior vena cava"/>
+    <display value="Structure of ligament of left superior vena cava (body structure)"/>
   </concept>
   <concept id="60859004" display="Structure of base of left lung">
     <display value="Base of left lung"/>

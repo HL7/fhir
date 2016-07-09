@@ -1,5 +1,47 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- content goes here -->
+    <p>The following are examples of MedicationAdministration resources:</p>
+    <p>INJECTABLE DOSAGE FORMS</p>
+    <p>The following examples of MedicationAdministration resources for Injectable Dosage Forms that reference a Medication Resource for a manufactured product:
+    </p>
+    <ul>
+        <li><a href="medicationadministration0301.html">Intravenous Antibiotic - Vancomycin</a></li>
+        <li><a href="medicationadminstration0303.html">Intravenous Antibiotic with a Dosage Rate - Piperacillin</a></li>
+        <li><a href="medicationadministration0304.html">Intravenous Chemotherapy (Inpatient order) - Alemtuzumab - completed</a></li>
+        <li><a href="medicationadministration0305.html">Intravenous Chemotherapy (Inpatient order) - Brentuximab Vedotin</a></li>
+        <li><a href="medicationadministrationexample3.html">Example of an IV administration not given with a note - Alemtuzumab</a></li>
+    </ul>
+    <p>The following examples of MedicationAdministration resources for Injectable Dosage Forms that reference a Medication Resource for a generic formulation:
+    </p>
+    <ul>
+        <li><a href="medicationadministration0306.html">Oral Antibiotic - Azithromycin</a></li>
+        <li><a href="medicationadministration0307.html">Lorazepam with a Device</a></li>
+    </ul>
+    <p>The following examples of MedicationDispense resources for Injectable Dosage Forms that include a Medication Code:
+    </p>
+    <ul>
+        <li><a href="medicationadministration0308.html">Subcutaneous Injection - Insulin - Lantus</a></li>
+    </ul>
+    <p>The following examples of MedicationDispense resources for Injectable Dosage Forms for Injectable Dosage Forms where the medication is a compounded (aka extemporaneous or magistral) product:
+    </p>
+    <ul>
+        <li><a href="medicationadministration0302.html">Intravenous Admixture - Potassium Chloride in D5W</a></li>
+        <li><a href="medicationadministration0309.html">TPN Solution with a Device</a></li>
+    </ul>
+    <p>ORAL DOSAGE FORMS</p>
+    <p>The following examples are MedicationDispense resources for Oral Dosage Forms that reference Medication Resources for manufactured products:
+    </p>
+    <ul>
+        <li><a href="medicationadministration0310.html">Oral Chemotherapy - Myleran</a></li>
+        <li><a href="medicationadministration0311.html">Dosage with a Pre-Condition - Alprazolam</a></li>
+    </ul>
+    
+    <p>MISCELLANEOUS DOSAGE FORMS</p>
+    <p>The following examples of MedicationDispense resources including miscellaneous dosage forms:
+    </p>
+    <ul>
+        <li><a href="medicationadministration0312.html">Medication Code - Patch - Fentanyl</a></li>
+        <li><a href="medicationadministration0313.html">Medication Code - Rectal Suppository - Acetaminophen</a></li>
+    </ul>
 
 </div>

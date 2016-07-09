@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="meddisp0313"/>
+    <contained>
+        <Medication>
+            <id value="med0317"/>
+            <product>
+                <form>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="385219001"/>
+                        <display value="Injection Solution (qualifier value)"/>
+                    </coding>
+                    <text value="Injection Solution (qualifier value)"/>
+                </form>
+                <ingredient>
+                    <itemCodeableConcept>
+                        <coding>
+                            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                            <code value="204520"/>
+                            <display value="Potassium Chloride"/>
+                        </coding>
+                    </itemCodeableConcept>
+                    <amount>
+                        <numerator>
+                            <value value="2"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="mEq"/>
+                        </numerator>
+                        <denominator>
+                            <value value="1"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="mL"/>
+                        </denominator>
+                    </amount>
+                </ingredient>
+                <ingredient>
+                    <itemCodeableConcept>
+                        <coding>
+                            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                            <code value="313002"/>
+                            <display value="Sodium Chloride 0.9% injectable solution"/>
+                        </coding>
+                    </itemCodeableConcept>
+                    <amount>
+                        <numerator>
+                            <value value="0.9"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="g"/>
+                        </numerator>
+                        <denominator>
+                            <value value="100"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="mL"/>
+                        </denominator>
+                    </amount>
+                </ingredient>
+            </product>
+        </Medication>
+    </contained>
+    <status value="stopped"/>
+    <medicationReference>
+        <!-- Linked to a RESOURCE Medication -->
+        <reference value="#med0317"/>
+        <display value="Potassium Chloride 20mEq in 1L Normal Saline"/>
+    </medicationReference>
+    <patient>
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/> 
+    </patient>
+    <dispenser>
+        <reference value="Practitioner/f006"/>
+        <display value="Rob van den Berk"/>
+    </dispenser>
+    <authorizingPrescription>
+        <reference value="MedicationOrder/medrx0322"/>
+    </authorizingPrescription>
+    <type>
+        <coding>
+            <system value="http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType"/>
+            <code value="FF"/>
+            <display value="First Fill"/>
+        </coding>
+    </type>
+    <quantity>
+        <value value="1000"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="ml"/>
+    </quantity>
+    <daysSupply>
+        <value value="1"/>
+        <unit value="Day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+    </daysSupply>
+    <whenPrepared value="2016-04-28T07:13:00+05:00"/>
+    <whenHandedOver value="2016-04-28T07:13:00+05:00"/>
+    <dosageInstruction>
+        <text value="KCl 20 mEq in 1 L 0.9%NS IV at 100 ml/hr" />
+        <timing>
+            <repeat>
+                <frequency value="1"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="47625008"/>
+                <display value="Intravenous route (qualifier value)"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="20"/>
+            <unit value="mEq"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mEq"/>
+        </doseQuantity>
+        <rateRatio>
+            <numerator>
+                <value value="100"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="mL"/>
+            </numerator>
+            <denominator>
+                <value value="1"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="h"/>
+            </denominator>
+        </rateRatio>
+    </dosageInstruction>
+    <eventHistory>
+        <status value="completed"></status>
+        <dateTime value="2016-04-28T07:13:00+05:00"></dateTime>
+    </eventHistory>
+</MedicationDispense>
+
+
+

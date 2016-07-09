@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationadministration.xsd"
+ xmlns="http://hl7.org/fhir"> 
+  <id value="medadmin0310"/>
+  <contained><Medication>
+      <id value="med0304"/>
+      <code>
+        <coding>
+          <system value="http://hl7.org/fhir/sid/ndc"/>
+          <code value="76388-713-25"/>
+          <display value="Myleran 2mg tablet, film coated"/>
+        </coding>
+      </code>
+  </Medication>
+  </contained>
+  <status value="completed" />
+  <medicationReference>
+    <reference value="#med0304"/>
+  </medicationReference>
+ <patient>
+   <reference value="Patient/pat1"/>
+   <display value="Donald Duck"/> 
+  </patient>
+ <effectiveTimePeriod>
+  <start value="2015-01-15T22:03:00+01:00"/>
+   <end value="2015-01-16T02:03:00+01:00"/>
+</effectiveTimePeriod>
+  <performer>
+    <reference value="Practitioner/f007"/>
+    <display value="Patrick Pump"/>
+  </performer>
+  <prescription>
+    <reference value="MedicationOrder/medrx0306"/>
+  </prescription>
+  <dosage>
+    <text value="6 mg PO daily for remission induction; adjust dosage to white blood cell (WBC) count.  With hold treatment if WBC is less than 15,000/µL; resume when WBC is greater than 50,000/µL"/>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="26643006"/>
+        <display value="Oral route (qualifier value)"/>
+      </coding>
+    </route>
+    <dose>
+      <value value="6"/>
+      <unit value="mg"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mg"/>
+    </dose>
+  </dosage>
+</MedicationAdministration>

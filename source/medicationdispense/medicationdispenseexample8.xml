@@ -1,33 +1,34 @@
-<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationdispense.xsd" xmlns="http://hl7.org/fhir">
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
+ xmlns="http://hl7.org/fhir">
 	<id value="meddisp008"/>
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">
-			<p>
-				<big>Capecitabine (Recurrent/Metastatic)</big>
-			</p>
-			<p>Course:</p>
-			<p>Name: Capecitabine</p>
-			<p>Agent Protocols Options:</p>
-			<p>
-				<b>Capecitabine 1000-1250 mg/m^2 PO twice daily D1-14</b>
-			</p>
-			<p>Offset: None</p>
-			<p>Cycle length: Q21D</p>
-		</div>
-	</text>
+	<contained>
+		<Medication>
+			<id value="medexample015"></id>
+		<code>
+			<coding>
+				<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+				<code value="213293"/>
+				<display value="Capecitabine 500mg oral tablet (Xeloda)"/>
+			</coding>
+		</code>
+		<isBrand value="true"/>
+		</Medication>
+	</contained>
 	<status value="completed"/>
 	<medicationReference>
-		<reference value="Medication/f001"/>
+		<reference value="#medexample015"/>
 	</medicationReference>
 	<patient>
-		<reference value="Patient/example"/>
+		<reference value="Patient/pat1"/>
+		<display value="Donald Duck"/> 
 	</patient>
 	<dispenser>
-		<reference value="Practitioner/example"/>
+		<reference value="Practitioner/f006"/>
+		<display value="Rob van den Berk"/>
 	</dispenser>
 	<authorizingPrescription>
-		<reference value="MedicationOrder/medrx006"/>
+		<reference value="MedicationOrder/medrx0309"/>
 	</authorizingPrescription>
 		<dosageInstruction>
 		<timing>
@@ -45,10 +46,10 @@
 			</coding>
 		</route>
 		<doseQuantity>
-			<value value="1000"/>
-			<unit value="mg/m^2"/>
+			<value value="500"/>
+			<unit value="mg"/>
 			<system value="http://unitsofmeasure.org"/>
-			<code value="ml"/>
+			<code value="mg"/>
 		</doseQuantity>
 	</dosageInstruction>
 </MedicationDispense>

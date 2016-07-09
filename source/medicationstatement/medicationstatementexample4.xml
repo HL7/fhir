@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example is a fully populated example where a patient reports they took this in the past but are not taking it now  -->
 <MedicationStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationstatement.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationstatement.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example004"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Amoxicillin 250mg capsule - one capsule three times daily</p>
-    </div>
-  </text>
   <status value="completed" />  
-  <medicationReference> <!-- Linked to a RESOURCE Medication -->
-    <reference value="Medication/MedicationExample6"/>
-  </medicationReference>  
+  <medicationCodeableConcept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="27658006"/>
+      <display value="Amoxicillin (product)"/>
+    </coding>
+  </medicationCodeableConcept>
   <patient>
-    <reference value="Patient/example"/>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
   </patient>
   <effectiveDateTime value="2014-01-23"></effectiveDateTime>
   <informationSource>
-    <reference value="Patient/example" />
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
   </informationSource>
   <dateAsserted value="2015-02-22"/>
   <wasNotTaken value="false"/>
@@ -50,9 +50,6 @@
         <display value="Oral"/>
       </coding>
     </route>
-    <doseQuantity>
-      <value value="1" />
-    </doseQuantity>
     <maxDosePerPeriod>
       <numerator>
         <value value="3"/>

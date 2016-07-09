@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="meddisp0315"/>
+    <contained>
+        <Medication>
+            <id value="med0314"/>
+            <code>
+                <coding>
+                    <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                    <code value="562721"/>
+                    <display value="Alprazolam 0.25mg (Xanax)"/>
+                </coding>
+            </code>
+        </Medication>
+    </contained>
+    <status value="in-progress"/>
+    <medicationReference>
+        <!-- Linked to a RESOURCE Medication -->
+        <reference value="#med0314"/>
+        <display value="Alprazolam 0.25mg (Xanax)"/>
+    </medicationReference>
+    <patient>
+        <reference value="Patient/pat1 "/>
+        <display value="Donald Duck "/> 
+    </patient>
+    <dispenser>
+        <reference value="Practitioner/f006"/>
+        <display value="Rob van den Berk"/>
+    </dispenser>
+    <authorizingPrescription>
+        <reference value="MedicationOrder/medrx0305"/>
+    </authorizingPrescription>
+    <type>
+        <coding>
+            <system value="http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType"/>
+            <code value="PF"/>
+            <display value="Partial Fill"/>
+        </coding>
+    </type>
+    <quantity>
+        <value value="30"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="TAB"/>
+    </quantity>
+    <daysSupply>
+        <value value="10"/>
+        <unit value="Day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+    </daysSupply>
+    <whenPrepared value="2015-06-25T07:13:00+05:00"/>
+    <whenHandedOver value="2015-06-26T07:13:00+05:00"/>
+    <dosageInstruction>
+        <text value="0.25mg PO every 6-12 hours as needed for menses from Jan 15-20, 2015.  Do not exceed more than 4mg per day" />
+        <additionalInstructions>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="418914006"/>
+                <display value="Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink (qualifier value)"/>
+            </coding>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <boundsPeriod>
+                    <start value="2015-01-15"></start>
+                    <end value="2015-01-20"></end>
+                </boundsPeriod>
+                <frequency value="1"/>
+                <period value="6"/>
+                <periodMax value ="12"/>
+                <periodUnit value="h"/>
+            </repeat>
+        </timing>
+        <asNeededCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="266599000"/>
+                <display value="Dysmenorrhea (disorder)"/>
+            </coding>
+        </asNeededCodeableConcept>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="26643006"/>
+                <display value="Oral Route"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="1"/>
+            <unit value="TAB"/>
+            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <code value="TAB"/> 
+        </doseQuantity>
+    </dosageInstruction>
+</MedicationDispense>
+
+

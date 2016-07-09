@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationadministration.xsd"
+ xmlns="http://hl7.org/fhir"> 
+  <id value="medadmin0311"/>
+  <contained>
+    <Medication>
+      <id value="med0304"/>
+      <code>
+        <coding>
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+          <code value="308047"/>
+          <display value="Alprazolam 0.25mg Oral Tablet"/>
+        </coding>
+      </code>
+    </Medication>
+  </contained>
+  <status value="completed" />
+  <medicationReference>
+    <reference value="#med0304"/>
+  </medicationReference>
+ <patient>
+   <reference value="Patient/pat1"/>
+   <display value="Donald Duck"/> 
+  </patient>
+ <effectiveTimePeriod>
+  <start value="2015-01-15T22:03:00+01:00"/>
+   <end value="2015-01-16T02:03:00+01:00"/>
+</effectiveTimePeriod>
+  <performer>
+    <reference value="Practitioner/f007"/>
+    <display value="Patrick Pump"/>
+  </performer>
+  <prescription>
+    <reference value="MedicationOrder/medrx0305"/>
+  </prescription>
+  <reasonGiven>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="26659900"/>
+      <display value="Dysmenorrhea"/>
+    </coding>
+  </reasonGiven>
+  <dosage>
+    <text value="0.25mg PO every 6-12 hours as needed for menses from Jan 15-20, 2015.  Do not exceed more than 4mg per day" />
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="26643006"/>
+        <display value="Oral Route"/>
+      </coding>
+    </route>
+    <dose>
+      <value value="1"/>
+      <unit value="TAB"/>
+      <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+      <code value="TAB"/> 
+    </dose>
+  </dosage>
+</MedicationAdministration>

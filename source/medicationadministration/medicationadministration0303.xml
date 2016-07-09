@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationadministration.xsd"
+ xmlns="http://hl7.org/fhir"> 
+  <id value="medadmin0303"/>
+  <contained>
+      <Medication>
+        <id value="med0303"/>
+        <code>
+          <coding>
+            <system value="http://hl7.org/fhir/sid/ndc"/>
+            <code value="0206-8862-02"/>
+            <display value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
+          </coding>
+        </code>
+      </Medication>
+  </contained>
+  <status value="entered-in-error" />
+  <medicationReference>
+    <reference value="#med0303"/> 
+  </medicationReference>
+ <patient>
+   <reference value="Patient/pat1"/>
+   <display value="Donald Duck"/> 
+  </patient>
+  <encounter> 
+    <reference value="Encounter/f001"/>
+    <display value="encounter who leads to this prescription"/>
+  </encounter>
+ <effectiveTimePeriod>
+  <start value="2015-01-15T04:30:00+01:00"/>
+   <end value="2015-01-15T14:30:00+01:00"/>
+</effectiveTimePeriod>
+  <performer>
+    <reference value="Practitioner/f007"/>
+    <display value="Patrick Pump"/>
+  </performer>
+  <prescription>
+    <reference value="MedicationOrder/medrx0319"/>
+  </prescription>
+  <dosage>
+    <text value="4.5 grams in D5W 250 ml. IV every 6 hours. Infuse over 30 min at 8L/min " />
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="47625008"/>
+        <display value="Intravenous route (qualifier value)"/>
+      </coding>
+    </route>
+    <dose>
+      <value value="4.5"/>
+      <unit value="g"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="g"/>
+    </dose>
+    <rateRatio>
+      <numerator>
+        <value value="8"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="ml"/>
+      </numerator>
+      <denominator>
+        <value value="1"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="min"/>
+      </denominator>
+    </rateRatio>
+  </dosage>
+</MedicationAdministration>

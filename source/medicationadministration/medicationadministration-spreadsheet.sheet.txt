@@ -119,7 +119,7 @@
   Context = MedicationAdministration
   English = Reason given is only permitted if wasNotGiven is false
   XPath = not(exists(f:reasonGiven) and f:wasNotGiven/@value=true())
-  Expression = reasonGiven.empty() or wasNotGiven = \'false\'
+  Expression = reasonGiven.empty() or wasNotGiven.empty() or wasNotGiven = \'false\'
 
 === Sheet Data Elements =====================================
 
@@ -459,21 +459,87 @@
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
-  Name = Oral Admin
-  Identity = medadminexample01
-  Description = Example of an oral administration
-  Filename = medicationadministrationexample1.xml
-
- -- Row 2 -----------------------------------
-  Name = IV Admin
-  Identity = medadminexample02
-  Description = Example of an IV administration
-  Filename = medicationadministrationexample2.xml
-
- -- Row 3 -----------------------------------
   Name = IV Admin Not Given
   Identity = medadminexample03
-  Description = Example of an IV administration not given
+  Description = Example of an IV administration not given with a note - Alemtuzumab
   Filename = medicationadministrationexample3.xml
+
+ -- Row 2 -----------------------------------
+  Name = IV Antibiotic
+  Identity = medadmin0301
+  Description = Intravenous Antibiotic - Vancomycin
+  Filename = medicationadministration0301.xml
+
+ -- Row 3 -----------------------------------
+  Name = IV Admixture
+  Identity = medadmin0302
+  Description = Intravenous Admixture - Potassium Chloride in D5W
+  Filename = medicationadministration0302.xml
+
+ -- Row 4 -----------------------------------
+  Name = IV with a rate
+  Identity = medadmin0303
+  Description = Intravenous Antibiotic with a Dosage Rate - Piperacillin
+  Filename = medicationadministration0303.xml
+
+ -- Row 5 -----------------------------------
+  Name = IV Chemo on hold
+  Identity = medadmin0304
+  Description = Intravenous Chemotherapy (Inpatient order) - Alemtuzumab - completed
+  Filename = medicationadministration0304.xml
+
+ -- Row 6 -----------------------------------
+  Name = IV Chemo
+  Identity = medadmin0305
+  Description = Intravenous Chemotherapy (Inpatient order) - Brentuximab Vedotin
+  Filename = medicationadministration0305.xml
+
+ -- Row 7 -----------------------------------
+  Name = Oral Antibiotic
+  Identity = medadmin0306
+  Description = Oral Antibiotic - Azithromycin
+  Filename = medicationadministration0306.xml
+
+ -- Row 8 -----------------------------------
+  Name = Lorazepam
+  Identity = medadmin0307
+  Description = Lorazepam with a Device
+  Filename = medicationadministration0307.xml
+
+ -- Row 9 -----------------------------------
+  Name = SC Injection
+  Identity = medadmin0308
+  Description = Subcutaneous Injection - Insulin - Lantus
+  Filename = medicationadministration0308.xml
+
+ -- Row 10 -----------------------------------
+  Name = TPN solution
+  Identity = medadmin0309
+  Description = TPN Solution with a Device
+  Filename = medicationadministration0309.xml
+
+ -- Row 11 -----------------------------------
+  Name = Oral Chemo
+  Identity = medadmin0310
+  Description = Oral Chemotherapy - Myleran
+  Filename = medicationadministration0310.xml
+
+ -- Row 12 -----------------------------------
+  Name = Precondition
+  Identity = medadmin0311
+  Description = Dosage with a Pre-Condition - Alprazolam
+  Filename = medicationadministration0311.xml
+
+ -- Row 13 -----------------------------------
+  Name = Patch
+  Identity = medadmin0312
+  Description = Medication Code - Patch - Fentanyl
+  Filename = medicationadministration0312.xml
+
+ -- Row 14 -----------------------------------
+  Name = Rectal
+  Identity = medadmin0313
+  Description = Medication Code - Rectal Suppository - Acetaminophen
+  Filename = medicationadministration0313.xml
 
 === Sheet Examples =====================================

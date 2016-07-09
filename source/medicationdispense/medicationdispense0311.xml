@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="meddisp0311"/>
+    <status value="completed"/>
+   <medicationCodeableConcept>
+       <coding>
+           <system value="http://hl7.org/fhir/sid/ndc"/>
+           <code value="50090-0001"/>
+           <display value="Acetaminophen 120mg Suppository"/>
+       </coding>
+   </medicationCodeableConcept>
+    <patient>       
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </patient>
+    <dispenser>
+        <reference value="Practitioner/f006"/>
+        <display value="Rob van den Berk"/>
+    </dispenser>
+    <authorizingPrescription>
+        <reference value="MedicationOrder/medrx0324"/>
+    </authorizingPrescription>
+    <type>
+        <coding>
+            <system value="http://hl7.org/fhir/v3/ActPharmacySupplyType"/>
+            <code value="PF"/>
+            <display value="partial Fill"/>
+        </coding>
+    </type>
+    <quantity>
+        <value value="60"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="RECSUPP"/>
+    </quantity>
+    <daysSupply>
+        <value value="10"/>
+        <unit value="Day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+    </daysSupply>
+    <whenPrepared value="2015-01-15T10:20:00Z"/>
+    <whenHandedOver value="2015-01-15T16:20:00Z"/>    
+    <dosageInstruction>
+        <text value="Insert two suppositories (240mg) rectally twice daily as needed for fever to a maximim of 6 per day"/>
+        <additionalInstructions>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="418637003"/>
+                <display value="Do not take with any other paracetamol products (qualifier value)"/>
+            </coding>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <frequency value="2"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <asNeededCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="386661006"/>
+                <display value="Fever (finding)"/>
+            </coding>
+        </asNeededCodeableConcept>
+        <doseQuantity>
+            <value value="240"/>
+            <unit value="mg"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mg"/>
+        </doseQuantity>
+        <maxDosePerPeriod>
+            <numerator>
+                <value value="720"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="mg"/>
+            </numerator>
+            <denominator>
+                <value value="1"/>
+                <system value="http://unitsofmeasure.org"></system>
+                <code value="d"></code>
+            </denominator>
+        </maxDosePerPeriod>
+    </dosageInstruction>
+</MedicationDispense>
+
+

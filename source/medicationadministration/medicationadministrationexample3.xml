@@ -1,54 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medicationadministration.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationadministration.xsd"
  xmlns="http://hl7.org/fhir"> 
   <id value="medadminexample03"/>
+  <contained>
+    <Medication>
+      <id value="med0303"/>
+      <code>
+        <coding>
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+          <code value="1594660"/>
+          <display value="Alemtuzumab 10mg/ml (Lemtrada)"/>
+        </coding>
+      </code>
+    </Medication>
+  </contained>
   <status value="on-hold" />
   <medicationReference>
-    <!-- references medication 6 -->
-    <reference value="Medication/medicationexample17"/> 
+    <reference value="#med0303"/> 
   </medicationReference>
  <patient>
-    <reference value="Patient/example"/>
+   <reference value="Patient/pat1"/>
+   <display value="Donald Duck"/> 
   </patient>
+<encounter>
+  <reference value="Encounter/f001"></reference>
+</encounter>
  <effectiveTimePeriod>
   <start value="2015-01-15T14:30:00+01:00"/>
   <end value="2015-01-15T14:30:00+01:00"/>
 </effectiveTimePeriod>
-  <performer>
-    <reference value="Practitioner/example"/>
-  </performer>
   <prescription>
-    <reference value="MedicationOrder/medrx008"/>
+    <reference value="MedicationOrder/medrx0317"/>
   </prescription>
-   <dosage>
-    <route>
+  <wasNotGiven value="true"></wasNotGiven>
+  <reasonNotGiven>
       <coding>
         <system value="http://snomed.info/sct"/>
-        <code value="47625008"/>
-        <display value="Intravenous route"/>
+      <code value="373147003"/>
+      <display value="Medication not administered because contraindicated"/>
       </coding>
-    </route>
-    <dose>
-      <value value="80"/>
-      <unit value="mg"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="mg"/>
-    </dose>
-    <rateRatio>
-      <numerator>
-        <value value="80"/>
-        <unit value="mg"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="mg"/>
-      </numerator>
-      <denominator>
-        <value value="60"/>
-        <unit value="minutes"/>
-        <system value="http://snomed.info/sct"/>
-        <code value="258702006"/>
-      </denominator>
-    </rateRatio>
-  </dosage>
-  
+  </reasonNotGiven>
+  <note>
+    <text value="Patient started Bupropion this morning - will administer in a reduced dose tomorrow"/>
+  </note>
 </MedicationAdministration>

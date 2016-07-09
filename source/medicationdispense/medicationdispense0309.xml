@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="meddisp0309"/>
+    <contained>
+        <Medication>
+            <id value="med0312"/>
+            <code>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="324689003"/>
+                    <display value="Nystatin 100,000 units/ml oral suspension (product)"/>
+                </coding>
+            </code>
+        </Medication>
+    </contained>
+    <status value="entered-in-error"/>
+    <medicationReference>
+        <!-- Linked to a RESOURCE Medication -->
+        <reference value="#med0312"/>
+        <display value="Nystatin 100,000 units/ml oral suspension (product)"/>
+    </medicationReference>
+    <patient>
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck "/> 
+    </patient>
+    <dispenser>
+        <reference value="Practitioner/f006"/>
+        <display value="Rob van den Berk"/>
+    </dispenser>
+    <authorizingPrescription>
+        <reference value="MedicationOrder/medrx0319"/>
+    </authorizingPrescription>
+    <type>
+        <coding>
+            <system value="http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType"/>
+            <code value="FF"/>
+            <display value="First Fill"/>
+        </coding>
+    </type>
+    <quantity>
+        <value value="10"/>
+        <unit value="ml"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="ml"/> 
+    </quantity>
+    <daysSupply>
+        <value value="10"/>
+        <unit value="Day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+    </daysSupply>
+    <whenPrepared value="2015-01-15"/>
+    <whenHandedOver value="2016-01-15"/>
+    <dosageInstruction>
+        <text value="10 drops four times daily - apply in mouth using cotton swab or finger"/>
+        <timing>
+            <repeat>
+                <frequency value="4"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <doseQuantity>
+            <value value="10"/>
+            <unit value="drop"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="drop"/>
+        </doseQuantity>
+    </dosageInstruction>
+</MedicationDispense>
+
+
+
+

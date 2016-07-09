@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="meddisp0304"/>
+    <contained>
+        <Medication>
+            <id value="med0302"/>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/sid/ndc"/>
+                    <code value="0206-8862-02"/>
+                    <display value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
+                </coding>
+            </code>
+        </Medication>
+    </contained>
+    <status value="completed"/>
+    <medicationReference>
+        <!-- Linked to a RESOURCE Medication -->
+        <reference value="#med0302"/>
+        <display value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
+    </medicationReference>
+    <patient>
+        <reference value="Patient/pat1 "/>
+        <display value="Donald Duck "/> 
+    </patient>
+    <dispenser>
+        <reference value="Practitioner/f006"/>
+        <display value="Rob van den Berk"/>
+    </dispenser>
+    <authorizingPrescription>
+        <reference value="MedicationOrder/medrx0319"/>
+    </authorizingPrescription>
+    <type>
+        <coding>
+            <system value="http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType"/>
+            <code value="FF"/>
+            <display value="First Fill"/>
+        </coding>
+    </type>
+    <quantity>
+        <value value="250"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mL"/>
+    </quantity>
+    <daysSupply>
+        <value value="1"/>
+        <unit value="Day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+    </daysSupply>
+    <whenPrepared value="2015-06-25T07:13:00+05:00"/>
+    <whenHandedOver value="2015-06-26T07:13:00+05:00"/>
+    <dosageInstruction>
+        <text value="4.5 grams in D5W 250 ml. IV every 6 hours. Infuse over 30 min at 8L/min"/>
+        <timing>
+            <repeat>
+                <frequency value="1"/>
+                <period value="6"/>
+                <periodUnit value="h"/>	
+            </repeat>
+        </timing>
+        <siteCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="right subclavian"/>
+                <display value="Intravenous route (qualifier value)"/>
+            </coding>
+        </siteCodeableConcept>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="47625008 "/>
+                <display value="IV intravascular route that begins within a vein)"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="4.5"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="g"/>
+        </doseQuantity>
+        <rateRatio>
+            <numerator>
+                <value value="8"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="ml"/>
+            </numerator>
+            <denominator>
+                <value value="1"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="min"/>
+            </denominator>
+        </rateRatio>
+    </dosageInstruction>
+</MedicationDispense>
+
+
+

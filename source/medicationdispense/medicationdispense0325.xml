@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="meddisp0325"/>
+    <status value="in-progress"/>
+    <medicationCodeableConcept>
+        <coding>
+            <system value="http://hl7.org/fhir/sid/ndc"/>
+            <code value="60505-7001-2"/>
+            <display value="fentanyl 25mcg/hour Patch, Extended Release (Apotex)"/>
+        </coding>
+    </medicationCodeableConcept>
+    <patient>
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </patient>
+    <dispenser>
+        <reference value="Practitioner/f006"/>
+        <display value="Rob van den Berk"/>
+    </dispenser>
+    <authorizingPrescription>
+        <reference value="MedicationOrder/medrx0327"/>
+    </authorizingPrescription>
+    <type>
+        <coding>
+            <system value="http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType"/>
+            <code value="EF"/>
+            <display value="emergency Fill"/>
+        </coding>
+    </type>
+    <quantity>
+        <value value="5"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="patch"/>
+    </quantity>
+    <daysSupply>
+        <value value="14"/>
+        <unit value="Day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+    </daysSupply>
+    <whenPrepared value="2015-01-15T10:20:00Z"/>
+    <dosageInstruction>
+        <text value="apply one patch three times per week"/>
+        <timing>
+            <repeat>
+                <frequency value="3"/>
+                <period value="1"/>
+                <periodUnit value="wk"/>
+            </repeat>
+        </timing>
+        <doseQuantity>
+            <value value="1"/>
+            <unit value="patch"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+            <code value="patch"/>
+        </doseQuantity>
+    </dosageInstruction>
+</MedicationDispense>
+
+
+

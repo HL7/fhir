@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationadministration.xsd"
+ xmlns="http://hl7.org/fhir"> 
+  <id value="medadmin0312"/>
+  <status value="completed" />
+  <medicationCodeableConcept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="333919005"/>
+      <display value="Fentanyl 25micrograms/hour patch (product)"/>
+    </coding>
+  </medicationCodeableConcept>
+ <patient>
+   <reference value="Patient/pat1"/>
+   <display value="Donald Duck"/> 
+  </patient>
+ <effectiveTimePeriod>
+  <start value="2015-01-15T22:03:00+01:00"/>
+   <end value="2015-01-16T02:03:00+01:00"/>
+</effectiveTimePeriod>
+  <performer>
+    <reference value="Practitioner/f007"/>
+    <display value="Patrick Pump"/>
+  </performer>
+  <prescription>
+    <reference value="MedicationOrder/medrx0305"/>
+  </prescription>
+  <dosage>
+    <text value="apply one patch three times per week"/>
+    <dose>
+      <value value="1"/>
+      <unit value="patch"/>
+      <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+      <code value="patch"/>
+    </dose>
+  </dosage>
+</MedicationAdministration>

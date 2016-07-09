@@ -1,70 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example is a fully populated example where a patient reports they are taking a certain medication and has the bottle  -->
 <MedicationStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationstatement.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationstatement.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example001"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Tylenol No 1 tablet - Taking 1 tablet four times daily as needed for pain</p>
-    </div>
-  </text>
-  <status value="completed" />  
+  <contained>
+    <Medication>
+      <id value="med0309"/>
+    <code>
+      <coding>
+        <system value="http://hl7.org/fhir/sid/ndc"/>
+        <code value="50580-506-02"/>
+        <display value="Tylenol PM"/>
+      </coding>
+    </code>
+    <isBrand value="true"/>
+    <product>
+      <form>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="385057009"/>
+          <display value="Film-coated tablet (qualifier value)"/>
+        </coding>
+      </form>
+      <ingredient>
+        <itemCodeableConcept>
+          <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+            <code value="315266"/>
+            <display value="Acetaminophen 500 MG"/>
+          </coding>
+        </itemCodeableConcept>
+        <amount>
+          <numerator>
+            <value value="500"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mg"/>
+          </numerator>
+          <denominator>
+            <value value="1"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+            <code value="Tab"/>
+          </denominator>
+        </amount>
+      </ingredient>
+      <ingredient>
+        <itemCodeableConcept>
+          <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+            <code value="901813"/>
+            <display value="Diphenhydramine Hydrochloride 25 mg"/>
+          </coding>
+        </itemCodeableConcept>
+        <amount>
+          <numerator>
+            <value value="25"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mg"/>
+          </numerator>
+          <denominator>
+            <value value="1"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+            <code value="Tab"/>
+          </denominator>
+        </amount>
+      </ingredient>
+      <batch>
+        <lotNumber value="9494788"/>
+        <expirationDate value="2017-05-22"/>
+      </batch> 
+    </product>
+    </Medication>
+  </contained>
+  <status value="active" />  
   <medicationReference> <!-- Linked to a RESOURCE Medication -->
-    <reference value="Medication/MedicationExample7"/>
+    <reference value="#med0309"/>
   </medicationReference> 
   <patient>
     <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
   </patient>
   <effectiveDateTime value="2015-01-23"></effectiveDateTime>
   <informationSource>
-    <reference value="Patient/pat2" />
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
   </informationSource>
   <dateAsserted value="2015-02-22"/>
   <wasNotTaken value="false"/>
   <reasonForUseCode>
     <coding>
       <system value="http://snomed.info/sct"/>
-      <code value="22253000"/>
-      <display value="Pain"/>
+      <code value="32914008"/>
+      <display value="Restless Legs"/>
     </coding>
   </reasonForUseCode>
   <note>
     <text value="Patient indicates they miss the occasional dose" />
   </note>
   <dosage>
-    <text value="one tablet four times daily as needed for pain" />
+    <text value="1-2 tablets once daily at bedtime as needed for restless legs" />
+    <additionalInstructions>
+      <text value="Taking at bedtime"/>
+    </additionalInstructions>
     <timing>
       <repeat>
-        <frequency value="4"/>
+          <frequency value="1"/>
         <period value="1"/>
         <periodUnit value="d"/>
       </repeat>
     </timing>
-    <asNeededBoolean value="true" />
+      <asNeededCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="32914008"/>
+          <display value="Restless Legs"/>
+        </coding>
+      </asNeededCodeableConcept>
     <route>
       <coding>
       <system value="http://snomed.info/sct"/>
-      <code value="260548002"/>
-      <display value="Oral"/>
+          <code value="26643006"/>
+          <display value="Oral Route"/>
       </coding>
     </route>
-    <doseQuantity>
-      <value value="1" />
-    </doseQuantity>
-    <maxDosePerPeriod>
-      <numerator>
-        <value value="4"/>
-        <unit value="tablets" />
-        <system value="http://snomed.info/sct" />
-        <code value="385055001"/>
-      </numerator>
-      <denominator>
+      <doseRange>
+        <low>
       <value value="1"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="d"/>
-      </denominator>
-    </maxDosePerPeriod>
+          <unit value="TAB"/>
+          <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+          <code value="TAB"/>
+        </low>
+        <high>
+          <value value="2"/>
+          <unit value="TAB"/>
+          <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+          <code value="TAB"/>
+        </high>
+      </doseRange>
   </dosage>
 </MedicationStatement>

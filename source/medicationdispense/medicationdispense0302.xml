@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
+ xmlns="http://hl7.org/fhir">
+    <id value="meddisp0302"/>
+    <contained>
+        <Medication>
+            <id value="med0360"></id>
+        <code>
+            <coding>
+                <system value="http://hl7.org/fhir/sid/ndc"/>
+                <code value="0169-7501-11"/>
+                <display value="Novolog 100u/ml"/>
+            </coding>
+        </code>
+        <isBrand value="true"/>
+        <product>
+            <form>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="385219001"/>
+                    <display value="Injection solution (qualifier value)"/>
+                </coding>
+            </form>
+            <ingredient>
+                <itemCodeableConcept>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="325072002"/>
+                        <display value="Insulin Aspart (substance)"/>
+                    </coding>
+                </itemCodeableConcept>
+                <amount>
+                    <numerator>
+                        <value value="100"/>
+                        <system value="http://unitsofmeasure.org"/>
+                        <code value="U"/>
+                    </numerator>
+                    <denominator>
+                        <value value="1"/>
+                        <system value="http://unitsofmeasure.org"/>
+                        <code value="mL"/>
+                    </denominator>
+                </amount>
+            </ingredient>
+            <batch>
+                <lotNumber value="12345"/>
+                <expirationDate value="2019-10-31"/>
+            </batch>
+        </product>
+        <package>
+            <container>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="415818006"/>
+                    <display value="Vial"/>
+                </coding>
+            </container>
+            <content>
+                <itemCodeableConcept>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="325072002"/>
+                        <display value="Insulin Aspart (substance)"/>
+                    </coding>
+                </itemCodeableConcept>
+                <amount>
+                    <value value="10"/>
+                    <system value="http://unitsofmeasure.org"/>
+                    <code value="mL"/>
+                </amount>
+            </content>
+        </package>
+        </Medication>
+    </contained>
+    <status value="in-progress"/>
+    <medicationReference>      
+        <reference value="#med0360"/>
+        <display value="Novolog 100u/ml"/>
+    </medicationReference>
+    <patient>
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </patient>
+    <dispenser>
+        <reference value="Practitioner/f006"/>
+        <display value="Rob van den Berk"/>
+    </dispenser>
+    <authorizingPrescription>
+        <reference value="MedicationOrder/medrx0321"/>
+    </authorizingPrescription>
+    <type>
+        <coding>
+            <system value="http://hl7.org/fhir/v3/ActPharmacySupplyType"/>
+            <code value="PF"/>
+            <display value="partial Fill"/>
+        </coding>
+    </type>
+    <quantity>
+        <value value="10"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="ml"/>
+    </quantity>
+    <daysSupply>
+        <value value="30"/>
+        <unit value="Day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+    </daysSupply>
+    <whenPrepared value="2015-01-15T10:20:00Z"/>
+    <whenHandedOver value="2015-01-15T16:20:00Z"/>
+    <dosageInstruction>
+        <text value="Before Breakfast"/>
+        <additionalInstructions>
+            <text value="Check sugar level before taking Novolog"/>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <frequency value="1"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <doseQuantity>
+            <value value="10"/>
+            <unit value="U"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="U"/>
+        </doseQuantity>
+    </dosageInstruction>
+    <dosageInstruction>
+        <text value="15 units before lunch"/>
+        <additionalInstructions>
+            <text value="Check sugar level before taking Novolog"/>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <frequency value="1"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <doseQuantity>
+            <value value="15"/>
+            <unit value="U"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="U"/>
+        </doseQuantity>
+    </dosageInstruction>
+    <dosageInstruction>
+        <text value="20 units before dinner"/>
+        <additionalInstructions>
+            <text value="Check sugar level before taking Novolog"/>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <frequency value="1"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <doseQuantity>
+            <value value="20"/>
+            <unit value="U"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="U"/>
+        </doseQuantity>
+    </dosageInstruction>
+</MedicationDispense>
+
+

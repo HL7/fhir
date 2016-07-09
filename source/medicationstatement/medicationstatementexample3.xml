@@ -1,33 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This example is a fully populated example where a care giver reports they are taking a certain medication and has the bottle  -->
 <MedicationStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationstatement.xsd"
  xmlns="http://hl7.org/fhir">
-  <id value="example006"/>
+  <id value="example003"/>
   <status value="active" />
   <medicationCodeableConcept>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="27658006"/>
-        <display value="Amoxicillin (product)"/>
-      </coding>
+      <text value="Little Pink Pill for water retention"></text>
   </medicationCodeableConcept>  
   <patient>
-    <reference value="Patient/pat1"/>
+    <reference value="Patient/pat01"/>
     <display value="Donald Duck"/> 
   </patient>
   <effectiveDateTime value="2014-02-01"></effectiveDateTime>
   <informationSource>
-    <reference value="RelatedPerson/peter"/>
-    <display value="Peter Chalmers"/> 
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
   </informationSource>
   <dateAsserted value="2014-02-22"/>
   <wasNotTaken value="false"/>
   <note>
-    <text value="Father indicates they miss the occasional dose"/>
+    <text value="Patient can not remember the name of the tablet, but takes it every day in the morning for water retention"/>
   </note>
   <dosage>
-    <text value="5ml three times daily" />
+    <text value="1 tablet per day" />
     <asNeededBoolean value="false" />
     <route>
      <coding>
@@ -37,14 +32,14 @@
       </coding>
     </route>
     <doseQuantity>
-      <value value="5" />
-      <unit value="mL"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="mL"/>
+      <value value="1"/>
+      <unit value="tab"/>
+      <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+      <code value="tab"/>
     </doseQuantity>
     <maxDosePerPeriod>
       <numerator>
-        <value value="3"/>
+        <value value="1"/>
       </numerator>
       <denominator>
       <value value="1"/>

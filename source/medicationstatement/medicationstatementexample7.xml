@@ -1,26 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example where a patient reports is not taking now but will be taking in future  -->
 <MedicationStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationstatement.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationstatement.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example007"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Ventolin inhaler - Will take during seasonal allergy season</p>
-    </div>
-  </text>
-  <status value="active" />
+  <contained>
+    <Medication>
+      <id value="med0315"/>
+      <code>
+        <coding>
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+          <code value="358793"/>
+          <display value="Mometasone Furoate 0.05mg/Actuat"/>
+        </coding>
+      </code>
+      <isBrand value="false"/>
+      <product>
+        <form>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="385157007"/>
+            <display value="Nasal Spray"/>
+          </coding>
+        </form>
+      </product>
+    </Medication>
+  </contained>
+  <status value="intended" />
   <medicationReference> <!-- Linked to a RESOURCE Medication -->
-    <reference value="Medication/MedicationExample12"/>
+    <reference value="#med0315"/>
   </medicationReference>
   <patient>
-    <reference value="Patient/example"/>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
   </patient>
-  <effectiveDateTime value="2015-05-23"></effectiveDateTime>
   <informationSource>
-    <reference value="Patient/example" />
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
   </informationSource>
   <dateAsserted value="2015-02-22"/>
-  <wasNotTaken value="false"/>
+  <wasNotTaken value="true"/>
+  <note>
+    <text value="patient plans to start using for seasonal allergies in the Spring when pollen is in the air"/>
+  </note>
 </MedicationStatement>

@@ -6093,339 +6093,289 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"><Data ss:Type="String">Fully Populated</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">Fully populated example with refills remaining</Data></Cell>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">meddisp001</Data></Cell>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">medicationdispenseexample1.xml</Data></Cell>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"><Data ss:Type="String">Oral Simple</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Example of an oral dosage form with simple dose instructions</Data></Cell>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">meddisp002</Data></Cell>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">medicationdispenseexample2.xml</Data></Cell>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"><Data ss:Type="String">Loading Dose</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">Example of a dispense of a loading dose</Data></Cell>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">meddisp003</Data></Cell>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">medicationdispenseexample3.xml</Data></Cell>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"><Data ss:Type="String">Increasing Dose</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">Example of a dispense with a increasing dose</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">meddisp004</Data></Cell>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">medicationdispenseexample4.xml</Data></Cell>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"><Data ss:Type="String">PRN</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">Example of a prn medication</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp006</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">medicationdispenseexample6.xml</Data></Cell>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Injection</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s145"><Data ss:Type="String">Example of a dispense of an injection with a rate</Data></Cell>
+    <Cell><Data ss:Type="String">Oral Chemo</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s143"><Data ss:Type="String">Dispense for Oral Chemotherapy - Capecitabine (RxNorm code)</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp008</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">medicationdispenseexample8.xml</Data></Cell>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="7" ss:StyleID="s143"/>
+    <Cell><Data ss:Type="String">IV Antibiotic</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s145"><Data ss:Type="String">Dispense for IV Antibiotic - in progress - Vancomycin IV (NDC Code) - in-progress</Data></Cell>
+    <Cell><Data ss:Type="String">meddisp0301</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0301.xml</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">SC Injection</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Subcutaneous injection with multiple dosage lines - Insulin - Novolog (NDC Code) - active - includes Destination, Receiver, note.  DosageInstruction includes additionalInstructions as text</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0302</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0302.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">PRN dose with condition</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Oxycodone (RxNorm code) - PRN dose with dose range, coded additional instructions and PRN coded pre-condition</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0303</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0303.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">IV antibiotic</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Intravenous Antibiotic with a Dosage Rate - Piperacillin (NDC code) - completed with a coded site and route of administration and a rate expressed as a ratio</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0304</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0304.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Tapering Dose</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Prednisone (RxNorm code) Tapering Dose - entered-in-error with multiple DosageInstruction lines that include coded additionalInstructions and multiple EventHistory elements</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0305</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0305.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">IV Chemo</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Intravenous Chemotherapy (inpatient order) - Alemtuzumab (RxNorm Code) - completed with multiple dosageInstruction lines</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0306</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0306.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Oral Chemo</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Dispense for Busulfan (Myleran) - completed</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0307</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0307.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Eye drops</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Timoptic Opthalmic Drops - (NDC code) - completed</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0308</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0308.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Oral Drops</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Nystatin drops (Snomed Code) - entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0309</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0309.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">As Needed with condition</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Percocet (NDC Code) - in-progress with additionalInstructions, and as needed dosage with condition</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0310</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0310.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Suppository</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">Dispense for Paracetamol Suppositories - completed</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0311</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0311.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">OTC</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Over the Counter medication - Tylenol PM (NDC code) - on hold with  as needed dosage with a condition, a dose Range and an Event History</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0312</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0312.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">KCL admixture</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Potassium Chloride Admixture - stopped - with eventHistory and rate range for dosage</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0313</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0313.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">IV</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Lorazepam (Rx norm code) - completed with rate range</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0314</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0314.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Oral</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Alprazolam (Rx Norm code) - in progress</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0315</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0315.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Insulin</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Insulin (Lantus) (NDC code) - in-progress with SC dosage</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0316</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0316.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">IV Chemo</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Brentuximab Vedotin (NDC code)  - IV Chemo - stopped</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0317</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0317.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Oral</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Levothyroxine (NDC code) in-progress with authorizing prescription</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0318</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0318.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Mutliple dosage lines</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Azithromycin (NDC code) - completed with multiple dosage lines</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0319</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0319.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">TPN Solution</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for a TPN solution - completed</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0320</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0320.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">As Needed with condition</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">Dispense for Vicodin - in progress - PRN with pre-condition</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0321</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0321.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Oral suspension</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Dilantin Oral Suspension (NDC code) - completed </Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0322</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0322.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Topical Ointment</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Nystatin Topical Ointment  (RxNorm code) - completed</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0324</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0324.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Patch</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Fentanyl Patch (NDC code) - in progress</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0325</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0325.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Antibiotic</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Azithromycin (RxNorm Code) - in-progress with coded additionalInstructions</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0326</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0326.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Inhaler</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Proventil (RxNorm Code) - completed - with additionalInstructions as text</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0327</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0327.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Inhaler</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Nasonex Inhaler (RxNorm Code) - in progress with additionalInstructions as text</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0328</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0328.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Compound</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for compounded ointment - completed with additionalInstructions as text and a coded site in dosageInstructions</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0329</Data></Cell>
+    <Cell><Data ss:Type="String">medicationdispense0329.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Warfarin</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Warfarin 5mg (NDC Code) where the product is dispensed as multiple strengths based on prescribe dosage </Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0330</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">medicationdispense0330.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Warfarin</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Dispense for Warfarin 2mg (NDC Code) where the product is dispensed as multiple strengths based on prescribe dosage </Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">meddisp0331</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">medicationdispense0331.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s146"/>
-    <Cell ss:StyleID="s123"/>
-    <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s123"/>
-    <Cell ss:StyleID="s123"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s151"/>
    </Row>
    <Row ss:AutoFitHeight="0"/>
   </Table>
