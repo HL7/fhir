@@ -22,8 +22,8 @@
         <display value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
     </medicationReference>
     <patient>
-        <reference value="Patient/pat1 "/>
-        <display value="Donald Duck "/> 
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/> 
     </patient>
     <dispenser>
         <reference value="Practitioner/f006"/>
@@ -71,7 +71,7 @@
         <route>
             <coding>
                 <system value="http://snomed.info/sct"/>
-                <code value="47625008 "/>
+                <code value="47625008"/>
                 <display value="IV intravascular route that begins within a vein)"/>
             </coding>
         </route>
