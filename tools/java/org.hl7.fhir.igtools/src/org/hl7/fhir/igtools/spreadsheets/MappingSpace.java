@@ -7,14 +7,16 @@ public class MappingSpace {
   private String preamble; // html to go in spec
   private String id; // internal page reference
   private int sortOrder; 
+  private boolean publish;
   
-  public MappingSpace(String columnName, String title, String id, int sortOrder) {
+  public MappingSpace(String columnName, String title, String id, int sortOrder, boolean publish) {
     super();
     this.columnName = columnName;
     this.title = title;
     this.id = id;
     this.sortOrder = sortOrder;
     this.preamble = "";
+    this.publish = publish;
   }
 
   public String getColumnName() {
@@ -55,6 +57,14 @@ public class MappingSpace {
 
   public void setSortOrder(int sortOrder) {
     this.sortOrder = sortOrder;
+  }
+
+  public boolean isPublish() {
+    return publish;
+  }
+
+  public void setPublish(boolean publish) {
+    this.publish = publish;
   } 
   
 }

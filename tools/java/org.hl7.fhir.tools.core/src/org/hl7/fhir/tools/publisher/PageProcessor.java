@@ -157,6 +157,7 @@ import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.exceptions.UcumException;
+import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
@@ -702,6 +703,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genV3CSIndex()+s3;
       else if (com[0].equals("v3Index-vs"))
         src = s1+genV3VSIndex()+s3;
+      else if (com[0].equals("mappings-table"))
+        src = s1+genMappingsTable()+s3;
       else if (com[0].equals("id"))
         src = s1+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name)+s3;
       else if (com[0].equals("ver"))
@@ -952,6 +955,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String genMappingsTable() {
+    StringBuilder b = new  StringBuilder();
+    b.append("<table class=\"lines\">\r\n");
+    for (String s : definitions.getMapTypes().keySet()) {
+      MappingSpace m = definitions.getMapTypes().get(s);
+      if (m.isPublish())
+        b.append("<tr><td>"+s+"</td><td>"+Utilities.escapeXml(m.getTitle())+"</td></tr>\r\n");
+    }
+    b.append("</table>\r\n");
+    return b.toString();
   }
 
   private boolean hasExamples(StructureDefinition resource, ImplementationGuideDefn ig) {
@@ -4231,6 +4246,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genV3CSIndex()+s3;
       else if (com[0].equals("v3Index-vs"))
         src = s1+genV3VSIndex()+s3;
+      else if (com[0].equals("mappings-table"))
+        src = s1+genMappingsTable()+s3;
       else if (com[0].equals("vssummary"))
         src = s1 + "todo" + s3;
       else if (com[0].equals("compartmentlist"))
@@ -6823,6 +6840,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genV3CSIndex()+s3;
       else if (com[0].equals("v3Index-vs"))
         src = s1+genV3VSIndex()+s3;
+      else if (com[0].equals("mappings-table"))
+        src = s1+genMappingsTable()+s3;
       else if (com[0].equals("id"))
         src = s1+pack.getId()+s3;
       else if (com[0].equals("events"))

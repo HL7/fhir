@@ -12,23 +12,26 @@
 	<space>
 		<url>http://hl7.org/v3</url>
 		<columnName>RIM Mapping</columnName>
-		<title>RIM</title>
+		<title>RIM Mapping</title>
 		<id>rim</id>
 		<sort>1</sort>
+    <publish>true</publish>
 	</space>
 	<space>
 		<url>http://loinc.org</url>
 		<columnName>LOINC Code</columnName>
-		<title>LOINC</title>
+		<title>LOINC code for the element</title>
 		<id>loinc</id>
 		<sort>2</sort>
+    <publish>true</publish>
 	</space>
 	<space>
 		<url>http://snomed.info</url>
 		<columnName>Snomed Code</columnName>
-		<title>SNOMED-CT</title>
+		<title>SNOMED CT code for the element</title>
 		<id>sct</id>
 		<sort>3</sort>
+    <publish>true</publish>
 	</space>
 	<space>
 		<url>http://hl7.org/v3/cda</url>
@@ -36,34 +39,39 @@
 		<title>CDA (R2)</title>
 		<id>cda</id>
 		<sort>4</sort>
+    <publish>true</publish>
 	</space>
 	<space>
 		<url>http://hl7.org/v2</url>
 		<columnName>v2 Mapping</columnName>
-		<title>HL7 v2</title>
+		<title>HL7 v2 Mapping</title>
 		<id>v2</id>
 		<sort>5</sort>
+    <publish>true</publish>
 	</space>
 	<space>
 		<url>http://nema.org/dicom</url>
 		<columnName>DICOM Mapping</columnName>
-		<title>DICOM</title>
+		<title>DICOM Tag Mapping</title>
 		<id>dicom</id>
 		<sort>6</sort>
+    <publish>true</publish>
 	</space>
 	<space>
 		<url>http://w3.org/vcard</url>
 		<columnName>vCard Mapping</columnName>
-		<title>vCard</title>
+		<title>vCard Mapping</title>
 		<id>vcard</id>
 		<sort>7</sort>
+    <publish>true</publish>
 	</space>
 	<space>
 		<url>http://ihe.net/xds</url>
 		<columnName>XDS Mapping</columnName>
-		<title>XDS</title>
+		<title>XDS metadata equivalent</title>
 		<id>xds</id>
 		<sort>8</sort>
+    <publish>true</publish>
 	</space>
 	<space>
 		<url>http://www.w3.org/ns/prov</url>
@@ -85,6 +93,7 @@
      </p>
 		</preamble>
 		<sort>9</sort>
+    <publish>true</publish>
 	</space>
 	<space>
 		<url>http://www.ietf.org/rfc/rfc2445.txt</url>
@@ -111,6 +120,7 @@
      </p>
 		</preamble>
 		<sort>13</sort>
+    <publish>true</publish>
 	</space>
 	<space>
 		<url>http://wiki.ihe.net/index.php?title=Data_Element_Exchange</url>
@@ -122,9 +132,10 @@
 	<space>
 		<url>http://openehr.org</url>
 		<columnName>OpenEHR mapping</columnName>
-		<title>Open EHR</title>
+		<title>Open EHR Archetype Mapping</title>
 		<id>openehr</id>
 		<sort>15</sort>
+    <publish>true</publish>
 	</space>
 	<space>
 		<url>http://wiki.siframework.org/IHE+SDC+Profile</url>
@@ -244,5 +255,13 @@
 		<title>Object Implementation Information</title>
 		<id>objimpl</id>
 		<sort>30</sort>
+	</space>
+	<space>
+		<url>http://github.com/MDMI/ReferentIndexContent</url>
+		<columnName>MDMI Referent</columnName>
+		<title>MDMI Referent Index</title>
+		<id>mdmi</id>
+		<sort>31</sort>
+    <publish>true</publish>
 	</space>
 </mappingSpaces>
