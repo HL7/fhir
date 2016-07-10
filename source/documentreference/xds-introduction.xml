@@ -33,7 +33,7 @@ some significant ways:
 <h4>Mapping Notes</h4>
 <p>
 The formal mappings are found below, but this section provides some additional description to help understand 
-the relationships between the XDS tranasction and the FHIR resources.
+the relationships between the XDS transaction and the FHIR resources.
 </p>
 
 <table class="grid">
