@@ -3284,7 +3284,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Narrower</Data></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally.</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">The target mapping is narrower in meaning than the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally.</Data></Cell>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Narrower relationships are transitive</Data></Cell>
