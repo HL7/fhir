@@ -352,72 +352,78 @@
   Path = Practitioner.telecom(system=email) | Practitioner.practitionerRole.telecom(system=email)
 
  -- Row 9 -----------------------------------
+  Name = active
+  Type = token
+  Description = Whether the practitioner record is active
+  Path = Practitioner.active
+
+ -- Row 10 -----------------------------------
   Name = address
   Type = string
   Description = An address in any kind of address/part
   Path = Practitioner.address
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = address-city
   Type = string
   Description = A city specified in an address
   Path = Practitioner.address.city
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = address-state
   Type = string
   Description = A state specified in an address
   Path = Practitioner.address.state
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = address-postalcode
   Type = string
   Description = A postalCode specified in an address
   Path = Practitioner.address.postalCode
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = address-country
   Type = string
   Description = A country specified in an address
   Path = Practitioner.address.country
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = address-use
   Type = token
   Description = A use code specified in an address
   Path = Practitioner.address.use
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = gender
   Type = token
   Description = Gender of the practitioner
   Path = Practitioner.gender
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Name = organization
   Type = reference
   Description = The identity of the organization the practitioner represents / acts on behalf of
   Path = Practitioner.practitionerRole.organization
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Name = communication
   Type = token
   Description = One of the languages that the practitioner can communicate with
   Path = Practitioner.communication
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Name = location
   Type = reference
   Description = One of the locations at which this practitioner provides care
   Path = Practitioner.practitionerRole.location
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Name = specialty
   Type = token
   Description = The practitioner has this specialty at an organization
   Path = Practitioner.practitionerRole.specialty
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Name = role
   Type = token
   Description = The practitioner can perform this role at for the organization
