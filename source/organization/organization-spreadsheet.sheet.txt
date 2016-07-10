@@ -78,7 +78,7 @@
   Short Label = Whether the organization\'s record is still in active use
   Definition = Whether the organization\'s record is still in active use
   Requirements = Need a flag to indicate a record is no longer to be used and should generally be hidden for the user in the UI.
-  Comments = Default is true.
+  Comments = Default is true.\n\nThis active flag is not intended to be used to mark an organizations as temporarily closed or under construction. Instead the Location(s) within the Organization should have the suspended status. If further details of the reason for the suspension are required, then an extension on this element should be used.
   v2 Mapping = No equivalent in HL7 v2
   RIM Mapping = .status
   ServD Mapping = ./Status (however this concept in ServD more covers why the organization is active or not, could be delisted, deregistered, not operational yet) this could alternatively be derived from ./StartDate and ./EndDate and given a context date.
@@ -110,12 +110,22 @@
   Short Label = Name used for the organization
   Definition = A name associated with the organization
   Requirements = Need to use the name as the label of the organization.
+  Comments = If the name of an organization changes, consider putting the old name in the alias column so that it can still be located through searches.
   v2 Mapping = XON.1
   RIM Mapping = .name
   ServD Mapping = .PreferredName/Name
   Committee Notes = If you need multiple names to cater for acronyms and \"trading under\" names, use an extension \"alias\" instead
 
  -- Row 6 -----------------------------------
+  Element = Organization.alias
+  Card. = 0..*
+  Type = string
+  Short Label = A list of alternate names that the organization is known as, or was known as in the past
+  Requirements = Over time locations and organizations go through many changes and can be known by different names.\n\nFor searching knowing previous names that the location was known by can be very useful.
+  Comments = There are no dates associated with the alias/historic names, as this is not intended to track when names were used, but to assist in searching so that older names can still result in identifying the organization
+  Committee Notes = This is used in many registries, and is often very important in searching
+
+ -- Row 7 -----------------------------------
   Element = Organization.telecom
   Card. = 0..*
   Inv. = 3
@@ -128,7 +138,7 @@
   RIM Mapping = .telecom
   ServD Mapping = ./ContactPoints
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Organization.address
   Card. = 0..*
   Inv. = 2
@@ -141,7 +151,7 @@
   RIM Mapping = .address
   ServD Mapping = ./PrimaryAddress and ./OtherAddresses
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = !Organization.accreditation
   Card. = 0..*
   UML = right
@@ -153,7 +163,7 @@
   ServD Mapping = Could be mapped via ./Attrbutes or ./Affiliations
   To Do = 1) Not sure if qualified & accredited are the same.  2) Could potentially propose a new classCode. We wonder if Accreditation is in the 80%. Accreditation is not part of the current PA domain, it was in Personnel Management but this has been retracted. The PM version also had many more attributes, so is this Accreditation good enough? We (current participants) do not use it. We decide to keep it, to see what happens in ballot
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = !Organization.accreditation.identifier
   Card. = 0..1
   Type = Identifier
@@ -162,7 +172,7 @@
   Requirements = Allows a link back to a accreditation registry, if one exists
   RIM Mapping = .identifier
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = !Organization.accreditation.code
   Card. = 0..1
   Type = CodeableConcept
@@ -172,7 +182,7 @@
   Requirements = commonly used to determine the roles an organization may perform
   RIM Mapping = .code
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = !Organization.accreditation.issuer
   Card. = 0..1
   Type = Reference(Organization)
@@ -182,7 +192,7 @@
   RIM Mapping = .scopedBy[Organization]
   To Do = Lloyd(?): Do we need jurisdiction as well?  (The jurisdiction is often more relevant than the accrediting org.)  EK: Isn\'t a jurisdiction an organization?
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = !Organization.accreditation.period
   Card. = 0..1
   Type = Period
@@ -191,7 +201,7 @@
   Requirements = Most accreditations are only conferred for a limited time period and SHALL be re-acquired or forfeited
   RIM Mapping = .effectiveTime[IVL<TS>]
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Organization.partOf
   Card. = 0..1
   Summary = Y
@@ -203,7 +213,7 @@
   RIM Mapping = .playedBy[classCode=Part].scoper
   ServD Mapping = n/a
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Organization.contact
   Card. = 0..*
   UML = right
@@ -212,7 +222,7 @@
   Comments = Where multiple contacts for the same purpose are provided there is a standard extension that can be used to determine which one is the preferred contact to use.
   RIM Mapping = .contactParty
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Organization.contact.purpose
   Card. = 0..1
   Type = CodeableConcept
@@ -222,7 +232,7 @@
   Requirements = Need to distinguish between multiple contact persons.
   RIM Mapping = ./type
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Organization.contact.name
   Card. = 0..1
   Type = HumanName
@@ -232,7 +242,7 @@
   v2 Mapping = PID-5, PID-9
   RIM Mapping = ./name
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Organization.contact.telecom
   Card. = 0..*
   Type = ContactPoint
@@ -242,7 +252,7 @@
   v2 Mapping = PID-13, PID-14
   RIM Mapping = ./telecom
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Organization.contact.address
   Card. = 0..1
   Type = Address
@@ -252,7 +262,7 @@
   v2 Mapping = PID-11
   RIM Mapping = ./addr
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = !Organization.contact.gender
   Card. = 0..1
   Type = code
@@ -263,7 +273,7 @@
   v2 Mapping = PID-8
   RIM Mapping = ./administrativeGender
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = !Organization.location
   Card. = 0..*
   Type = Reference(Location)
@@ -273,7 +283,7 @@
   ServD Mapping = ./Sites
   w5 = where
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Organization.endpoint
   Card. = 0..*
   Type = Reference(Endpoint)
@@ -285,8 +295,8 @@
  -- Row 1 -----------------------------------
   Name = name
   Type = string
-  Description = A portion of the organization\'s name
-  Path = Organization.name
+  Description = A portion of the organization\'s name, or alias
+  Path = Organization.name | Organization.alias
 
  -- Row 2 -----------------------------------
   Name = phonetic
