@@ -12,6 +12,8 @@
   </identifier>
   <status value="suspended" />
   <name value="South Wing Neuro OR 1"/>
+  <alias value="South Wing OR 5"/>
+  <alias value="Main Wing OR 2"/>
   <description value="Old South Wing, Neuro Radiology Operation Room 1 on second floor" />
 	<mode value="instance" />
 	<type>

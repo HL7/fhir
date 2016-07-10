@@ -104,9 +104,18 @@
   Type = string
   Short Label = Name of the location as used by humans
   Definition = Name of the location as used by humans. Does not need to be unique.
+  Comments = If the name of an location changes, consider putting the old name in the alias column so that it can still be located through searches.
   RIM Mapping = .name
 
  -- Row 5 -----------------------------------
+  Element = Location.alias
+  Card. = 0..*
+  Type = string
+  Short Label = A list of alternate names that the location is known as, or was known as in the past
+  Requirements = Over time locations and organizations go through many changes and can be known by different names.\n\nFor searching knowing previous names that the location was known by can be very useful.
+  Committee Notes = This is used in many registries, and is often very important in searching
+
+ -- Row 6 -----------------------------------
   Element = Location.description
   Card. = 0..1
   Summary = Y
@@ -116,7 +125,7 @@
   Requirements = Humans need additional information to verify a correct location has been identified
   RIM Mapping = .playingEntity[classCode=PLC determinerCode=INSTANCE].desc
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Location.mode
   Card. = 0..1
   Is Modifier = y
@@ -129,7 +138,7 @@
   RIM Mapping = .playingEntity[classCode=PLC].determinerCode
   w5 = class
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Location.type
   Card. = 0..1
   Summary = Y
@@ -140,7 +149,7 @@
   RIM Mapping = .code
   w5 = class
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Location.telecom
   Card. = 0..*
   Type = ContactPoint
@@ -148,7 +157,7 @@
   Definition = The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites
   RIM Mapping = .telecom
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Location.address
   Card. = 0..1
   Type = Address
@@ -157,7 +166,7 @@
   Comments = This was kept as 0..1 as there is no use property on the address, so wouldn\'t be able to identify different address types
   RIM Mapping = .addr
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Location.physicalType
   Card. = 0..1
   Summary = Y
@@ -169,7 +178,7 @@
   RIM Mapping = .playingEntity [classCode=PLC].code
   w5 = class
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Location.position
   Card. = 0..1
   UML = right
@@ -178,7 +187,7 @@
   Requirements = For mobile applications and automated route-finding knowing the exact location of the Location is required
   RIM Mapping = .playingEntity [classCode=PLC determinerCode=INSTANCE].positionText
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Location.position.longitude
   Card. = 1..1
   Type = decimal
@@ -186,7 +195,7 @@
   Definition = Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below)
   RIM Mapping = (RIM Opted not to map the sub-elements of GPS location, is now an OBS)
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Location.position.latitude
   Card. = 1..1
   Type = decimal
@@ -194,7 +203,7 @@
   Definition = Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below)
   RIM Mapping = (RIM Opted not to map the sub-elements of GPS location, is now an OBS)
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Location.position.altitude
   Card. = 0..1
   Type = decimal
@@ -202,7 +211,7 @@
   Definition = Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below)
   RIM Mapping = (RIM Opted not to map the sub-elements of GPS location, is now an OBS)
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Location.managingOrganization
   Card. = 0..1
   Summary = Y
@@ -213,7 +222,7 @@
   Comments = This can also be used as the part of the organization hierarchy where this location provides services. These services can be defined through the HealthcareService resource.
   RIM Mapping = .scopingEntity[classCode=ORG determinerKind=INSTANCE]
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Location.partOf
   Card. = 0..1
   Type = Reference(Location)
@@ -222,7 +231,7 @@
   Requirements = For purposes of location, display and identification, knowing which locations are located within other locations is important
   RIM Mapping = .inboundLink[typeCode=PART].source[classCode=SDLC]
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Location.endpoint
   Card. = 0..*
   Type = Reference(Endpoint)
@@ -239,8 +248,8 @@
  -- Row 2 -----------------------------------
   Name = name
   Type = string
-  Description = A (portion of the) name of the location
-  Path = Location.name
+  Description = A (portion of the) name of the location or alias
+  Path = Location.name | Location.alias
 
  -- Row 3 -----------------------------------
   Name = type
@@ -299,14 +308,14 @@
  -- Row 12 -----------------------------------
   Name = near
   Type = token
-  Description = The coordinates expressed as [lat],[long] (using the WGS84 datum, see notes) to find locations near to (servers may search using a square rather than a circle for efficiency)
+  Description = The coordinates expressed as [lat],[long] (using the WGS84 datum, see notes) to find locations near to (servers may search using a square rather than a circle for efficiency). \n\nRequires the near-distance parameter to be provided also
   Path = Location.position
   Path Usage = nearby
 
  -- Row 13 -----------------------------------
   Name = near-distance
-  Type = token
-  Description = A distance quantity to limit the near search to locations within a specific distance
+  Type = quantity
+  Description = A distance quantity to limit the near search to locations within a specific distance\n\nRequires the near parameter to be included also
   Path = Location.position
   Path Usage = distance
 
