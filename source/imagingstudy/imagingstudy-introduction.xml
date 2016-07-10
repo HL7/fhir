@@ -4,40 +4,40 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
+ImagingStudy provides information on a DICOM imaging study, and the series and imaging objects in 
+that study. It also provides information on how to retrieve that information (in a native DICOM 
+format, or in a rendered format, such as JPEG). ImagingStudy is used to make available information 
+about all parts of a single DICOM study.
+</p>
+<p>
 This resource provides mappings of its elements to DICOM attributes.  DICOM attributes are identified 
 by a 32-bit tag, presented in canonical form as two four-digit hexadecimal values within parentheses 
 and separated by a comma, e.g. (0008,103E).  The name and value representation (data type) of 
 each attribute can be found 
 in <a href="http://medical.nema.org/medical/dicom/current/output/html/part06.html">DICOM Part 6 Data Dictionary</a>.  
-</p>
-<p>
 The use of the attributes in the context of information objects, including detailed description of use, can be found 
 in <a href="http://medical.nema.org/medical/dicom/current/output/html/part03.html">DICOM Part 3 Information Object Definitions </a>.  
-</p>
-<p>
 Attributes used in the DICOM query information models, such as "Number of Instances in Study", can be found 
 in <a href="http://medical.nema.org/medical/dicom/current/output/html/part04.html#chapter_C">DICOM Part 4 Annex C</a>.
 </p>
-<!-- old scope and usage - removed August 2015 - CP7679
 <p>
-This resource summarizes a series of images or other instances generated as part of an 
-imaging study, and provides references to where the images are available
-using <a href="http://medical.nema.org/medical/dicom/current/output/html/part18.html">WADO-RS</a>. 
-
-This resource is used to make information available concerning images etc. that are 
-referenced in other clinical contexts such as <a href="diagnosticreport.html">diagnostic reports</a>, 
-<a href="careplan.html">Care Plans</a>, etc. Also, see the use case description below.
+ImagingStudy provides access to significant DICOM information, but will only eliminate the need for DICOM 
+query (e.g., QIDO-RS) in the simplest cases. The DICOM instances are not stored in the ImagingStudy 
+resource; use of a DICOM WADO-RS server or other storage mechanism is needed.
 </p>
+<p> 
+Only a single DICOM study may be referenced from one ImagingStudy. In many cases, only one ImagingStudy 
+will reference a particular DICOM study, but this is not required.
+</p>
+<h2>Boundaries and Relationships</h2>
 <p>
-The elements in this resource mirror DICOM attributes which are listed in the description.  
-Although it is not necessary to use DICOM infrastructure to use this resource, it may be 
-informative to search in <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part03/PS3.3.html">DICOM PS3.3</a> 
-for the referenced tags to better understand their 
-proper contents and usage.
+In contrast to <a href="imagingmanifest.html">ImagingManifest</a>, this resource represents all of the known imaging objects from a single 
+study. Imaging Manifest represents selected instances from multiple studies for one patient.
 </p>
--->
-
+<p> 
+ImagingStudy is used for DICOM imaging and associated information. Use Media to track non-DICOM images, 
+video, or audio. Binary can be used to store arbitrary content. <a href="documentreference.html">DocumentReference</a> allow indexing and 
+retrieval of clinical “documents” with relevant metadata.
+</p>
 </div>
-
-
 </div>

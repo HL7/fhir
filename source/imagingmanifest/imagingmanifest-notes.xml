@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
+<a name="baseLocation"> </a>
 <h3>Implementation Notes</h3>
 <p>
 A referenced DICOM SOP instance could be: 
@@ -131,8 +132,9 @@ parameters shall be included.
 </p>
 <p>
 The IHE Invoke Image Display (IID) service provides a standardized mechanism to launch a viewer in a particular 
-study context. (IID also supports invoking a particular patient context, but that is not profiled here.) As 
-well invoking the viewer on a particular study, query parameters can request particular viewer capabilities, 
+study context. (IID also supports invoking a particular patient context, but that is not profiled here.) 
+An IID baseLocation.type should be used only at the study level. 
+As well invoking the viewer on a particular study, query parameters can request particular viewer capabilities, 
 image quality, and more.
 </p>
 <p>

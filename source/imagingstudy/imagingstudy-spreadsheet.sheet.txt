@@ -32,6 +32,13 @@
   Definition = Codes describing body site laterality (left, right, etc.).
   Conformance = example
 
+ -- Row 5 -----------------------------------
+  Binding Name = dWebType
+  Binding = code list
+  Reference = #dWebType
+  Definition = The type of the service endpoint
+  Conformance = extensible
+
 === Sheet instance-availability =====================================
 
  -- Row 1 -----------------------------------
@@ -54,6 +61,23 @@
   Code = UNAVAILABLE
   Definition = Resources cannot be retrieved.
 
+=== Sheet dWebType =====================================
+
+ -- Row 1 -----------------------------------
+  Code = WADO-RS
+  Display = WADO-RS
+  Definition = Web Access to DICOM Persistent Objects - RESTful Services
+
+ -- Row 2 -----------------------------------
+  Code = WADO-URI
+  Display = WADO-URI
+  Definition = Web Access to DICOM Persistent Objects - URI
+
+ -- Row 3 -----------------------------------
+  Code = IID
+  Display = IID
+  Definition = IHE - Invoke Image Display Profile
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -73,7 +97,7 @@
   Card. = 1..1
   Aliases = StudyInstanceUID
   Type = oid
-  Short Label = Formal identifier for the study
+  Short Label = Formal DICOM identifier for the study
   Definition = Formal identifier for the study
   RIM Mapping = .id
   DICOM Mapping = (0020,000D)
@@ -113,7 +137,6 @@
   Short Label = ONLINE | OFFLINE | NEARLINE | UNAVAILABLE (0008,0056)
   Definition = Availability of study (online, offline or nearline)
   RIM Mapping = Not supported
-  DICOM Mapping = (0008,0056)
   w5 = status
 
  -- Row 6 -----------------------------------
@@ -170,7 +193,6 @@
   Short Label = Referring physician (0008,0090)
   Definition = The requesting/referring physician
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=DGIMG, moodCode=RQO].participation[typeCode=AUT].role
-  DICOM Mapping = (0008,0090)
   w5 = who.cause
 
  -- Row 11 -----------------------------------
@@ -185,16 +207,32 @@
   w5 = who.witness
 
  -- Row 12 -----------------------------------
-  Element = ImagingStudy.url
-  Card. = 0..1
-  Aliases = RetrieveURI
-  Type = uri
-  Short Label = Retrieve URI
-  Definition = WADO-RS resource where Study is available.
-  RIM Mapping = .text.reference
-  DICOM Mapping = (0008,1190)
+  Element = ImagingStudy.baseLocation
+  Card. = 0..*
+  Type = =StudyBaseLocation
+  Short Label = Study access service endpoint
+  Definition = Methods of accessing  (e.g., retrieving, viewing) the study.
+  Requirements = Access methods for viewing (e.g. IHE’s IID profile) or retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the study or the study’s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type.
+  To Do = likely change to Endpoint Resource reference
 
  -- Row 13 -----------------------------------
+  Element = ImagingStudy.baseLocation.type
+  Card. = 1..1
+  Type = Coding
+  Binding = dWebType
+  Short Label = WADO-RS | WADO-URI | IID
+  Definition = The service type for accessing (e.g., retrieving, viewing) the DICOM instances.
+
+ -- Row 14 -----------------------------------
+  Element = ImagingStudy.baseLocation.url
+  Card. = 1..1
+  Type = uri
+  Short Label = Study access URL
+  Definition = The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.baseLocation.type.
+  Comments = This URL is to a service endpoint for the particular service indicated by ImagingManifest.study.baseLocation.type. Depending on the type of service, it is may be used to construct a URL to view, retrieve, or otherwise access the study or the study’s series or instances. For example, this element may be a DICOMweb WADO-RS endpoint.
+  DICOM Mapping = (0040,E023) WADO Retrieval Sequence > (0040,E010) Retrieve URI | \n(0040,E025) WADO-RS Retrieval Sequence > (0008,1190) Retrieve URI
+
+ -- Row 15 -----------------------------------
   Element = ImagingStudy.numberOfSeries
   Card. = 1..1
   Aliases = NumberOfStudyRelatedSeries
@@ -204,7 +242,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target[classCode=OBSSER, moodCode=EVN].repeatNumber
   DICOM Mapping = (0020,1206)
 
- -- Row 14 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = ImagingStudy.numberOfInstances
   Card. = 1..1
   Aliases = NumberOfStudyRelatedInstances
@@ -214,18 +252,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target[classCode=DGIMG, moodCode=EVN].repeatNumber
   DICOM Mapping = (0020,1208)
 
- -- Row 15 -----------------------------------
-  Element = !ImagingStudy.clinicalInformation
-  Card. = 0..1
-  Aliases = AdmittingDiagnosesDescription; AdditionalPatientHistory
-  Type = string
-  Short Label = Diagnoses etc.with request
-  Definition = History and Diagnoses provided with request
-  Comments = For more detailed information check the ImagingStudy.order.
-  RIM Mapping = .outboundRelationship[typeCode=PERT].target
-  DICOM Mapping = (0040,1002) | (0008,1080)
-
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = ImagingStudy.procedure
   Card. = 0..*
   Aliases = ProcedureCodeSequence
@@ -236,7 +263,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=PROC, moodCode=EVN]
   DICOM Mapping = (0008,1032)
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = ImagingStudy.description
   Card. = 0..1
   Aliases = StudyDescription
@@ -246,7 +273,7 @@
   RIM Mapping = .text
   DICOM Mapping = (0008,1030)
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = ImagingStudy.series
   Card. = 0..*
   UML = 320;50
@@ -254,18 +281,18 @@
   Definition = Each study has one or more series of images or other content
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBSSER, moodCode=EVN]
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = ImagingStudy.series.uid
   Card. = 1..1
   Aliases = SeriesInstanceUID
   Type = oid
-  Short Label = Formal identifier for this series
+  Short Label = Formal DICOM identifier for this series
   Definition = Formal identifier for this series
   RIM Mapping = .id
   DICOM Mapping = (0020,000E)
   Example = urn:oid:2.16.124.113543.6003.2588828330.45298.17418.2723805630
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = ImagingStudy.series.number
   Card. = 0..1
   Aliases = SeriesNumber
@@ -276,7 +303,7 @@
   DICOM Mapping = (0020,0011)
   Example = 3
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = ImagingStudy.series.modality
   Card. = 1..1
   Aliases = Modality
@@ -287,7 +314,7 @@
   RIM Mapping = .code
   DICOM Mapping = (0008,0060)
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = ImagingStudy.series.description
   Card. = 0..1
   Aliases = SeriesDescription
@@ -298,7 +325,7 @@
   DICOM Mapping = (0008,103E)
   Example = CT Surview 180
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = ImagingStudy.series.numberOfInstances
   Card. = 1..1
   Aliases = NumberOfSeriesRelatedInstances
@@ -308,37 +335,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target[classCode=DGIMG, moodCode=EVN].repeatNumber
   DICOM Mapping = (0020,1209)
 
- -- Row 24 -----------------------------------
-  Element = !ImagingStudy.series.requestSequence
-  Card. = 0..*
-  Aliases = RequestAttributesSequence
-  Short Label = Request Attributes Sequence
-  DICOM Mapping = (0040,0275)
-
  -- Row 25 -----------------------------------
-  Element = !ImagingStudy.series.requestSequence.requestedProcedureStepId
-  Card. = 1..1
-  Aliases = RequestedProcedureID
-  Type = string
-  Short Label = Requested Procedure Step ID
-  DICOM Mapping = (0040,1001)
-
- -- Row 26 -----------------------------------
-  Element = !ImagingStudy.series.requestSequence.scheduledProcedureStepId
-  Card. = 1..1
-  Aliases = ScheduledProcedureID
-  Type = string
-  Short Label = Scheduled Procedure Step ID
-  DICOM Mapping = (0040,0009)
-
- -- Row 27 -----------------------------------
-  Element = !ImagingStudy.series.ppsdateTime
-  Card. = 0..1
-  Type = dateTime
-  Short Label = Performed Procedure Step Start Date and Time
-  DICOM Mapping = (0040,0244) + (0040,0245)
-
- -- Row 28 -----------------------------------
   Element = ImagingStudy.series.availability
   Card. = 0..1
   Aliases = InstanceAvailability
@@ -349,33 +346,33 @@
   RIM Mapping = .inboundRelationship[typeCode=COMP]. source[classCode=OBS, moodCode=EVN, code=\"availability\"].value
   DICOM Mapping = (0008,0056)
 
- -- Row 29 -----------------------------------
-  Element = ImagingStudy.series.url
-  Card. = 0..1
-  Aliases = RetrieveURI
+ -- Row 26 -----------------------------------
+  Element = ImagingStudy.series.baseLocation
+  Card. = 0..*
+  Type = =SeriesBaseLocation
+  Short Label = Series access endpoint
+  Definition = Methods of accessing (e.g. retrieving) the series
+  Requirements = Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the series or the series’ instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level.
+  To Do = likely change to Endpoint Resource reference
+
+ -- Row 27 -----------------------------------
+  Element = ImagingStudy.series.baseLocation.type
+  Card. = 1..1
+  Type = Coding
+  Binding = dWebType
+  Short Label = WADO-RS | WADO-URI | IID
+  Definition = The service type for accessing (e.g., retrieving) the DICOM instances.
+
+ -- Row 28 -----------------------------------
+  Element = ImagingStudy.series.baseLocation.url
+  Card. = 1..1
   Type = uri
-  Short Label = Location of the referenced instance(s)
-  Definition = URI/URL specifying the location of the referenced series using WADO-RS
-  RIM Mapping = .text.reference
-  DICOM Mapping = (0008,1115) > (0008,1190)
+  Short Label = Series access URL
+  Definition = The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.series.baseLocation.type.
+  Comments = This URL is to a service endpoint for the particular service indicated by ImagingManifest.study.series.baseLocation.type. Depending on the type of service, it is may be used to construct a URL to retrieve, or otherwise access, the series or the series’ instances. For example, this element may be a DICOMweb WADO-RS endpoint.
+  DICOM Mapping = (0040,E023) WADO Retrieval Sequence > (0040,E010) Retrieve URI | \n(0040,E025) WADO-RS Retrieval Sequence > (0008,1190) Retrieve URI
 
- -- Row 30 -----------------------------------
-  Element = !ImagingStudy.series.retrieveAE
-  Card. = 0..1
-  Aliases = RetrieveAETitle
-  Type = string
-  Short Label = Retrieve AE Title
-  DICOM Mapping = (0008,0054)
-
- -- Row 31 -----------------------------------
-  Element = !ImagingStudy.series.locationUID
-  Card. = 0..1
-  Aliases = RetrieveLocationUID
-  Type = oid
-  Short Label = Retrieve Location UID
-  DICOM Mapping = (0040,E011)
-
- -- Row 32 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = ImagingStudy.series.bodySite
   Card. = 0..1
   Aliases = BodyPartExamined
@@ -386,7 +383,7 @@
   RIM Mapping = .targetSiteCode
   DICOM Mapping = (0018,0015)
 
- -- Row 33 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = ImagingStudy.series.laterality
   Card. = 0..1
   Type = Coding
@@ -396,7 +393,7 @@
   RIM Mapping = .targetSiteCode
   DICOM Mapping = (0020,0060)
 
- -- Row 34 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = ImagingStudy.series.started
   Card. = 0..1
   Type = dateTime
@@ -405,7 +402,7 @@
   RIM Mapping = .effectiveTime
   DICOM Mapping = (0008,0021) + (0008,0031)
 
- -- Row 35 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = ImagingStudy.series.instance
   Card. = 0..*
   UML = 620;70
@@ -413,18 +410,18 @@
   Definition = A single SOP Instance within the series, e.g. an image, or presentation state.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DGIMG, moodCode=EVN]
 
- -- Row 36 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = ImagingStudy.series.instance.uid
   Card. = 1..1
   Aliases = SOPInstanceUID
   Type = oid
-  Short Label = Formal identifier for this instance
+  Short Label = Formal DICOM identifier for this instance
   Definition = Formal identifier for this image or other content
   RIM Mapping = .id
   DICOM Mapping = (0008,0018)
   Example = urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092903
 
- -- Row 37 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = ImagingStudy.series.instance.number
   Card. = 0..1
   Aliases = InstanceNumber
@@ -435,7 +432,7 @@
   DICOM Mapping = (0020,0013)
   Example = 1
 
- -- Row 38 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = ImagingStudy.series.instance.sopClass
   Card. = 1..1
   Aliases = SOPClassUID
@@ -446,8 +443,8 @@
   DICOM Mapping = (0008,0016)
   Example = urn:oid:1.2.840.10008.5.1.4.1.1.2
 
- -- Row 39 -----------------------------------
-  Element = ImagingStudy.series.instance.type
+ -- Row 36 -----------------------------------
+  Element = !ImagingStudy.series.instance.type
   Card. = 0..1
   Type = string
   Short Label = Type of instance (image etc.)
@@ -456,7 +453,7 @@
   RIM Mapping = .code
   DICOM Mapping = (0004,1430)
 
- -- Row 40 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = ImagingStudy.series.instance.title
   Card. = 0..1
   Type = string
@@ -465,77 +462,6 @@
   Comments = Particularly for post-acquisition analytic objects, such as SR, presentation states, value mapping, etc.
   RIM Mapping = .title
   DICOM Mapping = (0070,0080) | (0040,A043) > (0008,0104) | (0042,0010) | (0008,0008)
-
- -- Row 41 -----------------------------------
-  Element = !ImagingStudy.series.instance.availability
-  Card. = 0..1
-  Aliases = InstanceAvailability
-  Type = code
-  Binding = InstanceAvailability
-  Short Label = ONLINE | OFFLINE | NEARLINE | UNAVAILABLE
-  Definition = Availability of instance (online, offline or nearline)
-  DICOM Mapping = (0008,0056)
-
- -- Row 42 -----------------------------------
-  Element = !ImagingStudy.series.instance.dateTime
-  Card. = 0..1
-  Type = dateTime
-  Short Label = When this image was taken
-  RIM Mapping = .effectiveTime
-
- -- Row 43 -----------------------------------
-  Element = !ImagingStudy.series.instance.image
-  Card. = 0..1
-  UML = left
-  Short Label = When instance is an image
-  Committee Notes = This is deletd until a use case is found
-
- -- Row 44 -----------------------------------
-  Element = !ImagingStudy.series.instance.image.rows
-  Card. = 1..1
-  Type = integer
-  Short Label = Rows
-  DICOM Mapping = (0028,0010)
-
- -- Row 45 -----------------------------------
-  Element = !ImagingStudy.series.instance.image.columns
-  Card. = 1..1
-  Type = integer
-  Short Label = Columns
-  DICOM Mapping = (0028,0011)
-
- -- Row 46 -----------------------------------
-  Element = !ImagingStudy.series.instance.image.bitsAllocated
-  Card. = 1..1
-  Type = integer
-  Short Label = Bits Allocated
-  DICOM Mapping = (0028,0100)
-
- -- Row 47 -----------------------------------
-  Element = !ImagingStudy.series.instance.image.numberOfFrames
-  Card. = 1..1
-  Type = integer
-  Short Label = Number of Frames
-  DICOM Mapping = (0028,0008)
-
- -- Row 48 -----------------------------------
-  Element = !ImagingStudy.series.instance.url
-  Card. = 0..1
-  Type = uri
-  Short Label = WADO-RS service where instance is available
-  Definition = WADO-RS url where image is available
-  Comments = Each instance may have a url and an attachment. Both represent the same information, but using different approaches. The URL is a reference to a WADO-RS service that makes the instance available
-  RIM Mapping = .text.reference
-  DICOM Mapping = (0008,1199) > (0008,1190)
-
- -- Row 49 -----------------------------------
-  Element = ImagingStudy.series.instance.content
-  Card. = 0..*
-  Type = Attachment
-  Short Label = The instance payload, such as the image binary data or URL to it
-  Definition = Content of the instance or a rendering thereof (e.g. a JPEG of an image, or an XML of a structured report). May be represented for example by inline encoding; by a URL reference to a WADO-RS service that makes the instance available; or to a FHIR Resource (e.g. Media, Document, etc.). Multiple content attachments may be used for alternate representations of the instance.
-  Comments = Use of Attachment.data is discouraged.
-  RIM Mapping = .text.binary
 
 === Sheet Search =====================================
 
