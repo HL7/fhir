@@ -56,7 +56,7 @@
     </concept>
     <concept>
       <code value="prompt"/>
-      <display value="In-line"/>
+      <display value="Prompt"/>
       <definition value="Text is displayed immediately below or within the answer-entry area of the containing question item (typically as a guide for what to enter)"/>
     </concept>
     <concept>
