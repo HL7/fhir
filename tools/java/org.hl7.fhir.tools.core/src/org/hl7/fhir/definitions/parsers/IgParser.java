@@ -181,7 +181,7 @@ public class IgParser {
             lm.setId(sd.getId());
             igd.getLogicalModels().add(lm);        
             
-          } else if ("Extension".equals(sd.getBaseType())) {
+          } else if ("Extension".equals(sd.getType())) {
             sd.setId(tail(sd.getUrl()));
             sd.setUserData(ToolResourceUtilities.NAME_RES_IG, igd.getCode());
             ToolResourceUtilities.updateUsage(sd, igd.getCode());

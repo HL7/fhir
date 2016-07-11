@@ -189,7 +189,7 @@ public class ADLImporter {
 	  ed.setComments(texts.get(item.atCode).comment);
 	  Element te = findTypeElement(item.typeName);
 	  if (te.hasAttribute("profile"))
-	    ed.addType().setCode(te.getAttribute("fhir")).addProfile(te.getAttribute("profile"));
+	    ed.addType().setCode(te.getAttribute("fhir")).setProfile(te.getAttribute("profile"));
 	  else
 	  	ed.addType().setCode(te.getAttribute("fhir"));
 	  

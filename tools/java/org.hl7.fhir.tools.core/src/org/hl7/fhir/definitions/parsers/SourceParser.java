@@ -611,7 +611,7 @@ public class SourceParser {
       for (BundleEntryComponent ae : ((Bundle) rf).getEntry()) {
         if (ae.getResource() instanceof Composition)
           pack.loadFromComposition((Composition) ae.getResource(), file.getAbsolutePath());
-        else if (ae.getResource() instanceof StructureDefinition && !((StructureDefinition) ae.getResource()).getBaseType().equals("Extension")) {
+        else if (ae.getResource() instanceof StructureDefinition && !((StructureDefinition) ae.getResource()).getType().equals("Extension")) {
           StructureDefinition ed = (StructureDefinition) ae.getResource();
           for (StringType s : ed.getContext())
             definitions.checkContextValid(ed.getContextType(), s.getValue(), file.getName());

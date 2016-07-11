@@ -1059,7 +1059,7 @@ public class VersionConvertor {
 		copyElement(src, tgt);
 		tgt.setCode(src.getCode());
 		for (org.hl7.fhir.dstu2.model.UriType t : src.getProfile())
-			tgt.addProfile(t.getValue());
+			tgt.setProfile(t.getValue());
 		for (org.hl7.fhir.dstu2.model.Enumeration<org.hl7.fhir.dstu2.model.ElementDefinition.AggregationMode> t : src.getAggregation())
 			tgt.addAggregation(convertAggregationMode(t.getValue()));
 		return tgt;
@@ -1071,8 +1071,8 @@ public class VersionConvertor {
 		org.hl7.fhir.dstu2.model.ElementDefinition.TypeRefComponent tgt = new org.hl7.fhir.dstu2.model.ElementDefinition.TypeRefComponent();
 		copyElement(src, tgt);
 		tgt.setCode(src.getCode());
-		for (org.hl7.fhir.dstu3.model.UriType t : src.getProfile())
-			tgt.addProfile(t.getValue());
+		if (src.hasProfile())
+			tgt.addProfile(src.getProfile());
 		for (org.hl7.fhir.dstu3.model.Enumeration<org.hl7.fhir.dstu3.model.ElementDefinition.AggregationMode> t : src.getAggregation())
 			tgt.addAggregation(convertAggregationMode(t.getValue()));
 		return tgt;
@@ -12545,7 +12545,14 @@ public class VersionConvertor {
 		tgt.setContextType(convertExtensionContext(src.getContextType()));
 		for (org.hl7.fhir.dstu2.model.StringType t : src.getContext())
 			tgt.addContext(t.getValue());
-		tgt.setBaseType(src.getConstrainedType());
+		if (src.hasConstrainedType())
+		  tgt.setType(src.getConstrainedType());
+		else if (src.getSnapshot().hasElement())
+      tgt.setType(src.getSnapshot().getElement().get(0).getPath());
+	  else if (src.getDifferential().hasElement() && !src.getDifferential().getElement().get(0).getPath().contains("."))
+	    tgt.setType(src.getDifferential().getElement().get(0).getPath());
+	  else
+      tgt.setType(src.getDifferential().getElement().get(0).getPath().substring(0, src.getDifferential().getElement().get(0).getPath().indexOf(".")));
 		tgt.setBaseDefinition(src.getBase());
 		tgt.setDerivation(src.hasConstrainedType() ?  org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule.CONSTRAINT : org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule.SPECIALIZATION);
 		tgt.setSnapshot(convertStructureDefinitionSnapshotComponent(src.getSnapshot()));
@@ -12585,7 +12592,7 @@ public class VersionConvertor {
 		tgt.setContextType(convertExtensionContext(src.getContextType()));
 		for (org.hl7.fhir.dstu3.model.StringType t : src.getContext())
 			tgt.addContext(t.getValue());
-		tgt.setConstrainedType(src.getBaseType());
+		tgt.setConstrainedType(src.getType());
 		tgt.setBase(src.getBaseDefinition());
 		tgt.setSnapshot(convertStructureDefinitionSnapshotComponent(src.getSnapshot()));
 		tgt.setDifferential(convertStructureDefinitionDifferentialComponent(src.getDifferential()));

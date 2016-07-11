@@ -385,7 +385,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     }
     if (sd == null)
       return false;
-    if (sd.hasBaseType())
+    if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT)
       return false;
     return sd.getKind() == StructureDefinitionKind.RESOURCE;
   }

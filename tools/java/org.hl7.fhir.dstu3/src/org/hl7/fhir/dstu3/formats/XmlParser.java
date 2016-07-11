@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sat, Jul 9, 2016 08:30+1000 for FHIR v1.5.0
+// Generated on Sun, Jul 10, 2016 20:31+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1678,7 +1678,7 @@ public class XmlParser extends XmlParserBase {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
         res.setCodeElement(parseCode(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("profile")) {
-        res.getProfile().add(parseUri(xpp));
+        res.setProfileElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("aggregation")) {
         res.getAggregation().add(parseEnumeration(xpp, ElementDefinition.AggregationMode.NULL, new ElementDefinition.AggregationModeEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("versioning")) {
@@ -15058,8 +15058,8 @@ public class XmlParser extends XmlParserBase {
         res.setContextTypeElement(parseEnumeration(xpp, StructureDefinition.ExtensionContext.NULL, new StructureDefinition.ExtensionContextEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("context")) {
         res.getContext().add(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("baseType")) {
-        res.setBaseTypeElement(parseCode(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
+        res.setTypeElement(parseCode(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("baseDefinition")) {
         res.setBaseDefinitionElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("derivation")) {
@@ -19768,9 +19768,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
       }
-      if (element.hasProfile()) { 
-        for (UriType e : element.getProfile()) 
-          composeUri("profile", e);
+      if (element.hasProfileElement()) {
+        composeUri("profile", element.getProfileElement());
       }
         if (element.hasAggregation()) 
           for (Enumeration<ElementDefinition.AggregationMode> e : element.getAggregation()) 
@@ -33418,8 +33417,8 @@ public class XmlParser extends XmlParserBase {
         for (StringType e : element.getContext()) 
           composeString("context", e);
       }
-      if (element.hasBaseTypeElement()) {
-        composeCode("baseType", element.getBaseTypeElement());
+      if (element.hasTypeElement()) {
+        composeCode("type", element.getTypeElement());
       }
       if (element.hasBaseDefinitionElement()) {
         composeUri("baseDefinition", element.getBaseDefinitionElement());

@@ -74,7 +74,7 @@
     </mapping>
     <kind value="complex-type"/>
     <abstract value="false"/>
-    <baseType value="Address"/>
+    <type value="Address"/>
     <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Address"/>
     <derivation value="constraint"/>
     <differential>

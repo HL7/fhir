@@ -22,6 +22,7 @@ http://usextension/snomed.info/sct
 http://www.icd10data.com/icd10pcs
 http://hl7.org/fhir/oralservicecodes
 http://hl7.org/fhir/consent-term-type-codes
+http:hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType
 http://ihe.net/connectathon/practiceSettingCodes
 http://acme.org/tests
 http://hl7.org/fhir/ndfrt
@@ -37,6 +38,7 @@ http://hl7.org/fhir/sid/icd-10
 http://fdi.org/fhir/oraltoothcodes
 http://hl7.org/fhir/NamingSystem/iccbba-blood-di
 http://hl7.org/fhir/v3-ActReason
+http://hl7.org/fhir/v3/ActPharmacySupplyType
 http://snomed.org/sct
 http://hl7.org/fhir/message-type
 urn:ietf:rfc:3986
@@ -85,6 +87,7 @@ http:/acme.ped/apgarcolor
 http://loinc.org/type
 http://acme.org
 http://hl7.org/fhir/media-method
+http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType
 http://www.nubc.org/patient-discharge
 http://orionhealth.com/fhir/apps/prioritycodes
 http://unstats.un.org/unsd/methods/m49/m49.htm

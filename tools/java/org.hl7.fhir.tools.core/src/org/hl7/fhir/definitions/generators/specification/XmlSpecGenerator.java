@@ -803,14 +803,14 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       if (t.getCode().equals("list"))
         write(t.getCode());
       else if (t.getCode().equals("Extension") && t.hasProfile())
-        write("<a href=\""+prefix+t.getProfile()+"\"><span style=\"color: DarkViolet\">@"+t.getProfile().get(0).getValue().substring(1)+"</span></a>");     
+        write("<a href=\""+prefix+t.getProfile()+"\"><span style=\"color: DarkViolet\">@"+t.getProfile().substring(1)+"</span></a>");     
       else {
         write("<a href=\"" + prefix+(dtRoot + definitions.getSrcFile(t.getCode())
             + ".html#" + t.getCode() + "\">" + t.getCode())
             + "</a>");
         if (t.getCode().equals("Reference") && t.hasProfile()) {
           write("(");
-          String pt = t.getProfile().get(0).getValue();
+          String pt = t.getProfile();
           if (pt.startsWith("http://hl7.org/fhir/StructureDefinition/") && definitions.hasResource(pt.substring(40))) {
             write("<a href=\"" + prefix+pt.substring(40).toLowerCase() + ".html\">" + pt.substring(40) + "</a>");
           } else {

@@ -23,7 +23,7 @@
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
-  <baseType value="Contract" />
+  <type value="Contract" />
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Contract" />
     <derivation value="constraint"/>
   <snapshot>

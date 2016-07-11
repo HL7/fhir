@@ -519,8 +519,8 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       write("{ ");
       write("<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(type.getCode())+ ".html#" + type.getCode()) + "\">" + type.getCode()+ "</a></span>");
       if (type.hasProfile()) {
-        if (type.getProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-          String t = type.getProfile().get(0).getValue().substring(40);
+        if (type.getProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
+          String t = type.getProfile().substring(40);
           if (definitions.hasType(t))
             write("(<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(t)+ ".html#" + t) + "\">" + t+ "</a></span>)");
           else if (definitions.hasResource(t))

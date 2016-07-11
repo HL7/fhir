@@ -294,15 +294,15 @@ public class ProfileComparer {
         outcome.subset.setName("intersection of "+outcome.leftName()+" and "+outcome.rightName());
         outcome.subset.setStatus(ConformanceResourceStatus.DRAFT);
         outcome.subset.setKind(outcome.left.getKind());
-        outcome.subset.setBaseType(outcome.left.getBaseType());
-        outcome.subset.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+outcome.subset.getBaseType());
+        outcome.subset.setType(outcome.left.getType());
+        outcome.subset.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+outcome.subset.getType());
         outcome.subset.setDerivation(TypeDerivationRule.CONSTRAINT);
         outcome.subset.setAbstract(false);
         outcome.superset.setName("union of "+outcome.leftName()+" and "+outcome.rightName());
         outcome.superset.setStatus(ConformanceResourceStatus.DRAFT);
         outcome.superset.setKind(outcome.left.getKind());
-        outcome.superset.setBaseType(outcome.left.getBaseType());
-        outcome.superset.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+outcome.subset.getBaseType());
+        outcome.superset.setType(outcome.left.getType());
+        outcome.superset.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+outcome.subset.getType());
         outcome.superset.setAbstract(false);
         outcome.superset.setDerivation(TypeDerivationRule.CONSTRAINT);
       } else {
@@ -432,7 +432,7 @@ public class ProfileComparer {
     
     if (left.slices() != null)
       for (DefinitionNavigator ex : left.slices()) {
-        String url = ex.current().getType().get(0).getProfile().get(0).getValue();
+        String url = ex.current().getType().get(0).getProfile();
         if (map.containsKey(url))
           throw new DefinitionException("Duplicate Extension "+url+" at "+path);
         else
@@ -440,7 +440,7 @@ public class ProfileComparer {
       }
     if (right.slices() != null)
       for (DefinitionNavigator ex : right.slices()) {
-        String url = ex.current().getType().get(0).getProfile().get(0).getValue();
+        String url = ex.current().getType().get(0).getProfile();
         if (map.containsKey(url)) {
           ExtensionUsage exd = map.get(url);
           exd.minSuperset = unionMin(exd.defn.current().getMin(), ex.current().getMin());
@@ -778,15 +778,11 @@ public class ProfileComparer {
   private Collection<? extends TypeRefComponent> intersectTypes(ElementDefinition ed, ProfileComparison outcome, String path, List<TypeRefComponent> left, List<TypeRefComponent> right) throws DefinitionException, IOException {
     List<TypeRefComponent> result = new ArrayList<TypeRefComponent>();
     for (TypeRefComponent l : left) {
-      if (l.getProfile().size() > 1)
-        throw new DefinitionException("Multiple profiles not supported: "+path+": "+listProfiles(l.getProfile()));
       if (l.hasAggregation())
         throw new DefinitionException("Aggregation not supported: "+path);
       boolean found = false;
       TypeRefComponent c = l.copy();
       for (TypeRefComponent r : right) {
-        if (r.getProfile().size() > 1)
-          throw new DefinitionException("Multiple profiles not supported: "+path+": "+listProfiles(l.getProfile()));
         if (r.hasAggregation())
           throw new DefinitionException("Aggregation not supported: "+path);
         if (!l.hasProfile() && !r.hasProfile()) {
@@ -795,24 +791,23 @@ public class ProfileComparer {
           found = true; 
         } else if (!l.hasProfile()) {
           found = true;
-          c.getProfile().add(r.getProfile().get(0));
+          c.setProfile(r.getProfile());
         } else {
-          StructureDefinition sdl = resolveProfile(ed, outcome, path, l.getProfile().get(0).getValueAsString(), outcome.leftName());
-          StructureDefinition sdr = resolveProfile(ed, outcome, path, r.getProfile().get(0).getValueAsString(), outcome.rightName());
+          StructureDefinition sdl = resolveProfile(ed, outcome, path, l.getProfile(), outcome.leftName());
+          StructureDefinition sdr = resolveProfile(ed, outcome, path, r.getProfile(), outcome.rightName());
           if (sdl != null && sdr != null) {
             if (sdl == sdr) {
               found = true;
             } else if (derivesFrom(sdl, sdr)) {
               found = true;
             } else if (derivesFrom(sdr, sdl)) {
-              c.getProfile().clear();
-              c.getProfile().add(r.getProfile().get(0));
+              c.setProfile(r.getProfile());
               found = true;
-            } else if (sdl.hasBaseType() && sdr.hasBaseType() && sdl.getBaseType().equals(sdr.getBaseType())) {
+            } else if (sdl.getType().equals(sdr.getType())) {
               ProfileComparison comp = compareProfiles(sdl, sdr);
               if (comp.getSubset() != null) {
                 found = true;
-                c.addProfile("#"+comp.id);
+                c.setProfile("#"+comp.id);
               }
             }
           }
@@ -845,8 +840,6 @@ public class ProfileComparer {
   private void checkAddTypeUnion(String path, List<TypeRefComponent> results, TypeRefComponent nw) throws DefinitionException, IOException {
     boolean found = false;
     nw = nw.copy();
-    if (nw.getProfile().size() > 1)
-      throw new DefinitionException("Multiple profiles not supported: "+path);
     if (nw.hasAggregation())
       throw new DefinitionException("Aggregation not supported: "+path);
     for (TypeRefComponent ex : results) {
@@ -857,17 +850,16 @@ public class ProfileComparer {
           found = true; 
         } else if (!nw.hasProfile()) {
           found = true;
-          ex.getProfile().clear();
+          ex.setProfile(null);
         } else {
           // both have profiles. Is one derived from the other? 
-          StructureDefinition sdex = context.fetchResource(StructureDefinition.class, ex.getProfile().get(0).getValueAsString());
-          StructureDefinition sdnw = context.fetchResource(StructureDefinition.class, nw.getProfile().get(0).getValueAsString());
+          StructureDefinition sdex = context.fetchResource(StructureDefinition.class, ex.getProfile());
+          StructureDefinition sdnw = context.fetchResource(StructureDefinition.class, nw.getProfile());
           if (sdex != null && sdnw != null) {
             if (sdex == sdnw) {
               found = true;
             } else if (derivesFrom(sdex, sdnw)) {
-              ex.getProfile().clear();
-              ex.getProfile().add(nw.getProfile().get(0));
+              ex.setProfile(nw.getProfile());
               found = true;
             } else if (derivesFrom(sdnw, sdex)) {
               found = true;
@@ -875,8 +867,7 @@ public class ProfileComparer {
               ProfileComparison comp = compareProfiles(sdex, sdnw);
               if (comp.getSuperset() != null) {
                 found = true;
-                ex.getProfile().clear();
-                ex.addProfile("#"+comp.id);
+                ex.setProfile("#"+comp.id);
               }
             }
           }
@@ -1024,20 +1015,7 @@ public class ProfileComparer {
   private String typeCode(DefinitionNavigator defn) {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
     for (TypeRefComponent t : defn.current().getType())
-      b.append(t.getCode()+(t.hasProfile() ? "("+listProfiles(t.getProfile())+")" : "")); // todo: other properties
-    return b.toString();
-  }
-
-  private String listProfiles(List<UriType> profiles) {
-    StringBuilder b = new StringBuilder();
-    boolean first = true;
-    for (UriType uri : profiles) {
-      if (first)
-        first= false;
-      else
-        b.append("+");
-      b.append(uri.asStringValue());
-    }
+      b.append(t.getCode()+(t.hasProfile() ? "("+t.getProfile()+")" : "")); // todo: other properties
     return b.toString();
   }
 

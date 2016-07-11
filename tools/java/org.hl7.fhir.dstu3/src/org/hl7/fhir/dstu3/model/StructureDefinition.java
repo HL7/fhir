@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Jul 9, 2016 08:30+1000 for FHIR v1.5.0
+// Generated on Sun, Jul 10, 2016 20:31+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -1399,11 +1399,11 @@ public class StructureDefinition extends BaseConformance {
     protected List<StringType> context;
 
     /**
-     * The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure.
+     * The type this structure is describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).
      */
-    @Child(name = "baseType", type = {CodeType.class}, order=15, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Any datatype or resource, including abstract ones", formalDefinition="The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure." )
-    protected CodeType baseType;
+    @Child(name = "type", type = {CodeType.class}, order=15, min=1, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Type defined or constrained by this structure", formalDefinition="The type this structure is describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type)." )
+    protected CodeType type;
 
     /**
      * An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.
@@ -1433,7 +1433,7 @@ public class StructureDefinition extends BaseConformance {
     @Description(shortDefinition="Differential view of the structure", formalDefinition="A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies." )
     protected StructureDefinitionDifferentialComponent differential;
 
-    private static final long serialVersionUID = 1143069704L;
+    private static final long serialVersionUID = 1377064281L;
 
   /**
    * Constructor
@@ -1445,13 +1445,14 @@ public class StructureDefinition extends BaseConformance {
   /**
    * Constructor
    */
-    public StructureDefinition(UriType url, StringType name, Enumeration<ConformanceResourceStatus> status, Enumeration<StructureDefinitionKind> kind, BooleanType abstract_) {
+    public StructureDefinition(UriType url, StringType name, Enumeration<ConformanceResourceStatus> status, Enumeration<StructureDefinitionKind> kind, BooleanType abstract_, CodeType type) {
       super();
       this.url = url;
       this.name = name;
       this.status = status;
       this.kind = kind;
       this.abstract_ = abstract_;
+      this.type = type;
     }
 
     /**
@@ -2264,51 +2265,47 @@ public class StructureDefinition extends BaseConformance {
     }
 
     /**
-     * @return {@link #baseType} (The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure.). This is the underlying object with id, value and extensions. The accessor "getBaseType" gives direct access to the value
+     * @return {@link #type} (The type this structure is describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public CodeType getBaseTypeElement() { 
-      if (this.baseType == null)
+    public CodeType getTypeElement() { 
+      if (this.type == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StructureDefinition.baseType");
+          throw new Error("Attempt to auto-create StructureDefinition.type");
         else if (Configuration.doAutoCreate())
-          this.baseType = new CodeType(); // bb
-      return this.baseType;
+          this.type = new CodeType(); // bb
+      return this.type;
     }
 
-    public boolean hasBaseTypeElement() { 
-      return this.baseType != null && !this.baseType.isEmpty();
+    public boolean hasTypeElement() { 
+      return this.type != null && !this.type.isEmpty();
     }
 
-    public boolean hasBaseType() { 
-      return this.baseType != null && !this.baseType.isEmpty();
+    public boolean hasType() { 
+      return this.type != null && !this.type.isEmpty();
     }
 
     /**
-     * @param value {@link #baseType} (The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure.). This is the underlying object with id, value and extensions. The accessor "getBaseType" gives direct access to the value
+     * @param value {@link #type} (The type this structure is describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public StructureDefinition setBaseTypeElement(CodeType value) { 
-      this.baseType = value;
+    public StructureDefinition setTypeElement(CodeType value) { 
+      this.type = value;
       return this;
     }
 
     /**
-     * @return The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure.
+     * @return The type this structure is describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).
      */
-    public String getBaseType() { 
-      return this.baseType == null ? null : this.baseType.getValue();
+    public String getType() { 
+      return this.type == null ? null : this.type.getValue();
     }
 
     /**
-     * @param value The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure.
+     * @param value The type this structure is describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).
      */
-    public StructureDefinition setBaseType(String value) { 
-      if (Utilities.noString(value))
-        this.baseType = null;
-      else {
-        if (this.baseType == null)
-          this.baseType = new CodeType();
-        this.baseType.setValue(value);
-      }
+    public StructureDefinition setType(String value) { 
+        if (this.type == null)
+          this.type = new CodeType();
+        this.type.setValue(value);
       return this;
     }
 
@@ -2475,7 +2472,7 @@ public class StructureDefinition extends BaseConformance {
         childrenList.add(new Property("abstract", "boolean", "Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type.", 0, java.lang.Integer.MAX_VALUE, abstract_));
         childrenList.add(new Property("contextType", "code", "If this is an extension, Identifies the context within FHIR resources where the extension can be used.", 0, java.lang.Integer.MAX_VALUE, contextType));
         childrenList.add(new Property("context", "string", "Identifies the types of resource or data type elements to which the extension can be applied.", 0, java.lang.Integer.MAX_VALUE, context));
-        childrenList.add(new Property("baseType", "code", "The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure.", 0, java.lang.Integer.MAX_VALUE, baseType));
+        childrenList.add(new Property("type", "code", "The type this structure is describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("baseDefinition", "uri", "An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.", 0, java.lang.Integer.MAX_VALUE, baseDefinition));
         childrenList.add(new Property("derivation", "code", "How the type relates to the baseDefinition.", 0, java.lang.Integer.MAX_VALUE, derivation));
         childrenList.add(new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.", 0, java.lang.Integer.MAX_VALUE, snapshot));
@@ -2506,7 +2503,7 @@ public class StructureDefinition extends BaseConformance {
         case 1732898850: /*abstract*/ return this.abstract_ == null ? new Base[0] : new Base[] {this.abstract_}; // BooleanType
         case -102839927: /*contextType*/ return this.contextType == null ? new Base[0] : new Base[] {this.contextType}; // Enumeration<ExtensionContext>
         case 951530927: /*context*/ return this.context == null ? new Base[0] : this.context.toArray(new Base[this.context.size()]); // StringType
-        case -1721484885: /*baseType*/ return this.baseType == null ? new Base[0] : new Base[] {this.baseType}; // CodeType
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
         case 1139771140: /*baseDefinition*/ return this.baseDefinition == null ? new Base[0] : new Base[] {this.baseDefinition}; // UriType
         case -1353885513: /*derivation*/ return this.derivation == null ? new Base[0] : new Base[] {this.derivation}; // Enumeration<TypeDerivationRule>
         case 284874180: /*snapshot*/ return this.snapshot == null ? new Base[0] : new Base[] {this.snapshot}; // StructureDefinitionSnapshotComponent
@@ -2582,8 +2579,8 @@ public class StructureDefinition extends BaseConformance {
         case 951530927: // context
           this.getContext().add(castToString(value)); // StringType
           break;
-        case -1721484885: // baseType
-          this.baseType = castToCode(value); // CodeType
+        case 3575610: // type
+          this.type = castToCode(value); // CodeType
           break;
         case 1139771140: // baseDefinition
           this.baseDefinition = castToUri(value); // UriType
@@ -2646,8 +2643,8 @@ public class StructureDefinition extends BaseConformance {
           this.contextType = new ExtensionContextEnumFactory().fromType(value); // Enumeration<ExtensionContext>
         else if (name.equals("context"))
           this.getContext().add(castToString(value));
-        else if (name.equals("baseType"))
-          this.baseType = castToCode(value); // CodeType
+        else if (name.equals("type"))
+          this.type = castToCode(value); // CodeType
         else if (name.equals("baseDefinition"))
           this.baseDefinition = castToUri(value); // UriType
         else if (name.equals("derivation"))
@@ -2684,7 +2681,7 @@ public class StructureDefinition extends BaseConformance {
         case 1732898850: throw new FHIRException("Cannot make property abstract as it is not a complex type"); // BooleanType
         case -102839927: throw new FHIRException("Cannot make property contextType as it is not a complex type"); // Enumeration<ExtensionContext>
         case 951530927: throw new FHIRException("Cannot make property context as it is not a complex type"); // StringType
-        case -1721484885: throw new FHIRException("Cannot make property baseType as it is not a complex type"); // CodeType
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
         case 1139771140: throw new FHIRException("Cannot make property baseDefinition as it is not a complex type"); // UriType
         case -1353885513: throw new FHIRException("Cannot make property derivation as it is not a complex type"); // Enumeration<TypeDerivationRule>
         case 284874180:  return getSnapshot(); // StructureDefinitionSnapshotComponent
@@ -2759,8 +2756,8 @@ public class StructureDefinition extends BaseConformance {
         else if (name.equals("context")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.context");
         }
-        else if (name.equals("baseType")) {
-          throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.baseType");
+        else if (name.equals("type")) {
+          throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.type");
         }
         else if (name.equals("baseDefinition")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.baseDefinition");
@@ -2833,7 +2830,7 @@ public class StructureDefinition extends BaseConformance {
           for (StringType i : context)
             dst.context.add(i.copy());
         };
-        dst.baseType = baseType == null ? null : baseType.copy();
+        dst.type = type == null ? null : type.copy();
         dst.baseDefinition = baseDefinition == null ? null : baseDefinition.copy();
         dst.derivation = derivation == null ? null : derivation.copy();
         dst.snapshot = snapshot == null ? null : snapshot.copy();
@@ -2857,7 +2854,7 @@ public class StructureDefinition extends BaseConformance {
            && compareDeep(requirements, o.requirements, true) && compareDeep(copyright, o.copyright, true)
            && compareDeep(code, o.code, true) && compareDeep(fhirVersion, o.fhirVersion, true) && compareDeep(mapping, o.mapping, true)
            && compareDeep(kind, o.kind, true) && compareDeep(abstract_, o.abstract_, true) && compareDeep(contextType, o.contextType, true)
-           && compareDeep(context, o.context, true) && compareDeep(baseType, o.baseType, true) && compareDeep(baseDefinition, o.baseDefinition, true)
+           && compareDeep(context, o.context, true) && compareDeep(type, o.type, true) && compareDeep(baseDefinition, o.baseDefinition, true)
            && compareDeep(derivation, o.derivation, true) && compareDeep(snapshot, o.snapshot, true) && compareDeep(differential, o.differential, true)
           ;
       }
@@ -2873,14 +2870,14 @@ public class StructureDefinition extends BaseConformance {
            && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true) && compareValues(requirements, o.requirements, true)
            && compareValues(copyright, o.copyright, true) && compareValues(fhirVersion, o.fhirVersion, true) && compareValues(kind, o.kind, true)
            && compareValues(abstract_, o.abstract_, true) && compareValues(contextType, o.contextType, true) && compareValues(context, o.context, true)
-           && compareValues(baseType, o.baseType, true) && compareValues(baseDefinition, o.baseDefinition, true)
-           && compareValues(derivation, o.derivation, true);
+           && compareValues(type, o.type, true) && compareValues(baseDefinition, o.baseDefinition, true) && compareValues(derivation, o.derivation, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, display, experimental
           , publisher, contact, description, requirements, copyright, code, fhirVersion
-          , mapping, kind, abstract_, contextType, context, baseType, baseDefinition, derivation
+          , mapping, kind, abstract_, contextType, context, type, baseDefinition, derivation
           , snapshot, differential);
       }
 
@@ -3098,19 +3095,19 @@ public class StructureDefinition extends BaseConformance {
  /**
    * Search parameter: <b>type</b>
    * <p>
-   * Description: <b>Any datatype or resource, including abstract ones</b><br>
+   * Description: <b>Type defined or constrained by this structure</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>StructureDefinition.baseType</b><br>
+   * Path: <b>StructureDefinition.type</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="type", path="StructureDefinition.baseType", description="Any datatype or resource, including abstract ones", type="token" )
+  @SearchParamDefinition(name="type", path="StructureDefinition.type", description="Type defined or constrained by this structure", type="token" )
   public static final String SP_TYPE = "type";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>type</b>
    * <p>
-   * Description: <b>Any datatype or resource, including abstract ones</b><br>
+   * Description: <b>Type defined or constrained by this structure</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>StructureDefinition.baseType</b><br>
+   * Path: <b>StructureDefinition.type</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);

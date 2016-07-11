@@ -31,7 +31,7 @@
     </mapping>
     <kind value="complex-type"/>
     <abstract value="false"/>
-    <baseType value="HumanName"/>
+    <type value="HumanName"/>
     <baseDefinition value="http://hl7.org/fhir/StructureDefinition/HumanName"/>
     <derivation value="constraint"/>
     <differential>

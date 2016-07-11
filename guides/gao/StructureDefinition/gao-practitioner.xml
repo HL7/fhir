@@ -25,7 +25,7 @@
   
   <kind value="resource"></kind>
   <abstract value="false"></abstract>
-  <baseType value="Practitioner"/>
+  <type value="Practitioner"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
     <derivation value="constraint"/>
 

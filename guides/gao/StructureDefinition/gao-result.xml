@@ -23,7 +23,7 @@
   
   <kind value="resource"></kind>
   <abstract value="false"></abstract>
-  <baseType value="Basic"/>
+  <type value="Basic"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
     <derivation value="constraint"/>
 

@@ -60,7 +60,7 @@ public class ReviewSpreadsheetGenerator {
     
     ElementDefinition ed = profile.getSnapshot().getElement().get(0);
     String path = ed.getPath();
-    addRow(sheet, style, path+" : "+profile.getBaseType(), profile.getName(), "", ed.getDefinition(), "");
+    addRow(sheet, style, path+" : "+profile.getType(), profile.getName(), "", ed.getDefinition(), "");
     processRows(workbook, path, profile.getSnapshot().getElement(), 1, sheet, "  ");
   }
 
@@ -117,7 +117,7 @@ public class ReviewSpreadsheetGenerator {
         cell = row.createCell(c++);
         cell.setCellStyle(style);
         if (ed.getType().get(0).hasProfile())
-          cell.setCellValue(ed.getType().get(0).getProfile().get(0).getValue());
+          cell.setCellValue(ed.getType().get(0).getProfile());
         cell = row.createCell(c++);
         cell.setCellStyle(style);
         cell.setCellValue(describeBinding(ed));

@@ -2543,28 +2543,29 @@ public class Publisher implements URIResolver, SectionNumberer {
       if ((!inDiff || tr.hasCode()) && tr.getCode() != null)
         if (ed.getPath().contains("."))
           check(page.getDefinitions().hasBaseType(tr.getCode()) || tr.getCode().equals("Resource"), sd, ed.getPath()+": type '"+tr.getCode()+"' is not valid (a)");
-        else if (sd.hasBaseType()) {
+        else if (sd.hasBaseDefinition()) {
           if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT)
             check(page.getDefinitions().hasConcreteResource(tr.getCode()) || page.getDefinitions().hasBaseType(tr.getCode()) , sd, ed.getPath()+": type '"+tr.getCode()+"' is not valid (b)");
           else
             check(page.getDefinitions().hasAbstractResource(tr.getCode()) || tr.getCode().equals("Element"), sd, ed.getPath()+": type '"+tr.getCode()+"' is not valid (c)");
         }
-      for (UriType pt : tr.getProfile()) {
-        if (pt.asStringValue().contains("#")) {
-          String[] parts = pt.asStringValue().split("\\#");
+      if (tr.hasProfile()) {
+        String pt = tr.getProfile();
+        if (pt.contains("#")) {
+          String[] parts = pt.split("\\#");
           StructureDefinition exd = page.getWorkerContext().getExtensionDefinitions().get(parts[0]);
           if (exd == null)
-            check(false, sd, ed.getPath()+": profile '"+pt.asStringValue()+"' is not valid (definition not found)");
+            check(false, sd, ed.getPath()+": profile '"+pt+"' is not valid (definition not found)");
           else {
             ElementDefinition ex = null;
             for (ElementDefinition et : exd.getSnapshot().getElement())
               if (et.hasFixed() && et.getFixed() instanceof UriType && ((UriType)et.getFixed()).asStringValue().equals(parts[1]))
                   ex = et;
-              check(ex != null, sd, ed.getPath()+": profile '"+pt.asStringValue()+"' is not valid (inner path not found)");
+              check(ex != null, sd, ed.getPath()+": profile '"+pt+"' is not valid (inner path not found)");
           }
         } else
-          check((page.getWorkerContext().getProfiles().containsKey(pt.asStringValue()) || page.getWorkerContext().getExtensionDefinitions().containsKey(pt.asStringValue()))
-          || isStringPattern(tail(pt.asStringValue())), sd, ed.getPath()+": profile '"+pt.asStringValue()+"' is not valid (d)");
+          check((page.getWorkerContext().getProfiles().containsKey(pt) || page.getWorkerContext().getExtensionDefinitions().containsKey(pt))
+          || isStringPattern(tail(pt)), sd, ed.getPath()+": profile '"+pt+"' is not valid (d)");
       }
     }
   }
@@ -2594,32 +2595,23 @@ public class Publisher implements URIResolver, SectionNumberer {
   private boolean checkResource(StructureDefinition sd) {
     check(!sd.getAbstract() || sd.getName().equals("Resource") || sd.getName().equals("DomainResource"), sd, "Only Resource/DomainResource can be abstract");
     check(!sd.hasContext(), sd, "Only extensions can have context (not resources)");
-    if (sd.hasBaseType()) {
-      if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
-        check(page.getDefinitions().hasConcreteResource(sd.getBaseType()), sd, "Unknown constrained base type "+sd.getBaseType());
-        check(!page.getDefinitions().hasResource(sd.getId()), sd, "Duplicate resource name "+sd.getBaseType());
-      } else {
-        check(page.getDefinitions().hasAbstractResource(sd.getBaseType()), sd, "Unknown specialised base type "+sd.getBaseType());
-      }
+    if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
+      check(page.getDefinitions().hasConcreteResource(sd.getType()), sd, "Unknown constrained base type "+sd.getType());
+      check(!page.getDefinitions().hasResource(sd.getId()), sd, "Duplicate resource name "+sd.getType());
     } else {
-      check(page.getDefinitions().getResources().containsKey(sd.getId()) || page.getDefinitions().getBaseResources().containsKey(sd.getId()) , sd, "Unknown base type "+sd.getId());
+      check(page.getDefinitions().hasAbstractResource(sd.getType()), sd, "Unknown specialised base type "+sd.getType());
     }
     return false;
   }
 
   private boolean checkDataType(StructureDefinition sd) {
     check(!sd.getAbstract() || sd.getName().equals("Element") || sd.getName().equals("BackboneElement") , sd, "Only Element/BackboneElement can be abstract");
-    check(!sd.hasContext() || "Extension".equals(sd.getBaseType()), sd, "Only extensions can have context (base type = "+sd.getBaseType()+")");
-    if (sd.hasBaseType()) {
-      if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
-        check(page.getDefinitions().hasBaseType(sd.getBaseType()), sd, "Unknown constrained base type "+sd.getBaseType());
-        check(page.getDefinitions().hasPrimitiveType(sd.getId()) || !page.getDefinitions().hasBaseType(sd.getId()), sd, "Duplicate type name "+sd.getBaseType());
-      } else {
-        check(page.getDefinitions().hasBaseType(sd.getBaseType()), sd, "Unknown specialised base type "+sd.getBaseType());
-        
-      }
+    check(!sd.hasContext() || "Extension".equals(sd.getType()), sd, "Only extensions can have context (base type = "+sd.getType()+")");
+    if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
+      check(page.getDefinitions().hasBaseType(sd.getType()), sd, "Unknown constrained base type "+sd.getType());
+      check(page.getDefinitions().hasPrimitiveType(sd.getId()) || !page.getDefinitions().hasBaseType(sd.getId()), sd, "Duplicate type name "+sd.getType());
     } else {
-      check(page.getDefinitions().hasBaseType(sd.getId()), sd, "Unknown base type "+sd.getBaseType());
+      check(page.getDefinitions().hasBaseType(sd.getType()), sd, "Unknown specialised base type "+sd.getType());
     }
     return false;
   }
@@ -4134,7 +4126,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         if (pack.getProfiles().get(0).getDefn() != null)
           resourceName = pack.getProfiles().get(0).getDefn().getName();
         else 
-          resourceName = pack.getProfiles().get(0).getResource().getBaseType();
+          resourceName = pack.getProfiles().get(0).getResource().getType();
       else if (pack.getProfiles().size() == 0) {
        // throw new Exception("Unable to determine resource name - no profiles"); no, we don't complain
       } else if (pack.getProfiles().get(0).getDefn() != null) {

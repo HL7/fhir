@@ -99,6 +99,7 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
+import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.parsers.BindingNameRegistry;
@@ -127,6 +128,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.SearchParamType;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageComponent;
+import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.NamingSystem;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent;
@@ -951,6 +953,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genBackboneelementList() + s3;
       else if (com[0].equals("vscommittee"))
         src = s1 + vscommittee(resource) + s3;
+      else if (com[0].equals("modifier-list"))
+        src = s1 + genModifierList() + s3;
+      else if (com[0].equals("missing-element-list"))
+        src = s1 + genDefaultedList() + s3;
       else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -1277,7 +1283,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (resource == null || !(resource instanceof StructureDefinition))
       return "";
     StructureDefinition sd = (StructureDefinition) resource;
-    if (!sd.hasBaseType())
+    if (!sd.hasBaseDefinition())
       return "";
     String pack = "";
     if (sd.hasUserData("pack")) {
@@ -1344,6 +1350,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     s.append("<tr>");
     s.append("<td><a href=\""+ed.getUserString("path")+"\">"+ed.getId()+"</a></td>");
     s.append("<td>"+Utilities.escapeXml(ed.getName())+"</td>");
+    s.append("<td>"+displayExtensionCardinality(ed)+"</td>");
     s.append("<td>"+determineExtensionType(ed)+"</td>");
     s.append("<td>");
     boolean first = true;
@@ -1381,6 +1388,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+ ".xml.html\">XML</a></td>");
 //    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+ ".json.html\">JSON</a></td>");
     s.append("</tr>");
+  }
+
+  private String displayExtensionCardinality(StructureDefinition ed) {
+    ElementDefinition e = ed.getSnapshot().getElementFirstRep();
+    return Integer.toString(e.getMin())+".."+e.getMax();
   }
 
   private String determineExtensionType(StructureDefinition ed) throws Exception {
@@ -4327,6 +4339,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + "../" + s3;  
       else if (com[0].equals("backboneelementlist"))
         src = s1 + genBackboneelementList() + s3;
+      else if (com[0].equals("modifier-list"))
+        src = s1 + genModifierList() + s3;
+      else if (com[0].equals("missing-element-list"))
+        src = s1 + genDefaultedList() + s3;
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -5737,13 +5753,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             fixeds++;
           
           for (TypeRefComponent t : ed.getType()) {
-            if (t.hasProfile() && !definitions.hasType(t.getProfile().get(0).getValue().substring(40))) {
+            if (t.hasProfile() && !definitions.hasType(t.getProfile().substring(40))) {
               if (ed.getPath().endsWith(".extension"))
-                tryAdd(ext, summariseExtension(t.getProfile().get(0).getValue(), false, prefix));
+                tryAdd(ext, summariseExtension(t.getProfile(), false, prefix));
               else if (ed.getPath().endsWith(".modifierExtension"))
-                tryAdd(ext, summariseExtension(t.getProfile().get(0).getValue(), true, prefix));
+                tryAdd(ext, summariseExtension(t.getProfile(), true, prefix));
               else
-                tryAdd(refs, describeProfile(t.getProfile().get(0).getValue(), prefix));
+                tryAdd(refs, describeProfile(t.getProfile(), prefix));
             }
           }
 
@@ -7337,4 +7353,68 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return true;
   }  
 
+  private String genModifierList() {
+    StringBuilder b = new StringBuilder();
+    for (String s : sorted(definitions.getTypes().keySet())) 
+      checkForModifiers(b, s, definitions.getTypes().get(s));
+    for (String s : sorted(definitions.getStructures().keySet())) 
+      checkForModifiers(b, s, definitions.getStructures().get(s));
+    for (String s : sorted(definitions.getInfrastructure().keySet())) 
+      checkForModifiers(b, s, definitions.getInfrastructure().get(s));
+    for (String s : sorted(definitions.getBaseResources().keySet())) 
+      checkForModifiers(b, s, definitions.getBaseResources().get(s).getRoot());
+    for (String s : sorted(definitions.getResources().keySet())) 
+      checkForModifiers(b, s, definitions.getResources().get(s).getRoot());
+    return b.toString();
+  }
+
+  private void checkForModifiers(StringBuilder b, String path, ElementDefn e) {
+    if (e.isModifier()) {
+      b.append(" <li><a href=\""+definitions.getSrcFile(path.substring(0, path.indexOf(".")))+"#-definitions.html"+path+"\">"+path+"</a></li>\r\n");
+    }
+    for (ElementDefn c : e.getElements())
+      checkForModifiers(b, path+"."+c.getName(), c);
+  }
+
+  private List<String> sorted(Set<String> keySet) {
+    List<String> res = new ArrayList<String>();
+    res.addAll(keySet);
+    Collections.sort(res);
+    return res;
+  }
+  
+  private String genDefaultedList() throws Exception {
+    StringBuilder b = new StringBuilder();
+    for (String s : sorted(definitions.getTypes().keySet())) 
+      checkForDefaulted(b, s, definitions.getTypes().get(s));
+    for (String s : sorted(definitions.getStructures().keySet())) 
+      checkForDefaulted(b, s, definitions.getStructures().get(s));
+    for (String s : sorted(definitions.getInfrastructure().keySet())) 
+      checkForDefaulted(b, s, definitions.getInfrastructure().get(s));
+    for (String s : sorted(definitions.getBaseResources().keySet())) 
+      checkForDefaulted(b, s, definitions.getBaseResources().get(s).getRoot());
+    for (String s : sorted(definitions.getResources().keySet())) 
+      checkForDefaulted(b, s, definitions.getResources().get(s).getRoot());
+    return b.toString();
+  }
+
+  private void checkForDefaulted(StringBuilder b, String path, ElementDefn e) throws Exception {
+    if (e.hasMeaningWhenMissing()) {
+      b.append(" <li><a href=\""+definitions.getSrcFile(path.substring(0, path.indexOf(".")))+"-definitions.html#"+path+"\">"+path+"</a>: "+Utilities.escapeXml(e.getMeaningWhenMissing())+"</li>\r\n");
+    }
+    if (e.getDefaultValue() != null) {
+      b.append(" <li><a href=\""+definitions.getSrcFile(path.substring(0, path.indexOf(".")))+"-definitions.html#"+path+"\">"+path+"</a>: "+renderType(e.getDefaultValue())+"</li>\r\n");
+    }
+    for (ElementDefn c : e.getElements())
+      checkForDefaulted(b, path+"."+c.getName(), c);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private String renderType(Type v) throws Exception {
+    if (v instanceof org.hl7.fhir.dstu3.model.PrimitiveType)
+      return ((org.hl7.fhir.dstu3.model.PrimitiveType) v).asStringValue();
+    throw new Exception("unhandled default value");
+  }
+
+  
 }

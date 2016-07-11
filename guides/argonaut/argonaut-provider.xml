@@ -53,7 +53,7 @@
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
-  <baseType value="Practitioner" />
+  <type value="Practitioner" />
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
     <derivation value="constraint"/>
   <differential>

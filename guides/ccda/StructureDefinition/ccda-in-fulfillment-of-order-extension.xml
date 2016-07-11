@@ -23,7 +23,7 @@
     <abstract value="false" />  
     <contextType value="resource"></contextType>
     <context value="Composition"></context>
-    <baseType value="Extension" />
+    <type value="Extension" />
     <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
     <derivation value="constraint"/>
     <differential>

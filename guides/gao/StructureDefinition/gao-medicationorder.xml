@@ -24,7 +24,7 @@
   
   <kind value="resource"></kind>
   <abstract value="false"></abstract>
-  <baseType value="MedicationOrder"/>
+  <type value="MedicationOrder"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MedicationOrder"/>
     <derivation value="constraint"/>
 

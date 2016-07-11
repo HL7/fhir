@@ -26,7 +26,7 @@
   <fhirVersion value="1.5.0" />
   <kind value="resource" />
   <abstract value="false" />
-  <baseType value="Composition" />
+  <type value="Composition" />
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ccda-us-realm-header-composition" />
   <derivation value="constraint"/>
   <differential>

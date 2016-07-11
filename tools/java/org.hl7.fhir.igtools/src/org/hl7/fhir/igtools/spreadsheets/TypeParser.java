@@ -142,7 +142,7 @@ public class TypeParser {
         for(String param : t.getParams()) {
           TypeRefComponent childType = new TypeRefComponent();
           childType.setCode(t.getName());
-          childType.addProfile("http://hl7.org/fhir/StructureDefinition/"+param);
+          childType.setProfile("http://hl7.org/fhir/StructureDefinition/"+param);
           list.add(childType);
         }
       } else if (t.isWildcardType()) {
@@ -160,14 +160,14 @@ public class TypeParser {
         if (sd == null)
           throw new Exception("Unknown type "+t.getName());
         if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
-          TypeRefComponent tc = new TypeRefComponent().setCode(sd.getBaseType());
+          TypeRefComponent tc = new TypeRefComponent().setCode(sd.getType());
           list.add(tc);
-          tc.addProfile(sd.getUrl());
+          tc.setProfile(sd.getUrl());
         } else {
           TypeRefComponent tc = new TypeRefComponent().setCode(t.getName());
           list.add(tc);
           if (t.hasProfile())
-            tc.addProfile(t.getProfile());
+            tc.setProfile(t.getProfile());
         }
       }
     }    

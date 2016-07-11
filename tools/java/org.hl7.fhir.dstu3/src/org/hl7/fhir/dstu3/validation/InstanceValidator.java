@@ -993,10 +993,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       for (TypeRefComponent type : container.getType()) {
         if (!ok && type.getCode().equals("Reference")) {
           // we validate as much as we can. First, can we infer a type from the profile?
-          if (!type.hasProfile() || type.getProfile().get(0).getValue().equals("http://hl7.org/fhir/StructureDefinition/Resource"))
+          if (!type.hasProfile() || type.getProfile().equals("http://hl7.org/fhir/StructureDefinition/Resource"))
             ok = true;
           else {
-            String pr = type.getProfile().get(0).getValue();
+            String pr = type.getProfile();
 
             String bt = getBaseType(profile, pr);
             if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, bt != null, "Unable to resolve the profile reference '" + pr + "'")) {
@@ -1191,7 +1191,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         if (ed.getType().get(0).getCode().equals("Reference"))
           discriminator = discriminator.substring(discriminator.indexOf(".")+1);
         long t = System.nanoTime();
-        type = context.fetchResource(StructureDefinition.class, ed.getType().get(0).getProfile().get(0).getValue());
+        type = context.fetchResource(StructureDefinition.class, ed.getType().get(0).getProfile());
         sdTime = sdTime + (System.nanoTime() - t);
       } else {
         long t = System.nanoTime();
@@ -2396,7 +2396,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         sdTime = sdTime + (System.nanoTime() - t);
         ok = rule(errors, IssueType.INVALID, element.line(), element.col(), stack.addToLiteralPath(resourceName), profile != null, "No profile found for resource type '" + resourceName + "'");
       } else {
-        String type = profile.getKind() == StructureDefinitionKind.LOGICAL ? profile.getId() : profile.hasBaseType() && profile.getDerivation() == TypeDerivationRule.CONSTRAINT ? profile.getBaseType() : profile.getName();
+        String type = profile.getKind() == StructureDefinitionKind.LOGICAL ? profile.getId() : profile.getType();
         // special case: we have a bundle, and the profile is not for a bundle. We'll try the first entry instead 
         if (!type.equals(resourceName) && resourceName.equals("Bundle")) {
           Element first = getFirstEntry(element);

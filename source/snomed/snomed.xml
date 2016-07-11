@@ -2857,6 +2857,10 @@
   <concept id="35917007" display="Adenocarcinoma, no subtype (morphologic abnormality)">
     <display value="Adenocarcinoma, no subtype"/>
   </concept>
+  <concept id="359540000" display="Topical">
+    <display value="Topical"/>
+    <display value="Topical (qualifier value)"/>
+  </concept>
   <concept id="359615001" display="Partial lobectomy of lung (procedure)">
     <display value="Partial lobectomy of lung"/>
     <display value="Partial lobectomy of lung (procedure)"/>

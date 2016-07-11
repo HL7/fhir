@@ -146,7 +146,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBaseType(base.getUrl());
+    focus.setBaseDefinition(base.getUrl());
+    focus.setType("Patient");
     focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
     new ProfileUtilities(context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test");
@@ -183,7 +184,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/ValueSet").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBaseType(base.getUrl());
+    focus.setBaseDefinition(base.getUrl());
+    focus.setType(base.getType());
     focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
     new ProfileUtilities(context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test" );
@@ -220,7 +222,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBaseType(base.getUrl());
+    focus.setBaseDefinition(base.getUrl());
+    focus.setType(base.getType());
     focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     ElementDefinition id = focus.getDifferential().addElement();
     id.setPath("Patient.identifier");
@@ -265,7 +268,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBaseType(base.getUrl());
+    focus.setBaseDefinition(base.getUrl());
+    focus.setType(base.getType());
     focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     ElementDefinition id = focus.getDifferential().addElement();
     id.setPath("Patient.identifier");
@@ -314,7 +318,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBaseType(base.getUrl());
+    focus.setBaseDefinition(base.getUrl());
+    focus.setType(base.getType());
     focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     ElementDefinition id = focus.getDifferential().addElement();
     id.setPath("Patient.deceased[x]");
@@ -363,7 +368,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBaseType(base.getUrl());
+    focus.setBaseDefinition(base.getUrl());
+    focus.setType(base.getType());
     focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     ElementDefinition id = focus.getDifferential().addElement();
     id.setPath("Patient.deceasedDateTime");
@@ -411,7 +417,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBaseType(base.getUrl());
+    focus.setBaseDefinition(base.getUrl());
+    focus.setType(base.getType());
     focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     ElementDefinition id = focus.getDifferential().addElement();
     id.setPath("Patient.identifier");
@@ -458,7 +465,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBaseType(base.getUrl());
+    focus.setBaseDefinition(base.getUrl());
+    focus.setType(base.getType());
     focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     ElementDefinition id = focus.getDifferential().addElement();
     id.setPath("Patient.identifier");
@@ -510,7 +518,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBaseType(base.getUrl());
+    focus.setBaseDefinition(base.getUrl());
+    focus.setType(base.getType());
     focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     ElementDefinition id = focus.getDifferential().addElement();
     id.setPath("Patient.identifier.system");
@@ -555,7 +564,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBaseType(base.getUrl());
+    focus.setBaseDefinition(base.getUrl());
+    focus.setType(base.getType());
     focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     
     // set the slice up
@@ -644,7 +654,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBaseType(base.getUrl());
+    focus.setBaseDefinition(base.getUrl());
+    focus.setType(base.getType());
     focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     
     // set the slice up
@@ -659,14 +670,14 @@ public class ProfileUtilitiesTests {
     id = focus.getDifferential().addElement();
     id.setPath("Patient.extension");
     id.setName("name1");
-    id.addType().setCode("Extension").addProfile("http://hl7.org/fhir/StructureDefinition/patient-birthTime");
+    id.addType().setCode("Extension").setProfile("http://hl7.org/fhir/StructureDefinition/patient-birthTime");
     id.setMin(1);
     
     // second slice:
     id = focus.getDifferential().addElement();
     id.setPath("Patient.extension");
     id.setName("name2");
-    id.addType().setCode("Extension").addProfile("http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName");    
+    id.addType().setCode("Extension").setProfile("http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName");    
     
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
     ProfileUtilities pu = new ProfileUtilities(context, messages, null);
@@ -729,7 +740,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBaseType(base.getUrl());
+    focus.setBaseDefinition(base.getUrl());
+    focus.setType(base.getType());
     focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     
     // set the slice up
@@ -743,14 +755,14 @@ public class ProfileUtilitiesTests {
     id = focus.getDifferential().addElement();
     id.setPath("Patient.extension");
     id.setName("simple");
-    id.addType().setCode("Extension").addProfile("http://hl7.org/fhir/StructureDefinition/patient-birthTime");
+    id.addType().setCode("Extension").setProfile("http://hl7.org/fhir/StructureDefinition/patient-birthTime");
     
     // second slice - the complex one
     // we walk into this and fix properties on the inner extensions
     id = focus.getDifferential().addElement();
     id.setPath("Patient.extension");
     id.setName("complex");
-    id.addType().setCode("Extension").addProfile("http://hl7.org/fhir/StructureDefinition/patient-nationality");
+    id.addType().setCode("Extension").setProfile("http://hl7.org/fhir/StructureDefinition/patient-nationality");
     if (!implicit) {
       id = focus.getDifferential().addElement();
       id.setPath("Patient.extension.extension");
@@ -760,12 +772,12 @@ public class ProfileUtilitiesTests {
     id.setPath("Patient.extension.extension");
     id.setName("code");
     id.setMustSupport(true);
-    id.addType().setCode("Extension").addProfile("http://hl7.org/fhir/StructureDefinition/patient-nationality#code");
+    id.addType().setCode("Extension").setProfile("http://hl7.org/fhir/StructureDefinition/patient-nationality#code");
     
     id = focus.getDifferential().addElement();
     id.setPath("Patient.extension.extension");
     id.setName("period");
-    id.addType().setCode("Extension").addProfile("http://hl7.org/fhir/StructureDefinition/patient-nationality#period");
+    id.addType().setCode("Extension").setProfile("http://hl7.org/fhir/StructureDefinition/patient-nationality#period");
     id.setMax("0"); // prohibit this one....
         
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
@@ -779,10 +791,10 @@ public class ProfileUtilitiesTests {
     ok = ok && rule(focus.getSnapshot().getElement().get(7).hasSlicing(), "element 7 slicing");
     ok = ok && rule(focus.getSnapshot().getElement().get(8).getPath().equals("Patient.extension"), "element 8 (1st slice) path");
     ok = ok && rule(focus.getSnapshot().getElement().get(8).getName().equals("simple"), "element 8 (1st slice) name");
-    ok = ok && rule(focus.getSnapshot().getElement().get(8).getType().get(0).getProfile().get(0).getValue().equals("http://hl7.org/fhir/StructureDefinition/patient-birthTime"), "element 9 (2nd slice) profile name");
+    ok = ok && rule(focus.getSnapshot().getElement().get(8).getType().get(0).getProfile().equals("http://hl7.org/fhir/StructureDefinition/patient-birthTime"), "element 9 (2nd slice) profile name");
     ok = ok && rule(focus.getSnapshot().getElement().get(9).getPath().equals("Patient.extension"), "element 9 (2nd slice) path");
     ok = ok && rule(focus.getSnapshot().getElement().get(9).getName().equals("complex"), "element 8 (1st slice) name");
-    ok = ok && rule(focus.getSnapshot().getElement().get(9).getType().get(0).getProfile().get(0).getValue().equals("http://hl7.org/fhir/StructureDefinition/patient-nationality"), "element 9 (2nd slice) profile name");
+    ok = ok && rule(focus.getSnapshot().getElement().get(9).getType().get(0).getProfile().equals("http://hl7.org/fhir/StructureDefinition/patient-nationality"), "element 9 (2nd slice) profile name");
     ok = ok && rule(focus.getSnapshot().getElement().get(10).getPath().equals("Patient.extension.id"), "element 10 (2nd slice).id path");
     ok = ok && rule(focus.getSnapshot().getElement().get(11).getPath().equals("Patient.extension.extension"), "element 11 (2nd slice).extension path");
     ok = ok && rule(focus.getSnapshot().getElement().get(12).getPath().equals("Patient.extension.extension"), "element 12 (2nd slice).extension path");
@@ -830,7 +842,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Organization").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBaseType(base.getUrl());
+    focus.setBaseDefinition(base.getUrl());
+    focus.setType(base.getType());
     focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     
     ElementDefinition id = focus.getDifferential().addElement();
@@ -848,7 +861,7 @@ public class ProfileUtilitiesTests {
     id.setRequirements("County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).");
     id.setMin(0);
     id.setMax("1");
-    id.addType().setCode("Extension").addProfile("http://hl7.org/fhir/StructureDefinition/us-core-county");
+    id.addType().setCode("Extension").setProfile("http://hl7.org/fhir/StructureDefinition/us-core-county");
     id.setMustSupport(true);
     id.getBinding().setStrength(BindingStrength.REQUIRED).setDescription("FIPS codes for US counties and county equivalent entities.").setValueSet(new Reference().setReference("http://hl7.org/fhir/ValueSet/fips-county"));
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();

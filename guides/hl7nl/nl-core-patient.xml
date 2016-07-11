@@ -44,7 +44,7 @@
     </mapping>
     <kind value="resource"/>
     <abstract value="false"/>
-    <baseType value="Patient"/>
+    <type value="Patient"/>
     <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
     <derivation value="constraint"/>
     <differential>

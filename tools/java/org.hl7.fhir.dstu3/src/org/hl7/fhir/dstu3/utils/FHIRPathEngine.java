@@ -1086,42 +1086,42 @@ public class FHIRPathEngine {
     case Implies : return new TypeDetails(CollectionStatus.SINGLETON, "boolean");
     case Times: 
       TypeDetails result = new TypeDetails(CollectionStatus.SINGLETON);
-      if (left.hasType("integer") && right.hasType("integer"))
+      if (left.hasType(worker, "integer") && right.hasType(worker, "integer"))
         result.addType("integer");
-      else if (left.hasType("integer", "decimal") && right.hasType("integer", "decimal"))
+      else if (left.hasType(worker, "integer", "decimal") && right.hasType(worker, "integer", "decimal"))
         result.addType("decimal");
       return result;
     case DivideBy: 
       result = new TypeDetails(CollectionStatus.SINGLETON);
-      if (left.hasType("integer") && right.hasType("integer"))
+      if (left.hasType(worker, "integer") && right.hasType(worker, "integer"))
         result.addType("decimal");
-      else if (left.hasType("integer", "decimal") && right.hasType("integer", "decimal"))
+      else if (left.hasType(worker, "integer", "decimal") && right.hasType(worker, "integer", "decimal"))
         result.addType("decimal");
       return result;
     case Concatenate:
       result = new TypeDetails(CollectionStatus.SINGLETON, "");
     case Plus:
       result = new TypeDetails(CollectionStatus.SINGLETON);
-      if (left.hasType("integer") && right.hasType("integer"))
+      if (left.hasType(worker, "integer") && right.hasType(worker, "integer"))
         result.addType("integer");
-      else if (left.hasType("integer", "decimal") && right.hasType("integer", "decimal"))
+      else if (left.hasType(worker, "integer", "decimal") && right.hasType(worker, "integer", "decimal"))
         result.addType("decimal");
-      else if (left.hasType("string", "id", "code", "uri") && right.hasType("string", "id", "code", "uri"))
+      else if (left.hasType(worker, "string", "id", "code", "uri") && right.hasType(worker, "string", "id", "code", "uri"))
         result.addType("string");
       return result;
     case Minus:
       result = new TypeDetails(CollectionStatus.SINGLETON);
-      if (left.hasType("integer") && right.hasType("integer"))
+      if (left.hasType(worker, "integer") && right.hasType(worker, "integer"))
         result.addType("integer");
-      else if (left.hasType("integer", "decimal") && right.hasType("integer", "decimal"))
+      else if (left.hasType(worker, "integer", "decimal") && right.hasType(worker, "integer", "decimal"))
         result.addType("decimal");
       return result;
     case Div: 
     case Mod: 
       result = new TypeDetails(CollectionStatus.SINGLETON);
-      if (left.hasType("integer") && right.hasType("integer"))
+      if (left.hasType(worker, "integer") && right.hasType(worker, "integer"))
         result.addType("integer");
-      else if (left.hasType("integer", "decimal") && right.hasType("integer", "decimal"))
+      else if (left.hasType(worker, "integer", "decimal") && right.hasType(worker, "integer", "decimal"))
         result.addType("decimal");
       return result;
     case In: return new TypeDetails(CollectionStatus.SINGLETON, "boolean");
@@ -1854,7 +1854,7 @@ public class FHIRPathEngine {
       TypeDetails actual = paramTypes.get(i);
       i++;
       for (String a : actual.getTypes()) {
-        if (!pt.hasType(a))
+        if (!pt.hasType(worker, a))
           throw new PathEngineException("The parameter type '"+a+"' is not legal for "+funcName+" parameter "+Integer.toString(i)+". expecting "+pt.toString()); 
       }
     }
@@ -1866,19 +1866,19 @@ public class FHIRPathEngine {
   }
 
   private void checkContextReference(TypeDetails focus, String name) throws PathEngineException {
-    if (!focus.hasType("string") && !focus.hasType("uri") && !focus.hasType("Reference"))
+    if (!focus.hasType(worker, "string") && !focus.hasType(worker, "uri") && !focus.hasType(worker, "Reference"))
       throw new PathEngineException("The function '"+name+"'() can only be used on string, uri, Reference"); 
   }
 
 
   private void checkContextCoded(TypeDetails focus, String name) throws PathEngineException {
-    if (!focus.hasType("string") && !focus.hasType("code") && !focus.hasType("uri") && !focus.hasType("Coding") && !focus.hasType("CodeableConcept"))
+    if (!focus.hasType(worker, "string") && !focus.hasType(worker, "code") && !focus.hasType(worker, "uri") && !focus.hasType(worker, "Coding") && !focus.hasType(worker, "CodeableConcept"))
       throw new PathEngineException("The function '"+name+"'() can only be used on string, code, uri, Coding, CodeableConcept");     
   }
 
 
   private void checkContextString(TypeDetails focus, String name) throws PathEngineException {
-    if (!focus.hasType("string") && !focus.hasType("code") && !focus.hasType("uri") && !focus.hasType("id"))
+    if (!focus.hasType(worker, "string") && !focus.hasType(worker, "code") && !focus.hasType(worker, "uri") && !focus.hasType(worker, "id"))
       throw new PathEngineException("The function '"+name+"'() can only be used on string, uri, code, id, but found "+focus.describe()); 
   }
 
@@ -2517,12 +2517,12 @@ public class FHIRPathEngine {
                   tn = t.getCode();
                 if (t.getCode().equals("Resource")) {
                   for (String rn : worker.getResourceNames()) {
-                    if (!result.hasType(rn)) {
+                    if (!result.hasType(worker, rn)) {
                       result.addType(rn);
                       getChildTypesByName(rn, "**", result);
                     }                  
                   }
-                } else if (!result.hasType(tn)) {
+                } else if (!result.hasType(worker, tn)) {
                   result.addType(tn);
                   getChildTypesByName(tn, "**", result);
                 }

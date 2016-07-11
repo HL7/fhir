@@ -45,7 +45,7 @@ public class ProfileValidator extends BaseValidator {
             if (!inExemptList(inv.getKey())) {
               if (rule(errors, IssueType.BUSINESSRULE, profile.getId()+"::"+ed.getPath()+"::"+inv.getKey(), inv.hasExpression(), "The invariant has no FHIR Path expression ("+inv.getXpath()+")")) {
                 try {
-                  new FHIRPathEngine(context).check(null, profile.getBaseType(), ed.getPath(), inv.getExpression()); // , inv.hasXpath() && inv.getXpath().startsWith("@value")
+                  new FHIRPathEngine(context).check(null, profile.getType(), ed.getPath(), inv.getExpression()); // , inv.hasXpath() && inv.getXpath().startsWith("@value")
                 } catch (Exception e) {
 //                  rule(errors, IssueType.STRUCTURE, profile.getId()+"::"+ed.getPath()+"::"+inv.getId(), exprExt != null, e.getMessage());
                 }
@@ -65,7 +65,7 @@ public class ProfileValidator extends BaseValidator {
 
   private void checkExtensions(StructureDefinition profile, List<ValidationMessage> errors, String kind, ElementDefinition ec) {
     if (!ec.getType().isEmpty() && "Extension".equals(ec.getType().get(0).getCode()) && ec.getType().get(0).hasProfile()) {
-      String url = ec.getType().get(0).getProfile().get(0).getValue();
+      String url = ec.getType().get(0).getProfile();
       StructureDefinition defn = context.fetchResource(StructureDefinition.class, url);
       rule(errors, IssueType.BUSINESSRULE, profile.getId(), defn != null, "Unable to find Extension '"+url+"' referenced at "+profile.getUrl()+" "+kind+" "+ec.getPath()+" ("+ec.getName()+")");
     }

@@ -98,13 +98,13 @@ public class StructureDefinitionRenderer extends BaseRenderer {
             fixeds++;
 
           for (TypeRefComponent t : ed.getType()) {
-            if (t.hasProfile() && !igp.isDatatype(t.getProfile().get(0).getValue().substring(40))) {
+            if (t.hasProfile() && !igp.isDatatype(t.getProfile().substring(40))) {
               if (ed.getPath().endsWith(".extension"))
-                tryAdd(ext, summariseExtension(t.getProfile().get(0).getValue(), false, prefix));
+                tryAdd(ext, summariseExtension(t.getProfile(), false, prefix));
               else if (ed.getPath().endsWith(".modifierExtension"))
-                tryAdd(ext, summariseExtension(t.getProfile().get(0).getValue(), true, prefix));
+                tryAdd(ext, summariseExtension(t.getProfile(), true, prefix));
               else
-                tryAdd(refs, describeProfile(t.getProfile().get(0).getValue(), prefix));
+                tryAdd(refs, describeProfile(t.getProfile(), prefix));
             }
           }
 
@@ -403,14 +403,14 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     for (ElementDefinition ec : sd.getSnapshot().getElement()) {
       if (isProfiledExtension(ec)) {
         String name = sd.getId()+"."+ makePathLink(ec);
-        StructureDefinition extDefn = context.fetchResource(StructureDefinition.class, ec.getType().get(0).getProfile().get(0).getValue());
+        StructureDefinition extDefn = context.fetchResource(StructureDefinition.class, ec.getType().get(0).getProfile());
         if (extDefn == null) {
-          String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().get(0).getValue().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile()+")";
+          String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile()+")";
           b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
           generateElementInner(b, sd,  ec, 1, null);
         } else {
           String title = ec.getPath() + " (<a href=\""+prefix+(extDefn.hasUserData("path") ? extDefn.getUserData("path") : "extension-"+extDefn.getId().toLowerCase()+".html")+
-              "\">"+(ec.getType().get(0).getProfile().get(0).getValue().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile().get(0).getValue()+"</a>)";
+              "\">"+(ec.getType().get(0).getProfile().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
           b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
           ElementDefinition valueDefn = getExtensionValueDefinition(extDefn);
           generateElementInner(b, extDefn, extDefn.getSnapshot().getElement().get(0), valueDefn == null ? 2 : 3, valueDefn);
@@ -609,25 +609,18 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     }
     if (t.hasProfile()) {
       b.append("(");
-      boolean first = true;
-      for (UriType pt : t.getProfile()) {
-        if (first)
-          first = false;
-        else
-          b.append(", ");
-        StructureDefinition p = context.fetchResource(StructureDefinition.class, pt.asStringValue());
-        if (p == null)
-          b.append(pt.asStringValue());
-        else {
-          if (p.hasBaseType() )
-            b.append("<a href=\""+prefix+p.getUserString("path")+"\" title=\""+pt.getValue()+"\">");
-          else if (p.getKind() == StructureDefinitionKind.COMPLEXTYPE || p.getKind() == StructureDefinitionKind.PRIMITIVETYPE)
-            b.append("<a href=\""+prefix+igp.getLinkFor("", p.getName())+ ".html#" + p.getName()+"\" title=\""+p.getName()+"\">");
-          else // if (p.getKind() == StructureDefinitionType.RESOURCE)
-            b.append("<a href=\""+prefix+p.getName().toLowerCase()+".html\">");
-          b.append(p.getName());
-          b.append("</a>");
-        }      
+      StructureDefinition p = context.fetchResource(StructureDefinition.class, t.getProfile());
+      if (p == null)
+        b.append(t.getProfile());
+      else {
+        if (p.hasBaseDefinition() )
+          b.append("<a href=\""+prefix+p.getUserString("path")+"\" title=\""+t.getProfile()+"\">");
+        else if (p.getKind() == StructureDefinitionKind.COMPLEXTYPE || p.getKind() == StructureDefinitionKind.PRIMITIVETYPE)
+          b.append("<a href=\""+prefix+igp.getLinkFor("", p.getName())+ ".html#" + p.getName()+"\" title=\""+p.getName()+"\">");
+        else // if (p.getKind() == StructureDefinitionType.RESOURCE)
+          b.append("<a href=\""+prefix+p.getName().toLowerCase()+".html\">");
+        b.append(p.getName());
+        b.append("</a>");
       }
       b.append(")");
     }

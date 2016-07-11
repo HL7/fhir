@@ -179,7 +179,7 @@ public class QuestionnaireBuilder {
       throw new DefinitionException("QuestionnaireBuilder.build: no profile found");
 
     if (resource != null)
-      if (!profile.getBaseType().equals(resource.getResourceType().toString()))
+      if (!profile.getType().equals(resource.getResourceType().toString()))
         throw new DefinitionException("Wrong Type");
 
     if (prebuiltQuestionnaire != null)
@@ -426,18 +426,18 @@ public class QuestionnaireBuilder {
     vs.getExpansion().setTimestampElement(DateTimeType.now());
     for (TypeRefComponent t : types) {
       ValueSetExpansionContainsComponent cc = vs.getExpansion().addContains();
-	    if (t.getCode().equals("Reference") && (t.hasProfile() && t.getProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/"))) { 
-	      cc.setCode(t.getProfile().get(0).getValue().substring(40));
+	    if (t.getCode().equals("Reference") && (t.hasProfile() && t.getProfile().startsWith("http://hl7.org/fhir/StructureDefinition/"))) { 
+	      cc.setCode(t.getProfile().substring(40));
         cc.setSystem("http://hl7.org/fhir/resource-types");
 	      cc.setDisplay(cc.getCode());
       } else {
         ProfileUtilities pu = new ProfileUtilities(context, null, null);
         StructureDefinition ps = null;
 	      if (t.hasProfile()) 
-          ps = pu.getProfile(profile, t.getProfile().get(0).getValue());
+          ps = pu.getProfile(profile, t.getProfile());
         
         if (ps != null) {
-	        cc.setCode(t.getProfile().get(0).getValue());
+	        cc.setCode(t.getProfile());
           cc.setDisplay(ps.getSnapshot().getElement().get(0).getType().get(0).getCode());
           cc.setSystem("http://hl7.org/fhir/resource-types");
         } else {
@@ -470,17 +470,17 @@ public class QuestionnaireBuilder {
       Coding cc = new Coding();
       QuestionnaireResponseItemAnswerComponent a = q.addAnswer();
       a.setValue(cc);
-      if (t.getCode().equals("Reference") && t.hasProfile() && t.getProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-        cc.setCode(t.getProfile().get(0).getValue().substring(40));
+      if (t.getCode().equals("Reference") && t.hasProfile() && t.getProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
+        cc.setCode(t.getProfile().substring(40));
         cc.setSystem("http://hl7.org/fhir/resource-types");
       } else {
         ProfileUtilities pu = new ProfileUtilities(context, null, null);
         StructureDefinition ps = null;
         if (t.hasProfile())
-          ps = pu.getProfile(profile, t.getProfile().get(0).getValue());
+          ps = pu.getProfile(profile, t.getProfile());
 
         if (ps != null) {
-          cc.setCode(t.getProfile().get(0).getValue());
+          cc.setCode(t.getProfile());
           cc.setSystem("http://hl7.org/fhir/resource-types");
         } else {
           cc.setCode(t.getCode());
@@ -506,8 +506,8 @@ public class QuestionnaireBuilder {
         // there are several problems here around profile matching. This process is degenerative, and there's probably nothing we can do to solve it
         if (url.startsWith("http:") || url.startsWith("https:"))
             return true;
-        else if (t.hasProfile() && t.getProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) 
-          return url.startsWith(t.getProfile().get(0).getValue().substring(40)+'/');
+        else if (t.hasProfile() && t.getProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) 
+          return url.startsWith(t.getProfile().substring(40)+'/');
         else
           return true;
       }
@@ -715,7 +715,7 @@ public class QuestionnaireBuilder {
     else if (t.getCode().equals("Money"))
       addMoneyQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Reference"))
-      addReferenceQuestions(group, element, path, t.hasProfile() ? t.getProfile().get(0).getValue() : null, answerGroups);
+      addReferenceQuestions(group, element, path, t.hasProfile() ? t.getProfile() : null, answerGroups);
     else if (t.getCode().equals("Duration"))
       addDurationQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("base64Binary"))
@@ -734,7 +734,7 @@ public class QuestionnaireBuilder {
       addSampledDataQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Extension")) {
       if (t.hasProfile())
-        addExtensionQuestions(profile, group, element, path, t.getProfile().get(0).getValue(), answerGroups);
+        addExtensionQuestions(profile, group, element, path, t.getProfile(), answerGroups);
     } else if (!t.getCode().equals("Narrative") && !t.getCode().equals("Resource") && !t.getCode().equals("ElementDefinition")&& !t.getCode().equals("Meta")&& !t.getCode().equals("Signature"))
       throw new NotImplementedException("Unhandled Data Type: "+t.getCode()+" on element "+element.getPath());
   }

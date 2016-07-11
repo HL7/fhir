@@ -103,7 +103,7 @@
   Id = 1
   Context = StructureDefinition
   English = Element paths must be unique unless the structure is a constraint
-  XPath = exists(f:baseType) or (count(f:snapshot/f:element) = count(distinct-values(f:snapshot/f:element/f:path/@value)))
+  XPath = (f:derivation/@value = \'constraint\') or (count(f:snapshot/f:element) = count(distinct-values(f:snapshot/f:element/f:path/@value)))
   Expression = derivation = \'constraint\' or snapshot.element.select(path).distinct()
 
  -- Row 2 -----------------------------------
@@ -122,18 +122,18 @@
 
  -- Row 4 -----------------------------------
   Id = 4
-  Requirements = Ensure that there\'s a base unless the type is abstract and there\'s no constrainedType
+  Requirements = Ensure that the base types are abstract
   Context = StructureDefinition
-  English = If the structure is not abstract, or there\'s a constrained type, then there SHALL be a base
-  XPath = (f:abstract/@value=true()) or (exists(f:baseType) and exists(f:baseDefinition))
-  Expression = abstract = true or (baseType.exists() and baseDefinition.exists())
+  English = If the structure is not abstract, then there SHALL be a baseDefinition
+  XPath = (f:abstract/@value=true()) or exists(f:baseDefinition)
+  Expression = abstract = true or baseDefinition.exists()
 
  -- Row 5 -----------------------------------
   Id = 5
   Context = StructureDefinition
   English = If the structure defines an extension then the structure must have context information
-  XPath = not(f:baseType/@value = \'extension\') or (exists(f:context) and exists(f:contextType))
-  Expression = baseType != \'Extension\' or (context.exists() and contextType.exists())
+  XPath = not(f:type/@value = \'extension\') or (f:derivation/@value = \'constraint\') or (exists(f:context) and exists(f:contextType))
+  Expression = type != \'Extension\' or derivation = \'specialization\' or (context.exists() and contextType.exists())
 
  -- Row 6 -----------------------------------
   Id = 6
@@ -152,11 +152,18 @@
  -- Row 8 -----------------------------------
   Id = 8
   Context = StructureDefinition
-  English = In any snapshot or differential, all the elements except the first have to have a path that starts with the path of the first + \".\"
+  English = In any snapshot, all the elements must be in the specified type
   XPath = string-join(for $elementName in f:*[self::f:snapshot or self::f:differential]/f:element[position()>1]/f:path/@value return if (starts-with($elementName, concat($elementName/ancestor::f:element/parent::f:*/f:element[1]/f:path/@value, \'.\'))) then \'\' else $elementName,\'\')=\'\'
-  Expression = snapshot.element.tail().all(path.startsWith(%resource.snapshot.element.first().path&\'.\')) and differential.element.tail().all(path.startsWith(%resource.differential.element.first().path+\'.\'))
+  Expression = snapshot.exists() implies (snapshot.element.first().path = type and snapshot.element.tail().all(path.startsWith(%resource.type&\'.\')))
 
  -- Row 9 -----------------------------------
+  Id = 8a
+  Context = StructureDefinition
+  English = In any differential, all the elements must be in the specified type
+  XPath = string-join(for $elementName in f:*[self::f:snapshot or self::f:differential]/f:element[position()>1]/f:path/@value return if (starts-with($elementName, concat($elementName/ancestor::f:element/parent::f:*/f:element[1]/f:path/@value, \'.\'))) then \'\' else $elementName,\'\')=\'\'
+  Expression = differential.exists() implies (differential.element.first().path.startsWith(%resource.type) and differential.element.tail().all(path.startsWith(%resource.type&\'.\')))
+
+ -- Row 10 -----------------------------------
   Id = 9
   Requirements = Because these 3 fields seem to be have overlapping meaning with the ones in the root of StructureDefinition
   Context = StructureDefinition
@@ -164,36 +171,28 @@
   XPath = not(exists(f:snapshot/f:element[not(contains(f:path/@value, \'.\')) and (f:label or f:code or f:requirements)])) and not(exists(f:differential/f:element[not(contains(f:path/@value, \'.\')) and (f:label or f:code or f:requirements)]))
   Expression = children().element.first().label.empty() and children().element.first().code.empty() and children().element.first().requirements.empty()
 
- -- Row 10 -----------------------------------
-  Id = 11
-  Requirements = Ensure that the constrainedType is not inconsistent with the other information in the structure
-  Context = StructureDefinition
-  English = If there\'s a constrained type, its content must match the path name in the first element of a snapshot
-  XPath = not(exists(f:baseType)) or (f:derivation/@value != \'constraint\') or not(exists(f:snapshot)) or (f:baseType/@value = f:snapshot/f:element[1]/f:path/@value)
-  Expression = derivation = \'constraint\' implies baseType and (snapshot.empty() or snapshot.element.first().path = baseType)
-
  -- Row 11 -----------------------------------
+  Id = 11
+  Requirements = Ensure that the type is not inconsistent with the other information in the structure
+  Context = StructureDefinition
+  English = If there\'s a type, its content must match the path name in the first element of a snapshot
+  XPath = not(exists(f:snapshot)) or (f:type/@value = f:snapshot/f:element[1]/f:path/@value)
+  Expression = snapshot.empty() or snapshot.element.first().path = type
+
+ -- Row 12 -----------------------------------
   Id = 12
   Requirements = Ensure that element.base appears with base or not
   Context = StructureDefinition
   English = element.base cannot appear if there is no base on the structure definition
-  XPath = f:baseType or not(exists(f:snapshot/f:element/f:base) or exists(f:differential/f:element/f:base))
-  Expression = snapshot.element.base implies baseType
-
- -- Row 12 -----------------------------------
-  Id = 13
-  Requirements = must specify derivation
-  Context = StructureDefinition
-  English = baseType implies derivation
-  XPath = not(exists(f:baseType)) or exists(f:derivation)
-  Expression = snapshot.element.base implies baseType
+  XPath = f:baseDefinition or not(exists(f:snapshot/f:element/f:base) or exists(f:differential/f:element/f:base))
+  Expression = snapshot.element.base.exists() = baseDefinition.exists()
 
  -- Row 13 -----------------------------------
   Id = 14
   Requirements = elements have id
   Context = StructureDefinition
   English = All element definitions must have an id
-  XPath = not(exists(f:baseType)) or exists(f:derivation)
+  XPath = not(exists(f:baseDefinition)) or exists(f:derivation)
   Expression = snapshot.element.all(id) and differential.element.all(id)
 
  -- Row 14 -----------------------------------
@@ -201,7 +200,7 @@
   Requirements = elements have id
   Context = StructureDefinition
   English = All element definition ids must have an unique
-  XPath = not(exists(f:baseType)) or exists(f:derivation)
+  XPath = not(exists(f:baseDefinition)) or exists(f:derivation)
   Expression = snapshot.element.id.trace(\'ids\').isDistinct() and differential.element.id.trace(\'ids\').isDistinct()
 
 === Sheet Data Elements =====================================
@@ -482,15 +481,15 @@
   Comments = If the context is an element that can have multiple types, then use (e.g.) value[x] if the extension works on all choice types, or otherwise an enumeration of explicitly named elements if not. Note that a context of \"string\" doesn\'t mean that the extension can be used with one of the string patterns such as \"id\" etc.
 
  -- Row 29 -----------------------------------
-  Element = StructureDefinition.baseType
-  Card. = 0..1
+  Element = StructureDefinition.type
+  Card. = 1..1
   Summary = Y
   Inv. = 4,11
   Type = code
   Binding = FHIRDefinedTypeExt
-  Short Label = Any datatype or resource, including abstract ones
-  Definition = The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure
-  Comments = if a baseType is present, then there SHALL be a baseDefinition as well. Note that the baseType could be determined by chasing through the baseDefinition references until a concrete structure (derivation = specialization) is reached, or by looking at the path of the first element in the snapshot - if present - but providing the baseType directly makes for simpler tooling and indexing
+  Short Label = Type defined or constrained by this structure
+  Definition = The type this structure is describes. If the derivation kind is \'specialization\' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type)
+  Comments = Note that in the case of constraints, the type could be determined by chasing through the baseDefinition references until a concrete structure (derivation = specialization) is reached, or by looking at the path of the first element in the snapshot - if present - but providing the type directly makes for simpler tooling and indexing
 
  -- Row 30 -----------------------------------
   Element = StructureDefinition.baseDefinition
@@ -506,7 +505,7 @@
   Element = StructureDefinition.derivation
   Card. = 0..1
   Summary = y
-  Inv. = 13
+  Inv. = 12
   Type = code
   Binding = TypeDerivationRule
   Short Label = specialization | constraint - How relates to base definition
@@ -658,7 +657,7 @@
  -- Row 11 -----------------------------------
   Name = type
   Type = token
-  Path = StructureDefinition.baseType
+  Path = StructureDefinition.type
 
  -- Row 12 -----------------------------------
   Name = kind

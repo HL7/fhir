@@ -432,8 +432,7 @@ public class ShExGenerator {
    */
   private String genTypeRef(StructureDefinition sd, ElementDefinition ed, String id, ElementDefinition.TypeRefComponent typ) {
 
-    if(typ.getProfile().size() > 0) {
-      if (typ.getProfile().size() != 1) throw new AssertionError("Can't handle multiple profiles");
+    if(typ.hasProfile()) {
       if(typ.getCode().equals("Reference"))
         return genReference("", typ);
       else if(ProfileUtilities.getChildList(sd, ed).size() > 0) {
@@ -602,8 +601,8 @@ public class ShExGenerator {
      */
   private String getTypeName(ElementDefinition.TypeRefComponent typ) {
     // TODO: This is brittle. There has to be a utility to do this...
-    if(typ.getProfile().size() > 0) {
-      String[] els = typ.getProfile().get(0).getValue().split("/");
+    if(typ.hasProfile()) {
+      String[] els = typ.getProfile().split("/");
       return els[els.length - 1];
     } else {
       return typ.getCode();

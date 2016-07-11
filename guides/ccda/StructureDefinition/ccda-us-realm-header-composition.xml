@@ -19,7 +19,7 @@
     </contact>
     <kind value="resource" />
     <abstract value="false" />
-    <baseType value="Composition" />
+    <type value="Composition" />
     <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition" />
     <derivation value="constraint"/>
     <differential>

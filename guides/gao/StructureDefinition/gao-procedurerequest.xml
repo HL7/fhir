@@ -24,7 +24,7 @@
   
   <kind value="resource"></kind>
   <abstract value="false"></abstract>
-  <baseType value="ProcedureRequest"/>
+  <type value="ProcedureRequest"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ProcedureRequest"/>
   <derivation value="constraint"/>
 

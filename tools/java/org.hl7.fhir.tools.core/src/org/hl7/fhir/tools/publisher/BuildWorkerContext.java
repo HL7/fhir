@@ -248,7 +248,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
 
   public StructureDefinition getTypeStructure(TypeRefComponent type) {
     if (type.hasProfile())
-      return profiles.get(type.getProfile().get(0).getValue());
+      return profiles.get(type.getProfile());
     else
       return profiles.get(type.getCode());
   }

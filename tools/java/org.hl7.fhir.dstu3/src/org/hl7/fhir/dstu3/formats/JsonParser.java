@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sat, Jul 9, 2016 08:30+1000 for FHIR v1.5.0
+// Generated on Sun, Jul 10, 2016 20:31+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1579,21 +1579,10 @@ public class JsonParser extends JsonParserBase {
       res.setCodeElement(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
       parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
-    if (json.has("profile")) {
-      JsonArray array = json.getAsJsonArray("profile");
-      for (int i = 0; i < array.size(); i++) {
-        res.getProfile().add(parseUri(array.get(i).getAsString()));
-      }
-    };
-    if (json.has("_profile")) {
-      JsonArray array = json.getAsJsonArray("_profile");
-      for (int i = 0; i < array.size(); i++) {
-        if (i == res.getProfile().size())
-          res.getProfile().add(parseUri(null));
-        if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getProfile().get(i));
-      }
-    };
+    if (json.has("profile"))
+      res.setProfileElement(parseUri(json.get("profile").getAsString()));
+    if (json.has("_profile"))
+      parseElementProperties(json.getAsJsonObject("_profile"), res.getProfileElement());
     if (json.has("aggregation")) {
       JsonArray array = json.getAsJsonArray("aggregation");
       for (int i = 0; i < array.size(); i++) {
@@ -16033,10 +16022,10 @@ public class JsonParser extends JsonParserBase {
           parseElementProperties(array.get(i).getAsJsonObject(), res.getContext().get(i));
       }
     };
-    if (json.has("baseType"))
-      res.setBaseTypeElement(parseCode(json.get("baseType").getAsString()));
-    if (json.has("_baseType"))
-      parseElementProperties(json.getAsJsonObject("_baseType"), res.getBaseTypeElement());
+    if (json.has("type"))
+      res.setTypeElement(parseCode(json.get("type").getAsString()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
     if (json.has("baseDefinition"))
       res.setBaseDefinitionElement(parseUri(json.get("baseDefinition").getAsString()));
     if (json.has("_baseDefinition"))
@@ -20757,18 +20746,10 @@ public class JsonParser extends JsonParserBase {
         composeCodeCore("code", element.getCodeElement(), false);
         composeCodeExtras("code", element.getCodeElement(), false);
       }
-      if (element.hasProfile()) {
-        openArray("profile");
-        for (UriType e : element.getProfile()) 
-          composeUriCore(null, e, true);
-        closeArray();
-        if (anyHasExtras(element.getProfile())) {
-          openArray("_profile");
-          for (UriType e : element.getProfile()) 
-            composeUriExtras(null, e, true);
-          closeArray();
-        }
-      };
+      if (element.hasProfileElement()) {
+        composeUriCore("profile", element.getProfileElement(), false);
+        composeUriExtras("profile", element.getProfileElement(), false);
+      }
       if (element.hasAggregation()) {
         openArray("aggregation");
         for (Enumeration<ElementDefinition.AggregationMode> e : element.getAggregation()) 
@@ -36536,9 +36517,9 @@ public class JsonParser extends JsonParserBase {
           closeArray();
         }
       };
-      if (element.hasBaseTypeElement()) {
-        composeCodeCore("baseType", element.getBaseTypeElement(), false);
-        composeCodeExtras("baseType", element.getBaseTypeElement(), false);
+      if (element.hasTypeElement()) {
+        composeCodeCore("type", element.getTypeElement(), false);
+        composeCodeExtras("type", element.getTypeElement(), false);
       }
       if (element.hasBaseDefinitionElement()) {
         composeUriCore("baseDefinition", element.getBaseDefinitionElement(), false);

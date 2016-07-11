@@ -220,9 +220,9 @@ public class IgSpreadsheetParser {
       ElementDefinition e = processLine(sd, sheet, row, invariants, true, row == 0);
       if (e != null) 
         for (TypeRefComponent t : e.getType()) {
-          if (t.hasProfile() && !t.getCode().equals("Extension") && t.getProfile().get(0).asStringValue().startsWith("#")) { 
-            if (!namedSheets.contains(t.getProfile().get(0).asStringValue().substring(1)))
-              namedSheets.add(t.getProfile().get(0).asStringValue().substring(1));      
+          if (t.hasProfile() && !t.getCode().equals("Extension") && t.getProfile().startsWith("#")) { 
+            if (!namedSheets.contains(t.getProfile().substring(1)))
+              namedSheets.add(t.getProfile().substring(1));      
           }
         }
     }
@@ -231,8 +231,8 @@ public class IgSpreadsheetParser {
       sd.setId(sd.getDifferential().getElement().get(0).getPath());
       if (!"Element".equals(sd.getDifferential().getElementFirstRep().getTypeFirstRep().getCode()))
         throw new Exception("Logical Models must derive from Element");
-      sd.setBaseType(sd.getDifferential().getElementFirstRep().getTypeFirstRep().getCode());
-      sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+sd.getBaseType());
+      sd.setType(sd.getDifferential().getElementFirstRep().getTypeFirstRep().getCode());
+      sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Element");
       sd.setDerivation(TypeDerivationRule.SPECIALIZATION);
       sd.setAbstract(false);
     } else {
@@ -240,10 +240,10 @@ public class IgSpreadsheetParser {
       sd.setDerivation(TypeDerivationRule.CONSTRAINT);
       sd.setAbstract(false);
       sd.setId(n.toLowerCase());
-      sd.setBaseType(sd.getDifferential().getElementFirstRep().getPath());
-      sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+sd.getBaseType());
-      if (!context.getResourceNames().contains(sd.getBaseType()))
-        throw new Exception("Unknown Resource "+sd.getBaseType());
+      sd.setType(sd.getDifferential().getElementFirstRep().getPath());
+      sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+sd.getType());
+      if (!context.getResourceNames().contains(sd.getType()))
+        throw new Exception("Unknown Resource "+sd.getType());
     }
     sd.setUrl(base+"/StructureDefinition/"+sd.getId());
     bundle.addEntry().setResource(sd).setFullUrl(sd.getUrl());
@@ -583,7 +583,7 @@ public class IgSpreadsheetParser {
       ToolingExtensions.addStringExtension(e.getType().get(0), ToolingExtensions.EXT_REGEX, regex);
 
     if ((path.endsWith(".extension") || path.endsWith(".modifierExtension")) && e.hasType() && e.getType().get(0).hasProfile() && Utilities.noString(profileName))
-        throw new Exception("need to have a profile name if a profiled extension is referenced for "+ e.getType().get(0).getProfile().get(0));
+        throw new Exception("need to have a profile name if a profiled extension is referenced for "+ e.getType().get(0).getProfile());
     
     String bindingName = sheet.getColumn(row, "Binding");
     if (!Utilities.noString(bindingName)) { 
@@ -710,8 +710,8 @@ public class IgSpreadsheetParser {
       throw new Exception("Unable to process "+column+" unless a single type is specified"+getLocation(row)+", column = "+column);
     String type = e.getType().get(0).getCode();
     StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+type);
-    if (sd != null && sd.hasBaseType() && sd.getDerivation() == TypeDerivationRule.CONSTRAINT)
-      type = sd.getBaseType();
+    if (sd != null && sd.hasBaseDefinition() && sd.getDerivation() == TypeDerivationRule.CONSTRAINT)
+      type = sd.getType();
     
     if (source.startsWith("{")) {
       JsonParser json = new JsonParser();
@@ -833,7 +833,7 @@ public class IgSpreadsheetParser {
     ex.setId(tail(ex.getUrl()));
     bundle.addEntry().setResource(ex).setFullUrl(ex.getUrl());
     ex.setKind(StructureDefinitionKind.COMPLEXTYPE);
-    ex.setBaseType("Extension");
+    ex.setType("Extension");
     ex.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Extension");
     ex.setDerivation(TypeDerivationRule.CONSTRAINT);
     ex.setAbstract(false);
@@ -1048,7 +1048,7 @@ public class IgSpreadsheetParser {
           if (!sp.hasXpathUsage()) 
             throw new Exception("Search Param "+sd.getId()+"/"+n+" has no expression usage "+ getLocation(row));
           FHIRPathEngine engine = new FHIRPathEngine(context);
-          engine.check(null, sd.getBaseType(), sd.getBaseType(), sp.getExpression());
+          engine.check(null, sd.getType(), sd.getType(), sp.getExpression());
           bundle.addEntry().setResource(sp).setFullUrl(sp.getUrl());
         }
       }

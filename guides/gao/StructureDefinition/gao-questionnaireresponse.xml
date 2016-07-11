@@ -23,7 +23,7 @@
   
   <kind value="resource"></kind>
   <abstract value="false"></abstract>
-  <baseType value="QuestionnaireResponse"/>
+  <type value="QuestionnaireResponse"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
   <derivation value="constraint"/>
   <differential>

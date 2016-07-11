@@ -144,9 +144,9 @@ public class DefinitionNavigator {
 
   private void loadTypedChildren(TypeRefComponent type) throws DefinitionException {
     typeOfChildren = null;
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, type.hasProfile() ? type.getProfile().get(0).getValue() : type.getCode());
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, type.hasProfile() ? type.getProfile() : type.getCode());
     if (sd != null) {
-      DefinitionNavigator dn = new DefinitionNavigator(context, sd, 0, path, names, sd.getBaseType());
+      DefinitionNavigator dn = new DefinitionNavigator(context, sd, 0, path, names, sd.getType());
       typeChildren = dn.children();
     } else
       throw new DefinitionException("Unable to find definition for "+type.getCode()+(type.hasProfile() ? "("+type.getProfile()+")" : ""));

@@ -1869,8 +1869,8 @@ public class SpreadsheetParser {
         type = definitions.getConstraints().get(type).getBaseType();
     } else {
       StructureDefinition sd = context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+type);
-      if (sd != null && sd.hasBaseType() && sd.getDerivation() == TypeDerivationRule.CONSTRAINT)
-        type = sd.getBaseType();
+      if (sd != null) // not loaded yet?
+        type = sd.getType();
       if (type.equals("SimpleQuantity"))
         type = "Quantity";
     }
@@ -2002,7 +2002,7 @@ public class SpreadsheetParser {
     StructureDefinition ex = new StructureDefinition();
     ex.setUserData(ToolResourceUtilities.NAME_RES_IG, ig == null ? "core" : ig.getCode());
     ex.setKind(StructureDefinitionKind.COMPLEXTYPE);
-    ex.setBaseType("Extension");
+    ex.setType("Extension");
     ex.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Extension");
     ex.setDerivation(TypeDerivationRule.CONSTRAINT);
     ex.setAbstract(false);

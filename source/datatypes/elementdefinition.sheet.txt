@@ -545,10 +545,10 @@
 
  -- Row 26 -----------------------------------
   Element = ElementDefinition.type.profile
-  Card. = 0..*
+  Card. = 0..1
   Type = uri
   Short Label = Profile (StructureDefinition) to apply (or IG)
-  Definition = Identifies a profile structure or implementation Guide that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When more than one profile is specified, the content must conform to all of them. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide
+  Definition = Identifies a profile structure or implementation Guide that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = n/a
 

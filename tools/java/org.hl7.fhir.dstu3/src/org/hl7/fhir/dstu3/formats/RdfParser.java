@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sat, Jul 9, 2016 08:30+1000 for FHIR v1.5.0
+// Generated on Sun, Jul 10, 2016 20:31+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1148,8 +1148,8 @@ public class RdfParser extends RdfParserBase {
     composeElement(t, "type", name, element, index);
     if (element.hasCodeElement())
       composeCode(t, "ElementDefinition", "code", element.getCodeElement(), -1);
-    for (int i = 0; i < element.getProfile().size(); i++)
-      composeUri(t, "ElementDefinition", "profile", element.getProfile().get(i), i);
+    if (element.hasProfileElement())
+      composeUri(t, "ElementDefinition", "profile", element.getProfileElement(), -1);
     for (int i = 0; i < element.getAggregation().size(); i++)
       composeEnum(t, "ElementDefinition", "aggregation", element.getAggregation().get(i), i);
     if (element.hasVersioningElement())
@@ -11039,8 +11039,8 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "StructureDefinition", "contextType", element.getContextTypeElement(), -1);
     for (int i = 0; i < element.getContext().size(); i++)
       composeString(t, "StructureDefinition", "context", element.getContext().get(i), i);
-    if (element.hasBaseTypeElement())
-      composeCode(t, "StructureDefinition", "baseType", element.getBaseTypeElement(), -1);
+    if (element.hasTypeElement())
+      composeCode(t, "StructureDefinition", "type", element.getTypeElement(), -1);
     if (element.hasBaseDefinitionElement())
       composeUri(t, "StructureDefinition", "baseDefinition", element.getBaseDefinitionElement(), -1);
     if (element.hasDerivationElement())

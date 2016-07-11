@@ -1403,11 +1403,11 @@ public class StructureMapUtilities {
     StructureDefinition profile = new StructureDefinition();
     profiles.add(profile);
     profile.setDerivation(TypeDerivationRule.CONSTRAINT);
-    profile.setBaseType(prop.getProperty().getDefinition().getPath());
+    profile.setType(prop.getProperty().getDefinition().getPath());
     profile.setBaseDefinition(prop.getProperty().getStructure().getUrl());
-    profile.setName("Profile on "+profile.getBaseType()+" for map "+map.getName());
-    profile.setUrl(map.getUrl().replace("StructureMap", "StructureDefinition")+"-"+profile.getBaseType());
-    profile.setId(map.getId()+"-"+profile.getBaseType());
+    profile.setName("Profile on "+profile.getType()+" for map "+map.getName());
+    profile.setUrl(map.getUrl().replace("StructureMap", "StructureDefinition")+"-"+profile.getType());
+    profile.setId(map.getId()+"-"+profile.getType());
     profile.setStatus(map.getStatus());
     profile.setExperimental(map.getExperimental());
     profile.setDescription("Generated automatically from the mapping by the Java Reference Implementation");
@@ -1424,7 +1424,7 @@ public class StructureMapUtilities {
     profile.setAbstract(false);
     ElementDefinition ed = profile.getDifferential().addElement();
     ed.setPath(prop.getProperty().getDefinition().getPath());
-    return new PropertyWithType(new Property(worker, ed, profile), new TypeDetails(CollectionStatus.SINGLETON, profile.getBaseType()));
+    return new PropertyWithType(new Property(worker, ed, profile), new TypeDetails(CollectionStatus.SINGLETON, profile.getType()));
   }
 
 
