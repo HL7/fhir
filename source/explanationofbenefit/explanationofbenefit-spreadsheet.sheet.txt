@@ -1887,7 +1887,7 @@
   Path = ExplanationOfBenefit.patientReference
 
  -- Row 4 -----------------------------------
-  Name = claimindentifier
+  Name = claimidentifier
   Type = token
   Description = The reference to the claim
   Path = ExplanationOfBenefit.claimIdentifier
