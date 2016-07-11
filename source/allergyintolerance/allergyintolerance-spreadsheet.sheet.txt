@@ -378,7 +378,7 @@
   RIM Mapping = effectiveTime.low
 
  -- Row 13 -----------------------------------
-  Element = AllergyIntolerance.lastOccurence
+  Element = AllergyIntolerance.lastOccurrence
   Card. = 0..1
   Summary = Y
   Type = dateTime
@@ -520,7 +520,7 @@
  -- Row 6 -----------------------------------
   Name = last-date
   Type = date
-  Path = AllergyIntolerance.lastOccurence
+  Path = AllergyIntolerance.lastOccurrence
 
  -- Row 7 -----------------------------------
   Name = manifestation

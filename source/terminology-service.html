@@ -300,7 +300,7 @@ Note that the logical id "loinc" is not a reliable identifer across systems; eac
 logical ids to code system resources however it sees fit. A more reliable query is this:
 </p>
 <pre class="http">
-GET [base]/CodeSystem/$lookup?system=http://loinc.org&amp;code=1963-8&amp;properties=code,display,designations
+GET [base]/CodeSystem/$lookup?system=http://loinc.org&amp;code=1963-8&amp;property=code&amp;property=display&amp;property=designations
 </pre>
 <p>
 Lookup the code system using a Coding (this example in XML):

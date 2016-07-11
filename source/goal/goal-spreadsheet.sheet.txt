@@ -253,7 +253,7 @@
   Card. = 0..*
   UML = 400;100
   Short Label = What was end result of goal?
-  Definition = Identifies the change (or lack of change) at the point where the goal was deepmed to be cancelled or achieved.
+  Definition = Identifies the change (or lack of change) at the point where the goal was deemed to be cancelled or achieved.
   Requirements = Outcome tracking is a key aspect of care planning
   Comments = Note that this should not duplicate the goal status.
   To Do = Define a proper value set for this
