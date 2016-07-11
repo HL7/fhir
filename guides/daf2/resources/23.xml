@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AllergyIntolerance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<id value="23"/>
+	<meta>
+		<versionId value="2641"/>
+		<lastUpdated value="2016-01-30T02:23:41.013+00:00"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Sensitivity to sulfonamide antibacterial</div>
+	</text>
+	<status value="confirmed"/>
+	<category value="medication"/>
+	<criticality value="high"/>
+	<substance>
+		<coding>
+			<system value="http://rxnav.nlm.nih.gov/REST/Ndfrt"/>
+			<code value="N0000175503"/>
+			<display value="sulfonamide antibacterial"/>
+		</coding>
+		<text value="sulfonamide antibacterial"/>
+	</substance>
+	<patient>
+		<reference value="Patient/1137192"/>
+	</patient>
+	<recordedDate value="2000"/>
+	<reaction>
+		<manifestation>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="271807003"/>
+				<display value="skin rash"/>
+			</coding>
+			<text value="skin rash"/>
+		</manifestation>
+		<severity value="mild"/>
+	</reaction>
+</AllergyIntolerance>
