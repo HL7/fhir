@@ -1492,7 +1492,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("\r\n");
     b.append(" <div id=\"tabs-"+name+"-all\">\r\n");
     b.append("  <div id=\"tbla\">\r\n");
-    b.append("   <a name=\"tbl\"> </a>\r\n");
+    b.append("   <a name=\"tbl-"+name+"\"> </a>\r\n");
     b.append("   <p><b>Structure</b></p>\r\n");
     b.append("   <div id=\"tbl-inner\">\r\n");
     b.append("    "+tree+"\r\n");
@@ -1500,7 +1500,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("  </div>\r\n");
     b.append("\r\n");
     b.append("  <div id=\"umla\">\r\n");
-    b.append("   <a name=\"uml\"> </a>\r\n");
+    b.append("   <a name=\"uml-"+name+"\"> </a>\r\n");
     b.append("   <p><b>UML Diagram</b></p>\r\n");
     b.append("   <div id=\"uml-inner\">\r\n");
     b.append("    "+uml2+"\r\n");
@@ -1508,7 +1508,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("  </div>\r\n");
     b.append("\r\n");
     b.append("  <div id=\"xmla\">\r\n");
-    b.append("   <a name=\"xml\"> </a>\r\n");
+    b.append("   <a name=\"xml-"+name+"\"> </a>\r\n");
     b.append("   <p><b>XML Template</b></p>\r\n");
     b.append("   <div id=\"xml-inner\">\r\n");
     b.append("     "+xml+"\r\n");
@@ -1516,14 +1516,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("  </div>\r\n");
     b.append("\r\n");
     b.append("  <div id=\"jsona\">\r\n");
-    b.append("   <a name=\"json\"> </a>\r\n");
+    b.append("   <a name=\"json-"+name+"\"> </a>\r\n");
     b.append("   <p><b>JSON Template</b></p>\r\n");
     b.append("   <div id=\"json-inner\">\r\n");
     b.append("     "+json+"\r\n");
     b.append("   </div>\r\n");
     b.append("  </div>\r\n");
     b.append("  <div id=\"ttla\">\r\n");
-    b.append("   <a name=\"ttl\"> </a>\r\n");
+    b.append("   <a name=\"ttl-"+name+"\"> </a>\r\n");
     b.append("   <p><b>Turtle Template</b></p>\r\n");
     b.append("   <div id=\"ttl-inner\">\r\n");
     b.append("     "+ttl+"\r\n");
@@ -4838,7 +4838,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private void genParameterHeader(StringBuilder b, String mode) {
-    b.append("<tr><td colspan=\"5\"><b>").append(mode).append(" Parameters:</b></td></tr>\r\n");
+    b.append("<tr><td colspan=\"6\"><b>").append(mode).append(" Parameters:</b></td></tr>\r\n");
     b.append("<tr><td>");
     b.append("<b>Name</b>");
     b.append("</td><td>");
@@ -4873,13 +4873,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append(t);
       b.append("</a>");
     } else if (definitions.hasPrimitiveType(t)) {
-      b.append(" (<a href=\""+prefix+"datatypes.html#");
+      b.append("<a href=\""+prefix+"datatypes.html#");
       b.append(t);
       b.append("\">");
       b.append(t);
       b.append("</a>");
       if (!Utilities.noString(st)) {
-        b.append("<a href=\""+prefix+"search.html#");
+        b.append("(<a href=\""+prefix+"search.html#");
         b.append(st);
         b.append("\">");
         b.append(st);
