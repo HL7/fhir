@@ -34,7 +34,12 @@
 
 <h3><span class="sectioncount">D.4.1<a name="D.4.1"> </a></span> StructureDefinition: DAF-{{page.code}} <a title="link to here" class="self-link" href="daf-{{page.code}}.html#D.4.1"><img src="target.png"/></a></h3>
 
-{%include StructureDefinition-daf-{{page.code}}-header.xhtml%}
+
+<!-- introductiontext here-->  
+  {% capture my-include %}{% include daf-{{page.code}}-intro.md %}{% endcapture %}{{ my-include | markdownify }}
+<!-- introductiontext here-->  
+
+
 
   <!-- no uri -->
 
@@ -42,6 +47,8 @@
 <h4><span class="sectioncount">D.4.1.1</span>
 Formal Views of Profile Content
  <a title="link to here" class="self-link" href="daf-{{page.code}}.html#profile"><img src="target.png"/></a></h4>
+
+{%include StructureDefinition-daf-{{page.code}}-header.xhtml%}
 
 <p>
 <a href="{{site.data.fhir.path}}/profiling.html#representation">Description of Profiles, Differentials, Snapshots, and how the XML and JSON presentations work</a>.
@@ -62,11 +69,12 @@ Formal Views of Profile Content
    <p>This structure is derived from <a href="{{site.data.fhir.path}}/{{page.code}}.html">{{page.tcode}}</a>.</p>
    <div id="tbl-diff-inner">
      <a name="summary"> </a>
-     
 
+<!-- Include formal text summary in markdown here -->
+{% capture my-include %}{% include daf-{{page.code}}-summary.md %}{% endcapture %}{{ my-include | markdownify }}
+<!-- Include formal text summary in markdown here -->
 
-{%include StructureDefinition-daf-{{page.code}}-summary.xhtml%}
-
+<!--     {%include StructureDefinition-daf-{{page.code}}-summary.xhtml%} -->
    </div>
   </div>
  </div>

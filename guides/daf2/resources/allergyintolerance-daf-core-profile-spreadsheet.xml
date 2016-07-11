@@ -10,7 +10,7 @@
   <LastAuthor>nbashyam</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-08-31T12:38:03Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,8 +20,7 @@
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
-  <FirstVisibleSheet>2</FirstVisibleSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1028,7 +1027,10 @@
     <Cell ss:StyleID="s85"><Data ss:Type="String">notes</Data></Cell>
     <Cell ss:StyleID="s86"/>
    </Row>
-   <Row ss:AutoFitHeight="0"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">summary-DAF-Core-AllergyIntolerance</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">#### Complete Summary of the Mandatory Requirements &#10;1.  One Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk in **AllergyIntolerance.substance*⇚1.  One Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk in **AllergyIntolerance.substance**&#10;    -   AllergyIntolerance.substance with an [ extensible] binding to a Value set (Code set) consisting of:&#10;        -   NDF-RT codes for drug class allergies&#10;        -   RxNorm codes limited to term types (TTY) , 'BN' Brand Name, 'IN' ingredient, 'MIN' multiple ingredient, and 'PIN' precise ingredient for drug ingredient allergies&#10;        -   SNOMED CT if no other code from above code systems are available.&#10;&#10;2.  One patient reference in **AllergyIntolerance.patient**&#10;3.  One status in **AllergyIntolerance.status**&#10;    -   AllergyIntolerance.status is bound to **[AllergyIntoleranceStatus]** Value set (Code set)&#10;&#10;  [ extensible]: Implementation_Guide#Extensible_binding_for_CodeableConcept_Datatype &quot;wikilink&quot;&#10;  [AllergyIntoleranceStatus]: http://hl7.org/fhir/DSTU2/valueset-allergy-intolerance-status.html</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1042,10 +1044,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1058,12 +1061,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
+     <ActiveRow>16</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R1C1:R16C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1232,7 +1235,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3392,7 +3395,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>130</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

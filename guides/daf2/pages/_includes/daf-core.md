@@ -4,9 +4,9 @@ This is the entry page for these DAF-core artifacts:
 
 ## DAF-core profiles (FHIR resource):
 
-|No | Core Profile Title | Base Resource | Profile Page |
-|----|--------------------|---------------|-------------- |
-|1 | Allergies | AllergyIntolerance |[ Allergies ](allergyintolerance-daf-core.html) |
+|No | Core Profile Title | Base Resource | Profile Summary |Formal Profile View |
+|----|--------------------|---------------|-------------- |-------------- |
+|1 | Allergies | AllergyIntolerance |[ Allergies ](allergyintolerance-daf-core-new.html) |[ Allergies ](daf-core-allergyintolerance.html) |
 |2 | Assess and Plan | CarePlan |[ Assess and Plan ](careplan-daf-core.html) |
 |3 | CareTeam | CareTeam |[ CareTeam ](careteam-daf-core.html) |
 |4 | Problems and Concerns | Condition |[ Problems and Concerns ](condition-daf-core.html) |
