@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 19:31+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -43,7 +43,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 /**
- * Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organizational, and patient authored  privacy policies that grant or withhold consent:.
+ * A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
  */
 @ResourceDef(name="Consent", profile="http://hl7.org/fhir/Profile/Consent")
 public class Consent extends DomainResource {
@@ -1604,25 +1604,25 @@ public class Consent extends DomainResource {
     protected Period period;
 
     /**
-     * The patient to whom this consent applies.
+     * The patient/healthcare consumer to whom this consent applies.
      */
     @Child(name = "patient", type = {Patient.class}, order=5, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Who the consent applies to", formalDefinition="The patient to whom this consent applies." )
+    @Description(shortDefinition="Who the consent applies to", formalDefinition="The patient/healthcare consumer to whom this consent applies." )
     protected Reference patient;
 
     /**
-     * The actual object that is the target of the reference (The patient to whom this consent applies.)
+     * The actual object that is the target of the reference (The patient/healthcare consumer to whom this consent applies.)
      */
     protected Patient patientTarget;
 
     /**
-     * Who is responsible for agreeing to the consent represented by this resource. This is the person (usually) that agreed to the policy, along with the exceptions, e.g. the persion who takes responsibility for the agreement. In the signature this corresponds to the role "Consent Signature".
+     * The patient/consumer that is responsible for agreeing to the consent represented by this resource. This is the person (usually) that agreed to the policy, along with the exceptions, e.g. the persion who takes responsibility for the agreement. In the signature this corresponds to the role "Consent Signature".
      */
     @Child(name = "consentor", type = {Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Who is agreeing to the policy and exceptions", formalDefinition="Who is responsible for agreeing to the consent represented by this resource. This is the person (usually) that agreed to the policy, along with the exceptions, e.g. the persion who takes responsibility for the agreement. In the signature this corresponds to the role \"Consent Signature\"." )
+    @Description(shortDefinition="Who is agreeing to the policy and exceptions", formalDefinition="The patient/consumer that is responsible for agreeing to the consent represented by this resource. This is the person (usually) that agreed to the policy, along with the exceptions, e.g. the persion who takes responsibility for the agreement. In the signature this corresponds to the role \"Consent Signature\"." )
     protected List<Reference> consentor;
     /**
-     * The actual objects that are the target of the reference (Who is responsible for agreeing to the consent represented by this resource. This is the person (usually) that agreed to the policy, along with the exceptions, e.g. the persion who takes responsibility for the agreement. In the signature this corresponds to the role "Consent Signature".)
+     * The actual objects that are the target of the reference (The patient/consumer that is responsible for agreeing to the consent represented by this resource. This is the person (usually) that agreed to the policy, along with the exceptions, e.g. the persion who takes responsibility for the agreement. In the signature this corresponds to the role "Consent Signature".)
      */
     protected List<Resource> consentorTarget;
 
@@ -1887,7 +1887,7 @@ public class Consent extends DomainResource {
     }
 
     /**
-     * @return {@link #patient} (The patient to whom this consent applies.)
+     * @return {@link #patient} (The patient/healthcare consumer to whom this consent applies.)
      */
     public Reference getPatient() { 
       if (this.patient == null)
@@ -1903,7 +1903,7 @@ public class Consent extends DomainResource {
     }
 
     /**
-     * @param value {@link #patient} (The patient to whom this consent applies.)
+     * @param value {@link #patient} (The patient/healthcare consumer to whom this consent applies.)
      */
     public Consent setPatient(Reference value) { 
       this.patient = value;
@@ -1911,7 +1911,7 @@ public class Consent extends DomainResource {
     }
 
     /**
-     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient to whom this consent applies.)
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient/healthcare consumer to whom this consent applies.)
      */
     public Patient getPatientTarget() { 
       if (this.patientTarget == null)
@@ -1923,7 +1923,7 @@ public class Consent extends DomainResource {
     }
 
     /**
-     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient to whom this consent applies.)
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient/healthcare consumer to whom this consent applies.)
      */
     public Consent setPatientTarget(Patient value) { 
       this.patientTarget = value;
@@ -1931,7 +1931,7 @@ public class Consent extends DomainResource {
     }
 
     /**
-     * @return {@link #consentor} (Who is responsible for agreeing to the consent represented by this resource. This is the person (usually) that agreed to the policy, along with the exceptions, e.g. the persion who takes responsibility for the agreement. In the signature this corresponds to the role "Consent Signature".)
+     * @return {@link #consentor} (The patient/consumer that is responsible for agreeing to the consent represented by this resource. This is the person (usually) that agreed to the policy, along with the exceptions, e.g. the persion who takes responsibility for the agreement. In the signature this corresponds to the role "Consent Signature".)
      */
     public List<Reference> getConsentor() { 
       if (this.consentor == null)
@@ -2263,8 +2263,8 @@ public class Consent extends DomainResource {
         childrenList.add(new Property("category", "CodeableConcept", "A classification of the type of consents found in the statement. This element supports indexing and retrieval of consent statements.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("dateTime", "dateTime", "When this  Consent was issued / created / indexed.", 0, java.lang.Integer.MAX_VALUE, dateTime));
         childrenList.add(new Property("period", "Period", "Relevant time or time-period when this Consent is applicable.", 0, java.lang.Integer.MAX_VALUE, period));
-        childrenList.add(new Property("patient", "Reference(Patient)", "The patient to whom this consent applies.", 0, java.lang.Integer.MAX_VALUE, patient));
-        childrenList.add(new Property("consentor", "Reference(Organization|Patient|Practitioner|RelatedPerson)", "Who is responsible for agreeing to the consent represented by this resource. This is the person (usually) that agreed to the policy, along with the exceptions, e.g. the persion who takes responsibility for the agreement. In the signature this corresponds to the role \"Consent Signature\".", 0, java.lang.Integer.MAX_VALUE, consentor));
+        childrenList.add(new Property("patient", "Reference(Patient)", "The patient/healthcare consumer to whom this consent applies.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("consentor", "Reference(Organization|Patient|Practitioner|RelatedPerson)", "The patient/consumer that is responsible for agreeing to the consent represented by this resource. This is the person (usually) that agreed to the policy, along with the exceptions, e.g. the persion who takes responsibility for the agreement. In the signature this corresponds to the role \"Consent Signature\".", 0, java.lang.Integer.MAX_VALUE, consentor));
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization that manages the consent, and the framework within which it is executed.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("source[x]", "Attachment|Identifier|Reference(Consent|DocumentReference|Contract|QuestionnaireResponse)", "The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("policy", "uri", "A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law.", 0, java.lang.Integer.MAX_VALUE, policy));

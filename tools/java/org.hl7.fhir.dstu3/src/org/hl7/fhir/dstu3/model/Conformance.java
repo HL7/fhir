@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 19:31+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -654,6 +654,128 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return "?";
       }
     public String toSystem(ResourceVersionPolicy code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum ConditionalReadStatus {
+        /**
+         * No support for conditional deletes.
+         */
+        NOTSUPPORTED, 
+        /**
+         * Conditional reads are supported, but only with the If-Modified-Since HTTP Header.
+         */
+        MODIFIEDSINCE, 
+        /**
+         * Conditional reads are supported, but only with the If-None-Match HTTP Header.
+         */
+        NOTMATCH, 
+        /**
+         * Conditional reads are supported, with both If-Modified-Since and If-None-Match HTTP Headers.
+         */
+        FULLSUPPORT, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static ConditionalReadStatus fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("not-supported".equals(codeString))
+          return NOTSUPPORTED;
+        if ("modified-since".equals(codeString))
+          return MODIFIEDSINCE;
+        if ("not-match".equals(codeString))
+          return NOTMATCH;
+        if ("full-support".equals(codeString))
+          return FULLSUPPORT;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ConditionalReadStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case NOTSUPPORTED: return "not-supported";
+            case MODIFIEDSINCE: return "modified-since";
+            case NOTMATCH: return "not-match";
+            case FULLSUPPORT: return "full-support";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case NOTSUPPORTED: return "http://hl7.org/fhir/conditional-read-status";
+            case MODIFIEDSINCE: return "http://hl7.org/fhir/conditional-read-status";
+            case NOTMATCH: return "http://hl7.org/fhir/conditional-read-status";
+            case FULLSUPPORT: return "http://hl7.org/fhir/conditional-read-status";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case NOTSUPPORTED: return "No support for conditional deletes.";
+            case MODIFIEDSINCE: return "Conditional reads are supported, but only with the If-Modified-Since HTTP Header.";
+            case NOTMATCH: return "Conditional reads are supported, but only with the If-None-Match HTTP Header.";
+            case FULLSUPPORT: return "Conditional reads are supported, with both If-Modified-Since and If-None-Match HTTP Headers.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case NOTSUPPORTED: return "Not Supported";
+            case MODIFIEDSINCE: return "If-Modified-Since";
+            case NOTMATCH: return "If-None-Match";
+            case FULLSUPPORT: return "Full Support";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ConditionalReadStatusEnumFactory implements EnumFactory<ConditionalReadStatus> {
+    public ConditionalReadStatus fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("not-supported".equals(codeString))
+          return ConditionalReadStatus.NOTSUPPORTED;
+        if ("modified-since".equals(codeString))
+          return ConditionalReadStatus.MODIFIEDSINCE;
+        if ("not-match".equals(codeString))
+          return ConditionalReadStatus.NOTMATCH;
+        if ("full-support".equals(codeString))
+          return ConditionalReadStatus.FULLSUPPORT;
+        throw new IllegalArgumentException("Unknown ConditionalReadStatus code '"+codeString+"'");
+        }
+        public Enumeration<ConditionalReadStatus> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("not-supported".equals(codeString))
+          return new Enumeration<ConditionalReadStatus>(this, ConditionalReadStatus.NOTSUPPORTED);
+        if ("modified-since".equals(codeString))
+          return new Enumeration<ConditionalReadStatus>(this, ConditionalReadStatus.MODIFIEDSINCE);
+        if ("not-match".equals(codeString))
+          return new Enumeration<ConditionalReadStatus>(this, ConditionalReadStatus.NOTMATCH);
+        if ("full-support".equals(codeString))
+          return new Enumeration<ConditionalReadStatus>(this, ConditionalReadStatus.FULLSUPPORT);
+        throw new FHIRException("Unknown ConditionalReadStatus code '"+codeString+"'");
+        }
+    public String toCode(ConditionalReadStatus code) {
+      if (code == ConditionalReadStatus.NOTSUPPORTED)
+        return "not-supported";
+      if (code == ConditionalReadStatus.MODIFIEDSINCE)
+        return "modified-since";
+      if (code == ConditionalReadStatus.NOTMATCH)
+        return "not-match";
+      if (code == ConditionalReadStatus.FULLSUPPORT)
+        return "full-support";
+      return "?";
+      }
+    public String toSystem(ConditionalReadStatus code) {
       return code.getSystem();
       }
     }
@@ -3643,41 +3765,48 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         protected BooleanType conditionalCreate;
 
         /**
+         * A code that indicates how the server supports conditional read.
+         */
+        @Child(name = "conditionalRead", type = {CodeType.class}, order=8, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="not-supported | modified-since | not-match | full-support", formalDefinition="A code that indicates how the server supports conditional read." )
+        protected Enumeration<ConditionalReadStatus> conditionalRead;
+
+        /**
          * A flag that indicates that the server supports conditional update.
          */
-        @Child(name = "conditionalUpdate", type = {BooleanType.class}, order=8, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "conditionalUpdate", type = {BooleanType.class}, order=9, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="If allows/uses conditional update", formalDefinition="A flag that indicates that the server supports conditional update." )
         protected BooleanType conditionalUpdate;
 
         /**
          * A code that indicates how the server supports conditional delete.
          */
-        @Child(name = "conditionalDelete", type = {CodeType.class}, order=9, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "conditionalDelete", type = {CodeType.class}, order=10, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="not-supported | single | multiple - how conditional delete is supported", formalDefinition="A code that indicates how the server supports conditional delete." )
         protected Enumeration<ConditionalDeleteStatus> conditionalDelete;
 
         /**
          * A list of _include values supported by the server.
          */
-        @Child(name = "searchInclude", type = {StringType.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "searchInclude", type = {StringType.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="_include values supported by the server", formalDefinition="A list of _include values supported by the server." )
         protected List<StringType> searchInclude;
 
         /**
          * A list of _revinclude (reverse include) values supported by the server.
          */
-        @Child(name = "searchRevInclude", type = {StringType.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "searchRevInclude", type = {StringType.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="_revinclude values supported by the server", formalDefinition="A list of _revinclude (reverse include) values supported by the server." )
         protected List<StringType> searchRevInclude;
 
         /**
          * Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.
          */
-        @Child(name = "searchParam", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "searchParam", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Search params supported by implementation", formalDefinition="Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation." )
         protected List<ConformanceRestResourceSearchParamComponent> searchParam;
 
-        private static final long serialVersionUID = 1781959905L;
+        private static final long serialVersionUID = 1405466978L;
 
     /**
      * Constructor
@@ -4021,6 +4150,55 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         }
 
         /**
+         * @return {@link #conditionalRead} (A code that indicates how the server supports conditional read.). This is the underlying object with id, value and extensions. The accessor "getConditionalRead" gives direct access to the value
+         */
+        public Enumeration<ConditionalReadStatus> getConditionalReadElement() { 
+          if (this.conditionalRead == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestResourceComponent.conditionalRead");
+            else if (Configuration.doAutoCreate())
+              this.conditionalRead = new Enumeration<ConditionalReadStatus>(new ConditionalReadStatusEnumFactory()); // bb
+          return this.conditionalRead;
+        }
+
+        public boolean hasConditionalReadElement() { 
+          return this.conditionalRead != null && !this.conditionalRead.isEmpty();
+        }
+
+        public boolean hasConditionalRead() { 
+          return this.conditionalRead != null && !this.conditionalRead.isEmpty();
+        }
+
+        /**
+         * @param value {@link #conditionalRead} (A code that indicates how the server supports conditional read.). This is the underlying object with id, value and extensions. The accessor "getConditionalRead" gives direct access to the value
+         */
+        public ConformanceRestResourceComponent setConditionalReadElement(Enumeration<ConditionalReadStatus> value) { 
+          this.conditionalRead = value;
+          return this;
+        }
+
+        /**
+         * @return A code that indicates how the server supports conditional read.
+         */
+        public ConditionalReadStatus getConditionalRead() { 
+          return this.conditionalRead == null ? null : this.conditionalRead.getValue();
+        }
+
+        /**
+         * @param value A code that indicates how the server supports conditional read.
+         */
+        public ConformanceRestResourceComponent setConditionalRead(ConditionalReadStatus value) { 
+          if (value == null)
+            this.conditionalRead = null;
+          else {
+            if (this.conditionalRead == null)
+              this.conditionalRead = new Enumeration<ConditionalReadStatus>(new ConditionalReadStatusEnumFactory());
+            this.conditionalRead.setValue(value);
+          }
+          return this;
+        }
+
+        /**
          * @return {@link #conditionalUpdate} (A flag that indicates that the server supports conditional update.). This is the underlying object with id, value and extensions. The accessor "getConditionalUpdate" gives direct access to the value
          */
         public BooleanType getConditionalUpdateElement() { 
@@ -4298,6 +4476,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           childrenList.add(new Property("readHistory", "boolean", "A flag for whether the server is able to return past versions as part of the vRead operation.", 0, java.lang.Integer.MAX_VALUE, readHistory));
           childrenList.add(new Property("updateCreate", "boolean", "A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server.", 0, java.lang.Integer.MAX_VALUE, updateCreate));
           childrenList.add(new Property("conditionalCreate", "boolean", "A flag that indicates that the server supports conditional create.", 0, java.lang.Integer.MAX_VALUE, conditionalCreate));
+          childrenList.add(new Property("conditionalRead", "code", "A code that indicates how the server supports conditional read.", 0, java.lang.Integer.MAX_VALUE, conditionalRead));
           childrenList.add(new Property("conditionalUpdate", "boolean", "A flag that indicates that the server supports conditional update.", 0, java.lang.Integer.MAX_VALUE, conditionalUpdate));
           childrenList.add(new Property("conditionalDelete", "code", "A code that indicates how the server supports conditional delete.", 0, java.lang.Integer.MAX_VALUE, conditionalDelete));
           childrenList.add(new Property("searchInclude", "string", "A list of _include values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchInclude));
@@ -4315,6 +4494,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         case 187518494: /*readHistory*/ return this.readHistory == null ? new Base[0] : new Base[] {this.readHistory}; // BooleanType
         case -1400550619: /*updateCreate*/ return this.updateCreate == null ? new Base[0] : new Base[] {this.updateCreate}; // BooleanType
         case 6401826: /*conditionalCreate*/ return this.conditionalCreate == null ? new Base[0] : new Base[] {this.conditionalCreate}; // BooleanType
+        case 822786364: /*conditionalRead*/ return this.conditionalRead == null ? new Base[0] : new Base[] {this.conditionalRead}; // Enumeration<ConditionalReadStatus>
         case 519849711: /*conditionalUpdate*/ return this.conditionalUpdate == null ? new Base[0] : new Base[] {this.conditionalUpdate}; // BooleanType
         case 23237585: /*conditionalDelete*/ return this.conditionalDelete == null ? new Base[0] : new Base[] {this.conditionalDelete}; // Enumeration<ConditionalDeleteStatus>
         case -1035904544: /*searchInclude*/ return this.searchInclude == null ? new Base[0] : this.searchInclude.toArray(new Base[this.searchInclude.size()]); // StringType
@@ -4348,6 +4528,9 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           break;
         case 6401826: // conditionalCreate
           this.conditionalCreate = castToBoolean(value); // BooleanType
+          break;
+        case 822786364: // conditionalRead
+          this.conditionalRead = new ConditionalReadStatusEnumFactory().fromType(value); // Enumeration<ConditionalReadStatus>
           break;
         case 519849711: // conditionalUpdate
           this.conditionalUpdate = castToBoolean(value); // BooleanType
@@ -4385,6 +4568,8 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           this.updateCreate = castToBoolean(value); // BooleanType
         else if (name.equals("conditionalCreate"))
           this.conditionalCreate = castToBoolean(value); // BooleanType
+        else if (name.equals("conditionalRead"))
+          this.conditionalRead = new ConditionalReadStatusEnumFactory().fromType(value); // Enumeration<ConditionalReadStatus>
         else if (name.equals("conditionalUpdate"))
           this.conditionalUpdate = castToBoolean(value); // BooleanType
         else if (name.equals("conditionalDelete"))
@@ -4409,6 +4594,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         case 187518494: throw new FHIRException("Cannot make property readHistory as it is not a complex type"); // BooleanType
         case -1400550619: throw new FHIRException("Cannot make property updateCreate as it is not a complex type"); // BooleanType
         case 6401826: throw new FHIRException("Cannot make property conditionalCreate as it is not a complex type"); // BooleanType
+        case 822786364: throw new FHIRException("Cannot make property conditionalRead as it is not a complex type"); // Enumeration<ConditionalReadStatus>
         case 519849711: throw new FHIRException("Cannot make property conditionalUpdate as it is not a complex type"); // BooleanType
         case 23237585: throw new FHIRException("Cannot make property conditionalDelete as it is not a complex type"); // Enumeration<ConditionalDeleteStatus>
         case -1035904544: throw new FHIRException("Cannot make property searchInclude as it is not a complex type"); // StringType
@@ -4443,6 +4629,9 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         else if (name.equals("conditionalCreate")) {
           throw new FHIRException("Cannot call addChild on a primitive type Conformance.conditionalCreate");
         }
+        else if (name.equals("conditionalRead")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Conformance.conditionalRead");
+        }
         else if (name.equals("conditionalUpdate")) {
           throw new FHIRException("Cannot call addChild on a primitive type Conformance.conditionalUpdate");
         }
@@ -4476,6 +4665,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         dst.readHistory = readHistory == null ? null : readHistory.copy();
         dst.updateCreate = updateCreate == null ? null : updateCreate.copy();
         dst.conditionalCreate = conditionalCreate == null ? null : conditionalCreate.copy();
+        dst.conditionalRead = conditionalRead == null ? null : conditionalRead.copy();
         dst.conditionalUpdate = conditionalUpdate == null ? null : conditionalUpdate.copy();
         dst.conditionalDelete = conditionalDelete == null ? null : conditionalDelete.copy();
         if (searchInclude != null) {
@@ -4506,9 +4696,10 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         return compareDeep(type, o.type, true) && compareDeep(profile, o.profile, true) && compareDeep(interaction, o.interaction, true)
            && compareDeep(versioning, o.versioning, true) && compareDeep(readHistory, o.readHistory, true)
            && compareDeep(updateCreate, o.updateCreate, true) && compareDeep(conditionalCreate, o.conditionalCreate, true)
-           && compareDeep(conditionalUpdate, o.conditionalUpdate, true) && compareDeep(conditionalDelete, o.conditionalDelete, true)
-           && compareDeep(searchInclude, o.searchInclude, true) && compareDeep(searchRevInclude, o.searchRevInclude, true)
-           && compareDeep(searchParam, o.searchParam, true);
+           && compareDeep(conditionalRead, o.conditionalRead, true) && compareDeep(conditionalUpdate, o.conditionalUpdate, true)
+           && compareDeep(conditionalDelete, o.conditionalDelete, true) && compareDeep(searchInclude, o.searchInclude, true)
+           && compareDeep(searchRevInclude, o.searchRevInclude, true) && compareDeep(searchParam, o.searchParam, true)
+          ;
       }
 
       @Override
@@ -4520,15 +4711,15 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         ConformanceRestResourceComponent o = (ConformanceRestResourceComponent) other;
         return compareValues(type, o.type, true) && compareValues(versioning, o.versioning, true) && compareValues(readHistory, o.readHistory, true)
            && compareValues(updateCreate, o.updateCreate, true) && compareValues(conditionalCreate, o.conditionalCreate, true)
-           && compareValues(conditionalUpdate, o.conditionalUpdate, true) && compareValues(conditionalDelete, o.conditionalDelete, true)
-           && compareValues(searchInclude, o.searchInclude, true) && compareValues(searchRevInclude, o.searchRevInclude, true)
-          ;
+           && compareValues(conditionalRead, o.conditionalRead, true) && compareValues(conditionalUpdate, o.conditionalUpdate, true)
+           && compareValues(conditionalDelete, o.conditionalDelete, true) && compareValues(searchInclude, o.searchInclude, true)
+           && compareValues(searchRevInclude, o.searchRevInclude, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, profile, interaction
-          , versioning, readHistory, updateCreate, conditionalCreate, conditionalUpdate, conditionalDelete
-          , searchInclude, searchRevInclude, searchParam);
+          , versioning, readHistory, updateCreate, conditionalCreate, conditionalRead, conditionalUpdate
+          , conditionalDelete, searchInclude, searchRevInclude, searchParam);
       }
 
   public String fhirType() {

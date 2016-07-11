@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Jul 11, 2016 19:31+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -5406,6 +5406,10 @@ public class JsonParser extends JsonParserBase {
       res.setConditionalCreateElement(parseBoolean(json.get("conditionalCreate").getAsBoolean()));
     if (json.has("_conditionalCreate"))
       parseElementProperties(json.getAsJsonObject("_conditionalCreate"), res.getConditionalCreateElement());
+    if (json.has("conditionalRead"))
+      res.setConditionalReadElement(parseEnumeration(json.get("conditionalRead").getAsString(), Conformance.ConditionalReadStatus.NULL, new Conformance.ConditionalReadStatusEnumFactory()));
+    if (json.has("_conditionalRead"))
+      parseElementProperties(json.getAsJsonObject("_conditionalRead"), res.getConditionalReadElement());
     if (json.has("conditionalUpdate"))
       res.setConditionalUpdateElement(parseBoolean(json.get("conditionalUpdate").getAsBoolean()));
     if (json.has("_conditionalUpdate"))
@@ -24952,6 +24956,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasConditionalCreateElement()) {
         composeBooleanCore("conditionalCreate", element.getConditionalCreateElement(), false);
         composeBooleanExtras("conditionalCreate", element.getConditionalCreateElement(), false);
+      }
+      if (element.hasConditionalReadElement()) {
+        composeEnumerationCore("conditionalRead", element.getConditionalReadElement(), new Conformance.ConditionalReadStatusEnumFactory(), false);
+        composeEnumerationExtras("conditionalRead", element.getConditionalReadElement(), new Conformance.ConditionalReadStatusEnumFactory(), false);
       }
       if (element.hasConditionalUpdateElement()) {
         composeBooleanCore("conditionalUpdate", element.getConditionalUpdateElement(), false);

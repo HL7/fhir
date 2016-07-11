@@ -469,3 +469,280 @@
   Binding = MedicationDispenseActionReason
   Short Label = Reason the action was taken
   Definition = The reason why the action was taken
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = destination
+  Type = reference
+  Description = Return dispenses that should be sent to a specific destination
+  Path = MedicationDispense.destination
+
+ -- Row 2 -----------------------------------
+  Name = dispenser
+  Type = reference
+  Description = Return all dispenses performed by a specific individual
+  Path = MedicationDispense.dispenser
+
+ -- Row 3 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Return dispenses with this external identifier
+  Path = MedicationDispense.identifier
+
+ -- Row 4 -----------------------------------
+  Name = medication
+  Type = reference
+  Description = Return dispenses of this medicine resource
+  Path = MedicationDispense.medicationReference
+
+ -- Row 5 -----------------------------------
+  Name = code
+  Type = token
+  Description = Return dispenses of this medicine code
+  Path = MedicationDispense.medicationCodeableConcept
+
+ -- Row 6 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = The identity of a patient to list dispenses  for
+  Path = MedicationDispense.patient
+
+ -- Row 7 -----------------------------------
+  Name = prescription
+  Type = reference
+  Description = The identity of a prescription to list dispenses from
+  Path = MedicationDispense.authorizingPrescription
+
+ -- Row 8 -----------------------------------
+  Name = responsibleparty
+  Type = reference
+  Description = Return all dispenses with the specified responsible party
+  Path = MedicationDispense.substitution.responsibleParty
+
+ -- Row 9 -----------------------------------
+  Name = status
+  Type = token
+  Description = Status of the dispense
+  Path = MedicationDispense.status
+
+ -- Row 10 -----------------------------------
+  Name = type
+  Type = token
+  Description = Return all dispenses of a specific type
+  Path = MedicationDispense.type
+
+ -- Row 11 -----------------------------------
+  Name = whenhandedover
+  Type = date
+  Description = Date when medication handed over to patient (outpatient setting), or supplied to ward or clinic (inpatient setting)
+  Path = MedicationDispense.whenHandedOver
+
+ -- Row 12 -----------------------------------
+  Name = whenprepared
+  Type = date
+  Description = Date when medication prepared
+  Path = MedicationDispense.whenPrepared
+
+ -- Row 13 -----------------------------------
+  Name = receiver
+  Type = reference
+  Path = MedicationDispense.receiver
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = medicationdispense-extensions
+  IG Name = core
+  Filename = medicationdispense-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Oral Chemo
+  Identity = meddisp008
+  Description = Dispense for Oral Chemotherapy - Capecitabine (RxNorm code)
+  Filename = medicationdispenseexample8.xml
+
+ -- Row 2 -----------------------------------
+  Name = IV Antibiotic
+  Identity = meddisp0301
+  Description = Dispense for IV Antibiotic - in progress - Vancomycin IV (NDC Code) - in-progress
+  Filename = medicationdispense0301.xml
+
+ -- Row 3 -----------------------------------
+  Name = SC Injection
+  Identity = meddisp0302
+  Description = Dispense for Subcutaneous injection with multiple dosage lines - Insulin - Novolog (NDC Code) - active - includes Destination, Receiver, note.  DosageInstruction includes additionalInstructions as text
+  Filename = medicationdispense0302.xml
+
+ -- Row 4 -----------------------------------
+  Name = PRN dose with condition
+  Identity = meddisp0303
+  Description = Dispense for Oxycodone (RxNorm code) - PRN dose with dose range, coded additional instructions and PRN coded pre-condition
+  Filename = medicationdispense0303.xml
+
+ -- Row 5 -----------------------------------
+  Name = IV antibiotic
+  Identity = meddisp0304
+  Description = Dispense for Intravenous Antibiotic with a Dosage Rate - Piperacillin (NDC code) - completed with a coded site and route of administration and a rate expressed as a ratio
+  Filename = medicationdispense0304.xml
+
+ -- Row 6 -----------------------------------
+  Name = Tapering Dose
+  Identity = meddisp0305
+  Description = Dispense for Prednisone (RxNorm code) Tapering Dose - entered-in-error with multiple DosageInstruction lines that include coded additionalInstructions and multiple EventHistory elements
+  Filename = medicationdispense0305.xml
+
+ -- Row 7 -----------------------------------
+  Name = IV Chemo
+  Identity = meddisp0306
+  Description = Dispense for Intravenous Chemotherapy (inpatient order) - Alemtuzumab (RxNorm Code) - completed with multiple dosageInstruction lines
+  Filename = medicationdispense0306.xml
+
+ -- Row 8 -----------------------------------
+  Name = Oral Chemo
+  Identity = meddisp0307
+  Description = Dispense for Busulfan (Myleran) - completed
+  Filename = medicationdispense0307.xml
+
+ -- Row 9 -----------------------------------
+  Name = Eye drops
+  Identity = meddisp0308
+  Description = Dispense for Timoptic Opthalmic Drops - (NDC code) - completed
+  Filename = medicationdispense0308.xml
+
+ -- Row 10 -----------------------------------
+  Name = Oral Drops
+  Identity = meddisp0309
+  Description = Dispense for Nystatin drops (Snomed Code) - entered-in-error
+  Filename = medicationdispense0309.xml
+
+ -- Row 11 -----------------------------------
+  Name = As Needed with condition
+  Identity = meddisp0310
+  Description = Dispense for Percocet (NDC Code) - in-progress with additionalInstructions, and as needed dosage with condition
+  Filename = medicationdispense0310.xml
+
+ -- Row 12 -----------------------------------
+  Name = Suppository
+  Identity = meddisp0311
+  Description = Dispense for Paracetamol Suppositories - completed
+  Filename = medicationdispense0311.xml
+
+ -- Row 13 -----------------------------------
+  Name = OTC
+  Identity = meddisp0312
+  Description = Dispense for Over the Counter medication - Tylenol PM (NDC code) - on hold with  as needed dosage with a condition, a dose Range and an Event History
+  Filename = medicationdispense0312.xml
+
+ -- Row 14 -----------------------------------
+  Name = KCL admixture
+  Identity = meddisp0313
+  Description = Dispense for Potassium Chloride Admixture - stopped - with eventHistory and rate range for dosage
+  Filename = medicationdispense0313.xml
+
+ -- Row 15 -----------------------------------
+  Name = IV
+  Identity = meddisp0314
+  Description = Dispense for Lorazepam (Rx norm code) - completed with rate range
+  Filename = medicationdispense0314.xml
+
+ -- Row 16 -----------------------------------
+  Name = Oral
+  Identity = meddisp0315
+  Description = Dispense for Alprazolam (Rx Norm code) - in progress
+  Filename = medicationdispense0315.xml
+
+ -- Row 17 -----------------------------------
+  Name = Insulin
+  Identity = meddisp0316
+  Description = Dispense for Insulin (Lantus) (NDC code) - in-progress with SC dosage
+  Filename = medicationdispense0316.xml
+
+ -- Row 18 -----------------------------------
+  Name = IV Chemo
+  Identity = meddisp0317
+  Description = Dispense for Brentuximab Vedotin (NDC code)  - IV Chemo - stopped
+  Filename = medicationdispense0317.xml
+
+ -- Row 19 -----------------------------------
+  Name = Oral
+  Identity = meddisp0318
+  Description = Dispense for Levothyroxine (NDC code) in-progress with authorizing prescription
+  Filename = medicationdispense0318.xml
+
+ -- Row 20 -----------------------------------
+  Name = Mutliple dosage lines
+  Identity = meddisp0319
+  Description = Dispense for Azithromycin (NDC code) - completed with multiple dosage lines
+  Filename = medicationdispense0319.xml
+
+ -- Row 21 -----------------------------------
+  Name = TPN Solution
+  Identity = meddisp0320
+  Description = Dispense for a TPN solution - completed
+  Filename = medicationdispense0320.xml
+
+ -- Row 22 -----------------------------------
+  Name = As Needed with condition
+  Identity = meddisp0321
+  Description = Dispense for Vicodin - in progress - PRN with pre-condition
+  Filename = medicationdispense0321.xml
+
+ -- Row 23 -----------------------------------
+  Name = Oral suspension
+  Identity = meddisp0322
+  Description = Dispense for Dilantin Oral Suspension (NDC code) - completed
+  Filename = medicationdispense0322.xml
+
+ -- Row 24 -----------------------------------
+  Name = Topical Ointment
+  Identity = meddisp0324
+  Description = Dispense for Nystatin Topical Ointment  (RxNorm code) - completed
+  Filename = medicationdispense0324.xml
+
+ -- Row 25 -----------------------------------
+  Name = Patch
+  Identity = meddisp0325
+  Description = Dispense for Fentanyl Patch (NDC code) - in progress
+  Filename = medicationdispense0325.xml
+
+ -- Row 26 -----------------------------------
+  Name = Antibiotic
+  Identity = meddisp0326
+  Description = Dispense for Azithromycin (RxNorm Code) - in-progress with coded additionalInstructions
+  Filename = medicationdispense0326.xml
+
+ -- Row 27 -----------------------------------
+  Name = Inhaler
+  Identity = meddisp0327
+  Description = Dispense for Proventil (RxNorm Code) - completed - with additionalInstructions as text
+  Filename = medicationdispense0327.xml
+
+ -- Row 28 -----------------------------------
+  Name = Inhaler
+  Identity = meddisp0328
+  Description = Dispense for Nasonex Inhaler (RxNorm Code) - in progress with additionalInstructions as text
+  Filename = medicationdispense0328.xml
+
+ -- Row 29 -----------------------------------
+  Name = Compound
+  Identity = meddisp0329
+  Description = Dispense for compounded ointment - completed with additionalInstructions as text and a coded site in dosageInstructions
+  Filename = medicationdispense0329.xml
+
+ -- Row 30 -----------------------------------
+  Name = Warfarin
+  Identity = meddisp0330
+  Description = Dispense for Warfarin 5mg (NDC Code) where the product is dispensed as multiple strengths based on prescribe dosage
+  Filename = medicationdispense0330.xml
+
+ -- Row 31 -----------------------------------
+  Name = Warfarin
+  Identity = meddisp0331
+  Description = Dispense for Warfarin 2mg (NDC Code) where the product is dispensed as multiple strengths based on prescribe dosage
+  Filename = medicationdispense0331.xml
+
+=== Sheet Examples =====================================

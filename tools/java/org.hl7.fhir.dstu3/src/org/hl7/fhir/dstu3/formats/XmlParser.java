@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Jul 11, 2016 19:31+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -5149,6 +5149,8 @@ public class XmlParser extends XmlParserBase {
         res.setUpdateCreateElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("conditionalCreate")) {
         res.setConditionalCreateElement(parseBoolean(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("conditionalRead")) {
+        res.setConditionalReadElement(parseEnumeration(xpp, Conformance.ConditionalReadStatus.NULL, new Conformance.ConditionalReadStatusEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("conditionalUpdate")) {
         res.setConditionalUpdateElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("conditionalDelete")) {
@@ -23379,6 +23381,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasConditionalCreateElement()) {
         composeBoolean("conditionalCreate", element.getConditionalCreateElement());
       }
+      if (element.hasConditionalReadElement())
+        composeEnumeration("conditionalRead", element.getConditionalReadElement(), new Conformance.ConditionalReadStatusEnumFactory());
       if (element.hasConditionalUpdateElement()) {
         composeBoolean("conditionalUpdate", element.getConditionalUpdateElement());
       }

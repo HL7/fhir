@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Jul 11, 2016 19:31+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -3713,6 +3713,8 @@ public class RdfParser extends RdfParserBase {
       composeBoolean(t, "Conformance", "updateCreate", element.getUpdateCreateElement(), -1);
     if (element.hasConditionalCreateElement())
       composeBoolean(t, "Conformance", "conditionalCreate", element.getConditionalCreateElement(), -1);
+    if (element.hasConditionalReadElement())
+      composeEnum(t, "Conformance", "conditionalRead", element.getConditionalReadElement(), -1);
     if (element.hasConditionalUpdateElement())
       composeBoolean(t, "Conformance", "conditionalUpdate", element.getConditionalUpdateElement(), -1);
     if (element.hasConditionalDeleteElement())
