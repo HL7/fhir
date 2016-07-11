@@ -338,6 +338,10 @@
 		"ValueSet/daf-problem": {
 			"base": "valueset-daf-problem.html",
       "template-base" : null
+		},
+		"AllergyIntolerance/23": {
+			"base": "allergyintolerance-23.html",
+      "template-base" : null
 		}
 	}
 }
