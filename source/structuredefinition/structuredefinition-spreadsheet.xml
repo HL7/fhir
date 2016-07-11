@@ -92,8 +92,8 @@
     <SheetIndex>10</SheetIndex>
    </Xct>
   </SupBook>
-  <WindowHeight>17148</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>9384</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
@@ -4644,20 +4644,20 @@
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.snapshot</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">In any snapshot, all the elements must be in the specified type</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.exists() implies (snapshot.element.first().path = type and snapshot.element.tail().all(path.startsWith(%resource.type&amp;'.')))</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">string-join(for $elementName in f:*[self::f:snapshot or self::f:differential]/f:element[position()&gt;1]/f:path/@value return if (starts-with($elementName, concat($elementName/ancestor::f:element/parent::f:*/f:element[1]/f:path/@value, '.'))) then '' else $elementName,'')=''</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">element.first().path = %resource.type and element.tail().all(path.startsWith(%resource.type&amp;'.'))</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">f:element[1]/f:path/@value=parent::f:StructureDefinition/f:baseType/@value and count(f:element[position()!=1])=count(f:element[position()!=1][starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:baseType/@value, '.'))])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s111"><Data ss:Type="String">8a</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.differential</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">In any differential, all the elements must be in the specified type</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">differential.exists() implies (differential.element.first().path.startsWith(%resource.type) and differential.element.tail().all(path.startsWith(%resource.type&amp;'.')))</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">string-join(for $elementName in f:*[self::f:snapshot or self::f:differential]/f:element[position()&gt;1]/f:path/@value return if (starts-with($elementName, concat($elementName/ancestor::f:element/parent::f:*/f:element[1]/f:path/@value, '.'))) then '' else $elementName,'')=''</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type&amp;'.'))</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">count(f:element)=count(f:element[f:path/@value=ancestor::f:StructureDefinition/f:baseType/@value or starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:baseType/@value, '.'))])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">9</Data><NamedCell
@@ -4679,7 +4679,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.empty() or snapshot.element.first().path = type</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:snapshot)) or (f:type/@value = f:snapshot/f:element[1]/f:path/@value)</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="57.6">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">12</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Ensure that element.base appears with base or not</Data></Cell>
@@ -4689,7 +4689,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.element.base.exists() = baseDefinition.exists()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">f:baseDefinition or not(exists(f:snapshot/f:element/f:base) or exists(f:differential/f:element/f:base))</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="28.8">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">14</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">elements have id</Data></Cell>
@@ -4697,27 +4697,27 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">All element definitions must have an id</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.element.all(id) and differential.element.all(id)</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:baseDefinition)) or exists(f:derivation)</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">count(*/f:element)=count(*/f:element/f:id)</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="57.6">
     <Cell ss:StyleID="s111"><Data ss:Type="Number">15</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">No Type on the root element (snapshot)</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.snapshot</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">The first element in a snapshot has no type</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.element.first().type.empty()</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:baseDefinition)) or exists(f:derivation)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">element.first().type.empty()</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">not(f:element[1]/f:type)</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="57.6">
     <Cell ss:StyleID="s111"><Data ss:Type="String">15a</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">No Type on the root element (differential)</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.differential</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">If the first element in a differential has no &quot;.&quot; in the path, it has no type</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">differential.element.first().path.contains('.').not() implies differential.element.first().type.empty()</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:baseDefinition)) or exists(f:derivation)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">element.first().path.contains('.').not() implies element.first().type.empty()</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">not(f:element[1][not(contains(f:path/@value, '.'))]/f:type)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5016,9 +5016,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>6</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5026,14 +5026,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>2</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
