@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 15:45+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 11, 2016 19:31+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -559,10 +559,10 @@ public class CodeSystem extends BaseConformance {
     @Block()
     public static class CodeSystemFilterComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The code that identifies thise filter when it is used in the instance.
+         * The code that identifies this filter when it is used in the instance.
          */
         @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Code that identifies the filter", formalDefinition="The code that identifies thise filter when it is used in the instance." )
+        @Description(shortDefinition="Code that identifies the filter", formalDefinition="The code that identifies this filter when it is used in the instance." )
         protected CodeType code;
 
         /**
@@ -605,7 +605,7 @@ public class CodeSystem extends BaseConformance {
       }
 
         /**
-         * @return {@link #code} (The code that identifies thise filter when it is used in the instance.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @return {@link #code} (The code that identifies this filter when it is used in the instance.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
         public CodeType getCodeElement() { 
           if (this.code == null)
@@ -625,7 +625,7 @@ public class CodeSystem extends BaseConformance {
         }
 
         /**
-         * @param value {@link #code} (The code that identifies thise filter when it is used in the instance.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @param value {@link #code} (The code that identifies this filter when it is used in the instance.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
         public CodeSystemFilterComponent setCodeElement(CodeType value) { 
           this.code = value;
@@ -633,14 +633,14 @@ public class CodeSystem extends BaseConformance {
         }
 
         /**
-         * @return The code that identifies thise filter when it is used in the instance.
+         * @return The code that identifies this filter when it is used in the instance.
          */
         public String getCode() { 
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
-         * @param value The code that identifies thise filter when it is used in the instance.
+         * @param value The code that identifies this filter when it is used in the instance.
          */
         public CodeSystemFilterComponent setCode(String value) { 
             if (this.code == null)
@@ -806,7 +806,7 @@ public class CodeSystem extends BaseConformance {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("code", "code", "The code that identifies thise filter when it is used in the instance.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("code", "code", "The code that identifies this filter when it is used in the instance.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("description", "string", "A description of how or why the filter is used.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("operator", "code", "A list of operators that can be used with the filter.", 0, java.lang.Integer.MAX_VALUE, operator));
           childrenList.add(new Property("value", "string", "A description of what the value for the filter should be.", 0, java.lang.Integer.MAX_VALUE, value));

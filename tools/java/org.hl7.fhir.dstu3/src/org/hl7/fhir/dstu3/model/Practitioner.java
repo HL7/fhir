@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 15:45+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 11, 2016 19:31+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -2111,6 +2111,26 @@ Work addresses are not typically entered in this property as they are usually ro
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam GENDER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_GENDER);
+
+ /**
+   * Search parameter: <b>active</b>
+   * <p>
+   * Description: <b>Whether the practitioner record is active</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Practitioner.active</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="active", path="Practitioner.active", description="Whether the practitioner record is active", type="token" )
+  public static final String SP_ACTIVE = "active";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>active</b>
+   * <p>
+   * Description: <b>Whether the practitioner record is active</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Practitioner.active</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTIVE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTIVE);
 
  /**
    * Search parameter: <b>address-postalcode</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Jul 11, 2016 15:45+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 11, 2016 19:31+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -6749,8 +6749,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "ImagingStudy", "referrer", element.getReferrer(), -1);
     if (element.hasInterpreter())
       composeReference(t, "ImagingStudy", "interpreter", element.getInterpreter(), -1);
-    if (element.hasUrlElement())
-      composeUri(t, "ImagingStudy", "url", element.getUrlElement(), -1);
+    for (int i = 0; i < element.getBaseLocation().size(); i++)
+      composeImagingStudyStudyBaseLocationComponent(t, "ImagingStudy", "baseLocation", element.getBaseLocation().get(i), i);
     if (element.hasNumberOfSeriesElement())
       composeUnsignedInt(t, "ImagingStudy", "numberOfSeries", element.getNumberOfSeriesElement(), -1);
     if (element.hasNumberOfInstancesElement())
@@ -6761,6 +6761,22 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "ImagingStudy", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getSeries().size(); i++)
       composeImagingStudyImagingStudySeriesComponent(t, "ImagingStudy", "series", element.getSeries().get(i), i);
+  }
+
+  protected void composeImagingStudyStudyBaseLocationComponent(Complex parent, String parentType, String name, ImagingStudy.StudyBaseLocationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "baseLocation", name, element, index);
+    if (element.hasType())
+      composeCoding(t, "ImagingStudy", "type", element.getType(), -1);
+    if (element.hasUrlElement())
+      composeUri(t, "ImagingStudy", "url", element.getUrlElement(), -1);
   }
 
   protected void composeImagingStudyImagingStudySeriesComponent(Complex parent, String parentType, String name, ImagingStudy.ImagingStudySeriesComponent element, int index) {
@@ -6785,8 +6801,8 @@ public class RdfParser extends RdfParserBase {
       composeUnsignedInt(t, "ImagingStudy", "numberOfInstances", element.getNumberOfInstancesElement(), -1);
     if (element.hasAvailabilityElement())
       composeEnum(t, "ImagingStudy", "availability", element.getAvailabilityElement(), -1);
-    if (element.hasUrlElement())
-      composeUri(t, "ImagingStudy", "url", element.getUrlElement(), -1);
+    for (int i = 0; i < element.getBaseLocation().size(); i++)
+      composeImagingStudySeriesBaseLocationComponent(t, "ImagingStudy", "baseLocation", element.getBaseLocation().get(i), i);
     if (element.hasBodySite())
       composeCoding(t, "ImagingStudy", "bodySite", element.getBodySite(), -1);
     if (element.hasLaterality())
@@ -6795,6 +6811,22 @@ public class RdfParser extends RdfParserBase {
       composeDateTime(t, "ImagingStudy", "started", element.getStartedElement(), -1);
     for (int i = 0; i < element.getInstance().size(); i++)
       composeImagingStudyImagingStudySeriesInstanceComponent(t, "ImagingStudy", "instance", element.getInstance().get(i), i);
+  }
+
+  protected void composeImagingStudySeriesBaseLocationComponent(Complex parent, String parentType, String name, ImagingStudy.SeriesBaseLocationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "baseLocation", name, element, index);
+    if (element.hasType())
+      composeCoding(t, "ImagingStudy", "type", element.getType(), -1);
+    if (element.hasUrlElement())
+      composeUri(t, "ImagingStudy", "url", element.getUrlElement(), -1);
   }
 
   protected void composeImagingStudyImagingStudySeriesInstanceComponent(Complex parent, String parentType, String name, ImagingStudy.ImagingStudySeriesInstanceComponent element, int index) {
@@ -6813,12 +6845,8 @@ public class RdfParser extends RdfParserBase {
       composeUnsignedInt(t, "ImagingStudy", "number", element.getNumberElement(), -1);
     if (element.hasSopClassElement())
       composeOid(t, "ImagingStudy", "sopClass", element.getSopClassElement(), -1);
-    if (element.hasTypeElement())
-      composeString(t, "ImagingStudy", "type", element.getTypeElement(), -1);
     if (element.hasTitleElement())
       composeString(t, "ImagingStudy", "title", element.getTitleElement(), -1);
-    for (int i = 0; i < element.getContent().size(); i++)
-      composeAttachment(t, "ImagingStudy", "content", element.getContent().get(i), i);
   }
 
   protected void composeImmunization(Complex parent, String parentType, String name, Immunization element, int index) {
@@ -7347,6 +7375,8 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "Location", "status", element.getStatusElement(), -1);
     if (element.hasNameElement())
       composeString(t, "Location", "name", element.getNameElement(), -1);
+    for (int i = 0; i < element.getAlias().size(); i++)
+      composeString(t, "Location", "alias", element.getAlias().get(i), i);
     if (element.hasDescriptionElement())
       composeString(t, "Location", "description", element.getDescriptionElement(), -1);
     if (element.hasModeElement())
@@ -9103,6 +9133,8 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "Organization", "type", element.getType(), -1);
     if (element.hasNameElement())
       composeString(t, "Organization", "name", element.getNameElement(), -1);
+    for (int i = 0; i < element.getAlias().size(); i++)
+      composeString(t, "Organization", "alias", element.getAlias().get(i), i);
     for (int i = 0; i < element.getTelecom().size(); i++)
       composeContactPoint(t, "Organization", "telecom", element.getTelecom().get(i), i);
     for (int i = 0; i < element.getAddress().size(); i++)

@@ -343,7 +343,7 @@
   Type = code
   Binding = !
   Short Label = Code that identifies the filter
-  Definition = The code that identifies thise filter when it is used in the instance
+  Definition = The code that identifies this filter when it is used in the instance
 
  -- Row 25 -----------------------------------
   Element = CodeSystem.filter.description

@@ -2006,7 +2006,7 @@ public class VersionConvertor {
 		tgt.setRecorder(convertReference(src.getRecorder()));
 		tgt.setReporter(convertReference(src.getReporter()));
 		tgt.setOnset(src.getOnset());
-		tgt.setLastOccurence(src.getLastOccurence());
+		tgt.setLastOccurrence(src.getLastOccurence());
 		if (src.hasNote())
 			tgt.addNote(convertAnnotation(src.getNote()));
 		for (org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceReactionComponent t : src.getReaction())
@@ -2031,7 +2031,7 @@ public class VersionConvertor {
 		tgt.setRecorder(convertReference(src.getRecorder()));
 		tgt.setReporter(convertReference(src.getReporter()));
 		tgt.setOnset(src.getOnset());
-		tgt.setLastOccurence(src.getLastOccurence());
+		tgt.setLastOccurence(src.getLastOccurrence());
 		for (org.hl7.fhir.dstu3.model.Annotation t : src.getNote())
 			tgt.setNote(convertAnnotation(t));
 		for (org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceReactionComponent t : src.getReaction())
@@ -7789,7 +7789,6 @@ public class VersionConvertor {
 			tgt.addOrder(convertReference(t));
 		tgt.setReferrer(convertReference(src.getReferrer()));
 		tgt.setInterpreter(convertReference(src.getInterpreter()));
-		tgt.setUrl(src.getUrl());
 		tgt.setNumberOfSeries(src.getNumberOfSeries());
 		tgt.setNumberOfInstances(src.getNumberOfInstances());
 		for (org.hl7.fhir.dstu2.model.Reference t : src.getProcedure())
@@ -7818,7 +7817,6 @@ public class VersionConvertor {
 			tgt.addOrder(convertReference(t));
 		tgt.setReferrer(convertReference(src.getReferrer()));
 		tgt.setInterpreter(convertReference(src.getInterpreter()));
-		tgt.setUrl(src.getUrl());
 		tgt.setNumberOfSeries(src.getNumberOfSeries());
 		tgt.setNumberOfInstances(src.getNumberOfInstances());
 		for (org.hl7.fhir.dstu3.model.Reference t : src.getProcedure())
@@ -7864,7 +7862,6 @@ public class VersionConvertor {
 		tgt.setDescription(src.getDescription());
 		tgt.setNumberOfInstances(src.getNumberOfInstances());
 		tgt.setAvailability(convertInstanceAvailability(src.getAvailability()));
-		tgt.setUrl(src.getUrl());
 		tgt.setBodySite(convertCoding(src.getBodySite()));
 		tgt.setLaterality(convertCoding(src.getLaterality()));
 		tgt.setStarted(src.getStarted());
@@ -7884,7 +7881,6 @@ public class VersionConvertor {
 		tgt.setDescription(src.getDescription());
 		tgt.setNumberOfInstances(src.getNumberOfInstances());
 		tgt.setAvailability(convertInstanceAvailability(src.getAvailability()));
-		tgt.setUrl(src.getUrl());
 		tgt.setBodySite(convertCoding(src.getBodySite()));
 		tgt.setLaterality(convertCoding(src.getLaterality()));
 		tgt.setStarted(src.getStarted());
@@ -7901,10 +7897,7 @@ public class VersionConvertor {
 		tgt.setUid(src.getUid());
 		tgt.setNumber(src.getNumber());
 		tgt.setSopClass(src.getSopClass());
-		tgt.setType(src.getType());
 		tgt.setTitle(src.getTitle());
-		for (org.hl7.fhir.dstu2.model.Attachment t : src.getContent())
-			tgt.addContent(convertAttachment(t));
 		return tgt;
 	}
 
@@ -7916,10 +7909,7 @@ public class VersionConvertor {
 		tgt.setUid(src.getUid());
 		tgt.setNumber(src.getNumber());
 		tgt.setSopClass(src.getSopClass());
-		tgt.setType(src.getType());
 		tgt.setTitle(src.getTitle());
-		for (org.hl7.fhir.dstu3.model.Attachment t : src.getContent())
-			tgt.addContent(convertAttachment(t));
 		return tgt;
 	}
 

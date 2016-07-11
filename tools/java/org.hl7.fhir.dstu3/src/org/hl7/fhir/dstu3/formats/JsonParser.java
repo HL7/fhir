@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Jul 11, 2016 15:45+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 11, 2016 19:31+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -9774,10 +9774,12 @@ public class JsonParser extends JsonParserBase {
       res.setReferrer(parseReference(json.getAsJsonObject("referrer")));
     if (json.has("interpreter"))
       res.setInterpreter(parseReference(json.getAsJsonObject("interpreter")));
-    if (json.has("url"))
-      res.setUrlElement(parseUri(json.get("url").getAsString()));
-    if (json.has("_url"))
-      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
+    if (json.has("baseLocation")) {
+      JsonArray array = json.getAsJsonArray("baseLocation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getBaseLocation().add(parseImagingStudyStudyBaseLocationComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
     if (json.has("numberOfSeries"))
       res.setNumberOfSeriesElement(parseUnsignedInt(json.get("numberOfSeries").getAsString()));
     if (json.has("_numberOfSeries"))
@@ -9802,6 +9804,22 @@ public class JsonParser extends JsonParserBase {
         res.getSeries().add(parseImagingStudyImagingStudySeriesComponent(array.get(i).getAsJsonObject(), res));
       }
     };
+  }
+
+  protected ImagingStudy.StudyBaseLocationComponent parseImagingStudyStudyBaseLocationComponent(JsonObject json, ImagingStudy owner) throws IOException, FHIRFormatError {
+    ImagingStudy.StudyBaseLocationComponent res = new ImagingStudy.StudyBaseLocationComponent();
+    parseImagingStudyStudyBaseLocationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseImagingStudyStudyBaseLocationComponentProperties(JsonObject json, ImagingStudy owner, ImagingStudy.StudyBaseLocationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setType(parseCoding(json.getAsJsonObject("type")));
+    if (json.has("url"))
+      res.setUrlElement(parseUri(json.get("url").getAsString()));
+    if (json.has("_url"))
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
   }
 
   protected ImagingStudy.ImagingStudySeriesComponent parseImagingStudyImagingStudySeriesComponent(JsonObject json, ImagingStudy owner) throws IOException, FHIRFormatError {
@@ -9834,10 +9852,12 @@ public class JsonParser extends JsonParserBase {
       res.setAvailabilityElement(parseEnumeration(json.get("availability").getAsString(), ImagingStudy.InstanceAvailability.NULL, new ImagingStudy.InstanceAvailabilityEnumFactory()));
     if (json.has("_availability"))
       parseElementProperties(json.getAsJsonObject("_availability"), res.getAvailabilityElement());
-    if (json.has("url"))
-      res.setUrlElement(parseUri(json.get("url").getAsString()));
-    if (json.has("_url"))
-      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
+    if (json.has("baseLocation")) {
+      JsonArray array = json.getAsJsonArray("baseLocation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getBaseLocation().add(parseImagingStudySeriesBaseLocationComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
     if (json.has("bodySite"))
       res.setBodySite(parseCoding(json.getAsJsonObject("bodySite")));
     if (json.has("laterality"))
@@ -9852,6 +9872,22 @@ public class JsonParser extends JsonParserBase {
         res.getInstance().add(parseImagingStudyImagingStudySeriesInstanceComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
+  }
+
+  protected ImagingStudy.SeriesBaseLocationComponent parseImagingStudySeriesBaseLocationComponent(JsonObject json, ImagingStudy owner) throws IOException, FHIRFormatError {
+    ImagingStudy.SeriesBaseLocationComponent res = new ImagingStudy.SeriesBaseLocationComponent();
+    parseImagingStudySeriesBaseLocationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseImagingStudySeriesBaseLocationComponentProperties(JsonObject json, ImagingStudy owner, ImagingStudy.SeriesBaseLocationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setType(parseCoding(json.getAsJsonObject("type")));
+    if (json.has("url"))
+      res.setUrlElement(parseUri(json.get("url").getAsString()));
+    if (json.has("_url"))
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
   }
 
   protected ImagingStudy.ImagingStudySeriesInstanceComponent parseImagingStudyImagingStudySeriesInstanceComponent(JsonObject json, ImagingStudy owner) throws IOException, FHIRFormatError {
@@ -9874,20 +9910,10 @@ public class JsonParser extends JsonParserBase {
       res.setSopClassElement(parseOid(json.get("sopClass").getAsString()));
     if (json.has("_sopClass"))
       parseElementProperties(json.getAsJsonObject("_sopClass"), res.getSopClassElement());
-    if (json.has("type"))
-      res.setTypeElement(parseString(json.get("type").getAsString()));
-    if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
     if (json.has("title"))
       res.setTitleElement(parseString(json.get("title").getAsString()));
     if (json.has("_title"))
       parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
-    if (json.has("content")) {
-      JsonArray array = json.getAsJsonArray("content");
-      for (int i = 0; i < array.size(); i++) {
-        res.getContent().add(parseAttachment(array.get(i).getAsJsonObject()));
-      }
-    };
   }
 
   protected Immunization parseImmunization(JsonObject json) throws IOException, FHIRFormatError {
@@ -10674,6 +10700,21 @@ public class JsonParser extends JsonParserBase {
       res.setNameElement(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("alias")) {
+      JsonArray array = json.getAsJsonArray("alias");
+      for (int i = 0; i < array.size(); i++) {
+        res.getAlias().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_alias")) {
+      JsonArray array = json.getAsJsonArray("_alias");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getAlias().size())
+          res.getAlias().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getAlias().get(i));
+      }
+    };
     if (json.has("description"))
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
@@ -13100,6 +13141,21 @@ public class JsonParser extends JsonParserBase {
       res.setNameElement(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("alias")) {
+      JsonArray array = json.getAsJsonArray("alias");
+      for (int i = 0; i < array.size(); i++) {
+        res.getAlias().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_alias")) {
+      JsonArray array = json.getAsJsonArray("_alias");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getAlias().size())
+          res.getAlias().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getAlias().get(i));
+      }
+    };
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
@@ -29698,10 +29754,12 @@ public class JsonParser extends JsonParserBase {
       if (element.hasInterpreter()) {
         composeReference("interpreter", element.getInterpreter());
       }
-      if (element.hasUrlElement()) {
-        composeUriCore("url", element.getUrlElement(), false);
-        composeUriExtras("url", element.getUrlElement(), false);
-      }
+      if (element.hasBaseLocation()) {
+        openArray("baseLocation");
+        for (ImagingStudy.StudyBaseLocationComponent e : element.getBaseLocation()) 
+          composeImagingStudyStudyBaseLocationComponent(null, e);
+        closeArray();
+      };
       if (element.hasNumberOfSeriesElement()) {
         composeUnsignedIntCore("numberOfSeries", element.getNumberOfSeriesElement(), false);
         composeUnsignedIntExtras("numberOfSeries", element.getNumberOfSeriesElement(), false);
@@ -29726,6 +29784,25 @@ public class JsonParser extends JsonParserBase {
           composeImagingStudyImagingStudySeriesComponent(null, e);
         closeArray();
       };
+  }
+
+  protected void composeImagingStudyStudyBaseLocationComponent(String name, ImagingStudy.StudyBaseLocationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeImagingStudyStudyBaseLocationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeImagingStudyStudyBaseLocationComponentInner(ImagingStudy.StudyBaseLocationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasType()) {
+        composeCoding("type", element.getType());
+      }
+      if (element.hasUrlElement()) {
+        composeUriCore("url", element.getUrlElement(), false);
+        composeUriExtras("url", element.getUrlElement(), false);
+      }
   }
 
   protected void composeImagingStudyImagingStudySeriesComponent(String name, ImagingStudy.ImagingStudySeriesComponent element) throws IOException {
@@ -29761,10 +29838,12 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("availability", element.getAvailabilityElement(), new ImagingStudy.InstanceAvailabilityEnumFactory(), false);
         composeEnumerationExtras("availability", element.getAvailabilityElement(), new ImagingStudy.InstanceAvailabilityEnumFactory(), false);
       }
-      if (element.hasUrlElement()) {
-        composeUriCore("url", element.getUrlElement(), false);
-        composeUriExtras("url", element.getUrlElement(), false);
-      }
+      if (element.hasBaseLocation()) {
+        openArray("baseLocation");
+        for (ImagingStudy.SeriesBaseLocationComponent e : element.getBaseLocation()) 
+          composeImagingStudySeriesBaseLocationComponent(null, e);
+        closeArray();
+      };
       if (element.hasBodySite()) {
         composeCoding("bodySite", element.getBodySite());
       }
@@ -29781,6 +29860,25 @@ public class JsonParser extends JsonParserBase {
           composeImagingStudyImagingStudySeriesInstanceComponent(null, e);
         closeArray();
       };
+  }
+
+  protected void composeImagingStudySeriesBaseLocationComponent(String name, ImagingStudy.SeriesBaseLocationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeImagingStudySeriesBaseLocationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeImagingStudySeriesBaseLocationComponentInner(ImagingStudy.SeriesBaseLocationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasType()) {
+        composeCoding("type", element.getType());
+      }
+      if (element.hasUrlElement()) {
+        composeUriCore("url", element.getUrlElement(), false);
+        composeUriExtras("url", element.getUrlElement(), false);
+      }
   }
 
   protected void composeImagingStudyImagingStudySeriesInstanceComponent(String name, ImagingStudy.ImagingStudySeriesInstanceComponent element) throws IOException {
@@ -29805,20 +29903,10 @@ public class JsonParser extends JsonParserBase {
         composeOidCore("sopClass", element.getSopClassElement(), false);
         composeOidExtras("sopClass", element.getSopClassElement(), false);
       }
-      if (element.hasTypeElement()) {
-        composeStringCore("type", element.getTypeElement(), false);
-        composeStringExtras("type", element.getTypeElement(), false);
-      }
       if (element.hasTitleElement()) {
         composeStringCore("title", element.getTitleElement(), false);
         composeStringExtras("title", element.getTitleElement(), false);
       }
-      if (element.hasContent()) {
-        openArray("content");
-        for (Attachment e : element.getContent()) 
-          composeAttachment(null, e);
-        closeArray();
-      };
   }
 
   protected void composeImmunization(String name, Immunization element) throws IOException {
@@ -30668,6 +30756,18 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("name", element.getNameElement(), false);
         composeStringExtras("name", element.getNameElement(), false);
       }
+      if (element.hasAlias()) {
+        openArray("alias");
+        for (StringType e : element.getAlias()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getAlias())) {
+          openArray("_alias");
+          for (StringType e : element.getAlias()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
         composeStringExtras("description", element.getDescriptionElement(), false);
@@ -33351,6 +33451,18 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("name", element.getNameElement(), false);
         composeStringExtras("name", element.getNameElement(), false);
       }
+      if (element.hasAlias()) {
+        openArray("alias");
+        for (StringType e : element.getAlias()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getAlias())) {
+          openArray("_alias");
+          for (StringType e : element.getAlias()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
       if (element.hasTelecom()) {
         openArray("telecom");
         for (ContactPoint e : element.getTelecom()) 
