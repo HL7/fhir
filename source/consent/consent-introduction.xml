@@ -39,8 +39,8 @@ to delegate authority to a Substitute Decision Maker who may act on behalf of th
 <!-- Healthcare Consumer.  The individual establishing his/her personal consent (i.e. Consenter) -->
 
 Alternatively, a client may author/publish their privacy preferences as a self-declared Privacy Consent Directive.  
-<p>
 </p>
+<p>
 The Consent resource on FHIR provides support for alternative representations for expressing 
 health information privacy consent directives in a standard form for the exchange of privacy policies 
 that can be enforced by consuming systems (e.g., scanned documents, computable structured entries).

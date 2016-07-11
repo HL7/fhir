@@ -12803,6 +12803,21 @@
     <display value="Self-help group support (finding)"/>
     <display value="Self-help group support"/>
   </concept>
+  <concept id="27658006" display="Amoxicillin (product)">
+    <display value="Amoxicillin (product)"/>
+    <display value="Amoxycillin product"/>
+    <display value="Amoxicilline"/>
+    <display value="Amoxicillin"/>
+    <display value="Amoxicilline"/>
+    <display value="Amoxicillin"/>
+    <display value="Amoxicillin product"/>
+    <display value="Amoxicillin"/>
+    <display value="p-Hydroxyampicillin"/>
+    <display value="BRL 2333"/>
+    <display value="Amoxycillin"/>
+    <display value="Amoxicilline"/>
+    <display value="Amoxicillin (substance)"/>
+  </concept>
   <concept id="276986009" display="Antepartum (qualifier value)">
     <display value="Antepartum"/>
     <display value="Antepartum (qualifier value)"/>
