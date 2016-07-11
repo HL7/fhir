@@ -10790,7 +10790,7 @@
     <Cell ss:StyleID="s144"><Data ss:Type="String">The reference to the patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"><Data ss:Type="String">claimindentifier</Data></Cell>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">claimidentifier</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s143"><Data ss:Type="String">ExplanationOfBenefit.claimIdentifier</Data></Cell>

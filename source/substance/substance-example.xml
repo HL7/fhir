@@ -8,7 +8,7 @@
   </text>
 -->
   <identifier>
-		<system value="http://acme.org/indentifiers/substances"/>
+		<system value="http://acme.org/identifiers/substances"/>
 		<value value="1463"/>
 	</identifier>
 	<category>

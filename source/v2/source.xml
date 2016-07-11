@@ -19843,7 +19843,7 @@ les">
       <item code="SS" desc="Social Security Number"/>
       <item code="VN" desc="Visit Number"/>
       <item code="VS" desc="VISA"/>
-      <item code="XX" desc="Organizaiton Indentifier"/>
+      <item code="XX" desc="Organization Identifier"/>
     </version>
     <version version="2.3.1" desc="Identifier type">
       <item code="AM" desc="American Express"/>
