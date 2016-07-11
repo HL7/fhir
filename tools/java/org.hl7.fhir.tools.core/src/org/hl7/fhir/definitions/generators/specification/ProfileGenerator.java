@@ -243,7 +243,6 @@ public class ProfileGenerator {
     ec.setComments(type.getComment());
     ec.setMin(0);
     ec.setMax("*");
-    ec.getType().add(new TypeRefComponent().setCode("Element"));
     ec = new ElementDefinition();
     p.getDifferential().getElement().add(ec);
     ec.setId(type.getCode()+".value");
@@ -278,7 +277,6 @@ public class ProfileGenerator {
     ec1.setShort("Primitive Type " +type.getCode());
     ec1.setDefinition(type.getDefinition());
     ec1.setComments(type.getComment());
-    ec1.getType().add(new TypeRefComponent().setCode("Element"));
     ec1.setMin(0);
     ec1.setMax("*");
     generateElementDefinition(ec1, null);
@@ -371,7 +369,6 @@ public class ProfileGenerator {
     ec.setDefinition("XHTML");
     ec.setMin(0);
     ec.setMax("*");
-    ec.getType().add(new TypeRefComponent().setCode("Element"));
     ec = new ElementDefinition();
     p.getDifferential().getElement().add(ec);
     ec.setId("xhtml"+".extension");
@@ -402,7 +399,6 @@ public class ProfileGenerator {
     ec1.setShort("Primitive Type " +"xhtml");
     ec1.setDefinition("XHTML");
     ec1.setMin(0);
-    ec1.getType().add(new TypeRefComponent().setCode("Element"));
     ec1.setMin(0);
     ec1.setMax("*");
     generateElementDefinition(ec1, null);
@@ -493,7 +489,6 @@ public class ProfileGenerator {
     ec1.setComments(type.getComment());
     ec1.setMin(0);
     ec1.setMax("*");
-    ec1.getType().add(new TypeRefComponent().setCode("Element"));
 
     ElementDefinition ec2 = new ElementDefinition();
     p.getDifferential().getElement().add(ec2);
@@ -525,7 +520,6 @@ public class ProfileGenerator {
     ecA.setShort("Primitive Type " +type.getCode());
     ecA.setDefinition(type.getDefinition());
     ecA.setComments(type.getComment());
-    ecA.getType().add(new TypeRefComponent().setCode("Element"));
     ecA.setMin(0);
     ecA.setMax("*");
     ecA.getBase().setPath(type.getCode());
@@ -613,10 +607,6 @@ public class ProfileGenerator {
 
     p.getDifferential().getElement().get(0).getType().clear();
     p.getSnapshot().getElement().get(0).getType().clear();
-    if (!t.getName().equals("Element")) {
-      p.getDifferential().getElement().get(0).addType().setCode("Element");
-      p.getSnapshot().getElement().get(0).addType().setCode("Element");
-    }
     p.getSnapshot().getElement().get(0).setIsSummaryElement(null);
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
@@ -716,9 +706,7 @@ public class ProfileGenerator {
 //      generateElementDefinition(ed, getParent(ed, p.getSnapshot().getElement()));
 
     p.getDifferential().getElement().get(0).getType().clear();
-    p.getDifferential().getElement().get(0).addType().setCode(pt.getBaseType());
     p.getSnapshot().getElement().get(0).getType().clear();
-    p.getSnapshot().getElement().get(0).addType().setCode(pt.getBaseType());
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addTag("h2").addText("Data type "+pt.getName());
     div.addTag("p").addText(pt.getDefinition());
@@ -818,15 +806,8 @@ public class ProfileGenerator {
     }
     containedSlices.clear();
 
-    if (r.getName().equals("Resource")) {
-      p.getDifferential().getElement().get(0).getType().clear();
-      p.getSnapshot().getElement().get(0).getType().clear();
-    } else {
-      p.getDifferential().getElement().get(0).getType().clear();
-      p.getDifferential().getElement().get(0).addType().setCode(r.getRoot().typeCode());
-      p.getSnapshot().getElement().get(0).getType().clear();
-      p.getSnapshot().getElement().get(0).addType().setCode(r.getRoot().typeCode());
-    }
+    p.getDifferential().getElement().get(0).getType().clear();
+    p.getSnapshot().getElement().get(0).getType().clear();
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addText("to do");
     p.setText(new Narrative());
@@ -926,9 +907,7 @@ public class ProfileGenerator {
     reset();
 
     p.getDifferential().getElement().get(0).getType().clear();
-    p.getDifferential().getElement().get(0).addType().setCode(p.getSnapshot().getElement().get(0).getPath());
     p.getSnapshot().getElement().get(0).getType().clear();
-    p.getSnapshot().getElement().get(0).addType().setCode(p.getSnapshot().getElement().get(0).getPath());
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addText("to do");
@@ -1711,9 +1690,15 @@ public class ProfileGenerator {
   }
 
   private void checkHasTypes(StructureDefinition p) {
-    for (ElementDefinition ed : p.getSnapshot().getElement())
-      if (!ed.hasType() && !ed.hasContentReference() && !(ed.getPath().equals("Resource") || ed.getPath().equals("Element")) && !ed.hasRepresentation())
-        throw new Error("No Type on "+ed.getPath());
+    for (ElementDefinition ed : p.getSnapshot().getElement()) {
+      if (ed.getPath().contains(".")) {
+        if (!ed.hasType() && !ed.hasContentReference() && !(ed.getPath().equals("Resource") || ed.getPath().equals("Element")) && !ed.hasRepresentation())
+          throw new Error("No Type on "+ed.getPath());
+      } else {
+        if (ed.hasType())
+          throw new Error("Type on "+ed.getPath());
+      }
+    }
   }
 
   public StructureDefinition generateLogicalModel(ImplementationGuideDefn igd, ResourceDefn r) throws Exception {
