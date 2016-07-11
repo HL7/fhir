@@ -137,8 +137,8 @@
   Element = Consent
   UML = 0;0
   Type = DomainResource
-  Short Label = Information about a healthcare consumer’s consent statements
-  Definition = Information about a healthcare consumer’s consent - a series of statements regard their agreement (or lack thereof) to various health-related procedures, in accordance with governing jurisdictional and organizational, and patient authored  privacy policies that grant or withhold consent:
+  Short Label = A healthcare consumer’s policy choices to permits or denies recipients or roles to perform actions for specific purposes and periods of time
+  Definition = A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time
   Comments = Broadly, there are 3 key areas of consent for patients: Consent around sharing information (aka Privacy Consent Directive - Authorization to Collect, Use, or Disclose information), consent for specific treatment, or kinds of treatment, and general advance care directives
   RIM Mapping = FinancialConsent
   w5 = infrastructure.information
@@ -210,7 +210,7 @@
   Summary = Y
   Type = Reference(Patient)
   Short Label = Who the consent applies to
-  Definition = The patient to whom this consent applies.
+  Definition = The patient/healthcare consumer to whom this consent applies.
   Comments = Commonly, the patient the consent pertains to is the author, but for young and old people, it may be some other person
   RIM Mapping = Role
   w5 = who.focus
@@ -221,8 +221,8 @@
   Summary = Y
   Type = Reference(Organization|Patient|Practitioner|RelatedPerson)
   Short Label = Who is agreeing to the policy and exceptions
-  Definition = Who is responsible for agreeing to the consent represented by this resource. This is the person (usually) that agreed to the policy, along with the exceptions, e.g. the persion who takes responsibility for the agreement. In the signature this corresponds to the role \"Consent Signature\"
-  Comments = Commonly, the patient the consent pertains to is the author, but particularly for young and old people, it may be some other person
+  Definition = The patient/consumer that is responsible for agreeing to the consent represented by this resource. This is the person (usually) that agreed to the policy, along with the exceptions, e.g. the persion who takes responsibility for the agreement. In the signature this corresponds to the role \"Consent Signature\"
+  Comments = Commonly, the patient the consent pertains to is the consentor, but particularly for young and old people, it may be some other person - e.g. a legal guardian
   w5 = who.actor
 
  -- Row 9 -----------------------------------

@@ -6,7 +6,7 @@
 <a name="PCD"> Privacy Consent Directive (PCD) </a>
 
 <p>
-The purpose of this Resource is to be used to express a Consent regarding Healthcare. There are 3 principle
+The purpose of this Resource is to be used to express a Consent regarding Healthcare. There are 3 possible
 uses for consent:
 </p>
 <ul>
@@ -22,18 +22,30 @@ investigated and tested.
 <h3>Privacy and Consent</h3>
 <p>
 Privacy policies define how Individually Identifiable Health Information (IIHI) is to be collected, accessed, 
-used and disclosed.  A Privacy Consent Directive is a record of a client’s (e.g., patient, consumer) 
-health information privacy policy.  A Privacy Consent Directive grants or withholds authorization to collect, 
-access, use, or disclose IIHI about the client. A client may author/publish their privacy preferences as a 
-self-declared Privacy Consent Directive.  Effective Privacy Consent Directives are a bilateral agreement between 
-the client and an individual/organization that is in accord with law, regulation and organizational policies with 
-regard to their content. In addition, Privacy Consent Directives provide the ability for a healthcare client 
+used and disclosed.  
+
+A Privacy Consent Directive as a legal record of a healthcare consumer's agreement with a party responsible 
+for enforcing the patient's choices, which permits or denies identified actors or roles to perform actions 
+affecting the patient within a given context for specific purposes and periods of time.
+
+It grants or withholds authorization to collect, access, use, or disclose IIHI about the client. 
+
+All consent directives have a policy context, which is any set of organizational or jurisdictional policies
+which may limit the consumer’s policy choices, and which include a named range of actions allowed.
+
+In addition, Privacy Consent Directives provide the ability for a healthcare client 
 to delegate authority to a Substitute Decision Maker who may act on behalf of that individual.
-</p>
+
+<!-- Healthcare Consumer.  The individual establishing his/her personal consent (i.e. Consenter) -->
+
+Alternatively, a client may author/publish their privacy preferences as a self-declared Privacy Consent Directive.  
 <p>
-The Privacy Consent Directive resource on FHIR provides support for alternative representations for expressing 
+</p>
+The Consent resource on FHIR provides support for alternative representations for expressing 
 health information privacy consent directives in a standard form for the exchange of privacy policies 
 that can be enforced by consuming systems (e.g., scanned documents, computable structured entries).
+It may be used to represent the Privacy Consent Directive itself, or a derived consent statement 
+that is not the original Consent Directive.
 </p>
 </div>
 

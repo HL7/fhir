@@ -145,7 +145,7 @@
   Card. = 0..1
   Type = Identifier|Reference(Practitioner)
   Short Label = Responsible practitioner
-  Definition = The practitioner who is responsible for the action specified in thise request.
+  Definition = The practitioner who is responsible for the action specified in this request.
   CDAnet v4 Mapping = B01
 
  -- Row 11 -----------------------------------
@@ -153,7 +153,7 @@
   Card. = 0..1
   Type = Identifier|Reference(Organization)
   Short Label = Responsible organization
-  Definition = The organization which is responsible for the action speccified in thise request.
+  Definition = The organization which is responsible for the action speccified in this request.
 
  -- Row 12 -----------------------------------
   Element = ProcessRequest.request[x]

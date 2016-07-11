@@ -136,6 +136,29 @@ to some other content that is not a resource. The Reference type is only used to
 directly, by their logical id.
 </p>
 
+<h3>Canonical URLs</h3>
+<p>
+Many resource types have a defined element "url" which is the canonical URL that always identifies the 
+resource. These include all the conformance and knowledge resources (most of the resources 
+not found in the <a href="compartmentdefinition-patient.html">Patient Compartment</a>).
+</p>
+<p>
+The canonical URL remains the same when the resource is copied from server to server, while the logical
+id of the resource - it's local identifier - usually changes as the resource is copied. The canonical
+URL serves as a stable logical identifier for the conformance artifact, and <b>is the preferred 
+way to reference a conformance or knowledge resource</b>. The canonical URL is also the location where the master copy of
+the artifact is found. 
+</p>
+<p>
+Systems resolving references to resources that might have cannonical URLs SHOULD first
+try to resolve the reference using the cannonical URL, and then fall back to direct 
+resolution against the URL if a local version of the canonical resource cannot be found.
+This approach is safe because the local version cannot be a different artifact that the 
+master copy, though implementations will need to make appropriate arrangements regarding
+the currency of their local copy of the artifact.
+</p>
+
+
 <a name="contained"> </a>
 <h3>Contained Resources</h3>
 <p>

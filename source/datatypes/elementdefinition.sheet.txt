@@ -796,7 +796,7 @@
   Inv. = 10,12
   Type = uri | Reference(ValueSet)
   Short Label = Source of value set
-  Definition = Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used
+  Definition = Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri
   Comments = For value sets with a referenceResource, the display can contain the value set description.  The reference may be version-specific or not
   IHE DEX mapping = valueDomain.valueSet
   RIM Mapping = N/A (MIF territory)
