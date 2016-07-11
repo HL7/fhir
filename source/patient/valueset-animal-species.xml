@@ -14,9 +14,20 @@
     </telecom>
   </contact>
   <description value="This example value set defines a set of codes that can be used to indicate species of animal patients."/>
+	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/animal-species"/>
+      <system value="http://snomed.info/sct"/>
+		<concept><code value="125097000"/><display value="goat"/></concept>
+		<concept><code value="125099002"/><display value="sheep"/></concept>
+		<concept><code value="34618005"/><display value="cow"/></concept>
+		<concept><code value="425134008"/><display value="turkey"/></concept>
+		<concept><code value="47290002"/><display value="chicken"/></concept>
+		<concept><code value="15778005"/><display value="goose"/></concept>
+		<concept><code value="396620009"/><display value="duck"/></concept>
+		<concept><code value="388445009"/><display value="horse"/></concept>
+		<concept><code value="85626006"/><display value="donkey"/></concept>
+		<concept><code value="132950000"/><display value="mule"/></concept>
     </include>
   </compose>
 </ValueSet>
