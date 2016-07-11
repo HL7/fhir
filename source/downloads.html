@@ -113,38 +113,65 @@
   </tr>
 
   <tr>
-    <td colspan="2">These reference implementations are provided for implementer interest and assistance. 
-They may be used in production instances, although HL7 and the contributors accept no liability for their 
-use.  These implementations are provided under a standard OSI-approved license (mostly BSD-3-Clause).
-<br/> 
-<br/> 
-<span style="color: Maroon">Note that these reference implementations are provided to assist to 
-implementers to adopt the specification, and are maintained by the FHIR project team, but are not 
-part of the specification, and implementations are not required to conform to these, nor are they 
-subject to the formal standards process.</span>
-<br/> 
-<br/> 
+    <td colspan="2">
+    There are many open source reference implementations available to help implementers.
+    Here are a list of the more common implementations used by implementers:
     </td>
   </tr>
+    
+  <tr>
+   <td>Java</td>
+   <td>
+     <a href="http://jamesagnew.github.io/hapi-fhir/">HAPI-FHIR</a>: 
+     Object Models, Parsers, Client + Server Framework, FHIR Validator, &amp; Utilities. The specification is built with this Java code
+   </td>
+  </tr>
+  <tr>
+   <td>C#</td>
+   <td>
+    <a href="http://www.nuget.org/packages/Hl7.Fhir">HL7.FHIR</a>: 
+    Object models, Parsers/Serialisers, Utilities, and a Client. Source code on GitHub at <a href="http://github.com/ewoutkramer/fhir-net-api">http://github.com/ewoutkramer/fhir-net-api</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Pascal</td>
+   <td>
+    <a href="http://github.com/grahamegrieve/fhirserver">FhirServer</a>: 
+    Object models, Parsers/Serialisers, Validator, Utilities, Client, and the FHIR Reference server. Requires <a href="https://www.embarcadero.com/products/delphi">Delphi</a> (unicode verions)
+   </td>
+  </tr>
+  <tr>
+   <td>XML</td>
+   <td>
+    <a href="fhir-1.5.0-XML Tools-0.01.zip">XML Tools</a>: 
+    Document Rendering Stylesheet, supplementary implementation schemas and transforms
+   </td>
+  </tr>
+  <tr>
+   <td>Javascript</td>
+   <td>
+    <a href="https://github.com/FHIR/fhir.js">FHIR.js</a>: 
+    Javascript Client and Utilities
+   </td>
+  </tr>
+  <tr>
+   <td>Swift</td>
+   <td>
+    <a href="https://github.com/smart-on-fhir/Swift-FHIR">Swift-FHIR</a>: 
+    Object Model, Client and Utilities
+   </td>
+  </tr>  
+ </table>    
 
-  <%impllist%>
-  
-</table>
 <p>
-Other reference implementations not distributed with the specification:
+Note: These reference implementations are provided for implementer interest and assistance. 
+While they may be used (and are) in production system, HL7 and their various contributors accept no 
+liability for their use. <span style="color: Maroon">Note that these reference implementations are 
+provided to assist to implementers to adopt the specification, and some are maintained by the FHIR 
+project team, but are not part of the specification, and implementations are not required to 
+conform to these, nor are they subject to the formal standards process.</span>
 </p>
-<ul>
- <li><a href="https://github.com/smart-on-fhir/Swift-FHIR">Swift-FHIR</a> - reference implementation for <a href="https://developer.apple.com/swift/">Swift</a></li>
- <li><a href="http://jamesagnew.github.io/hapi-fhir/">HAPI-FHIR</a> - reference implementation for <a href="https://www.oracle.com/java/index.html">Java</a></li>
-</ul>
 <hr/>
-<p>
-Note that the reference implementations are generally limited to code for representing the 
-resource contents in their native form and parsing and serializing them as 
-XML and JSON. Some of the implementations provide support for 
-building, using and reasoning with resource definitions. A few implementations include
-a client that conforms to the RESTful API.
-</p>
 <p>
 Full blown open source implementations for FHIR, some of which use these reference implementations, are
 listed on the <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">HL7 wiki</a>.
