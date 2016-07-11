@@ -93,6 +93,14 @@ In FHIR, Code Pairs are always represented as "code" and "system", except for th
 data type where the namespace (e.g. the system element/property) is fixed in the schema and not
 represented explicitly. 
 </p>
+<p>
+Note that for some code systems, there is a single correct machanism by which to represent
+codes defined by the system as a single URL. These single URLs are used in the context of
+the <a href="rdf.html#concept">RDF</a> format to enable ontological reasoning. The URL is
+often a direct reference to a web source that can provide additional definitional material
+about the concept. Where the mechanism is known and defined by the code system, it is 
+described in this specification.
+</p>
 
 <a name="system"> </a>
 <h2>Choosing a system</h2>
