@@ -2241,9 +2241,6 @@
       <definition value="A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:   • To one or more identified entities in a defined role   • To perform one or more operations (e.g. collect, access, use, disclose, amend, or delete)   • On an instance or type of individually identifiable health information [IIHI]  • For a purpose such as treatment, payment, operations, research, public health, quality measures, health status evaluation by third parties, or marketing   • Under certain conditions, e.g. when unconscious   • For specified time period, e.g. effective and expiration dates   • In certain context, e.g. in an emergency   A consent directive is an instance of governing jurisdictional and organization privacy policies, which may or may not be backed up by a signed document (paper or electronic). [HITSP TP30]." />
       <min value="0" />
       <max value="*" />
-      <type>
-        <code value="Contract" />
-      </type>
       <mapping>
         <identity value="rim" />
         <map value="FinancialContract" />
