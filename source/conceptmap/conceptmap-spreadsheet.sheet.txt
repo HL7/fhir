@@ -306,10 +306,11 @@
 
  -- Row 32 -----------------------------------
   Element = ConceptMap.group.element.target.dependsOn.system
-  Card. = 1..1
+  Card. = 0..1
   Type = uri
   Short Label = Code System (if necessary)
   Definition = An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems)
+  Missing Meaning = The code is in the source (dependsOn) or target (product) system
 
  -- Row 33 -----------------------------------
   Element = ConceptMap.group.element.target.dependsOn.code
