@@ -48,9 +48,9 @@
     <reference value="Practitioner/example"/>
   </recorder>
 
-  <!-- last happened June 2012. Typically, systems either track lastOccurence,
+  <!-- last happened June 2012. Typically, systems either track lastOccurrence,
      or a list of events. -->
-  <lastOccurence value="2012-06"/>
+  <lastOccurrence value="2012-06"/>
 
   <!-- past events. There's no claim that this is all the events, and
      that should not be assumed -->
