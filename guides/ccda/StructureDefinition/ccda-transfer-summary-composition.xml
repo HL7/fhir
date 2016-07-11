@@ -42,9 +42,6 @@
         <min value="0" />
         <max value="*" />
       </base>
-      <type>
-        <code value="Composition" />
-      </type>
     </element>
     <element>
       <path value="Composition.identifier.type" />

@@ -55,9 +55,6 @@
             <alias value="SubjectOfCare Client Resident"/>
             <min value="0"/>
             <max value="*"/>
-            <type>
-                <code value="Patient"/>
-            </type>
             <mapping>
                 <identity value="rim"/>
                 <map value="Patient[classCode=PAT]"/>

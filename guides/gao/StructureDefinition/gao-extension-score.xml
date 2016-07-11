@@ -33,9 +33,6 @@
       <definition value="Optional Extensions Element - found in all resources."></definition>
       <min value="0"></min>
       <max value="*"></max>
-      <type>
-        <code value="Element"></code>
-      </type>
       
     </element>
     <element>

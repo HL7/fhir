@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sun, Jul 10, 2016 20:31+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 11, 2016 15:45+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -2054,10 +2054,10 @@ public class JsonParser extends JsonParserBase {
       res.setOnsetElement(parseDateTime(json.get("onset").getAsString()));
     if (json.has("_onset"))
       parseElementProperties(json.getAsJsonObject("_onset"), res.getOnsetElement());
-    if (json.has("lastOccurence"))
-      res.setLastOccurenceElement(parseDateTime(json.get("lastOccurence").getAsString()));
-    if (json.has("_lastOccurence"))
-      parseElementProperties(json.getAsJsonObject("_lastOccurence"), res.getLastOccurenceElement());
+    if (json.has("lastOccurrence"))
+      res.setLastOccurrenceElement(parseDateTime(json.get("lastOccurrence").getAsString()));
+    if (json.has("_lastOccurrence"))
+      parseElementProperties(json.getAsJsonObject("_lastOccurrence"), res.getLastOccurrenceElement());
     if (json.has("note")) {
       JsonArray array = json.getAsJsonArray("note");
       for (int i = 0; i < array.size(); i++) {
@@ -21256,9 +21256,9 @@ public class JsonParser extends JsonParserBase {
         composeDateTimeCore("onset", element.getOnsetElement(), false);
         composeDateTimeExtras("onset", element.getOnsetElement(), false);
       }
-      if (element.hasLastOccurenceElement()) {
-        composeDateTimeCore("lastOccurence", element.getLastOccurenceElement(), false);
-        composeDateTimeExtras("lastOccurence", element.getLastOccurenceElement(), false);
+      if (element.hasLastOccurrenceElement()) {
+        composeDateTimeCore("lastOccurrence", element.getLastOccurrenceElement(), false);
+        composeDateTimeExtras("lastOccurrence", element.getLastOccurrenceElement(), false);
       }
       if (element.hasNote()) {
         openArray("note");

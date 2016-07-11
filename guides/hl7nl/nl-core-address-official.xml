@@ -34,9 +34,6 @@
             <definition value="Mark an address as an 'officially registered' address. In Dutch context that means it is registered in the Basisregistratie persoonsgegevens (BRP)"/>
             <min value="0"/>
             <max value="*"/>
-            <type>
-                <code value="Element"/>
-            </type>
         </element>
         <element>
             <path value="Extension.url"/>

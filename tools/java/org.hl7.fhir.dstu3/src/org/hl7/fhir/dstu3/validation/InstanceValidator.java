@@ -1110,18 +1110,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }  
 
   private String getBaseType(StructureDefinition profile, String pr)  {
-    // if (pr.startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-    // // this just has to be a base type
-    // return pr.substring(40);
-    // } else {
     StructureDefinition p = resolveProfile(profile, pr);
     if (p == null)
       return null;
-    else if (p.getKind() == StructureDefinitionKind.RESOURCE)
-      return p.getSnapshot().getElement().get(0).getPath();
-    else
-      return p.getSnapshot().getElement().get(0).getType().get(0).getCode();
-    // }
+    else 
+      return p.getType();
   }
 
   @Override

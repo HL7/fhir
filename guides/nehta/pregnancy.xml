@@ -87,9 +87,6 @@ Not to be used to record a general menstrual history summary or diary - separate
       <definition value="Overview or summary record of a pregnancy including the antenatal period, labour, birth and the immediate postnatal period."/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="LogicalModel"/>
-      </type>
     </element>
     <element>
       <path value="PregnancySummary.assistedReproduction"/>

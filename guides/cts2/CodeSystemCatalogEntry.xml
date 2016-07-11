@@ -30,9 +30,6 @@
             <min value="0"/>
             <max value="*"/>
          </base>
-         <type>
-            <code value="AbstractResourceDescription"/>
-         </type>
       </element>
       <element>
          <path value="CodeSystemCatalogEntry.codeSystemName"/>

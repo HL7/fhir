@@ -38,9 +38,6 @@
       <alias value="Request"></alias>
       <min value="0"></min>
       <max value="*"></max>
-      <type>
-        <code value="Order"></code>
-      </type>
       <isSummary value="true"></isSummary>
       
       

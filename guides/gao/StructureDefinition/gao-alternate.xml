@@ -38,9 +38,6 @@
       <alias value="Custom-resource"/>
       <min value="0"/>
       <max value="*"/>
-      <type>
-        <code value="Basic"/>
-      </type>
       <isSummary value="true"/>
     </element>
     <element>

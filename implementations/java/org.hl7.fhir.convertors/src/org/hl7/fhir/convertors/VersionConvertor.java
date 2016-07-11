@@ -12557,6 +12557,8 @@ public class VersionConvertor {
 		tgt.setDerivation(src.hasConstrainedType() ?  org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule.CONSTRAINT : org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule.SPECIALIZATION);
 		tgt.setSnapshot(convertStructureDefinitionSnapshotComponent(src.getSnapshot()));
 		tgt.setDifferential(convertStructureDefinitionDifferentialComponent(src.getDifferential()));
+		tgt.getSnapshot().getElementFirstRep().getType().clear();
+		tgt.getDifferential().getElementFirstRep().getType().clear();
 		return tgt;
 	}
 
@@ -12596,10 +12598,20 @@ public class VersionConvertor {
 		tgt.setBase(src.getBaseDefinition());
 		tgt.setSnapshot(convertStructureDefinitionSnapshotComponent(src.getSnapshot()));
 		tgt.setDifferential(convertStructureDefinitionDifferentialComponent(src.getDifferential()));
+		if (tgt.hasBase()) {
+		  if (tgt.hasDifferential()) 
+		    tgt.getDifferential().getElement().get(0).addType().setCode(tail(tgt.getBase()));
+		  if (tgt.hasSnapshot()) 
+		    tgt.getSnapshot().getElement().get(0).addType().setCode(tail(tgt.getBase()));
+		}
 		return tgt;
 	}
 
-	public org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind convertStructureDefinitionKind(org.hl7.fhir.dstu2.model.StructureDefinition.StructureDefinitionKind src) throws FHIRException {
+	private String tail(String base) {
+    return base.substring(base.lastIndexOf("/")+1);
+  }
+
+  public org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind convertStructureDefinitionKind(org.hl7.fhir.dstu2.model.StructureDefinition.StructureDefinitionKind src) throws FHIRException {
 		if (src == null)
 			return null;
 		switch (src) {

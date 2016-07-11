@@ -21,9 +21,6 @@
       <path value="TEL"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="TEL.nullFlavor"/>
@@ -97,9 +94,6 @@
       <path value="TEL"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="TEL.value"/>

@@ -226,6 +226,8 @@ public class IgSpreadsheetParser {
           }
         }
     }
+    sd.getDifferential().getElementFirstRep().getType().clear();
+    
     if (logical) {
       sd.setKind(StructureDefinitionKind.LOGICAL);  
       sd.setId(sd.getDifferential().getElement().get(0).getPath());
@@ -912,6 +914,7 @@ public class IgSpreadsheetParser {
       }
       row++;
     }
+    ex.getDifferential().getElementFirstRep().getType().clear();
     
     StructureDefinition base = this.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Extension");
     List<String> errors = new ArrayList<String>();

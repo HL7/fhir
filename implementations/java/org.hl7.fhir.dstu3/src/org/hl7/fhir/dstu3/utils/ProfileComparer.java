@@ -778,15 +778,11 @@ public class ProfileComparer {
   private Collection<? extends TypeRefComponent> intersectTypes(ElementDefinition ed, ProfileComparison outcome, String path, List<TypeRefComponent> left, List<TypeRefComponent> right) throws DefinitionException, IOException {
     List<TypeRefComponent> result = new ArrayList<TypeRefComponent>();
     for (TypeRefComponent l : left) {
-      if (l.hasProfile())
-        throw new DefinitionException("Multiple profiles not supported: "+path+": "+l.getProfile());
       if (l.hasAggregation())
         throw new DefinitionException("Aggregation not supported: "+path);
       boolean found = false;
       TypeRefComponent c = l.copy();
       for (TypeRefComponent r : right) {
-        if (r.hasProfile())
-          throw new DefinitionException("Multiple profiles not supported: "+path+": "+l.getProfile());
         if (r.hasAggregation())
           throw new DefinitionException("Aggregation not supported: "+path);
         if (!l.hasProfile() && !r.hasProfile()) {
@@ -844,8 +840,6 @@ public class ProfileComparer {
   private void checkAddTypeUnion(String path, List<TypeRefComponent> results, TypeRefComponent nw) throws DefinitionException, IOException {
     boolean found = false;
     nw = nw.copy();
-    if (nw.hasProfile())
-      throw new DefinitionException("Multiple profiles not supported: "+path);
     if (nw.hasAggregation())
       throw new DefinitionException("Aggregation not supported: "+path);
     for (TypeRefComponent ex : results) {

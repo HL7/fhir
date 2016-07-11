@@ -34,9 +34,6 @@
             <alias value="voorvoegsel"/>
             <min value="0"/>
             <max value="*"/>
-            <type>
-                <code value="Element"/>
-            </type>
             <mapping>
                 <identity value="rim"/>
                 <uri value="http://hl7.org/v3"/>

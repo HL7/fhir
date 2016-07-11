@@ -21,9 +21,6 @@
       <path value="IVL_TS"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="IVL_TS.nullFlavor"/>
@@ -118,9 +115,6 @@
       <path value="IVL_TS"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="IVL_TS.low"/>

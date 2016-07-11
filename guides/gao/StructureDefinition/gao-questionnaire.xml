@@ -37,9 +37,6 @@
       <alias value="Survey"></alias>
       <min value="0"></min>
       <max value="*"></max>
-      <type>
-        <code value="Questionnaire"></code>
-      </type>
       
       
     </element>

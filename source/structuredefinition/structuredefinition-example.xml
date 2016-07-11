@@ -64,9 +64,6 @@
         <min value="1"/>
         <max value="1"/>
       </base>
-      <type>
-        <code value="Resource"/>
-      </type>
       <isModifier value="false"/>
     </element>
     <element id="DiagnosticReport.extension">

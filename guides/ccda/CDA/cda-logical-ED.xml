@@ -21,9 +21,6 @@
       <path value="ED"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="ED.nullFlavor"/>
@@ -164,9 +161,6 @@
       <path value="ED"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="ED.representation"/>

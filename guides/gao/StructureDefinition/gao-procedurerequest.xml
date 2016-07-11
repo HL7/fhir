@@ -35,9 +35,6 @@
       <definition value="A request for a procedure to be performed. May be a proposal or an order."></definition>
       <min value="0"></min>
       <max value="*"></max>
-      <type>
-        <code value="ProcedureRequest"></code>
-      </type>
       <isSummary value="true"></isSummary>
       
     </element>

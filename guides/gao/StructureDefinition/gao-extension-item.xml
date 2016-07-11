@@ -40,9 +40,6 @@
       <definition value="A description of the service to be evaluated for appropriateness"></definition>
       <min value="0"></min>
       <max value="*"></max>
-      <type>
-        <code value="Extension"></code>
-      </type>
       
     </element>
     <element>

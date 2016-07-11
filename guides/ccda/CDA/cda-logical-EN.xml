@@ -21,9 +21,6 @@
       <path value="EN"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="EN.nullFlavor"/>
@@ -118,9 +115,6 @@
       <path value="EN"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="EN.delimiter"/>

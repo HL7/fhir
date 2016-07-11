@@ -32,9 +32,6 @@
             <definition value="Family name without family name prefix"/>
             <min value="0"/>
             <max value="*"/>
-            <type>
-                <code value="Element"/>
-            </type>
             <mapping>
                 <identity value="rim"/>
                 <map value="PN/family[@qualifier=('BR','SP')]"/>

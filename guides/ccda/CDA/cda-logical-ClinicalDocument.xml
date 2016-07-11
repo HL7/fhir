@@ -19,9 +19,6 @@
       <path value="ClinicalDocument"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="Resource"/>
-      </type>
     </element>
     <element>
       <path value="ClinicalDocument.nullFlavor"/>
@@ -10265,9 +10262,6 @@
       <path value="ClinicalDocument"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="Resource"/>
-      </type>
     </element>
     <element>
       <path value="ClinicalDocument.classCode"/>

@@ -316,8 +316,13 @@ public class ProfileUtilities {
     int baseCursor = 0;
     int diffCursor = 0; // we need a diff cursor because we can only look ahead, in the bound scoped by longer paths
 
+    if (!derived.getDifferential().getElementFirstRep().getType().isEmpty())
+      derived.getDifferential().getElementFirstRep().getType().clear();
+
     // we actually delegate the work to a subroutine so we can re-enter it with a different cursors
     processPaths(derived.getSnapshot(), base.getSnapshot(), derived.getDifferential(), baseCursor, diffCursor, base.getSnapshot().getElement().size()-1, derived.getDifferential().getElement().size()-1, url, derived.getId(), null, false, base.getUrl(), null, false);
+    if (!derived.getSnapshot().getElementFirstRep().getType().isEmpty())
+      derived.getSnapshot().getElementFirstRep().getType().clear();
   }
 
   /**
@@ -1312,9 +1317,9 @@ public class ProfileUtilities {
             String rn = t.getProfile().substring(40);
             c.addPiece(checkForNoChange(t, gen.new Piece(pkp.getLinkFor(corePath, rn), rn, null)));
           }
-        } else if (t.hasProfile()) {
+        } else if (t.hasProfile() && Utilities.isAbsoluteUrl(t.getProfile())) {
           c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getCode(), null)));
-        } else if (t.getProfile().startsWith("#"))
+        } else if (t.hasProfile() && t.getProfile().startsWith("#"))
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+t.getProfile().substring(1).toLowerCase()+".html", t.getProfile(), null)));
         else
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+t.getProfile(), t.getProfile(), null)));

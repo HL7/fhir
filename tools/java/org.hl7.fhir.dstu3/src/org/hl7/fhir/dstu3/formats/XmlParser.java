@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sun, Jul 10, 2016 20:31+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 11, 2016 15:45+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -2090,8 +2090,8 @@ public class XmlParser extends XmlParserBase {
         res.setReporter(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("onset")) {
         res.setOnsetElement(parseDateTime(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("lastOccurence")) {
-        res.setLastOccurenceElement(parseDateTime(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("lastOccurrence")) {
+        res.setLastOccurrenceElement(parseDateTime(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("note")) {
         res.getNote().add(parseAnnotation(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reaction")) {
@@ -20202,8 +20202,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasOnsetElement()) {
         composeDateTime("onset", element.getOnsetElement());
       }
-      if (element.hasLastOccurenceElement()) {
-        composeDateTime("lastOccurence", element.getLastOccurenceElement());
+      if (element.hasLastOccurrenceElement()) {
+        composeDateTime("lastOccurrence", element.getLastOccurrenceElement());
       }
       if (element.hasNote()) { 
         for (Annotation e : element.getNote()) 

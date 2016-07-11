@@ -21,9 +21,6 @@
       <path value="TS"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="TS.nullFlavor"/>
@@ -69,9 +66,6 @@
       <path value="TS"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/elementdefinition-dateformat">

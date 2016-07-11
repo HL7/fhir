@@ -389,6 +389,12 @@ public class InstanceValidatorTests {
 		validate("build\\tests\\validation-examples\\group-choice-empty.json", 1, true);
 	}
 
+	
+  @Test
+  public void testBuildPatientExampleB() throws Exception {
+    validate("build\\publish\\patient-example-b.xml", 0, true);
+  }
+
   @Test
   public void testJsonS4S() throws Exception {
     validateCnt("{\r\n"+

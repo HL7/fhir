@@ -21,9 +21,6 @@
       <path value="PQ"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="PQ.nullFlavor"/>
@@ -89,9 +86,6 @@
       <path value="PQ"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="PQ.value"/>

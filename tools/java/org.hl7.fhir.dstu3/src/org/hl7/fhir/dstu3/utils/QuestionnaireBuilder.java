@@ -438,7 +438,7 @@ public class QuestionnaireBuilder {
         
         if (ps != null) {
 	        cc.setCode(t.getProfile());
-          cc.setDisplay(ps.getSnapshot().getElement().get(0).getType().get(0).getCode());
+          cc.setDisplay(ps.getType());
           cc.setSystem("http://hl7.org/fhir/resource-types");
         } else {
 	        cc.setCode(t.getCode());

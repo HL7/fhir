@@ -86,9 +86,6 @@
                 value="A Dutch Address is a proper FHIR Address. Systems that do not understand any of the extensions, will be able to render and work with a Dutch address. Dutch addresses make certain address parts seaprately communicable. These parts are required for use in true Dutch systems when dealing with Dutch addresses, but may not have value for international systems when information gets sent abroad.&#xD;&#xA;&#xD;&#xA;To have true compatibility an implementer SHOULD use the core Address parts as intended. To have addresses work for Dutch context, the implementer SHOULD in addition use the extension elements."/>
             <min value="0"/>
             <max value="*"/>
-            <type>
-                <code value="Address"/>
-            </type>
             <condition value="nl-streetname-if-official-and-other-line-parts"/>
             <constraint>
                 <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-expression">

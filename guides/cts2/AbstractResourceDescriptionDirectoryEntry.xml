@@ -30,9 +30,6 @@
             <min value="0"/>
             <max value="*"/>
          </base>
-         <type>
-            <code value="ResourceDescriptionDirectoryEntry"/>
-         </type>
       </element>
    </snapshot>
 </StructureDefinition>

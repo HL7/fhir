@@ -21,9 +21,6 @@
       <path value="EIVL"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="EIVL.nullFlavor"/>
@@ -95,9 +92,6 @@
       <path value="EIVL"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="EIVL.event"/>

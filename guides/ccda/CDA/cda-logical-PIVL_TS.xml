@@ -21,9 +21,6 @@
       <path value="PIVL_TS"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="PIVL_TS.nullFlavor"/>
@@ -120,9 +117,6 @@
       <path value="PIVL_TS"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="PIVL_TS.phase"/>

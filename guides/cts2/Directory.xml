@@ -30,9 +30,6 @@
             <min value="0"/>
             <max value="*"/>
          </base>
-         <type>
-            <code value="Message"/>
-         </type>
       </element>
       <element>
          <path value="Directory.complete"/>

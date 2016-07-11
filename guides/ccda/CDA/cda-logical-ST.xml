@@ -21,9 +21,6 @@
       <path value="ST"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="ST.nullFlavor"/>
@@ -57,9 +54,6 @@
       <path value="ST"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="ST.value"/>

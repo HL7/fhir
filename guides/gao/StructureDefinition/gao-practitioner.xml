@@ -37,9 +37,6 @@
       <comments value="Note that a cab driver no longer fits the bill. You probably would be interested in the organization rather than the individual?"></comments>
       <min value="0"></min>
       <max value="*"></max>
-      <type>
-        <code value="Practitioner"></code>
-      </type>
       
       
       

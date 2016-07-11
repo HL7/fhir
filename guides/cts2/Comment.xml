@@ -30,9 +30,6 @@
             <min value="0"/>
             <max value="*"/>
          </base>
-         <type>
-            <code value="Note"/>
-         </type>
       </element>
       <element>
          <path value="Comment.type"/>

@@ -21,9 +21,6 @@
       <path value="CS"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="CS.nullFlavor"/>
@@ -155,9 +152,6 @@
       <path value="CS"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="CS.value"/>

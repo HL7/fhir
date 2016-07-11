@@ -36,9 +36,6 @@
       <alias value="Prescription"></alias>
       <min value="0"></min>
       <max value="*"></max>
-      <type>
-        <code value="MedicationOrder"></code>
-      </type>
       <isSummary value="true"></isSummary>
       
       

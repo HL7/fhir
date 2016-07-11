@@ -35,9 +35,6 @@
         value="A record of a request for a diagnostic investigation service to be performed."/>
       <min value="0"/>
       <max value="*"/>
-      <type>
-        <code value="DiagnosticOrder"/>
-      </type>
     </element>
     <element>
       <path value="DiagnosticOrder.supportingInformation"/>

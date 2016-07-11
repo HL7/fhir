@@ -30,9 +30,6 @@
             <min value="0"/>
             <max value="*"/>
          </base>
-         <type>
-            <code value="ComponentReference"/>
-         </type>
       </element>
       <element>
          <path value="FilterComponent.matchAlgorithm"/>

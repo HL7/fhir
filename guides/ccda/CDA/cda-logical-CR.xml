@@ -21,9 +21,6 @@
       <path value="CR"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="CR.nullFlavor"/>
@@ -79,9 +76,6 @@
       <path value="CR"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="CR.name"/>

@@ -21,9 +21,6 @@
       <path value="AD"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="AD.nullFlavor"/>
@@ -318,9 +315,6 @@
       <path value="AD"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="AD.delimiter"/>

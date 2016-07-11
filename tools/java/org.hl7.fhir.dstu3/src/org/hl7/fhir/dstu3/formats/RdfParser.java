@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sun, Jul 10, 2016 20:31+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 11, 2016 15:45+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1455,8 +1455,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "AllergyIntolerance", "reporter", element.getReporter(), -1);
     if (element.hasOnsetElement())
       composeDateTime(t, "AllergyIntolerance", "onset", element.getOnsetElement(), -1);
-    if (element.hasLastOccurenceElement())
-      composeDateTime(t, "AllergyIntolerance", "lastOccurence", element.getLastOccurenceElement(), -1);
+    if (element.hasLastOccurrenceElement())
+      composeDateTime(t, "AllergyIntolerance", "lastOccurrence", element.getLastOccurrenceElement(), -1);
     for (int i = 0; i < element.getNote().size(); i++)
       composeAnnotation(t, "AllergyIntolerance", "note", element.getNote().get(i), i);
     for (int i = 0; i < element.getReaction().size(); i++)

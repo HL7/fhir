@@ -35,9 +35,6 @@
       <alias value="ReferralRequest TransferOfCare Request"></alias>
       <min value="0"></min>
       <max value="*"></max>
-      <type>
-        <code value="ReferralRequest"></code>
-      </type>
       
     </element>
     <element>

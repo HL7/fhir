@@ -64,9 +64,6 @@
       <comments value="Note that a cab driver no longer fits the bill. You probably would be interested in the organization rather than the individual?" />
       <min value="0" />
       <max value="*" />
-      <type>
-        <code value="Practitioner" />
-      </type>
       <mustSupport value="true" />
       <mapping>
         <identity value="v2" />

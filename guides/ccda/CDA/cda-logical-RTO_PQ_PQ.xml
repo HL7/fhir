@@ -21,9 +21,6 @@
       <path value="RTO_PQ_PQ"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="RTO_PQ_PQ.nullFlavor"/>
@@ -68,9 +65,6 @@
       <path value="RTO_PQ_PQ"/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="Element"/>
-      </type>
     </element>
     <element>
       <path value="RTO_PQ_PQ.numerator"/>
