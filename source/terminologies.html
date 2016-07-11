@@ -356,12 +356,18 @@ can interpret it with confidence. Generally, this is used for elements with type
 <p>
 The other place where this is used is when <a href="profiling.html">profiling resources</a>, and there is agreement within a particular context of use
 that a particular set of codes are the only ones that can be used. In these cases, the data type SHALL contain one of the 
-values in the value set. If the data type is <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, then one of 
-the <i>coding</i> values SHALL be from the specified value set. <i>Text</i> can be provided as well, and is always 
-recommended, but is not an acceptable substitute for the required code.
+values in the value set.
 </p>
 <p>
-Note the following additional rules about required bindings when used with the <a href="datatypes.html#code">code</a> data type:
+The following rules apply when required bindings are used with the <a href="datatypes.html#CodeableConcept">CodeableConcept</a> data type:
+</p>
+<ul>
+ <li>at least one Coding element SHALL be present</li>
+ <li>one of the Coding values SHALL be from the specified value set</li>
+ <li><code>text</code> can be provided as well, and is always recommended, but is not an acceptable substitute for the required code</li>
+</ul>
+<p>
+The following  rules apply when required bindings are used with the <a href="datatypes.html#code">code</a> data type:
 </p>
 <ul>
  <li>Where the value set is defined by FHIR, the list of allowed codes will be fixed in the XML schema</li>

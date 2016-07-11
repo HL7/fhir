@@ -196,12 +196,20 @@
   Expression = snapshot.element.all(id) and differential.element.all(id)
 
  -- Row 14 -----------------------------------
-  Id = !15
-  Requirements = elements have id
+  Id = 15
+  Requirements = No Type on the root element (snapshot)
   Context = StructureDefinition
-  English = All element definition ids must have an unique
+  English = The first element in a snapshot has no type
   XPath = not(exists(f:baseDefinition)) or exists(f:derivation)
-  Expression = snapshot.element.id.trace(\'ids\').isDistinct() and differential.element.id.trace(\'ids\').isDistinct()
+  Expression = snapshot.element.first().type.empty()
+
+ -- Row 15 -----------------------------------
+  Id = 15a
+  Requirements = No Type on the root element (differential)
+  Context = StructureDefinition
+  English = If the first element in a differential has no \".\" in the path, it has no type
+  XPath = not(exists(f:baseDefinition)) or exists(f:derivation)
+  Expression = differential.element.first().path.contains(\'.\').not() implies differential.element.first().type.empty()
 
 === Sheet Data Elements =====================================
 

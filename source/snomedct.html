@@ -110,7 +110,7 @@ of the <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_
  <tr><td>Values Allowed</td><td>[concept id]</td></tr>
  <tr><td>Comments</td><td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value</td></tr>
  <tr><td>Example</td><td><a href="valueset-administration-method-codes.html">Administation Methods</a></td></tr>
- <tr><td>SCT QL</td><td><pre>DescendentsAndSelf([concept])</pre></td></tr>
+ <tr><td><a href="http://snomed.org/expressionconstraints.pdf">SCT ECL</a></td><td><pre>descendantOrSelfOf [concept]</pre></td></tr>
 </table>
 
 <h4>By Reference Set</h4>
@@ -121,7 +121,7 @@ of the <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_
  <tr><td>Operations Allowed</td><td>in</td></tr>
  <tr><td>Values Allowed</td><td>[concept id]</td></tr>
  <tr><td>Comments</td><td>Includes all concept ids that are active members of the reference set identified by the concept Id provided as the value</td></tr>
- <tr><td>SCT QL</td><td><pre>MembersOf([concept])</pre></td></tr>
+ <tr><td><a href="http://snomed.org/expressionconstraints.pdf">SCT ECL</a></td><td><pre>memberOf [concept]</pre></td></tr>
 </table>
 
 <h4>By Snomed Query Expression</h4>
@@ -164,7 +164,7 @@ of the <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_
  <tr><td>Values Allowed</td><td>true or false</td></tr>
  <tr><td>Comments</td><td>Expressions, if allowed, are subject to the same rules as pre-coordinated concepts. Note: reference sets do not include expressions.</td></tr>
  <tr><td>Example</td><td><a href="valueset-administration-method-codes.html">Administation Methods</a></td></tr>
- <tr><td>SCT QL</td><td><pre>n/a</pre></td></tr>
+ <tr><td><a href="http://snomed.org/expressionconstraints.pdf">SCT ECL</a></td><td><pre>n/a</pre></td></tr>
 </table>
 
 <a name="implicit"> </a>
