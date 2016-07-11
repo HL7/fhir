@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -160,6 +161,7 @@ public class Linkage extends DomainResource {
          */
         @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="source | alternate | historical", formalDefinition="Distinguishes which item is \"source of truth\" (if any) and which items are no longer considered to be current representations." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/linkage-type")
         protected Enumeration<LinkageType> type;
 
         /**
@@ -625,7 +627,7 @@ public class Linkage extends DomainResource {
    * Path: <b>Linkage.author</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="author", path="Linkage.author", description="Author of the Linkage", type="reference" )
+  @SearchParamDefinition(name="author", path="Linkage.author", description="Author of the Linkage", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class } )
   public static final String SP_AUTHOR = "author";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>author</b>

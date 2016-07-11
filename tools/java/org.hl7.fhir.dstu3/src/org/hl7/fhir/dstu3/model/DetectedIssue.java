@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -160,6 +161,7 @@ public class DetectedIssue extends DomainResource {
          */
         @Child(name = "action", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="What mitigation?", formalDefinition="Describes the action that was taken or the observation that was made that reduces/eliminates the risk associated with the identified issue." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/detectedissue-mitigation-action")
         protected CodeableConcept action;
 
         /**
@@ -448,6 +450,7 @@ public class DetectedIssue extends DomainResource {
      */
     @Child(name = "category", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Issue Category, e.g. drug-drug, duplicate therapy, etc.", formalDefinition="Identifies the general type of issue identified." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/detectedissue-category")
     protected CodeableConcept category;
 
     /**
@@ -455,12 +458,13 @@ public class DetectedIssue extends DomainResource {
      */
     @Child(name = "severity", type = {CodeType.class}, order=2, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="high | moderate | low", formalDefinition="Indicates the degree of importance associated with the identified issue based on the potential impact on the patient." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/detectedissue-severity")
     protected Enumeration<DetectedIssueSeverity> severity;
 
     /**
      * Indicates the resource representing the current activity or proposed activity that is potentially problematic.
      */
-    @Child(name = "implicated", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "implicated", type = {Reference.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Problem resource", formalDefinition="Indicates the resource representing the current activity or proposed activity that is potentially problematic." )
     protected List<Reference> implicated;
     /**
@@ -1237,7 +1241,7 @@ public class DetectedIssue extends DomainResource {
    * Path: <b>DetectedIssue.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="DetectedIssue.patient", description="Associated patient", type="reference" )
+  @SearchParamDefinition(name="patient", path="DetectedIssue.patient", description="Associated patient", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -1263,7 +1267,7 @@ public class DetectedIssue extends DomainResource {
    * Path: <b>DetectedIssue.author</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="author", path="DetectedIssue.author", description="The provider or device that identified the issue", type="reference" )
+  @SearchParamDefinition(name="author", path="DetectedIssue.author", description="The provider or device that identified the issue", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Practitioner.class } )
   public static final String SP_AUTHOR = "author";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>author</b>

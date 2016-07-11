@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -514,6 +515,7 @@ public class Questionnaire extends DomainResource {
          */
         @Child(name = "concept", type = {Coding.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Concept that represents this item within in a questionnaire", formalDefinition="Identifies a how this group of questions is known in a particular terminology such as LOINC." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/questionnaire-questions")
         protected List<Coding> concept;
 
         /**
@@ -535,6 +537,7 @@ public class Questionnaire extends DomainResource {
          */
         @Child(name = "type", type = {CodeType.class}, order=5, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="group | display | question | boolean | decimal | integer | date | dateTime +", formalDefinition="Identifies the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.)." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/item-type")
         protected Enumeration<QuestionnaireItemType> type;
 
         /**
@@ -594,7 +597,7 @@ public class Questionnaire extends DomainResource {
         /**
          * The value that should be pre-populated when rendering the questionnaire for user input.
          */
-        @Child(name = "initial", type = {BooleanType.class, DecimalType.class, IntegerType.class, DateType.class, DateTimeType.class, InstantType.class, TimeType.class, StringType.class, UriType.class, Attachment.class, Coding.class, Quantity.class}, order=13, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "initial", type = {BooleanType.class, DecimalType.class, IntegerType.class, DateType.class, DateTimeType.class, InstantType.class, TimeType.class, StringType.class, UriType.class, Attachment.class, Coding.class, Quantity.class, Reference.class}, order=13, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Initial presumed answer for question", formalDefinition="The value that should be pre-populated when rendering the questionnaire for user input." )
         protected Type initial;
 
@@ -1776,7 +1779,7 @@ public class Questionnaire extends DomainResource {
         /**
          * If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer.
          */
-        @Child(name = "answer", type = {BooleanType.class, DecimalType.class, IntegerType.class, DateType.class, DateTimeType.class, InstantType.class, TimeType.class, StringType.class, UriType.class, Attachment.class, Coding.class, Quantity.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "answer", type = {BooleanType.class, DecimalType.class, IntegerType.class, DateType.class, DateTimeType.class, InstantType.class, TimeType.class, StringType.class, UriType.class, Attachment.class, Coding.class, Quantity.class, Reference.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Value question must have", formalDefinition="If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer." )
         protected Type answer;
 
@@ -2246,6 +2249,7 @@ public class Questionnaire extends DomainResource {
          */
         @Child(name = "value", type = {IntegerType.class, DateType.class, TimeType.class, StringType.class, Coding.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Answer value", formalDefinition="Identifies a specific answer that's allowed as the answer to a question." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/questionnaire-answers")
         protected Type value;
 
         private static final long serialVersionUID = -732981989L;
@@ -2481,6 +2485,7 @@ public class Questionnaire extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="draft | published | retired", formalDefinition="The lifecycle status of the questionnaire as a whole." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/questionnaire-status")
     protected Enumeration<QuestionnaireStatus> status;
 
     /**
@@ -2509,6 +2514,7 @@ public class Questionnaire extends DomainResource {
      */
     @Child(name = "useContext", type = {CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Questionnaire intends to support these contexts", formalDefinition="A code that identifies the questionnaire as falling into a particular group of like questionnaires; e.g. \"Pediatric\", \"Admissions\", \"Research\", \"Demographic\", \"Opinion Survey\", etc." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/use-context")
     protected List<CodeableConcept> useContext;
 
     /**
@@ -2523,6 +2529,7 @@ public class Questionnaire extends DomainResource {
      */
     @Child(name = "concept", type = {Coding.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Concept that represents the overall questionnaire", formalDefinition="Identifies a how this question or group of questions is known in a particular terminology such as LOINC." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/questionnaire-questions")
     protected List<Coding> concept;
 
     /**
@@ -2530,6 +2537,7 @@ public class Questionnaire extends DomainResource {
      */
     @Child(name = "subjectType", type = {CodeType.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Resource that can be subject of QuestionnaireResponse", formalDefinition="Identifies the types of subjects that can be the subject of the questionnaire." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-types")
     protected List<CodeType> subjectType;
 
     /**

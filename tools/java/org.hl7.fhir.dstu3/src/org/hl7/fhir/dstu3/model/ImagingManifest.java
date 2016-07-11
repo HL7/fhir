@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -437,6 +438,7 @@ public class ImagingManifest extends DomainResource {
          */
         @Child(name = "type", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="WADO-RS | WADO-URI | IID", formalDefinition="The service type for accessing (e.g., retrieving, viewing) the DICOM instances." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/dWebType")
         protected Coding type;
 
         /**
@@ -956,6 +958,7 @@ public class ImagingManifest extends DomainResource {
          */
         @Child(name = "type", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="WADO-RS | WADO-URI | IID", formalDefinition="The service type for accessing (e.g., retrieving) the DICOM instances." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/dWebType")
         protected Coding type;
 
         /**
@@ -1422,6 +1425,7 @@ public class ImagingManifest extends DomainResource {
      */
     @Child(name = "title", type = {CodeableConcept.class}, order=4, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Reason for selection", formalDefinition="The reason for, or significance of, the selection of objects referenced in the resource." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/kos-title")
     protected CodeableConcept title;
 
     /**
@@ -2010,7 +2014,7 @@ public class ImagingManifest extends DomainResource {
    * Path: <b>ImagingManifest.author</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="author", path="ImagingManifest.author", description="Author of key DICOM object selection", type="reference" )
+  @SearchParamDefinition(name="author", path="ImagingManifest.author", description="Author of key DICOM object selection", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_AUTHOR = "author";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>author</b>
@@ -2036,7 +2040,7 @@ public class ImagingManifest extends DomainResource {
    * Path: <b>ImagingManifest.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="ImagingManifest.patient", description="Subject of key DICOM object selection", type="reference" )
+  @SearchParamDefinition(name="patient", path="ImagingManifest.patient", description="Subject of key DICOM object selection", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>

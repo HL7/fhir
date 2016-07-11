@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -177,6 +178,7 @@ public class ProcessResponse extends DomainResource {
          */
         @Child(name = "type", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="display | print | printoper", formalDefinition="The note purpose: Print/Display." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/note-type")
         protected Coding type;
 
         /**
@@ -382,12 +384,13 @@ public class ProcessResponse extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | cancelled | draft | entered-in-error", formalDefinition="The status of the resource instance." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/processresponse-status")
     protected Enumeration<ProcessResponseStatus> status;
 
     /**
      * Original request resource reference.
      */
-    @Child(name = "request", type = {Identifier.class}, order=2, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "request", type = {Identifier.class, Reference.class}, order=2, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Request reference", formalDefinition="Original request resource reference." )
     protected Type request;
 
@@ -396,6 +399,7 @@ public class ProcessResponse extends DomainResource {
      */
     @Child(name = "outcome", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Processing outcome", formalDefinition="Transaction status: error, complete, held." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/process-outcome")
     protected Coding outcome;
 
     /**
@@ -410,6 +414,7 @@ public class ProcessResponse extends DomainResource {
      */
     @Child(name = "ruleset", type = {Coding.class}, order=5, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Resource version", formalDefinition="The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ruleset")
     protected Coding ruleset;
 
     /**
@@ -417,6 +422,7 @@ public class ProcessResponse extends DomainResource {
      */
     @Child(name = "originalRuleset", type = {Coding.class}, order=6, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ruleset")
     protected Coding originalRuleset;
 
     /**
@@ -452,6 +458,7 @@ public class ProcessResponse extends DomainResource {
      */
     @Child(name = "form", type = {Coding.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Printed Form Identifier", formalDefinition="The form to be used for printing the content." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/forms")
     protected Coding form;
 
     /**
@@ -466,6 +473,7 @@ public class ProcessResponse extends DomainResource {
      */
     @Child(name = "error", type = {Coding.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Error code", formalDefinition="Processing errors." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/adjudication-error")
     protected List<Coding> error;
 
     private static final long serialVersionUID = 283876814L;
@@ -1467,7 +1475,7 @@ public class ProcessResponse extends DomainResource {
    * Path: <b>ProcessResponse.organizationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organizationreference", path="ProcessResponse.organization.as(Reference)", description="The organization who generated this resource", type="reference" )
+  @SearchParamDefinition(name="organizationreference", path="ProcessResponse.organization.as(Reference)", description="The organization who generated this resource", type="reference", target={Organization.class } )
   public static final String SP_ORGANIZATIONREFERENCE = "organizationreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organizationreference</b>
@@ -1493,7 +1501,7 @@ public class ProcessResponse extends DomainResource {
    * Path: <b>ProcessResponse.requestProviderReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requestproviderreference", path="ProcessResponse.requestProvider.as(Reference)", description="The Provider who is responsible the request transaction", type="reference" )
+  @SearchParamDefinition(name="requestproviderreference", path="ProcessResponse.requestProvider.as(Reference)", description="The Provider who is responsible the request transaction", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
   public static final String SP_REQUESTPROVIDERREFERENCE = "requestproviderreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requestproviderreference</b>
@@ -1519,7 +1527,7 @@ public class ProcessResponse extends DomainResource {
    * Path: <b>ProcessResponse.requestOrganizationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requestorganizationreference", path="ProcessResponse.requestOrganization.as(Reference)", description="The Organization who is responsible the request transaction", type="reference" )
+  @SearchParamDefinition(name="requestorganizationreference", path="ProcessResponse.requestOrganization.as(Reference)", description="The Organization who is responsible the request transaction", type="reference", target={Organization.class } )
   public static final String SP_REQUESTORGANIZATIONREFERENCE = "requestorganizationreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requestorganizationreference</b>

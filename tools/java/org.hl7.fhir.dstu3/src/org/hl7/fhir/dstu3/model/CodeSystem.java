@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -46,6 +47,7 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  * A code system resource specifies a set of codes drawn from one or more code systems.
  */
 @ResourceDef(name="CodeSystem", profile="http://hl7.org/fhir/Profile/CodeSystem")
+@ChildOrder(names={"url", "identifier", "version", "name", "status", "experimental", "publisher", "contact", "date", "description", "useContext", "requirements", "copyright", "caseSensitive", "valueSet", "compositional", "versionNeeded", "content", "count", "filter", "property", "concept"})
 public class CodeSystem extends BaseConformance {
 
     public enum CodeSystemContentMode {
@@ -577,6 +579,7 @@ public class CodeSystem extends BaseConformance {
          */
         @Child(name = "operator", type = {CodeType.class}, order=3, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Operators that can be used with filter", formalDefinition="A list of operators that can be used with the filter." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/filter-operator")
         protected List<CodeType> operator;
 
         /**
@@ -964,6 +967,7 @@ public class CodeSystem extends BaseConformance {
          */
         @Child(name = "type", type = {CodeType.class}, order=4, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="code | Coding | string | integer | boolean | dateTime", formalDefinition="The type of the property value. Properties of type \"code\" contain a code defined by the code system (e.g. a reference to anotherr defined concept)." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/concept-property-type")
         protected Enumeration<PropertyType> type;
 
         private static final long serialVersionUID = -1810713373L;
@@ -1842,6 +1846,7 @@ public class CodeSystem extends BaseConformance {
          */
         @Child(name = "use", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Details how this designation would be used", formalDefinition="A code that details how this designation would be used." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/designation-use")
         protected Coding use;
 
         /**
@@ -2481,6 +2486,7 @@ public class CodeSystem extends BaseConformance {
      */
     @Child(name = "content", type = {CodeType.class}, order=11, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="not-present | examplar | fragment | complete", formalDefinition="How much of the content of the code system - the concepts and codes it defines - are represented in this resource." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/codesystem-content-mode")
     protected Enumeration<CodeSystemContentMode> content;
 
     /**

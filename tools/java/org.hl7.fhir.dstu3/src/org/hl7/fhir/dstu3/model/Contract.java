@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -67,6 +68,7 @@ public class Contract extends DomainResource {
          */
         @Child(name = "role", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Contract  Agent Role", formalDefinition="Role type of agent assigned roles in this Contract." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-actorrole")
         protected List<CodeableConcept> role;
 
         private static final long serialVersionUID = -454551165L;
@@ -291,6 +293,7 @@ public class Contract extends DomainResource {
          */
         @Child(name = "type", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Contract Signer Type", formalDefinition="Role of this Contract signer, e.g. notary, grantee." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-signer-type")
         protected Coding type;
 
         /**
@@ -571,7 +574,7 @@ public class Contract extends DomainResource {
         /**
          * Specific type of Contract Valued Item that may be priced.
          */
-        @Child(name = "entity", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "entity", type = {CodeableConcept.class, Reference.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Contract Valued Item Type", formalDefinition="Specific type of Contract Valued Item that may be priced." )
         protected Type entity;
 
@@ -1171,6 +1174,7 @@ public class Contract extends DomainResource {
          */
         @Child(name = "type", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Contract Term Type", formalDefinition="Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-term-type")
         protected CodeableConcept type;
 
         /**
@@ -1178,12 +1182,13 @@ public class Contract extends DomainResource {
          */
         @Child(name = "subType", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Contract Term Subtype", formalDefinition="Subtype of this Contract Provision, e.g. life time maximum payment for a contract term for specific valued item, e.g. disability payment." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-term-subtype")
         protected CodeableConcept subType;
 
         /**
          * The matter of concern in the context of this provision of the agrement.
          */
-        @Child(name = "topic", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "topic", type = {Reference.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Context of the Contract term", formalDefinition="The matter of concern in the context of this provision of the agrement." )
         protected List<Reference> topic;
         /**
@@ -1197,6 +1202,7 @@ public class Contract extends DomainResource {
          */
         @Child(name = "action", type = {CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Contract Term Action", formalDefinition="Action stipulated by this Contract Provision." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-action")
         protected List<CodeableConcept> action;
 
         /**
@@ -1204,6 +1210,7 @@ public class Contract extends DomainResource {
          */
         @Child(name = "actionReason", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Contract Term Action Reason", formalDefinition="Reason or purpose for the action stipulated by this Contract Provision." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse")
         protected List<CodeableConcept> actionReason;
 
         /**
@@ -2039,6 +2046,7 @@ public class Contract extends DomainResource {
          */
         @Child(name = "role", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Contract Term Agent Role", formalDefinition="Role played by the agent assigned this role in the execution of this Contract Provision." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-actorrole")
         protected List<CodeableConcept> role;
 
         private static final long serialVersionUID = -454551165L;
@@ -2261,7 +2269,7 @@ public class Contract extends DomainResource {
         /**
          * Specific type of Contract Provision Valued Item that may be priced.
          */
-        @Child(name = "entity", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "entity", type = {CodeableConcept.class, Reference.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Contract Term Valued Item Type", formalDefinition="Specific type of Contract Provision Valued Item that may be priced." )
         protected Type entity;
 
@@ -3352,7 +3360,7 @@ public class Contract extends DomainResource {
     /**
      * The target entity impacted by or of interest to parties to the agreement.
      */
-    @Child(name = "subject", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "subject", type = {Reference.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Contract Target Entity", formalDefinition="The target entity impacted by or of interest to parties to the agreement." )
     protected List<Reference> subject;
     /**
@@ -3364,7 +3372,7 @@ public class Contract extends DomainResource {
     /**
      * The matter of concern in the context of this agreement.
      */
-    @Child(name = "topic", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "topic", type = {Reference.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Context of the Contract", formalDefinition="The matter of concern in the context of this agreement." )
     protected List<Reference> topic;
     /**
@@ -3402,6 +3410,7 @@ public class Contract extends DomainResource {
      */
     @Child(name = "type", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Contract Type", formalDefinition="Type of Contract such as an insurance policy, real estate contract, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-type")
     protected CodeableConcept type;
 
     /**
@@ -3409,6 +3418,7 @@ public class Contract extends DomainResource {
      */
     @Child(name = "subType", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Contract Subtype", formalDefinition="More specific type or specialization of an overarching or more general contract such as auto insurance, home owner  insurance, prenupial agreement, Advanced-Directive, or privacy consent." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-subtype")
     protected List<CodeableConcept> subType;
 
     /**
@@ -3416,6 +3426,7 @@ public class Contract extends DomainResource {
      */
     @Child(name = "action", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract Action", formalDefinition="Action stipulated by this Contract." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-action")
     protected List<CodeableConcept> action;
 
     /**
@@ -3423,6 +3434,7 @@ public class Contract extends DomainResource {
      */
     @Child(name = "actionReason", type = {CodeableConcept.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract Action Reason", formalDefinition="Reason for action stipulated by this Contract." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse")
     protected List<CodeableConcept> actionReason;
 
     /**
@@ -4874,7 +4886,7 @@ public class Contract extends DomainResource {
    * Path: <b>Contract.agent.actor</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="agent", path="Contract.agent.actor", description="Agent to the Contact", type="reference" )
+  @SearchParamDefinition(name="agent", path="Contract.agent.actor", description="Agent to the Contact", type="reference", target={Contract.class, Device.class, Group.class, Location.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class, Substance.class } )
   public static final String SP_AGENT = "agent";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>agent</b>
@@ -4926,7 +4938,7 @@ public class Contract extends DomainResource {
    * Path: <b>Contract.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="Contract.subject", description="The identity of the subject of the contract (if a patient)", type="reference" )
+  @SearchParamDefinition(name="patient", path="Contract.subject", description="The identity of the subject of the contract (if a patient)", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -4978,7 +4990,7 @@ public class Contract extends DomainResource {
    * Path: <b>Contract.authority</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="authority", path="Contract.authority", description="The authority of the contract", type="reference" )
+  @SearchParamDefinition(name="authority", path="Contract.authority", description="The authority of the contract", type="reference", target={Organization.class } )
   public static final String SP_AUTHORITY = "authority";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>authority</b>
@@ -5004,7 +5016,7 @@ public class Contract extends DomainResource {
    * Path: <b>Contract.domain</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="domain", path="Contract.domain", description="The domain of the contract", type="reference" )
+  @SearchParamDefinition(name="domain", path="Contract.domain", description="The domain of the contract", type="reference", target={Location.class } )
   public static final String SP_DOMAIN = "domain";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>domain</b>
@@ -5076,7 +5088,7 @@ public class Contract extends DomainResource {
    * Path: <b>Contract.signer.party</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="signer", path="Contract.signer.party", description="Contract Signatory Party", type="reference" )
+  @SearchParamDefinition(name="signer", path="Contract.signer.party", description="Contract Signatory Party", type="reference", target={Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_SIGNER = "signer";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>signer</b>

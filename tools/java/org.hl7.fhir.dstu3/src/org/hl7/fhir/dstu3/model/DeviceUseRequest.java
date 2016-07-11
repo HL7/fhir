@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -399,6 +400,7 @@ public class DeviceUseRequest extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="proposed | planned | requested | received | accepted | in-progress | completed | suspended | rejected | aborted", formalDefinition="The status of the request." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/device-use-request-status")
     protected Enumeration<DeviceUseRequestStatus> status;
 
     /**
@@ -491,6 +493,7 @@ public class DeviceUseRequest extends DomainResource {
      */
     @Child(name = "priority", type = {CodeType.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="routine | urgent | stat | asap", formalDefinition="Characterizes how quickly the  use of device must be initiated. Includes concepts such as stat, urgent, routine." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/device-use-request-priority")
     protected Enumeration<DeviceUseRequestPriority> priority;
 
     private static final long serialVersionUID = 1208477058L;
@@ -1450,7 +1453,7 @@ public class DeviceUseRequest extends DomainResource {
    * Path: <b>DeviceUseRequest.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="DeviceUseRequest.subject", description="Search by subject", type="reference" )
+  @SearchParamDefinition(name="subject", path="DeviceUseRequest.subject", description="Search by subject", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_SUBJECT = "subject";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subject</b>
@@ -1476,7 +1479,7 @@ public class DeviceUseRequest extends DomainResource {
    * Path: <b>DeviceUseRequest.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="DeviceUseRequest.subject", description="Search by subject - a patient", type="reference" )
+  @SearchParamDefinition(name="patient", path="DeviceUseRequest.subject", description="Search by subject - a patient", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -1502,7 +1505,7 @@ public class DeviceUseRequest extends DomainResource {
    * Path: <b>DeviceUseRequest.device</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="device", path="DeviceUseRequest.device", description="Device requested", type="reference" )
+  @SearchParamDefinition(name="device", path="DeviceUseRequest.device", description="Device requested", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device") }, target={Device.class } )
   public static final String SP_DEVICE = "device";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>device</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -1326,7 +1327,7 @@ public class Task extends DomainResource {
     /**
      * Identifies a plan, proposal or order that this task has been created in fulfillment of.
      */
-    @Child(name = "basedOn", type = {}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "basedOn", type = {Reference.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Request fulfilled by this request", formalDefinition="Identifies a plan, proposal or order that this task has been created in fulfillment of." )
     protected List<Reference> basedOn;
     /**
@@ -1359,6 +1360,7 @@ public class Task extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=4, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="draft | requested | received | accepted | +", formalDefinition="The current status of the task." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/task-status")
     protected Enumeration<TaskStatus> status;
 
     /**
@@ -1380,6 +1382,7 @@ public class Task extends DomainResource {
      */
     @Child(name = "stage", type = {CodeableConcept.class}, order=7, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="proposed | planned | actionable +", formalDefinition="Indicates the \"level\" of actionability associated with the Task.  I.e. Is this a proposed task, a planned task, an actionable task, etc." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/task-stage")
     protected CodeableConcept stage;
 
     /**
@@ -1394,6 +1397,7 @@ public class Task extends DomainResource {
      */
     @Child(name = "priority", type = {CodeType.class}, order=9, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="low | normal | high", formalDefinition="The priority of the task among other tasks of the same type." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/task-priority")
     protected Enumeration<TaskPriority> priority;
 
     /**
@@ -1406,7 +1410,7 @@ public class Task extends DomainResource {
     /**
      * The request being actioned or the resource being manipulated by this task.
      */
-    @Child(name = "focus", type = {}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "focus", type = {Reference.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="What task is acting on", formalDefinition="The request being actioned or the resource being manipulated by this task." )
     protected Reference focus;
 
@@ -1418,7 +1422,7 @@ public class Task extends DomainResource {
     /**
      * The entity who benefits from the performance of the service specified in the task (e.g., the patient).
      */
-    @Child(name = "for", type = {}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "for", type = {Reference.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Beneficiary of the Task", formalDefinition="The entity who benefits from the performance of the service specified in the task (e.g., the patient)." )
     protected Reference for_;
 
@@ -1482,6 +1486,7 @@ public class Task extends DomainResource {
      */
     @Child(name = "performerType", type = {CodeableConcept.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="requester | dispatcher | scheduler | performer | monitor | manager | acquirer | reviewer", formalDefinition="The type of participant that can execute the task." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/task-performer-type")
     protected List<CodeableConcept> performerType;
 
     /**
@@ -3008,7 +3013,7 @@ public class Task extends DomainResource {
    * Path: <b>Task.owner</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="owner", path="Task.owner", description="Search by task owner", type="reference" )
+  @SearchParamDefinition(name="owner", path="Task.owner", description="Search by task owner", type="reference", target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_OWNER = "owner";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>owner</b>
@@ -3034,7 +3039,7 @@ public class Task extends DomainResource {
    * Path: <b>Task.requester</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requester", path="Task.requester", description="Search by task requester", type="reference" )
+  @SearchParamDefinition(name="requester", path="Task.requester", description="Search by task requester", type="reference", target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_REQUESTER = "requester";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requester</b>
@@ -3080,7 +3085,7 @@ public class Task extends DomainResource {
    * Path: <b>Task.parent</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="parent", path="Task.parent", description="Search by parent task", type="reference" )
+  @SearchParamDefinition(name="parent", path="Task.parent", description="Search by parent task", type="reference", target={Task.class } )
   public static final String SP_PARENT = "parent";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>parent</b>
@@ -3252,7 +3257,7 @@ public class Task extends DomainResource {
    * Path: <b>Task.for</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="Task.for", description="Search by patient", type="reference" )
+  @SearchParamDefinition(name="patient", path="Task.for", description="Search by patient", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>

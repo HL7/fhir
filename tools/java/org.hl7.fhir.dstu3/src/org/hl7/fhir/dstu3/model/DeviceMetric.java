@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -712,6 +713,7 @@ public class DeviceMetric extends DomainResource {
          */
         @Child(name = "type", type = {CodeType.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="unspecified | offset | gain | two-point", formalDefinition="Describes the type of the calibration method." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/metric-calibration-type")
         protected Enumeration<DeviceMetricCalibrationType> type;
 
         /**
@@ -719,6 +721,7 @@ public class DeviceMetric extends DomainResource {
          */
         @Child(name = "state", type = {CodeType.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="not-calibrated | calibration-required | calibrated | unspecified", formalDefinition="Describes the state of the calibration." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/metric-calibration-state")
         protected Enumeration<DeviceMetricCalibrationState> state;
 
         /**
@@ -1049,6 +1052,7 @@ public class DeviceMetric extends DomainResource {
      */
     @Child(name = "operationalStatus", type = {CodeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="on | off | standby", formalDefinition="Indicates current operational state of the device. For example: On, Off, Standby, etc." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/metric-operational-status")
     protected Enumeration<DeviceMetricOperationalStatus> operationalStatus;
 
     /**
@@ -1056,6 +1060,7 @@ public class DeviceMetric extends DomainResource {
      */
     @Child(name = "color", type = {CodeType.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="black | red | green | yellow | blue | magenta | cyan | white", formalDefinition="Describes the color representation for the metric. This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth for example; the parameters are displayed in different characteristic colors, such as HR-blue, BP-green, and PR and SpO2- magenta." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/metric-color")
     protected Enumeration<DeviceMetricColor> color;
 
     /**
@@ -1063,6 +1068,7 @@ public class DeviceMetric extends DomainResource {
      */
     @Child(name = "category", type = {CodeType.class}, order=7, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="measurement | setting | calculation | unspecified", formalDefinition="Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/metric-category")
     protected Enumeration<DeviceMetricCategory> category;
 
     /**
@@ -1705,7 +1711,7 @@ public class DeviceMetric extends DomainResource {
    * Path: <b>DeviceMetric.parent</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="parent", path="DeviceMetric.parent", description="The parent DeviceMetric resource", type="reference" )
+  @SearchParamDefinition(name="parent", path="DeviceMetric.parent", description="The parent DeviceMetric resource", type="reference", target={DeviceComponent.class } )
   public static final String SP_PARENT = "parent";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>parent</b>
@@ -1751,7 +1757,7 @@ public class DeviceMetric extends DomainResource {
    * Path: <b>DeviceMetric.source</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="source", path="DeviceMetric.source", description="The device resource", type="reference" )
+  @SearchParamDefinition(name="source", path="DeviceMetric.source", description="The device resource", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device") }, target={Device.class } )
   public static final String SP_SOURCE = "source";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>source</b>

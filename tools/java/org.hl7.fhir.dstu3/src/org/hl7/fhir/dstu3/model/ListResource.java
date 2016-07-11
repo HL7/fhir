@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -266,6 +267,7 @@ public class ListResource extends DomainResource {
          */
         @Child(name = "flag", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Status/Workflow information about this item", formalDefinition="The flag allows the system constructing the list to indicate the role and significance of the item in the list." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/list-item-flag")
         protected CodeableConcept flag;
 
         /**
@@ -285,7 +287,7 @@ public class ListResource extends DomainResource {
         /**
          * A reference to the actual resource from which data was derived.
          */
-        @Child(name = "item", type = {}, order=4, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "item", type = {Reference.class}, order=4, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Actual entry", formalDefinition="A reference to the actual resource from which data was derived." )
         protected Reference item;
 
@@ -609,6 +611,7 @@ public class ListResource extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="current | retired | entered-in-error", formalDefinition="Indicates the current state of this list." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/list-status")
     protected Enumeration<ListStatus> status;
 
     /**
@@ -616,6 +619,7 @@ public class ListResource extends DomainResource {
      */
     @Child(name = "mode", type = {CodeType.class}, order=2, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="working | snapshot | changes", formalDefinition="How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/list-mode")
     protected Enumeration<ListMode> mode;
 
     /**
@@ -630,6 +634,7 @@ public class ListResource extends DomainResource {
      */
     @Child(name = "code", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="What the purpose of this list is", formalDefinition="This code defines the purpose of the list - why it was created." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/list-example-codes")
     protected CodeableConcept code;
 
     /**
@@ -680,6 +685,7 @@ public class ListResource extends DomainResource {
      */
     @Child(name = "orderedBy", type = {CodeableConcept.class}, order=9, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="What order the list has", formalDefinition="What order applies to the items in the list." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/list-order")
     protected CodeableConcept orderedBy;
 
     /**
@@ -701,6 +707,7 @@ public class ListResource extends DomainResource {
      */
     @Child(name = "emptyReason", type = {CodeableConcept.class}, order=12, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Why list is empty", formalDefinition="If the list is empty, why the list is empty." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/list-empty-reason")
     protected CodeableConcept emptyReason;
 
     private static final long serialVersionUID = 2071342704L;
@@ -1661,7 +1668,7 @@ public class ListResource extends DomainResource {
    * Path: <b>List.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="List.subject", description="If all resources have the same subject", type="reference" )
+  @SearchParamDefinition(name="subject", path="List.subject", description="If all resources have the same subject", type="reference", target={Device.class, Group.class, Location.class, Patient.class } )
   public static final String SP_SUBJECT = "subject";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subject</b>
@@ -1687,7 +1694,7 @@ public class ListResource extends DomainResource {
    * Path: <b>List.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="List.subject", description="If all resources have the same subject", type="reference" )
+  @SearchParamDefinition(name="patient", path="List.subject", description="If all resources have the same subject", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -1713,7 +1720,7 @@ public class ListResource extends DomainResource {
    * Path: <b>List.source</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="source", path="List.source", description="Who and/or what defined the list contents (aka Author)", type="reference" )
+  @SearchParamDefinition(name="source", path="List.source", description="Who and/or what defined the list contents (aka Author)", type="reference", target={Device.class, Patient.class, Practitioner.class } )
   public static final String SP_SOURCE = "source";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>source</b>
@@ -1739,7 +1746,7 @@ public class ListResource extends DomainResource {
    * Path: <b>List.encounter</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="encounter", path="List.encounter", description="Context in which list created", type="reference" )
+  @SearchParamDefinition(name="encounter", path="List.encounter", description="Context in which list created", type="reference", target={Encounter.class } )
   public static final String SP_ENCOUNTER = "encounter";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>encounter</b>

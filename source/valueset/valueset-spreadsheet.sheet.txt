@@ -128,11 +128,11 @@
 
  -- Row 3 -----------------------------------
   Element = ValueSet.identifier
-  Card. = 0..1
+  Card. = 0..*
   Summary = y
   Type = Identifier
   Short Label = Additional identifier for the value set (e.g. HL7 v2 / CDA)
-  Definition = Formal identifier that is used to identify this value set when it is represented in other formats, or referenced in a specification, model, design or an instance.
+  Definition = A formal identifier that is used to identify this value set when it is represented in other formats, or referenced in a specification, model, design or an instance.
   Comments = Typically, this is used for values that can go in an HL7 v3 II data type
   CDISC Define.xml 2.0 Mapping = Identifier part
   w5 = id

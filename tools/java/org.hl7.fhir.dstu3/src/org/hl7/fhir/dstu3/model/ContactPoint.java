@@ -29,12 +29,13 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.DatatypeDef;
 import ca.uhn.fhir.model.api.annotation.Block;
@@ -327,6 +328,7 @@ public class ContactPoint extends Type implements ICompositeType {
      */
     @Child(name = "system", type = {CodeType.class}, order=0, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="phone | fax | email | pager | other", formalDefinition="Telecommunications form for contact point - what communications system is required to make use of the contact." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contact-point-system")
     protected Enumeration<ContactPointSystem> system;
 
     /**
@@ -341,6 +343,7 @@ public class ContactPoint extends Type implements ICompositeType {
      */
     @Child(name = "use", type = {CodeType.class}, order=2, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="home | work | temp | old | mobile - purpose of this contact point", formalDefinition="Identifies the purpose for the contact point." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contact-point-use")
     protected Enumeration<ContactPointUse> use;
 
     /**

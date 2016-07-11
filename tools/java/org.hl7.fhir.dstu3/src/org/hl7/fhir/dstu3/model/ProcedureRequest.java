@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -411,6 +412,7 @@ public class ProcedureRequest extends DomainResource {
      */
     @Child(name = "code", type = {CodeableConcept.class}, order=2, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="What procedure to perform", formalDefinition="The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-code")
     protected CodeableConcept code;
 
     /**
@@ -418,6 +420,7 @@ public class ProcedureRequest extends DomainResource {
      */
     @Child(name = "bodySite", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="What part of body to perform on", formalDefinition="Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites)." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/body-site")
     protected List<CodeableConcept> bodySite;
 
     /**
@@ -425,6 +428,7 @@ public class ProcedureRequest extends DomainResource {
      */
     @Child(name = "reason", type = {CodeableConcept.class, Condition.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Why procedure should occur", formalDefinition="The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-reason")
     protected Type reason;
 
     /**
@@ -463,6 +467,7 @@ public class ProcedureRequest extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=8, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted", formalDefinition="The status of the order." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-request-status")
     protected Enumeration<ProcedureRequestStatus> status;
 
     /**
@@ -503,6 +508,7 @@ public class ProcedureRequest extends DomainResource {
      */
     @Child(name = "priority", type = {CodeType.class}, order=13, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="routine | urgent | stat | asap", formalDefinition="The clinical priority associated with this order." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-request-priority")
     protected Enumeration<ProcedureRequestPriority> priority;
 
     private static final long serialVersionUID = -916650578L;
@@ -1485,7 +1491,7 @@ public class ProcedureRequest extends DomainResource {
    * Path: <b>ProcedureRequest.performer</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="performer", path="ProcedureRequest.performer", description="Who should perform the procedure", type="reference" )
+  @SearchParamDefinition(name="performer", path="ProcedureRequest.performer", description="Who should perform the procedure", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_PERFORMER = "performer";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>performer</b>
@@ -1511,7 +1517,7 @@ public class ProcedureRequest extends DomainResource {
    * Path: <b>ProcedureRequest.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="ProcedureRequest.subject", description="Search by subject", type="reference" )
+  @SearchParamDefinition(name="subject", path="ProcedureRequest.subject", description="Search by subject", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Group.class, Patient.class } )
   public static final String SP_SUBJECT = "subject";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subject</b>
@@ -1537,7 +1543,7 @@ public class ProcedureRequest extends DomainResource {
    * Path: <b>ProcedureRequest.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="ProcedureRequest.subject", description="Search by subject - a patient", type="reference" )
+  @SearchParamDefinition(name="patient", path="ProcedureRequest.subject", description="Search by subject - a patient", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -1563,7 +1569,7 @@ public class ProcedureRequest extends DomainResource {
    * Path: <b>ProcedureRequest.orderer</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="orderer", path="ProcedureRequest.orderer", description="Who made request", type="reference" )
+  @SearchParamDefinition(name="orderer", path="ProcedureRequest.orderer", description="Who made request", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_ORDERER = "orderer";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>orderer</b>
@@ -1589,7 +1595,7 @@ public class ProcedureRequest extends DomainResource {
    * Path: <b>ProcedureRequest.encounter</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="encounter", path="ProcedureRequest.encounter", description="Encounter request created during", type="reference" )
+  @SearchParamDefinition(name="encounter", path="ProcedureRequest.encounter", description="Encounter request created during", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class } )
   public static final String SP_ENCOUNTER = "encounter";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>encounter</b>

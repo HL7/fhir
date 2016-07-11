@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -606,6 +607,7 @@ public class Location extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | suspended | inactive", formalDefinition="active | suspended | inactive." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/location-status")
     protected Enumeration<LocationStatus> status;
 
     /**
@@ -634,6 +636,7 @@ public class Location extends DomainResource {
      */
     @Child(name = "mode", type = {CodeType.class}, order=5, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="instance | kind", formalDefinition="Indicates whether a resource instance represents a specific location or a class of locations." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/location-mode")
     protected Enumeration<LocationMode> mode;
 
     /**
@@ -641,6 +644,7 @@ public class Location extends DomainResource {
      */
     @Child(name = "type", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Type of function performed", formalDefinition="Indicates the type of function performed at the location." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ServiceDeliveryLocationRoleType")
     protected CodeableConcept type;
 
     /**
@@ -662,6 +666,7 @@ public class Location extends DomainResource {
      */
     @Child(name = "physicalType", type = {CodeableConcept.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Physical form of the location", formalDefinition="Physical form of the location, e.g. building, room, vehicle, road." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/location-physical-type")
     protected CodeableConcept physicalType;
 
     /**
@@ -1647,7 +1652,7 @@ public class Location extends DomainResource {
    * Path: <b>Location.partOf</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="partof", path="Location.partOf", description="The location of which this location is a part", type="reference" )
+  @SearchParamDefinition(name="partof", path="Location.partOf", description="The location of which this location is a part", type="reference", target={Location.class } )
   public static final String SP_PARTOF = "partof";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>partof</b>
@@ -1797,7 +1802,7 @@ Requires the near parameter to be included also</b><br>
    * Path: <b>Location.managingOrganization</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organization", path="Location.managingOrganization", description="Searches for locations that are managed by the provided organization", type="reference" )
+  @SearchParamDefinition(name="organization", path="Location.managingOrganization", description="Searches for locations that are managed by the provided organization", type="reference", target={Organization.class } )
   public static final String SP_ORGANIZATION = "organization";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organization</b>

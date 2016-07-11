@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -39,6 +39,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -577,6 +578,7 @@ public class ClaimResponse extends DomainResource {
          */
         @Child(name = "category", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Adjudication category such as co-pay, eligible, benefit, etc.", formalDefinition="Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/adjudication")
         protected Coding category;
 
         /**
@@ -584,6 +586,7 @@ public class ClaimResponse extends DomainResource {
          */
         @Child(name = "reason", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Adjudication reason", formalDefinition="Adjudication reason such as limit reached." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/adjudication-reason")
         protected Coding reason;
 
         /**
@@ -1623,6 +1626,7 @@ public class ClaimResponse extends DomainResource {
          */
         @Child(name = "revenue", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Revenue or cost center code", formalDefinition="The type of reveneu or cost center providing the product and/or service." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-revenue-center")
         protected Coding revenue;
 
         /**
@@ -1630,6 +1634,7 @@ public class ClaimResponse extends DomainResource {
          */
         @Child(name = "category", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Type of service or product", formalDefinition="Health Care Service Type Codes  to identify the classification of service or benefits." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-subcategory")
         protected Coding category;
 
         /**
@@ -1637,6 +1642,7 @@ public class ClaimResponse extends DomainResource {
          */
         @Child(name = "service", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Group, Service or Product", formalDefinition="A code to indicate the Professional Service or Product supplied." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/service-uscls")
         protected Coding service;
 
         /**
@@ -1644,6 +1650,7 @@ public class ClaimResponse extends DomainResource {
          */
         @Child(name = "modifier", type = {Coding.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/claim-modifiers")
         protected List<Coding> modifier;
 
         /**
@@ -2281,6 +2288,7 @@ public class ClaimResponse extends DomainResource {
          */
         @Child(name = "revenue", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Revenue or cost center code", formalDefinition="The type of reveneu or cost center providing the product and/or service." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-revenue-center")
         protected Coding revenue;
 
         /**
@@ -2288,6 +2296,7 @@ public class ClaimResponse extends DomainResource {
          */
         @Child(name = "category", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Type of service or product", formalDefinition="Health Care Service Type Codes  to identify the classification of service or benefits." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-subcategory")
         protected Coding category;
 
         /**
@@ -2295,6 +2304,7 @@ public class ClaimResponse extends DomainResource {
          */
         @Child(name = "service", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Service or Product", formalDefinition="A code to indicate the Professional Service or Product supplied." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/service-uscls")
         protected Coding service;
 
         /**
@@ -2302,6 +2312,7 @@ public class ClaimResponse extends DomainResource {
          */
         @Child(name = "modifier", type = {Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/claim-modifiers")
         protected List<Coding> modifier;
 
         /**
@@ -2805,6 +2816,7 @@ public class ClaimResponse extends DomainResource {
          */
         @Child(name = "code", type = {Coding.class}, order=4, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Error code detailing processing issues", formalDefinition="An error code,from a specified code system, which details why the claim could not be adjudicated." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/adjudication-error")
         protected Coding code;
 
         private static final long serialVersionUID = -1893641175L;
@@ -3120,6 +3132,7 @@ public class ClaimResponse extends DomainResource {
          */
         @Child(name = "type", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Partial or Complete", formalDefinition="Whether this represents partial or complete payment of the claim." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-paymenttype")
         protected Coding type;
 
         /**
@@ -3134,6 +3147,7 @@ public class ClaimResponse extends DomainResource {
          */
         @Child(name = "adjustmentReason", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Reason for Payment adjustment", formalDefinition="Reason for the payment adjustment." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/payment-adjustment-reason")
         protected Coding adjustmentReason;
 
         /**
@@ -3506,6 +3520,7 @@ public class ClaimResponse extends DomainResource {
          */
         @Child(name = "type", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="display | print | printoper", formalDefinition="The note purpose: Print/Display." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/note-type")
         protected Coding type;
 
         /**
@@ -4334,6 +4349,7 @@ public class ClaimResponse extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | cancelled | draft | entered-in-error", formalDefinition="The status of the resource instance." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/claimresponse-status")
     protected Enumeration<ClaimResponseStatus> status;
 
     /**
@@ -4348,6 +4364,7 @@ public class ClaimResponse extends DomainResource {
      */
     @Child(name = "ruleset", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Resource version", formalDefinition="The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ruleset")
     protected Coding ruleset;
 
     /**
@@ -4355,6 +4372,7 @@ public class ClaimResponse extends DomainResource {
      */
     @Child(name = "originalRuleset", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ruleset")
     protected Coding originalRuleset;
 
     /**
@@ -4390,6 +4408,7 @@ public class ClaimResponse extends DomainResource {
      */
     @Child(name = "outcome", type = {Coding.class}, order=9, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="complete | error | partial", formalDefinition="Processing outcome errror, partial or complete processing." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/remittance-outcome")
     protected Coding outcome;
 
     /**
@@ -4404,6 +4423,7 @@ public class ClaimResponse extends DomainResource {
      */
     @Child(name = "payeeType", type = {Coding.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Party to be paid any benefits payable", formalDefinition="Party to be reimbursed: Subscriber, provider, other." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/payeetype")
     protected Coding payeeType;
 
     /**
@@ -4460,6 +4480,7 @@ public class ClaimResponse extends DomainResource {
      */
     @Child(name = "reserved", type = {Coding.class}, order=19, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Funds reserved status", formalDefinition="Status of funds reservation (For provider, for Patient, None)." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/fundsreserve")
     protected Coding reserved;
 
     /**
@@ -4467,6 +4488,7 @@ public class ClaimResponse extends DomainResource {
      */
     @Child(name = "form", type = {Coding.class}, order=20, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Printed Form Identifier", formalDefinition="The form to be used for printing the content." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/forms")
     protected Coding form;
 
     /**
@@ -5935,7 +5957,7 @@ public class ClaimResponse extends DomainResource {
    * Path: <b>ClaimResponse.organizationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organizationreference", path="ClaimResponse.organization.as(Reference)", description="The organization who generated this resource", type="reference" )
+  @SearchParamDefinition(name="organizationreference", path="ClaimResponse.organization.as(Reference)", description="The organization who generated this resource", type="reference", target={Organization.class } )
   public static final String SP_ORGANIZATIONREFERENCE = "organizationreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organizationreference</b>
@@ -5961,7 +5983,7 @@ public class ClaimResponse extends DomainResource {
    * Path: <b>ClaimResponse.requestReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requestreference", path="ClaimResponse.request.as(Reference)", description="The claim reference", type="reference" )
+  @SearchParamDefinition(name="requestreference", path="ClaimResponse.request.as(Reference)", description="The claim reference", type="reference", target={Claim.class } )
   public static final String SP_REQUESTREFERENCE = "requestreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requestreference</b>

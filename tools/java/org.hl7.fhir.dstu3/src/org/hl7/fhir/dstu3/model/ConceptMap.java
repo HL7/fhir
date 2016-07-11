@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -46,6 +47,7 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  * A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.
  */
 @ResourceDef(name="ConceptMap", profile="http://hl7.org/fhir/Profile/ConceptMap")
+@ChildOrder(names={"url", "identifier", "version", "name", "status", "experimental", "publisher", "contact", "date", "description", "useContext", "requirements", "copyright", "source[x]", "target[x]", "group"})
 public class ConceptMap extends BaseConformance {
 
     @Block()
@@ -970,6 +972,7 @@ public class ConceptMap extends BaseConformance {
          */
         @Child(name = "equivalence", type = {CodeType.class}, order=2, min=0, max=1, modifier=true, summary=false)
         @Description(shortDefinition="equivalent | equal | wider | subsumes | narrower | specializes | inexact | unmatched | disjoint", formalDefinition="The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source)." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/concept-map-equivalence")
         protected Enumeration<ConceptMapEquivalence> equivalence;
 
         /**
@@ -1415,7 +1418,7 @@ public class ConceptMap extends BaseConformance {
         /**
          * An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).
          */
-        @Child(name = "system", type = {UriType.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "system", type = {UriType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Code System (if necessary)", formalDefinition="An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems)." )
         protected UriType system;
 
@@ -1438,10 +1441,9 @@ public class ConceptMap extends BaseConformance {
     /**
      * Constructor
      */
-      public OtherElementComponent(UriType property, UriType system, StringType code) {
+      public OtherElementComponent(UriType property, StringType code) {
         super();
         this.property = property;
-        this.system = system;
         this.code = code;
       }
 
@@ -1529,9 +1531,13 @@ public class ConceptMap extends BaseConformance {
          * @param value An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).
          */
         public OtherElementComponent setSystem(String value) { 
+          if (Utilities.noString(value))
+            this.system = null;
+          else {
             if (this.system == null)
               this.system = new UriType();
             this.system.setValue(value);
+          }
           return this;
         }
 
@@ -2739,7 +2745,7 @@ public class ConceptMap extends BaseConformance {
    * Path: <b>ConceptMap.sourceReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="source", path="ConceptMap.source.as(Reference)", description="Identifies the source of the concepts which are being mapped", type="reference" )
+  @SearchParamDefinition(name="source", path="ConceptMap.source.as(Reference)", description="Identifies the source of the concepts which are being mapped", type="reference", target={StructureDefinition.class, ValueSet.class } )
   public static final String SP_SOURCE = "source";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>source</b>
@@ -2805,7 +2811,7 @@ public class ConceptMap extends BaseConformance {
    * Path: <b>ConceptMap.targetReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="target", path="ConceptMap.target.as(Reference)", description="Provides context to the mappings", type="reference" )
+  @SearchParamDefinition(name="target", path="ConceptMap.target.as(Reference)", description="Provides context to the mappings", type="reference", target={StructureDefinition.class, ValueSet.class } )
   public static final String SP_TARGET = "target";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>target</b>
@@ -2851,7 +2857,7 @@ public class ConceptMap extends BaseConformance {
    * Path: <b>ConceptMap.sourceUri</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="source-uri", path="ConceptMap.source.as(Uri)", description="Identifies the source of the concepts which are being mapped", type="reference" )
+  @SearchParamDefinition(name="source-uri", path="ConceptMap.source.as(Uri)", description="Identifies the source of the concepts which are being mapped", type="reference", target={StructureDefinition.class, ValueSet.class } )
   public static final String SP_SOURCE_URI = "source-uri";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>source-uri</b>
@@ -2997,7 +3003,7 @@ public class ConceptMap extends BaseConformance {
    * Path: <b>ConceptMap.targetUri</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="target-uri", path="ConceptMap.target.as(Uri)", description="Provides context to the mappings", type="reference" )
+  @SearchParamDefinition(name="target-uri", path="ConceptMap.target.as(Uri)", description="Provides context to the mappings", type="reference", target={StructureDefinition.class, ValueSet.class } )
   public static final String SP_TARGET_URI = "target-uri";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>target-uri</b>

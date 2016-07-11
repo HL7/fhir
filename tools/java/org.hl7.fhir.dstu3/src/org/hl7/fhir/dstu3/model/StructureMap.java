@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -46,6 +47,7 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  * A Map of relationships between 2 structures that can be used to transform data.
  */
 @ResourceDef(name="StructureMap", profile="http://hl7.org/fhir/Profile/StructureMap")
+@ChildOrder(names={"url", "identifier", "version", "name", "status", "experimental", "publisher", "contact", "date", "description", "useContext", "requirements", "copyright", "structure", "import", "group"})
 public class StructureMap extends BaseConformance {
 
     public enum StructureMapModelMode {
@@ -1032,6 +1034,7 @@ public class StructureMap extends BaseConformance {
          */
         @Child(name = "mode", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="source | queried | target | produced", formalDefinition="How the referenced structure is used in this mapping." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/map-model-mode")
         protected Enumeration<StructureMapModelMode> mode;
 
         /**
@@ -1786,6 +1789,7 @@ public class StructureMap extends BaseConformance {
          */
         @Child(name = "mode", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="source | target", formalDefinition="Mode for this instance of data." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/map-input-mode")
         protected Enumeration<StructureMapInputMode> mode;
 
         /**
@@ -2685,6 +2689,7 @@ public class StructureMap extends BaseConformance {
          */
         @Child(name = "contextType", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="type | variable", formalDefinition="How to interpret the context." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/map-context-type")
         protected Enumeration<StructureMapContextType> contextType;
 
         /**
@@ -2699,6 +2704,7 @@ public class StructureMap extends BaseConformance {
          */
         @Child(name = "listMode", type = {CodeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="first | share | last", formalDefinition="How to handle the list mode for this element." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/map-list-mode")
         protected Enumeration<StructureMapListMode> listMode;
 
         /**
@@ -3313,6 +3319,7 @@ public class StructureMap extends BaseConformance {
          */
         @Child(name = "contextType", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="type | variable", formalDefinition="How to interpret the context." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/map-context-type")
         protected Enumeration<StructureMapContextType> contextType;
 
         /**
@@ -3334,6 +3341,7 @@ public class StructureMap extends BaseConformance {
          */
         @Child(name = "listMode", type = {CodeType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="first | share | last", formalDefinition="If field is a list, how to manage the list." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/map-list-mode")
         protected List<Enumeration<StructureMapListMode>> listMode;
 
         /**
@@ -3348,6 +3356,7 @@ public class StructureMap extends BaseConformance {
          */
         @Child(name = "transform", type = {CodeType.class}, order=7, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="create | copy +", formalDefinition="How the data is copied / created." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/map-transform")
         protected Enumeration<StructureMapTransform> transform;
 
         /**

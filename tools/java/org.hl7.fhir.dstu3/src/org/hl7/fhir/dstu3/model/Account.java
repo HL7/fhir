@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -163,6 +164,7 @@ public class Account extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=3, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | inactive", formalDefinition="Indicates whether the account is presently used/useable or not." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/account-status")
     protected Enumeration<AccountStatus> status;
 
     /**
@@ -878,7 +880,7 @@ public class Account extends DomainResource {
    * Path: <b>Account.owner</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="owner", path="Account.owner", description="Who is responsible?", type="reference" )
+  @SearchParamDefinition(name="owner", path="Account.owner", description="Who is responsible?", type="reference", target={Organization.class } )
   public static final String SP_OWNER = "owner";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>owner</b>
@@ -964,7 +966,7 @@ public class Account extends DomainResource {
    * Path: <b>Account.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="Account.subject", description="What is account tied to?", type="reference" )
+  @SearchParamDefinition(name="subject", path="Account.subject", description="What is account tied to?", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, HealthcareService.class, Location.class, Organization.class, Patient.class, Practitioner.class } )
   public static final String SP_SUBJECT = "subject";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subject</b>
@@ -990,7 +992,7 @@ public class Account extends DomainResource {
    * Path: <b>Account.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="Account.subject", description="What is account tied to?", type="reference" )
+  @SearchParamDefinition(name="patient", path="Account.subject", description="What is account tied to?", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>

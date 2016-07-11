@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -168,6 +169,7 @@ public class MessageHeader extends DomainResource {
          */
         @Child(name = "code", type = {CodeType.class}, order=2, min=1, max=1, modifier=true, summary=true)
         @Description(shortDefinition="ok | transient-error | fatal-error", formalDefinition="Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/response-code")
         protected Enumeration<ResponseType> code;
 
         /**
@@ -1171,6 +1173,7 @@ public class MessageHeader extends DomainResource {
      */
     @Child(name = "event", type = {Coding.class}, order=1, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="Code for the event this message represents", formalDefinition="Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value \"http://hl7.org/fhir/message-events\"." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/message-events")
     protected Coding event;
 
     /**
@@ -1247,12 +1250,13 @@ public class MessageHeader extends DomainResource {
      */
     @Child(name = "reason", type = {CodeableConcept.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Cause of event", formalDefinition="Coded indication of the cause for the event - indicates  a reason for the occurrence of the event that is a focus of this message." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/message-reason-encounter")
     protected CodeableConcept reason;
 
     /**
      * The actual data of the message - a reference to the root/focus class of the event.
      */
-    @Child(name = "data", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "data", type = {Reference.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="The actual content of the message", formalDefinition="The actual data of the message - a reference to the root/focus class of the event." )
     protected List<Reference> data;
     /**
@@ -1994,7 +1998,7 @@ public class MessageHeader extends DomainResource {
    * Path: <b>MessageHeader.receiver</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="receiver", path="MessageHeader.receiver", description="Intended \"real-world\" recipient for the data", type="reference" )
+  @SearchParamDefinition(name="receiver", path="MessageHeader.receiver", description="Intended \"real-world\" recipient for the data", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class } )
   public static final String SP_RECEIVER = "receiver";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>receiver</b>
@@ -2020,7 +2024,7 @@ public class MessageHeader extends DomainResource {
    * Path: <b>MessageHeader.author</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="author", path="MessageHeader.author", description="The source of the decision", type="reference" )
+  @SearchParamDefinition(name="author", path="MessageHeader.author", description="The source of the decision", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
   public static final String SP_AUTHOR = "author";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>author</b>
@@ -2086,7 +2090,7 @@ public class MessageHeader extends DomainResource {
    * Path: <b>MessageHeader.destination.target</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="target", path="MessageHeader.destination.target", description="Particular delivery destination within the destination", type="reference" )
+  @SearchParamDefinition(name="target", path="MessageHeader.destination.target", description="Particular delivery destination within the destination", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device") }, target={Device.class } )
   public static final String SP_TARGET = "target";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>target</b>
@@ -2152,7 +2156,7 @@ public class MessageHeader extends DomainResource {
    * Path: <b>MessageHeader.responsible</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="responsible", path="MessageHeader.responsible", description="Final responsibility for event", type="reference" )
+  @SearchParamDefinition(name="responsible", path="MessageHeader.responsible", description="Final responsibility for event", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class } )
   public static final String SP_RESPONSIBLE = "responsible";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>responsible</b>
@@ -2198,7 +2202,7 @@ public class MessageHeader extends DomainResource {
    * Path: <b>MessageHeader.enterer</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="enterer", path="MessageHeader.enterer", description="The source of the data entry", type="reference" )
+  @SearchParamDefinition(name="enterer", path="MessageHeader.enterer", description="The source of the data entry", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
   public static final String SP_ENTERER = "enterer";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>enterer</b>

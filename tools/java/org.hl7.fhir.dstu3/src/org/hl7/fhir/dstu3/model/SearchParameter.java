@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -46,6 +47,7 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  * A search parameter that defines a named search item that can be used to search/filter on a resource.
  */
 @ResourceDef(name="SearchParameter", profile="http://hl7.org/fhir/Profile/SearchParameter")
+@ChildOrder(names={"url", "name", "status", "experimental", "date", "publisher", "contact", "useContext", "requirements", "code", "base", "type", "description", "expression", "xpath", "xpathUsage", "target"})
 public class SearchParameter extends BaseConformance {
 
     public enum XPathUsageType {
@@ -458,6 +460,7 @@ public class SearchParameter extends BaseConformance {
      */
     @Child(name = "base", type = {CodeType.class}, order=5, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The resource type this search parameter applies to", formalDefinition="The base resource type that this search parameter refers to." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-types")
     protected CodeType base;
 
     /**
@@ -465,6 +468,7 @@ public class SearchParameter extends BaseConformance {
      */
     @Child(name = "type", type = {CodeType.class}, order=6, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="number | date | string | token | reference | composite | quantity | uri", formalDefinition="The type of value a search parameter refers to, and how the content is interpreted." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/search-param-type")
     protected Enumeration<SearchParamType> type;
 
     /**
@@ -493,6 +497,7 @@ public class SearchParameter extends BaseConformance {
      */
     @Child(name = "xpathUsage", type = {CodeType.class}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="normal | phonetic | nearby | distance | other", formalDefinition="How the search parameter relates to the set of elements returned by evaluating the xpath query." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/search-xpath-usage")
     protected Enumeration<XPathUsageType> xpathUsage;
 
     /**
@@ -500,6 +505,7 @@ public class SearchParameter extends BaseConformance {
      */
     @Child(name = "target", type = {CodeType.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Types of resource (if a resource reference)", formalDefinition="Types of resource (if a resource is referenced)." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-types")
     protected List<CodeType> target;
 
     private static final long serialVersionUID = -2062067831L;

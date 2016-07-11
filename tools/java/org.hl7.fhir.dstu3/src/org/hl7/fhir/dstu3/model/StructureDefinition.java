@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -46,6 +47,7 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.
  */
 @ResourceDef(name="StructureDefinition", profile="http://hl7.org/fhir/Profile/StructureDefinition")
+@ChildOrder(names={"url", "identifier", "version", "name", "display", "status", "experimental", "publisher", "contact", "date", "description", "useContext", "requirements", "copyright", "code", "fhirVersion", "mapping", "kind", "abstract", "contextType", "context", "type", "baseDefinition", "derivation", "snapshot", "differential"})
 public class StructureDefinition extends BaseConformance {
 
     public enum StructureDefinitionKind {
@@ -1354,6 +1356,7 @@ public class StructureDefinition extends BaseConformance {
      */
     @Child(name = "code", type = {Coding.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Assist with indexing and finding", formalDefinition="A set of terms from external terminologies that may be used to assist with indexing and searching of templates." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/profile-code")
     protected List<Coding> code;
 
     /**
@@ -1375,6 +1378,7 @@ public class StructureDefinition extends BaseConformance {
      */
     @Child(name = "kind", type = {CodeType.class}, order=11, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="primitive-type | complex-type | resource | logical", formalDefinition="Defines the kind of structure that this definition is describing." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/structure-definition-kind")
     protected Enumeration<StructureDefinitionKind> kind;
 
     /**
@@ -1389,6 +1393,7 @@ public class StructureDefinition extends BaseConformance {
      */
     @Child(name = "contextType", type = {CodeType.class}, order=13, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="resource | datatype | extension", formalDefinition="If this is an extension, Identifies the context within FHIR resources where the extension can be used." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/extension-context")
     protected Enumeration<ExtensionContext> contextType;
 
     /**
@@ -1403,6 +1408,7 @@ public class StructureDefinition extends BaseConformance {
      */
     @Child(name = "type", type = {CodeType.class}, order=15, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Type defined or constrained by this structure", formalDefinition="The type this structure is describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type)." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/defined-types")
     protected CodeType type;
 
     /**
@@ -1417,6 +1423,7 @@ public class StructureDefinition extends BaseConformance {
      */
     @Child(name = "derivation", type = {CodeType.class}, order=17, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="specialization | constraint - How relates to base definition", formalDefinition="How the type relates to the baseDefinition." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/type-derivation-rule")
     protected Enumeration<TypeDerivationRule> derivation;
 
     /**
@@ -2954,7 +2961,7 @@ public class StructureDefinition extends BaseConformance {
    * Path: <b>StructureDefinition.snapshot.element.binding.valueSet[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="valueset", path="StructureDefinition.snapshot.element.binding.valueSet", description="A vocabulary binding reference", type="reference" )
+  @SearchParamDefinition(name="valueset", path="StructureDefinition.snapshot.element.binding.valueSet", description="A vocabulary binding reference", type="reference", target={ValueSet.class } )
   public static final String SP_VALUESET = "valueset";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>valueset</b>

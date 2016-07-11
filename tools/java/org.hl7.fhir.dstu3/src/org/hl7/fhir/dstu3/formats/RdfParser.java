@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -12265,8 +12265,8 @@ public class RdfParser extends RdfParserBase {
     composeDomainResource(t, "ValueSet", name, element, index);
     if (element.hasUrlElement())
       composeUri(t, "ValueSet", "url", element.getUrlElement(), -1);
-    if (element.hasIdentifier())
-      composeIdentifier(t, "ValueSet", "identifier", element.getIdentifier(), -1);
+    for (int i = 0; i < element.getIdentifier().size(); i++)
+      composeIdentifier(t, "ValueSet", "identifier", element.getIdentifier().get(i), i);
     if (element.hasVersionElement())
       composeString(t, "ValueSet", "version", element.getVersionElement(), -1);
     if (element.hasNameElement())

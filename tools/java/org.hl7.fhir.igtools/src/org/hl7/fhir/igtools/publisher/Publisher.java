@@ -1375,7 +1375,7 @@ public class Publisher implements IGLogger {
   private void genWrapperFmt(FetchedResource r, String template, String format, Set<String> outputTracker) throws FileNotFoundException, IOException {
     if (template != null) {
       template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), template));
-      template = template.replace("{{[title]}}", r.getTitle());
+      template = template.replace("{{[title]}}", r.getTitle() == null ? "?title?" : r.getTitle());
       template = template.replace("{{[name]}}", r.getId()+"-"+format+"-html");
       template = template.replace("{{[id]}}", r.getId());
       template = template.replace("{{[type]}}", r.getElement().fhirType());

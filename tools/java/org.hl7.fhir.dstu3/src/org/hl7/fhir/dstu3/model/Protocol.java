@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -2443,6 +2444,7 @@ public class Protocol extends DomainResource {
          */
         @Child(name = "category", type = {CodeType.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="communication | diet | drug | encounter | observation | procedure | referral | supply | other", formalDefinition="High-level categorization of the type of activity." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/protocol-activity-category")
         protected Enumeration<ProtocolActivityDefinitionCategory> category;
 
         /**
@@ -3340,6 +3342,7 @@ public class Protocol extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=2, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="draft | testing | review | active | withdrawn | superseded", formalDefinition="The status of the protocol." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/protocol-status")
     protected Enumeration<ProtocolStatus> status;
 
     /**
@@ -3347,6 +3350,7 @@ public class Protocol extends DomainResource {
      */
     @Child(name = "type", type = {CodeType.class}, order=3, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="condition | device | drug | study", formalDefinition="A code that classifies the general type of context to which these behavior definitions apply.  This is used for searching, sorting and display purposes." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/protocol-type")
     protected Enumeration<ProtocolType> type;
 
     /**
@@ -4071,7 +4075,7 @@ public class Protocol extends DomainResource {
    * Path: <b>Protocol.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="Protocol.subject", description="Protocols with specified subject", type="reference" )
+  @SearchParamDefinition(name="subject", path="Protocol.subject", description="Protocols with specified subject", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device") }, target={Condition.class, Device.class, Medication.class } )
   public static final String SP_SUBJECT = "subject";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subject</b>

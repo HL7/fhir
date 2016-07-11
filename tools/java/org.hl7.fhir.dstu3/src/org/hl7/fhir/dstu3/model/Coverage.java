@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -174,6 +175,7 @@ public class Coverage extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=0, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | cancelled | draft | entered-in-error", formalDefinition="The status of the resource instance." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/coverage-status")
     protected Enumeration<CoverageStatus> status;
 
     /**
@@ -209,6 +211,7 @@ public class Coverage extends DomainResource {
      */
     @Child(name = "type", type = {Coding.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Type of coverage", formalDefinition="The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActCoverageTypeCode")
     protected Coding type;
 
     /**
@@ -230,6 +233,7 @@ public class Coverage extends DomainResource {
      */
     @Child(name = "relationship", type = {Coding.class}, order=8, min=1, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Beneficiary relationship to Planholder", formalDefinition="The relationship of beneficiary (patient) (subscriber) to the the planholder." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/policyholder-relationship")
     protected Coding relationship;
 
     /**
@@ -1427,7 +1431,7 @@ public class Coverage extends DomainResource {
    * Path: <b>Coverage.issuerReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="issuerreference", path="Coverage.issuer.as(Reference)", description="The identity of the insurer", type="reference" )
+  @SearchParamDefinition(name="issuerreference", path="Coverage.issuer.as(Reference)", description="The identity of the insurer", type="reference", target={Organization.class, Patient.class, RelatedPerson.class } )
   public static final String SP_ISSUERREFERENCE = "issuerreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>issuerreference</b>
@@ -1553,7 +1557,7 @@ public class Coverage extends DomainResource {
    * Path: <b>Coverage.planholderReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="planholderreference", path="Coverage.planholder.as(Reference)", description="Reference to the planholder", type="reference" )
+  @SearchParamDefinition(name="planholderreference", path="Coverage.planholder.as(Reference)", description="Reference to the planholder", type="reference", target={Organization.class, Patient.class } )
   public static final String SP_PLANHOLDERREFERENCE = "planholderreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>planholderreference</b>
@@ -1639,7 +1643,7 @@ public class Coverage extends DomainResource {
    * Path: <b>Coverage.beneficiaryReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="beneficiaryreference", path="Coverage.beneficiary.as(Reference)", description="Covered party", type="reference" )
+  @SearchParamDefinition(name="beneficiaryreference", path="Coverage.beneficiary.as(Reference)", description="Covered party", type="reference", target={Patient.class } )
   public static final String SP_BENEFICIARYREFERENCE = "beneficiaryreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>beneficiaryreference</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -46,6 +47,7 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  * The formal description of a single piece of information that can be gathered and reported.
  */
 @ResourceDef(name="DataElement", profile="http://hl7.org/fhir/Profile/DataElement")
+@ChildOrder(names={"url", "identifier", "version", "status", "experimental", "publisher", "date", "name", "contact", "useContext", "copyright", "stringency", "mapping", "element"})
 public class DataElement extends BaseConformance {
 
     public enum DataElementStringency {
@@ -841,6 +843,7 @@ public class DataElement extends BaseConformance {
      */
     @Child(name = "stringency", type = {CodeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="comparable | fully-specified | equivalent | convertable | scaleable | flexible", formalDefinition="Identifies how precise the data element is in its definition." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/dataelement-stringency")
     protected Enumeration<DataElementStringency> stringency;
 
     /**

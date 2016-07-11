@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -182,6 +183,7 @@ public class PaymentNotice extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | cancelled | draft | entered-in-error", formalDefinition="The status of the resource instance." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/paymentnotice-status")
     protected Enumeration<PaymentNoticeStatus> status;
 
     /**
@@ -189,6 +191,7 @@ public class PaymentNotice extends DomainResource {
      */
     @Child(name = "ruleset", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Resource version", formalDefinition="The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ruleset")
     protected Coding ruleset;
 
     /**
@@ -196,6 +199,7 @@ public class PaymentNotice extends DomainResource {
      */
     @Child(name = "originalRuleset", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ruleset")
     protected Coding originalRuleset;
 
     /**
@@ -229,14 +233,14 @@ public class PaymentNotice extends DomainResource {
     /**
      * Reference of resource to reverse.
      */
-    @Child(name = "request", type = {Identifier.class}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "request", type = {Identifier.class, Reference.class}, order=8, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Request reference", formalDefinition="Reference of resource to reverse." )
     protected Type request;
 
     /**
      * Reference of response to resource to reverse.
      */
-    @Child(name = "response", type = {Identifier.class}, order=9, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "response", type = {Identifier.class, Reference.class}, order=9, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Response reference", formalDefinition="Reference of response to resource to reverse." )
     protected Type response;
 
@@ -245,6 +249,7 @@ public class PaymentNotice extends DomainResource {
      */
     @Child(name = "paymentStatus", type = {Coding.class}, order=10, min=1, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Status of the payment", formalDefinition="The payment status, typically paid: payment sent, cleared: payment received." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/payment-status")
     protected Coding paymentStatus;
 
     /**
@@ -1160,7 +1165,7 @@ public class PaymentNotice extends DomainResource {
    * Path: <b>PaymentNotice.organizationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organizationreference", path="PaymentNotice.organization.as(Reference)", description="The organization who generated this resource", type="reference" )
+  @SearchParamDefinition(name="organizationreference", path="PaymentNotice.organization.as(Reference)", description="The organization who generated this resource", type="reference", target={Organization.class } )
   public static final String SP_ORGANIZATIONREFERENCE = "organizationreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organizationreference</b>
@@ -1186,7 +1191,7 @@ public class PaymentNotice extends DomainResource {
    * Path: <b>PaymentNotice.providerReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="providerreference", path="PaymentNotice.provider.as(Reference)", description="The reference to the provider", type="reference" )
+  @SearchParamDefinition(name="providerreference", path="PaymentNotice.provider.as(Reference)", description="The reference to the provider", type="reference", target={Practitioner.class } )
   public static final String SP_PROVIDERREFERENCE = "providerreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>providerreference</b>

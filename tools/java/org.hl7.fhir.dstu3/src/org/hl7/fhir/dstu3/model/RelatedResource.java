@@ -29,12 +29,13 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.DatatypeDef;
 import ca.uhn.fhir.model.api.annotation.Block;
@@ -237,6 +238,7 @@ public class RelatedResource extends Type implements ICompositeType {
      */
     @Child(name = "type", type = {CodeType.class}, order=0, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of", formalDefinition="The type of related resource." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/related-resource-type")
     protected Enumeration<RelatedResourceType> type;
 
     /**
@@ -249,7 +251,7 @@ public class RelatedResource extends Type implements ICompositeType {
     /**
      * The related resource, such as a library, value set, profile, or other module.
      */
-    @Child(name = "resource", type = {}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "resource", type = {Reference.class}, order=2, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The related resource", formalDefinition="The related resource, such as a library, value set, profile, or other module." )
     protected Reference resource;
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -46,6 +47,7 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  * A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  */
 @ResourceDef(name="Conformance", profile="http://hl7.org/fhir/Profile/Conformance")
+@ChildOrder(names={"url", "version", "name", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "requirements", "copyright", "kind", "software", "implementation", "fhirVersion", "acceptUnknown", "format", "profile", "rest", "messaging", "document"})
 public class Conformance extends BaseConformance implements IBaseConformance {
 
     public enum ConformanceStatementKind {
@@ -2384,6 +2386,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "mode", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="client | server", formalDefinition="Identifies whether this portion of the statement is describing ability to initiate or receive restful operations." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/restful-conformance-mode")
         protected Enumeration<RestfulConformanceMode> mode;
 
         /**
@@ -2419,6 +2422,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "transactionMode", type = {CodeType.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="not-supported | batch | transaction | both", formalDefinition="A code that indicates how transactions are supported." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/transaction-mode")
         protected Enumeration<TransactionMode> transactionMode;
 
         /**
@@ -3124,6 +3128,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "service", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates", formalDefinition="Types of security services are supported/required by the system." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/restful-security-service")
         protected List<CodeableConcept> service;
 
         /**
@@ -3715,6 +3720,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="A resource type that is supported", formalDefinition="A type of resource exposed via the restful interface." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-types")
         protected CodeType type;
 
         /**
@@ -3741,6 +3747,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "versioning", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="no-version | versioned | versioned-update", formalDefinition="This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is 'versioned-update', then the server supports all the versioning features, including using e-tags for version integrity in the API." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/versioning-policy")
         protected Enumeration<ResourceVersionPolicy> versioning;
 
         /**
@@ -3769,6 +3776,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "conditionalRead", type = {CodeType.class}, order=8, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="not-supported | modified-since | not-match | full-support", formalDefinition="A code that indicates how the server supports conditional read." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/conditional-read-status")
         protected Enumeration<ConditionalReadStatus> conditionalRead;
 
         /**
@@ -3783,6 +3791,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "conditionalDelete", type = {CodeType.class}, order=10, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="not-supported | single | multiple - how conditional delete is supported", formalDefinition="A code that indicates how the server supports conditional delete." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/conditional-delete-status")
         protected Enumeration<ConditionalDeleteStatus> conditionalDelete;
 
         /**
@@ -4736,6 +4745,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="read | vread | update | delete | history-instance | history-type | create | search-type", formalDefinition="Coded identifier of the operation, supported by the system resource." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/type-restful-interaction")
         protected Enumeration<TypeRestfulInteraction> code;
 
         /**
@@ -4978,6 +4988,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "type", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="number | date | string | token | reference | composite | quantity | uri", formalDefinition="The type of value a search parameter refers to, and how the content is interpreted." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/search-param-type")
         protected Enumeration<SearchParamType> type;
 
         /**
@@ -4992,6 +5003,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "target", type = {CodeType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Types of resource (if a resource reference)", formalDefinition="Types of resource (if a resource is referenced)." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-types")
         protected List<CodeType> target;
 
         /**
@@ -4999,6 +5011,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "modifier", type = {CodeType.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="missing | exact | contains | not | text | in | not-in | below | above | type", formalDefinition="A modifier supported for the search parameter." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/search-modifier-code")
         protected List<Enumeration<SearchModifierCode>> modifier;
 
         /**
@@ -5582,6 +5595,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="transaction | search-system | history-system", formalDefinition="A coded identifier of the operation, supported by the system." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/system-restful-interaction")
         protected Enumeration<SystemRestfulInteraction> code;
 
         /**
@@ -6415,6 +6429,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "protocol", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="http | ftp | mllp +", formalDefinition="A list of the messaging transport protocol(s) identifiers, supported by this endpoint." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/message-transport")
         protected Coding protocol;
 
         /**
@@ -6620,6 +6635,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "code", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Event type", formalDefinition="A coded identifier of a supported messaging event." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/message-events")
         protected Coding code;
 
         /**
@@ -6627,6 +6643,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "category", type = {CodeType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Consequence | Currency | Notification", formalDefinition="The impact of the content of the message." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/message-significance-category")
         protected Enumeration<MessageSignificanceCategory> category;
 
         /**
@@ -6634,6 +6651,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "mode", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="sender | receiver", formalDefinition="The mode of this event declaration - whether application is sender or receiver." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/message-conformance-event-mode")
         protected Enumeration<ConformanceEventMode> mode;
 
         /**
@@ -6641,6 +6659,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "focus", type = {CodeType.class}, order=4, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Resource that's focus of message", formalDefinition="A resource associated with the event.  This is the resource that defines the event." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-types")
         protected CodeType focus;
 
         /**
@@ -7170,6 +7189,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          */
         @Child(name = "mode", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="producer | consumer", formalDefinition="Mode of this document declaration - whether application is producer or consumer." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/document-mode")
         protected Enumeration<DocumentMode> mode;
 
         /**
@@ -7510,6 +7530,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
      */
     @Child(name = "kind", type = {CodeType.class}, order=6, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="instance | capability | requirements", formalDefinition="The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase)." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/conformance-statement-kind")
     protected Enumeration<ConformanceStatementKind> kind;
 
     /**
@@ -7538,6 +7559,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
      */
     @Child(name = "acceptUnknown", type = {CodeType.class}, order=10, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="no | extensions | elements | both", formalDefinition="A code that indicates whether the application accepts unknown elements or extensions when reading resources." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/unknown-content-code")
     protected Enumeration<UnknownContentCode> acceptUnknown;
 
     /**
@@ -9006,7 +9028,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
    * Path: <b>Conformance.profile</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="supported-profile", path="Conformance.profile", description="Profiles for use cases supported", type="reference" )
+  @SearchParamDefinition(name="supported-profile", path="Conformance.profile", description="Profiles for use cases supported", type="reference", target={StructureDefinition.class } )
   public static final String SP_SUPPORTED_PROFILE = "supported-profile";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>supported-profile</b>
@@ -9052,7 +9074,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
    * Path: <b>Conformance.rest.resource.profile</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="resourceprofile", path="Conformance.rest.resource.profile", description="A profile id invoked in a conformance statement", type="reference" )
+  @SearchParamDefinition(name="resourceprofile", path="Conformance.rest.resource.profile", description="A profile id invoked in a conformance statement", type="reference", target={StructureDefinition.class } )
   public static final String SP_RESOURCEPROFILE = "resourceprofile";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>resourceprofile</b>

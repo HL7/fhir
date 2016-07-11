@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -46,6 +47,7 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  * A compartment definition that defines how resources are accessed on a server.
  */
 @ResourceDef(name="CompartmentDefinition", profile="http://hl7.org/fhir/Profile/CompartmentDefinition")
+@ChildOrder(names={"url", "name", "status", "experimental", "publisher", "contact", "date", "description", "requirements", "code", "search", "resource"})
 public class CompartmentDefinition extends BaseConformance {
 
     public enum CompartmentType {
@@ -425,6 +427,7 @@ public class CompartmentDefinition extends BaseConformance {
          */
         @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Name of resource type", formalDefinition="The name of a resource supported by the server." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-types")
         protected CodeType code;
 
         /**
@@ -773,6 +776,7 @@ public class CompartmentDefinition extends BaseConformance {
      */
     @Child(name = "code", type = {CodeType.class}, order=5, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Patient | Encounter | RelatedPerson | Practitioner | Device", formalDefinition="Which compartment this definition describes." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/compartment-type")
     protected Enumeration<CompartmentType> code;
 
     /**

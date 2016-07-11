@@ -93,7 +93,7 @@ public class ICPC2Importer {
     vs.setImmutable(true);
     Element identifier = XMLUtil.getNamedChild(doc.getDocumentElement(), "Identifier");
     vs.setPublisher(identifier.getAttribute("authority"));
-    vs.setIdentifier(new Identifier().setValue(identifier.getAttribute("uid")));
+    vs.addIdentifier(new Identifier().setValue(identifier.getAttribute("uid")));
     List<Element> authors = new ArrayList<Element>(); 
     XMLUtil.getNamedChildren(XMLUtil.getNamedChild(doc.getDocumentElement(), "Authors"), "Author", authors);
     for (Element a : authors)

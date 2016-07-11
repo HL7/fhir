@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -54,6 +55,7 @@ public class Medication extends DomainResource {
          */
         @Child(name = "form", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="powder | tablets | carton +", formalDefinition="Describes the form of the item.  Powder; tablets; carton." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-form-codes")
         protected CodeableConcept form;
 
         /**
@@ -776,6 +778,7 @@ public class Medication extends DomainResource {
          */
         @Child(name = "container", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="E.g. box, vial, blister-pack", formalDefinition="The kind of container that this package comes as." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-package-form-codes")
         protected CodeableConcept container;
 
         /**
@@ -1191,6 +1194,7 @@ public class Medication extends DomainResource {
      */
     @Child(name = "code", type = {CodeableConcept.class}, order=0, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Codes that identify this medication", formalDefinition="A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-codes")
     protected CodeableConcept code;
 
     /**
@@ -1594,7 +1598,7 @@ public class Medication extends DomainResource {
    * Path: <b>Medication.package.content.itemReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="package-item", path="Medication.package.content.item.as(Reference)", description="The item in the package", type="reference" )
+  @SearchParamDefinition(name="package-item", path="Medication.package.content.item.as(Reference)", description="The item in the package", type="reference", target={Medication.class } )
   public static final String SP_PACKAGE_ITEM = "package-item";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>package-item</b>
@@ -1640,7 +1644,7 @@ public class Medication extends DomainResource {
    * Path: <b>Medication.product.ingredient.itemReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="ingredient", path="Medication.product.ingredient.item.as(Reference)", description="The product contained", type="reference" )
+  @SearchParamDefinition(name="ingredient", path="Medication.product.ingredient.item.as(Reference)", description="The product contained", type="reference", target={Medication.class, Substance.class } )
   public static final String SP_INGREDIENT = "ingredient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>ingredient</b>
@@ -1706,7 +1710,7 @@ public class Medication extends DomainResource {
    * Path: <b>Medication.manufacturer</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="manufacturer", path="Medication.manufacturer", description="Manufacturer of the item", type="reference" )
+  @SearchParamDefinition(name="manufacturer", path="Medication.manufacturer", description="Manufacturer of the item", type="reference", target={Organization.class } )
   public static final String SP_MANUFACTURER = "manufacturer";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>manufacturer</b>

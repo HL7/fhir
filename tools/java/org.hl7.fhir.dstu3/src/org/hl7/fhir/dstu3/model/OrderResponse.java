@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -292,6 +293,7 @@ public class OrderResponse extends DomainResource {
      */
     @Child(name = "orderStatus", type = {CodeType.class}, order=4, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="pending | review | rejected | error | accepted | cancelled | replaced | aborted | completed", formalDefinition="What this response says about the status of the original order." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/order-status")
     protected Enumeration<OrderStatus> orderStatus;
 
     /**
@@ -304,7 +306,7 @@ public class OrderResponse extends DomainResource {
     /**
      * Links to resources that provide details of the outcome of performing the order; e.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.
      */
-    @Child(name = "fulfillment", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "fulfillment", type = {Reference.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Details of the outcome of performing the order", formalDefinition="Links to resources that provide details of the outcome of performing the order; e.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order." )
     protected List<Reference> fulfillment;
     /**
@@ -883,7 +885,7 @@ public class OrderResponse extends DomainResource {
    * Path: <b>OrderResponse.request</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="request", path="OrderResponse.request", description="The order that this is a response to", type="reference" )
+  @SearchParamDefinition(name="request", path="OrderResponse.request", description="The order that this is a response to", type="reference", target={Order.class } )
   public static final String SP_REQUEST = "request";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>request</b>
@@ -975,7 +977,7 @@ public class OrderResponse extends DomainResource {
    * Path: <b>OrderResponse.who</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="who", path="OrderResponse.who", description="Who made the response", type="reference" )
+  @SearchParamDefinition(name="who", path="OrderResponse.who", description="Who made the response", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Organization.class, Practitioner.class } )
   public static final String SP_WHO = "who";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>who</b>

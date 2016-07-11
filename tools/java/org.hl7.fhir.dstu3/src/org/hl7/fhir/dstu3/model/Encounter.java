@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -334,6 +335,7 @@ Not to be used when the patient is currently at the location
          */
         @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="planned | arrived | in-progress | onleave | finished | cancelled", formalDefinition="planned | arrived | in-progress | onleave | finished | cancelled." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-state")
         protected Enumeration<EncounterState> status;
 
         /**
@@ -539,6 +541,7 @@ Not to be used when the patient is currently at the location
          */
         @Child(name = "type", type = {CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Role of participant in encounter", formalDefinition="Role of participant in encounter." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-participant-type")
         protected List<CodeableConcept> type;
 
         /**
@@ -832,6 +835,7 @@ Not to be used when the patient is currently at the location
          */
         @Child(name = "admitSource", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="From where patient was admitted (physician referral, transfer)", formalDefinition="From where patient was admitted (physician referral, transfer)." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-admit-source")
         protected CodeableConcept admitSource;
 
         /**
@@ -858,6 +862,7 @@ Not to be used when the patient is currently at the location
          */
         @Child(name = "dietPreference", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Diet preferences reported by the patient", formalDefinition="Diet preferences reported by the patient." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-diet")
         protected List<CodeableConcept> dietPreference;
 
         /**
@@ -865,6 +870,7 @@ Not to be used when the patient is currently at the location
          */
         @Child(name = "specialCourtesy", type = {CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Special courtesies (VIP, board member)", formalDefinition="Special courtesies (VIP, board member)." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-special-courtesy")
         protected List<CodeableConcept> specialCourtesy;
 
         /**
@@ -872,6 +878,7 @@ Not to be used when the patient is currently at the location
          */
         @Child(name = "specialArrangement", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Wheelchair, translator, stretcher, etc.", formalDefinition="Wheelchair, translator, stretcher, etc." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-special-arrangements")
         protected List<CodeableConcept> specialArrangement;
 
         /**
@@ -891,6 +898,7 @@ Not to be used when the patient is currently at the location
          */
         @Child(name = "dischargeDisposition", type = {CodeableConcept.class}, order=10, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Category or kind of location after discharge", formalDefinition="Category or kind of location after discharge." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-discharge-disposition")
         protected CodeableConcept dischargeDisposition;
 
         /**
@@ -1668,6 +1676,7 @@ Not to be used when the patient is currently at the location
          */
         @Child(name = "status", type = {CodeType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="planned | active | reserved | completed", formalDefinition="The status of the participants' presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-location-status")
         protected Enumeration<EncounterLocationStatus> status;
 
         /**
@@ -1940,6 +1949,7 @@ Not to be used when the patient is currently at the location
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="planned | arrived | in-progress | onleave | finished | cancelled", formalDefinition="planned | arrived | in-progress | onleave | finished | cancelled." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-state")
     protected Enumeration<EncounterState> status;
 
     /**
@@ -1954,6 +1964,7 @@ Not to be used when the patient is currently at the location
      */
     @Child(name = "class", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="inpatient | outpatient | ambulatory | emergency +", formalDefinition="inpatient | outpatient | ambulatory | emergency +." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActEncounterCode")
     protected Coding class_;
 
     /**
@@ -1961,6 +1972,7 @@ Not to be used when the patient is currently at the location
      */
     @Child(name = "type", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Specific type of encounter", formalDefinition="Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-type")
     protected List<CodeableConcept> type;
 
     /**
@@ -1968,6 +1980,7 @@ Not to be used when the patient is currently at the location
      */
     @Child(name = "priority", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Indicates the urgency of the encounter", formalDefinition="Indicates the urgency of the encounter." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-priority")
     protected CodeableConcept priority;
 
     /**
@@ -2044,6 +2057,7 @@ Not to be used when the patient is currently at the location
      */
     @Child(name = "reason", type = {CodeableConcept.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Reason the encounter takes place (code)", formalDefinition="Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-reason")
     protected List<CodeableConcept> reason;
 
     /**
@@ -3420,7 +3434,7 @@ Not to be used when the patient is currently at the location
    * Path: <b>Encounter.episodeOfCare</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="episodeofcare", path="Encounter.episodeOfCare", description="Episode(s) of care that this encounter should be recorded against", type="reference" )
+  @SearchParamDefinition(name="episodeofcare", path="Encounter.episodeOfCare", description="Episode(s) of care that this encounter should be recorded against", type="reference", target={EpisodeOfCare.class } )
   public static final String SP_EPISODEOFCARE = "episodeofcare";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>episodeofcare</b>
@@ -3466,7 +3480,7 @@ Not to be used when the patient is currently at the location
    * Path: <b>Encounter.incomingReferral</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="incomingreferral", path="Encounter.incomingReferral", description="The ReferralRequest that initiated this encounter", type="reference" )
+  @SearchParamDefinition(name="incomingreferral", path="Encounter.incomingReferral", description="The ReferralRequest that initiated this encounter", type="reference", target={ReferralRequest.class } )
   public static final String SP_INCOMINGREFERRAL = "incomingreferral";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>incomingreferral</b>
@@ -3492,7 +3506,7 @@ Not to be used when the patient is currently at the location
    * Path: <b>Encounter.participant.individual</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="practitioner", path="Encounter.participant.individual", description="Persons involved in the encounter other than the patient", type="reference" )
+  @SearchParamDefinition(name="practitioner", path="Encounter.participant.individual", description="Persons involved in the encounter other than the patient", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
   public static final String SP_PRACTITIONER = "practitioner";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>practitioner</b>
@@ -3538,7 +3552,7 @@ Not to be used when the patient is currently at the location
    * Path: <b>Encounter.appointment</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="appointment", path="Encounter.appointment", description="The appointment that scheduled this encounter", type="reference" )
+  @SearchParamDefinition(name="appointment", path="Encounter.appointment", description="The appointment that scheduled this encounter", type="reference", target={Appointment.class } )
   public static final String SP_APPOINTMENT = "appointment";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>appointment</b>
@@ -3564,7 +3578,7 @@ Not to be used when the patient is currently at the location
    * Path: <b>Encounter.partOf</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="part-of", path="Encounter.partOf", description="Another Encounter this encounter is part of", type="reference" )
+  @SearchParamDefinition(name="part-of", path="Encounter.partOf", description="Another Encounter this encounter is part of", type="reference", target={Encounter.class } )
   public static final String SP_PART_OF = "part-of";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>part-of</b>
@@ -3590,7 +3604,7 @@ Not to be used when the patient is currently at the location
    * Path: <b>Encounter.indication</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="procedure", path="Encounter.indication", description="Reason the encounter takes place (resource)", type="reference" )
+  @SearchParamDefinition(name="procedure", path="Encounter.indication", description="Reason the encounter takes place (resource)", type="reference", target={Procedure.class } )
   public static final String SP_PROCEDURE = "procedure";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>procedure</b>
@@ -3636,7 +3650,7 @@ Not to be used when the patient is currently at the location
    * Path: <b>Encounter.participant.individual</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="participant", path="Encounter.participant.individual", description="Persons involved in the encounter other than the patient", type="reference" )
+  @SearchParamDefinition(name="participant", path="Encounter.participant.individual", description="Persons involved in the encounter other than the patient", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Practitioner.class, RelatedPerson.class } )
   public static final String SP_PARTICIPANT = "participant";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>participant</b>
@@ -3662,7 +3676,7 @@ Not to be used when the patient is currently at the location
    * Path: <b>Encounter.indication</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="condition", path="Encounter.indication", description="Reason the encounter takes place (resource)", type="reference" )
+  @SearchParamDefinition(name="condition", path="Encounter.indication", description="Reason the encounter takes place (resource)", type="reference", target={Condition.class } )
   public static final String SP_CONDITION = "condition";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>condition</b>
@@ -3688,7 +3702,7 @@ Not to be used when the patient is currently at the location
    * Path: <b>Encounter.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="Encounter.patient", description="The patient present at the encounter", type="reference" )
+  @SearchParamDefinition(name="patient", path="Encounter.patient", description="The patient present at the encounter", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -3734,7 +3748,7 @@ Not to be used when the patient is currently at the location
    * Path: <b>Encounter.location.location</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="location", path="Encounter.location.location", description="Location the encounter takes place", type="reference" )
+  @SearchParamDefinition(name="location", path="Encounter.location.location", description="Location the encounter takes place", type="reference", target={Location.class } )
   public static final String SP_LOCATION = "location";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>location</b>
@@ -3760,7 +3774,7 @@ Not to be used when the patient is currently at the location
    * Path: <b>Encounter.indication</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="indication", path="Encounter.indication", description="Reason the encounter takes place (resource)", type="reference" )
+  @SearchParamDefinition(name="indication", path="Encounter.indication", description="Reason the encounter takes place (resource)", type="reference", target={Condition.class, Procedure.class } )
   public static final String SP_INDICATION = "indication";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>indication</b>

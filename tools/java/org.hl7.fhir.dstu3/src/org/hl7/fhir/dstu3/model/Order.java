@@ -29,13 +29,14 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -275,7 +276,7 @@ public class Order extends DomainResource {
     /**
      * Text - why the order was made.
      */
-    @Child(name = "reason", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "reason", type = {CodeableConcept.class, Reference.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Text - why the order was made", formalDefinition="Text - why the order was made." )
     protected Type reason;
 
@@ -289,7 +290,7 @@ public class Order extends DomainResource {
     /**
      * What action is being ordered.
      */
-    @Child(name = "detail", type = {}, order=7, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "detail", type = {Reference.class}, order=7, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="What action is being ordered", formalDefinition="What action is being ordered." )
     protected List<Reference> detail;
     /**
@@ -906,7 +907,7 @@ public class Order extends DomainResource {
    * Path: <b>Order.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="Order.subject", description="Patient this order is about", type="reference" )
+  @SearchParamDefinition(name="subject", path="Order.subject", description="Patient this order is about", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Device.class, Group.class, Patient.class, Substance.class } )
   public static final String SP_SUBJECT = "subject";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subject</b>
@@ -932,7 +933,7 @@ public class Order extends DomainResource {
    * Path: <b>Order.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="Order.subject", description="Patient this order is about", type="reference" )
+  @SearchParamDefinition(name="patient", path="Order.subject", description="Patient this order is about", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -958,7 +959,7 @@ public class Order extends DomainResource {
    * Path: <b>Order.source</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="source", path="Order.source", description="Who initiated the order", type="reference" )
+  @SearchParamDefinition(name="source", path="Order.source", description="Who initiated the order", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class } )
   public static final String SP_SOURCE = "source";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>source</b>
@@ -1030,7 +1031,7 @@ public class Order extends DomainResource {
    * Path: <b>Order.target</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="target", path="Order.target", description="Who is intended to fulfill the order", type="reference" )
+  @SearchParamDefinition(name="target", path="Order.target", description="Who is intended to fulfill the order", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Organization.class, Practitioner.class } )
   public static final String SP_TARGET = "target";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>target</b>

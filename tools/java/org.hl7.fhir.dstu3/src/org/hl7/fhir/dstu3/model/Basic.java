@@ -29,13 +29,14 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -58,12 +59,13 @@ public class Basic extends DomainResource {
      */
     @Child(name = "code", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="Kind of Resource", formalDefinition="Identifies the 'type' of resource - equivalent to the resource name for other resources." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/basic-resource-type")
     protected CodeableConcept code;
 
     /**
      * Identifies the patient, practitioner, device or any other resource that is the "focus" of this resource.
      */
-    @Child(name = "subject", type = {}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "subject", type = {Reference.class}, order=2, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Identifies the focus of this resource", formalDefinition="Identifies the patient, practitioner, device or any other resource that is the \"focus\" of this resource." )
     protected Reference subject;
 
@@ -559,7 +561,7 @@ public class Basic extends DomainResource {
    * Path: <b>Basic.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="Basic.subject", description="Identifies the focus of this resource", type="reference" )
+  @SearchParamDefinition(name="patient", path="Basic.subject", description="Identifies the focus of this resource", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -585,7 +587,7 @@ public class Basic extends DomainResource {
    * Path: <b>Basic.author</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="author", path="Basic.author", description="Who created", type="reference" )
+  @SearchParamDefinition(name="author", path="Basic.author", description="Who created", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_AUTHOR = "author";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>author</b>

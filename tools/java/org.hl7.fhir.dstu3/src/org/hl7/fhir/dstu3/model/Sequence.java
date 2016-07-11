@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -161,6 +162,7 @@ public class Sequence extends DomainResource {
          */
         @Child(name = "chromosome", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Chromosome containing genetic finding", formalDefinition="Structural unit composed of a nucleic acid molecule which controls its own replication through the interaction of specific proteins at one or more origins of replication ([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340))." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/chromosome-human")
         protected CodeableConcept chromosome;
 
         /**
@@ -175,6 +177,7 @@ public class Sequence extends DomainResource {
          */
         @Child(name = "referenceSeqId", type = {CodeableConcept.class}, order=3, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Reference identifier", formalDefinition="Reference identifier of reference sequence submitted to NCBI. It must match the type in the Sequence.type field. For example, the prefix, “NG_” identifies reference sequence for genes, “NM_” for messenger RNA transcripts, and “NP_” for amino acid sequences." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/sequence-referenceSeq")
         protected CodeableConcept referenceSeqId;
 
         /**
@@ -3293,6 +3296,7 @@ public class Sequence extends DomainResource {
      */
     @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="AA | DNA | RNA", formalDefinition="Amino acid / cDNA transcript / RNA variant." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/sequence-type")
     protected Enumeration<SequenceType> type;
 
     /**
@@ -4426,7 +4430,7 @@ public class Sequence extends DomainResource {
    * Path: <b>Sequence.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="Sequence.patient", description="The subject that the observation is about", type="reference" )
+  @SearchParamDefinition(name="patient", path="Sequence.patient", description="The subject that the observation is about", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>

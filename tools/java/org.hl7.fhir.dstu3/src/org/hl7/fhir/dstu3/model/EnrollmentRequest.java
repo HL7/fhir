@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -182,6 +183,7 @@ public class EnrollmentRequest extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | cancelled | draft | entered-in-error", formalDefinition="The status of the resource instance." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/enrollmentrequest-status")
     protected Enumeration<EnrollmentRequestStatus> status;
 
     /**
@@ -189,6 +191,7 @@ public class EnrollmentRequest extends DomainResource {
      */
     @Child(name = "ruleset", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Resource version", formalDefinition="The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ruleset")
     protected Coding ruleset;
 
     /**
@@ -196,6 +199,7 @@ public class EnrollmentRequest extends DomainResource {
      */
     @Child(name = "originalRuleset", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ruleset")
     protected Coding originalRuleset;
 
     /**
@@ -927,7 +931,7 @@ public class EnrollmentRequest extends DomainResource {
    * Path: <b>EnrollmentRequest.subjectreference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subjectreference", path="EnrollmentRequest.subject.as(reference)", description="The party to be enrolled", type="reference" )
+  @SearchParamDefinition(name="subjectreference", path="EnrollmentRequest.subject.as(reference)", description="The party to be enrolled", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_SUBJECTREFERENCE = "subjectreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subjectreference</b>
@@ -993,7 +997,7 @@ public class EnrollmentRequest extends DomainResource {
    * Path: <b>EnrollmentRequest.subjectreference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patientreference", path="EnrollmentRequest.subject.as(reference)", description="The party to be enrolled", type="reference" )
+  @SearchParamDefinition(name="patientreference", path="EnrollmentRequest.subject.as(reference)", description="The party to be enrolled", type="reference", target={Patient.class } )
   public static final String SP_PATIENTREFERENCE = "patientreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patientreference</b>

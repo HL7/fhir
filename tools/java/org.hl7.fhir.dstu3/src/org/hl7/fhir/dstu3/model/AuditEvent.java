@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -453,6 +454,7 @@ public class AuditEvent extends DomainResource {
          */
         @Child(name = "role", type = {CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Agent role in the event", formalDefinition="Specification of the role(s) the user plays when performing the event. Additional may contain security role codes that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/dicm-402-roleid")
         protected List<CodeableConcept> role;
 
         /**
@@ -519,6 +521,7 @@ public class AuditEvent extends DomainResource {
          */
         @Child(name = "media", type = {Coding.class}, order=9, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Type of media", formalDefinition="Type of media involved. Used when the event is about exporting/importing onto media." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/dicm-405-mediatype")
         protected Coding media;
 
         /**
@@ -533,6 +536,7 @@ public class AuditEvent extends DomainResource {
          */
         @Child(name = "purposeOfUse", type = {Coding.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Reason given for this user", formalDefinition="The reason (purpose of use), specific to this agent, that was used during the event being recorded." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse")
         protected List<Coding> purposeOfUse;
 
         private static final long serialVersionUID = 1802747339L;
@@ -1262,6 +1266,7 @@ public class AuditEvent extends DomainResource {
          */
         @Child(name = "type", type = {CodeType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The type of network access point", formalDefinition="An identifier for the type of network access point that originated the audit event." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/network-type")
         protected Enumeration<AuditEventAgentNetworkType> type;
 
         private static final long serialVersionUID = -160715924L;
@@ -1493,6 +1498,7 @@ public class AuditEvent extends DomainResource {
          */
         @Child(name = "type", type = {Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="The type of source where event originated", formalDefinition="Code specifying the type of source where event originated." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/audit-source-type")
         protected List<Coding> type;
 
         private static final long serialVersionUID = -1562673890L;
@@ -1769,7 +1775,7 @@ public class AuditEvent extends DomainResource {
         /**
          * Identifies a specific instance of the entity. The reference should be version specific.
          */
-        @Child(name = "reference", type = {}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "reference", type = {Reference.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Specific instance of resource", formalDefinition="Identifies a specific instance of the entity. The reference should be version specific." )
         protected Reference reference;
 
@@ -1783,6 +1789,7 @@ public class AuditEvent extends DomainResource {
          */
         @Child(name = "type", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Type of entity involved", formalDefinition="The type of the object that was involved in this audit event." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/object-type")
         protected Coding type;
 
         /**
@@ -1790,6 +1797,7 @@ public class AuditEvent extends DomainResource {
          */
         @Child(name = "role", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="What role the entity played", formalDefinition="Code representing the role the entity played in the event being audited." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/object-role")
         protected Coding role;
 
         /**
@@ -1797,6 +1805,7 @@ public class AuditEvent extends DomainResource {
          */
         @Child(name = "lifecycle", type = {Coding.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Life-cycle stage for the entity", formalDefinition="Identifier for the data life-cycle stage for the entity." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/object-lifecycle")
         protected Coding lifecycle;
 
         /**
@@ -1804,6 +1813,7 @@ public class AuditEvent extends DomainResource {
          */
         @Child(name = "securityLabel", type = {Coding.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Security labels on the entity", formalDefinition="Denotes security labels for the identified entity." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/security-labels")
         protected List<Coding> securityLabel;
 
         /**
@@ -2676,6 +2686,7 @@ public class AuditEvent extends DomainResource {
      */
     @Child(name = "type", type = {Coding.class}, order=0, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Type/identifier of event", formalDefinition="Identifier for a family of the event.  For example, a menu item, program, rule, policy, function code, application name or URL. It identifies the performed function." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/audit-event-type")
     protected Coding type;
 
     /**
@@ -2683,6 +2694,7 @@ public class AuditEvent extends DomainResource {
      */
     @Child(name = "subtype", type = {Coding.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="More specific type/id for the event", formalDefinition="Identifier for the category of event." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/audit-event-sub-type")
     protected List<Coding> subtype;
 
     /**
@@ -2690,6 +2702,7 @@ public class AuditEvent extends DomainResource {
      */
     @Child(name = "action", type = {CodeType.class}, order=2, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Type of action performed during the event", formalDefinition="Indicator for type of action performed during the event that generated the audit." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/audit-event-action")
     protected Enumeration<AuditEventAction> action;
 
     /**
@@ -2704,6 +2717,7 @@ public class AuditEvent extends DomainResource {
      */
     @Child(name = "outcome", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Whether the event succeeded or failed", formalDefinition="Indicates whether the event succeeded or failed." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/audit-event-outcome")
     protected Enumeration<AuditEventOutcome> outcome;
 
     /**
@@ -2718,6 +2732,7 @@ public class AuditEvent extends DomainResource {
      */
     @Child(name = "purposeOfEvent", type = {Coding.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="The purposeOfUse of the event", formalDefinition="The purposeOfUse (reason) that was used during the event being recorded." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse")
     protected List<Coding> purposeOfEvent;
 
     /**
@@ -3487,7 +3502,7 @@ public class AuditEvent extends DomainResource {
    * Path: <b>AuditEvent.agent.reference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="agent", path="AuditEvent.agent.reference", description="Direct reference to resource", type="reference" )
+  @SearchParamDefinition(name="agent", path="AuditEvent.agent.reference", description="Direct reference to resource", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_AGENT = "agent";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>agent</b>
@@ -3693,7 +3708,7 @@ public class AuditEvent extends DomainResource {
    * Path: <b>AuditEvent.agent.reference, AuditEvent.entity.reference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="AuditEvent.agent.reference | AuditEvent.entity.reference", description="Direct reference to resource", type="reference" )
+  @SearchParamDefinition(name="patient", path="AuditEvent.agent.reference | AuditEvent.entity.reference", description="Direct reference to resource", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>

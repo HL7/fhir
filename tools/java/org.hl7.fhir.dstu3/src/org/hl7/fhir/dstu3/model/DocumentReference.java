@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -177,6 +178,7 @@ public class DocumentReference extends DomainResource {
          */
         @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="replaces | transforms | signs | appends", formalDefinition="The type of relationship that this document has with anther document." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/document-relationship-type")
         protected Enumeration<DocumentRelationshipType> code;
 
         /**
@@ -414,6 +416,7 @@ public class DocumentReference extends DomainResource {
          */
         @Child(name = "format", type = {Coding.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Format/content rules for the document", formalDefinition="An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/formatcodes")
         protected List<Coding> format;
 
         private static final long serialVersionUID = -1412643085L;
@@ -635,6 +638,7 @@ public class DocumentReference extends DomainResource {
          */
         @Child(name = "event", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Main Clinical Acts Documented", formalDefinition="This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a \"History and Physical Report\" in which the procedure being documented is necessarily a \"History and Physical\" act." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActCode")
         protected List<CodeableConcept> event;
 
         /**
@@ -649,6 +653,7 @@ public class DocumentReference extends DomainResource {
          */
         @Child(name = "facilityType", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Kind of facility where patient was seen", formalDefinition="The kind of facility where the patient was seen." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/c80-facilitycodes")
         protected CodeableConcept facilityType;
 
         /**
@@ -656,6 +661,7 @@ public class DocumentReference extends DomainResource {
          */
         @Child(name = "practiceSetting", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Additional details about where the content was created (e.g. clinical specialty)", formalDefinition="This property may convey specifics about the practice setting where the content was created, often reflecting the clinical specialty." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/c80-practice-codes")
         protected CodeableConcept practiceSetting;
 
         /**
@@ -1142,7 +1148,7 @@ public class DocumentReference extends DomainResource {
         /**
          * Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.
          */
-        @Child(name = "ref", type = {}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "ref", type = {Reference.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Related Resource", formalDefinition="Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing." )
         protected Reference ref;
 
@@ -1357,6 +1363,7 @@ public class DocumentReference extends DomainResource {
      */
     @Child(name = "type", type = {CodeableConcept.class}, order=3, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Kind of document (LOINC if possible)", formalDefinition="Specifies the particular kind of document referenced  (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the document referenced." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/c80-doc-typecodes")
     protected CodeableConcept type;
 
     /**
@@ -1364,6 +1371,7 @@ public class DocumentReference extends DomainResource {
      */
     @Child(name = "class", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Categorization of document", formalDefinition="A categorization for the type of document referenced - helps for indexing and searching. This may be implied by or derived from the code specified in the DocumentReference.type." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/c80-doc-classcodes")
     protected CodeableConcept class_;
 
     /**
@@ -1421,6 +1429,7 @@ public class DocumentReference extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=10, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="current | superseded | entered-in-error", formalDefinition="The status of this document reference." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/document-reference-status")
     protected Enumeration<DocumentReferenceStatus> status;
 
     /**
@@ -1428,6 +1437,7 @@ public class DocumentReference extends DomainResource {
      */
     @Child(name = "docStatus", type = {CodeableConcept.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="preliminary | final | appended | amended | entered-in-error", formalDefinition="The status of the underlying document." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/composition-status")
     protected CodeableConcept docStatus;
 
     /**
@@ -1449,6 +1459,7 @@ public class DocumentReference extends DomainResource {
      */
     @Child(name = "securityLabel", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Document security-tags", formalDefinition="A set of Security-Tag codes specifying the level of privacy/security of the Document. Note that DocumentReference.meta.security contains the security labels of the \"reference\" to the document, while DocumentReference.securityLabel contains a snapshot of the security labels on the document the reference refers to." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/security-labels")
     protected List<CodeableConcept> securityLabel;
 
     /**
@@ -2542,7 +2553,7 @@ public class DocumentReference extends DomainResource {
    * Path: <b>DocumentReference.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="DocumentReference.subject", description="Who/what is the subject of the document", type="reference" )
+  @SearchParamDefinition(name="subject", path="DocumentReference.subject", description="Who/what is the subject of the document", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Group.class, Patient.class, Practitioner.class } )
   public static final String SP_SUBJECT = "subject";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subject</b>
@@ -2668,7 +2679,7 @@ public class DocumentReference extends DomainResource {
    * Path: <b>DocumentReference.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="DocumentReference.subject", description="Who/what is the subject of the document", type="reference" )
+  @SearchParamDefinition(name="patient", path="DocumentReference.subject", description="Who/what is the subject of the document", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -2754,7 +2765,7 @@ public class DocumentReference extends DomainResource {
    * Path: <b>DocumentReference.authenticator</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="authenticator", path="DocumentReference.authenticator", description="Who/what authenticated the document", type="reference" )
+  @SearchParamDefinition(name="authenticator", path="DocumentReference.authenticator", description="Who/what authenticated the document", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class } )
   public static final String SP_AUTHENTICATOR = "authenticator";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>authenticator</b>
@@ -2840,7 +2851,7 @@ public class DocumentReference extends DomainResource {
    * Path: <b>DocumentReference.custodian</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="custodian", path="DocumentReference.custodian", description="Organization which maintains the document", type="reference" )
+  @SearchParamDefinition(name="custodian", path="DocumentReference.custodian", description="Organization which maintains the document", type="reference", target={Organization.class } )
   public static final String SP_CUSTODIAN = "custodian";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>custodian</b>
@@ -2886,7 +2897,7 @@ public class DocumentReference extends DomainResource {
    * Path: <b>DocumentReference.author</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="author", path="DocumentReference.author", description="Who and/or what authored the document", type="reference" )
+  @SearchParamDefinition(name="author", path="DocumentReference.author", description="Who and/or what authored the document", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_AUTHOR = "author";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>author</b>
@@ -2952,7 +2963,7 @@ public class DocumentReference extends DomainResource {
    * Path: <b>DocumentReference.context.encounter</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="encounter", path="DocumentReference.context.encounter", description="Context of the document  content", type="reference" )
+  @SearchParamDefinition(name="encounter", path="DocumentReference.context.encounter", description="Context of the document  content", type="reference", target={Encounter.class } )
   public static final String SP_ENCOUNTER = "encounter";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
@@ -3024,7 +3035,7 @@ public class DocumentReference extends DomainResource {
    * Path: <b>DocumentReference.relatesTo.target</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="relatesto", path="DocumentReference.relatesTo.target", description="Target of the relationship", type="reference" )
+  @SearchParamDefinition(name="relatesto", path="DocumentReference.relatesTo.target", description="Target of the relationship", type="reference", target={DocumentReference.class } )
   public static final String SP_RELATESTO = "relatesto";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>relatesto</b>

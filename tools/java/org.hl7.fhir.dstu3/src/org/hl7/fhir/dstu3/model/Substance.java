@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -307,6 +308,7 @@ public class Substance extends DomainResource {
          */
         @Child(name = "substance", type = {CodeableConcept.class, Substance.class}, order=2, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="A component of the substance", formalDefinition="Another substance that is a component of this substance." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/substance-code")
         protected Type substance;
 
         private static final long serialVersionUID = -469805322L;
@@ -514,6 +516,7 @@ public class Substance extends DomainResource {
      */
     @Child(name = "category", type = {CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="What class/type of substance this is", formalDefinition="A code that classifies the general type of substance.  This is used  for searching, sorting and display purposes." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/substance-category")
     protected List<CodeableConcept> category;
 
     /**
@@ -521,6 +524,7 @@ public class Substance extends DomainResource {
      */
     @Child(name = "code", type = {CodeableConcept.class}, order=2, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="What substance this is", formalDefinition="A code (or set of codes) that identify this substance." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/substance-code")
     protected CodeableConcept code;
 
     /**
@@ -1110,7 +1114,7 @@ public class Substance extends DomainResource {
    * Path: <b>Substance.ingredient.substanceReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="substance-reference", path="Substance.ingredient.substance.as(Reference)", description="A component of the substance", type="reference" )
+  @SearchParamDefinition(name="substance-reference", path="Substance.ingredient.substance.as(Reference)", description="A component of the substance", type="reference", target={Substance.class } )
   public static final String SP_SUBSTANCE_REFERENCE = "substance-reference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>substance-reference</b>

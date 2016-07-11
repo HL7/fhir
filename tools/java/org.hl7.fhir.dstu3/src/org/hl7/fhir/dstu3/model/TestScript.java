@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -46,6 +47,7 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  * TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
  */
 @ResourceDef(name="TestScript", profile="http://hl7.org/fhir/Profile/TestScript")
+@ChildOrder(names={"url", "version", "name", "status", "identifier", "experimental", "publisher", "contact", "date", "description", "useContext", "requirements", "copyright", "origin", "destination", "metadata", "fixture", "profile", "variable", "rule", "ruleset", "setup", "test", "teardown"})
 public class TestScript extends BaseConformance {
 
     public enum ContentType {
@@ -974,6 +976,7 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "profile", type = {Coding.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="FHIR-Client | FHIR-SDC-FormFiller", formalDefinition="The type of origin profile the test system supports." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/testscript-profile-origin-types")
         protected Coding profile;
 
         private static final long serialVersionUID = -1239935149L;
@@ -1179,6 +1182,7 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "profile", type = {Coding.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="FHIR-Server | FHIR-SDC-FormManager | FHIR-SDC-FormReceiver | FHIR-SDC-FormProcessor", formalDefinition="The type of destination profile the test system supports." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/testscript-profile-destination-types")
         protected Coding profile;
 
         private static final long serialVersionUID = -1239935149L;
@@ -2455,7 +2459,7 @@ public class TestScript extends BaseConformance {
         /**
          * Reference to the resource (containing the contents of the resource needed for operations).
          */
-        @Child(name = "resource", type = {}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "resource", type = {Reference.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Reference of the resource", formalDefinition="Reference to the resource (containing the contents of the resource needed for operations)." )
         protected Reference resource;
 
@@ -3159,7 +3163,7 @@ public class TestScript extends BaseConformance {
         /**
          * Reference to the resource (containing the contents of the rule needed for assertions).
          */
-        @Child(name = "resource", type = {}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "resource", type = {Reference.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Assert rule resource reference", formalDefinition="Reference to the resource (containing the contents of the rule needed for assertions)." )
         protected Reference resource;
 
@@ -3623,7 +3627,7 @@ public class TestScript extends BaseConformance {
         /**
          * Reference to the resource (containing the contents of the ruleset needed for assertions).
          */
-        @Child(name = "resource", type = {}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "resource", type = {Reference.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Assert ruleset resource reference", formalDefinition="Reference to the resource (containing the contents of the ruleset needed for assertions)." )
         protected Reference resource;
 
@@ -4709,6 +4713,7 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "type", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The operation code type that will be executed", formalDefinition="Server interaction or operation type." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/testscript-operation-codes")
         protected Coding type;
 
         /**
@@ -4716,6 +4721,7 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "resource", type = {CodeType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Resource type", formalDefinition="The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/defined-types")
         protected CodeType resource;
 
         /**
@@ -4737,6 +4743,7 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "accept", type = {CodeType.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="xml | json | ttl | none", formalDefinition="The content-type or mime-type to use for RESTful operation in the 'Accept' header." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/content-type")
         protected Enumeration<ContentType> accept;
 
         /**
@@ -4744,6 +4751,7 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "contentType", type = {CodeType.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="xml | json | ttl | none", formalDefinition="The content-type or mime-type to use for RESTful operation in the 'Content-Type' header." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/content-type")
         protected Enumeration<ContentType> contentType;
 
         /**
@@ -6039,6 +6047,7 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "direction", type = {CodeType.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="response | request", formalDefinition="The direction to use for the assertion." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/assert-direction-codes")
         protected Enumeration<AssertionDirectionType> direction;
 
         /**
@@ -6060,6 +6069,7 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "contentType", type = {CodeType.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="xml | json | ttl | none", formalDefinition="The content-type or mime-type to use for RESTful operation in the 'Content-Type' header." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/content-type")
         protected Enumeration<ContentType> contentType;
 
         /**
@@ -6088,6 +6098,7 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "operator", type = {CodeType.class}, order=10, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains", formalDefinition="The operator type." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/assert-operator-codes")
         protected Enumeration<AssertionOperatorType> operator;
 
         /**
@@ -6109,6 +6120,7 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "resource", type = {CodeType.class}, order=13, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Resource type", formalDefinition="The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/defined-types")
         protected CodeType resource;
 
         /**
@@ -6116,6 +6128,7 @@ public class TestScript extends BaseConformance {
          */
         @Child(name = "response", type = {CodeType.class}, order=14, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable", formalDefinition="okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/assert-response-code-types")
         protected Enumeration<AssertionResponseTypes> response;
 
         /**
@@ -9552,7 +9565,7 @@ public class TestScript extends BaseConformance {
     /**
      * Reference to the profile to be used for validation.
      */
-    @Child(name = "profile", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "profile", type = {Reference.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reference of the validation profile", formalDefinition="Reference to the profile to be used for validation." )
     protected List<Reference> profile;
     /**

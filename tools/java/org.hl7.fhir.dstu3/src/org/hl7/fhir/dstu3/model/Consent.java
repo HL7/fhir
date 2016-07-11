@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -405,6 +406,7 @@ public class Consent extends DomainResource {
          */
         @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="deny | permit", formalDefinition="How the exception is statement is applied, as adding additional consent, ore removing." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/consent-except-type")
         protected Enumeration<ConsentExceptType> type;
 
         /**
@@ -426,6 +428,7 @@ public class Consent extends DomainResource {
          */
         @Child(name = "action", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Actions controlled by this exception", formalDefinition="Actions controlled by this Exception." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/consent-action")
         protected List<CodeableConcept> action;
 
         /**
@@ -433,6 +436,7 @@ public class Consent extends DomainResource {
          */
         @Child(name = "securityLabel", type = {Coding.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Security Labels that define affected resources", formalDefinition="A set of security labels that define which resources are controlled by this exception. If more than one label is specified, all resources must have all the specified labels." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/security-labels")
         protected List<Coding> securityLabel;
 
         /**
@@ -440,6 +444,7 @@ public class Consent extends DomainResource {
          */
         @Child(name = "purpose", type = {Coding.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Security Labels for the operation/context", formalDefinition="A set of security labels that define the context of which actions are controlled by this exception. If more than one label is specified, operations must have all the specified labels." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/security-labels")
         protected List<Coding> purpose;
 
         /**
@@ -447,6 +452,7 @@ public class Consent extends DomainResource {
          */
         @Child(name = "class", type = {Coding.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="e.g. Resource Type, Profile, or CDA etc", formalDefinition="The class of information covered by this exception. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/consent-content-class")
         protected List<Coding> class_;
 
         /**
@@ -454,6 +460,7 @@ public class Consent extends DomainResource {
          */
         @Child(name = "code", type = {Coding.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="e.g. LOINC or SNOMED CT code, etc in the content", formalDefinition="If this code is found in an instance, then the exception applies. TODO: where do you not have to look? This is a problematic element." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/consent-content-code")
         protected List<Coding> code;
 
         /**
@@ -1145,6 +1152,7 @@ public class Consent extends DomainResource {
          */
         @Child(name = "role", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="How the actor is/was involved", formalDefinition="How the individual is or was involved in the resourcescontent that is described in the exception." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/consent-actor-role")
         protected CodeableConcept role;
 
         /**
@@ -1350,12 +1358,13 @@ public class Consent extends DomainResource {
          */
         @Child(name = "meaning", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="instance | related | dependents", formalDefinition="How the resource reference is interpreted when testing consent restrictions." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/consent-data-meaning")
         protected Enumeration<ConsentDataMeaning> meaning;
 
         /**
          * A reference to a specific resource that defines which resources are covered by this consent.
          */
-        @Child(name = "reference", type = {}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "reference", type = {Reference.class}, order=2, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="The actual data reference", formalDefinition="A reference to a specific resource that defines which resources are covered by this consent." )
         protected Reference reference;
 
@@ -1580,6 +1589,7 @@ public class Consent extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="draft | proposed | active | rejected | inactive | entered-in-error", formalDefinition="Indicates the current state of this consent." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/consent-status")
     protected Enumeration<ConsentStatus> status;
 
     /**
@@ -1587,6 +1597,7 @@ public class Consent extends DomainResource {
      */
     @Child(name = "category", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Classification of the consent statement - for indexing/retrieval", formalDefinition="A classification of the type of consents found in the statement. This element supports indexing and retrieval of consent statements." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/consent-category")
     protected List<CodeableConcept> category;
 
     /**
@@ -2634,7 +2645,7 @@ public class Consent extends DomainResource {
    * Path: <b>Consent.source[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="source", path="Consent.source", description="Source from which this consent is taken", type="reference" )
+  @SearchParamDefinition(name="source", path="Consent.source", description="Source from which this consent is taken", type="reference", target={Consent.class, Contract.class, DocumentReference.class, QuestionnaireResponse.class } )
   public static final String SP_SOURCE = "source";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>source</b>
@@ -2660,7 +2671,7 @@ public class Consent extends DomainResource {
    * Path: <b>Consent.except.actor.reference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="actor", path="Consent.except.actor.reference", description="Resource for the actor (or group, by role)", type="reference" )
+  @SearchParamDefinition(name="actor", path="Consent.except.actor.reference", description="Resource for the actor (or group, by role)", type="reference", target={CareTeam.class, Device.class, Group.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_ACTOR = "actor";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>actor</b>
@@ -2706,7 +2717,7 @@ public class Consent extends DomainResource {
    * Path: <b>Consent.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="Consent.patient", description="Who the consent applies to", type="reference" )
+  @SearchParamDefinition(name="patient", path="Consent.patient", description="Who the consent applies to", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -2732,7 +2743,7 @@ public class Consent extends DomainResource {
    * Path: <b>Consent.organization</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organization", path="Consent.organization", description="Organization that manages the consent", type="reference" )
+  @SearchParamDefinition(name="organization", path="Consent.organization", description="Organization that manages the consent", type="reference", target={Organization.class } )
   public static final String SP_ORGANIZATION = "organization";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organization</b>
@@ -2758,7 +2769,7 @@ public class Consent extends DomainResource {
    * Path: <b>Consent.recipient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="recipient", path="Consent.recipient", description="Who|what the consent is in regard to", type="reference" )
+  @SearchParamDefinition(name="recipient", path="Consent.recipient", description="Who|what the consent is in regard to", type="reference", target={CareTeam.class, Device.class, Group.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_RECIPIENT = "recipient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>recipient</b>
@@ -2804,7 +2815,7 @@ public class Consent extends DomainResource {
    * Path: <b>Consent.consentor</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="consentor", path="Consent.consentor", description="Who is agreeing to the policy and exceptions", type="reference" )
+  @SearchParamDefinition(name="consentor", path="Consent.consentor", description="Who is agreeing to the policy and exceptions", type="reference", target={Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_CONSENTOR = "consentor";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>consentor</b>

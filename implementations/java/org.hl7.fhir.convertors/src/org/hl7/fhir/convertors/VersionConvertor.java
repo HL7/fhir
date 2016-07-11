@@ -13684,7 +13684,7 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
 		org.hl7.fhir.dstu3.model.ValueSet tgt = new org.hl7.fhir.dstu3.model.ValueSet();
 		copyDomainResource(src, tgt);
 		tgt.setUrl(src.getUrl());
-		tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+		tgt.addIdentifier(convertIdentifier(src.getIdentifier()));
 		tgt.setVersion(src.getVersion());
 		tgt.setName(src.getName());
 		tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
@@ -13712,7 +13712,8 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
 		org.hl7.fhir.dstu2.model.ValueSet tgt = new org.hl7.fhir.dstu2.model.ValueSet();
 		copyDomainResource(src, tgt);
 		tgt.setUrl(src.getUrl());
-		tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+		for (org.hl7.fhir.dstu3.model.Identifier i : src.getIdentifier())
+			tgt.setIdentifier(convertIdentifier(i));
 		tgt.setVersion(src.getVersion());
 		tgt.setName(src.getName());
 		tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -37,6 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
@@ -208,6 +209,7 @@ public class EpisodeOfCare extends DomainResource {
          */
         @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="planned | waitlist | active | onhold | finished | cancelled", formalDefinition="planned | waitlist | active | onhold | finished | cancelled." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/episode-of-care-status")
         protected Enumeration<EpisodeOfCareStatus> status;
 
         /**
@@ -418,6 +420,7 @@ public class EpisodeOfCare extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="planned | waitlist | active | onhold | finished | cancelled", formalDefinition="planned | waitlist | active | onhold | finished | cancelled." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/episode-of-care-status")
     protected Enumeration<EpisodeOfCareStatus> status;
 
     /**
@@ -1414,7 +1417,7 @@ public class EpisodeOfCare extends DomainResource {
    * Path: <b>EpisodeOfCare.condition</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="condition", path="EpisodeOfCare.condition", description="Conditions/problems/diagnoses this episode of care is for", type="reference" )
+  @SearchParamDefinition(name="condition", path="EpisodeOfCare.condition", description="Conditions/problems/diagnoses this episode of care is for", type="reference", target={Condition.class } )
   public static final String SP_CONDITION = "condition";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>condition</b>
@@ -1440,7 +1443,7 @@ public class EpisodeOfCare extends DomainResource {
    * Path: <b>EpisodeOfCare.referralRequest</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="incomingreferral", path="EpisodeOfCare.referralRequest", description="Incoming Referral Request", type="reference" )
+  @SearchParamDefinition(name="incomingreferral", path="EpisodeOfCare.referralRequest", description="Incoming Referral Request", type="reference", target={ReferralRequest.class } )
   public static final String SP_INCOMINGREFERRAL = "incomingreferral";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>incomingreferral</b>
@@ -1466,7 +1469,7 @@ public class EpisodeOfCare extends DomainResource {
    * Path: <b>EpisodeOfCare.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="EpisodeOfCare.patient", description="Patient for this episode of care", type="reference" )
+  @SearchParamDefinition(name="patient", path="EpisodeOfCare.patient", description="Patient for this episode of care", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -1492,7 +1495,7 @@ public class EpisodeOfCare extends DomainResource {
    * Path: <b>EpisodeOfCare.managingOrganization</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organization", path="EpisodeOfCare.managingOrganization", description="The organization that has assumed the specific responsibilities of this EpisodeOfCare", type="reference" )
+  @SearchParamDefinition(name="organization", path="EpisodeOfCare.managingOrganization", description="The organization that has assumed the specific responsibilities of this EpisodeOfCare", type="reference", target={Organization.class } )
   public static final String SP_ORGANIZATION = "organization";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organization</b>
@@ -1538,7 +1541,7 @@ public class EpisodeOfCare extends DomainResource {
    * Path: <b>EpisodeOfCare.careManager</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="care-manager", path="EpisodeOfCare.careManager", description="Care manager/care co-ordinator for the patient", type="reference" )
+  @SearchParamDefinition(name="care-manager", path="EpisodeOfCare.careManager", description="Care manager/care co-ordinator for the patient", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
   public static final String SP_CARE_MANAGER = "care-manager";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>care-manager</b>

@@ -13,11 +13,14 @@ import org.hl7.fhir.dstu2.validation.ValidationMessage;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
 public class InstanceValidatorTests {
 
   private void validateCnt(String cnt, int errorCount, boolean json) throws Exception {
     if (TestingUtilities.context == null) {
-      TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip");
+      TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir.dstu2\\build\\publish\\validation-min.xml.zip");
       ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://local.healthintersections.com.au:960/open");
     }
 
@@ -25,7 +28,8 @@ public class InstanceValidatorTests {
     ByteArrayInputStream file = new ByteArrayInputStream(cnt.getBytes(Charsets.UTF_8));
     InstanceValidator val = new InstanceValidator(TestingUtilities.context);
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
-//    val.validate(errors, file, json ? FhirFormat.JSON : FhirFormat.XML);
+    JsonObject obj = new Gson().fromJson(cnt, JsonObject.class);
+    val.validate(obj);
     int ec = 0;
     for (ValidationMessage m : errors) {
       if (m.getLevel() == IssueSeverity.ERROR || m.getLevel() == IssueSeverity.FATAL) {

@@ -29,12 +29,13 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 11, 2016 11:44-0400 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.DatatypeDef;
 import ca.uhn.fhir.model.api.annotation.Block;
@@ -468,6 +469,7 @@ public class ActionDefinition extends Type implements ICompositeType {
          */
         @Child(name = "relationship", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="before | after", formalDefinition="The relationship of this action to the related action." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-relationship-type")
         protected Enumeration<ActionRelationshipType> relationship;
 
         /**
@@ -482,6 +484,7 @@ public class ActionDefinition extends Type implements ICompositeType {
          */
         @Child(name = "anchor", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="start | end", formalDefinition="An optional indicator for how the relationship is anchored to the related action. For example \"before the start\" or \"before the end\" of the related action." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-relationship-anchor")
         protected Enumeration<ActionRelationshipAnchor> anchor;
 
         private static final long serialVersionUID = 451097227L;
@@ -805,6 +808,7 @@ public class ActionDefinition extends Type implements ICompositeType {
          */
         @Child(name = "type", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="The type of behavior (grouping, precheck, selection, cardinality, etc)", formalDefinition="The type of the behavior to be described, such as grouping, visual, or selection behaviors." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-behavior-type")
         protected Coding type;
 
         /**
@@ -1276,6 +1280,7 @@ public class ActionDefinition extends Type implements ICompositeType {
      */
     @Child(name = "participantType", type = {CodeType.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="patient | practitioner | related-person", formalDefinition="The type of participant in the action." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-participant-type")
     protected List<Enumeration<ParticipantType>> participantType;
 
     /**
@@ -1283,6 +1288,7 @@ public class ActionDefinition extends Type implements ICompositeType {
      */
     @Child(name = "type", type = {CodeType.class}, order=10, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="create | update | remove | fire-event", formalDefinition="The type of action to perform (create, update, remove)." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-type")
     protected Enumeration<ActionType> type;
 
     /**
@@ -1295,7 +1301,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     /**
      * The resource that is the target of the action (e.g. CommunicationRequest). The resource described here defines any aspects of the action that can be specified statically (i.e. are known at the time of definition).
      */
-    @Child(name = "resource", type = {}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "resource", type = {Reference.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Static portion of the action definition", formalDefinition="The resource that is the target of the action (e.g. CommunicationRequest). The resource described here defines any aspects of the action that can be specified statically (i.e. are known at the time of definition)." )
     protected Reference resource;
 
