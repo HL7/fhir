@@ -35,9 +35,10 @@ In contrast to <a href="imagingmanifest.html">ImagingManifest</a>, this resource
 study. Imaging Manifest represents selected instances from multiple studies for one patient.
 </p>
 <p> 
-ImagingStudy is used for DICOM imaging and associated information. Use Media to track non-DICOM images, 
-video, or audio. Binary can be used to store arbitrary content. <a href="documentreference.html">DocumentReference</a> allow indexing and 
-retrieval of clinical “documents” with relevant metadata.
+ImagingStudy is used for DICOM imaging and associated information. Use <a href="media.html">Media</a> to 
+track non-DICOM images, video, or audio. 
+<a href="binary.html">Binary</a> can be used to store arbitrary content. 
+<a href="documentreference.html">DocumentReference</a> allow indexing and retrieval of clinical “documents” with relevant metadata.
 </p>
 </div>
 </div>

@@ -2,8 +2,36 @@
 
 <!-- insert xhtml content here -->
 <h3>Implementation Notes</h3>
+<p>
+A referenced DICOM SOP instance could be: 
+<ul>
+<li>A single- or multi-frame, still or video image captured by a variety of imaging modalities, such as X-ray, MR, and ultrasound;</li>
+<li>A set of various presentation parameters, including annotation and markup;</li>
+<li>A set of measurements or a report, including radiation dose report and CAD analysis;</li>
+<li>An encapsulated PDF or CDA document;</li>
+<li>A list of instances, such as key “of interest” images, or instances to be “deleted”; or </li>
+<li>Other DICOM content. </li>
+</ul>
+</p>
+<p>
+UID values follow the FHIR convention of expressing UIDs as URNs. For example, the DICOM Study Instance UID 
+of <code>1.2.250.1.59.40211.12345678.678910</code> is expressed as <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code>. 
+</p>
+<p>  
+ImagingStudy.baseLocation and ImagingStudy.series.baseLocation can each list multiple methods to retrieve 
+the study, series or instances. If a study-level <a href="imagingmanifest.html#baseLocation">baseLocation</a> of a particular 
+type is present, it shall be applicable to all listed series and instances in the study, unless overridden by a 
+series-level <a href="imagingmanifest.html#baseLocation">baseLocation</a> of that type. (Series-level 
+locations can be provided because all series of a study are not guaranteed to be on the same server. For the identified 
+retrieval mechanisms, the services supporting instance-level retrieval do not differ from the series-level services, 
+thus instance-level baseLocation is not defined.) 
+</p>
+<p>
+The form, requirements, and necessary manipulation of the baseLocation.url depend on service identified in baseLocation.type:
+</p>
+<p>
 See <a href="imagingmanifest.html#baseLocation">ImagingManifest Implementation Notes</a> for details on use of baseLocation
-
+</p>
 <h3>Use Case</h3>
 <h4>EHR access to imaging studies</h4>
 <p>
