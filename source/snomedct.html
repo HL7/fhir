@@ -128,10 +128,31 @@ of the <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_
 
 <table class="grid">
  <tr><td>Description</td><td>Select a set of concepts based on a formal expression statement</td></tr>
- <tr><td>Property Name</td><td>expression</td></tr>
+ <tr><td>Property Name</td><td>constraint</td></tr>
  <tr><td>Operations Allowed</td><td>=</td></tr>
  <tr><td>Values Allowed</td><td>[expression]</td></tr>
- <tr><td>Comments</td><td>The result of the filter is the result of executing the given SNOMED CT expression. note: the query statement is under current development</td></tr>
+ <tr><td>Comments</td><td>
+   The result of the filter is the result of executing the given <a href="http://snomed.org/expressionconstraints.pdf">SNOMED CT Expression (Expression Constraint Language)</a>.
+   <br/>
+   Example:
+   <pre class="json">
+ "compose": {
+  "include": [
+    {
+      "system": "http://snomed.info/sct",
+      "filter": [
+        {
+          "property": "constraint",
+          "op": "=",
+          "value": "&lt;&lt; 30506011000036107 |Australian product|: 700000101000036108 |hasTP| = 17311000168105 |Panadol|"
+        }
+      ]
+    }
+  ]
+}
+
+   </pre>
+   </td></tr>
 </table>
 
 <h4>By whether post-coordination is allowed</h4>
