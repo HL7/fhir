@@ -105,6 +105,46 @@ regards to particular element values of the target that make its use appropriate
 Extensions SHALL only be used on a target for which they are defined.
 </p>
 
+<a name="cardinality"> </a>
+<h3>Cardinality</h3>
+<p>
+The cardinality constraints asserted by the extension definition itself 
+apply to any contexts where the extension is used.
+</p>
+<p><b>Minimum Cardinality</b></p>
+<p>
+If the Extension minimum cardinality is 0, then the extension is 
+optional anywhere it appears. A <a href="profiling.html#resource">profile</a> that 
+defines the use of an extension may make the minimum cardinality any number up 
+to maximum cardinality of the extension itself. Example: Example: 
+<a href="extension-birthplace.html">Patient birthplace</a>.
+</p>
+<p>
+If the Extension minimum cardinality is &gt; 1, then the extension must have a 
+minimum cardinality of at least the minimum cardinality in any <a href="profiling.html#resource">profile</a> 
+that defines the use of an extension. The the minimum cardinality may be any number up 
+to maximum cardinality of the extension. Even with a minimum cardinality &gt;0, the 
+extension is only required to be present in instances if the inatances explicitly
+or implicitly conform to a profile that defines the use of the extension. Example: 
+<a href="extension-conformance-expectation.html">Conformance Expection</a>.
+</p>
+<p><b>Maximum Cardinality</b></p>
+<p>
+If the Extension maximum cardinality is 1, then the extension is only allowed once on 
+any element on which it appears. A <a href="profiling.html#resource">profile</a> that 
+defines the use of an extension can only make the maximum cardinality 1 (or zero if 
+the minimum cardinality is 0, and the profile constrains another profile that allows
+the extension). Example: <a href="patient-mothersMaidenName">Mother's Maiden Name</a>. 
+</p>
+<p>
+If the Extension maximum cardinality is &gt;1, then the extension is allowed up to 
+the specified number of times on any element on which it appears. 
+A <a href="profiling.html#resource">profile</a> that defines the use of an 
+extension may make the maximum cardinality any value up to the specified maximum.
+Example: <a href="extension-patient-disability.html">Patient Disability</a>.
+</p>
+
+
 <a name="registration"> </a>
 <h3>Publishing Extension Definitions</h3>
 <p>
