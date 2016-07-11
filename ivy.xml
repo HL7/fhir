@@ -1,7 +1,7 @@
 <ivy-module version="2.0">
   <info organisation="org.hl7.fhir" module="tools"/>
   <dependencies>
-    <dependency org="ca.uhn.hapi.fhir" name="hapi-fhir-base" rev="1.3"/>
+    <dependency org="ca.uhn.hapi.fhir" name="hapi-fhir-base" rev="1.6"/>
     <dependency org="com.google.code.gson" name="gson" rev="2.3"/>
     <dependency org="commons-codec" name="commons-codec" rev="1.9"/>
     <dependency org="commons-discovery" name="commons-discovery" rev="0.2"/>

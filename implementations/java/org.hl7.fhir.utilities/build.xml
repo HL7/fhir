@@ -25,7 +25,7 @@
         <pathelement location="../../../tools/java/imports/commons-codec-1.9.jar"/>
         <pathelement location="../../../tools/java/imports/Saxon-HE-9.5.1-5.jar"/>
         <pathelement location="../../../tools/java/imports/txtmark-0.11.jar"/>
-        <pathelement location="../../../tools/java/imports/hapi-fhir-base-1.3.jar"/>
+        <pathelement location="../../../tools/java/imports/hapi-fhir-base-1.6.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -42,8 +42,8 @@
     <target depends="build-subprojects,build-project" name="build"/>
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
-        <echo message="${ant.project.name}: ${ant.file}"/>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+	    <echo message="${ant.project.name}: ${ant.file}"/>
+	    <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
             <classpath refid="org.hl7.fhir.utilities.classpath"/>
         </javac>

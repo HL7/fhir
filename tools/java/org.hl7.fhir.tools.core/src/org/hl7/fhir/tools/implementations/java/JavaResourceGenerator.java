@@ -71,7 +71,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
    * until HAPI 1.6 is released, at which point it will be 
    * removed. Added by JA 2016-05-28
    */
-	private static final boolean HAPI_16 = false;
+  private static final boolean HAPI_16 = true;
 
   public enum JavaGenClass { Structure, Type, Resource, BackboneElement, Constraint }
 	private JavaGenClass clss;
@@ -1809,11 +1809,14 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     for (TypeRef tr : e.getTypes()) {
       if (tr.isResourceReference()) {
         for (String p : tr.getParams())
-          if (!p.equalsIgnoreCase("Any"))
+          if (p.equalsIgnoreCase("Any")) {
+            b.append("Reference.class");
+          } else {
             if (p.equals("List"))
               b.append(p+"Resource.class");
             else
               b.append(p+".class");
+          }
       } else if (definitions.hasPrimitiveType(tr.getName())) {
         b.append(upFirst(tr.getName())+"Type.class");
       } else if (tr.getName().startsWith("@")){

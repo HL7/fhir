@@ -29,6 +29,4 @@ public interface IAnyResource extends IBaseResource {
 
 	IIdType getIdElement();
 
-	IBaseMetaType getMeta();
-	
 }
