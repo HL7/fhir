@@ -140,13 +140,13 @@ The use of Path and type depends more deeply on the context where the ElementDef
  <tr> <td>A defined Extension <br/>(example: <a href="extension-us-core-race.html">Extension</a>  - <a href="extension-us-core-race.xml.html">XML</a>, <a href="extension-us-core-race.json.html">JSON</a>)</td>
         <td><code>Extension</code></td> <td><code>Extension.value[x]</code> or <code>Extension.extension</code> (for complex extensions)</td> <td><code>Extension</code></td> </tr>
 </table>
-
 <p>
+There are additional notes about the use of <code>ElementDefinition</code> when defining Extensions on the <a href="defining-extensions.html#ed">Defining Extensions</a> page.
+</p>
 
 <a name="slicing"> </a>
 <h3>Rules about Slicing</h3>
 
-</p>
 <ul>
  <li>Slicing is only allowed when constraining an existing structure</li>
  <li><code>slicing</code> can only be used on the first repeat of an element, this element is considered the slicing entry</li>

@@ -144,6 +144,40 @@ extension may make the maximum cardinality any value up to the specified maximum
 Example: <a href="extension-patient-disability.html">Patient Disability</a>.
 </p>
 
+<a name="ed"> </a>
+<h3>Use of ElementDefinition in Extension Definitions</h3>
+<p>
+An extension is a wrapper for url and a value or other extensions. As such,
+some of the properties of the extension are defined on the extension
+itself, while others are defined on the Extension.value. This 
+list provides guidance for the correct usage:
+</p>
+<ul>
+ <li>Extension root element:
+  <ul>
+    <li>Cardinality</li>
+    <li>Short, Definition, Comments</li>
+    <li>IsModifier</li>
+    <li>MustSupport (is used on invocation of the extension)</li>
+    <li>Conditions &amp; Constraints. These SHOULD never be on url/value[x]</li>
+    <li>Mappings. these SHALL never be on url/value[x]</li>
+  </ul>
+ </li>
+ <li>Extension.url
+  <ul>
+    <li>Cardinality = 1...1 (fixed)</li>
+    <li>value = canonical url (fixed)</li>
+  </ul>
+ </li>
+ <li>
+  <ul>Extension.value[x]
+    <li>Type</li>
+    <li>Cardinality for Simple extensions (not nested): 1...1. Use 0..0 if nested. Note that the actual ED cardinality is defined by the root element</li>
+    <li>Binding</li>
+    <li>MaxLength, DefaultValue, Pattern, Example, MinValue, MaxValue</li>
+  </ul>
+ </li>
+</ul>
 
 <a name="registration"> </a>
 <h3>Publishing Extension Definitions</h3>
