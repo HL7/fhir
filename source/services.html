@@ -18,9 +18,9 @@
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 
 <p>
-Though FHIR Resources are primarily designed for the <a href="http.html">RESTful HTTP-based implementation</a>, it is not 
+Though FHIR resources are primarily designed for the <a href="http.html">RESTful HTTP-based implementation</a>, it is not 
 necessary to use a RESTful interface when exchanging the resources; one way that they can be exchanged is in the context of 
-services. Service Oriented Architecture (SOA) is an architecture pattern using services to encapsulate and provide discreet 
+services. Service Oriented Architecture (SOA) is an architecture pattern using services to encapsulate and provide discrete 
 pieces of application functionality to each other. Services communicate by invoking public interfaces and exchanging 
 information (as parameters and outputs) in accordance with a well-defined service contract. 
 </p>
@@ -196,8 +196,8 @@ implementation alternatives.
 <a name="considerations"> </a>
 <h3>Architectural Considerations </h3>
 <p>
-FHIR Resources are designed to make use in a wide variety of contexts. In particular, FHIR resources are required to be 
-suitable for use in a REST environment. This means that there are number of design requirements and choices that impact on 
+FHIR resources are designed to be used in a wide variety of contexts. In particular, FHIR resources are required to be 
+suitable for use in a REST environment. This means that there are number of design requirements and choices that impact  
 how suitable resources are for use with services. 
 </p>
 <p>
@@ -288,7 +288,7 @@ modularly based.
 <p>
 <b>Explicit State</b>.  All resources represent the various states of the record and real world entities involved in a transaction 
 explicitly. This is necessary for use in RESTful and document contexts, where there is no explicit transaction. Service 
-interactions are typically associated with implicit semantics - a request to change the status of a particular resource to 
+interactions are typically associated with implicit semantics, such as a request to change the status of a particular resource to 
 something else, for example. The fact that resources that carry this state explicitly as well as the transaction fixing 
 state implicitly creates duplication between the two, and this will need to be managed.  
 </p>
