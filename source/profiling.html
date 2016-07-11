@@ -442,10 +442,9 @@ the list by checking whether the item's content meets the rules specified
 for the slice.
 This would require a processor to be able to check all the rules
 applied in the slice and to do so speculatively in a depth-first
-fashion. Neither of these is appropriate for an operational system,
-and particularly not for generated code. Thus, to provide a better way to distinguish 
-slices, a sliced element 
-can designate a field or set of fields that act as a "discriminator" - they
+fashion. Both of these requirements are inappropriately difficult for an operational system,
+and particularly for generated code. Thus, to provide a better way to distinguish 
+slices, a sliced element can designate a field or set of fields that act as a "discriminator" - they
 are used to tell the slices apart. 
 </p>
 <p>
