@@ -55,9 +55,9 @@
   <!-- when the allergy was first noted (in this case the same as reaction.onset of the first occurrence) --> 
   <onset value="2004"/>
 
-  <!-- last happened June 2012. Typically, systems either track lastOccurence,
+  <!-- last happened June 2012. Typically, systems either track lastOccurrence,
      or a list of events. -->
-  <lastOccurence value="2012-06"/>
+  <lastOccurrence value="2012-06"/>
   
   <!-- an additional note about the allergy propensity by the recorder -->
   <note>

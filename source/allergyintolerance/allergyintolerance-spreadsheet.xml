@@ -1463,7 +1463,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">AllergyIntolerance.lastOccurence</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">AllergyIntolerance.lastOccurrence</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -4491,7 +4491,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">last-date</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">AllergyIntolerance.lastOccurence</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">AllergyIntolerance.lastOccurrence</Data></Cell>
     <Cell ss:StyleID="s119"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
