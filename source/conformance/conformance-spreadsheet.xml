@@ -7,21 +7,21 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd</LastAuthor>
+  <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-01-23T21:57:28Z</LastSaved>
+  <LastSaved>2016-07-12T11:28:13Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17148</WindowHeight>
+  <WindowHeight>12828</WindowHeight>
   <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>715</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4716,7 +4716,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5535,7 +5534,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="53" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s118" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s118" ss:AutoFitWidth="0" ss:Width="130.80000000000001"/>
    <Column ss:StyleID="s118" ss:AutoFitWidth="0" ss:Width="124.80000000000001"/>
@@ -5586,157 +5585,184 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">subset</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Resource | Instance</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s134"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s134"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">operation</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s135"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Fetch a subset of the conformance resource</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">This operation asks the server to return a subset of the conformance resource - just the REST parts that relate to a set of nominated resources - the resources that the client is interested in</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s136"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"/>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">subset.server</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The canonical URL - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"/>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">subset.resource</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">A resource that the client would like to include in the return</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"/>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">subset.return</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance</Data></Cell>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The subsetted conformance resource that is returned. This should be tagged with the SUBSETTED code</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"/>
-    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">implements</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Resource | Instance</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">operation</Data></Cell>
+    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">Test if a server implements a client's required operations</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in it's conformance statement. The client provides it's conformance statement inline, or by referring the server to the canonical URL of it's conformance statement</Data></Cell>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">The operation does not perform a full conformance check; in particular it does not check that the profiles align. It merely checks that the behaviors the client wishes to use are provided&#10;&#10;Technically, this operation is implemented as follows:&#10; * The server's conformance statement must have an entry for each resource in the client's conformance statement &#10; * The servers' resource support must have matching flags for updateCreate, conditionalCreate, conditionalRead, conditionalUpdate, conditionalDelete, searchInclude, searchRevInclude&#10; * The server conformance statement must have a matching interaction for each interaction in the client conformance statement (whether or not it is on a resource)&#10; * The server must have a search parameter with matching name and definition for any search parameters in the client conformance statement&#10; * The server must have an operation definitions with a matching reference for any operations in the client conformance statement&#10;&#10;If the conformance statements match by these rules, then the return value is a 200 OK with an operation outcome that contains no issues with severity &gt;= error. If the conformance statement doesn't match, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s123"><Data ss:Type="String">implements.server</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The canonical URL for the server conformance statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"/>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">implements.client</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The canonical URL for the client conformance statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"/>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">implements.resource</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance</Data></Cell>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The client conformance statement, provided inline</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"/>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">implements.return</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">OperationOutcome</Data></Cell>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Outcome of the conformance test</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"/>
-    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">conforms</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">operation</Data></Cell>
+    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">Test if a server implements a client's required operations</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in it's conformance statement. The client provides both conformance statements by reference, and must ensure that all the referenced resources are available to the conformance server</Data></Cell>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">The operation performs a full comparison of the functionality described by the two conformance statements, including the profiles and value sets they reference, and also including concept maps and structure maps. &#10;&#10;The full execution of this operation is still a matter of research, but it is intended to support comparison of systems to see if they will interoperate&#10;&#10;If the conformance statements can be successfully compared, then the return value is a 200 OK with an OperationOutcome along with intersection and union conformance statements. The operation outcome can contain errors relating to differences between the conformance statements. If the conformance statements cannot be compared, because dependencies cannot be located, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s123"><Data ss:Type="String">conforms.left</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The canonical URL for the server conformance statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"/>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">conforms.right</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The canonical URL for the client conformance statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"/>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">conforms.mode</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">What kind of comparison to preform - server cf server, or client to server (use the codes 'server/server' or 'client/server')</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"/>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">implements.issues</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">OperationOutcome</Data></Cell>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Outcome of the conformance test</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"/>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">implements.union</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">Bundle</Data></Cell>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The intersection of the functionality described by the conformance resources</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"/>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">implements.intersection</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">Bundle</Data></Cell>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The union of the functionality described by the conformance resources</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6133,6 +6159,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6152,7 +6179,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

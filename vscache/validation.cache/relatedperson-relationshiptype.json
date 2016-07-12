@@ -3,14 +3,8 @@
   "outcomes": [
     {
       "hash": "#|http://hl7.org/fhir/patient-contact-relationship|null|owner|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "owner",
-        "definition": null,
-        "display": "Owner of animal"
-      }
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://hl7.org/fhir/patient-contact-relationship|null|partner|null#|http://hl7.org/fhir/v3/RoleCode|null|WIFE|null",
@@ -18,9 +12,9 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "partner",
+        "code": "WIFE",
         "definition": null,
-        "display": "Partner"
+        "display": "wife"
       }
     },
     {
