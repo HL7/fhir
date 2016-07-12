@@ -823,6 +823,7 @@
  -- Row 31 -----------------------------------
   Element = Conformance.rest.security
   Card. = 0..1
+  Summary = Y
   UML = 500;330
   Short Label = Information about security of implementation
   Definition = Information about security implementation from an interface perspective - what a client needs to know
@@ -830,6 +831,7 @@
  -- Row 32 -----------------------------------
   Element = Conformance.rest.security.cors
   Card. = 0..1
+  Summary = Y
   Type = boolean
   Short Label = Adds CORS Headers (http://enable-cors.org/)
   Definition = Server adds CORS headers when responding to requests - this enables javascript applications to use the server
@@ -838,6 +840,7 @@
  -- Row 33 -----------------------------------
   Element = Conformance.rest.security.service
   Card. = 0..*
+  Summary = Y
   Type = CodeableConcept
   Binding = RestfulSecurityService
   Short Label = OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates

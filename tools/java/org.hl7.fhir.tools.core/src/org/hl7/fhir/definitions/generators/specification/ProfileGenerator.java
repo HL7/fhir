@@ -976,6 +976,11 @@ public class ProfileGenerator {
       sp.setXpathUsage(spd.getxPathUsage());
     }
 
+    if (sp.getType() == SearchParamType.COMPOSITE) {
+      for (String cs : spd.getComposites()) {
+        sp.addComponent().setReference("http://hl7.org/fhir/SearchParameter/"+rn+"-"+cs);
+      }
+    }
     for(String target : spd.getWorkingTargets()) {
       if("Any".equals(target) == true) {   	  
         for(String resourceName : definitions.sortedResourceNames())

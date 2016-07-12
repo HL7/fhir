@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 11:51+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -1277,16 +1277,23 @@ public class ElementDefinition extends Type implements ICompositeType {
         protected CodeType code;
 
         /**
-         * Identifies a profile structure or implementation Guide that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.
+         * Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.
          */
         @Child(name = "profile", type = {UriType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Profile (StructureDefinition) to apply (or IG)", formalDefinition="Identifies a profile structure or implementation Guide that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide." )
+        @Description(shortDefinition="Profile (StructureDefinition) to apply (or IG)", formalDefinition="Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide." )
         protected UriType profile;
+
+        /**
+         * Identifies a profile structure or implementation Guide that SHALL hold for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.
+         */
+        @Child(name = "targetProfile", type = {UriType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Profile (StructureDefinition) to apply to reference target (or IG)", formalDefinition="Identifies a profile structure or implementation Guide that SHALL hold for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide." )
+        protected UriType targetProfile;
 
         /**
          * If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.
          */
-        @Child(name = "aggregation", type = {CodeType.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "aggregation", type = {CodeType.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="contained | referenced | bundled - how aggregated", formalDefinition="If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-aggregation-mode")
         protected List<Enumeration<AggregationMode>> aggregation;
@@ -1294,12 +1301,12 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * Whether this reference needs to be version specific or version independent, or whetehr either can be used.
          */
-        @Child(name = "versioning", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "versioning", type = {CodeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="either | independent | specific", formalDefinition="Whether this reference needs to be version specific or version independent, or whetehr either can be used." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reference-version-rules")
         protected Enumeration<ReferenceVersionRules> versioning;
 
-        private static final long serialVersionUID = -808351652L;
+        private static final long serialVersionUID = 560032496L;
 
     /**
      * Constructor
@@ -1362,7 +1369,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #profile} (Identifies a profile structure or implementation Guide that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
+         * @return {@link #profile} (Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
          */
         public UriType getProfileElement() { 
           if (this.profile == null)
@@ -1382,7 +1389,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @param value {@link #profile} (Identifies a profile structure or implementation Guide that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
+         * @param value {@link #profile} (Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
          */
         public TypeRefComponent setProfileElement(UriType value) { 
           this.profile = value;
@@ -1390,14 +1397,14 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @return Identifies a profile structure or implementation Guide that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.
+         * @return Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.
          */
         public String getProfile() { 
           return this.profile == null ? null : this.profile.getValue();
         }
 
         /**
-         * @param value Identifies a profile structure or implementation Guide that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.
+         * @param value Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.
          */
         public TypeRefComponent setProfile(String value) { 
           if (Utilities.noString(value))
@@ -1406,6 +1413,55 @@ public class ElementDefinition extends Type implements ICompositeType {
             if (this.profile == null)
               this.profile = new UriType();
             this.profile.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #targetProfile} (Identifies a profile structure or implementation Guide that SHALL hold for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getTargetProfile" gives direct access to the value
+         */
+        public UriType getTargetProfileElement() { 
+          if (this.targetProfile == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TypeRefComponent.targetProfile");
+            else if (Configuration.doAutoCreate())
+              this.targetProfile = new UriType(); // bb
+          return this.targetProfile;
+        }
+
+        public boolean hasTargetProfileElement() { 
+          return this.targetProfile != null && !this.targetProfile.isEmpty();
+        }
+
+        public boolean hasTargetProfile() { 
+          return this.targetProfile != null && !this.targetProfile.isEmpty();
+        }
+
+        /**
+         * @param value {@link #targetProfile} (Identifies a profile structure or implementation Guide that SHALL hold for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getTargetProfile" gives direct access to the value
+         */
+        public TypeRefComponent setTargetProfileElement(UriType value) { 
+          this.targetProfile = value;
+          return this;
+        }
+
+        /**
+         * @return Identifies a profile structure or implementation Guide that SHALL hold for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.
+         */
+        public String getTargetProfile() { 
+          return this.targetProfile == null ? null : this.targetProfile.getValue();
+        }
+
+        /**
+         * @param value Identifies a profile structure or implementation Guide that SHALL hold for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.
+         */
+        public TypeRefComponent setTargetProfile(String value) { 
+          if (Utilities.noString(value))
+            this.targetProfile = null;
+          else {
+            if (this.targetProfile == null)
+              this.targetProfile = new UriType();
+            this.targetProfile.setValue(value);
           }
           return this;
         }
@@ -1523,7 +1579,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "Name of Data type or Resource that is a(or the) type used for this element.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("profile", "uri", "Identifies a profile structure or implementation Guide that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, profile));
+          childrenList.add(new Property("profile", "uri", "Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, profile));
+          childrenList.add(new Property("targetProfile", "uri", "Identifies a profile structure or implementation Guide that SHALL hold for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, targetProfile));
           childrenList.add(new Property("aggregation", "code", "If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.", 0, java.lang.Integer.MAX_VALUE, aggregation));
           childrenList.add(new Property("versioning", "code", "Whether this reference needs to be version specific or version independent, or whetehr either can be used.", 0, java.lang.Integer.MAX_VALUE, versioning));
         }
@@ -1533,6 +1590,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         switch (hash) {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
         case -309425751: /*profile*/ return this.profile == null ? new Base[0] : new Base[] {this.profile}; // UriType
+        case 1994521304: /*targetProfile*/ return this.targetProfile == null ? new Base[0] : new Base[] {this.targetProfile}; // UriType
         case 841524962: /*aggregation*/ return this.aggregation == null ? new Base[0] : this.aggregation.toArray(new Base[this.aggregation.size()]); // Enumeration<AggregationMode>
         case -670487542: /*versioning*/ return this.versioning == null ? new Base[0] : new Base[] {this.versioning}; // Enumeration<ReferenceVersionRules>
         default: return super.getProperty(hash, name, checkValid);
@@ -1548,6 +1606,9 @@ public class ElementDefinition extends Type implements ICompositeType {
           break;
         case -309425751: // profile
           this.profile = castToUri(value); // UriType
+          break;
+        case 1994521304: // targetProfile
+          this.targetProfile = castToUri(value); // UriType
           break;
         case 841524962: // aggregation
           this.getAggregation().add(new AggregationModeEnumFactory().fromType(value)); // Enumeration<AggregationMode>
@@ -1566,6 +1627,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.code = castToCode(value); // CodeType
         else if (name.equals("profile"))
           this.profile = castToUri(value); // UriType
+        else if (name.equals("targetProfile"))
+          this.targetProfile = castToUri(value); // UriType
         else if (name.equals("aggregation"))
           this.getAggregation().add(new AggregationModeEnumFactory().fromType(value));
         else if (name.equals("versioning"))
@@ -1579,6 +1642,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         switch (hash) {
         case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
         case -309425751: throw new FHIRException("Cannot make property profile as it is not a complex type"); // UriType
+        case 1994521304: throw new FHIRException("Cannot make property targetProfile as it is not a complex type"); // UriType
         case 841524962: throw new FHIRException("Cannot make property aggregation as it is not a complex type"); // Enumeration<AggregationMode>
         case -670487542: throw new FHIRException("Cannot make property versioning as it is not a complex type"); // Enumeration<ReferenceVersionRules>
         default: return super.makeProperty(hash, name);
@@ -1593,6 +1657,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
         else if (name.equals("profile")) {
           throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.profile");
+        }
+        else if (name.equals("targetProfile")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.targetProfile");
         }
         else if (name.equals("aggregation")) {
           throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.aggregation");
@@ -1609,6 +1676,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.profile = profile == null ? null : profile.copy();
+        dst.targetProfile = targetProfile == null ? null : targetProfile.copy();
         if (aggregation != null) {
           dst.aggregation = new ArrayList<Enumeration<AggregationMode>>();
           for (Enumeration<AggregationMode> i : aggregation)
@@ -1625,8 +1693,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         if (!(other instanceof TypeRefComponent))
           return false;
         TypeRefComponent o = (TypeRefComponent) other;
-        return compareDeep(code, o.code, true) && compareDeep(profile, o.profile, true) && compareDeep(aggregation, o.aggregation, true)
-           && compareDeep(versioning, o.versioning, true);
+        return compareDeep(code, o.code, true) && compareDeep(profile, o.profile, true) && compareDeep(targetProfile, o.targetProfile, true)
+           && compareDeep(aggregation, o.aggregation, true) && compareDeep(versioning, o.versioning, true)
+          ;
       }
 
       @Override
@@ -1636,13 +1705,14 @@ public class ElementDefinition extends Type implements ICompositeType {
         if (!(other instanceof TypeRefComponent))
           return false;
         TypeRefComponent o = (TypeRefComponent) other;
-        return compareValues(code, o.code, true) && compareValues(profile, o.profile, true) && compareValues(aggregation, o.aggregation, true)
-           && compareValues(versioning, o.versioning, true);
+        return compareValues(code, o.code, true) && compareValues(profile, o.profile, true) && compareValues(targetProfile, o.targetProfile, true)
+           && compareValues(aggregation, o.aggregation, true) && compareValues(versioning, o.versioning, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, profile, aggregation
-          , versioning);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, profile, targetProfile
+          , aggregation, versioning);
       }
 
   public String fhirType() {

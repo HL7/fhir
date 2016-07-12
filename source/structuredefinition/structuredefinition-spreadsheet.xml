@@ -92,8 +92,8 @@
     <SheetIndex>10</SheetIndex>
    </Xct>
   </SupBook>
-  <WindowHeight>9384</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>17148</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
@@ -4679,7 +4679,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.empty() or snapshot.element.first().path = type</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:snapshot)) or (f:type/@value = f:snapshot/f:element[1]/f:path/@value)</Data></Cell>
    </Row>
-   <Row ss:Height="57.6">
+   <Row ss:AutoFitHeight="0" ss:Height="57.45">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">12</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Ensure that element.base appears with base or not</Data></Cell>
@@ -4689,7 +4689,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.element.base.exists() = baseDefinition.exists()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">f:baseDefinition or not(exists(f:snapshot/f:element/f:base) or exists(f:differential/f:element/f:base))</Data></Cell>
    </Row>
-   <Row ss:Height="28.8">
+   <Row ss:AutoFitHeight="0" ss:Height="28.8">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">14</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">elements have id</Data></Cell>
@@ -4697,9 +4697,9 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">All element definitions must have an id</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.element.all(id) and differential.element.all(id)</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">count(*/f:element)=count(*/f:element/f:id)</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">count(*/f:element)=count(*/f:element/@id)</Data></Cell>
    </Row>
-   <Row ss:Height="57.6">
+   <Row ss:AutoFitHeight="0" ss:Height="57.45">
     <Cell ss:StyleID="s111"><Data ss:Type="Number">15</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">No Type on the root element (snapshot)</Data></Cell>
@@ -4709,7 +4709,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">element.first().type.empty()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(f:element[1]/f:type)</Data></Cell>
    </Row>
-   <Row ss:Height="57.6">
+   <Row ss:AutoFitHeight="0" ss:Height="57.45">
     <Cell ss:StyleID="s111"><Data ss:Type="String">15a</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">No Type on the root element (differential)</Data></Cell>
@@ -5018,7 +5018,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>6</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5026,6 +5026,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>2</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -5033,8 +5034,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -28,13 +28,15 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 public class Element extends Base {
 
 	public enum SpecialElement {
-		CONTAINED, BUNDLE_ENTRY, PARAMETER;
+		CONTAINED, BUNDLE_ENTRY, BUNDLE_OUTCOME, PARAMETER;
 
     public static SpecialElement fromProperty(Property property) {
       if (property.getStructure().getIdElement().getIdPart().equals("Parameters"))
         return PARAMETER;
-      if (property.getStructure().getIdElement().getIdPart().equals("Bundle"))
+      if (property.getStructure().getIdElement().getIdPart().equals("Bundle") && property.getName().equals("resource"))
         return BUNDLE_ENTRY;
+      if (property.getStructure().getIdElement().getIdPart().equals("Bundle") && property.getName().equals("outcome"))
+        return BUNDLE_OUTCOME;
       if (property.getName().equals("contained")) 
         return CONTAINED;
       throw new Error("Unknown resource containing a native resource: "+property.getDefinition().getId());

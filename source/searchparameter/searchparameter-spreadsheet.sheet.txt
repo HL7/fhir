@@ -247,6 +247,13 @@
   Short Label = Types of resource (if a resource reference)
   Definition = Types of resource (if a resource is referenced)
 
+ -- Row 21 -----------------------------------
+  Element = SearchParameter.component
+  Card. = 0..*
+  Type = Reference(SearchParameter)
+  Short Label = For Composite resources to define the parts
+  Definition = Used to define the parts of a composite search parameter
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
@@ -289,6 +296,11 @@
   Type = token
   Description = A use context assigned to the search parameter
   Path = SearchParameter.useContext
+
+ -- Row 9 -----------------------------------
+  Name = component
+  Type = reference
+  Path = SearchParameter.component
 
 === Sheet Profiles =====================================
 

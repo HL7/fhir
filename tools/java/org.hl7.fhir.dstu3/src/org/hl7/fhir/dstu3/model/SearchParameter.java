@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 11:51+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  * A search parameter that defines a named search item that can be used to search/filter on a resource.
  */
 @ResourceDef(name="SearchParameter", profile="http://hl7.org/fhir/Profile/SearchParameter")
-@ChildOrder(names={"url", "name", "status", "experimental", "date", "publisher", "contact", "useContext", "requirements", "code", "base", "type", "description", "expression", "xpath", "xpathUsage", "target"})
+@ChildOrder(names={"url", "name", "status", "experimental", "date", "publisher", "contact", "useContext", "requirements", "code", "base", "type", "description", "expression", "xpath", "xpathUsage", "target", "component"})
 public class SearchParameter extends BaseConformance {
 
     public enum XPathUsageType {
@@ -508,7 +508,19 @@ public class SearchParameter extends BaseConformance {
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-types")
     protected List<CodeType> target;
 
-    private static final long serialVersionUID = -2062067831L;
+    /**
+     * Used to define the parts of a composite search parameter.
+     */
+    @Child(name = "component", type = {SearchParameter.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="For Composite resources to define the parts", formalDefinition="Used to define the parts of a composite search parameter." )
+    protected List<Reference> component;
+    /**
+     * The actual objects that are the target of the reference (Used to define the parts of a composite search parameter.)
+     */
+    protected List<SearchParameter> componentTarget;
+
+
+    private static final long serialVersionUID = 809759046L;
 
   /**
    * Constructor
@@ -1162,6 +1174,81 @@ public class SearchParameter extends BaseConformance {
       return false;
     }
 
+    /**
+     * @return {@link #component} (Used to define the parts of a composite search parameter.)
+     */
+    public List<Reference> getComponent() { 
+      if (this.component == null)
+        this.component = new ArrayList<Reference>();
+      return this.component;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public SearchParameter setComponent(List<Reference> theComponent) { 
+      this.component = theComponent;
+      return this;
+    }
+
+    public boolean hasComponent() { 
+      if (this.component == null)
+        return false;
+      for (Reference item : this.component)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addComponent() { //3
+      Reference t = new Reference();
+      if (this.component == null)
+        this.component = new ArrayList<Reference>();
+      this.component.add(t);
+      return t;
+    }
+
+    public SearchParameter addComponent(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.component == null)
+        this.component = new ArrayList<Reference>();
+      this.component.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #component}, creating it if it does not already exist
+     */
+    public Reference getComponentFirstRep() { 
+      if (getComponent().isEmpty()) {
+        addComponent();
+      }
+      return getComponent().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<SearchParameter> getComponentTarget() { 
+      if (this.componentTarget == null)
+        this.componentTarget = new ArrayList<SearchParameter>();
+      return this.componentTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public SearchParameter addComponentTarget() { 
+      SearchParameter r = new SearchParameter();
+      if (this.componentTarget == null)
+        this.componentTarget = new ArrayList<SearchParameter>();
+      this.componentTarget.add(r);
+      return r;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this search parameter definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
@@ -1176,6 +1263,7 @@ public class SearchParameter extends BaseConformance {
         childrenList.add(new Property("xpath", "string", "An XPath expression that returns a set of elements for the search parameter.", 0, java.lang.Integer.MAX_VALUE, xpath));
         childrenList.add(new Property("xpathUsage", "code", "How the search parameter relates to the set of elements returned by evaluating the xpath query.", 0, java.lang.Integer.MAX_VALUE, xpathUsage));
         childrenList.add(new Property("target", "code", "Types of resource (if a resource is referenced).", 0, java.lang.Integer.MAX_VALUE, target));
+        childrenList.add(new Property("component", "Reference(SearchParameter)", "Used to define the parts of a composite search parameter.", 0, java.lang.Integer.MAX_VALUE, component));
       }
 
       @Override
@@ -1198,6 +1286,7 @@ public class SearchParameter extends BaseConformance {
         case 114256029: /*xpath*/ return this.xpath == null ? new Base[0] : new Base[] {this.xpath}; // StringType
         case 1801322244: /*xpathUsage*/ return this.xpathUsage == null ? new Base[0] : new Base[] {this.xpathUsage}; // Enumeration<XPathUsageType>
         case -880905839: /*target*/ return this.target == null ? new Base[0] : this.target.toArray(new Base[this.target.size()]); // CodeType
+        case -1399907075: /*component*/ return this.component == null ? new Base[0] : this.component.toArray(new Base[this.component.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1257,6 +1346,9 @@ public class SearchParameter extends BaseConformance {
         case -880905839: // target
           this.getTarget().add(castToCode(value)); // CodeType
           break;
+        case -1399907075: // component
+          this.getComponent().add(castToReference(value)); // Reference
+          break;
         default: super.setProperty(hash, name, value);
         }
 
@@ -1298,6 +1390,8 @@ public class SearchParameter extends BaseConformance {
           this.xpathUsage = new XPathUsageTypeEnumFactory().fromType(value); // Enumeration<XPathUsageType>
         else if (name.equals("target"))
           this.getTarget().add(castToCode(value));
+        else if (name.equals("component"))
+          this.getComponent().add(castToReference(value));
         else
           super.setProperty(name, value);
       }
@@ -1322,6 +1416,7 @@ public class SearchParameter extends BaseConformance {
         case 114256029: throw new FHIRException("Cannot make property xpath as it is not a complex type"); // StringType
         case 1801322244: throw new FHIRException("Cannot make property xpathUsage as it is not a complex type"); // Enumeration<XPathUsageType>
         case -880905839: throw new FHIRException("Cannot make property target as it is not a complex type"); // CodeType
+        case -1399907075:  return addComponent(); // Reference
         default: return super.makeProperty(hash, name);
         }
 
@@ -1380,6 +1475,9 @@ public class SearchParameter extends BaseConformance {
         else if (name.equals("target")) {
           throw new FHIRException("Cannot call addChild on a primitive type SearchParameter.target");
         }
+        else if (name.equals("component")) {
+          return addComponent();
+        }
         else
           return super.addChild(name);
       }
@@ -1421,6 +1519,11 @@ public class SearchParameter extends BaseConformance {
           for (CodeType i : target)
             dst.target.add(i.copy());
         };
+        if (component != null) {
+          dst.component = new ArrayList<Reference>();
+          for (Reference i : component)
+            dst.component.add(i.copy());
+        };
         return dst;
       }
 
@@ -1439,7 +1542,7 @@ public class SearchParameter extends BaseConformance {
            && compareDeep(contact, o.contact, true) && compareDeep(requirements, o.requirements, true) && compareDeep(code, o.code, true)
            && compareDeep(base, o.base, true) && compareDeep(type, o.type, true) && compareDeep(description, o.description, true)
            && compareDeep(expression, o.expression, true) && compareDeep(xpath, o.xpath, true) && compareDeep(xpathUsage, o.xpathUsage, true)
-           && compareDeep(target, o.target, true);
+           && compareDeep(target, o.target, true) && compareDeep(component, o.component, true);
       }
 
       @Override
@@ -1459,13 +1562,39 @@ public class SearchParameter extends BaseConformance {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(experimental, publisher, contact
           , requirements, code, base, type, description, expression, xpath, xpathUsage
-          , target);
+          , target, component);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.SearchParameter;
    }
+
+ /**
+   * Search parameter: <b>component</b>
+   * <p>
+   * Description: <b>For Composite resources to define the parts</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>SearchParameter.component</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="component", path="SearchParameter.component", description="For Composite resources to define the parts", type="reference", target={SearchParameter.class } )
+  public static final String SP_COMPONENT = "component";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>component</b>
+   * <p>
+   * Description: <b>For Composite resources to define the parts</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>SearchParameter.component</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam COMPONENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_COMPONENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>SearchParameter:component</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_COMPONENT = new ca.uhn.fhir.model.api.Include("SearchParameter:component").toLocked();
 
  /**
    * Search parameter: <b>code</b>

@@ -151,17 +151,17 @@
 
  -- Row 8 -----------------------------------
   Id = 8
-  Context = StructureDefinition
+  Context = StructureDefinition.snapshot
   English = In any snapshot, all the elements must be in the specified type
-  XPath = string-join(for $elementName in f:*[self::f:snapshot or self::f:differential]/f:element[position()>1]/f:path/@value return if (starts-with($elementName, concat($elementName/ancestor::f:element/parent::f:*/f:element[1]/f:path/@value, \'.\'))) then \'\' else $elementName,\'\')=\'\'
-  Expression = snapshot.exists() implies (snapshot.element.first().path = type and snapshot.element.tail().all(path.startsWith(%resource.type&\'.\')))
+  XPath = f:element[1]/f:path/@value=parent::f:StructureDefinition/f:baseType/@value and count(f:element[position()!=1])=count(f:element[position()!=1][starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:baseType/@value, \'.\'))])
+  Expression = element.first().path = %resource.type and element.tail().all(path.startsWith(%resource.type&\'.\'))
 
  -- Row 9 -----------------------------------
   Id = 8a
-  Context = StructureDefinition
+  Context = StructureDefinition.differential
   English = In any differential, all the elements must be in the specified type
-  XPath = string-join(for $elementName in f:*[self::f:snapshot or self::f:differential]/f:element[position()>1]/f:path/@value return if (starts-with($elementName, concat($elementName/ancestor::f:element/parent::f:*/f:element[1]/f:path/@value, \'.\'))) then \'\' else $elementName,\'\')=\'\'
-  Expression = differential.exists() implies (differential.element.first().path.startsWith(%resource.type) and differential.element.tail().all(path.startsWith(%resource.type&\'.\')))
+  XPath = count(f:element)=count(f:element[f:path/@value=ancestor::f:StructureDefinition/f:baseType/@value or starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:baseType/@value, \'.\'))])
+  Expression = element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type&\'.\'))
 
  -- Row 10 -----------------------------------
   Id = 9
@@ -192,24 +192,24 @@
   Requirements = elements have id
   Context = StructureDefinition
   English = All element definitions must have an id
-  XPath = not(exists(f:baseDefinition)) or exists(f:derivation)
+  XPath = count(*/f:element)=count(*/f:element/@id)
   Expression = snapshot.element.all(id) and differential.element.all(id)
 
  -- Row 14 -----------------------------------
   Id = 15
   Requirements = No Type on the root element (snapshot)
-  Context = StructureDefinition
+  Context = StructureDefinition.snapshot
   English = The first element in a snapshot has no type
-  XPath = not(exists(f:baseDefinition)) or exists(f:derivation)
-  Expression = snapshot.element.first().type.empty()
+  XPath = not(f:element[1]/f:type)
+  Expression = element.first().type.empty()
 
  -- Row 15 -----------------------------------
   Id = 15a
   Requirements = No Type on the root element (differential)
-  Context = StructureDefinition
+  Context = StructureDefinition.differential
   English = If the first element in a differential has no \".\" in the path, it has no type
-  XPath = not(exists(f:baseDefinition)) or exists(f:derivation)
-  Expression = differential.element.first().path.contains(\'.\').not() implies differential.element.first().type.empty()
+  XPath = not(f:element[1][not(contains(f:path/@value, \'.\'))]/f:type)
+  Expression = element.first().path.contains(\'.\').not() implies element.first().type.empty()
 
 === Sheet Data Elements =====================================
 

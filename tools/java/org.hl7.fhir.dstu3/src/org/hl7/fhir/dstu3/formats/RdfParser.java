@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 11:51+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1150,6 +1150,8 @@ public class RdfParser extends RdfParserBase {
       composeCode(t, "ElementDefinition", "code", element.getCodeElement(), -1);
     if (element.hasProfileElement())
       composeUri(t, "ElementDefinition", "profile", element.getProfileElement(), -1);
+    if (element.hasTargetProfileElement())
+      composeUri(t, "ElementDefinition", "targetProfile", element.getTargetProfileElement(), -1);
     for (int i = 0; i < element.getAggregation().size(); i++)
       composeEnum(t, "ElementDefinition", "aggregation", element.getAggregation().get(i), i);
     if (element.hasVersioningElement())
@@ -1913,6 +1915,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "Bundle", "etag", element.getEtagElement(), -1);
     if (element.hasLastModifiedElement())
       composeInstant(t, "Bundle", "lastModified", element.getLastModifiedElement(), -1);
+    if (element.hasOutcome())
+      composeResource(t, "Bundle", "outcome", element.getOutcome(), -1);
   }
 
   protected void composeCarePlan(Complex parent, String parentType, String name, CarePlan element, int index) {
@@ -10667,6 +10671,8 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "SearchParameter", "xpathUsage", element.getXpathUsageElement(), -1);
     for (int i = 0; i < element.getTarget().size(); i++)
       composeCode(t, "SearchParameter", "target", element.getTarget().get(i), i);
+    for (int i = 0; i < element.getComponent().size(); i++)
+      composeReference(t, "SearchParameter", "component", element.getComponent().get(i), i);
   }
 
   protected void composeSearchParameterSearchParameterContactComponent(Complex parent, String parentType, String name, SearchParameter.SearchParameterContactComponent element, int index) {

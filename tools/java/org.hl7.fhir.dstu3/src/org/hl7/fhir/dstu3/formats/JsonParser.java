@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 11:51+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1583,6 +1583,10 @@ public class JsonParser extends JsonParserBase {
       res.setProfileElement(parseUri(json.get("profile").getAsString()));
     if (json.has("_profile"))
       parseElementProperties(json.getAsJsonObject("_profile"), res.getProfileElement());
+    if (json.has("targetProfile"))
+      res.setTargetProfileElement(parseUri(json.get("targetProfile").getAsString()));
+    if (json.has("_targetProfile"))
+      parseElementProperties(json.getAsJsonObject("_targetProfile"), res.getTargetProfileElement());
     if (json.has("aggregation")) {
       JsonArray array = json.getAsJsonArray("aggregation");
       for (int i = 0; i < array.size(); i++) {
@@ -2709,6 +2713,8 @@ public class JsonParser extends JsonParserBase {
       res.setLastModifiedElement(parseInstant(json.get("lastModified").getAsString()));
     if (json.has("_lastModified"))
       parseElementProperties(json.getAsJsonObject("_lastModified"), res.getLastModifiedElement());
+    if (json.has("outcome"))
+      res.setOutcome(parseResource(json.getAsJsonObject("outcome")));
   }
 
   protected CarePlan parseCarePlan(JsonObject json) throws IOException, FHIRFormatError {
@@ -15484,6 +15490,12 @@ public class JsonParser extends JsonParserBase {
           parseElementProperties(array.get(i).getAsJsonObject(), res.getTarget().get(i));
       }
     };
+    if (json.has("component")) {
+      JsonArray array = json.getAsJsonArray("component");
+      for (int i = 0; i < array.size(); i++) {
+        res.getComponent().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
   }
 
   protected SearchParameter.SearchParameterContactComponent parseSearchParameterSearchParameterContactComponent(JsonObject json, SearchParameter owner) throws IOException, FHIRFormatError {
@@ -20814,6 +20826,10 @@ public class JsonParser extends JsonParserBase {
         composeUriCore("profile", element.getProfileElement(), false);
         composeUriExtras("profile", element.getProfileElement(), false);
       }
+      if (element.hasTargetProfileElement()) {
+        composeUriCore("targetProfile", element.getTargetProfileElement(), false);
+        composeUriExtras("targetProfile", element.getTargetProfileElement(), false);
+      }
       if (element.hasAggregation()) {
         openArray("aggregation");
         for (Enumeration<ElementDefinition.AggregationMode> e : element.getAggregation()) 
@@ -22036,6 +22052,11 @@ public class JsonParser extends JsonParserBase {
         composeInstantCore("lastModified", element.getLastModifiedElement(), false);
         composeInstantExtras("lastModified", element.getLastModifiedElement(), false);
       }
+        if (element.hasOutcome()) {
+          open("outcome");
+          composeResource(element.getOutcome());
+          close();
+        }
   }
 
   protected void composeCarePlan(String name, CarePlan element) throws IOException {
@@ -35991,6 +36012,12 @@ public class JsonParser extends JsonParserBase {
             composeCodeExtras(null, e, true);
           closeArray();
         }
+      };
+      if (element.hasComponent()) {
+        openArray("component");
+        for (Reference e : element.getComponent()) 
+          composeReference(null, e);
+        closeArray();
       };
   }
 

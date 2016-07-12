@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 12, 2016 09:01+1000 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 11:51+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -56,7 +56,7 @@ public class ValueSet extends BaseConformance {
          */
         EQUAL, 
         /**
-         * Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself.
+         * Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (i.e. include child codes)
          */
         ISA, 
         /**
@@ -76,6 +76,10 @@ public class ValueSet extends BaseConformance {
          */
         NOTIN, 
         /**
+         * Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (e.g. include parent codes)
+         */
+        GENERALIZES, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -94,6 +98,8 @@ public class ValueSet extends BaseConformance {
           return IN;
         if ("not-in".equals(codeString))
           return NOTIN;
+        if ("generalizes".equals(codeString))
+          return GENERALIZES;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -107,6 +113,7 @@ public class ValueSet extends BaseConformance {
             case REGEX: return "regex";
             case IN: return "in";
             case NOTIN: return "not-in";
+            case GENERALIZES: return "generalizes";
             default: return "?";
           }
         }
@@ -118,17 +125,19 @@ public class ValueSet extends BaseConformance {
             case REGEX: return "http://hl7.org/fhir/filter-operator";
             case IN: return "http://hl7.org/fhir/filter-operator";
             case NOTIN: return "http://hl7.org/fhir/filter-operator";
+            case GENERALIZES: return "http://hl7.org/fhir/filter-operator";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
             case EQUAL: return "The specified property of the code equals the provided value.";
-            case ISA: return "Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself.";
+            case ISA: return "Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (i.e. include child codes)";
             case ISNOTA: return "The specified property of the code does not have an is-a relationship with the provided value.";
             case REGEX: return "The specified property of the code  matches the regex specified in the provided value.";
             case IN: return "The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).";
             case NOTIN: return "The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list).";
+            case GENERALIZES: return "Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (e.g. include parent codes)";
             default: return "?";
           }
         }
@@ -140,6 +149,7 @@ public class ValueSet extends BaseConformance {
             case REGEX: return "Regular Expression";
             case IN: return "In Set";
             case NOTIN: return "Not in Set";
+            case GENERALIZES: return "Generalizes (by Subsumption)";
             default: return "?";
           }
         }
@@ -162,6 +172,8 @@ public class ValueSet extends BaseConformance {
           return FilterOperator.IN;
         if ("not-in".equals(codeString))
           return FilterOperator.NOTIN;
+        if ("generalizes".equals(codeString))
+          return FilterOperator.GENERALIZES;
         throw new IllegalArgumentException("Unknown FilterOperator code '"+codeString+"'");
         }
         public Enumeration<FilterOperator> fromType(Base code) throws FHIRException {
@@ -182,6 +194,8 @@ public class ValueSet extends BaseConformance {
           return new Enumeration<FilterOperator>(this, FilterOperator.IN);
         if ("not-in".equals(codeString))
           return new Enumeration<FilterOperator>(this, FilterOperator.NOTIN);
+        if ("generalizes".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.GENERALIZES);
         throw new FHIRException("Unknown FilterOperator code '"+codeString+"'");
         }
     public String toCode(FilterOperator code) {
@@ -197,6 +211,8 @@ public class ValueSet extends BaseConformance {
         return "in";
       if (code == FilterOperator.NOTIN)
         return "not-in";
+      if (code == FilterOperator.GENERALIZES)
+        return "generalizes";
       return "?";
       }
     public String toSystem(FilterOperator code) {
@@ -439,10 +455,10 @@ public class ValueSet extends BaseConformance {
     @Block()
     public static class ValueSetComposeComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.uri.
+         * Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.url.
          */
         @Child(name = "import", type = {UriType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Import the contents of another value set", formalDefinition="Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.uri." )
+        @Description(shortDefinition="Import the contents of another value set", formalDefinition="Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.url." )
         protected List<UriType> import_;
 
         /**
@@ -469,7 +485,7 @@ public class ValueSet extends BaseConformance {
       }
 
         /**
-         * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.uri.)
+         * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.url.)
          */
         public List<UriType> getImport() { 
           if (this.import_ == null)
@@ -495,7 +511,7 @@ public class ValueSet extends BaseConformance {
         }
 
         /**
-         * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.uri.)
+         * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.url.)
          */
         public UriType addImportElement() {//2 
           UriType t = new UriType();
@@ -506,7 +522,7 @@ public class ValueSet extends BaseConformance {
         }
 
         /**
-         * @param value {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.uri.)
+         * @param value {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.url.)
          */
         public ValueSetComposeComponent addImport(String value) { //1
           UriType t = new UriType();
@@ -518,7 +534,7 @@ public class ValueSet extends BaseConformance {
         }
 
         /**
-         * @param value {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.uri.)
+         * @param value {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.url.)
          */
         public boolean hasImport(String value) { 
           if (this.import_ == null)
@@ -637,7 +653,7 @@ public class ValueSet extends BaseConformance {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("import", "uri", "Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.uri.", 0, java.lang.Integer.MAX_VALUE, import_));
+          childrenList.add(new Property("import", "uri", "Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.url.", 0, java.lang.Integer.MAX_VALUE, import_));
           childrenList.add(new Property("include", "", "Include one or more codes from a code system.", 0, java.lang.Integer.MAX_VALUE, include));
           childrenList.add(new Property("exclude", "@ValueSet.compose.include", "Exclude one or more codes from the value set.", 0, java.lang.Integer.MAX_VALUE, exclude));
         }
@@ -1737,7 +1753,7 @@ public class ValueSet extends BaseConformance {
          * The kind of operation to perform as a part of the filter criteria.
          */
         @Child(name = "op", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="= | is-a | is-not-a | regex | in | not-in", formalDefinition="The kind of operation to perform as a part of the filter criteria." )
+        @Description(shortDefinition="= | is-a | is-not-a | regex | in | not-in | generalizes", formalDefinition="The kind of operation to perform as a part of the filter criteria." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/filter-operator")
         protected Enumeration<FilterOperator> op;
 

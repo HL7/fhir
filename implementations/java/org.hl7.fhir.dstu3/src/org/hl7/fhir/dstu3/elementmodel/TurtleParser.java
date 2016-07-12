@@ -370,6 +370,8 @@ public class TurtleParser extends ParserBase {
       en = element.getProperty().getDefinition().getBase().getPath();
     else if (element.getSpecial() == SpecialElement.BUNDLE_ENTRY)
       en = "Bundle.entry.resource";
+    else if (element.getSpecial() == SpecialElement.BUNDLE_OUTCOME)
+      en = "Bundle.entry.response.outcome";
     else if (element.getSpecial() == SpecialElement.PARAMETER)
       en = element.getElementProperty().getDefinition().getPath();
     else // CONTAINED
