@@ -65,7 +65,7 @@ In the simplest case, a search is executed by performing a <code>GET</code> oper
 in the RESTful framework:
 </p>
 <pre>
- GET [base]/[resourcetype]?name=value&amp;...
+ GET [base]/[resourcetype]?name=value&amp;...{&amp;_format=[mime-type]}}
 </pre>
 <p>
 For this RESTful search (see <a href="http.html#search">definition in RESTful API</a>), the parameters are a series
@@ -79,7 +79,8 @@ application/x-www-form-urlencoded submission for a POST:
 The server determines which of the set of resources it serves meet
 the specific criteria, and returns the results in the HTTP response 
 as a <a href="bundle.html">bundle</a> which includes the resources 
-that are the results of the search. 
+that are the results of the search. Note that the <code>_format</code>
+parameter works for search <a href="http.html#mime-type">like for other interactions</a>.
 </p>
 <p>
 <a href="http.html#search">Search operations</a> are executed in one of three defined contexts that control which set of resources are being searched:
