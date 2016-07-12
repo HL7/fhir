@@ -572,10 +572,11 @@ public class ProfileGenerator {
     p.setUserData("path", "datatypes.html#"+t.getName());
     assert !Utilities.noString(t.typeCode());
     String b = (t.typeCode().equals("Type") || t.typeCode().equals("Structure")) ? "Element" : t.typeCode();
-    if (!Utilities.noString(b))
-      p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+b); 
+    if (!Utilities.noString(b)) {
+      p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+b);
+      p.setDerivation(TypeDerivationRule.SPECIALIZATION);
+    }
     p.setType(t.getName());
-    p.setDerivation(TypeDerivationRule.SPECIALIZATION);
     p.setFhirVersion(version);
 
     ToolResourceUtilities.updateUsage(p, "core");
@@ -760,10 +761,11 @@ public class ProfileGenerator {
     p.setKind(StructureDefinitionKind.RESOURCE);
     p.setAbstract(r.isAbstract());
     assert !Utilities.noString(r.getRoot().typeCode());
-    if (!Utilities.noString(r.getRoot().typeCode()))
+    if (!Utilities.noString(r.getRoot().typeCode())) {
       p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+r.getRoot().typeCode());
+      p.setDerivation(TypeDerivationRule.SPECIALIZATION);
+    }
     p.setType(r.getRoot().getName());
-    p.setDerivation(TypeDerivationRule.SPECIALIZATION);
     p.setUserData("filename", r.getName().toLowerCase());
     p.setUserData("path", r.getName().toLowerCase()+".html");
     p.setDisplay(pack.metadata("display"));
