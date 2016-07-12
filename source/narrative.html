@@ -23,9 +23,12 @@
 Any resource that is a <a href="domainresource.html">domain resource</a> (almost all types 
 of resource) may include a human-readable narrative that contains a summary of the resource,
 and may be used to represent the content of the resource to a human.
-If narrative is present, it SHALL reflect all content needed for a human to understand the
-essential clinical and business information otherwise encoded within the resource.
-Resource definitions may define what content should be represented in the narrative to ensure clinical safety.
+If narrative is present with a status other than 'none', it SHALL reflect all content 
+needed for a human to understand the essential clinical and business information for 
+the resource.  I.e. It must be safe to render only the narrative of the resource without 
+displaying any of the resource's discrete/encoded information.  Resource definitions and/or
+profiles on resources may define what content should be represented in the narrative to 
+ensure clinical safety.
 </p>
 <p>
 The narrative for a resource is allowed to contain additional information that is not in
