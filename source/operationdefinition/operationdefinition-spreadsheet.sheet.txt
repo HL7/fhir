@@ -250,6 +250,7 @@
   Binding = ResourceType
   Short Label = Invoke at resource level for these type
   Definition = Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context)
+  Comments = If the type is an abstract resource (\"Resource\" or \"DomainResource\") then the operation can be invoked on any concrete specialization
 
  -- Row 22 -----------------------------------
   Element = OperationDefinition.instance
