@@ -82,6 +82,7 @@ of FHIR that impact on their system design with regard to safety.
  <li><input type="checkbox"/> My system checks that the right <a href="consentdirective.html">Patient consent</a> has been granted (where applicable)</li>
  <li><input type="checkbox"/> When other systems <a href="http.html#summary">return http errors from the RESTful API</a> and <a href="operations.html">Operations</a> (perhaps using <a href="operationoutcome.html">Operation Outcome</a>), my system checks for them and handles them appropriately</li>
  <li><input type="checkbox"/> My system publishes a <a href="conformance.html">conformance statement</a> with <a href="structuredefinition.html">StructureDefinitions</a>, <a href="valueset.html">ValueSets</a>, and <a href="operationdefinition.html">OperationDefinitions</a>, etc., so other implementers know how the system functions</li>
+ <li><input type="checkbox"/> My system ensures that system clocks are synchronised using a protocol like NTP or SNTP, or my server is reobust against clients that have the wrong clock set</li>
 </ol> 
 <p>
 Obviously this list is only a small part of the overall safety check list for an application, which will have checks regarding jurisdictionally mandated policies, internal integrity, etc.

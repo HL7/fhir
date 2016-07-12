@@ -22,6 +22,7 @@ with various security protocols defined elsewhere. This section gathers all info
 in one section. A summary:
 </p>
 <ul class="dense">
+ <li>Time Keeping - all clocks should be synchronised using NTP/SNTP, and the design of the system should be robust against a system clock with the wrong value</li>
  <li>Communications Security - all exchange of production data should be secured using TLS/SSL (e.g. https)</li>
  <li>Authentication - Users/Clients may be authenticated in any way desired. For web-centric use, OAuth is recommended</li>
  <li>Authorization/Access Control - FHIR defines a Security Label infrastructure to support access control management. FHIR may also define a set of resources to administer access control management, but does not define any at present</li>
@@ -44,6 +45,8 @@ list</a> for prompt consideration.
 Implementers should track the developing IHE IUA Profile for additional security considerations.
 </p>
 
+<a name="general"> </a>
+<h2>General Considerations</h2>
 <p>
 A production FHIR system will need some kind of security sub-system that administers 
 users, user authentication, and user authorization. Where this subsystem fits into the 
@@ -238,7 +241,6 @@ regarded as being as sensitive as the resources themselves.  Even if direct PHI 
 the logs by careful avoidance of search parameters (e.g. by using GET), the logs will
 still contain a rich set of information about the clinical records. 
 </p>
-
 
 <a name="signatures"> </a>
 <h2>
