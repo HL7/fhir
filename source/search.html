@@ -540,13 +540,16 @@ that partial matching is used. For example:
 </p>
 <pre>
  GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123
- GET [base]/ValueSet?url:below=http://acme.org/fhir/
+ GET [base]/ValueSet?url=http://acme.org/fhir/
+ GET [base]/ValueSet?url=urn:oid:1.2.3.4.5
 </pre>
 <p>
 The first line is a request to find any value set with the exact url "http://acme.org/fhir/ValueSet/123". 
 The second line performs a search that will return any value sets that have a URL that starts with "http://acme.org/fhir/".
 The converse - the search for any value set above a given specific URL.  This approach may be useful for searching
-name systems, but it is generally less useful than the <code>:below</code> search. 
+name systems, but it is generally less useful than the <code>:below</code> search. The third line shows an 
+example of searching by an OID. Note that the :above and :below modifiers only apply to URLs, and not URNS such as 
+OIDs.
 </p>
 
 <a name="token"> </a>
