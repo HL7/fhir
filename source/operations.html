@@ -49,7 +49,7 @@ Operations are executed using a URL derived from the FHIR endpoint, where the na
  POST http://fhir.someserver.org/fhir/Patient/1/$everything
 </pre>
 <p>
-When an operation is idempotent, and the parameters are all simple ones 
+When an operation is idempotent, and the parameters are all primitive data types with no extensions 
 (as is the case with the example above), it may be invoked using GET as well.
 </p>
 <p>
