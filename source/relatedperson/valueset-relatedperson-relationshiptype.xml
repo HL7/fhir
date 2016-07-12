@@ -12,7 +12,9 @@
   </contact>
   <description value="A set of codes that can be used to indicate the relationship between a Patient and a Related Person."/>
   <compose>
-    <import value="http://hl7.org/fhir/ValueSet/patient-contact-relationship"/>
+    <include>
+      <system value="http://hl7.org/fhir/v2/0131"/>
+    </include>
     <include>
       <system value="http://hl7.org/fhir/v3/RoleCode"/>
       <filter>

@@ -44,11 +44,11 @@
  -- Row 5 -----------------------------------
   Binding Name = ContactRelationships
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/patient-contact-relationship
+  Reference = http://hl7.org/fhir/ValueSet/v2-0131
   Definition = Type of relationship
   Description = Relationship between people
   Conformance = required
-  Uri = http://hl7.org/fhir/ValueSet/patient-contact-relationship
+  Uri = http://hl7.org/fhir/ValueSet/v2-0131
   Oid = 2.16.840.1.113883.1.11.19563
 
  -- Row 6 -----------------------------------
@@ -328,7 +328,7 @@
   Type = CodeableConcept
 
  -- Row 41 -----------------------------------
-  Element = Patient.careProvider
+  Element = Patient.generalPractitioner
   Card. = 0..*
   Must Support = Y
   Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/daf-organization}|Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}

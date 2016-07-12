@@ -2568,7 +2568,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Patient.careProvider</Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">Patient.generalPractitioner</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5515,8 +5515,8 @@
     <Cell ss:StyleID="s171"><Data ss:Type="String">The relationship of the patient to the patient contact</Data></Cell>
     <Cell ss:StyleID="s171"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s171"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s177" ss:HRef="http://hl7.org/fhir/ValueSet/patient-contact-relationship"><Data
-      ss:Type="String">http://hl7.org/fhir/ValueSet/patient-contact-relationship</Data></Cell>
+    <Cell ss:StyleID="s177" ss:HRef="http://hl7.org/fhir/ValueSet/v2-0131"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0131</Data></Cell>
     <Cell ss:StyleID="s171"><Data ss:Type="String">The relationship of the patient to the patient contact</Data></Cell>
     <Cell ss:StyleID="s171"/>
     <Cell ss:StyleID="s171"/>

@@ -1091,7 +1091,7 @@
             </mapping>
           </element>
           <element>
-            <path value="Patient.careProvider"/>
+            <path value="Patient.generalPractitioner"/>
             <min value="0"/>
             <max value="0"/>
           </element>

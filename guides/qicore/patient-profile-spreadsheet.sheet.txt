@@ -59,7 +59,7 @@
  -- Row 8 -----------------------------------
   Binding Name = !QICorePatientContactRelationship
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/patient-contact-relationship
+  Reference = http://hl7.org/fhir/ValueSet/v2-0131
   Definition = The relationship of the patient to the patient contact
   Description = The relationship of the patient to the patient contact
   Conformance = required
@@ -383,7 +383,7 @@
   QDM Mapping = Expired
 
  -- Row 46 -----------------------------------
-  Element = Patient.careProvider
+  Element = Patient.generalPractitioner
   Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
 
  -- Row 47 -----------------------------------

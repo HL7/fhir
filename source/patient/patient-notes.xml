@@ -84,8 +84,69 @@ This includes cases where these related people are actually contributing to the 
 (e.g. CarePlan.Participant, Encounter, DocumentReference, Appointment) where the Patient.Contact component cannot be used.
 </p>
 <p>It is not expected that these records will be used for recording the primary care provider; this information should be stored in
-the Patient.careProvider field.</p>
+the Patient.generalPractitioner field.</p>
 
+<a name="maternity"> </a>
+<h2>Mother and newborn relationships</h2>
+<p>
+There are several ways to represent the relationship between a mother and a child.
+This is due to the when it is recorded and the purpose for which it is recorded:
+</p>
+	<ul>
+		<li>To express the family relationship and legal responsibility thereof for 
+		administrative purposes: use the Patient/RelatedPerson structure.<br/>
+		This structure is consistent over time.</li>
+		<li>To relate the encounter of a mother and her baby for a maternity encounter,
+		for administrative and billing purposes: use the <a href="encounter-definitions.html#Encounter.partOf">encounter.partof</a> property</li>
+		<li>To collect information about the patient's relatives that might be relevant
+		to the patient's medical condition: use the <a href="familmemberhistory.html">FamilMemberHistory</a> resource</li>
+	</ul>
+<p>
+During a maternity encounter, the Patient and Encounter resources for the mother will be present.
+After the child is born, new Patient, Encounter and RelatedPerson (for the mother) records will be created.
+The Child's encounter should reference the Mother's encounter using the partOf property.<br/>
+The Patient/RelatedPerson structure should also be created for ongoing usage, as shown in this example:
+</p>
+<pre>
+&lt;Patient&gt;
+	&lt;id value="child"/&gt;
+	&lt;!-- The details of the child --&gt;
+&lt;/Patient&gt;
+&lt;RelatedPerson&gt;
+	&lt;id value="rp-mom"/&gt;
+	&lt;patient&gt;
+		&lt;reference value="Patient/child"/&gt;
+	&lt;/patient&gt;
+&lt;/RelatedPerson&gt;
+&lt;Patient&gt;
+	&lt;id value="pat-mom"/&gt;
+	&lt;!-- The details of the mom --&gt;
+	&lt;link&gt;
+		&lt;other value="rp-mom"/&gt;
+		&lt;type value="see-also"/&gt;
+	&lt;/link&gt;
+&lt;/Patient&gt;
+&lt;Encounter&gt;
+	&lt;id value="mom-enc"/&gt;
+	&lt;status value="in-progress"/&gt;
+	&lt;class value="inpatient"/&gt;
+	&lt;patient&gt;
+		&lt;reference value="Patient/mom"/&gt;
+	&lt;/patient&gt;
+&lt;/Encounter&gt;
+&lt;Encounter&gt;
+	&lt;id value="child-enc"/&gt;
+	&lt;status value="in-progress"/&gt;
+	&lt;class value="inpatient"/&gt;
+	&lt;patient&gt;
+		&lt;reference value="Patient/child"/&gt;
+	&lt;/patient&gt;
+	&lt;partOf&gt;
+		&lt;reference value="Encounter/mom-enc"/&gt;
+	&lt;/partOf&gt;
+&lt;/Encounter&gt;
+</pre>
+	
 <a name="merge"> </a>
 <h2>Merging records</h2>
 <p>

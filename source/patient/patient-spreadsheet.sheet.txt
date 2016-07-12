@@ -25,7 +25,7 @@
  -- Row 4 -----------------------------------
   Binding Name = ContactRelationship
   Binding = value set
-  Reference = valueset-patient-contact-relationship
+  Reference = http://hl7.org/fhir/ValueSet/v2-0131
   Definition = The nature of the relationship between a patient and a contact person for that patient.
   Conformance = extensible
 
@@ -464,12 +464,13 @@
   CDA Mapping = .preferenceInd
 
  -- Row 32 -----------------------------------
-  Element = Patient.careProvider
+  Element = Patient.generalPractitioner
   Card. = 0..*
+  Aliases = careProvider
   Type = Reference(Organization|Practitioner)
   Short Label = Patient\'s nominated primary care provider
   Definition = Patient\'s nominated care provider
-  Comments = This may be the primary care provider (in a GP context), or it may be a patient nominated care manager in a community/disablity setting, or even organization that will provide people to perform the care provider roles.\n\nThis is not to be used to record Care Teams, these should be recorded on either the CarePlan or EpisodeOfCare resources.
+  Comments = This may be the primary care provider (in a GP context), or it may be a patient nominated care manager in a community/disablity setting, or even organization that will provide people to perform the care provider roles.\n\nIt is not to be used to record Care Teams, these should be in a CareTeam resource that may be linked to the CarePlan or EpisodeOfCare resources.
   v2 Mapping = PD1-4
   RIM Mapping = subjectOf.CareEvent.performer.AssignedEntity
   CDA Mapping = n/a
@@ -503,9 +504,10 @@
   Element = Patient.link.other
   Card. = 1..1
   Is Modifier = y
-  Type = Reference(Patient)
-  Short Label = The other patient resource that the link refers to
+  Type = Reference(Patient|RelatedPerson)
+  Short Label = The other patient or related person resource that the link refers to
   Definition = The other patient resource that the link refers to
+  Comments = Referencing a RelatedPerson here removes the need to use a Person record to associate a Patient and RelatedPerson as the same individual.
   v2 Mapping = PID-3, MRG-1
   RIM Mapping = id
   CDA Mapping = n/a
@@ -633,10 +635,10 @@
   Path = Patient.managingOrganization
 
  -- Row 19 -----------------------------------
-  Name = careprovider
+  Name = general-practitioner
   Type = reference
-  Description = Patient\'s nominated care provider, could be a care manager, not the organization that manages the record
-  Path = Patient.careProvider
+  Description = Patient\'s nominated general practitioner, not the organization that manages the record
+  Path = Patient.generalPractitioner
 
  -- Row 20 -----------------------------------
   Name = active
