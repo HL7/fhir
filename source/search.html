@@ -123,6 +123,7 @@ In some cases, parameters may cause an error. For instance:
  <li>A parameter may refer to a time that is out of scope e.g. <code>GET [base]/Condition?onset=le1995</code>, where the system only has data going back to 2001</li>
  <li>A parameter may use an illegal or unacceptable modifier e.g. <code>GET [base]/Condition?onset:text=1995</code>, where the modifier cannot be processed by the server</li>
  <li>A data time parameter may have incorrect format e.g. <code>GET [base]/Condition?onset=23%20May%202009</code></li>
+ <li>A parameter may be unknown or unsupported (see below)</li>
 </ul>
 <p>
 Where the content of the parameter is syntactically incorrect, servers SHOULD return an error. 
@@ -135,6 +136,29 @@ In such cases, the search process MAY include an <a href="operationoutcome.html"
 in the search set that contains additional hints and warnings about the search process.
 This is included in the search results as an entry with <a href="bundle-definitions.html#Bundle.entry.search.mode">search mode</a> = <a href="valueset-search-entry-mode.html"><code>outcome</code></a>.
 Clients can use this information to improve future searches.
+</p>
+
+<p><b>Unknown and unsupported parameters</b></p>
+
+<p>
+Servers may receive parameters from the client that they do not recognise, or may 
+receive parameters they recognise but do not support (either in general, or for
+a specific search). In general, servers SHOULD ignore unknown or unsupported parameters
+for the following reasons:
+</p>
+<ul>
+ <li>Various HTTP stacks and proxies may add parameters that aren't under the control of the client</li>
+ <li>The client can determine what parameters the server used by examing the self link in the return (see <a href="#conformance">below</a>)</li>
+</ul>
+<p>
+Clients can specify how the server should behave, by using the prefer header
+</p>
+<ul>
+ <li>Prefer: handling=strict: Client requests that the server return an error for any unknown or unsupported parameter</li>
+ <li>Prefer: handling=lenient: Client requests that the server ignore any unknown or unsupported parameter</li>
+</ul>
+<p>
+Servers SHOULD honor the client's request, but are not required to do so. 
 </p>
 
 <a name="standard"> </a>
