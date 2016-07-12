@@ -402,18 +402,18 @@
   -->
   <page>
     <source value="ccda.html"/>
-    <name value="C-CDA on FHIR Introduction"/>
+    <title value="C-CDA on FHIR Introduction"/>
     <kind value="page"/>
     <page>
       <source value="ccda-toc.html"/>
-      <name value="Table of Contents"/>
+      <title value="Table of Contents"/>
       <kind value="toc"/>
     </page>
     <!-- Put Other pages here -->
   </page>
   <!-- page>
       <source value=""/>
-      <name value=""/>
+      <title value=""/>
       <kind value="page"/>
       <format value="generated"/>
     </page -->

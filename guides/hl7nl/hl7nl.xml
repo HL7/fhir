@@ -47,7 +47,7 @@
     </package>
     <page>
         <source value="hl7nl.html"/>
-        <name value="Home Page"/>
+        <title value="Home Page"/>
         <kind value="page"/>
     </page>
 </ImplementationGuide>

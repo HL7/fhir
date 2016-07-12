@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 12, 2016 11:51+1000 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 17:43+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -535,13 +535,20 @@ public class NamingSystem extends BaseConformance {
         protected BooleanType preferred;
 
         /**
+         * Notes about the past or intended usage of this identifier.
+         */
+        @Child(name = "comment", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Notes about identifier usage", formalDefinition="Notes about the past or intended usage of this identifier." )
+        protected StringType comment;
+
+        /**
          * Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic.
          */
-        @Child(name = "period", type = {Period.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "period", type = {Period.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="When is identifier valid?", formalDefinition="Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic." )
         protected Period period;
 
-        private static final long serialVersionUID = -193711840L;
+        private static final long serialVersionUID = -1458889328L;
 
     /**
      * Constructor
@@ -695,6 +702,55 @@ public class NamingSystem extends BaseConformance {
         }
 
         /**
+         * @return {@link #comment} (Notes about the past or intended usage of this identifier.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
+         */
+        public StringType getCommentElement() { 
+          if (this.comment == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create NamingSystemUniqueIdComponent.comment");
+            else if (Configuration.doAutoCreate())
+              this.comment = new StringType(); // bb
+          return this.comment;
+        }
+
+        public boolean hasCommentElement() { 
+          return this.comment != null && !this.comment.isEmpty();
+        }
+
+        public boolean hasComment() { 
+          return this.comment != null && !this.comment.isEmpty();
+        }
+
+        /**
+         * @param value {@link #comment} (Notes about the past or intended usage of this identifier.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
+         */
+        public NamingSystemUniqueIdComponent setCommentElement(StringType value) { 
+          this.comment = value;
+          return this;
+        }
+
+        /**
+         * @return Notes about the past or intended usage of this identifier.
+         */
+        public String getComment() { 
+          return this.comment == null ? null : this.comment.getValue();
+        }
+
+        /**
+         * @param value Notes about the past or intended usage of this identifier.
+         */
+        public NamingSystemUniqueIdComponent setComment(String value) { 
+          if (Utilities.noString(value))
+            this.comment = null;
+          else {
+            if (this.comment == null)
+              this.comment = new StringType();
+            this.comment.setValue(value);
+          }
+          return this;
+        }
+
+        /**
          * @return {@link #period} (Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic.)
          */
         public Period getPeriod() { 
@@ -723,6 +779,7 @@ public class NamingSystem extends BaseConformance {
           childrenList.add(new Property("type", "code", "Identifies the unique identifier scheme used for this particular identifier.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("value", "string", "The string that should be sent over the wire to identify the code system or identifier system.", 0, java.lang.Integer.MAX_VALUE, value));
           childrenList.add(new Property("preferred", "boolean", "Indicates whether this identifier is the \"preferred\" identifier of this type.", 0, java.lang.Integer.MAX_VALUE, preferred));
+          childrenList.add(new Property("comment", "string", "Notes about the past or intended usage of this identifier.", 0, java.lang.Integer.MAX_VALUE, comment));
           childrenList.add(new Property("period", "Period", "Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic.", 0, java.lang.Integer.MAX_VALUE, period));
         }
 
@@ -732,6 +789,7 @@ public class NamingSystem extends BaseConformance {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<NamingSystemIdentifierType>
         case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // StringType
         case -1294005119: /*preferred*/ return this.preferred == null ? new Base[0] : new Base[] {this.preferred}; // BooleanType
+        case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
         case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -750,6 +808,9 @@ public class NamingSystem extends BaseConformance {
         case -1294005119: // preferred
           this.preferred = castToBoolean(value); // BooleanType
           break;
+        case 950398559: // comment
+          this.comment = castToString(value); // StringType
+          break;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
           break;
@@ -766,6 +827,8 @@ public class NamingSystem extends BaseConformance {
           this.value = castToString(value); // StringType
         else if (name.equals("preferred"))
           this.preferred = castToBoolean(value); // BooleanType
+        else if (name.equals("comment"))
+          this.comment = castToString(value); // StringType
         else if (name.equals("period"))
           this.period = castToPeriod(value); // Period
         else
@@ -778,6 +841,7 @@ public class NamingSystem extends BaseConformance {
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<NamingSystemIdentifierType>
         case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
         case -1294005119: throw new FHIRException("Cannot make property preferred as it is not a complex type"); // BooleanType
+        case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
         case -991726143:  return getPeriod(); // Period
         default: return super.makeProperty(hash, name);
         }
@@ -795,6 +859,9 @@ public class NamingSystem extends BaseConformance {
         else if (name.equals("preferred")) {
           throw new FHIRException("Cannot call addChild on a primitive type NamingSystem.preferred");
         }
+        else if (name.equals("comment")) {
+          throw new FHIRException("Cannot call addChild on a primitive type NamingSystem.comment");
+        }
         else if (name.equals("period")) {
           this.period = new Period();
           return this.period;
@@ -809,6 +876,7 @@ public class NamingSystem extends BaseConformance {
         dst.type = type == null ? null : type.copy();
         dst.value = value == null ? null : value.copy();
         dst.preferred = preferred == null ? null : preferred.copy();
+        dst.comment = comment == null ? null : comment.copy();
         dst.period = period == null ? null : period.copy();
         return dst;
       }
@@ -821,7 +889,7 @@ public class NamingSystem extends BaseConformance {
           return false;
         NamingSystemUniqueIdComponent o = (NamingSystemUniqueIdComponent) other;
         return compareDeep(type, o.type, true) && compareDeep(value, o.value, true) && compareDeep(preferred, o.preferred, true)
-           && compareDeep(period, o.period, true);
+           && compareDeep(comment, o.comment, true) && compareDeep(period, o.period, true);
       }
 
       @Override
@@ -832,12 +900,12 @@ public class NamingSystem extends BaseConformance {
           return false;
         NamingSystemUniqueIdComponent o = (NamingSystemUniqueIdComponent) other;
         return compareValues(type, o.type, true) && compareValues(value, o.value, true) && compareValues(preferred, o.preferred, true)
-          ;
+           && compareValues(comment, o.comment, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, value, preferred, period
-          );
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, value, preferred, comment
+          , period);
       }
 
   public String fhirType() {

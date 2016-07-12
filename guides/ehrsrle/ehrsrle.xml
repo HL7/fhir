@@ -24,23 +24,23 @@
   </package>
   <page>
     <source value="ehrsrle.html"/>
-    <name value="Home Page"/>
+    <title value="Home Page"/>
     <kind value="page"/>
 		<page>
 			<source value="ehrsrle-auditevent.html"/>
-			<name value="AuditEvent Profile"/>
+			<title value="AuditEvent Profile"/>
 			<kind value="resource"/>
 			<format value="generated"/>
 		</page>
 		<page>
 			<source value="ehrsrle-provenance.html"/>
-			<name value="Provenance Profile"/>
+			<title value="Provenance Profile"/>
 			<kind value="resource"/>
 			<format value="generated"/>
 		</page>
 		<page>
 			<source value="registry.html"/>
-			<name value="Registry"/>
+			<title value="Registry"/>
 			<kind value="list"/>
 			<type value="Conformance"/>
 			<type value="StructureDefinition"/>

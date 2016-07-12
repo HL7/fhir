@@ -147,91 +147,91 @@
   <binary value="cqif-measure-report-individual.png"/>
   <page>
     <source value="cqif.html"/>
-    <name value="Home Page"/>
+    <title value="Home Page"/>
     <kind value="page"/>
     <page>
       <source value="cqif-toc.html"/>
-      <name value="Table of Contents"/>
+      <title value="Table of Contents"/>
       <kind value="toc"/>
     </page>
     <page>
 		<source value="cqif-knowledge-artifact-representation.html"/>
-		<name value="Representation Knowledge Artifacts"/>
+		<title value="Representation Knowledge Artifacts"/>
 		<kind value="page"/>
     </page>
     <page>
 		<source value="cqif-integrating-decision-support.html"/>
-		<name value="Integration Decision Support in a Clinical Workflow"/>
+		<title value="Integration Decision Support in a Clinical Workflow"/>
 		<kind value="page"/>
     </page>
     <page>
 		<source value="cqif-documentation-templates.html"/>
-		<name value="Using a Documentation Template in a Clinical Workflow"/>
+		<title value="Using a Documentation Template in a Clinical Workflow"/>
 		<kind value="page"/>
     </page>
     <page>
 		<source value="cqif-order-sets.html"/>
-		<name value="Using an Order Set in a Clinical Workflow"/>
+		<title value="Using an Order Set in a Clinical Workflow"/>
 		<kind value="page"/>
     </page>
     <page>
 		<source value="cqif-knowledge-artifact-distribution.html"/>
-		<name value="Sharing Knowledge Artifacts"/>
+		<title value="Sharing Knowledge Artifacts"/>
 		<kind value="page"/>
     </page>
     <page>
 		<source value="cqif-quality-reporting.html"/>
-		<name value="Quality Reporting"/>
+		<title value="Quality Reporting"/>
 		<kind value="page"/>
     </page>
     <!--page>
       <source value="cqif-common.html"/>
-      <name value="Common Properties Page"/>
+      <title value="Common Properties Page"/>
       <kind value="page"/>
       <page>
 		  <source value="knowledgemodule-cqif.html"/>
-		  <name value="Knowledge Module"/>
+		  <title value="Knowledge Module"/>
 		  <kind value="page"/>
 		  <format value="generated"/>
 		  <page>
 			  <source value="cqif-knowledgemodule.html"/>
-			  <name value="Knowledge Module - Details"/>
+			  <title value="Knowledge Module - Details"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
 		  <page>
 			  <source value="knowledgemodule-example.html"/>
-			  <name value="Knowledge Module - Stand Alone Example"/>
+			  <title value="Knowledge Module - Stand Alone Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
 		  <page>
 			  <source value="knowledgemodule-library-example.html"/>
-			  <name value="Knowledge Module - Library Example"/>
+			  <title value="Knowledge Module - Library Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
       </page-->
       <!--page>
 		  <source value="knowledgerequest-cqif.html"/>
-		  <name value="Knowledge Request"/>
+		  <title value="Knowledge Request"/>
 		  <kind value="page"/>
 		  <format value="generated"/>
 		  <page>
 			  <source value="cqif-knowledgerequest.html"/>
-			  <name value="Knowledge Request - Details"/>
+			  <title value="Knowledge Request - Details"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
       </page-->
       <!--page>
 		  <source value="knowledgeresponse-cqif.html"/>
-		  <name value="Knowledge Response"/>
+		  <title value="Knowledge Response"/>
 		  <kind value="page"/>
 		  <format value="generated"/>
 		  <page>
 			  <source value="cqif-knowledgeresponse.html"/>
-			  <name value="Knowledge Response - Details"/>
+			  <title value="Knowledge Response - Details"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
@@ -239,138 +239,138 @@
     </page-->
     <!--page>
       <source value="cqif-cds-on-fhir.html"/>
-      <name value="Clinical Decision Support API"/>
+      <title value="Clinical Decision Support API"/>
       <kind value="page"/>
       <page>
 		  <source value="guidanceartifact-cqif.html"/>
-		  <name value="Guidance Artifact"/>
+		  <title value="Guidance Artifact"/>
 		  <kind value="page"/>
 		  <format value="generated"/>
 		  <page>
 			  <source value="cqif-guidanceartifact.html"/>
-			  <name value="Guidance Artifact - Details"/>
+			  <title value="Guidance Artifact - Details"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
 		  <page>
 			  <source value="guidanceartifact-hedreference-example.html"/>
-			  <name value="Guidance Artifact - HeD Reference Example"/>
+			  <title value="Guidance Artifact - HeD Reference Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
 		  <page>
 			  <source value="guidanceartifact-ecarule-example.html"/>
-			  <name value="Guidance Artifact - ECA Rule Example"/>
+			  <title value="Guidance Artifact - ECA Rule Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
 		  <page>
 			  <source value="guidanceartifact-documentationtemplate-example.html"/>
-			  <name value="Guidance Artifact - Documentation Template Example"/>
+			  <title value="Guidance Artifact - Documentation Template Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
 		  <page>
 			  <source value="guidanceartifact-orderset-example.html"/>
-			  <name value="Guidance Artifact - Order Set Example"/>
+			  <title value="Guidance Artifact - Order Set Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
 		  <page>
 			  <source value="mmi-suiciderisk-orderset-example.html"/>
-			  <name value="Guidance Artifact - Suicide Risk Order Set Example"/>
+			  <title value="Guidance Artifact - Suicide Risk Order Set Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
       </page>
       <page>
 		  <source value="guidancerequest-cqif.html"/>
-		  <name value="Guidance Request"/>
+		  <title value="Guidance Request"/>
 		  <kind value="page"/>
 		  <format value="generated"/>
 		  <page>
 			  <source value="cqif-guidancerequest.html"/>
-			  <name value="Guidance Request - Details"/>
+			  <title value="Guidance Request - Details"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
 		  <page>
 			  <source value="guidance-operation-request-example-v2.html"/>
-			  <name value="Guidance Request - Example"/>
+			  <title value="Guidance Request - Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
       </page>
       <page>
 		  <source value="guidanceresponse-cqif.html"/>
-		  <name value="Guidance Response"/>
+		  <title value="Guidance Response"/>
 		  <kind value="page"/>
 		  <format value="generated"/>
 		  <page>
 			  <source value="cqif-guidanceresponse.html"/>
-			  <name value="Guidance Response - Details"/>
+			  <title value="Guidance Response - Details"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
 		  <page>
 			  <source value="guidance-operation-response-example-v2.html"/>
-			  <name value="Guidance Response - Example"/>
+			  <title value="Guidance Response - Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
       </page>
       <page>
   		  <source value="operation-guidancerequest-cqif-guidance.html"/>
-	  	  <name value="Guidance Operation"/>
+	  	  <title value="Guidance Operation"/>
 		    <kind value="page"/>
 		    <format value="generated"/>
 		  <page>
 			  <source value="guidance-operation-request-example-v2.html"/>
-			  <name value="Guidance Operation - Request Example"/>
+			  <title value="Guidance Operation - Request Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
 		  <page>
 			  <source value="guidance-operation-response-example-v2.html"/>
-			  <name value="Guidance Operation - Response Example"/>
+			  <title value="Guidance Operation - Response Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
       </page>
       <page>
   		  <source value="operation-guidancerequest-cqif-guidance-requirements.html"/>
-	  	  <name value="Guidance Operation (Requirements)"/>
+	  	  <title value="Guidance Operation (Requirements)"/>
 		    <kind value="page"/>
 		    <format value="generated"/>
       </page>
     </page-->
   <page>
 	  <source value="questionnaire-cqif.html"/>
-	  <name value="Questionnaire"/>
+	  <title value="Questionnaire"/>
 	  <kind value="page"/>
 	  <format value="generated"/>
 	  <page>
 		  <source value="cqif-questionnaire.html"/>
-		  <name value="Questionnaire - Details"/>
+		  <title value="Questionnaire - Details"/>
 		  <kind value="page"/>
 		  <format value="generated"/>
 	  </page>
 	  <page>
 		  <source value="questionnaire-cqif-example.html"/>
-		  <name value="Questionnaire - Example"/>
+		  <title value="Questionnaire - Example"/>
 		  <kind value="page"/>
 		  <format value="generated"/>
 	  </page>
   </page>
     <!--page>
       <source value="cqif-evidence.html"/>
-      <name value="Evidence Profile"/>
+      <title value="Evidence Profile"/>
       <kind value="resource"/>
       <format value="generated"/>
     </page-->
     <page>
       <source value="registry.html"/>
-      <name value="Registry"/>
+      <title value="Registry"/>
       <kind value="list"/>
       <type value="Conformance"/>
       <type value="StructureDefinition"/>

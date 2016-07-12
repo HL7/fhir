@@ -141,69 +141,69 @@
 	<binary value="sdc-generic-workflow.png"/>
 	<page>
 		<source value="sdc.html"/>
-		<name value="Home Page"/>
+		<title value="Home Page"/>
 		<kind value="page"/>
 		<page>
 			<source value="sdc-intro.html"/>
-			<name value="Introduction"/>
+			<title value="Introduction"/>
 			<kind value="page"/>
 		</page>
 		<page>
 			<source value="sdc-security.html"/>
-			<name value="Security Details"/>
+			<title value="Security Details"/>
 			<kind value="page"/>
 		</page>
     <page>
       <source value="dataelement-sdc.html"/>
-      <name value="Data Element"/>
+      <title value="Data Element"/>
       <kind value="page"/>
       <format value="generated"/>
       <page>
         <source value="sdc-element.html"/>
-        <name value="Data Element Details"/>
+        <title value="Data Element Details"/>
         <kind value="resource"/>
         <format value="generated"/>
       </page>
     </page>
     <page>
       <source value="questionnaire-sdc.html"/>
-      <name value="Questionnaire"/>
+      <title value="Questionnaire"/>
       <kind value="page"/>
       <format value="generated"/>
       <page>
         <source value="sdc-questionnaire.html"/>
-        <name value="Questionnaire Details"/>
+        <title value="Questionnaire Details"/>
         <kind value="resource"/>
         <format value="generated"/>
       </page>
     </page>
     <page>
       <source value="questionnaireresponse-sdc.html"/>
-      <name value="Questionnaire Response"/>
+      <title value="Questionnaire Response"/>
       <kind value="page"/>
       <format value="generated"/>
       <page>
         <source value="sdc-response.html"/>
-        <name value="Questionnaire Response Details"/>
+        <title value="Questionnaire Response Details"/>
         <kind value="resource"/>
         <format value="generated"/>
       </page>
     </page>
     <page>
       <source value="valueset-sdc.html"/>
-      <name value="Value Set"/>
+      <title value="Value Set"/>
       <kind value="page"/>
       <format value="generated"/>
       <page>
         <source value="sdc-valueset.html"/>
-        <name value="Value Set Details"/>
+        <title value="Value Set Details"/>
         <kind value="resource"/>
         <format value="generated"/>
       </page>
     </page>
 		<page>
 			<source value="registry.html"/>
-			<name value="Registry"/>
+			<title value="Registry"/>
 			<kind value="list"/>
 			<type value="Conformance"/>
 			<type value="StructureDefinition"/>

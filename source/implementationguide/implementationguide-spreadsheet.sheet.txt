@@ -259,7 +259,7 @@
 
  -- Row 19 -----------------------------------
   Element = ImplementationGuide.package
-  Card. = 1..*
+  Card. = 0..*
   Summary = Y
   UML = 600;80
   Short Label = Group of resources as used in .page.package
@@ -374,7 +374,7 @@
 
  -- Row 33 -----------------------------------
   Element = ImplementationGuide.page
-  Card. = 1..1
+  Card. = 0..1
   Summary = Y
   UML = 0;180
   Short Label = Page/Section in the Guide
@@ -391,12 +391,12 @@
   Comments = The publishing tool will autogenerate source for list (source = n/a), and inject included implementations for include (source = uri of guide to include)
 
  -- Row 35 -----------------------------------
-  Element = ImplementationGuide.page.name
+  Element = ImplementationGuide.page.title
   Card. = 1..1
   Summary = Y
   Type = string
-  Short Label = Short name shown for navigational assistance
-  Definition = A short name used to represent this page in navigational structures such as table of contents, bread crumbs, etc.
+  Short Label = Short title shown for navigational assistance
+  Definition = A short title used to represent this page in navigational structures such as table of contents, bread crumbs, etc.
 
  -- Row 36 -----------------------------------
   Element = ImplementationGuide.page.kind

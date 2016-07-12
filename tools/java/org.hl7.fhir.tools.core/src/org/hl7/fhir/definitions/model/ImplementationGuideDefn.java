@@ -312,11 +312,11 @@ public class ImplementationGuideDefn {
   private boolean findRegistryPage(String n, List<LinkTriple> res, List<ImplementationGuidePageComponent> list) {
     for (ImplementationGuidePageComponent page : list) {
       if (page.getKind() == GuidePageKind.LIST && isListFor(page, n)) {
-        res.add(new LinkTriple(page.getSource(), page.getName(), null));
+        res.add(new LinkTriple(page.getSource(), page.getTitle(), null));
         return true;
       }
       if (page.hasPage()) {
-        res.add(new LinkTriple(page.getSource(), page.getName(), null));
+        res.add(new LinkTriple(page.getSource(), page.getTitle(), null));
         if (findPage(n, res, page.getPage()))
           return true;
         else {
@@ -338,11 +338,11 @@ public class ImplementationGuideDefn {
   private boolean findPage(String n, List<LinkTriple> res, List<ImplementationGuidePageComponent> list) {
     for (ImplementationGuidePageComponent page : list) {
       if (n.equals(page.getSource())) {
-        res.add(new LinkTriple(page.getSource(), page.getName(), null));
+        res.add(new LinkTriple(page.getSource(), page.getTitle(), null));
         return true;
       }
       if (page.hasPage()) {
-        res.add(new LinkTriple(page.getSource(), page.getName(), null));
+        res.add(new LinkTriple(page.getSource(), page.getTitle(), null));
         if (findPage(n, res, page.getPage()))
           return true;
         else {
@@ -448,7 +448,7 @@ public class ImplementationGuideDefn {
       ndx = "";
     else
       ndx = ndx + " ";
-    row.getCells().add(gen.new Cell("", page.getSource(), ndx + page.getName(), null, null));
+    row.getCells().add(gen.new Cell("", page.getSource(), ndx + page.getTitle(), null, null));
     for (ImplementationGuidePageComponent p : page.getPage()) {
       addPage(gen, row.getSubRows(), p);
     }

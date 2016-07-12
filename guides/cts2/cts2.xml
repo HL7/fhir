@@ -366,11 +366,11 @@
 	</package>
 	<page>
 		<source value="cts2.html"/>
-		<name value="Home Page"/>
+		<title value="Home Page"/>
 		<kind value="page"/>
 		<page>
 			<source value="registry.html"/>
-			<name value="Registry"/>
+			<title value="Registry"/>
 			<kind value="list"/>
 			<type value="Conformance"/>
 			<type value="StructureDefinition"/>

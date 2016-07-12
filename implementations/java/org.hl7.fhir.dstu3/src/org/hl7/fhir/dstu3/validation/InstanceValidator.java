@@ -1302,6 +1302,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     return parts.length > 2 && parts[parts.length - 1].equals("resource") && pathEntryHasName(parts[parts.length - 2], "entry");
   }
 
+  private boolean isBundleOutcome(String path) {
+    String[] parts = path.split("\\.");
+    return parts.length > 2 && parts[parts.length - 1].equals("outcome") && pathEntryHasName(parts[parts.length - 2], "response");
+  }
+
 
   private static boolean pathEntryHasName(String thePathEntry, String theName) {
     if (thePathEntry.equals(theName)) {
@@ -2323,7 +2328,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         else // actually, we should never get to here; a bundle entry with method get/delete should not have a resource
           return IdStatus.OPTIONAL;					
       }
-    } else if (isParametersEntry(ei.path))
+    } else if (isParametersEntry(ei.path) || isBundleOutcome(ei.path))
       return IdStatus.OPTIONAL; 
     else
       return IdStatus.REQUIRED; 

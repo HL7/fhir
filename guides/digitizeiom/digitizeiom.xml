@@ -98,7 +98,7 @@
 	<binary value="AzathioprineOrderingPharmacogenomicSupport.cql"/>
 	<page>
 		<source value="PharmacogenomicSupport-IG.html"/>
-		<name value="Pharmacogenomic Ordering Support"/>
+		<title value="Pharmacogenomic Ordering Support"/>
 		<kind value="page"/>
 		<format value="html"/>
 	</page>

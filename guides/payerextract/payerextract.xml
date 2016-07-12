@@ -134,7 +134,7 @@
 	<binary value="library-wcc-aba.elm.xml"/>
 	<page>
 		<source value="payerextract.html"/>
-		<name value="Payer Extract Cohort Definitions for Payer Quality Measures"/>
+		<title value="Payer Extract Cohort Definitions for Payer Quality Measures"/>
 		<kind value="page"/>
 		<format value="html"/>
 	</page>

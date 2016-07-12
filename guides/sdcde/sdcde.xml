@@ -59,35 +59,35 @@
   </package>
   <page>
     <source value="sdcde.html"/>
-    <name value="Home Page"/>
+    <title value="Home Page"/>
     <kind value="page"/>
     <page>
       <source value="dataelement-sdc-de.html"/>
-      <name value="Data Element"/>
+      <title value="Data Element"/>
       <kind value="page"/>
       <format value="generated"/>
       <page>
         <source value="sdcde-dataelement.html"/>
-        <name value="Data Element Details"/>
+        <title value="Data Element Details"/>
         <kind value="resource"/>
         <format value="generated"/>
       </page>
     </page>
     <page>
       <source value="valueset-sdc-de.html"/>
-      <name value="Value Set"/>
+      <title value="Value Set"/>
       <kind value="page"/>
       <format value="generated"/>
       <page>
         <source value="sdcde-valueset.html"/>
-        <name value="Value Set Details"/>
+        <title value="Value Set Details"/>
         <kind value="resource"/>
         <format value="generated"/>
       </page>
     </page>
     <page>
       <source value="registry.html"/>
-      <name value="Registry"/>
+      <title value="Registry"/>
       <kind value="list"/>
       <type value="Conformance"/>
       <type value="StructureDefinition"/>

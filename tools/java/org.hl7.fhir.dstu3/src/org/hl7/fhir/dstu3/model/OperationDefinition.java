@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 12, 2016 11:51+1000 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 17:43+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -536,10 +536,10 @@ public class OperationDefinition extends BaseConformance {
         protected OperationDefinitionParameterBindingComponent binding;
 
         /**
-         * The parts of a Tuple Parameter.
+         * The parts of a nested Parameter.
          */
         @Child(name = "part", type = {OperationDefinitionParameterComponent.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Parts of a Tuple Parameter", formalDefinition="The parts of a Tuple Parameter." )
+        @Description(shortDefinition="Parts of a nested Parameter", formalDefinition="The parts of a nested Parameter." )
         protected List<OperationDefinitionParameterComponent> part;
 
         private static final long serialVersionUID = -885506257L;
@@ -958,7 +958,7 @@ public class OperationDefinition extends BaseConformance {
         }
 
         /**
-         * @return {@link #part} (The parts of a Tuple Parameter.)
+         * @return {@link #part} (The parts of a nested Parameter.)
          */
         public List<OperationDefinitionParameterComponent> getPart() { 
           if (this.part == null)
@@ -1021,7 +1021,7 @@ public class OperationDefinition extends BaseConformance {
           childrenList.add(new Property("searchType", "code", "How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'.", 0, java.lang.Integer.MAX_VALUE, searchType));
           childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A profile the specifies the rules that this parameter must conform to.", 0, java.lang.Integer.MAX_VALUE, profile));
           childrenList.add(new Property("binding", "", "Binds to a value set if this parameter is coded (code, Coding, CodeableConcept).", 0, java.lang.Integer.MAX_VALUE, binding));
-          childrenList.add(new Property("part", "@OperationDefinition.parameter", "The parts of a Tuple Parameter.", 0, java.lang.Integer.MAX_VALUE, part));
+          childrenList.add(new Property("part", "@OperationDefinition.parameter", "The parts of a nested Parameter.", 0, java.lang.Integer.MAX_VALUE, part));
         }
 
       @Override

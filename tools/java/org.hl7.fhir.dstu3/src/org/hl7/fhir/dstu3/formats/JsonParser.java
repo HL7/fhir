@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Jul 12, 2016 11:51+1000 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 17:43+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -5390,6 +5390,10 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
     if (json.has("profile"))
       res.setProfile(parseReference(json.getAsJsonObject("profile")));
+    if (json.has("documentation"))
+      res.setDocumentationElement(parseMarkdown(json.get("documentation").getAsString()));
+    if (json.has("_documentation"))
+      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentationElement());
     if (json.has("interaction")) {
       JsonArray array = json.getAsJsonArray("interaction");
       for (int i = 0; i < array.size(); i++) {
@@ -10410,10 +10414,10 @@ public class JsonParser extends JsonParserBase {
       res.setSourceElement(parseUri(json.get("source").getAsString()));
     if (json.has("_source"))
       parseElementProperties(json.getAsJsonObject("_source"), res.getSourceElement());
-    if (json.has("name"))
-      res.setNameElement(parseString(json.get("name").getAsString()));
-    if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("title"))
+      res.setTitleElement(parseString(json.get("title").getAsString()));
+    if (json.has("_title"))
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
     if (json.has("kind"))
       res.setKindElement(parseEnumeration(json.get("kind").getAsString(), ImplementationGuide.GuidePageKind.NULL, new ImplementationGuide.GuidePageKindEnumFactory()));
     if (json.has("_kind"))
@@ -12388,6 +12392,10 @@ public class JsonParser extends JsonParserBase {
       res.setPreferredElement(parseBoolean(json.get("preferred").getAsBoolean()));
     if (json.has("_preferred"))
       parseElementProperties(json.getAsJsonObject("_preferred"), res.getPreferredElement());
+    if (json.has("comment"))
+      res.setCommentElement(parseString(json.get("comment").getAsString()));
+    if (json.has("_comment"))
+      parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentElement());
     if (json.has("period"))
       res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
   }
@@ -13288,10 +13296,10 @@ public class JsonParser extends JsonParserBase {
         res.getCommunication().add(parsePatientPatientCommunicationComponent(array.get(i).getAsJsonObject(), res));
       }
     };
-    if (json.has("careProvider")) {
-      JsonArray array = json.getAsJsonArray("careProvider");
+    if (json.has("generalPractitioner")) {
+      JsonArray array = json.getAsJsonArray("generalPractitioner");
       for (int i = 0; i < array.size(); i++) {
-        res.getCareProvider().add(parseReference(array.get(i).getAsJsonObject()));
+        res.getGeneralPractitioner().add(parseReference(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("managingOrganization"))
@@ -24960,6 +24968,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasProfile()) {
         composeReference("profile", element.getProfile());
       }
+      if (element.hasDocumentationElement()) {
+        composeMarkdownCore("documentation", element.getDocumentationElement(), false);
+        composeMarkdownExtras("documentation", element.getDocumentationElement(), false);
+      }
       if (element.hasInteraction()) {
         openArray("interaction");
         for (Conformance.ResourceInteractionComponent e : element.getInteraction()) 
@@ -30474,9 +30486,9 @@ public class JsonParser extends JsonParserBase {
         composeUriCore("source", element.getSourceElement(), false);
         composeUriExtras("source", element.getSourceElement(), false);
       }
-      if (element.hasNameElement()) {
-        composeStringCore("name", element.getNameElement(), false);
-        composeStringExtras("name", element.getNameElement(), false);
+      if (element.hasTitleElement()) {
+        composeStringCore("title", element.getTitleElement(), false);
+        composeStringExtras("title", element.getTitleElement(), false);
       }
       if (element.hasKindElement()) {
         composeEnumerationCore("kind", element.getKindElement(), new ImplementationGuide.GuidePageKindEnumFactory(), false);
@@ -32645,6 +32657,10 @@ public class JsonParser extends JsonParserBase {
         composeBooleanCore("preferred", element.getPreferredElement(), false);
         composeBooleanExtras("preferred", element.getPreferredElement(), false);
       }
+      if (element.hasCommentElement()) {
+        composeStringCore("comment", element.getCommentElement(), false);
+        composeStringExtras("comment", element.getCommentElement(), false);
+      }
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
@@ -33627,9 +33643,9 @@ public class JsonParser extends JsonParserBase {
           composePatientPatientCommunicationComponent(null, e);
         closeArray();
       };
-      if (element.hasCareProvider()) {
-        openArray("careProvider");
-        for (Reference e : element.getCareProvider()) 
+      if (element.hasGeneralPractitioner()) {
+        openArray("generalPractitioner");
+        for (Reference e : element.getGeneralPractitioner()) 
           composeReference(null, e);
         closeArray();
       };

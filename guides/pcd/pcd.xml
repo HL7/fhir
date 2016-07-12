@@ -68,7 +68,7 @@
   </package>
   <page>
     <source value="pcd.html" />
-    <name value="Privacy Consent Directive on FHIR Introduction" />
+    <title value="Privacy Consent Directive on FHIR Introduction" />
     <kind value="page" />
   </page>
 </ImplementationGuide>

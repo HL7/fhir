@@ -8370,7 +8370,7 @@ public class VersionConvertor {
 		org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageComponent tgt = new org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageComponent();
 		copyElement(src, tgt);
 		tgt.setSource(src.getSource());
-		tgt.setName(src.getName());
+		tgt.setTitle(src.getName());
 		tgt.setKind(convertGuidePageKind(src.getKind()));
 		for (org.hl7.fhir.dstu2.model.CodeType t : src.getType())
 			tgt.addType(t.getValue());
@@ -8388,7 +8388,7 @@ public class VersionConvertor {
 		org.hl7.fhir.dstu2.model.ImplementationGuide.ImplementationGuidePageComponent tgt = new org.hl7.fhir.dstu2.model.ImplementationGuide.ImplementationGuidePageComponent();
 		copyElement(src, tgt);
 		tgt.setSource(src.getSource());
-		tgt.setName(src.getName());
+		tgt.setName(src.getTitle());
 		tgt.setKind(convertGuidePageKind(src.getKind()));
 		for (org.hl7.fhir.dstu3.model.CodeType t : src.getType())
 			tgt.addType(t.getValue());
@@ -10553,7 +10553,7 @@ public class VersionConvertor {
 		for (org.hl7.fhir.dstu2.model.Patient.PatientCommunicationComponent t : src.getCommunication())
 			tgt.addCommunication(convertPatientCommunicationComponent(t));
 		for (org.hl7.fhir.dstu2.model.Reference t : src.getCareProvider())
-			tgt.addCareProvider(convertReference(t));
+			tgt.addGeneralPractitioner(convertReference(t));
 		tgt.setManagingOrganization(convertReference(src.getManagingOrganization()));
 		for (org.hl7.fhir.dstu2.model.Patient.PatientLinkComponent t : src.getLink())
 			tgt.addLink(convertPatientLinkComponent(t));
@@ -10586,7 +10586,7 @@ public class VersionConvertor {
 		tgt.setAnimal(convertAnimalComponent(src.getAnimal()));
 		for (org.hl7.fhir.dstu3.model.Patient.PatientCommunicationComponent t : src.getCommunication())
 			tgt.addCommunication(convertPatientCommunicationComponent(t));
-		for (org.hl7.fhir.dstu3.model.Reference t : src.getCareProvider())
+		for (org.hl7.fhir.dstu3.model.Reference t : src.getGeneralPractitioner())
 			tgt.addCareProvider(convertReference(t));
 		tgt.setManagingOrganization(convertReference(src.getManagingOrganization()));
 		for (org.hl7.fhir.dstu3.model.Patient.PatientLinkComponent t : src.getLink())

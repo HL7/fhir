@@ -65,11 +65,11 @@
   <binary value="http://h7.org/fhir/fhir.css"/>
   <page>
     <source value="patient-example.html"/>
-    <name value="Example Patient Page"/>
+    <title value="Example Patient Page"/>
     <kind value="page"/>
     <page>
       <source value="list.html"/>
-      <name value="Value Set Page"/>
+      <title value="Value Set Page"/>
       <kind value="list"/>
       <type value="ValueSet"/>
       <package value="test"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Jul 12, 2016 11:51+1000 for FHIR v1.5.0
+// Generated on Tue, Jul 12, 2016 17:43+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -3707,6 +3707,8 @@ public class RdfParser extends RdfParserBase {
       composeCode(t, "Conformance", "type", element.getTypeElement(), -1);
     if (element.hasProfile())
       composeReference(t, "Conformance", "profile", element.getProfile(), -1);
+    if (element.hasDocumentationElement())
+      composeMarkdown(t, "Conformance", "documentation", element.getDocumentationElement(), -1);
     for (int i = 0; i < element.getInteraction().size(); i++)
       composeConformanceResourceInteractionComponent(t, "Conformance", "interaction", element.getInteraction().get(i), i);
     if (element.hasVersioningElement())
@@ -7201,8 +7203,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "page", name, element, index);
     if (element.hasSourceElement())
       composeUri(t, "ImplementationGuide", "source", element.getSourceElement(), -1);
-    if (element.hasNameElement())
-      composeString(t, "ImplementationGuide", "name", element.getNameElement(), -1);
+    if (element.hasTitleElement())
+      composeString(t, "ImplementationGuide", "title", element.getTitleElement(), -1);
     if (element.hasKindElement())
       composeEnum(t, "ImplementationGuide", "kind", element.getKindElement(), -1);
     for (int i = 0; i < element.getType().size(); i++)
@@ -8601,6 +8603,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "NamingSystem", "value", element.getValueElement(), -1);
     if (element.hasPreferredElement())
       composeBoolean(t, "NamingSystem", "preferred", element.getPreferredElement(), -1);
+    if (element.hasCommentElement())
+      composeString(t, "NamingSystem", "comment", element.getCommentElement(), -1);
     if (element.hasPeriod())
       composePeriod(t, "NamingSystem", "period", element.getPeriod(), -1);
   }
@@ -9211,8 +9215,8 @@ public class RdfParser extends RdfParserBase {
       composePatientAnimalComponent(t, "Patient", "animal", element.getAnimal(), -1);
     for (int i = 0; i < element.getCommunication().size(); i++)
       composePatientPatientCommunicationComponent(t, "Patient", "communication", element.getCommunication().get(i), i);
-    for (int i = 0; i < element.getCareProvider().size(); i++)
-      composeReference(t, "Patient", "careProvider", element.getCareProvider().get(i), i);
+    for (int i = 0; i < element.getGeneralPractitioner().size(); i++)
+      composeReference(t, "Patient", "generalPractitioner", element.getGeneralPractitioner().get(i), i);
     if (element.hasManagingOrganization())
       composeReference(t, "Patient", "managingOrganization", element.getManagingOrganization(), -1);
     for (int i = 0; i < element.getLink().size(); i++)
