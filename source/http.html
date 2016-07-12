@@ -383,8 +383,9 @@ server should return a <code>410</code> status code.
 Servers are encouraged to support a version specific retrieval of the current version of the
 resource even if they do not provide access to previous versions. If a request
 is made for a previous version of a resource, and the server does not support accessing
-previous versions, it should return a <code>404</code> Not Found error, with an operation outcome
-explaining that history is not supported for the underlying resource type.
+previous versions (either generally, or for this particular resource), it should 
+return a <code>404</code> Not Found error, with an operation outcome explaining that 
+history is not supported for the underlying resource type or instance.
 </p>
 
 <a name="update"> </a>
@@ -1100,6 +1101,7 @@ Additional Notes about maintaining a history of resources:
  <li>All past versions of a resource are considered to be superceded, and no longer active, but retained for audit/integrity purposes</li>
  <li>In the case that a past version of a resource needs to be explicitly documented as <a href="lifecycle.html#error">'entered-in-error'</a>, use as provenance resource pointing to the past version of the resource</li>
  <li>When tracing the history of a specific resource, applications should retrieve any provenance resources relating to the resource or it's past versions</li>
+ <li>If a request is made for a history that is not available (e.g. the system does not keep a history for the type, or the particular instance), the server should return a 404 Not Found along with an <a href="operationoutcome.html">OperationOutcome</a> explaining the problem</li>
 </ul>
 
 <a name="transactional-integrity"> </a>
