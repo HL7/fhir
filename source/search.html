@@ -165,6 +165,8 @@ read operation</a>:
 However, the search with parameter <code>_id</code> returns a bundle with the requested resource, instead of just the
 resource itself. Additional parameters can be added which may provide
 additional functionality on top of this base read equivalence (e.g. <a href="#include"><code>_include</code></a>).
+Note that although the _id parameter has a type of token, because servers SHALL use exact match with it, there is 
+no system for the _id parameter.
 </p>
 <a name="lastUpdated"> </a>
 <p>
@@ -1504,7 +1506,7 @@ auditing the search itself.
 <table class="list">
 <tr><td colspan="4">Common Parameters defined for all resources:</td></tr>
 <tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>
-<tr><td><a href="#id"><code>_id</code></a></td><td><a href="#string">string</a></td><td>Resource id (not a full URL)</td><td>Resource.id</td></tr>
+<tr><td><a href="#id"><code>_id</code></a></td><td><a href="#token">token</a></td><td>Resource id (not a full URL)</td><td>Resource.id</td></tr>
 <tr><td><a href="#lastUpdated"><code>_lastUpdated</code></a></td><td><a href="#date">date</a></td><td>Date last updated. Server has discretion on the boundary precision</td><td>Resource.meta.lastUpdated</td></tr>
 <tr><td><a href="#tag">_tag</a></td><td><a href="#token">token</a></td><td>Search by a resource tag</td><td>Resource.meta.tag</td></tr>
 <tr><td><a href="#profile"><code>_profile</code></a></td><td><a href="#uri">uri</a></td><td>Search for all resources tagged with a profile</td><td>Resource.meta.profile</td></tr>
