@@ -193,7 +193,8 @@ A SNOMED CT implicit value set URL has two parts:
 </ul>
 <p>
 "http://snomed.info/sct" should be understood to mean an unspecified edition/version. This defines an incomplete value set whose
-actual membership will depend on the particular edition used when it is expanded. 
+actual membership will depend on the particular edition used when it is expanded. If no version or edition is specified, the terminology
+service SHALL use the latest version available for it's default edition (or the international edition, if no other edition is the default).
 </p>
 <p>
 For the second part of the URL (the query part), the 4 possible values are:
