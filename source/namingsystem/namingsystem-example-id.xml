@@ -47,6 +47,7 @@
   <uniqueId>
     <type value="oid"/>
     <value value="1.2.36.1.2001.1003.0"/>
+    <comment value="This value is used in Australian CDA documents"/>
   </uniqueId>
   <uniqueId>
     <type value="uri"/>

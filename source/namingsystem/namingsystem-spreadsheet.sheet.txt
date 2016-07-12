@@ -262,6 +262,14 @@
   Missing Meaning = If there are multiple ids, and one is labelled \"preferred\", then the assumption is that the others are not preferred. In the absence of any id marked as preferred, no inference can be drawn
 
  -- Row 19 -----------------------------------
+  Element = NamingSystem.uniqueId.comment
+  Card. = 0..1
+  Type = string
+  Short Label = Notes about identifier usage
+  Definition = Notes about the past or intended usage of this identifier
+  Comments = e.g. \"must be used in Germany\" or \"was initially published in error with this value\"
+
+ -- Row 20 -----------------------------------
   Element = NamingSystem.uniqueId.period
   Card. = 0..1
   Type = Period
@@ -269,7 +277,7 @@
   Definition = Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic
   Comments = Within a registry, a given identifier should only be \"active\" for a single namespace at a time.  (Ideally, an identifier should only ever be associated with a single namespace across all time)
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = NamingSystem.replacedBy
   Card. = 0..1
   Inv. = 3
