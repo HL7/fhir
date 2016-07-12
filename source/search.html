@@ -65,7 +65,7 @@ In the simplest case, a search is executed by performing a <code>GET</code> oper
 in the RESTful framework:
 </p>
 <pre>
- GET [base]/[resourcetype]?name=value&amp;...{&amp;_format=[mime-type]}}
+ GET [base]/[type]?name=value&amp;...{&amp;_format=[mime-type]}}
 </pre>
 <p>
 For this RESTful search (see <a href="http.html#search">definition in RESTful API</a>), the parameters are a series
@@ -86,8 +86,8 @@ parameter works for search <a href="http.html#mime-type">like for other interact
 <a href="http.html#search">Search operations</a> are executed in one of three defined contexts that control which set of resources are being searched:
 </p>
 <ul>
- <li>A specified resource type: <code>GET [base]/[ResourceType]?parameter(s)</code></li>
- <li>A specified <a href="compartmentdefinition.htmls">compartment</a>, perhaps with a specified resource type in that compartment: <code>GET [base]/Patient/[id]/[ResourceType]?parameter(s)</code></li>
+ <li>A specified resource type: <code>GET [base]/[type]?parameter(s)</code></li>
+ <li>A specified <a href="compartmentdefinition.htmls">compartment</a>, perhaps with a specified resource type in that compartment: <code>GET [base]/Patient/[id]/[type]?parameter(s)</code></li>
  <li>All resource types: <code>GET [base]/_search?parameter(s)</code> (parameters common to all types only)</li>
 </ul>
 <p>
