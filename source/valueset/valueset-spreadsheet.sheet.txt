@@ -459,7 +459,7 @@
   Card. = 1..1
   Type = code
   Binding = FilterOperator
-  Short Label = = | is-a | is-not-a | regex | in | not-in
+  Short Label = = | is-a | is-not-a | regex | in | not-in | generalizes
   Definition = The kind of operation to perform as a part of the filter criteria
   RIM Mapping = N/A
 

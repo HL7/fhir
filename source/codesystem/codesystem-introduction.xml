@@ -48,6 +48,17 @@ ubiqutiously encountered through out the healthcare process.
  <li>The CodeSystem resource design is based on the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification. CodeSystem resources can be converted to CTS2 
  code system resources.</li>
 </ul>
+
+<p>
+The <code>CodeSystem</code> resource defines the content of a code system, and also it's preferred identifier.
+The <code>NamingSystem</code> resource identifies the existence of a code or idenifier system, and it's possible and preferred identifiers. 
+The key difference between the resources is who creates and manages them - <code>CodeSystem</code> resources are managed
+by the owner of the code system resource, who can properly define the features and content of the code system.
+<code>NamingSystem</code> resources, on the other hand, are frequently defined by 3rd parties that encounter the
+code system in use, and need to dsscribe the use, but do not have the authority to define the features and content. 
+Additionally, there may be multiple authoritative <code>NamingSystem</code> resources for a code systemn, but there
+should only be one <code>CodeSystem</code> resource.
+</p>
 </div>
 
 <div>
