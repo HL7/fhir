@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4093,7 +4093,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7122,7 +7121,7 @@
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Is A (by subsumption)</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself.</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (i.e. include child codes)</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The definition of is-a is that all the properties of the value are true for the specified property of the code, which means that a code has an is-a relationship with itself. To exclude the root code, add it explicitly to as an exclude</Data></Cell>
@@ -7172,15 +7171,15 @@
     <Cell ss:StyleID="s146"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">generalizes</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Generalizes (by Subsumption)</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (e.g. include parent codes)</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">The definition of is-a is that all the properties of the value are true for the specified property of the code, which means that a code has an is-a relationship with itself. To exclude the root code, add it explicitly to as an exclude</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s145"/>
@@ -7659,6 +7658,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7678,7 +7678,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
