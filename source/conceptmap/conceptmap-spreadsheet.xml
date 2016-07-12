@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9948</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>17148</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>690</TabRatio>
@@ -5375,7 +5375,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">ConceptMap</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">A list of new entries (code / system &#45;-&gt; code/system) that the client should add to its closure table. The only kind of entry mapping equivalences that can be returned are equal, narrower, wider, and unmatched</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">A list of new entries (code / system &#45;-&gt; code/system) that the client should add to its closure table. The only kind of entry mapping equivalences that can be returned are equal, specializes, subsumes and unmatched</Data></Cell>
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5693,7 +5693,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>27</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>

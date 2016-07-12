@@ -667,7 +667,7 @@
  -- Row 27 -----------------------------------
   Name = closure.return
   Use = out
-  Documentation = A list of new entries (code / system --> code/system) that the client should add to its closure table. The only kind of entry mapping equivalences that can be returned are equal, narrower, wider, and unmatched
+  Documentation = A list of new entries (code / system --> code/system) that the client should add to its closure table. The only kind of entry mapping equivalences that can be returned are equal, specializes, subsumes and unmatched
   Type = ConceptMap
   Min = 1
   Max = 1
