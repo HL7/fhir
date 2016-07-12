@@ -6,7 +6,7 @@ This is the entry page for these DAF-core artifacts:
 
 |Profile Summary  | Base Resource | Formal Profile View |
 |--------------  | --------------- | --------------  |
-|[ Allergies ](allergyintolerance-daf-core-new.html)  | AllergyIntolerance  | [ Allergies ](daf-core-allergyintolerance.html)  |
+|[ AllergyIntolerance/Allergies ](allergyintolerance-daf-core-new.html)  | AllergyIntolerance  | [ AllergyIntolerance/Allergies ](daf-core-allergyintolerance.html)  |
 |[ CarePlan ](careplan-daf-core.html)  | CarePlan  | [CarePlan ](daf-core-careplan.html) |
 |[ CareTeam ](careteam-daf-core.html)  | CareTeam  | [CareTeam ](daf-core-careteam.html) |
 |[ Condition ](condition-daf-core.html)  | Condition  | [Condition ](daf-core-condition.html) |
