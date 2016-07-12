@@ -79,9 +79,9 @@ Mobile Services (kind)
         For example, to locate healthcare facilities within 2kms of a clients home, or the current geo-coded
         position of a practitioner travelling between patients (read from a mobile phone or device).
     </p>
-    <pre>
-        GET [base]/Location?near=-83.694810,42.256500&amp;near-distance=11.20||km
-    </pre>
+<pre>
+ GET [base]/Location?near=-83.694810,42.256500&amp;near-distance=11.20||km;...
+</pre>
     <p>
         The distance between the location and the provided point is often used as one of the 
         determining factors for selection of the location. So this value is included in the results.<br/>
@@ -89,21 +89,22 @@ Mobile Services (kind)
         point of reference in the search. So the distance between is included in the search section
         of the bundle entry.
     </p>
-    <pre>
-    &lt;entry&gt; 
-        &lt;resource&gt;
-            &lt;Location&gt;
-                &lt;!-- location details --&gt;
-            &lt;/Location&gt;
-        &lt;/resource&gt;
-        &lt;search&gt;
-            &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-mpi-match&quot;&gt;
-                &lt;valueDistance &gt;
-                    &lt;/value value=&quot;10.5&quot;/&gt;
-                    &lt;/unit value=&quot;km&quot;/&gt;
-                &lt;/valueDistance&gt;
-            &lt;/extension&gt;
-        &lt;/search&gt;
-    &lt;/entry&gt; 
-    </pre>
+<pre>
+&lt;entry&gt; 
+    &lt;resource&gt;
+        &lt;Location&gt;
+            &lt;!-- location details --&gt;
+        &lt;/Location&gt;
+    &lt;/resource&gt;
+    &lt;search&gt;
+        &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/location-distance&quot;&gt;
+            &lt;valueDistance &gt;
+                &lt;!-- The distance that this location resource is from the provided point in the query --&lt;
+                &lt;/value value=&quot;10.5&quot;/&gt;
+                &lt;/unit value=&quot;km&quot;/&gt;
+            &lt;/valueDistance&gt;
+        &lt;/extension&gt;
+    &lt;/search&gt;
+&lt;/entry&gt; 
+</pre>
 </div>

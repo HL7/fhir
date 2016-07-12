@@ -566,6 +566,7 @@
   Type = Reference(Encounter)
   Short Label = Another Encounter this encounter is part of
   Definition = Another Encounter of which this encounter is a part of (administratively or in time).
+  Comments = This is also used for associating a child\'s encounter back to the mother\'s encounter.\n\nRefer to the Notes section in the Patient resource for further details.
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=COMP, moodCode=EVN]
 
 === Sheet Search =====================================
