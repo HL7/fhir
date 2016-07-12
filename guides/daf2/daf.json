@@ -30,6 +30,7 @@
 	"immunization-daf-core-profile-spreadsheet.xml",
     "list-daf-profile-spreadsheet.xml",
     "location-daf-profile-spreadsheet.xml",
+    "location-daf-core-profile-spreadsheet.xml",
     "medication-daf-profile-spreadsheet.xml",
 	"medication-daf-core-profile-spreadsheet.xml",
     "medicationadministration-daf-profile-spreadsheet.xml",
@@ -45,9 +46,11 @@
     "observation-daf-smokingstatus-profile-spreadsheet.xml",
 	"observation-daf-core-smokingstatus-profile-spreadsheet.xml",
     "organization-daf-profile-spreadsheet.xml",
+    "organization-daf-core-profile-spreadsheet.xml",
     "patient-daf-profile-spreadsheet.xml",
 	"patient-daf-core-profile-spreadsheet.xml",
     "practitioner-daf-profile-spreadsheet.xml",
+    "practitioner-daf-core-profile-spreadsheet.xml",
     "procedure-daf-profile-spreadsheet.xml",
 	"procedure-daf-core-profile-spreadsheet.xml",
     "relatedperson-daf-profile-spreadsheet.xml",
@@ -107,6 +110,10 @@
 			"defns": "daf-location-definitions.html",
 			"base": "daf-location.html"
 		},
+		"StructureDefinition/daf-core-location": {
+			"defns": "daf-core-location-definitions.html",
+			"base": "daf-core-location.html"
+		},
 		"StructureDefinition/daf-medication": {
 			"defns": "daf-medication-definitions.html",
 			"base": "daf-medication.html"
@@ -135,6 +142,10 @@
 			"defns": "daf-organization-definitions.html",
 			"base": "daf-organization.html"
 		},
+		"StructureDefinition/daf-core-organization": {
+			"defns": "daf-core-organization-definitions.html",
+			"base": "daf-core-organization.html"
+		},
 		"StructureDefinition/daf-patient": {
 			"defns": "daf-patient-definitions.html",
 			"base": "daf-patient.html"
@@ -146,6 +157,10 @@
 		"StructureDefinition/daf-pract": {
 			"defns": "daf-pract-definitions.html",
 			"base": "daf-pract.html"
+		},
+		"StructureDefinition/daf-core-pract": {
+			"defns": "daf-core-pract-definitions.html",
+			"base": "daf-core-pract.html"
 		},
 		"StructureDefinition/daf-problemlist": {
 			"defns": "daf-problemlist-definitions.html",
