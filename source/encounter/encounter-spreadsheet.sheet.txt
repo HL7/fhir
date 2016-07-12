@@ -88,8 +88,10 @@
 
  -- Row 13 -----------------------------------
   Binding Name = ReAdmissionType
-  Binding = unbound
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v2-0092
   Definition = The reason for re-admission of this hospitalization encounter.
+  Conformance = example
 
 === Sheet encounter-state =====================================
 
