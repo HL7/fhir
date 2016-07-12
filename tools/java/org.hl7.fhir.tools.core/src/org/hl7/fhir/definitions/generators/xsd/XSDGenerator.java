@@ -124,7 +124,7 @@ public class XSDGenerator  {
 
 	private void generateEnum(String en) throws IOException {
 		write("  <xs:simpleType name=\""+en+"-list\">\r\n");
-		write("    <xs:restriction base=\"xs:string\">\r\n");
+		write("    <xs:restriction base=\"xs:code\">\r\n");
 		ValueSet vs = enums.get(en);
     vs.setUserData(ToolResourceUtilities.NAME_VS_USE_MARKER, true);
 		ValueSet ex = workerContext.expandVS(vs, true).getValueset();

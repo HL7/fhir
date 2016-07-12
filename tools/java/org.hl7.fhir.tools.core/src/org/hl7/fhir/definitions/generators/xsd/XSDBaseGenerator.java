@@ -211,7 +211,7 @@ public class XSDBaseGenerator {
 
   private void genResourceReference() throws Exception {
 //    write("  <xs:simpleType name=\"ResourceType\">\r\n");
-//    write("    <xs:restriction base=\"xs:string\">\r\n");
+//    write("    <xs:restriction base=\"xs:code\">\r\n");
 //    for (DefinedCode c : definitions.getKnownResources().values()) {
 //      write("      <xs:enumeration value=\"" + c.getCode() + "\">\r\n");
 //      write("        <xs:annotation>\r\n");
@@ -543,7 +543,7 @@ public class XSDBaseGenerator {
       return;
 
     write("  <xs:simpleType name=\"" + en + "-list\">\r\n");
-    write("    <xs:restriction base=\"xs:string\">\r\n");
+    write("    <xs:restriction base=\"xs:code\">\r\n");
     bs.getValueSet().setUserData(ToolResourceUtilities.NAME_VS_USE_MARKER, true);
     ValueSet ex = workerContext.expandVS(bs.getValueSet(), true).getValueset();
     for (ValueSetExpansionContainsComponent cc : ex.getExpansion().getContains()) {
