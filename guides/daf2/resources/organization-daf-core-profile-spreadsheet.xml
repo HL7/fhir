@@ -982,19 +982,19 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s71"><Data ss:Type="String">id</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">organization-daf</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">organization-daf-core</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s73"><Data ss:Type="String">name</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">U.S. DAF Organization Profile</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">U.S. DAF Organization Core Profile</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s73"><Data ss:Type="String">display</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">DAF-Organization</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">DAF-Core-Organization</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s73"><Data ss:Type="String">author.name</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Health Level Seven International (Infrastructure and Messaging - Data Access Framework)</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Health Level Seven International (FHIR-Infrastructure)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s73"><Data ss:Type="String">author.reference</Data></Cell>
@@ -1014,11 +1014,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s73"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="DateTime">2015-03-03T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="DateTime">2016-08-01T00:00:00.000</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s73"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">DAF-Organization</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">DAF-Core-Organization</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s73"><Data ss:Type="String">version</Data></Cell>
@@ -1035,7 +1035,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s82"><Data ss:Type="String">publication.status</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">DSTU2</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">STU3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s83"><Data ss:Type="String">notes</Data></Cell>
@@ -1075,16 +1075,17 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="DAF-Organization">
+ <Worksheet ss:Name="DAF-Core-Organization">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='DAF-Organization'!R1C1:R84C21" ss:Hidden="1"/>
+    ss:RefersTo="='DAF-Core-Organization'!R1C1:R84C21" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="80" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s85" ss:DefaultRowHeight="15">
@@ -1212,7 +1213,8 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s93"><Data ss:Type="String">Organization</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">DAFCoreOrganization</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3492,8 +3494,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

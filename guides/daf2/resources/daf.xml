@@ -294,6 +294,12 @@
 		<resource>
 			<example value="false"/>
 			<sourceReference>
+				<reference value="StructureDefinition/daf-core-location"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
 				<reference value="StructureDefinition/daf-medication"/>
 			</sourceReference>
 		</resource>
@@ -354,6 +360,12 @@
 		<resource>
 			<example value="false"/>
 			<sourceReference>
+				<reference value="StructureDefinition/daf-core-organization"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
 				<reference value="StructureDefinition/daf-patient"/>
 			</sourceReference>
 		</resource>
@@ -367,6 +379,12 @@
 			<example value="false"/>
 			<sourceReference>
 				<reference value="StructureDefinition/daf-pract"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/daf-core-pract"/>
 			</sourceReference>
 		</resource>
 		<resource>
@@ -935,12 +953,24 @@
 			<name value="SupportingProfiles"/>
 			<kind value="page"/>
 			<page>
-				<source value="org-daf.html"/>
+				<source value="organization-daf.html"/>
 				<name value="Organization"/>
 				<kind value="resource"/>
 				<format value="generated"/>
 				<page>
 					<source value="daf-organization.html"/>
+					<name value="Organization Details"/>
+					<kind value="resource"/>
+					<format value="generated"/>
+				</page>
+			</page>
+			<page>
+				<source value="organization-daf-core.html"/>
+				<name value="Organization"/>
+				<kind value="resource"/>
+				<format value="generated"/>
+				<page>
+					<source value="daf-core-organization.html"/>
 					<name value="Organization Details"/>
 					<kind value="resource"/>
 					<format value="generated"/>
@@ -959,12 +989,36 @@
 				</page>
 			</page>
 			<page>
+				<source value="location-daf-core.html"/>
+				<name value="Location"/>
+				<kind value="resource"/>
+				<format value="generated"/>
+				<page>
+					<source value="daf-core-location.html"/>
+					<name value="Location Details"/>
+					<kind value="resource"/>
+					<format value="generated"/>
+				</page>
+			</page>
+			<page>
 				<source value="pract-daf.html"/>
 				<name value="Practitioner"/>
 				<kind value="resource"/>
 				<format value="generated"/>
 				<page>
 					<source value="daf-pract.html"/>
+					<name value="Practitioner Details"/>
+					<kind value="resource"/>
+					<format value="generated"/>
+				</page>
+			</page>
+			<page>
+				<source value="pract-daf-core.html"/>
+				<name value="Practitioner"/>
+				<kind value="resource"/>
+				<format value="generated"/>
+				<page>
+					<source value="daf-core-pract.html"/>
 					<name value="Practitioner Details"/>
 					<kind value="resource"/>
 					<format value="generated"/>
