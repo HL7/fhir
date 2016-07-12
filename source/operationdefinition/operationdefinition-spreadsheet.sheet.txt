@@ -315,7 +315,7 @@
   Binding = FHIRAllTypes
   Short Label = What type this parameter has
   Definition = The type for this parameter
-  Comments = if there is no stated parameter, then the parameter is a \"Tuple\" type and must have at least one part defined
+  Comments = if there is no stated parameter, then the parameter is a multi-part parameter; type and must have at least one part defined
 
  -- Row 30 -----------------------------------
   Element = OperationDefinition.parameter.searchType
@@ -364,8 +364,8 @@
   UML = right
   Inv. = 1
   Type = @OperationDefinition.parameter
-  Short Label = Parts of a Tuple Parameter
-  Definition = The parts of a Tuple Parameter
+  Short Label = Parts of a nested Parameter
+  Definition = The parts of a nested Parameter
   Comments = Query Definitions only have one output parameter, named \"result\". This may not be described, but can be to allow a profile to be defined
 
  -- Row 36 -----------------------------------

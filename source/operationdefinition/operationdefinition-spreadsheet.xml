@@ -1962,7 +1962,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">The type for this parameter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">if there is no stated parameter, then the parameter is a &quot;Tuple&quot; type and must have at least one part defined</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">if there is no stated parameter, then the parameter is a multi-part parameter; type and must have at least one part defined</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2158,9 +2158,9 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Parts of a Tuple Parameter</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Parts of a nested Parameter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The parts of a Tuple Parameter</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The parts of a nested Parameter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Query Definitions only have one output parameter, named &quot;result&quot;. This may not be described, but can be to allow a profile to be defined</Data><NamedCell
@@ -4238,7 +4238,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s106"><Data ss:Type="Number">1</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Tuple Parameteter</Data><NamedCell
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Nested Parameteter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
