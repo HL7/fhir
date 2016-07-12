@@ -205,6 +205,13 @@
   Comments = Where an Organization is included in the CareTeam, it is really providing some form of services to the EpisodeOfCare (e.g. Jim\'s Mowing Services) the details of the services would be included on a CarePlan
   w5 = who
 
+ -- Row 18 -----------------------------------
+  Element = EpisodeOfCare.account
+  Card. = 0..*
+  Type = Reference(Account)
+  Short Label = The set of accounts that may be used for billing for this EpisodeOfCare
+  Comments = The billing system may choose to allocate billable items associated with the EpisodeOfCare to different referenced Accounts based on internal business rules.
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
