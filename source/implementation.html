@@ -82,11 +82,20 @@ of FHIR that impact on their system design with regard to safety.
  <li><input type="checkbox"/> My system checks that the right <a href="consentdirective.html">Patient consent</a> has been granted (where applicable)</li>
  <li><input type="checkbox"/> When other systems <a href="http.html#summary">return http errors from the RESTful API</a> and <a href="operations.html">Operations</a> (perhaps using <a href="operationoutcome.html">Operation Outcome</a>), my system checks for them and handles them appropriately</li>
  <li><input type="checkbox"/> My system publishes a <a href="conformance.html">conformance statement</a> with <a href="structuredefinition.html">StructureDefinitions</a>, <a href="valueset.html">ValueSets</a>, and <a href="operationdefinition.html">OperationDefinitions</a>, etc., so other implementers know how the system functions</li>
- <li><input type="checkbox"/> My system ensures that system clocks are synchronised using a protocol like NTP or SNTP, or my server is reobust against clients that have the wrong clock set</li>
-</ol> 
+ <li><input type="checkbox"/> My system ensures that system clocks are synchronised using a protocol like NTP or SNTP, or my server is robust against clients that have the wrong clock set</li>
+</ol>
 <p>
 Obviously this list is only a small part of the overall safety check list for an application, which will have checks regarding jurisdictionally mandated policies, internal integrity, etc.
 </p>
+<p>
+In addition, server developers should check these specific additional checks for client convenience:
+</p>
+<ol>
+ <li><input type="checkbox"/> Server: CORS (<a href="http://enable-cors.org/">cross-origin resource sharing</a>) is enabled (many clients are javascript apps running in a browser)</li>
+ <li><input type="checkbox"/> JSON is supported (many clients are javascript apps running in a browser; XML is inconvenient at best)</li>
+ <li><input type="checkbox"/> JSON is returned correctly when errors happen (clients often don't handle HTML errors well)</li>
+ <li><input type="checkbox"/> the _format header is supported correctly</li>
+</ol> 
 
 </div>
 
