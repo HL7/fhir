@@ -4,32 +4,33 @@ This is the entry page for these DAF-core artifacts:
 
 ## DAF-core profiles (FHIR resource):
 
-|No | Core Profile Title | Base Resource | Profile Summary |Formal Profile View |
-|----|--------------------|---------------|-------------- |-------------- |
-|1 | Allergies | AllergyIntolerance |[ Allergies ](allergyintolerance-daf-core-new.html) |[ Allergies ](daf-core-allergyintolerance.html) |
-|2 | Assess and Plan | CarePlan |[ Assess and Plan ](careplan-daf-core.html) |
-|3 | CareTeam | CareTeam |[ CareTeam ](careteam-daf-core.html) |
-|4 | Problems and Concerns | Condition |[ Problems and Concerns ](condition-daf-core.html) |
-|5 | Conformance | Conformance |[ Conformance ](conformance-daf-core.html) |
-|6 | UDI | Device |[ UDI ](device-daf-core.html) |
-|7 | Lab Reports | DiagnosticReport |[ Lab Reports ](diagnosticreport-daf-core.html) |
-|8 | MHD | DocumentReference |[ MHD ](documentreference-daf-core.html) |
-|9 | Goals | Goals |[ Goals ](goals-daf-core.html) |
-|10 | Immunization | Immunization |[ Immunization ](immunization-daf-core.html) |
-|11 | Location | Location |[ Location ](location-daf-core.html) |
-|12 | Medication | Medication |[ Medication ](medication-daf-core.html) |
-|13 | Medicationadministration | MedicationAdministration |[ Medicationadministration ](medicationadministration-daf-core.html) |
-|14 | Medicationdispense | MedicationDispense |[ Medicationdispense ](medicationdispense-daf-core.html) |
-|15 | Medicationorder | MedicationOrder |[ Medicationorder ](medicationorder-daf-core.html) |
-|16 | Medicationstatement | MedicationStatement |[ Medicationstatement ](medicationstatement-daf-core.html) |
-|17 | Observation-Results | Observation |[ Observation-Results ](observation-daf-core-results.html) |
-|18 | Observation-Resultsv2 | Observation |[ Observation-Resultsv2 ](observation-daf-core-resultsv2.html) |
-|19 | Observation-Smokingstatus | Observation |[ Observation-Smokingstatus ](observation-daf-core-smokingstatus.html) |
-|20 | Observation-Vitalsigns | Observation |[ Observation-Vitalsigns ](observation-daf-core-vitalsigns.html) |
-|21 | Organization | Organization |[ Organization ](organization-daf-core.html) |
-|22 | Patient | Patient |[ Patient ](patient-daf-core.html) |
-|23 | Practitioner | Practitioner |[ Practitioner ](practitioner-daf-core.html) |
-|24 | Procedure | Procedure |[ Procedure ](procedure-daf-core.html) |
+|Profile Summary  | Base Resource | Formal Profile View |
+|--------------  | --------------- | --------------  |
+|[ Allergies ](allergyintolerance-daf-core-new.html)  | AllergyIntolerance  | [ Allergies ](daf-core-allergyintolerance.html)  |
+|[ CarePlan ](careplan-daf-core.html)  | CarePlan  | [CarePlan ](daf-core-careplan.html) |
+|[ CareTeam ](careteam-daf-core.html)  | CareTeam  | [CareTeam ](daf-core-careteam.html) |
+|[ Condition ](condition-daf-core.html)  | Condition  | [Condition ](daf-core-condition.html) |
+|[ Conformance ](conformance-daf-core.html)  | Conformance  | [Conformance ](daf-core-conformance.html) |
+|[ Device/UDI](device-daf-core.html)  | Device  | [Device ](daf-core-device.html) |
+|[ DiagnosticReport-Results ](diagnosticreport-daf-core.html)  | DiagnosticReport  | [DiagnosticReport ](daf-core-diagnosticreport.html) |
+|[ DocumentReference /MHD ](documentreference-daf-core.html)  | DocumentReference  | [DocumentReference ](daf-core-documentreference.html) |
+|[ Goals ](goals-daf-core.html)  | Goals  | [Goals ](daf-core-goals.html) |
+|[ Immunization ](immunization-daf-core.html)  | Immunization  | [Immunization ](daf-core-immunization.html) |
+|[ Location ](location-daf-core.html)  | Location  | [Location ](daf-core-location.html) |
+|[ Medication ](medication-daf-core.html)  | Medication  | [Medication ](daf-core-medication.html) |
+|[ Medicationadministration ](medicationadministration-daf-core.html)  | MedicationAdministration  | [MedicationAdministration ](daf-core-medicationadministration.html) |
+|[ Medicationdispense ](medicationdispense-daf-core.html)  | MedicationDispense  | [MedicationDispense ](daf-core-medicationdispense.html) |
+|[ Medicationorder ](medicationorder-daf-core.html)  | MedicationOrder  | [MedicationOrder ](daf-core-medicationorder.html) |
+|[ Medicationstatement ](medicationstatement-daf-core.html)  | MedicationStatement  | [MedicationStatement ](daf-core-medicationstatement.html) |
+|[ Observation-Results ](observation-daf-core-results.html)  | Observation  | [Observation ](daf-core-observation-results.html) |
+|[ Observation-Resultsv2 ](observation-daf-core-resultsv2.html)  | Observation  | [Observation ](daf-core-observation-resultsv2.html) |
+|[ Observation-Smokingstatus ](observation-daf-core-smokingstatus.html)  | Observation  | [Observation ](daf-core-observation-smokingstatus.html) |
+|[ Observation-Vitalsigns ](observation-daf-core-vitalsigns.html)  | Observation  | [Observation ](daf-core-observation-vitalsigns.html) |
+|[ Organization ](organization-daf-core.html)  | Organization  | [Organization ](daf-core-organization.html) |
+|[ Patient ](patient-daf-core.html)  | Patient  | [Patient ](daf-core-patient.html) |
+|[ Practitioner ](practitioner-daf-core.html)  | Practitioner  | [Practitioner ](daf-core-practitioner.html) |
+|[ Procedure ](procedure-daf-core.html)  | Procedure  | [Procedure ](daf-core-procedure.html) |
+
 
 
 ##  ValueSet definitions:( may already have  List of all DAF core value sets: [terminologies](terminologies-daf-core.html-daf-core.html))
