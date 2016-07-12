@@ -37,7 +37,7 @@
   <reasonGiven>
     <coding>
       <system value="http://snomed.info/sct"/>
-      <code value="26659900"/>
+      <code value="266599000"/>
       <display value="Dysmenorrhea"/>
     </coding>
   </reasonGiven>
