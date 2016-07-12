@@ -172,16 +172,16 @@ rules as above:
 This allows faithful round tripping of the resource between the Turtle
 format and the JSON and XML formats. But it's very useful for an RDF 
 processor to be able to link to the target of the reference directly. 
-This can be done using the fhir:reference property:
+This can be done using the fhir:link property:
 </p>
 <pre class="rdf">
  fhir:Observation.subjectReference [
-     fhir:reference &lt;http://hl7.org/fhir/Patient/example>;
+     fhir:link &lt;http://hl7.org/fhir/Patient/example>;
      fhir:Reference.reference [ fhir:value "Patient/example" ]
   ];
 </pre>
 <p>
-The fhir:reference relationship can be added automatically 
+The fhir:link relationship can be added automatically 
 as part of generating the resource representation, or it
 can be injected by a post-processor that knows how to 
 convert the raw references into RDF-suitable references. 
