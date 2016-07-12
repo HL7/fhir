@@ -25,6 +25,20 @@ URLs respectively:
   GET [base]/Condition?patient=[id]&amp;code:in=http://hspc.org/ValueSet/acute-concerns
 </pre>
 <p>
+Note that the outcome of a compartment search is the same as the equivalent 
+normal search. As an example, both these searches return the same outcome
+if there is no patient 333:
+</p>
+<pre>
+  GET [base]/Patient/333/Condition
+  GET [base]/Condition?patient=333
+</pre>
+<p>
+Whether the patient doesn't exist, or the user has no access to the patient,
+both these searches return an empty bundle with no matches. Some systems 
+will include an operation outcome warning that there is no matching patient.
+</p>
+<p>
 However, there is a key difference in functionality between compartment based searches 
 and direct searches with parameters. Consider this search:
 </p>
