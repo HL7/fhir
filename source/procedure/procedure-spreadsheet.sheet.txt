@@ -208,6 +208,7 @@
   Element = Procedure.notPerformed
   Card. = 0..1
   Is Modifier = Y
+  Summary = y
   Type = boolean
   Short Label = True if procedure was not performed as scheduled
   Definition = Set this to true if the record is saying that the procedure was NOT performed

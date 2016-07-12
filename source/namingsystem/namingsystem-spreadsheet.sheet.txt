@@ -120,6 +120,7 @@
   Element = NamingSystem.status
   Card. = 1..1
   Is Modifier = Y
+  Summary = Y
   Type = code
   Binding = ConformanceResourceStatus
   Short Label = draft | active | retired

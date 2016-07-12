@@ -430,6 +430,7 @@
   Element = Questionnaire.item.enableWhen
   Card. = 0..*
   Is Modifier = Y
+  Summary = Y
   UML = down
   Short Label = Only allow data when:
   Definition = If present, indicates that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true

@@ -192,7 +192,7 @@
   Requirements = elements have id
   Context = StructureDefinition
   English = All element definitions must have an id
-  XPath = count(*/f:element)=count(*/f:element/f:id)
+  XPath = count(*/f:element)=count(*/f:element/@id)
   Expression = snapshot.element.all(id) and differential.element.all(id)
 
  -- Row 14 -----------------------------------

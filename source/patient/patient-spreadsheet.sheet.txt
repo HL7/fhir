@@ -492,6 +492,7 @@
   Element = Patient.link
   Card. = 0..*
   Is Modifier = y
+  Summary = y
   UML = 350;90
   Short Label = Link to another patient resource that concerns the same actual person
   Definition = Link to another patient resource that concerns the same actual patient
@@ -504,6 +505,7 @@
   Element = Patient.link.other
   Card. = 1..1
   Is Modifier = y
+  Summary = y
   Type = Reference(Patient|RelatedPerson)
   Short Label = The other patient or related person resource that the link refers to
   Definition = The other patient resource that the link refers to
@@ -516,6 +518,7 @@
   Element = Patient.link.type
   Card. = 1..1
   Is Modifier = y
+  Summary = y
   Type = code
   Binding = LinkType
   Short Label = replace | refer | seealso - type of link

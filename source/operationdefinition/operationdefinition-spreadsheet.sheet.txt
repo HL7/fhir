@@ -106,6 +106,7 @@
   Element = OperationDefinition.status
   Card. = 1..1
   Is Modifier = yes
+  Summary = y
   Type = code
   Binding = ConformanceResourceStatus
   Short Label = draft | active | retired

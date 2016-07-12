@@ -97,8 +97,8 @@
   Type = Identifier
   Short Label = Business identifier
   Definition = A unique identifier assigned to this immunization record.
-  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/id
   RIM Mapping = .id
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/id
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -122,9 +122,9 @@
   Short Label = Vaccination administration date
   Definition = Date vaccine administered or was to be administered
   Comments = When immunizations are given a specific date and time should always be known.   When immunizations are patient reported, a specific date might not be known.  Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given
-  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/effectiveTime/value
   v2 Mapping = RXA-3
   RIM Mapping = .effectiveTime
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/effectiveTime/value
   Committee Notes = #7887
   w5 = when.init
 
@@ -135,9 +135,9 @@
   Binding = VaccineCode
   Short Label = Vaccine product administered
   Definition = Vaccine that was administered or was to be administered
-  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/realmCode/code
   v2 Mapping = RXA-5
   RIM Mapping = .code
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/realmCode/code
   Committee Notes = #6128
   w5 = what
 
@@ -156,6 +156,7 @@
   Element = Immunization.wasNotGiven
   Card. = 1..1
   Is Modifier = Y
+  Summary = Y
   Type = boolean
   Short Label = Flag for whether immunization was given
   Definition = Indicates if the vaccination was or was not given
@@ -180,9 +181,9 @@
   Type = Reference(Practitioner)
   Short Label = Who administered vaccine
   Definition = Clinician who administered the vaccine
-  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/performer/assignedEntity/assignedPerson/name
   v2 Mapping = RXA-10
   RIM Mapping = .participation[typeCode=PRF].COCT_MT090102UV
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/performer/assignedEntity/assignedPerson/name
   w5 = who.actor
 
  -- Row 10 -----------------------------------
@@ -213,9 +214,9 @@
   Type = Reference(Organization)
   Short Label = Vaccine manufacturer
   Definition = Name of vaccine manufacturer
-  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacuturerOrganization/name
   v2 Mapping = RXA-17
   RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=ORG]
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacuturerOrganization/name
 
  -- Row 13 -----------------------------------
   Element = Immunization.location
@@ -233,9 +234,9 @@
   Type = string
   Short Label = Vaccine lot number
   Definition = Lot number of the  vaccine product
-  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/lotNumberText
   v2 Mapping = RXA-15
   RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].id
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/lotNumberText
 
  -- Row 15 -----------------------------------
   Element = Immunization.expirationDate
@@ -253,9 +254,9 @@
   Binding = ImmunizationSite
   Short Label = Body site vaccine  was administered
   Definition = Body site where vaccine was administered
-  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/approachSiteCode/code
   v2 Mapping = RXR-2
   RIM Mapping = observation.targetSiteCode
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/approachSiteCode/code
 
  -- Row 17 -----------------------------------
   Element = Immunization.route
@@ -264,9 +265,9 @@
   Binding = ImmunizationRoute
   Short Label = How vaccine entered body
   Definition = The path by which the vaccine product is taken into the body.
-  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/routeCode/code
   v2 Mapping = RXR-1
   RIM Mapping = .routeCode
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/routeCode/code
 
  -- Row 18 -----------------------------------
   Element = Immunization.doseQuantity
