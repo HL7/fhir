@@ -902,6 +902,13 @@
   Comments = The profile applies to all  resources of this type - i.e. it is the superset of what is supported by the system
 
  -- Row 41 -----------------------------------
+  Element = Conformance.rest.resource.documentation
+  Card. = 0..1
+  Type = markdown
+  Short Label = Additional information about the use of the resource type
+  Definition = Additional information about the resource type is used by the system
+
+ -- Row 42 -----------------------------------
   Element = Conformance.rest.resource.interaction
   Card. = 1..*
   UML = -20;560
@@ -909,7 +916,7 @@
   Short Label = What operations are supported?
   Definition = Identifies a restful operation supported by the solution
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = Conformance.rest.resource.interaction.code
   Card. = 1..1
   Type = code
@@ -917,7 +924,7 @@
   Short Label = read | vread | update | delete | history-instance | history-type | create | search-type
   Definition = Coded identifier of the operation, supported by the system resource
 
- -- Row 43 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = Conformance.rest.resource.interaction.documentation
   Card. = 0..1
   Type = string
@@ -925,7 +932,7 @@
   Definition = Guidance specific to the implementation of this operation, such as \'delete is a logical delete\' or \'updates are only allowed with version id\' or \'creates permitted from pre-authorized certificates only\'
   Requirements = REST allows a degree of variability in the implementation of RESTful solutions that is useful for exchange partners to be aware of.
 
- -- Row 44 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = Conformance.rest.resource.versioning
   Card. = 0..1
   Type = code
@@ -934,7 +941,7 @@
   Definition = This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is \'versioned-update\', then the server supports all the versioning features, including using e-tags for version integrity in the API
   Comments = If a server supports versionIds correctly, it SHOULD support vread too, but is not required to do so
 
- -- Row 45 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = Conformance.rest.resource.readHistory
   Card. = 0..1
   Type = boolean
@@ -942,7 +949,7 @@
   Definition = A flag for whether the server is able to return past versions as part of the vRead operation
   Comments = It is useful to support the vRead operation for current operations, even if past versions aren\'t available
 
- -- Row 46 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = Conformance.rest.resource.updateCreate
   Card. = 0..1
   Type = boolean
@@ -950,7 +957,7 @@
   Definition = A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server
   Comments = Allowing the clients to create new identities on the server means that the system administrator needs to have confidence that the clients do not create clashing identities between them. Obviously, if there is only one client, this won\'t happen. While creating identities on the client means that the clients need to be managed, it\'s much more convenient for many scenarios if such management can be put in place
 
- -- Row 47 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = Conformance.rest.resource.conditionalCreate
   Card. = 0..1
   Type = boolean
@@ -958,7 +965,7 @@
   Definition = A flag that indicates that the server supports conditional create
   Comments = Conditional Create is mainly appropriate for interface engine scripts converting from other formats, such as v2
 
- -- Row 48 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = Conformance.rest.resource.conditionalRead
   Card. = 0..1
   Type = code
@@ -967,7 +974,7 @@
   Definition = A code that indicates how the server supports conditional read
   Comments = Conditional Read is mainly appropriate for interface engine scripts converting from other formats, such as v2
 
- -- Row 49 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = Conformance.rest.resource.conditionalUpdate
   Card. = 0..1
   Type = boolean
@@ -975,7 +982,7 @@
   Definition = A flag that indicates that the server supports conditional update
   Comments = Conditional Update is mainly appropriate for interface engine scripts converting from other formats, such as v2
 
- -- Row 50 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = Conformance.rest.resource.conditionalDelete
   Card. = 0..1
   Type = code
@@ -984,7 +991,7 @@
   Definition = A code that indicates how the server supports conditional delete
   Comments = Conditional Delete is mainly appropriate for interface engine scripts converting from other formats, such as v2
 
- -- Row 51 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = Conformance.rest.resource.searchInclude
   Card. = 0..*
   Type = string
@@ -992,7 +999,7 @@
   Definition = A list of _include values supported by the server
   Comments = If this list is empty, the server does not support includes
 
- -- Row 52 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = Conformance.rest.resource.searchRevInclude
   Card. = 0..*
   Type = string
@@ -1000,14 +1007,14 @@
   Definition = A list of _revinclude (reverse include) values supported by the server
   Comments = If this list is empty, the server does not support includes
 
- -- Row 53 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = Conformance.rest.resource.searchParam
   Card. = 0..*
   UML = right
   Short Label = Search params supported by implementation
   Definition = Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation
 
- -- Row 54 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = Conformance.rest.resource.searchParam.name
   Card. = 1..1
   Type = string
@@ -1015,7 +1022,7 @@
   Definition = The name of the search parameter used in the interface
   Comments = Parameter names cannot overlap with standard parameter names, and standard parameters cannot be redefined
 
- -- Row 55 -----------------------------------
+ -- Row 56 -----------------------------------
   Element = Conformance.rest.resource.searchParam.definition
   Card. = 0..1
   Type = uri
@@ -1023,7 +1030,7 @@
   Definition = An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]])
   Comments = This SHOULD be present, and matches SearchParameter.url
 
- -- Row 56 -----------------------------------
+ -- Row 57 -----------------------------------
   Element = Conformance.rest.resource.searchParam.type
   Card. = 1..1
   Type = code
@@ -1032,14 +1039,14 @@
   Definition = The type of value a search parameter refers to, and how the content is interpreted
   Comments = While this can be looked up from the definition, it is included here as a convenience for systems that autogenerate a query interface based on the server conformance statement.  It SHALL be the same as the type in the search parameter definition
 
- -- Row 57 -----------------------------------
+ -- Row 58 -----------------------------------
   Element = Conformance.rest.resource.searchParam.documentation
   Card. = 0..1
   Type = string
   Short Label = Server-specific usage
   Definition = This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.
 
- -- Row 58 -----------------------------------
+ -- Row 59 -----------------------------------
   Element = Conformance.rest.resource.searchParam.target
   Card. = 0..*
   Type = code
@@ -1048,7 +1055,7 @@
   Definition = Types of resource (if a resource is referenced)
   Comments = This SHALL be the same as or a proper subset of the resources listed in the search parameter definition.
 
- -- Row 59 -----------------------------------
+ -- Row 60 -----------------------------------
   Element = Conformance.rest.resource.searchParam.modifier
   Card. = 0..*
   Type = code
@@ -1056,7 +1063,7 @@
   Short Label = missing | exact | contains | not | text | in | not-in | below | above | type
   Definition = A modifier supported for the search parameter
 
- -- Row 60 -----------------------------------
+ -- Row 61 -----------------------------------
   Element = Conformance.rest.resource.searchParam.chain
   Card. = 0..*
   Type = string
@@ -1064,7 +1071,7 @@
   Definition = Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type
   Comments = Systems are not required to list all the chain names they support, but if they don\'t list them, clients may not know to use them
 
- -- Row 61 -----------------------------------
+ -- Row 62 -----------------------------------
   Element = Conformance.rest.interaction
   Card. = 0..*
   UML = -20;430
@@ -1072,7 +1079,7 @@
   Short Label = What operations are supported?
   Definition = A specification of restful operations supported by the system
 
- -- Row 62 -----------------------------------
+ -- Row 63 -----------------------------------
   Element = Conformance.rest.interaction.code
   Card. = 1..1
   Type = code
@@ -1080,14 +1087,14 @@
   Short Label = transaction | search-system | history-system
   Definition = A coded identifier of the operation, supported by the system
 
- -- Row 63 -----------------------------------
+ -- Row 64 -----------------------------------
   Element = Conformance.rest.interaction.documentation
   Card. = 0..1
   Type = string
   Short Label = Anything special about operation behavior
   Definition = Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented
 
- -- Row 64 -----------------------------------
+ -- Row 65 -----------------------------------
   Element = Conformance.rest.transactionMode
   Card. = 0..1
   Type = code
@@ -1096,7 +1103,7 @@
   Definition = A code that indicates how transactions are supported
   Default Value = not-supported
 
- -- Row 65 -----------------------------------
+ -- Row 66 -----------------------------------
   Element = Conformance.rest.searchParam
   Card. = 0..*
   UML = right
@@ -1105,14 +1112,14 @@
   Definition = Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation
   Comments = Typically, the only search parameters supported for all parameters are search parameters that apply to all resources - tags, profiles, text search etc.
 
- -- Row 66 -----------------------------------
+ -- Row 67 -----------------------------------
   Element = Conformance.rest.operation
   Card. = 0..*
   UML = right
   Short Label = Definition of an operation or a custom query
   Definition = Definition of an operation or a named query and with its parameters and their meaning and type
 
- -- Row 67 -----------------------------------
+ -- Row 68 -----------------------------------
   Element = Conformance.rest.operation.name
   Card. = 1..1
   Type = string
@@ -1120,7 +1127,7 @@
   Definition = The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the url. For a query, this is the name used in the _query parameter when the query is called
   Comments = The name here SHOULD be the same as the name in the definition, unless there is a name clash and the name cannot be used
 
- -- Row 68 -----------------------------------
+ -- Row 69 -----------------------------------
   Element = Conformance.rest.operation.definition
   Card. = 1..1
   Type = Reference(OperationDefinition)
@@ -1128,7 +1135,7 @@
   Definition = Where the formal definition can be found
   Comments = This can be used to build an HTML form to invoke the operation, for instance
 
- -- Row 69 -----------------------------------
+ -- Row 70 -----------------------------------
   Element = Conformance.rest.compartment
   Card. = 0..*
   Type = uri
@@ -1136,7 +1143,7 @@
   Definition = An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it\'s canonical URL
   Comments = At present, the only defined compartments are at [CompartmentDefinition](compartmentdefinition.html)
 
- -- Row 70 -----------------------------------
+ -- Row 71 -----------------------------------
   Element = Conformance.messaging
   Card. = 0..*
   UML = 0;240
@@ -1145,7 +1152,7 @@
   Definition = A description of the messaging capabilities of the solution
   Comments = Multiple repetitions allow the documentation of multiple endpoints per solution
 
- -- Row 71 -----------------------------------
+ -- Row 72 -----------------------------------
   Element = Conformance.messaging.endpoint
   Card. = 0..*
   Aliases = 3
@@ -1153,7 +1160,7 @@
   Short Label = Where messages should be sent
   Definition = An endpoint (network accessible address) to which messages and/or replies are to be sent.
 
- -- Row 72 -----------------------------------
+ -- Row 73 -----------------------------------
   Element = Conformance.messaging.endpoint.protocol
   Card. = 1..1
   Type = Coding
@@ -1161,14 +1168,14 @@
   Short Label = http | ftp | mllp +
   Definition = A list of the messaging transport protocol(s) identifiers, supported by this endpoint
 
- -- Row 73 -----------------------------------
+ -- Row 74 -----------------------------------
   Element = Conformance.messaging.endpoint.address
   Card. = 1..1
   Type = uri
   Short Label = Address of end-point
   Definition = The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier
 
- -- Row 74 -----------------------------------
+ -- Row 75 -----------------------------------
   Element = Conformance.messaging.reliableCache
   Card. = 0..1
   Type = unsignedInt
@@ -1176,14 +1183,14 @@
   Definition = Length if the receiver\'s reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender)
   Comments = If this value is missing then the application does not implement (receiver) or depend on (sender) reliable messaging
 
- -- Row 75 -----------------------------------
+ -- Row 76 -----------------------------------
   Element = Conformance.messaging.documentation
   Card. = 0..1
   Type = string
   Short Label = Messaging interface behavior details
   Definition = Documentation about the system\'s messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.
 
- -- Row 76 -----------------------------------
+ -- Row 77 -----------------------------------
   Element = Conformance.messaging.event
   Card. = 1..*
   UML = -20;80
@@ -1192,7 +1199,7 @@
   Comments = The same event may be listed up to two times - once as sender and once as receiver.
   To Do = Need to add follow-ups and need to do more to flesh out messaging dynamic model
 
- -- Row 77 -----------------------------------
+ -- Row 78 -----------------------------------
   Element = Conformance.messaging.event.code
   Card. = 1..1
   Type = Coding
@@ -1201,7 +1208,7 @@
   Definition = A coded identifier of a supported messaging event
   To Do = May need a profile id as well if profiles can define message events
 
- -- Row 78 -----------------------------------
+ -- Row 79 -----------------------------------
   Element = Conformance.messaging.event.category
   Card. = 0..1
   Type = code
@@ -1209,7 +1216,7 @@
   Short Label = Consequence | Currency | Notification
   Definition = The impact of the content of the message
 
- -- Row 79 -----------------------------------
+ -- Row 80 -----------------------------------
   Element = Conformance.messaging.event.mode
   Card. = 1..1
   Type = code
@@ -1217,7 +1224,7 @@
   Short Label = sender | receiver
   Definition = The mode of this event declaration - whether application is sender or receiver
 
- -- Row 80 -----------------------------------
+ -- Row 81 -----------------------------------
   Element = Conformance.messaging.event.focus
   Card. = 1..1
   Type = code
@@ -1226,28 +1233,28 @@
   Definition = A resource associated with the event.  This is the resource that defines the event.
   Comments = This SHALL be provided if the event type supports multiple different resource types
 
- -- Row 81 -----------------------------------
+ -- Row 82 -----------------------------------
   Element = Conformance.messaging.event.request
   Card. = 1..1
   Type = Reference(StructureDefinition)
   Short Label = Profile that describes the request
   Definition = Information about the request for this event
 
- -- Row 82 -----------------------------------
+ -- Row 83 -----------------------------------
   Element = Conformance.messaging.event.response
   Card. = 1..1
   Type = Reference(StructureDefinition)
   Short Label = Profile that describes the response
   Definition = Information about the response for this event
 
- -- Row 83 -----------------------------------
+ -- Row 84 -----------------------------------
   Element = Conformance.messaging.event.documentation
   Card. = 0..1
   Type = string
   Short Label = Endpoint-specific event documentation
   Definition = Guidance on how this event is handled, such as internal system trigger points, business rules, etc.
 
- -- Row 84 -----------------------------------
+ -- Row 85 -----------------------------------
   Element = Conformance.document
   Card. = 0..*
   UML = 550;50
@@ -1255,7 +1262,7 @@
   Short Label = Document definition
   Definition = A document definition
 
- -- Row 85 -----------------------------------
+ -- Row 86 -----------------------------------
   Element = Conformance.document.mode
   Card. = 1..1
   Type = code
@@ -1263,14 +1270,14 @@
   Short Label = producer | consumer
   Definition = Mode of this document declaration - whether application is producer or consumer
 
- -- Row 86 -----------------------------------
+ -- Row 87 -----------------------------------
   Element = Conformance.document.documentation
   Card. = 0..1
   Type = string
   Short Label = Description of document support
   Definition = A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.
 
- -- Row 87 -----------------------------------
+ -- Row 88 -----------------------------------
   Element = Conformance.document.profile
   Card. = 1..1
   Type = Reference(StructureDefinition)
