@@ -470,7 +470,7 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
 </p>
 <ul>
  <li><b><code>400</code> Bad Request</b> - resource could not be parsed or failed basic FHIR validation rules (or multiple matches were found for </li>
- <li><b><code>403</code> Not Authorized</b> - authorization is required for the interaction that was attempted</li>
+ <li><b><code>401</code> Not Authorized</b> - authorization is required for the interaction that was attempted</li>
  <li><b><code>404</code> Not Found</b> - resource type not supported, or not a FHIR end-point</li>
  <li><b><code>405</code> Method Not allowed</b> - the resource did not exist prior to the update, and the server does not allow client defined ids</li>
  <li><b><code>409</code>/<code>412</code></b> - version conflict management - see <a href="#concurrency">below</a></li>
@@ -1346,8 +1346,8 @@ Notes:
 <tr><td><code>update</code></td>         <td>R if body</td>    <td>O: Resource (Prefer)</td>  <td>R on create</td>	<td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>201</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
 <tr><td><code>delete</code></td>         <td>R if body</td><td>O: OperationOutcome</td>  <td>N/A</td>      	      <td>N/A</td>							<td><code>200</code>, <code>204</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code></td></tr>
 <tr><td><code>create</code></td>         <td>R if body</td>    <td>O : Resource (Prefer)</td>  <td>R</td>			    <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>201</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>422</code></td></tr>
-<tr><td><code>search</code></td>         <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>403</code>?</td></tr>
-<tr><td><code>search-all</code></td>     <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>403</code>?</td></tr>
+<tr><td><code>search</code></td>         <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>401</code>?</td></tr>
+<tr><td><code>search-all</code></td>     <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>401</code>?</td></tr>
 <tr><td><code>conformance</code></td>    <td>R</td>            <td>R: Conformance</td>        <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>404</code></td></tr>
 <tr><td><code>transaction</code></td>    <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
 <tr><td><code>history</code></td>        <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>     		<td>N/A</td>							<td><code>200</code></td></tr>
