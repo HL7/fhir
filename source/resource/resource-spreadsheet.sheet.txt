@@ -45,7 +45,7 @@
   Type = id
   Short Label = Logical id of this artifact
   Definition = The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes
-  Comments = The only time that a resource does not have an id is when it is being submitted to the server using a create operation. Bundles always have an id, though it is usually a generated UUID
+  Comments = The only time that a resource does not have an id is when it is being submitted to the server using a create operation
 
  -- Row 3 -----------------------------------
   Element = Resource.meta
