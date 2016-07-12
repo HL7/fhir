@@ -251,6 +251,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private Set<String> searchTypeUsage = new HashSet<String>();
   private ValueSetValidator vsValidator;
   boolean forPublication;
+  private String resourceCategory;
 
   public PageProcessor(String tsServer) throws URISyntaxException, UcumException {
     super();
@@ -586,6 +587,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+resItem(com[1], even)+s3;
       } else if (com[0].equals("resdesc")) {
         src = s1+resDesc(com[1])+s3;
+      } else if (com[0].equals("rescat")) {
+        src = s1+resCat(com.length == 1 ? null : s2.substring(7))+s3;
       } else if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("svg"))
@@ -2171,9 +2174,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   }
 
+  private String resCat(String name) throws Exception {
+    resourceCategory = name;
+    return "";
+  }
   private String resDesc(String name) throws Exception {
     if (definitions.hasResource(name)) {
       ResourceDefn r = definitions.getResourceByName(name);
+      if (resourceCategory != null && !ToolingExtensions.hasExtension(r.getProfile(), ToolingExtensions.EXT_RESOURCE_CATEGORY)) {
+        ToolingExtensions.setStringExtension(r.getProfile(), ToolingExtensions.EXT_RESOURCE_CATEGORY, resourceCategory);
+      }
       return Utilities.escapeXml(r.getDefinition());
     } else 
       return " ";
@@ -3677,6 +3687,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+resItem(com[1], even)+s3;
       } else if (com[0].equals("resdesc")) {
         src = s1+resDesc(com[1])+s3;
+      } else if (com[0].equals("rescat")) {
+        src = s1+resCat(com.length == 1 ? null : s2.substring(7))+s3;
       } else if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("w5"))
@@ -4098,6 +4110,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+resItem(com[1], even)+s3;
       } else if (com[0].equals("resdesc")) {
         src = s1+resDesc(com[1])+s3;
+      } else if (com[0].equals("rescat")) {
+        src = s1+resCat(com.length == 1 ? null : s2.substring(7))+s3;
       } else if (com[0].equals("sidebar"))
         src = s1+s3;
       else if (com[0].equals("svg"))
@@ -4734,9 +4748,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (op.isSystem())
         b.append("<p>URL: [base]/$").append(op.getName()).append("</p>\r\n");
       if (op.isType())
-        b.append("<p>URL: [base]/").append(n).append("/$").append(op.getName()).append("</p>\r\n");
+        b.append("<p>URL: [base]/").append(checkWrap(n)).append("/$").append(op.getName()).append("</p>\r\n");
       if (op.isInstance())
-        b.append("<p>URL: [base]/").append(n).append("/[id]/$").append(op.getName()).append("</p>\r\n");
+        b.append("<p>URL: [base]/").append(checkWrap(n)).append("/[id]/$").append(op.getName()).append("</p>\r\n");
       if (!op.getParameters().isEmpty()) {
         b.append("<table class=\"grid\">\r\n");
         if (hasParameters(op.getParameters(), "In")) {
@@ -4764,6 +4778,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append("<p>&nbsp;</p>");
     }
     return b.toString();
+  }
+
+  private String checkWrap(String n) {
+    if (n.equals("Resource"))
+      return "[Resource]";
+    else
+      return n;
   }
 
   private void renderExample(StringBuilder b, OperationExample ex, String type) throws Exception {

@@ -153,14 +153,14 @@
   Id = 8
   Context = StructureDefinition.snapshot
   English = In any snapshot, all the elements must be in the specified type
-  XPath = f:element[1]/f:path/@value=parent::f:StructureDefinition/f:baseType/@value and count(f:element[position()!=1])=count(f:element[position()!=1][starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:baseType/@value, \'.\'))])
+  XPath = f:element[1]/f:path/@value=parent::f:StructureDefinition/f:type/@value and count(f:element[position()!=1])=count(f:element[position()!=1][starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:type/@value, \'.\'))])
   Expression = element.first().path = %resource.type and element.tail().all(path.startsWith(%resource.type&\'.\'))
 
  -- Row 9 -----------------------------------
   Id = 8a
   Context = StructureDefinition.differential
   English = In any differential, all the elements must be in the specified type
-  XPath = count(f:element)=count(f:element[f:path/@value=ancestor::f:StructureDefinition/f:baseType/@value or starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:baseType/@value, \'.\'))])
+  XPath = count(f:element)=count(f:element[f:path/@value=ancestor::f:StructureDefinition/f:type/@value or starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:type/@value, \'.\'))])
   Expression = element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type&\'.\'))
 
  -- Row 10 -----------------------------------
@@ -192,7 +192,7 @@
   Requirements = elements have id
   Context = StructureDefinition
   English = All element definitions must have an id
-  XPath = count(*/f:element)=count(*/f:element/@id)
+  XPath = count(*/f:element)=count(*/f:element/f:id)
   Expression = snapshot.element.all(id) and differential.element.all(id)
 
  -- Row 14 -----------------------------------
