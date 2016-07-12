@@ -45,6 +45,18 @@
       <location value="Patient/12423/_history/1"/>
       <etag value="W/&quot;1&quot;"/>
       <lastModified value="2014-08-18T01:43:33Z"/>
+      <outcome>
+        <OperationOutcome>
+          <issue>
+             <severity value="warning"/>
+             <code value="not-found"/>
+             <details>
+               <text value="The Managing organization was not known and was deleted"/>
+             </details> 
+             <expression value="Patient.managingOrganization"/>
+          </issue>
+        </OperationOutcome>
+      </outcome>
     </response>
   </entry>
   <entry>

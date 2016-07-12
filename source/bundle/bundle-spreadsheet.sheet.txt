@@ -375,6 +375,14 @@
   Comments = This has to match the same time in the meta header if a resource is included
 
  -- Row 26 -----------------------------------
+  Element = Bundle.entry.response.outcome
+  Card. = 0..1
+  Type = Resource
+  Short Label = OperationOutcome with hints and warnings (for batch/transaction)
+  Definition = An OperationOutcome containing hints and warnings produced as part of processing this entry in a batch or transaction
+  Comments = For a POST/PUT operation, this is the equivalent outcome that would be returned for prefer = oprationoutcome - except that the resource is always returned whether or not the outcome is returned
+
+ -- Row 27 -----------------------------------
   Element = Bundle.signature
   Card. = 0..1
   Type = Signature
