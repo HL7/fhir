@@ -1125,7 +1125,7 @@
   Type = string
   Short Label = Name by which the operation/query is invoked
   Definition = The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the url. For a query, this is the name used in the _query parameter when the query is called
-  Comments = The name here SHOULD be the same as the name in the definition, unless there is a name clash and the name cannot be used
+  Comments = The name here SHOULD be the same as the name in the definition, unless there is a name clash and the name cannot be used. The name does not include the \"$\" portion that is always included in the URL
 
  -- Row 69 -----------------------------------
   Element = Conformance.rest.operation.definition

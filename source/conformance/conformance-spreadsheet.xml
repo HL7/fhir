@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6768</WindowHeight>
-  <WindowWidth>23016</WindowWidth>
+  <WindowHeight>17148</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>715</TabRatio>
@@ -3294,7 +3294,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the url. For a query, this is the name used in the _query parameter when the query is called</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The name here SHOULD be the same as the name in the definition, unless there is a name clash and the name cannot be used</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The name here SHOULD be the same as the name in the definition, unless there is a name clash and the name cannot be used. The name does not include the &quot;$&quot; portion that is always included in the URL</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4709,7 +4709,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>31</TopRowBottomPane>
+   <TopRowBottomPane>61</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4726,8 +4726,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>41</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>69</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -220,6 +220,7 @@
   Binding = !
   Short Label = Name used to invoke the operation
   Definition = The name used to invoke the operation
+  Comments = The code does not include the \'$\' prefix that is always included in the URL when the operation is invoked
 
  -- Row 18 -----------------------------------
   Element = OperationDefinition.comment
