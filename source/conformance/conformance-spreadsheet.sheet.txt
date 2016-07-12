@@ -782,13 +782,14 @@
   Summary = y
   Type = code
   Binding = MimeType
-  Short Label = formats supported (xml | json | mime type)
+  Short Label = formats supported (xml | json | ttl | mime type)
   Definition = A list of the formats supported by this implementation using their content types
   Comments = \"xml\" or \"json\" are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here
 
  -- Row 27 -----------------------------------
   Element = Conformance.profile
   Card. = 0..*
+  Summary = y
   Type = Reference(StructureDefinition)
   Short Label = Profiles for use cases supported
   Definition = A list of profiles that represent different use cases supported by the system. For a server, \"supported by the system\" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}
@@ -896,6 +897,7 @@
  -- Row 40 -----------------------------------
   Element = Conformance.rest.resource.profile
   Card. = 0..1
+  Summary = y
   Type = Reference(StructureDefinition)
   Short Label = Base System profile for all uses of resource
   Definition = A specification of the profile that describes the solution\'s overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles]{profiling.html#profile-uses}
@@ -1115,6 +1117,7 @@
  -- Row 67 -----------------------------------
   Element = Conformance.rest.operation
   Card. = 0..*
+  Summary = Y
   UML = right
   Short Label = Definition of an operation or a custom query
   Definition = Definition of an operation or a named query and with its parameters and their meaning and type
@@ -1130,6 +1133,7 @@
  -- Row 69 -----------------------------------
   Element = Conformance.rest.operation.definition
   Card. = 1..1
+  Summary = Y
   Type = Reference(OperationDefinition)
   Short Label = The defined operation/query
   Definition = Where the formal definition can be found
@@ -1146,6 +1150,7 @@
  -- Row 71 -----------------------------------
   Element = Conformance.messaging
   Card. = 0..*
+  Summary = Y
   UML = 0;240
   Inv. = 1
   Short Label = If messaging is supported
@@ -1193,6 +1198,7 @@
  -- Row 77 -----------------------------------
   Element = Conformance.messaging.event
   Card. = 1..*
+  Summary = Y
   UML = -20;80
   Short Label = Declare support for this event
   Definition = A description of the solution\'s support for an event at this end-point.
@@ -1202,6 +1208,7 @@
  -- Row 78 -----------------------------------
   Element = Conformance.messaging.event.code
   Card. = 1..1
+  Summary = Y
   Type = Coding
   Binding = MessageEvent
   Short Label = Event type
@@ -1236,6 +1243,7 @@
  -- Row 82 -----------------------------------
   Element = Conformance.messaging.event.request
   Card. = 1..1
+  Summary = Y
   Type = Reference(StructureDefinition)
   Short Label = Profile that describes the request
   Definition = Information about the request for this event
@@ -1243,6 +1251,7 @@
  -- Row 83 -----------------------------------
   Element = Conformance.messaging.event.response
   Card. = 1..1
+  Summary = Y
   Type = Reference(StructureDefinition)
   Short Label = Profile that describes the response
   Definition = Information about the response for this event
@@ -1257,6 +1266,7 @@
  -- Row 85 -----------------------------------
   Element = Conformance.document
   Card. = 0..*
+  Summary = Y
   UML = 550;50
   Inv. = 1
   Short Label = Document definition
@@ -1280,6 +1290,7 @@
  -- Row 88 -----------------------------------
   Element = Conformance.document.profile
   Card. = 1..1
+  Summary = Y
   Type = Reference(StructureDefinition)
   Short Label = Constraint on a resource used in the document
   Definition = A constraint on a resource used in the document
