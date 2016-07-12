@@ -753,6 +753,16 @@ as explained in the next section. Note: The <code>[type]</code> modifier can't b
 since the server would not usually know what type that resource has.  However, since these are absolute references, 
 there can be no ambiguity about the type.
 </p>
+<p>
+In some cases, search parameters are defined with an implicitly limited scope. For example,
+<a href="observation.html"><code>Observation</code></a> has an element <code>subject</code>, which is 
+a reference to one of a number of types. This has a matching search parameter <code>subject</code>,
+which refers to any of the possible types. In addition to this, there is another search parameter
+<code>patient</code>, which also refers to <code>Observation.subject</code>, but is limited to
+only include references of type <a href="patient.html"><code>Patient</code></a>. When using
+the patient search parameter, there is no need to specify ":Patient" as a modifier, or "Patient/"
+in the search value, as this must always be true.
+</p>
 
 <h4>Chained parameters</h4>
 <p>
