@@ -242,6 +242,12 @@
   RIM Mapping = ./target[classCode=\"indirectAuthority].id?
 
  -- Row 20 -----------------------------------
+  Element = Practitioner.practitionerRole.endpoint
+  Card. = 0..*
+  Type = Reference(Endpoint)
+  Short Label = Technical endpoints providing access to services operated for the PractitonerRole
+
+ -- Row 21 -----------------------------------
   Element = Practitioner.qualification
   Card. = 0..*
   UML = 380;180
@@ -250,7 +256,7 @@
   RIM Mapping = ./indirectAuthority/QualifiedEntity[code < qualifiedEntity]
   ServD Mapping = ./Qualifications
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Practitioner.qualification.identifier
   Card. = 0..*
   Type = Identifier
@@ -259,7 +265,7 @@
   Requirements = Often, specific identities are assigned for the qualification
   RIM Mapping = ./id
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Practitioner.qualification.code
   Card. = 1..1
   Type = CodeableConcept
@@ -268,7 +274,7 @@
   RIM Mapping = ./code
   ServD Mapping = ./Qualifications.Value
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Practitioner.qualification.period
   Card. = 0..1
   Type = Period
@@ -278,7 +284,7 @@
   RIM Mapping = ./effectiveTime
   ServD Mapping = ./Qualifications.StartDate and ./Qualifications.EndDate
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Practitioner.qualification.issuer
   Card. = 0..1
   Type = Reference(Organization)
@@ -286,7 +292,7 @@
   Definition = Organization that regulates and issues the qualification
   RIM Mapping = ./scoper
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Practitioner.communication
   Card. = 0..*
   Type = CodeableConcept

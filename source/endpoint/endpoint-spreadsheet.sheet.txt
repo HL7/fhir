@@ -98,8 +98,9 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Organization)
-  Short Label = Organization that exposes the endpoint
-  Definition = The organization that exposes the endpoint (even if technically another organisation is hosting this in the cloud, it is the organisation associated with the data)
+  Short Label = Organization that manages this endpoint (may not be the organization that exposes the endpoint)
+  Definition = The organization that manages this endpoint (even if technically another organisation is hosting this in the cloud, it is the organisation associated with the data)
+  Comments = This property is not typically used when searching for Endpoint resources for usage. The typical usage is via the reference from an aplicable Organization/Location/Practitioner resource, which is where the context is provided. Multiple Locations may reference a single endpoint, and don\'t have to be within the same organization resource, but most likely within the same organizational heirarchy
   Committee Notes = This was left as 0..1 to permit small systems having an implied Organization
 
  -- Row 6 -----------------------------------

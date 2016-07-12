@@ -210,6 +210,13 @@
   Short Label = Description of availability exceptions
   Definition = A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times
 
+ -- Row 21 -----------------------------------
+  Element = PractitionerRole.endpoint
+  Card. = 0..*
+  Type = Reference(Endpoint)
+  Short Label = Technical endpoints providing access to services operated for the practitioner with this role
+  Requirements = Organizations have multiple systems that provide various services and ,ay also be different for practitioners too.\n\nSo the endpoint satisfies the need to be able to define the technical connection details for how to connect to them, and for what purpose.
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
