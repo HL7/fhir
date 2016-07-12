@@ -92,8 +92,8 @@
     <SheetIndex>10</SheetIndex>
    </Xct>
   </SupBook>
-  <WindowHeight>3900</WindowHeight>
-  <WindowWidth>14460</WindowWidth>
+  <WindowHeight>9384</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
@@ -4696,7 +4696,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">All element definitions must have an id</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.element.all(id) and differential.element.all(id)</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">count(*/f:element)=count(*/f:element/@id)</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">count(*/f:element)=count(*/f:element/f:id)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="57.45">
     <Cell ss:StyleID="s111"><Data ss:Type="Number">15</Data><NamedCell
@@ -5033,7 +5033,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
+     <ActiveRow>14</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
