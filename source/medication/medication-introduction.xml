@@ -14,9 +14,7 @@ In these cases the ingredients of the medicine have to be specified together wit
 does not provide full details.
 </p>
 <p>
-The Medication resource allows for medications to be characterized as either a product or a package; this classification is important 
-because it affects the interpretation of a prescribed amount. For instance, is the prescribed amount 20 tablets, or 20 packages of
-50 tablets each? 
+The Medication resource allows for medications to be characterized as either a product or a package or both. The product will include the ingredient(s) and their strength(s) and the package can include the amount (for example, number of tablets, volume, etc) that is contained in a particular container (for example, 100 capsules of Amoxicillin 500mg per bottle).
 </p>
 <p>
 Depending on whether the medication is a product or a package, further details about the composition can be provided. A product
