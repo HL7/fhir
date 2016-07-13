@@ -259,8 +259,8 @@ Here is an example Bundle the demonstrates these rules:
       &lt;Observation&gt;
          &lt;id value=&quot;123&quot;/&gt;
          &lt;subject&gt;
-           &lt;!-- this is reference to the resource above --&gt;
-           &lt;reference value=&quot;Patient/1&quot;/&gt;
+           &lt;!-- this is reference to the first resource above --&gt;
+           &lt;reference value=&quot;Patient/23&quot;/&gt;
          &lt;/subject&gt;
       &lt;/Organization&gt;
     &lt;/resource&gt;
@@ -273,8 +273,8 @@ Here is an example Bundle the demonstrates these rules:
       &lt;Observation&gt;
          &lt;id value=&quot;123&quot;/&gt;
          &lt;subject&gt;
-           &lt;!-- this is reference to the resource above --&gt;
-           &lt;reference value=&quot;http://example.org/fhir/Patient/1&quot;/&gt;
+           &lt;!-- this is reference to the first resource above --&gt;
+           &lt;reference value=&quot;http://example.org/fhir/Patient/23&quot;/&gt;
          &lt;/subject&gt;
       &lt;/Organization&gt;
     &lt;/resource&gt;
@@ -287,7 +287,7 @@ Here is an example Bundle the demonstrates these rules:
       &lt;Observation&gt;
          &lt;id value=&quot;12&quot;/&gt;
          &lt;subject&gt;
-           &lt;!-- reference to the patient immediately above --&gt;
+           &lt;!-- reference to the second patient above --&gt;
            &lt;reference value=&quot;urn:uuid:04121321-4af5-424c-a0e1-ed3aab1c349d&quot;/&gt;
          &lt;/subject&gt;
       &lt;/Observation&gt;
