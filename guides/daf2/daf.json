@@ -25,8 +25,10 @@
     "diagnosticorder-daf-profile-spreadsheet.xml",
     "diagnosticreport-daf-profile-spreadsheet.xml",
 	"diagnosticreport-daf-core-profile-spreadsheet.xml",
+	"device-daf-core-profile-spreadsheet.xml",
     "encounter-daf-profile-spreadsheet.xml",
     "familymemberhistory-daf-profile-spreadsheet.xml",
+    "goal-daf-core-profile-spreadsheet.xml",
     "immunization-daf-profile-spreadsheet.xml",
 	"immunization-daf-core-profile-spreadsheet.xml",
     "list-daf-profile-spreadsheet.xml",
@@ -83,6 +85,10 @@
 			"defns": "daf-core-condition-definitions.html",
 			"base": "daf-core-condition.html"
 		},
+			"StructureDefinition/daf-core-device": {
+			"defns": "daf-core-device-definitions.html",
+			"base": "daf-core-device.html"
+		},
 		"StructureDefinition/daf-diagnosticorder": {
 			"defns": "daf-diagnosticorder-definitions.html",
 			"base": "daf-diagnosticorder.html"
@@ -106,6 +112,10 @@
 		"StructureDefinition/daf-familymemberhistory": {
 			"defns": "daf-familymemberhistory-definitions.html",
 			"base": "daf-familymemberhistory.html"
+		},
+		"StructureDefinition/daf-core-goal": {
+			"defns": "daf-core-goal-definitions.html",
+			"base": "daf-core-goal.html"
 		},
 		"StructureDefinition/daf-immunizationlist": {
 			"defns": "daf-immunizationlist-definitions.html",

@@ -240,6 +240,12 @@
 		<resource>
 			<example value="false"/>
 			<sourceReference>
+				<reference value="StructureDefinition/daf-core-device"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
 				<reference value="StructureDefinition/daf-diagnosticorder"/>
 			</sourceReference>
 		</resource>
@@ -271,6 +277,12 @@
 			<example value="false"/>
 			<sourceReference>
 				<reference value="StructureDefinition/daf-familymemberhistory"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/daf-core-goal"/>
 			</sourceReference>
 		</resource>
 		<resource>
@@ -578,6 +590,18 @@
 			</page>
 		</page>
 		<page>
+			<source value="device-daf-core.html"/>
+			<title value="Device"/>
+			<kind value="page"/>
+			<format value="generated"/>
+			<page>
+				<source value="daf-core-device.html"/>
+				<title value="Device"/>
+				<kind value="resource"/>
+				<format value="generated"/>
+			</page>
+		</page>
+		<page>
 			<source value="diagnosticorder-daf.html"/>
 			<title value="Diagnostic Orders"/>
 			<kind value="page"/>
@@ -633,6 +657,18 @@
 			<page>
 				<source value="daf-familymemberhistory.html"/>
 				<title value="Family Member History Details"/>
+				<kind value="resource"/>
+				<format value="generated"/>
+			</page>
+		</page>
+		<page>
+			<source value="goal-daf-core.html"/>
+			<title value="Goals"/>
+			<kind value="page"/>
+			<format value="generated"/>
+			<page>
+				<source value="daf-core-goal.html"/>
+				<title value="Immunization Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>
 			</page>
