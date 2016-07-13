@@ -31,6 +31,23 @@ may not have a target for each concept.
 
 </div> 
 
+<a name="bnr"> </a>
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+While <code>ConceptMap</code> resources are not referred to directly from any other 
+resource, they may be included and used in <a href="implementationguide.html">ImplementationGuide</a>
+resources, and provide background knowledge that is in many contexts, including
+<a href="operations.html">operations</a> defined in this specification.
+</p>
+<p>
+In addition to <code>ConceptMap</code>, there is also the <a href="structuremap.html">StructureMap</a>
+resource. The ConceptMap resource defines relationships between concepts in their own right,
+along with grading of their equivalencies, while the StructureMap defines an exectuable 
+transform for instancss that conform to a known structure.
+</p>
+</div>
+
 <div>
 <a name="bnc"> </a>
 <h2>Background and Context</h2>
