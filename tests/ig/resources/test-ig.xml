@@ -60,7 +60,7 @@
   </package>
   <page>
     <source value="index.html"/>
-    <name value="Home Page"/>
+    <title value="Home Page"/>
     <kind value="page"/>
   </page>
 </ImplementationGuide>
