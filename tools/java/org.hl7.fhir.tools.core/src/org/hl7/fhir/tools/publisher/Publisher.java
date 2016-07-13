@@ -2173,8 +2173,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.getVsValidator().checkDuplicates(page.getValidationErrors());
 
       if (buildFlags.get("all")) {
-        if (page.getToc().containsKey("1.1"))
-          throw new Exception("Duplicate DOC Entry "+"1.1");
+//        if (page.getToc().containsKey("1.1"))
+//          throw new Exception("Duplicate DOC Entry "+"1.1");
 
         page.getToc().put("1.1", new TocEntry("1.1", "Table Of Contents", "toc.html", false));
         page.log(" ...page toc.html", LogMessageType.Process);
