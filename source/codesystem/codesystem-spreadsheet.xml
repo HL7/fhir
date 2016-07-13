@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17148</WindowHeight>
+  <WindowHeight>16284</WindowHeight>
   <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -5456,7 +5456,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">A property that the client wishes to be returned in the output. If no properties are specified, the server chooses what to return. The following properties are defined for all code systems: system.name, system.version, code.display, code.parent, code.child, and lang.X where X is a language code. These properties refer to the directly return parameters documented for the operation</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">A property that the client wishes to be returned in the output. If no properties are specified, the server chooses what to return. The following properties are defined for all code systems: system, version, display, definition, designation, parent, child, and lang.X where X is a language code in a designation. These properties refer to the directly return parameters documented for the operation</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -5594,7 +5594,7 @@
     <Cell><Data ss:Type="String">$subsumes-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.codeSub</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.codeA</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
@@ -5605,7 +5605,7 @@
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.codeSuper</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.codeB</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
@@ -5638,7 +5638,7 @@
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.codingSub</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.codingA</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
@@ -5649,7 +5649,7 @@
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.codingSuper</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">subsumes.codingB</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
@@ -6153,7 +6153,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>11</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6170,8 +6170,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>23</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

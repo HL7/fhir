@@ -673,7 +673,7 @@
  -- Row 7 -----------------------------------
   Name = lookup.property
   Use = in
-  Documentation = A property that the client wishes to be returned in the output. If no properties are specified, the server chooses what to return. The following properties are defined for all code systems: system.name, system.version, code.display, code.parent, code.child, and lang.X where X is a language code. These properties refer to the directly return parameters documented for the operation
+  Documentation = A property that the client wishes to be returned in the output. If no properties are specified, the server chooses what to return. The following properties are defined for all code systems: system, version, display, definition, designation, parent, child, and lang.X where X is a language code in a designation. These properties refer to the directly return parameters documented for the operation
   Type = code
   Min = 0
   Max = *
@@ -767,7 +767,7 @@
   Title = Subsumption Testing
 
  -- Row 20 -----------------------------------
-  Name = subsumes.codeSub
+  Name = subsumes.codeA
   Use = in
   Documentation = The \"sub\" code that is to be tested. If a code is provided, a system must be provided
   Type = code
@@ -775,7 +775,7 @@
   Max = 1
 
  -- Row 21 -----------------------------------
-  Name = subsumes.codeSuper
+  Name = subsumes.codeB
   Use = in
   Documentation = The \"super\" code that is to be validated. If a code is provided, a system must be provided
   Type = code
@@ -799,7 +799,7 @@
   Max = 1
 
  -- Row 24 -----------------------------------
-  Name = subsumes.codingSub
+  Name = subsumes.codingA
   Use = in
   Documentation = The \"sub\" coding to test. If the coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established
   Type = Coding
@@ -807,7 +807,7 @@
   Max = 1
 
  -- Row 25 -----------------------------------
-  Name = subsumes.codingSuper
+  Name = subsumes.codingB
   Use = in
   Documentation = The \"super\" coding to test. If the coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established
   Type = Coding

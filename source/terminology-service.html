@@ -110,11 +110,11 @@ logical information for a terminology:
 <p>
 The FHIR specification itself defines these things for common terminologies (including
 <a href="snomedct.html">SNOMED CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorm.html">RxNorm</a>),
-  and provides the <a href="valueset.html">ValueSet</a> infrastructure for supporting typical relatively simple small code systems.
+  and provides the <a href="codesystem.html">CodeSysten</a> infrastructure for supporting typical relatively simple small code systems.
 </p>
 <p>
 <i>Implementers Note: Implementers interested in working with existing published terminologies for
-which the Value Set infrastructure is not suitable should discuss their needs with HL7 to get the
+which the CodeSystem infrastructure is not suitable should discuss their needs with HL7 to get the
 list above extended.</i>
 </p>
 
@@ -159,7 +159,7 @@ they might be quite complex (e.g. all codes with a particular property from an u
 a code system).
 </p>
 <p>
-A FHIR enabled application can simply ask the server to figure out all the details, and return it a list
+A FHIR enabled application can simply ask a terminology server to figure out all the details, and return it a list
 of the current codes in the value set. This is known as <a href="valueset-operations.html#expand">"expanding" the valueset</a>.
 As a summary, the client passes the server the following information:
 </p>
@@ -168,6 +168,7 @@ As a summary, the client passes the server the following information:
  <li> (Optionally) a text filter to use to restrict the codes that are returned (e.g. user input text). It is left to server discretion to choose how to apply the text filter</li>
  <li> (Optionally) a date at which the expansion should be evaluated (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
  <li> (Optionally) which page to retrieve - asking the server to break the expansion into a set of chunks</li>
+ <li> (Optionally) a reference to an <a href="expansionprofile.html">ExpansionProfile</a> resource that supplies additional information about how to perform the expansion</li>
 </ul>
 
 <p>
@@ -210,7 +211,7 @@ Expanding a value set that is already registered on the server as "23", with a t
 GET [base]/ValueSet/23/$expand?filter=abdo
 </pre>
 <p>
-Expanding a value set that is specififed by the client (using JSON):
+Expanding a value set that is specified by the client (using JSON):
 </p>
 <pre class="http">
 POST [base]/ValueSet/23/$expand
@@ -274,7 +275,7 @@ The server returns some or all of the following information:
  <li> a recommended display for the code </li>
  <li> properties of the code</li>
  <li> other designations for the code (a value, optionally with language and/or a use code)</li>
- <li> relationships between this code and other codes</li>
+ <li> relationships between this code and other codes (parent/child properties)</li>
 </ul>
 <p>
 The recommended display for the code is a text representation of the code
@@ -350,7 +351,7 @@ HTTP/1.1 200 OK
 </pre>
 
 <p>
-Thie following properties are defined:
+The following properties are defined:
 </p>
 <table class="grid">
  <tr>
@@ -378,6 +379,10 @@ Thie following properties are defined:
   <td>Other designations for the code</td>
  </tr>
  <tr>
+  <td>lang.X</td>
+  <td>Designations in language X (where X is an IETF Language code, see <a href="http://tools.ietf.org/html/bcp47">BCP-47</a></td>
+ </tr>
+ <tr>
   <td>parent</td>
   <td>Parent codes for this code (for code systems with a defined heirarchy)</td>
  </tr>
@@ -403,7 +408,7 @@ provides <a href="valueset-operations.html#validate-code">a "validate-code" oper
 <ul>
  <li> the value set (either by its URL on the RESTful interface, by its logical identifier <a href="valueset-definitions.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
  <li> the code value (either a code + system, a Coding data type, or a CodeableConcept</li>
- <li> (Optionally) a date at which the expansion should be evaluated (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
+ <li> (Optionally) a date at which the expansion should be evaluated (usually, and by default, this is the current date/time, but there are circumstances where that is not appropriate)</li>
 </ul>
 <p>
 The server returns a true/false indicating whether the code/concept is valid, and a list
@@ -490,19 +495,27 @@ HTTP/1.1 200 OK
 
 <h3>Subsumption testing</h3>
 <p>
-The Expand and Validate operations can be used to perform subsumption testing. To test whether
-<i>code A</i> subsumes <i>code B</i>, perform a validate specifying a value set built of all the
-codes that are subsumed by <i>code A</i>, and test whether <i>code B</i> is subsumed by it.
-Note that a server is allowed to (and SHOULD, but is not required to) consider concept maps when
-doing subsumption testing. For example if A is a LOINC code, and it has a precise mapping to a
-SNOMED CT code that subsumes B, with an appropriate scope, then the server can indicate
-that this it is true that LOINC code A subsumes SNOMED CT code B.
+To test whether <i>code A</i> subsumes <i>code B</i>, perform a $subsumes operation.
+The client passes the server the following information:
+</p>
+<ul>
+ <li> the system that identifies the code system in which subsumption testing is to be performed (either by invoking the operation on the code system directly, or referring to it by it's canonical URL)</li>
+ <li> Concepts A and B - either as codes, or Codings</li>
+ <li> (Optionally) the version of the code system to use (mostly, this should not matter)</li>
+</ul>
+<p>
+If the client passes Codings, it is allowed to use system values that are different from the system in which subsumption testing is to be performed.
+In this case, the server SHALL return an error unless the relationships between the code systems is well defined.
 </p>
 <p>
-In order to make it convenient to perform this subsumption testing, code systems that define
-subsumption hierarchies should define simple URLs to express a value set that includes all the
-codes subsumed by a code.
+If the concepts can be compared, then the server returns an outcome code:
 </p>
+<table class="none">
+ <tr><td>equivalent</td><td>Concepts A and B are equivalent</td></tr>
+ <tr><td>subsumes</td><td>Concept A subsumes Concept B</td></tr>
+ <tr><td>subsumed-by</td><td>Concept A is subsumed by Concept B</td></tr>
+ <tr><td>not-subsumed</td><td>Concepts A and B are not related by any subsumption relationship</td></tr>
+</table>
 
 <div class="example">
 <p><b>Examples</b></p>
@@ -510,7 +523,42 @@ codes subsumed by a code.
 Test whether a SNOMED CT Concept 399211009 (History of myocardial infarction) is subsumed by 22298006 (Myocardial infarction):
 </p>
 <pre class="http">
-GET [base]/ValueSet/$validate-code?system=http://snomed.info/sct&amp;code=399211009&amp;identifier=http://snomed.info/sct?fhir_vs%3Disa/22298006
+GET [base]/CodeSystem/$subsumes?system=http://snomed.info/sct&amp;codeSub=3738000&amp;codeSuper=235856003
+</pre>
+<p>
+Or using Codings:
+</p>
+<pre class="http">
+
+POST [base]/CodeSystem/$subsumes
+[other headers]
+
+&lt;Parameters xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;!-- Subsumption testing - use SNOMED CT rules --&gt;
+  &lt;parameter&gt;
+    &lt;name value=&quot;system&quot;/&gt;
+    &lt;valuUri value=&quot;http://snomed.info/sct&quot;/&gt;
+  &lt;/parameter&gt;
+  &lt;!-- Australian distribution --&gt;
+  &lt;parameter&gt;
+    &lt;name value=&quot;version&quot;/&gt;
+    &lt;valuString value=&quot;http://snomed.info/sct/32506021000036107/version/20160430&quot;/&gt;
+  &lt;/parameter&gt;
+  &lt;parameter&gt;
+    &lt;name value=&quot;codingSub&quot;/&gt;
+    &lt;valueCoding&gt;
+      &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+      &lt;code value=&quot;3738000&quot;/&gt;
+    &lt;/valueCoding&gt;
+  &lt;/parameter&gt;
+  &lt;parameter&gt;
+    &lt;name value=&quot;codingSuper&quot;/&gt;
+    &lt;valueCoding&gt;
+      &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+      &lt;code value=&quot;235856003&quot;/&gt;
+    &lt;/valueCoding&gt;
+  &lt;/parameter&gt;
+&lt;/Parameters&gt;
 </pre>
 <p>
 Server response:
@@ -523,8 +571,8 @@ HTTP/1.1 200 OK
   "resourceType" : "Parameters",
   "parameter" : [
     {
-    "name" : "result",
-    "valueBoolean" : "false"
+    "name" : "outcome",
+    "valueCode" : "subsumes"
   },
   ]
 }
@@ -785,7 +833,7 @@ HTTP/1.1 200 OK
 <h3>Maintaining a Closure Table</h3>
 
 <p>
-The 4 operations Expand, Lookup, Validate, and Translate account for most operational requirements
+The 5 operations Expand, Lookup, Validate, subsumes, and Translate account for most operational requirements
 associated with terminology use. However there is one difficult but important use case that
 they do not address, which is integrating terminologically based logic into application searches.
 </p>
@@ -797,7 +845,7 @@ diagnosis of gout, and who had an elevated serum creatinine.
 <p>
 In this case, both "diagnosis of gout" and "serum creatinine" involve value set and/or subsumption queries
 (e.g. against SNOMED CT and LOINC respectively). This search has to be executed by some
-logical processing engine that knows how to find this data in a given persistence store.
+logical processing engine that knows how to find patient related in a given persistence store.
 Often, this is some kind of SQL query, though many other technological choices are available.
 However this is done, the challenge with an operation like this is to integrate the
 terminological knowledge into a search execution that also covers other relationships expressed in the search criteria.
@@ -856,75 +904,250 @@ The closure table can be resynchronized by passing an additional "version" param
 version in one of the delta responses. This is a request to replay all the mapping changes since that delta was sent.
 </p>
 
-<div class="example">
-<p><b>Example</b></p>
-<p>
-The client sees a new SNOMED CT concept "22298006" in a data element it is tracking as "patient-problems":
-</p>
-<pre class="http">
-POST [base]/$closure
+<a name="closure-init"> </a>
+<h4>Initializing a Closure Table</h4>
 
+<p>
+Before it can be used, a closure table has to be initialised. To initialise a closure 
+table, POST the following to [base]/ConceptMap/$closure:
+</p>
+<div class="example">
+<pre class="json">
+{ 
+  "resourceType" : "Parameters", 
+   "parameter" : [{ 
+     "name" : "name", 
+     "valueString" : "[name]" 
+  }]
+}
+</pre>
+</div>
+<p>
+A successful response is a 200 OK from the server, with an associated ConceptMap:
+</p>
+<div class="example">
+<pre class="json">
 {
-  "resourceType" : "Parameters",
-  "parameter" : [
+    "resourceType": "ConceptMap",
+    "id": "[name]",
+    "version": "0",
+    "name": "Closure Table [name] Creation",
+    "status": "active",
+    "experimental": true,
+    "date": "2015-12-20T23:10:55Z"
+}
+</pre>
+</div>
+<p>
+If there is an error – usually involving the closure name, the server returns a HTTP status 400 with an operation outcome:
+</p>
+<div class="example">
+<pre class="json">
+{
+  "resourceType": "OperationOutcome",
+  "text": {
+    "status": "generated",
+    "div": "&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p&gt;invalid closure name \&quot;invalid-id!\&quot;:&lt;/p&gt;&lt;/div&gt;"
+  },
+  "issue": [
     {
-      "name" : "name",
-      "valueString" : "patient-problems"
-    },
-    {
-      "name" : "concept",
-      "valueCoding" : {
-        "system" : "http://snomed.info/sct",
-        "code" : "22298006",
+      "severity": "error",
+      "details": {
+        "text" : "invalid closure name \"invalid-id!\""
       }
     }
   ]
 }
-
 </pre>
-
+</div>
 <p>
-The server responds with a set of new entries to add to the concept map.
-It provides one important piece of metadata - the version, which the client
-can use to resynchronize the closure table:
+What closure names are valid is at the discretion of the server. 
 </p>
-<pre class="http">
-HTTP/1.1 200 OK
-[other headers]
 
+<a name="closure-add"> </a>
+<h4>Adding to a Closure Table</h4>
+<p>
+When the consumer (client) encounters a new code, it POSTs the following to [base]/ConceptMap/$closure:
+</p>
+<div class="example">
+<pre class="json">
 {
-  "resourceType": "ConceptMap",
-  "identifier": "49088976-d54d-4d19-b868-3d4c18cebabb",
-  "version": "8",
-  "status": "active",
-  "experimental": true,
-  "date": "2012-06-13",
-  "element": [
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "name",
+    "valueString" : "[name]"
+  }, {
+    "name" : "concept",
+    "valueCoding" : {
+       "system" : "http://snomed.info/sct",
+       "code" : "22298006",
+       "display" : "Myocardial infarction"
+    }
+  }]
+}
+</pre>
+</div>
+<p>
+Note that this example only includes one concept, but more than one is allowed:
+</p>
+<div class="example">
+<pre class="json">
+{
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "name",
+    "valueString" : "[name]"
+  }, {
+    "name" : "concept",
+    "valueCoding" : {
+       "system" : "http://snomed.info/sct",
+       "code" : "22298006",
+       "display" : "Myocardial infarction"
+    }
+  }, {
+    "name" : "concept",
+    "valueCoding" : {
+       "system" : "http://snomed.info/sct",
+       "code" : "128599005",
+       "display" : "Structural disorder of heart"
+    }
+  }]
+}
+</pre>
+</div>
+<p>
+The response varies depending on the conditions on the server. Possible responses:
+If the closure table has not been initialised: Return a 404 Not Found with
+</p>
+<div class="example">
+<pre class="json">
+{
+  "resourceType": "OperationOutcome",
+  "text": {
+    "status": "generated",
+    "div": "&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p&gt;invalid closure name \&quot;[name]\&quot;:&lt;/p&gt;&lt;/div&gt;"
+  },
+  "issue": [
     {
-      "codeSystem": "http://snomed.info/sct",
-      "code": "22298006",
-      "map": [
-        {
-          "codeSystem": "http://snomed.info/sct",
-          "code": "128599005",
-          "equivalence": "subsumes"
-        }
-      ]
-    },
+      "severity": "error",
+      "details": {
+        "text" : "invalid closure name \"[name]\""
+      }
+    }
   ]
 }
 </pre>
 </div>
+<p>
+If the closure table needs to be reinitialised:
+Return a 422 Unprocessable Entity with
+</p>
+<div class="example">
+<pre class="json">
+{
+  "resourceType": "OperationOutcome",
+  "text": {
+    "status": "generated",
+    "div": "&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p&gt;closure \&quot;[name\&quot; must be reinitialised&lt;/p&gt;&lt;/div&gt;"
+   },   
+   "issue": [{
+       "severity": "error",
+       "details": {
+         "text" : "closure \"[name]\" must be reinitialised"
+       }
+     }
+   ]
+}
+</pre>
+</div>
+<p>
+The server should only send this when it’s underlying terminology conditions have been changed (e.g. a new version of SNOMED CT has been loaded). When a client gets this, it’s only choice is to initialise the closure table, and process all the codes in the closure table again (the assumption here is that the system has some external source of ‘all the codes’ so it can rebuild the table again).
+If the concept(s) submitted are processed ok, but there’s no new concepts, or no new entries in the table, return a 200 OK with :
+</p>
+<div class="example">
+<pre class="json">
+{
+    "resourceType": "ConceptMap",
+    "id": "[name]",
+    "version": "[version]",
+    "name": "Updates for Closure Table [name]",
+    "status": "active",
+    "experimental": true,
+    "date": "2015-12-20T23:12:55Z"
+}
+</pre>
+</div>
+<p>
+If there’s new entries in the closure table, the server returns a 200 OK with:
+</p>
+<div class="example">
+<pre class="json">
+{
+    "resourceType": "ConceptMap",
+    "id": "b87db127-9996-4d0c-bda9-a278d7a24a69",
+    "version": "[version]",
+    "name": "Updates for Closure Table [name]",
+    "status": "active",
+    "experimental": true,
+    "date": "2015-12-20T23:16:24Z",
+    "element": [{
+        "codeSystem": "http://snomed.info/sct",
+        "code": "22298006",
+        "target": [{
+           "codeSystem": "http://snomed.info/sct",
+           "code": "128599005",
+           "equivalence": "subsumes"
+        }]
+    }]
+}
+</pre>
+</div>
+<p>Notes</p>
+<ul>
+ <li>The server can return multiple elements, each with 1 or more targets</li>
+ <li>servers may return the relationship represented in either direction</li>
+ <li>it’s important to understand the relationship the right way around. From the spec: The equivalence is read from target to source (e.g. the target is ‘wider’ than the source). So in this case, 128599005 (Structural disorder of heart) subsumes 22298006 (Myocardial infarction)</li>
+ <li>In the $closure operation, the response never explicitly states that a code is subsumed by itself. Clients should assume that this is implicit</li>
+ <li>The version is important. Each new invocation of the $closure operation returns a new version of the concept map. The server must keep track of the versions is has issued for replay (see below)</li>
+ <li>As well as entering codes that are actually used, the client also enters search terms into the closure table</li>
+ <li>The combination of the system and code is the key to the closure table; if the server encounters two different codes that have the same meaning (e.g. syntactical variation), it should create an "equals" relationship between them</li>
+</ul>
 
+<a name="closure-rerun"> </a>
+<h4>Re-running Closure operation</h4>
+<p>
+Given the way that the closure operation functions, it’s possible for a client to lose a response from 
+the server before it is committed to safe storage (or the client may not have particularly safe storage). 
+For this reason, when a client is starting up, it should check that there has been no missing operations. 
+It can do this by passing the last version (from the Concept Map response) it is sure it processed in the request:
+</p>
+<div class="example">
+<pre class="json">
+{ 
+  "resourceType" : "Parameters", 
+   "parameter" : [{ 
+     "name" : "name", 
+     "valueString" : "[name]" 
+  }, {
+     "name" : "version", 
+     "valueString" : "3" 
+  }]
+ }
+</pre>
+</div>
+<p>
+That’s a request to return all the additions to the closure table since version 3. The server returns its latest version in the concept map, along with anything added to the closure table since version 3 (not including version 3)
+</p>
 <p>
 Notes:
 </p>
 <ul>
- <li>In this simple example, the addition of a single new SNOMED CT concept created one existing subsumption relationship. In general clinical use, more than one relationship would be expected</li>
- <li>For the purposes of the closure table, the relationships are considered to be bi-directional; e.g. if A subsumes B, then B is subsumed by A</li>
- <li>As well as entering codes that are actually used, the client also enters search terms into the closure table</li>
- <li>The combination of the system and code is the key to the closure table; if the server encounters two different codes that have the same meaning (e.g. syntactical variation), it should create an "equals" relationship between them</li>
+ <li>The client can pass a concept or version, but not both</li>
+ <li>These examples (and my server) use a serially incrementing sequential integer, but this is not required, and clients should not assume that there is any meaning or order in the version. Just recall the last version, and treat it as a magic value. There is, however, one special value: ‘0’. Passing a last version of 0 should be understood as resyncing the entire closure table</li>
 </ul>
+
+<a name="closure-use"> </a>
+<h4>Making use of the Closure Table</h4>
 
 <p>
 The client uses the result of the closure operation to maintain a closure table. Simplistically, 
