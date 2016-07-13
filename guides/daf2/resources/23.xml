@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AllergyIntolerance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id value="23"/>
-	<meta>
+	<!--<meta>
 		<versionId value="2641"/>
 		<lastUpdated value="2016-01-30T02:23:41.013+00:00"/>
 	</meta>
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">Sensitivity to sulfonamide antibacterial</div>
-	</text>
+	</text>-->
 	<status value="confirmed"/>
 	<category value="medication"/>
 	<criticality value="high"/>
