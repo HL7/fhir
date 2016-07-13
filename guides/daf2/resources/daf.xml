@@ -222,6 +222,12 @@
 		<resource>
 			<example value="false"/>
 			<sourceReference>
+				<reference value="StructureDefinition/daf-core-careplan"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
 				<reference value="StructureDefinition/daf-condition"/>
 			</sourceReference>
 		</resource>
@@ -800,6 +806,18 @@
 			<page>
 				<source value="daf-patient-core.html"/>
 				<title value="Patient Details"/>
+				<kind value="resource"/>
+				<format value="generated"/>
+			</page>
+		</page>
+		<page>
+			<source value="careplan-daf-core.html"/>
+			<title value="CarePlan"/>
+			<kind value="page"/>
+			<format value="generated"/>
+			<page>
+				<source value="daf-core-careplan.html"/>
+				<title value="CarePlan Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>
 			</page>

@@ -19,6 +19,7 @@
   "spreadsheets" : [  
     "allergyintolerance-daf-profile-spreadsheet.xml",
   	"allergyintolerance-daf-core-profile-spreadsheet.xml",
+    "careplan-daf-core-profile-spreadsheet.xml",
     "condition-daf-profile-spreadsheet.xml",
 	"condition-daf-core-profile-spreadsheet.xml",
     "diagnosticorder-daf-profile-spreadsheet.xml",
@@ -69,6 +70,10 @@
 		"StructureDefinition/daf-allergylist": {
 			"defns": "daf-allergylist-definitions.html",
 			"base": "daf-allergylist.html"
+		},
+		"StructureDefinition/daf-core-careplan": {
+			"defns": "daf-core-careplan-definitions.html",
+			"base": "daf-core-careplan.html"
 		},
 		"StructureDefinition/daf-condition": {
 			"defns": "daf-condition-definitions.html",
