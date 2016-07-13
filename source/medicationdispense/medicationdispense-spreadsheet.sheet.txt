@@ -201,6 +201,14 @@
   w5 = who.actor
 
  -- Row 7 -----------------------------------
+  Element = MedicationDispense.dispensingOrganization
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = Organization responsible for the dispense of the medication
+  Definition = The organizaation responsible for the dispense of the medication.
+  w5 = who.actor
+
+ -- Row 8 -----------------------------------
   Element = MedicationDispense.authorizingPrescription
   Card. = 0..*
   Type = Reference(MedicationOrder)
@@ -209,7 +217,7 @@
   v2 Mapping = ORC-2 Placer Order Number
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[moodCode=RQO]
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = MedicationDispense.type
   Card. = 0..1
   Type = CodeableConcept
@@ -219,7 +227,7 @@
   v2 Mapping = RXD-33-Dispense Type
   RIM Mapping = .code
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = MedicationDispense.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -228,14 +236,14 @@
   v2 Mapping = RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system
   RIM Mapping = .quantity
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = MedicationDispense.daysSupply
   Card. = 0..1
   Type = SimpleQuantity
   Short Label = Amount of medication expressed as a timing amount
   Definition = The amount of medication expressed as a timing amount.
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = MedicationDispense.whenPrepared
   Card. = 0..1
   Summary = y
@@ -246,7 +254,7 @@
   RIM Mapping = .effectiveTime[xmi:type=IVL_TS].low
   Committee Notes = This is time of dispense (preparation).  The time of supply to the patient is a separate attribute.
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = MedicationDispense.whenHandedOver
   Card. = 0..1
   Type = dateTime
@@ -256,7 +264,7 @@
   RIM Mapping = .effectiveTime[xmi:type=IVL_TS].high
   Committee Notes = The time of supply to the patient (pickup/handover in community or supply in inpatient).
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MedicationDispense.destination
   Card. = 0..1
   Type = Reference(Location)
@@ -266,7 +274,7 @@
   RIM Mapping = .participation[typeCode=DST].role
   Committee Notes = for inpatient setting this is core, but this may not be core for community setting.  Also core for internet pharmacy.  Core for radioactive materials  Will service delivery location be defined by another group?
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MedicationDispense.receiver
   Card. = 0..*
   Type = Reference(Patient|Practitioner)
@@ -275,7 +283,7 @@
   RIM Mapping = .participation[typeCode=RCV].role
   Committee Notes = This is in the core because Controlled Drugs must be signed for and the recievers identiy must be recorded.
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MedicationDispense.note
   Card. = 0..*
   Type = Annotation
@@ -284,7 +292,7 @@
   v2 Mapping = RXD-9 Dispense Notes
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=ACT,moodCode=EVN]
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationDispense.dosageInstruction
   Card. = 0..*
   UML = right
@@ -294,7 +302,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=INT]
   Committee Notes = The RMIM has priority code on the act relationship.  How do we handle this?
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MedicationDispense.dosageInstruction.text
   Card. = 0..1
   Type = string
@@ -302,7 +310,7 @@
   Definition = Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
   RIM Mapping = .text
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MedicationDispense.dosageInstruction.additionalInstructions
   Card. = 0..*
   Type = CodeableConcept
@@ -311,7 +319,7 @@
   Definition = Additional instructions such as \"Swallow with plenty of water\" which may or may not be coded.
   RIM Mapping = .text
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MedicationDispense.dosageInstruction.timing
   Card. = 0..1
   Type = Timing
@@ -319,7 +327,7 @@
   Definition = The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions.  For example, \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn\'t imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.
   RIM Mapping = .effectiveTime
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MedicationDispense.dosageInstruction.asNeeded[x]
   Card. = 0..1
   Type = boolean | CodeableConcept
@@ -328,7 +336,7 @@
   Definition = Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).  \n\nSpecifically if \'boolean\' datatype is selected, then the following logic applies:  If set to True, this indicates that the medication is only taken when needed, within the specified schedule.
   RIM Mapping = boolean: .outboundRelationship[typeCode=PRCN].negationInd (inversed - so negationInd = true means asNeeded=false  CodeableConcept: .outboundRelationship[typCode=PRCN].target[classCode=OBS, moodCode=EVN, isCriterionInd=true, code=\"Assertion\"].value
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MedicationDispense.dosageInstruction.site[x]
   Card. = 0..1
   Type = CodeableConcept | Reference(BodySite)
@@ -338,7 +346,7 @@
   v2 Mapping = RXR-2-Administration Site
   RIM Mapping = .approachSiteCode
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = MedicationDispense.dosageInstruction.route
   Card. = 0..1
   Type = CodeableConcept
@@ -348,7 +356,7 @@
   v2 Mapping = RXR-1-Route
   RIM Mapping = .routeCode
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = MedicationDispense.dosageInstruction.method
   Card. = 0..1
   Type = CodeableConcept
@@ -359,7 +367,7 @@
   v2 Mapping = RXR-4-Administration Method
   RIM Mapping = .methodCode
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = MedicationDispense.dosageInstruction.dose[x]
   Card. = 0..1
   Type = Range | SimpleQuantity
@@ -369,7 +377,7 @@
   v2 Mapping = RXE-23-Give Rate Amount / RXE-24.1-Give Rate Units.code / RXE-24.3-Give Rate Units.name of coding system
   RIM Mapping = .doseQuantity
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = MedicationDispense.dosageInstruction.rate[x]
   Card. = 0..1
   Type = Ratio|Range| SimpleQuantity
@@ -378,7 +386,7 @@
   v2 Mapping = RXE-22-Give Per (Time Unit)
   RIM Mapping = .rateQuantity
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = MedicationDispense.dosageInstruction.maxDosePerPeriod
   Card. = 0..1
   Type = Ratio
@@ -387,7 +395,7 @@
   v2 Mapping = RXE-4-Give Amount - Maximum / RXE-5-Give Units
   RIM Mapping = .maxDoseQuantity
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = MedicationDispense.substitution
   Card. = 0..1
   UML = right
@@ -396,7 +404,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SUBST, moodCode=EVN]
   Committee Notes = Significant discssion around this topic.  May not have it right yet. What about the attribution?
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = MedicationDispense.substitution.type
   Card. = 1..1
   Type = CodeableConcept
@@ -407,7 +415,7 @@
   RIM Mapping = .code
   Committee Notes = No substitution made or expected Subtitution made but not expected Substitution expected but not made Substitution made and expected
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = MedicationDispense.substitution.reason
   Card. = 0..*
   Type = CodeableConcept
@@ -416,7 +424,7 @@
   Definition = Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.
   RIM Mapping = .reasonCode
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = MedicationDispense.substitution.responsibleParty
   Card. = 0..*
   Type = Reference(Practitioner)
@@ -425,14 +433,14 @@
   RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGN]
   Committee Notes = Who is this handled?  Elsewhere attribution is handled by FHIR
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = MedicationDispense.eventHistory
   Card. = 0..*
   Short Label = A list of events of interest in the lifecycle
   Definition = A summary of the events of interest that have occurred, such as when the dispense was verified.
   Comments = This is not the same as an audit trail. It is a view of the important things that happened in the past. Typically, there would only be one entry for any given status, and systems may not record all the status events
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = MedicationDispense.eventHistory.status
   Card. = 1..1
   Type = code
@@ -440,7 +448,7 @@
   Short Label = in-progress | on-hold | completed | entered-in-error | stopped
   Definition = The status for the event
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = MedicationDispense.eventHistory.action
   Card. = 0..1
   Type = CodeableConcept
@@ -448,21 +456,21 @@
   Short Label = Action taken (e.g. verify)
   Definition = The action that was taken (e.g. verify)
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = MedicationDispense.eventHistory.dateTime
   Card. = 1..1
   Type = dateTime
   Short Label = The date at which the event happened
   Definition = The date/time at which the event occurred
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = MedicationDispense.eventHistory.actor
   Card. = 0..1
   Type = Reference(Practitioner)
   Short Label = Who took the action
   Definition = The person responsible for taking the action
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = MedicationDispense.eventHistory.reason
   Card. = 0..1
   Type = CodeableConcept

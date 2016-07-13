@@ -64,7 +64,7 @@
         <siteCodeableConcept>
             <coding>
                 <system value="http://snomed.info/sct"/>
-                <code value="right subclavian"/>
+                <code value="255560000"/>
                 <display value="Intravenous route (qualifier value)"/>
             </coding>
         </siteCodeableConcept>

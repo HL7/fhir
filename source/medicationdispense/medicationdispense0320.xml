@@ -100,7 +100,7 @@
         <route>
             <coding>
                 <system value="http://snomed.info/sct"/>
-                <code value="25556000"/>
+                <code value="255560000"/>
                 <display value="Intravenous"/>
             </coding>
         </route>
