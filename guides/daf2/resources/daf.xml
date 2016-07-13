@@ -535,6 +535,40 @@
 				<reference value="StructureDefinition/daf-core-allergyintolerance"/>
 			</exampleFor>
 		</resource>
+		
+		<!--daf-core-core valuesets-->
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/daf-core-substance"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/daf-core-substance-ndfrt"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/daf-core-substance-rxnorm"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/daf-core-substance-sct"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/daf-core-substance-unii"/>
+			</sourceReference>
+		</resource>
+	
+	
 	</package>
 	<!-- 
   <acronym target="daf-resultobsquantity" id="daf-qty"/>

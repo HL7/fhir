@@ -269,6 +269,11 @@
 			"base": "valueset-daf-race.html",
       "template-base" : null
 		},
+		
+		"ValueSet/daf-core-substance": {
+			"base": "valueset-daf-core-substance.html",
+      "template-base" : null
+		},
 		"ValueSet/daf-substance-ndfrt": {
 			"base": "valueset-daf-substance-ndfrt.html",
       "template-base" : null
@@ -285,6 +290,24 @@
 			"base": "valueset-daf-substance-unii.html",
       "template-base" : null
 		},
+		
+		"ValueSet/daf-core-substance-ndfrt": {
+			"base": "valueset-daf-core-substance-ndfrt.html",
+      "template-base" : null
+		},
+		"ValueSet/daf-core-substance-rxnorm": {
+			"base": "valueset-daf-core-substance-rxnorm.html",
+      "template-base" : null
+		},
+		"ValueSet/daf-core-substance-sct": {
+			"base": "valueset-daf-core-substance-sct.html",
+      "template-base" : null
+		},
+		"ValueSet/daf-core-substance-unii": {
+			"base": "valueset-daf-core-substance-unii.html",
+      "template-base" : null
+		},
+		
 		"ValueSet/daf-ucum-vitals-common": {
 			"base": "valueset-daf-ucum-vitals-common.html",
       "template-base" : null

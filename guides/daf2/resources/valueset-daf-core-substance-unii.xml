@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="daf-core-substance-unii"/>
+  <meta>
+    <lastUpdated value="2016-05-25T16:59:08.250+10:00"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <h2>DAF Substance UNII Codes</h2>
+      <p>All UNII codes.</p>
+      <p>This value set includes codes from the following code systems:</p>
+      <ul>
+        <li>Include all codes defined in http://fdasis.nlm.nih.gov</li>
+      </ul>
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.20"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/daf-substance-unii"/>
+  <name value="DAF Core Substance UNII Codes"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="All UNII codes."/>
+  <compose>
+    <include>
+      <system value="http://fdasis.nlm.nih.gov"/>
+    </include>
+  </compose>
+</ValueSet>
