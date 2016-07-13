@@ -18,6 +18,8 @@
 				
 			<li>Include codes from http://snomed.info/sct where concept  is-a  373873005</li>
 			
+			<li>Include codes from http://snomed.info/sct where concept  is-a  106181007</li>
+			
 		</ul>
 			
 		<p>SNOMED CT is being used here as the example terminology.</p>
@@ -79,6 +81,18 @@
 			<property value="concept"/>
 			<op value="is-a"/>
 			<value value="373873005"/>
+		</filter>
+	</include>
+	<include>
+		<system value="http://snomed.info/sct"/>
+		
+		<filter>
+			
+			<!--   SNOMED CT - Children of 106181007 Immunologic Substance (substance)   -->
+			
+			<property value="concept"/>
+			<op value="is-a"/>
+			<value value="106181007"/>
 		</filter>
 	</include>
 </compose>
