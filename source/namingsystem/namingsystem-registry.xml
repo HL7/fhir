@@ -45,6 +45,47 @@
     </resource>
   </entry>    
   <entry>
+    <fullUrl value="http://hl7.org/fhir/NamingSystem/us-medicare"/>
+    <resource>
+      <NamingSystem>
+        <id value="us-ssn"/>
+        <name value="United States Medicare Number"/>
+        <status value="active"/>
+        <kind value="identifier"/>
+        <date value="2016-07-12"/>
+        <publisher value="Centers for Medicare &amp; Medicaid Services"/>
+        <contact>  
+          <telecom>
+            <system value="other"/>
+            <value value="https://www.medicare.gov/"/>
+          </telecom>
+        </contact>
+        <type>
+          <coding>
+            <system value="http://hl7.org/fhir/identifier-type"/>
+            <code value="SB"/>
+          </coding>
+        </type>
+        <description value="Medicare Numbers (HIC or HICN) are represented without any spaces or dashes"/>
+        <useContext>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </useContext>
+        <uniqueId>  
+          <type value="uri"/>
+          <value value="http://hl7.org/fhir/sid/us-medicare"/>
+          <preferred value="true"/>
+         </uniqueId>
+        <uniqueId>  
+          <type value="oid"/>
+          <value value="2.16.840.1.113883.4.572"/>
+         </uniqueId>
+      </NamingSystem>
+    </resource>
+  </entry>    
+  <entry>
     <fullUrl value="http://hl7.org/fhir/NamingSystem/us-npi"/>
     <resource>
       <NamingSystem>
