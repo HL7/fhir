@@ -40,6 +40,7 @@ complexity that they require for their implementations.
 <a href="#text"><code>_text</code></a><br/>
 <a href="#content"><code>_content</code></a><br/>
 <a href="#list"><code>_list</code></a><br/>
+<a href="#has"><code>_has</code></a><br/>
 <a href="#_type"><code>_type</code></a><br/>
 <a href="#query"><code>_query</code></a><br/>
 </td>
@@ -803,6 +804,50 @@ resource across different types.  For example, the client has to specify the typ
 using the syntax in the second example above.
 </p>
 
+<a name="has"> </a>
+<h4>Reverse Chaining</h4>
+
+<p>
+The _has parameter provides limited support for reverse chaining - that is, selecting 
+resources based on the properties of resources that refer to them (instead of chaining,
+above, where resources can be selected based on the properties of resources that they
+refer to). Here is an example of gthe _has parameter:
+</p>
+<pre>
+GET [base]/Patient?_has:Observation:patient:code=1234-5
+</pre>
+<p>
+This requests the server to return Patient resources, where the patient resource is 
+referred to by at least one Observation where the observation has a code of 1234, and
+where the Observation refers to the patient resource in the patient search parameter.
+</p>
+<p>
+Note the following limitations on the use of the <code>_has</code> parameter:
+</p>
+<ul>
+ <li>There is no support for reverse chaining to more than one level</li>
+ <li>Modifiers are not supported (e.g. GET [base]/Patient?_has:Observation:subject:code:in=http://loinc.org)</li>
+ <li>Chaining is not supported (e.g. GET [base]/Patient?_has:Observation:subject:device.identifier=foo)</li>
+</ul>
+<p>
+"Or" searches are allowed (e.g. GET [base]/Patient?_has:Observation:subject:code=123,456), and multiple _has 
+parameters are allowed (e.g. GET [base]/Patient?_has:Observation:subject:code=123&amp;_has:Observation:subject:code=456).
+Note that each _has parameter is processed independently of other _has parameters.
+</p>
+
+<blockquote class="dstu-note">
+<a name="dstu"> </a>
+<p>
+<b>STU Note:</b> the _has search parameter is a new 
+addition that has generated significant discussion. if adopted, it may
+replace the <a href="#has">_list</a> parameter. Or not. 
+</p>
+<p>
+Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
+</p>
+</blockquote>
+
+
 <a name="composite" />
 <a name="combining" />
 <h4>Composite Search Parameters</h4>
@@ -978,6 +1023,18 @@ and the <a href="list-operations.html#find">List Operation "Find"</a>.
 Note: Servers are not required to make these lists available to the clients as list resources,
 but may choose to do so.
 </p>
+
+<blockquote class="dstu-note">
+<a name="dstu"> </a>
+<p>
+<b>STU Note:</b> the <a href="#has">_has</a> search parameter documented above is a new 
+addition that has generated significant discussion. if adopted, it may
+replace the _list parameter. Or not. 
+</p>
+<p>
+Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
+</p>
+</blockquote>
 
 <a name="filter"> </a>
 <a name="_filter"> </a>
