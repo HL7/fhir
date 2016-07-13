@@ -117,6 +117,7 @@ import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ConceptMap;
+import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
@@ -130,6 +131,7 @@ import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageRe
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageComponent;
 import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.NamingSystem;
+import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemContactComponent;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
@@ -1113,7 +1115,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     StringBuilder b = new StringBuilder();
     for (NamingSystem ns : definitions.getNamingSystems()) {
       b.append("<tr>\r\n");
-      b.append("  <td>"+Utilities.escapeXml(ns.getName())+"</td>\r\n");
+      String url = getPublisherUrl(ns);
+      if (url != null)
+        b.append("  <td><a href=\""+url+"\">"+Utilities.escapeXml(ns.getName())+"</a></td>\r\n");
+      else
+        b.append("  <td>"+Utilities.escapeXml(ns.getName())+"</td>\r\n");
       String uri = getUri(ns);
       String oid = getOid(ns);
       b.append("  <td>"+Utilities.escapeXml(uri)+"</td>\r\n");
@@ -1138,6 +1144,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append("</tr>\r\n");
     }
     return b.toString();
+  }
+
+  private String getPublisherUrl(NamingSystem ns) {
+    for (NamingSystemContactComponent c : ns.getContact()) {
+      for (ContactPoint cp : c.getTelecom()) {
+        if ((cp.getSystem() == ContactPointSystem.OTHER || cp.getSystem() == null) && (cp.hasValue() && (cp.getValue().startsWith("http:") || cp.getValue().startsWith("https:"))))
+          return cp.getValue();
+      }
+    }
+    return null;
   }
 
   private String getCountry(NamingSystem ns) {

@@ -29,24 +29,88 @@ Editor: Paul Knapp
 </p>
 
 <a name="index"> </a>
-<h3>Index</h3>
+<h3>Key Content in the Financial Module</h3>
+
+[%res-category Support|Administrative%]
+<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+[%res-item Account%]
+[%res-item Coverage%]
+[%res-item EligibilityRequest%]
+[%res-item EligibilityResponse%]
+[%res-item EnrollmentRequest%]
+[%res-item EnrollmentResponse%]
+
+[%res-category Billing|Claims, processing and responses %]
+<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+<!-- [%res-item ClaimResponse%] -->
+[%res-item Claim%]
+[%res-item ClaimResponse%]
+
+[%res-category Payment|Used to support service payment processing and reporting%]
+<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+[%res-item PaymentNotice%]
+[%res-item PaymentReconciliation%]
+
+[%res-category Other|Patient reporting and other purposes%]
+<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+[%res-item ExplanationOfBenefit%]
+</table>
+
 <p>
-In this section: links to key content pages in the module
+Additional Resources will be added in the future. A list of hypothesized resources can be found on the 
+<a href="http://wiki.hl7.org/index.php?title=FHIR_Resource_Types">HL7 wiki</a>.  Feel free to add any you think are missing or engage with one 
+of the <a href="http://www.hl7.org/Special/committees/index.cfm">HL7 Work Groups</a> to submit a 
+<a href="http://wiki.hl7.org/index.php?title=Category:FHIR_Resource_Proposal">proposal</a> to define a resource of particular interest.
 </p>
 
 <a name="secpriv"> </a>
 <h3>Security and Privacy</h3>
 <p>
-In this section: description of key security and privacy issues, or references to pages that deal with this. 
-For the security / privcay module itself, this section does not exist. For other modules, the paragraph/section can end with this boilerplate:
+To do...
 For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
 </p>
 
 <a name="uses"> </a>
 <h3>Common use Cases</h3>
-<p>
-In this section: common problems in the space of the module, ways to go about solving them, or references to additional problem based linkes
-</p>
+
+ <p>
+ The table below details various common business activities which occur in the financial realm, and the focal resources 
+ which may be exchanged, along with supporting resources, to accomplish the business activities. Whether or not the 
+ resources specified are actually needed requires consideration of the business itself and the exchange methodology 
+ and transport being used. 
+ </p>
+ <p>
+ For example, if a definitive 'Request' does not need to be documented and communicating parties are using REST 
+ then a GET may be used in place of a CREATE of the request resource. Alternately, if FHIR Operations are being used then
+ the specified focal resource may not be required or may be employed as one of the Operation parameters.
+ </p>
+ 
+ 
+<table class="grid">
+ <tr><td><b>Business Activity</b></td><td><b>Request Resource</b></td><td><b>Response Resource</b></td></tr>
+ <tr><td>Eligibility Check</td><td><a href="eligibilityrequest.html">EligibilityRequest</a></td><td><a href="eligibilityresponse.html">EligibilityResponse</a></td></tr>
+ <tr><td>Enrollment Update</td><td><a href="enrollmentrequest.html">EnrollmentRequest</a></td><td><a href="enrollmentresponse.html">EnrollmentResponse</a></td></tr>
+ <tr><td>Claim</td><td><a href="claim.html">Claim</a> (type={discipline}, use=complete)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Pre-determination</td><td><a href="claim.html">Claim</a> (type={discipline}, use=exploratory)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Pre-Authorization</td><td><a href="claim.html">Claim</a> (type={discipline}, use=proposed)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Reversal</td><td><a href="processrequest.html">ProcessRequest</a> (action=cancel, nullify=false)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Nullify</td><td><a href="processrequest.html">ProcessRequest</a> (action=cancel, nullify=true)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Re-adjudication</td><td><a href="processrequest.html">ProcessRequest</a> (action=reprocess)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Status Check</td><td><a href="processrequest.html">ProcessRequest</a> (action=status)</td><td><a href="processresponse.html">ProcessResponse</a></td></tr>
+ <tr><td>Pended Check (Polling)</td><td><a href="processrequest.html">ProcessRequest</a> (action=poll)</td><td><a href="resourcelist.html">{Resource}</a> or <a href="processresponse.html">ProcessResponse</a></td></tr>
+ <tr><td>Payment Notice</td><td><a href="paymentnotice.html">PaymentNotice</a></td><td><a href="processresponse.html">ProcessResponse</a></td></tr>
+ <tr><td>Payment Reconciliation</td><td><a href="processrequest.html">ProcessRequest</a> (action=poll, include=<a href="paymentreconciliation.html">PaymentReconciliation</a>)</td><td><a href="paymentreconciliation.html">PaymentReconciliation</a></td></tr>
+ <tr><td>Send Attachments</td><td><a href="documentmanifest.html">DocumentManifest</a></td><td><a href="processresponse.html">ProcessResponse</a></td></tr>
+ <tr><td>Send Attachments *NEW</td><td><a href="communication.html">Communication</a></td><td><a href="processresponse.html">ProcessResponse</a></td></tr>
+ <tr><td>Request Attachments *NEW</td><td><a href="processrequest.html">ProcessRequest</a> (action=poll, include=<a href="communicationrequest.html">CommunicationRequest</a>)</td><td><a href="communicationrequest.html">CommunicationRequest</a></td></tr>
+ <tr><td>Request an Explanation of Benefits&nbsp;&nbsp;&nbsp;</td><td><a href="processrequest.html">ProcessRequest</a> (action=poll, include=<a href="explanationofbenefit.html">ExplanationOfBenefit</a>)</td><td><a href="explanationofbenefit.html">ExplanationOfBenefit</a></td></tr>
+</table>
+ <p>
+ <b>{discipline}</b> means the type of claim: OralHealth, Vision, Pharmacy, Professional or Institutional.
+ </p>
+  <p>
+ <b>{Resource}</b> means any pended or undelivered resource subject to the selection details specified in the request.
+ </p>
 
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>

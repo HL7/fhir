@@ -20,63 +20,48 @@
 <p>
 First time here? See the <a href="summary.html">executive summary</a>, the <a href="overview-dev.html">developer's introduction</a>, 
 or the <a href="overview-clinical.html">clinical introduction</a>, and then the <a href="overview.html">FHIR overview / roadmap</a>. 
-See also the <a href="license.html">open license</a> (and don't miss the full <a href="toc.html">Table of Contents</a>[%search-link or you can%]).
+See also the <a href="license.html">open license</a> (and don't miss the full <a href="toc.html">Table of Contents</a> or you can <a href="search.cfm">search this specification</a>).
 </p>
 
-<p>
-<b><a href="history.html">DSTU updates</a></b>:
-</p>
-<ul>
- <li><a href="history.html#v1.0.2">Oct-24 2015</a>: Corrections to invariants, generated conformance resources, extension cardinalities, examples</li>
-</ul>
-<p><b>Major Sections:</b></p>
-<table class="bare">
- <tr>
-  <td align="middle"><a href="documentation.html"><img src="icon-documentation.png" height="128" width="128"/><br/>General<br/>Documentation</a></td>
-  <td align="middle"><a href="implementation.html"><img src="icon-implementation.png" height="128" width="128"/><br/>Implementation<br/>&amp; Exchange</a></td>
-  <td align="middle"><a href="clinical.html"><img src="icon-clinical.png" height="128" width="128"/><br/>Clinical<br/>Resources</a></td>
-  <td align="middle"><a href="administration.html"><img src="icon-administration.png" height="128" width="128"/><br/>Administrative<br/>Resources</a></td>
-  <td align="middle"><a href="infrastructure.html"><img src="icon-infrastructure.png" height="128" width="128"/><br/>Infrastructural<br/>Resources</a></td>
- </tr>
-</table>
+[%file modules-fragment%]
 
 <a name="links"> </a>
-<p><b>Quick links:</b></p>
+<p><b>Quick Links:</b></p>
 
-<table class="bare" width="100%"><tr>
- <td> <!-- Common internal links -->
+<table width="100%" class="bare"><tr>
+ <td>   <!-- Common internal links -->
 <p>Documentation</p>
   <ul>
     <li><a href="resourcelist.html">Resource List</a></li>
-    <li><a href="json.html">JSON</a>, <a href="xml.html">XML</a> &amp; <a href="rdf.html">RDF</a></li>
+<!--    <li><a href="json.html">JSON</a>, <a href="xml.html">XML</a> &amp; <a href="rdf.html">RDF</a></li>
     <li><a href="http.html">REST API</a> &amp; <a href="search.html">Search</a></li>
     <li><a href="datatypes.html">Data Types</a></li>
     <li><a href="terminologies.html">Using Terminologies</a></li>
-    <li><a href="extensibility.html">Extensions</a></li>
+    <li><a href="extensibility.html">Extensions</a></li> -->
     <li><a href="toc.html">Full table of contents</a></li>
  </ul>
  </td><td> 
   <p>Implementation</p>
   <ul>
-    <li><a href="downloads.html">Downloads</a></li>
+<!--    <li><a href="downloads.html">Downloads</a></li>
     <li><a href="profiling.html">Adapting FHIR for local use</a></li>
     <li><a href="iglist.html">Implementation Guides</a></li>
     <li><a href="fhir-all-xsd.zip">FHIR Schemas &amp; Schematrons</a></li>
     <li>Examples: <a href="examples.zip">XML</a>, <a href="examples-json.zip">JSON</a></li>
-    <li>Code: <a href="[%reflink java%]">Java</a>, <a href="[%reflink csharp%]">C#</a>, <a href="[%reflink pascal%]">Pascal</a>, <a href="https://github.com/smart-on-fhir/Swift-FHIR">iOS</a>, <a href="[%reflink javascript%]">JS</a>, <a href="[%reflink xmltools%]">XML</a></li>
-    <li><a href="usecases.html">Common Use Cases</a> &amp; <a href="profilelist.html">Profiles</a></li>
+    <li>Code: <a href="fhir-1.5.0-Java-1.0.zip">Java</a>, <a href="http://www.nuget.org/packages/Hl7.Fhir">C# <img src="external.png" style="text-align: baseline"/></a>, <a href="fhir-1.5.0-Pascal-0.80.zip">Pascal</a>, <a href="https://github.com/smart-on-fhir/Swift-FHIR">iOS <img src="external.png" style="text-align: baseline"/></a>, <a href="fhir-1.5.0-JavaScript-0.1.zip">JS</a>, <a href="fhir-1.5.0-XML Tools-0.01.zip">XML</a></li>-->
+    <li><a href="usecases.html">Common Use Cases</a> &amp; <a href="profilelist.html">Profiles</a></li> 
     <li><a href="security.html">Security</a></li>
  </ul>
  </td><td> 
   <p>External Links</p>
   <ul>
-    <li><a href="http://wiki.hl7.org/index.php?title=FHIR_Support_Page">Support Links</a> (StackOverflow, Forum, etc.)</li>
-    <li><a href="http://wiki.hl7.org/index.php?title=Publicly_Available_FHIR_Servers_for_testing">Public Test Servers &amp; Software</a></li>
-    <li><a href="http://wiki.hl7.org/index.php?title=FHIR_Methodology_Process">How FHIR is developed</a></li>
-    <li><a href="http://wiki.hl7.org/index.php?title=FHIR">FHIR Wiki</a></li>
-    <li><a href="http://wiki.hl7.org/index.php?title=FHIR_Profiles_from_other_Organizations">Implementation guide registry</a></li>
-    <li><a href="http://wiki.hl7.org/index.php?title=FHIR_Blogs">Blogs that cover FHIR</a></li>
-    <li>Translations: <a href="http://fhir-ru.github.io/index.html">Russian</a>, <a href="https://sites.google.com/site/fhirjp/">Japanese</a></li>
+    <li><a href="http://wiki.hl7.org/index.php?title=FHIR_Support_Page">Support Links <img src="external.png" style="text-align: baseline"/></a> (StackOverflow, Forum, etc.)</li>
+    <li><a href="http://wiki.hl7.org/index.php?title=Publicly_Available_FHIR_Servers_for_testing">Public Test Servers &amp; Software <img src="external.png" style="text-align: baseline"/></a></li>
+<!--    <li><a href="http://wiki.hl7.org/index.php?title=FHIR_Methodology_Process">How FHIR is developed <img src="external.png" style="text-align: baseline"/></a></li> -->
+    <li><a href="http://wiki.hl7.org/index.php?title=FHIR">FHIR Wiki <img src="external.png" style="text-align: baseline"/></a></li>
+    <li><a href="http://wiki.hl7.org/index.php?title=FHIR_Profiles_from_other_Organizations">Implementation guide registry <img src="external.png" style="text-align: baseline"/></a></li>
+    <li><a href="http://wiki.hl7.org/index.php?title=FHIR_Blogs">Blogs that cover FHIR <img src="external.png" style="text-align: baseline"/></a></li>
+    <li>Translations: <a href="http://fhir-ru.github.io/index.html">Russian <img src="external.png" style="text-align: baseline"/></a>, <a href="https://sites.google.com/site/fhirjp/">Japanese <img src="external.png" style="text-align: baseline"/></a></li>
   </ul>
 </td></tr></table>
 
@@ -85,6 +70,7 @@ See also the <a href="license.html">open license</a> (and don't miss the full <a
 
 <p>Note: This specification requires a browser that is SVG compatible (Microsoft Internet Explorer 10+, Firefox 3.0+, Chrome, or Safari), and uses the browser's session storage to remember which tabs are active.</p>
  
+
 </div>
 
 [%file newfooter%]
