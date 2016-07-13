@@ -30,27 +30,10 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 * [AI-Example1]()
 
  
-##### Search Parameters 
+##### Terminology
 
-The following search required search and read operations are required to conform to this profile:
+The following value sets ( code set ) are listed for each of the mandatory elements listed above that use codes.  They are presented alongside their binding strength which describes whether the codes are required or not. The [**Formal Profile Definition**](#profile) below provides a formal summary of all the terminology for this profile.
 
-`GET /AllergyIntolerance?patient=[id]`
-
-Support: Mandatory to support search by patient.
-
-Implementation Notes: Search for all allergies for a patient. Fetches a bundle of all AllergyIntolerance resources for the specified patient (how to search by reference).
-
-Response Class:
-
-* (Status 200): successful operation
-
-* (Status 400): invalid parameter
-
-* (Status 401/4xx): unauthorized request
-
-* (Status 403): insufficient scope
-
-Example:
-
-* [GET https://fhir-open-api-dstu2.smarthealthit.org/AllergyIntolerance?patient=1137192](https://fhir-open-api-dstu2.smarthealthit.org/AllergyIntolerance?patient=1137192)
+2.  a code which tells you what the patient is allergic to  - uses [ABC ValueSet]() which is [required]()
+3.  a status of the allergy - uses [ABC ValueSet]() which is required but [extensible]() (note: for demo purposes)
 
