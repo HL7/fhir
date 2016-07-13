@@ -57,6 +57,13 @@
   Definition = If this code is found in an instance, then the exception applies
   Conformance = example
 
+ -- Row 9 -----------------------------------
+  Binding Name = PurposeOfUse
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-PurposeOfUse
+  Definition = What purposes of use are controlled by this exception. If more than one label is specified, operations must have all the specified labels
+  Conformance = extensible
+
 === Sheet consent-status =====================================
 
  -- Row 1 -----------------------------------
@@ -265,6 +272,16 @@
   w5 = who.actor
 
  -- Row 13 -----------------------------------
+  Element = Consent.purpose
+  Card. = 0..*
+  Summary = Y
+  Type = Coding
+  Binding = PurposeOfUse
+  Short Label = The purpose of use for which the consent is granted
+  Definition = The purpose of use (e.g. the reason that an action is being taken) for which this consent is granted.
+  Comments = This element is for discoverability / documentation, and does not modify or qualify the policy (e.g. the policy itself describes the purposes for which it applies)
+
+ -- Row 14 -----------------------------------
   Element = Consent.except
   Card. = 0..*
   Summary = Y
@@ -273,7 +290,7 @@
   Short Label = Consent Exception
   Definition = An exception to the base policy of this Consent.
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Consent.except.type
   Card. = 1..1
   Summary = Y
@@ -282,7 +299,7 @@
   Short Label = deny | permit
   Definition = How the exception is statement is applied, as adding additional consent, ore removing
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Consent.except.period
   Card. = 0..1
   Summary = Y
@@ -291,7 +308,7 @@
   Definition = Relevant time or time-period when this Consent Exception is applicable.
   Comments = This can be a subset of the period of the whole consent resource
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Consent.except.actor
   Card. = 0..*
   Summary = Y
@@ -299,7 +316,7 @@
   Definition = Who or what is controlled by this Exception. Use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
   Missing Meaning = There is no specific actor associated with the exception
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Consent.except.actor.role
   Card. = 1..1
   Type = CodeableConcept
@@ -307,14 +324,14 @@
   Short Label = How the actor is/was involved
   Definition = How the individual is or was involved in the resourcescontent that is described in the exception
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Consent.except.actor.reference
   Card. = 1..1
   Type = Reference(Device|Group|CareTeam|Organization|Patient|Practitioner|RelatedPerson)
   Short Label = Resource for the actor (or group, by role)
   Definition = The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Consent.except.action
   Card. = 0..*
   Summary = Y
@@ -324,7 +341,7 @@
   Definition = Actions controlled by this Exception
   Missing Meaning = all actions
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Consent.except.securityLabel
   Card. = 0..*
   Summary = Y
@@ -334,17 +351,17 @@
   Definition = A set of security labels that define which resources are controlled by this exception. If more than one label is specified, all resources must have all the specified labels
   Comments = If the consent specifies a security label of \"R\" then it applies to all resources that are labelled \"R\" or lower. E.g. for Confidentiality, it\'s a high water mark. For other kinds of security labels, subsumption logic applies. Not all of the security labels make sense for use in this element (may define a narrower value set?)
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Consent.except.purpose
   Card. = 0..*
   Summary = Y
   Type = Coding
-  Binding = SecurityLabels
-  Short Label = Security Labels for the operation/context
-  Definition = A set of security labels that define the context of which actions are controlled by this exception. If more than one label is specified, operations must have all the specified labels
+  Binding = PurposeOfUse
+  Short Label = How the data is intended to be used
+  Definition = What purposes of use are controlled by this exception. If more than one label is specified, operations must have all the specified labels
   Comments = E.g. if the purpose is \'research\', then the operational context must be research, in order for the consent to apply. Not all of the security labels make sense for use in this element (may define a narrower value set?)
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Consent.except.class
   Card. = 0..*
   Summary = Y
@@ -354,7 +371,7 @@
   Definition = The class of information covered by this exception. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to
   Comments = Multiple types are or\'ed together. The intention of the contentType element is that the codes refer to profiles or document types defined in a standard or an implementation guide somewhere
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Consent.except.code
   Card. = 0..*
   Summary = Y
@@ -364,7 +381,7 @@
   Definition = If this code is found in an instance, then the exception applies. TODO: where do you not have to look? This is a problematic element
   Comments = Typical use of this is a Document code with class = CDA
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Consent.except.data
   Card. = 0..*
   Summary = Y
@@ -373,7 +390,7 @@
   RIM Mapping = Role
   Missing Meaning = all data
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Consent.except.data.meaning
   Card. = 1..1
   Summary = Y
@@ -382,7 +399,7 @@
   Short Label = instance | related | dependents
   Definition = How the resource reference is interpreted when testing consent restrictions
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Consent.except.data.reference
   Card. = 1..1
   Summary = Y
