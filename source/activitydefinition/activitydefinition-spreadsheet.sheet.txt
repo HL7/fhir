@@ -131,8 +131,8 @@
  -- Row 1 -----------------------------------
   Element = ActivityDefinition
   Type = DomainResource
-  Short Label = The definition of a plan for a series of actions, independent of any specific patient
-  Definition = This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support
+  Short Label = The definition of a specific activity to be taken, independent of any particular patient or context
+  Definition = This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context
   w5 = clinical.general
 
  -- Row 2 -----------------------------------

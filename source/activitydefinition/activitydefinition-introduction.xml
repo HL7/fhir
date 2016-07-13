@@ -4,19 +4,19 @@
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
 <p>
-<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Improvement Framework Implementation Guide</a>.</i>
+<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Framework Implementation Guide</a>.</i>
 </p>
 
-<p>An activity definition is a pre-defined activity that can be used to specify the activities to be performed as part of a plan definition.</p>
+<p>An activity definition is a shareable, consumable description of some activity to be performed. It may be used to specify actions to be taken as part of an order set or protocol, or it may be used independently as part of a catalog of activities such as orderables.</p>
 
+<p>For more information on how activity definitions can be used to construct request resources, see the Category Mapping and Realizing an ActivityDefinition topics below.</p>
 </div>
 
-<!-- (recommended): 
 <div>
 <h2>Boundaries and Relationships</h2>
-<p>
-Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
-</p>
+<p>In general, an activity definition is simply a conceptual description of some specific action that should be taken. An instance of an ActivityDefinition does not indicate that any action has been performed (as an <i>event</i> resource does), nor does it indicate the actual <i>intent</i> to carry out any particular action (as a <i>request</i> resource does).</p>
+
+<p>Instead, an activity definition provides a reusable template that can potentially be used to construct specific <i>request</i> resources such as ProcedureRequest and MedicationRequest.</p>
 </div>
 -->
 
