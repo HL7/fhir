@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
+// Generated on Wed, Jul 13, 2016 05:32+1000 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -124,6 +124,7 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
       return false;
     }
 
+    // syntactic sugar
     public DomainResource addContained(Resource t) { //3
       if (t == null)
         return this;
@@ -133,6 +134,8 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
       return this;
     }
 
+
+    
     /**
      * @return {@link #contained} (These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.)
      */

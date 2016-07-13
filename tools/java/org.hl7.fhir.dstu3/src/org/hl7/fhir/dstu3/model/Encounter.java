@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 12, 2016 17:43+1000 for FHIR v1.5.0
+// Generated on Wed, Jul 13, 2016 09:40+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -855,6 +855,7 @@ Not to be used when the patient is currently at the location
          */
         @Child(name = "reAdmission", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The type of hospital re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission", formalDefinition="Whether this hospitalization is a readmission and why if known." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v2-0092")
         protected CodeableConcept reAdmission;
 
         /**

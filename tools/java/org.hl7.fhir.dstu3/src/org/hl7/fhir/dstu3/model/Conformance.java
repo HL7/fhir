@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 12, 2016 17:43+1000 for FHIR v1.5.0
+// Generated on Wed, Jul 13, 2016 09:40+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -1114,6 +1114,10 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         /**
          * null
          */
+        BATCH, 
+        /**
+         * null
+         */
         SEARCHSYSTEM, 
         /**
          * null
@@ -1128,6 +1132,8 @@ public class Conformance extends BaseConformance implements IBaseConformance {
                 return null;
         if ("transaction".equals(codeString))
           return TRANSACTION;
+        if ("batch".equals(codeString))
+          return BATCH;
         if ("search-system".equals(codeString))
           return SEARCHSYSTEM;
         if ("history-system".equals(codeString))
@@ -1140,6 +1146,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         public String toCode() {
           switch (this) {
             case TRANSACTION: return "transaction";
+            case BATCH: return "batch";
             case SEARCHSYSTEM: return "search-system";
             case HISTORYSYSTEM: return "history-system";
             default: return "?";
@@ -1148,6 +1155,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         public String getSystem() {
           switch (this) {
             case TRANSACTION: return "http://hl7.org/fhir/restful-interaction";
+            case BATCH: return "http://hl7.org/fhir/restful-interaction";
             case SEARCHSYSTEM: return "http://hl7.org/fhir/restful-interaction";
             case HISTORYSYSTEM: return "http://hl7.org/fhir/restful-interaction";
             default: return "?";
@@ -1156,6 +1164,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         public String getDefinition() {
           switch (this) {
             case TRANSACTION: return "";
+            case BATCH: return "";
             case SEARCHSYSTEM: return "";
             case HISTORYSYSTEM: return "";
             default: return "?";
@@ -1164,6 +1173,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         public String getDisplay() {
           switch (this) {
             case TRANSACTION: return "transaction";
+            case BATCH: return "batch";
             case SEARCHSYSTEM: return "search-system";
             case HISTORYSYSTEM: return "history-system";
             default: return "?";
@@ -1178,6 +1188,8 @@ public class Conformance extends BaseConformance implements IBaseConformance {
                 return null;
         if ("transaction".equals(codeString))
           return SystemRestfulInteraction.TRANSACTION;
+        if ("batch".equals(codeString))
+          return SystemRestfulInteraction.BATCH;
         if ("search-system".equals(codeString))
           return SystemRestfulInteraction.SEARCHSYSTEM;
         if ("history-system".equals(codeString))
@@ -1192,6 +1204,8 @@ public class Conformance extends BaseConformance implements IBaseConformance {
             return null;
         if ("transaction".equals(codeString))
           return new Enumeration<SystemRestfulInteraction>(this, SystemRestfulInteraction.TRANSACTION);
+        if ("batch".equals(codeString))
+          return new Enumeration<SystemRestfulInteraction>(this, SystemRestfulInteraction.BATCH);
         if ("search-system".equals(codeString))
           return new Enumeration<SystemRestfulInteraction>(this, SystemRestfulInteraction.SEARCHSYSTEM);
         if ("history-system".equals(codeString))
@@ -1201,6 +1215,8 @@ public class Conformance extends BaseConformance implements IBaseConformance {
     public String toCode(SystemRestfulInteraction code) {
       if (code == SystemRestfulInteraction.TRANSACTION)
         return "transaction";
+      if (code == SystemRestfulInteraction.BATCH)
+        return "batch";
       if (code == SystemRestfulInteraction.SEARCHSYSTEM)
         return "search-system";
       if (code == SystemRestfulInteraction.HISTORYSYSTEM)
@@ -1208,128 +1224,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return "?";
       }
     public String toSystem(SystemRestfulInteraction code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum TransactionMode {
-        /**
-         * Neither batch or transaction is supported.
-         */
-        NOTSUPPORTED, 
-        /**
-         * Batches are  supported.
-         */
-        BATCH, 
-        /**
-         * Transactions are supported.
-         */
-        TRANSACTION, 
-        /**
-         * Both batches and transactions are supported.
-         */
-        BOTH, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static TransactionMode fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("not-supported".equals(codeString))
-          return NOTSUPPORTED;
-        if ("batch".equals(codeString))
-          return BATCH;
-        if ("transaction".equals(codeString))
-          return TRANSACTION;
-        if ("both".equals(codeString))
-          return BOTH;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown TransactionMode code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case NOTSUPPORTED: return "not-supported";
-            case BATCH: return "batch";
-            case TRANSACTION: return "transaction";
-            case BOTH: return "both";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case NOTSUPPORTED: return "http://hl7.org/fhir/transaction-mode";
-            case BATCH: return "http://hl7.org/fhir/transaction-mode";
-            case TRANSACTION: return "http://hl7.org/fhir/transaction-mode";
-            case BOTH: return "http://hl7.org/fhir/transaction-mode";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case NOTSUPPORTED: return "Neither batch or transaction is supported.";
-            case BATCH: return "Batches are  supported.";
-            case TRANSACTION: return "Transactions are supported.";
-            case BOTH: return "Both batches and transactions are supported.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case NOTSUPPORTED: return "None";
-            case BATCH: return "Batches supported";
-            case TRANSACTION: return "Transactions Supported";
-            case BOTH: return "Batches & Transactions";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class TransactionModeEnumFactory implements EnumFactory<TransactionMode> {
-    public TransactionMode fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("not-supported".equals(codeString))
-          return TransactionMode.NOTSUPPORTED;
-        if ("batch".equals(codeString))
-          return TransactionMode.BATCH;
-        if ("transaction".equals(codeString))
-          return TransactionMode.TRANSACTION;
-        if ("both".equals(codeString))
-          return TransactionMode.BOTH;
-        throw new IllegalArgumentException("Unknown TransactionMode code '"+codeString+"'");
-        }
-        public Enumeration<TransactionMode> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("not-supported".equals(codeString))
-          return new Enumeration<TransactionMode>(this, TransactionMode.NOTSUPPORTED);
-        if ("batch".equals(codeString))
-          return new Enumeration<TransactionMode>(this, TransactionMode.BATCH);
-        if ("transaction".equals(codeString))
-          return new Enumeration<TransactionMode>(this, TransactionMode.TRANSACTION);
-        if ("both".equals(codeString))
-          return new Enumeration<TransactionMode>(this, TransactionMode.BOTH);
-        throw new FHIRException("Unknown TransactionMode code '"+codeString+"'");
-        }
-    public String toCode(TransactionMode code) {
-      if (code == TransactionMode.NOTSUPPORTED)
-        return "not-supported";
-      if (code == TransactionMode.BATCH)
-        return "batch";
-      if (code == TransactionMode.TRANSACTION)
-        return "transaction";
-      if (code == TransactionMode.BOTH)
-        return "both";
-      return "?";
-      }
-    public String toSystem(TransactionMode code) {
       return code.getSystem();
       }
     }
@@ -2418,35 +2312,27 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         protected List<SystemInteractionComponent> interaction;
 
         /**
-         * A code that indicates how transactions are supported.
-         */
-        @Child(name = "transactionMode", type = {CodeType.class}, order=6, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="not-supported | batch | transaction | both", formalDefinition="A code that indicates how transactions are supported." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/transaction-mode")
-        protected Enumeration<TransactionMode> transactionMode;
-
-        /**
          * Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.
          */
-        @Child(name = "searchParam", type = {ConformanceRestResourceSearchParamComponent.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "searchParam", type = {ConformanceRestResourceSearchParamComponent.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Search params for searching all resources", formalDefinition="Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation." )
         protected List<ConformanceRestResourceSearchParamComponent> searchParam;
 
         /**
          * Definition of an operation or a named query and with its parameters and their meaning and type.
          */
-        @Child(name = "operation", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "operation", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Definition of an operation or a custom query", formalDefinition="Definition of an operation or a named query and with its parameters and their meaning and type." )
         protected List<ConformanceRestOperationComponent> operation;
 
         /**
          * An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it's canonical URL.
          */
-        @Child(name = "compartment", type = {UriType.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "compartment", type = {UriType.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Compartments served/used by system", formalDefinition="An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it's canonical URL." )
         protected List<UriType> compartment;
 
-        private static final long serialVersionUID = 931983837L;
+        private static final long serialVersionUID = -351789290L;
 
     /**
      * Constructor
@@ -2688,55 +2574,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         }
 
         /**
-         * @return {@link #transactionMode} (A code that indicates how transactions are supported.). This is the underlying object with id, value and extensions. The accessor "getTransactionMode" gives direct access to the value
-         */
-        public Enumeration<TransactionMode> getTransactionModeElement() { 
-          if (this.transactionMode == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ConformanceRestComponent.transactionMode");
-            else if (Configuration.doAutoCreate())
-              this.transactionMode = new Enumeration<TransactionMode>(new TransactionModeEnumFactory()); // bb
-          return this.transactionMode;
-        }
-
-        public boolean hasTransactionModeElement() { 
-          return this.transactionMode != null && !this.transactionMode.isEmpty();
-        }
-
-        public boolean hasTransactionMode() { 
-          return this.transactionMode != null && !this.transactionMode.isEmpty();
-        }
-
-        /**
-         * @param value {@link #transactionMode} (A code that indicates how transactions are supported.). This is the underlying object with id, value and extensions. The accessor "getTransactionMode" gives direct access to the value
-         */
-        public ConformanceRestComponent setTransactionModeElement(Enumeration<TransactionMode> value) { 
-          this.transactionMode = value;
-          return this;
-        }
-
-        /**
-         * @return A code that indicates how transactions are supported.
-         */
-        public TransactionMode getTransactionMode() { 
-          return this.transactionMode == null ? null : this.transactionMode.getValue();
-        }
-
-        /**
-         * @param value A code that indicates how transactions are supported.
-         */
-        public ConformanceRestComponent setTransactionMode(TransactionMode value) { 
-          if (value == null)
-            this.transactionMode = null;
-          else {
-            if (this.transactionMode == null)
-              this.transactionMode = new Enumeration<TransactionMode>(new TransactionModeEnumFactory());
-            this.transactionMode.setValue(value);
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #searchParam} (Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.)
          */
         public List<ConformanceRestResourceSearchParamComponent> getSearchParam() { 
@@ -2910,7 +2747,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           childrenList.add(new Property("security", "", "Information about security implementation from an interface perspective - what a client needs to know.", 0, java.lang.Integer.MAX_VALUE, security));
           childrenList.add(new Property("resource", "", "A specification of the restful capabilities of the solution for a specific resource type.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("interaction", "", "A specification of restful operations supported by the system.", 0, java.lang.Integer.MAX_VALUE, interaction));
-          childrenList.add(new Property("transactionMode", "code", "A code that indicates how transactions are supported.", 0, java.lang.Integer.MAX_VALUE, transactionMode));
           childrenList.add(new Property("searchParam", "@Conformance.rest.resource.searchParam", "Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.", 0, java.lang.Integer.MAX_VALUE, searchParam));
           childrenList.add(new Property("operation", "", "Definition of an operation or a named query and with its parameters and their meaning and type.", 0, java.lang.Integer.MAX_VALUE, operation));
           childrenList.add(new Property("compartment", "uri", "An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it's canonical URL.", 0, java.lang.Integer.MAX_VALUE, compartment));
@@ -2924,7 +2760,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         case 949122880: /*security*/ return this.security == null ? new Base[0] : new Base[] {this.security}; // ConformanceRestSecurityComponent
         case -341064690: /*resource*/ return this.resource == null ? new Base[0] : this.resource.toArray(new Base[this.resource.size()]); // ConformanceRestResourceComponent
         case 1844104722: /*interaction*/ return this.interaction == null ? new Base[0] : this.interaction.toArray(new Base[this.interaction.size()]); // SystemInteractionComponent
-        case 1262805409: /*transactionMode*/ return this.transactionMode == null ? new Base[0] : new Base[] {this.transactionMode}; // Enumeration<TransactionMode>
         case -553645115: /*searchParam*/ return this.searchParam == null ? new Base[0] : this.searchParam.toArray(new Base[this.searchParam.size()]); // ConformanceRestResourceSearchParamComponent
         case 1662702951: /*operation*/ return this.operation == null ? new Base[0] : this.operation.toArray(new Base[this.operation.size()]); // ConformanceRestOperationComponent
         case -397756334: /*compartment*/ return this.compartment == null ? new Base[0] : this.compartment.toArray(new Base[this.compartment.size()]); // UriType
@@ -2950,9 +2785,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           break;
         case 1844104722: // interaction
           this.getInteraction().add((SystemInteractionComponent) value); // SystemInteractionComponent
-          break;
-        case 1262805409: // transactionMode
-          this.transactionMode = new TransactionModeEnumFactory().fromType(value); // Enumeration<TransactionMode>
           break;
         case -553645115: // searchParam
           this.getSearchParam().add((ConformanceRestResourceSearchParamComponent) value); // ConformanceRestResourceSearchParamComponent
@@ -2980,8 +2812,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           this.getResource().add((ConformanceRestResourceComponent) value);
         else if (name.equals("interaction"))
           this.getInteraction().add((SystemInteractionComponent) value);
-        else if (name.equals("transactionMode"))
-          this.transactionMode = new TransactionModeEnumFactory().fromType(value); // Enumeration<TransactionMode>
         else if (name.equals("searchParam"))
           this.getSearchParam().add((ConformanceRestResourceSearchParamComponent) value);
         else if (name.equals("operation"))
@@ -3000,7 +2830,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         case 949122880:  return getSecurity(); // ConformanceRestSecurityComponent
         case -341064690:  return addResource(); // ConformanceRestResourceComponent
         case 1844104722:  return addInteraction(); // SystemInteractionComponent
-        case 1262805409: throw new FHIRException("Cannot make property transactionMode as it is not a complex type"); // Enumeration<TransactionMode>
         case -553645115:  return addSearchParam(); // ConformanceRestResourceSearchParamComponent
         case 1662702951:  return addOperation(); // ConformanceRestOperationComponent
         case -397756334: throw new FHIRException("Cannot make property compartment as it is not a complex type"); // UriType
@@ -3026,9 +2855,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         }
         else if (name.equals("interaction")) {
           return addInteraction();
-        }
-        else if (name.equals("transactionMode")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Conformance.transactionMode");
         }
         else if (name.equals("searchParam")) {
           return addSearchParam();
@@ -3059,7 +2885,6 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           for (SystemInteractionComponent i : interaction)
             dst.interaction.add(i.copy());
         };
-        dst.transactionMode = transactionMode == null ? null : transactionMode.copy();
         if (searchParam != null) {
           dst.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
           for (ConformanceRestResourceSearchParamComponent i : searchParam)
@@ -3086,9 +2911,8 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           return false;
         ConformanceRestComponent o = (ConformanceRestComponent) other;
         return compareDeep(mode, o.mode, true) && compareDeep(documentation, o.documentation, true) && compareDeep(security, o.security, true)
-           && compareDeep(resource, o.resource, true) && compareDeep(interaction, o.interaction, true) && compareDeep(transactionMode, o.transactionMode, true)
-           && compareDeep(searchParam, o.searchParam, true) && compareDeep(operation, o.operation, true) && compareDeep(compartment, o.compartment, true)
-          ;
+           && compareDeep(resource, o.resource, true) && compareDeep(interaction, o.interaction, true) && compareDeep(searchParam, o.searchParam, true)
+           && compareDeep(operation, o.operation, true) && compareDeep(compartment, o.compartment, true);
       }
 
       @Override
@@ -3098,13 +2922,13 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         if (!(other instanceof ConformanceRestComponent))
           return false;
         ConformanceRestComponent o = (ConformanceRestComponent) other;
-        return compareValues(mode, o.mode, true) && compareValues(documentation, o.documentation, true) && compareValues(transactionMode, o.transactionMode, true)
-           && compareValues(compartment, o.compartment, true);
+        return compareValues(mode, o.mode, true) && compareValues(documentation, o.documentation, true) && compareValues(compartment, o.compartment, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(mode, documentation, security
-          , resource, interaction, transactionMode, searchParam, operation, compartment);
+          , resource, interaction, searchParam, operation, compartment);
       }
 
   public String fhirType() {
@@ -5664,7 +5488,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
          * A coded identifier of the operation, supported by the system.
          */
         @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="transaction | search-system | history-system", formalDefinition="A coded identifier of the operation, supported by the system." )
+        @Description(shortDefinition="transaction | batch | search-system | history-system", formalDefinition="A coded identifier of the operation, supported by the system." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/system-restful-interaction")
         protected Enumeration<SystemRestfulInteraction> code;
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 12, 2016 17:43+1000 for FHIR v1.5.0
+// Generated on Wed, Jul 13, 2016 09:40+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -543,7 +543,7 @@ public class Questionnaire extends DomainResource {
         /**
          * If present, indicates that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true.
          */
-        @Child(name = "enableWhen", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=true, summary=false)
+        @Child(name = "enableWhen", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=true, summary=true)
         @Description(shortDefinition="Only allow data when:", formalDefinition="If present, indicates that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true." )
         protected List<QuestionnaireItemEnableWhenComponent> enableWhen;
 

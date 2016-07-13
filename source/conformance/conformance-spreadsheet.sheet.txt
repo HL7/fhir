@@ -187,9 +187,13 @@
 
  -- Row 2 -----------------------------------
   System = http://hl7.org/fhir/restful-interaction
-  Code = search-system
+  Code = batch
 
  -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = search-system
+
+ -- Row 4 -----------------------------------
   System = http://hl7.org/fhir/restful-interaction
   Code = history-system
 
@@ -1086,7 +1090,7 @@
   Card. = 1..1
   Type = code
   Binding = SystemRestfulInteraction
-  Short Label = transaction | search-system | history-system
+  Short Label = transaction | batch | search-system | history-system
   Definition = A coded identifier of the operation, supported by the system
 
  -- Row 64 -----------------------------------
@@ -1097,7 +1101,7 @@
   Definition = Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented
 
  -- Row 65 -----------------------------------
-  Element = Conformance.rest.transactionMode
+  Element = !Conformance.rest.transactionMode
   Card. = 0..1
   Type = code
   Binding = TransactionMode

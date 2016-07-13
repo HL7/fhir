@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Jul 12, 2016 17:43+1000 for FHIR v1.5.0
+// Generated on Wed, Jul 13, 2016 09:40+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -3647,8 +3647,6 @@ public class RdfParser extends RdfParserBase {
       composeConformanceConformanceRestResourceComponent(t, "Conformance", "resource", element.getResource().get(i), i);
     for (int i = 0; i < element.getInteraction().size(); i++)
       composeConformanceSystemInteractionComponent(t, "Conformance", "interaction", element.getInteraction().get(i), i);
-    if (element.hasTransactionModeElement())
-      composeEnum(t, "Conformance", "transactionMode", element.getTransactionModeElement(), -1);
     for (int i = 0; i < element.getSearchParam().size(); i++)
       composeConformanceConformanceRestResourceSearchParamComponent(t, "Conformance", "searchParam", element.getSearchParam().get(i), i);
     for (int i = 0; i < element.getOperation().size(); i++)
@@ -9687,6 +9685,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "Practitioner", "location", element.getLocation().get(i), i);
     for (int i = 0; i < element.getHealthcareService().size(); i++)
       composeReference(t, "Practitioner", "healthcareService", element.getHealthcareService().get(i), i);
+    for (int i = 0; i < element.getEndpoint().size(); i++)
+      composeReference(t, "Practitioner", "endpoint", element.getEndpoint().get(i), i);
   }
 
   protected void composePractitionerPractitionerQualificationComponent(Complex parent, String parentType, String name, Practitioner.PractitionerQualificationComponent element, int index) {
@@ -9745,6 +9745,8 @@ public class RdfParser extends RdfParserBase {
       composePractitionerRolePractitionerRoleNotAvailableComponent(t, "PractitionerRole", "notAvailable", element.getNotAvailable().get(i), i);
     if (element.hasAvailabilityExceptionsElement())
       composeString(t, "PractitionerRole", "availabilityExceptions", element.getAvailabilityExceptionsElement(), -1);
+    for (int i = 0; i < element.getEndpoint().size(); i++)
+      composeReference(t, "PractitionerRole", "endpoint", element.getEndpoint().get(i), i);
   }
 
   protected void composePractitionerRolePractitionerRoleAvailableTimeComponent(Complex parent, String parentType, String name, PractitionerRole.PractitionerRoleAvailableTimeComponent element, int index) {

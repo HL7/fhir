@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu2.model;
   
 */
 
-// Generated on Fri, Jun 10, 2016 20:59+1000 for FHIR v1.0.2
+// Generated on Wed, Jul 13, 2016 05:32+1000 for FHIR v1.0.2
 
 import org.hl7.fhir.dstu2.model.annotations.DatatypeDef;
 import org.hl7.fhir.dstu2.model.annotations.Block;

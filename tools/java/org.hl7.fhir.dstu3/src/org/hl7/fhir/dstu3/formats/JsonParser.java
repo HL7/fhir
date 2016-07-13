@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Jul 12, 2016 17:43+1000 for FHIR v1.5.0
+// Generated on Wed, Jul 13, 2016 09:40+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -5295,10 +5295,6 @@ public class JsonParser extends JsonParserBase {
         res.getInteraction().add(parseConformanceSystemInteractionComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
-    if (json.has("transactionMode"))
-      res.setTransactionModeElement(parseEnumeration(json.get("transactionMode").getAsString(), Conformance.TransactionMode.NULL, new Conformance.TransactionModeEnumFactory()));
-    if (json.has("_transactionMode"))
-      parseElementProperties(json.getAsJsonObject("_transactionMode"), res.getTransactionModeElement());
     if (json.has("searchParam")) {
       JsonArray array = json.getAsJsonArray("searchParam");
       for (int i = 0; i < array.size(); i++) {
@@ -13995,6 +13991,12 @@ public class JsonParser extends JsonParserBase {
         res.getHealthcareService().add(parseReference(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("endpoint")) {
+      JsonArray array = json.getAsJsonArray("endpoint");
+      for (int i = 0; i < array.size(); i++) {
+        res.getEndpoint().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
   }
 
   protected Practitioner.PractitionerQualificationComponent parsePractitionerPractitionerQualificationComponent(JsonObject json, Practitioner owner) throws IOException, FHIRFormatError {
@@ -14089,6 +14091,12 @@ public class JsonParser extends JsonParserBase {
       res.setAvailabilityExceptionsElement(parseString(json.get("availabilityExceptions").getAsString()));
     if (json.has("_availabilityExceptions"))
       parseElementProperties(json.getAsJsonObject("_availabilityExceptions"), res.getAvailabilityExceptionsElement());
+    if (json.has("endpoint")) {
+      JsonArray array = json.getAsJsonArray("endpoint");
+      for (int i = 0; i < array.size(); i++) {
+        res.getEndpoint().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
   }
 
   protected PractitionerRole.PractitionerRoleAvailableTimeComponent parsePractitionerRolePractitionerRoleAvailableTimeComponent(JsonObject json, PractitionerRole owner) throws IOException, FHIRFormatError {
@@ -24869,10 +24877,6 @@ public class JsonParser extends JsonParserBase {
           composeConformanceSystemInteractionComponent(null, e);
         closeArray();
       };
-      if (element.hasTransactionModeElement()) {
-        composeEnumerationCore("transactionMode", element.getTransactionModeElement(), new Conformance.TransactionModeEnumFactory(), false);
-        composeEnumerationExtras("transactionMode", element.getTransactionModeElement(), new Conformance.TransactionModeEnumFactory(), false);
-      }
       if (element.hasSearchParam()) {
         openArray("searchParam");
         for (Conformance.ConformanceRestResourceSearchParamComponent e : element.getSearchParam()) 
@@ -34407,6 +34411,12 @@ public class JsonParser extends JsonParserBase {
           composeReference(null, e);
         closeArray();
       };
+      if (element.hasEndpoint()) {
+        openArray("endpoint");
+        for (Reference e : element.getEndpoint()) 
+          composeReference(null, e);
+        closeArray();
+      };
   }
 
   protected void composePractitionerPractitionerQualificationComponent(String name, Practitioner.PractitionerQualificationComponent element) throws IOException {
@@ -34510,6 +34520,12 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("availabilityExceptions", element.getAvailabilityExceptionsElement(), false);
         composeStringExtras("availabilityExceptions", element.getAvailabilityExceptionsElement(), false);
       }
+      if (element.hasEndpoint()) {
+        openArray("endpoint");
+        for (Reference e : element.getEndpoint()) 
+          composeReference(null, e);
+        closeArray();
+      };
   }
 
   protected void composePractitionerRolePractitionerRoleAvailableTimeComponent(String name, PractitionerRole.PractitionerRoleAvailableTimeComponent element) throws IOException {

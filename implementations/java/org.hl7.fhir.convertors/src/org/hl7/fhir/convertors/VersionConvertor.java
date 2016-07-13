@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.codec.binary.Base64;
+import org.hl7.fhir.dstu2.model.Conformance.TransactionMode;
 import org.hl7.fhir.dstu2.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
@@ -11,6 +12,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
+import org.hl7.fhir.dstu3.model.Conformance.SystemRestfulInteraction;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
@@ -4351,7 +4353,8 @@ public class VersionConvertor {
 			tgt.addResource(convertConformanceRestResourceComponent(t));
 		for (org.hl7.fhir.dstu2.model.Conformance.SystemInteractionComponent t : src.getInteraction())
 			tgt.addInteraction(convertSystemInteractionComponent(t));
-		tgt.setTransactionMode(convertTransactionMode(src.getTransactionMode()));
+		if (src.getTransactionMode() == TransactionMode.BATCH || src.getTransactionMode() == TransactionMode.BOTH)
+      tgt.addInteraction().setCode(SystemRestfulInteraction.BATCH);
 		for (org.hl7.fhir.dstu2.model.Conformance.ConformanceRestResourceSearchParamComponent t : src.getSearchParam())
 			tgt.addSearchParam(convertConformanceRestResourceSearchParamComponent(t));
 		for (org.hl7.fhir.dstu2.model.Conformance.ConformanceRestOperationComponent t : src.getOperation())
@@ -4371,9 +4374,20 @@ public class VersionConvertor {
 		tgt.setSecurity(convertConformanceRestSecurityComponent(src.getSecurity()));
 		for (org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceComponent t : src.getResource())
 			tgt.addResource(convertConformanceRestResourceComponent(t));
-		for (org.hl7.fhir.dstu3.model.Conformance.SystemInteractionComponent t : src.getInteraction())
-			tgt.addInteraction(convertSystemInteractionComponent(t));
-		tgt.setTransactionMode(convertTransactionMode(src.getTransactionMode()));
+		boolean batch = false;
+		boolean transaction = false;
+		for (org.hl7.fhir.dstu3.model.Conformance.SystemInteractionComponent t : src.getInteraction()) {
+		  if (t.getCode().equals(SystemRestfulInteraction.BATCH))
+		    batch = true;
+		  else
+		    tgt.addInteraction(convertSystemInteractionComponent(t));
+      if (t.getCode().equals(SystemRestfulInteraction.TRANSACTION))
+        transaction = true;
+		}
+		if (batch)
+  		tgt.setTransactionMode(transaction ? TransactionMode.BOTH : TransactionMode.BATCH);
+		else
+      tgt.setTransactionMode(transaction ? TransactionMode.TRANSACTION : TransactionMode.NOTSUPPORTED);
 		for (org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceSearchParamComponent t : src.getSearchParam())
 			tgt.addSearchParam(convertConformanceRestResourceSearchParamComponent(t));
 		for (org.hl7.fhir.dstu3.model.Conformance.ConformanceRestOperationComponent t : src.getOperation())
@@ -4403,29 +4417,6 @@ public class VersionConvertor {
 		}
 	}
 
-	public org.hl7.fhir.dstu3.model.Conformance.TransactionMode convertTransactionMode(org.hl7.fhir.dstu2.model.Conformance.TransactionMode src) throws FHIRException {
-		if (src == null)
-			return null;
-		switch (src) {
-		case NOTSUPPORTED: return org.hl7.fhir.dstu3.model.Conformance.TransactionMode.NOTSUPPORTED;
-		case BATCH: return org.hl7.fhir.dstu3.model.Conformance.TransactionMode.BATCH;
-		case TRANSACTION: return org.hl7.fhir.dstu3.model.Conformance.TransactionMode.TRANSACTION;
-		case BOTH: return org.hl7.fhir.dstu3.model.Conformance.TransactionMode.BOTH;
-		default: return org.hl7.fhir.dstu3.model.Conformance.TransactionMode.NULL;
-		}
-	}
-
-	public org.hl7.fhir.dstu2.model.Conformance.TransactionMode convertTransactionMode(org.hl7.fhir.dstu3.model.Conformance.TransactionMode src) throws FHIRException {
-		if (src == null)
-			return null;
-		switch (src) {
-		case NOTSUPPORTED: return org.hl7.fhir.dstu2.model.Conformance.TransactionMode.NOTSUPPORTED;
-		case BATCH: return org.hl7.fhir.dstu2.model.Conformance.TransactionMode.BATCH;
-		case TRANSACTION: return org.hl7.fhir.dstu2.model.Conformance.TransactionMode.TRANSACTION;
-		case BOTH: return org.hl7.fhir.dstu2.model.Conformance.TransactionMode.BOTH;
-		default: return org.hl7.fhir.dstu2.model.Conformance.TransactionMode.NULL;
-		}
-	}
 
 	public org.hl7.fhir.dstu3.model.Conformance.ConformanceRestSecurityComponent convertConformanceRestSecurityComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityComponent src) throws FHIRException {
 		if (src == null)

@@ -85,6 +85,7 @@ http://www.iana.org/assignments/language-subtag-registry
 http://orionhealth.com/fhir/apps/referraltypes
 http:/acme.ped/apgarcolor
 http://loinc.org/type
+http://hl7.org/fhir/patient-contact-relationship
 http://acme.org
 http://hl7.org/fhir/media-method
 http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 12, 2016 17:43+1000 for FHIR v1.5.0
+// Generated on Wed, Jul 13, 2016 09:40+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -2532,7 +2532,7 @@ public class ImplementationGuide extends DomainResource {
     /**
      * A logical group of resources. Logical groups can be used when building pages.
      */
-    @Child(name = "package", type = {}, order=13, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "package", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Group of resources as used in .page.package", formalDefinition="A logical group of resources. Logical groups can be used when building pages." )
     protected List<ImplementationGuidePackageComponent> package_;
 
@@ -2553,7 +2553,7 @@ public class ImplementationGuide extends DomainResource {
     /**
      * A page / section in the implementation guide. The root page is the implementation guide home page.
      */
-    @Child(name = "page", type = {}, order=16, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "page", type = {}, order=16, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Page/Section in the Guide", formalDefinition="A page / section in the implementation guide. The root page is the implementation guide home page." )
     protected ImplementationGuidePageComponent page;
 
@@ -2569,12 +2569,11 @@ public class ImplementationGuide extends DomainResource {
   /**
    * Constructor
    */
-    public ImplementationGuide(UriType url, StringType name, Enumeration<ConformanceResourceStatus> status, ImplementationGuidePageComponent page) {
+    public ImplementationGuide(UriType url, StringType name, Enumeration<ConformanceResourceStatus> status) {
       super();
       this.url = url;
       this.name = name;
       this.status = status;
-      this.page = page;
     }
 
     /**

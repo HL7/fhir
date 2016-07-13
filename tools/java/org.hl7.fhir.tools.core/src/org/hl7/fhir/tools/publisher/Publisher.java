@@ -152,7 +152,6 @@ import org.hl7.fhir.dstu3.model.Conformance.ResourceInteractionComponent;
 import org.hl7.fhir.dstu3.model.Conformance.RestfulConformanceMode;
 import org.hl7.fhir.dstu3.model.Conformance.SystemInteractionComponent;
 import org.hl7.fhir.dstu3.model.Conformance.SystemRestfulInteraction;
-import org.hl7.fhir.dstu3.model.Conformance.TransactionMode;
 import org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction;
 import org.hl7.fhir.dstu3.model.Conformance.UnknownContentCode;
 import org.hl7.fhir.dstu3.model.ContactPoint;
@@ -1414,9 +1413,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
 
       genConfInteraction(conf, rest, SystemRestfulInteraction.TRANSACTION, "Implemented per the specification (or Insert other doco here)");
+      genConfInteraction(conf, rest, SystemRestfulInteraction.BATCH, "Implemented per the specification (or Insert other doco here)");
       genConfInteraction(conf, rest, SystemRestfulInteraction.HISTORYSYSTEM, "Implemented per the specification (or Insert other doco here)");
       genConfInteraction(conf, rest, SystemRestfulInteraction.SEARCHSYSTEM, "Implemented per the specification (or Insert other doco here)");
-      rest.setTransactionMode(TransactionMode.BOTH);
 
       for (ResourceDefn rd : page.getDefinitions().getBaseResources().values()) {
         for (SearchParameterDefn i : rd.getSearchParams().values())
