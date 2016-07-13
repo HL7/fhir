@@ -302,7 +302,7 @@
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
 
  -- Row 15 -----------------------------------
-  Element = MedicationStatement.Category
+  Element = MedicationStatement.category
   Card. = 0..1
   Type = code
   Binding = MedicationStatementCategory
