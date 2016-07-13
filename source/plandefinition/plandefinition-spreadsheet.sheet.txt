@@ -315,6 +315,12 @@
   Display = After
   Definition = The action must be performed after the related action
 
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = concurrent
+  Display = Concurrent
+  Definition = The action must be performed concurrent with the related action
+
 === Sheet planaction-relationship-anchor =====================================
 
  -- Row 1 -----------------------------------
@@ -611,7 +617,7 @@
   Card. = 1..1
   Type = code
   Binding = PlanActionRelationshipType
-  Short Label = before | after
+  Short Label = before | after | concurrent
   Definition = The relationship of this action to the related action
 
  -- Row 37 -----------------------------------
