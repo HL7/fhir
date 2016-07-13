@@ -15,8 +15,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>19140</WindowHeight>
-  <WindowWidth>33580</WindowWidth>
+  <WindowHeight>19180</WindowHeight>
+  <WindowWidth>33600</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>460</WindowTopY>
   <TabRatio>788</TabRatio>
@@ -1806,7 +1806,7 @@
     <Cell><Data ss:Type="String">Observation.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s117"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Extension{#Sequence}</Data><NamedCell
@@ -3236,9 +3236,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>16</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3254,7 +3254,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
+     <ActiveRow>18</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7223,7 +7223,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s110"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Reference(Sequence)</Data><NamedCell
@@ -7301,7 +7301,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9425,6 +9426,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="LOINC-48019-4-answerlist">
@@ -9526,6 +9528,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>

@@ -211,7 +211,7 @@
  -- Row 17 -----------------------------------
   Element = Observation.extension
   Profile Name = Sequence
-  Card. = 0..1
+  Card. = 0..*
   Type = Extension{#Sequence}
   Short Label = Sequence
   Definition = Refers to the Sequence resource, representing raw genetics data.
