@@ -444,28 +444,28 @@
   Type = xml
 
  -- Row 4 -----------------------------------
-  Name = batch request - meds  & allergies
+  Name = !batch request - meds  & allergies
   Identity = bundle-request-medsallergies
   Description = Retrieve a patients medications, allergies, problems and immunizations
   Filename = bundle-request-medsallergies.xml
   Type = xml
 
  -- Row 5 -----------------------------------
-  Name = batch response - meds & allergies
+  Name = !batch response - meds & allergies
   Identity = bundle-response-medsallergies
   Description = Response for Retrieve a patients medications, allergies, problems and immunizations
   Filename = bundle-response-medsallergies.xml
   Type = xml
 
  -- Row 6 -----------------------------------
-  Name = batch request - simple summary
+  Name = !batch request - simple summary
   Identity = bundle-request-simplesummary
   Description = Retrieve a patient’s conditions, medication statements and blood pressure readings since a given date
   Filename = bundle-request-simplesummary.xml
   Type = xml
 
  -- Row 7 -----------------------------------
-  Name = batch response - simple summary
+  Name = !batch response - simple summary
   Identity = bundle-response-simplesummary
   Description = Response for Retrieve a patient’s conditions, medication statements and blood pressure readings since a given date
   Filename = bundle-response-simplesummary.xml

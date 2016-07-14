@@ -80,13 +80,36 @@
   Definition = The type of related resource
 
  -- Row 3 -----------------------------------
+  Element = RelatedResource.display
+  Card. = 0..1
+  Type = string
+  Short Label = Brief description of the related resource
+  Definition = A brief description of the document or resource being referenced, suitable for display to a consumer
+
+ -- Row 4 -----------------------------------
+  Element = RelatedResource.citation
+  Card. = 0..1
+  Type = string
+  Short Label = Bibliographic citation for the resource
+  Definition = A bibliographic citation for the related resource. This text SHOULD be formatted according to an accepted citation format
+  Comments = Additional structured information about citations should be captured as extensions
+
+ -- Row 5 -----------------------------------
+  Element = RelatedResource.url
+  Card. = 0..1
+  Type = uri
+  Short Label = Url for the related resource
+  Definition = A url for the resource that can be followed to access the actual content
+  Comments = If a document or resource element is present, this element SHALL NOT be provided (use the url or reference in the Attachment or resource reference)
+
+ -- Row 6 -----------------------------------
   Element = RelatedResource.document
   Card. = 0..1
   Type = Attachment
   Short Label = The related document
   Definition = The document being referenced, represented as an attachment. This is exclusive with the resource element
 
- -- Row 4 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = RelatedResource.resource
   Card. = 0..1
   Type = Reference(Any)
