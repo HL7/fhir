@@ -265,8 +265,8 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson|CareTeam)
-  Short Label = Who|what the consent is in regard to
-  Definition = Who or what is this Consent statement is intended for - which entity is being targeted for the consent statement
+  Short Label = Whose access is controlled by the policy
+  Definition = Actor whose access is controlled by this consent under the terms of the policy and exceptions
   Comments = The Consent recipient is the person/organization who is being granted or denied permission according to the stated policy
   Missing Meaning = There is no specific actor who is the focus of the consent
   w5 = who.actor
@@ -277,8 +277,8 @@
   Summary = Y
   Type = Coding
   Binding = PurposeOfUse
-  Short Label = The purpose of use for which the consent is granted
-  Definition = The purpose of use (e.g. the reason that an action is being taken) for which this consent is granted.
+  Short Label = Context of activities for which the agreement is made
+  Definition = The context of the activities a user is taking - why the user is accessing the data - that are controlled by this consent.
   Comments = This element is for discoverability / documentation, and does not modify or qualify the policy (e.g. the policy itself describes the purposes for which it applies)
 
  -- Row 14 -----------------------------------
@@ -287,8 +287,8 @@
   Summary = Y
   UML = 300;300
   Type = =Except
-  Short Label = Consent Exception
-  Definition = An exception to the base policy of this Consent.
+  Short Label = Additional rule -  addition or removal of permissions
+  Definition = An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.
 
  -- Row 15 -----------------------------------
   Element = Consent.except.type
@@ -297,16 +297,16 @@
   Type = code
   Binding = ConsentExceptType
   Short Label = deny | permit
-  Definition = How the exception is statement is applied, as adding additional consent, ore removing
+  Definition = Action  to take - permit or deny - when the exception conditions are met
 
  -- Row 16 -----------------------------------
   Element = Consent.except.period
   Card. = 0..1
   Summary = Y
   Type = Period
-  Short Label = Consent Exception Effective Time
-  Definition = Relevant time or time-period when this Consent Exception is applicable.
-  Comments = This can be a subset of the period of the whole consent resource
+  Short Label = Timeframe for data controlled by this exception
+  Definition = The timeframe in which data is controlled by this exception
+  Comments = This has a different sense to the Consent.period - that is when the consent agreement holds. This is the time period of the data that is controlled by the agreement
 
  -- Row 17 -----------------------------------
   Element = Consent.except.actor
@@ -339,6 +339,7 @@
   Binding = ConsentAction
   Short Label = Actions controlled by this exception
   Definition = Actions controlled by this Exception
+  Comments = Note that this is the direct action (not the grounds for the action covered in the purpose element). At present, the only action in the understood and tested scope of this resource is \'read\'
   Missing Meaning = all actions
 
  -- Row 21 -----------------------------------
@@ -357,8 +358,8 @@
   Summary = Y
   Type = Coding
   Binding = PurposeOfUse
-  Short Label = How the data is intended to be used
-  Definition = What purposes of use are controlled by this exception. If more than one label is specified, operations must have all the specified labels
+  Short Label = Context of activities covered by this exception
+  Definition = The context of the activities a user is taking - why the user is accessing the data - that are controlled by this exception
   Comments = E.g. if the purpose is \'research\', then the operational context must be research, in order for the consent to apply. Not all of the security labels make sense for use in this element (may define a narrower value set?)
 
  -- Row 23 -----------------------------------

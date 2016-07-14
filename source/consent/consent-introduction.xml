@@ -3,6 +3,7 @@
 <div>
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
+
 <a name="PCD"> Privacy Consent Directive (PCD) </a>
 
 <p>
@@ -16,7 +17,7 @@ uses for consent:
 </ul>
 <p>
 This resource is scoped to cover all 3 uses, but at this time, only the privacy use case
-is well investigated, and the scope of the resource may change when the other scopes are 
+is investigated, and the scope of the resource may change when the other possible scopes are 
 investigated and tested. 
 </p>
 <h3>Privacy and Consent</h3>
@@ -76,6 +77,12 @@ reference can be one of several things:
 The consent statements represent a chain that refers back to the original source consent
 agreement. Applications may be able to follow the chain back to the source, but should
 not generally assume that they are authoriszd to do this.
+</p>
+<p>
+Consent statements are often signed - either on paper, or digitally. Consent Signatures will
+be found in the <a href="provenance.html">Provenance</a> resource (example <a href="consent-example-signature.html">consent</a> and 
+<a href="provenance-consent-signature.html">signature</a>). Implementation Guides will generally 
+make rules about what signatures are required, and how they are to be shared and used.
 </p>
 </div>
 

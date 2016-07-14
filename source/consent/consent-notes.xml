@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<h2>Policy</h2>
+<h2>Policies</h2>
 
 <p>
 This speciifcation defines 2 magic values for consent policies:
@@ -19,11 +19,14 @@ This speciifcation defines 2 magic values for consent policies:
   <td>The basic policy is to grant all authority. All actions are approved, unless they are explicitly detailed in the exceptions</td>
  </tr>
 </table>
-
 <p>
 Other jurisdictions (e.g. HL7 Affiliates) may define their additional lists of consent policy URI values that represent consent policies established by law or regulation
 </p>
-
+<p>
+The Consent resource has a reference to a single <code>policy</code>. Many organizations will work in a context where multiple different consent regulations and policies apply. 
+In these cases, the single policy reference refers to a policy document that resolves and reconciles the various policies, and presents a single policy for patient
+consent. If it is still necessary to track which of the underlying policies an exception is make in regard to, an <a href="extension-consent-basis.html">extension</a> may be used.
+</p>
 <h2>General Model</h2>
 <p>
 The following is the general model of Privacy Consent Directives.
