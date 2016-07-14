@@ -283,7 +283,9 @@ of posting to them:
 <table class="grid">
  <tr> <td><b>End-Point</b></td> <td><b>Type of Content</b></td> <td><b>Description</b></td> </tr>
  <tr> <td>[baseurl]/Bundle</td> <td>Document Bundle</td> <td>This works like a normal end-point
-   for managing a type of resource, but it works with whole document bundles - i.e. a read operation returns a bundle, an update gets a bundle and a search returns a bundle of bundles</td> </tr>
+   for managing a type of resource, but it works with whole document bundles - i.e. a read operation returns a bundle, 
+   an update gets a bundle and a search returns a bundle of bundles. Note that since documents have assigned
+   and fixed identifiers, the <a href="http.html#create">create</a> interaction</td> which assigns a new id cannot be used </tr>
 
  <tr> <td>[baseurl]/Composition</td> <td>Composition Resource</td> <td>The normal end-point for managing
    composition resources. This can be used while building a document or after breaking a document up into
