@@ -73,6 +73,8 @@ Mobile Services (kind)
 	<p>
 		<i>Note: Wards/departments are not part of this structure - these would form part of the Organizational Hierarchy.</i>
 	</p>
+  
+<a name="positional"> </a>
     <h3>Positional Searching</h3>
     <p>
         Searching for locations often require that a facility is within a specified distance of a particilar point.
