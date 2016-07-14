@@ -179,14 +179,6 @@
 					<display value="Suicide risk assessment"/>
 				</coding>
 			</clinicalFocus>
-			<clinicalVenue>
-				<coding>
-					<!-- Error: Connection to http://localhost:960 refused -->
-					<!--<system value="http://snomed.info/sct"/>-->
-					<code value="440655000"/>
-					<display value="Outpatient environment"/>
-				</coding>
-			</clinicalVenue>
 			<targetUser>
 				<coding>
 					<!-- Error: Connection to http://localhost:960 refused -->
@@ -195,6 +187,14 @@
 					<display value="Physician"/>
 				</coding>
 			</targetUser>
+			<clinicalVenue>
+				<coding>
+					<!-- Error: Connection to http://localhost:960 refused -->
+					<!--<system value="http://snomed.info/sct"/>-->
+					<code value="440655000"/>
+					<display value="Outpatient environment"/>
+				</coding>
+			</clinicalVenue>
 		</coverage>
 		<topic>
 			<text value="Chlamydia Screeening"/>
