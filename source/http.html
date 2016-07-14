@@ -700,7 +700,7 @@ For additional information on how systems may behave when processing updates, re
 <p>
 The conditional <code>create</code> interaction allows a client to create a new resource only if some equivalent resource
 does not already exist on the server. The client defines what equivalence means in this case by supplying
-a FHIR search query in an <code>If-None-Exist</code> header as shown:
+a FHIR search query using an HL7 defined extension header "<code>If-None-Exist</code>" as shown:
 </p>
 <pre>
   If-None-Exist: [search parameters]
