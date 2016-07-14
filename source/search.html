@@ -1289,16 +1289,17 @@ alone as a coherent package.
 By default, search results only include resources that are not contained in other resources. 
 A chained condition will be evaluated inside contained resources. To illustrate this, consider
 a MedicationOrder resource that has a contained Medication resource specifying 
-a custom formulation that has ingredient that has a value <code>Substance/x23</code>. In this case, a search:
+a custom formulation that has ingredient with a <code>itemCodeableConcept</code> "abc" in "htp://acme.com./medications". 
+In this case, a search:
 </p>
 <pre>
-GET MedicationOrder?medication.ingredient=Substance/x23
+GET MedicationOrder?medication.ingredient-code=abc
 </pre>
 <p>
   will include the MedicationOrder resource in the results. However, this search:
 </p>
 <pre>
-GET Medication?ingredient=Substance/x23
+GET Medication?ingredient-code=abc
 </pre>
 <p>
 will not include the contained Medication resource in the results, since either the 
@@ -1328,7 +1329,7 @@ following values:
 When returning a container resource, the server simply puts this in the 
 search results:
 </p>
-<pre>
+<pre class="xml">
 &lt;Bundle&gt;
   ...
   &lt;entry&gt;
@@ -1353,15 +1354,18 @@ search results:
 </pre>
 <p>
 In the case of returning container resources, the server SHALL populate the entry.search.mode
-element so that the client can pick apart matches and includes (the usual approach of doing it
-by type may not work). If the return type is the contained resource, this must be done slightly 
+element, as shown, so that the client can pick apart matches and includes (since the usual approach of doing it
+by type may not work).
+</p>
+<p>
+If the return type is the contained resource, this must be done slightly 
 differently:
 </p>
-<pre>
+<pre class="xml">
 &lt;Bundle&gt;
   ...
   &lt;entry&gt;
-    &lt;fullUrl value=&quot;http://example.com/fhir/MedicationOrder/23#&quot;/&gt;
+    &lt;fullUrl value=&quot;http://example.com/fhir/MedicationOrder/23#m1&quot;/&gt;
     &lt;resource&gt;
       &lt;Medication&gt;
         &lt;id value=&quot;m1&quot;&gt;
@@ -1376,7 +1380,7 @@ differently:
 </pre>
 <p>
 In this case, the fullUrl informs the client that this is a contained resource,
-and the identity of the containing resource.
+along with indicating the identity of the containing resource.
 </p>
 
 <a name="external"> </a>
