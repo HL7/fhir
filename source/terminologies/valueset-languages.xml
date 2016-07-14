@@ -266,6 +266,18 @@
               <value value="Frans"/>
           </designation>
       </concept>
+        <concept>
+            <code value="fr-BE"/>
+            <display value="French (Belgium)"/>
+            <designation>
+                <language value="en"/>
+                <value value="French (Belgium)"/>
+            </designation>
+            <designation>
+                <language value="nl"/>
+                <value value="Frans (België)"/>
+            </designation>
+        </concept>
       <concept>
         <code value="fr-CH"/>
         <display value="French (Switzerland)"/>
@@ -290,6 +302,30 @@
               <value value="Frans (Frankrijk)"/>
           </designation>
       </concept>
+        <concept>
+            <code value="fy"/>
+            <display value="Frysian"/>
+            <designation>
+                <language value="en"/>
+                <value value="Frysian"/>
+            </designation>
+            <designation>
+                <language value="nl"/>
+                <value value="Fries"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="fy-NL"/>
+            <display value="Frysian (Netherlands)"/>
+            <designation>
+                <language value="en"/>
+                <value value="Frysian (Netherlands)"/>
+            </designation>
+            <designation>
+                <language value="nl"/>
+                <value value="Fries (Nederland)"/>
+            </designation>
+        </concept>
       <concept>
         <code value="hr"/>
         <display value="Croatian"/>
@@ -374,6 +410,18 @@
               <value value="Nederlands"/>
           </designation>
       </concept>
+        <concept>
+            <code value="nl-BE"/>
+            <display value="Dutch (Belgium)"/>
+            <designation>
+                <language value="en"/>
+                <value value="Dutch (Belgium)"/>
+            </designation>
+            <designation>
+                <language value="nl"/>
+                <value value="Nederlands (België)"/>
+            </designation>
+        </concept>
       <concept>
         <code value="nl-NL"/>
         <display value="Dutch (Netherlands)"/>
