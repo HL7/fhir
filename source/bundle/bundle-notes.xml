@@ -1,9 +1,10 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<h3>Notes</h3>
+<h3>Notes about Bundle</h3>
 <ul>
 <li>Conceptually, a bundle is a list of resources with some context (named links, and status on the entries)</li>
 <li>Since a Bundle is itself a <a href="resource.html">Resource</a> it has the same common metadata as all resources, including profile assertions, tags, and security labels</li>
+<li>Although there are not extensions on the Bundle itself, <code>link</code>, <code>entry</code>, and <code>search</code>/<code>request</code>/<code>response</code> can all have extensions. See <a href="patient.html#match">Patient</a> and <a href="location.html#positional">Location</a> for examples on search</li>
 <li>Both Bundle.link and Bundle.entry.link are defined to support providing additional context when bundles are used (e.g. <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS</a>). 
   Bundle.entry.link corresponds to links found in the HTTP header if the resource in the entry was <a href="http.html#read">read</a> directly.
   This specification defines some specific uses of Bundle.link for <a href="search.html#conformance">searching</a> and <a href="http.html#paging">paging</a>, but no specific uses for Bundle.entry.link, and no defined function in a transaction - meaning is implementation specific</li>
