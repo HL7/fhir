@@ -29,6 +29,10 @@
           <language value="ru"/>
           <value value="Бенгальский"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Bengalisch"/>
+        </designation>
       </concept>
       <concept>
         <code value="cs"/>
@@ -44,6 +48,10 @@
         <designation>
           <language value="ru"/>
           <value value="Чешский"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Tschechisch"/>
         </designation>
       </concept>
       <concept>
@@ -61,6 +69,10 @@
           <language value="ru"/>
           <value value="Датский"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Dänisch"/>
+        </designation>
       </concept>
       <concept>
         <code value="de"/>
@@ -76,6 +88,10 @@
         <designation>
           <language value="ru"/>
           <value value="Немецкий"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Deutsch"/>
         </designation>
       </concept>
       <concept>
@@ -93,6 +109,10 @@
           <language value="ru"/>
           <value value="Немецкий (Австрия)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Deutsch (Österreich)"/>
+        </designation>
       </concept>
       <concept>
         <code value="de-CH"/>
@@ -108,6 +128,10 @@
         <designation>
           <language value="ru"/>
           <value value="Немецкий (Швейцария)"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Deutsch (Schweiz)"/>
         </designation>
       </concept>
       <concept>
@@ -125,6 +149,10 @@
           <language value="ru"/>
           <value value="Немецкий (Германия)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Deutsch (Deutschland)"/>
+        </designation>
       </concept>
       <concept>
         <code value="el"/>
@@ -140,6 +168,10 @@
         <designation>
           <language value="ru"/>
           <value value="Греческий"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Griechisch"/>
         </designation>
       </concept>
       <concept>
@@ -157,6 +189,10 @@
           <language value="ru"/>
           <value value="Английский"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Englisch"/>
+        </designation>
       </concept>
       <concept>
         <code value="en-AU"/>
@@ -172,6 +208,10 @@
         <designation>
           <language value="ru"/>
           <value value="Английский (Австралия)"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Englisch (Australien)"/>
         </designation>
       </concept>
       <concept>
@@ -189,6 +229,10 @@
           <language value="ru"/>
           <value value="Английский (Канада)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Englisch (Kanada)"/>
+        </designation>
       </concept>
       <concept>
         <code value="en-GB"/>
@@ -204,6 +248,10 @@
         <designation>
           <language value="ru"/>
           <value value="Английский (Великобритания)"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Englisch (Großbritannien)"/>
         </designation>
       </concept>
       <concept>
@@ -221,6 +269,10 @@
           <language value="ru"/>
           <value value="Английский (Индия)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Englisch (Indien)"/>
+        </designation>
       </concept>
       <concept>
         <code value="en-NZ"/>
@@ -236,6 +288,10 @@
         <designation>
           <language value="ru"/>
           <value value="Английский (Новая Зеландия)"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Englisch (Neuseeland)"/>
         </designation>
       </concept>
       <concept>
@@ -253,6 +309,10 @@
           <language value="ru"/>
           <value value="Английский (Сингапур)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Englisch (Singapur)"/>
+        </designation>
       </concept>
       <concept>
         <code value="es"/>
@@ -268,6 +328,10 @@
         <designation>
           <language value="ru"/>
           <value value="Испанский"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Spanisch"/>
         </designation>
       </concept>
       <concept>
@@ -285,6 +349,10 @@
           <language value="ru"/>
           <value value="Испанский (Аргентина)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Spanisch (Argentinien)"/>
+        </designation>
       </concept>
       <concept>
         <code value="es-ES"/>
@@ -300,6 +368,10 @@
         <designation>
           <language value="ru"/>
           <value value="Испанский (Испания)"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Spanisch (Spanien)"/>
         </designation>
       </concept>
       <concept>
@@ -317,6 +389,10 @@
           <language value="ru"/>
           <value value="Испанский (Уругвай)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Spanisch (Uruguay)"/>
+        </designation>
       </concept>
       <concept>
         <code value="fi"/>
@@ -332,6 +408,10 @@
         <designation>
           <language value="ru"/>
           <value value="Финский"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Finnisch"/>
         </designation>
       </concept>
       <concept>
@@ -349,6 +429,10 @@
           <language value="ru"/>
           <value value="Французский"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Französisch"/>
+        </designation>
       </concept>
       <concept>
         <code value="fr-BE"/>
@@ -360,6 +444,10 @@
         <designation>
           <language value="nl"/>
           <value value="Frans (België)"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Französisch (Belgien)"/>
         </designation>
       </concept>
       <concept>
@@ -377,6 +465,10 @@
           <language value="ru"/>
           <value value="Французский (Швейцария)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Französisch (Schweiz)"/>
+        </designation>
       </concept>
       <concept>
         <code value="fr-FR"/>
@@ -393,6 +485,10 @@
           <language value="ru"/>
           <value value="Французский (Франция)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Französisch (Frankreich)"/>
+        </designation>
       </concept>
       <concept>
         <code value="fy"/>
@@ -405,6 +501,10 @@
           <language value="nl"/>
           <value value="Fries"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Friesisch"/>
+        </designation>
       </concept>
       <concept>
         <code value="fy-NL"/>
@@ -416,6 +516,10 @@
         <designation>
           <language value="nl"/>
           <value value="Fries (Nederland)"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Friesisch (Niederlande)"/>
         </designation>
       </concept>
       <concept>
@@ -433,6 +537,10 @@
           <language value="ru"/>
           <value value="Хорватский"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Kroatisch"/>
+        </designation>
       </concept>
       <concept>
         <code value="it"/>
@@ -448,6 +556,10 @@
         <designation>
           <language value="ru"/>
           <value value="Итальянский"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Italienisch"/>
         </designation>
       </concept>
       <concept>
@@ -465,6 +577,10 @@
           <language value="ru"/>
           <value value="Итальянский (Швейцария)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Italienisch (Schweiz)"/>
+        </designation>
       </concept>
       <concept>
         <code value="it-IT"/>
@@ -480,6 +596,10 @@
         <designation>
           <language value="ru"/>
           <value value="Итальянский (Италия)"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Italienisch (Italien)"/>
         </designation>
       </concept>
       <concept>
@@ -497,6 +617,10 @@
           <language value="ru"/>
           <value value="Японский"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Japanisch"/>
+        </designation>
       </concept>
       <concept>
         <code value="ko"/>
@@ -512,6 +636,10 @@
         <designation>
           <language value="ru"/>
           <value value="Корейский"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Koreanisch"/>
         </designation>
       </concept>
       <concept>
@@ -529,6 +657,10 @@
           <language value="ru"/>
           <value value="Нидерландский"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Niederländisch"/>
+        </designation>
       </concept>
       <concept>
         <code value="nl-BE"/>
@@ -540,6 +672,10 @@
         <designation>
           <language value="nl"/>
           <value value="Nederlands (België)"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Niederländisch (Belgien)"/>
         </designation>
       </concept>
       <concept>
@@ -557,6 +693,10 @@
           <language value="ru"/>
           <value value="Нидерландский (Нидерланды)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Niederländisch (Niederlande)"/>
+        </designation>
       </concept>
       <concept>
         <code value="no"/>
@@ -572,6 +712,10 @@
         <designation>
           <language value="ru"/>
           <value value="Норвежский"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Norwegisch"/>
         </designation>
       </concept>
       <concept>
@@ -589,6 +733,10 @@
           <language value="ru"/>
           <value value="Норвежский (Норвегия)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Norwegisch (Norwegen)"/>
+        </designation>
       </concept>
       <concept>
         <code value="pt"/>
@@ -604,6 +752,10 @@
         <designation>
           <language value="ru"/>
           <value value="Португальский"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Portugiesisch"/>
         </designation>
       </concept>
       <concept>
@@ -621,6 +773,10 @@
           <language value="ru"/>
           <value value="Португальский (Бразилия)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Portugiesisch (Brasilien)"/>
+        </designation>
       </concept>
       <concept>
         <code value="ru"/>
@@ -636,6 +792,10 @@
         <designation>
           <language value="ru"/>
           <value value="Русский"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Russisch"/>
         </designation>
       </concept>
       <concept>
@@ -653,6 +813,10 @@
           <language value="ru"/>
           <value value="Русский (Россия)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Russisch (Russland)"/>
+        </designation>
       </concept>
       <concept>
         <code value="sr"/>
@@ -668,6 +832,10 @@
         <designation>
           <language value="ru"/>
           <value value="Сербский"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Serbisch"/>
         </designation>
       </concept>
       <concept>
@@ -685,6 +853,10 @@
           <language value="ru"/>
           <value value="Сербский (Сербия)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Serbisch (Serbien)"/>
+        </designation>
       </concept>
       <concept>
         <code value="sv"/>
@@ -700,6 +872,10 @@
         <designation>
           <language value="ru"/>
           <value value="Шведский"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Schwedisch"/>
         </designation>
       </concept>
       <concept>
@@ -717,6 +893,10 @@
           <language value="ru"/>
           <value value="Шведский (Швеция)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Schwedisch (Schweden)"/>
+        </designation>
       </concept>
       <concept>
         <code value="te"/>
@@ -732,6 +912,10 @@
         <designation>
           <language value="ru"/>
           <value value="Телугу"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Telugu"/>
         </designation>
       </concept>
       <concept>
@@ -749,6 +933,10 @@
           <language value="ru"/>
           <value value="Kитайский"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Chinesisch"/>
+        </designation>
       </concept>
       <concept>
         <code value="zh-CN"/>
@@ -764,6 +952,10 @@
         <designation>
           <language value="ru"/>
           <value value="Kитайский (Китай)"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Chinesisch (China)"/>
         </designation>
       </concept>
       <concept>
@@ -781,6 +973,10 @@
           <language value="ru"/>
           <value value="Kитайский (Гонконг)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Chinesisch (Hong Kong)"/>
+        </designation>
       </concept>
       <concept>
         <code value="zh-SG"/>
@@ -797,6 +993,10 @@
           <language value="ru"/>
           <value value="Kитайский (Сингапур)"/>
         </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Chinesisch (Singapur)"/>
+        </designation>
       </concept>
       <concept>
         <code value="zh-TW"/>
@@ -812,6 +1012,10 @@
         <designation>
           <language value="ru"/>
           <value value="Kитайский (Тайвань)"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Chinesisch (Taiwan)"/>
         </designation>
       </concept>
     </include>
