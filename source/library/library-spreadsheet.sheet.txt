@@ -35,6 +35,12 @@
   Display = Asset Collection
   Definition = The resource is a collection of knowledge assets
 
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = module-definition
+  Display = Module Definition
+  Definition = The resource defines the dependencies, parameters, and data requirements for a particular module or evaluation context
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -100,8 +106,8 @@
   Summary = Y
   Type = CodeableConcept
   Binding = LibraryType
-  Short Label = logic-library | model-definition | asset-collection
-  Definition = Identifies the type of knowledge module, such as a rule, library, documentation template, or measure
+  Short Label = logic-library | model-definition | asset-collection | module-definition
+  Definition = Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition
   w5 = what
 
  -- Row 8 -----------------------------------

@@ -139,81 +139,62 @@
 		<description value="..."/>
 		<publicationDate value="2015-08-15"/>
 		<coverage>
-			<focus><code value="patient-age-group"/></focus>
-			<value>
+			<patientAgeGroup>
 				<coding>
 					<!-- Error: Connection to http://localhost:960 refused -->
 					<!--<system value="http://snomed.info/sct"/>-->
 					<code value="133936004"/>
 					<display value="Adult"/>
 				</coding>
-			</value>
-		</coverage>
-		<coverage>
-			<focus><code value="clinical-focus"/></focus>
-			<value>
+			</patientAgeGroup>
+			<clinicalFocus>
 				<coding>
 					<!-- Error: Connection to http://localhost:960 refused -->
 					<!--<system value="http://snomed.info/sct"/>-->
 					<code value="87512008"/>
 					<display value="Mild major depression"/>
 				</coding>
-			</value>
-		</coverage>
-		<coverage>
-			<focus><code value="clinical-focus"/></focus>
-			<value>
+			</clinicalFocus>
+			<clinicalFocus>
 				<coding>
 					<!-- Error: Connection to http://localhost:960 refused -->
 					<!--<system value="http://snomed.info/sct"/>-->
 					<code value="40379007"/>
 					<display value="Major depression, recurrent, mild"/>
 				</coding>
-			</value>
-		</coverage>
-		<coverage>
-			<focus><code value="clinical-focus"/></focus>
-			<value>
+			</clinicalFocus>
+			<clinicalFocus>
 				<coding>
 					<!-- Error: Connection to http://localhost:960 refused -->
 					<!--<system value="http://snomed.info/sct"/>-->
 					<code value="394687007"/>
 					<display value="Low suicide risk"/>
 				</coding>
-			</value>
-		</coverage>
-		<coverage>
-			<focus><code value="clinical-focus"/></focus>
-			<value>
+			</clinicalFocus>
+			<clinicalFocus>
 				<coding>
 					<!-- Error: Connection to http://localhost:960 refused -->
 					<!--<system value="http://snomed.info/sct"/>-->
 					<code value="225337009"/>
 					<display value="Suicide risk assessment"/>
 				</coding>
-			</value>
-		</coverage>
-		<coverage>
-			<focus><code value="clinical-venue"/></focus>
-			<value>
+			</clinicalFocus>
+			<clinicalVenue>
 				<coding>
 					<!-- Error: Connection to http://localhost:960 refused -->
 					<!--<system value="http://snomed.info/sct"/>-->
 					<code value="440655000"/>
 					<display value="Outpatient environment"/>
 				</coding>
-			</value>
-		</coverage>
-		<coverage>
-			<focus><code value="target-user"/></focus>
-			<value>
+			</clinicalVenue>
+			<targetUser>
 				<coding>
 					<!-- Error: Connection to http://localhost:960 refused -->
 					<!--<system value="http://snomed.info/sct"/>-->
 					<code value="309343006"/>
 					<display value="Physician"/>
 				</coding>
-			</value>
+			</targetUser>
 		</coverage>
 		<topic>
 			<text value="Chlamydia Screeening"/>
