@@ -1137,7 +1137,7 @@ See wiki for guidance</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s88">
-					<Data ss:Type="String">The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition should be version specific.  This will ideally be the URI for the Resource Profile defining the extension, with the code for the extension after a #</Data>
+					<Data ss:Type="String">The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s89">
