@@ -242,14 +242,18 @@ return preference</a>:
 <pre>
 Prefer: return=minimal
 Prefer: return=representation
+Prefer: return=OperationOutcome
 </pre>
 <p>
 The first of these two asks to return no body. The
-second asks to return the full resource. Servers SHOULD honor this header.
-In the absence of the header, servers may choose whether to return the
-full resource or not. Note that this setting only applies to successful interactions.
-In case of failure, servers SHOULD always return a body that contains an 
-<a href="operationoutcome.html">OperationOutcome</a> resource.
+second asks to return the full resource. The third asks
+the server to return an <a href="operationoutcome.html">OperationOutcome</a> 
+resource containing hints and warnings about the operation rather than the 
+full resource. Servers SHOULD honor this header. In the absence of the header, 
+servers may choose whether to return the full resource or not (but not the OperationOutcome;
+that should only be returned if explicitly requested). Note that this setting 
+only applies to successful interactions. In case of failure, servers SHOULD 
+always return a body that contains an <a href="operationoutcome.html">OperationOutcome</a> resource.
 </p>
 
 <a name="mime-type"> </a>
