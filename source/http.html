@@ -1252,9 +1252,11 @@ The server need not use a stateful paging method as shown in this example - it i
 the discretion of the server how to best ensure that the continuation retains
 integrity in the context of ongoing changes to the resources. An alternative approach
 is to use version specific references to the records on the boundaries, but this is
-subject to continuity failures when records are updated.
+subject to continuity failures when records are updated. 
 </p>
 <p>
+A server MAY add additional state tracking parameters to the links, as shown in the example above.
+The client must use the server supplied links in order to traverse the pages.
 A server MAY inform the client of the total number of resources returned by the interaction for which the results are paged
 using  the <a href="bundle-definitions.html#Bundle.total">Bundle.total</a>.
 </p>
