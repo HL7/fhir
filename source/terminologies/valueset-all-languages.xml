@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="All Languages"/>
+  <status value="draft"/>
+  <publisher value="HL7 International - FHIR-Infrastructure"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes all possible codes from BCP-47 (http://tools.ietf.org/html/bcp47)"/>
+  <compose>
+    <include>
+      <system value="urn:ietf:bcp:47"/>
+    </include>
+  </compose>
+</ValueSet>

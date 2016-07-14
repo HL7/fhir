@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="Common Languages"/>
+  <status value="draft"/>
+  <publisher value="HL7 International - FHIR-Infrastructure"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes common codes from BCP-47 (http://tools.ietf.org/html/bcp47)"/>
+  <compose>
+    <include>
+      <system value="urn:ietf:bcp:47"/>
+      <concept>
+        <code value="bn"/>
+        <display value="Bengali"/>
+        <designation>
+          <language value="en"/>
+          <value value="Bengali"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="cs"/>
+        <display value="Czech"/>
+        <designation>
+          <language value="en"/>
+          <value value="Czech"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="da"/>
+        <display value="Danish"/>
+        <designation>
+          <language value="en"/>
+          <value value="Danish"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="de"/>
+        <display value="German"/>
+        <designation>
+          <language value="en"/>
+          <value value="German"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="de-AT"/>
+        <display value="German (Austria)"/>
+        <designation>
+          <language value="en"/>
+          <value value="German (Austria)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="de-CH"/>
+        <display value="German (Switzerland)"/>
+        <designation>
+          <language value="en"/>
+          <value value="German (Switzerland)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="de-DE"/>
+        <display value="German (Germany)"/>
+        <designation>
+          <language value="en"/>
+          <value value="German (Germany)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="el"/>
+        <display value="Greek"/>
+        <designation>
+          <language value="en"/>
+          <value value="Greek"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="en"/>
+        <display value="English"/>
+        <designation>
+          <language value="en"/>
+          <value value="English"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="en-AU"/>
+        <display value="English (Australia)"/>
+        <designation>
+          <language value="en"/>
+          <value value="English (Australia)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="en-CA"/>
+        <display value="English (Canada)"/>
+        <designation>
+          <language value="en"/>
+          <value value="English (Canada)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="en-GB"/>
+        <display value="English (Great Britain)"/>
+        <designation>
+          <language value="en"/>
+          <value value="English (Great Britain)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="en-IN"/>
+        <display value="English (India)"/>
+        <designation>
+          <language value="en"/>
+          <value value="English (India)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="en-NZ"/>
+        <display value="English (New Zeland)"/>
+        <designation>
+          <language value="en"/>
+          <value value="English (New Zeland)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="en-SG"/>
+        <display value="English (Singapore)"/>
+        <designation>
+          <language value="en"/>
+          <value value="English (Singapore)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="es"/>
+        <display value="Spanish"/>
+        <designation>
+          <language value="en"/>
+          <value value="Spanish"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="es-AR"/>
+        <display value="Spanish (Argentina)"/>
+        <designation>
+          <language value="en"/>
+          <value value="Spanish (Argentina)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="es-ES"/>
+        <display value="Spanish (Spain)"/>
+        <designation>
+          <language value="en"/>
+          <value value="Spanish (Spain)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="es-UY"/>
+        <display value="Spanish (Uruguay)"/>
+        <designation>
+          <language value="en"/>
+          <value value="Spanish (Uruguay)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="fi"/>
+        <display value="Finnish"/>
+        <designation>
+          <language value="en"/>
+          <value value="Finnish"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="fr"/>
+        <display value="French"/>
+        <designation>
+          <language value="en"/>
+          <value value="French"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="fr-CH"/>
+        <display value="French (Switzerland)"/>
+        <designation>
+          <language value="en"/>
+          <value value="French (Switzerland)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="fr-FR"/>
+        <display value="French (France)"/>
+        <designation>
+          <language value="en"/>
+          <value value="French (France)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="hr"/>
+        <display value="Croatian"/>
+        <designation>
+          <language value="en"/>
+          <value value="Croatian"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="it"/>
+        <display value="Italian"/>
+        <designation>
+          <language value="en"/>
+          <value value="Italian"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="it-CH"/>
+        <display value="Italian (Switzerland)"/>
+        <designation>
+          <language value="en"/>
+          <value value="Italian (Switzerland)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="it-IT"/>
+        <display value="Italian (Italy)"/>
+        <designation>
+          <language value="en"/>
+          <value value="Italian (Italy)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="ja"/>
+        <display value="Japanese"/>
+        <designation>
+          <language value="en"/>
+          <value value="Japanese"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="ko"/>
+        <display value="Korean"/>
+        <designation>
+          <language value="en"/>
+          <value value="Korean"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="nl"/>
+        <display value="Dutch"/>
+        <designation>
+          <language value="en"/>
+          <value value="Dutch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="nl-NL"/>
+        <display value="Dutch (Netherlands)"/>
+        <designation>
+          <language value="en"/>
+          <value value="Dutch (Netherlands)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="no"/>
+        <display value="Norwegian"/>
+        <designation>
+          <language value="en"/>
+          <value value="Norwegian"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="no-NO"/>
+        <display value="Norwegian (Norway)"/>
+        <designation>
+          <language value="en"/>
+          <value value="Norwegian (Norway)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="pt"/>
+        <display value="Portuguese"/>
+        <designation>
+          <language value="en"/>
+          <value value="Portuguese"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="pt-BR"/>
+        <display value="Portuguese (Brazil)"/>
+        <designation>
+          <language value="en"/>
+          <value value="Portuguese (Brazil)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="ru"/>
+        <display value="Russian"/>
+        <designation>
+          <language value="en"/>
+          <value value="Russian"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="ru-RU"/>
+        <display value="Russian (Russia)"/>
+        <designation>
+          <language value="en"/>
+          <value value="Russian (Russia)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="sr"/>
+        <display value="Serbian"/>
+        <designation>
+          <language value="en"/>
+          <value value="Serbian"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="sr-SP"/>
+        <display value="Serbian (Serbia)"/>
+        <designation>
+          <language value="en"/>
+          <value value="Serbian (Serbia)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="sv"/>
+        <display value="Swedish"/>
+        <designation>
+          <language value="en"/>
+          <value value="Swedish"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="sv-SE"/>
+        <display value="Swedish (Sweden)"/>
+        <designation>
+          <language value="en"/>
+          <value value="Swedish (Sweden)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="te"/>
+        <display value="Telegu"/>
+        <designation>
+          <language value="en"/>
+          <value value="Telegu"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="zh"/>
+        <display value="Chinese"/>
+        <designation>
+          <language value="en"/>
+          <value value="Chinese"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="zh-CN"/>
+        <display value="Chinese (China)"/>
+        <designation>
+          <language value="en"/>
+          <value value="Chinese (China)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="zh-HK"/>
+        <display value="Chinese (Hong Kong)"/>
+        <designation>
+          <language value="en"/>
+          <value value="Chinese (Hong Kong)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="zh-SG"/>
+        <display value="Chinese (Singapore)"/>
+        <designation>
+          <language value="en"/>
+          <value value="Chinese (Singapore)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="zh-TW"/>
+        <display value="Chinese (Taiwan)"/>
+        <designation>
+          <language value="en"/>
+          <value value="Chinese (Taiwan)"/>
+        </designation>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
