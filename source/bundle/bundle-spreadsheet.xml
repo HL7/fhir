@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17148</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>10884</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -1064,7 +1064,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Only used if the bundle is a search result set</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Only used if the bundle is a search result set. The total does not include resources such as OperationOutcome and included resources, only the total number of matching resources</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3936,9 +3936,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>12</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3946,14 +3946,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>25</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
@@ -6124,38 +6124,38 @@
     <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s143"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">batch request - meds  &amp; allergies</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">xml</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Retrieve a patients medications, allergies, problems and immunizations</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">bundle-request-medsallergies</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">bundle-request-medsallergies.xml</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s143"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">batch response - meds &amp; allergies</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">xml</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Response for Retrieve a patients medications, allergies, problems and immunizations</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">bundle-response-medsallergies</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">bundle-response-medsallergies.xml</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s143"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">batch request - simple summary</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">xml</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Retrieve a&#160;patient’s&#160;conditions, medication statements and blood pressure readings since a given date</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">bundle-request-simplesummary</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">bundle-request-simplesummary.xml</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s143"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">batch response - simple summary</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">xml</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Response for Retrieve a patient’s conditions, medication statements and blood pressure readings since a given date</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">bundle-response-simplesummary</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">bundle-response-simplesummary.xml</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>
    </Row>
@@ -6456,6 +6456,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>-1</HorizontalResolution>
+    <VerticalResolution>-1</VerticalResolution>
+   </Print>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6475,8 +6481,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

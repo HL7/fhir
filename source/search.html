@@ -1180,8 +1180,10 @@ This way, the last matching resource will be returned.
 
 <p>
 if <code>_count</code> has the value 0, this shall be treated the same as <code>_summary=count</code>: the
-server resturns a bundle that reports the total number of matches in Bundle.total, 
-but with no entries, and no prev/next/last links.
+server resturns a bundle that reports the total number of resources that match in Bundle.total, 
+but with no entries, and no prev/next/last links. Note that the <code>Bundle.total</code> only 
+include the total number of matching resources. It does not count extra resources such as 
+<a href="operationoutcome.html">OperationOutcome</a> or <a href="#include">included</a> resources that may also be returned.
 </p>
 
 <a name="include"> </a>

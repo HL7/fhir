@@ -207,7 +207,7 @@
   Type = unsignedInt
   Short Label = If search, the total number of matches
   Definition = If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle)
-  Comments = Only used if the bundle is a search result set
+  Comments = Only used if the bundle is a search result set. The total does not include resources such as OperationOutcome and included resources, only the total number of matching resources
 
  -- Row 4 -----------------------------------
   Element = Bundle.link
@@ -441,6 +441,34 @@
   Identity = bundle-response
   Description = Response for the example transaction
   Filename = bundle-response.xml
+  Type = xml
+
+ -- Row 4 -----------------------------------
+  Name = batch request - meds  & allergies
+  Identity = bundle-request-medsallergies
+  Description = Retrieve a patients medications, allergies, problems and immunizations
+  Filename = bundle-request-medsallergies.xml
+  Type = xml
+
+ -- Row 5 -----------------------------------
+  Name = batch response - meds & allergies
+  Identity = bundle-response-medsallergies
+  Description = Response for Retrieve a patients medications, allergies, problems and immunizations
+  Filename = bundle-response-medsallergies.xml
+  Type = xml
+
+ -- Row 6 -----------------------------------
+  Name = batch request - simple summary
+  Identity = bundle-request-simplesummary
+  Description = Retrieve a patient’s conditions, medication statements and blood pressure readings since a given date
+  Filename = bundle-request-simplesummary.xml
+  Type = xml
+
+ -- Row 7 -----------------------------------
+  Name = batch response - simple summary
+  Identity = bundle-response-simplesummary
+  Description = Response for Retrieve a patient’s conditions, medication statements and blood pressure readings since a given date
+  Filename = bundle-response-simplesummary.xml
   Type = xml
 
 === Sheet Examples =====================================

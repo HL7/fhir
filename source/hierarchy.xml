@@ -22,7 +22,7 @@ signatures.html
     </page>
 
     <!-- foundation - quite a lot of documentation -->
-    <page title="Foundation" filename="foundation-module.html">
+    <page title="Foundation" filename="foundation-module.html" icon="foundation.png">
       <!--			<page title="Ballot Intro" filename="ballot-intro.html"/> -->
       <page title="Documentation" filename="documentation.html">
         <page title="Summary" filename="summary.html"/>
@@ -112,13 +112,13 @@ signatures.html
       <page title="Resource Guide" filename="resourceguide.html"/>
     </page>
 
-    <page title="Ontology" filename="ontology-module.html">
+    <page title="Ontology" filename="ontology-module.html" icon="ontology.png">
       <page title="RDF" filename="rdf.html"/>
       <page title="Ontology" filename="ontology.html"/>
       <page title="W5 Map" filename="w5.html"/>
     </page>
 
-    <page title="Terminology" filename="terminology-module.html">
+    <page title="Terminology" filename="terminology-module.html" icon="terminology.png">
       <page title="Using Codes" filename="terminologies.html">
         <page title="Systems" filename="terminologies-systems.html">
           <page title="SNOMED CT" filename="snomedct.html"/>
@@ -149,7 +149,7 @@ signatures.html
       <page type="resource" resource="CodeSystem"/>
     </page>
 
-    <page title="Conformance" filename="conformance-module.html">
+    <page title="Conformance" filename="conformance-module.html" icon="conformance.jpg">
       <page title="Profiling FHIR" filename="profiling.html">
         <page title="Examples" filename="profiling-examples.html"/>
       </page>
@@ -163,7 +163,7 @@ signatures.html
       <page type="resource" resource="DataElement"/>
     </page>
 
-    <page title="Security and Privacy" filename="secpriv-module.html">
+    <page title="Security and Privacy" filename="secpriv-module.html" icon="secpriv.jpg">
       <page title="Security" filename="security.html">
         <page title="Security Labels" filename="security-labels.html"/>
         <page title="Signatures" filename="signatures.html"/>
@@ -173,7 +173,7 @@ signatures.html
       <page type="resource" resource="Consent"/>
     </page>
 
-    <page title="Implementation Support" filename="implsupport-module.html">
+    <page title="Implementation Support" filename="implsupport-module.html" icon="implsupport.png">
       <page title="Implementation" filename="implementation.html"/>
       <page title="Inter-version Compatibility" filename="compatibility.html"/>
       <page title="Testing FHIR" filename="testing.html"/>
@@ -197,7 +197,7 @@ signatures.html
       <page type="resource" resource="TestScript" />
     </page>
 
-    <page title="Administration" filename="administration-module.html">
+    <page title="Administration" filename="administration-module.html" icon="administration.jpg">
       <page type="resource" resource="Patient"/>
       <page type="resource" resource="RelatedPerson"/>
       <page type="resource" resource="Person"/>
@@ -218,7 +218,7 @@ signatures.html
       <page type="resource" resource="Endpoint"/>
     </page>
 
-    <page title="Clinical Summary" filename="clinicalsummary-module.html">
+    <page title="Clinical Summary" filename="clinicalsummary-module.html" icon="clinical.png">
       <page type="resource" resource="AllergyIntolerance"/>
       <page type="resource" resource="BodySite"/>
       <page type="resource" resource="Condition"/>
@@ -234,7 +234,7 @@ signatures.html
       <page type="resource" resource="FamilyMemberHistory"/>
     </page>
 
-    <page title="Diagnostics" filename="diagnostics-module.html">
+    <page title="Diagnostics" filename="diagnostics-module.html" icon="diagnostics.jpg">
       <page type="resource" resource="Observation"/>
       <page type="resource" resource="DiagnosticReport"/>
       <page type="resource" resource="DiagnosticOrder"/>
@@ -244,7 +244,7 @@ signatures.html
       <page type="resource" resource="Specimen"/>
     </page>
 
-    <page title="Medications" filename="medications-module.html">
+    <page title="Medications" filename="medications-module.html" icon="medication.png">
       <page type="resource" resource="Medication"/>
       <page type="resource" resource="MedicationOrder"/>
       <page type="resource" resource="MedicationAdministration"/>
@@ -254,7 +254,7 @@ signatures.html
       <page type="resource" resource="ImmunizationRecommendation"/>
     </page>
 
-    <page title="Workflow" filename="workflow-module.html">
+    <page title="Workflow" filename="workflow-module.html" icon="workflow.png">
       <page type="resource" resource="NutritionOrder"/>
       <page type="resource" resource="VisionPrescription"/>
       <page type="resource" resource="ProcessRequest"/>
@@ -276,7 +276,7 @@ signatures.html
       <page type="resource" resource="Subscription"/>
     </page>
 
-    <page title="Financial" filename="financial-module.html">
+    <page title="Financial" filename="financial-module.html" icon="financial.png">
       <page type="resource" resource="Claim"/>
       <page type="resource" resource="ClaimResponse"/>
       <page type="resource" resource="Coverage"/>
@@ -296,7 +296,7 @@ signatures.html
       <page type="resource" resource="Contract"/>
     </page>
 
-    <page title="Clinical Reasoning" filename="clinicalreasoning-module.html">
+    <page title="Clinical Reasoning" filename="clinicalreasoning-module.html" icon="reasoning.png">
       <page type="resource" resource="Protocol"/>
       <page type="resource" resource="DecisionSupportServiceModule"/>
       <page type="resource" resource="DecisionSupportRule"/>
