@@ -18,9 +18,29 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="root"> </a>
 <h2>Clinical Reasoning Module</h2>
 
+<p><i>This draft of the CQF IG is being balloted as FHIR-Based Clinical Quality Framework (CQF-on-FHIR) as an STU ballot for the September 2016 ballot cycle. In addition, this guidance will be used to support the CQF-on-FHIR and Payer Extract tracks in the September 2016 FHIR connect-a-thon.</i></p>
+
+<p><i>The guidance in this module is prepared as a Universal Realm Specification with support from the <a href="http://cqframework.info">Clinical Quality Framework (CQF) initiative</a>, which is a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the U.S. Office of the National Coordinator for Health Information Technology (ONC) to identify, develop, and harmonize standards for clinical decision support and electronic clinical quality measurement.</i></p>
 
 <a name="intro"> </a>
 <h3>Introduction</h3>
+<p>The Clinical Reasoning module provides resources and operations to enable the representation, distribution, and evaluation of clinical knowledge assets such as decision support rules, quality measures, order sets, and protocols.</p>
+
+<p>The guidance in this module describes how the clinical reasoning components of the FHIR specification can be used to enable the use of a FHIR service in the following roles:</p>
+
+<ol>
+	<li>Knowledge Repository - As a knowledge artifact repository for sharing and distributing knowledge artifact definitions</li>
+	<li>Knowledge Service - As a knowledge service providing for the evaluation of patient data and clinical context using knowledge artifacts such as decision support artifacts and quality measures.</li>
+</ol>
+
+<p>From the perspective of a Knowledge Author, this module describes an approach to representing knowledge artifacts within FHIR.</p>
+
+<p>From the perspective of a Knowledge Content Provider, this module defines search functionality for using a FHIR server as a knowledge artifact repository.</p>
+
+<p>From the perspective of a Knowledge Service Provider, this module defines operations and profiles in support of evaluating quality measures, and defining a service for guidance request and response, consistent with the approach taken by the current Decision Support Service specification.</p>
+
+<p>And finally, from the perspective of a Knowledge Service Consumer, this module defines the expected available operations and behavior of a knowledge service.</p>
+
 <p>
 In this section: scope, what outcome modules seeks provide, why would you look at it's content
 
@@ -31,9 +51,20 @@ Editor: Bryn Rhodes
 
 <a name="index"> </a>
 <h3>Index</h3>
-<p>
-In this section: links to key content pages in the module
-</p>
+<table class="grid">
+	<thead>
+		<tr><th>Topic</th><th>Description</th></tr>
+	</thead>
+	<tbody>
+		<tr><td><a href="#background">Overview and Background</a></td><td>If you're interested in the background and development of the Clinical Quality Framework, this topic covers where it came from and why it exists.</td></tr>
+		<tr><td><a href="cqif-knowledge-artifact-representation.html">Representing Knowledge Artifacts</a></td><td>If you want to represent knowledge artifacts such as Event-Condition-Action rules, Order Sets, or Quality Measures, start here.</td></tr>
+		<tr><td><a href="cqif-integrating-decision-support.html">Integrating Decision Support in a Clinical Workflow</a></td><td>If you want to see how to request and respond to clinical guidance, start here.</td></tr>
+		<tr><td><a href="cqif-documentation-templates.html">Using a Documentation Template in a Clinical Workflow</a></td><td>If you want to fill out a documentation template as part of a clinical workflow, start here.</td></tr>
+		<tr><td><a href="cqif-order-sets.html">Using an Order Set in a Clinical Workflow</a></td><td>If you want to realize an order set as part of a clinical workflow, start here.</td></tr>
+		<tr><td><a href="cqif-knowledge-artifact-distribution.html">Sharing Knowledge Artifacts</a></td><td>If you want to distribute knowledge artifacts, start here.</td></tr>
+		<tr><td><a href="cqif-quality-reporting.html">Quality Reporting</a></td><td>If you want to define or report clinical quality measures, start here.</td></tr>
+	</tbody>
+</table>
 
 <a name="secpriv"> </a>
 <h3>Security and Privacy</h3>
@@ -45,15 +76,116 @@ For more general considerations, see <a href="secpriv-module.html">the Security 
 
 <a name="uses"> </a>
 <h3>Common use Cases</h3>
-<p>
-In this section: common problems in the space of the module, ways to go about solving them, or references to additional problem based linkes
-</p>
+<p>This implementation guide focuses on several primary use cases:</p>
+
+<ul>
+	<li>Sharing - The representation of computable, shareable knowledge artifacts</li>
+	<li>Evaluation - The evaluation of a particular patient or population using knowledge artifacts</li>
+	<li>Distribution - Functionality required to enable a searchable artifact repository</li>
+</ul>
+
+<p>The sharing use case is the focus of the <a href="cqif-knowledge-artifact-representation.html">Representing Knowledge Artifacts</a> topic, which covers how to use the various types and resources defined within FHIR to represent computable knowledge artifacts such as Event-Condition-Action rules, Documentation Templates, Order Sets, and Quality Measures.</p>
+
+<p>The evaluation use case is discussed in the next three topics, <a href="cqif-integrating-decision-support.html">Integrating Decision Support in a Clinical Workflow</a>, <a href="cqif-documentation-templates.html">Using a Documentation Template in a Clinical Workflow</a>, and <a href="cqif-order-sets.html">Using an OrderSet in a Clinical Workflow</a>, which cover how to use the various decision support artifacts in a clinical workflow.</p>
+
+<p>The distribution use case is discussed in the <a href="cqif-knowledge-artifact-distribution.html">Sharing Knowledge Artifacts</a> topic, which covers how to use the Search Parameters defined for each of the resources to expose and retrieve knowledge artifacts.</p>
+
+<p>And finally, <a href="cqif-quality-reporting.html">Quality Reporting</a> is covered in a separate topic focused on how to use the Measure and MeasureReport resources to define and report on quality measures.</p>
 
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>
 <p>
 In this section: what the current overall state is, what work is in train, what the goals over the next 18 months or so are
 </p>
+
+
+<a name="background"/>
+<h3>Background</h3>
+
+<p>The CQF Implementation Guide is sponsored by the Clinical Decision Support (CDS) and Clinical Quality Information (CQI) HL7 Work Groups, with input and coordination from the FHIR Infrastructure and Service Oriented Architecture HL7 Work Groups.</p>
+
+<p>The Clinical Quality Framework initiative has focused on harmonizing the historically disjointed specifications used by the Clinical Quality Measurement and Clinical Decision Support communities. Specifically, the initiative has focused on the specifications used to represent knowledge artifacts within the two communities. The strategy employed has been to break the conceptual content of knowledge artifacts into three core components:</p>
+
+<ul>
+	<li>Metadata - Descriptive information about the artifact and its content</li>
+	<li>Clinical Information - The representation used to carry clinical information about the patient or population of concern within a given artifact</li>
+	<li>Logic - The representation used to convey the logic involved in the artifact</li>
+</ul>
+
+<img alt="Clinical Quality Framework Conceptual Components" src="cqframework-components-diagram.jpg"/>
+
+<p>The first component has resulted in the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=391">Clinical Quality Common Metadata Conceptual Model</a>, an informative document harmonizing metadata requirements between Quality Measurement and Decision Support artifacts.</p>
+
+<p>The second component has resulted in the QUICK <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378">Conceptual</a> and Logical Models, a harmonization of the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=338">Virtual Medical Record (vMR)</a> used in Decision Support and the <a href="https://ecqi.healthit.gov/qdm">Quality Data Model (QDM)</a> used in Quality Measurement, and realized in FHIR as the QICore profiles.</p>
+
+<p>And finally, the third component has resulted in the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">Clinical Quality Language Specification</a>, a harmonization of the expressive capabilities of the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=337">Clinical Decision Support Knowledge Artifact Specification (CDS KAS)</a> (produced by the Health eDecisions (HeD) S&amp;I Framework Initiative), and the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">Health Quality Measures Format (HQMF)</a>.</p>
+
+<p>As part of the ongoing CQF initiative pilot efforts, these developing specifications are being used to support knowledge artifact sharing, as well as evaluation of knowledge artifacts as part of decision support request/response and measure evaluation.</p>
+
+<p>This implementation guide continues the harmonization of quality domain specifications by defining an approach to using a FHIR server as a component of a knowledge system in both the Knowledge Repository and Knowledge Service roles.</p>
+
+<a name="related-specifications"/>
+<h3>Related Specifications</h3>
+
+<p>The approach and representations within this guide are intended to be consistent with the following specifications:</p>
+
+<ul>
+	<li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=337">HL7 Version 3 Standard: Clinical Decision Support Knowledge Artifact Specification, Release 1.2</a></li>
+	<li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">HL7 Version 3 Standard: Representation of the Health Quality Measure Format (eMeasure) DSTU, Release 2</a></li>
+	<li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=12">HL7 Version 3 Standard: Decision Support Service, Release 2</a></li>
+	<li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=334">HL7 Version 3 Implementation Guide: Decision Support Service, Release 1</a></li>
+</ul>
+
+<a name="ballot-objectives"/>
+<h3>Ballot Objectives</h3>
+
+<p>For this ballot cycle, we are presenting this guidance as an STU ballot with the objective of providing a basis for the representation and evaluation of shareable clinical knowledge artifacts. We welcome any comments, criticisms and suggestions on any topic, but in particular, we seek feedback on the following areas:</p>
+
+<ul>
+	<li>The use of FHIR operations as the protocol for defining artifact evaluation requests and responses. In particular, the ability to bundle multiple requests into a single operation, as well as the use of a generic FHIR operation for any module evaluation, versus defining an evaluation specific to a given knowledge module.</li>
+	<li>The use of FHIR interactions in general as a mechanism for enabling knowledge module repository and distribution functionality.</li>
+</ul>
+
+<a name="copyright-information"/>
+<h3>Copyright Information</h3>
+
+<p>This material includes SNOMED Clinical Terms &reg; (SNOMED CT&reg;), which are used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT was originally created by The College of American Pathologists. "SNOMED &reg;" and "SNOMED CT &reg;" are registered trademarks of the IHTSDO.</p>
+
+<p>This material contains content from LOINC&reg; (<a href="http://loinc.org">http://loinc.org</a>). The LOINC table, LOINC codes, and LOINC panels and forms file are copyright &copy; 1995-2011, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and available at no cost under the license at <a href="http://loinc.org/terms-of-use">http://loinc.org/terms-of-use</a>.</p>
+
+<p>This material contains content from the Unified Code for Units of Measure (UCUM) (<a href="http://unitsofmeasure.org">http://unitsofmeasure.org</a>). The UCUM specification is copyright &copy; 1999-2013, Regenstrief Institute, Inc. and available at no cost under the license at <a href="http://unitsofmeasure.org/trac/wiki/TermsOfUse">http://unitsofmeasure.org/trac/wiki/TermsOfUse</a>.</p>
+
+<p>This material contains quality measure content developed by the National Committee for Quality Assurance (NCQA). The measure content is copyright (c) 2008-2013 National Committee for Quality Assurance and used in accordance with the NCQA license terms for non-commercial use.</p>
+
+<a name="acknowledgements"></a>
+<h3>Acknowledgements</h3>
+
+The guidance in this module is the work of a joint project between the HL7 Clinical Quality Information and  Clinical Decision Support Working Groups with the co-sponsorhip of the FHIR Infrastructure, Implementable Technology Specifications, and Service Oriented Architecture Work Groups. The project team was:
+
+<table class="list">
+	<tbody>
+		<tr><td><b>Project Facilitator/Editor</b></td><td>Bryn Rhodes</td><td>Database Consulting Group</td><td>bryn@databaseconsultinggroup.com</td></tr>
+		<tr><td><b>Project Facilitator/Editor</b></td><td>Jason Walonoski</td><td>The MITRE Corporation</td><td>jwalonoski@mitre.org</td></tr>
+		<tr><td><b>Editor</b></td><td>Marc Hadley</td><td>The MITRE Corporation</td><td>mhadley@mitre.org</td></tr>
+		<tr><td><b>Modeling Facilitator</b></td><td>Gay Dolin</td><td>Intelligent Medical Objects</td><td>gdolin@imo-online.com</td></tr>
+		<tr><td><b>Publishing Facilitator</b></td><td>Lloyd McKenzie</td><td>Gevity</td><td>lmckenzie@gevityinc.com</td></tr>
+		<tr><td><b>Domain Expert</b></td><td>Claude Nanjo</td><td>Cognitive Medical Systems</td><td>cnanjo@cognitivemedicine.com</td></tr>
+		<tr><td><b>Domain Expert</b></td><td>Esteban Aliverti</td><td>Cognitive Medical Systems</td><td>ealiverti@cognitivemedicine.com</td></tr>
+		<tr><td><b>Domain Expert</b></td><td>Chris Moesel</td><td>The MITRE Corporation</td><td>cmoesel@mitre.org</td></tr>
+		<tr><td><b>Domain Expert</b></td><td>Darrell Woelk</td><td>SocialCare</td><td>dwoelk@socialcare.com</td></tr>
+		<tr><td><b>Vocabulary Facilitator</b></td><td>Sarah Ryan</td><td>The MITRE Corporation</td><td>sarahryan@mitre.org</td></tr>
+		<tr><td><b>Vocabulary Facilitator</b></td><td>Rob McClure</td><td>MD Partners</td><td>rmcclure@mdpartners.com</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>KP Sethi</td><td>Lantana Consulting Group</td><td>kp.sethi@lantanagroup.com</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Patricia Craig</td><td>The Joint Commission</td><td>pcraig@jointcommission.org</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Floyd Eisenberg</td><td>iParsimony LLC</td><td>feisenberg@iparsimony.com</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Chris Millet</td><td>National Quality Forum</td><td>cmillet@qualityforum.org</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Walter Suarez</td><td>Kaiser Permanente</td><td>walter.g.suarez@kp.org</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Guilherme Del Fiol</td><td>University of Utah Health Care</td><td>guilherme.delfiol@utah.edu</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Ken Kawamoto</td><td>University of Utah Health Care</td><td>kensaku.kawamoto@utah.edu</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Robert Jenders</td><td>Charles Drew University/UCLA</td><td>jenders@ucla.edu</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Howard Strasberg</td><td>Wolters Kluwer Health</td><td>howard.strasberg@wolterskluwer.com</td></tr>
+	</tbody>
+</table>
 
 </div>
 
