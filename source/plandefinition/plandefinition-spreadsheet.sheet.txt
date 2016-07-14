@@ -482,7 +482,7 @@
 
  -- Row 32 -----------------------------------
   Element = PlanDefinition.actionDefinition.triggerDefinition
-  Card. = 0..1
+  Card. = 0..*
   Type = TriggerDefinition
   Short Label = When the action should be triggered
   Definition = A description of when the action should be triggered
@@ -682,6 +682,42 @@
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = OrderSetExample
+  Identity = example
+  Description = Low Suicide Risk Order Set
+  Filename = plandefinition-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = CSExample
+  Identity = chlamydia-screening-intervention
+  Description = Chlamydia Screening CDS example
+  Filename = plandefinition-chlamydia-screening-intervention.xml
+
+ -- Row 3 -----------------------------------
+  Name = CMS9CDS01
+  Identity = exclusive-breastfeeding-intervention-01
+  Description = Exclusive Breastfeeding Intervention 01
+  Filename = plandefinition-exclusive-breastfeeding-intervention-01.xml
+
+ -- Row 4 -----------------------------------
+  Name = CMS9CDS02
+  Identity = exclusive-breastfeeding-intervention-02
+  Description = Exclusive Breastfeeding Intervention 02
+  Filename = plandefinition-exclusive-breastfeeding-intervention-02.xml
+
+ -- Row 5 -----------------------------------
+  Name = CMS9CDS03
+  Identity = exclusive-breastfeeding-intervention-03
+  Description = Exclusive Breastfeeding Intervention 03
+  Filename = plandefinition-exclusive-breastfeeding-intervention-03.xml
+
+ -- Row 6 -----------------------------------
+  Name = CMS9CDS04
+  Identity = exclusive-breastfeeding-intervention-04
+  Description = Exclusive Breastfeeding Intervention 04
+  Filename = plandefinition-exclusive-breastfeeding-intervention-04.xml
 
 === Sheet Examples =====================================
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
+	<id value="chlamydia-screening-intervention"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Chalmydia Screening CDS Example Using Common</div>
+	</text>
+	<identifier>
+		<use value="official"/>
+		<value value="ChlamydiaScreening_CDS_UsingCommon"/>
+	</identifier>
+	<version value="2.0.0"/>
+	<title value="Chalmydia Screening CDS Example Using Common"/>
+	<status value="draft"/>
+	<description value="Chlamydia Screening CDS Example Using Common"/>
+	<publicationDate value="2015-07-22"/>
+	<topic>
+		<text value="Chlamydia Screeening"/>
+	</topic>
+	<library>
+		<reference value="Library/ChlamydiaScreening_CDS_UsingCommon"/>
+	</library>
+	<actionDefinition>
+		<title value="Patient has not had chlamydia screening within the recommended timeframe..."/>
+		<condition value="NoScreening"/>
+		<dynamicValue>
+			<path value="~"/>
+			<expression value="ChlamydiaScreeningRequest"/>
+		</dynamicValue>
+	</actionDefinition>
+</PlanDefinition>
