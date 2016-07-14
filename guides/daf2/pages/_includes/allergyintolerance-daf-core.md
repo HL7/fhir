@@ -3,7 +3,9 @@
  
 ## Scope and Usage 
 
-This profile sets minimum expectations for use of the AllergyIntolerance resource to record allergies/adverse events associated with a patient within the DAF FHIR IG. It identifies which core elements, extensions, vocabularies and value sets must be Supported by clients and servers. For the definition of Supported please refer to DAF FHIR IG. The data elements identified by the profile are based on ONC 2015 Edition Common Clinical Data Set(CCDS).
+This profile sets minimum expectations for use of the ...
+
+It identifies which core elements, extensions, vocabularies and value sets must be Supported by clients and servers. For the definition of Supported please refer to DAF FHIR IG. The data elements identified by the profile are based on ONC 2015 Edition Common Clinical Data Set(CCDS).
 
  
 Mandatory Data Elements
