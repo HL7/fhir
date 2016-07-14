@@ -989,6 +989,53 @@ logical <code>id</code> in the resource, or <code>fullUrl</code> on entries in t
 </p>
 </blockquote>
 
+<p><b>Conditional References</b></p>
+<p>
+When constructing the batch, the client may not know the logical id of a resource, but it may 
+know identifying information - e.g. an identifier. This situations arises commonly when building
+transactions from v2 messages. The client could resolve that identifier to a logical id using
+a search, but that would mean that the resolution to a logical id does not occur within the 
+same transaction as the commit (as well as significantly complicating the client). Because
+of this, in a transaction (and only in a trasaction), references to resources may be replaced
+by a search URI that describes how to find the correct reference: 
+</p>
+<div class="example">
+<pre class="xml">
+ &lt;Bundle xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+   &lt;id value=&quot;20160113160203&quot; /&gt;
+   &lt;type value=&quot;transaction&quot; /&gt;
+   &lt;entry&gt;
+     &lt;fullUrl value=&quot;urn:uuid:c72aa430-2ddc-456e-7a09-dea8264671d8&quot; /&gt;
+     &lt;resource&gt;
+       &lt;Observation&gt;
+         &lt;subject&gt;
+            &lt;reference value=&quot;Patient?identifier=12345&quot;/&gt;
+         &lt;/subject&gt;
+         &lt;--! rest of resource omitted --&gt;
+       &lt;/Observation&gt;
+     &lt;/resource&gt;
+     &lt;request&gt;
+       &lt;method value=&quot;POST&quot; /&gt;
+     &lt;/request&gt;
+   &lt;/entry&gt;
+ &lt;Bundle&gt;
+</pre>
+</div>
+<p>
+The search URI is relative to the servers [base] path, and always starts with
+a resource type: <code>[type]:?parameters...</code>. Only filtering parameters
+are allowed; none of the parameters that control the return of resources 
+are relevant.
+</p>
+<p>
+When processing transactions, servers SHALL:
+</p>
+<ul>
+ <li>check all references for search URIs</li>
+ <li>For search URIs, use the search to locate matching resources</li>
+ <li>if there are no matches, or multiple matches, the transaction fails, and an error is returned to the user</li>
+ <li>if there is a single match, the server replaces the search URI wth a reference to the matching resource</li>
+</ul>
 
 
 <a name="transaction-response"> </a>
