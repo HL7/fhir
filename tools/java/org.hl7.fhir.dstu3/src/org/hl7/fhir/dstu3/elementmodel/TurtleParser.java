@@ -5,21 +5,14 @@ import java.io.OutputStream;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.Map.Entry;
-import java.util.concurrent.LinkedBlockingDeque;
 
-import org.apache.commons.lang3.NotImplementedException;
 import org.hl7.fhir.dstu3.elementmodel.Element.SpecialElement;
-import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
-import org.hl7.fhir.dstu3.exceptions.DefinitionException;
-import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
-import org.hl7.fhir.dstu3.utils.JsonTrackingParser;
 import org.hl7.fhir.dstu3.utils.Turtle;
 import org.hl7.fhir.dstu3.utils.Turtle.Complex;
 import org.hl7.fhir.dstu3.utils.Turtle.Section;
@@ -32,13 +25,12 @@ import org.hl7.fhir.dstu3.utils.Turtle.TTLURL;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 
 public class TurtleParser extends ParserBase {
 
   private String base;
+
+  public static String FHIR_URI_BASE = "http://hl7.org/fhir/";
 
   public TurtleParser(IWorkerContext context) {
     super(context);
@@ -65,13 +57,13 @@ public class TurtleParser extends ParserBase {
     // we actually ignore the stated URL here
     for (TTLComplex cmp : src.getObjects().values()) {
       for (String p : cmp.getPredicates().keySet()) {
-        if ("http://hl7.org/fhir/nodeRole".equals(p) && cmp.getPredicates().get(p).hasValue("http://hl7.org/fhir/treeRoot")) {
+        if ((FHIR_URI_BASE + "nodeRole").equals(p) && cmp.getPredicates().get(p).hasValue(FHIR_URI_BASE + "treeRoot")) {
           return parse(src, cmp);
         }
       }
     }
     // still here: well, we didn't find a start point
-    String msg = "Error parsing Turtle: unable to find any node maked as the entry point (where http://hl7.org/fhir/nodeRole = http://hl7.org/fhir/treeRoot)";
+    String msg = "Error parsing Turtle: unable to find any node maked as the entry point (where " + FHIR_URI_BASE + "nodeRole = " + FHIR_URI_BASE + "treeRoot)";
     if (policy == ValidationPolicy.EVERYTHING) {
       logError(-1, -1, "(document)", IssueType.INVALID, msg, IssueSeverity.FATAL);
       return null;
@@ -89,7 +81,7 @@ public class TurtleParser extends ParserBase {
     if (type instanceof TTLList) {
       // this is actually broken - really we have to look through the structure definitions at this point
       for (TTLObject obj : ((TTLList) type).getList()) {
-        if (obj instanceof TTLURL && ((TTLURL) obj).getUri().startsWith("http://hl7.org/fhir/")) {
+        if (obj instanceof TTLURL && ((TTLURL) obj).getUri().startsWith(FHIR_URI_BASE)) {
           type = obj;
           break;
         }
@@ -121,7 +113,7 @@ public class TurtleParser extends ParserBase {
     List<Property> properties = context.getProperty().getChildProperties(context.getName(), null);
     Set<String> processed = new HashSet<String>();
     if (primitive)
-      processed.add("http://hl7.org/fhir/value");
+      processed.add(FHIR_URI_BASE + "value");
 
     // note that we do not trouble ourselves to maintain the wire format order here - we don't even know what it was anyway
     // first pass: process the properties
@@ -150,7 +142,7 @@ public class TurtleParser extends ParserBase {
   private void parseChild(Turtle src, TTLComplex object, Element context, Set<String> processed, Property property, String path, String name) throws Exception {
     processed.add(name);
     String npath = path + "/" + property.getName();
-    TTLObject e = object.getPredicates().get("http://hl7.org/fhir/" + name);
+    TTLObject e = object.getPredicates().get(FHIR_URI_BASE + name);
     if (e == null)
       return;
     if (property.isList() && (e instanceof TTLList)) {
@@ -172,7 +164,7 @@ public class TurtleParser extends ParserBase {
       context.getChildren().add(n);
       if (property.isPrimitive(property.getType(tail(name)))) {
         parseChildren(src, npath, child, n, true);
-        TTLObject val = child.getPredicates().get("http://hl7.org/fhir/value");
+        TTLObject val = child.getPredicates().get(FHIR_URI_BASE + "value");
         if (val != null) {
           if (val instanceof TTLLiteral) {
             String value = ((TTLLiteral) val).getValue();
@@ -216,7 +208,7 @@ public class TurtleParser extends ParserBase {
     if (type instanceof TTLList) {
       // this is actually broken - really we have to look through the structure definitions at this point
       for (TTLObject tobj : ((TTLList) type).getList()) {
-        if (tobj instanceof TTLURL && ((TTLURL) tobj).getUri().startsWith("http://hl7.org/fhir/")) {
+        if (tobj instanceof TTLURL && ((TTLURL) tobj).getUri().startsWith(FHIR_URI_BASE)) {
           type = tobj;
           break;
         }
@@ -248,7 +240,7 @@ public class TurtleParser extends ParserBase {
 //    boolean doType = false;
 //      if (en.endsWith("[x]")) {
 //        en = en.substring(0, en.length()-3);
-//        doType = true;        
+//        doType = true;
 //      }
 //     if (doType || (element.getProperty().getDefinition().getType().size() > 1 && !allReference(element.getProperty().getDefinition().getType())))
 //       en = en + Utilities.capitalize(element.getType());
@@ -259,7 +251,7 @@ public class TurtleParser extends ParserBase {
     String en = property.getDefinition().getBase().getPath();
     if (en == null)
       en = property.getDefinition().getPath();
-    if (!en.endsWith("[x]")) 
+    if (!en.endsWith("[x]"))
       throw new Error("Attempt to replace element name for a non-choice type");
     return en.substring(0, en.lastIndexOf(".")+1)+elementName;
   }
@@ -275,7 +267,7 @@ public class TurtleParser extends ParserBase {
   }
 
   public void compose(Element e, Turtle ttl, String base) throws Exception {
-    ttl.prefix("fhir", "http://hl7.org/fhir/");
+    ttl.prefix("fhir", FHIR_URI_BASE);
     ttl.prefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
     ttl.prefix("owl", "http://www.w3.org/2002/07/owl#");
     ttl.prefix("xsd", "http://www.w3.org/2001/XMLSchema#");
@@ -291,16 +283,35 @@ public class TurtleParser extends ParserBase {
 
     for (Element child : e.getChildren()) {
       composeElement(section, subject, child, null);
+      if("Reference".equals(child.getType())) {
+        String refURI = getReferenceURI(child.getChildValue("reference"));
+        String uriType = getURIType(refURI);
+        if(uriType != null)
+          section.triple(refURI, "a", "fhir:" + uriType);
+      }
     }
   }
 
-  protected void decorateReference(Complex t, Element coding) {
-    String ref = coding.getChildValue("reference");
+  protected String getURIType(String uri) {
+    if(uri.startsWith("<" + FHIR_URI_BASE))
+      if(uri.substring(FHIR_URI_BASE.length() + 1).contains("/"))
+        return uri.substring(FHIR_URI_BASE.length() + 1, uri.indexOf('/', FHIR_URI_BASE.length() + 1));
+    return null;
+  }
+
+  protected String getReferenceURI(String ref) {
     if (ref != null && (ref.startsWith("http://") || ref.startsWith("https://")))
-      t.linkedPredicate("fhir:link", "<" + ref + ">", linkResolver == null ? null : linkResolver.resolvePage("rdf.html#reference"));
-    else if (base != null && ref != null && ref.contains("/")) {
-      t.linkedPredicate("fhir:link", "<" + Utilities.appendForwardSlash(base) + ref + ">", linkResolver == null ? null : linkResolver.resolvePage("rdf.html#reference"));
-    }
+      return "<" + ref + ">";
+    else if (base != null && ref != null && ref.contains("/"))
+      return "<" + Utilities.appendForwardSlash(base) + ref + ">";
+    else
+      return null;
+  }
+
+  protected void decorateReference(Complex t, Element coding) {
+    String refURI = getReferenceURI(coding.getChildValue("reference"));
+    if(refURI != null)
+      t.linkedPredicate("fhir:link", refURI, linkResolver == null ? null : linkResolver.resolvePage("rdf.html#reference"));
   }
 
   protected void decorateCoding(Complex t, Element coding) {
@@ -352,13 +363,6 @@ public class TurtleParser extends ParserBase {
       decorateCoding(t, element);
     if ("Reference".equals(element.getType()))
       decorateReference(t, element);
-//    if ("Extension".equals(element.getType())) {
-//      Complex e = ctxt.linkedPredicate("<" + element.getChildValue("url") + ">", null);
-//      for(Element child: element.getChildren()) {
-//        if(!"url".equals(child.getName()))
-//          composeElement(section, e, child, element);
-//      }
-//    }
 
     for (Element child : element.getChildren()) {
       if ("xhtml".equals(child.getType())) {
