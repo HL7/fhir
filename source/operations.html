@@ -124,13 +124,14 @@ For each parameter, the following information is needed:
  <li>Name - the name of the parameter. For implementer convenience, the name should be a valid token (see below)</li>
  <li>Use - In | Out | Both</li>
  <li>Type - a data type or a Resource type</li>
+ <li>Search Type - for string search parameters, what kind of search parameter they are (&amp; and what kind of modifiers they have)</li>
  <li>Profile - a <a href="structuredefinition.html">StructureDefinition</a> that applies additional restrictions about the resource</li>
  <li>Documentation - a description of the parameter's use</li>
  <li>(Optional) Search Type - if the type is a string, and the parameter is being used like a search parameter, which kind of search type applies</li>
 </ul>
 <p>
-Prameters may bes nested into multi-part parameteters. Each part has the same information as a parameter, except for use, which is taken from
-the parameter it is part of.
+Prameters may be nested into multi-part parameteters. Each part has the same information as a parameter, except for use, which is taken from
+the parameter it is part of. 
 </p>
 
 <p>
@@ -176,19 +177,24 @@ The URL for an operation end-point depends on its context:
 
 <p>
 An operation is generally invoked by performing an HTTP POST to the operation's end-point.
-The submitted content is the special <a href="parameters.html">Parameters</a> format (the "in" parameters) - a list of named parameters. For an example, see <a href="op-example-request.html">the value set expansion request example</a>.
+The submitted content is the special <a href="parameters.html">Parameters</a> format (the "in" parameters) - a list of named parameters. 
+For an example, see <a href="op-example-request.html">the value set expansion request example</a>.
+Note that when parameters have a search type, the search modifiers are available, and are used on the parameter name in the Parameters resource (e.g. "code:in").
 </p>
 <p>
 Note that the same arrangement as for the RESTful interface applies
 with respect to <a href="http.html#mime-type">content types</a>.
 </p>
 <p>
-If there are all the parameters for the operation are <a href="datatypes.html#primitive">primitive types</a>, and the operation
+If all the parameters for the operation are <a href="datatypes.html#primitive">primitive types</a>, and the operation
 is <i>idempotent</i> (see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP specification
 definition of idempotent</a>), the operation may be invoked by performing an HTTP GET operation where
 all of the values of the parameters are appended to the URL in the search portion of the URL (e.g. after the '?' character).
-Servers SHALL support this method of invocation.
+Servers SHALL support this method of invocation. E.g. 
 </p>
+<pre>
+GET [base]/ValueSet/$expand?identifier=http://hl7.org/fhir/ValueSet/body-sit&amp;filter=abdo
+</pre>
 <p>
 If the only parameter to the operation is a resource, then the operation can also executed 
 by a POST with that parameter as the body of the request.
