@@ -98,18 +98,45 @@ references to code systems can be either a logical or a literal URL.
 
 </blockquote>
 
+
 <h3>CodeSystem Identification</h3>
 <p>
 A code system has 3 identifiers:
 </p>
 <ul>
- <li>CodeSystem.id: the local identifier on the system that holds it - this changes as it moves from server to server (this id, with the server address prepended, is called the 'literal identity' of the resource)</li>
- <li>CodeSystem.url: the master identifier that never changes for this code system - it is the same in every copy (this is called the 'logical identity' of the resource)</li>
- <li>CodeSystem.identifier: A system/value pair that is used to identify the code system in other contexts (such as an OID in an <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> specification)</li>
+ <li><code>CodeSystem.id</code>: the <a href="resource.html#id">logical id</a> on the system that holds the code system - this changes as it moves from server to server (this id, with the server address prepended, is called the 'literal identity' of the resource)</li>
+ <li><code>CodeSystem.url</code>: the canonical url that never changes for this code system - it is the same in every copy. Ideally, the URL should also be the location of the master version of the code system, though this is not always possible</li>
+ <li><code>CodeSystem.identifier</code>: A system/value pair that is used to identify the code system in other contexts (such as an OID in an <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> specification)</li>
 </ul>
 <p>
-For further information, see <a href="resource.html#id">Resource Identity</a>.
+For further information regarding resource identification, see <a href="resource.html#id">Resource Identity</a>.
 </p>
+
+<p>
+This means that each code system has 2 different URLs that can be used to reference it - 
+its canonical <code>url</code>, and its local location from which it may be retrieved. 
+Because it is common practice to copy (cache) code systems locally, most references to 
+code systems use the canonical URL. 
+</p>
+<blockquote>
+<p>
+For example, the code systems published as part of FHIR all have a canonical URL
+which is also a location by which they may be accessed in the FHIR specification
+itself. Note, though, that while a new version of the FHIR Specification is being prepared,
+code systems that are published in the drafts will not be found in the published FHIR
+specification at their canonical URL. 
+</p>
+</blockquote>
+
+<p>
+Alternatively, the <code>identifier</code> and <code>version</code> elements may be used to reference this code system in a 
+design, a profile, a <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> template 
+or <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> message (in the CD data 
+type codeSystem and codeSystemVersion properties). These different contexts may make additional restrictions on the 
+possible values of these elements.  The <code>identifier</code> is generally not needed when using code systems in
+a FHIR context, where the canonical URL is always the focus.
+</p>
+
 </div>
 
 </div>

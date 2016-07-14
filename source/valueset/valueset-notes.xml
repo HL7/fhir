@@ -1,75 +1,11 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<a name="identification"> </a>
-<h2>Identifier and Version</h2>
-<p>
-The <i>identifier</i> and <i>version</i> elements may be used to reference this value set in a design, a profile, a 
-<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> template or <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> message (in the CD data type valueSet and valueSetVersion properties). These different contexts may make additional restrictions 
-on the possible values of these elements.  These elements are generally not needed when using value sets with FHIR
-implementations, as they can make use of the innate identifier and versioning mechanism associated with the resource.
-</p>
-
-<a name="inline"> </a>
-<h2>Value Sets with In-line Code Systems</h2>
-
-<p>
-A value set that contains an inline code system automatically includes all 
-of the codes that the code system defines. This is useful for simple sets of 
-codes that are highly specific and context-dependent. The value set and the 
-code system are both given URI identifiers by which they may be identified 
-from elsewhere (ValueSet.identifier and ValueSet.codeSystem.system). These 
-identifiers SHALL be different.
-</p>
-<ul>
- <li><i>ValueSet.codeSystem.system</i> is the URI that identifies these codes 
-   when used in a <a href="datatypes.html#Coding">Coding</a></li>
- <li>The usability of the codes is closely linked to the quality of the definitions. 
-   Although a definition is not required for each concept, a good definition SHOULD be provided. In the absence of any definition, there is no formal meaning associated with the concept.</li>
- <li>This specification does not fix the meaning of the relationship between parent and child codes. Most code systems use a subsumption based approach, but 
-    other kinds of relationships are possible, including partitive and categorization relationships. The definitions of the concepts dictate the nature of the relationship.
- </li>
-  <li>An abstract concept SHALL have contained concepts</li>
-  <li>The code system SHALL NOT contain duplicate codes</li>
-</ul>
-<p>
-Note: Value sets only contain inline code systems when they are not defined elsewhere,
-such as in SNOMED CT, LOINC, RxNorm, etc., which have their own public distributions. 
-To specify a value set that is made up of codes from other code systems, see "compose" below. 
-</p>
-
-<a name="versioning"> </a>
-<h3>Versioning Code Systems</h3>
-<p>
-Most code systems evolve over time, due to corrections, clarifications, and changes to approach or underlying knowledge or reality.
-If these changes lead to the meanings of existing codes changing significantly, then the interpretation of the code system becomes
-version dependent. This significantly complicates implementation based on the code system, to the point where it is not clear that
-safety can be assured, so changing the meaning of an existing code SHOULD be avoided whenever possible. It is preferable to assign a new identifier to a code system 
-when any concepts in it have a significant change in meaning (for example, the German diagnostic classification code system 
-ICD10GM2009 has a different <i>system</i> to ICD10GM2008), but this also can have substantial impact on implementation, so 
-is often not practical - for instance, <a href="snomedct.html">SNOMED CT</a> has a complex version release framework, which
-may lead to variations in meaning of concepts, but there is only one identifier for SNOMED CT. 
-</p>
-<p>
-For this reason, a code system MAY provide a version identifier which can be specified in <i>ValueSet.codeSystem.version</i>. The version specific identifier SHOULD be 
-provided whenever there are potentially significant changes in meaning across multiple releases of a code system.
-There is no particular format requirement for the version identifier, though HL7 recommends a date based approach. 
-</p>
-<p>
-When the value set definition includes a code system version identifier, the version identifier SHOULD be 
-used in <a href="datatypes.html#coding">Coding</a> instances that refer to the code system. 
-</p>
-<p>
-Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use as the version string the date (expressed in FHIR date format) on which the version of the code system that is being used was officially published.
-</p>
-
 <a name="compositions"> </a>
-<h2>Value Sets that include codes defined elsewhere</h2>
+<h2>Composition Rules</h2>
 
 <p>
-Value sets that include codes defined in some other code system are most useful when 
-dealing with large general code systems such as SNOMED CT, LOINC, RxNorm or various IETF code sets, 
-including human language. The value set can be a simple list of included codes, or it can be some 
-kind of general selection criteria using the facilities provided by the code system. For these value sets:
+A value set can be a simple list of included codes, or it can be some kind of general selection criteria 
+using the facilities provided by the code system. For these value sets:
 </p>
 <ul>
  <li>Within an include or exclude criterion, multiple filters and concept selections are intersected. All of the 
@@ -79,23 +15,18 @@ kind of general selection criteria using the facilities provided by the code sys
     over time as the underlying code systems are updated.</li>
  <li>The content of the value set is constructed by unioning of all the import and include statements and then 
   eliminating any of the 'excluded' codes.</li>
- <li>A value set needs to do something.  It can't simply include an existing value set without 
+ <li>A value set needs to do something.  It can't simply import an existing value set without 
    also including additional content or excluding content.</li>
-<!--
- <li>The point of declaring that this value set restricts another is that this value set can then replace the other in a profile 
-without changing the meaning. Declaring this explicitly allows profile tools to reason about the relationship without having 
-to compute the relationship, which might not be possible for a profile tool</li>
--->
- <li>Using the property filters is only possible where the underlying code system defines 
-  appropriate properties. Note that in some cases the underlying code system defines the 
+ <li>Using the property filters is only possible where the code system in use defines 
+  the relevant properties. Note that in some cases the underlying code system defines the 
   logical concepts but not the syntax for exercising them. In such cases, the literal 
-  definitions may be provided by a third party. See below for notes about its use against common code systems.</li>
+  definitions may be provided by a third party</li>
  <li>Value sets may include abstract codes - that is, codes designated by the underlying code system as 
-   not for use as a real concept. These abstract codes are typically used as a grouping/searching mechanism,
+   not for use as a selectable concept in a particular context. These abstract codes are typically used as a grouping/searching mechanism,
    and can be included either by enumerating them, or by using a filter.</li>
 </ul>
 <p>
-When a value set enumerates codes, it is also able to define an alternative display for 
+When a value set enumerates codes, it is sometimes useful to define an alternative display for 
 the code that is to be used wherever the value set is expanded and used in a UI. This 
 facility is provided to cover the following circumstances:
 </p>
@@ -108,13 +39,14 @@ facility is provided to cover the following circumstances:
 Note that care must be taken in order to avoid "changing the meaning" of the concept by
 implying that it means something other than the explicit definition of the concept in the
 underlying code system (e.g., in the case above, using a display of "Glucose Concentration at 10pm"). 
-For this reason, some contexts of use do not allow a display to be associated with a specific code.
+For this reason, some contexts of use do not allow a display to be associated with a specific code
+in a value set.
 </p>
 <p>
 The display name for the code in the value set is only used in the UI. The display in 
-a <a href="datatypes.html#Coding">Coding</a> must be taken from the underlying system, 
+a <a href="datatypes.html#Coding">Coding</a> must be taken from the underlying code system definition, 
 even if a value set is referenced explicitly in the Coding. The alternative display 
-specified in the value set would go in <a href="datatypes.html#CodeableConcept">CodeableConcept</a>.text.
+specified in the value set would go in <a href="datatypes.html#CodeableConcept">CodeableConcept</a>.text, perhaps appended to the UI label for the element, in a UI context.
 </p>
  
 <a name="multiples"> </a>
@@ -122,19 +54,17 @@ specified in the value set would go in <a href="datatypes.html#CodeableConcept">
 <p>
 Value sets may select codes from multiple code systems - either 
 by including codes from different systems, importing other 
-value sets that include them, and/or containing their own code system.
-</p>
-<p>
-Note that a value set always includes any codes in an inline code system, even if 
-it also has a compose. A typical use for containing both a compose statement and 
-an inline code system is when including a set of codes from elsewhere, and adding 
-a few additional codes to cover cases not catered to by the included codes. 
+value sets that include them.
+A typical use for crossing code systems is when including a set of codes, 
+and adding a few additional codes to cover cases not catered to by the 
+included codes (e.g. Data missing or workflow error codes). 
 </p> 
 <p>
 Best Practice Note: Mixing definitional systems offers the potential for 
 confusing, overlapping, and inconsistent definitions. Creating value sets that cross
 code systems should be done with care to avoid creating definitional confusion.
 </p>
+
 <a name="csnote"> </a>
 <h3>Code systems Note</h3>
 <p>
@@ -191,8 +121,8 @@ all the codes in a code system, or a set of codes by filter.
 <p>
 A resource that represents a value set expansion includes the same
 identification details as the definition of the value set, and MAY
-include the definition of the value set (<i>codeSystem</i> and <i>compose</i>
-elements). In addition, it has an <i>expansion</i> element which contains
+include the definition of the value set (<code>.compose</code>). In 
+addition, it has an <code>.expansion</code> element which contains
 the list of codes that constitute the value set expansion. 
 If the expansion has nested <code>contains</code> elements, there is 
 no implication about the logical relationship between them, and the 
@@ -221,7 +151,7 @@ the following process should be followed:
 The "result set" is then represented in <i>expansion</i>. Note that the expansion structure is inherently ordered, and 
 also provides support for a hierarchical tree of items. This specification does not fix the meaning of use of either
 of these, and the conceptual approach described should not be understood to prohibit any implementation approach in
-these regards. There is a <a href="valueset-operations.html">defined operation</a> to ask a server to perform this expansion.
+these regards. There is a <a href="valueset-operations.html">defined operation $expand</a> to ask a server to perform this expansion.
 </p>
 <p>
 An expansion may include entries in the expansion that only serve an arbitrary grouping purpose, to make it easier
@@ -247,51 +177,5 @@ appropriate) the returned expansion (when it reuses the expansion, ValueSet.expa
 be the same).
 </p>
 
-<a name="detailed-metadata"/>
-<h3>Code systems with detailed metadata</h3>
-<p>
-Sometimes code systems may be used to represent more complex information than just 
-code, display name and code system.  For example, a code system of drug information
-which contains information about the content of the medication (e.g., RxNorm), or a set of  
-observation types, that contain methods, units, etc. (e.g., LOINC).  
-In FHIR, these are handled by splitting the concept into two distinct parts - the 
-<b>ValueSet</b> resource is used to manage the codes, display names and relationships.  
-A separate "detail" resource (e.g., <a href="medication.html">Medication</a> for 
-drugs, <a href="dataelement.html">DataElement</a> for observation types, 
-<a href="location.html">Location</a> for location, etc.) is used to convey detailed 
-information (dose form &amp; strength, allowed data type or permitted values, address &amp;
-hours of operation, etc.).  One "detail" resource instance is created for each code.
-</p>
-<p>
-This division accomplishes several things:
-</p>
-<ul>
-<li>It allows generic systems that support terminology management to perform standard 
-terminology operations on code systems dealing with complex structures - code lookup, 
-validation, subsumption testing, mapping and translation.</li>
-<li>It allows information to be exchanged about individual medications, data elements 
-and locations.  Codes can't be retrieved individually in FHIR - it is necessary to 
-retrieve the entire resource.  By packaging the detailed information in separate 
-resources, independent retrieval and update is possible.</li>
-<li>It supports use-cases for sharing medication, location, observation type and 
-similar information in circumstances where the code may be unknown, unavailable or 
-occasionally non-existent (e.g., custom compounds, non-registered locations).  Having 
-a distinct resource supports these capabilities, which would not be possible using 
-<b>ValueSet</b>.</li>
-</ul>
-<p>
-Note that this division in FHIR does not imply that a similar division is required in 
-the internal representation used by systems exposing a FHIR interface.  Similarly, some 
-systems may choose to only expose or maintain one aspect of such information types (i.e. 
-only the discrete resource instances or only the value set).
-</p>
-<p>
-The linkage between the "detail" resource and the <b>ValueSet</b> is accomplished via the 
-<code>code</code> element (or equivalent) on the detail resource.  As well, the "name" or 
-"title" on the detail resource generally corresponds with the display name on the matching 
-code.  Most detail resources will also have an "identifier" element.  This <i>can</i> be
-set to the same value and namespace as the code, but if the only identifier a resource has
-is its defining code, it may be better to omit the identifier entirely.
-</p>
 
 </div>
