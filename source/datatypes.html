@@ -457,7 +457,9 @@ Choosing the correct system is important; for more information about the code sy
 URI, read <a href="terminologies.html#system">Managing Terminology System URIs</a>.
 The system URI SHALL NOT contain a reference to a value set (e.g. ValueSet.url). 
 If the code is taken from a CodeSystem resource, <code>CodeSystem.url</code>
-is the correct value for the system uri.
+is the correct value for the system uri. Resolvable URLs are generally preferred by 
+implementers over non-resolvable URNs, particularly opaque URNs such as OIDs (urn:oid:) 
+or UUIDs (urn:uuid:).
 </p>
 <p>
 A code system version may also be supplied. If the meaning of codes within the code system is consistent across releases, this is not required. 

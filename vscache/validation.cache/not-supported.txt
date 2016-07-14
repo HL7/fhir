@@ -22,6 +22,7 @@ http://ehr.goodhealthclinic.org
 http://hl7.org/fhir/c80-doc-typecodes
 http://www.genenames.org
 http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921060v1.0-cs
+http://nehta.gov.au/codes/medications/changetype
 http://loinc.org/class
 http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921081v1.0-cs
 urn:iso:std:iso:3166

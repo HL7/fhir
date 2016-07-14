@@ -1123,7 +1123,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       String uri = getUri(ns);
       String oid = getOid(ns);
       b.append("  <td>"+Utilities.escapeXml(uri)+"</td>\r\n");
-      b.append("  <td>"+(oid == null ? "" : oid)+"</td>\r\n");
+      b.append("  <td style=\"color: DarkGrey\">"+(oid == null ? "" : oid)+"</td>\r\n");
       String country = getCountry(ns);
       country = country == null ? "" : " ("+country+")";
       if (ns.hasType()) {
