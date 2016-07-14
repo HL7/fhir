@@ -130,7 +130,7 @@ If the list is empty, there could be several different reasons why this is so. F
 </ul>
 <p>
 Given these possibilities, and the common and significant first case, source systems SHOULD 
-provide an empty reason if the list is empty. Because of the importance of this case, the 
+provide an empty reason if the list is empty for many kinds of lists. Because of the importance of this case, the 
 <a href="valueset-list-empty-reason.html">special value "nil-known"</a> should be used when 
 there are no (significant) entries in this context of care. Note that this concept is 
 sometimes described differently, such as "patient denies taking medications", or 
@@ -144,6 +144,10 @@ unless the "nil-known" code is present.
 </p>
 <p>
 If the list is empty, the narrative should contain text equivalent to the empty reason.
+</p>
+<p>
+Note that ther are many kinds of lists that can be just empty with no need for any
+empty reason (<a href="example-simple-empty.html">example</a>)
 </p>
 
 </div>
