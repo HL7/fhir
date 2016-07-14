@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-05-23T20:36:08Z</Created>
-  <LastSaved>2015-07-16T07:36:27Z</LastSaved>
+  <LastSaved>2016-07-14T05:10:12Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -239,12 +239,11 @@
     <SheetIndex>12</SheetIndex>
    </Xct>
   </SupBook>
-  <WindowHeight>5820</WindowHeight>
-  <WindowWidth>6408</WindowWidth>
+  <WindowHeight>10884</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>780</TabRatio>
-  <ActiveSheet>6</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -586,15 +585,16 @@
    ss:RefersTo="='\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="34" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="34" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="157.80000000000001"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="229.8"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="64.8"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="219"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="245.39999999999998"/>
-   <Column ss:StyleID="s64" ss:Width="113.39999999999999"/>
-   <Column ss:Index="8" ss:StyleID="s64" ss:Width="233.4"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="245.39999999999998"
+    ss:Span="1"/>
+   <Column ss:Index="7" ss:StyleID="s64" ss:Width="113.39999999999999"/>
+   <Column ss:Index="9" ss:StyleID="s64" ss:Width="233.4"/>
    <Column ss:StyleID="s64" ss:Width="147.6"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Binding Name</Data></Cell>
@@ -602,6 +602,7 @@
     <Cell><Data ss:Type="String">Binding</Data></Cell>
     <Cell><Data ss:Type="String">Conformance</Data></Cell>
     <Cell><Data ss:Type="String">Reference</Data></Cell>
+    <Cell><Data ss:Type="String">Max</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Comments</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">v3</Data></Cell>
@@ -615,6 +616,7 @@
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">#administrative-gender</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-AdministrativeGender</Data></Cell>
@@ -627,16 +629,17 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">The lifecycle status of a Value Set or Concept Map.</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s73"><Data ss:Type="String">#conformance-resource-status</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:Index="11"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">DataAbsentReason</Data></Cell>
     <Cell><Data ss:Type="String">Used to specify why the normally expected content of the data element is missing.</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#data-absent-reason</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="s74" ss:HRef="http://hl7.org/fhir/ValueSet/v3-NullFlavor"><Data
+    <Cell ss:Index="9" ss:StyleID="s74" ss:HRef="http://hl7.org/fhir/ValueSet/v3-NullFlavor"><Data
       ss:Type="String">http://hl7.org/fhir/ValueSet/v3-NullFlavor</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s72"><Data ss:Type="String">DocumentReferenceStatus</Data></Cell>
@@ -646,11 +649,12 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">#document-reference-status</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActStatus</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">SD</Data></Cell>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:Index="13" ss:StyleID="s73"/>
+    <Cell ss:Index="14" ss:StyleID="s73"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -660,13 +664,14 @@
     <Cell><Data ss:Type="String">A set of generally useful codes defined so they can be included in value sets.</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#special-values</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">SearchParamType</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Data types allowed to be used for search parameters.</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s73"><Data ss:Type="String">#search-param-type</Data></Cell>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
@@ -684,6 +689,7 @@
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"><Data ss:Type="String">FM</Data></Cell>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
@@ -697,6 +703,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s79"><Data ss:Type="String">FM</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s76"/>
@@ -706,6 +713,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">The degree of equivalence between concepts.</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s79"><Data ss:Type="String">#concept-map-equivalence</Data></Cell>
+    <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
@@ -724,6 +732,7 @@
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
     <Cell><Data ss:Type="String">oo</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See TermsOfUse for details.</Data></Cell>
     <Cell ss:StyleID="s79"/>
@@ -732,9 +741,10 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">Language</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A human language.</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">http://tools.ietf.org/html/bcp47</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-languages</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-all-languages</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">IETF language tag</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
@@ -750,6 +760,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">http://www.rfc-editor.org/bcp/bcp13.txt</Data></Cell>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
@@ -764,28 +775,28 @@
     <Cell><Data ss:Type="String">The type of an element - one of the FHIR data types.</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#data-types</Data></Cell>
-    <Cell ss:Index="10" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AbstractType</Data></Cell>
     <Cell><Data ss:Type="String">A type defined by FHIR that is an abstract type</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#abstract-types</Data></Cell>
-    <Cell ss:Index="10" ss:StyleID="s73"/>
+    <Cell ss:Index="11" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">FHIRDefinedType</Data></Cell>
     <Cell><Data ss:Type="String">Either a resource or a data type.</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#defined-types</Data></Cell>
-    <Cell ss:Index="10" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">FHIRAllTypes</Data></Cell>
     <Cell><Data ss:Type="String">Either an abstract type, a resource or a data type.</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#all-types</Data></Cell>
-    <Cell ss:Index="10" ss:StyleID="s73"/>
+    <Cell ss:Index="11" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MessageEvent</Data></Cell>
@@ -793,14 +804,14 @@
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell><Data ss:Type="String">preferred</Data></Cell>
     <Cell><Data ss:Type="String">#message-events</Data></Cell>
-    <Cell ss:Index="10" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ResourceType</Data></Cell>
     <Cell><Data ss:Type="String">One of the resource types defined as part of FHIR.</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#resource-types</Data></Cell>
-    <Cell ss:Index="10" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">ClinicalBaseGender</Data></Cell>
@@ -811,9 +822,10 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">PC</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="s81"/>
+    <Cell ss:Index="13" ss:StyleID="s81"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"><Data ss:Type="String">ConformanceUseContext</Data></Cell>
@@ -821,6 +833,7 @@
     <Cell ss:StyleID="s79"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">valueset-use-context</Data></Cell>
+    <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
@@ -836,10 +849,11 @@
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">valueset-marital-status</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="10"><Data ss:Type="String">PA</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s81"/>
+    <Cell ss:Index="11"><Data ss:Type="String">PA</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s81"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">Ruleset</Data></Cell>
@@ -847,6 +861,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-ruleset</Data></Cell>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
@@ -866,6 +881,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s79"><Data ss:Type="String">FM</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
@@ -876,6 +892,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-fundsreserve</Data></Cell>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
@@ -894,6 +911,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s79"><Data ss:Type="String">FM</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">CoverageRoleType?</Data></Cell>
@@ -904,6 +922,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-forms</Data></Cell>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
@@ -921,6 +940,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s79"><Data ss:Type="String">FM</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s76"/>
@@ -931,7 +951,8 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-usps-state</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s76"><Data ss:Type="String">extensible for Can, Mex?</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:Index="8" ss:StyleID="s76"><Data ss:Type="String">extensible for Can, Mex?</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">US</Data></Cell>
@@ -948,6 +969,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">US</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
@@ -958,6 +980,7 @@
     <Cell ss:StyleID="s79"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">http://www.iso.org/iso/country_codes.htm</Data></Cell>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ISO 2 letter Country Codes</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">using DAF value set as soon as able check with Grahame - urn:iso:std:iso:3166</Data></Cell>
     <Cell ss:StyleID="s85"/>
@@ -972,6 +995,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">#binding-strength</Data></Cell>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
@@ -993,6 +1017,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1001,7 +1026,8 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-security-labels</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:Index="8" ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
@@ -1024,11 +1050,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2501,7 +2528,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

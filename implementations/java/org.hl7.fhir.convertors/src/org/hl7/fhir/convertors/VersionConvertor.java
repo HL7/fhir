@@ -6718,21 +6718,21 @@ public class VersionConvertor {
 		return tgt;
 	}
 
-	public org.hl7.fhir.dstu3.model.Encounter.EncounterState convertEncounterState(org.hl7.fhir.dstu2.model.Encounter.EncounterState src) throws FHIRException {
+	public org.hl7.fhir.dstu3.model.Encounter.EncounterStatus convertEncounterState(org.hl7.fhir.dstu2.model.Encounter.EncounterState src) throws FHIRException {
 		if (src == null)
 			return null;
 		switch (src) {
-		case PLANNED: return org.hl7.fhir.dstu3.model.Encounter.EncounterState.PLANNED;
-		case ARRIVED: return org.hl7.fhir.dstu3.model.Encounter.EncounterState.ARRIVED;
-		case INPROGRESS: return org.hl7.fhir.dstu3.model.Encounter.EncounterState.INPROGRESS;
-		case ONLEAVE: return org.hl7.fhir.dstu3.model.Encounter.EncounterState.ONLEAVE;
-		case FINISHED: return org.hl7.fhir.dstu3.model.Encounter.EncounterState.FINISHED;
-		case CANCELLED: return org.hl7.fhir.dstu3.model.Encounter.EncounterState.CANCELLED;
-		default: return org.hl7.fhir.dstu3.model.Encounter.EncounterState.NULL;
+		case PLANNED: return org.hl7.fhir.dstu3.model.Encounter.EncounterStatus.PLANNED;
+		case ARRIVED: return org.hl7.fhir.dstu3.model.Encounter.EncounterStatus.ARRIVED;
+		case INPROGRESS: return org.hl7.fhir.dstu3.model.Encounter.EncounterStatus.INPROGRESS;
+		case ONLEAVE: return org.hl7.fhir.dstu3.model.Encounter.EncounterStatus.ONLEAVE;
+		case FINISHED: return org.hl7.fhir.dstu3.model.Encounter.EncounterStatus.FINISHED;
+		case CANCELLED: return org.hl7.fhir.dstu3.model.Encounter.EncounterStatus.CANCELLED;
+		default: return org.hl7.fhir.dstu3.model.Encounter.EncounterStatus.NULL;
 		}
 	}
 
-	public org.hl7.fhir.dstu2.model.Encounter.EncounterState convertEncounterState(org.hl7.fhir.dstu3.model.Encounter.EncounterState src) throws FHIRException {
+	public org.hl7.fhir.dstu2.model.Encounter.EncounterState convertEncounterState(org.hl7.fhir.dstu3.model.Encounter.EncounterStatus src) throws FHIRException {
 		if (src == null)
 			return null;
 		switch (src) {

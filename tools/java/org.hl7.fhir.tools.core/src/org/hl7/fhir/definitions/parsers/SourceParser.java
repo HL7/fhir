@@ -642,7 +642,7 @@ public class SourceParser {
   }
 
   private void loadGlobalBindings() throws Exception {
-    logger.log("Load Concept Domains", LogMessageType.Process);
+    logger.log("Load Common Bindings", LogMessageType.Process);
 
     BindingsParser parser = new BindingsParser(new CSFileInputStream(new CSFile(termDir + "bindings.xml")), termDir + "bindings.xml", srcDir, registry, version, definitions.getCodeSystems());
     List<BindingSpecification> cds = parser.parse();
@@ -655,6 +655,10 @@ public class SourceParser {
         definitions.getBoundValueSets().put(cd.getValueSet().getUrl(), cd.getValueSet());
       } else if (cd.getReference() != null && cd.getReference().startsWith("http:")) {
         definitions.getUnresolvedBindings().add(cd);
+      }
+      if (cd.getMaxValueSet() != null) {
+        vsGen.updateHeader(cd, cd.getMaxValueSet());
+        definitions.getBoundValueSets().put(cd.getMaxValueSet().getUrl(), cd.getMaxValueSet());
       }
     }
     if (!page.getDefinitions().getBoundValueSets().containsKey("http://hl7.org/fhir/ValueSet/data-absent-reason"))

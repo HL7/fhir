@@ -1479,7 +1479,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("\r\n");
     b.append(" <div id=\"tabs-"+name+"-uml\">\r\n");
     b.append("  <div id=\"uml\">\r\n");
-    b.append("   <p><b>UML Diagram</b></p>\r\n");
+    b.append("   <p><b>UML Diagram</b> (<a href=\"formats.html#uml\">Legend</a>)</p>\r\n");
     b.append("   <div id=\"uml-inner\">\r\n");
     b.append("    "+uml1+"\r\n");
     b.append("   </div>\r\n");
@@ -1524,7 +1524,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("\r\n");
     b.append("  <div id=\"umla\">\r\n");
     b.append("   <a name=\"uml-"+name+"\"> </a>\r\n");
-    b.append("   <p><b>UML Diagram</b></p>\r\n");
+    b.append("   <p><b>UML Diagram</b> (<a href=\"formats.html#uml\">Legend</a>)</p>\r\n");
     b.append("   <div id=\"uml-inner\">\r\n");
     b.append("    "+uml2+"\r\n");
     b.append("   </div>\r\n");
@@ -2512,6 +2512,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String getBindingTypeDesc(BindingSpecification binding, String prefix) {
+    if (binding.hasMax())
+      throw new Error("Max binding not handled yet");
     if (binding.getStrength() == null)
       return "";
     else
@@ -2527,6 +2529,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     path = path.equals("") ? e.getName() : path+"."+e.getName();
     if (e.hasBinding() && e.getBinding().getValueSet() == vs) {
       b.append(" <li><a href=\"").append(prefix+ref).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e.getBinding(), prefix)).append("</li>\r\n");
+    }
+    if (e.hasBinding() && e.getBinding().getMaxValueSet() == vs) {
+      b.append(" <li>Max: <a href=\"").append(prefix+ref).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e.getBinding(), prefix)).append("</li>\r\n");
     }
     for (ElementDefn c : e.getElements()) {
       scanForUsage(b, vs, c, path, ref, prefix);
@@ -4963,6 +4968,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("</td><td>");
     if (p.getBs() != null && p.getBs().getBinding() != BindingMethod.Unbound) {
       b.append("<a href=\""+BaseGenerator.getBindingLink(prefix, p.getBs())+"\">"+(p.getBs().getValueSet() != null ? p.getBs().getValueSet().getName() : p.getBs().getName())+"</a>");
+      if (p.getBs().hasMax())
+        throw new Error("Max binding not handled yet");
+      
       b.append(" (<a href=\""+prefix+"terminologies.html#"+p.getBs().getStrength().toCode()+"\">"+p.getBs().getStrength().getDisplay()+"</a>)");
     }
     b.append("</td><td>");

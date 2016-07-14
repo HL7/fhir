@@ -184,7 +184,12 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       if (cd.getBinding() == BindingMethod.Unbound)
         write("<td>Unknown</td><td valign=\"top\">No details provided yet</td>");
       else { 
-        write("<td><a href=\""+prefix+"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a></td>");
+        if (cd.hasMax()) {
+          ValueSet vs = cd.getMaxValueSet();
+          String pp = (String) vs.getUserData("path");
+          write("<td><a href=\""+prefix+"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>, but limited to <a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+vs.getName()+"</a></td>");
+        } else
+          write("<td><a href=\""+prefix+"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a></td>");
         write("<td valign=\"top\">");
         if (cd.getBinding() == BindingSpecification.BindingMethod.Special) {
           if (name.equals("MessageEvent"))
@@ -302,27 +307,31 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
         return "<a href=\""+prefix+"valueset-all-types.html\">Any defined Resource or Data Type name (including \"Any\" and \"Type\")</a>";
       else 
         throw new Exception("Unknown special type "+cd.getValueSet().getName());
-    } 
+    }
+    String mx = "";
+    if (cd.hasMax())
+      mx = " but limited to ??";
+
     String bs = "<a href=\""+prefix+"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>";
     if (cd.getValueSet() != null) {
       ValueSet vs = cd.getValueSet();
       String pp = (String) vs.getUserData("path");
-      return "<a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+cd.getDefinition()+"</a> ("+bs+")";      
+      return "<a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+cd.getDefinition()+"</a> ("+bs+mx+")";      
     } else if (cd.getBinding() == BindingSpecification.BindingMethod.ValueSet) {
       if (Utilities.noString(cd.getReference())) 
         return cd.getDescription();
       else if (cd.getValueSet() == null)
-        return bs+": <a href=\""+(cd.getReference().startsWith("http") ? cd.getReference() : prefix+cd.getReference()+".html")+"\">See "+cd.getDescription()+"</a> ("+cd.getDefinition()+")";
+        return bs+": <a href=\""+(cd.getReference().startsWith("http") ? cd.getReference() : prefix+cd.getReference()+".html")+"\">See "+cd.getDescription()+"</a> ("+cd.getDefinition()+mx+")";
       else
-        return bs+": <a href=\""+prefix+cd.getReference()+".html\">See "+cd.getValueSet().getUrl()+"</a> ("+cd.getDefinition()+")";
+        return bs+": <a href=\""+prefix+cd.getReference()+".html\">See "+cd.getValueSet().getUrl()+"</a> ("+cd.getDefinition()+mx+")";
     } else if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
       if (Utilities.noString(cd.getReference())) 
-        return bs+": "+cd.getDescription()+" ("+cd.getDefinition()+")";
+        return bs+": "+cd.getDescription()+" ("+cd.getDefinition()+mx+")";
       else
-        return bs+": <a href=\""+prefix+"valueset-"+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a> ("+cd.getDefinition()+")";
+        return bs+": <a href=\""+prefix+"valueset-"+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a> ("+cd.getDefinition()+mx+")";
     }
     if (cd.getBinding() == BindingSpecification.BindingMethod.Reference) {
-      return bs+": <a href=\""+prefix+cd.getReference()+"\">"+cd.getDescription()+"</a> ("+cd.getDefinition()+")";
+      return bs+": <a href=\""+prefix+cd.getReference()+"\">"+cd.getDescription()+"</a> ("+cd.getDefinition()+")"+mx;
     }
     return "??";
   }
@@ -334,6 +343,8 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\". (not bound to any codes)</li>\r\n");
     } else if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
       String sid = "";
+      if (cd.hasMax())
+        throw new Error("Max binding not handled yet");
       String bs = "<a href=\"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>";
       if (!isCode) {
         sid = "\"<a href=\""+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"\"</a>";

@@ -863,6 +863,9 @@ public class SvgGenerator extends BaseGenerator {
         name = name.substring(0, name.length()-5);
       if (name.length() > 30)
         name = name.substring(0, 29)+"...";
+      if (b.hasMax())
+        throw new Error("Max binding not handled yet");
+
       if (b.getStrength() == BindingStrength.EXAMPLE)
         return name+"??";
       else if (b.getStrength() == BindingStrength.PREFERRED)
@@ -1014,6 +1017,9 @@ public class SvgGenerator extends BaseGenerator {
           xml.exit("a");
           xml.text("?");
         } else if (b.getStrength() == BindingStrength.EXTENSIBLE) {
+//          if (b.hasMax())
+            // what do in this case...
+
           xml.attribute("xlink:href", link);
           xml.enter("a");
           xml.element("title", b.getDefinition()+" (Strength=Extensible)");

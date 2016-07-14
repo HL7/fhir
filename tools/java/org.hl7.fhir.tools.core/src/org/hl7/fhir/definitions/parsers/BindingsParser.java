@@ -30,6 +30,7 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -37,6 +38,7 @@ import java.util.Map;
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
+import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
@@ -89,6 +91,7 @@ public class BindingsParser {
     tabfmt.column("Definition");
     tabfmt.column("Binding");
     tabfmt.column("Reference");
+    tabfmt.column("Max");
     tabfmt.column("Committee");
     tabfmt.column("Description");
     tabfmt.column("Uri");
@@ -106,6 +109,7 @@ public class BindingsParser {
       tabfmt.cell(sheet.getColumn(row, "Definition"));
       tabfmt.cell(sheet.getColumn(row, "Binding"));
       tabfmt.cell(sheet.getColumn(row, "Reference"));
+      tabfmt.cell(sheet.getColumn(row, "Max"));
       tabfmt.cell(sheet.getColumn(row, "Committee"));
       tabfmt.cell(sheet.getColumn(row, "Description"));
       tabfmt.cell(sheet.getColumn(row, "Uri"));
@@ -158,6 +162,12 @@ public class BindingsParser {
           cd.setReference(sheet.getColumn(row, "Reference")); // will sort this out later
         } else
           cd.setValueSet(loadValueSet(ref, sheet.getColumn(row, "Committee").toLowerCase()));
+        String max = sheet.getColumn(row, "Max");
+        if (!Utilities.noString(max))
+          if (max.startsWith("http:")) {
+            cd.setMaxReference(max); // will sort this out later
+          } else
+            cd.setMaxValueSet(loadValueSet(max, sheet.getColumn(row, "Committee").toLowerCase()));
       } else if (cd.getBinding() == BindingMethod.Special) {
         cd.setValueSet(new ValueSet());
         cd.getValueSet().setId(ref.substring(1));
@@ -173,12 +183,10 @@ public class BindingsParser {
       
       cd.setId(registry.idForName(cd.getName()));
       if (cd.getValueSet() != null) {
-        ValueSet vs = cd.getValueSet();
-        ValueSetUtilities.makeShareable(vs);
-
-        ToolingExtensions.setOID(vs, "urn:oid:"+BindingSpecification.DEFAULT_OID_VS + cd.getId());
-        if (vs.getUserData("cs") != null)
-          ToolingExtensions.setOID((CodeSystem) vs.getUserData("cs"), "urn:oid:"+BindingSpecification.DEFAULT_OID_CS + cd.getId());
+        touchVS(cd.getValueSet());
+      }
+      if (cd.getMaxValueSet() != null) {
+        touchVS(cd.getMaxValueSet());
       }
       
       cd.setDescription(sheet.getColumn(row, "Description"));
@@ -196,6 +204,14 @@ public class BindingsParser {
 
       results.add(cd);
     }
+  }
+
+  private void touchVS(ValueSet vs) throws FHIRFormatError, URISyntaxException {
+    ValueSetUtilities.makeShareable(vs);
+
+    ToolingExtensions.setOID(vs, "urn:oid:"+BindingSpecification.DEFAULT_OID_VS + vs.getId());
+    if (vs.getUserData("cs") != null)
+      ToolingExtensions.setOID((CodeSystem) vs.getUserData("cs"), "urn:oid:"+BindingSpecification.DEFAULT_OID_CS + vs.getId());
   }
 
   private ValueSet loadValueSet(String ref, String committee) throws Exception {

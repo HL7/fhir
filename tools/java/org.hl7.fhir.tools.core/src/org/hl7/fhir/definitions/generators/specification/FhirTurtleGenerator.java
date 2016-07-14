@@ -493,6 +493,8 @@ public class FhirTurtleGenerator extends RdfGenerator {
           section.triple("fhir:"+tn+"."+en, "rdfs:range", processType(tr.getName()));
           section.triple("fhir:"+tn+"."+en, "fhir:binding", "<"+bs.getReference()+">");
         }
+//        if (bs.hasMax())
+          // need to figure out how this should be represented in Turtle
         section.triple("fhir:"+tn+"."+en, "fhir:bindingStrength", complex().predicate("a", "fhir:binding-strength\\#"+bs.getStrength().toCode()));
       } else
         section.triple("fhir:"+tn+"."+en, "rdfs:range", processType(tr.getName()));

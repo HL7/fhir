@@ -890,7 +890,7 @@ public class SpreadsheetParser {
           SearchType t = readSearchType(sheet.getColumn(row, "Type"), row);
           SearchParameter.XPathUsageType pu = readSearchXPathUsage(sheet.getColumn(row, "Path Usage"), row);
           
-          if (Utilities.noString(sheet.getColumn(row, "Path")) && !root2.getName().equals("Resource")) 
+          if (Utilities.noString(sheet.getColumn(row, "Path")) && !root2.getName().equals("Resource") && !root2.getName().equals("DomainResource")) 
             throw new Exception("Search Param "+root2.getName()+"/"+n+" has no path at "+ getLocation(row));
             
           

@@ -103,16 +103,11 @@
   Path = Resource.meta.security
 
  -- Row 6 -----------------------------------
-  Name = _text
-  Type = string
-  Description = Search on the narrative of the resource
-
- -- Row 7 -----------------------------------
   Name = _content
   Type = string
   Description = Search on the entire content of the resource
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = _query
   Type = token
   Description = A custom search profile that describes a specific defined query operation

@@ -88,6 +88,8 @@ public class BindingSpecification {
   private String description;
   private String reference;
   private ValueSet valueSet;
+  private String maxReference;
+  private ValueSet maxValueSet;
   
   
   // to get rid of:
@@ -440,6 +442,26 @@ public class BindingSpecification {
 
   public boolean isShared() {
     return shared;
+  }
+
+  public String getMaxReference() {
+    return maxReference;
+  }
+
+  public void setMaxReference(String maxReference) {
+    this.maxReference = maxReference;
+  }
+
+  public ValueSet getMaxValueSet() {
+    return maxValueSet;
+  }
+
+  public void setMaxValueSet(ValueSet maxValueSet) {
+    this.maxValueSet = maxValueSet;
+  }
+
+  public boolean hasMax() {
+    return maxValueSet != null || maxReference != null;
   }  
     
 }

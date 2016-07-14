@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jul 13, 2016 09:40+1000 for FHIR v1.5.0
+// Generated on Thu, Jul 14, 2016 15:47+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -58,6 +58,10 @@ public class PlanDefinition extends DomainResource {
          */
         AFTER, 
         /**
+         * The action must be performed concurrent with the related action
+         */
+        CONCURRENT, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -68,6 +72,8 @@ public class PlanDefinition extends DomainResource {
           return BEFORE;
         if ("after".equals(codeString))
           return AFTER;
+        if ("concurrent".equals(codeString))
+          return CONCURRENT;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -77,6 +83,7 @@ public class PlanDefinition extends DomainResource {
           switch (this) {
             case BEFORE: return "before";
             case AFTER: return "after";
+            case CONCURRENT: return "concurrent";
             default: return "?";
           }
         }
@@ -84,6 +91,7 @@ public class PlanDefinition extends DomainResource {
           switch (this) {
             case BEFORE: return "http://hl7.org/fhir/planaction-relationship-type";
             case AFTER: return "http://hl7.org/fhir/planaction-relationship-type";
+            case CONCURRENT: return "http://hl7.org/fhir/planaction-relationship-type";
             default: return "?";
           }
         }
@@ -91,6 +99,7 @@ public class PlanDefinition extends DomainResource {
           switch (this) {
             case BEFORE: return "The action must be performed before the related action";
             case AFTER: return "The action must be performed after the related action";
+            case CONCURRENT: return "The action must be performed concurrent with the related action";
             default: return "?";
           }
         }
@@ -98,6 +107,7 @@ public class PlanDefinition extends DomainResource {
           switch (this) {
             case BEFORE: return "Before";
             case AFTER: return "After";
+            case CONCURRENT: return "Concurrent";
             default: return "?";
           }
         }
@@ -112,6 +122,8 @@ public class PlanDefinition extends DomainResource {
           return PlanActionRelationshipType.BEFORE;
         if ("after".equals(codeString))
           return PlanActionRelationshipType.AFTER;
+        if ("concurrent".equals(codeString))
+          return PlanActionRelationshipType.CONCURRENT;
         throw new IllegalArgumentException("Unknown PlanActionRelationshipType code '"+codeString+"'");
         }
         public Enumeration<PlanActionRelationshipType> fromType(Base code) throws FHIRException {
@@ -124,6 +136,8 @@ public class PlanDefinition extends DomainResource {
           return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.BEFORE);
         if ("after".equals(codeString))
           return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.AFTER);
+        if ("concurrent".equals(codeString))
+          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.CONCURRENT);
         throw new FHIRException("Unknown PlanActionRelationshipType code '"+codeString+"'");
         }
     public String toCode(PlanActionRelationshipType code) {
@@ -131,6 +145,8 @@ public class PlanDefinition extends DomainResource {
         return "before";
       if (code == PlanActionRelationshipType.AFTER)
         return "after";
+      if (code == PlanActionRelationshipType.CONCURRENT)
+        return "concurrent";
       return "?";
       }
     public String toSystem(PlanActionRelationshipType code) {
@@ -1719,7 +1735,7 @@ public class PlanDefinition extends DomainResource {
          * The relationship of this action to the related action.
          */
         @Child(name = "relationship", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="before | after", formalDefinition="The relationship of this action to the related action." )
+        @Description(shortDefinition="before | after | concurrent", formalDefinition="The relationship of this action to the related action." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/planaction-relationship-type")
         protected Enumeration<PlanActionRelationshipType> relationship;
 

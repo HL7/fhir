@@ -56,7 +56,7 @@ import org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus;
 import org.hl7.fhir.dstu3.model.DocumentReference.DocumentReferenceContentComponent;
 import org.hl7.fhir.dstu3.model.DocumentReference.DocumentReferenceContextComponent;
 import org.hl7.fhir.dstu3.model.Encounter.EncounterHospitalizationComponent;
-import org.hl7.fhir.dstu3.model.Encounter.EncounterState;
+import org.hl7.fhir.dstu3.model.Encounter.EncounterStatus;
 import org.hl7.fhir.dstu3.model.Enumerations.DocumentReferenceStatus;
 import org.hl7.fhir.dstu3.model.Immunization.ImmunizationExplanationComponent;
 import org.hl7.fhir.dstu3.model.ListResource.ListMode;
@@ -635,9 +635,9 @@ public class ArgonautConverter extends ConverterBase {
 		//			throw new Error("episode time mismatch: "+NarrativeGenerator.displayPeriod(p1)+" & "+NarrativeGenerator.displayPeriod(p2));
 		enc.setPeriod(p1);
 		if (p1.hasEnd())
-			enc.setStatus(EncounterState.FINISHED);
+			enc.setStatus(EncounterStatus.FINISHED);
 		else
-			enc.setStatus(EncounterState.INPROGRESS);
+			enc.setStatus(EncounterStatus.INPROGRESS);
 		enc.setClass_(context.encClass);
 
 		Element dd = cda.getChild(ee, "dischargeDispositionCode");
@@ -1183,9 +1183,9 @@ public class ArgonautConverter extends ConverterBase {
 
 			enc.setPeriod(convert.makePeriodFromIVL(cda.getChild(ee, "effectiveTime")));
 			if (enc.getPeriod().hasEnd())
-				enc.setStatus(EncounterState.FINISHED);
+				enc.setStatus(EncounterStatus.FINISHED);
 			else
-				enc.setStatus(EncounterState.INPROGRESS);
+				enc.setStatus(EncounterStatus.INPROGRESS);
 
 			if (cda.getChild(ee, "text") != null)
 				enc.setClass_(convertTextToCoding(cda.getChild(ee, "text").getTextContent().trim()));

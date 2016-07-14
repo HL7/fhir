@@ -1,0 +1,47 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/languages",
+  "outcomes": [
+    {
+      "hash": "#|http://tools.ietf.org/html/bcp47|null|en-US|null",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Common Languages"
+    },
+    {
+      "hash": "#|urn:ietf:bcp:47|null|nl-NL|Dutch",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Dutch(Netherlands)"
+      }
+    },
+    {
+      "hash": "#|urn:ietf:bcp:47|null|nl|Dutch",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Dutch"
+      }
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.6.121|null|fr|France",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Common Languages"
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.6.121|null|nl|Dutch",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Common Languages"
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.6.121|null|nl|Netherlands",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Common Languages"
+    }
+  ]
+}

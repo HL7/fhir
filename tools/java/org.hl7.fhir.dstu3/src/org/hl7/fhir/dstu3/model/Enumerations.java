@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jul 13, 2016 09:40+1000 for FHIR v1.5.0
+// Generated on Thu, Jul 14, 2016 15:47+1000 for FHIR v1.5.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2298,7 +2298,7 @@ public class Enumerations {
          */
         ACCOUNT, 
         /**
-         * This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.
+         * This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.
          */
         ACTIVITYDEFINITION, 
         /**
@@ -3550,7 +3550,7 @@ public class Enumerations {
             case UUID: return "A UUID, represented as a URI";
             case XHTML: return "XHTML format, as defined by W3C, but restricted usage (mainly, no active content)";
             case ACCOUNT: return "A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.";
-            case ACTIVITYDEFINITION: return "This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.";
+            case ACTIVITYDEFINITION: return "This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.";
             case ALLERGYINTOLERANCE: return "Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.";
             case APPOINTMENT: return "A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).";
             case APPOINTMENTRESPONSE: return "A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.";
@@ -5153,7 +5153,7 @@ public class Enumerations {
          */
         ACCOUNT, 
         /**
-         * This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.
+         * This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.
          */
         ACTIVITYDEFINITION, 
         /**
@@ -6389,7 +6389,7 @@ public class Enumerations {
             case UUID: return "A UUID, represented as a URI";
             case XHTML: return "XHTML format, as defined by W3C, but restricted usage (mainly, no active content)";
             case ACCOUNT: return "A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.";
-            case ACTIVITYDEFINITION: return "This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.";
+            case ACTIVITYDEFINITION: return "This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.";
             case ALLERGYINTOLERANCE: return "Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.";
             case APPOINTMENT: return "A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).";
             case APPOINTMENTRESPONSE: return "A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.";
@@ -8193,7 +8193,7 @@ public class Enumerations {
          */
         ACCOUNT, 
         /**
-         * This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.
+         * This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.
          */
         ACTIVITYDEFINITION, 
         /**
@@ -9154,7 +9154,7 @@ public class Enumerations {
         public String getDefinition() {
           switch (this) {
             case ACCOUNT: return "A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.";
-            case ACTIVITYDEFINITION: return "This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.";
+            case ACTIVITYDEFINITION: return "This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.";
             case ALLERGYINTOLERANCE: return "Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.";
             case APPOINTMENT: return "A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).";
             case APPOINTMENTRESPONSE: return "A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.";

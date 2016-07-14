@@ -1021,14 +1021,17 @@ public class ProfileGenerator {
   private ElementDefinitionBindingComponent generateBinding(BindingSpecification src) throws Exception {
     if (src == null)
       return null;
-
     ElementDefinitionBindingComponent dst = new ElementDefinitionBindingComponent();
     dst.setDescription(src.getDefinition());
     if (src.getBinding() != BindingMethod.Unbound) {
       dst.setStrength(src.getStrength());    
-      dst.setValueSet(buildReference(src));    
-    } else
+      dst.setValueSet(buildReference(src));
+      if (src.hasMax()) {
+        dst.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet").setValue(new Reference(src.getMaxReference() != null ? src.getMaxReference() : src.getMaxValueSet().getUrl()));
+      }
+    } else {
       dst.setStrength(BindingStrength.EXAMPLE);    
+    }
     return dst;
   }
 
@@ -1668,8 +1671,11 @@ public class ProfileGenerator {
     pp.setDocumentation(p.getDoc());
     pp.setMin(p.getMin());
     pp.setMax(p.getMax());
-    if (p.getBs() != null)
+    if (p.getBs() != null) {
+      if (p.getBs().hasMax())
+        throw new Error("Max binding not handled yet");
       pp.setBinding(new OperationDefinitionParameterBindingComponent().setStrength(p.getBs().getStrength()).setValueSet(buildReference(p.getBs())));
+    }
     Reference ref = new Reference();
     if (!Utilities.noString(p.getProfile())) {
       ref.setReference(p.getProfile());

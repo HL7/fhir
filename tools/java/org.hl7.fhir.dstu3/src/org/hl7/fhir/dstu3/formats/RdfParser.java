@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Jul 13, 2016 09:40+1000 for FHIR v1.5.0
+// Generated on Thu, Jul 14, 2016 15:47+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -3917,6 +3917,8 @@ public class RdfParser extends RdfParserBase {
       composeUri(t, "Consent", "policy", element.getPolicyElement(), -1);
     for (int i = 0; i < element.getRecipient().size(); i++)
       composeReference(t, "Consent", "recipient", element.getRecipient().get(i), i);
+    for (int i = 0; i < element.getPurpose().size(); i++)
+      composeCoding(t, "Consent", "purpose", element.getPurpose().get(i), i);
     for (int i = 0; i < element.getExcept().size(); i++)
       composeConsentExceptComponent(t, "Consent", "except", element.getExcept().get(i), i);
   }
@@ -5155,6 +5157,8 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "Encounter", "reason", element.getReason().get(i), i);
     for (int i = 0; i < element.getIndication().size(); i++)
       composeReference(t, "Encounter", "indication", element.getIndication().get(i), i);
+    for (int i = 0; i < element.getAccount().size(); i++)
+      composeReference(t, "Encounter", "account", element.getAccount().get(i), i);
     if (element.hasHospitalization())
       composeEncounterEncounterHospitalizationComponent(t, "Encounter", "hospitalization", element.getHospitalization(), -1);
     for (int i = 0; i < element.getLocation().size(); i++)
@@ -5387,6 +5391,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "EpisodeOfCare", "careManager", element.getCareManager(), -1);
     for (int i = 0; i < element.getTeam().size(); i++)
       composeReference(t, "EpisodeOfCare", "team", element.getTeam().get(i), i);
+    for (int i = 0; i < element.getAccount().size(); i++)
+      composeReference(t, "EpisodeOfCare", "account", element.getAccount().get(i), i);
   }
 
   protected void composeEpisodeOfCareEpisodeOfCareStatusHistoryComponent(Complex parent, String parentType, String name, EpisodeOfCare.EpisodeOfCareStatusHistoryComponent element, int index) {
@@ -7951,6 +7957,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "MedicationDispense", "patient", element.getPatient(), -1);
     if (element.hasDispenser())
       composeReference(t, "MedicationDispense", "dispenser", element.getDispenser(), -1);
+    if (element.hasDispensingOrganization())
+      composeReference(t, "MedicationDispense", "dispensingOrganization", element.getDispensingOrganization(), -1);
     for (int i = 0; i < element.getAuthorizingPrescription().size(); i++)
       composeReference(t, "MedicationDispense", "authorizingPrescription", element.getAuthorizingPrescription().get(i), i);
     if (element.hasType())
@@ -8079,6 +8087,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "MedicationOrder", "reasonReference", element.getReasonReference().get(i), i);
     for (int i = 0; i < element.getNote().size(); i++)
       composeAnnotation(t, "MedicationOrder", "note", element.getNote().get(i), i);
+    if (element.hasCategoryElement())
+      composeEnum(t, "MedicationOrder", "category", element.getCategoryElement(), -1);
     for (int i = 0; i < element.getDosageInstruction().size(); i++)
       composeMedicationOrderMedicationOrderDosageInstructionComponent(t, "MedicationOrder", "dosageInstruction", element.getDosageInstruction().get(i), i);
     if (element.hasDispenseRequest())
@@ -8221,6 +8231,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "MedicationStatement", "reasonForUseReference", element.getReasonForUseReference().get(i), i);
     for (int i = 0; i < element.getNote().size(); i++)
       composeAnnotation(t, "MedicationStatement", "note", element.getNote().get(i), i);
+    if (element.hasCategoryElement())
+      composeEnum(t, "MedicationStatement", "category", element.getCategoryElement(), -1);
     for (int i = 0; i < element.getDosage().size(); i++)
       composeMedicationStatementMedicationStatementDosageComponent(t, "MedicationStatement", "dosage", element.getDosage().get(i), i);
   }
@@ -10801,26 +10813,32 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeBackboneElement(t, "quality", name, element, index);
+    if (element.hasStandardSequence())
+      composeCodeableConcept(t, "Sequence", "standardSequence", element.getStandardSequence(), -1);
     if (element.hasStartElement())
       composeInteger(t, "Sequence", "start", element.getStartElement(), -1);
     if (element.hasEndElement())
       composeInteger(t, "Sequence", "end", element.getEndElement(), -1);
     if (element.hasScore())
       composeQuantity(t, "Sequence", "score", element.getScore(), -1);
-    if (element.hasMethodElement())
-      composeString(t, "Sequence", "method", element.getMethodElement(), -1);
-    if (element.hasTruePositivesElement())
-      composeDecimal(t, "Sequence", "truePositives", element.getTruePositivesElement(), -1);
-    if (element.hasFalsePositivesElement())
-      composeDecimal(t, "Sequence", "falsePositives", element.getFalsePositivesElement(), -1);
-    if (element.hasFalseNegativesElement())
-      composeDecimal(t, "Sequence", "falseNegatives", element.getFalseNegativesElement(), -1);
+    if (element.hasMethod())
+      composeCodeableConcept(t, "Sequence", "method", element.getMethod(), -1);
+    if (element.hasTruthTPElement())
+      composeDecimal(t, "Sequence", "truthTP", element.getTruthTPElement(), -1);
+    if (element.hasQueryTPElement())
+      composeDecimal(t, "Sequence", "queryTP", element.getQueryTPElement(), -1);
+    if (element.hasTruthFNElement())
+      composeDecimal(t, "Sequence", "truthFN", element.getTruthFNElement(), -1);
+    if (element.hasQueryFPElement())
+      composeDecimal(t, "Sequence", "queryFP", element.getQueryFPElement(), -1);
+    if (element.hasGtFPElement())
+      composeDecimal(t, "Sequence", "gtFP", element.getGtFPElement(), -1);
     if (element.hasPrecisionElement())
       composeDecimal(t, "Sequence", "precision", element.getPrecisionElement(), -1);
     if (element.hasRecallElement())
       composeDecimal(t, "Sequence", "recall", element.getRecallElement(), -1);
-    if (element.hasFMeasureElement())
-      composeDecimal(t, "Sequence", "fMeasure", element.getFMeasureElement(), -1);
+    if (element.hasFScoreElement())
+      composeDecimal(t, "Sequence", "fScore", element.getFScoreElement(), -1);
   }
 
   protected void composeSequenceSequenceRepositoryComponent(Complex parent, String parentType, String name, Sequence.SequenceRepositoryComponent element, int index) {
