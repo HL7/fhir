@@ -646,7 +646,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.3221.8.11"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/daf-medication-route"/>
+  <url value="http://hl7.org/fhir/daf/ValueSet/daf-medication-route"/>
   <version value="1.5.0"/>
   <name value="Medication Route FDA Value Set"/>
   <status value="active"/>

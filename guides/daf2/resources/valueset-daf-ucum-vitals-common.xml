@@ -261,7 +261,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.4.642.2.601"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/daf-ucum-vitals-common"/>
+  <url value="http://hl7.org/fhir/daf/ValueSet/daf-ucum-vitals-common"/>
   <version value="1.5.0"/>
   <name value="Common UCUM units"/>
   <status value="draft"/>

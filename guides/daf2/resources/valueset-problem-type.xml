@@ -5,7 +5,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.3221.7.2"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/daf-problem-type"/>
+  <url value="http://hl7.org/fhir/daf/ValueSet/daf-problem-type"/>
   <name value="Problem Type Value Set"/>
   <status value="active"/>
   <publisher value="PHIN VADS"/>

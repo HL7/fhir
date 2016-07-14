@@ -5,7 +5,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.18"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/daf-medication-drugclass"/>
+  <url value="http://hl7.org/fhir/daf/ValueSet/daf-medication-drugclass"/>
   <name value="Medication Drug Class Value Set"/>
   <status value="active"/>
   <publisher value="PHIN VADS"/>

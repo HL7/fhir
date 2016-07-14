@@ -27,5 +27,6 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 The following value sets ( code set ) are listed for each of the mandatory elements listed above that use codes.  They are presented alongside their binding strength which describes whether the codes are required or not. The [**Formal Profile Definition**](#profile) below provides a formal summary of all the terminology for this profile.
 
-2.  a code which tells you what the patient is allergic to  - uses [ABC ValueSet]() which is [required]()
-3.  a status of the allergy - uses [ABC ValueSet]() which is required but [extensible]() (note: for demo purposes)
+2.  a code which tells you what the patient is allergic to  - uses [DAF Core Substance-Reactant for Intolerance and Negation Codes](valueset-daf-core-substance.html) which is [required]()
+3.  a status of the allergy - uses [AllergyIntoleranceStatus](http://hl7.org/fhir/ValueSet/allergy-intolerance-status) which is [required]() 
+1.  abc use [xyz]() which [extensible]() (note: for demo purposes)
