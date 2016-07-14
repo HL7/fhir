@@ -252,6 +252,9 @@ Some notes about use and interpretation of contained resources:
 <ul>
   <li>The <code>contained</code> element SHALL NOT have extensions on it (though contained resources can still contain extensions)</li>
   <li>Contained resources share the same internal id resolution space as the parent resource (for id attributes, see below)</li>
+  <li>When resolving references, refences are resolved by looking through the 'container' resource - the one that contains the other resources. Since there 
+     are no nested contained resources, there is only one container resource</li>
+  <li>References to contained resources are never resolved outside the container resource. Specifically, resolution stops at the elements Bundle.entry.resource and Parameters.parameter.resource, but not at DomainResource.contained</li>
   <li>Contained resources SHALL NOT contain additional contained resources</li>
   <li>Contained resources SHALL NOT contain any narrative</li>
   <li>A contained resource SHALL only be included in a resource if something in that resource (potentially another contained resource) has a reference to it</li>
