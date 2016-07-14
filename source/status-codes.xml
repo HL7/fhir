@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<?mso-application progid="Excel.Sheet"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
  xmlns:x="urn:schemas-microsoft-com:office:excel"
@@ -11,7 +10,7 @@
   <LastAuthor>Keith W. Boone</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
   <LastSaved>2015-04-15T04:11:27Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>15.0</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">2eaca039-8f5b-4e09-a647-90931ca82fc4</WorkbookGuid>
@@ -20,10 +19,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9090</WindowHeight>
-  <WindowWidth>19275</WindowWidth>
+  <WindowHeight>16680</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowTopY>460</WindowTopY>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -32,7 +31,7 @@
   <Style ss:ID="Default" ss:Name="Normal">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
-   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#000000"/>
+   <Font x:Family="Swiss" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
@@ -134,7 +133,7 @@
   </Style>
   <Style ss:ID="s74" ss:Parent="s62">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#FF0000"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#DD0806"/>
    <Interior/>
   </Style>
   <Style ss:ID="s77" ss:Parent="s33">
@@ -197,13 +196,13 @@
  </Styles>
  <Worksheet ss:Name="Status Codes">
   <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="91" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:Width="314.25"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.25"/>
+   <Column ss:StyleID="s63" ss:Width="314"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74"/>
    <Column ss:Index="7" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="60"/>
-   <Column ss:Index="9" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.75"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.25"/>
+   <Column ss:Index="9" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="58"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92"/>
    <Column ss:Index="35" ss:StyleID="s63" ss:Width="45"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Path</Data></Cell>
@@ -233,8 +232,10 @@
     <Cell><Data ss:Type="String">c24</Data></Cell>
     <Cell><Data ss:Type="String">c25</Data></Cell>
     <Cell><Data ss:Type="String">c26</Data></Cell>
+    <Cell><Data ss:Type="String">c27</Data></Cell>
+    <Cell><Data ss:Type="String">c28</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="39.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="40">
     <Cell><Data ss:Type="String" x:Ticked="1">@codes</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">entered-in-error, marked deleted</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">proposed</Data></Cell>
@@ -261,8 +262,11 @@
     <Cell><Data ss:Type="String">partial</Data></Cell>
     <Cell><Data ss:Type="String">busy-unavailable</Data></Cell>
     <Cell><Data ss:Type="String">free</Data></Cell>
+    <Cell><Data ss:Type="String">on-target</Data></Cell>
+    <Cell><Data ss:Type="String">ahead-of-target</Data></Cell>
+    <Cell><Data ss:Type="String">behind-target</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="39.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="40">
     <Cell><Data ss:Type="String" x:Ticked="1">@code</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">proposed</Data></Cell>
@@ -289,8 +293,11 @@
     <Cell><Data ss:Type="String">partial</Data></Cell>
     <Cell><Data ss:Type="String">busy-unavailable</Data></Cell>
     <Cell><Data ss:Type="String">free</Data></Cell>
+    <Cell><Data ss:Type="String">on-target</Data></Cell>
+    <Cell><Data ss:Type="String">ahead-of-target</Data></Cell>
+    <Cell><Data ss:Type="String">behind-target</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="23.0625">
+   <Row ss:AutoFitHeight="0" ss:Height="23">
     <Cell><Data ss:Type="String" x:Ticked="1">@definition</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">The record was created in error, and should not be treated as valid (note: in many cases, for record integrity, the information cannot be removed from the record)</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -310,7 +317,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="23.0625">
+   <Row ss:AutoFitHeight="0" ss:Height="23">
     <Cell><Data ss:Type="String" x:Ticked="1">Account.status</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s67"/>
@@ -1230,6 +1237,9 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">achieved</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:Index="27"><Data ss:Type="String">on-target</Data></Cell>
+    <Cell><Data ss:Type="String">ahead-of-target</Data></Cell>
+    <Cell><Data ss:Type="String">behind-target</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">GuidanceResponse.status</Data></Cell>
@@ -1325,7 +1335,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="25">
     <Cell><Data ss:Type="String">Location.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -1344,7 +1354,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">inactive</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="25">
     <Cell><Data ss:Type="String">MeasureReport.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -1363,7 +1373,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s62"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="25">
     <Cell><Data ss:Type="String">MedicationAdministration.status</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
@@ -1382,7 +1392,7 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="25">
     <Cell><Data ss:Type="String">MedicationAdministration.eventHistory.status</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
@@ -2028,34 +2038,18 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
-   <FreezePanes/>
-   <FrozenNoSplit/>
-   <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>50</TopRowBottomPane>
-   <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
-   <ActivePane>0</ActivePane>
+   <TopRowVisible>25</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-     <ActiveRow>3</ActiveRow>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-     <ActiveRow>53</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>27</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
-   <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
 </Workbook>

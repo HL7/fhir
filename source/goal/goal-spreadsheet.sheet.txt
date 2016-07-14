@@ -97,6 +97,24 @@
   Display = Cancelled
   Definition = The goal is no longer being sought
 
+ -- Row 10 -----------------------------------
+  Id = 7
+  Code = on-target
+  Display = On Target
+  Definition = The goal is on scheduled for the planned timelines
+
+ -- Row 11 -----------------------------------
+  Id = 8
+  Code = ahead-of-target
+  Display = Ahead of Target
+  Definition = The goal is ahead of the planned timelines
+
+ -- Row 12 -----------------------------------
+  Id = 9
+  Code = behind-target
+  Display = Behind Target
+  Definition = The goal is behind the planned timelines
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -180,7 +198,7 @@
   Summary = Y
   Type = code
   Binding = GoalStatus
-  Short Label = proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled
+  Short Label = proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target
   Definition = Indicates whether the goal has been reached and is still considered relevant
   Requirements = Allows measuring outcome and whether goal needs to be further tracked.
   v2 Mapping = GOL-18-goal life cycle status
@@ -199,7 +217,7 @@
 
  -- Row 10 -----------------------------------
   Element = Goal.statusReason
-  Card. = 0..1
+  Card. = 0..*
   Type = CodeableConcept
   Binding = GoalStatusReason
   Short Label = Reason for current status
@@ -225,7 +243,7 @@
   Short Label = high | medium |low
   Definition = Identifies the mutually agreed level of importance associated with reaching/sustaining the goal
   Requirements = Used for sorting and presenting goals
-  Comments = Extensions are available to track priorities as established by each participant (i.e. Priority from the patient\'s perspective, different practitioners\' perspectives, family member\'s perspectives)\n\nThe ordinal extension on Coding can be used to convey a numerically comparable ranking to priority.  (Keep in mind that different coding systems may use a \"low value=important\"
+  Comments = Extensions are available to track priorities as established by each participant (i.e. Priority from the patient\'s perspective, different practitioners\' perspectives, family member\'s perspectives)\r\rThe ordinal extension on Coding can be used to convey a numerically comparable ranking to priority.  (Keep in mind that different coding systems may use a \"low value=important\"
   RIM Mapping = .priorityCode
 
  -- Row 13 -----------------------------------

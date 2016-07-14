@@ -29,4 +29,29 @@
     <display value="patient request"/>
     <definition value="Patient wishes the goal to be set aside, at least temporarily."/>
   </concept>
+  <concept>
+    <code value="temp-not-attainable"/>
+    <display value="Goal not attainable temporarily"/>
+    <definition value="Goal can not be reached temporarily."/>
+  </concept>
+  <concept>
+    <code value="permanent-not-attainable"/>
+    <display value="Goal not attainable permanently"/>
+    <definition value="Goal can not be reached permanently."/>
+  </concept>
+  <concept>
+    <code value="financial-barrier"/>
+    <display value="Financial reason"/>
+    <definition value="Goal can not be reached due to financial barrier or reason."/>
+  </concept>
+  <concept>
+    <code value="lack-of-transportation"/>
+    <display value="Lack of transportation"/>
+    <definition value="Goal can not be reached due to a lack of transportation."/>
+  </concept>
+  <concept>
+    <code value="lack-of-social-support"/>
+    <display value="Lack of social support"/>
+    <definition value="Goal can not be reached due to a lack of social support."/>
+  </concept>
 </CodeSystem>
