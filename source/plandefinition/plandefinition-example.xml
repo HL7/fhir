@@ -259,14 +259,8 @@
 		<!-- Consults and Referrals -->
 		<actionDefinition>
 			<title value="Consults and Referrals"/>
-			<behavior>
-				<type><code value="grouping-behavior"/></type>
-				<value><code value="logical-group"/></value>
-			</behavior>
-			<behavior>
-				<type><code value="selection-behavior"/></type>
-				<value><code value="any"/></value>
-			</behavior>
+			<groupingBehavior value="logical-group"/>
+			<selectionBehavior value="any"/>
 			<actionDefinition>
 				<!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now -->
 				<textEquivalent value="Refer to outpatient mental health program for evaluation and treatment of mental health conditions now"/>
@@ -306,14 +300,8 @@
 		<!-- Medications -->
 		<actionDefinition>
 			<title value="Medications"/>
-			<behavior>
-				<type><code value="grouping-behavior"/></type>
-				<value><code value="logical-group"/></value>
-			</behavior>
-			<behavior>
-				<type><code value="selection-behavior"/></type>
-				<value><code value="at-most-one"/></value>
-			</behavior>
+			<groupingBehavior value="logical-group"/>
+			<selectionBehavior value="at-most-one"/>
 			<actionDefinition>
 
 				<!-- First-Line Antidepressants -->
@@ -323,14 +311,8 @@
 					<url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
 					<title value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
 				</supportingEvidence>
-				<behavior>
-					<type><code value="grouping-behavior"/></type>
-					<value><code value="logical-group"/></value>
-				</behavior>
-				<behavior>
-					<type><code value="selection-behavior"/></type>
-					<value><code value="at-most-one"/></value>
-				</behavior>
+				<groupingBehavior value="logical-group"/>
+				<selectionBehavior value="at-most-one"/>
 				<actionDefinition>
 					<!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) -->
 					<title value="Selective Serotonin Reuptake Inhibitors (Choose a mazimum of one or document reasons for exception)"/>
@@ -339,14 +321,8 @@
 						<url value="http://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6daeb45c-451d-b135-bf8f-2d6dff4b6b01"/>
 						<title value="National Library of Medicine. DailyMed website. CITALOPRAM- citalopram hydrobromide tablet, film coated."/>
 					</documentation>
-					<behavior>
-						<type><code value="grouping-behavior"/></type>
-						<value><code value="logical-group"/></value>
-					</behavior>
-					<behavior>
-						<type><code value="selection-behavior"/></type>
-						<value><code value="at-most-one"/></value>
-					</behavior>
+					<groupingBehavior value="logical-group"/>
+					<selectionBehavior value="at-most-one"/>
 					<actionDefinition>
 						<!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) -->
 						<textEquivalent value="citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills)"/>

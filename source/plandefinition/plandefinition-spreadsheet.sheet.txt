@@ -9,135 +9,62 @@
   Conformance = required
 
  -- Row 2 -----------------------------------
-  Binding Name = OrderSetParticipantType
+  Binding Name = PlanActionGroupingBehavior
   Binding = code list
-  Reference = #order-set-participant
-  Definition = The type of participant for an action in the orderset
-  Conformance = required
-
- -- Row 3 -----------------------------------
-  Binding Name = OrderSetItemType
-  Binding = code list
-  Reference = #order-set-item-type
-  Definition = The type of orderset item
-  Conformance = extensible
-
- -- Row 4 -----------------------------------
-  Binding Name = OrderSetItemGroupingBehavior
-  Binding = code list
-  Reference = #grouping-behavior
+  Reference = #planaction-grouping-behavior
   Definition = Defines organization behavior of a group
   Conformance = required
 
- -- Row 5 -----------------------------------
-  Binding Name = OrderSetItemSelectionBehavior
+ -- Row 3 -----------------------------------
+  Binding Name = PlanActionSelectionBehavior
   Binding = code list
-  Reference = #selection-behavior
+  Reference = #planaction-selection-behavior
   Definition = Defines selection behavior of a group
   Conformance = required
 
- -- Row 6 -----------------------------------
-  Binding Name = OrderSetItemRequiredBehavior
+ -- Row 4 -----------------------------------
+  Binding Name = PlanActionRequiredBehavior
   Binding = code list
-  Reference = #required-behavior
+  Reference = #planaction-required-behavior
   Definition = Defines requiredness behavior for selecting an action or an action group
   Conformance = required
 
- -- Row 7 -----------------------------------
-  Binding Name = OrderSetItemPrecheckBehavior
+ -- Row 5 -----------------------------------
+  Binding Name = PlanActionPrecheckBehavior
   Binding = code list
-  Reference = #precheck-behavior
+  Reference = #planaction-precheck-behavior
   Definition = Defines selection frequency behavior for an action or group
   Conformance = required
 
- -- Row 8 -----------------------------------
-  Binding Name = OrderSetItemCardinalityBehavior
+ -- Row 6 -----------------------------------
+  Binding Name = PlanActionCardinalityBehavior
   Binding = code list
-  Reference = #cardinality-behavior
+  Reference = #planaction-cardinality-behavior
   Definition = Defines behavior for an action or a group for how many times that item may be repeated
   Conformance = required
 
- -- Row 9 -----------------------------------
+ -- Row 7 -----------------------------------
   Binding Name = PlanActionType
   Binding = code list
   Reference = #planaction-type
   Definition = The type of action to be performed
   Conformance = extensible
 
- -- Row 10 -----------------------------------
-  Binding Name = PlanActionBehaviorType
-  Binding = code list
-  Reference = #planaction-behavior-type
-  Definition = The type of behavior to be defined
-  Conformance = extensible
-
- -- Row 11 -----------------------------------
+ -- Row 8 -----------------------------------
   Binding Name = PlanActionRelationshipType
   Binding = code list
   Reference = #planaction-relationship-type
   Definition = Defines the types of relationships between actions
   Conformance = required
 
- -- Row 12 -----------------------------------
+ -- Row 9 -----------------------------------
   Binding Name = PlanActionRelationshipAnchor
   Binding = code list
   Reference = #planaction-relationship-anchor
   Definition = Defines possible anchors for the relationship between actions
   Conformance = required
 
-=== Sheet order-set-participant =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = patient
-  Display = Patient
-  Definition = The participant is the patient under evaluation
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = person
-  Display = Person
-  Definition = The participant is a person
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = practitioner
-  Display = Practitioner
-  Definition = The participant is a practitioner involved in the patient\'s care
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = related-person
-  Display = Related Person
-  Definition = The participant is a person related to the patient
-
-=== Sheet order-set-item-type =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = create
-  Display = Create
-  Definition = The action is to create a new resource
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = update
-  Display = Update
-  Definition = The action is to update an existing resource
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = remove
-  Display = Remove
-  Definition = The action is to remove an existing resource
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = fire-event
-  Display = Fire Event
-  Definition = The action is to fire a specific event
-
-=== Sheet grouping-behavior =====================================
+=== Sheet planaction-grouping-behavior =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -155,39 +82,39 @@
   Id = 3
   Code = sentence-group
   Display = Sentence Group
-  Definition = A group of related alternative items is a sentence group if the target referenced by the item is the same in all the items, and each item simply constitutes a different variation on how to specify the details for the target. For example, two items that could be in a SentenceGroup are \"aspirin, 500 mg, 2 times per day\" and \"aspirin, 300 mg, 3 times per day\". In both cases, aspirin is the target referenced by the item, and the two items represent two different options for how aspirin might be ordered for the patient. Note that a SentenceGroup would almost always have an associated selection behavior of \"AtMostOne\", unless it\'s a required item, in which case, it would be \"ExactlyOne\"
+  Definition = A group of related alternative actions is a sentence group if the target referenced by the action is the same in all the actions and each action simply constitutes a different variation on how to specify the details for the target. For example, two actions that could be in a SentenceGroup are \"aspirin, 500 mg, 2 times per day\" and \"aspirin, 300 mg, 3 times per day\". In both cases, aspirin is the target referenced by the action, and the two actions represent different options for how aspirin might be ordered for the patient. Note that a SentenceGroup would almost always have an associated selection behavior of \"AtMostOne\", unless it\'s a required action, in which case, it would be \"ExactlyOne\"
 
-=== Sheet selection-behavior =====================================
+=== Sheet planaction-selection-behavior =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
   Code = any
   Display = Any
-  Definition = Any number of the items in the group may be chosen, from zero to all
+  Definition = Any number of the actions in the group may be chosen, from zero to all
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = all
   Display = All
-  Definition = All the items in the group must be selected as a single unit
+  Definition = All the actions in the group must be selected as a single unit
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = all-or-none
   Display = All Or None
-  Definition = All the items in the group are meant to be chosen as a single unit: either all must be selected by the end user, or none may be selected
+  Definition = All the actions in the group are meant to be chosen as a single unit: either all must be selected by the end user, or none may be selected
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = exactly-one
   Display = Exactly One
-  Definition = The end user must choose one and only one of the selectable items in the group. The user may not choose none of the items in the group
+  Definition = The end user must choose one and only one of the selectable actions in the group. The user may not choose none of the actions in the group
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = at-most-one
   Display = At Most One
-  Definition = The end user may choose zero or at most one of the items in the group
+  Definition = The end user may choose zero or at most one of the actions in the group
 
  -- Row 6 -----------------------------------
   Id = 6
@@ -195,53 +122,53 @@
   Display = One Or More
   Definition = The end user must choose a minimum of one, and as many additional as desired
 
-=== Sheet required-behavior =====================================
+=== Sheet planaction-required-behavior =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
   Code = must
   Display = Must
-  Definition = An item with this behavior must be included in the items processed by the end user; the end user may not choose not to include this item
+  Definition = An action with this behavior must be included in the actions processed by the end user; the end user may not choose not to include this action
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = could
   Display = Could
-  Definition = An item with this behavior may be included in the set of items processed by the end user
+  Definition = An action with this behavior may be included in the set of actions processed by the end user
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = must-unless-documented
   Display = Must Unless Documented
-  Definition = An item with this behavior must be included in the set of items processed by the end user, unless the end user provides documentation as to why the item was not included
+  Definition = An action with this behavior must be included in the set of actions processed by the end user, unless the end user provides documentation as to why the action was not included
 
-=== Sheet precheck-behavior =====================================
+=== Sheet planaction-precheck-behavior =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
   Code = yes
   Display = Yes
-  Definition = An item with this behavior is one of the most frequent items that is, or should be, included by an end user, for the particular context in which the item occurs. The system displaying the item to the end user should consider \"pre-checking\" such an item as a convenience for the user
+  Definition = An action with this behavior is one of the most frequent action that is, or should be, included by an end user, for the particular context in which the action occurs. The system displaying the action to the end user should consider \"pre-checking\" such an action as a convenience for the user
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = no
   Display = No
-  Definition = An item with this behavior is one of the less frequent items included by the end user, for the particular context in which the item occurs. The system displaying the items to the end user would typically not \"pre-check\" such an item
+  Definition = An action with this behavior is one of the less frequent actions included by the end user, for the particular context in which the action occurs. The system displaying the actions to the end user would typically not \"pre-check\" such an action
 
-=== Sheet cardinality-behavior =====================================
+=== Sheet planaction-cardinality-behavior =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
   Code = single
   Display = Single
-  Definition = The item may only be selected one time
+  Definition = The action may only be selected one time
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = multiple
   Display = Multiple
-  Definition = The item may be selected multiple times
+  Definition = The action may be selected multiple times
 
 === Sheet planaction-type =====================================
 
@@ -268,38 +195,6 @@
   Code = fire-event
   Display = Fire Event
   Definition = The action is to fire a specific event
-
-=== Sheet planaction-behavior-type =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = grouping
-  Display = Grouping Behavior
-  Definition = Specifies grouping behavior using the action-group-behavior valueset
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = selection
-  Display = Selection Behavior
-  Definition = Specifies selection behavior using the action-selection-behavior valueset
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = required
-  Display = Required Behavior
-  Definition = Specifies required behavior using the action-required-behavior valueset
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = precheck
-  Display = Precheck Behavior
-  Definition = Specifies precheck behavior using the action-precheck-behavior valueset
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = cardinality
-  Display = Cardinality Behavior
-  Definition = Specifies cardinality behavior using the action-cardinality behavior valueset
 
 === Sheet planaction-relationship-type =====================================
 
@@ -651,27 +546,46 @@
   Definition = The type of action to perform (create, update, remove)
 
  -- Row 41 -----------------------------------
-  Element = PlanDefinition.actionDefinition.behavior
-  Card. = 0..*
-  Short Label = Defines behaviors such as selection and grouping
-  Definition = A behavior associated with the action. Behaviors define how the action is to be presented and/or executed within the receiving environment
+  Element = PlanDefinition.actionDefinition.groupingBehavior
+  Card. = 0..1
+  Type = code
+  Binding = PlanActionGroupingBehavior
+  Short Label = visual-group | logical-group | sentence-group
+  Definition = Defines the grouping behavior for the action and its children
 
  -- Row 42 -----------------------------------
-  Element = PlanDefinition.actionDefinition.behavior.type
-  Card. = 1..1
-  Type = Coding
-  Binding = PlanActionBehaviorType
-  Short Label = The type of behavior (grouping, precheck, selection, cardinality, etc)
-  Definition = The type of the behavior to be described, such as grouping, visual, or selection behaviors
+  Element = PlanDefinition.actionDefinition.selectionBehavior
+  Card. = 0..1
+  Type = code
+  Binding = PlanActionSelectionBehavior
+  Short Label = any | all | all-or-none | exactly-one | at-most-one | one-or-more
+  Definition = Defines the selection behavior for the action and its children
 
  -- Row 43 -----------------------------------
-  Element = PlanDefinition.actionDefinition.behavior.value
-  Card. = 1..1
-  Type = Coding
-  Short Label = Specific behavior (e.g. required, at-most-one, single, etc)
-  Definition = The specific behavior. The code used here is determined by the type of behavior being described. For example, the grouping behavior uses the grouping-behavior-type valueset
+  Element = PlanDefinition.actionDefinition.requiredBehavior
+  Card. = 0..1
+  Type = code
+  Binding = PlanActionRequiredBehavior
+  Short Label = must | could | must-unless-documented
+  Definition = Defines the requiredness behavior for the action
 
  -- Row 44 -----------------------------------
+  Element = PlanDefinition.actionDefinition.precheckBehavior
+  Card. = 0..1
+  Type = code
+  Binding = PlanActionPrecheckBehavior
+  Short Label = yes | no
+  Definition = Defines whether the action should usually be preselected
+
+ -- Row 45 -----------------------------------
+  Element = PlanDefinition.actionDefinition.cardinalityBehavior
+  Card. = 0..1
+  Type = code
+  Binding = PlanActionCardinalityBehavior
+  Short Label = single | multiple
+  Definition = Defines whether the action can be selected multiple times
+
+ -- Row 46 -----------------------------------
   Element = PlanDefinition.actionDefinition.activityDefinition
   Card. = 0..1
   Type = Reference(ActivityDefinition)
@@ -679,41 +593,41 @@
   Definition = The resource that is the target of the action (e.g. CommunicationRequest). The resource described here defines any aspects of the action that can be specified statically (i.e. are known at the time of definition)
   Comments = Note that the resource is optional, and if no resource is specified, a customization with a root (/) path can be used to define the entire resource dynamically
 
- -- Row 45 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = PlanDefinition.actionDefinition.transform
   Card. = 0..1
   Type = Reference(StructureMap)
   Short Label = Transform to apply the template
   Definition = A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input
 
- -- Row 46 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = PlanDefinition.actionDefinition.dynamicValue
   Card. = 0..*
   Short Label = Dynamic aspects of the definition
   Definition = Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient\'s weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result
 
- -- Row 47 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = PlanDefinition.actionDefinition.dynamicValue.path
   Card. = 1..1
   Type = string
   Short Label = The path to the element to be set dynamically
   Definition = The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression
 
- -- Row 48 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = PlanDefinition.actionDefinition.dynamicValue.language
   Card. = 0..1
   Type = string
   Short Label = Language of the expression
   Definition = The media type of the language for the expression
 
- -- Row 49 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = PlanDefinition.actionDefinition.dynamicValue.expression
   Card. = 1..1
   Type = string
   Short Label = An expression that provides the dynamic value for the customization
   Definition = An expression specifying the value of the customized element
 
- -- Row 50 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = PlanDefinition.actionDefinition.actionDefinition
   Card. = 0..*
   Type = @PlanDefinition.actionDefinition
