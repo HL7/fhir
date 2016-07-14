@@ -1173,7 +1173,10 @@ public class ProfileUtilities {
     TableModel model = gen.initNormalTable(corePath, false);
 
     boolean deep = false;
+    String m = "";
     boolean vdeep = false;
+    if (ed.getSnapshot().getElementFirstRep().getIsModifier())
+      m = "modifier_";
     for (ElementDefinition eld : ed.getSnapshot().getElement()) {
       deep = deep || eld.getPath().contains("Extension.extension.");
       vdeep = vdeep || eld.getPath().contains("Extension.extension.extension.");
@@ -1187,7 +1190,7 @@ public class ProfileUtilities {
     if (full || vdeep) {
       r.getCells().add(gen.new Cell("", "", "Extension", null, null));
 
-      r.setIcon(deep ? "icon_extension_complex.png" : "icon_extension_simple.png", deep ? HierarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX : HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
+      r.setIcon(deep ? "icon_"+m+"extension_complex.png" : "icon_extension_simple.png", deep ? HierarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX : HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
       List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));
       for (ElementDefinition child : children)
         if (!child.getPath().endsWith(".id"))
@@ -1200,7 +1203,7 @@ public class ProfileUtilities {
       }
 
       r.getCells().add(gen.new Cell("", "", "Extension", null, null));
-      r.setIcon("icon_extension_complex.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
+      r.setIcon("icon_"+m+"extension_complex.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
       
       for (ElementDefinition c : children) {
         ElementDefinition ved = getValueFor(ed, c);
@@ -1213,7 +1216,7 @@ public class ProfileUtilities {
           r1.getCells().add(gen.new Cell(null, null, describeCardinality(c, null, new UnusedTracker()), null, null));
           genTypes(gen, r1, ved, defFile, ed, corePath, imagePath);
           r1.getCells().add(gen.new Cell(null, null, c.getDefinition(), null, null));
-          r1.setIcon("icon_extension_simple.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);      
+          r1.setIcon("icon_"+m+"extension_simple.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);      
         }
       }
     } else  {
@@ -1225,7 +1228,7 @@ public class ProfileUtilities {
 
       genTypes(gen, r, ved, defFile, ed, corePath, imagePath);
 
-      r.setIcon("icon_extension_simple.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);      
+      r.setIcon("icon_"+m+"extension_simple.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);      
     }
     Cell c = gen.new Cell("", "", "URL = "+ed.getUrl(), null, null);
     c.addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, ed.getName()+": "+ed.getDescription(), null));
@@ -1466,12 +1469,17 @@ public class ProfileUtilities {
       row.setColor(getRowColor(element));
       boolean hasDef = element != null;
       boolean ext = false;
-      if (s.equals("extension") || s.equals("modifierExtension")) {
+      if (s.equals("extension")) {
         if (element.hasType() && element.getType().get(0).hasProfile() && extensionIsComplex(element.getType().get(0).getProfile()))
           row.setIcon("icon_extension_complex.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
         else
           row.setIcon("icon_extension_simple.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
         ext = true;
+      } else if (s.equals("modifierExtension")) {
+        if (element.hasType() && element.getType().get(0).hasProfile() && extensionIsComplex(element.getType().get(0).getProfile()))
+          row.setIcon("icon_modifier_extension_complex.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
+        else
+          row.setIcon("icon_modifier_extension_simple.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
       } else if (!hasDef || element.getType().size() == 0)
         row.setIcon("icon_element.gif", HierarchicalTableGenerator.TEXT_ICON_ELEMENT);
       else if (hasDef && element.getType().size() > 1) {

@@ -1411,7 +1411,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String displayExtensionCardinality(StructureDefinition ed) {
     ElementDefinition e = ed.getSnapshot().getElementFirstRep();
-    return Integer.toString(e.getMin())+".."+e.getMax();
+    String m = "";
+    if (ed.getSnapshot().getElementFirstRep().getIsModifier())
+      m = " <b>M</b>";
+
+    return Integer.toString(e.getMin())+".."+e.getMax()+m;
   }
 
   private String determineExtensionType(StructureDefinition ed) throws Exception {
