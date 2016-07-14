@@ -8,7 +8,7 @@
       <text value="Little Pink Pill for water retention"></text>
   </medicationCodeableConcept>  
   <patient>
-    <reference value="Patient/pat01"/>
+    <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
   </patient>
   <effectiveDateTime value="2014-02-01"></effectiveDateTime>

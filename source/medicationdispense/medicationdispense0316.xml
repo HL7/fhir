@@ -12,7 +12,7 @@
         </coding>
     </medicationCodeableConcept>
     <patient>
-        <reference value="Patient/pat1 "/>
+        <reference value="Patient/pat1"/>
         <display value="Donald Duck "/> 
     </patient>
     <dispenser>
