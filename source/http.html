@@ -894,13 +894,18 @@ Examples:
 
 <h4>Batch Processing Rules</h4>
 <p>
-For a <code>batch</code>, there SHALL be no interdependencies between the different entries
-in the Bundle. The success or failure of one entry SHALL not alter the success or failure
-or resulting content of another. Servers SHALL validate that this is the case. 
-Note that it is considered that servers execute the batch in the same order as 
-that specified below for transactions, though the order of execution should not 
-matter given the previous rule.
+For a <code>batch</code>, there SHALL be no interdependencies between the different entries 
+in the Bundle that cause change on the server. The success or failure of one change SHOULD 
+not alter the success or failure or resulting content of another change. Servers SHOULD 
+validate that this is the case. Note that it is considered that servers execute the batch 
+in the same order as that specified below for transactions, though the order of execution 
+should not matter given the previous rule.
 </p>
+<p>
+Static references within a Bundle.entry.resource another to Bundle.entry.resource that is being 
+created within the Batch are be non-conformant.
+</p>
+
 <h4>Transaction Processing Rules</h4>
 <p>
 For a <code>transaction</code>, servers SHALL either accept all actions and return a <code>200</code> OK, along with a

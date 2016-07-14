@@ -18,7 +18,7 @@
   Type = uri
   Short Label = identifies the meaning of the extension
   Definition = Source of the definition for the extension code - a logical name or a URL
-  Comments = The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition should be version specific.  This will ideally be the URI for the Resource Profile defining the extension, with the code for the extension after a #
+  Comments = The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension
   RIM Mapping = N/A
 
  -- Row 3 -----------------------------------
