@@ -20,9 +20,11 @@
 <h2>Narrative</h2>
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 <p>
-Any resource that is a <a href="domainresource.html">domain resource</a> (almost all types 
+Any resource that is a <a href="domainresource.html">DomainResource</a> (almost all types 
 of resource) may include a human-readable narrative that contains a summary of the resource,
 and may be used to represent the content of the resource to a human.
+</p>
+<p>
 If narrative is present with a status other than 'none', it SHALL reflect all content 
 needed for a human to understand the essential clinical and business information for 
 the resource.  I.e. It must be safe to render only the narrative of the resource without 
@@ -34,14 +36,17 @@ ensure clinical safety.
 The narrative for a resource is allowed to contain additional information that is not in
 the structured data, including human-edited content. Such additional information SHALL be
 in the scope of the definition of the resource, though it is common for the narrative to
-include additional descriptional information extracted from other referenced resources.
-Narrative for a resource should include summary information about any referenced resources that would
-be required for a consumer of the resource to be able to understand the key, essential information 
-about a resource without retrieving any additional resources.  For example, the narrative for a 
-MedicationOrder might include brief summary information about the referenced patient, 
-prescriber and medication.  Some resources (e.g. List, Composition) may provide specific 
-rules about what content must (or must not) be included in the resource narrative.  Consideration 
-should be given to the fact that referenced resources may be updated without updating 
+include additional descriptional information extracted from other referenced resources
+when describing references. Narrative for a resource should include summary information 
+about any referenced resources that would be required for a consumer of the resource to 
+be able to understand the key, essential information about a resource without retrieving 
+any additional resources.
+</p>
+<p>
+For example, the narrative for a MedicationOrder might include brief summary information 
+about the referenced patient, prescriber and medication.  Some resources (e.g. List, Composition) 
+may provide specific rules about what content must (or must not) be included in the resource narrative.  
+Consideration  should be given to the fact that referenced resources may be updated without updating 
 referencing resources, so the proportion of content of a referenced resource included 
 in a referencing resource should be limited. 
 Systems MAY choose how narrative is generated, including how much de-referencing to 
@@ -62,6 +67,12 @@ environments are very likely to open up during the lifetime of the resources
 they define. Also, many workflow steps involving finding and aggregating 
 resources are much more difficult or tedious if the resources involved do not have 
 their own text.
+</p>
+<p>
+In some cases, a resource may only have text with little or no additional discrete data 
+(as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from 
+legacy systems where information is captured as a "text blob" or where text is additionally 
+entered raw or narrated and encoded in formation is added later.
 </p>
 <p>
 Note that <a href="references.html#contained">contained</a> Resources SHALL NOT have a narrative
@@ -285,6 +296,8 @@ difficult, and implementations SHOULD avoid these</li>
    sole way to convey meaning or semantics, but should be used in conjunction with other
    data elements to ensure consistent, long term interoperability. </li>
 </ul>
+
+
 </div>
 
 [%file newfooter%]

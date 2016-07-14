@@ -48,7 +48,7 @@
   Type = Narrative
   Short Label = Text summary of the resource, for human interpretation
   Definition = A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety
-  Comments = Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative
+  Comments = Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a \"text blob\" or where text is additionally entered raw or narrated and encoded in formation is added later.
   RIM Mapping = Act.text?
 
  -- Row 3 -----------------------------------

@@ -25,7 +25,7 @@
   Id = 3
   Code = additional
   Display = Additional
-  Definition = The contents of the narrative contain additional information not found in the structured data
+  Definition = The contents of the narrative may contain additional information not found in the structured data. Note that there is no computable way to determine what the extra information is, other than by human inspection
 
  -- Row 4 -----------------------------------
   Id = 4
