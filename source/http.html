@@ -809,12 +809,21 @@ can be used.
 <h3>conformance</h3>
 <p>
 The <code>conformance</code> interaction retrieves the server's conformance statement that defines how it supports resources.
-The interaction is performed by an HTTP <code>OPTIONS</code> or a <code>GET</code> command as shown:
+The interaction is performed by an HTTP <code>GET</code> command as shown:
 </p>
 <pre>
   GET [base]/metadata {?_format=[mime-type]}
+</pre>
+<p>
+In addition, there is another method to get the conformance statement, using the HTTP <code>OPTIONS</code> command:
+</p>
+<pre>
   OPTIONS [base] {?_format=[mime-type]}
 </pre>
+<p>
+However as of STU3, this method is deprecated, and will be removed in a future version. Using OPTIONS like this 
+is not conformant with HTTP, and creates challenges for <a href="http://enable-cors.org/">cross-origin resource sharing</a> support).
+</p>
 <p>
 Applications SHALL return a <a href="conformance.html">Conformance Resource</a> that specifies which resource types and interactions are supported
 for the <code>GET</code> command, and SHOULD do so for the <code>OPTIONS</code> command. If a <code>404</code> Unknown is returned from the <code>GET</code>, FHIR is not supported on the
