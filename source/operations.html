@@ -204,13 +204,17 @@ which can be useful when testing an operation using HTML forms.
 <h4>Operation Response</h4>
 
 <p>
-If an operation succeeds, an HTTP Status code of 200 OK is returned. An
-HTTP status code of 4xx or 5xx indicates an error, and an
-<a href="operationoutcome.html">OperationOutcome</a> may be returned.
-User agents should note that servers may issue redirects, etc. to
-authenticate the client in response to an operation request.
+If an operation succeeds, an HTTP Status success code is returned. 
+This will usually be a 2xx code, though it may also be a 303 See Other.
+Other kinds of 3xx codes should be understood to indicate that the 
+operation did not proceed, and the client will need to re-issue the 
+operation if it can perform the redirection (e.g. may get redirected
+to an authentication step). User agents should note that servers 
+may issue redirects, etc. to authenticate the client in response to 
+an operation request. An HTTP status code of 4xx or 5xx indicates 
+an error, and an <a href="operationoutcome.html">OperationOutcome</a> 
+SHOULD be returned with details. 
 </p>
-
 <p>
 In general, an operation response uses the same
 <a href="parameters.html">Parameters</a> format whether there is only one or 
