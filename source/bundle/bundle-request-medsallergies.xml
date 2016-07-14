@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="bundle-request-medsallergies"/>
+  <!-- This bundle is a batch of reqests to the FHIR RESTful API -->
+  <type value="batch"/>
+
+  <!-- Each entry is used to represent a RESTful API request
+       This request retrieves a single Patient resource -->
+  <entry>
+    <request>
+      <method value="GET"/>
+      <url value="/Patient/example"/>
+    </request>
+  </entry>
+  <!-- This request will retrieve the current MedicationStatements for the patient
+       requested above -->
+  <entry>
+    <request>
+      <method value="GET"/>
+      <url value="/MedicationStatement?patient=example&amp;_list=$current-medications"/>
+    </request>
+  </entry>
+  <!-- This request will retrieve the current AllergyIntolerances for the same
+       patient -->
+  <entry>
+    <request>
+      <method value="GET"/>
+      <url value="/AllergyIntolernce?patient=example&amp;_list=$current-allergies"/>
+    </request>
+  </entry>
+  <!-- This request will retrieve the current Conditions for the patient
+       requested above -->
+  <entry>
+    <request>
+      <method value="GET"/>
+      <url value="/Condition?patient=example&amp;_list=$current-problems"/>
+    </request>
+  </entry>
+  <!-- This request will retrieve the Immunization History for the patient
+       requested above -->
+  <entry>
+    <request>
+      <method value="GET"/>
+      <url value="/MedicationStatement?patient=example&amp;notgiven:not=true"/>
+    </request>
+  </entry>
+</Bundle>

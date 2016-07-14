@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="bundle-request-simplesummary"/>
+  <!-- This bundle is a batch of reqests to the FHIR RESTful API
+       This particuar batch requests a simple summary for a patient
+       It includes the patient's basic demographics (via the Patient resource),
+       conditions, medication statements and blood pressure readings since
+       January 1, 2015 -->
+  <type value="batch"/>
+
+  <!-- Each entry is used to represent a RESTful API request
+       This request retrieves a single Patient resource -->
+  <entry>
+    <request>
+      <method value="GET"/>
+      <url value="/Patient/example"/>
+    </request>
+  </entry>
+  <!-- This request will retrieve the conditions for the patient -->
+  <entry>
+    <request>
+      <method value="GET"/>
+      <url value="/Condition?patient=example"/>
+    </request>
+  </entry>
+  <!-- This request will retrieve the MedicationStatements for the patient
+       requested above -->
+  <entry>
+    <request>
+      <method value="GET"/>
+      <url value="/MedicationStatement?patient=example"/>
+    </request>
+  </entry>
+  <!-- This request will retrieve blood pressure readings for the
+       patient taken since January 1, 2015 -->
+  <entry>
+    <request>
+      <method value="GET"/>
+      <url value="/Observation?patient=example&amp;code=http://loinc.org|55284-4&amp;date=ge2015-01-01"/>
+    </request>
+  </entry>
+</Bundle>

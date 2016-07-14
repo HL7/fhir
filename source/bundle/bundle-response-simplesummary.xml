@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle 
+    xmlns="http://hl7.org/fhir">
+    <id value="bundle-response-simplesummary"/>
+    <type value="batch-response"/>
+    <entry>
+        <resource>
+            <Patient>
+                <id value="example"/>
+                <meta>
+                    <versionId value="1"/>
+                    <lastUpdated value="2016-02-10T01:39:40Z"/>
+                </meta>
+                <text>
+                    <status value="generated"/>
+                    <div 
+                        xmlns="http://www.w3.org/1999/xhtml">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Peter James 
+                                        <b>Chalmers</b> ("Jim") 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Address</td>
+                                    <td>534 Erewhon, Pleasantville, Vic, 3999</td>
+                                </tr>
+                                <tr>
+                                    <td>Contacts</td>
+                                    <td>Home: unknown. Work: (03) 5555 6473</td>
+                                </tr>
+                                <tr>
+                                    <td>Id</td>
+                                    <td>MRN: 12345 (Acme Healthcare)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </text>
+                <!--   MRN assigned by ACME healthcare on 6-May 2001   -->
+                <identifier>
+                    <use value="usual"/>
+                    <type>
+                        <coding>
+                            <system value="http://hl7.org/fhir/v2/0203"/>
+                            <code value="MR"/>
+                        </coding>
+                    </type>
+                    <system value="urn:oid:1.2.36.146.595.217.0.1"/>
+                    <value value="12345"/>
+                    <period>
+                        <start value="2001-05-06"/>
+                    </period>
+                    <assigner>
+                        <display value="Acme Healthcare"/>
+                    </assigner>
+                </identifier>
+                <active value="true"/>
+                <!--   Peter James Chalmers, but called "Jim"   -->
+                <name>
+                    <use value="official"/>
+                    <family value="Chalmers"/>
+                    <given value="Peter"/>
+                    <given value="James"/>
+                </name>
+                <name>
+                    <use value="usual"/>
+                    <given value="Jim"/>
+                </name>
+                <telecom>
+                    <use value="home"/>
+                    <!--   home communication details aren't known   -->
+                </telecom>
+                <telecom>
+                    <system value="phone"/>
+                    <value value="(03) 5555 6473"/>
+                    <use value="work"/>
+                </telecom>
+                <!--   use FHIR code system for male / female   -->
+                <gender value="male"/>
+                <birthDate value="1974-12-25">
+                    <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+                        <valueDateTime value="1974-12-25T14:35:45-05:00"/>
+                    </extension>
+                </birthDate>
+                <deceasedBoolean value="false"/>
+                <address>
+                    <use value="home"/>
+                    <type value="both"/>
+                    <line value="534 Erewhon St"/>
+                    <city value="PleasantVille"/>
+                    <district value="Rainbow"/>
+                    <state value="Vic"/>
+                    <postalCode value="3999"/>
+                    <period>
+                        <start value="1974-12-25"/>
+                    </period>
+                </address>
+                <contact>
+                    <relationship>
+                        <coding>
+                            <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+                            <code value="partner"/>
+                        </coding>
+                    </relationship>
+                    <name>
+                        <family value="du">
+                            <!--   the "du" part is a family name prefix (VV in iso 21090)   -->
+                            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                                <valueCode value="VV"/>
+                            </extension>
+                        </family>
+                        <family value="MarchÃ©"/>
+                        <given value="BÃ©nÃ©dicte"/>
+                    </name>
+                    <telecom>
+                        <system value="phone"/>
+                        <value value="+33 (237) 998327"/>
+                    </telecom>
+                    <gender value="female"/>
+                    <period>
+                        <!--   The contact relationship started in 2012   -->
+                        <start value="2012"/>
+                    </period>
+                </contact>
+                <managingOrganization>
+                    <reference value="Organization/1"/>
+                </managingOrganization>
+            </Patient>
+        </resource>
+        <request>
+            <method value="GET"/>
+            <url value="/Patient/example"/>
+        </request>
+        <response>
+            <status value="200"/>
+            <etag value="W/1"/>
+            <lastModified value="2016-02-10T01:39:40Z"/>
+        </response>
+    </entry>
+    <entry>
+        <resource>
+            <Bundle>
+                <id value="7819f9c0-f1c0-4bc6-bd6a-791b5a39f6"/>
+                <meta>
+                    <lastUpdated value="2016-02-10T10:46:48Z"/>
+                </meta>
+                <type value="searchset"/>
+                <total value="4"/>
+                <link>
+                    <relation value="self"/>
+                    <url value="http://local.healthintersections.com.au:960/open/Condition/_search?_format=text/xml+fhir&amp;search-id=27190f4a-8c47-4168-aee8-df208f9091&amp;&amp;patient=example&amp;search-sort=_id"/>
+                </link>
+                <entry>
+                    <fullUrl value="http://local.healthintersections.com.au:960/open/Condition/condition-example"/>
+                    <resource>
+                        <Condition 
+                            xmlns="http://hl7.org/fhir">
+                            <id value="condition-example"/>
+                            <meta>
+                                <versionId value="1"/>
+                                <lastUpdated value="2016-02-10T01:34:21Z"/>
+                            </meta>
+                            <text>
+                                <status value="generated"/>
+                                <div 
+                                    xmlns="http://www.w3.org/1999/xhtml">Severe burn of left ear (Date: 24-May 2012)
+                                </div>
+                            </text>
+                            <extension url="http://hl7.org/fhir/StructureDefinition/condition-criticality">
+                                <valueCodeableConcept>
+                                    <coding>
+                                        <system value="http://snomed.info/sct"/>
+                                        <code value="399166001"/>
+                                        <display value="Fatal"/>
+                                    </coding>
+                                </valueCodeableConcept>
+                            </extension>
+                            <patient>
+                                <reference value="Patient/example"/>
+                            </patient>
+                            <code>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="39065001"/>
+                                    <display value="Burn of ear"/>
+                                </coding>
+                                <text value="Burnt Ear"/>
+                            </code>
+                            <category>
+                                <coding>
+                                    <system value="http://hl7.org/fhir/condition-category"/>
+                                    <code value="diagnosis"/>
+                                    <display value="Diagnosis"/>
+                                </coding>
+                                <!--  and also a SNOMED CT coding  -->
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="439401001"/>
+                                    <display value="Diagnosis"/>
+                                </coding>
+                            </category>
+                            <verificationStatus value="confirmed"/>
+                            <severity>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="24484000"/>
+                                    <display value="Severe"/>
+                                </coding>
+                            </severity>
+                            <onsetDateTime value="2012-05-24"/>
+                            <bodySite>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="49521004"/>
+                                    <display value="Left external ear structure"/>
+                                </coding>
+                                <text value="Left Ear"/>
+                            </bodySite>
+                        </Condition>
+                    </resource>
+                    <search>
+                        <mode value="match"/>
+                    </search>
+                </entry>
+                <entry>
+                    <fullUrl value="http://local.healthintersections.com.au:960/open/Condition/example"/>
+                    <resource>
+                        <Condition 
+                            xmlns="http://hl7.org/fhir">
+                            <id value="example"/>
+                            <meta>
+                                <versionId value="1"/>
+                                <lastUpdated value="2016-02-10T01:34:21Z"/>
+                            </meta>
+                            <text>
+                                <status value="generated"/>
+                                <div 
+                                    xmlns="http://www.w3.org/1999/xhtml">Severe burn of left ear (Date: 24-May 2012)
+                                </div>
+                            </text>
+                            <patient>
+                                <reference value="Patient/example"/>
+                            </patient>
+                            <code>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="39065001"/>
+                                    <display value="Burn of ear"/>
+                                </coding>
+                                <text value="Burnt Ear"/>
+                            </code>
+                            <category>
+                                <coding>
+                                    <system value="http://hl7.org/fhir/condition-category"/>
+                                    <code value="diagnosis"/>
+                                    <display value="Diagnosis"/>
+                                </coding>
+                                <!--  and also a SNOMED CT coding  -->
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="439401001"/>
+                                    <display value="Diagnosis"/>
+                                </coding>
+                            </category>
+                            <verificationStatus value="confirmed"/>
+                            <severity>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="24484000"/>
+                                    <display value="Severe"/>
+                                </coding>
+                            </severity>
+                            <onsetDateTime value="2012-05-24"/>
+                            <bodySite>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="49521004"/>
+                                    <display value="Left external ear structure"/>
+                                </coding>
+                                <text value="Left Ear"/>
+                            </bodySite>
+                        </Condition>
+                    </resource>
+                    <search>
+                        <mode value="match"/>
+                    </search>
+                </entry>
+                <entry>
+                    <fullUrl value="http://local.healthintersections.com.au:960/open/Condition/example2"/>
+                    <resource>
+                        <Condition 
+                            xmlns="http://hl7.org/fhir">
+                            <id value="example2"/>
+                            <meta>
+                                <versionId value="1"/>
+                                <lastUpdated value="2016-02-10T01:34:22Z"/>
+                            </meta>
+                            <text>
+                                <status value="generated"/>
+                                <div 
+                                    xmlns="http://www.w3.org/1999/xhtml">Mild Asthma (Date: 21-Nov 2012)
+                                </div>
+                            </text>
+                            <patient>
+                                <reference value="Patient/example"/>
+                            </patient>
+                            <code>
+                                <text value="Asthma"/>
+                            </code>
+                            <category>
+                                <coding>
+                                    <system value="http://hl7.org/fhir/condition-category"/>
+                                    <code value="finding"/>
+                                    <display value="Finding"/>
+                                </coding>
+                            </category>
+                            <clinicalStatus value="active"/>
+                            <verificationStatus value="confirmed"/>
+                            <severity>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="255604002"/>
+                                    <display value="Mild"/>
+                                </coding>
+                            </severity>
+                            <onsetDateTime value="2012-11-12"/>
+                        </Condition>
+                    </resource>
+                    <search>
+                        <mode value="match"/>
+                    </search>
+                </entry>
+                <entry>
+                    <fullUrl value="http://local.healthintersections.com.au:960/open/Condition/stroke"/>
+                    <resource>
+                        <Condition 
+                            xmlns="http://hl7.org/fhir">
+                            <id value="stroke"/>
+                            <meta>
+                                <versionId value="1"/>
+                                <lastUpdated value="2016-02-10T01:34:21Z"/>
+                            </meta>
+                            <text>
+                                <status value="generated"/>
+                                <div 
+                                    xmlns="http://www.w3.org/1999/xhtml">Ischemic stroke, July 18, 2010
+                                </div>
+                            </text>
+                            <patient>
+                                <reference value="Patient/example"/>
+                            </patient>
+                            <code>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="422504002"/>
+                                    <display value="Ischemic stroke (disorder)"/>
+                                </coding>
+                                <text value="Stroke"/>
+                            </code>
+                            <category>
+                                <coding>
+                                    <system value="http://hl7.org/fhir/condition-category"/>
+                                    <code value="diagnosis"/>
+                                    <display value="Diagnosis"/>
+                                </coding>
+                            </category>
+                            <clinicalStatus value="active"/>
+                            <verificationStatus value="confirmed"/>
+                            <onsetDateTime value="2010-07-18"/>
+                        </Condition>
+                    </resource>
+                    <search>
+                        <mode value="match"/>
+                    </search>
+                </entry>
+            </Bundle>
+        </resource>
+        <request>
+            <method value="GET"/>
+            <url value="/Condition?patient=example"/>
+        </request>
+        <response>
+            <status value="200"/>
+            <etag value="W/1"/>
+            <lastModified value="2016-02-10T01:39:40Z"/>
+        </response>
+    </entry>
+    <entry>
+        <resource>
+            <Bundle>
+                <id value="afd61894-bc0b-4deb-8217-d190848211"/>
+                <meta>
+                    <lastUpdated value="2016-02-10T10:46:48Z"/>
+                </meta>
+                <type value="searchset"/>
+                <total value="6"/>
+                <link>
+                    <relation value="self"/>
+                    <url value="http://local.healthintersections.com.au:960/open/MedicationStatement/_search?_format=text/xml+fhir&amp;search-id=35c2432e-b012-4e22-b519-2ef16ed955&amp;&amp;patient=example&amp;search-sort=_id"/>
+                </link>
+                <entry>
+                    <fullUrl value="http://local.healthintersections.com.au:960/open/MedicationStatement/example002"/>
+                    <resource>
+                        <MedicationStatement 
+                            xmlns="http://hl7.org/fhir">
+                            <id value="example002"/>
+                            <meta>
+                                <versionId value="1"/>
+                                <lastUpdated value="2016-02-10T01:39:21Z"/>
+                            </meta>
+                            <text>
+                                <status value="generated"/>
+                                <div 
+                                    xmlns="http://www.w3.org/1999/xhtml">
+                                    <p>Tylenol No. 1 Caplet</p>
+                                </div>
+                            </text>
+                            <patient>
+                                <reference value="Patient/example"/>
+                            </patient>
+                            <informationSource>
+                                <reference value="Patient/f001"/>
+                            </informationSource>
+                            <dateAsserted value="2015-02-22"/>
+                            <status value="completed"/>
+                            <wasNotTaken value="true"/>
+                            <reasonNotTaken>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="166643006"/>
+                                    <display value="Liver enzymes abnormal"/>
+                                </coding>
+                            </reasonNotTaken>
+                            <effectiveDateTime value="2015-01-23"/>
+                            <note value="Patient can not take acetaminophen as per Dr instructions"/>
+                            <medicationReference>
+                                <!--  Linked to a RESOURCE Medication  -->
+                                <reference value="Medication/MedicationExample7"/>
+                            </medicationReference>
+                        </MedicationStatement>
+                    </resource>
+                    <search>
+                        <mode value="match"/>
+                    </search>
+                </entry>
+                <entry>
+                    <fullUrl value="http://local.healthintersections.com.au:960/open/MedicationStatement/example004"/>
+                    <resource>
+                        <MedicationStatement 
+                            xmlns="http://hl7.org/fhir">
+                            <id value="example004"/>
+                            <meta>
+                                <versionId value="1"/>
+                                <lastUpdated value="2016-02-10T01:39:21Z"/>
+                            </meta>
+                            <text>
+                                <status value="generated"/>
+                                <div 
+                                    xmlns="http://www.w3.org/1999/xhtml">
+                                    <p>Amoxicillin 250mg capsule - one capsule three times daily</p>
+                                </div>
+                            </text>
+                            <patient>
+                                <reference value="Patient/example"/>
+                            </patient>
+                            <informationSource>
+                                <reference value="Patient/example"/>
+                            </informationSource>
+                            <dateAsserted value="2015-02-22"/>
+                            <status value="completed"/>
+                            <wasNotTaken value="false"/>
+                            <reasonForUseCodeableConcept>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="65363002"/>
+                                    <display value="Otitis Media"/>
+                                </coding>
+                            </reasonForUseCodeableConcept>
+                            <effectiveDateTime value="2014-01-23"/>
+                            <note value="Patient indicates they miss the occasional dose"/>
+                            <medicationReference>
+                                <!--  Linked to a RESOURCE Medication  -->
+                                <reference value="Medication/MedicationExample6"/>
+                            </medicationReference>
+                            <dosage>
+                                <text value="one capsule three times daily"/>
+                                <timing>
+                                    <repeat>
+                                        <frequency value="3"/>
+                                        <period value="1"/>
+                                        <periodUnits value="d"/>
+                                    </repeat>
+                                </timing>
+                                <asNeededBoolean value="false"/>
+                                <route>
+                                    <coding>
+                                        <system value="http://snomed.info/sct"/>
+                                        <code value="260548002"/>
+                                        <display value="Oral"/>
+                                    </coding>
+                                </route>
+                                <quantityQuantity>
+                                    <value value="1"/>
+                                </quantityQuantity>
+                                <maxDosePerPeriod>
+                                    <numerator>
+                                        <value value="3"/>
+                                        <unit value="capsules"/>
+                                        <system value="http://snomed.info/sct"/>
+                                        <code value="385055001"/>
+                                    </numerator>
+                                    <denominator>
+                                        <value value="1"/>
+                                        <system value="http://unitsofmeasure.org"/>
+                                        <code value="d"/>
+                                    </denominator>
+                                </maxDosePerPeriod>
+                            </dosage>
+                        </MedicationStatement>
+                    </resource>
+                    <search>
+                        <mode value="match"/>
+                    </search>
+                </entry>
+                <entry>
+                    <fullUrl value="http://local.healthintersections.com.au:960/open/MedicationStatement/example005"/>
+                    <resource>
+                        <MedicationStatement 
+                            xmlns="http://hl7.org/fhir">
+                            <id value="example005"/>
+                            <meta>
+                                <versionId value="1"/>
+                                <lastUpdated value="2016-02-10T01:39:22Z"/>
+                            </meta>
+                            <text>
+                                <status value="generated"/>
+                                <div 
+                                    xmlns="http://www.w3.org/1999/xhtml">
+                                    <p>Amoxicillin 250mg capsule - one capsule three times daily</p>
+                                </div>
+                            </text>
+                            <patient>
+                                <reference value="Patient/example"/>
+                            </patient>
+                            <informationSource>
+                                <reference value="Patient/example"/>
+                            </informationSource>
+                            <dateAsserted value="2015-02-22"/>
+                            <status value="entered-in-error"/>
+                            <wasNotTaken value="false"/>
+                            <reasonForUseCodeableConcept>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="65363002"/>
+                                    <display value="Otitis Media"/>
+                                </coding>
+                            </reasonForUseCodeableConcept>
+                            <effectiveDateTime value="2014-01-23"/>
+                            <note value="Patient indicates they miss the occasional dose"/>
+                            <medicationReference>
+                                <!--  Linked to a RESOURCE Medication  -->
+                                <reference value="Medication/MedicationExample6"/>
+                            </medicationReference>
+                            <dosage>
+                                <text value="one capsule three times daily"/>
+                                <timing>
+                                    <repeat>
+                                        <frequency value="3"/>
+                                        <period value="1"/>
+                                        <periodUnits value="d"/>
+                                    </repeat>
+                                </timing>
+                                <asNeededBoolean value="false"/>
+                                <route>
+                                    <coding>
+                                        <system value="http://snomed.info/sct"/>
+                                        <code value="260548002"/>
+                                        <display value="Oral"/>
+                                    </coding>
+                                </route>
+                                <quantityQuantity>
+                                    <value value="1"/>
+                                </quantityQuantity>
+                                <maxDosePerPeriod>
+                                    <numerator>
+                                        <value value="3"/>
+                                        <unit value="capsules"/>
+                                        <system value="http://snomed.info/sct"/>
+                                        <code value="385055001"/>
+                                    </numerator>
+                                    <denominator>
+                                        <value value="1"/>
+                                        <system value="http://unitsofmeasure.org"/>
+                                        <code value="d"/>
+                                    </denominator>
+                                </maxDosePerPeriod>
+                            </dosage>
+                        </MedicationStatement>
+                    </resource>
+                    <search>
+                        <mode value="match"/>
+                    </search>
+                </entry>
+                <entry>
+                    <fullUrl value="http://local.healthintersections.com.au:960/open/MedicationStatement/example006"/>
+                    <resource>
+                        <MedicationStatement 
+                            xmlns="http://hl7.org/fhir">
+                            <id value="example006"/>
+                            <meta>
+                                <versionId value="1"/>
+                                <lastUpdated value="2016-02-10T01:39:22Z"/>
+                            </meta>
+                            <text>
+                                <status value="generated"/>
+                                <div 
+                                    xmlns="http://www.w3.org/1999/xhtml">
+                                    <p>Amoxicillin 250mg/5mL - Taking 5mL every three hours</p>
+                                </div>
+                            </text>
+                            <patient>
+                                <reference value="Patient/example"/>
+                            </patient>
+                            <informationSource>
+                                <reference value="Patient/pat1"/>
+                            </informationSource>
+                            <dateAsserted value="2014-02-22"/>
+                            <status value="active"/>
+                            <wasNotTaken value="false"/>
+                            <effectiveDateTime value="2014-02-01"/>
+                            <note value="Father indicates they miss the occasional dose"/>
+                            <medicationReference>
+                                <!--  Linked to a RESOURCE Medication  -->
+                                <reference value="Medication/MedicationExample4"/>
+                            </medicationReference>
+                            <dosage>
+                                <text value="5ml three times daily"/>
+                                <asNeededBoolean value="false"/>
+                                <route>
+                                    <coding>
+                                        <system value="http://snomed.info/sct"/>
+                                        <code value="260548002"/>
+                                        <display value="Oral"/>
+                                    </coding>
+                                </route>
+                                <quantityQuantity>
+                                    <value value="5"/>
+                                </quantityQuantity>
+                                <maxDosePerPeriod>
+                                    <numerator>
+                                        <value value="3"/>
+                                    </numerator>
+                                    <denominator>
+                                        <value value="1"/>
+                                        <system value="http://unitsofmeasure.org"/>
+                                        <code value="d"/>
+                                    </denominator>
+                                </maxDosePerPeriod>
+                            </dosage>
+                        </MedicationStatement>
+                    </resource>
+                    <search>
+                        <mode value="match"/>
+                    </search>
+                </entry>
+                <entry>
+                    <fullUrl value="http://local.healthintersections.com.au:960/open/MedicationStatement/example007"/>
+                    <resource>
+                        <MedicationStatement 
+                            xmlns="http://hl7.org/fhir">
+                            <id value="example007"/>
+                            <meta>
+                                <versionId value="1"/>
+                                <lastUpdated value="2016-02-10T01:39:22Z"/>
+                            </meta>
+                            <text>
+                                <status value="generated"/>
+                                <div 
+                                    xmlns="http://www.w3.org/1999/xhtml">
+                                    <p>Ventolin inhaler - Will take during seasonal allergy season</p>
+                                </div>
+                            </text>
+                            <patient>
+                                <reference value="Patient/example"/>
+                            </patient>
+                            <informationSource>
+                                <reference value="Patient/example"/>
+                            </informationSource>
+                            <dateAsserted value="2015-02-22"/>
+                            <status value="active"/>
+                            <wasNotTaken value="false"/>
+                            <effectiveDateTime value="2015-05-23"/>
+                            <medicationReference>
+                                <!--  Linked to a RESOURCE Medication  -->
+                                <reference value="Medication/MedicationExample12"/>
+                            </medicationReference>
+                        </MedicationStatement>
+                    </resource>
+                    <search>
+                        <mode value="match"/>
+                    </search>
+                </entry>
+                <entry>
+                    <fullUrl value="http://local.healthintersections.com.au:960/open/MedicationStatement/medicationstatement-example"/>
+                    <resource>
+                        <MedicationStatement 
+                            xmlns="http://hl7.org/fhir">
+                            <id value="medicationstatement-example"/>
+                            <meta>
+                                <versionId value="1"/>
+                                <lastUpdated value="2016-02-10T01:39:21Z"/>
+                            </meta>
+                            <text>
+                                <status value="generated"/>
+                                <div 
+                                    xmlns="http://www.w3.org/1999/xhtml">
+                                    <p>Penicillin VK 10ml suspension administered by oral route at 14:30 on 1 June 2012</p>
+                                    <p>to patient ref: a23</p>
+                                </div>
+                            </text>
+                            <!--    -->
+                            <patient>
+                                <reference value="Patient/example"/>
+                            </patient>
+                            <status value="completed"/>
+                            <effectiveDateTime value="2012-06-01T14:30:00+14:00"/>
+                            <medicationReference>
+                                <reference value="Medication/example"/>
+                            </medicationReference>
+                            <dosage>
+                                <route>
+                                    <coding>
+                                        <system value="http://snomed.info/sct"/>
+                                        <code value="394899003"/>
+                                        <display value="oral administration of treatment"/>
+                                    </coding>
+                                </route>
+                                <quantityQuantity>
+                                    <value value="10"/>
+                                    <unit value="ml"/>
+                                    <system value="http://unitsofmeasure.org"/>
+                                    <code value="ml"/>
+                                </quantityQuantity>
+                            </dosage>
+                        </MedicationStatement>
+                    </resource>
+                    <search>
+                        <mode value="match"/>
+                    </search>
+                </entry>
+            </Bundle>
+        </resource>
+        <request>
+            <method value="GET"/>
+            <url value="/MedicationStatement?patient=example"/>
+        </request>
+        <response>
+            <status value="200"/>
+            <etag value="W/1"/>
+            <lastModified value="2016-02-10T01:39:40Z"/>
+        </response>
+    </entry>
+    <entry>
+        <resource>
+            <Bundle>
+                <id value="c778b57c-fb59-4154-9610-315adcc978"/>
+                <meta>
+                    <lastUpdated value="2016-02-10T10:46:48Z"/>
+                </meta>
+                <type value="searchset"/>
+                <total value="0"/>
+                <link>
+                    <relation value="self"/>
+                    <url value="http://local.healthintersections.com.au:960/open/Observation/_search?_format=text/xml+fhir&amp;search-id=2195f43f-0a69-4a09-8e85-45aa3d7c1f&amp;&amp;patient=example&amp;code=http%3A//loinc.org%7C55284%2D4&amp;date=ge2015%2D01%2D01&amp;search-sort=_id"/>
+                </link>
+            </Bundle>
+        </resource>
+        <request>
+            <method value="GET"/>
+            <url value="/Observation?patient=example&amp;code=http://loinc.org|55284-4&amp;date=ge2015-01-01"/>
+        </request>
+        <response>
+            <status value="200"/>
+            <etag value="W/1"/>
+            <lastModified value="2016-02-10T01:39:40Z"/>
+        </response>
+    </entry>
+</Bundle>
