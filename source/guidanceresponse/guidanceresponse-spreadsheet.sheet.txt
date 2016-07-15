@@ -387,6 +387,13 @@
 
 === Sheet Search =====================================
 
+ -- Row 1 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = The identity of a patient to search for guidance response results
+  Path = GuidanceResponse.subject
+  Target Types = Patient
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
