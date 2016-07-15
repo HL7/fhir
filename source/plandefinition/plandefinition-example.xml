@@ -280,20 +280,26 @@
 			<actionDefinition>
 				<!-- First-Line Antidepressants -->
 				<title value="First-Line Antidepressants"/>
-				<supportingEvidence>
-					<contentType value="text/html"/>
-					<url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
-					<title value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
-				</supportingEvidence>
+				<documentation>
+					<type value="justification"/>
+					<document>
+						<contentType value="text/html"/>
+						<url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
+						<title value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
+					</document>
+				</documentation>
 				<groupingBehavior value="logical-group"/>
 				<selectionBehavior value="at-most-one"/>
 				<actionDefinition>
 					<!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) -->
 					<title value="Selective Serotonin Reuptake Inhibitors (Choose a mazimum of one or document reasons for exception)"/>
 					<documentation>
-						<contentType value="text/html"/>
-						<url value="http://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6daeb45c-451d-b135-bf8f-2d6dff4b6b01"/>
-						<title value="National Library of Medicine. DailyMed website. CITALOPRAM- citalopram hydrobromide tablet, film coated."/>
+						<type value="justification"/>
+						<document>
+							<contentType value="text/html"/>
+							<url value="http://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6daeb45c-451d-b135-bf8f-2d6dff4b6b01"/>
+							<title value="National Library of Medicine. DailyMed website. CITALOPRAM- citalopram hydrobromide tablet, film coated."/>
+						</document>
 					</documentation>
 					<groupingBehavior value="logical-group"/>
 					<selectionBehavior value="at-most-one"/>

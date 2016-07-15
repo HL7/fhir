@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-07-07T04:40:11Z</LastSaved>
+  <LastSaved>2016-07-14T22:55:21Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,12 +20,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13410</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>9090</WindowHeight>
+  <WindowWidth>19275</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>4</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4327,7 +4326,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R35C23"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="89" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="86" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s84" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:Width="227.25"/>
    <Column ss:StyleID="s84" ss:Width="51"/>
@@ -6510,8 +6509,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">qualityOfEvidence</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">Attachment</Data></Cell>
     <Cell><Data ss:Type="String">qualityOfEvidence</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -6520,13 +6519,25 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">strengthOfRecommendation</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">Attachment</Data></Cell>
     <Cell><Data ss:Type="String">strengthOfRecommendation</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">The strength of the recommendation</Data></Cell>
     <Cell><Data ss:Type="String">The strength of the recommendation assigned to this reference. The code system specifies the scale used to grade the evidence source, while the code specifies the actual score (represented as a coded value) for the strength of the evidence</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">citation</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">Attachment</Data></Cell>
+    <Cell><Data ss:Type="String">citation</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s106"><Data ss:Type="String">Bibliographic citation for the resource</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">A bibliographic citation for the related resource. This text SHOULD be formatted according to an accepted citation format</Data></Cell>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Additional structured information about citations should be captured as extensions</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s127"><Data ss:Type="String">!moduleMetadata</Data></Cell>
@@ -6614,63 +6625,23 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">fpExpression</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">Element,Resource</Data></Cell>
     <Cell><Data ss:Type="String">fpExpression</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">FluentPath expression</Data></Cell>
-    <Cell><Data ss:Type="String">A FluentPath expression that provides the value for the element on which it appears</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">fpDataTypeExpression</Data></Cell>
-    <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">fpDataTypeExpression</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">FluentPath expression</Data></Cell>
-    <Cell><Data ss:Type="String">A FluentPath expression that provides the value for the element on which it appears</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">fpExtensionExpression</Data></Cell>
-    <Cell><Data ss:Type="String">Extension</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">fpExtensionExpression</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">FluentPath expression</Data></Cell>
-    <Cell><Data ss:Type="String">A FluentPath expression that provides the value for the element on which it appears</Data></Cell>
+    <Cell><Data ss:Type="String">A FluentPath expression that provides the value for the element or resource on which it appears</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">cqlExpression</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">Element,Resource</Data></Cell>
     <Cell><Data ss:Type="String">cqlExpression</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CQL expression</Data></Cell>
-    <Cell><Data ss:Type="String">A CQL expression that provides the value for the element on which it appears</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">cqlDataTypeExpression</Data></Cell>
-    <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">cqlDataTypeExpression</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">CQL expression</Data></Cell>
-    <Cell><Data ss:Type="String">A CQL expression that provides the value for the element on which it appears</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">cqlExtensionExpression</Data></Cell>
-    <Cell><Data ss:Type="String">Extension</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">cqlExtensionExpression</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">CQL expression</Data></Cell>
-    <Cell><Data ss:Type="String">A CQL expression that provides the value for the element on which it appears</Data></Cell>
+    <Cell><Data ss:Type="String">A CQL expression that provides the value for the element or resource on which it appears</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -6691,7 +6662,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>72</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6699,6 +6670,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -6706,35 +6678,35 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>79</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>84</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C6:R78C6</Range>
+   <Range>R78C6:R79C6</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;0..0,0..1,1..1,0..*,1..*,[n]..[m]&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C10:R78C10</Range>
+   <Range>R78C10:R79C10</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Bindings!A2..A30&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C9:R78C9</Range>
+   <Range>R78C9:R79C9</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Y,N&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C8:R78C8</Range>
+   <Range>R78C8:R79C8</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;*,Reference(A|B),boolean,string,code,id,oid,uuid,integer,decimal,date,dateTime,time,instant,uri,base64Binary,CodeableConcept,Coding,Identifier,Period,Timing,Range,Quantity,Age,Distance,Duration,Count,Money,Ratio,HumanName,Address,ContactPoint,SampledData&quot;</Value>
@@ -6744,14 +6716,14 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C14</Range>
+   <Range>R78C14</Range>
    <Condition>
     <Value1>(RC1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C1:R77C15,R78C1:R78C13</Range>
+   <Range>R78C1:R78C15,R79C1:R79C13</Range>
    <Condition>
     <Value1>RC6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -6762,63 +6734,63 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C1</Range>
+   <Range>R78C1</Range>
    <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-2]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C2:R78C2</Range>
+   <Range>R78C2:R79C2</Range>
    <Condition>
     <Value1>AND(RC[-1]&lt;&gt;&quot;&quot;,ISERR(SEARCH(&quot;.&quot;,RC[-1])),RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C3:R78C3</Range>
+   <Range>R78C3:R79C3</Range>
    <Condition>
     <Value1>(RC[-1]=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C6:R78C6,R77C15</Range>
+   <Range>R78C6:R79C6,R78C15</Range>
    <Condition>
     <Value1>(RC1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C11:R78C13</Range>
+   <Range>R78C11:R79C13</Range>
    <Condition>
     <Value1>AND(SEARCH(&quot;|&quot;,RC8)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C13:R78C13</Range>
+   <Range>R78C13:R79C13</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT(RC8,1),LOWER(LEFT(RC8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C14:R77C15</Range>
+   <Range>R78C14:R78C15</Range>
    <Condition>
     <Value1>AND(RC14&lt;&gt;&quot;&quot;,RC14=RC15)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C1:R77C15,R78C1:R78C13</Range>
+   <Range>R78C1:R78C15,R79C1:R79C13</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R78C1</Range>
+   <Range>R79C1</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
