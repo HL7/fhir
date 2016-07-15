@@ -7263,7 +7263,7 @@ public class VersionConvertor {
 		tgt.setDescription(src.getDescription());
 		tgt.setStatus(convertGoalStatus(src.getStatus()));
 		tgt.setStatusDate(src.getStatusDate());
-		tgt.setStatusReason(convertCodeableConcept(src.getStatusReason()));
+		tgt.addStatusReason(convertCodeableConcept(src.getStatusReason()));
 //		tgt.setAuthor(convertReference(src.getAuthor()));
 		tgt.setPriority(convertCodeableConcept(src.getPriority()));
 		for (org.hl7.fhir.dstu2.model.Reference t : src.getAddresses())
@@ -7290,7 +7290,8 @@ public class VersionConvertor {
 		tgt.setDescription(src.getDescription());
 		tgt.setStatus(convertGoalStatus(src.getStatus()));
 		tgt.setStatusDate(src.getStatusDate());
-		tgt.setStatusReason(convertCodeableConcept(src.getStatusReason()));
+		for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getStatusReason())
+		tgt.setStatusReason(convertCodeableConcept(t));
 //		tgt.setAuthor(convertReference(src.getAuthor()));
 		tgt.setPriority(convertCodeableConcept(src.getPriority()));
 		for (org.hl7.fhir.dstu3.model.Reference t : src.getAddresses())

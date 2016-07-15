@@ -1321,7 +1321,15 @@ public class ProfileUtilities {
             c.addPiece(checkForNoChange(t, gen.new Piece(pkp.getLinkFor(corePath, rn), rn, null)));
           }
         } else if (t.hasProfile() && Utilities.isAbsoluteUrl(t.getProfile())) {
-          c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getCode(), null)));
+          StructureDefinition sd = context.fetchResource(StructureDefinition.class, t.getProfile());
+          if (sd != null) {
+            String disp = sd.hasDisplay() ? sd.getDisplay() : sd.getName();
+            String ref = pkp.getLinkForProfile(null, sd.getUrl());
+            if (ref.contains("|"))
+              ref = ref.substring(0,  ref.indexOf("|"));
+            c.addPiece(checkForNoChange(t, gen.new Piece(ref, disp, null)));
+          } else
+            c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getProfile(), null)));
         } else if (t.hasProfile() && t.getProfile().startsWith("#"))
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+t.getProfile().substring(1).toLowerCase()+".html", t.getProfile(), null)));
         else
@@ -2205,7 +2213,7 @@ public class ProfileUtilities {
     Map<String, String> idMap = new HashMap<String, String>();
     
     List<String> paths = new ArrayList<String>();
-    // first path, update the element ids
+    // first pass, update the element ids
     for (ElementDefinition ed : list) {
       int depth = charCount(ed.getPath(), '.');
       String tail = tail(ed.getPath());
@@ -2214,6 +2222,8 @@ public class ProfileUtilities {
         paths.remove(paths.size() - 1);
       
       String t = ed.hasName() ? tail+":"+checkName(ed.getName()) : name != null ? tail + ":"+checkName(name) : tail;
+      if (isExtension(ed))
+        t = t + describeExtension(ed);
       name = null;
       StringBuilder b = new StringBuilder();
       for (String s : paths) {
@@ -2233,6 +2243,18 @@ public class ProfileUtilities {
     }  
     // second path - fix up any broken path based id references
     
+  }
+
+
+  private String describeExtension(ElementDefinition ed) {
+    if (!ed.hasType() || !ed.getTypeFirstRep().hasProfile())
+      return "";
+    return "$"+urlTail(ed.getTypeFirstRep().getProfile());
+  }
+
+
+  private String urlTail(String profile) {
+    return profile.contains("/") ? profile.substring(profile.lastIndexOf("/")+1) : profile;
   }
 
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Jul 14, 2016 15:47+1000 for FHIR v1.5.0
+// Generated on Fri, Jul 15, 2016 13:24+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -84,10 +84,10 @@ public class Library extends DomainResource {
     protected StringType title;
 
     /**
-     * Identifies the type of knowledge module, such as a rule, library, documentation template, or measure.
+     * Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition.
      */
     @Child(name = "type", type = {CodeableConcept.class}, order=5, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="logic-library | model-definition | asset-collection", formalDefinition="Identifies the type of knowledge module, such as a rule, library, documentation template, or measure." )
+    @Description(shortDefinition="logic-library | model-definition | asset-collection | module-definition", formalDefinition="Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/library-type")
     protected CodeableConcept type;
 
@@ -487,7 +487,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #type} (Identifies the type of knowledge module, such as a rule, library, documentation template, or measure.)
+     * @return {@link #type} (Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition.)
      */
     public CodeableConcept getType() { 
       if (this.type == null)
@@ -503,7 +503,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @param value {@link #type} (Identifies the type of knowledge module, such as a rule, library, documentation template, or measure.)
+     * @param value {@link #type} (Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition.)
      */
     public Library setType(CodeableConcept value) { 
       this.type = value;
@@ -1369,7 +1369,7 @@ public class Library extends DomainResource {
         childrenList.add(new Property("version", "string", "The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification. Note that the version is required for non-experimental published artifact.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A machine-friendly name for the module. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the module.", 0, java.lang.Integer.MAX_VALUE, title));
-        childrenList.add(new Property("type", "CodeableConcept", "Identifies the type of knowledge module, such as a rule, library, documentation template, or measure.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("type", "CodeableConcept", "Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("status", "code", "The status of the module.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "Determines whether the module was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("description", "string", "A free text natural language description of the module from the consumer's perspective.", 0, java.lang.Integer.MAX_VALUE, description));

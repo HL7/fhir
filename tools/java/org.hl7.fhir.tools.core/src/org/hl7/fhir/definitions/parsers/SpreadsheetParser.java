@@ -2094,13 +2094,18 @@ public class SpreadsheetParser {
       }
       row++;
     }
-    new ProfileGenerator(definitions, null, pkp, null, null, null, fpUsages).convertElements(exe, ex, null);
+    ProfileGenerator gen = new ProfileGenerator(definitions, null, pkp, null, null, null, fpUsages);
+    ProfileUtilities utils = new ProfileUtilities(this.context, issues, pkp);
+    gen.convertElements(exe, ex, null);
     ex.getDifferential().getElementFirstRep().getType().clear();
+    utils.setIds(ex, ex.getName());
+    
     StructureDefinition base = definitions != null ? definitions.getSnapShotForType("Extension") : this.context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/Extension");
     List<String> errors = new ArrayList<String>();
-    new ProfileUtilities(this.context, issues, pkp).sortDifferential(base, ex, "extension "+ex.getUrl(), errors);
+    utils.sortDifferential(base, ex, "extension "+ex.getUrl(), errors);
     assert(errors.size() == 0);
-    new ProfileUtilities(this.context, issues, pkp).generateSnapshot(base, ex, ex.getUrl(), ex.getName());
+    utils.generateSnapshot(base, ex, ex.getUrl(), ex.getName());
+    utils.setIds(ex, ex.getName());
 	  this.context.seeExtensionDefinition("http://hl7.org/fhir", ex);
 	  return row;
 	}

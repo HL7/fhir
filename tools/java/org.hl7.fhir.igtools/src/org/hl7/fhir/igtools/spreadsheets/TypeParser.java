@@ -139,12 +139,18 @@ public class TypeParser {
         if (t.getProfile() != null && t.getParams().size() !=1) {
           throw new Exception("Cannot declare profile on a resource reference declaring multiple resource types.  Path " + path);
         }
-        for(String param : t.getParams()) {
+        if (t.getProfile() != null) {
           TypeRefComponent childType = new TypeRefComponent();
           childType.setCode(t.getName());
-          childType.setProfile("http://hl7.org/fhir/StructureDefinition/"+param);
+          childType.setProfile(t.getProfile());
           list.add(childType);
-        }
+        } else          
+          for(String param : t.getParams()) {
+            TypeRefComponent childType = new TypeRefComponent();
+            childType.setCode(t.getName());
+            childType.setProfile("http://hl7.org/fhir/StructureDefinition/"+param);
+            list.add(childType);
+          }
       } else if (t.isWildcardType()) {
         // this list is filled out manually because it may be running before the types referred to have been loaded
         for (String n : wildcardTypes()) 

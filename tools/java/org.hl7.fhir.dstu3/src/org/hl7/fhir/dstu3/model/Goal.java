@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Jul 14, 2016 15:47+1000 for FHIR v1.5.0
+// Generated on Fri, Jul 15, 2016 13:24+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -86,6 +86,18 @@ public class Goal extends DomainResource {
          */
         CANCELLED, 
         /**
+         * The goal is on scheduled for the planned timelines
+         */
+        ONTARGET, 
+        /**
+         * The goal is ahead of the planned timelines
+         */
+        AHEADOFTARGET, 
+        /**
+         * The goal is behind the planned timelines
+         */
+        BEHINDTARGET, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -110,6 +122,12 @@ public class Goal extends DomainResource {
           return ONHOLD;
         if ("cancelled".equals(codeString))
           return CANCELLED;
+        if ("on-target".equals(codeString))
+          return ONTARGET;
+        if ("ahead-of-target".equals(codeString))
+          return AHEADOFTARGET;
+        if ("behind-target".equals(codeString))
+          return BEHINDTARGET;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -126,6 +144,9 @@ public class Goal extends DomainResource {
             case SUSTAINING: return "sustaining";
             case ONHOLD: return "on-hold";
             case CANCELLED: return "cancelled";
+            case ONTARGET: return "on-target";
+            case AHEADOFTARGET: return "ahead-of-target";
+            case BEHINDTARGET: return "behind-target";
             default: return "?";
           }
         }
@@ -140,6 +161,9 @@ public class Goal extends DomainResource {
             case SUSTAINING: return "http://hl7.org/fhir/goal-status";
             case ONHOLD: return "http://hl7.org/fhir/goal-status";
             case CANCELLED: return "http://hl7.org/fhir/goal-status";
+            case ONTARGET: return "http://hl7.org/fhir/goal-status";
+            case AHEADOFTARGET: return "http://hl7.org/fhir/goal-status";
+            case BEHINDTARGET: return "http://hl7.org/fhir/goal-status";
             default: return "?";
           }
         }
@@ -154,6 +178,9 @@ public class Goal extends DomainResource {
             case SUSTAINING: return "The goal has been met, but ongoing activity is needed to sustain the goal objective";
             case ONHOLD: return "The goal remains a long term objective but is no longer being actively pursued for a temporary period of time.";
             case CANCELLED: return "The goal is no longer being sought";
+            case ONTARGET: return "The goal is on scheduled for the planned timelines";
+            case AHEADOFTARGET: return "The goal is ahead of the planned timelines";
+            case BEHINDTARGET: return "The goal is behind the planned timelines";
             default: return "?";
           }
         }
@@ -168,6 +195,9 @@ public class Goal extends DomainResource {
             case SUSTAINING: return "Sustaining";
             case ONHOLD: return "On Hold";
             case CANCELLED: return "Cancelled";
+            case ONTARGET: return "On Target";
+            case AHEADOFTARGET: return "Ahead of Target";
+            case BEHINDTARGET: return "Behind Target";
             default: return "?";
           }
         }
@@ -196,6 +226,12 @@ public class Goal extends DomainResource {
           return GoalStatus.ONHOLD;
         if ("cancelled".equals(codeString))
           return GoalStatus.CANCELLED;
+        if ("on-target".equals(codeString))
+          return GoalStatus.ONTARGET;
+        if ("ahead-of-target".equals(codeString))
+          return GoalStatus.AHEADOFTARGET;
+        if ("behind-target".equals(codeString))
+          return GoalStatus.BEHINDTARGET;
         throw new IllegalArgumentException("Unknown GoalStatus code '"+codeString+"'");
         }
         public Enumeration<GoalStatus> fromType(Base code) throws FHIRException {
@@ -222,6 +258,12 @@ public class Goal extends DomainResource {
           return new Enumeration<GoalStatus>(this, GoalStatus.ONHOLD);
         if ("cancelled".equals(codeString))
           return new Enumeration<GoalStatus>(this, GoalStatus.CANCELLED);
+        if ("on-target".equals(codeString))
+          return new Enumeration<GoalStatus>(this, GoalStatus.ONTARGET);
+        if ("ahead-of-target".equals(codeString))
+          return new Enumeration<GoalStatus>(this, GoalStatus.AHEADOFTARGET);
+        if ("behind-target".equals(codeString))
+          return new Enumeration<GoalStatus>(this, GoalStatus.BEHINDTARGET);
         throw new FHIRException("Unknown GoalStatus code '"+codeString+"'");
         }
     public String toCode(GoalStatus code) {
@@ -243,6 +285,12 @@ public class Goal extends DomainResource {
         return "on-hold";
       if (code == GoalStatus.CANCELLED)
         return "cancelled";
+      if (code == GoalStatus.ONTARGET)
+        return "on-target";
+      if (code == GoalStatus.AHEADOFTARGET)
+        return "ahead-of-target";
+      if (code == GoalStatus.BEHINDTARGET)
+        return "behind-target";
       return "?";
       }
     public String toSystem(GoalStatus code) {
@@ -460,7 +508,7 @@ public class Goal extends DomainResource {
      * Indicates whether the goal has been reached and is still considered relevant.
      */
     @Child(name = "status", type = {CodeType.class}, order=6, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled", formalDefinition="Indicates whether the goal has been reached and is still considered relevant." )
+    @Description(shortDefinition="proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target", formalDefinition="Indicates whether the goal has been reached and is still considered relevant." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/goal-status")
     protected Enumeration<GoalStatus> status;
 
@@ -474,10 +522,10 @@ public class Goal extends DomainResource {
     /**
      * Captures the reason for the current status.
      */
-    @Child(name = "statusReason", type = {CodeableConcept.class}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "statusReason", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reason for current status", formalDefinition="Captures the reason for the current status." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/goal-status-reason")
-    protected CodeableConcept statusReason;
+    protected List<CodeableConcept> statusReason;
 
     /**
      * Indicates whose goal this is - patient goal, practitioner goal, etc.
@@ -525,7 +573,7 @@ public class Goal extends DomainResource {
     @Description(shortDefinition="What was end result of goal?", formalDefinition="Identifies the change (or lack of change) at the point where the goal was deemed to be cancelled or achieved." )
     protected List<GoalOutcomeComponent> outcome;
 
-    private static final long serialVersionUID = -475818230L;
+    private static final long serialVersionUID = 189427428L;
 
   /**
    * Constructor
@@ -920,25 +968,54 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #statusReason} (Captures the reason for the current status.)
      */
-    public CodeableConcept getStatusReason() { 
+    public List<CodeableConcept> getStatusReason() { 
       if (this.statusReason == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Goal.statusReason");
-        else if (Configuration.doAutoCreate())
-          this.statusReason = new CodeableConcept(); // cc
+        this.statusReason = new ArrayList<CodeableConcept>();
       return this.statusReason;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Goal setStatusReason(List<CodeableConcept> theStatusReason) { 
+      this.statusReason = theStatusReason;
+      return this;
+    }
+
     public boolean hasStatusReason() { 
-      return this.statusReason != null && !this.statusReason.isEmpty();
+      if (this.statusReason == null)
+        return false;
+      for (CodeableConcept item : this.statusReason)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public CodeableConcept addStatusReason() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.statusReason == null)
+        this.statusReason = new ArrayList<CodeableConcept>();
+      this.statusReason.add(t);
+      return t;
+    }
+
+    public Goal addStatusReason(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.statusReason == null)
+        this.statusReason = new ArrayList<CodeableConcept>();
+      this.statusReason.add(t);
+      return this;
     }
 
     /**
-     * @param value {@link #statusReason} (Captures the reason for the current status.)
+     * @return The first repetition of repeating field {@link #statusReason}, creating it if it does not already exist
      */
-    public Goal setStatusReason(CodeableConcept value) { 
-      this.statusReason = value;
-      return this;
+    public CodeableConcept getStatusReasonFirstRep() { 
+      if (getStatusReason().isEmpty()) {
+        addStatusReason();
+      }
+      return getStatusReason().get(0);
     }
 
     /**
@@ -1202,7 +1279,7 @@ public class Goal extends DomainResource {
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<GoalStatus>
         case 247524032: /*statusDate*/ return this.statusDate == null ? new Base[0] : new Base[] {this.statusDate}; // DateType
-        case 2051346646: /*statusReason*/ return this.statusReason == null ? new Base[0] : new Base[] {this.statusReason}; // CodeableConcept
+        case 2051346646: /*statusReason*/ return this.statusReason == null ? new Base[0] : this.statusReason.toArray(new Base[this.statusReason.size()]); // CodeableConcept
         case 175423686: /*expressedBy*/ return this.expressedBy == null ? new Base[0] : new Base[] {this.expressedBy}; // Reference
         case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // CodeableConcept
         case 874544034: /*addresses*/ return this.addresses == null ? new Base[0] : this.addresses.toArray(new Base[this.addresses.size()]); // Reference
@@ -1241,7 +1318,7 @@ public class Goal extends DomainResource {
           this.statusDate = castToDate(value); // DateType
           break;
         case 2051346646: // statusReason
-          this.statusReason = castToCodeableConcept(value); // CodeableConcept
+          this.getStatusReason().add(castToCodeableConcept(value)); // CodeableConcept
           break;
         case 175423686: // expressedBy
           this.expressedBy = castToReference(value); // Reference
@@ -1282,7 +1359,7 @@ public class Goal extends DomainResource {
         else if (name.equals("statusDate"))
           this.statusDate = castToDate(value); // DateType
         else if (name.equals("statusReason"))
-          this.statusReason = castToCodeableConcept(value); // CodeableConcept
+          this.getStatusReason().add(castToCodeableConcept(value));
         else if (name.equals("expressedBy"))
           this.expressedBy = castToReference(value); // Reference
         else if (name.equals("priority"))
@@ -1308,7 +1385,7 @@ public class Goal extends DomainResource {
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<GoalStatus>
         case 247524032: throw new FHIRException("Cannot make property statusDate as it is not a complex type"); // DateType
-        case 2051346646:  return getStatusReason(); // CodeableConcept
+        case 2051346646:  return addStatusReason(); // CodeableConcept
         case 175423686:  return getExpressedBy(); // Reference
         case -1165461084:  return getPriority(); // CodeableConcept
         case 874544034:  return addAddresses(); // Reference
@@ -1357,8 +1434,7 @@ public class Goal extends DomainResource {
           throw new FHIRException("Cannot call addChild on a primitive type Goal.statusDate");
         }
         else if (name.equals("statusReason")) {
-          this.statusReason = new CodeableConcept();
-          return this.statusReason;
+          return addStatusReason();
         }
         else if (name.equals("expressedBy")) {
           this.expressedBy = new Reference();
@@ -1405,7 +1481,11 @@ public class Goal extends DomainResource {
         dst.description = description == null ? null : description.copy();
         dst.status = status == null ? null : status.copy();
         dst.statusDate = statusDate == null ? null : statusDate.copy();
-        dst.statusReason = statusReason == null ? null : statusReason.copy();
+        if (statusReason != null) {
+          dst.statusReason = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : statusReason)
+            dst.statusReason.add(i.copy());
+        };
         dst.expressedBy = expressedBy == null ? null : expressedBy.copy();
         dst.priority = priority == null ? null : priority.copy();
         if (addresses != null) {
@@ -1581,17 +1661,17 @@ public class Goal extends DomainResource {
  /**
    * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled</b><br>
+   * Description: <b>proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Goal.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="Goal.status", description="proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled", type="token" )
+  @SearchParamDefinition(name="status", path="Goal.status", description="proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target", type="token" )
   public static final String SP_STATUS = "status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled</b><br>
+   * Description: <b>proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Goal.status</b><br>
    * </p>

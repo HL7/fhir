@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Jul 14, 2016 15:47+1000 for FHIR v1.5.0
+// Generated on Fri, Jul 15, 2016 13:24+1000 for FHIR v1.5.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -1180,7 +1180,7 @@ public class Enumerations {
          */
         TRIGGERDEFINITION, 
         /**
-         * Specifies various attributes of the patient population for whom and/or environment of care in which a knowledge module is applicable.
+         * Specifies clinical metadata that can be used to retrieve, index and/or categorize the knowledge artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).
          */
         USAGECONTEXT, 
         /**
@@ -1532,7 +1532,7 @@ public class Enumerations {
             case SIMPLEQUANTITY: return "";
             case TIMING: return "Specifies an event that may occur multiple times. Timing schedules are used to record when things are expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds.";
             case TRIGGERDEFINITION: return "A description of a triggering event.";
-            case USAGECONTEXT: return "Specifies various attributes of the patient population for whom and/or environment of care in which a knowledge module is applicable.";
+            case USAGECONTEXT: return "Specifies clinical metadata that can be used to retrieve, index and/or categorize the knowledge artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).";
             case BASE64BINARY: return "A stream of bytes";
             case BOOLEAN: return "Value of \"true\" or \"false\"";
             case CODE: return "A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents";
@@ -2218,7 +2218,7 @@ public class Enumerations {
          */
         TRIGGERDEFINITION, 
         /**
-         * Specifies various attributes of the patient population for whom and/or environment of care in which a knowledge module is applicable.
+         * Specifies clinical metadata that can be used to retrieve, index and/or categorize the knowledge artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).
          */
         USAGECONTEXT, 
         /**
@@ -3530,7 +3530,7 @@ public class Enumerations {
             case SIMPLEQUANTITY: return "";
             case TIMING: return "Specifies an event that may occur multiple times. Timing schedules are used to record when things are expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds.";
             case TRIGGERDEFINITION: return "A description of a triggering event.";
-            case USAGECONTEXT: return "Specifies various attributes of the patient population for whom and/or environment of care in which a knowledge module is applicable.";
+            case USAGECONTEXT: return "Specifies clinical metadata that can be used to retrieve, index and/or categorize the knowledge artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).";
             case BASE64BINARY: return "A stream of bytes";
             case BOOLEAN: return "Value of \"true\" or \"false\"";
             case CODE: return "A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents";
@@ -5073,7 +5073,7 @@ public class Enumerations {
          */
         TRIGGERDEFINITION, 
         /**
-         * Specifies various attributes of the patient population for whom and/or environment of care in which a knowledge module is applicable.
+         * Specifies clinical metadata that can be used to retrieve, index and/or categorize the knowledge artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).
          */
         USAGECONTEXT, 
         /**
@@ -6369,7 +6369,7 @@ public class Enumerations {
             case SIMPLEQUANTITY: return "";
             case TIMING: return "Specifies an event that may occur multiple times. Timing schedules are used to record when things are expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds.";
             case TRIGGERDEFINITION: return "A description of a triggering event.";
-            case USAGECONTEXT: return "Specifies various attributes of the patient population for whom and/or environment of care in which a knowledge module is applicable.";
+            case USAGECONTEXT: return "Specifies clinical metadata that can be used to retrieve, index and/or categorize the knowledge artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).";
             case BASE64BINARY: return "A stream of bytes";
             case BOOLEAN: return "Value of \"true\" or \"false\"";
             case CODE: return "A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents";
