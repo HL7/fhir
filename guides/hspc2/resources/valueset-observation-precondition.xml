@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:0.00.0.0000.0.000.000.5"/>
+  </extension>
+  <name value="Observation Precondition"/>
+  <status value="active"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hspc.gov/"/>
+    </telecom>
+  </contact>
+  <description value="The condition, state, or problem that the patient is in or has prior to a therapy or procedure. This captures temporal (temporary circumstances) that          have bearing on the data that it qualifies but will not necessarily modify its meaning. Things like &#39;after activity&#39;, &#39;at rest&#39;, or &#39;post-op&#39;. "/>
+  <compose>
+    <include>
+      <system value="http://need.a.uri.org/observation/precondition"/>
+      <concept>
+        <code value="1"/>
+        <display value="After activity"/>
+      </concept>
+      <concept>
+        <code value="2"/>
+        <display value="At rest"/>
+      </concept>
+      <concept>
+        <code value="3"/>
+        <display value="Post-op"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

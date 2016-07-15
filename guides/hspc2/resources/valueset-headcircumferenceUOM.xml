@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="HSPC Head Circumference Units of Measure Value Set"/>
+  <status value="draft"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
+  </contact>
+  <description value="The list of codes used for the units of measure for head circumference."/>
+  <copyright value="This value set includes content from UCUM. Implementer use of UCUM is not covered by this agreement"/>
+  <compose>
+    <include>
+      <system value="http://unitsofmeasure.org"/>
+      <concept>
+        <code value="cm"/>
+        <display value="CentiMeter [SI Length Units]"/>
+      </concept>
+      <concept>
+        <code value="[in_us]"/>
+        <display value="Inch [length]"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

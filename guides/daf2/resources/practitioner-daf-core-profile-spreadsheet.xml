@@ -1617,7 +1617,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/StructureDefinition/daf-organization}</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/daf/StructureDefinition/daf-organization}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

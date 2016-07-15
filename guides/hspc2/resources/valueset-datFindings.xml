@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <version value="0.01"/>
+  <name value="HSPC Direct Antiglobulin Test values"/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-06-11"/>
+  <description value="SELECT SNOMED CT code system values decending from Findings values (260245000)."/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="260385009"/>
+        <display value="Negative"/>
+      </concept>
+      <concept>
+        <code value="10828004"/>
+        <display value="Positive"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

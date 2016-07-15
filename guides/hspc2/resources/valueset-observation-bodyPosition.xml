@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <version value="0.01"/>
+  <name value="HSPC Body Position"/>
+  <status value="draft"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
+  </contact>
+  <date value="2015-05-19"/>
+  <description value="SNOMED CT code system values descending from the following:&#39;body position finding&#39; 9851009"/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="1240000"/>
+        <display value="Prone body position (finding)"/>
+      </concept>
+      <concept>
+        <code value="40199007"/>
+        <display value="Supine body position (finding)"/>
+      </concept>
+      <concept>
+        <code value="33586001"/>
+        <display value="Sitting position (finding)"/>
+      </concept>
+      <concept>
+        <code value="10904000"/>
+        <display value="Orhtostatic body postition (finding)"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

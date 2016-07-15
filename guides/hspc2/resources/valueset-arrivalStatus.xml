@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <name value="HSPC Patient Arrival Status"/>
+  <status value="draft"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
+  </contact>
+  <description value="The codes that describe whether or not the patient has arrived at the specified location for the encounter."/>
+  <copyright value="This value set includes content from and copyrighted by Intermountain Healthcare HDD"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/hspc-arrivalStatus"/>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <name value="HSPC Person Name Use value set"/>
+  <status value="draft"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
+  </contact>
+  <description value="The set of values that describe the manner an individual uses a name."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/EntityNameUse"/>
+      <concept>
+        <code value="L"/>
+        <display value="Legal Name"/>
+      </concept>
+      <concept>
+        <code value="ASGN"/>
+        <display value="Assigned (alias)"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/v3/EntityNameUseR2"/>
+      <concept>
+        <code value="M"/>
+        <display value="maiden name"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/patient-hspc-PersonNameUse"/>
+    </include>
+  </compose>
+</ValueSet>

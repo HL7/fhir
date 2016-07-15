@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="hspc"/>
+  <url value="http://hl7.org/fhir/hspc"/>
+  <name value="HSPC Implementation Guide"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="Health Services Platform Consortium"/>
+  <dependency>
+    <type value="reference"/>
+    <uri value="http://hl7.org/fhir/qicore"/>
+  </dependency>
+  <dependency>
+    <type value="reference"/>
+    <uri value="http://hl7.org/fhir/daf"/>
+  </dependency>
+  <package>
+    <name value="base"/>
+    <resource>
+      <example value="false"/>
+      <name value="HSPC Quantitative Labs dictionary"/>
+      <sourceUri value="hspc-qnlab-de.xml"/>
+    </resource>
+  </package>
+  <page>
+    <source value="hspc.html"/>
+    <title value="Home Page"/>
+    <kind value="page"/>
+    <page>
+      <source value="hspc-toc.html"/>
+      <title value="Table of Contents"/>
+      <kind value="toc"/>
+    </page>
+    <page>
+      <source value="registry.html"/>
+      <title value="Registry"/>
+      <kind value="list"/>
+      <type value="Conformance"/>
+      <type value="StructureDefinition"/>
+      <type value="ValueSet"/>
+      <type value="ConceptMap"/>
+    </page>
+    <page>
+      <source value="hspc-qnlab-de.xml"/>
+      <title value="Observations Dictionary"/>
+      <kind value="dictionary"/>
+      <type value="DataElement"/>
+    </page>
+  </page>
+</ImplementationGuide>

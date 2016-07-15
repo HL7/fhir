@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet  xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+    <version value="0.01"/>
+    <name value="HSPC Respiratory Effort Value Set"/>
+    <status value="draft"/>
+    <publisher value="Health Services Platform Consortium (HSPC)"/>
+    <date value="2016-04-01"/>
+    <description value="SELECT SNOMED CT code system values."/>
+    <immutable value="true"/>
+    <copyright value="TBD"/>
+    <extensible value="true"/>
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct"/>
+			<concept>	
+				<code value="6442005"/>
+				<display value="Intercostal recession (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="248549001"/>
+				<display value="Labored breathing (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="8453006"/>
+				<display value="Subcostal recession (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="267036007"/>
+				<display value="Dyspnea (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="62744007"/>
+				<display value="Orthopnea (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="70407001"/>
+				<display value="Stridor (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="248568003"/>
+				<display value="Nasal flaring (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="704076007"/>
+				<display value="Tripod position (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="271620003"/>
+				<display value="Accessory respiratory muscles used (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="62085005"/>
+				<display value="Grunting respiration (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="79032000"/>
+				<display value="Paradoxical diaphragmatic movement (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="271623001"/>
+				<display value="Chest movement unequal (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="248564001"/>
+				<display value="Pursed-lip breathing (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="276859008"/>
+				<display value="Suprasternal recession (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="67909005"/>
+				<display value="Chest wall retraction (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="248569006"/>
+				<display value="Sternal recession (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="276362002"/>
+				<display value="Breathing easily (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="276362002"/>
+				<display value="Breathing easily (finding)"/>
+			</concept>	
+			<concept>	
+				<code value="248559000"/>
+				<display value="Chest movement equal (finding)"/>
+			</concept>	
+		</include><!--
+		<include>
+			<system value="http://hl7.org/fhir/hspc-respiratoryeffort"/>
+		</include>-->
+    </compose>
+</ValueSet>

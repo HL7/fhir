@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="HSPC Respiratory Rate Units of Measure Value Set"/>
+  <status value="draft"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
+  </contact>
+  <description value="The list of codes that describe the units of measure used for respiratory rate."/>
+  <copyright value="This value set includes content from UCUM. Implementer use of UCUM is not covered by this agreement"/>
+  <compose>
+    <include>
+      <system value="http://unitsofmeasure.org"/>
+      <concept>
+        <code value="Hz"/>
+        <display value="Hertz"/>
+      </concept>
+      <concept>
+        <code value="{Breaths}/min"/>
+        <display value="Breaths / minute"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

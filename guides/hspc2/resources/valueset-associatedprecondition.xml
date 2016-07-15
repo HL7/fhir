@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <text>
+    <status value="additional"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>SNOMED CT code system values descending from: Anatomical Structure (91723000). 
+            This indicates the anatomical site. In UMLS, SNOMED CT concepts with semantic types (SY) of: Acquired Abnormality 
+            (TUI=T020), Anatomical Abnormality (TUI=T190), Anatomical Structure (TUI=T017), Body Location or Region (TUI=T029), 
+            Body Part, Organ, or Organ Component (TUI=T023), Body Space or Junction(TUI=T030), and Body System(TUI=T022). 
+            </p>
+            
+      
+      <p>This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement.</p>
+        
+    
+    </div>
+  </text>
+  <url value="http://www.example.com/valueset/deltaflag"/>
+  <version value="0.01"/>
+  <name value="HSPC Associated Precondition Value Set Definition"/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-02-09"/>
+  <description value="SELECT SNOMED CT code system values representing associated preconditions."/>
+  <immutable value="true"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="307142001"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

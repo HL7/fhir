@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <version value="0.01"/>
+  <name value="HSPC FocalSubject"/>
+  <status value="draft"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
+  </contact>
+  <date value="2015-05-26"/>
+  <description value="The set of codes that describe the subject of an obsevation when not the patient of record."/>
+  <immutable value="true"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+      <concept>
+        <code value="DON"/>
+        <display value="Donor"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/v3/RoleCode"/>
+      <concept>
+        <code value="FTH"/>
+        <display value="Father"/>
+      </concept>
+      <concept>
+        <code value="MTH"/>
+        <display value="Mother"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

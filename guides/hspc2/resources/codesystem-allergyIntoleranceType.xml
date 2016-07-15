@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/hspc-allergyintolerancetype"/>
+  <version value="0.01"/>
+  <name value="HSPC Allergy Intolerance Type Value Set"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-08-06T00:00:00-06:00"/>
+  <description value="Intermountain Healthcare HDD code system values."/>
+  <copyright value="Intermountain Healthcare"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="521059339"/>
+    <display value="Intolerance"/>
+    <definition value="An abnormal ability to tolerate a food, drug, or environmental substance."/>
+  </concept>
+</CodeSystem>

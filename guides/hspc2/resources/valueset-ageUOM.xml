@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="HSPC Age Units of Measure Value Set"/>
+  <status value="draft"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
+  </contact>
+  <description value="The list of codes used as units of measure for an individual&#39;s age."/>
+  <copyright value="This value set includes content from UCUM. Implementer use of UCUM is not covered by this agreement"/>
+  <compose>
+    <include>
+      <system value="http://unitsofmeasure.org"/>
+      <concept>
+        <code value="mo"/>
+        <display value="Month [time]"/>
+      </concept>
+      <concept>
+        <code value="wk"/>
+        <display value="Week [time]"/>
+      </concept>
+      <concept>
+        <code value="a"/>
+        <display value="Year [time]"/>
+      </concept>
+      <concept>
+        <code value="d"/>
+        <display value="Day [time]"/>
+      </concept>
+      <concept>
+        <code value="h"/>
+        <display value="Hour [time]"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

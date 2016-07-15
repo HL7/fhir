@@ -20,7 +20,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113762.1.4.1010.7"/>
   </extension>
-  <url value="http://hl7.org/fhir/daf/ValueSet/daf-substance-rxnorm"/>
+  <url value="http://hl7.org/fhir/daf/ValueSet/daf-core-substance-rxnorm"/>
   <name value="DAF Core Substance RxNorm Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>

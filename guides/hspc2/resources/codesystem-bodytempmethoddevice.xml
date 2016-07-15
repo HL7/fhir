@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/hspc-bodytempmethoddevice"/>
+  <version value="0.01"/>
+  <name value="HSPC Body Temperature Measurement Method/Device"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-06-11T00:00:00-06:00"/>
+  <description value="Select Intermountain Healthcare HDD code system values."/>
+  <copyright value="Intermountain Healthcare"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="30277"/>
+    <display value="Digital Thermometer"/>
+    <definition value="The electronic thermometer that displays body temperature in numeric values."/>
+  </concept>
+  <concept>
+    <code value="30522"/>
+    <display value="Infrared Thermometer"/>
+    <definition value="The thermometer that measure the temperature by the intensity of infrared light emission. "/>
+  </concept>
+  <concept>
+    <code value="82735"/>
+    <display value="Thermoluminescent diode thermometer"/>
+    <definition value="Thermoluminescent diode thermometer is a thermometer that measures the temperature of the emitted heat from the surface of an area."/>
+  </concept>
+  <concept>
+    <code value="84301"/>
+    <display value="MRI diffusion thermometer"/>
+    <definition value="MRI diffusion thermometer is an instrument that uses MRI diffusion to indicate the temperature of a substance."/>
+  </concept>
+</CodeSystem>

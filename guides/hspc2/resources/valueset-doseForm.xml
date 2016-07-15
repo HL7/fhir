@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <version value="0.01"/>
+  <name value="HSPC Dose Form Value Set"/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-02-09"/>
+  <description value="SELECT RcNorm code system values."/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+		<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+      <filter>
+        <property value="TTY"/>
+        <op value="in"/>
+        <value value="DF"/>
+      </filter>
+	</include>
+  </compose>
+</ValueSet>

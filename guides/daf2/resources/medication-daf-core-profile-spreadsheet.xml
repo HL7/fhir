@@ -1281,7 +1281,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/StructureDefinition/daf-organization}</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/daf/StructureDefinition/daf-organization}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1402,7 +1402,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Substance){http://hl7.org/fhir/StructureDefinition/daf-substance}|Reference(Medication){http://hl7.org/fhir/StructureDefinition/daf-medication}</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Substance){http://hl7.org/fhir/daf/StructureDefinition/daf-substance}|Reference(Medication){http://hl7.org/fhir/daf/StructureDefinition/daf-medication}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

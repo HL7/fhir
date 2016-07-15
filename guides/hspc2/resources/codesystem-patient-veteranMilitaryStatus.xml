@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/patient-hspc-veteranMilitaryStatus"/>
+  <name value="HSPC Veteran Military Status"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="A set of codes that describe the individual&#39;s current military status"/>
+  <copyright value="Intermountain Healthcare"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="14510975"/>
+    <display value="Reserves"/>
+    <definition value="A part-time member of the armed forces (military) who maintains a long-term commitment to support their country if necessary."/>
+  </concept>
+  <concept>
+    <code value="14601112"/>
+    <display value="Civilian"/>
+    <definition value="An individual who is not a member of the armed forces (military)."/>
+  </concept>
+  <concept>
+    <code value="14510971"/>
+    <display value="Family Member of Active Duty"/>
+    <definition value="A family member of someone who has a full-time occupation in the armed forces (military)."/>
+  </concept>
+  <concept>
+    <code value="206519"/>
+    <display value="Veteran"/>
+    <definition value="Someone who has served or is currently serving in the armed forces (military)."/>
+  </concept>
+  <concept>
+    <code value="619"/>
+    <display value="Active Military Duty"/>
+    <definition value="A full-time occupation as a member of the armed forces (military)."/>
+  </concept>
+  <concept>
+    <code value="14787311"/>
+    <display value="Disabled Veteran"/>
+    <definition value="A member of the armed forces (military) who became disabled while carrying out their duties."/>
+  </concept>
+  <concept>
+    <code value="14510972"/>
+    <display value="Family Member of Retired Military"/>
+    <definition value="A family member of someone who has retired from the armed forces (military)."/>
+  </concept>
+  <concept>
+    <code value="14510974"/>
+    <display value="Inactive Ready Reserve"/>
+    <definition value="A previous full-time member of the armed forces (military) who has a commitment to be called to active duty if necessary, but who currently works as a civilian."/>
+  </concept>
+  <concept>
+    <code value="14511303"/>
+    <display value="Retired military"/>
+    <definition value="Retired from a career in the armed forces (military)."/>
+  </concept>
+  <concept>
+    <code value="14503704"/>
+    <display value="National Guard"/>
+    <definition value="A part-time member of a reserve military force of the United States military whos units are composed of members from the state or territory of residence."/>
+  </concept>
+</CodeSystem>

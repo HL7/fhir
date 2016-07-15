@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <version value="0.01"/>
+  <name value="HSPC Respiratory Rate Measurement Method/Device value set"/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-06-09"/>
+  <description value="Select SNOMED CT code system values."/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="37931006"/>
+        <display value="auscultation"/>
+      </concept>
+      <concept>
+        <code value="32750006"/>
+        <display value="visual observation"/>
+      </concept>
+      <concept>
+        <code value="463698006"/>
+        <display value="pneumograph"/>
+      </concept>
+      <concept>
+        <code value="250863006"/>
+        <display value="capnograph waveform"/>
+      </concept>
+      <concept>
+        <code value="334990001"/>
+        <display value="peak flow meter"/>
+      </concept>
+      <concept>
+        <code value="17120007"/>
+        <display value="biofeedback, strain gage"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

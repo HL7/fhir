@@ -8,6 +8,13 @@
     "qa" : "qa",
     "specification" : "c:\\work\\org.hl7.fhir\\build\\publish"
   },
+  "dependencyList" : [
+    {
+      "name" : "DAF",
+      "location" : "http://hl7.org/fhir/daf",
+      "source" : "../daf2/output"
+    }
+  ],
   "defaults" : {
     "Any" : {
 	  	"template-format" : "instance-template-format.html",

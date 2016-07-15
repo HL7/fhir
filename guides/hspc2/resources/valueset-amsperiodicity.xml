@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <url value="http://www.example.com/valueset/alteredmentalstatusperiodicity"/>
+  <version value="0.01"/>
+  <name value="HSPC Altered Mental Status Periodicity Value Set"/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-02-09"/>
+  <description value="SELECT SNOMED CT code system values describing how frequent an altered mental status occurs."/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+		  <concept>
+				<code value="255227004"/>
+				<display value="Recurrent (qualifier value)"/>
+		  </concept>
+		  <concept>
+				<code value="278499009"/>
+				<display value="Episodic (qualifier value)"/>
+		  </concept>
+		  <concept>
+				<code value="255238004"/>
+				<display value="Continuous (qualifier value)"/>
+		  </concept>
+		  <concept>
+				<code value="7087005"/>
+				<display value="Intermittent (qualifier value)"/>
+		  </concept>
+    </include>
+  </compose>
+</ValueSet>

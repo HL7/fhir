@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <version value="0.01"/>
+  <name value="HSPC Heart Rate Measurement Body Location Precoodinated"/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-06-11"/>
+  <description value="SELECT SNOMED CT code system values."/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="181332001"/>
+        <display value="Radial artery"/>
+      </concept>
+      <concept>
+        <code value="13383001"/>
+        <display value="Apex of heart"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

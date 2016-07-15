@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/hspc-departureTransportationMode"/>
+  <name value="HSPC Departure Transport Mode value set"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="The list of codes that describe how the data came into being."/>
+  <copyright value="Intermountain Healthcare HDD"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="14586425"/>
+    <display value="Left w/ Law Enforcement"/>
+    <definition value="The subject departed by means of a law enforcement vehicle."/>
+  </concept>
+</CodeSystem>

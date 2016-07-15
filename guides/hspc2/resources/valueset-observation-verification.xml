@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:0.00.0.0000.0.000.000.5"/>
+  </extension>
+  <name value="Observation Verification Method"/>
+  <status value="active"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hspc.org/"/>
+    </telecom>
+  </contact>
+  <description value="Code for method by which the observation result was validated, e.g., human review, sliding average."/>
+  <compose>
+    <include>
+      <system value="http://need.a.uri.org/observation/verification-method"/>
+      <concept>
+        <code value="1"/>
+        <display value="Human review"/>
+      </concept>
+      <concept>
+        <code value="2"/>
+        <display value="Sliding average"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

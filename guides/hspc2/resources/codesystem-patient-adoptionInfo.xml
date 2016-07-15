@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/patient-hspc-adoptionInfo"/>
+  <name value="HSPC Adoption Info"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="A set of codes that describe patient info viewing privileges base on adoption status."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="526742432"/>
+    <display value="Adopted Birth Record"/>
+    <definition value="An indication that the medical records being viewed are from a time prior to a patient&#39;s adoption and therefore cannot be viewed by the adoptive gaurdians."/>
+  </concept>
+  <concept>
+    <code value="526742433"/>
+    <display value="Adopted Patient Record"/>
+    <definition value="An indication that the medical records being viewed are from a time after a patient&#39;s adoption and can be viewed by the adoptive gaurdians."/>
+  </concept>
+</CodeSystem>

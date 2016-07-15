@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <version value="0.01"/>
+  <name value="HSPC Body Weight Associated Precondition"/>
+  <status value="draft"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
+  </contact>
+  <date value="2015-05-19"/>
+  <description value="SNOMED CT code system values descending from the following:&#39;body position finding&#39; 9851009"/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="445541000"/>
+        <display value="Dry body weight (observable entity)"/>
+      </concept>
+      <concept>
+        <code value="424927000"/>
+        <display value="Body weight with shoes (observable entity)"/>
+      </concept>
+      <concept>
+        <code value="425024002"/>
+        <display value="Body weight without shoes (observable entity)"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/observation-hspc-weightPrecond"/>
+    </include>
+  </compose>
+</ValueSet>

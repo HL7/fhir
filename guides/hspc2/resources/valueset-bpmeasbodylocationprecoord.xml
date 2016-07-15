@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet  xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+    <version value="0.01"/>
+    <name value="HSPC Systolic Blood Pressure Measurement Body Location Precoodinated"/>
+    <immutable value="true"/>
+    <publisher value="Health Services Platform Consortium (HSPC)"/>
+    <description value="SELECT SNOMED CT code system values."/>
+    <copyright value="TBD"/>
+    <status value="draft"/>
+    <extensible value="true"/>
+    <date value="2015-06-11"/>
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct"/>
+            <concept>
+				<code value="241784008"/>
+				<display value="Left ankle (body structure)"/>
+			</concept>
+			<concept>
+				<code value="241699003"/>
+				<display value="Right ankle (body structure)"/>
+			</concept>
+            <concept>
+				<code value="182245002"/>
+				<display value="Arm (body structure)"/>
+			</concept>
+			<concept>
+				<code value="72098002"/>
+				<display value="Left arm (body structure)"/>
+			</concept>
+            <concept>
+				<code value="59126009"/>
+				<display value="Right arm (body structure)"/>
+			</concept>
+			<concept>
+				<code value="209672000"/>
+				<display value="Left thigh (body structure)"/>
+			</concept>
+			<concept>
+				<code value="209570001"/>
+				<display value="Right thigh (body structure)"/>
+			</concept>
+        </include>
+    </compose>
+</ValueSet>

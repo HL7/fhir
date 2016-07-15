@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="valueset-observation-heightPrecond"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <version value="0.01"/>
+  <name value="HSPC Height Meas Associated Precondition"/>
+  <status value="draft"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
+  </contact>
+  <date value="2015-05-19"/>
+  <description value="The conditions during which an individual&#39;s height was measured."/>
+  <immutable value="true"/>
+  <copyright value="Intermountain Healthcare"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7,org/fhir/observation-hspc-heightPrecond"/>
+    </include>
+  </compose>
+</ValueSet>

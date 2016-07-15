@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <url value="http://www.example.com/valueset/deltaflag"/>
+  <version value="0.01"/>
+  <name value="HSPC Oxygen Saturation Body Location value set."/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-09-07"/>
+  <description value="SELECT SNOMED CT code system values descending from 'Body structure' (123037004)."/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+		<concept>	
+			<code value="83738005"/>
+			<display value="Index finger structure (body structure)"/>
+		</concept>	
+		<concept>	
+			<code value="48800003"/>
+			<display value="Ear lobule structure (body structure)"/>
+		</concept>	
+		<concept>	
+			<code value="52795006"/>
+			<display value="Forehead structure (body structure)"/>
+		</concept>	
+		<concept>	
+			<code value="76853006"/>
+			<display value="Heel structure (body structure)"/>
+		</concept>	
+		<concept>	
+			<code value="29707007"/>
+			<display value="Toe structure (body structure)"/>
+		</concept>	
+		<concept>	
+			<code value="65531009"/>
+			<display value="Middle finger structure (body structure)"/>
+		</concept>	
+		<concept>	
+			<code value="82002001"/>
+			<display value="Ring finger structure (body structure)"/>
+		</concept>	
+		<concept>	
+			<code value="302545001"/>
+			<display value="Entire foot (body structure)"/>
+		</concept>	
+    </include>
+  </compose>
+</ValueSet>

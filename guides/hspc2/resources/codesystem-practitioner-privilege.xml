@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/practitioner-hspc-privilege"/>
+  <name value="HSPC ProviderPractitioner Privilege"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="A set of codes that describe the level of authorization given to a provider to practice medicine at an institution."/>
+  <copyright value="Intermountain Healthcare"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="50453110"/>
+    <display value="Full Privileges"/>
+    <definition value="The provider is allowed to practice and admit"/>
+  </concept>
+  <concept>
+    <code value="50453109"/>
+    <display value="No Privileges to practice or admit"/>
+    <definition value="The provider is not allowed to practice or admit"/>
+  </concept>
+  <concept>
+    <code value="50453111"/>
+    <display value="Privileges Suspended"/>
+    <definition value="The provider is not allowed to practice or admit at this time"/>
+  </concept>
+  <concept>
+    <code value="50453112"/>
+    <display value="Practice Privileges Only (not allowed to admit)"/>
+    <definition value="The provider is allowed to practice only, cannot admit patients"/>
+  </concept>
+  <concept>
+    <code value="50450945"/>
+    <display value="Temporary Privileges"/>
+    <definition value="The provider is allowed to practice and admit for a limited time"/>
+  </concept>
+</CodeSystem>

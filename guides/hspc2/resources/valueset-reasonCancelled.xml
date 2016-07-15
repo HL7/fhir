@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <version value="0.01"/>
+  <name value="HSPC Reason Cancelled value set."/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-08-06"/>
+  <description value="Select HL7 Act Reason and SNOMED codes."/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+		<system value="http://hl7.org/fhir/v3/ActReason"/>
+		<concept>	
+			<code value="BLK"/>
+			<display value="Unexpected Block (of Schedule)"/>
+		</concept>	
+		<concept>	
+			<code value="DEC"/>
+			<display value="Patient Deceased"/>
+		</concept>	
+		<concept>	
+			<code value="FIN"/>
+			<display value="No Financial Backing"/>
+		</concept>	
+		<concept>	
+			<code value="MED"/>
+			<display value="Medical Status Altered"/>
+		</concept>	
+		<concept>	
+			<code value="ALTD"/>
+			<display value="altered decision"/>
+		</concept>	
+		<concept>	
+			<code value="PAT"/>
+			<display value="Patient request"/>
+		</concept>	
+		<concept>	
+			<code value="PHY"/>
+			<display value="Physician request"/>
+		</concept>	
+	</include>
+	<include>
+		<system value="http://snomed.info/sct"/>
+		<concept>	
+			<code value="89925002"/>
+			<display value="Canceled (qualifier value)"/>
+		</concept>	
+		<concept>	
+			<code value="385647007"/>
+			<display value="Rejected by performer (qualifier value)"/>
+		</concept>	
+		<concept>	
+			<code value="385648002"/>
+			<display value="Rejected by recipient (qualifier value)"/>
+		</concept>	
+		<concept>	
+			<code value="410528005"/>
+			<display value="Not wanted (qualifier value)"/>
+		</concept>	
+		<concept>	
+			<code value="410529002"/>
+			<display value="Not needed (qualifier value)"/>
+		</concept>	
+		<concept>	
+			<code value="410530007"/>
+			<display value="Not offered (qualifier value)"/>
+		</concept>	
+		<concept>	
+			<code value="441889009"/>
+			<display value="Denied (qualifier value)"/>
+		</concept>	
+		<concept>	
+			<code value="443390004"/>
+			<display value="Refused (qualifier value)"/>
+		</concept>	
+		<concept>	
+			<code value="609589008"/>
+			<display value="Refused by parents of subject (qualifier value)"/>
+		</concept>	
+			</include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="HSPC Telecom Type"/>
+  <status value="draft"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
+  </contact>
+  <description value="A set of codes that describe the manner in which an addressed is used."/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/patient-hspc-telecomType"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="492"/>
+      <display value="Fax"/>
+      <definition value="Method of communication which uses telephone lines to send and receive printed documents between facsimile devices."/>
+    </concept>
+    <concept>
+      <code value="528098799"/>
+      <display value="NotSpecified"/>
+      <definition value="The type of telecom system was not specified for the given number."/>
+    </concept>
+  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/AddressUse"/>
+      <concept>
+        <code value="AS"/>
+        <display value="Answering service"/>
+      </concept>
+      <concept>
+        <code value="EC"/>
+        <display value="Emergency contact"/>
+      </concept>
+      <concept>
+        <code value="MC"/>
+        <display value="Mobile contact"/>
+      </concept>
+      <concept>
+        <code value="PG"/>
+        <display value="Pager"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

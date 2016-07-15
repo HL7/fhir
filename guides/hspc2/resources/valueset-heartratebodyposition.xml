@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <version value="0.01"/>
+  <name value="HSPC Heart Rate Measurement Body Position"/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-06-11"/>
+  <description value="SELECT SNOMED CT code system values."/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="40199007"/>
+        <display value="Supine body position"/>
+      </concept>
+      <concept>
+        <code value="33586001"/>
+        <display value="Sitting position"/>
+      </concept>
+      <concept>
+        <code value="10904000"/>
+        <display value="Orthostatic body position"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

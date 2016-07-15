@@ -2302,7 +2302,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/StructureDefinition/daf-organization}|Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/daf/StructureDefinition/daf-organization}|Reference(Practitioner){http://hl7.org/fhir/daf/StructureDefinition/daf-pract}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2332,7 +2332,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/StructureDefinition/daf-organization}</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/daf/StructureDefinition/daf-organization}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -9750,7 +9750,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="String">valueset-daf-race</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">Race of the Patient</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">2.16.840.1.113883.1.11.14914</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/daf-race</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-race</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -9765,7 +9765,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="String">valueset-daf-ethnicity</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">Ethnicity of the patient</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">2.16.840.1.114222.4.11.837</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/daf-ethnicity</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-ethnicity</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="HSPC Body Mass Index Units of Measure Value Set"/>
+  <status value="draft"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
+  </contact>
+  <description value="The set of codes that are used as units of measure for body mass index."/>
+  <copyright value="This value set includes content from UCUM. Implementer use of UCUM is not covered by this agreement"/>
+  <compose>
+    <include>
+      <system value="http://unitsofmeasure.org"/>
+      <concept>
+        <code value="kg/m2"/>
+        <display value="KiloGrams Per Square Meter [Areic Mass Units]"/>
+      </concept>
+      <concept>
+        <code value="[psi]"/>
+        <display value="Pound per sqare inch [pressure]"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

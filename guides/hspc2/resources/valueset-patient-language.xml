@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <url value="http://www.example.com/valueset/deltaflag"/>
+  <version value="0.01"/>
+  <name value="BCP-47 IETF Language tag"/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-02-09"/>
+  <description value="The codes and descriptions that make up the IETF BCP-47 language tags."/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://www.iana.org/assignments/language-subtag-registry"/>
+    </include>
+  </compose>
+</ValueSet>

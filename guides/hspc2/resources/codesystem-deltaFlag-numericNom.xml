@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="hspc-deltaFlag-numericNom"/>
+  <url value="http://healthcaresoa.org/fhir/hspc-deltaFlag-numericNom"/>
+  <version value="0.01"/>
+  <name value="Abnormal Interpretation Numeric Nom"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2014-06-25T00:00:00-06:00"/>
+  <description value="Intermountain Healthcare HDD code system values, the set of codes that describe abnormal interpretations."/>
+  <copyright value="Intermountain Healthcare"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://healthcaresoa.org/fhir/ValueSet/hspc-deltaFlag-numericNom"/>
+  <content value="complete"/>
+  <concept>
+    <code value="unchanged"/>
+    <display value="Unchanged"/>
+    <definition value="The current test results are not significantly different from previous results"/>
+  </concept>
+</CodeSystem>

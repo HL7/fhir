@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <name value="ServiceDeliveryLocation key value set"/>
+  <status value="draft"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines the set of codes used to identify the service delivery location."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/EntityCode"/>
+      <concept>
+        <code value="WING"/>
+        <display value="Wing Location"/>
+      </concept>
+      <concept>
+        <code value="ROOM"/>
+        <display value="Room Location"/>
+      </concept>
+      <concept>
+        <code value="BED"/>
+        <display value="Bed Location"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/location-hspc-serviceDeliveryLocation-key-value-set"/>
+    </include>
+  </compose>
+</ValueSet>
