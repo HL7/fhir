@@ -13,3 +13,9 @@ WARNING @ Namespace: All resources should have an identifier (src = ResourceVali
 WARNING @ Profile: RIM Mapping is required (src = ResourceValidator)
 WARNING @ Provenance: All resources should have an identifier (src = ResourceValidator)
 WARNING @ Substance: All resources should have an identifier (src = ResourceValidator)
+INFORMATION @ Appointment.comment: MnM must have confirmed this should not be an Annotation
+INFORMATION @ AppointmentResponse.comment: MnM must have confirmed this should not be an Annotation
+INFORMATION @ EpisodeOfCare.careManager: Name of child (careManager) overlaps with name of parent (EpisodeOfCare)
+INFORMATION @ HealthcareService.comment: MnM must have confirmed this should not be an Annotation
+INFORMATION @ Schedule.comment: MnM must have confirmed this should not be an Annotation
+INFORMATION @ Slot.comment: MnM must have confirmed this should not be an Annotation
