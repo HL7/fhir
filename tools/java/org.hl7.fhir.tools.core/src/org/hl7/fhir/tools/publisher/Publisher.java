@@ -211,6 +211,7 @@ import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.ProfileValidator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
+import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.rdf.RDFValidator;
 import org.hl7.fhir.rdf.ShExValidator;
@@ -2483,16 +2484,12 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void produceSpecMap() throws IOException {
-    JsonObject spec = new JsonObject();
-    spec.addProperty("version", page.getVersion());
-    spec.addProperty("build", page.getSvnRevision());
-    spec.addProperty("date", page.getGenDate().toString());
-    JsonObject paths = new JsonObject();
-    spec.add("paths", paths);
+    SpecMapManager spm = new SpecMapManager(page.getVersion(), page.getSvnRevision(), page.getGenDate());
+    
     
     for (StructureDefinition sd : page.getWorkerContext().allStructures()) {
       if (sd.hasUserData("path"))
-        paths.addProperty(sd.getUrl(), sd.getUserString("path").replace("\\", "/"));
+        spm.path(sd.getUrl(), sd.getUserString("path").replace("\\", "/"));
     }
     for (String s : page.getCodeSystems().keySet()) {
       CodeSystem cs = page.getCodeSystems().get(s);
@@ -2501,25 +2498,21 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
     for (CodeSystem cs : page.getCodeSystems().values()) {
       if (cs != null && cs.hasUserData("path"))
-        paths.addProperty(cs.getUrl(), cs.getUserString("path").replace("\\", "/"));
+        spm.path(cs.getUrl(), cs.getUserString("path").replace("\\", "/"));
     }
     for (ValueSet vs : page.getValueSets().values()) {
       if (vs.hasUserData("path"))
-        paths.addProperty(vs.getUrl(), vs.getUserString("path").replace("\\", "/"));
+        spm.path(vs.getUrl(), vs.getUserString("path").replace("\\", "/"));
     }
     for (ConceptMap cm : page.getConceptMaps().values()) {
       if (cm.hasUserData("path"))
-        paths.addProperty(cm.getUrl(), cm.getUserString("path").replace("\\", "/"));
+        spm.path(cm.getUrl(), cm.getUserString("path").replace("\\", "/"));
     }
 
-    JsonObject maps = new JsonObject();
-    spec.add("maps", maps);      
     for (String url : page.getDefinitions().getMapTypes().keySet()) {
-      maps.addProperty(url, page.getDefinitions().getMapTypes().get(url).getPreamble());
+      spm.map(url, page.getDefinitions().getMapTypes().get(url).getPreamble());
     }
-    Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    String json = gson.toJson(spec);
-    TextFile.stringToFile(json, page.getFolders().dstDir + "spec.internals");
+    spm.save(page.getFolders().dstDir + "spec.internals");
   }
 
   private void checkStructureDefinitions(Bundle bnd) {

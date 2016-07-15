@@ -62,6 +62,9 @@ public class FetchedResource {
   public List<String> getProfiles() {
     return profiles;
   }
+  public String getUrlTail() {
+    return "/"+element.fhirType()+"/"+id;
+  }
 
   
 }

@@ -157,7 +157,12 @@ public class TypeParser {
         for (String n : wildcardTypes()) 
           list.add(new TypeRefComponent().setCode(n));
       } else if (Utilities.noString(t.getName()) && t.getProfile() != null) {
-        sdsdf
+        StructureDefinition sd = context.fetchResource(StructureDefinition.class, t.getProfile());
+        if (sd == null)
+          throw new Exception("Unknown profile '"+t.getProfile()+"'");
+        TypeRefComponent tc = new TypeRefComponent().setCode(sd.getType());
+        list.add(tc);
+        tc.setProfile(sd.getUrl());
       } else if (t.getName().startsWith("=")){
         if (resource)
           list.add(new TypeRefComponent().setCode("BackboneElement"));
@@ -168,16 +173,9 @@ public class TypeParser {
         StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+t.getName());
         if (sd == null)
           throw new Exception("Unknown type '"+t.getName()+"'");
-        if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
-          TypeRefComponent tc = new TypeRefComponent().setCode(sd.getType());
-          list.add(tc);
-          tc.setProfile(sd.getUrl());
-        } else {
-          TypeRefComponent tc = new TypeRefComponent().setCode(t.getName());
-          list.add(tc);
-          if (t.hasProfile())
-            tc.setProfile(t.getProfile());
-        }
+        TypeRefComponent tc = new TypeRefComponent().setCode(sd.getType());
+        list.add(tc);
+        tc.setProfile(sd.getUrl());
       }
     }    
     return list;

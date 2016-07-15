@@ -170,6 +170,7 @@ public class Publisher implements IGLogger {
   private Calendar execTime = Calendar.getInstance();
   private Set<String> otherFilesStartup = new HashSet<String>();
   private Set<String> otherFilesRun = new HashSet<String>();
+  
 
   private long globalStart;
 
@@ -653,21 +654,12 @@ public class Publisher implements IGLogger {
     if (changed) {
       f.getValuesetsToLoad().clear();
       System.out.println("load "+path);
-      List<Resource> txr = new ArrayList<>();
-      f.setBundle(new IgSpreadsheetParser(context, execTime, igpkp.getCanonical(), f.getValuesetsToLoad(), txr, first, context.getBinaries().get("mappingSpaces.details")).parse(f));
+      f.setBundle(new IgSpreadsheetParser(context, execTime, igpkp.getCanonical(), f.getValuesetsToLoad(), first, context.getBinaries().get("mappingSpaces.details")).parse(f));
       for (BundleEntryComponent b : f.getBundle().getEntry()) {
         FetchedResource r = f.addResource();
         r.setResource(b.getResource());
         r.setId(b.getResource().getId());
         r.setElement(new ObjectConverter(context).convert(r.getResource()));          
-        r.setTitle(r.getElement().getChildValue("name"));
-        igpkp.findConfiguration(f, r);
-      }
-      for (Resource tr : txr) {
-        FetchedResource r = f.addResource();
-        r.setResource(tr);
-        r.setId(tr.getId());
-        r.setElement(new ObjectConverter(context).convert(tr));          
         r.setTitle(r.getElement().getChildValue("name"));
         igpkp.findConfiguration(f, r);
       }
@@ -961,15 +953,24 @@ public class Publisher implements IGLogger {
   }
 
   private void generateZips() throws Exception {
+    SpecMapManager map = new SpecMapManager(Constants.VERSION, Constants.REVISION, execTime);
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        map.path(igpkp.getCanonical()+r.getUrlTail(), igpkp.getLinkFor(f, r));
+      }
+    }
+    File df = File.createTempFile("fhir", "tmp");
+    df.deleteOnExit();
+    map.save(df.getAbsolutePath());
     if (generateExampleZip(FhirFormat.XML))
-      generateDefinitions(FhirFormat.XML);
+      generateDefinitions(FhirFormat.XML, df.getAbsolutePath());
     if (generateExampleZip(FhirFormat.JSON))
-      generateDefinitions(FhirFormat.JSON);
+      generateDefinitions(FhirFormat.JSON, df.getAbsolutePath());
     if (generateExampleZip(FhirFormat.TURTLE))
-      generateDefinitions(FhirFormat.TURTLE);
+      generateDefinitions(FhirFormat.TURTLE, df.getAbsolutePath());
   }
 
-  private void generateDefinitions(FhirFormat fmt)  throws Exception {
+  private void generateDefinitions(FhirFormat fmt, String specFile)  throws Exception {
     Set<String> files = new HashSet<String>();
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
@@ -984,6 +985,7 @@ public class Publisher implements IGLogger {
       ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "definitions."+fmt.getExtension()+".zip"));
       for (String fn : files)
         zip.addFileName(fn.substring(fn.lastIndexOf(File.separator)+1), fn, false);
+      zip.addFileName("spec.internals", specFile, false);
       zip.close();
 
     }

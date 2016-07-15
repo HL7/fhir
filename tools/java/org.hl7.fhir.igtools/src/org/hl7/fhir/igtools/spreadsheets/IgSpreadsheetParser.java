@@ -110,15 +110,13 @@ public class IgSpreadsheetParser {
   private Bundle bundle;
   private List<String> valuesetsToLoad;
   private boolean first;
-  private List<Resource> txResources;
 
-  public IgSpreadsheetParser(SimpleWorkerContext context, Calendar genDate, String base, List<String> valuesetsToLoad, List<Resource> txResources, boolean first, byte[] msSource) throws Exception {
+  public IgSpreadsheetParser(SimpleWorkerContext context, Calendar genDate, String base, List<String> valuesetsToLoad, boolean first, byte[] msSource) throws Exception {
     this.context = context;
     this.genDate = genDate;
     this.base = base;
     this.first = first;
     this.valuesetsToLoad = valuesetsToLoad;
-    this.txResources = txResources;
     valuesetsToLoad.clear();
     loadMappingSpaces(msSource);
   }
@@ -165,10 +163,13 @@ public class IgSpreadsheetParser {
       loadExtensions(f.getErrors());
       List<String> namedSheets = new ArrayList<String>();
 
+      StructureDefinition first = null;
       if (hasMetadata("published.structure")) {
         for (String n : metadata.get("published.structure")) {
           if (!Utilities.noString(n)) {
-            parseProfileSheet(n, namedSheets, f.getErrors(), false);
+            StructureDefinition sd = parseProfileSheet(n, namedSheets, f.getErrors(), false);
+            if (first == null)
+              first = sd;
           }
         }
 
@@ -181,7 +182,7 @@ public class IgSpreadsheetParser {
         parseProfileSheet("Data Elements", namedSheets, f.getErrors(), true);
       }
       if (namedSheets.isEmpty() && xls.getSheets().containsKey("Search"))
-        readSearchParams(xls.getSheets().get("Search"));
+        readSearchParams(xls.getSheets().get("Search"), first);
 
       if (xls.getSheets().containsKey("Operations"))
         readOperations(loadSheet("Operations"));
@@ -216,7 +217,7 @@ public class IgSpreadsheetParser {
   }
 
   
-  private void parseProfileSheet(String n, List<String> namedSheets, List<ValidationMessage> issues, boolean logical) throws Exception {
+  private StructureDefinition parseProfileSheet(String n, List<String> namedSheets, List<ValidationMessage> issues, boolean logical) throws Exception {
     StructureDefinition sd = new StructureDefinition();
     
     Map<String, ElementDefinitionConstraintComponent> invariants = new HashMap<String, ElementDefinitionConstraintComponent>();
@@ -319,7 +320,8 @@ public class IgSpreadsheetParser {
       utils.sortDifferential(base, sd, "profile "+sd.getUrl(), errors);
       assert(errors.size() == 0);
     }
-    utils.setIds(sd, sd.getName());    
+    utils.setIds(sd, sd.getName());
+    return sd;
   }
 
   private ElementDefinition findContext(StructureDefinition sd, String context, String message) throws Exception {
@@ -329,37 +331,33 @@ public class IgSpreadsheetParser {
     throw new Exception("No Context found for "+context+" at "+message);
   }
 
-  private void readSearchParams(Sheet sheet) throws Exception {
+  private void readSearchParams(Sheet sheet, StructureDefinition sd) throws Exception {
     if (sheet != null) {      
       for (int row = 0; row < sheet.rows.size(); row++) {
-        throw new Exception("not done yet");        
-//
-//        if (!sheet.hasColumn(row, "Name"))
-//          throw new Exception("Search Param has no name "+ getLocation(row));
-//        String n = sheet.getColumn(row, "Name");
-//        if (!n.startsWith("!")) {
-//          if (n.endsWith("-before") || n.endsWith("-after"))
-//            throw new Exception("Search Param "+sd.getName()+"/"+n+" includes relative time "+ getLocation(row));
-//          SearchParameter sp = new SearchParameter();
-//          sp.setId(sd.getId()+"-"+n);
-//          sp.setName("Search Parameter "+n);
-//          sp.setUrl(base+"/SearchParameter/"+sp.getId());
-//          
-//          if (!sheet.hasColumn(row, "Type"))
-//            throw new Exception("Search Param "+sd.getName()+"/"+n+" has no type "+ getLocation(row));
-//          sp.setType(readSearchType(sheet.getColumn(row, "Type"), row));
-//          sp.setDescription(sheet.getColumn(row, "Description"));
-//          sp.setXpathUsage(readSearchXPathUsage(sheet.getColumn(row, "Expression Usage"), row));
-//          sp.setXpath(sheet.getColumn(row, "XPath"));
-//          sp.setExpression(sheet.getColumn(row, "Expression"));
-//          if (!sp.hasDescription()) 
-//            throw new Exception("Search Param "+sd.getId()+"/"+n+" has no description "+ getLocation(row));
-//          if (!sp.hasXpathUsage()) 
-//            throw new Exception("Search Param "+sd.getId()+"/"+n+" has no expression usage "+ getLocation(row));
+        if (!sheet.hasColumn(row, "Name"))
+          throw new Exception("Search Param has no name "+ getLocation(row));
+        String n = sheet.getColumn(row, "Name");
+        if (!n.startsWith("!")) {
+          SearchParameter sp = new SearchParameter();
+          sp.setId(sd.getId()+"-"+n);
+          sp.setName("Search Parameter "+n);
+          sp.setUrl(base+"/SearchParameter/"+sp.getId());
+          
+          if (!sheet.hasColumn(row, "Type"))
+            throw new Exception("Search Param "+sd.getId()+"-"+n+" has no type "+ getLocation(row));
+          sp.setType(readSearchType(sheet.getColumn(row, "Type"), row));
+          sp.setDescription(sheet.getColumn(row, "Description"));
+          sp.setXpathUsage(readSearchXPathUsage(sheet.getColumn(row, "Expression Usage"), row));
+          sp.setXpath(sheet.getColumn(row, "XPath"));
+          sp.setExpression(sheet.getColumn(row, "Expression"));
+          if (!sp.hasExpression())
+            sp.setExpression(sheet.getColumn(row, "Path"));
+          if (!sp.hasDescription()) 
+            throw new Exception("Search Param "+sd.getId()+"/"+n+" has no description "+ getLocation(row));
 //          FHIRPathEngine engine = new FHIRPathEngine(context);
-//          engine.check(null, sd.getBaseType(), sd.getBaseType(), sp.getExpression());
+//          engine.check(null, sd.getType(), sd.getType(), sp.getExpression());
 //          bundle.addEntry().setResource(sp).setFullUrl(sp.getUrl());
-//        }
+        }
       }
     }
   }
@@ -447,9 +445,9 @@ public class IgSpreadsheetParser {
         String ref = sheet.getColumn(row, "Reference");
 
         ValueSet vs = ValueSetUtilities.makeShareable(new ValueSet());
-        txResources.add(vs);
         vs.setId(ref.substring(1));
         vs.setUrl(base+"/ValueSet/"+ref.substring(1));
+        bundle.addEntry().setResource(vs).setFullUrl(vs.getUrl());
         vs.setName(bindingName);
         String oid = sheet.getColumn(row, "Oid");
         if (!Utilities.noString(oid))
@@ -507,7 +505,7 @@ public class IgSpreadsheetParser {
       cs.setVersion(vs.getVersion());
       cs.setCaseSensitive(true);
       cs.setContent(CodeSystemContentMode.COMPLETE);
-      txResources.add(cs);
+      bundle.addEntry().setResource(cs).setFullUrl(cs.getUrl());
 
       for (int row = 0; row < sheet.rows.size(); row++) {
         if (Utilities.noString(sheet.getColumn(row, "System"))) {
