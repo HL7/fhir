@@ -212,7 +212,7 @@
   Expression = element.first().path.contains(\'.\').not() implies element.first().type.empty()
 
  -- Row 16 -----------------------------------
-  Id = 16
+  Id = !16
   Requirements = element ids need to be unique
   Context = StructureDefinition
   English = All element definitions must have unique ids (snapshot)
@@ -220,7 +220,7 @@
   Expression = snapshot.element.id.trace(\'ids\').isDistinct()
 
  -- Row 17 -----------------------------------
-  Id = 17
+  Id = !17
   Requirements = element ids need to be unique
   Context = StructureDefinition
   English = All element definitions must have unique ids (diff)
