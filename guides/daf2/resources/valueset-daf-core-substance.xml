@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="daf-core-substance"/>
+  <id value="daf-substance"/>
   <meta>
     <lastUpdated value="2016-05-25T16:59:08.250+10:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
@@ -56,13 +56,8 @@
        
         
         
-        <li>daf-substance-rxnorm: CUI codes for TTY = (IN, PIN, MIN, BN), where the code is not obsolete</li>
-       
-        
-        
-        <li>daf-substance-unii: All UNII codes</li>
-       
-        
+        <li>daf-substance-rxnorm: RxNorm codes limited to term types (TTY) , 'BN' Brand Name, 'IN' ingredient, 'MIN' multiple ingredient, and 'PIN' precise ingredient for drug ingredient allergies, where the code is not obsolete</li>
+
         
         <li>daf-substance-sct: Substance Other Than Clinical Drug</li>
       
@@ -83,9 +78,9 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113762.1.4.1010.1"/>
   </extension>
-  <url value="http://hl7.org/fhir/daf/ValueSet/daf-substance"/>
+  <url value="http://hl7.org/fhir/ValueSet/daf-substance"/>
   <version value="1.5.0"/>
-  <name value="DAF Core Substance-Reactant for Intolerance and Negation Codes"/>
+  <name value="DAF Substance-Reactant for Intolerance and Negation Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>
@@ -101,7 +96,6 @@
   <compose>
     <import value="http://hl7.org/fhir/ValueSet/daf-substance-ndfrt"/>
     <import value="http://hl7.org/fhir/ValueSet/daf-substance-rxnorm"/>
-    <import value="http://hl7.org/fhir/ValueSet/daf-substance-unii"/>
     <import value="http://hl7.org/fhir/ValueSet/daf-substance-sct"/>
     <include>
       <system value="http://snomed.info/sct"/>
