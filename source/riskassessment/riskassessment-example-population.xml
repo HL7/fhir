@@ -7,4 +7,5 @@
       <p>Todo - e.g. probable number of infections in a given region over a time period for a given disease based on vaccination rates and other factors</p>
     </div>
   </text>
+  <status value="final"/>
 </RiskAssessment>

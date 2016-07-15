@@ -18,6 +18,13 @@
   Definition = The likelihood of the occurrence of a specified outcome
   Conformance = example
 
+ -- Row 4 -----------------------------------
+  Binding Name = RiskAssessmentStatus
+  Binding = Value Set
+  Reference = http://hl7.org/fhir/ValueSet/observation-status
+  Definition = The status of the risk assessment; e.g. preliminary, final, amended, etc.
+  Conformance = required
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -42,35 +49,88 @@
   Type = DomainResource
   Short Label = Potential outcomes for a subject with likelihood
   Definition = An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
-  OpenEHR mapping = OpenEHR-EHR-EVALUATION.risk.v1
   v2 Mapping = N/A
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
+  OpenEHR mapping = OpenEHR-EHR-EVALUATION.risk.v1
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
+  Element = RiskAssessment.identifier
+  Card. = 0..1
+  Summary = y
+  Type = Identifier
+  Short Label = Unique identifier for the assessment
+  Definition = Business identifier assigned to the risk assessment
+  RIM Mapping = .id
+  OpenEHR mapping = Workflow Identifier
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = RiskAssessment.basedOn
+  Card. = 0..1
+  Type = Reference(Any)
+  Short Label = Request fulfilled by this assessment
+  Definition = A reference to the request that is fulfilled by this risk assessment
+
+ -- Row 4 -----------------------------------
+  Element = RiskAssessment.parent
+  Card. = 0..1
+  Type = Reference(Any)
+  Short Label = Part of this occurrence
+  Definition = A reference to a resource that this risk assessment is part of, such as a Procedure
+
+ -- Row 5 -----------------------------------
+  Element = RiskAssessment.status
+  Card. = 1..1
+  Type = code
+  Binding = RiskAssessmentStatus
+  Short Label = registered | preliminary | final | amended +
+  Definition = The status of the RiskAssessment, using the same statuses as an Observation
+  w5 = status
+
+ -- Row 6 -----------------------------------
+  Element = RiskAssessment.code
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Short Label = Type of assessment
+  Definition = The type of the risk assessment performed
+  w5 = what
+
+ -- Row 7 -----------------------------------
   Element = RiskAssessment.subject
   Card. = 0..1
   Summary = y
   Type = Reference(Patient|Group)
   Short Label = Who/what does assessment apply to?
   Definition = The patient or group the risk assessment applies to
-  OpenEHR mapping = Subject of Care
   RIM Mapping = .participation[typeCode=SBJ].role
+  OpenEHR mapping = Subject of Care
   To Do = Should this cover anything else?  Device?  Location?
   w5 = who.focus
 
- -- Row 3 -----------------------------------
-  Element = RiskAssessment.date
+ -- Row 8 -----------------------------------
+  Element = RiskAssessment.context
   Card. = 0..1
   Summary = y
-  Type = dateTime
+  Type = Reference(Encounter | EpisodeOfCare)
+  Short Label = Where was assessment performed?
+  Definition = The encounter where the assessment was performed
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
+  w5 = context
+
+ -- Row 9 -----------------------------------
+  Element = RiskAssessment.occurrence[x]
+  Card. = 0..1
+  Summary = y
+  Type = dateTime | Period
   Short Label = When was assessment made?
   Definition = The date (and possibly time) the risk assessment was performed
   Requirements = The assessment results lose validity the more time elapses from when they are first made
   RIM Mapping = .effectiveTime
-  w5 = when.recorded
+  w5 = when.done
 
- -- Row 4 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = RiskAssessment.condition
   Card. = 0..1
   Summary = y
@@ -79,39 +139,26 @@
   Definition = For assessments or prognosis specific to a particular condition, indicates the condition being assessed.
   RIM Mapping = .outboundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN]
 
- -- Row 5 -----------------------------------
-  Element = RiskAssessment.encounter
-  Card. = 0..1
-  Summary = y
-  Type = Reference(Encounter)
-  Short Label = Where was assessment performed?
-  Definition = The encounter where the assessment was performed
-  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
-  w5 = context
-
- -- Row 6 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = RiskAssessment.performer
   Card. = 0..1
   Summary = y
   Type = Reference(Practitioner | Device)
   Short Label = Who did assessment?
   Definition = The provider or software application that performed the assessment
-  OpenEHR mapping = Information Provider
   RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGNED]
-  w5 = who.author
+  OpenEHR mapping = Information Provider
+  w5 = who.actor
 
- -- Row 7 -----------------------------------
-  Element = RiskAssessment.identifier
+ -- Row 12 -----------------------------------
+  Element = RiskAssessment.reason[x]
   Card. = 0..1
-  Summary = y
-  Type = Identifier
-  Short Label = Unique identifier for the assessment
-  Definition = Business identifier assigned to the risk assessment
-  OpenEHR mapping = Workflow Identifier
-  RIM Mapping = .id
-  w5 = id
+  Type = CodeableConcept | Reference(Any)
+  Short Label = Why the assessment was necessary?
+  Definition = The reason the risk assessment was performed
+  w5 = why
 
- -- Row 8 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = RiskAssessment.method
   Card. = 0..1
   Summary = y
@@ -124,16 +171,16 @@
   To Do = Is this in the 80%?
   w5 = class
 
- -- Row 9 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = RiskAssessment.basis
   Card. = 0..*
   Type = Reference(Any)
   Short Label = Information used in assessment
   Definition = Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.)
-  OpenEHR mapping = Risk Factor; Link to Evidence
   RIM Mapping = .outboundRelationship[typeCode=DRIV].target
+  OpenEHR mapping = Risk Factor; Link to Evidence
 
- -- Row 10 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = RiskAssessment.prediction
   Card. = 0..*
   UML = 320;0
@@ -142,17 +189,17 @@
   Comments = Multiple repetitions can be used to identify the same type of outcome in different timeframes as well as different types of outcomes
   RIM Mapping = .outboundRelationship[typeCode=VALUE].target[classCod=OBS, moodCode=RISK]
 
- -- Row 11 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = RiskAssessment.prediction.outcome
   Card. = 1..1
   Type = CodeableConcept
   Binding = RiskAssessmentOutcome
   Short Label = Possible outcome for the subject
   Definition = One of the potential outcomes for the patient (e.g. remission, death,  a particular condition)
-  OpenEHR mapping = Risk
   RIM Mapping = .value
+  OpenEHR mapping = Risk
 
- -- Row 12 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = RiskAssessment.prediction.probability[x]
   Card. = 0..1
   Type = decimal | Range | CodeableConcept
@@ -160,10 +207,10 @@
   Short Label = Likelihood of specified outcome
   Definition = How likely is the outcome (in the specified timeframe)
   Comments = If range is used, it represents the lower and upper bounds of certainty; e.g. 40-60%  Decimal values are expressed as percentages as well (max = 100)
-  OpenEHR mapping = Category
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"probability\"].value
+  OpenEHR mapping = Category
 
- -- Row 13 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = RiskAssessment.prediction.relativeRisk
   Card. = 0..1
   Type = decimal
@@ -173,7 +220,7 @@
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"relative risk\"].value
   To Do = Is this in the 80%?
 
- -- Row 14 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = RiskAssessment.prediction.when[x]
   Card. = 0..1
   Type = Period | Range
@@ -182,16 +229,16 @@
   Comments = If not specified, the risk applies \"over the subject\'s lifespan\"
   RIM Mapping = .effectiveTime or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"age\"].value
 
- -- Row 15 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = RiskAssessment.prediction.rationale
   Card. = 0..1
   Type = string
   Short Label = Explanation of prediction
   Definition = Additional information explaining the basis for the prediction
-  OpenEHR mapping = Rationale
   RIM Mapping = .reasonCode.text
+  OpenEHR mapping = Rationale
 
- -- Row 16 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = RiskAssessment.mitigation
   Card. = 0..1
   Type = string
@@ -199,6 +246,13 @@
   Definition = A description of the steps that might be taken to reduce the identified risk(s).
   Requirements = One of the main reasons for assessing risks is to identify whether interventional steps are needed to reduce risk
   RIM Mapping = .outboundRelationship[typeCode=MTGT].target[classCode=ACT, moodCode=EVN].text
+
+ -- Row 22 -----------------------------------
+  Element = RiskAssessment.note
+  Card. = 0..1
+  Type = Annotation
+  Short Label = Comments on the risk assessment
+  Definition = Additional comments about the risk assessment
 
 === Sheet Search =====================================
 
@@ -210,12 +264,14 @@
  -- Row 2 -----------------------------------
   Name = date
   Type = date
-  Path = RiskAssessment.date
+  Path = RiskAssessment.occurrence[x]
+  Target Types = dateTime
 
  -- Row 3 -----------------------------------
   Name = encounter
   Type = reference
-  Path = RiskAssessment.encounter
+  Path = RiskAssessment.context
+  Target Types = Encounter
 
  -- Row 4 -----------------------------------
   Name = performer

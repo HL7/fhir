@@ -49,7 +49,8 @@
       </table>
     </div>
   </text>
-  <date value="2006-01-13T23:01:00Z"/>
+  <status value="final"/>
+  <occurrenceDateTime value="2006-01-13T23:01:00Z"/>
   <method>
     <coding>
       <code value="BRCAPRO"/>

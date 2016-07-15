@@ -7,7 +7,8 @@
       <p>Moderate risk of permanent weakness of the left arm, but otherwise no permanent disability</p>
     </div>
   </text>
-  <date value="2010-11-22"/>
+  <status value="final"/>
+  <occurrenceDateTime value="2010-11-22"/>
   <condition>
     <reference value="Condition/stroke"/>
     <display value="Ischemic Stroke"/>
