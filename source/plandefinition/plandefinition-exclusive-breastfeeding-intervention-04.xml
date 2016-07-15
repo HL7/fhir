@@ -41,7 +41,9 @@
 		<actionDefinition>
 			<title value="Create a lactation consult request."/>
 			<textEquivalent value="Create a lactation consult request"/>
-			<type value="create"/>
+			<type>
+				<code value="create"/>
+			</type>
 			<dynamicValue>
 				<path value="/"/>
 				<expression value="Create Lcatation Consult Request"/>

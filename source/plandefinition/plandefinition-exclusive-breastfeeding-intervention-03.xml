@@ -41,7 +41,9 @@
 		<actionDefinition>
 			<title value="Notify the charge nurse to perform the assessment."/>
 			<textEquivalent value="A Breastfeeding Readiness Assessment is recommended, please administer the assessment."/>
-			<type value="create"/>
+			<type>
+				<code value="create"/>
+			</type>
 			<dynamicValue>
 				<path value="/"/>
 				<expression value="Communication Request to Charge Nurse"/>
@@ -50,7 +52,9 @@
 		<actionDefinition>
 			<title value="Notify the bedside nurse to perform the assessment."/>
 			<textEquivalent value="A Breastfeeding Readiness Assessment is recommended, please administer the assessment."/>
-			<type value="create"/>
+			<type>
+				<code value="create"/>
+			</type>
 			<dynamicValue>
 				<path value="/"/>
 				<expression value="Communication Request to Bedside Nurse"/>

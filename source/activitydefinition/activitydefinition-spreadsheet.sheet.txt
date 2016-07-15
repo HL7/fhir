@@ -3,8 +3,8 @@
 
  -- Row 1 -----------------------------------
   Binding Name = ActivityParticipantType
-  Binding = code list
-  Reference = #activity-participant-type
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/action-participant-type
   Definition = The type of participant for an action in the orderset
   Conformance = required
 
@@ -36,26 +36,6 @@
   Binding Name = ActivityProduct
   Binding = unbound
   Definition = Code describing the type of substance or medication
-
-=== Sheet activity-participant-type =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = patient
-  Display = Patient
-  Definition = The participant is the patient under evaluation
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = practitioner
-  Display = Practitioner
-  Definition = The participant is a practitioner involved in the patient\'s care
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = related-person
-  Display = Related Person
-  Definition = The participant is a person related to the patient
 
 === Sheet activity-definition-category =====================================
 

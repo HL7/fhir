@@ -41,7 +41,9 @@
 		<actionDefinition>
 			<title value="Notify the provider to sign the order."/>
 			<textEquivalent value="A Breastfeeding Readiness Assessment is recommended, please authorize or reject the order."/>
-			<type value="create"/>
+			<type>
+				<code value="create"/>
+			</type>
 			<dynamicValue>
 				<path value="/"/>
 				<expression value="Communication Request to Provider"/>

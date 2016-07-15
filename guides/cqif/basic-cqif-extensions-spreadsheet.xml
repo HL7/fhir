@@ -25,6 +25,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>4</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -6515,7 +6516,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">The quality of the evidence</Data></Cell>
-    <Cell><Data ss:Type="String">The quality of the evidence described. The code system used specifies the quality scale used to grade this evidence source while the code specifies the actual quality score (represented as a coded value) associated with this evidence reference</Data></Cell>
+    <Cell><Data ss:Type="String">The quality of the evidence described. The code system used specifies the quality scale used to grade this evidence source while the code specifies the actual quality score (represented as a coded value) associated with the evidence</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">strengthOfRecommendation</Data></Cell>
@@ -6525,7 +6526,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">The strength of the recommendation</Data></Cell>
-    <Cell><Data ss:Type="String">The strength of the recommendation assigned to this reference. The code system specifies the scale used to grade the evidence source, while the code specifies the actual score (represented as a coded value) for the strength of the evidence</Data></Cell>
+    <Cell><Data ss:Type="String">The strength of the recommendation assigned to this reference. The code system used specifies the rating scale used to rate this recommendation while the code specifies the actual recommendation rating (represented as a coded value) associated with this recommendation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">citation</Data></Cell>
@@ -6662,7 +6663,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>72</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6670,7 +6671,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -6678,8 +6678,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>84</ActiveRow>
-     <ActiveCol>14</ActiveCol>
+     <ActiveRow>75</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

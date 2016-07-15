@@ -36,6 +36,41 @@
   Definition = Defines possible anchors for the relationship between actions
   Conformance = required
 
+ -- Row 6 -----------------------------------
+  Binding Name = ActionGroupingBehavior
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/action-grouping-behavior
+  Definition = Defines organization behavior of a group
+  Conformance = required
+
+ -- Row 7 -----------------------------------
+  Binding Name = ActionSelectionBehavior
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/action-selection-behavior
+  Definition = Defines selection behavior of a group
+  Conformance = required
+
+ -- Row 8 -----------------------------------
+  Binding Name = ActionRequiredBehavior
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/action-required-behavior
+  Definition = Defines requiredness behavior for selecting an action or an action group
+  Conformance = required
+
+ -- Row 9 -----------------------------------
+  Binding Name = ActionPrecheckBehavior
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/action-precheck-behavior
+  Definition = Defines selection frequency behavior for an action or group
+  Conformance = required
+
+ -- Row 10 -----------------------------------
+  Binding Name = ActionCardinalityBehavior
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/action-cardinality-behavior
+  Definition = Defines behavior for an action or a group for how many times that item may be repeated
+  Conformance = required
+
 === Sheet guidance-response-status =====================================
 
  -- Row 1 -----------------------------------
@@ -168,11 +203,11 @@
   Definition = The concept represented by this action or its sub-actions
 
  -- Row 14 -----------------------------------
-  Element = GuidanceResponse.action.supportingEvidence
+  Element = GuidanceResponse.action.documentation
   Card. = 0..*
-  Type = Attachment
-  Short Label = Evidence that supports taking the action
-  Definition = The evidence grade and the sources of evidence for this action
+  Type = RelatedResource
+  Short Label = Supporting documentation for the intended performer of the action
+  Definition = Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources
 
  -- Row 15 -----------------------------------
   Element = GuidanceResponse.action.relatedAction
@@ -211,27 +246,20 @@
   Definition = An optional indicator for how the relationship is anchored to the related action. For example \"before the start\" or \"before the end\" of the related action
 
  -- Row 20 -----------------------------------
-  Element = GuidanceResponse.action.relatedAction.timing[x]
+  Element = GuidanceResponse.action.timing[x]
   Card. = 0..1
   Type = dateTime|Period|Duration|Range
   Short Label = When the action should take place
   Definition = An optional value describing when the action should be performed
 
  -- Row 21 -----------------------------------
-  Element = GuidanceResponse.action.documentation
-  Card. = 0..*
-  Type = Attachment
-  Short Label = Supporting documentation for the intended performer of the action
-  Definition = Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources
-
- -- Row 22 -----------------------------------
   Element = GuidanceResponse.action.participant
   Card. = 0..*
-  Type = Reference(Patient|Person|Practitioner|RelatedPerson)
+  Type = Reference(Patient|Person|Practitioner | RelatedPerson)
   Short Label = Participant
   Definition = The participant in the action
 
- -- Row 23 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = GuidanceResponse.action.type
   Card. = 0..1
   Type = code
@@ -239,42 +267,61 @@
   Short Label = create | update | remove | fire-event
   Definition = The type of action to perform (create, update, remove)
 
+ -- Row 23 -----------------------------------
+  Element = GuidanceResponse.action.groupingBehavior
+  Card. = 0..1
+  Type = code
+  Binding = ActionGroupingBehavior
+  Short Label = visual-group | logical-group | sentence-group
+  Definition = Defines the grouping behavior for the action and its children
+
  -- Row 24 -----------------------------------
-  Element = GuidanceResponse.action.behavior
-  Card. = 0..*
-  Short Label = Defines behaviors such as selection and grouping
-  Definition = A behavior associated with the action. Behaviors define how the action is to be presented and/or executed within the receiving environment
+  Element = GuidanceResponse.action.selectionBehavior
+  Card. = 0..1
+  Type = code
+  Binding = ActionSelectionBehavior
+  Short Label = any | all | all-or-none | exactly-one | at-most-one | one-or-more
+  Definition = Defines the selection behavior for the action and its children
 
  -- Row 25 -----------------------------------
-  Element = GuidanceResponse.action.behavior.type
-  Card. = 1..1
-  Type = Coding
-  Binding = ActionBehaviorType
-  Short Label = The type of behavior (grouping, precheck, selection, cardinality, etc)
-  Definition = The type of the behavior to be described, such as grouping, visual, or selection behaviors
+  Element = GuidanceResponse.action.requiredBehavior
+  Card. = 0..1
+  Type = code
+  Binding = ActionRequiredBehavior
+  Short Label = must | could | must-unless-documented
+  Definition = Defines the requiredness behavior for the action
 
  -- Row 26 -----------------------------------
-  Element = GuidanceResponse.action.behavior.value
-  Card. = 1..1
-  Type = Coding
-  Short Label = Specific behavior (e.g. required, at-most-one, single, etc)
-  Definition = The specific behavior. The code used here is determined by the type of behavior being described. For example, the grouping behavior uses the grouping-behavior-type valueset
+  Element = GuidanceResponse.action.precheckBehavior
+  Card. = 0..1
+  Type = code
+  Binding = ActionPrecheckBehavior
+  Short Label = yes | no
+  Definition = Defines whether the action should usually be preselected
 
  -- Row 27 -----------------------------------
+  Element = GuidanceResponse.action.cardinalityBehavior
+  Card. = 0..1
+  Type = code
+  Binding = ActionCardinalityBehavior
+  Short Label = single | multiple
+  Definition = Defines whether the action can be selected multiple times
+
+ -- Row 28 -----------------------------------
   Element = GuidanceResponse.action.resource
   Card. = 0..1
   Type = Reference(Any)
   Short Label = The target of the action
   Definition = The resource that is the target of the action (e.g. CommunicationRequest)
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = GuidanceResponse.action.action
   Card. = 0..*
   Type = @GuidanceResponse.action
   Short Label = Sub action
   Definition = Sub actions
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = GuidanceResponse.dataRequirement
   Card. = 0..*
   Type = DataRequirement
