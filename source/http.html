@@ -650,19 +650,16 @@ interaction instead. The <code>create</code> interaction is performed by an HTTP
   POST [base]/[type] {?_format=[mime-type]}
 </pre>
 <p>
-The request body SHALL be a FHIR Resource without an id element (this is the
-only case where a resource exists without an id element). If an ID element is provided, the 
-server SHALL respond with a HTTP <code>400</code> error code, and SHOULD provide an operation outcome 
-identifying the issue.
-If the request body includes a <a href="resource.html#meta">meta</a>, the server SHALL
+The request body SHALL be a FHIR Resource. The resource does not need to have an <code>id</code> element (this is the
+one of the few case where a resource exists without an id element). If an <code>id</code> is provided, the 
+server SHALL ignore it. If the request body includes a <a href="resource.html#meta">meta</a>, the server SHALL
 ignore the existing <code>versionId</code> and <code>lastUpdated</code> values.
-The server SHALL populate the <code>meta.versionId</code> and <code>meta.lastUpdated</code>
-with the new correct values.
-Servers are allowed to review and alter the other metadata values, but SHOULD refrain
-from doing so (see <a href="resource.html#meta">metadata description</a>  for further information).
+The server SHALL populate the <code>id</code>, <code>meta.versionId</code> and <code>meta.lastUpdated</code>
+with the new correct values. Servers are allowed to review and alter the other metadata values, but SHOULD 
+refrain from doing so (see <a href="resource.html#meta">metadata description</a>  for further information).
 </p>
 <p>
-A server SHOULD accept the resource as submitted when it accepts the create, and return the same
+A server SHOULD otherwise accept the resource as submitted when it accepts the create, and return the same
 content when it is subsequently read. However some systems may not be able to do this; see
 the note on <a href="#transactional-integrity">transactional integrity</a> for discussion.
 </p>
