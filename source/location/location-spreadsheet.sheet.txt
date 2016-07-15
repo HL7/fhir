@@ -309,7 +309,7 @@
  -- Row 12 -----------------------------------
   Name = near
   Type = token
-  Description = The coordinates expressed as [lat],[long] (using the WGS84 datum, see notes) to find locations near to (servers may search using a square rather than a circle for efficiency). \n\nRequires the near-distance parameter to be provided also
+  Description = The coordinates expressed as [latitude]:[longitude] (using the WGS84 datum, see notes) to find locations near to (servers may search using a square rather than a circle for efficiency). \n\nRequires the near-distance parameter to be provided also
   Path = Location.position
   Path Usage = nearby
 

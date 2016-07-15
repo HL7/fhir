@@ -12,6 +12,7 @@ using the Location.partOf element.</li>
 see <a href="http://www.opengeospatial.org/standards/kml">Google/OGS's KML</a>.</li>
 </ul>
 
+<a name="loc-mode"> </a>
 <h3>Location Mode</h3>
 <p>The Location.mode element can be used to indicate whether a Location resource represents a specific (potentially identifiable) Location ('instance'), 
 or a class of Locations ('kind'). Especially Resources capturing orders, resource scheduling, plans and definitions may refer to Locations in 'kind' mode. 
@@ -82,8 +83,12 @@ Mobile Services (kind)
         position of a practitioner travelling between patients (read from a mobile phone or device).
     </p>
 <pre>
- GET [base]/Location?near=-83.694810,42.256500&amp;near-distance=11.20||km;...
+ GET [base]/Location?near=-83.694810:42.256500&amp;near-distance=11.20||km...
 </pre>
+    <p>
+        Note: The near search parameters are not able to be used with multiples thus the multiple 
+        seperator <code> , </code> should not be used with near or near-distance.
+    </p>
     <p>
         The distance between the location and the provided point is often used as one of the 
         determining factors for selection of the location. So this value is included in the results.<br/>

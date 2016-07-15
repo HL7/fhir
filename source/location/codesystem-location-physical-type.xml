@@ -24,6 +24,11 @@
     <definition value="A Wing within a Building, this often contains levels, rooms and corridors."/>
   </concept>
   <concept>
+    <code value="wa"/>
+    <display value="Ward"/>
+    <definition value="A Ward is a section of a medical facility that may contain rooms and other types of location."/>
+  </concept>
+  <concept>
     <code value="lvl"/>
     <display value="Level"/>
     <definition value="A Level in a multi-level Building/Structure."/>
