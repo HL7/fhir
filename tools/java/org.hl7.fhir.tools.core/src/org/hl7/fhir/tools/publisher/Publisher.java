@@ -2658,9 +2658,9 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void produceComparisons() throws Exception {
-    for (String n : page.getIni().getPropertyNames("comparisons")) {
-      produceComparison(n);
-    }
+//    for (String n : page.getIni().getPropertyNames("comparisons")) {
+//      produceComparison(n);
+//    }
   }
 
   private void produceComparison(String n) throws Exception {

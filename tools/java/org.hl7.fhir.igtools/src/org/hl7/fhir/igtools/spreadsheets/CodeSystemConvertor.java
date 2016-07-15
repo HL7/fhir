@@ -1,4 +1,4 @@
-package org.hl7.fhir.tools.converters;
+package org.hl7.fhir.igtools.spreadsheets;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -38,8 +38,6 @@ public class CodeSystemConvertor {
   }
 
   public static void populate(CodeSystem cs, ValueSet vs) {
-    if (vs.getUserData("filename") == null)
-      throw new Error("No filename on vs "+vs.getUrl());
     if (!vs.hasName())
       throw new Error("No name vs "+vs.getUrl());
     if (!vs.hasDescription())
@@ -49,9 +47,12 @@ public class CodeSystemConvertor {
       throw new Error("This code system has already been converted");
     cs.setUserData("conv-vs", "done");
     vs.setUserData("cs", cs);
-    cs.setUserData("filename", vs.getUserString("filename").replace("valueset-", "codesystem-"));
-    cs.setUserData("path", vs.getUserString("path").replace("valueset-", "codesystem-"));
-    cs.setUserData("committee", vs.getUserData("committee"));
+    if (vs.hasUserData("filename"))
+      cs.setUserData("filename", vs.getUserString("filename").replace("valueset-", "codesystem-"));
+    if (vs.hasUserData("path"))
+      cs.setUserData("path", vs.getUserString("path").replace("valueset-", "codesystem-"));
+    if (vs.hasUserData("committee"))
+      cs.setUserData("committee", vs.getUserData("committee"));
     cs.setId(vs.getId());
     cs.setVersion(vs.getVersion());
     cs.setName(vs.getName());

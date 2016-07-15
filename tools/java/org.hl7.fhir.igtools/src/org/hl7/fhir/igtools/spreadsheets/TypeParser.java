@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.utils.BaseWorkerContext;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.utilities.Utilities;
 
 public class TypeParser {
 
@@ -155,6 +156,8 @@ public class TypeParser {
         // this list is filled out manually because it may be running before the types referred to have been loaded
         for (String n : wildcardTypes()) 
           list.add(new TypeRefComponent().setCode(n));
+      } else if (Utilities.noString(t.getName()) && t.getProfile() != null) {
+        sdsdf
       } else if (t.getName().startsWith("=")){
         if (resource)
           list.add(new TypeRefComponent().setCode("BackboneElement"));
@@ -164,7 +167,7 @@ public class TypeParser {
       } else {
         StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+t.getName());
         if (sd == null)
-          throw new Exception("Unknown type "+t.getName());
+          throw new Exception("Unknown type '"+t.getName()+"'");
         if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
           TypeRefComponent tc = new TypeRefComponent().setCode(sd.getType());
           list.add(tc);

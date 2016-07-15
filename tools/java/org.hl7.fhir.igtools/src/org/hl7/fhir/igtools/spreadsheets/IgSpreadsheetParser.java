@@ -18,8 +18,11 @@ import org.hl7.fhir.dstu3.model.Base64BinaryType;
 import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.Bundle;
+import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
+import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Constants;
@@ -53,6 +56,7 @@ import org.hl7.fhir.dstu3.model.PositiveIntType;
 import org.hl7.fhir.dstu3.model.Quantity;
 import org.hl7.fhir.dstu3.model.Quantity.QuantityComparator;
 import org.hl7.fhir.dstu3.model.Reference;
+import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.SearchParameter;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
@@ -60,12 +64,18 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.ExtensionContext;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
+import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent;
+import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
+import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.TimeType;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UnsignedIntType;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.UuidType;
+import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
@@ -100,13 +110,15 @@ public class IgSpreadsheetParser {
   private Bundle bundle;
   private List<String> valuesetsToLoad;
   private boolean first;
+  private List<Resource> txResources;
 
-  public IgSpreadsheetParser(SimpleWorkerContext context, Calendar genDate, String base, List<String> valuesetsToLoad, boolean first, byte[] msSource) throws Exception {
+  public IgSpreadsheetParser(SimpleWorkerContext context, Calendar genDate, String base, List<String> valuesetsToLoad, List<Resource> txResources, boolean first, byte[] msSource) throws Exception {
     this.context = context;
     this.genDate = genDate;
     this.base = base;
     this.first = first;
     this.valuesetsToLoad = valuesetsToLoad;
+    this.txResources = txResources;
     valuesetsToLoad.clear();
     loadMappingSpaces(msSource);
   }
@@ -165,7 +177,7 @@ public class IgSpreadsheetParser {
           parseProfileSheet(namedSheets.get(i), namedSheets, f.getErrors(), false);
           i++;
         }
-      } else {
+      } else if (!hasMetadata("extensions")) {
         parseProfileSheet("Data Elements", namedSheets, f.getErrors(), true);
       }
       if (namedSheets.isEmpty() && xls.getSheets().containsKey("Search"))
@@ -317,10 +329,10 @@ public class IgSpreadsheetParser {
     throw new Exception("No Context found for "+context+" at "+message);
   }
 
-  private void readSearchParams(Sheet sheet2) {
+  private void readSearchParams(Sheet sheet) throws Exception {
     if (sheet != null) {      
       for (int row = 0; row < sheet.rows.size(); row++) {
-        throw new Error("not done yet");        
+        throw new Exception("not done yet");        
 //
 //        if (!sheet.hasColumn(row, "Name"))
 //          throw new Exception("Search Param has no name "+ getLocation(row));
@@ -431,7 +443,33 @@ public class IgSpreadsheetParser {
       if (type == null || "".equals(type) || "unbound".equals(type)) {
         // nothing
       } else if (type.equals("code list")) {
-        throw new Error("Code list is not yet supported"+ getLocation(row));
+//        throw new Error("Code list is not yet supported in "+ getLocation(row));
+        String ref = sheet.getColumn(row, "Reference");
+
+        ValueSet vs = ValueSetUtilities.makeShareable(new ValueSet());
+        txResources.add(vs);
+        vs.setId(ref.substring(1));
+        vs.setUrl(base+"/ValueSet/"+ref.substring(1));
+        vs.setName(bindingName);
+        String oid = sheet.getColumn(row, "Oid");
+        if (!Utilities.noString(oid))
+          ToolingExtensions.setOID(vs, oid);
+        String st = sheet.getColumn(row, "Status");
+        if (Utilities.noString(st))
+          st = "draft";
+        vs.getStatusElement().setValueAsString(st);
+        String ws = sheet.getColumn(row, "Website");
+        if (ws != null)
+          vs.getContactFirstRep().getTelecomFirstRep().setSystem(ContactPointSystem.OTHER).setValue(ws);
+        String em = sheet.getColumn(row, "Website");
+        if (em != null)
+          vs.getContactFirstRep().addTelecom().setSystem(ContactPointSystem.EMAIL).setValue(em);
+        vs.setCopyright(sheet.getColumn(row, "Copyright"));
+        vs.setDescription(sheet.getColumn(row, "Definition"));
+        Sheet css = xls.getSheets().get(ref.substring(1));
+        if (css == null)
+          throw new Exception("Error parsing binding "+bindingName+": code list reference '"+ref+"' not resolved");
+        loadValueSet(vs, css, ref.substring(1));
       } else if (type.equals("special")) {
         throw new Error("Binding type Special is not allowed in implementation guides"+ getLocation(row));
       } else if (type.equals("reference")) {
@@ -447,6 +485,95 @@ public class IgSpreadsheetParser {
         throw new Exception("Unknown Binding: "+type+ getLocation(row));
       }
     }
+  }
+
+  private void loadValueSet(ValueSet vs, Sheet sheet, String sheetName) throws Exception {
+    boolean hasDefine = false;
+    for (int row = 0; row < sheet.rows.size(); row++) {
+      hasDefine = hasDefine || Utilities.noString(sheet.getColumn(row, "System"));
+    }
+
+    Map<String, ConceptDefinitionComponent> codes = new HashMap<String, ConceptDefinitionComponent>();
+    Map<String, ConceptDefinitionComponent> codesById = new HashMap<String, ConceptDefinitionComponent>();
+    
+    Map<String, ConceptSetComponent> includes = new HashMap<String, ConceptSetComponent>();
+
+    
+    if (hasDefine) {
+      CodeSystem cs = new CodeSystem();
+      cs.setUrl("http://hl7.org/fhir/"+sheetName);
+      vs.getCompose().addInclude().setSystem(cs.getUrl());
+      CodeSystemConvertor.populate(cs, vs);
+      cs.setVersion(vs.getVersion());
+      cs.setCaseSensitive(true);
+      cs.setContent(CodeSystemContentMode.COMPLETE);
+      txResources.add(cs);
+
+      for (int row = 0; row < sheet.rows.size(); row++) {
+        if (Utilities.noString(sheet.getColumn(row, "System"))) {
+
+          ConceptDefinitionComponent cc = new ConceptDefinitionComponent(); 
+          cc.setUserData("id", sheet.getColumn(row, "Id"));
+          cc.setCode(sheet.getColumn(row, "Code"));
+          if (codes.containsKey(cc.getCode()))
+            throw new Exception("Duplicate Code '"+cc.getCode()+"' processing "+vs.getName());
+          codes.put(cc.getCode(), cc);
+          codesById.put(cc.getUserString("id"), cc);
+          cc.setDisplay(sheet.getColumn(row, "Display"));
+          if (sheet.getColumn(row, "Abstract").toUpperCase().equals("Y"))
+            CodeSystemUtilities.setNotSelectable(cs, cc);
+          if (cc.hasCode() && !cc.hasDisplay())
+            cc.setDisplay(Utilities.humanize(cc.getCode()));
+          cc.setDefinition(sheet.getColumn(row, "Definition"));
+          if (!Utilities.noString(sheet.getColumn(row, "Comment")))
+            ToolingExtensions.addComment(cc, sheet.getColumn(row, "Comment"));
+//          cc.setUserData("v2", sheet.getColumn(row, "v2"));
+//          cc.setUserData("v3", sheet.getColumn(row, "v3"));
+          for (String ct : sheet.columns) 
+            if (ct.startsWith("Display:") && !Utilities.noString(sheet.getColumn(row, ct)))
+              cc.addDesignation().setLanguage(ct.substring(8)).setValue(sheet.getColumn(row, ct));
+          String parent = sheet.getColumn(row, "Parent");
+          if (Utilities.noString(parent))
+            cs.addConcept(cc);
+          else if (parent.startsWith("#") && codesById.containsKey(parent.substring(1)))
+            codesById.get(parent.substring(1)).addConcept(cc);
+          else if (codes.containsKey(parent))
+            codes.get(parent).addConcept(cc);
+          else
+            throw new Exception("Parent "+parent+" not resolved in "+sheetName);
+        }
+      }
+    }
+
+    for (int row = 0; row < sheet.rows.size(); row++) {
+      if (!Utilities.noString(sheet.getColumn(row, "System"))) {
+        String system = sheet.getColumn(row, "System");
+        ConceptSetComponent t = includes.get(system);
+        if (t == null) {
+          if (!vs.hasCompose())
+            vs.setCompose(new ValueSetComposeComponent());
+          t = vs.getCompose().addInclude();
+          t.setSystem(system);
+          includes.put(system, t);
+        }
+        ConceptReferenceComponent cc = t.addConcept();
+        cc.setCode(sheet.getColumn(row, "Code"));
+        if (codes.containsKey(cc.getCode()))
+          throw new Exception("Duplicate Code "+cc.getCode());
+        codes.put(cc.getCode(), null);
+        cc.setDisplay(sheet.getColumn(row, "Display"));
+        if (!Utilities.noString(sheet.getColumn(row, "Definition")))
+          ToolingExtensions.addDefinition(cc, sheet.getColumn(row, "Definition"));
+        if (!Utilities.noString(sheet.getColumn(row, "Comment")))
+          ToolingExtensions.addComment(cc, sheet.getColumn(row, "Comment"));
+        cc.setUserDataINN("v2", sheet.getColumn(row, "v2"));
+        cc.setUserDataINN("v3", sheet.getColumn(row, "v3"));
+        for (String ct : sheet.columns) 
+          if (ct.startsWith("Display:") && !Utilities.noString(sheet.getColumn(row, ct)))
+            cc.addDesignation().setLanguage(ct.substring(8)).setValue(sheet.getColumn(row, ct));       
+      }
+    }
+
   }
 
   public BindingStrength readBindingStrength(String s, int row) throws Exception {
@@ -573,12 +700,14 @@ public class IgSpreadsheetParser {
       }
     }
 
-    TypeParser tp = new TypeParser();
-    List<TypeRef> types = tp.parse(sheet.getColumn(row, "Type"), true, "??", context, !path.contains("."));
-    if (types.size() == 1 && types.get(0).getName().startsWith("@"))  
-      e.setContentReference("#"+types.get(0).getName().substring(1));
-    else
-      e.getType().addAll(tp.convert(context, e.getPath(), types, true, e));
+    if (!Utilities.noString(sheet.getColumn(row, "Type"))) {
+      TypeParser tp = new TypeParser();
+      List<TypeRef> types = tp.parse(sheet.getColumn(row, "Type"), true, "??", context, !path.contains("."));
+      if (types.size() == 1 && types.get(0).getName().startsWith("@"))  
+        e.setContentReference("#"+types.get(0).getName().substring(1));
+      else if (types.size() > 0)
+        e.getType().addAll(tp.convert(context, e.getPath(), types, true, e));
+    }
     String regex = sheet.getColumn(row, "Regex");
     if (!Utilities.noString(regex) && e.hasType())
       ToolingExtensions.addStringExtension(e.getType().get(0), ToolingExtensions.EXT_REGEX, regex);

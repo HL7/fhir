@@ -652,12 +652,22 @@ public class Publisher implements IGLogger {
     boolean changed = noteFile("Spreadsheet/"+be.getAsString(), f);
     if (changed) {
       f.getValuesetsToLoad().clear();
-      f.setBundle(new IgSpreadsheetParser(context, execTime, igpkp.getCanonical(), f.getValuesetsToLoad(), first, context.getBinaries().get("mappingSpaces.details")).parse(f));
+      System.out.println("load "+path);
+      List<Resource> txr = new ArrayList<>();
+      f.setBundle(new IgSpreadsheetParser(context, execTime, igpkp.getCanonical(), f.getValuesetsToLoad(), txr, first, context.getBinaries().get("mappingSpaces.details")).parse(f));
       for (BundleEntryComponent b : f.getBundle().getEntry()) {
         FetchedResource r = f.addResource();
         r.setResource(b.getResource());
         r.setId(b.getResource().getId());
         r.setElement(new ObjectConverter(context).convert(r.getResource()));          
+        r.setTitle(r.getElement().getChildValue("name"));
+        igpkp.findConfiguration(f, r);
+      }
+      for (Resource tr : txr) {
+        FetchedResource r = f.addResource();
+        r.setResource(tr);
+        r.setId(tr.getId());
+        r.setElement(new ObjectConverter(context).convert(tr));          
         r.setTitle(r.getElement().getChildValue("name"));
         igpkp.findConfiguration(f, r);
       }
