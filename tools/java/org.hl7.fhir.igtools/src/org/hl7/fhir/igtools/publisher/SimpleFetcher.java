@@ -75,6 +75,14 @@ public class SimpleFetcher implements IFetchFile {
   }
 
   @Override
+  public boolean canFetchFlexible(String path) throws Exception {
+    File f = new File(path+".xml");
+    if (!f.exists())
+      f = new File(path+".json");
+    return f.exists();
+  }
+
+  @Override
   public FetchedFile fetch(Type source, FetchedFile src) throws Exception {
     if (source instanceof Reference) {
       String s = ((Reference)source).getReference();

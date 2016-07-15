@@ -1,9 +1,12 @@
 package org.hl7.fhir.igtools.publisher;
 
 import java.awt.EventQueue;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -20,6 +23,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import javax.swing.UIManager;
 
@@ -440,7 +445,72 @@ public class Publisher implements IGLogger {
     otherFilesStartup.add(Utilities.path(tempDir, "data"));
     otherFilesStartup.add(Utilities.path(tempDir, "data", "fhir.json"));
     otherFilesStartup.add(Utilities.path(tempDir, "_includes"));
+    
+    JsonArray deps = configuration.getAsJsonArray("dependencyList");
+    if (deps != null) {
+      for (JsonElement dep : deps) {
+        loadIg((JsonObject) dep);
+      }
+    }
+    log("Initialization complete");
+  }
 
+  private void loadIg(JsonObject dep) throws Exception {
+    String name = str(dep, "name");
+    String location = str(dep, "location");
+    String source = str(dep, "source");
+    if (Utilities.noString(source)) 
+      source = location;
+    log("Load "+name+" ("+location+") from "+source);
+    Map<String, byte[]> files = fetchDefinitions(source);
+    SpecMapManager igm = new SpecMapManager(files.get("spec.internals")); 
+    if (!Constants.VERSION.equals(igm.getVersion()))
+      log("Version mismatch. This IG is version "+Constants.VERSION+", while the IG is from version "+igm.getVersion()+". Will try to run anyway)");
+      
+    for (String fn : files.keySet()) {
+      if (fn.endsWith(".json")) {
+        Resource r;
+        try {
+          org.hl7.fhir.dstu3.formats.JsonParser jp = new org.hl7.fhir.dstu3.formats.JsonParser();
+          r = jp.parse(new ByteArrayInputStream(files.get(fn)));
+        } catch (Exception e) {
+          throw new Exception("Unable to parse "+fn+" from IG "+name, e);
+        }
+        if (r instanceof BaseConformance) {
+          String u = ((BaseConformance) r).getUrl();
+          String p = igm.getPath(u);
+          if (p == null)
+            throw new Exception("Internal error in IG "+name+" map: No idnetity found for "+u);
+          r.setUserData("path", location+"/"+p);
+          context.seeResource(u, r);
+        }
+      }
+    }
+  }
+
+  private Map<String, byte[]> fetchDefinitions(String filename) throws IOException {
+    // todo: if filename is a URL
+    Map<String, byte[]> res = new HashMap<String, byte[]>();
+    ZipInputStream zip = new ZipInputStream(new FileInputStream(Utilities.path(Utilities.getDirectoryForFile(configFile), filename, "definitions.json.zip")));
+    ZipEntry ze;
+    while ((ze = zip.getNextEntry()) != null) {
+      int size;
+      byte[] buffer = new byte[2048];
+
+      ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+      BufferedOutputStream bos = new BufferedOutputStream(bytes, buffer.length);
+
+      while ((size = zip.read(buffer, 0, buffer.length)) != -1) {
+        bos.write(buffer, 0, size);
+      }
+      bos.flush();
+      bos.close();
+      res.put(ze.getName(), bytes.toByteArray());
+
+      zip.closeEntry();
+    }
+    zip.close();
+    return res;
   }
 
   private String getCurentDirectory() {
@@ -653,7 +723,7 @@ public class Publisher implements IGLogger {
     boolean changed = noteFile("Spreadsheet/"+be.getAsString(), f);
     if (changed) {
       f.getValuesetsToLoad().clear();
-      System.out.println("load "+path);
+      dlog("load "+path);
       f.setBundle(new IgSpreadsheetParser(context, execTime, igpkp.getCanonical(), f.getValuesetsToLoad(), first, context.getBinaries().get("mappingSpaces.details")).parse(f));
       for (BundleEntryComponent b : f.getBundle().getEntry()) {
         FetchedResource r = f.addResource();
@@ -665,26 +735,47 @@ public class Publisher implements IGLogger {
       }
     } else 
       f = altMap.get("Spreadsheet/"+be.getAsString());
-    for (String vr : f.getValuesetsToLoad()) {
+    for (String id : f.getValuesetsToLoad().keySet()) {
+      String vr = f.getValuesetsToLoad().get(id);
       path = Utilities.path(Utilities.getDirectoryForFile(igName), vr);
       FetchedFile fv = fetcher.fetchFlexible(path);
       boolean vrchanged = noteFile("sp-ValueSet/"+vr, fv);
       if (vrchanged) {
         determineType(fv);
-        // check the canonical URL
-        String url = fv.getResources().get(0).getElement().getChildValue("url");
-        String id = fv.getResources().get(0).getId();
-        if (!tail(url).equals(id)) 
-          throw new Exception("resource id/url mismatch: "+id+" vs "+url+" for "+fv.getResources().get(0).getTitle()+" in "+fv.getName());
-        //        if (!url.startsWith(igpkp.getCanonical())) 
-        //          throw new Exception("base/ resource url mismatch: "+igpkp.getCanonical()+" vs "+url);
-
+        checkImplicitResourceIdentity(id, fv);
       }
-      changed = changed || vrchanged;
+      // ok, now look for an implicit code system with the same name
+      boolean crchanged = false;
+      String cr = vr.replace("valueset-", "codesystem-");
+      path = Utilities.path(Utilities.getDirectoryForFile(igName), vr);
+      if (fetcher.canFetchFlexible(path)) {
+        fv = fetcher.fetchFlexible(path);
+        crchanged = noteFile("sp-CodeSystem/"+vr, fv);
+        if (crchanged) {
+          determineType(fv);
+          checkImplicitResourceIdentity(id, fv);
+        }
+      }
+      
+      changed = changed || vrchanged || crchanged;
     }
     for (FetchedResource r : f.getResources()) 
       bndIds.add(r.getElement().fhirType()+"/"+r.getId());
     return changed || needToBuild;
+  }
+
+  private void checkImplicitResourceIdentity(String id, FetchedFile fv) throws Exception {
+    // check the resource ids:
+    String rid = fv.getResources().get(0).getId();
+    String rurl = fv.getResources().get(0).getElement().getChildValue("url");
+    if (Utilities.noString(rurl))
+      throw new Exception("ValueSet has no canonical URL "+fv.getName());
+    if (!id.equals(rid))
+      throw new Exception("ValueSet has wrong id ("+rid+", expecting "+id+") in "+fv.getName());
+    if (!tail(rurl).equals(rid)) 
+      throw new Exception("resource id/url mismatch: "+id+" vs "+rurl+" for "+fv.getResources().get(0).getTitle()+" in "+fv.getName());
+    if (!rurl.startsWith(igpkp.getCanonical())) 
+      throw new Exception("base/ resource url mismatch: "+igpkp.getCanonical()+" vs "+rurl);
   }
 
 
@@ -742,12 +833,14 @@ public class Publisher implements IGLogger {
           e = loadFromXml(file);
         else 
           throw new Exception("Unable to determine file type for "+file.getName());
-
       } catch (Exception ex) {
         throw new Exception("Unable to parse "+file.getName()+": " +ex.getMessage(), ex);
       }
       FetchedResource r = file.addResource();
-      r.setElement(e).setId(e.getChildValue("id")).setTitle(e.getChildValue("name"));
+      String id = e.getChildValue("id");
+      if (Utilities.noString(id))
+        throw new Exception("Resource has no id in "+file.getName());
+      r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
       Element m = e.getNamedChild("meta");
       if (m != null) {
         List<Element> profiles = m.getChildrenByName("profile");
@@ -956,7 +1049,13 @@ public class Publisher implements IGLogger {
     SpecMapManager map = new SpecMapManager(Constants.VERSION, Constants.REVISION, execTime);
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
-        map.path(igpkp.getCanonical()+r.getUrlTail(), igpkp.getLinkFor(f, r));
+        String u = igpkp.getCanonical()+r.getUrlTail();
+        if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
+          String uc = ((BaseConformance) r.getResource()).getUrl();
+          if (!u.equals(uc))
+            throw new Exception("URL Mismatch "+u+" vs "+uc);
+        }
+        map.path(u, igpkp.getLinkFor(f, r));
       }
     }
     File df = File.createTempFile("fhir", "tmp");

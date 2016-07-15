@@ -2,8 +2,10 @@ package org.hl7.fhir.igtools.publisher;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.hl7.fhir.dstu3.model.Bundle;
@@ -21,7 +23,7 @@ public class FetchedFile {
   private List<FetchedResource> resources = new ArrayList<FetchedResource>();
   private List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
   private Bundle bundle;
-  private List<String> valuesetsToLoad = new ArrayList<String>();
+  private Map<String, String> valuesetsToLoad = new HashMap<String, String>();
   private boolean folder;
   private List<String> files; // if it's a folder
   private boolean noProcess;
@@ -95,7 +97,7 @@ public class FetchedFile {
   public void setBundle(Bundle bundle) {
     this.bundle = bundle;
   }
-  public List<String> getValuesetsToLoad() {
+  public Map<String, String> getValuesetsToLoad() {
     return valuesetsToLoad;
   }
   public boolean isFolder() {

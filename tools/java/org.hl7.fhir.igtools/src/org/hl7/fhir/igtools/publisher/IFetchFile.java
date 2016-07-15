@@ -6,6 +6,7 @@ public interface IFetchFile {
   
   FetchedFile fetch(String path) throws Exception;
   FetchedFile fetchFlexible(String path) throws Exception;
+  boolean canFetchFlexible(String path) throws Exception;
   FetchedFile fetch(Type source, FetchedFile base) throws Exception;
   void setPkp(IGKnowledgeProvider pkp);
 }

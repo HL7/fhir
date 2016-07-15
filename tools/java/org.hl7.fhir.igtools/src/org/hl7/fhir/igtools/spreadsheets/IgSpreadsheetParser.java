@@ -108,10 +108,10 @@ public class IgSpreadsheetParser {
   private Map<String, ElementDefinitionBindingComponent> bindings = new HashMap<String, ElementDefinitionBindingComponent>();
   private Sheet sheet;
   private Bundle bundle;
-  private List<String> valuesetsToLoad;
+  private Map<String, String> valuesetsToLoad;
   private boolean first;
 
-  public IgSpreadsheetParser(SimpleWorkerContext context, Calendar genDate, String base, List<String> valuesetsToLoad, boolean first, byte[] msSource) throws Exception {
+  public IgSpreadsheetParser(SimpleWorkerContext context, Calendar genDate, String base, Map<String, String> valuesetsToLoad, boolean first, byte[] msSource) throws Exception {
     this.context = context;
     this.genDate = genDate;
     this.base = base;
@@ -187,11 +187,12 @@ public class IgSpreadsheetParser {
       if (xls.getSheets().containsKey("Operations"))
         readOperations(loadSheet("Operations"));
 
+      checkOutputs(f);
+      
     } catch (Exception e) {
       throw new Exception("exception parsing pack "+f.getName()+": "+e.getMessage(), e);
     }
 
-    checkOutputs(f);
     return bundle;
   }
 
@@ -474,9 +475,12 @@ public class IgSpreadsheetParser {
         bs.setValueSet(new Reference(sheet.getColumn(row, "Reference")));
       } else if (type.equals("value set")) {
         String ref = sheet.getColumn(row, "Reference");
+        String id = ref.startsWith("valueset-") ? ref.substring(9) : ref;
         if (!ref.startsWith("http:") && !ref.startsWith("https:") && !ref.startsWith("ValueSet/")) {
-          valuesetsToLoad.add(ref);
-          ref = "ValueSet/"+ref;
+          if (valuesetsToLoad.containsKey(id))
+            throw new Exception("Duplicate Value Set id "+id);
+          valuesetsToLoad.put(id, ref);
+          ref = "ValueSet/"+id;
         }
         bs.setValueSet(new Reference(ref));
       } else {
@@ -499,7 +503,7 @@ public class IgSpreadsheetParser {
     
     if (hasDefine) {
       CodeSystem cs = new CodeSystem();
-      cs.setUrl("http://hl7.org/fhir/"+sheetName);
+      cs.setUrl(base+"/CodeSystem/"+sheetName);
       vs.getCompose().addInclude().setSystem(cs.getUrl());
       CodeSystemConvertor.populate(cs, vs);
       cs.setVersion(vs.getVersion());

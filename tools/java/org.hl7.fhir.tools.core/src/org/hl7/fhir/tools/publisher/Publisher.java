@@ -2508,9 +2508,9 @@ public class Publisher implements URIResolver, SectionNumberer {
         spm.path(cm.getUrl(), cm.getUserString("path").replace("\\", "/"));
     }
 
-    for (String url : page.getDefinitions().getMapTypes().keySet()) {
-      spm.map(url, page.getDefinitions().getMapTypes().get(url).getPreamble());
-    }
+//    for (String url : page.getDefinitions().getMapTypes().keySet()) {
+//      spm.map(url, page.getDefinitions().getMapTypes().get(url).getPreamble());
+//    }
     spm.save(page.getFolders().dstDir + "spec.internals");
   }
 
