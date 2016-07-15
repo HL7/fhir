@@ -3,9 +3,24 @@
   <id value="example"/>
   <text>
     <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">HACC Funded Billing for Peter James Chalmers</div>
   </text>
 
   <!-- insert contents here -->
-  
+  <name value="HACC Funded Billing for Peter James Chalmers"/>
+  <type>
+    <text value="patient"/>
+  </type>
+  <status value="active"/>
+  <active>
+    <start value="2016-01-01"/>
+    <end value="2016-06-30"/>
+  </active>
+  <coverage>
+    <reference value="Coverage/9876B1"/>
+  </coverage>
+  <subject>
+    <reference value="Patient/example"/>
+    <display value="Peter James Chalmers"/>
+  </subject>
 </Account>
