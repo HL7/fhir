@@ -30,6 +30,10 @@
           <value value="Бенгальский"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="孟加拉语"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Bengalisch"/>
         </designation>
@@ -48,6 +52,10 @@
         <designation>
           <language value="ru"/>
           <value value="Чешский"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="捷克语"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -70,6 +78,10 @@
           <value value="Датский"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="丹麦语"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Dänisch"/>
         </designation>
@@ -88,6 +100,10 @@
         <designation>
           <language value="ru"/>
           <value value="Немецкий"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="德语"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -110,6 +126,10 @@
           <value value="Немецкий (Австрия)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="德语 （奥地利）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Deutsch (Österreich)"/>
         </designation>
@@ -128,6 +148,10 @@
         <designation>
           <language value="ru"/>
           <value value="Немецкий (Швейцария)"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="德语 （瑞士）"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -150,6 +174,10 @@
           <value value="Немецкий (Германия)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="德语 （德国）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Deutsch (Deutschland)"/>
         </designation>
@@ -168,6 +196,10 @@
         <designation>
           <language value="ru"/>
           <value value="Греческий"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="希腊语"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -190,6 +222,10 @@
           <value value="Английский"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="英语"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Englisch"/>
         </designation>
@@ -208,6 +244,10 @@
         <designation>
           <language value="ru"/>
           <value value="Английский (Австралия)"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="英语 （澳大利亚）"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -230,6 +270,10 @@
           <value value="Английский (Канада)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="英语 （加拿大）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Englisch (Kanada)"/>
         </designation>
@@ -248,6 +292,10 @@
         <designation>
           <language value="ru"/>
           <value value="Английский (Великобритания)"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="英语 （英国）"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -270,6 +318,10 @@
           <value value="Английский (Индия)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="英语 （印度）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Englisch (Indien)"/>
         </designation>
@@ -288,6 +340,10 @@
         <designation>
           <language value="ru"/>
           <value value="Английский (Новая Зеландия)"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="英语 （新西兰）"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -310,6 +366,10 @@
           <value value="Английский (Сингапур)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="英语 （新加坡）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Englisch (Singapur)"/>
         </designation>
@@ -328,6 +388,10 @@
         <designation>
           <language value="ru"/>
           <value value="Испанский"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="西班牙语"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -350,6 +414,10 @@
           <value value="Испанский (Аргентина)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="西班牙语 （阿根廷）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Spanisch (Argentinien)"/>
         </designation>
@@ -368,6 +436,10 @@
         <designation>
           <language value="ru"/>
           <value value="Испанский (Испания)"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="西班牙语 （西班牙）"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -390,6 +462,10 @@
           <value value="Испанский (Уругвай)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="西班牙语 （乌拉圭）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Spanisch (Uruguay)"/>
         </designation>
@@ -410,6 +486,10 @@
           <value value="Финский"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="芬兰语"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Finnisch"/>
         </designation>
@@ -428,6 +508,10 @@
         <designation>
           <language value="ru"/>
           <value value="Французский"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="法语"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -466,6 +550,10 @@
           <value value="Французский (Швейцария)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="法语 （比利时）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Französisch (Schweiz)"/>
         </designation>
@@ -486,6 +574,10 @@
           <value value="Французский (Франция)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="法语 （瑞士）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Französisch (Frankreich)"/>
         </designation>
@@ -502,6 +594,10 @@
           <value value="Fries"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="弗里士兰语"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Friesisch"/>
         </designation>
@@ -516,6 +612,10 @@
         <designation>
           <language value="nl"/>
           <value value="Fries (Nederland)"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="弗里士兰语（荷兰）"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -538,6 +638,10 @@
           <value value="Хорватский"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="克罗地亚语"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Kroatisch"/>
         </designation>
@@ -556,6 +660,10 @@
         <designation>
           <language value="ru"/>
           <value value="Итальянский"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="意大利语"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -578,6 +686,10 @@
           <value value="Итальянский (Швейцария)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="意大利语 （瑞士）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Italienisch (Schweiz)"/>
         </designation>
@@ -596,6 +708,10 @@
         <designation>
           <language value="ru"/>
           <value value="Итальянский (Италия)"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="意大利语 （意大利）"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -618,6 +734,10 @@
           <value value="Японский"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="日语"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Japanisch"/>
         </designation>
@@ -636,6 +756,10 @@
         <designation>
           <language value="ru"/>
           <value value="Корейский"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="朝鲜语"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -658,6 +782,10 @@
           <value value="Нидерландский"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="荷兰语"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Niederländisch"/>
         </designation>
@@ -672,6 +800,10 @@
         <designation>
           <language value="nl"/>
           <value value="Nederlands (België)"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="荷兰语 （比利时）"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -694,6 +826,10 @@
           <value value="Нидерландский (Нидерланды)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="荷兰语 （荷兰）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Niederländisch (Niederlande)"/>
         </designation>
@@ -712,6 +848,10 @@
         <designation>
           <language value="ru"/>
           <value value="Норвежский"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="挪威语"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -734,6 +874,10 @@
           <value value="Норвежский (Норвегия)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="挪威语 （挪威）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Norwegisch (Norwegen)"/>
         </designation>
@@ -752,6 +896,10 @@
         <designation>
           <language value="ru"/>
           <value value="Португальский"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="葡萄牙语"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -774,6 +922,10 @@
           <value value="Португальский (Бразилия)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="葡萄牙语 （巴西）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Portugiesisch (Brasilien)"/>
         </designation>
@@ -792,6 +944,10 @@
         <designation>
           <language value="ru"/>
           <value value="Русский"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="俄语"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -814,6 +970,10 @@
           <value value="Русский (Россия)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="俄语 （俄罗斯）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Russisch (Russland)"/>
         </designation>
@@ -832,6 +992,10 @@
         <designation>
           <language value="ru"/>
           <value value="Сербский"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="塞尔维亚语"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -854,6 +1018,10 @@
           <value value="Сербский (Сербия)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="塞尔维亚语 （塞尔维亚）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Serbisch (Serbien)"/>
         </designation>
@@ -872,6 +1040,10 @@
         <designation>
           <language value="ru"/>
           <value value="Шведский"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="瑞典语"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -894,6 +1066,10 @@
           <value value="Шведский (Швеция)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="瑞典语 （瑞典）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Schwedisch (Schweden)"/>
         </designation>
@@ -912,6 +1088,10 @@
         <designation>
           <language value="ru"/>
           <value value="Телугу"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="泰卢固语"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -934,6 +1114,10 @@
           <value value="Kитайский"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="中文"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Chinesisch"/>
         </designation>
@@ -952,6 +1136,10 @@
         <designation>
           <language value="ru"/>
           <value value="Kитайский (Китай)"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="中文 （中国）"/>
         </designation>
         <designation>
           <language value="de"/>
@@ -974,6 +1162,10 @@
           <value value="Kитайский (Гонконг)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="中文 （香港特别行政区）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Chinesisch (Hong Kong)"/>
         </designation>
@@ -994,6 +1186,10 @@
           <value value="Kитайский (Сингапур)"/>
         </designation>
         <designation>
+          <language value="zh"/>
+          <value value="中文 （新加坡）"/>
+        </designation>
+        <designation>
           <language value="de"/>
           <value value="Chinesisch (Singapur)"/>
         </designation>
@@ -1012,6 +1208,10 @@
         <designation>
           <language value="ru"/>
           <value value="Kитайский (Тайвань)"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="中文 （台湾）"/>
         </designation>
         <designation>
           <language value="de"/>
