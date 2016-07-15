@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
+
   <id value="father"/>
   <meta>
     <lastUpdated value="2013-05-28T22:12:21Z"/>
@@ -469,9 +470,9 @@
         <status value="confirmed"/>
         <type value="allergy"/>
         <criticality value="high"/>
-        <substance>
+        <code>
           <text value="Doxycycline"/>
-        </substance>
+        </code>
         <patient>
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Eve Everywoman"/>

@@ -17,23 +17,23 @@
 
   <!-- this categorisation is implied by "cashew nut" and therefore basically
     redundant, but many systems collect this field anyway, since it's either
-    useful when the substance is not coded, or it's quicker to sort/filter on
+    useful when the substance/product is not coded, or it's quicker to sort/filter on
     than using terminology based reasoning -->
   <category value="food"/>
 
   <!-- there is no question that the allergy is real and serious -->
   <criticality value="high"/>
 
-  <!-- subtance - either coded, or text. A few times,
-    there's a full description of a complex substance - in these caes, use the
-    extension [url] to refer to a Substance resource -->
-  <substance>
+  <!-- Allergy or intolerance code (substance, product, condition or negated/excluded statement) or text. A few times, 
+    there's a full description of a complex substance/product - in these caes, use the
+    extension [url] to refer to a Substance resource. -->
+  <code>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="227493005"/>
       <display value="Cashew nuts"/>
     </coding>
-  </substance>
+  </code>
 
   <!-- the patient that actually has the risk of adverse reaction -->
   <patient>

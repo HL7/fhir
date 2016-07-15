@@ -1,4 +1,41 @@
 ﻿
 === Sheet Bindings =====================================
 
+ -- Row 1 -----------------------------------
+  Binding Name = SubstanceCode
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/substance-code
+  Definition = Codes defining the type of the substance (including pharmaceutical products).
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = AllergyIntoleranceSubstanceExposureRisk
+  Binding = code list
+  Reference = #allerg-intol-substance-exp-risk
+  Definition = The risk of an adverse reaction (allergy or intolerance) for this patient upon xposure to the substance (including pharmaceutical products).
+  Conformance = required
+
+=== Sheet allerg-intol-substance-exp-risk =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = known-reaction-risk
+  Display = Known Reaction Risk
+  Definition = Known risk of allergy or intolerance reaction upon exposure to the specified substance.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = no-known-reaction-risk
+  Display = No Known Reaction Risk
+  Definition = No known risk of allergy or intolerance reaction upon exposure to the specified substance.
+
+=== Sheet Extensions-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = AllergyIntolerance
+  English = If the substanceExposureRisk extension element is present, the AllergyIntolerance.code element must be omitted.
+  XPath = exists(f:substanceExposureRisk) and not(exists(f:code))
+  Expression = substanceExposureRisk.exists() and code.empty()
+
 === Sheet Search =====================================

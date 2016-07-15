@@ -9,13 +9,13 @@
   <criticality value="high"/> 
 
   <!-- subtance, coded from RxNorm -->
-  <substance>
+  <code>
     <coding>
       <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
       <code value="314422"/>
       <display value="ALLERGENIC EXTRACT, PENICILLIN"/>
     </coding>
-  </substance>
+  </code>
  
   <!-- the patient that actually has the risk of adverse reaction -->
   <patient>

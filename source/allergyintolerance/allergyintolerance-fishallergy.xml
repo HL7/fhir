@@ -25,14 +25,14 @@
   <!-- subtance - either coded, or text. A few times, 
     there's a full description of a complex substance - in these caes, use the
     extension [url] to refer to a Substance resource -->
-  <substance>
+  <code>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="227037002"/>
       <display value="Fish - dietary (substance)"/>
     </coding>
     <text value="Allergic to fresh fish. Tolerates canned fish"/>
-  </substance>
+  </code>
 
   <!-- the patient that actually has the risk of adverse reaction -->
   <patient>

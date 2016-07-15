@@ -23,16 +23,16 @@
   <!-- there is no question that the allergy is real and serious --> 
   <criticality value="high"/>
   
-  <!-- substance - either coded, or text. A few times, 
-    there's a full description of a complex substance - in these caes, use the
-    extension [url] to refer to a Substance resource -->
-  <substance>
+  <!-- Allergy or intolerance code (substance, product, condition or negated/excluded statement) or text. A few times, 
+    there's a full description of a complex substance/product - in these caes, use the
+    extension [url] to refer to a Substance resource. -->
+  <code>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="227493005"/>
       <display value="Cashew nuts"/>
     </coding>
-  </substance>
+  </code>
  
   <!-- the patient that actually has the risk of adverse reaction -->
   <patient>

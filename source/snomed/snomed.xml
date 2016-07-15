@@ -11441,6 +11441,10 @@
     <display value="Repeating dressing"/>
     <display value="Change of dressing (procedure)"/>
   </concept>
+  <concept id="190753003" display="Sucrose intolerance">
+    <display value="Sucrose intolerance"/>
+    <display value="Sucrose intolerance (disorder)"/>
+  </concept>
   <concept id="1910005" display="Entire ear (body structure)">
     <display value="Ear"/>
     <display value="Ear, NOS"/>
@@ -13628,6 +13632,10 @@
     <display value="Granulomatous enteritis"/>
     <display value="Crohn&#39;s disease (disorder)"/>
   </concept>
+  <concept id="340519003" display="Lysine intolerance">
+    <display value="Lysine intolerance"/>
+    <display value="Lysine intolerance (disorder)"/>
+  </concept>
   <concept id="34068001" display="Heart valve replacement (procedure)">
     <display value="Replacement of unspecified heart valve"/>
     <display value="Heart valve replacement, NOS"/>
@@ -15265,6 +15273,10 @@
   <concept id="413322009" display="Problem resolved (finding)">
     <display value="Problem resolved (finding)"/>
     <display value="Problem resolved"/>
+  </concept>
+  <concept id="413427002" display="Acquired fructose intolerance (disorder)">
+    <display value="Acquired fructose intolerance (disorder)"/>
+    <display value="Acquired fructose intolerance"/>
   </concept>
   <concept id="413456002" display="Adult day care center (environment)">
     <display value="Adult day care center (environment)"/>

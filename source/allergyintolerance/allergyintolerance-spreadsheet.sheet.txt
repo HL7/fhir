@@ -51,10 +51,10 @@
   Conformance = required
 
  -- Row 8 -----------------------------------
-  Binding Name = AllergyIntoleranceSubstance
+  Binding Name = AllergyIntoleranceCode
   Binding = value set
-  Reference = valueset-allergyintolerance-substance-code
-  Definition = Type of the substance and Negation codes for reporting no known allergies.
+  Reference = valueset-allergyintolerance-code
+  Definition = Type of the substance/product, allergy or intolerance condition, or negation/exclusion codes for reporting no known allergies.
   Conformance = example
 
  -- Row 9 -----------------------------------
@@ -68,7 +68,7 @@
   Binding Name = SubstanceCode
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/substance-code
-  Definition = Codes defining the type of the substance.
+  Definition = Codes defining the type of the substance (including pharmaceutical products).
   Conformance = example
 
 === Sheet allergy-intolerance-status =====================================
@@ -308,17 +308,17 @@
   w5 = grade
 
  -- Row 7 -----------------------------------
-  Element = AllergyIntolerance.substance
-  Card. = 1..1
-  Aliases = Agent
+  Element = AllergyIntolerance.code
+  Card. = 0..1
+  Aliases = Code
   Summary = Y
   Type = CodeableConcept
-  Binding = AllergyIntoleranceSubstance
-  Short Label = Substance, (or class) considered to be responsible for risk
-  Definition = Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk
-  Comments = It is strongly recommended that the substance be coded with a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available. Additional details about a substance can be specified in the text.
+  Binding = AllergyIntoleranceCode
+  Short Label = Allergy or intolerance code
+  Definition = Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  This may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., \"Latex\"), an allergy or intolerance condition (e.g., \"Latex allergy\"), or a negated/excluded code for a specific substance or class (e.g., \"No latex allergy\") or a general or categorical negated statement (e.g.,  \"No known allergy\", \"No known drug allergies\").
+  Comments = It is strongly recommended that this element be populated using a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available. Additional details can be specified in the text.\n\nWhen a substance or product code is specified for the \'code\' element, the \"default\" semantic context is that this is a positive statement of an allergy or intolerance (depending on the value of the \'type\' element, if present) condition to the specified substance/product.  In the corresponding SNOMED CT allergy model, the specified substance/product is the target (destination) of the \"Causative agent\" relationship.\n\nThe \'substanceExposureRisk\' extension is available as a structured and more flexible alternative to the \'code\' element for making positive or negative allergy or intolerance statements.  This extension provides the capability to make \"no known allergy\" (or \"no risk of adverse reaction\") statements regarding any coded substance/product (including cases when a pre-coordinated \"no allergy to x\" concept for that substance/product does not exist).  If the \'substanceExposureRisk\' extension is present, the AllergyIntolerance.code element SHALL be omitted.
   v2 Mapping = AL1-3 / IAM-3
-  RIM Mapping = .participation[typeCode=CAGNT].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]
+  RIM Mapping = substance/product:\n\n.participation[typeCode=CAGNT].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]\n\nnegated/excluded substance/product:\n\n.participation[typeCode=CAGNT, negationInd=true].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]\n\npositive or negated/excluded condition/situation:\n\nObservation.code=ASSERTION; Observation.value
   w5 = what
 
  -- Row 8 -----------------------------------
@@ -410,9 +410,9 @@
   Summary = Y
   Type = CodeableConcept
   Binding = SubstanceCode
-  Short Label = Specific substance considered to be responsible for event
-  Definition = Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AllergyIntolerance.substance and ignore the AllergyIntolerance.event.substance
-  Comments = Coding of the specific substance with a terminology capable of triggering decision support should be used wherever possible.  The substance field allows for the use of a specific substance or a group or class of substances, for example \"Penicillins\". The specific substance field could be used for Amoxycillin. Duplication is acceptable when a specific substance has been recorded in the \'substance\' field.
+  Short Label = Specific substance or pharmaceutical product considered to be responsible for event
+  Definition = Identification of the specific substance (or pharmaceutical product) considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the \'code\' and ignore the \'reaction.substance\'.
+  Comments = Coding of the specific substance (or pharmaceutical product) with a terminology capable of triggering decision support should be used wherever possible.  The \'code\' element allows for the use of a specific substance or pharmaceutical product, or a group or class of substances. In the case of an allergy or intolerance to a class of substances, (for example, \"Penicillins\"), the \'reaction.substance\' element could be used to code the specific substance that was identifed as having caused the reaction (for example, \"Amoxycillin\"). Duplication of the value in the \'code\' and \'reaction.substance\' elements is acceptable when a specific substance has been recorded in \'code\'.
   RIM Mapping = outBoundRelationship[typeCode=SAS].target[classCode=SBADM, code <= ExposureCode].participation[typeCode=CSM].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]
 
  -- Row 17 -----------------------------------
@@ -493,9 +493,9 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = substance
+  Name = code
   Type = token
-  Path = AllergyIntolerance.substance | AllergyIntolerance.reaction.substance
+  Path = AllergyIntolerance.code | \nAllergyIntolerance.reaction.substance
 
  -- Row 2 -----------------------------------
   Name = status
