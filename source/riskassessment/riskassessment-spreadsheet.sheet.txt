@@ -264,7 +264,7 @@
  -- Row 2 -----------------------------------
   Name = date
   Type = date
-  Path = RiskAssessment.occurrence[x]
+  Path = RiskAssessment.occurrenceDateTime
   Target Types = dateTime
 
  -- Row 3 -----------------------------------
