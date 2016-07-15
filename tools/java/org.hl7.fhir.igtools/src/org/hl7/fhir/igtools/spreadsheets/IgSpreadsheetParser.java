@@ -231,9 +231,8 @@ public class IgSpreadsheetParser {
     if (logical) {
       sd.setKind(StructureDefinitionKind.LOGICAL);  
       sd.setId(sd.getDifferential().getElement().get(0).getPath());
-      if (!"Element".equals(sd.getDifferential().getElementFirstRep().getTypeFirstRep().getCode()))
-        throw new Exception("Logical Models must derive from Element");
-      sd.setType(sd.getDifferential().getElementFirstRep().getTypeFirstRep().getCode());
+      sd.getDifferential().getElementFirstRep().getType().clear();
+      sd.setType(sd.getDifferential().getElementFirstRep().getPath());
       sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Element");
       sd.setDerivation(TypeDerivationRule.SPECIALIZATION);
       sd.setAbstract(false);
