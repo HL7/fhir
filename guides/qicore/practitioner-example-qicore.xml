@@ -20,19 +20,19 @@
     <prefix value="Dr"/>
   </name>
 
-  <practitionerRole>
+  <role>
 
     <organization>
       <reference value="Organization/1"/>
     </organization>
 
-    <role>
+    <code>
       <coding>
         <system value="http://hl7.org/fhir/practitioner-role"/>
         <code value="doctor"/>
         <display value="Doctor"/>
       </coding>
-    </role>
+    </code>
     <specialty>
       <extension url="http://hl7.org/fhir/StructureDefinition/practitioner-primaryInd" >
         <valueBoolean value="true"/>
@@ -44,6 +44,6 @@
       </coding>
     </specialty>
 
-  </practitionerRole>
+  </role>
 
 </Practitioner>

@@ -456,12 +456,12 @@
   Committee Notes = 11/18/2014 EH: must support
 
  -- Row 29 -----------------------------------
-  Element = Practitioner.practitionerRole
+  Element = Practitioner.role
   Card. = 1..1
   Must Support = Y
 
  -- Row 30 -----------------------------------
-  Element = Practitioner.practitionerRole.organization
+  Element = Practitioner.role.organization
   Card. = 1..1
   Must Support = Y
   Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/uslab-orderfacility}

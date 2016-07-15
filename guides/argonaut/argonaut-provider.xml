@@ -2658,7 +2658,7 @@
       </mapping>
     </element>
     <element>
-      <path value="Practitioner.practitionerRole" />
+      <path value="Practitioner.role" />
       <short value="Roles/organizations the practitioner is associated with" />
       <definition value="The list of roles/organizations that the practitioner is associated with." />
       <min value="1" />
@@ -2673,7 +2673,7 @@
       </mapping>
     </element>
     <element>
-      <path value="Practitioner.practitionerRole.organization" />
+      <path value="Practitioner.role.organization" />
       <short value="Organization where the roles are performed" />
       <definition value="The organization where the Practitioner performs the roles associated." />
       <min value="1" />
@@ -2689,7 +2689,7 @@
       </mapping>
     </element>
     <element>
-      <path value="Practitioner.practitionerRole.organization.reference" />
+      <path value="Practitioner.role.organization.reference" />
       <name value="OrganizationID" />
       <short value="Relative, internal or absolute URL reference" />
       <definition value="A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources." />
@@ -2709,7 +2709,7 @@
       </mapping>
     </element>
     <element>
-      <path value="Practitioner.practitionerRole.organization.display" />
+      <path value="Practitioner.role.organization.display" />
       <name value="Clinicname" />
       <short value="Common Name of Organization" />
       <definition value="Plain text narrative that identifies the resource in addition to the resource reference." />
@@ -2728,7 +2728,7 @@
       </mapping>
     </element>
     <element>
-      <path value="Practitioner.practitionerRole.specialty" />
+      <path value="Practitioner.role.specialty" />
       <short value="Specific specialty of the practitioner" />
       <definition value="Specific specialty of the practitioner." />
       <comments value="Specialty can be coded using AMA codes, or other codes as desired&#xD;&#xA;" />
@@ -2760,7 +2760,7 @@
       </mapping>
     </element>
     <element>
-      <path value="Practitioner.practitionerRole.specialty.text" />
+      <path value="Practitioner.role.specialty.text" />
       <short value="Plain text representation of the concept" />
       <definition value="A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user." />
       <comments value="Very often the text is the same as a displayName of one of the codings." />
@@ -2787,7 +2787,7 @@
       </mapping>
     </element>
     <element>
-      <path value="Practitioner.practitionerRole.period" />
+      <path value="Practitioner.role.period" />
       <short value="The period during which the practitioner is authorized to perform in these role(s)" />
       <definition value="The period during which the person is authorized to act as a practitioner in these role(s) for the organization." />
       <requirements value="Even after the agencies is revoked, the fact that it existed must still be recorded." />
@@ -2815,7 +2815,7 @@
       </mapping>
     </element>
     <element>
-      <path value="Practitioner.practitionerRole.period.start" />
+      <path value="Practitioner.role.period.start" />
       <label value="Active Start Time" />
       <short value="Starting time with inclusive boundary" />
       <definition value="The start of the period. The boundary is inclusive." />
@@ -2839,7 +2839,7 @@
       </mapping>
     </element>
     <element>
-      <path value="Practitioner.practitionerRole.period.end" />
+      <path value="Practitioner.role.period.end" />
       <label value="Active End Time" />
       <short value="End time with inclusive boundary, if not ongoing" />
       <definition value="The end of the period. If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time." />

@@ -152,7 +152,7 @@
   ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)
 
  -- Row 11 -----------------------------------
-  Element = Practitioner.practitionerRole
+  Element = Practitioner.role
   Card. = 0..*
   UML = 400;20
   Short Label = Roles/organizations the practitioner is associated with
@@ -161,7 +161,7 @@
   RIM Mapping = .(Role)
 
  -- Row 12 -----------------------------------
-  Element = Practitioner.practitionerRole.organization
+  Element = Practitioner.role.organization
   Card. = 0..1
   Type = Reference(Organization)
   Short Label = Organization where the roles are performed
@@ -169,7 +169,7 @@
   RIM Mapping = scopingOrganization
 
  -- Row 13 -----------------------------------
-  Element = Practitioner.practitionerRole.role
+  Element = Practitioner.role.code
   Card. = 0..1
   Summary = y
   Type = CodeableConcept
@@ -183,7 +183,7 @@
   ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)
 
  -- Row 14 -----------------------------------
-  Element = Practitioner.practitionerRole.specialty
+  Element = Practitioner.role.specialty
   Card. = 0..*
   Summary = y
   Type = CodeableConcept
@@ -195,7 +195,7 @@
   ServD Mapping = ./Specialty
 
  -- Row 15 -----------------------------------
-  Element = Practitioner.practitionerRole.identifier
+  Element = Practitioner.role.identifier
   Card. = 0..*
   Summary = y
   Type = Identifier
@@ -203,7 +203,7 @@
   Requirements = Some business identifiers are specific to a location and should be able to be associated.
 
  -- Row 16 -----------------------------------
-  Element = Practitioner.practitionerRole.telecom
+  Element = Practitioner.role.telecom
   Card. = 0..*
   Summary = y
   Type = ContactPoint
@@ -211,7 +211,7 @@
   Requirements = Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these.
 
  -- Row 17 -----------------------------------
-  Element = Practitioner.practitionerRole.period
+  Element = Practitioner.role.period
   Card. = 0..1
   Summary = y
   Type = Period
@@ -225,7 +225,7 @@
   w5 = when.done
 
  -- Row 18 -----------------------------------
-  Element = Practitioner.practitionerRole.location
+  Element = Practitioner.role.location
   Card. = 0..*
   Type = Reference(Location)
   Short Label = The location(s) at which this practitioner provides care
@@ -235,14 +235,14 @@
   w5 = where
 
  -- Row 19 -----------------------------------
-  Element = Practitioner.practitionerRole.healthcareService
+  Element = Practitioner.role.healthcareService
   Card. = 0..*
   Type = Reference(HealthcareService)
   Short Label = The list of healthcare services that this worker provides for this role\'s Organization/Location(s)
   RIM Mapping = ./target[classCode=\"indirectAuthority].id?
 
  -- Row 20 -----------------------------------
-  Element = Practitioner.practitionerRole.endpoint
+  Element = Practitioner.role.endpoint
   Card. = 0..*
   Type = Reference(Endpoint)
   Short Label = Technical endpoints providing access to services operated for the PractitonerRole
@@ -312,7 +312,7 @@
   Name = identifier
   Type = token
   Description = A practitioner\'s Identifier
-  Path = Practitioner.identifier | Practitioner.practitionerRole.identifier
+  Path = Practitioner.identifier | Practitioner.role.identifier
 
  -- Row 2 -----------------------------------
   Name = name
@@ -343,19 +343,19 @@
   Name = telecom
   Type = token
   Description = The value in any kind of contact
-  Path = Practitioner.telecom | Practitioner.practitionerRole.telecom
+  Path = Practitioner.telecom | Practitioner.role.telecom
 
  -- Row 7 -----------------------------------
   Name = phone
   Type = token
   Description = A value in a phone contact
-  Path = Practitioner.telecom(system=phone) | Practitioner.practitionerRole.telecom(system=phone)
+  Path = Practitioner.telecom(system=phone) | Practitioner.role.telecom(system=phone)
 
  -- Row 8 -----------------------------------
   Name = email
   Type = token
   Description = A value in an email contact
-  Path = Practitioner.telecom(system=email) | Practitioner.practitionerRole.telecom(system=email)
+  Path = Practitioner.telecom(system=email) | Practitioner.role.telecom(system=email)
 
  -- Row 9 -----------------------------------
   Name = active
@@ -409,7 +409,7 @@
   Name = organization
   Type = reference
   Description = The identity of the organization the practitioner represents / acts on behalf of
-  Path = Practitioner.practitionerRole.organization
+  Path = Practitioner.role.organization
 
  -- Row 18 -----------------------------------
   Name = communication
@@ -421,19 +421,19 @@
   Name = location
   Type = reference
   Description = One of the locations at which this practitioner provides care
-  Path = Practitioner.practitionerRole.location
+  Path = Practitioner.role.location
 
  -- Row 20 -----------------------------------
   Name = specialty
   Type = token
   Description = The practitioner has this specialty at an organization
-  Path = Practitioner.practitionerRole.specialty
+  Path = Practitioner.role.specialty
 
  -- Row 21 -----------------------------------
   Name = role
   Type = token
   Description = The practitioner can perform this role at for the organization
-  Path = Practitioner.practitionerRole.role
+  Path = Practitioner.role.code
 
 === Sheet Profiles =====================================
 

@@ -80,7 +80,7 @@
   RIM Mapping = scopingOrganization
 
  -- Row 6 -----------------------------------
-  Element = PractitionerRole.role
+  Element = PractitionerRole.code
   Card. = 0..*
   Summary = y
   Type = CodeableConcept
@@ -270,7 +270,7 @@
   Name = role
   Type = token
   Description = The practitioner can perform this role at for the organization
-  Path = PractitionerRole.role
+  Path = PractitionerRole.code
 
 === Sheet Profiles =====================================
 

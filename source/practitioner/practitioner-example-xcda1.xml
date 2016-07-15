@@ -13,17 +13,17 @@
     <system value="email"/>
     <value value="john.doe@healthcare.example.org"/>
   </telecom>
-  <practitionerRole>
+  <role>
 
     <organization>
       <display value="Cleveland Clinic"/>
     </organization>
 
-    <role>
+    <code>
       <text value="Primary Surgon"/>
-    </role>
+    </code>
     <specialty>
       <text value="Orthopedic"/>
     </specialty>
-  </practitionerRole>
+  </role>
 </Practitioner>

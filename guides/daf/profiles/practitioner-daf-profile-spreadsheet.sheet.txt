@@ -114,12 +114,12 @@
   Type = string
 
  -- Row 16 -----------------------------------
-  Element = Practitioner.practitionerRole
+  Element = Practitioner.role
   Card. = 0..*
   Must Support = Y
 
  -- Row 17 -----------------------------------
-  Element = Practitioner.practitionerRole.organization
+  Element = Practitioner.role.organization
   Card. = 0..1
   Must Support = Y
   Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/daf-organization}

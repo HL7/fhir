@@ -21,18 +21,18 @@
     <given value="Adam"/>
     <prefix value="Dr"/>
   </name>
- <practitionerRole>
+ <role>
   <organization>
     <reference value="Organization/f001"/>
   </organization>
 
   <!-- Referring Practitioner for the first 3 months of 2012 -->
-  <role>
+  <code>
     <coding>
       <system value="http://hl7.org/fhir/v2/0286"/>
       <code value="RP"/>
     </coding>
-  </role>
+  </code>
 
   <period>
     <start value="2012-01-01"/>
@@ -45,7 +45,7 @@
 	 <healthcareService>
 		 <reference value="HealthcareService/example"/>
 	 </healthcareService>
- </practitionerRole>
+ </role>
 	<qualification>
 		<identifier>
 			<system value="http://example.org/UniversityIdentifier"/>

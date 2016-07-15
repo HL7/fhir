@@ -176,39 +176,39 @@
   Binding = YesNo
 
  -- Row 8 -----------------------------------
-  Element = Practitioner.practitionerRole
+  Element = Practitioner.role
   Profile Name = PractitionerRole
-  Discriminator = Practitioner.practitionerRole.organization|false|open, Practitioner.practitionerRole.role
+  Discriminator = Practitioner.role.organization|false|open, Practitioner.role.code
 
  -- Row 9 -----------------------------------
-  Element = Practitioner.practitionerRole.role
+  Element = Practitioner.role.code
   Binding = ProviderPractitionerType
 
  -- Row 10 -----------------------------------
-  Element = Practitioner.practitionerRole.specialty
+  Element = Practitioner.role.specialty
   Binding = ProviderSpecialty
 
  -- Row 11 -----------------------------------
-  Element = Practitioner.practitionerRole
+  Element = Practitioner.role
   Profile Name = AdministrativeAffiliation
   Slice Description = AdministrativeAffiliation
   Aliases = AdministrativeAffiliation
 
  -- Row 12 -----------------------------------
-  Element = Practitioner.practitionerRole
+  Element = Practitioner.role
   Profile Name = PracticeAffiliation
   Slice Description = PracticeAffiliation
   Aliases = PracticeAffiliation
 
  -- Row 13 -----------------------------------
-  Element = Practitioner.practitionerRole.extension
+  Element = Practitioner.role.extension
   Profile Name = PracticeAffiliationType
   Slice Description = PracticeAffiliationType
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionspracticeAffiliationType}
   Binding = PracticeAffiliationType
 
  -- Row 14 -----------------------------------
-  Element = Practitioner.practitionerRole.extension
+  Element = Practitioner.role.extension
   Profile Name = PractitionerPrivilege
   Slice Description = PractitionerPrivilege
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionspractitionerPrivilege}

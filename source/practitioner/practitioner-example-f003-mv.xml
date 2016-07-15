@@ -46,13 +46,13 @@
     <birthDate value="1963-07-01"/>
 
 
-		<practitionerRole>
+		<role>
     <organization>
         <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
         <reference value="Organization/f001"/>
         <display value="BMC"/>
     </organization>
-    <role>
+    <code>
         <coding>
             <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/>
             <!-- "AssignedRoleType" coding system -->
@@ -60,7 +60,7 @@
             <display value="Arts"/>
         </coding>
         <text value="Care role"/>
-    </role>
+    </code>
     <specialty>
         <coding>
             <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/>
@@ -70,7 +70,7 @@
         </coding>
         <text value="specialization"/>
     </specialty>
-		</practitionerRole>
+		</role>
     <communication>
         <coding>
             <system value="urn:oid:2.16.840.1.113883.6.121"/>

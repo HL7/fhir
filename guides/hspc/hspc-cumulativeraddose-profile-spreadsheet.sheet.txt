@@ -75,10 +75,10 @@
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}
 
  -- Row 8 -----------------------------------
-  Element = !Observation.performer.practitionerRole
+  Element = !Observation.performer.role
 
  -- Row 9 -----------------------------------
-  Element = !Observation.performer.practitionerRole.role
+  Element = !Observation.performer.role.code
   Binding = ObservedRoleType
 
  -- Row 10 -----------------------------------

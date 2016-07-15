@@ -1585,7 +1585,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">Practitioner.practitionerRole</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Practitioner.role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1612,7 +1612,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="34.5">
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">Practitioner.practitionerRole.organization</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Practitioner.role.organization</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">0..1</Data><NamedCell

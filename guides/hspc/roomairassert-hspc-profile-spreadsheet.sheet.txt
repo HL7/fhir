@@ -24,9 +24,9 @@
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
 
  -- Row 5 -----------------------------------
-  Element = !Observation.performer.practitionerRole
+  Element = !Observation.performer.role
 
  -- Row 6 -----------------------------------
-  Element = !Observation.performer.practitionerRole.role
+  Element = !Observation.performer.role.code
   Type = CodeableConcept{http://hl7.org/fhir/StructureDefinition/hspc-provpract#practitionerRole.role}
   Value = <code><coding><system value=\"http://hl7.org/fhir/hspc-participationType\"/><code value=\"528177627\"/><display value=\"Asserter\"/></coding></code>

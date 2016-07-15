@@ -29,11 +29,11 @@
         <family value="Midwife"/>
         <given value="Mavis"/>
       </name>
-      <practitionerRole>
+      <role>
         <specialty>
           <text value="Midwife"/>
         </specialty>
-      </practitionerRole>
+      </role>
     </Practitioner>
   </contained>
   <contained>
@@ -43,11 +43,11 @@
         <family value="Obstetrician"/>
         <given value="Oscar"/>
       </name>
-      <practitionerRole>
+      <role>
         <specialty>
           <text value="Obstetrician"/>
         </specialty>
-      </practitionerRole>
+      </role>
     </Practitioner>
   </contained>
   <contained>

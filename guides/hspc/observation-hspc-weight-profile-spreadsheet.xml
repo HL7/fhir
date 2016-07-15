@@ -7428,7 +7428,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Participant</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Observation.performer.practitionerRole</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Observation.performer.role</Data></Cell>
     <Cell ss:StyleID="s109"/>
     <Cell ss:StyleID="s109"/>
     <Cell ss:StyleID="s109"/>
@@ -7454,7 +7454,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">ParticipantRole</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Observation.performer.practitionerRole.role</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Observation.performer.role.code</Data></Cell>
     <Cell ss:StyleID="s109"/>
     <Cell ss:StyleID="s109"/>
     <Cell ss:StyleID="s109"/>

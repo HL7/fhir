@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9192</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>7980</WindowHeight>
+  <WindowWidth>20748</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1357,7 +1357,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="43.05">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.practitionerRole</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1391,7 +1391,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="43.05">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.practitionerRole.organization</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.role.organization</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1424,7 +1424,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="115.05">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.practitionerRole.role</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.role.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1463,7 +1463,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.practitionerRole.specialty</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.role.specialty</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1500,7 +1500,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.practitionerRole.identifier</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.role.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1533,7 +1533,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.practitionerRole.telecom</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.role.telecom</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1566,7 +1566,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.practitionerRole.period</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.role.period</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1605,7 +1605,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="172.05">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.practitionerRole.location</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.role.location</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1640,7 +1640,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.practitionerRole.healthcareService</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.role.healthcareService</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1671,8 +1671,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="57.6">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.practitionerRole.endpoint</Data><NamedCell
+   <Row ss:AutoFitHeight="0" ss:Height="57.45">
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Practitioner.role.endpoint</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
@@ -4030,13 +4030,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>19</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4044,7 +4043,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4052,8 +4050,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
-     <ActiveCol>14</ActiveCol>
+     <ActiveRow>21</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4637,7 +4635,7 @@
     <Cell ss:StyleID="s114"><Data ss:Type="String">identifier</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">Practitioner.identifier | Practitioner.practitionerRole.identifier</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">Practitioner.identifier | Practitioner.role.identifier</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">A practitioner's Identifier</Data></Cell>
@@ -4682,7 +4680,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">telecom</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.telecom | Practitioner.practitionerRole.telecom</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.telecom | Practitioner.role.telecom</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The value in any kind of contact</Data></Cell>
@@ -4691,8 +4689,8 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">phone</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.telecom(system=phone) | Practitioner.practitionerRole.telecom(system=phone)</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.telecom.where(system='phone') or Practitioner.practitionerRole.telecom.where(system='phone')</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.telecom(system=phone) | Practitioner.role.telecom(system=phone)</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.telecom.where(system='phone') or Practitioner.role.telecom.where(system='phone')</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">A value in a phone contact</Data></Cell>
    </Row>
@@ -4700,8 +4698,8 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">email</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.telecom(system=email) | Practitioner.practitionerRole.telecom(system=email)</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.telecom.where(system='email') or Practitioner.practitionerRole.telecom.where(system='email')</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.telecom(system=email) | Practitioner.role.telecom(system=email)</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.telecom.where(system='email') or Practitioner.role.telecom.where(system='email')</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">A value in an email contact</Data></Cell>
    </Row>
@@ -4781,7 +4779,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">organization</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.practitionerRole.organization</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.role.organization</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The identity of the organization the practitioner represents / acts on behalf of</Data></Cell>
@@ -4798,7 +4796,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">location</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s87"><Data ss:Type="String">Practitioner.practitionerRole.location</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s87"><Data ss:Type="String">Practitioner.role.location</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">One of the locations at which this practitioner provides care</Data></Cell>
@@ -4807,7 +4805,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">specialty</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.practitionerRole.specialty</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.role.specialty</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The practitioner has this specialty at an organization</Data></Cell>
@@ -4816,7 +4814,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">role</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.practitionerRole.role</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.role.code</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The practitioner can perform this role at for the organization</Data></Cell>
@@ -4979,6 +4977,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4998,7 +4997,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>

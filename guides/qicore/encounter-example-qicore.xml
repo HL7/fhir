@@ -30,7 +30,7 @@
         <display value="inpatient encounter"/>
     </class>
   <patient>
-    <reference value="patient-example"/>
+    <reference value="Patient/patient-example-qicore"/>
   </patient>
   <period>
     <start value="2015-02-09T00:00:00Z"/>

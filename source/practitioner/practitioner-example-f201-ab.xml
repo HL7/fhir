@@ -41,19 +41,19 @@
             <reference value="Media/AB-201.bmp"/>
             <display value="Picture_Dokter_Bronsig"/>
         </photo> -->
-    <practitionerRole>
+    <role>
 			
     <organization>
         <reference value="Organization/f201"/>
         <display value="AUMC"/>
     </organization>
-    <role>
+    <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="225304007"/>
             <display value="Implementation of planned interventions"/>
         </coding>
-    </role>
+    </code>
     <specialty>
         <coding>
             <system value="http://snomed.info/sct"/>
@@ -61,7 +61,7 @@
             <display value="Medical oncologist"/>
         </coding>
     </specialty>
-		</practitionerRole>
+		</role>
     <qualification>
         <code>
             <!--Dr. Bronsig is not only a medical oncologist, but also a pulmonologist-->

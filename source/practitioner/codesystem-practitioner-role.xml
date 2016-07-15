@@ -11,25 +11,31 @@
   <concept>
     <code value="doctor"/>
     <display value="Doctor"/>
+    <definition value="A qualified/registered medical practitioner"/>
   </concept>
   <concept>
     <code value="nurse"/>
     <display value="Nurse"/>
+    <definition value="A practitoner with nursing experience that may be qualified/registered"/>
   </concept>
   <concept>
     <code value="pharmacist"/>
     <display value="Pharmacist"/>
+    <definition value="A qualified/registered/licensed pharmacist"/>
   </concept>
   <concept>
     <code value="researcher"/>
     <display value="Researcher"/>
+    <definition value="A practitioner that may perform research"/>
   </concept>
   <concept>
     <code value="teacher"/>
     <display value="Teacher/educator"/>
+    <definition value="Someone who is able to provide educational services"/>
   </concept>
   <concept>
     <code value="ict"/>
     <display value="ICT professional"/>
+    <definition value="Someone who is qualified in Information and Communication Technologies"/>
   </concept>
 </CodeSystem>
