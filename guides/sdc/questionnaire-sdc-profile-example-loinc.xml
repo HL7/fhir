@@ -272,7 +272,7 @@
           <concept>
             <code value="LA20275-6"/>
             <display value="Incorrect action (process failure or error) (e.g., such as administering overdose or incorrect medication)">
-              <extension url="http://hl7.org/fhir/StructureDefinition/markup">
+              <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
                 <valueString value="Incorrect action (process failure or error) &lt;i&gt;(e.g., such as administering overdose or incorrect medication)&lt;/i&gt;"/>
               </extension>
             </display>
@@ -280,7 +280,7 @@
           <concept>
             <code value="LA20314-3"/>
             <display value="Unsafe condition">
-              <extension url="http://hl7.org/fhir/StructureDefinition/style">
+              <extension url="http://hl7.org/fhir/StructureDefinition/rendering-style">
                 <valueString value="color:green"/>
               </extension>
             </display>
@@ -701,7 +701,7 @@
   <date value="2012-04-01"/>
   <publisher value="Agency for Healthcare Research and Quality (AHRQ)"/>
   <title value="Medication or Other Substance">
-    <extension url="http://hl7.org/fhir/StructureDefinition/style">
+    <extension url="http://hl7.org/fhir/StructureDefinition/rendering-style">
       <valueString value="color:#0000FF"/>
     </extension>
   </title>
@@ -747,7 +747,7 @@
     <type value="group"/>
     <item>
       <text value="Use this form to report any patient safety event or unsafe condition involving a substance such as a medications, biological products, nutritional products, expressed human breast milk, medical gases, or contrast media. Do not complete this form if the event involves appropriateness of therapeutic choice or decision making (e.g., physician decision to prescribe medication despite known drug-drug interaction). If the event involves a device, please also complete the Device or Medical/Surgical Supply including Health Information Technology (HIT) form. Narrative detail can be captured on the Healthcare Event Reporting Form (HERF).">
-        <extension url="http://hl7.org/fhir/StructureDefinition/markup">
+        <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
           <valueString value="Use this form to report any patient safety event or unsafe condition involving a substance such as a medications, biological products, nutritional products, expressed human breast milk, medical gases, or contrast media. Do not complete this form if the event involves appropriateness of therapeutic choice or decision making (e.g., physician decision to prescribe medication despite known drug-drug interaction). If the event involves a device, please also complete the &lt;i&gt;Device or Medical/Surgical Supply including Health Information Technology (HIT)&lt;/i&gt; form. Narrative detail can be captured on the &lt;i&gt;Healthcare Event Reporting Form (HERF)&lt;/i&gt;."/>
         </extension>
       </text>

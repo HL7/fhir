@@ -15,7 +15,7 @@
   Profile Name = styleSensitive
   Card. = 0..1
   Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/styleSensitive}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-styleSensitive}
   IHE SDC mapping = N/A (new requirement)
 
  -- Row 3 -----------------------------------

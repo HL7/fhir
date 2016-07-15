@@ -15,7 +15,7 @@
   Profile Name = styleSensitive
   Card. = 0..1
   Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/styleSensitive}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-styleSensitive}
   IHE SDC mapping = N/A (new requirement)
 
  -- Row 3 -----------------------------------
@@ -162,15 +162,15 @@
   Profile Name = conceptLabel.renderingStyle
   Card. = 0..1
   Must Support = N
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-style}
   IHE SDC mapping = item_number/style
 
  -- Row 29 -----------------------------------
   Element = ValueSet.codeSystem.concept.extension.valueString.extension
-  Profile Name = conceptLabel.markup
+  Profile Name = conceptLabel.xhtml
   Card. = 0..1
   Must Support = N
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-xhtml}
   IHE SDC mapping = N/A
 
  -- Row 30 -----------------------------------
@@ -207,14 +207,14 @@
   Profile Name = conceptDisplayLabel.renderingStyle
   Card. = 0..1
   Must Support = N
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-style}
 
  -- Row 35 -----------------------------------
   Element = ValueSet.codeSystem.concept.display.extension
-  Profile Name = conceptDisplayLabel.markup
+  Profile Name = conceptDisplayLabel.xhtml
   Card. = 0..1
   Must Support = N
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-xhtml}
   IHE SDC mapping = item_prompt_html
 
  -- Row 36 -----------------------------------
@@ -299,15 +299,15 @@
   Profile Name = code.renderingStyle
   Card. = 0..1
   Must Support = N
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-style}
   IHE SDC mapping = list_item/item_number/style
 
  -- Row 51 -----------------------------------
   Element = ValueSet.compose.include.concept.extension.valueString.extension
-  Profile Name = code.markup
+  Profile Name = code.xhtml
   Card. = 0..1
   Must Support = N
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-xhtml}
   IHE SDC mapping = N/A
 
  -- Row 52 -----------------------------------
@@ -336,14 +336,14 @@
   Profile Name = codeDisplay.renderingStyle
   Card. = 0..1
   Must Support = N
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-style}
 
  -- Row 56 -----------------------------------
   Element = ValueSet.compose.include.concept.display.extension
-  Profile Name = codeDisplay.markup
+  Profile Name = codeDisplay.xhtml
   Card. = 0..1
   Must Support = N
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-xhtml}
   IHE SDC mapping = list_item/item_prompt_html
 
  -- Row 57 -----------------------------------
@@ -443,15 +443,15 @@
   Profile Name = expansion.renderingStyle
   Card. = 0..1
   Must Support = N
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-style}
   IHE SDC mapping = item_number/style
 
  -- Row 75 -----------------------------------
   Element = ValueSet.expansion.contains.extension.valueString.extension
-  Profile Name = expansion.markup
+  Profile Name = expansion.xhtml
   Card. = 0..1
   Must Support = N
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-xhtml}
   IHE SDC mapping = N/A
 
  -- Row 76 -----------------------------------
@@ -500,14 +500,14 @@
   Profile Name = expansionDisplay.renderingStyle
   Card. = 0..1
   Must Support = N
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-style}
 
  -- Row 83 -----------------------------------
   Element = ValueSet.expansion.contains.display.extension
-  Profile Name = expansionDisplay.markup
+  Profile Name = expansionDisplay.xhtml
   Card. = 0..1
   Must Support = N
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-xhtml}
   IHE SDC mapping = item_prompt_html
 
  -- Row 84 -----------------------------------

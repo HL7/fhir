@@ -39,7 +39,7 @@
   Profile Name = styleSensitive
   Card. = 0..1
   Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/styleSensitive}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-styleSensitive}
   IHE SDC mapping = N/A (new requirement)
 
  -- Row 5 -----------------------------------
@@ -108,16 +108,16 @@
   Profile Name = title.renderingStyle
   Card. = 0..1
   Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-style}
   IHE SDC mapping = ../style
 
  -- Row 15 -----------------------------------
   Element = Questionnaire.title.extension
-  Profile Name = title.markup
+  Profile Name = title.xhtml
   Card. = 0..1
   Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-xhtml}
+  IHE SDC mapping = (strings can contain xhtml)
 
  -- Row 16 -----------------------------------
   Element = Questionnaire.concept
@@ -303,16 +303,16 @@
   Profile Name = itemLabel.renderingStyle
   Card. = 0..1
   Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-style}
   IHE SDC mapping = ../style
 
  -- Row 41 -----------------------------------
   Element = Questionnaire.item.prefix.extension
-  Profile Name = itemLabel.markup
+  Profile Name = itemLabel.xhtml
   Card. = 0..1
   Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-xhtml}
+  IHE SDC mapping = (strings can contain xhtml)
 
  -- Row 42 -----------------------------------
   Element = Questionnaire.item.text
@@ -327,16 +327,16 @@
   Profile Name = groupText.renderingStyle
   Card. = 0..1
   Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-style}
   IHE SDC mapping = ../style
 
  -- Row 44 -----------------------------------
   Element = Questionnaire.item.text.extension
-  Profile Name = groupText.markup
+  Profile Name = groupText.xhtml
   Card. = 0..1
   Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/rendering-xhtml}
+  IHE SDC mapping = (strings can contain xhtml)
 
  -- Row 45 -----------------------------------
   Element = Questionnaire.item.type
