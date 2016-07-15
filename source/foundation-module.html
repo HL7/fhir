@@ -19,39 +19,118 @@ in order to support consistent definitions for schema and UML derived code.
 <h2>Foundation Module</h2>
 
 <a name="intro"> </a>
-<h3>Introduction</h3>
 <p>
-In this section: scope, what outcome modules seeks providem why would you look at it's content
-
-From the master document: Definition Framework, XML/Json Formats, REST API, Documents, Messaging, Infrastructure Resources
-
-Editor: Grahame Grieve
+The Foundation Module is responsible the overall infrastructure of the FHIR specification. It covers:
+Every implementer works with the content in the foundation module however they use FHIR. 
 </p>
-
 <a name="index"> </a>
-<h3>Index</h3>
-<p>
-In this section: links to key content pages in the module
-</p>
+<table width="100%" style="table-layout: fixed">
+ <tr>
+ <td width="33%">
+<p><b>Overview</b></p>
+<p>Tutorial and Introductory Information.</p>
+<ul>
+  <li><a href="summary.html">1 page Summary (Glossy)</a></li>
+  <li><a href="overview.html">Overview &amp; Roadmap</a></li>
+  <li><a href="overview-dev.html">Developer's Introduction</a></li>
+  <li><a href="overview-clinical.html">Clinical Introduction</a></li>
+  <li><a href="timelines.html"><b>FHIR Timelines</b></a></li>
+  <li><a href="compatibility.html">Inter-version Compatibility</a></li>
+</ul>
+<hr/>
+<p><b>Administration</b></p>
+<p>Documentation Guidance / Background.</p>
+<ul>
+  <li><a href="help.html">Documentation Guidance &amp; Glossary</a></li>
+  <li><a href="license.html">License and Legal Terms</a></li>
+  <li><a href="credits.html">Community &amp; Credits</a></li>
+  <li><a href="history.html">Version History</a></li>
+  <li><a href="todo.html">Outstanding Issues</a></li>
+</ul>
+<hr/>
+<p><b>Appendices</b>:</p>
+<ul>
+  <li><a href="comparison.html">Comparison with other HL7 Specifications</a></li>
+  <li><a href="ehr-fm.html">How FHIR fits into an EHR</a></li>
+  <li><a href="change.html">Coming Challenges Driving Change</a></li>
+</ul>
+
+</td><td width="33%" style="border-left: 1px solid #eeeeee">
+<p><b>Technical Documentation</b></p>
+<p>General Implementer Documentation.</p>
+<ul>
+  <li><a href="conformance-rules.html">Conformance Rules</a></li>
+  <li><a href="lifecycle.html">Resource Life Cycles</a></li>
+  <li><a href="references.html">References between Resources</a></li>
+  <li><a href="narrative.html">Narrative</a></li>
+  <li><a href="extensibility.html">Extensibility</a> &amp; <a href="extensibility-registry.html">Extension Registry</a></li>
+  <li><a href="compartmentdefinition.html">Compartments (Patient based access)</a></li>
+  <li><a href="formats.html">Formats</a>: <a href="xml.html">XML</a>, <a href="json.html">JSON</a> &amp; <a href="rdf.html">RDF</a></li>
+  <li><a href="fluentpath.html">FluentPath</a></li>
+  <li><a href="datatypes.html">Data Types</a></li>
+  <li><a href="element.html">Element</a></li>
+  <li><a href="backboneelement.html">BackboneElement</a></li>
+  <li><a href="elementdefinition.html">ElementDefinition</a></li>
+  <li><a href="modulemetadata.html">ModuleMetadata</a></li>
+</ul>
+<hr/>
+<p><b>Exchange</b></p>
+<p>Tutorial and Introductory Information.</p>
+<ul>
+  <li><a href="http.html">RESTful API</a> + <a href="search.html">Search</a></li>
+  <li><a href="operations.html">Operations</a></li>
+  <li><a href="documents.html">Documents</a></li>
+  <li><a href="messaging.html">Messaging</a></li>
+  <li><a href="services.html">Services</a></li>
+</ul>
+</td><td width="33%" style="border-left: 1px solid #eeeeee">
+<p><b>Resources</b></p>
+<p>Foundation Framework</p>
+<ul>
+  <li><a href="resource.html">Resource</a></li>
+  <li><a href="domainresource.html">DomainResource</a></li>
+  <li><a href="basic.html">Basic</a></li>
+  <li><a href="binary.html">Binary</a></li>
+  <li><a href="bundle.html">Bundle</a></li>
+  <li><a href="messageheader.html">MessageHeader</a></li>
+  <li><a href="operationoutcome.html">OperationOutcome</a></li>
+  <li><a href="parameters.html">Parameters</a></li>  
+</ul>
+<hr/>
+<p><b>Infrastructure</b></p>
+<p>Support Resources.</p>
+<ul>
+  <li><a href="questionnaire.html">Questionnaire</a></li>
+  <li><a href="questionnaireresponse.html">QuestionnaireResponse</a></li>
+  <li><a href="list.html">List</a></li>
+  <li><a href="media.html">Media</a></li>
+  <li><a href="composition.html">Composition</a></li>
+  <li><a href="documentreference.html">DocumentReference</a></li>
+  <li><a href="documentmanifest.html">DocumentManifest</a></li>
+</ul>
+</td></tr>
+</table>
 
 <a name="secpriv"> </a>
 <h3>Security and Privacy</h3>
 <p>
-In this section: description of key security and privacy issues, or references to pages that deal with this. 
-For the security / privcay module itself, this section does not exist. For other modules, the paragraph/section can end with this boilerplate:
-For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
+See <a href="secpriv-module.html">the Security and Privacy module</a>.
 </p>
 
 <a name="uses"> </a>
 <h3>Common use Cases</h3>
 <p>
-In this section: common problems in the space of the module, ways to go about solving them, or references to additional problem based linkes
+Choosing between RESTful API, messages, documents. 
+building services.
+
 </p>
 
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>
 <p>
-In this section: what the current overall state is, what work is in train, what the goals over the next 18 months or so are
+In the road to normative.
+messaging and docments behind
+resources by their maturity model
 </p>
 
 </div>

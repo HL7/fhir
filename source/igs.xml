@@ -5,19 +5,19 @@
   <ig code="openehr"  name="openEHR Profiles" brief="openEHR" review="" committee="pc" ballot="dstu2" fmm="0" core="yes"/>
   <ig code="cqmf"     name="Clinical Quality Measure Framework" brief="CQMF" review="" committee="cds" ballot="draft" fmm="0" core="yes"/>
   <ig code="ihe"      name="IHE Profiles" brief="IHE" review="" committee="hsi" ballot="dstu2" fmm="0" core="yes"/>
-  <ig code="uslab"    name="US Lab Profile" brief="USLab" review="" source="\guides\uslab\uslab.xml" committee="us" ballot="dstu2" fmm="0" section="A"/>
-  <ig code="sdc"      name="Structured Data Capture - Forms" brief="SDC" review="" source="\guides\sdc\sdc.xml" committee="oo" ballot="dstu1" fmm="0" section="B"/>
-  <ig code="sdcde"    name="Structured Data Capture - Data Element Management" brief="SDC-DE" review="" source="\guides\sdcde\sdcde.xml" committee="oo" ballot="dstu1" fmm="0" section="C"/>
-  <ig code="daf"      name="Data Access Framework" brief="DAF" review="" source="\guides\daf\daf.xml" committee="inm" ballot="dstu1" fmm="0" section="D"/>
+<!--  <ig code="uslab"    name="US Lab Profile" brief="USLab" review="" source="\guides\uslab\uslab.xml" committee="us" ballot="dstu2" fmm="0" section="A"/> -->
+<!--  <ig code="sdc"      name="Structured Data Capture - Forms" brief="SDC" review="" source="\guides\sdc\sdc.xml" committee="oo" ballot="dstu1" fmm="0" section="B"/>
+  <ig code="sdcde"    name="Structured Data Capture - Data Element Management" brief="SDC-DE" review="" source="\guides\sdcde\sdcde.xml" committee="oo" ballot="dstu1" fmm="0" section="C"/> -->
+<!--  <ig code="daf"      name="Data Access Framework" brief="DAF" review="" source="\guides\daf\daf.xml" committee="inm" ballot="dstu1" fmm="0" section="D"/> -->
   <ig code="ehrsrle"  name="EHRS Functional model - Record Lifecycle Events" brief="EHRS-RLE" review="" source="\guides\ehrsrle\ehrsrle.xml" committee="ehr" ballot="dstu2" fmm="0" core="no" section="E"/>
-  <ig code="qicore"   name="Quality Improvement Core" brief="QICore" review="" source="\guides\qicore\qicore.xml" committee="cds" ballot="dstu1" fmm="0" section="F"/>
+<!--  <ig code="qicore"   name="Quality Improvement Core" brief="QICore" review="" source="\guides\qicore\qicore.xml" committee="cds" ballot="dstu1" fmm="0" section="F"/> -->
   <ig code="cqif"     name="Clinical Quality Improvement Framework" brief="CQIF" review="" source="\guides\cqif\cqif.xml" committee="cds" ballot="draft" fmm="0" section="G"/>
-  <ig code="hspc"     name="Healthcare Services Platform Consortium" brief="HSPC" review="yes" source="\guides\hspc\hspc.xml" committee="fhir" ballot="draft" fmm="0" section="H"/>
-  <ig code="argonaut" name="Argonaut" brief="Argonaut" source="\guides\argonaut\argonaut.xml" committeereview="0" committee="fhir" ballot="draft" fmm="0" section="J"/>
-  <ig code="gao"      name="Guideline Appropriate Ordering" brief="GAO" source="\guides\gao\gao.xml" committeereview="0" committee="cds" ballot="draft" fmm="0" section="K"/>
+<!--  <ig code="hspc"     name="Healthcare Services Platform Consortium" brief="HSPC" review="yes" source="\guides\hspc\hspc.xml" committee="fhir" ballot="draft" fmm="0" section="H"/> -->
+<!--  <ig code="argonaut" name="Argonaut" brief="Argonaut" source="\guides\argonaut\argonaut.xml" committeereview="0" committee="fhir" ballot="draft" fmm="0" section="J"/> -->
+<!--  <ig code="gao"      name="Guideline Appropriate Ordering" brief="GAO" source="\guides\gao\gao.xml" committeereview="0" committee="cds" ballot="draft" fmm="0" section="K"/>
   <ig code="digitizeiom" name="DIGITizE Pharmacogenomic Clinical Decision Support" brief="DIGITIZEIOM" source="\guides\digitizeiom\digitizeiom.xml" committeereview="0" committee="cds" ballot="draft" fmm="0" section="L"/>
   <ig code="ccda" name="C-CDA on FHIR" brief="CCDA" source="\guides\ccda\ccda.xml" committeereview="0" committee="sd" ballot="draft" fmm="0" section="M"/>
-  <ig code="pcd"      name="Privacy Consent Directive on FHIR" brief="PCD" source="\guides\pcd\pcd.xml" committeereview="0" committee="cbcc" ballot="draft" fmm="0" section="N"/>
-  <ig code="cts2" name="Common Terminology Services 2" brief="CTS2" source="guides\cts2\cts2.xml" committeereview="0" committee="fhir" ballot="draft" fmm="0" section="O"/>
-  <ig code="payerextract" name="Payer Extract" brief="PEX" source="guides\payerextract\payerextract.xml" committeereview="0" committee="cds" ballot="draft" fmm="0" section="P"/>
+  <ig code="pcd"      name="Privacy Consent Directive on FHIR" brief="PCD" source="\guides\pcd\pcd.xml" committeereview="0" committee="cbcc" ballot="draft" fmm="0" section="N"/> -->
+<!--  <ig code="cts2" name="Common Terminology Services 2" brief="CTS2" source="guides\cts2\cts2.xml" committeereview="0" committee="fhir" ballot="draft" fmm="0" section="O"/> -->
+<!--  <ig code="payerextract" name="Payer Extract" brief="PEX" source="guides\payerextract\payerextract.xml" committeereview="0" committee="cds" ballot="draft" fmm="0" section="P"/> -->
 </igs>

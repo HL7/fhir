@@ -19,6 +19,7 @@ signatures.html
     <page title="Table of Contents" filename="toc.html">
       <page title="Profile List" filename="profilelist.html"/>
       <page title="Resources" filename="resourcelist.html"/>
+      <page title="Namespace List" filename="ns.html"/>
     </page>
 
     <!-- foundation - quite a lot of documentation -->
@@ -62,7 +63,6 @@ signatures.html
           <page title="Mappings" filename="datatypes-mappings.html"/>
         </page>
         <page title="Coming Challenges" filename="change.html"/>
-        <page title="Status Code Map" filename="sc.html"/>
       </page>
       <!-- base types -->
       <page title="Element" filename="element.html">
@@ -80,7 +80,6 @@ signatures.html
         <page title="Definitions" filename="resource-definitions.html"/>
       </page>
       <page type="resource" resource="DomainResource"/>
-      <page title="Namespace List" filename="ns.html"/>
 
       <!-- infrastructure resources -->
       <page type="resource" resource="Questionnaire"/>
@@ -104,17 +103,15 @@ signatures.html
       <page title="Operations" filename="operations.html">
         <page title="Example" filename="op-example-request.html"/>
       </page>
-      <page title="Documents" filename="documents.html">
-        <page title="CDA on FHIR" filename="cda-intro.html"/>
-      </page>
+      <page title="Documents" filename="documents.html"/>
       <page title="Messaging" filename="messaging.html"/>
       <page title="Services" filename="services.html"/>
-      <page title="Resource Guide" filename="resourceguide.html"/>
     </page>
 
     <page title="Ontology" filename="ontology-module.html" icon="ontology.png">
       <page title="RDF" filename="rdf.html"/>
       <page title="Ontology" filename="ontology.html"/>
+      <page title="Status Code Map" filename="sc.html"/>
       <page title="W5 Map" filename="w5.html"/>
     </page>
 
@@ -174,6 +171,7 @@ signatures.html
     </page>
 
     <page title="Implementation Support" filename="implsupport-module.html" icon="implsupport.png">
+      <page title="Resource Guide" filename="resourceguide.html"/>
       <page title="Implementation" filename="implementation.html"/>
       <page title="Inter-version Compatibility" filename="compatibility.html"/>
       <page title="Testing FHIR" filename="testing.html"/>
@@ -182,6 +180,7 @@ signatures.html
         <page title="v2 Messaging" filename="comparison-v2.html"/>
         <page title="v3 Messaging" filename="comparison-v3.html"/>
         <page title="CDA" filename="comparison-cda.html"/>
+        <page title="CDA on FHIR" filename="cda-intro.html"/>
         <page title="Other Specifications" filename="comparison-other.html"/>
       </page>
       <page title="Downloads" filename="downloads.html"/>
