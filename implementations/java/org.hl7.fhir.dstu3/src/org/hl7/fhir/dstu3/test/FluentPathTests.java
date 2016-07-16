@@ -20,7 +20,6 @@ import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.ExpressionNode.TypeDetails;
 import org.hl7.fhir.dstu3.model.Observation;
-import org.hl7.fhir.dstu3.model.Order;
 import org.hl7.fhir.dstu3.model.Parameters;
 import org.hl7.fhir.dstu3.model.Patient;
 import org.hl7.fhir.dstu3.model.Questionnaire;
@@ -954,13 +953,13 @@ public class FluentPathTests {
     testBoolean(patient(), "(Patient.name | Patient.address).count() = 3", true);
   }
 
-  @Test
-  public void testParameersConstraint() throws FileNotFoundException, IOException, FHIRException {
-    Parameters p = parameters();
-    Order o = (Order) parameters.getParameter().get(0).getResource();
-    
-    testBoolean(o, o.getSubject(), "Reference", "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))", true);
-  }
+//  @Test
+//  public void testParameersConstraint() throws FileNotFoundException, IOException, FHIRException {
+//    Parameters p = parameters();
+//    Order o = (Order) parameters.getParameter().get(0).getResource();
+//    
+//    testBoolean(o, o.getSubject(), "Reference", "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))", true);
+//  }
 
 }
 
