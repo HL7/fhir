@@ -40,7 +40,7 @@
   </patient>
 
   <!-- the date that this entry was recorded -->  
-  <recordedDate value="2015-08-06T15:37:31-06:00"/>
+  <attestedDate value="2015-08-06T15:37:31-06:00"/>
   
   <!-- who made the record / last updated it -->
   <recorder>

@@ -77,44 +77,37 @@
   Id = 1
   Code = active
   Display = Active
-  Definition = An active record of a reaction to the identified Substance.
+  Definition = An active record of a risk of a reaction to the identified substance.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = inactive
   Display = Inactive
-  Definition = An inactive record of a reaction to the identified Substance.
+  Definition = An inactivated record of a risk of a reaction to the identified substance
 
  -- Row 3 -----------------------------------
   Id = 3
-  Code = unconfirmed
-  Display = Unconfirmed
-  Definition = A low level of certainty about the propensity for a reaction to the identified Substance.
+  Code = active-confirmed
+  Display = Active Confirmed
+  Definition = A high level of certainty about the propensity for a reaction to the identified Substance, which may include clinical evidence by testing or rechallenge.
   Parent = #1
 
  -- Row 4 -----------------------------------
   Id = 4
-  Code = confirmed
-  Display = Confirmed
-  Definition = A high level of certainty about the propensity for a reaction to the identified Substance, which may include clinical evidence by testing or rechallenge.
-  Parent = #1
+  Code = resolved
+  Display = Resolved
+  Definition = A reaction to the identified Substance has been clinically reassessed by testing or rechallenge re-exposure and considered to be resolved e.g. change the word rechallenged to re-exposure
+  Parent = #2
 
  -- Row 5 -----------------------------------
   Id = 5
-  Code = resolved
-  Display = Resolved
-  Definition = A reaction to the identified Substance has been clinically reassessed by testing or rechallenge and considered to be resolved.
-  Parent = #2
-
- -- Row 6 -----------------------------------
-  Id = 6
   Code = refuted
   Display = Refuted
   Definition = A propensity for a reaction to the identified Substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.
   Parent = #2
 
- -- Row 7 -----------------------------------
-  Id = 7
+ -- Row 6 -----------------------------------
+  Id = 6
   Code = entered-in-error
   Display = Entered In Error
   Definition = The statement was entered in error and is not valid.
@@ -258,7 +251,7 @@
   Summary = Y
   Type = code
   Binding = AllergyIntoleranceStatus
-  Short Label = active | unconfirmed | confirmed | inactive | resolved | refuted | entered-in-error
+  Short Label = active | active-confirmed | inactive | resolved | refuted | entered-in-error
   Definition = Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance
   Comments = Decision support would typically raise alerts for \'Unconfirmed\', \'Confirmed\', and \'Resolved\' and ignore a \'Refuted\' reaction. In particular, \'Refuted\' may be useful for reconciliation of the Adverse Reaction List. Some implementations may choose to make this field mandatory.
   v2 Mapping = IAM-17
@@ -316,9 +309,9 @@
   Binding = AllergyIntoleranceCode
   Short Label = Allergy or intolerance code
   Definition = Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  This may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., \"Latex\"), an allergy or intolerance condition (e.g., \"Latex allergy\"), or a negated/excluded code for a specific substance or class (e.g., \"No latex allergy\") or a general or categorical negated statement (e.g.,  \"No known allergy\", \"No known drug allergies\").
-  Comments = It is strongly recommended that this element be populated using a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available. Additional details can be specified in the text.\n\nWhen a substance or product code is specified for the \'code\' element, the \"default\" semantic context is that this is a positive statement of an allergy or intolerance (depending on the value of the \'type\' element, if present) condition to the specified substance/product.  In the corresponding SNOMED CT allergy model, the specified substance/product is the target (destination) of the \"Causative agent\" relationship.\n\nThe \'substanceExposureRisk\' extension is available as a structured and more flexible alternative to the \'code\' element for making positive or negative allergy or intolerance statements.  This extension provides the capability to make \"no known allergy\" (or \"no risk of adverse reaction\") statements regarding any coded substance/product (including cases when a pre-coordinated \"no allergy to x\" concept for that substance/product does not exist).  If the \'substanceExposureRisk\' extension is present, the AllergyIntolerance.code element SHALL be omitted.
+  Comments = It is strongly recommended that this element be populated using a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available. Additional details can be specified in the text.\r\rWhen a substance or product code is specified for the \'code\' element, the \"default\" semantic context is that this is a positive statement of an allergy or intolerance (depending on the value of the \'type\' element, if present) condition to the specified substance/product.  In the corresponding SNOMED CT allergy model, the specified substance/product is the target (destination) of the \"Causative agent\" relationship.\r\rThe \'substanceExposureRisk\' extension is available as a structured and more flexible alternative to the \'code\' element for making positive or negative allergy or intolerance statements.  This extension provides the capability to make \"no known allergy\" (or \"no risk of adverse reaction\") statements regarding any coded substance/product (including cases when a pre-coordinated \"no allergy to x\" concept for that substance/product does not exist).  If the \'substanceExposureRisk\' extension is present, the AllergyIntolerance.code element SHALL be omitted.
   v2 Mapping = AL1-3 / IAM-3
-  RIM Mapping = substance/product:\n\n.participation[typeCode=CAGNT].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]\n\nnegated/excluded substance/product:\n\n.participation[typeCode=CAGNT, negationInd=true].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]\n\npositive or negated/excluded condition/situation:\n\nObservation.code=ASSERTION; Observation.value
+  RIM Mapping = substance/product:\r\r.participation[typeCode=CAGNT].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]\r\rnegated/excluded substance/product:\r\r.participation[typeCode=CAGNT, negationInd=true].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]\r\rpositive or negated/excluded condition/situation:\r\rObservation.code=ASSERTION; Observation.value
   w5 = what
 
  -- Row 8 -----------------------------------
@@ -334,12 +327,13 @@
   w5 = who.focus
 
  -- Row 9 -----------------------------------
-  Element = AllergyIntolerance.recordedDate
+  Element = AllergyIntolerance.attestedDate
   Card. = 0..1
   Summary = y
   Type = dateTime
-  Short Label = When recorded
-  Definition = Date when the sensitivity was recorded
+  Short Label = Date record was believed accurate
+  Definition = Indicates the most recent date on which the recorder has asserted that the information represented by this AllergyIntolerance record is accurate
+  Comments = This is typically the date of last change, but it\'s possible to update this date without changing any other data if you just want to say \'this allergy/intolerance record is up to date as of now
   v2 Mapping = IAM-20
   RIM Mapping = .participation[typeCode=AUT].time
   w5 = when.recorded
@@ -495,7 +489,7 @@
  -- Row 1 -----------------------------------
   Name = code
   Type = token
-  Path = AllergyIntolerance.code | \nAllergyIntolerance.reaction.substance
+  Path = AllergyIntolerance.code | \rAllergyIntolerance.reaction.substance
 
  -- Row 2 -----------------------------------
   Name = status
@@ -550,7 +544,7 @@
  -- Row 12 -----------------------------------
   Name = date
   Type = date
-  Path = AllergyIntolerance.recordedDate
+  Path = AllergyIntolerance.attestedDate
 
  -- Row 13 -----------------------------------
   Name = recorder

@@ -45,7 +45,7 @@
   </patient>
 
   <!-- the date that this entry was recorded -->
-  <recordedDate value="2014-10-09T14:58:00+11:00"/>
+  <attestedDate value="2014-10-09T14:58:00+11:00"/>
 
   <!-- who made the record / last updated it -->
   <recorder>
