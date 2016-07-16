@@ -3,7 +3,7 @@
 edited by Eric Haas Health eData Inc
 --><!--EH  Show all the elements in this examples for preference, and intolerance --><!-- EH: use oral Diet element --><id value="fiberrestricteddiet"/>
 	<identifier>
-		<system value="http://goodhealthhospital.org/nutrition-orders"/>
+		<system value="http://goodhealthhospital.org/nutrition-requests"/>
 		<value value="123"/>
 	</identifier>
 	<status value="active"/>

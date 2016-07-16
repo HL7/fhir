@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><!--  lab report example: a CBC  --><DiagnosticOrder xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><!--  lab report example: a CBC  --><DiagnosticRequest xmlns="http://hl7.org/fhir">
 	<id value="og-example2"/>
-	<extension url="http://hl7.org/fhir/StructureDefinition/diagnosticorder-geneticsItem">
+	<extension url="http://hl7.org/fhir/StructureDefinition/diagnosticrequest-geneticsItem">
         <extension url="code">
             <valueCodeableConcept>
                 <coding>
@@ -33,4 +33,4 @@
 			<reference value="Practitioner/456"/>
 		</actor>
 	</event>
-</DiagnosticOrder>
+</DiagnosticRequest>

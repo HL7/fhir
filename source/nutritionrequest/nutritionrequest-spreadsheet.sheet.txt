@@ -4,7 +4,7 @@
  -- Row 1 -----------------------------------
   Binding Name = NutritionOrderStatus
   Binding = code list
-  Reference = #nutrition-order-status
+  Reference = #nutrition-request-status
   Definition = Codes specifying the state of the request. Describes the lifecycle of the nutrition order.
   Conformance = required
 
@@ -85,7 +85,7 @@
   Definition = Medical, cultural or ethical food preferences to help with catering requirements
   Conformance = example
 
-=== Sheet nutrition-order-status =====================================
+=== Sheet nutrition-request-status =====================================
 
  -- Row 1 -----------------------------------
   Id = 1

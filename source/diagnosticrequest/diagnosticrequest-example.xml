@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="file://Mac/Home/Documents/FHIRBuild/reorder-nodes-template.xslt"?>
-<DiagnosticOrder xmlns="http://hl7.org/fhir">
+<DiagnosticRequest xmlns="http://hl7.org/fhir">
 	<id value="example"/>
 	<contained>
 		<Observation>
@@ -76,4 +76,4 @@
 	<note>
 		<text value="patient is afraid of needles"/>
 	</note>
-</DiagnosticOrder>
+</DiagnosticRequest>

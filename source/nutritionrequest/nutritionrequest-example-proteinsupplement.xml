@@ -3,7 +3,7 @@
 edited by Eric Haas Health eData Inc
 --><!-- EH: This example has no food exclusions or preferences --><!-- EH: use supplement element --><id value="proteinsupplement"/>
 	<identifier>
-		<system value="http://goodhealthhospital.org/nutrition-orders"/>
+		<system value="http://goodhealthhospital.org/nutrition-requests"/>
 		<value value="123"/>
 	</identifier>
 	<status value="active"/>

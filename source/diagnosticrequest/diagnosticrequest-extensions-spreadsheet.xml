@@ -869,7 +869,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">name</Data></Cell>
-    <Cell ss:StyleID="s75" ss:HRef="http://hl7.org/fhir"><Data ss:Type="String">DiagnosticOrder HL7 Extensions</Data></Cell>
+    <Cell ss:StyleID="s75" ss:HRef="http://hl7.org/fhir"><Data ss:Type="String">DiagnosticRequest HL7 Extensions</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">author.name</Data></Cell>
@@ -885,7 +885,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell ss:StyleID="s74"><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Defines common extensions used with or related to the DiagnosticOrder resource</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Defines common extensions used with or related to the DiagnosticRequest resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">status</Data></Cell>
@@ -905,8 +905,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/StructureDefinition/diagnosticorder-"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/diagnosticorder-</Data></Cell>
+    <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/StructureDefinition/diagnosticrequest-"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/diagnosticrequest-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s81"><Data ss:Type="String">introduction</Data></Cell>
@@ -3901,7 +3901,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticOrder</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">asNeeded</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3934,7 +3934,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticOrder</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">originationMode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3967,7 +3967,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticOrder</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">suspectedPathogen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4000,7 +4000,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticOrder</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">reason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4033,7 +4033,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticOrder</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">reasonRejected</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4066,7 +4066,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticOrder.item</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticRequest.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">method</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4100,7 +4100,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticOrder.item</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticRequest.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">precondition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4133,7 +4133,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticOrder.item</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticRequest.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Questionnaire Requested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

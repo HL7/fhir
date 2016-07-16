@@ -4,11 +4,11 @@
 === Sheet OrderForGenetics =====================================
 
  -- Row 1 -----------------------------------
-  Element = DiagnosticOrder
+  Element = DiagnosticRequest
   Profile Name = OrderForGenetics
 
  -- Row 2 -----------------------------------
-  Element = DiagnosticOrder.extension
+  Element = DiagnosticRequest.extension
   Profile Name = Item
   Card. = 0..*
   Type = Extension{#Item}

@@ -854,11 +854,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">id</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">diagnosticorder-genetics</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">diagnosticrequest-genetics</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">name</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Diagnostic Order for Genetics</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Diagnostic Request for Genetics</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">author.name</Data></Cell>
@@ -875,7 +875,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell ss:StyleID="s74"><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Describes how the DiagnosticOrder resource is used to for genetics</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Describes how the DiagnosticRequest resource is used to for genetics</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">status</Data></Cell>
@@ -895,12 +895,12 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/StructureDefinition/diagnosticorder-genetics"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/diagnosticorder-genetics</Data></Cell>
+    <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/StructureDefinition/diagnosticrequest-genetics"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/diagnosticrequest-genetics</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s81"><Data ss:Type="String">introduction</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">diagnosticorder-genetics-introduction.xml</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">diagnosticrequest-genetics-introduction.xml</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s83"><Data ss:Type="String">notes</Data></Cell>
@@ -1101,7 +1101,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">DiagnosticOrder</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">DiagnosticRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1130,7 +1130,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">DiagnosticOrder.extension</Data><NamedCell
+    <Cell><Data ss:Type="String">DiagnosticRequest.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..*</Data><NamedCell

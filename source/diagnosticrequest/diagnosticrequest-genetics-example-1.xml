@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!--  lab report example: a CBC  --><DiagnosticOrder xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><!--  lab report example: a CBC  --><DiagnosticRequest xmlns="http://hl7.org/fhir">
 	<id value="og-example1"/>
 	<status value="received"/>
 	<subject>
@@ -27,4 +27,4 @@
 		</code>
 
 	</item>
-</DiagnosticOrder>
+</DiagnosticRequest>

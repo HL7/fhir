@@ -131,13 +131,6 @@
   Display = Cancelled
   Definition = The Encounter has ended before it has begun.
 
- -- Row 7 -----------------------------------
-  Id = 3
-  Code = entered-in-error
-  Display = Entered in error
-  Definition = This instance should not have been part of this patient\'s medical record.
-  v3 = ActStatus.nullified
-
 === Sheet encounter-location-status =====================================
 
  -- Row 1 -----------------------------------
@@ -195,7 +188,7 @@
   Summary = y
   Type = code
   Binding = EncounterStatus
-  Short Label = planned | arrived | in-progress | onleave | finished | cancelled | entered-in-error
+  Short Label = planned | arrived | in-progress | onleave | finished | cancelled
   v2 Mapping = No clear equivalent in HL7 v2; active/finished could be inferred from PV1-44, PV1-45, PV2-24; inactive could be inferred from PV2-16
   RIM Mapping = .statusCode
   w5 = status

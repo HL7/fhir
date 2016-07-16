@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- Diagnostic image example - CT scan --><!-- This example is used with detectedissue-example-dup, so don't make changes that would cause it to no longer be a duplicate --><DiagnosticOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/diagnosticorder.xsd">
+<?xml version="1.0" encoding="UTF-8"?><!-- Diagnostic image example - CT scan --><!-- This example is used with detectedissue-example-dup, so don't make changes that would cause it to no longer be a duplicate --><DiagnosticRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/DiagnosticRequest.xsd">
 	<id value="di"/>
 	<text>
 		<status value="generated"/>
@@ -37,4 +37,4 @@
 			</coding>
 		</bodySite>
 	</item>
-</DiagnosticOrder>
+</DiagnosticRequest>

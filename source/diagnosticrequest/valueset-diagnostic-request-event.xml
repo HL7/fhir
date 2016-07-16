@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="Diagnostic Order Event Codes"/>
+  <name value="Diagnostic Request Event Codes"/>
   <status value="draft"/>
   <publisher value="Orders and Observations Working Group"/>
   <contact>

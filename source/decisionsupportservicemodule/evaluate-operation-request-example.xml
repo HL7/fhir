@@ -130,7 +130,7 @@
 					</text>
 					<contained>
 					  <DiagnosticRequest>
-						<id value="diagnosticOrder1"/>
+						<id value="DiagnosticRequest1"/>
 						<meta>
 						  <profile value="http://hl7.org/fhir/StructureDefinition/gao-diagnosticrequest"/>
 						</meta>
@@ -165,7 +165,7 @@
 					  </coding>
 					</reasonCodeableConcept>
 					<detail>
-					  <reference value="#diagnosticOrder1"/>
+					  <reference value="#DiagnosticRequest1"/>
 					</detail>
 				  </Order>
 				</resource>

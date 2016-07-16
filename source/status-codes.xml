@@ -1615,25 +1615,6 @@
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">OrderResponse.orderStatus</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">pending</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">accepted</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">review</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">aborted,error</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">replaced</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">cancelled</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">PaymentReconciliation.status</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s67"/>

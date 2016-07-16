@@ -265,8 +265,6 @@ signatures.html
       <page type="resource" resource="CommunicationRequest"/>
       <page type="resource" resource="SupplyDelivery"/>
       <page type="resource" resource="SupplyRequest"/>
-      <page type="resource" resource="Order"/>
-      <page type="resource" resource="OrderResponse"/>
       <page type="resource" resource="Appointment"/>
       <page type="resource" resource="AppointmentResponse"/>
       <page type="resource" resource="Schedule"/>

@@ -4,7 +4,7 @@ edited by Eric Haas Health eData Inc
 
 --><!-- EH: use supplement element --><id value="diabeticsupplement"/>
 	<identifier>
-		<system value="http://goodhealthhospital.org/nutrition-orders"/>
+		<system value="http://goodhealthhospital.org/nutrition-requests"/>
 		<value value="123"/>
 	</identifier>
 	<status value="active"/>

@@ -72,8 +72,8 @@ requests for combinations of services.  Likewise, ReferralRequest may be referen
 </p>
 <p>
 A ReferralRequest may be targeted (identifying a specific Practitioner or Organization to perform the requested care) or untargeted
-(merely identifying the type of care desired).  The <a href="order.html">Order</a> and <a href="orderresponse.html">OrderResponse</a>
-resources may be used to help manage such workflows.
+(merely identifying the type of care desired).  The <a href="task.html">Task</a>
+resource may be used to help manage such workflows.
 </p>
 <p>
 A ReferralRequest might be fulfilled by a <a href="diagnosticreport.html">DiagnosticReport</a>, <a href="encounter.html">Encounter</a>,

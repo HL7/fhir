@@ -2,16 +2,16 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = DiagnosticOrderStatus
+  Binding Name = DiagnosticRequestStatus
   Binding = code list
-  Reference = #diagnostic-order-status
+  Reference = #diagnostic-request-status
   Definition = The status of a diagnostic order.
   Conformance = required
 
  -- Row 2 -----------------------------------
-  Binding Name = DiagnosticOrderPriority
+  Binding Name = DiagnosticRequestPriority
   Binding = code list
-  Reference = #diagnostic-order-priority
+  Reference = #diagnostic-request-priority
   Definition = The clinical priority of a diagnostic order.
   Conformance = required
 
@@ -24,9 +24,9 @@
   Conformance = preferred
 
  -- Row 4 -----------------------------------
-  Binding Name = DiagnosticOrderEventDescription
+  Binding Name = DiagnosticRequestEventDescription
   Binding = value set
-  Reference = valueset-diagnostic-order-event
+  Reference = valueset-diagnostic-request-event
   Definition = Additional information about an event that occurred to a diagnostic order - e.g. if the status remained unchanged.
   Conformance = example
 
@@ -39,14 +39,14 @@
   Conformance = example
 
  -- Row 6 -----------------------------------
-  Binding Name = DiagnosticOrderReason
+  Binding Name = DiagnosticRequestReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/condition-code
   Definition = Diagnosis or problem codes justifying the reason for requesting the diagnostic investigation.
   Description = SNOMED CT Condition/Problem/Diagnosis Codes
   Conformance = example
 
-=== Sheet diagnostic-order-status =====================================
+=== Sheet diagnostic-request-status =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -132,7 +132,7 @@
   Display = Entered in Error
   Definition = The request was entered in error and voided.
 
-=== Sheet diagnostic-order-priority =====================================
+=== Sheet diagnostic-request-priority =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -163,7 +163,7 @@
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
-  Element = DiagnosticOrder
+  Element = DiagnosticRequest
   Type = DomainResource
   Short Label = A request for a diagnostic service
   Definition = A record of a request for a diagnostic investigation service to be performed.
@@ -172,24 +172,24 @@
   w5 = clinical.diagnostics
 
  -- Row 2 -----------------------------------
-  Element = DiagnosticOrder.identifier
+  Element = DiagnosticRequest.identifier
   Card. = 0..*
   Summary = Y
   Type = Identifier
   Short Label = Identifiers assigned to this order
   Definition = Identifiers assigned to this order instance by the orderer and/or  the receiver and/or order fulfiller.
-  Comments = The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the \'Placer\' in HL7 v2) and the producer of the observations in response to the order (known as the \'Filler\' in HL7 v2). For further discussion and examples see the [notes section](diagnosticorder.html#4.22.4) below.
+  Comments = The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the \'Placer\' in HL7 v2) and the producer of the observations in response to the order (known as the \'Filler\' in HL7 v2). For further discussion and examples see the [notes section](DiagnosticRequest.html#4.22.4) below.
   RIM Mapping = .id
   Committee Notes = 7331
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = DiagnosticOrder.status
+  Element = DiagnosticRequest.status
   Card. = 0..1
   Is Modifier = Y
   Summary = Y
   Type = code
-  Binding = DiagnosticOrderStatus
+  Binding = DiagnosticRequestStatus
   Short Label = proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error
   Definition = The status of the order
   Comments = Typically the system placing the order sets the status to \"requested\". Thereafter, the order is maintained by the receiver that updates the status as the request is handled
@@ -198,19 +198,19 @@
   w5 = status
 
  -- Row 4 -----------------------------------
-  Element = DiagnosticOrder.priority
+  Element = DiagnosticRequest.priority
   Card. = 0..1
   Summary = Y
   Type = code
-  Binding = DiagnosticOrderPriority
+  Binding = DiagnosticRequestPriority
   Short Label = routine | urgent | stat | asap
   Definition = The clinical priority associated with this order
-  Comments = The Order resource also has a priority. Generally, these should be the same, but they can be different. For instance, where the clinician indicates the order is urgent, but the subsequent workflow process overrules the priority for some reason. The effective default value is \"normal\"
+  Comments = The Task resource also has a priority. Generally, these should be the same, but they can be different. For instance, where the clinician indicates the order is urgent, but the subsequent workflow process overrules the priority for some reason. The effective default value is \"normal\"
   RIM Mapping = .priorityCode
   w5 = grade
 
  -- Row 5 -----------------------------------
-  Element = DiagnosticOrder.subject
+  Element = DiagnosticRequest.subject
   Card. = 1..1
   Summary = Y
   Type = Reference(Patient|Group|Location|Device)
@@ -220,7 +220,7 @@
   w5 = who.focus
 
  -- Row 6 -----------------------------------
-  Element = DiagnosticOrder.encounter
+  Element = DiagnosticRequest.encounter
   Card. = 0..1
   Summary = Y
   Type = Reference(Encounter)
@@ -230,7 +230,7 @@
   w5 = context
 
  -- Row 7 -----------------------------------
-  Element = DiagnosticOrder.orderer
+  Element = DiagnosticRequest.orderer
   Card. = 0..1
   Summary = Y
   Type = Reference(Practitioner)
@@ -240,18 +240,18 @@
   w5 = who.actor
 
  -- Row 8 -----------------------------------
-  Element = DiagnosticOrder.reason
+  Element = DiagnosticRequest.reason
   Card. = 0..*
   Type = CodeableConcept
-  Binding = DiagnosticOrderReason
+  Binding = DiagnosticRequestReason
   Short Label = Explanation/Justification for test
   Definition = An explanation or justification for why this diagnostic investigation is being requested.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
-  Comments = This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](diagnosticorder-example-di.html).
+  Comments = This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](diagnosticrequest-example-di.html).
   RIM Mapping = .reasonCode
   Committee Notes = 7134
 
  -- Row 9 -----------------------------------
-  Element = DiagnosticOrder.supportingInformation
+  Element = DiagnosticRequest.supportingInformation
   Card. = 0..*
   Aliases = Ask at order entry question, AOE
   Type = Reference(Observation|Condition|DocumentReference)
@@ -263,7 +263,7 @@
   Committee Notes = [#3113][#3739]
 
  -- Row 10 -----------------------------------
-  Element = !DiagnosticOrder.specimen
+  Element = !DiagnosticRequest.specimen
   Card. = 0..*
   Type = Reference(Specimen)
   Short Label = If the whole order relates to specific specimens
@@ -272,7 +272,7 @@
   RIM Mapping = .participation[typeCode=SPC].role
 
  -- Row 11 -----------------------------------
-  Element = DiagnosticOrder.event
+  Element = DiagnosticRequest.event
   Card. = 0..*
   UML = down
   Short Label = A list of events of interest in the lifecycle
@@ -281,28 +281,28 @@
   RIM Mapping = .inboundRelationship[typeCode=FLFS].source
 
  -- Row 12 -----------------------------------
-  Element = DiagnosticOrder.event.status
+  Element = DiagnosticRequest.event.status
   Card. = 1..1
   Summary = Y
   Type = code
-  Binding = DiagnosticOrderStatus
+  Binding = DiagnosticRequestStatus
   Short Label = proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error
   Definition = The status for the event
   RIM Mapping = .statusCode also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists
   Committee Notes = [#3720]
 
  -- Row 13 -----------------------------------
-  Element = DiagnosticOrder.event.description
+  Element = DiagnosticRequest.event.description
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
-  Binding = DiagnosticOrderEventDescription
+  Binding = DiagnosticRequestEventDescription
   Short Label = More information about the event and its context
   Definition = Additional information about the event that occurred - e.g. if the status remained unchanged
   RIM Mapping = .text
 
  -- Row 14 -----------------------------------
-  Element = DiagnosticOrder.event.dateTime
+  Element = DiagnosticRequest.event.dateTime
   Card. = 1..1
   Summary = Y
   Type = dateTime
@@ -311,7 +311,7 @@
   RIM Mapping = .effectiveTime
 
  -- Row 15 -----------------------------------
-  Element = DiagnosticOrder.event.actor
+  Element = DiagnosticRequest.event.actor
   Card. = 0..1
   Type = Reference(Practitioner|Device)
   Short Label = Who recorded or did this
@@ -319,7 +319,7 @@
   RIM Mapping = .participation[AUT or PFM]
 
  -- Row 16 -----------------------------------
-  Element = DiagnosticOrder.item
+  Element = DiagnosticRequest.item
   Card. = 0..*
   UML = right
   Short Label = The items the orderer requested
@@ -328,7 +328,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=OBS]
 
  -- Row 17 -----------------------------------
-  Element = DiagnosticOrder.item.code
+  Element = DiagnosticRequest.item.code
   Card. = 1..1
   Summary = Y
   Type = CodeableConcept
@@ -340,16 +340,16 @@
   RIM Mapping = .code
 
  -- Row 18 -----------------------------------
-  Element = !DiagnosticOrder.item.specimen
+  Element = !DiagnosticRequest.item.specimen
   Card. = 0..*
   Type = Reference(Specimen)
   Short Label = If this item relates to specific specimens
   Definition = If the item is related to a specific specimen
-  Comments = A single specimen should not appear in both DiagnosticOrder.specimen and DiagnosticOrder.item.specimen
+  Comments = A single specimen should not appear in both DiagnosticRequest.specimen and DiagnosticRequest.item.specimen
   RIM Mapping = .participation[typeCode=SPC].role
 
  -- Row 19 -----------------------------------
-  Element = DiagnosticOrder.item.bodySite
+  Element = DiagnosticRequest.item.bodySite
   Card. = 0..1
   Aliases = location
   Type = CodeableConcept
@@ -360,11 +360,11 @@
   RIM Mapping = targetSiteCode
 
  -- Row 20 -----------------------------------
-  Element = DiagnosticOrder.item.status
+  Element = DiagnosticRequest.item.status
   Card. = 0..1
   Summary = Y
   Type = code
-  Binding = DiagnosticOrderStatus
+  Binding = DiagnosticRequestStatus
   Short Label = proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error
   Definition = The status of this individual item within the order
   Comments = If the request has multiple items that have their own life cycles, then the items will have their own status while the overall diagnostic order is (usually) \"in-progress\"
@@ -372,16 +372,16 @@
   Committee Notes = [#3720]
 
  -- Row 21 -----------------------------------
-  Element = DiagnosticOrder.item.event
+  Element = DiagnosticRequest.item.event
   Card. = 0..*
   Summary = Y
-  Type = @DiagnosticOrder.event
+  Type = @DiagnosticRequest.event
   Short Label = Events specific to this item
   Definition = A summary of the events of interest that have occurred as this item of the request is processed
   RIM Mapping = .inboundRelationship[typeCode=FLFS].source
 
  -- Row 22 -----------------------------------
-  Element = DiagnosticOrder.note
+  Element = DiagnosticRequest.note
   Card. = 0..*
   Type = Annotation
   Short Label = Other notes and comments
@@ -394,47 +394,47 @@
  -- Row 1 -----------------------------------
   Name = actor
   Type = reference
-  Path = DiagnosticOrder.event.actor | DiagnosticOrder.item.event.actor
+  Path = DiagnosticRequest.event.actor | DiagnosticRequest.item.event.actor
 
  -- Row 2 -----------------------------------
   Name = bodysite
   Type = token
-  Path = DiagnosticOrder.item.bodySite
+  Path = DiagnosticRequest.item.bodySite
 
  -- Row 3 -----------------------------------
   Name = code
   Type = token
-  Path = DiagnosticOrder.item.code
+  Path = DiagnosticRequest.item.code
 
  -- Row 4 -----------------------------------
   Name = event-date
   Type = date
-  Path = DiagnosticOrder.event.dateTime
+  Path = DiagnosticRequest.event.dateTime
 
  -- Row 5 -----------------------------------
   Name = encounter
   Type = reference
-  Path = DiagnosticOrder.encounter
+  Path = DiagnosticRequest.encounter
 
  -- Row 6 -----------------------------------
   Name = identifier
   Type = token
-  Path = DiagnosticOrder.identifier
+  Path = DiagnosticRequest.identifier
 
  -- Row 7 -----------------------------------
   Name = item-date
   Type = date
-  Path = DiagnosticOrder.item.event.dateTime
+  Path = DiagnosticRequest.item.event.dateTime
 
  -- Row 8 -----------------------------------
   Name = item-past-status
   Type = token
-  Path = DiagnosticOrder.item.event.status
+  Path = DiagnosticRequest.item.event.status
 
  -- Row 9 -----------------------------------
   Name = item-status
   Type = token
-  Path = DiagnosticOrder.item.status
+  Path = DiagnosticRequest.item.status
 
  -- Row 10 -----------------------------------
   Name = item-status-date
@@ -445,22 +445,22 @@
  -- Row 11 -----------------------------------
   Name = orderer
   Type = reference
-  Path = DiagnosticOrder.orderer
+  Path = DiagnosticRequest.orderer
 
  -- Row 12 -----------------------------------
   Name = event-status
   Type = token
-  Path = DiagnosticOrder.event.status
+  Path = DiagnosticRequest.event.status
 
  -- Row 13 -----------------------------------
   Name = !specimen
   Type = reference
-  Path = DiagnosticOrder.specimen | DiagnosticOrder.item.specimen
+  Path = DiagnosticRequest.specimen | DiagnosticRequest.item.specimen
 
  -- Row 14 -----------------------------------
   Name = status
   Type = token
-  Path = DiagnosticOrder.status
+  Path = DiagnosticRequest.status
 
  -- Row 15 -----------------------------------
   Name = event-status-date
@@ -471,26 +471,26 @@
  -- Row 16 -----------------------------------
   Name = subject
   Type = reference
-  Path = DiagnosticOrder.subject
+  Path = DiagnosticRequest.subject
 
  -- Row 17 -----------------------------------
   Name = patient
   Type = reference
-  Path = DiagnosticOrder.subject
+  Path = DiagnosticRequest.subject
   Target Types = Patient
 
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
-  Name = diagnosticorder-extensions
+  Name = diagnosticrequest-extensions
   IG Name = core
-  Filename = diagnosticorder-extensions.xml
+  Filename = diagnosticrequest-extensions.xml
   Type = spreadsheet
 
  -- Row 2 -----------------------------------
-  Name = Diagnostic Order for Genetics
+  Name = Diagnostic Request for Genetics
   IG Name = core
-  Filename = diagnosticorder-genetics-profile.xml
+  Filename = diagnosticrequest-genetics-profile.xml
   Type = spreadsheet
 
 === Sheet Examples =====================================
@@ -499,32 +499,32 @@
   Name = Lipids
   Identity = example
   Description = Lipid Panel Order
-  Filename = diagnosticorder-example.xml
+  Filename = diagnosticrequest-example.xml
 
  -- Row 2 -----------------------------------
   Name = DI Order
   Identity = di
   Description = CT Scan order
-  Filename = diagnosticorder-example-di.xml
+  Filename = diagnosticrequest-example-di.xml
 
  -- Row 3 -----------------------------------
   Name = Free T4
   Identity = ft4
   Description = Free T4 Add on Order
-  Filename = diagnosticorder-example-ft4.xml
+  Filename = diagnosticrequest-example-ft4.xml
 
  -- Row 4 -----------------------------------
   Name = Order-genetics-1
   Identity = og-example1
   Description = Order for ABCB4 gene mutation analysis
-  Filename = diagnosticorder-genetics-example-1.xml
-  Profile = Diagnostic Order for Genetics
+  Filename = diagnosticrequest-genetics-example-1.xml
+  Profile = Diagnostic Request for Genetics
 
  -- Row 5 -----------------------------------
   Name = Order-genetics-2
   Identity = og-example2
   Description = Order for a specific variant
-  Filename = diagnosticorder-genetics-example-2.xml
-  Profile = Diagnostic Order for Genetics
+  Filename = diagnosticrequest-genetics-example-2.xml
+  Profile = Diagnostic Request for Genetics
 
 === Sheet Examples =====================================

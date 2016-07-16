@@ -45,19 +45,19 @@ profile call using the url elements found in the <a href="imagingstudy.html">Ima
 <h4>Comprehensive Imaging Scheduled Workflow</h4>
 <p>
 Joe Angina complains of shortness of breath and occasional chest pain to his primary care physician, Dr. Pat Down at 
-Local MultiClinic, who orders a stress echocardiogram; the order is created as a FHIR <a href="order.html">Order</a> 
+Local MultiClinic, who orders a stress echocardiogram; the order is created as a FHIR <a href="task.html">Task</a> 
 resource to manage the workflow, with a link to a <a href="diagnosticrequest.html">DiagnosticRequest</a> resource with 
 the details of the request.   The order is scheduled and assigned to cardiologist Dr. Art Skann, also at Local MultiClinic.   
 </p>
 <p>
 On the scheduled day of the exam, Joe arrives at the echo lab to meet with Dr. Skann and have the study done.  
-Dr. Skann’s workstation shows the daily list of <a href="order.html">Order</a>, and he follows the link to retrieve the 
+Dr. Skann’s workstation shows the daily list of <a href="task.html">Task</a>, and he follows the link to retrieve the 
 <a href="diagnosticrequest.html">DiagnosticRequest</a>. (He may follow the links through the 
 referenced <a href="patient.html">Patient</a> resource to access Joe’s electronic 
 medical record, but that is not the concern of this storyboard.)  
 </p>
 <p>
-The <a href="order.html">Order</a> and <a href="diagnosticrequest.html">DiagnosticRequest</a> has been transcoded to a DICOM Modality Worklist 
+The <a href="task.html">Task</a> and <a href="diagnosticrequest.html">DiagnosticRequest</a> has been transcoded to a DICOM Modality Worklist 
 Scheduled Procedure Step, and in the echo lab the equipment has downloaded the Modality Worklist.  The 
 study is performed, and the acquired images and sonographer’s preliminary measurements are stored in the 
 Local MultiClinic Picture Archiving and Communication System (PACS).  The PACS creates 
