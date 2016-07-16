@@ -1374,7 +1374,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Reference(Order|ReferralRequest|CarePlan|DiagnosticRequest|ProcedureRequest)</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Reference(ReferralRequest|CarePlan|DiagnosticRequest|ProcedureRequest)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Y</Data><NamedCell
@@ -4068,7 +4068,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4085,8 +4085,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4882,7 +4881,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
