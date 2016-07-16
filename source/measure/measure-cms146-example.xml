@@ -9,7 +9,6 @@
       (strep) test for the episode.
     </div>
   </text>
-  <moduleMetadata>
 	  <identifier>
 		<use value="official" />
 		<system value="http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms" />
@@ -22,7 +21,6 @@
 	  </identifier>
 	  <version value="1.0.0"/>
 	  <title value="Appropriate Testing for Children with Pharyngitis"/>
-	<type value="measure"/>
 	<status value="active"/>
 	<experimental value="true"/>
 	<description value="Percentage of children 2-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode."/>
@@ -32,7 +30,6 @@
 		  <code value="57024-2" />
 		</coding>
 	</topic>
-  </moduleMetadata>
   <library>
 	  <reference value="Library/library-cms146-example"/>
   </library>

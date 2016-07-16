@@ -7,7 +7,6 @@
       Cohort definition for Colorectal Cancer Screening.
     </div>
   </text>
-  <moduleMetadata>
 	  <identifier>
 		<use value="official" />
 		<system value="http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/payer-extract" />
@@ -15,7 +14,6 @@
 	  </identifier>
 	  <version value="1.0.0"/>
 	  <title value="Colorectal Cancer Screening. Cohort Definition"/>
-	<type value="module"/>
 	<status value="active"/>
 	<experimental value="true"/>
 	<description value="Colorectal Cancer Screening. Cohort Definition"/>
@@ -25,7 +23,6 @@
 		  <code value="57024-2" />
 		</coding>
 	</topic>
-  </moduleMetadata>
   <library>
 	  <reference value="Library/library-col"/>
   </library>

@@ -21,7 +21,7 @@
 
  -- Row 3 -----------------------------------
   Element = DataRequirement.profile
-  Card. = 0..1
+  Card. = 0..*
   Type = Reference(StructureDefinition)
   Short Label = The profile of the required data
   Definition = The profile of the required data, specified as the uri of the profile definition
@@ -90,6 +90,6 @@
  -- Row 13 -----------------------------------
   Element = DataRequirement.dateFilter.value[x]
   Card. = 0..1
-  Type = dateTime|Period
-  Short Label = The value of the filter, as a Period or dateTime value
-  Definition = The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime
+  Type = dateTime|Period|Duration
+  Short Label = The value of the filter, as a Period, DateTime, or Duration value
+  Definition = The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime. If a Duration is specified, the filter will return only those data items that fall within Duration from now

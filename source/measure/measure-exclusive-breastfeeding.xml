@@ -4,21 +4,18 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Exclusive Breastfeeding Measure</div>
   </text>
-  <moduleMetadata>
 	  <identifier>
 		<use value="official"/>
 		<value value="exclusive-breastfeeding-measure"/>
 	  </identifier>
 	  <version value="1.0.0"/>
 	  <title value="Exclusive Breastfeeding Measure"/>
-	  <type value="decision-support-rule"/>
 	  <status value="active"/>
 	  <description value="Exclusive breastfeeding measure of outcomes for exclusive breastmilk feeding of newborns."/>
 	  <publicationDate value="2015-03-08"/>
 	  <topic>
 		<text value="Exclusive Breastfeeding"/>
 	  </topic>
-  </moduleMetadata>
   <library>
     <reference value="Library/library-exclusive-breastfeeding-cqm-logic"/>
   </library>

@@ -117,7 +117,7 @@
  -- Row 2 -----------------------------------
   Element = GuidanceResponse.requestId
   Card. = 0..1
-  Type = string
+  Type = id
   Short Label = The id of the request associated with this response, if any
   Definition = The id of the request associated with this response. If an id was given as part of the request, it will be reproduced here to enable the requester to more easily identify the response in a multi-request scenario
 
