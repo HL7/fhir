@@ -1451,7 +1451,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionsprimaryIndicator}</Data><NamedCell
+    <Cell ss:StyleID="s116"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-primaryIndicator}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">YesNo</Data><NamedCell
@@ -1629,7 +1629,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionscommunicationMode}</Data><NamedCell
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-communicationMode}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">CommunicationMode</Data><NamedCell
@@ -1670,7 +1670,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionsbirthDateVerificationMethod}</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-birthDateVerificationMethod}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">BirthDateVerifiedMethod</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1687,7 +1687,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionspatientImportance}</Data><NamedCell
+    <Cell ss:StyleID="s122"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-patientImportance}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">VIPLevel</Data><NamedCell
@@ -1748,7 +1748,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionsdeceasedDateTime}</Data><NamedCell
+    <Cell ss:StyleID="s122"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-deceasedDateTime}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1808,7 +1808,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionsmultipleBirthOrderNumber}</Data><NamedCell
+    <Cell ss:StyleID="s122"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-multipleBirthOrderNumber}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1838,7 +1838,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionscitezenship}</Data><NamedCell
+    <Cell ss:StyleID="s122"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-citezenship}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">USCountry</Data><NamedCell
@@ -1869,7 +1869,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionscitezenshipPeriod}</Data><NamedCell
+    <Cell ss:StyleID="s122"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-citezenshipPeriod}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1899,7 +1899,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionsadoptionInfo}</Data><NamedCell
+    <Cell ss:StyleID="s122"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-adoptionInfo}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">AdoptionInfo</Data><NamedCell

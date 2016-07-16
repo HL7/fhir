@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value ="hspc-sensorDescription"/>
-  <url value="http://hl7.org/fhir/hspc-sensorDescription"/>
+  <id value="sensorDescription"/>
+  <url value="http://fhir.org/guides/hspc/CodeSystem/sensorDescription"/>
   <version value="0.01"/>
   <name value="HSPC Sensor Description code system"/>
   <status value="draft"/>

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="observation-roleType"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/observation-roleType"/>
   <name value="HSPC Role Type"/>
   <status value="draft"/>
   <publisher value="HSPC"/>

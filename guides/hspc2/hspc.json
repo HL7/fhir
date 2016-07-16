@@ -80,7 +80,7 @@
     "hspc-oxygenSaturationPanel-profile-spreadsheet.xml",
     "hspc-bodylength-profile-spreadsheet.xml",
     "hspc-bsa-profile-spreadsheet.xml",
-    "hspc-peruleoutcriteriascore-profile-spreadsheet.xml",
+    "!hspc-peruleoutcriteriascore-profile-spreadsheet.xml",
     "hspc-lowriskforpeimpression-profile-spreadsheet.xml",
     "hspc-peruleoutcriteriapanel-profile-spreadsheet.xml"
   ],  

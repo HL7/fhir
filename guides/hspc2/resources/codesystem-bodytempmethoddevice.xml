@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/hspc-bodytempmethoddevice"/>
+  <id value="bodytempmethoddevice"/>
+  <url value="http://fhir.org/guides/hspc/CodeSystem/bodytempmethoddevice"/>
   <version value="0.01"/>
   <name value="HSPC Body Temperature Measurement Method/Device"/>
   <status value="draft"/>

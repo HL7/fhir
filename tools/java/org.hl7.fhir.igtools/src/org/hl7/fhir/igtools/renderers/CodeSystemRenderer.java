@@ -113,7 +113,7 @@ public class CodeSystemRenderer extends BaseRenderer {
   }
 
   private boolean addLink(StringBuilder b, boolean first, ValueSet vc, ConceptSetComponent ed, Set<String> processed) {
-    if (ed.getSystem().equals(cs.getUrl())) {
+    if (ed.hasSystem() && ed.getSystem().equals(cs.getUrl())) {
       if (first) {
         first = false;
         b.append("<ul>\r\n");

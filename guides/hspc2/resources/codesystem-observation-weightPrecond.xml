@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/observation-hspc-weightPrecond"/>
+  <id value="observation-weightPrecond"/>
+  <url value="http://fhir.org/guides/hspc/CodeSystem/observation-weightPrecond"/>
   <version value="0.01"/>
   <name value="HSPC Body Weight Associated Precondition"/>
   <status value="draft"/>

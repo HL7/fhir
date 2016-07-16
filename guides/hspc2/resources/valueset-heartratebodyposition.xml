@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="heartratebodyposition"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/heartratebodyposition"/>
   <version value="0.01"/>
   <name value="HSPC Heart Rate Measurement Body Position"/>
   <status value="draft"/>

@@ -718,12 +718,15 @@ public class Publisher implements IGLogger {
   }
 
   private boolean loadSpreadsheet(JsonPrimitive be, boolean needToBuild, FetchedFile igf) throws Exception {
+    if (be.getAsString().startsWith("!"))
+      return false;
+    
     String path = Utilities.path(Utilities.getDirectoryForFile(igName), be.getAsString());
     FetchedFile f = fetcher.fetch(path);
     boolean changed = noteFile("Spreadsheet/"+be.getAsString(), f);
     if (changed) {
       f.getValuesetsToLoad().clear();
-      dlog("load "+path);
+      log("load "+path);
       f.setBundle(new IgSpreadsheetParser(context, execTime, igpkp.getCanonical(), f.getValuesetsToLoad(), first, context.getBinaries().get("mappingSpaces.details")).parse(f));
       for (BundleEntryComponent b : f.getBundle().getEntry()) {
         FetchedResource r = f.addResource();
@@ -879,7 +882,11 @@ public class Publisher implements IGLogger {
             }
           BaseConformance bc = (BaseConformance) r.getResource();
           igpkp.checkForPath(f, r, bc);
-          context.seeResource(bc.getUrl(), bc);
+          try {
+            context.seeResource(bc.getUrl(), bc);
+          } catch (Exception e) {
+            throw new Exception("Exception loading "+bc.getUrl()+": "+e.getMessage(), e);
+          }
         }
       }
     }

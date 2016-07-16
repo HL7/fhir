@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="substanceCategory"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/substanceCategory"/>
   <version value="0.01"/>
   <name value="HSPC Substance Category Value Set"/>
   <status value="draft"/>
@@ -26,7 +28,7 @@
       </concept>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/hspc-substancecategory"/>
+      <system value="http://fhir.org/guides/hspc/CodeSystem/substancecategory"/>
     </include>
   </compose>
 </ValueSet>

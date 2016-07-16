@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="locationCondition"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/locationCondition"/>
   <name value="HSPC Service Delivery Location Condition value set"/>
   <status value="draft"/>
   <publisher value="HSPC"/>
@@ -17,7 +19,7 @@
   <copyright value="Intermountain Healthcare HDD"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/hspc-locationCondition"/>
+      <system value="http://fhir.org/guides/hspc/CodeSystem/locationCondition"/>
     </include>
   </compose>
 </ValueSet>

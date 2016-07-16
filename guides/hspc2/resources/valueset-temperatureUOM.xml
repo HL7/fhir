@@ -1,4 +1,9 @@
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="temperatureUOM"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/temperatureUOM"/>
   <name value="HSPC Temperature Units of Measure Value Set"/>
   <publisher value="HSPC"/>
   <contact>

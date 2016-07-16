@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="bpmeasmethoddevice"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/bpmeasmethoddevice"/>
   <name value="HSPC Blood Pressure Measurement Method/Device Value Set"/>
   <status value="draft"/>
   <publisher value="HSPC"/>
@@ -16,7 +18,7 @@
   <description value="A set of codes that describe the method or device used to measure a systolic blood pressure."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/hspc-bpmeasmethoddevice"/>
+      <system value="http://fhir.org/guides/hspc/CodeSystem/bpmeasmethoddevice"/>
     </include>
   </compose>
 </ValueSet>

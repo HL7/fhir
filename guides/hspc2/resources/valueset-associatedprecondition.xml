@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="associatedprecondition"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/associatedprecondition"/>
   <text>
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -17,7 +22,6 @@
     
     </div>
   </text>
-  <url value="http://www.example.com/valueset/deltaflag"/>
   <version value="0.01"/>
   <name value="HSPC Associated Precondition Value Set Definition"/>
   <status value="draft"/>

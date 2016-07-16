@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="hspc-DeltaFlag"/>
-  <url value="http://ihc.org/fhir/ValueSet/hspc-DeltaFlag"/>
+  <id value="DeltaFlag"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/DeltaFlag"/>
   <version value="0.01"/>
   <name value="DeltaFlag"/>
   <status value="draft"/>

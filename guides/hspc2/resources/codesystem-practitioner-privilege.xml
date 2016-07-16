@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/practitioner-hspc-privilege"/>
+  <id value="practitioner-privilege"/>
+  <url value="http://fhir.org/guides/hspc/CodeSystem/practitioner-privilege"/>
   <name value="HSPC ProviderPractitioner Privilege"/>
   <status value="draft"/>
   <experimental value="false"/>

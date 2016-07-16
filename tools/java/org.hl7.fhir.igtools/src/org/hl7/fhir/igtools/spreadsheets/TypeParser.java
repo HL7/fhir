@@ -157,12 +157,12 @@ public class TypeParser {
         for (String n : wildcardTypes()) 
           list.add(new TypeRefComponent().setCode(n));
       } else if (Utilities.noString(t.getName()) && t.getProfile() != null) {
+        TypeRefComponent tc = new TypeRefComponent();
+        tc.setProfile(t.getProfile());
         StructureDefinition sd = context.fetchResource(StructureDefinition.class, t.getProfile());
-        if (sd == null)
-          throw new Exception("Unknown profile '"+t.getProfile()+"'");
-        TypeRefComponent tc = new TypeRefComponent().setCode(sd.getType());
+        if (sd != null)
+          tc.setCode(sd.getType());
         list.add(tc);
-        tc.setProfile(sd.getUrl());
       } else if (t.getName().startsWith("=")){
         if (resource)
           list.add(new TypeRefComponent().setCode("BackboneElement"));

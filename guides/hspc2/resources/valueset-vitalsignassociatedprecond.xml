@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="vitalsignassociatedprecond"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/vitalsignassociatedprecond"/>
   <version value="0.01"/>
   <name value="HSPC Vital Sign Associated Precondition"/>
   <status value="draft"/>
@@ -70,7 +72,7 @@
       </concept>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/hspc-vitalsignassociatedprecond"/>
+      <system value="http://fhir.org/guides/hspc/CodeSystem/vitalsignassociatedprecond"/>
     </include>
   </compose>
 </ValueSet>

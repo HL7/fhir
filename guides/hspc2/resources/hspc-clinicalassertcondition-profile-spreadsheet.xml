@@ -1366,7 +1366,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionshistoryIndicator}</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-historyIndicator}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1396,7 +1396,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionsassociatedPrecondition}</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-associatedPrecondition}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">AssociatedPrecondition</Data><NamedCell
@@ -1427,7 +1427,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionsfocalSubject}</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-focalSubject}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">FocalSubjectRelationship</Data><NamedCell
@@ -1458,7 +1458,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionslikelihood}</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-likelihood}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Likelihood</Data><NamedCell
@@ -1489,7 +1489,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionsriskForIndicator}</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-riskForIndicator}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>

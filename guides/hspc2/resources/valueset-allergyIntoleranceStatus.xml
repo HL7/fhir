@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="allergyIntoleranceStatus"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/allergyIntoleranceStatus"/>
   <version value="0.01"/>
   <name value="HSPC Allergy/Intolerance Status Value Set"/>
   <status value="draft"/>
@@ -38,7 +40,7 @@
       </concept>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/hspc-allergyintolerancestatus"/>
+      <system value="http://fhir.org/guides/hspc/CodeSystem/allergyintolerancestatus"/>
     </include>
   </compose>
 </ValueSet>

@@ -1324,7 +1324,7 @@
     <Cell ss:StyleID="s112"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionsdateOfOnset}</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-dateOfOnset}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1354,7 +1354,7 @@
     <Cell ss:StyleID="s112"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionshistoryIndicator}</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-historyIndicator}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">YesNo</Data><NamedCell
@@ -1413,7 +1413,7 @@
     <Cell ss:StyleID="s112"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionsassociatedPrecondition}</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-associatedPrecondition}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">AssociatedPrecondition</Data><NamedCell
@@ -1443,7 +1443,7 @@
     <Cell ss:Index="6" ss:StyleID="s112"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionsfocalSubject}</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-focalSubject}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">FocalSubjectRelationship</Data><NamedCell
@@ -1472,7 +1472,7 @@
     <Cell ss:StyleID="s112"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionslikelihood}</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-likelihood}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">Likelihood</Data><NamedCell
@@ -1503,7 +1503,7 @@
     <Cell ss:StyleID="s112"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionsriskForIndicator}</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-riskForIndicator}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">YesNo</Data><NamedCell

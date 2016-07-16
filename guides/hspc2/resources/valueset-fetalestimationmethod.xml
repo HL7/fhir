@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="fetalestimationmethod"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/fetalestimationmethod"/>
   <version value="0.01"/>
   <name value="HSPC Fetal Estimation Method value set"/>
   <status value="draft"/>
@@ -26,7 +28,7 @@
       </concept>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/hspc-fetalestimationmethod"/>
+      <system value="http://fhir.org/guides/hspc/CodeSystem/fetalestimationmethod"/>
     </include>
   </compose>
 </ValueSet>

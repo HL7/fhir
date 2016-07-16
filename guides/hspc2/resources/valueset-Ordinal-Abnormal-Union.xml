@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="hspc-Ordinal-Abnormal-Union.xml"/>
-  <url value="http://healthcaresoa.org/fhir/ValueSet/hspc-Ordinal-Abnormal-Union"/>
+  <id value="Ordinal-Abnormal-Union"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/Ordinal-Abnormal-Union"/>
   <version value="0.01"/>
   <name value="Ordinal Assessment or Interpretation"/>
   <status value="draft"/>

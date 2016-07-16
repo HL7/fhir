@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="bodytempmethoddevice"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/bodytempmethoddevice"/>
   <version value="0.01"/>
   <name value="HSPC Body Temperature Measurement Method/Device"/>
   <status value="draft"/>
@@ -30,7 +32,7 @@
       </concept>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/hspc-bodytempmethoddevice"/>
+      <system value="http://fhir.org/guides/hspc/CodeSystem/bodytempmethoddevice"/>
     </include>
   </compose>
 </ValueSet>

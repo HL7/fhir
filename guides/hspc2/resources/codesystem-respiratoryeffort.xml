@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="hspc-breathSounds"/>
-  <url value="http://hl7.org/fhir/hspc-respiratoryeffort"/>
+  <id value="respiratoryeffort"/>
+  <url value="http://fhir.org/guides/hspc/CodeSystem/respiratoryeffort"/>
   <version value="0.01"/>
   <name value="Respiratory Effort"/>
   <status value="draft"/>

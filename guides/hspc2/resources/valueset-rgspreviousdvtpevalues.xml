@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet  xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="rgspreviousdvtpevalues"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/rgspreviousdvtpevalues"/>
     <version value="0.01"/>
     <name value="HSPC Revised Geneva Score Previous DVT or PE Values"/>
     <status value="draft"/>
@@ -10,7 +15,7 @@
     <copyright value="TBD"/>
     <extensible value="true"/>
     <codeSystem>
-		<system value="http://hl7.org/fhir/hspc-rgspreviousdvtpevalues"/>
+		<system value="http://fhir.org/guides/hspc/CodeSystem/rgspreviousdvtpevalues"/>
 		<caseSensitive value="true"/>
 		<concept>
 			<code value="527742102"/>

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="hspc-Abnormal"/>
-  <url value="http://ihc.org/fhir/ValueSet/hspc-Abnormal"/>
+  <id value="valueset-Abnormal"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/valueset-Abnormal"/>
   <version value="0.01"/>
   <name value="AbnormalInterpretation"/>
   <status value="draft"/>

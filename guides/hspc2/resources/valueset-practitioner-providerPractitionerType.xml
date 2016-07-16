@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="practitioner-providerPractitionerType"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/practitioner-providerPractitionerType"/>
   <name value="HSPC ProviderPractitioner Type"/>
   <status value="draft"/>
   <publisher value="HSPC"/>

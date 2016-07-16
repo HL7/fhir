@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
-    <valueUri value="urn:oid:0.00.000.0.000000.0.00.001"/>
-  </extension>
+  <id value="importance"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/importance"/>
 <!--   
     Board Member	PatientImportance:BM:19266	BM
     Financial Donor	PatientImportance:FD:19268	FD

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="sensorDescription"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/sensorDescription"/>
   <version value="0.01"/>
   <name value="HSPC Sensor Description value set"/>
   <status value="draft"/>
@@ -12,7 +17,7 @@
   <extensible value="true"/>
   <compose>
     <include>
-		<system value="http://hl7.org/fhir/hspc-sensorDescription"/>
+		<system value="http://fhir.org/guides/hspc/CodeSystem/sensorDescription"/>
 	</include>
   </compose>
 </ValueSet>

@@ -20,7 +20,9 @@
     <resource>
       <example value="false"/>
       <name value="HSPC Quantitative Labs dictionary"/>
-      <sourceUri value="hspc-qnlab-de.xml"/>
+      <sourceReference>
+        <reference value="Bundle/hspc-qnlab-de"/>
+      </sourceReference> 
     </resource>
   </package>
   <page>

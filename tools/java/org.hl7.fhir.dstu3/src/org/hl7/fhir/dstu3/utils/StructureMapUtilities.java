@@ -1449,7 +1449,7 @@ public class StructureMapUtilities {
         return null;
     // we build this by text. Any element that has a mapping, we put it's mappings inside it....
     StringBuilder b = new StringBuilder();
-    b.append("map \""+sd.getUrl()+"-map\" = \"Map for "+sd.getId()+"\"\r\n");
+    b.append("map \""+sd.getUrl().replace("StructureDefinition", "StructureMap")+"-map\" = \"Map for "+sd.getId()+"\"\r\n");
     b.append("\r\n");
     b.append("uses \""+sd.getUrl()+"\" as source\r\n\r\n");
     ElementDefinition root = sd.getSnapshot().getElementFirstRep();

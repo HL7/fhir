@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <url value="http://www.example.com/valueset/deltaflag"/>
+  <id value="observation-findings"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/observation-findings"/>
   <version value="0.01"/>
   <name value="HSPC SNOMED Findings Value Set Definition"/>
   <status value="draft"/>

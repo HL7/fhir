@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
-    <valueUri value="urn:oid:0.00.000.0.000000.0.00.004"/>
-  </extension>
+  <id value="provenance-hspc-action-method"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/provenance-hspc-action-method"/>
 <!--   
     To be provided by CIMI. Placeholders for now
     -->

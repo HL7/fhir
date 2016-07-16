@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="dataOriginationMode"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/dataOriginationMode"/>
   <name value="Data Origination Mode value set"/>
   <status value="draft"/>
   <publisher value="HSPC"/>
@@ -13,7 +18,7 @@
   <description value="The list of codes that describe how the data came into being."/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
   <codeSystem>
-    <system value="http://hl7.org/fhir/hspc-dataOriginationMode"/>
+    <system value="http://fhir.org/guides/hspc/CodeSystem/dataOriginationMode"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="14610118"/>

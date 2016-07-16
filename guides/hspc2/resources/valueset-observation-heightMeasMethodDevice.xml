@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="valueset-observation-heightMeasMethodDevice"/>
+  <id value="observation-heightMeasMethodDevice"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/observation-heightMeasMethodDevice"/>
   <version value="0.01"/>
   <name value="HSPC Height Meas Method Device"/>
   <status value="draft"/>

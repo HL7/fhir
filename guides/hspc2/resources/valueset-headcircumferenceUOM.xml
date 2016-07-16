@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="headcircumferenceUOM"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/headcircumferenceUOM"/>
   <name value="HSPC Head Circumference Units of Measure Value Set"/>
   <status value="draft"/>
   <publisher value="HSPC"/>

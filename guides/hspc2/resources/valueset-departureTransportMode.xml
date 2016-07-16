@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="departureTransportMode"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/departureTransportMode"/>
   <name value="HSPC Departure Transport Mode value set"/>
   <status value="draft"/>
   <publisher value="HSPC"/>
@@ -60,7 +62,7 @@
       </concept>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/hspc-departureTransportationMode"/>
+      <system value="http://fhir.org/guides/hspc/CodeSystem/departureTransportationMode"/>
     </include>
   </compose>
 </ValueSet>

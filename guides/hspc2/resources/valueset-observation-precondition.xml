@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
-    <valueUri value="urn:oid:0.00.0.0000.0.000.000.5"/>
-  </extension>
+  <id value="observation-precondition"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/observation-precondition"/>
   <name value="Observation Precondition"/>
   <status value="active"/>
   <publisher value="Health Services Platform Consortium (HSPC)"/>

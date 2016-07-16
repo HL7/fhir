@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="pesiinterpretation"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/pesiinterpretation"/>
   <version value="0.01"/>
   <name value="HSPC Pulmonary Embolism Severity Index Interpretation Value Set"/>
   <status value="draft"/>
@@ -11,7 +16,7 @@
   <copyright value="Intermountain Healthcare"/>
   <extensible value="true"/>
   <codeSystem>
-		<system value="http://hl7.org/fhir/hspc-pesiinterpretation"/>
+		<system value="http://fhir.org/guides/hspc/CodeSystem/pesiinterpretation"/>
 		<caseSensitive value="true"/>
 		<concept>
 			<code value="528096376"/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="hspc-deltaFlag-numericNom"/>
-  <url value="http://healthcaresoa.org/fhir/hspc-deltaFlag-numericNom"/>
+  <id value="deltaFlag-numericNom"/>
+  <url value="http://fhir.org/guides/hspc/CodeSystem/deltaFlag-numericNom"/>
   <version value="0.01"/>
   <name value="Abnormal Interpretation Numeric Nom"/>
   <status value="draft"/>

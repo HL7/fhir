@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="valueset-observation-weightMeasMethodDevice"/>
-  <url value="http://hl7,org/fhir/observation-hspc-weightMeasMethodDevice"/>
+  <id value="observation-weightMeasMethodDevice"/>
+  <url value="http://fhir.org/guides/hspc/CodeSystem/observation-weightMeasMethodDevice"/>
   <version value="0.01"/>
   <name value="HSPC Weight Meas Method Device"/>
   <status value="draft"/>

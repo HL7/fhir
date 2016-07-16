@@ -1229,7 +1229,7 @@
     <Cell ss:StyleID="s114"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionsconfidentiality}</Data><NamedCell
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-confidentiality}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">Confidentiality</Data><NamedCell
@@ -3184,7 +3184,7 @@
     <Cell ss:StyleID="s114"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionsconfidentiality}</Data><NamedCell
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-confidentiality}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">Confidentiality</Data><NamedCell
@@ -3248,7 +3248,7 @@
     <Cell ss:StyleID="s114"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionspriority}</Data><NamedCell
+    <Cell ss:StyleID="s126"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-priority}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">TransportPriority</Data><NamedCell
@@ -3345,7 +3345,7 @@
     <Cell ss:StyleID="s114"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionsconfidentiality}</Data><NamedCell
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-confidentiality}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">Confidentiality</Data><NamedCell
@@ -3409,7 +3409,7 @@
     <Cell ss:StyleID="s114"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/hspc-extensionspriority}</Data><NamedCell
+    <Cell ss:StyleID="s126"><Data ss:Type="String">Extension{http://fhir.org/guides/hspc/StructureDefinition/extensions-priority}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">TransportPriority</Data><NamedCell
@@ -4958,7 +4958,7 @@
     <Cell><Data ss:Type="String">The particular healthcare specialty or care group responsible for the care of the patient during the encounter</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">preferred</Data></Cell>
-    <Cell><Data ss:Type="String">valueset-practitioner-providerPractitionerSpecialty</Data></Cell>
+    <Cell><Data ss:Type="String">http://fhir.org/guides/hspc/ValueSet/practitioner-providerPractitionerSpecialty</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">HospitalService</Data></Cell>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s154"/>
@@ -5031,7 +5031,7 @@
     <Cell><Data ss:Type="String">The codes that represent the particular specialty or practice group that a provider is affiliated with for the given encounter</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">preferred</Data></Cell>
-    <Cell><Data ss:Type="String">valueset-practitioner-providerPractitionerSpecialty</Data></Cell>
+    <Cell><Data ss:Type="String">http://fhir.org/guides/hspc/ValueSet/practitioner-providerPractitionerSpecialty</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">ProviderService</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:Index="13" ss:StyleID="s155"/>

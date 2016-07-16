@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="valueset-participationType"/>
+  <id value="participationType"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://fhir.org/guides/hspc/ValueSet/participationType"/>
   <version value="0.01"/>
   <name value="HSPC Participation Type"/>
   <status value="draft"/>
@@ -16,7 +20,7 @@
   <description value="The kind of participation an individual is performing."/>
   <extensible value="true"/>
   <codeSystem>
-    <system value="http://hl7.org/fhir/hspc-participationType"/>
+    <system value="http://fhir.org/guides/hspc/CodeSystem/participationType"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="521401509"/>

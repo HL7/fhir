@@ -234,7 +234,7 @@ public class IgSpreadsheetParser {
       ElementDefinition e = processLine(sd, sheet, row, invariants, true, row == 0);
       if (e != null) 
         for (TypeRefComponent t : e.getType()) {
-          if (t.hasProfile() && !t.getCode().equals("Extension") && t.getProfile().startsWith("#")) { 
+          if (t.hasProfile() && !"Extension".equals(t.getCode()) && t.getProfile().startsWith("#")) { 
             if (!namedSheets.contains(t.getProfile().substring(1)))
               namedSheets.add(t.getProfile().substring(1));      
           }
@@ -1134,7 +1134,7 @@ public class IgSpreadsheetParser {
     // things that go on Extension.value
     if (!Utilities.noString(sheet.getColumn(row, "Type"))) {
       ElementDefinition exv = new ElementDefinition();
-      exv.setPath("Extension.value[x]");
+      exv.setPath(exe.getPath()+".value[x]");
       sd.getDifferential().getElement().add(exv);
       String bindingName = sheet.getColumn(row, "Binding");
       if (!Utilities.noString(bindingName)) {
