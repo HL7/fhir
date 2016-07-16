@@ -139,6 +139,7 @@
   Type = DomainResource
   Short Label = Dispensing a medication to a named patient
   Definition = Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
+  Comments = The WG will be updating the MedicationDispense resource  to adjust each affected resource to align with the workflow pattern (see workflow.html).
   RIM Mapping = Supply[moodCode=EVN]
   Committee Notes = Need to add confidentiality
   w5 = clinical.medication
@@ -206,6 +207,7 @@
   Type = Reference(Organization)
   Short Label = Organization responsible for the dispense of the medication
   Definition = The organizaation responsible for the dispense of the medication.
+  RIM Mapping = .participation[typeCode=RESP].role[classCode=ASSIGNED]
   w5 = who.actor
 
  -- Row 8 -----------------------------------
@@ -447,6 +449,7 @@
   Binding = MedicationDispenseStatus
   Short Label = in-progress | on-hold | completed | entered-in-error | stopped
   Definition = The status for the event
+  RIM Mapping = statusCode
 
  -- Row 34 -----------------------------------
   Element = MedicationDispense.eventHistory.action
@@ -462,6 +465,7 @@
   Type = dateTime
   Short Label = The date at which the event happened
   Definition = The date/time at which the event occurred
+  RIM Mapping = effectiveTime
 
  -- Row 36 -----------------------------------
   Element = MedicationDispense.eventHistory.actor
@@ -477,6 +481,7 @@
   Binding = MedicationDispenseActionReason
   Short Label = Reason the action was taken
   Definition = The reason why the action was taken
+  RIM Mapping = reasonCode
 
 === Sheet Search =====================================
 

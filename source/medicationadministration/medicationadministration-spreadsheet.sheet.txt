@@ -128,6 +128,7 @@
   Type = DomainResource
   Short Label = Administration of medication to a patient
   Definition = Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner
+  Comments = The WG will be updating the MedicationAdministration resource  to adjust each affected resource to align with the workflow pattern (see workflow.html).
   RIM Mapping = SubstanceAdministration
   w5 = clinical.medication
 
@@ -350,6 +351,7 @@
   Binding = MedicationAdministrationStatus
   Short Label = in-progress | on-hold | completed | entered-in-error | stopped
   Definition = The status for the event
+  RIM Mapping = statusCode
 
  -- Row 24 -----------------------------------
   Element = MedicationAdministration.eventHistory.action
@@ -365,6 +367,7 @@
   Type = dateTime
   Short Label = The date at which the event happened
   Definition = The date/time at which the event occurred
+  RIM Mapping = effectiveTime
 
  -- Row 26 -----------------------------------
   Element = MedicationAdministration.eventHistory.actor
@@ -380,6 +383,7 @@
   Binding = MedicationAdminstrationActionReason
   Short Label = Reason the action was taken
   Definition = The reason why the action was taken
+  RIM Mapping = reasonCode
 
 === Sheet Search =====================================
 

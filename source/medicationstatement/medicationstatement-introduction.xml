@@ -16,6 +16,7 @@ This resource does not produce a medication list, but it does produce individual
 </p><p>
 A medication statement is not a part of the prescribe -> dispense -> administer sequence, but is a report by a patient, significant other or a clinician that one or more of the prescribe, dispense or administer actions has occurred, resulting is a belief that the patient is, has, or will be using a particular medication.
 </p>
+<p>MedicationStatement is an event resource from a FHIR workflow perspective - see <a href="workflow.html#request"></a></p>
 </div>
 
 <div>
