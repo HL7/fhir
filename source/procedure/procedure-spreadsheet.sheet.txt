@@ -1,4 +1,4 @@
-
+﻿
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -430,6 +430,13 @@
   Definition = Identifies medications, devices and any other substance used as part of the procedure
   Requirements = Used for tracking contamination, etc.
   Comments = For devices actually implanted or removed, use Procedure.device
+
+ -- Row 31 -----------------------------------
+  Element = Procedure.component
+  Card. = 0..*
+  Type = Reference(MedicationAdministration | Procedure | Observation)
+  Short Label = Events related to the procedure
+  Definition = Identifies medication administrations, other procedures or observations that are related to this procedure.
 
 === Sheet Search =====================================
 
