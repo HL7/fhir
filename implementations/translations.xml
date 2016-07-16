@@ -434,8 +434,8 @@
         <translation lang="en">NamingSystem</translation>
         <translation lang="fr">SystèmeDeNommage</translation>
     </item>
-    <item id="NutritionOrder">
-        <translation lang="en">NutritionOrder</translation>
+    <item id="NutritionRequest">
+        <translation lang="en">NutritionRequest</translation>
         <translation lang="zh">为了营养</translation>
         <translation lang="es">OrdenNutrición</translation>
         <translation lang="fr">OrdreNutrition</translation>
