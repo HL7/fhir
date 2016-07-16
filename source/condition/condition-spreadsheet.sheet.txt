@@ -20,7 +20,7 @@
   Binding = value set
   Reference = valueset-condition-clinical
   Definition = The clinical status of the condition or diagnosis.
-  Conformance = preferred
+  Conformance = required
 
  -- Row 4 -----------------------------------
   Binding Name = ConditionVerificationStatus
