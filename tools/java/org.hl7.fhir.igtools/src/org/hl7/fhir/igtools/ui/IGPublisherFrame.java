@@ -54,7 +54,6 @@ public class IGPublisherFrame extends javax.swing.JFrame {
   private IniFile ini;
 
   private BackgroundPublisherTask task;
-  private WebView webView;
   private StringBuilder fullLog = new StringBuilder();
   private String qa;
   
@@ -294,7 +293,8 @@ public class IGPublisherFrame extends javax.swing.JFrame {
       btnGetHelp.setEnabled(true);      
       btnExecute.setLabel("Execute");
       Platform.runLater( () -> { // FX components need to be managed by JavaFX
-        webView = new WebView();
+        
+        WebView webView = new WebView();
         webView.getEngine().load("file:"+qa);
         txtValidation.setScene( new Scene( webView ) );
      });
@@ -312,6 +312,7 @@ public class IGPublisherFrame extends javax.swing.JFrame {
     txtLog.setText("");
     fullLog.setLength(0);
     Platform.runLater( () -> { // FX components need to be managed by JavaFX
+      WebView webView = new WebView();
       webView.getEngine().loadContent( "<html> Publication in Process!" );
       txtValidation.setScene( new Scene( webView ) );
    });
