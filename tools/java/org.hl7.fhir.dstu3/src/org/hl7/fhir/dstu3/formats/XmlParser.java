@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Fri, Jul 15, 2016 13:24+1000 for FHIR v1.5.0
+// Generated on Fri, Jul 15, 2016 17:31+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -13099,12 +13099,10 @@ public class XmlParser extends XmlParserBase {
         res.setTextEquivalentElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("concept")) {
         res.getConcept().add(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("supportingEvidence")) {
-        res.getSupportingEvidence().add(parseAttachment(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("documentation")) {
-        res.getDocumentation().add(parseAttachment(xpp));
+        res.getDocumentation().add(parseRelatedResource(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("triggerDefinition")) {
-        res.setTriggerDefinition(parseTriggerDefinition(xpp));
+        res.getTriggerDefinition().add(parseTriggerDefinition(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("condition")) {
         res.setConditionElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("relatedAction")) {
@@ -31474,16 +31472,13 @@ public class XmlParser extends XmlParserBase {
         for (CodeableConcept e : element.getConcept()) 
           composeCodeableConcept("concept", e);
       }
-      if (element.hasSupportingEvidence()) { 
-        for (Attachment e : element.getSupportingEvidence()) 
-          composeAttachment("supportingEvidence", e);
-      }
       if (element.hasDocumentation()) { 
-        for (Attachment e : element.getDocumentation()) 
-          composeAttachment("documentation", e);
+        for (RelatedResource e : element.getDocumentation()) 
+          composeRelatedResource("documentation", e);
       }
-      if (element.hasTriggerDefinition()) {
-        composeTriggerDefinition("triggerDefinition", element.getTriggerDefinition());
+      if (element.hasTriggerDefinition()) { 
+        for (TriggerDefinition e : element.getTriggerDefinition()) 
+          composeTriggerDefinition("triggerDefinition", e);
       }
       if (element.hasConditionElement()) {
         composeString("condition", element.getConditionElement());

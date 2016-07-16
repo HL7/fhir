@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Fri, Jul 15, 2016 13:24+1000 for FHIR v1.5.0
+// Generated on Fri, Jul 15, 2016 17:31+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -9575,12 +9575,10 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "PlanDefinition", "textEquivalent", element.getTextEquivalentElement(), -1);
     for (int i = 0; i < element.getConcept().size(); i++)
       composeCodeableConcept(t, "PlanDefinition", "concept", element.getConcept().get(i), i);
-    for (int i = 0; i < element.getSupportingEvidence().size(); i++)
-      composeAttachment(t, "PlanDefinition", "supportingEvidence", element.getSupportingEvidence().get(i), i);
     for (int i = 0; i < element.getDocumentation().size(); i++)
-      composeAttachment(t, "PlanDefinition", "documentation", element.getDocumentation().get(i), i);
-    if (element.hasTriggerDefinition())
-      composeTriggerDefinition(t, "PlanDefinition", "triggerDefinition", element.getTriggerDefinition(), -1);
+      composeRelatedResource(t, "PlanDefinition", "documentation", element.getDocumentation().get(i), i);
+    for (int i = 0; i < element.getTriggerDefinition().size(); i++)
+      composeTriggerDefinition(t, "PlanDefinition", "triggerDefinition", element.getTriggerDefinition().get(i), i);
     if (element.hasConditionElement())
       composeString(t, "PlanDefinition", "condition", element.getConditionElement(), -1);
     for (int i = 0; i < element.getRelatedAction().size(); i++)

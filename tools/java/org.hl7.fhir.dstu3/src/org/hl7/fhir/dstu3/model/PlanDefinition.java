@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Jul 15, 2016 13:24+1000 for FHIR v1.5.0
+// Generated on Fri, Jul 15, 2016 17:31+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -957,51 +957,44 @@ public class PlanDefinition extends DomainResource {
         protected List<CodeableConcept> concept;
 
         /**
-         * The evidence grade and the sources of evidence for this action.
-         */
-        @Child(name = "supportingEvidence", type = {Attachment.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Evidence that supports taking the action", formalDefinition="The evidence grade and the sources of evidence for this action." )
-        protected List<Attachment> supportingEvidence;
-
-        /**
          * Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.
          */
-        @Child(name = "documentation", type = {Attachment.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "documentation", type = {RelatedResource.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Supporting documentation for the intended performer of the action", formalDefinition="Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources." )
-        protected List<Attachment> documentation;
+        protected List<RelatedResource> documentation;
 
         /**
          * A description of when the action should be triggered.
          */
-        @Child(name = "triggerDefinition", type = {TriggerDefinition.class}, order=9, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "triggerDefinition", type = {TriggerDefinition.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="When the action should be triggered", formalDefinition="A description of when the action should be triggered." )
-        protected TriggerDefinition triggerDefinition;
+        protected List<TriggerDefinition> triggerDefinition;
 
         /**
          * An expression specifying whether or not the action is applicable in a given context.
          */
-        @Child(name = "condition", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "condition", type = {StringType.class}, order=9, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Whether or not the action is applicable", formalDefinition="An expression specifying whether or not the action is applicable in a given context." )
         protected StringType condition;
 
         /**
          * A relationship to another action such as "before" or "30-60 minutes after start of".
          */
-        @Child(name = "relatedAction", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "relatedAction", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Relationship to another action", formalDefinition="A relationship to another action such as \"before\" or \"30-60 minutes after start of\"." )
         protected List<PlanDefinitionActionDefinitionRelatedActionComponent> relatedAction;
 
         /**
          * An optional value describing when the action should be performed.
          */
-        @Child(name = "timing", type = {DateTimeType.class, Period.class, Duration.class, Range.class, Timing.class}, order=12, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "timing", type = {DateTimeType.class, Period.class, Duration.class, Range.class, Timing.class}, order=11, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="When the action should take place", formalDefinition="An optional value describing when the action should be performed." )
         protected Type timing;
 
         /**
          * The type of action to perform (create, update, remove).
          */
-        @Child(name = "type", type = {CodeType.class}, order=13, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "type", type = {CodeType.class}, order=12, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="create | update | remove | fire-event", formalDefinition="The type of action to perform (create, update, remove)." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/planaction-type")
         protected Enumeration<PlanActionType> type;
@@ -1009,7 +1002,7 @@ public class PlanDefinition extends DomainResource {
         /**
          * Defines the grouping behavior for the action and its children.
          */
-        @Child(name = "groupingBehavior", type = {CodeType.class}, order=14, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "groupingBehavior", type = {CodeType.class}, order=13, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="visual-group | logical-group | sentence-group", formalDefinition="Defines the grouping behavior for the action and its children." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/planaction-grouping-behavior")
         protected Enumeration<PlanActionGroupingBehavior> groupingBehavior;
@@ -1017,7 +1010,7 @@ public class PlanDefinition extends DomainResource {
         /**
          * Defines the selection behavior for the action and its children.
          */
-        @Child(name = "selectionBehavior", type = {CodeType.class}, order=15, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "selectionBehavior", type = {CodeType.class}, order=14, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="any | all | all-or-none | exactly-one | at-most-one | one-or-more", formalDefinition="Defines the selection behavior for the action and its children." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/planaction-selection-behavior")
         protected Enumeration<PlanActionSelectionBehavior> selectionBehavior;
@@ -1025,7 +1018,7 @@ public class PlanDefinition extends DomainResource {
         /**
          * Defines the requiredness behavior for the action.
          */
-        @Child(name = "requiredBehavior", type = {CodeType.class}, order=16, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "requiredBehavior", type = {CodeType.class}, order=15, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="must | could | must-unless-documented", formalDefinition="Defines the requiredness behavior for the action." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/planaction-required-behavior")
         protected Enumeration<PlanActionRequiredBehavior> requiredBehavior;
@@ -1033,7 +1026,7 @@ public class PlanDefinition extends DomainResource {
         /**
          * Defines whether the action should usually be preselected.
          */
-        @Child(name = "precheckBehavior", type = {CodeType.class}, order=17, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "precheckBehavior", type = {CodeType.class}, order=16, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="yes | no", formalDefinition="Defines whether the action should usually be preselected." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/planaction-precheck-behavior")
         protected Enumeration<PlanActionPrecheckBehavior> precheckBehavior;
@@ -1041,7 +1034,7 @@ public class PlanDefinition extends DomainResource {
         /**
          * Defines whether the action can be selected multiple times.
          */
-        @Child(name = "cardinalityBehavior", type = {CodeType.class}, order=18, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "cardinalityBehavior", type = {CodeType.class}, order=17, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="single | multiple", formalDefinition="Defines whether the action can be selected multiple times." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/planaction-cardinality-behavior")
         protected Enumeration<PlanActionCardinalityBehavior> cardinalityBehavior;
@@ -1049,7 +1042,7 @@ public class PlanDefinition extends DomainResource {
         /**
          * The resource that is the target of the action (e.g. CommunicationRequest). The resource described here defines any aspects of the action that can be specified statically (i.e. are known at the time of definition).
          */
-        @Child(name = "activityDefinition", type = {ActivityDefinition.class}, order=19, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "activityDefinition", type = {ActivityDefinition.class}, order=18, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Description of the activity to be performed", formalDefinition="The resource that is the target of the action (e.g. CommunicationRequest). The resource described here defines any aspects of the action that can be specified statically (i.e. are known at the time of definition)." )
         protected Reference activityDefinition;
 
@@ -1061,7 +1054,7 @@ public class PlanDefinition extends DomainResource {
         /**
          * A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.
          */
-        @Child(name = "transform", type = {StructureMap.class}, order=20, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "transform", type = {StructureMap.class}, order=19, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Transform to apply the template", formalDefinition="A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input." )
         protected Reference transform;
 
@@ -1073,18 +1066,18 @@ public class PlanDefinition extends DomainResource {
         /**
          * Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient's weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result.
          */
-        @Child(name = "dynamicValue", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "dynamicValue", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Dynamic aspects of the definition", formalDefinition="Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient's weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result." )
         protected List<PlanDefinitionActionDefinitionDynamicValueComponent> dynamicValue;
 
         /**
          * Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition.
          */
-        @Child(name = "actionDefinition", type = {PlanDefinitionActionDefinitionComponent.class}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "actionDefinition", type = {PlanDefinitionActionDefinitionComponent.class}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="A sub-action", formalDefinition="Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition." )
         protected List<PlanDefinitionActionDefinitionComponent> actionDefinition;
 
-        private static final long serialVersionUID = 522324996L;
+        private static final long serialVersionUID = 1808992897L;
 
     /**
      * Constructor
@@ -1367,71 +1360,18 @@ public class PlanDefinition extends DomainResource {
         }
 
         /**
-         * @return {@link #supportingEvidence} (The evidence grade and the sources of evidence for this action.)
-         */
-        public List<Attachment> getSupportingEvidence() { 
-          if (this.supportingEvidence == null)
-            this.supportingEvidence = new ArrayList<Attachment>();
-          return this.supportingEvidence;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public PlanDefinitionActionDefinitionComponent setSupportingEvidence(List<Attachment> theSupportingEvidence) { 
-          this.supportingEvidence = theSupportingEvidence;
-          return this;
-        }
-
-        public boolean hasSupportingEvidence() { 
-          if (this.supportingEvidence == null)
-            return false;
-          for (Attachment item : this.supportingEvidence)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public Attachment addSupportingEvidence() { //3
-          Attachment t = new Attachment();
-          if (this.supportingEvidence == null)
-            this.supportingEvidence = new ArrayList<Attachment>();
-          this.supportingEvidence.add(t);
-          return t;
-        }
-
-        public PlanDefinitionActionDefinitionComponent addSupportingEvidence(Attachment t) { //3
-          if (t == null)
-            return this;
-          if (this.supportingEvidence == null)
-            this.supportingEvidence = new ArrayList<Attachment>();
-          this.supportingEvidence.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #supportingEvidence}, creating it if it does not already exist
-         */
-        public Attachment getSupportingEvidenceFirstRep() { 
-          if (getSupportingEvidence().isEmpty()) {
-            addSupportingEvidence();
-          }
-          return getSupportingEvidence().get(0);
-        }
-
-        /**
          * @return {@link #documentation} (Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.)
          */
-        public List<Attachment> getDocumentation() { 
+        public List<RelatedResource> getDocumentation() { 
           if (this.documentation == null)
-            this.documentation = new ArrayList<Attachment>();
+            this.documentation = new ArrayList<RelatedResource>();
           return this.documentation;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public PlanDefinitionActionDefinitionComponent setDocumentation(List<Attachment> theDocumentation) { 
+        public PlanDefinitionActionDefinitionComponent setDocumentation(List<RelatedResource> theDocumentation) { 
           this.documentation = theDocumentation;
           return this;
         }
@@ -1439,25 +1379,25 @@ public class PlanDefinition extends DomainResource {
         public boolean hasDocumentation() { 
           if (this.documentation == null)
             return false;
-          for (Attachment item : this.documentation)
+          for (RelatedResource item : this.documentation)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public Attachment addDocumentation() { //3
-          Attachment t = new Attachment();
+        public RelatedResource addDocumentation() { //3
+          RelatedResource t = new RelatedResource();
           if (this.documentation == null)
-            this.documentation = new ArrayList<Attachment>();
+            this.documentation = new ArrayList<RelatedResource>();
           this.documentation.add(t);
           return t;
         }
 
-        public PlanDefinitionActionDefinitionComponent addDocumentation(Attachment t) { //3
+        public PlanDefinitionActionDefinitionComponent addDocumentation(RelatedResource t) { //3
           if (t == null)
             return this;
           if (this.documentation == null)
-            this.documentation = new ArrayList<Attachment>();
+            this.documentation = new ArrayList<RelatedResource>();
           this.documentation.add(t);
           return this;
         }
@@ -1465,7 +1405,7 @@ public class PlanDefinition extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #documentation}, creating it if it does not already exist
          */
-        public Attachment getDocumentationFirstRep() { 
+        public RelatedResource getDocumentationFirstRep() { 
           if (getDocumentation().isEmpty()) {
             addDocumentation();
           }
@@ -1475,25 +1415,54 @@ public class PlanDefinition extends DomainResource {
         /**
          * @return {@link #triggerDefinition} (A description of when the action should be triggered.)
          */
-        public TriggerDefinition getTriggerDefinition() { 
+        public List<TriggerDefinition> getTriggerDefinition() { 
           if (this.triggerDefinition == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PlanDefinitionActionDefinitionComponent.triggerDefinition");
-            else if (Configuration.doAutoCreate())
-              this.triggerDefinition = new TriggerDefinition(); // cc
+            this.triggerDefinition = new ArrayList<TriggerDefinition>();
           return this.triggerDefinition;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public PlanDefinitionActionDefinitionComponent setTriggerDefinition(List<TriggerDefinition> theTriggerDefinition) { 
+          this.triggerDefinition = theTriggerDefinition;
+          return this;
+        }
+
         public boolean hasTriggerDefinition() { 
-          return this.triggerDefinition != null && !this.triggerDefinition.isEmpty();
+          if (this.triggerDefinition == null)
+            return false;
+          for (TriggerDefinition item : this.triggerDefinition)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public TriggerDefinition addTriggerDefinition() { //3
+          TriggerDefinition t = new TriggerDefinition();
+          if (this.triggerDefinition == null)
+            this.triggerDefinition = new ArrayList<TriggerDefinition>();
+          this.triggerDefinition.add(t);
+          return t;
+        }
+
+        public PlanDefinitionActionDefinitionComponent addTriggerDefinition(TriggerDefinition t) { //3
+          if (t == null)
+            return this;
+          if (this.triggerDefinition == null)
+            this.triggerDefinition = new ArrayList<TriggerDefinition>();
+          this.triggerDefinition.add(t);
+          return this;
         }
 
         /**
-         * @param value {@link #triggerDefinition} (A description of when the action should be triggered.)
+         * @return The first repetition of repeating field {@link #triggerDefinition}, creating it if it does not already exist
          */
-        public PlanDefinitionActionDefinitionComponent setTriggerDefinition(TriggerDefinition value) { 
-          this.triggerDefinition = value;
-          return this;
+        public TriggerDefinition getTriggerDefinitionFirstRep() { 
+          if (getTriggerDefinition().isEmpty()) {
+            addTriggerDefinition();
+          }
+          return getTriggerDefinition().get(0);
         }
 
         /**
@@ -2178,8 +2147,7 @@ public class PlanDefinition extends DomainResource {
           childrenList.add(new Property("description", "string", "A short description of the action used to provide a summary to display to the user.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("textEquivalent", "string", "A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.", 0, java.lang.Integer.MAX_VALUE, textEquivalent));
           childrenList.add(new Property("concept", "CodeableConcept", "The concept represented by this action or its sub-actions.", 0, java.lang.Integer.MAX_VALUE, concept));
-          childrenList.add(new Property("supportingEvidence", "Attachment", "The evidence grade and the sources of evidence for this action.", 0, java.lang.Integer.MAX_VALUE, supportingEvidence));
-          childrenList.add(new Property("documentation", "Attachment", "Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.", 0, java.lang.Integer.MAX_VALUE, documentation));
+          childrenList.add(new Property("documentation", "RelatedResource", "Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("triggerDefinition", "TriggerDefinition", "A description of when the action should be triggered.", 0, java.lang.Integer.MAX_VALUE, triggerDefinition));
           childrenList.add(new Property("condition", "string", "An expression specifying whether or not the action is applicable in a given context.", 0, java.lang.Integer.MAX_VALUE, condition));
           childrenList.add(new Property("relatedAction", "", "A relationship to another action such as \"before\" or \"30-60 minutes after start of\".", 0, java.lang.Integer.MAX_VALUE, relatedAction));
@@ -2205,9 +2173,8 @@ public class PlanDefinition extends DomainResource {
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -900391049: /*textEquivalent*/ return this.textEquivalent == null ? new Base[0] : new Base[] {this.textEquivalent}; // StringType
         case 951024232: /*concept*/ return this.concept == null ? new Base[0] : this.concept.toArray(new Base[this.concept.size()]); // CodeableConcept
-        case -1735429846: /*supportingEvidence*/ return this.supportingEvidence == null ? new Base[0] : this.supportingEvidence.toArray(new Base[this.supportingEvidence.size()]); // Attachment
-        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : this.documentation.toArray(new Base[this.documentation.size()]); // Attachment
-        case 1126736171: /*triggerDefinition*/ return this.triggerDefinition == null ? new Base[0] : new Base[] {this.triggerDefinition}; // TriggerDefinition
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : this.documentation.toArray(new Base[this.documentation.size()]); // RelatedResource
+        case 1126736171: /*triggerDefinition*/ return this.triggerDefinition == null ? new Base[0] : this.triggerDefinition.toArray(new Base[this.triggerDefinition.size()]); // TriggerDefinition
         case -861311717: /*condition*/ return this.condition == null ? new Base[0] : new Base[] {this.condition}; // StringType
         case -384107967: /*relatedAction*/ return this.relatedAction == null ? new Base[0] : this.relatedAction.toArray(new Base[this.relatedAction.size()]); // PlanDefinitionActionDefinitionRelatedActionComponent
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
@@ -2247,14 +2214,11 @@ public class PlanDefinition extends DomainResource {
         case 951024232: // concept
           this.getConcept().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1735429846: // supportingEvidence
-          this.getSupportingEvidence().add(castToAttachment(value)); // Attachment
-          break;
         case 1587405498: // documentation
-          this.getDocumentation().add(castToAttachment(value)); // Attachment
+          this.getDocumentation().add(castToRelatedResource(value)); // RelatedResource
           break;
         case 1126736171: // triggerDefinition
-          this.triggerDefinition = castToTriggerDefinition(value); // TriggerDefinition
+          this.getTriggerDefinition().add(castToTriggerDefinition(value)); // TriggerDefinition
           break;
         case -861311717: // condition
           this.condition = castToString(value); // StringType
@@ -2314,12 +2278,10 @@ public class PlanDefinition extends DomainResource {
           this.textEquivalent = castToString(value); // StringType
         else if (name.equals("concept"))
           this.getConcept().add(castToCodeableConcept(value));
-        else if (name.equals("supportingEvidence"))
-          this.getSupportingEvidence().add(castToAttachment(value));
         else if (name.equals("documentation"))
-          this.getDocumentation().add(castToAttachment(value));
+          this.getDocumentation().add(castToRelatedResource(value));
         else if (name.equals("triggerDefinition"))
-          this.triggerDefinition = castToTriggerDefinition(value); // TriggerDefinition
+          this.getTriggerDefinition().add(castToTriggerDefinition(value));
         else if (name.equals("condition"))
           this.condition = castToString(value); // StringType
         else if (name.equals("relatedAction"))
@@ -2359,9 +2321,8 @@ public class PlanDefinition extends DomainResource {
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case -900391049: throw new FHIRException("Cannot make property textEquivalent as it is not a complex type"); // StringType
         case 951024232:  return addConcept(); // CodeableConcept
-        case -1735429846:  return addSupportingEvidence(); // Attachment
-        case 1587405498:  return addDocumentation(); // Attachment
-        case 1126736171:  return getTriggerDefinition(); // TriggerDefinition
+        case 1587405498:  return addDocumentation(); // RelatedResource
+        case 1126736171:  return addTriggerDefinition(); // TriggerDefinition
         case -861311717: throw new FHIRException("Cannot make property condition as it is not a complex type"); // StringType
         case -384107967:  return addRelatedAction(); // PlanDefinitionActionDefinitionRelatedActionComponent
         case 164632566:  return getTiming(); // Type
@@ -2401,15 +2362,11 @@ public class PlanDefinition extends DomainResource {
         else if (name.equals("concept")) {
           return addConcept();
         }
-        else if (name.equals("supportingEvidence")) {
-          return addSupportingEvidence();
-        }
         else if (name.equals("documentation")) {
           return addDocumentation();
         }
         else if (name.equals("triggerDefinition")) {
-          this.triggerDefinition = new TriggerDefinition();
-          return this.triggerDefinition;
+          return addTriggerDefinition();
         }
         else if (name.equals("condition")) {
           throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.condition");
@@ -2486,17 +2443,16 @@ public class PlanDefinition extends DomainResource {
           for (CodeableConcept i : concept)
             dst.concept.add(i.copy());
         };
-        if (supportingEvidence != null) {
-          dst.supportingEvidence = new ArrayList<Attachment>();
-          for (Attachment i : supportingEvidence)
-            dst.supportingEvidence.add(i.copy());
-        };
         if (documentation != null) {
-          dst.documentation = new ArrayList<Attachment>();
-          for (Attachment i : documentation)
+          dst.documentation = new ArrayList<RelatedResource>();
+          for (RelatedResource i : documentation)
             dst.documentation.add(i.copy());
         };
-        dst.triggerDefinition = triggerDefinition == null ? null : triggerDefinition.copy();
+        if (triggerDefinition != null) {
+          dst.triggerDefinition = new ArrayList<TriggerDefinition>();
+          for (TriggerDefinition i : triggerDefinition)
+            dst.triggerDefinition.add(i.copy());
+        };
         dst.condition = condition == null ? null : condition.copy();
         if (relatedAction != null) {
           dst.relatedAction = new ArrayList<PlanDefinitionActionDefinitionRelatedActionComponent>();
@@ -2534,8 +2490,7 @@ public class PlanDefinition extends DomainResource {
         PlanDefinitionActionDefinitionComponent o = (PlanDefinitionActionDefinitionComponent) other;
         return compareDeep(actionIdentifier, o.actionIdentifier, true) && compareDeep(label, o.label, true)
            && compareDeep(title, o.title, true) && compareDeep(description, o.description, true) && compareDeep(textEquivalent, o.textEquivalent, true)
-           && compareDeep(concept, o.concept, true) && compareDeep(supportingEvidence, o.supportingEvidence, true)
-           && compareDeep(documentation, o.documentation, true) && compareDeep(triggerDefinition, o.triggerDefinition, true)
+           && compareDeep(concept, o.concept, true) && compareDeep(documentation, o.documentation, true) && compareDeep(triggerDefinition, o.triggerDefinition, true)
            && compareDeep(condition, o.condition, true) && compareDeep(relatedAction, o.relatedAction, true)
            && compareDeep(timing, o.timing, true) && compareDeep(type, o.type, true) && compareDeep(groupingBehavior, o.groupingBehavior, true)
            && compareDeep(selectionBehavior, o.selectionBehavior, true) && compareDeep(requiredBehavior, o.requiredBehavior, true)
@@ -2561,8 +2516,8 @@ public class PlanDefinition extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionIdentifier, label, title
-          , description, textEquivalent, concept, supportingEvidence, documentation, triggerDefinition
-          , condition, relatedAction, timing, type, groupingBehavior, selectionBehavior, requiredBehavior
+          , description, textEquivalent, concept, documentation, triggerDefinition, condition
+          , relatedAction, timing, type, groupingBehavior, selectionBehavior, requiredBehavior
           , precheckBehavior, cardinalityBehavior, activityDefinition, transform, dynamicValue
           , actionDefinition);
       }

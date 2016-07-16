@@ -934,7 +934,7 @@ public class Publisher implements IGLogger {
           if (!sd.hasSnapshot() && sd.getKind() == StructureDefinitionKind.LOGICAL) {
             utils.populateLogicalSnapshot(sd);
           }
-          if (changed)
+          if (changed || !r.getElement().hasChild("snapshot"))
             r.setElement(new ObjectConverter(context).convert(sd));
         }
       }

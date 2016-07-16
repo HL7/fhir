@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Fri, Jul 15, 2016 13:24+1000 for FHIR v1.5.0
+// Generated on Fri, Jul 15, 2016 17:31+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -13855,20 +13855,18 @@ public class JsonParser extends JsonParserBase {
         res.getConcept().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("supportingEvidence")) {
-      JsonArray array = json.getAsJsonArray("supportingEvidence");
-      for (int i = 0; i < array.size(); i++) {
-        res.getSupportingEvidence().add(parseAttachment(array.get(i).getAsJsonObject()));
-      }
-    };
     if (json.has("documentation")) {
       JsonArray array = json.getAsJsonArray("documentation");
       for (int i = 0; i < array.size(); i++) {
-        res.getDocumentation().add(parseAttachment(array.get(i).getAsJsonObject()));
+        res.getDocumentation().add(parseRelatedResource(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("triggerDefinition"))
-      res.setTriggerDefinition(parseTriggerDefinition(json.getAsJsonObject("triggerDefinition")));
+    if (json.has("triggerDefinition")) {
+      JsonArray array = json.getAsJsonArray("triggerDefinition");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTriggerDefinition().add(parseTriggerDefinition(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("condition"))
       res.setConditionElement(parseString(json.get("condition").getAsString()));
     if (json.has("_condition"))
@@ -34354,21 +34352,18 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
-      if (element.hasSupportingEvidence()) {
-        openArray("supportingEvidence");
-        for (Attachment e : element.getSupportingEvidence()) 
-          composeAttachment(null, e);
-        closeArray();
-      };
       if (element.hasDocumentation()) {
         openArray("documentation");
-        for (Attachment e : element.getDocumentation()) 
-          composeAttachment(null, e);
+        for (RelatedResource e : element.getDocumentation()) 
+          composeRelatedResource(null, e);
         closeArray();
       };
       if (element.hasTriggerDefinition()) {
-        composeTriggerDefinition("triggerDefinition", element.getTriggerDefinition());
-      }
+        openArray("triggerDefinition");
+        for (TriggerDefinition e : element.getTriggerDefinition()) 
+          composeTriggerDefinition(null, e);
+        closeArray();
+      };
       if (element.hasConditionElement()) {
         composeStringCore("condition", element.getConditionElement(), false);
         composeStringExtras("condition", element.getConditionElement(), false);

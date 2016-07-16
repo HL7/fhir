@@ -185,7 +185,7 @@
   Context = StructureDefinition
   English = element.base cannot appear if there is no base on the structure definition
   XPath = f:baseDefinition or not(exists(f:snapshot/f:element/f:base) or exists(f:differential/f:element/f:base))
-  Expression = snapshot.element.base.exists() = baseDefinition.exists()
+  Expression = snapshot.exists() implies (snapshot.element.base.exists() = baseDefinition.exists())
 
  -- Row 13 -----------------------------------
   Id = 14
