@@ -460,7 +460,18 @@
         <translation lang="en">OralHealthClaim</translation>
         <translation lang="fr">DemandeSoinsBuccoDentaire</translation>
     </item>
- 
+    <item id="Order">
+        <translation lang="en">Order</translation>
+        <translation lang="zh">医嘱</translation>
+        <translation lang="es">Orden</translation>
+        <translation lang="fr">Ordre</translation>
+    </item>
+    <item id="OrderResponse">
+        <translation lang="en">OrderResponse</translation>
+        <translation lang="zh">医嘱响应</translation>
+        <translation lang="es">RespuestaOrden</translation>
+        <translation lang="fr">RéponseOrdre</translation>
+    </item>
     <item id="OrderSet">
         <translation lang="en">OrderSet</translation>
     </item>
