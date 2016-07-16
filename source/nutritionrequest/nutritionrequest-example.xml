@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NutritionRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/supply.xsd"><!-- id = example  file name = nutritionrequest-example.xml  Name= Enteral Bolus  Description = General NutritionRequest Example 
+edited by Eric Haas Health eData Inc--><id value="example"/>
+	<patient>
+		<display value="Paula Patient Chalmers"/>
+	</patient>
+	<dateTime value="2014-09-17"/>
+	<oralDiet>
+		<type>
+			<text value="Low Calorie Diet"/>
+		</type>
+	</oralDiet>
+</NutritionRequest>

@@ -1,4 +1,4 @@
-﻿
+
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -249,7 +249,7 @@
  -- Row 13 -----------------------------------
   Element = Goal.addresses
   Card. = 0..*
-  Type = Reference(Condition | Observation | MedicationStatement | NutritionOrder | ProcedureRequest | RiskAssessment)
+  Type = Reference(Condition | Observation | MedicationStatement | NutritionRequest | ProcedureRequest | RiskAssessment)
   Short Label = Issues addressed by this goal
   Definition = The identified conditions and other health record elements that are intended to be addressed by the goal
   Requirements = Allows specific goals to explicitly linked to the concerns they\'re dealing with - makes the goal more understandable

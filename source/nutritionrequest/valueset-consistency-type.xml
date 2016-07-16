@@ -3,7 +3,7 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <name value="Fluid Consistency Type Codes"/>
   <status value="draft"/>
-  <publisher value="FHIR NutritionOrder team"/>
+  <publisher value="FHIR NutritionRequest team"/>
   <contact>
     <telecom>
       <system value="other"/>

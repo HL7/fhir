@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/supply.xsd"><!-- id = infantenteral  file name = nutritionorder-infantenteral-example.xml  Name= Infant Enteral  Description = Nutrition Order Infant Enteral Feeding Canonical Example
+<NutritionRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/supply.xsd"><!-- id = infantenteral  file name = nutritionrequest-infantenteral-example.xml  Name= Infant Enteral  Description = Nutrition Order Infant Enteral Feeding Canonical Example
 edited by Eric Haas Health eData Inc
 --><id value="infantenteral"/>
 	<identifier>
@@ -81,4 +81,4 @@ edited by Eric Haas Health eData Inc
 		<administrationInstruction value="Add high calorie high carbohydrate additive to increase cal/oz from 24 cal/oz to 27 cal/oz."/>
 		
 	</enteralFormula>
-</NutritionOrder>
+</NutritionRequest>

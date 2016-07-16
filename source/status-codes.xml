@@ -1532,8 +1532,8 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">retired</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">NutritionOrder.status</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">NutritionRequest.status</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s33"><Data ss:Type="String">proposed</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">draft</Data></Cell>

@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///L:/HL7/FHIR/20141020Build/schema/nutritionorder.xsd"><!-- id = fiberrestricteddiet  file name = nutritionorder-example-fiberrestricteddiet.xml Name= Low Fat and Fiber Restricted Diet Description = Nutrition Order Fiber Restricted and Low Fat Diet l Example
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="file://Mac/Home/Documents/FHIRBuild/reorder-nodes-template.xslt"?><NutritionRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><!-- id = cardiacdiet  file name = nutritionrequest-example-cardiacdiet.xml  Name= Low Sodium and Fiber Restricted Diet  Description = Nutrition Order Low Sodium and Fiber Restricted Diet Example
 edited by Eric Haas Health eData Inc
---><!--EH  Show all the elements in this examples for preference, and intolerance --><!-- EH: use oral Diet element --><id value="fiberrestricteddiet"/>
+-->
+<!--EH  Show all the elements in this examples for preference, and intolerance --><!-- EH: use oral Diet element -->
+<id value="cardiacdiet"/>
 	<identifier>
 		<system value="http://goodhealthhospital.org/nutrition-orders"/>
 		<value value="123"/>
@@ -43,55 +44,61 @@ edited by Eric Haas Health eData Inc
 		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="15108003"/>
-				<display value="Restricted fiber diet"/>
+				<code value="386619000"/>
+				<display value="Low sodium diet"/>
 			</coding>
 			<coding>
 				<system value="http://goodhealthhospital.org/diet-type-codes"/>
-				<code value="1000"/>
-				<display value="Fiber restricted"/>
+				<code value="1040"/>
+				<display value="Low Sodium Diet"/>
 			</coding>
-			<text value="Fiber restricted diet"/>
+			<text value="Low sodium diet"/>
 		</type>
 		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="16208003"/>
-				<display value="Low fat diet"/>
+				<code value="226208002"/>
+				<display value="Fluid restricted diet"/>
 			</coding>
 			<coding>
 				<system value="http://goodhealthhospital.org/diet-type-codes"/>
-				<code value="1100"/>
-				<display value="Low Fat"/>
+				<code value="1040"/>
+				<display value="Fluid restricted diet"/>
 			</coding>
-			<text value="Low fat diet"/>
+			<text value="Fluid restricted diet"/>
 		</type>
-		<!-- EH example of three times a day starting on 2/10  -->
-		<schedule>
-			<repeat>
-        <boundsPeriod>
-          <start value="2015-02-10"/>
-        </boundsPeriod>
-				<frequency value="3"/>
-				<period value="1"/>
-				<periodUnit value="d"/>
-			</repeat>
-		</schedule>
+		<!-- list nutrients and amounts here -->
 		<nutrient>
-			<!-- list nutrients and amounts here -->
 			<modifier>
 				<coding>
 					<system value="http://snomed.info/sct"/>
-					<code value="256674009"/>
-					<display value="Fat"/>
+					<code value="39972003"/>
+					<display value="Sodium"/>
 				</coding>
 			</modifier>
 			<amount>
-				<value value="50"/>
+				<value value="2"/>
 				<unit value="grams"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="g"/>
 			</amount>
 		</nutrient>
+		<nutrient>
+			<modifier>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="33463005"/>
+					<display value="Fluid"/>
+				</coding>
+			</modifier>
+			<amount>
+				<value value="1500"/>
+				<unit value="milliliter"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="mL"/>
+			</amount>
+		</nutrient>
+		<!--instructions as free text -->
+		<instruction value="Starting on 2/10 breakfast, maximum 400 ml fluids per meal"/>
 	</oralDiet>
-</NutritionOrder>
+</NutritionRequest>

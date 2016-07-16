@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/HL7/FHIR/20141020Build/schema/nutritionorder.xsd"><!-- id = energysupplement  file name = nutritionorder-example-energysupplement.xml  Name= Energy Supplement  Description = Nutrition Order Energy Supplement Canonical Example
+<NutritionRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/FHIRBuild/schema/nutritionrequest.xsd"><!-- id = diabeticsupplement  file name = nutritionrequest-example-diabeticsupplement.xml Name= Diabetic Supplement  Description = Nutrition Order Diabetic Supplement Canonical Example
 edited by Eric Haas Health eData Inc
---><!--EH  Show all the elements in this examples for preference, and intolerance --><!-- EH: use supplement element --><id value="energysupplement"/>
+
+--><!-- EH: use supplement element --><id value="diabeticsupplement"/>
 	<identifier>
 		<system value="http://goodhealthhospital.org/nutrition-orders"/>
 		<value value="123"/>
@@ -42,31 +43,40 @@ edited by Eric Haas Health eData Inc
 		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="442971000124100"/>
-				<display value="Adult high energy formula"/>
+				<code value="443051000124104"/>
+				<display value="Adult diabetes specialty formula"/>
 			</coding>
 			<coding>
 				<system value="http://goodhealthhospital.org/supplement-type-codes"/>
 				<code value="1010"/>
-				<display value="Adult high energy drink"/>
+				<display value="Adult diabetic formula"/>
 			</coding>
-			<text value="Adult high energy drink"/>
+			<text value="Adult diabetic formula"/>
 		</type>
-		<productName value="Ensure"/>
-		<!--EH:  1 8 oz can tid using coded data -->
+		<productName value="Glucerna"/>
+		<!--EH:Glucerna Shake at 3pm and HS-->
 		<schedule>
 			<repeat>
-        <boundsPeriod>
-          <start value="2015-02-10"/>
-        </boundsPeriod>
-				<frequency value="3"/>
-				<period value="1"/>
-				<periodUnit value="d"/>
+				<boundsPeriod>
+					<start value="2015-02-10T15:00:00Z"/>
+				</boundsPeriod>
+				<frequency value="1"/>
+				<period value="24"/>
+				<periodUnit value="h"/>
+			</repeat>
+		</schedule>
+		<schedule>
+			<repeat>
+				<duration value="1"/>
+				<durationUnit value="h"/>
+				<when value="HS"/>
 			</repeat>
 		</schedule>
 		<quantity>
 			<value value="1"/>
-			<unit value="8 oz can"/>
+			<unit value="8 oz bottle"/>
 		</quantity>
-	</supplement>
-</NutritionOrder>
+		<!-- EH:  use the .instructions element to list diet  supplement order
+		<instruction value="Glucerna Shake at 3pm and HS"/>
+-->
+	</supplement></NutritionRequest>

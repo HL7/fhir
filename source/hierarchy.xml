@@ -254,7 +254,7 @@ signatures.html
     </page>
 
     <page title="Workflow" filename="workflow-module.html" icon="workflow.png">
-      <page type="resource" resource="NutritionOrder"/>
+      <page type="resource" resource="NutritionRequest"/>
       <page type="resource" resource="VisionPrescription"/>
       <page type="resource" resource="ProcessRequest"/>
       <page type="resource" resource="ProcessResponse"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///L:/HL7/FHIR/20141020Build/schema/nutritionorder.xsd"><!-- id = pureediet  file name = nutritionorder-example-pureeddiet.xml Name= Pureed Diet  Description = Nutrition Order Pureed Diet Canonical Example
+<NutritionRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///L:/HL7/FHIR/20141020Build/schema/nutritionrequest.xsd"><!-- id = pureediet  file name = nutritionrequest-example-pureeddiet.xml Name= Pureed Diet  Description = Nutrition Order Pureed Diet Canonical Example
 edited by Eric Haas Health eData Inc
 --><!--EH  Show all the elements in this examples for preference, and intolerance --><!-- EH: use oral Diet element --><id value="pureeddiet"/>
 	<identifier>
@@ -84,4 +84,4 @@ edited by Eric Haas Health eData Inc
 			<text value="Nectar thick liquids"/>
 		</fluidConsistencyType>
 	</oralDiet>
-</NutritionOrder>
+</NutritionRequest>

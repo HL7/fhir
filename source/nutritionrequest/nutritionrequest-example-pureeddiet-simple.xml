@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///L:/HL7/FHIR/20141020Build/schema/nutritionorder.xsd"><!-- Using only instruction element in oralDiet and Supplement minimal other elements  id = pureeddiet-simple file name = nutritionorder-example-pureeddiet-simple.xml  Name= Pureed Diet Simple Description = Nutrition Order Pureed Diet with Energy/Protein Supplement Simple Example
+<NutritionRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///L:/HL7/FHIR/20141020Build/schema/nutritionrequest.xsd"><!-- Using only instruction element in oralDiet and Supplement minimal other elements  id = pureeddiet-simple file name = nutritionrequest-example-pureeddiet-simple.xml  Name= Pureed Diet Simple Description = Nutrition Order Pureed Diet with Energy/Protein Supplement Simple Example
 edited by Eric Haas Health eData Inc
 --><!-- EH: use oral Diet element --><id value="pureeddiet-simple"/>
 	<identifier>
@@ -79,4 +79,4 @@ edited by Eric Haas Health eData Inc
 		<!--EH:  Instructions to supplement too -->
 		<instruction value="Ensure Pudding at breakfast, lunch, supper"/>
 	</supplement>
-</NutritionOrder>
+</NutritionRequest>

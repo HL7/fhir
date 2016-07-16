@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/HL7/FHIR/20141020Build/schema/nutritionorder.xsd"><!-- id = renaldiet  file name = nutritionorder-example-renaldiet.xml Name= Renal Diet  Description = Nutrition Order Renal Diet Example
-edited by Eric Haas Health eData Inc
---><!-- EH: use oral Diet element --><id value="renaldiet"/>
+<NutritionRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///L:/HL7/FHIR/20141020Build/schema/nutritionrequest.xsd"><!-- id = diabeticdiet  file name = nutritionrequest-example-diabeticdiet.xml Name= Diabetic Diet  Description = Nutrition Order Diabetic Diet Canonical Example
+edited by Eric Haas Health eData Inc-->
+<!--EH  Show all the elements in this examples for preference, and intolerance --><!-- EH: use oral Diet element --><id value="diabeticdiet"/>
 	<identifier>
 		<system value="http://goodhealthhospital.org/nutrition-orders"/>
 		<value value="123"/>
@@ -21,7 +21,6 @@ edited by Eric Haas Health eData Inc
 		<display value="Dr Adam Careful"/>
 	</orderer>
 	<allergyIntolerance>
-		<!--EH  Show all the elements in this examples for preference, and intolerance -->
 		<reference value="AllergyIntolerance/example"/>
 		<display value="Cashew Nuts"/>
 	</allergyIntolerance>
@@ -40,20 +39,21 @@ edited by Eric Haas Health eData Inc
 		</coding>
 	</excludeFoodModifier>
 	<oralDiet>
+		<!-- EH:  list type of diet showing standard code and local codes -->
 		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="33489005"/>
-				<display value="Renal diet"/>
+				<code value="160670007"/>
+				<display value="Diabetic diet"/>
 			</coding>
 			<coding>
 				<system value="http://goodhealthhospital.org/diet-type-codes"/>
-				<code value="1050"/>
-				<display value="Renal"/>
+				<code value="1030"/>
+				<display value="DD - Diabetic diet"/>
 			</coding>
-			<text value="Renal Diet"/>
+			<text value="DD - Diabetic diet"/>
 		</type>
-		<!-- EH example of three times a day starting on 2/10 -->
+		<!-- EH example of three times a day starting on 2/10 using schedule -->
 		<schedule>
 			<repeat>
         <boundsPeriod>
@@ -64,51 +64,21 @@ edited by Eric Haas Health eData Inc
 				<periodUnit value="d"/>
 			</repeat>
 		</schedule>
-		<nutrient>
-			<!-- list nutrients and amounts here -->
-			<modifier>
-				<coding>
-					<system value="http://snomed.info/sct"/>
-					<code value="39972003"/>
-					<display value="Sodium"/>
-				</coding>
-			</modifier>
-			<amount>
-				<value value="2"/>
-				<unit value="grams"/>
-				<system value="http://unitsofmeasure.org"/>
-				<code value="g"/>
-			</amount>
-		</nutrient>
+		<!-- list nutrients and amounts here -->
 		<nutrient>
 			<modifier>
 				<coding>
 					<system value="http://snomed.info/sct"/>
-					<code value="30820000"/>
-					<display value="Phosphorus"/>
+					<code value="2331003"/>
+					<display value="Carbohydrate"/>
 				</coding>
 			</modifier>
 			<amount>
-				<value value="1000"/>
-				<unit value="milligrams"/>
-				<system value="http://unitsofmeasure.org"/>
-				<code value="mg"/>
-			</amount>
-		</nutrient>
-		<nutrient>
-			<modifier>
-				<coding>
-					<system value="http://snomed.info/sct"/>
-					<code value="88480006"/>
-					<display value="Potassium"/>
-				</coding>
-			</modifier>
-			<amount>
-				<value value="2"/>
+				<value value="75"/>
 				<unit value="grams"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="g"/>
 			</amount>
 		</nutrient>
 	</oralDiet>
-</NutritionOrder>
+</NutritionRequest>

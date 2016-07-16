@@ -145,7 +145,7 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Context = NutritionOrder
+  Context = NutritionRequest
   English = Nutrition Order SHALL contain either Oral Diet , Supplement, or Enteral Formula class
   XPath = exists(f:oralDiet) or exists(f:supplement) or exists(f:enteralFormula)
   Expression = oralDiet.exists() or supplement.exists() or enteralFormula.exists()
@@ -154,17 +154,17 @@
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
-  Element = NutritionOrder
-  Aliases = Diet Order, Diet, Nutritional Supplement, Enteral Nutrition
+  Element = NutritionRequest
+  Aliases = Nutrition Order, Diet Order, Diet, Nutritional Supplement, Enteral Nutrition
   Type = DomainResource
-  Short Label = A request for a diet, formula or nutritional supplement
+  Short Label = Diet, formula or nutritional supplement request
   Definition = A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
   Comments = Referenced by an Order Request (workflow)
   RIM Mapping = SupplyRequest
   w5 = clinical.careprovision
 
  -- Row 2 -----------------------------------
-  Element = NutritionOrder.identifier
+  Element = NutritionRequest.identifier
   Card. = 0..*
   Type = Identifier
   Short Label = Identifiers assigned to this order
@@ -174,7 +174,7 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = NutritionOrder.status
+  Element = NutritionRequest.status
   Card. = 0..1
   Is Modifier = Y
   Summary = Y
@@ -188,7 +188,7 @@
   w5 = status
 
  -- Row 4 -----------------------------------
-  Element = NutritionOrder.patient
+  Element = NutritionRequest.patient
   Card. = 1..1
   Summary = Y
   Type = Reference(Patient)
@@ -199,7 +199,7 @@
   w5 = who.focus
 
  -- Row 5 -----------------------------------
-  Element = NutritionOrder.encounter
+  Element = NutritionRequest.encounter
   Card. = 0..1
   Type = Reference(Encounter)
   Short Label = The encounter associated with this nutrition order
@@ -208,7 +208,7 @@
   w5 = context
 
  -- Row 6 -----------------------------------
-  Element = NutritionOrder.dateTime
+  Element = NutritionRequest.dateTime
   Card. = 1..1
   Summary = Y
   Type = dateTime
@@ -218,7 +218,7 @@
   w5 = when.recorded
 
  -- Row 7 -----------------------------------
-  Element = NutritionOrder.orderer
+  Element = NutritionRequest.orderer
   Card. = 0..1
   Summary = Y
   Type = Reference(Practitioner)
@@ -228,7 +228,7 @@
   w5 = who.author
 
  -- Row 8 -----------------------------------
-  Element = NutritionOrder.allergyIntolerance
+  Element = NutritionRequest.allergyIntolerance
   Card. = 0..*
   Type = Reference(AllergyIntolerance)
   Short Label = List of the patient\'s food and nutrition-related allergies and intolerances
@@ -238,7 +238,7 @@
   Committee Notes = resource reference
 
  -- Row 9 -----------------------------------
-  Element = NutritionOrder.foodPreferenceModifier
+  Element = NutritionRequest.foodPreferenceModifier
   Card. = 0..*
   Type = CodeableConcept
   Binding = PatientDiet
@@ -249,7 +249,7 @@
   Committee Notes = Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier --how to convey the patient No Soy, No Red Meat? (without a negation indicator) Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference
 
  -- Row 10 -----------------------------------
-  Element = NutritionOrder.excludeFoodModifier
+  Element = NutritionRequest.excludeFoodModifier
   Card. = 0..*
   Type = CodeableConcept
   Binding = FoodType
@@ -260,7 +260,7 @@
   Committee Notes = Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier --how to convey the patient No Soy, No Red Meat? (without a negation indicator) Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference
 
  -- Row 11 -----------------------------------
-  Element = !NutritionOrder.item
+  Element = !NutritionRequest.item
   Card. = 0..*
   UML = down
   Short Label = Set of nutrition items or components that comprise the nutrition order
@@ -268,7 +268,7 @@
   Committee Notes = use either HL7 Supply code that represents Nutrition Order Item or SNOMED CT/LOINC (i.e. parent concept for the diet regimes/therapies - figure out what to use for supplements and tube feedings).  reasons we may need a type - query for specific part of the order Per WGM Mon Q3 - remove this and move attributes to each instance 2/4/2015 EH: [#3996] deprecate
 
  -- Row 12 -----------------------------------
-  Element = !NutritionOrder.item.scheduled[x]
+  Element = !NutritionRequest.item.scheduled[x]
   Card. = 0..1
   Aliases = frequency
   Type = Timing|Period
@@ -277,7 +277,7 @@
   Committee Notes = (not sure where we include the elements such as start date - time, start meal, meal or timing schedule(this is like administration instructions) - date-time, a period, or a schedule interval) Per WGM MonQ3 - you need a schedule for each order component oralDiet.schedule, supplement.schedule, enteral.schedule 2/4/2015 EH: [#3996] deprecate
 
  -- Row 13 -----------------------------------
-  Element = !NutritionOrder.item.isInEffect
+  Element = !NutritionRequest.item.isInEffect
   Card. = 1..1
   Type = boolean
   Short Label = Indicates whether the nutrition item is  currently in effect
@@ -285,7 +285,7 @@
   Committee Notes = Per WGM Mon Q3 - may not need if status provides same info 2/4/2015 EH: [#3996] deprecate
 
  -- Row 14 -----------------------------------
-  Element = NutritionOrder.oralDiet
+  Element = NutritionRequest.oralDiet
   Card. = 0..1
   UML = down
   Inv. = 1
@@ -294,7 +294,7 @@
   RIM Mapping = oralDiet .outboundRelationship [typeCode =COMP], target [classCode=SPLY, moodCode=RQO, code=OralDietSupplyType]
 
  -- Row 15 -----------------------------------
-  Element = NutritionOrder.oralDiet.type
+  Element = NutritionRequest.oralDiet.type
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
@@ -306,17 +306,17 @@
   w5 = what
 
  -- Row 16 -----------------------------------
-  Element = NutritionOrder.oralDiet.schedule
+  Element = NutritionRequest.oralDiet.schedule
   Card. = 0..*
   Aliases = frequency
   Type = Timing
   Short Label = Scheduled frequency of diet
   Definition = The time period and frequency at which the diet should be given
   RIM Mapping = .expectedUseTime
-  Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type  #8181
+  Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionRequest.Item and push schedule/timing down into each type  #8181
 
  -- Row 17 -----------------------------------
-  Element = NutritionOrder.oralDiet.nutrient
+  Element = NutritionRequest.oralDiet.nutrient
   Card. = 0..*
   UML = down
   Short Label = Required  nutrient modifications
@@ -324,7 +324,7 @@
   RIM Mapping = .participation{typeCode=PRD].role{classCode=MANU), manufacturedFoodKind
 
  -- Row 18 -----------------------------------
-  Element = NutritionOrder.oralDiet.nutrient.modifier
+  Element = NutritionRequest.oralDiet.nutrient.modifier
   Card. = 0..1
   Type = CodeableConcept
   Binding = NutrientModifier
@@ -334,7 +334,7 @@
   w5 = what
 
  -- Row 19 -----------------------------------
-  Element = NutritionOrder.oralDiet.nutrient.amount
+  Element = NutritionRequest.oralDiet.nutrient.amount
   Card. = 0..1
   Type = SimpleQuantity
   Short Label = Quantity of the specified nutrient
@@ -343,7 +343,7 @@
   Committee Notes = 2/4/2015 EH: [#4004] remove choice from .nutient.amount
 
  -- Row 20 -----------------------------------
-  Element = NutritionOrder.oralDiet.texture
+  Element = NutritionRequest.oralDiet.texture
   Card. = 0..*
   UML = down
   Short Label = Required  texture modifications
@@ -351,7 +351,7 @@
   RIM Mapping = .inboundRelationship [typeCode =COMP], target [classCode=PROC, moodCode=EVN, code=DietTextureModificationType]
 
  -- Row 21 -----------------------------------
-  Element = NutritionOrder.oralDiet.texture.modifier
+  Element = NutritionRequest.oralDiet.texture.modifier
   Card. = 0..1
   Type = CodeableConcept
   Binding = TextureModifier
@@ -361,7 +361,7 @@
   RIM Mapping = .code
 
  -- Row 22 -----------------------------------
-  Element = NutritionOrder.oralDiet.texture.foodType
+  Element = NutritionRequest.oralDiet.texture.foodType
   Card. = 0..1
   Type = CodeableConcept
   Binding = TextureModifiedFoodType
@@ -371,7 +371,7 @@
   RIM Mapping = .participation{typeCode=PRD].role{classCode=MANU), manufacturedFoodKind; .code
 
  -- Row 23 -----------------------------------
-  Element = NutritionOrder.oralDiet.fluidConsistencyType
+  Element = NutritionRequest.oralDiet.fluidConsistencyType
   Card. = 0..*
   Type = CodeableConcept
   Binding = FluidConsistencyType
@@ -380,7 +380,7 @@
   RIM Mapping = .code  (Not differentiated from dietTextureModificationType in HL7 v3)
 
  -- Row 24 -----------------------------------
-  Element = NutritionOrder.oralDiet.instruction
+  Element = NutritionRequest.oralDiet.instruction
   Card. = 0..1
   Summary = Y
   Type = string
@@ -390,7 +390,7 @@
   RIM Mapping = .text
 
  -- Row 25 -----------------------------------
-  Element = NutritionOrder.supplement
+  Element = NutritionRequest.supplement
   Card. = 0..*
   UML = down
   Inv. = 1
@@ -399,7 +399,7 @@
   RIM Mapping = .outboundRelationship [typeCode =COMP], target [classCode=SPLY, moodCode=RQO, code=SUPPLEMENT]
 
  -- Row 26 -----------------------------------
-  Element = NutritionOrder.supplement.type
+  Element = NutritionRequest.supplement.type
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
@@ -410,7 +410,7 @@
   w5 = what
 
  -- Row 27 -----------------------------------
-  Element = NutritionOrder.supplement.productName
+  Element = NutritionRequest.supplement.productName
   Card. = 0..1
   Type = string
   Short Label = Product or brand name of the nutritional supplement
@@ -419,17 +419,17 @@
   Committee Notes = 2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName
 
  -- Row 28 -----------------------------------
-  Element = NutritionOrder.supplement.schedule
+  Element = NutritionRequest.supplement.schedule
   Card. = 0..*
   Aliases = frequency
   Type = Timing
   Short Label = Scheduled frequency of supplement
   Definition = The time period and frequency at which the supplement(s) should be given
   RIM Mapping = .effectiveTime
-  Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type.  #8181
+  Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionRequest.Item and push schedule/timing down into each type.  #8181
 
  -- Row 29 -----------------------------------
-  Element = NutritionOrder.supplement.quantity
+  Element = NutritionRequest.supplement.quantity
   Card. = 0..1
   Type = SimpleQuantity
   Short Label = Amount of the nutritional supplement
@@ -437,7 +437,7 @@
   RIM Mapping = .quantity
 
  -- Row 30 -----------------------------------
-  Element = NutritionOrder.supplement.instruction
+  Element = NutritionRequest.supplement.instruction
   Card. = 0..1
   Summary = Y
   Type = string
@@ -448,7 +448,7 @@
   Committee Notes = 2/28/2015:  pre-applied #5675
 
  -- Row 31 -----------------------------------
-  Element = NutritionOrder.enteralFormula
+  Element = NutritionRequest.enteralFormula
   Card. = 0..1
   UML = right
   Inv. = 1
@@ -457,7 +457,7 @@
   RIM Mapping = .outboundRelationship [typeCode =COMP], target [classCode=SPLY, moodCode=RQO, code=FORMULA]
 
  -- Row 32 -----------------------------------
-  Element = NutritionOrder.enteralFormula.baseFormulaType
+  Element = NutritionRequest.enteralFormula.baseFormulaType
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
@@ -468,7 +468,7 @@
   w5 = what
 
  -- Row 33 -----------------------------------
-  Element = NutritionOrder.enteralFormula.baseFormulaProductName
+  Element = NutritionRequest.enteralFormula.baseFormulaProductName
   Card. = 0..1
   Type = string
   Short Label = Product or brand name of the enteral or infant formula
@@ -477,7 +477,7 @@
   Committee Notes = 2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName
 
  -- Row 34 -----------------------------------
-  Element = NutritionOrder.enteralFormula.additiveType
+  Element = NutritionRequest.enteralFormula.additiveType
   Card. = 0..1
   Type = CodeableConcept
   Binding = EnteralFormulaAdditiveType
@@ -487,7 +487,7 @@
   w5 = what
 
  -- Row 35 -----------------------------------
-  Element = NutritionOrder.enteralFormula.additiveProductName
+  Element = NutritionRequest.enteralFormula.additiveProductName
   Card. = 0..1
   Type = string
   Short Label = Product or brand name of the modular additive
@@ -496,7 +496,7 @@
   Committee Notes = 2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName
 
  -- Row 36 -----------------------------------
-  Element = NutritionOrder.enteralFormula.caloricDensity
+  Element = NutritionRequest.enteralFormula.caloricDensity
   Card. = 0..1
   Type = SimpleQuantity
   Short Label = Amount of energy per specified volume that is required
@@ -504,7 +504,7 @@
   RIM Mapping = .quantity (caloricDensity)
 
  -- Row 37 -----------------------------------
-  Element = NutritionOrder.enteralFormula.routeofAdministration
+  Element = NutritionRequest.enteralFormula.routeofAdministration
   Card. = 0..1
   Type = CodeableConcept
   Binding = EnteralRouteOfAdministration
@@ -513,7 +513,7 @@
   RIM Mapping = .routeCode
 
  -- Row 38 -----------------------------------
-  Element = NutritionOrder.enteralFormula.administration
+  Element = NutritionRequest.enteralFormula.administration
   Card. = 0..*
   UML = down
   Short Label = Formula feeding instruction as structured data
@@ -523,17 +523,17 @@
   Committee Notes = #6100, 6111
 
  -- Row 39 -----------------------------------
-  Element = NutritionOrder.enteralFormula.administration.schedule
+  Element = NutritionRequest.enteralFormula.administration.schedule
   Card. = 0..1
   Aliases = frequency
   Type = Timing
   Short Label = Scheduled frequency of enteral feeding
   Definition = The time period and frequency at which the enteral formula should be delivered to the patient
   RIM Mapping = .effectiveUseTime
-  Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type, #6101,#6100, 6111
+  Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionRequest.Item and push schedule/timing down into each type, #6101,#6100, 6111
 
  -- Row 40 -----------------------------------
-  Element = NutritionOrder.enteralFormula.administration.quantity
+  Element = NutritionRequest.enteralFormula.administration.quantity
   Card. = 0..1
   Type = SimpleQuantity
   Short Label = The volume of formula to provide
@@ -542,7 +542,7 @@
   Committee Notes = #6100, 6111
 
  -- Row 41 -----------------------------------
-  Element = NutritionOrder.enteralFormula.administration.rate[x]
+  Element = NutritionRequest.enteralFormula.administration.rate[x]
   Card. = 0..1
   Type = SimpleQuantity|Ratio
   Short Label = Speed with which the formula is provided per period of time
@@ -552,7 +552,7 @@
   Committee Notes = 4/15/2015 EH:  #6100,# 6111
 
  -- Row 42 -----------------------------------
-  Element = !NutritionOrder.enteralFormula.rateAdjustment
+  Element = !NutritionRequest.enteralFormula.rateAdjustment
   Card. = 0..1
   Type = Ratio
   Short Label = Change in the rate of administration over a given time
@@ -561,7 +561,7 @@
   Committee Notes = 4/15/2015 EH:  #6111
 
  -- Row 43 -----------------------------------
-  Element = NutritionOrder.enteralFormula.maxVolumeToDeliver
+  Element = NutritionRequest.enteralFormula.maxVolumeToDeliver
   Card. = 0..1
   Type = SimpleQuantity
   Short Label = Upper limit on formula volume per unit of time
@@ -569,7 +569,7 @@
   RIM Mapping = .maxDoseQuantity
 
  -- Row 44 -----------------------------------
-  Element = NutritionOrder.enteralFormula.administrationInstruction
+  Element = NutritionRequest.enteralFormula.administrationInstruction
   Card. = 0..1
   Summary = Y
   Type = string
@@ -585,61 +585,61 @@
   Name = patient
   Type = reference
   Description = The identity of the person who requires the diet, formula or nutritional supplement
-  Path = NutritionOrder.patient
+  Path = NutritionRequest.patient
 
  -- Row 2 -----------------------------------
   Name = provider
   Type = reference
   Description = The identify of the provider who placed the nutrition order
-  Path = NutritionOrder.orderer
+  Path = NutritionRequest.orderer
 
  -- Row 3 -----------------------------------
   Name = identifier
   Type = token
   Description = Return nutrition orders with this external identifier
-  Path = NutritionOrder.identifier
+  Path = NutritionRequest.identifier
 
  -- Row 4 -----------------------------------
   Name = encounter
   Type = reference
   Description = Return nutrition orders with this encounter identifier
-  Path = NutritionOrder.encounter
+  Path = NutritionRequest.encounter
 
  -- Row 5 -----------------------------------
   Name = datetime
   Type = date
   Description = Return nutrition orders requested on this date
-  Path = NutritionOrder.dateTime
+  Path = NutritionRequest.dateTime
 
  -- Row 6 -----------------------------------
   Name = status
   Type = token
   Description = Status of the nutrition order.
-  Path = NutritionOrder.status
+  Path = NutritionRequest.status
 
  -- Row 7 -----------------------------------
   Name = oraldiet
   Type = token
   Description = Type of diet that can be consumed orally (i.e., take via the mouth).
-  Path = NutritionOrder.oralDiet.type
+  Path = NutritionRequest.oralDiet.type
 
  -- Row 8 -----------------------------------
   Name = supplement
   Type = token
   Description = Type of supplement product requested
-  Path = NutritionOrder.supplement.type
+  Path = NutritionRequest.supplement.type
 
  -- Row 9 -----------------------------------
   Name = formula
   Type = token
   Description = Type of enteral or infant formula
-  Path = NutritionOrder.enteralFormula.baseFormulaType
+  Path = NutritionRequest.enteralFormula.baseFormulaType
 
  -- Row 10 -----------------------------------
   Name = additive
   Type = token
   Description = Type of module component to add to the feeding
-  Path = NutritionOrder.enteralFormula.additiveType
+  Path = NutritionRequest.enteralFormula.additiveType
 
 === Sheet Profiles =====================================
 
@@ -649,84 +649,84 @@
   Name = Pureed Diet Simple
   Identity = pureeddiet-simple
   Description = Nutrition Order Pureed Diet and Energy/Protein Supplement Simple Example
-  Filename = nutritionorder-example-pureeddiet-simple.xml
+  Filename = nutritionrequest-example-pureeddiet-simple.xml
 
  -- Row 2 -----------------------------------
   Name = Low Sodium and Fiber Restricted Diet
   Identity = cardiacdiet
   Description = Nutrition Order Low Sodium and Fluid Restricted Diet Example
-  Filename = nutritionorder-example-cardiacdiet.xml
+  Filename = nutritionrequest-example-cardiacdiet.xml
 
  -- Row 3 -----------------------------------
   Name = Diabetic Diet
   Identity = diabeticdiet
   Description = Nutrition Order Diabetic Diet Example
-  Filename = nutritionorder-example-diabeticdiet.xml
+  Filename = nutritionrequest-example-diabeticdiet.xml
 
  -- Row 4 -----------------------------------
   Name = Texture Modified Diet
   Identity = texturemodified
   Description = Nutrition Order Texture Modified Diet Example
-  Filename = nutritionorder-example-texture-modified.xml
+  Filename = nutritionrequest-example-texture-modified.xml
 
  -- Row 5 -----------------------------------
   Name = Pureed Diet
   Identity = pureeddiet
   Description = Nutrition Order Pureed Diet  Example
-  Filename = nutritionorder-example-pureeddiet.xml
+  Filename = nutritionrequest-example-pureeddiet.xml
 
  -- Row 6 -----------------------------------
   Name = Renal Diet
   Identity = renaldiet
   Description = Nutrition Order Renal Diet Example
-  Filename = nutritionorder-example-renaldiet.xml
+  Filename = nutritionrequest-example-renaldiet.xml
 
  -- Row 7 -----------------------------------
   Name = Low Fat and Fiber Restricted Diet
   Identity = fiberrestricteddiet
   Description = Nutrition Order Low Fat and Fiber Restricted Diet  Example
-  Filename = nutritionorder-example-fiberrestricteddiet.xml
+  Filename = nutritionrequest-example-fiberrestricteddiet.xml
 
  -- Row 8 -----------------------------------
   Name = Diabetic Supplement
   Identity = diabeticsupplement
   Description = Nutrition Order Diabetic Supplement  Example
-  Filename = nutritionorder-example-diabeticsupplement.xml
+  Filename = nutritionrequest-example-diabeticsupplement.xml
 
  -- Row 9 -----------------------------------
   Name = Protein Supplement
   Identity = proteinsupplement
   Description = Nutrition Order Protein Supplement  Example
-  Filename = nutritionorder-example-proteinsupplement.xml
+  Filename = nutritionrequest-example-proteinsupplement.xml
 
  -- Row 10 -----------------------------------
   Name = Energy Supplement
   Identity = energysupplement
   Description = Nutrition Order Energy/Protein Supplement Example
-  Filename = nutritionorder-example-energysupplement.xml
+  Filename = nutritionrequest-example-energysupplement.xml
 
  -- Row 11 -----------------------------------
   Name = !!Energy Supplement 2
   Identity = energysupplement2
   Description = Nutrition Order Energy Supplement  Example
-  Filename = nutritionorder-example-energysupplement2.xml
+  Filename = nutritionrequest-example-energysupplement2.xml
 
  -- Row 12 -----------------------------------
   Name = Enteral Bolus
   Identity = enteralbolus
   Description = Nutrition Order Enteral Bolus Feeding  Example
-  Filename = nutritionorder-example-enteralbolus.xml
+  Filename = nutritionrequest-example-enteralbolus.xml
 
  -- Row 13 -----------------------------------
   Name = Enteral Continuous Feeding
   Identity = enteralcontinuous
   Description = Nutrition Order Enteral Continuous Feeding  Example
-  Filename = nutritionorder-example-enteralcontinuous.xml
+  Filename = nutritionrequest-example-enteralcontinuous.xml
 
  -- Row 14 -----------------------------------
   Name = Infant Enteral
   Identity = infantenteral
   Description = Nutrition Order Infant Enteral Feeding  Example
-  Filename = nutritionorder-example-infantenteral.xml
+  Filename = nutritionrequest-example-infantenteral.xml
 
 === Sheet Examples =====================================

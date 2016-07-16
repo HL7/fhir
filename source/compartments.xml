@@ -472,7 +472,7 @@
     <Cell><Data ss:Type="String">NamingSystem</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">NutritionOrder</Data></Cell>
+    <Cell><Data ss:Type="String">NutritionRequest</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">provider</Data></Cell>

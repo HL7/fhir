@@ -1,4 +1,4 @@
-﻿
+
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -242,14 +242,14 @@
  -- Row 23 -----------------------------------
   Element = ClinicalImpression.plan
   Card. = 0..*
-  Type = Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticOrder|MedicationOrder|NutritionOrder|Order|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)
+  Type = Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticOrder|MedicationOrder|NutritionRequest|Order|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)
   Short Label = Plan of action after assessment
   Definition = Plan of action after assessment
 
  -- Row 24 -----------------------------------
   Element = ClinicalImpression.action
   Card. = 0..*
-  Type = Reference(ReferralRequest | ProcedureRequest | Procedure | MedicationOrder | DiagnosticOrder | NutritionOrder | SupplyRequest | Appointment)
+  Type = Reference(ReferralRequest | ProcedureRequest | Procedure | MedicationOrder | DiagnosticOrder | NutritionRequest | SupplyRequest | Appointment)
   Short Label = Actions taken during assessment
   Definition = Actions taken during assessment
 
