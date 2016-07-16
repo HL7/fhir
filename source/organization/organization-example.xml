@@ -46,4 +46,8 @@
     <postalCode value="48104"/>
     <country value="USA"/>
   </address>
+  <endpoint>
+    <!-- Endpoint that handles the v2 messaging for the external organization -->
+    <reference value="Endpoint/example"/>
+  </endpoint>
 </Organization>

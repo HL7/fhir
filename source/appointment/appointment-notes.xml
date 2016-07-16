@@ -3,6 +3,7 @@
 <a name="typical"> </a>
 	<h2>Typical Status Transition Examples:</h2>
 
+<a name="status-flow"> </a>
 	<h3>Typical Flow of statuses for an appointment:</h3>
 	<table  class="grid">
 		<tr>
@@ -153,6 +154,7 @@
 		</tr>
 	</table>
 
+<a name="reject-flow"> </a>
 	<h3>Flow for the rejection/cancellation of an appointment</h3>
 	<table  class="grid">
 		<tr>
@@ -229,6 +231,7 @@
 		</tr>
 	</table>
 
+<a name="negotiate-flow"> </a>
 	<h3>Flow for re-negotiation:</h3>
 	<table  class="grid">
 		<tr>
@@ -341,6 +344,7 @@
 		</tr>
 	</table>
 	
+<a name="noshow-flow"> </a>
 	<h3>Flow for a patient no-show:</h3>
 	<table  class="grid">
 		<tr>

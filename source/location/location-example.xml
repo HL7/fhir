@@ -60,4 +60,7 @@
   <managingOrganization>
     <reference value="Organization/f001"/>
   </managingOrganization>
+  <endpoint>
+    <reference value="Endpoint/example"/>
+  </endpoint>
 </Location>

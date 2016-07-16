@@ -46,4 +46,8 @@
 		<start value="2012-01-01"/>
 		<end value="2012-03-31"/>
 	</period>
+  <endpoint>
+    <!-- Endpoint that handles the v2 messaging for the external organization -->
+    <reference value="Endpoint/example"/>
+  </endpoint>
 </PractitionerRole>

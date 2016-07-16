@@ -41,8 +41,8 @@
   Type = Identifier
   Short Label = External Ids for this item
   Definition = This records identifiers associated with this appointment response concern that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate
-  iCal Mapping = UID
   RIM Mapping = .id
+  iCal Mapping = UID
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -90,8 +90,8 @@
   Type = Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)
   Short Label = Person, Location/HealthcareService or Device
   Definition = A Person, Location/HealthcareService or Device that is participating in the appointment
-  iCal Mapping = ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource)
   v2 Mapping = PID-3-Patient ID List
+  iCal Mapping = ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource)
   w5 = who
 
  -- Row 8 -----------------------------------
@@ -101,7 +101,7 @@
   Summary = Y
   Type = code
   Binding = ParticipantStatus
-  Short Label = accepted | declined | tentative | in-process | completed | needs-action
+  Short Label = accepted | declined | tentative | in-process | completed | needs-action | entered-in-error
   Definition = Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
   iCal Mapping = ATTENDEE;CN=\"Brian Postlethwaite\";RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)
 
@@ -142,8 +142,8 @@
   Card. = 0..1
   Type = dateTime
   Short Label = Date when the response was recorded or last updated
-  iCal Mapping = DTSTAMP
   v2 Mapping = IAM-20-Statused at Date/Time
+  iCal Mapping = DTSTAMP
   w5 = when.recorded
 
 === Sheet Search =====================================

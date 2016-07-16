@@ -53,6 +53,13 @@
   Display = Off
   Definition = This endpoint is no longer to be used
 
+ -- Row 5 -----------------------------------
+  Id = 3
+  Code = entered-in-error
+  Display = Entered in error
+  Definition = This instance should not have been part of this patient\'s medical record.
+  v3 = ActStatus.nullified
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -81,7 +88,7 @@
   Summary = Y
   Type = code
   Binding = EndpointStatus
-  Short Label = active | suspended | error | off
+  Short Label = active | suspended | error | off | entered-in-error
   Definition = active | suspended | error | off
   w5 = status
 

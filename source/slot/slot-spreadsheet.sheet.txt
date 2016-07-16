@@ -58,6 +58,13 @@
   Display = Busy (Tentative)
   Definition = Indicates that the time interval is busy because one or more events have been tentatively scheduled for that interval.
 
+ -- Row 5 -----------------------------------
+  Id = 3
+  Code = entered-in-error
+  Display = Entered in error
+  Definition = This instance should not have been part of this patient\'s medical record.
+  v3 = ActStatus.nullified
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -125,7 +132,7 @@
   Summary = Y
   Type = code
   Binding = SlotStatus
-  Short Label = busy | free | busy-unavailable | busy-tentative
+  Short Label = busy | free | busy-unavailable | busy-tentative | entered-in-error
   iCal Mapping = FREEBUSY;FBTYPE=(freeBusyType):19980314T233000Z/19980315T003000Z If the freeBusyType is BUSY, then this value can be excluded
   Committee Notes = This is not a modifier element as the status of the slot being busy is not a change in the interpretation of the slot.
 

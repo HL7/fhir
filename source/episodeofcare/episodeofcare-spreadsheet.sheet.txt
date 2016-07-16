@@ -58,6 +58,13 @@
   Display = Cancelled
   Definition = The episode of care was cancelled, or withdrawn from service, often selected during the planned stage as the patient may have gone elsewhere, or the circumstances have changed and the organization is unable to provide the care. It indicates that services terminated outside the planned/expected workflow.
 
+ -- Row 7 -----------------------------------
+  Id = 3
+  Code = entered-in-error
+  Display = Entered in error
+  Definition = This instance should not have been part of this patient\'s medical record.
+  v3 = ActStatus.nullified
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -86,7 +93,7 @@
   Summary = Y
   Type = code
   Binding = EpisodeOfCareStatus
-  Short Label = planned | waitlist | active | onhold | finished | cancelled
+  Short Label = planned | waitlist | active | onhold | finished | cancelled | entered-in-error
   Definition = planned | waitlist | active | onhold | finished | cancelled
   w5 = status
 

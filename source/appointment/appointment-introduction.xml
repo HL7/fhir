@@ -20,6 +20,7 @@
 			appointment / calendar standards widely used outside of healthcare.
 		</p>
 
+<a name="basic-workflow"> </a>
     <h3>The basic workflow to create an appointment</h3>
 		<ul>
 			<li>
@@ -83,6 +84,7 @@
 			</li>
 		</ul>
 
+<a name="workflow-types"> </a>
 		<h3>There are 2 typical workflows that occur with appointments</h3>
 		<ul>
 			<li>
@@ -140,6 +142,7 @@
 			If you need multiple actors of a specific type, then multiple participants with that type value
 			are included on the appointment.
 		</p>
+<a name="statuses"> </a>
     <h3>Appointment Statuses and Encounters</h3>
     <p>
       Appointments can be considered as Administrative only, and the Encounter is expected to have
@@ -162,6 +165,7 @@
       The mappings to the iCAL standard have been provided to guide implementation of gateways between
       FHIR servers and iCAL systems.
     </p>
+<a name="location"> </a>
 		<h3>Appointment Locations and Participation</h3>
 		<p>
 			The Location of the appointment is to be defined by using a participant that references a location

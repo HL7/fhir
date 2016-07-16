@@ -45,6 +45,10 @@
 	 <healthcareService>
 		 <reference value="HealthcareService/example"/>
 	 </healthcareService>
+  <endpoint>
+    <!-- Endpoint that handles the v2 messaging for the external organization -->
+    <reference value="Endpoint/example"/>
+  </endpoint>
  </role>
 	<qualification>
 		<identifier>
