@@ -130,7 +130,7 @@
  -- Row 3 -----------------------------------
   Name = evaluate.evaluateAtDateTime
   Use = in
-  Documentation = An optional date and time specifying that the evaluation should be performed as thought it was the given date and time. The most direct implication of this is that references to \"Now\" within the evaluation logic of the module should result in this value. In addition, wherever possible, the data accessed by the module should appear as though it was accessed at this time. The evaluateAtDateTime value may be any time in the past or future, enabling both retrospective and prospective scenarios. If no value is provided, the date and time of the request is assumed
+  Documentation = An optional date and time specifying that the evaluation should be performed as though it was the given date and time. The most direct implication of this is that references to \"Now\" within the evaluation logic of the module should result in this value. In addition, wherever possible, the data accessed by the module should appear as though it was accessed at this time. The evaluateAtDateTime value may be any time in the past or future, enabling both retrospective and prospective scenarios. If no value is provided, the date and time of the request is assumed
   Type = dateTime
   Title = Evaluate At
   Min = 0
@@ -277,5 +277,32 @@
   Documentation = The result of the request as a GuidanceResponse resource. Output parameters, if any, will be contained in the parameters element of the response
   Type = GuidanceResponse
   Title = Return
+  Min = 1
+  Max = 1
+
+ -- Row 20 -----------------------------------
+  Name = data-requirements
+  Use = Instance
+  Documentation = The data-requirements operation aggregates and returns the parameters and data requirements for the service module and all its dependencies as a single module definition library
+  Type = operation
+  Title = Data Requirements
+  Footer = The effect of invoking this operation is to determine the aggregate set of data requirements and dependencies for the service module. The result is a Library resource with a type of module-definition that contains all the parameter definitions and data requirements of the service module and any libraries referenced by it. Implementations SHOULD aggregate data requirements intelligently (i.e. by collapsing overlapping data requirements)
+
+ -- Row 21 -----------------------------------
+  Name = data-requirements.evaluateAtDateTime
+  Use = in
+  Documentation = An optional date and time specifying that the evaluation should be performed as though it was the given date and time. Data requirements returned will use this as the \"Now\" point for the purposes of determining the data requirements
+  Type = dateTime
+  Title = Evaluate At
+  Min = 0
+  Max = 1
+
+ -- Row 22 -----------------------------------
+  Name = data-requirements.return
+  Use = out
+  Documentation = The result of the requirements gathering
+  Type = Library
+  Title = Return
+  Footer = A module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the target
   Min = 1
   Max = 1

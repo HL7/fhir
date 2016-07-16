@@ -327,3 +327,31 @@
   Filename = library-cms146-example.xml
 
 === Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = data-requirements
+  Use = System | Instance
+  Documentation = The data-requirements operation aggregates and returns the parameters and data requirements for a resource and all its dependencies as a single module definition
+  Type = operation
+  Title = Data Requirements
+  Footer = The effect of invoking this operation is to determine the aggregate set of data requirements and dependencies for a given target resource. The result is a Library resource with a type of module-definition that contains all the parameter definitions and data requirements of the target resource and any libraries referenced by it. Implementations SHOULD aggregate data requirements intelligently (i.e. by collapsing overlapping data requirements)
+
+ -- Row 2 -----------------------------------
+  Name = data-requirements.target
+  Use = in
+  Documentation = The target of the data requirements operation
+  Type = Reference(Any)
+  Title = Target
+  Footer = This parameter is required when the operation is invoked at the system level, and indicates the resource for which data requirements should be gathered and returned. The requirements gathering process will begin at the given target resource and trace any dependencies through library elements
+  Min = 0
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = data-requirements.return
+  Use = out
+  Documentation = The result of the requirements gathering
+  Type = Library
+  Title = Return
+  Footer = A module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the target
+  Min = 1
+  Max = 1

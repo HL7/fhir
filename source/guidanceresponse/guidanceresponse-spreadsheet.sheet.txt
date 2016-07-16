@@ -394,6 +394,12 @@
   Path = GuidanceResponse.subject
   Target Types = Patient
 
+ -- Row 2 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = The subject that the guidance response is about
+  Path = GuidanceResponse.subject
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================

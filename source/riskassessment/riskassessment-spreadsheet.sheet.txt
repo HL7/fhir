@@ -262,7 +262,7 @@
   Path = RiskAssessment.identifier
 
  -- Row 2 -----------------------------------
-  Name = date
+  Name = !date
   Type = date
   Path = RiskAssessment.occurrenceDateTime
   Target Types = dateTime

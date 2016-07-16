@@ -433,7 +433,7 @@
  -- Row 1 -----------------------------------
   Name = evaluate-measure
   Use = Resource | Instance
-  Documentation = The evaluateMeasure operation is used to invoke an eMeasure and obtain the results
+  Documentation = The evaluate-measure operation is used to invoke an eMeasure and obtain the results
   Type = operation
   Title = Evaluate Measure
   Footer = The effect of invoking this operation is to calculate the measure for the given patient, or all patients if no patient is supplied, and return the results as a MeasureReport resource of the appropriate type
@@ -489,6 +489,16 @@
   Max = 1
 
  -- Row 7 -----------------------------------
+  Name = evaluate-measure.practitioner
+  Use = in
+  Documentation = Practitioner to evaluate
+  Type = Reference(Practitioner)
+  Title = Practitioner
+  Footer = If specified, the measure will be evaluated only for patients whose primary practitioner is the identified practitioner
+  Min = 0
+  Max = 1
+
+ -- Row 8 -----------------------------------
   Name = evaluate-measure.lastReceivedOn
   Use = in
   Documentation = The date the results of this measure were last received
@@ -498,12 +508,50 @@
   Min = 0
   Max = 1
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = evaluate-measure.return
   Use = out
   Documentation = The results of the measure calculation
   Type = MeasureReport
   Title = Return
   Footer = See the MeasureReport resource for a complete description of the output of this operation
+  Min = 1
+  Max = 1
+
+ -- Row 10 -----------------------------------
+  Name = data-requirements
+  Use = Instance
+  Documentation = The data-requirements operation aggregates and returns the parameters and data requirements for the measure and all its dependencies as a single module definition
+  Type = operation
+  Title = Data Requirements
+  Footer = The effect of invoking this operation is to determine the aggregate set of data requirements and dependencies for the measure. The result is a Library resource with a type of module-definition that contains all the parameter definitions and data requirements of the libraries referenced by the measures. Implementations SHOULD aggregate data requirements intelligently (i.e. by collapsing overlapping data requirements)
+
+ -- Row 11 -----------------------------------
+  Name = data-requirements.periodStart
+  Use = in
+  Documentation = The start of the measurement period
+  Type = date
+  Title = Period Start
+  Footer = In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive
+  Min = 1
+  Max = 1
+
+ -- Row 12 -----------------------------------
+  Name = data-requirements.periodEnd
+  Use = in
+  Documentation = The end of the measurement period
+  Type = date
+  Title = Period End
+  Footer = The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive
+  Min = 1
+  Max = 1
+
+ -- Row 13 -----------------------------------
+  Name = data-requirements.return
+  Use = out
+  Documentation = The result of the requirements gathering
+  Type = Library
+  Title = Return
+  Footer = A module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the target
   Min = 1
   Max = 1
