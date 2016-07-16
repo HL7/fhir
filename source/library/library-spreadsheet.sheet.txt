@@ -49,7 +49,7 @@
   Element = Library
   Type = DomainResource
   Short Label = Represents a library of quality improvement components
-  Definition = The Library resource provides a representation container for knowledge artifact component definitions. It is effectively an exposure of the header information for a CQL/ELM library
+  Definition = The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
@@ -57,9 +57,9 @@
   Card. = 0..1
   Summary = Y
   Type = uri
-  Short Label = Logical URL to reference this module
-  Definition = An absolute URL that is used to identify this module when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this module definition is (or will be) published
-  Requirements = Allows the module to be referenced by a single globally unique identifier
+  Short Label = Logical URL to reference this library
+  Definition = An absolute URL that is used to identify this library when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published
+  Requirements = Allows the library to be referenced by a single globally unique identifier
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -67,9 +67,10 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = Logical identifier(s) for the module
-  Definition = A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact
-  Requirements = Allows external business identifiers to be easily associated with the module
+  Short Label = Logical identifier(s) for the library
+  Definition = A logical identifier for the library such as the CMS or NQF identifiers for a measure artifact. Note that at least one identifier is required for non-experimental active artifacts
+  Requirements = Allows external business identifiers to be easily associated with the library
+  To Do = Add constraint to require an identifier for non-experimental active artifacts
   w5 = id
 
  -- Row 4 -----------------------------------
@@ -77,27 +78,28 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = The version of the module, if any
-  Definition = The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification. Note that the version is required for non-experimental published artifact
-  Requirements = Allows for versioning of the content of the module
+  Short Label = The version of the library, if any
+  Definition = The version of the library, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts
+  Requirements = Allows for versioning of the content of the library
+  To Do = Add constraint to require a version for non-experimental active artifacts
 
  -- Row 5 -----------------------------------
   Element = Library.name
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = A machine-friendly name for the module
-  Definition = A machine-friendly name for the module. This name should be usable as an identifier for the module by machine processing applications such as code generation
-  Requirements = Simplifies machine-processing tasks related to the module such as code-generation or logging
-  Comments = This identifier for the module should be unique within the intended scope of use, and should conform to the traditional syntactic definition of an identifier within most programming languages. regex: ([A-Za-z_][A-Za-z0-9_]*)
+  Short Label = A machine-friendly name for the library
+  Definition = A machine-friendly name for the library. This name should be usable as an identifier for the library by machine processing applications such as code generation
+  Requirements = Simplifies machine-processing tasks related to the library such as code-generation or logging
+  Comments = This identifier for the library should be unique within the intended scope of use, and should conform to the traditional syntactic definition of an identifier within most programming languages. regex: ([A-Za-z_][A-Za-z0-9_]*)
 
  -- Row 6 -----------------------------------
   Element = Library.title
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = A user-friendly title for the module
-  Definition = A short, descriptive, user-friendly title for the module
+  Short Label = A user-friendly title for the library
+  Definition = A short, descriptive, user-friendly title for the library
 
  -- Row 7 -----------------------------------
   Element = Library.type
@@ -118,8 +120,8 @@
   Type = code
   Binding = LibraryStatus
   Short Label = draft | active | inactive
-  Definition = The status of the module
-  Requirements = Enables tracking the life-cycle of the content of the module
+  Definition = The status of the library
+  Requirements = Enables tracking the life-cycle of the content of the library
 
  -- Row 9 -----------------------------------
   Element = Library.experimental
@@ -128,86 +130,87 @@
   Summary = Y
   Type = boolean
   Short Label = If for testing purposes, not real usage
-  Definition = Determines whether the module was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments
-  Requirements = Enables experimental content to be developed following the same life-cycle as a production-level module would
+  Definition = Determines whether the library was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments
+  Requirements = Enables experimental content to be developed following the same life-cycle as a production-level library would
 
  -- Row 10 -----------------------------------
   Element = Library.description
   Card. = 0..1
   Type = string
-  Short Label = Natural language description of the module
-  Definition = A free text natural language description of the module from the consumer\'s perspective
-  Comments = This description can be used to capture details such as why the module was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context
+  Short Label = Natural language description of the library
+  Definition = A free text natural language description of the library from the consumer\'s perspective
+  Comments = This description can be used to capture details such as why the library was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the library as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context
 
  -- Row 11 -----------------------------------
   Element = Library.purpose
   Card. = 0..1
   Type = string
-  Short Label = Describes the purpose of the module
-  Definition = A brief description of the purpose of the module
-  Comments = This description should address the question of why this module was built, though not necessarily in as much detail as the justification, rationale, or clinical recommendation statement of a measure would. That information would typically be provided in the related resource element
+  Short Label = Describes the purpose of the library
+  Definition = A brief description of the purpose of the library
+  Comments = This description should address the question of why this library was built, though not necessarily in as much detail as the justification, rationale, or clinical recommendation statement of a measure would. That information would typically be provided in the related resource element
 
  -- Row 12 -----------------------------------
   Element = Library.usage
   Card. = 0..1
   Type = string
-  Short Label = Describes the clinical usage of the module
-  Definition = A detailed description of how the module is used from a clinical perspective
+  Short Label = Describes the clinical usage of the library
+  Definition = A detailed description of how the library is used from a clinical perspective
 
  -- Row 13 -----------------------------------
   Element = Library.publicationDate
   Card. = 0..1
   Type = date
-  Short Label = Publication date for this version of the module
-  Definition = The date on which the module was published
+  Short Label = Publication date for this version of the library
+  Definition = The date on which the library was published
 
  -- Row 14 -----------------------------------
   Element = Library.lastReviewDate
   Card. = 0..1
   Type = date
-  Short Label = Last review date for the module
-  Definition = The date on which the module content was last reviewed
+  Short Label = Last review date for the library
+  Definition = The date on which the library content was last reviewed
 
  -- Row 15 -----------------------------------
   Element = Library.effectivePeriod
   Card. = 0..1
   Type = Period
-  Short Label = The effective date range for the module
-  Definition = The period during which the module content is effective
-  Comments = The effective period for a module determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015
+  Short Label = The effective date range for the library
+  Definition = The period during which the library content is effective
+  Comments = The effective period for a library determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015
 
  -- Row 16 -----------------------------------
   Element = Library.coverage
   Card. = 0..*
   Type = UsageContext
-  Short Label = Describes the context of use for this module
-  Definition = Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable
-  Requirements = Consumers of the module must be able to determine the intended applicability for the module. Ideally, this information would be used programmatically to determine when and how it should be incorporated or exposed
+  Short Label = Describes the context of use for this library
+  Definition = Specifies various attributes of the patient population for whom and/or environment of care in which, the library is applicable
+  Requirements = Consumers of the library must be able to determine the intended applicability for the library. Ideally, this information would be used programmatically to determine when and how it should be incorporated or exposed
 
  -- Row 17 -----------------------------------
   Element = Library.topic
   Card. = 0..*
   Type = CodeableConcept
-  Short Label = Descriptional topics for the module
-  Definition = Clinical topics related to the content of the module
-  Requirements = Repositories must be able to determine how to categorize the module so that it can be found by topical searches
+  Short Label = Descriptional topics for the library
+  Definition = Clinical topics related to the content of the library
+  Requirements = Repositories must be able to determine how to categorize the library so that it can be found by topical searches
 
  -- Row 18 -----------------------------------
   Element = Library.contributor
   Card. = 0..*
   Type = Contributor
   Short Label = A content contributor
-  Definition = A contributor to the content of the module, including authors, editors, reviewers, and endorsers
-  Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the knowledge module
+  Definition = A contributor to the content of the library, including authors, editors, reviewers, and endorsers
+  Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the library
 
  -- Row 19 -----------------------------------
   Element = Library.publisher
   Card. = 0..1
   Type = string
   Short Label = Name of the publisher (Organization or individual)
-  Definition = The name of the individual or organization that published the module (also known as the steward for the module). This information is required for non-experimental published artifacts
-  Requirements = Consumers of the module must be able to determine where to obtain support in the use of this module, as well as where to direct questions and concerns about the content
-  Comments = The publisher (or steward) of the module is the organization or individual primarily responsible for the maintenance and upkeep of the module. This is not necessarily the same organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the module
+  Definition = The name of the individual or organization that published the library (also known as the steward for the library). This information is required for non-experimental active artifacts
+  Requirements = Consumers of the library must be able to determine where to obtain support in the use of this library, as well as where to direct questions and concerns about the content
+  Comments = The publisher (or steward) of the library is the organization or individual primarily responsible for the maintenance and upkeep of the library. This is not necessarily the same organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the library
+  To Do = Add constraint to require a publisher for non-experimental active artifacts
 
  -- Row 20 -----------------------------------
   Element = Library.contact
@@ -221,16 +224,16 @@
   Card. = 0..1
   Type = string
   Short Label = Use and/or publishing restrictions
-  Definition = A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module
-  Requirements = Consumers of the module must be able to determine any legal restrictions on the use of the module and/or its content
+  Definition = A copyright statement relating to the library and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the library
+  Requirements = Consumers of the library must be able to determine any legal restrictions on the use of the library and/or its content
 
  -- Row 22 -----------------------------------
   Element = Library.relatedResource
   Card. = 0..*
   Type = RelatedResource
-  Short Label = Related resources for the module
+  Short Label = Related resources for the library
   Definition = Related resources such as additional documentation, justification, or bibliographic references
-  Requirements = Modules must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
+  Requirements = Libraries must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
   Comments = Each related resource is either an attachment, or a reference to another resource, but not both
 
  -- Row 23 -----------------------------------
@@ -245,14 +248,14 @@
   Card. = 0..*
   Type = DataRequirement
   Short Label = Data requirements of the library
-  Definition = The dataRequirement element specifies a data requirement used by some expression within the library
+  Definition = Describes a set of data that must be provided in order to be able to successfully perform the computations defined by the library
 
  -- Row 25 -----------------------------------
   Element = Library.content
   Card. = 1..1
   Type = Attachment
   Short Label = The content of the library
-  Definition = The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the content is expected to be a CQL or ELM document
+  Definition = The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the contentType of the attachment determines how to interpret the content
 
 === Sheet Search =====================================
 

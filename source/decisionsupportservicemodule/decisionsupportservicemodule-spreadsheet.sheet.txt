@@ -42,8 +42,9 @@
   Summary = Y
   Type = Identifier
   Short Label = Logical identifier(s) for the module
-  Definition = A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact
+  Definition = A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact. Note that at least one identifier is required for non-experimental active artifacts
   Requirements = Allows external business identifiers to be easily associated with the module
+  To Do = Add constraint to require an identifier for non-experimental active artifacts
   w5 = id
 
  -- Row 4 -----------------------------------
@@ -52,8 +53,9 @@
   Summary = Y
   Type = string
   Short Label = The version of the module, if any
-  Definition = The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification. Note that the version is required for non-experimental published artifact
+  Definition = The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification. Note that a version is required for non-experimental published artifacts
   Requirements = Allows for versioning of the content of the module
+  To Do = Add constraint to require a version for non-experimental active artifacts
 
  -- Row 5 -----------------------------------
   Element = DecisionSupportServiceModule.name
@@ -171,6 +173,7 @@
   Definition = The name of the individual or organization that published the module (also known as the steward for the module). This information is required for non-experimental published artifacts
   Requirements = Consumers of the module must be able to determine where to obtain support in the use of this module, as well as where to direct questions and concerns about the content
   Comments = The publisher (or steward) of the module is the organization or individual primarily responsible for the maintenance and upkeep of the module. This is not necessarily the same organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the module
+  To Do = Add constraint to require a publisher for non-experimental active artifacts
 
  -- Row 19 -----------------------------------
   Element = DecisionSupportServiceModule.contact
@@ -273,7 +276,7 @@
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
-  Name = Assessment
+  Name = !Assessment
   Identity = example
   Description = Assessment Example
   Filename = decisionsupportservicemodule-example.xml
