@@ -25,9 +25,9 @@
       </coding>
       <text value="Left forearm"/>
   </bodySite>
-  <reasonCodeableConcept>
+  <reasonCode>
     <text value="Dark lesion l) forearm. getting darker last 3 months."/>
-  </reasonCodeableConcept>
+  </reasonCode>
   <performer>
     <actor>
       <reference value="Practitioner/example"/>

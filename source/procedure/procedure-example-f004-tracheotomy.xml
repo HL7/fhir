@@ -22,9 +22,9 @@
                 </coding>
             
         </bodySite>
-    <reasonCodeableConcept>
+    <reasonCode>
       <text value="ensure breathing during surgery"/>
-    </reasonCodeableConcept>
+    </reasonCode>
     <performer>
         <actor>
             <reference value="Practitioner/f005"/>

@@ -22,9 +22,9 @@
             </coding>
         
     </bodySite>
-    <reasonCodeableConcept>
+    <reasonCode>
       <text value="Malignant tumor of lung"/>
-    </reasonCodeableConcept>
+    </reasonCode>
     <performer>
         <actor>
             <reference value="Practitioner/f003"/>

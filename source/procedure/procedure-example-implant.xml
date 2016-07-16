@@ -13,9 +13,9 @@
     </coding>
     <text value="Implant Pacemaker"/>
   </code>
-  <reasonCodeableConcept>
+  <reasonCode>
     <text value="Bradycardia"/>
-  </reasonCodeableConcept> 
+  </reasonCode> 
   <performer>
     <actor>
       <reference value="Practitioner/example"/>

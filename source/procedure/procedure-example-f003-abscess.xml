@@ -22,9 +22,9 @@
             </coding>
         
     </bodySite>
-    <reasonCodeableConcept>
+    <reasonCode>
       <text value="abcess in retropharyngeal area"/>
-    </reasonCodeableConcept>
+    </reasonCode>
     <performer>
         <actor>
             <reference value="Practitioner/f001"/>

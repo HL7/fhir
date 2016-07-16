@@ -17,9 +17,9 @@
     </coding>
     <text value="Appendectomy"/>
   </code>
-  <reasonCodeableConcept>
+  <reasonCode>
       <text value="Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding"/>
-  </reasonCodeableConcept> 
+  </reasonCode> 
   <performer>
     <actor>
       <reference value="Practitioner/example"/>

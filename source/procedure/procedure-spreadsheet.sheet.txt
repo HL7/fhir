@@ -84,6 +84,11 @@
   Definition = Codes describing complications that resulted from a procedure.
   Conformance = example
 
+ -- Row 13 -----------------------------------
+  Binding Name = ProcedureUsed
+  Binding = unbound
+  Definition = Codes describing items used during a procedure
+
 === Sheet procedure-relationship-type =====================================
 
  -- Row 1 -----------------------------------
@@ -247,17 +252,26 @@
   Definition = Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion
 
  -- Row 11 -----------------------------------
-  Element = Procedure.reason[x]
-  Card. = 0..1
+  Element = Procedure.reasonReference
+  Card. = 0..*
   Summary = y
-  Type = CodeableConcept|Reference(Condition)
-  Binding = ProcedureReason
-  Short Label = Reason procedure performed
-  Definition = The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text
+  Type = Reference(Condition)
+  Short Label = Condition that is the reason the procedure performed
+  Definition = The condition that is the reason why the procedure was performed.
   Comments = e.g. endoscopy for dilatation and biopsy, combination diagnosis and therapeutic
   RIM Mapping = .reasonCode
 
  -- Row 12 -----------------------------------
+  Element = Procedure.reasonCode
+  Card. = 0..*
+  Summary = y
+  Type = CodeableConcept
+  Binding = ProcedureReason
+  Short Label = Coded reason procedure performed
+  Definition = The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text
+  RIM Mapping = .reasonCode
+
+ -- Row 13 -----------------------------------
   Element = Procedure.performer
   Card. = 0..*
   Summary = y
@@ -266,7 +280,7 @@
   Definition = Limited to \'real\' people rather than equipment
   RIM Mapping = .participation[typeCode=PFM]
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Procedure.performer.actor
   Card. = 0..1
   Summary = y
@@ -277,7 +291,7 @@
   RIM Mapping = .role
   w5 = who.actor
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Procedure.performer.role
   Card. = 0..1
   Summary = y
@@ -288,7 +302,7 @@
   v2 Mapping = Some combination of STF-18 / PRA-3 / PRT-4 / ROL-3 / ORC-12 / OBR-16 / PV1-7 / PV1-8 / PV1-9 / PV1-17 / OBX-25
   RIM Mapping = .functionCode
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Procedure.performed[x]
   Card. = 0..1
   Summary = y
@@ -299,7 +313,7 @@
   RIM Mapping = .effectiveTime
   w5 = when.done
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Procedure.encounter
   Card. = 0..1
   Summary = y
@@ -310,7 +324,7 @@
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Procedure.location
   Card. = 0..1
   Summary = Y
@@ -320,7 +334,7 @@
   Requirements = Ties a procedure to where the records are likely kept
   w5 = where
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Procedure.outcome
   Card. = 0..1
   Summary = y
@@ -331,7 +345,7 @@
   Comments = If outcome contains narrative text only, it can be captured using the CodeableConcept.text.
   RIM Mapping = .outboundRelationship[typeCode=OUT].target.text
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Procedure.report
   Card. = 0..*
   Type = Reference(DiagnosticReport)
@@ -340,7 +354,7 @@
   Comments = There could potentially be multiple reports - e.g. if this was a procedure which took multiple biopsies resulting in a number of anatomical pathology reports.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN]
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Procedure.complication
   Card. = 0..*
   Type = CodeableConcept
@@ -351,7 +365,7 @@
   RIM Mapping = Need specialization of OUT for this.
   To Do = Need harmonization proposal for new ActRelationshipType code
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Procedure.followUp
   Card. = 0..*
   Type = CodeableConcept
@@ -360,14 +374,14 @@
   Definition = If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or could potentially be more complex in which case the CarePlan resource can be used
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=ACT, moodCode=INT].code
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = !Procedure.relatedItem
   Card. = 0..*
   Short Label = A procedure that is related to this one
   Definition = Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure
   RIM Mapping = .outboundRelationship[typeCode=TRIG and target[classCode=PROC, moodCode=EVN]]
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = !Procedure.relatedItem.type
   Card. = 0..1
   Type = code
@@ -377,21 +391,21 @@
   RIM Mapping = .inversionInd
   To Do = Existing codes sound like synonyms.  Suggest caused-by and caused
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = !Procedure.relatedItem.target
   Card. = 0..1
   Type = Reference(AllergyIntolerance | CarePlan | Condition | DiagnosticReport | FamilyMemberHistory | ImagingStudy | Immunization | ImmunizationRecommendation | MedicationAdministration | MedicationDispense | MedicationOrder | MedicationStatement | Observation | Procedure)
   Short Label = The related item - e.g. a procedure
   RIM Mapping = .target
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Procedure.request
   Card. = 0..1
   Type = Reference(CarePlan|DiagnosticRequest|ProcedureRequest|ReferralRequest)
   Short Label = A request for this procedure
   Definition = A reference to a resource that contains details of the request for this procedure.
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Procedure.notes
   Card. = 0..*
   Type = Annotation
@@ -400,14 +414,14 @@
   v2 Mapping = NTE
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Procedure.focalDevice
   Card. = 0..*
   UML = 420;180
   Short Label = Device changed in procedure
   Definition = A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Procedure.focalDevice.action
   Card. = 0..1
   Type = CodeableConcept
@@ -415,15 +429,15 @@
   Short Label = Kind of change to device
   Definition = The kind of change that happened to the device during the procedure
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Procedure.focalDevice.manipulated
   Card. = 1..1
   Type = Reference(Device)
   Short Label = Device that was changed
   Definition = The device that was manipulated (changed) during the procedure
 
- -- Row 30 -----------------------------------
-  Element = Procedure.used
+ -- Row 31 -----------------------------------
+  Element = Procedure.usedReference
   Card. = 0..*
   Type = Reference(Device|Medication|Substance)
   Short Label = Items used during procedure
@@ -431,7 +445,16 @@
   Requirements = Used for tracking contamination, etc.
   Comments = For devices actually implanted or removed, use Procedure.device
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
+  Element = Procedure.usedCode
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = ProcedureUsed
+  Short Label = Coded items used during the procedure
+  Definition = Identifies coded items that were used as part of the procedure
+  Comments = For devices actually implanted or removed, use Procedure.device
+
+ -- Row 33 -----------------------------------
   Element = Procedure.component
   Card. = 0..*
   Type = Reference(MedicationAdministration | Procedure | Observation)
