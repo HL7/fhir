@@ -42,7 +42,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/112"/>
@@ -50,7 +50,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -182,7 +182,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/113"/>
@@ -190,7 +190,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -551,7 +551,7 @@ C-React Prot      152     mg/L   ( &lt;5       )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/116"/>
@@ -559,7 +559,7 @@ C-React Prot      152     mg/L   ( &lt;5       )
             <reason>
               <text value="Infected Tendon Sheath"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -623,7 +623,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/116"/>
@@ -631,7 +631,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <reason>
               <text value="Infected Tendon Sheath"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -683,7 +683,7 @@ Urea             10.0     mmol/L ( 2.5-8.3  )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/117"/>
@@ -691,7 +691,7 @@ Urea             10.0     mmol/L ( 2.5-8.3  )
             <reason>
               <text value="Post Tx"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -781,7 +781,7 @@ Film Comment : Mild neutrophilia with mild toxic changes. Manual
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/117"/>
@@ -789,7 +789,7 @@ Film Comment : Mild neutrophilia with mild toxic changes. Manual
             <reason>
               <text value="Post Tx"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -1026,7 +1026,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/119"/>
@@ -1034,7 +1034,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -1192,7 +1192,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/111"/>
@@ -1200,7 +1200,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
             <reason>
               <text value="Chest Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -1264,7 +1264,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/111"/>
@@ -1272,7 +1272,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
             <reason>
               <text value="Chest Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -1330,7 +1330,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/111"/>
@@ -1338,7 +1338,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <reason>
               <text value="PR Bleed Hep C +ve"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -1398,7 +1398,7 @@ Troponin I        0.03    ug/L   (See Below )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/111"/>
@@ -1406,7 +1406,7 @@ Troponin I        0.03    ug/L   (See Below )
             <reason>
               <text value="PR Bleed Hep C +ve"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -1466,7 +1466,7 @@ Troponin I        0.03    ug/L   (See Below )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/111"/>
@@ -1474,7 +1474,7 @@ Troponin I        0.03    ug/L   (See Below )
             <reason>
               <text value="PR Bleed Hep C +ve"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -1557,7 +1557,7 @@ Comment: Please note moderate thrombocytopenia persists. Please
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/111"/>
@@ -1565,7 +1565,7 @@ Comment: Please note moderate thrombocytopenia persists. Please
             <reason>
               <text value="PR Bleed Hep C +ve"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -1624,7 +1624,7 @@ Protein Total      65     g/L    ( 65-85    )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/112"/>
@@ -1632,7 +1632,7 @@ Protein Total      65     g/L    ( 65-85    )
             <reason>
               <text value="Vomiting Diarrhoea"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -1719,7 +1719,7 @@ Conclusion: Suggestive of infection.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/112"/>
@@ -1727,7 +1727,7 @@ Conclusion: Suggestive of infection.
             <reason>
               <text value="Vomiting Diarrhoea"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -1782,7 +1782,7 @@ Hrs Since Dose No Info  No Info                            HH:MM
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/113"/>
@@ -1790,7 +1790,7 @@ Hrs Since Dose No Info  No Info                            HH:MM
             <reason>
               <text value="Intoxicated Agitated ? Penetrating Head Injury"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -1850,7 +1850,7 @@ Lipase             87     IU/L   ( &lt;60      )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/113"/>
@@ -1858,7 +1858,7 @@ Lipase             87     IU/L   ( &lt;60      )
             <reason>
               <text value="Intoxicated Agitated ? Penetrating Head Injury"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -1936,7 +1936,7 @@ Comment: Instrument differential and parameters reported.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/113"/>
@@ -1944,7 +1944,7 @@ Comment: Instrument differential and parameters reported.
             <reason>
               <text value="Intoxicated Agitated ? Penetrating Head Injury"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -2106,7 +2106,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/113"/>
@@ -2114,7 +2114,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -2164,7 +2164,7 @@ INR               3.0H                                           0.8-1.3
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/114"/>
@@ -2172,7 +2172,7 @@ INR               3.0H                                           0.8-1.3
             <reason>
               <text value="Fall From Standing Height Headstrike LOC"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -2224,7 +2224,7 @@ Urea              8.0     mmol/L ( 2.5-8.3  )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/114"/>
@@ -2232,7 +2232,7 @@ Urea              8.0     mmol/L ( 2.5-8.3  )
             <reason>
               <text value="Fall From Standing Height Headstrike LOC"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -2296,7 +2296,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/114"/>
@@ -2304,7 +2304,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
             <reason>
               <text value="Fall From Standing Height Headstrike LOC"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -2380,7 +2380,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/115"/>
@@ -2388,7 +2388,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -2443,7 +2443,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/116"/>
@@ -2451,7 +2451,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <reason>
               <text value="TIA Slurred Speech Facial Droop Cardiac Hx"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -2511,7 +2511,7 @@ Protein Total      77     g/L    ( 65-85    )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/116"/>
@@ -2519,7 +2519,7 @@ Protein Total      77     g/L    ( 65-85    )
             <reason>
               <text value="TIA Slurred Speech Facial Droop Cardiac Hx"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -2583,7 +2583,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/116"/>
@@ -2591,7 +2591,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <reason>
               <text value="TIA Slurred Speech Facial Droop Cardiac Hx"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -2653,7 +2653,7 @@ Salicylate       &lt;0.30             &lt;0.30                   mmol/L &lt;2.9
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/117"/>
@@ -2661,7 +2661,7 @@ Salicylate       &lt;0.30             &lt;0.30                   mmol/L &lt;2.9
             <reason>
               <text value="Collapse"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -2723,7 +2723,7 @@ Protein Total      70     g/L    ( 65-85    )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/117"/>
@@ -2731,7 +2731,7 @@ Protein Total      70     g/L    ( 65-85    )
             <reason>
               <text value="Collapse"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -2810,7 +2810,7 @@ Comment: Mild neutropenia.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/117"/>
@@ -2818,7 +2818,7 @@ Comment: Mild neutropenia.
             <reason>
               <text value="Collapse"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -2894,7 +2894,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/118"/>
@@ -2902,7 +2902,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -2978,7 +2978,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/118"/>
@@ -2986,7 +2986,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -3062,7 +3062,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/119"/>
@@ -3070,7 +3070,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -3146,7 +3146,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/120"/>
@@ -3154,7 +3154,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -3222,7 +3222,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/112"/>
@@ -3230,7 +3230,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -3302,7 +3302,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/121"/>
@@ -3310,7 +3310,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -3386,7 +3386,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/122"/>
@@ -3394,7 +3394,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -3473,7 +3473,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/114"/>
@@ -3481,7 +3481,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -3525,7 +3525,7 @@ Specimen Type:  Serum
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/123"/>
@@ -3533,7 +3533,7 @@ Specimen Type:  Serum
             <reason>
               <text value="Needlestick Recipient"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -3589,7 +3589,7 @@ HBsAB Titre                                            :      44 IU/L
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/123"/>
@@ -3597,7 +3597,7 @@ HBsAB Titre                                            :      44 IU/L
             <reason>
               <text value="Needlestick Recipient"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -3673,7 +3673,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/124"/>
@@ -3681,7 +3681,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -3731,7 +3731,7 @@ TSH                       0.08    L  mIU/L   ( 0.1-4.0  )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/124"/>
@@ -3739,7 +3739,7 @@ TSH                       0.08    L  mIU/L   ( 0.1-4.0  )
             <reason>
               <text value="Chest Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -3815,7 +3815,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/120"/>
@@ -3823,7 +3823,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -3922,7 +3922,7 @@ Anaerobic bottle             4   days                 Negative
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/126"/>
@@ -3930,7 +3930,7 @@ Anaerobic bottle             4   days                 Negative
             <reason>
               <text value="Febrile &gt;38"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -4006,7 +4006,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/127"/>
@@ -4014,7 +4014,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -4104,7 +4104,7 @@ perinatal or neonatal infection.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/128"/>
@@ -4112,7 +4112,7 @@ perinatal or neonatal infection.
             <reason>
               <text value="Appendiceal Abscess"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -4188,7 +4188,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/129"/>
@@ -4196,7 +4196,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -4497,7 +4497,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/131"/>
@@ -4505,7 +4505,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -4557,7 +4557,7 @@ Urea             12.2     mmol/L ( 2.5-8.3  )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/132"/>
@@ -4565,7 +4565,7 @@ Urea             12.2     mmol/L ( 2.5-8.3  )
             <reason>
               <text value="Fall"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -4638,7 +4638,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/132"/>
@@ -4646,7 +4646,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
             <reason>
               <text value="Fall"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -4701,7 +4701,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/128"/>
@@ -4709,7 +4709,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <reason>
               <text value="Appendiceal Abscess"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -4769,7 +4769,7 @@ C-React Prot        4     mg/L   ( &lt;5       )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/128"/>
@@ -4777,7 +4777,7 @@ C-React Prot        4     mg/L   ( &lt;5       )
             <reason>
               <text value="Appendiceal Abscess"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -4841,7 +4841,7 @@ Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/128"/>
@@ -4849,7 +4849,7 @@ Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
             <reason>
               <text value="Appendiceal Abscess"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -4925,7 +4925,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/133"/>
@@ -4933,7 +4933,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -5158,7 +5158,7 @@ Troponin I        0.02    ug/L   (See Below )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/135"/>
@@ -5166,7 +5166,7 @@ Troponin I        0.02    ug/L   (See Below )
             <reason>
               <text value="Chest Pain FI"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -5211,7 +5211,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/136"/>
@@ -5219,7 +5219,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
             <reason>
               <text value="Serial Troponins"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -5264,7 +5264,7 @@ NTRC
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/137"/>
@@ -5272,7 +5272,7 @@ NTRC
             <reason>
               <text value="R/Central Chest Pain Febrile"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -5324,7 +5324,7 @@ Urea              5.3     mmol/L ( 2.5-8.3  )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/137"/>
@@ -5332,7 +5332,7 @@ Urea              5.3     mmol/L ( 2.5-8.3  )
             <reason>
               <text value="R/Central Chest Pain Febrile"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -5396,7 +5396,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/137"/>
@@ -5404,7 +5404,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
             <reason>
               <text value="R/Central Chest Pain Febrile"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -5593,7 +5593,7 @@ culture.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/139"/>
@@ -5601,7 +5601,7 @@ culture.
             <reason>
               <text value="Collapsed Low BP"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -5677,7 +5677,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/129"/>
@@ -5685,7 +5685,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -5783,7 +5783,7 @@ GROIN SWAB                    VRE not detected
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/141"/>
@@ -5791,7 +5791,7 @@ GROIN SWAB                    VRE not detected
             <reason>
               <text value="See Slip"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -6030,7 +6030,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/143"/>
@@ -6038,7 +6038,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <reason>
               <text value="Heparin Infusion"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -6112,7 +6112,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/121"/>
@@ -6120,7 +6120,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -6291,7 +6291,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/145"/>
@@ -6299,7 +6299,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <reason>
               <text value="PR Bleeding"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -6351,7 +6351,7 @@ Urea              7.5     mmol/L ( 2.5-8.3  )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/145"/>
@@ -6359,7 +6359,7 @@ Urea              7.5     mmol/L ( 2.5-8.3  )
             <reason>
               <text value="PR Bleeding"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -6423,7 +6423,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/145"/>
@@ -6431,7 +6431,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <reason>
               <text value="PR Bleeding"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -6790,7 +6790,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/148"/>
@@ -6798,7 +6798,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -6866,7 +6866,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/145"/>
@@ -6874,7 +6874,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -6935,7 +6935,7 @@ C-React Prot        5     mg/L   ( &lt;5       )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/124"/>
@@ -6943,7 +6943,7 @@ C-React Prot        5     mg/L   ( &lt;5       )
             <reason>
               <text value="Chest Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -7007,7 +7007,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/124"/>
@@ -7015,7 +7015,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <reason>
               <text value="Chest Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -7062,7 +7062,7 @@ LIPIDS
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/149"/>
@@ -7070,7 +7070,7 @@ LIPIDS
             <reason>
               <text value="Trial See Slip"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -7130,7 +7130,7 @@ investigation, please contact the Microbiology Registrar.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/150"/>
@@ -7138,7 +7138,7 @@ investigation, please contact the Microbiology Registrar.
             <reason>
               <text value="See Slip"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -7356,7 +7356,7 @@ Comment: The requested tests were not completed as no
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/151"/>
@@ -7364,7 +7364,7 @@ Comment: The requested tests were not completed as no
             <reason>
               <text value="S\H/A Anneurism"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -7431,7 +7431,7 @@ Xanthochromia Comment:   Oxyhaemoglobin present but no significant
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/151"/>
@@ -7439,7 +7439,7 @@ Xanthochromia Comment:   Oxyhaemoglobin present but no significant
             <reason>
               <text value="S\H/A Anneurism"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -7505,7 +7505,7 @@ culture or special media are required.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/151"/>
@@ -7513,7 +7513,7 @@ culture or special media are required.
             <reason>
               <text value="S\H/A Anneurism"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -7571,7 +7571,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/152"/>
@@ -7579,7 +7579,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <reason>
               <text value="Chest Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -7632,7 +7632,7 @@ Troponin I        0.02    ug/L   (See Below )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/152"/>
@@ -7640,7 +7640,7 @@ Troponin I        0.02    ug/L   (See Below )
             <reason>
               <text value="Chest Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -7707,7 +7707,7 @@ Comment: * Please note: no specimen received.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/152"/>
@@ -7715,7 +7715,7 @@ Comment: * Please note: no specimen received.
             <reason>
               <text value="Chest Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -7773,7 +7773,7 @@ COMMENT: This serum sample has been stored for 3 months.  If clinically
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/153"/>
@@ -7781,7 +7781,7 @@ COMMENT: This serum sample has been stored for 3 months.  If clinically
             <reason>
               <text value="Chest Pain Worse On Exercise"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -7857,7 +7857,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/124"/>
@@ -7865,7 +7865,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -7941,7 +7941,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/122"/>
@@ -7949,7 +7949,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -8396,7 +8396,7 @@ Presumptive  negative for pneumococcal pneumonia.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/153"/>
@@ -8404,7 +8404,7 @@ Presumptive  negative for pneumococcal pneumonia.
             <reason>
               <text value="Chest Pain Worse On Exercise"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -8583,7 +8583,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/158"/>
@@ -8591,7 +8591,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -8639,7 +8639,7 @@ TSH                       2.52       mIU/L   ( 0.1-4.0  )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/135"/>
@@ -8647,7 +8647,7 @@ TSH                       2.52       mIU/L   ( 0.1-4.0  )
             <reason>
               <text value="Chest Pain Fi"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -8785,7 +8785,7 @@ No Growth -Detection limit 10^7 CFU/L
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/139"/>
@@ -8793,7 +8793,7 @@ No Growth -Detection limit 10^7 CFU/L
             <reason>
               <text value="Collapsed Low BP"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -9112,7 +9112,7 @@ No Growth -Detection limit 10^7 CFU/L
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/161"/>
@@ -9120,7 +9120,7 @@ No Growth -Detection limit 10^7 CFU/L
             <reason>
               <text value="Febrile FI"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -9333,7 +9333,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/118"/>
@@ -9341,7 +9341,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -9493,7 +9493,7 @@ Protein Total      73     g/L    ( 65-85    )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/113"/>
@@ -9501,7 +9501,7 @@ Protein Total      73     g/L    ( 65-85    )
             <reason>
               <text value="Gastro"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -9575,7 +9575,7 @@ Conclusion: Features suggestive of infection / inflammation. Suggest
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/113"/>
@@ -9583,7 +9583,7 @@ Conclusion: Features suggestive of infection / inflammation. Suggest
             <reason>
               <text value="Gastro"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -9763,7 +9763,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/120"/>
@@ -9771,7 +9771,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -9847,7 +9847,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/148"/>
@@ -9855,7 +9855,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -9963,7 +9963,7 @@ Anaerobic bottle             4   days                 Negative
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/140"/>
@@ -9971,7 +9971,7 @@ Anaerobic bottle             4   days                 Negative
             <reason>
               <text value="Febrile"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -10039,7 +10039,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/153"/>
@@ -10047,7 +10047,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -10092,7 +10092,7 @@ Troponin I        0.02    ug/L   (See Below )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/165"/>
@@ -10100,7 +10100,7 @@ Troponin I        0.02    ug/L   (See Below )
             <reason>
               <text value="Chest Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -10145,7 +10145,7 @@ C-React Prot      149     mg/L   ( &lt;5       )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/167"/>
@@ -10153,7 +10153,7 @@ C-React Prot      149     mg/L   ( &lt;5       )
             <reason>
               <text value="Febrile"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -10203,7 +10203,7 @@ Anaerobic bottle             4   days                 Negative
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/167"/>
@@ -10211,7 +10211,7 @@ Anaerobic bottle             4   days                 Negative
             <reason>
               <text value="Febrile"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -10258,7 +10258,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/168"/>
@@ -10266,7 +10266,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
             <reason>
               <text value="See Slip"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -10330,7 +10330,7 @@ Old Ref Ranges prior to 27th April 2004
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/168"/>
@@ -10338,7 +10338,7 @@ Old Ref Ranges prior to 27th April 2004
             <reason>
               <text value="See Slip"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -10404,7 +10404,7 @@ LIPIDS
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/168"/>
@@ -10412,7 +10412,7 @@ LIPIDS
             <reason>
               <text value="See Slip"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -10476,7 +10476,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/168"/>
@@ -10484,7 +10484,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <reason>
               <text value="See Slip"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -10536,7 +10536,7 @@ Urea              4.4     mmol/L ( 2.5-8.3  )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/169"/>
@@ -10544,7 +10544,7 @@ Urea              4.4     mmol/L ( 2.5-8.3  )
             <reason>
               <text value="Febrile"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -10617,7 +10617,7 @@ Comment: Instrument differential and parameters reported.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/169"/>
@@ -10625,7 +10625,7 @@ Comment: Instrument differential and parameters reported.
             <reason>
               <text value="Febrile"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -10675,7 +10675,7 @@ Anaerobic bottle             4   days                 Negative
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/169"/>
@@ -10683,7 +10683,7 @@ Anaerobic bottle             4   days                 Negative
             <reason>
               <text value="Febrile"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -10764,7 +10764,7 @@ Timentin         S
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/126"/>
@@ -10772,7 +10772,7 @@ Timentin         S
             <reason>
               <text value="Febrile &gt;38"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -10909,7 +10909,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/129"/>
@@ -10917,7 +10917,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -10970,7 +10970,7 @@ C-React Prot        2     mg/L   ( &lt;5       )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/144"/>
@@ -10978,7 +10978,7 @@ C-React Prot        2     mg/L   ( &lt;5       )
             <reason>
               <text value="Nausea And Vomiting FI"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -11228,7 +11228,7 @@ CULTURE
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/172"/>
@@ -11236,7 +11236,7 @@ CULTURE
             <reason>
               <text value="Drain Fluid. Prev Vre And Kleb Pneumo Rx Teicoplan/Tazo"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -11312,7 +11312,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/119"/>
@@ -11320,7 +11320,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -11372,7 +11372,7 @@ RECTAL SWAB                   VRE not detected
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/126"/>
@@ -11380,7 +11380,7 @@ RECTAL SWAB                   VRE not detected
             <reason>
               <text value="On Admission"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -11425,7 +11425,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/173"/>
@@ -11433,7 +11433,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
             <reason>
               <text value="Chest Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -11595,7 +11595,7 @@ Old Ref Ranges prior to 27th April 2004
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/176"/>
@@ -11603,7 +11603,7 @@ Old Ref Ranges prior to 27th April 2004
             <reason>
               <text value="Acute Alcohol Withdrawal"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -11658,7 +11658,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/176"/>
@@ -11666,7 +11666,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <reason>
               <text value="Acute Alcohol Withdrawal"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -11713,7 +11713,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/176"/>
@@ -11721,7 +11721,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
             <reason>
               <text value="Acute Alcohol Withdrawal"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -11785,7 +11785,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/176"/>
@@ -11793,7 +11793,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
             <reason>
               <text value="Acute Alcohol Withdrawal"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -11853,7 +11853,7 @@ C-React Prot       12     mg/L   ( &lt;5       )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/176"/>
@@ -11861,7 +11861,7 @@ C-React Prot       12     mg/L   ( &lt;5       )
             <reason>
               <text value="Acute Alcohol Withdrawal"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -11911,7 +11911,7 @@ Anaerobic bottle             4   days                 Negative
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/177"/>
@@ -11919,7 +11919,7 @@ Anaerobic bottle             4   days                 Negative
             <reason>
               <text value="T+ 38.7C"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -12179,7 +12179,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/119"/>
@@ -12187,7 +12187,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -12263,7 +12263,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/179"/>
@@ -12271,7 +12271,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -12319,7 +12319,7 @@ TSH                       1.55       mIU/L   ( 0.1-4.0  )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/174"/>
@@ -12327,7 +12327,7 @@ TSH                       1.55       mIU/L   ( 0.1-4.0  )
             <reason>
               <text value="Palpitation"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -12391,7 +12391,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/174"/>
@@ -12399,7 +12399,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <reason>
               <text value="Palpitation"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -12456,7 +12456,7 @@ Troponin I        0.03    ug/L   (See Below )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/174"/>
@@ -12464,7 +12464,7 @@ Troponin I        0.03    ug/L   (See Below )
             <reason>
               <text value="Palpitation"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -12607,7 +12607,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/181"/>
@@ -12615,7 +12615,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -12666,7 +12666,7 @@ G1691A Substitution Result:
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/182"/>
@@ -12674,7 +12674,7 @@ G1691A Substitution Result:
             <reason>
               <text value="Thrombophilic Screen"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -12799,7 +12799,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/148"/>
@@ -12807,7 +12807,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -12994,7 +12994,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/122"/>
@@ -13002,7 +13002,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -13061,7 +13061,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/185"/>
@@ -13069,7 +13069,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <reason>
               <text value="Post Angio + Stent"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -13131,7 +13131,7 @@ Protein Total      65     g/L    ( 65-85    )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/185"/>
@@ -13139,7 +13139,7 @@ Protein Total      65     g/L    ( 65-85    )
             <reason>
               <text value="Post Angio + Stent"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -13206,7 +13206,7 @@ Film Comment : Film scanned. The blood film shows no diagnostic features.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/185"/>
@@ -13214,7 +13214,7 @@ Film Comment : Film scanned. The blood film shows no diagnostic features.
             <reason>
               <text value="Post Angio + Stent"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -13463,7 +13463,7 @@ Comment: The requested tests were not completed as no sample was
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/188"/>
@@ -13471,7 +13471,7 @@ Comment: The requested tests were not completed as no sample was
             <reason>
               <text value="Urinary Symptoms 2/52 With Loin Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -13523,7 +13523,7 @@ Urea              6.5     mmol/L ( 2.5-8.3  )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/188"/>
@@ -13531,7 +13531,7 @@ Urea              6.5     mmol/L ( 2.5-8.3  )
             <reason>
               <text value="Urinary Symptoms 2/52 With Loin Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -13595,7 +13595,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/188"/>
@@ -13603,7 +13603,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <reason>
               <text value="Urinary Symptoms 2/52 With Loin Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -13648,7 +13648,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/151"/>
@@ -13656,7 +13656,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <reason>
               <text value="Sah"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -13710,7 +13710,7 @@ Comment: The requested tests were not completed as no
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/151"/>
@@ -13718,7 +13718,7 @@ Comment: The requested tests were not completed as no
             <reason>
               <text value="Sah"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -13773,7 +13773,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/151"/>
@@ -13781,7 +13781,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <reason>
               <text value="Sah"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -13844,7 +13844,7 @@ Comment: Haemolysed. Some tests (*) unavailable.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/178"/>
@@ -13852,7 +13852,7 @@ Comment: Haemolysed. Some tests (*) unavailable.
             <reason>
               <text value="Increasing Sob On Exerion Post Surgery 3/52 Ago ? Pe"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -13923,7 +13923,7 @@ Comment: * Specimen clotted. ED informed.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/178"/>
@@ -13931,7 +13931,7 @@ Comment: * Specimen clotted. ED informed.
             <reason>
               <text value="Increasing Sob On Exerion Post Surgery 3/52 Ago ? Pe"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -14007,7 +14007,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/181"/>
@@ -14015,7 +14015,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -14078,7 +14078,7 @@ No Growth After 2 Days.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/189"/>
@@ -14086,7 +14086,7 @@ No Growth After 2 Days.
             <reason>
               <text value="Known Endocarditis, Vasculitic Rash Past, ?septic Embol"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -14141,7 +14141,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/190"/>
@@ -14149,7 +14149,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <reason>
               <text value="Trauma"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -14201,7 +14201,7 @@ Urea              4.3     mmol/L ( 2.5-8.3  )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/190"/>
@@ -14209,7 +14209,7 @@ Urea              4.3     mmol/L ( 2.5-8.3  )
             <reason>
               <text value="Trauma"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -14276,7 +14276,7 @@ Comment: Please note mild neutrophilia
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/190"/>
@@ -14284,7 +14284,7 @@ Comment: Please note mild neutrophilia
             <reason>
               <text value="Trauma"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -14454,7 +14454,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/139"/>
@@ -14462,7 +14462,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <reason>
               <text value="89/M Collapsed, Low Bp"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -14522,7 +14522,7 @@ C-React Prot      109     mg/L   ( &lt;5       )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/139"/>
@@ -14530,7 +14530,7 @@ C-React Prot      109     mg/L   ( &lt;5       )
             <reason>
               <text value="89/M Collapsed, Low Bp"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -14604,7 +14604,7 @@ Comment: Please note mild neutrophilia and mild monocytosis
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/139"/>
@@ -14612,7 +14612,7 @@ Comment: Please note mild neutrophilia and mild monocytosis
             <reason>
               <text value="89/M Collapsed, Low Bp"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -14664,7 +14664,7 @@ Protein/Creat Ratio             190 H mg/mmol Creat   ( 15-35    )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/124"/>
@@ -14672,7 +14672,7 @@ Protein/Creat Ratio             190 H mg/mmol Creat   ( 15-35    )
             <reason>
               <text value="Pre Organ "/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -14736,7 +14736,7 @@ Pathologist: To Follow
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/189"/>
@@ -14744,7 +14744,7 @@ Pathologist: To Follow
             <reason>
               <text value="Known Endocarditis, Vasculitic Rash Past, ?septic Embol"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -14810,7 +14810,7 @@ the Blood Bank.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/193"/>
@@ -14818,7 +14818,7 @@ the Blood Bank.
             <reason>
               <text value="Ivig-Intragram 39G"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -14886,7 +14886,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/190"/>
@@ -14894,7 +14894,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -15009,7 +15009,7 @@ and diphtheroid bacilli.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/195"/>
@@ -15017,7 +15017,7 @@ and diphtheroid bacilli.
             <reason>
               <text value="Recurrent Falls"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -15140,7 +15140,7 @@ the Blood Bank.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/196"/>
@@ -15148,7 +15148,7 @@ the Blood Bank.
             <reason>
               <text value="Kovig Ivig- 30G"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -15216,7 +15216,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/144"/>
@@ -15224,7 +15224,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -15287,7 +15287,7 @@ Comment: The CKMB was not measured on this sample. It has
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/197"/>
@@ -15295,7 +15295,7 @@ Comment: The CKMB was not measured on this sample. It has
             <reason>
               <text value="Cags X3 24/24 Post"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -15363,7 +15363,7 @@ Comment: Please note fall in haemoglobin and platelet count since
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/197"/>
@@ -15371,7 +15371,7 @@ Comment: Please note fall in haemoglobin and platelet count since
             <reason>
               <text value="Cags X3 24/24 Post"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -15434,7 +15434,7 @@ Comment
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/198"/>
@@ -15442,7 +15442,7 @@ Comment
             <reason>
               <text value="See Slip"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -15518,7 +15518,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/115"/>
@@ -15526,7 +15526,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -15576,7 +15576,7 @@ INR               1.1      1.1      1.1      1.1      2.6H       0.8-1.3
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/153"/>
@@ -15584,7 +15584,7 @@ INR               1.1      1.1      1.1      1.1      2.6H       0.8-1.3
             <reason>
               <text value="Chest Pain Worse On Exercise"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -15634,7 +15634,7 @@ Comment: A troponin has been measured for this patient in
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/153"/>
@@ -15642,7 +15642,7 @@ Comment: A troponin has been measured for this patient in
             <reason>
               <text value="Chest Pain Worse On Exercise"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -15709,7 +15709,7 @@ Hrs Since Dose          No Info    02:00                   HH:MM
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/199"/>
@@ -15717,7 +15717,7 @@ Hrs Since Dose          No Info    02:00                   HH:MM
             <reason>
               <text value="2Hrs Post Dose"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -15772,7 +15772,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/100"/>
@@ -15780,7 +15780,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <reason>
               <text value="Post Op MVR"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -15842,7 +15842,7 @@ Protein Total      47     g/L    ( 65-85    )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/100"/>
@@ -15850,7 +15850,7 @@ Protein Total      47     g/L    ( 65-85    )
             <reason>
               <text value="Post Op MVR"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -15918,7 +15918,7 @@ Comment: Please note fall in haemoglobin and platelet count since
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/100"/>
@@ -15926,7 +15926,7 @@ Comment: Please note fall in haemoglobin and platelet count since
             <reason>
               <text value="Post Op MVR"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -15971,7 +15971,7 @@ NTRC
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/195"/>
@@ -15979,7 +15979,7 @@ NTRC
             <reason>
               <text value="Recurrent Falls"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -16035,7 +16035,7 @@ Albumin            34     g/L    ( 35-50    )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/195"/>
@@ -16043,7 +16043,7 @@ Albumin            34     g/L    ( 35-50    )
             <reason>
               <text value="Recurrent Falls"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -16107,7 +16107,7 @@ Baso         0.0      0.0                              x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/195"/>
@@ -16115,7 +16115,7 @@ Baso         0.0      0.0                              x10^9/L   0.0-0.1
             <reason>
               <text value="Recurrent Falls"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -16165,7 +16165,7 @@ Anaerobic bottle             4   days                 Negative
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/140"/>
@@ -16173,7 +16173,7 @@ Anaerobic bottle             4   days                 Negative
             <reason>
               <text value="Febrile"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -16229,7 +16229,7 @@ General Comments:
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/101"/>
@@ -16237,7 +16237,7 @@ General Comments:
             <reason>
               <text value="See Slip"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -16389,7 +16389,7 @@ Comment: Post platelet increment
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/102"/>
@@ -16397,7 +16397,7 @@ Comment: Post platelet increment
             <reason>
               <text value="Post Platelet Increment"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -16493,7 +16493,7 @@ Albumin            27     g/L    ( 35-50    )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/106"/>
@@ -16501,7 +16501,7 @@ Albumin            27     g/L    ( 35-50    )
             <reason>
               <text value="Post Angiogram Anaemia"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -16573,7 +16573,7 @@ Comment: Instrument differential and parameters reported.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/106"/>
@@ -16581,7 +16581,7 @@ Comment: Instrument differential and parameters reported.
             <reason>
               <text value="Post Angiogram Anaemia"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -16723,7 +16723,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/199"/>
@@ -16731,7 +16731,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -16776,7 +16776,7 @@ NTRS
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/108"/>
@@ -16784,7 +16784,7 @@ NTRS
             <reason>
               <text value="See Slip"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -16841,7 +16841,7 @@ Post Dose (Peak) level : Not recommended
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/108"/>
@@ -16849,7 +16849,7 @@ Post Dose (Peak) level : Not recommended
             <reason>
               <text value="See Slip"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -16909,7 +16909,7 @@ C-React Prot       19     mg/L   ( &lt;5       )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/108"/>
@@ -16917,7 +16917,7 @@ C-React Prot       19     mg/L   ( &lt;5       )
             <reason>
               <text value="See Slip"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -16985,7 +16985,7 @@ Comment: Note: mild neutrophilia. Instrument differential and
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/108"/>
@@ -16993,7 +16993,7 @@ Comment: Note: mild neutrophilia. Instrument differential and
             <reason>
               <text value="See Slip"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -17065,7 +17065,7 @@ No Growth -Detection limit 10^7 CFU/L
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/188"/>
@@ -17073,7 +17073,7 @@ No Growth -Detection limit 10^7 CFU/L
             <reason>
               <text value="Urinary Symptoms 2/52 With Loin Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -17575,7 +17575,7 @@ NTRESR
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/111"/>
@@ -17583,7 +17583,7 @@ NTRESR
             <reason>
               <text value="Chronic Idiopathic Urticaria"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -17628,7 +17628,7 @@ NTRESR
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/112"/>
@@ -17636,7 +17636,7 @@ NTRESR
             <reason>
               <text value="On Clozapine"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -17839,7 +17839,7 @@ Anaerobic bottle             4   days                 Negative
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/161"/>
@@ -17847,7 +17847,7 @@ Anaerobic bottle             4   days                 Negative
             <reason>
               <text value="Febrile FI"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -18160,7 +18160,7 @@ Urea             11.7     mmol/L ( 2.5-8.3  )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/115"/>
@@ -18168,7 +18168,7 @@ Urea             11.7     mmol/L ( 2.5-8.3  )
             <reason>
               <text value="Atheroma With Complete Occlusions R/L Legs"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -18244,7 +18244,7 @@ Film Comment : Neutrophils show mild toxic changes. Manual differential.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/115"/>
@@ -18252,7 +18252,7 @@ Film Comment : Neutrophils show mild toxic changes. Manual differential.
             <reason>
               <text value="Atheroma With Complete Occlusions R/L Legs"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -18312,7 +18312,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/136"/>
@@ -18320,7 +18320,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
             <reason>
               <text value="Chest Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -18384,7 +18384,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/136"/>
@@ -18392,7 +18392,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <reason>
               <text value="Chest Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -18604,7 +18604,7 @@ INR               4.3H     4.0H     6.2H     6.6H     6.9H       0.8-1.3
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/117"/>
@@ -18612,7 +18612,7 @@ INR               4.3H     4.0H     6.2H     6.6H     6.9H       0.8-1.3
             <reason>
               <text value="See Slip"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -18671,7 +18671,7 @@ Protein Total      80     g/L    ( 65-85    )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/151"/>
@@ -18679,7 +18679,7 @@ Protein Total      80     g/L    ( 65-85    )
             <reason>
               <text value="Headache"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -18743,7 +18743,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/151"/>
@@ -18751,7 +18751,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <reason>
               <text value="Headache"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -18815,7 +18815,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/151"/>
@@ -18823,7 +18823,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <reason>
               <text value="Headache"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -18964,7 +18964,7 @@ INR               1.0                                            0.8-1.3
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/118"/>
@@ -18972,7 +18972,7 @@ INR               1.0                                            0.8-1.3
             <reason>
               <text value="Trauma MVA"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -19020,7 +19020,7 @@ Quant Pregnancy (hCG) &lt;2           IU/L    ( &lt;5       )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/118"/>
@@ -19028,7 +19028,7 @@ Quant Pregnancy (hCG) &lt;2           IU/L    ( &lt;5       )
             <reason>
               <text value="Trauma MVA"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -19095,7 +19095,7 @@ Comment: Please note mild neutrophilia
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/118"/>
@@ -19103,7 +19103,7 @@ Comment: Please note mild neutrophilia
             <reason>
               <text value="Trauma MVA"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -19162,7 +19162,7 @@ Protein Total      67     g/L    ( 65-85    )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/118"/>
@@ -19170,7 +19170,7 @@ Protein Total      67     g/L    ( 65-85    )
             <reason>
               <text value="Trauma MVA"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -19224,7 +19224,7 @@ Comments / Steps Taken
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/182"/>
@@ -19232,7 +19232,7 @@ Comments / Steps Taken
             <reason>
               <text value="Thrombophilic Screen"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -19300,7 +19300,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/118"/>
@@ -19308,7 +19308,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -19429,7 +19429,7 @@ Urea              4.2     mmol/L ( 2.5-8.3  )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/120"/>
@@ -19437,7 +19437,7 @@ Urea              4.2     mmol/L ( 2.5-8.3  )
             <reason>
               <text value="Pleuritic Chest Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -19504,7 +19504,7 @@ Comment: Please note mild monocytosis
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/120"/>
@@ -19512,7 +19512,7 @@ Comment: Please note mild monocytosis
             <reason>
               <text value="Pleuritic Chest Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -19564,7 +19564,7 @@ to STAGO D-Dimer reagents (LIATEST). NB the reference range is unchanged
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/120"/>
@@ -19572,7 +19572,7 @@ to STAGO D-Dimer reagents (LIATEST). NB the reference range is unchanged
             <reason>
               <text value="Pleuritic Chest Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -19885,7 +19885,7 @@ Standard culture:   +  Mixed upper respiratory tract flora
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/141"/>
@@ -19893,7 +19893,7 @@ Standard culture:   +  Mixed upper respiratory tract flora
             <reason>
               <text value="Febrile . Neutripaenic"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -19969,7 +19969,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/127"/>
@@ -19977,7 +19977,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -20024,7 +20024,7 @@ Amylase           390 IU/L
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/172"/>
@@ -20032,7 +20032,7 @@ Amylase           390 IU/L
             <reason>
               <text value="Drain Fluid. Prev Vre And Kleb Pneumo Rx Teicoplan/Tazo"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -20155,7 +20155,7 @@ No Beta haemolytic streptococci isolated.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/121"/>
@@ -20163,7 +20163,7 @@ No Beta haemolytic streptococci isolated.
             <reason>
               <text value="ga Streps"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -20223,7 +20223,7 @@ be processed.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/121"/>
@@ -20231,7 +20231,7 @@ be processed.
             <reason>
               <text value="ga Streps"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -20497,7 +20497,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/123"/>
@@ -20505,7 +20505,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
             <reason>
               <text value="Sob On Exertion"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -20569,7 +20569,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/123"/>
@@ -20577,7 +20577,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
             <reason>
               <text value="Sob On Exertion"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -20653,7 +20653,7 @@ Note: Reference Ranges shown are for arterial blood only.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/122"/>
@@ -20661,7 +20661,7 @@ Note: Reference Ranges shown are for arterial blood only.
             <reason>
               <text value="Automatic Request Registration"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -20712,7 +20712,7 @@ G1691A Substitution Result:
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/182"/>
@@ -20720,7 +20720,7 @@ G1691A Substitution Result:
             <reason>
               <text value="Thrombophilic Screen"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -20773,7 +20773,7 @@ Lactate           1.2     mmol/L ( 0.2-1.8  )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/182"/>
@@ -20781,7 +20781,7 @@ Lactate           1.2     mmol/L ( 0.2-1.8  )
             <reason>
               <text value="Thrombophilic Screen"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -20841,7 +20841,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/182"/>
@@ -20849,7 +20849,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <reason>
               <text value="Thrombophilic Screen"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -20922,7 +20922,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/182"/>
@@ -20930,7 +20930,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
             <reason>
               <text value="Thrombophilic Screen"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -20989,7 +20989,7 @@ Please contact the immunopathology registrar for further advice on 9342 8023.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/182"/>
@@ -20997,7 +20997,7 @@ Please contact the immunopathology registrar for further advice on 9342 8023.
             <reason>
               <text value="Thrombophilic Screen"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -21057,7 +21057,7 @@ Lupus Inhibitor Comment:
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/182"/>
@@ -21065,7 +21065,7 @@ Lupus Inhibitor Comment:
             <reason>
               <text value="Thrombophilic Screen"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -21227,7 +21227,7 @@ Conclusion: Suggestive of iron deficiency anaemia. Suggest correlation
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/126"/>
@@ -21235,7 +21235,7 @@ Conclusion: Suggestive of iron deficiency anaemia. Suggest correlation
             <reason>
               <text value="Anaemia"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -21299,7 +21299,7 @@ Baso         0.0      0.0      0.0                     x10^9/L   0.0-0.1
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/127"/>
@@ -21307,7 +21307,7 @@ Baso         0.0      0.0      0.0                     x10^9/L   0.0-0.1
             <reason>
               <text value="Mba 80Km With Headstrike, Loc And R Neck Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -21362,7 +21362,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/127"/>
@@ -21370,7 +21370,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
             <reason>
               <text value="Mba 80Km With Headstrike, Loc And R Neck Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -21433,7 +21433,7 @@ EtOH              0.02    gm%
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/127"/>
@@ -21441,7 +21441,7 @@ EtOH              0.02    gm%
             <reason>
               <text value="Mba 80Km With Headstrike, Loc And R Neck Pain"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -21505,7 +21505,7 @@ Old Ref Ranges prior to 27th April 2004
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/132"/>
@@ -21513,7 +21513,7 @@ Old Ref Ranges prior to 27th April 2004
             <reason>
               <text value="Delerium Screen"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -21561,7 +21561,7 @@ TSH                       1.09       mIU/L   ( 0.1-4.0  )
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/132"/>
@@ -21569,7 +21569,7 @@ TSH                       1.09       mIU/L   ( 0.1-4.0  )
             <reason>
               <text value="Delerium Screen"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>
@@ -21635,7 +21635,7 @@ LIPIDS
           </div>
         </text>
         <contained>
-          <DiagnosticOrder>
+          <DiagnosticRequest>
             <id value="req"/>
             <subject>
               <reference value="Patient/132"/>
@@ -21643,7 +21643,7 @@ LIPIDS
             <reason>
               <text value="Delerium Screen"/>
             </reason>
-          </DiagnosticOrder>
+          </DiagnosticRequest>
         </contained>
         <identifier>
           <system value="http://acme.com/lab/reports"/>

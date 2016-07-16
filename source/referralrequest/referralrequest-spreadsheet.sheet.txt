@@ -30,7 +30,7 @@
  -- Row 5 -----------------------------------
   Binding Name = ReferralPriority
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/diagnostic-order-priority
+  Reference = http://hl7.org/fhir/ValueSet/diagnostic-request-priority
   Definition = Codes indicating the relative priority of the referral.
   Conformance = example
 
@@ -125,7 +125,7 @@
   Element = ReferralRequest.basedOn
   Card. = 0..*
   Is Modifier = N
-  Type = Reference(ReferralRequest|CarePlan|DiagnosticOrder|ProcedureRequest)
+  Type = Reference(ReferralRequest|CarePlan|DiagnosticRequest|ProcedureRequest)
   Short Label = Request fulfilled by this request
   Definition = Indicates any plans, proposals or orders that this request is intended to satisfy - in whole or in part.
 

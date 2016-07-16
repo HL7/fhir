@@ -1334,7 +1334,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Reference(DiagnosticOrder)</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Reference(DiagnosticRequest)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1347,7 +1347,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Order(s) that caused this study to be performed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">A list of the diagnostic orders that resulted in this imaging study being performed</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">A list of the diagnostic requests that resulted in this imaging study being performed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">To support grouped procedures (one imaging study supporting multiple ordered procedures, e.g. chest/abdomen/pelvis CT)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

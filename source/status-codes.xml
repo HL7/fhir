@@ -762,7 +762,7 @@
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">DiagnosticOrder.event.status</Data></Cell>
+    <Cell><Data ss:Type="String">DiagnosticRequest.event.status</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">proposed</Data></Cell>
     <Cell><Data ss:Type="String">planned</Data></Cell>
@@ -782,7 +782,7 @@
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">DiagnosticOrder.item.status</Data></Cell>
+    <Cell><Data ss:Type="String">DiagnosticRequest.item.status</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell><Data ss:Type="String">proposed</Data></Cell>
     <Cell><Data ss:Type="String">planned</Data></Cell>
@@ -801,7 +801,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">DiagnosticOrder.status</Data></Cell>
+    <Cell><Data ss:Type="String">DiagnosticRequest.status</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell><Data ss:Type="String">proposed</Data></Cell>
     <Cell><Data ss:Type="String">planned</Data></Cell>

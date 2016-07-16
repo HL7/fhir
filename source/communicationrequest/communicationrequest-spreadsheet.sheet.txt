@@ -1,4 +1,4 @@
-﻿
+
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -28,7 +28,7 @@
  -- Row 5 -----------------------------------
   Binding Name = CommunicationPriority
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/diagnostic-order-priority
+  Reference = http://hl7.org/fhir/ValueSet/diagnostic-request-priority
   Definition = Codes indicating the relative importance of a communication request.
   Conformance = example
 

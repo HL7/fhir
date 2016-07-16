@@ -1,4 +1,4 @@
-﻿
+
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -442,7 +442,7 @@
   Type = Reference(Any)
   Short Label = Related Resource
   Definition = Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.
-  Comments = Order, DiagnosticOrder,  Procedure, EligibilityRequest, etc.
+  Comments = Order, DiagnosticRequest,  Procedure, EligibilityRequest, etc.
   RIM Mapping = ./outboundRelationship[typeCode=\"PERT\" and isNormalActRelationship()] / target[isNormalAct].text.reference
 
 === Sheet Search =====================================

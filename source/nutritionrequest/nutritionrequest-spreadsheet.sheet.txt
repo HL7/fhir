@@ -169,7 +169,7 @@
   Type = Identifier
   Short Label = Identifiers assigned to this order
   Definition = Identifiers assigned to this order by the order sender or by the order receiver
-  Comments = The Identifier.type element can be to indicate filler vs placer if needed.  This is explained in further detail [here](diagnosticorder.html#notes)
+  Comments = The Identifier.type element can be to indicate filler vs placer if needed.  This is explained in further detail [here](diagnosticrequest.html#notes)
   RIM Mapping = .id
   w5 = id
 

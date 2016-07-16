@@ -151,7 +151,7 @@
   Card. = 0..*
   Type = Reference(Any)
   Short Label = Details of the outcome of performing the order
-  Definition = Links to resources that provide details of the outcome of performing the order; e.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order
+  Definition = Links to resources that provide details of the outcome of performing the order; e.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic request
   v2 Mapping = OBR+OBX[n] / RXE / RXD / RXG / RXA / BPX / BTX
   RIM Mapping = .outboundRelationship[typeCode=SUBJ]/target[moodCode=RQO]
 

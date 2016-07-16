@@ -2,7 +2,7 @@
 <DiagnosticReport xmlns="http://hl7.org/fhir">
   <id value="f202"/>
   <contained>
-    <DiagnosticOrder>
+    <DiagnosticRequest>
 			<id value="req"/>
 			<subject>
         <reference value="Patient/f201"/>
@@ -16,7 +16,7 @@
         <reference value="Practitioner/f201"/>
         <display value="Dokter Bronsig"/>
       </orderer>
-		</DiagnosticOrder>
+		</DiagnosticRequest>
   </contained>
   <status value="final"/>
   <category>

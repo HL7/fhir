@@ -1,4 +1,4 @@
-
+﻿
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -373,7 +373,7 @@
   Element = CarePlan.activity.reference
   Card. = 0..1
   Inv. = 3
-  Type = Reference(Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticOrder|MedicationOrder|NutritionRequest|Order|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)
+  Type = Reference(Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationOrder|NutritionRequest|Order|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)
   Short Label = Activity details defined in specific resource
   Definition = The details of the proposed activity represented in a specific resource
   Requirements = Details in a form consistent with other applications and contexts of use

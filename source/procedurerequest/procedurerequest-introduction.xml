@@ -28,14 +28,14 @@ on a patient's clinical record and context of care. Planned procedures reference
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
-ProcedureRequest is closely related to other types of "request" resources, particularly <a href="diagnosticorder.html">DiagnosticOrder</a>
+ProcedureRequest is closely related to other types of "request" resources, particularly <a href="diagnosticrequest.html">DiagnosticRequest</a>
 and <a href="referralrequest.html">ReferralRequest</a>.  In fact, for some services, it may be appropriate to use any one of these
 resources to request that the procedure be performed.  Which one is used may be driven by organization practice and by context.  When
 it is unclear which to use, the following principles may be helpful:
 </p>
 <ul>
 <li>
-ProcedureRequest or DiagnosticOrder are typically used when the requesting clinician has and wishes to exercise the authority 
+ProcedureRequest or DiagnosticRequest are typically used when the requesting clinician has and wishes to exercise the authority 
 (and expertise) to decide exactly what action will be done.
 </li>
 <li>
@@ -43,7 +43,7 @@ A ReferralRequest is used when the requesting practitioner is seeking another pr
 and/or authority to determine the specific action to take.
 </li>
 <li>
-Whether an activity is deemed to be a procedure or only a diagnostic order is typically driven by how invasive the diagnostic process
+Whether an activity is deemed to be a procedure or only a diagnostic request is typically driven by how invasive the diagnostic process
 is.  More invasive processes are typically represented as procedures, though the dividing line may vary by organization.
 </li>
 </ul>
@@ -51,7 +51,7 @@ is.  More invasive processes are typically represented as procedures, though the
 Irrespective of the guidance above, systems should be prepared for some degree of overlap between these resources and be
 prepared to execute searches against multiple resources in cases where differentiation cannot be guaranteed.  As well, in some workflows
 more than one type of resource or even all three might exist; e.g. Upon receiving a ReferralRequest a practitioner might initiate a 
-DiagnosticOrder.  The diagnostic service might then initiate a ProcedureRequest.
+DiagnosticRequest.  The diagnostic service might then initiate a ProcedureRequest.
 </p>
 <p>
 The notion of ProcedureRequest and <a href="communicationrequest.html">CommunicationRequest</a> are also closely related.  

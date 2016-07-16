@@ -2,7 +2,7 @@
 <DiagnosticReport xmlns="http://hl7.org/fhir">
   <id value="f001"/>
   <contained>
-    <DiagnosticOrder>
+    <DiagnosticRequest>
 			<id value="req"/>
 			<identifier>
         <use value="official"/>
@@ -40,7 +40,7 @@
           </coding>
         </bodySite>
       </item>
-		</DiagnosticOrder>
+		</DiagnosticRequest>
   </contained>
   <identifier>
     <use value="official"/>

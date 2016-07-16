@@ -242,7 +242,7 @@
       </base>
       <type>
         <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/DiagnosticOrder"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/DiagnosticRequest"/>
       </type>
       <isModifier value="false"/>
     </element>

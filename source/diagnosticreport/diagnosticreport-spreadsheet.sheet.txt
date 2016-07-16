@@ -1,4 +1,4 @@
-﻿
+
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -229,7 +229,7 @@
  -- Row 11 -----------------------------------
   Element = DiagnosticReport.request
   Card. = 0..*
-  Type = Reference(DiagnosticOrder|ProcedureRequest|ReferralRequest)
+  Type = Reference(DiagnosticRequest|ProcedureRequest|ReferralRequest)
   Short Label = What was requested
   Definition = Details concerning a test or procedure requested.
   Requirements = Need to be able to track completion of requests based on reports issued and also to report what diagnostic tests were requested (not always the same as what is delivered)

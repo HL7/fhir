@@ -129,10 +129,10 @@
 					  </div>
 					</text>
 					<contained>
-					  <DiagnosticOrder>
+					  <DiagnosticRequest>
 						<id value="diagnosticOrder1"/>
 						<meta>
-						  <profile value="http://hl7.org/fhir/StructureDefinition/gao-diagnosticorder"/>
+						  <profile value="http://hl7.org/fhir/StructureDefinition/gao-diagnosticrequest"/>
 						</meta>
 						<subject>
 						  <reference value="Patient/example"/>
@@ -147,7 +147,7 @@
 							</coding>
 						  </code>
 						</item>
-					  </DiagnosticOrder>
+					  </DiagnosticRequest>
 					</contained>
 					<date value="2012-12-28T09:03:04+11:00"/>
 					<subject>

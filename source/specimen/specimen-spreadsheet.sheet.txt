@@ -1,4 +1,4 @@
-﻿
+
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -195,10 +195,10 @@
  -- Row 11 -----------------------------------
   Element = Specimen.request
   Card. = 0..*
-  Type = Reference(DiagnosticOrder|ProcedureRequest)
+  Type = Reference(DiagnosticRequest|ProcedureRequest)
   Short Label = Why the specimen was collected
   Definition = Details concerning a test or procedure request that required a specimen to be collected.
-  Comments = The request may be explicit or implied such with a DiagnosticOrder that requires a blood draw.
+  Comments = The request may be explicit or implied such with a DiagnosticRequest that requires a blood draw.
   v2 Mapping = ORC? OBR-2/3?
   RIM Mapping = outboundRelationship[typeCode=FLFS].target
   Committee Notes = [#9663]

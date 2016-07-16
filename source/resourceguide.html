@@ -68,8 +68,8 @@ Where to find common concepts in this specification:
  <tr><td>Signs &amp; Symptoms</td><td>from a review of systems- Pain, Fever</td><td><a href="condition.html">Condition</a> </td></tr>
 
  <tr><td colspan="3"><b>Suggested Physician Orders </b></td></tr>
- <tr><td>Proposal for a laboratory test</td><td>A blood panel, a stool analysis</td><td><a href="diagnosticorder.html">DiagnosticOrder</a> </td></tr>
- <tr><td>Proposal for an imaging procedure</td><td>CT Scan, MRI, X-Rays</td><td><a href="diagnosticorder.html">DiagnosticOrder</a> </td></tr>
+ <tr><td>Proposal for a laboratory test</td><td>A blood panel, a stool analysis</td><td><a href="diagnosticrequest.html">DiagnosticRequest</a> </td></tr>
+ <tr><td>Proposal for an imaging procedure</td><td>CT Scan, MRI, X-Rays</td><td><a href="diagnosticrequest.html">DiagnosticRequest</a> </td></tr>
  <tr><td>Proposed Diet Order</td><td>An oral diet order</td><td><a href="nutritionrequest.html">NutritionRequest</a> </td></tr>
  <tr><td>Proposed respiratory order</td><td>Oxygen delivery</td><td>Not done yet</td></tr>
  <tr><td>Proposed Medications</td><td>Aspirin, Lisinopril</td><td><a href="medicationorder.html">MedicationOrder</a> </td></tr>
@@ -235,9 +235,9 @@ and many more things beside. Note that 'everything is an observation', but imple
 use Observation where <a href="condition.html">Condition</a> is more appropriate. 
 </p>
 <p>
-<code>DiagnosticOrder</code> and <code>DiagnosticReport</code> support the overall diagnostic process. 
+<code>DiagnosticRequest</code> and <code>DiagnosticReport</code> support the overall diagnostic process. 
 A DiagnosticReport connects the process of 'reporting', linking process identifiers, visual 
-presentations of a report, and conclusions/interpretations with the Observations. DiagnosticOrders capture the request from an authorized clinician to initiate the diagnostic process.
+presentations of a report, and conclusions/interpretations with the Observations. DiagnosticRequests capture the request from an authorized clinician to initiate the diagnostic process.
 <code>Specimen</code> and <code>BodySite</code> are used to record the details of specimen collection
 although BodySite can also be used with other resources (e.g. Operation location details on a Procedure).
 </p>
@@ -254,7 +254,7 @@ diagnostic images).
 <tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
 <tr><td><a href="observation.html">Observation</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="diagnosticreport.html">DiagnosticReport</a></td><td><a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a></td></tr>
-<tr><td><a href="diagnosticorder.html">DiagnosticOrder</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#order">Request/Order</a></td></tr>
+<tr><td><a href="diagnosticrequest.html">DiagnosticRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#order">Request/Order</a></td></tr>
 <tr><td><a href="specimen.html">Specimen</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a></td></tr>
 <tr><td><a href="bodysite.html">BodySite</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>
 <tr><td><a href="imagingmanifest.html">ImagingManifest</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>

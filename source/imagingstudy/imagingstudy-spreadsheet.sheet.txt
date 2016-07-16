@@ -1,4 +1,4 @@
-﻿
+
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -178,9 +178,9 @@
  -- Row 9 -----------------------------------
   Element = ImagingStudy.order
   Card. = 0..*
-  Type = Reference(DiagnosticOrder)
+  Type = Reference(DiagnosticRequest)
   Short Label = Order(s) that caused this study to be performed
-  Definition = A list of the diagnostic orders that resulted in this imaging study being performed
+  Definition = A list of the diagnostic requests that resulted in this imaging study being performed
   Requirements = To support grouped procedures (one imaging study supporting multiple ordered procedures, e.g. chest/abdomen/pelvis CT)
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=DGIMG, moodCode=RQO]
   w5 = who.cause

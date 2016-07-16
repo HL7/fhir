@@ -1,4 +1,4 @@
-﻿
+
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -387,7 +387,7 @@
  -- Row 25 -----------------------------------
   Element = Procedure.request
   Card. = 0..1
-  Type = Reference(CarePlan|DiagnosticOrder|ProcedureRequest|ReferralRequest)
+  Type = Reference(CarePlan|DiagnosticRequest|ProcedureRequest|ReferralRequest)
   Short Label = A request for this procedure
   Definition = A reference to a resource that contains details of the request for this procedure.
 

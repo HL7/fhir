@@ -189,7 +189,7 @@
   Card. = 0..1
   Type = Reference(Any)
   Short Label = Related Resource
-  Definition = Related Resource to this DocumentManifest. For example, Order, DiagnosticOrder,  Procedure, EligibilityRequest, etc.
+  Definition = Related Resource to this DocumentManifest. For example, Order, DiagnosticRequest,  Procedure, EligibilityRequest, etc.
   Comments = If both identifier and ref elements are present they shall refer to the same thing.
 
 === Sheet Search =====================================

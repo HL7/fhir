@@ -29,7 +29,7 @@ captured as problems/diagnoses.
 <h2>Boundaries and Relationships</h2>
 <p>
     The condition resource may be referenced by other resources as "reasons" for an action (e.g. <a href="medicationorder.html">MedicationOrder</a>,
-<a href="procedure.html">Procedure</a>, <a href="diagnosticorder.html">DiagnosticOrder</a>, etc.)
+<a href="procedure.html">Procedure</a>, <a href="diagnosticrequest.html">DiagnosticRequest</a>, etc.)
 </p>
 <p>
 This resource is not to be used to record information about subjective and objective information that might lead to the recording of a Condition.

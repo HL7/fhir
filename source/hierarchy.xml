@@ -236,7 +236,7 @@ signatures.html
     <page title="Diagnostics" filename="diagnostics-module.html" icon="diagnostics.jpg">
       <page type="resource" resource="Observation"/>
       <page type="resource" resource="DiagnosticReport"/>
-      <page type="resource" resource="DiagnosticOrder"/>
+      <page type="resource" resource="DiagnosticRequest"/>
       <page type="resource" resource="ImagingStudy"/>
       <page type="resource" resource="ImagingManifest"/>
       <page type="resource" resource="Sequence"/>

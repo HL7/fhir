@@ -86,7 +86,7 @@ in these contexts.
 <a name="bnr"> </a>
 		<h2>Boundaries and Relationships</h2>
 		<p>
-			As described above, the split between the Order resource and the domain order resources is that  Order is a <b>workflow</b> resource, not a clinical resource. It is used to manage fulfillment requests and other state transitions for the 'real' clinical orders - <a href="deviceuserequest.html">DeviceUseRequest</a>, <a href="diagnosticorder.html">DiagnosticOrder</a>,  <a href="medicationorder.html">MedicationOrder</a>, <a href="nutritionrequest.html">NutritionRequest</a> and <a href="procedurerequest.html">ProcedureRequest</a>.
+			As described above, the split between the Order resource and the domain order resources is that  Order is a <b>workflow</b> resource, not a clinical resource. It is used to manage fulfillment requests and other state transitions for the 'real' clinical orders - <a href="deviceuserequest.html">DeviceUseRequest</a>, <a href="diagnosticrequest.html">DiagnosticRequest</a>,  <a href="medicationorder.html">MedicationOrder</a>, <a href="nutritionrequest.html">NutritionRequest</a> and <a href="procedurerequest.html">ProcedureRequest</a>.
 </p>
 	</div>
 </div>
