@@ -205,8 +205,8 @@
         <translation lang="en">DeviceMetric</translation>
         <translation lang="fr">MétriqueDispositif</translation>
     </item>
-    <item id="DiagnosticOrder">
-        <translation lang="en">DiagnosticOrder</translation>
+    <item id="DiagnosticRequest">
+        <translation lang="en">DiagnosticRequest</translation>
         <translation lang="zh">诊断医嘱</translation>
         <translation lang="es">OrdenDiagnostica</translation>
         <translation lang="fr">OrdreDiagnostique</translation>
