@@ -14,6 +14,13 @@
 -->
 
 <!--
+<p>
+This draft resource has been published for Workflow group discussion purposes. It is used to define the set of activities that can be peformed that have relationships in terms of order, pre-conditions etc. see <a href="https://en.wikipedia.org/wiki/Medical_guideline">Visit W3Schools</a>  For example <a href="http://www.healthquality.va.gov/guidelines/CD/htn/VADoDCPGfortheManagementofHTN.pdf">Visit W3Schools</a>  (todo)
+</p>
+-->
+<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+
+<!--
 <p>The Metadata component represents topical metadata such as the title, description, publication information and lifecycle, as well as usage documentation and supporting evidence. The Library component allows order sets to reference logic that can be used to control conditional behavior as the order set is realized. And finally, the Action component provides the ability to define hierarchical groups of actions, where each specific action defines an orderable line item, together with behaviors that determine how the orderable items are related to each other.</p>
 -->
 

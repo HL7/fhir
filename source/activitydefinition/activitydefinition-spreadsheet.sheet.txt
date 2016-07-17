@@ -378,25 +378,33 @@
   Definition = Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient\'s weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result
 
  -- Row 33 -----------------------------------
+  Element = ActivityDefinition.dynamicValue.description
+  Card. = 0..1
+  Type = string
+  Short Label = Natural language description of the dynamic value
+  Definition = A brief, natural language description of the intended semantics of the dynamic value
+
+ -- Row 34 -----------------------------------
   Element = ActivityDefinition.dynamicValue.path
-  Card. = 1..1
+  Card. = 0..1
   Type = string
   Short Label = The path to the element to be set dynamically
   Definition = The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = ActivityDefinition.dynamicValue.language
   Card. = 0..1
   Type = string
   Short Label = Language of the expression
   Definition = The media type of the language for the expression
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = ActivityDefinition.dynamicValue.expression
-  Card. = 1..1
+  Card. = 0..1
   Type = string
   Short Label = An expression that provides the dynamic value for the customization
   Definition = An expression specifying the value of the customized element
+  Comments = The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element
 
 === Sheet Search =====================================
 

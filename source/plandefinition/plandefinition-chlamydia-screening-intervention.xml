@@ -22,7 +22,9 @@
 	</library>
 	<actionDefinition>
 		<title value="Patient has not had chlamydia screening within the recommended timeframe..."/>
-		<condition value="NoScreening"/>
+		<condition>
+			<expression value="NoScreening"/>
+		</condition>
 		<dynamicValue>
 			<path value="~"/>
 			<expression value="ChlamydiaScreeningRequest"/>

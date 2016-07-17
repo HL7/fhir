@@ -37,7 +37,9 @@
 			<type value="named-event"/>
 			<eventName value="Transfer to Post-Partum"/>
 		</triggerDefinition>
-		<condition value="Should Create Lactation Consult"/>
+		<condition>
+			<expression value="Should Create Lactation Consult"/>
+		</condition>
 		<actionDefinition>
 			<title value="Create a lactation consult request."/>
 			<textEquivalent value="Create a lactation consult request"/>
@@ -46,7 +48,7 @@
 			</type>
 			<dynamicValue>
 				<path value="/"/>
-				<expression value="Create Lcatation Consult Request"/>
+				<expression value="Create Lactation Consult Request"/>
 			</dynamicValue>
 		</actionDefinition>
 	</actionDefinition>

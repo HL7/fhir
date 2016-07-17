@@ -37,7 +37,9 @@
 			<type value="named-event"/>
 			<eventName value="Transfer to Post-Partum"/>
 		</triggerDefinition>
-		<condition value="Should Create Assessment Order"/>
+		<condition>
+			<expression value="Should Create Assessment Order"/>
+		</condition>
 		<actionDefinition>
 			<title value="Create the breastfeeding readiness assessment order."/>
 			<textEquivalent value="Administer a breastfeeding readiness assessment."/>
