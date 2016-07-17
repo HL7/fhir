@@ -29,11 +29,18 @@
   Definition = Identification of the Condition or diagnosis.
   Conformance = example
 
+ -- Row 5 -----------------------------------
+  Binding Name = ClinicalImpressionPrognosis
+  Binding = value set
+  Reference = valueset-clinicalimpression-prognosis
+  Definition = Prognosis or outlook findings
+  Conformance = example
+
 === Sheet clinical-impression-status =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = in-progress
+  Code = draft
   Display = In progress
   Definition = The assessment is still on-going and results are not yet final.
 
@@ -89,7 +96,7 @@
   Summary = Y
   Type = code
   Binding = ClinicalImpressionStatus
-  Short Label = in-progress | completed | entered-in-error
+  Short Label = draft | completed | entered-in-error
   Definition = Identifies the workflow status of the assessment
   v2 Mapping = PRB-14
   w5 = status
@@ -132,12 +139,11 @@
   v2 Mapping = PRB-3 / IAM-7
 
  -- Row 9 -----------------------------------
-  Element = ClinicalImpression.trigger[x]
-  Card. = 0..1
-  Type = CodeableConcept | Reference(Any)
-  Binding = ClinicalFindings
-  Short Label = Request or event that necessitated this assessment
-  Definition = The request or event that necessitated this assessment. This may be a diagnosis, a Care Plan, a Request Referral, or some other resource
+  Element = ClinicalImpression.encounter
+  Card. = 0..*
+  Type = Reference(Encounter)
+  Short Label = Reference to encounter
+  Definition = The list of related or associated encounters
 
  -- Row 10 -----------------------------------
   Element = ClinicalImpression.investigations
@@ -157,7 +163,7 @@
  -- Row 12 -----------------------------------
   Element = ClinicalImpression.investigations.item
   Card. = 0..*
-  Type = Reference(Observation| QuestionnaireResponse | FamilyMemberHistory | DiagnosticReport)
+  Type = Reference(Observation| QuestionnaireResponse | FamilyMemberHistory | DiagnosticReport|RiskAssessment)
   Short Label = Record of a specific investigation
   Definition = A record of a specific investigation that was undertaken
   Comments = Most investigations are observations of one kind of or another but some other specific types of data collection resources can also be used
@@ -190,7 +196,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = ConditionKind
-  Short Label = Specific text or code for finding
+  Short Label = Specific text or code  for finding
   Definition = Specific text of code for finding or diagnosis
   v2 Mapping = OBX
 
@@ -202,21 +208,13 @@
   Definition = Which investigations support finding or diagnosis
 
  -- Row 18 -----------------------------------
-  Element = ClinicalImpression.resolved
-  Card. = 0..*
-  Type = CodeableConcept
-  Binding = ConditionKind
-  Short Label = Diagnoses/conditions resolved since previous assessment
-  Definition = Diagnoses/conditions resolved since the last assessment
-
- -- Row 19 -----------------------------------
   Element = ClinicalImpression.ruledOut
   Card. = 0..*
   UML = 400;280
   Short Label = Diagnosis considered not possible
   Definition = Diagnosis considered not possible
 
- -- Row 20 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = ClinicalImpression.ruledOut.item
   Card. = 1..1
   Type = CodeableConcept
@@ -224,29 +222,30 @@
   Short Label = Specific text of code for diagnosis
   Definition = Specific text of code for diagnosis
 
- -- Row 21 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = ClinicalImpression.ruledOut.reason
   Card. = 0..1
   Type = string
   Short Label = Grounds for elimination
   Definition = Grounds for elimination
 
- -- Row 22 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = ClinicalImpression.prognosis
-  Card. = 0..1
-  Type = string
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = ClinicalImpressionPrognosis
   Short Label = Estimate of likely outcome
   Definition = Estimate of likely outcome
   v2 Mapping = PRB-22
 
- -- Row 23 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = ClinicalImpression.plan
   Card. = 0..*
   Type = Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationOrder|NutritionRequest|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)
   Short Label = Plan of action after assessment
   Definition = Plan of action after assessment
 
- -- Row 24 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = ClinicalImpression.action
   Card. = 0..*
   Type = Reference(ReferralRequest | ProcedureRequest | Procedure | MedicationOrder | DiagnosticRequest | NutritionRequest | SupplyRequest | Appointment)
@@ -266,61 +265,46 @@
   Path = ClinicalImpression.problem
 
  -- Row 3 -----------------------------------
-  Name = trigger
-  Type = reference
-  Path = ClinicalImpression.triggerReference
-
- -- Row 4 -----------------------------------
-  Name = trigger-code
-  Type = token
-  Path = ClinicalImpression.triggerCodeableConcept
-
- -- Row 5 -----------------------------------
   Name = investigation
   Type = reference
   Path = ClinicalImpression.investigations.item
 
- -- Row 6 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = finding
   Type = token
   Path = ClinicalImpression.finding.item
 
- -- Row 7 -----------------------------------
-  Name = resolved
-  Type = token
-  Path = ClinicalImpression.resolved
-
- -- Row 8 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = ruledout
   Type = token
   Path = ClinicalImpression.ruledOut.item
 
- -- Row 9 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = plan
   Type = reference
   Path = ClinicalImpression.plan
 
- -- Row 10 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = action
   Type = reference
   Path = ClinicalImpression.action
 
- -- Row 11 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = patient
   Type = reference
   Path = ClinicalImpression.patient
 
- -- Row 12 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = assessor
   Type = reference
   Path = ClinicalImpression.assessor
 
- -- Row 13 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = date
   Type = date
   Path = ClinicalImpression.date
 
- -- Row 14 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = status
   Type = token
   Path = ClinicalImpression.status
