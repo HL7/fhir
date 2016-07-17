@@ -170,9 +170,9 @@
     <item id="DecisionSupportServiceModule">
         <translation lang="en">DecisionSupportServiceModule</translation>
     </item>
-    <item id="DecisionSupportRule">
+    <!--item id="DecisionSupportRule">
         <translation lang="en">DecisionSupportRule</translation>
-    </item>
+    </item-->
     <item id="DetectedIssue">
         <translation lang="en">DetectedIssue</translation>
         <translation lang="es">Problema-Detectado</translation>
@@ -472,9 +472,9 @@
         <translation lang="es">RespuestaOrden</translation>
         <translation lang="fr">RéponseOrdre</translation>
     </item>
-    <item id="OrderSet">
+    <!--item id="OrderSet">
         <translation lang="en">OrderSet</translation>
-    </item>
+    </item-->
     <item id="Organization">
         <translation lang="en">Organization</translation>
         <translation lang="zh">机构</translation>
@@ -549,12 +549,12 @@
         <translation lang="es">Perfil</translation>
         <translation lang="fr">Profil</translation>
     </item>
-    <item id="Protocol">
+    <!--item id="Protocol">
         <translation lang="en">Protocol</translation>
         <translation lang="zh">协议</translation>
         <translation lang="es">Protocolo</translation>
         <translation lang="fr">Protocol</translation>
-    </item>
+    </item-->
     <item id="Provenance">
         <translation lang="en">Provenance</translation>
         <translation lang="zh">起源</translation>

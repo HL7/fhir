@@ -294,15 +294,10 @@ signatures.html
     </page>
 
     <page title="Clinical Reasoning" filename="clinicalreasoning-module.html" icon="reasoning.png">
-      <page type="resource" resource="Protocol"/>
-      <page type="resource" resource="DecisionSupportServiceModule"/>
-      <page type="resource" resource="DecisionSupportRule"/>
-      <page type="resource" resource="ModuleMetadata"/>
-      <page type="resource" resource="ModuleDefinition"/>
       <page type="resource" resource="ActivityDefinition"/>
       <page type="resource" resource="PlanDefinition"/>
       <page type="resource" resource="Library"/>
-      <page type="resource" resource="OrderSet"/>
+      <page type="resource" resource="DecisionSupportServiceModule"/>
       <page type="resource" resource="GuidanceResponse"/>
       <page type="resource" resource="Measure"/>
       <page type="resource" resource="MeasureReport"/>
