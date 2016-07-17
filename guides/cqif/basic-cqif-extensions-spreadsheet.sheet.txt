@@ -50,4 +50,58 @@
   Definition = Specifies clinical metadata that can be used to retrieve, index and/or categorize the knowledge artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care)
   Conformance = extensible
 
+ -- Row 8 -----------------------------------
+  Binding Name = QualityOfEvidenceRating
+  Binding = code list
+  Reference = #evidence-quality
+  Definition = A rating system that describes the quality of evidence such as the GRADE, DynaMed, or Oxford CEBM systems
+  Conformance = example
+
+ -- Row 9 -----------------------------------
+  Binding Name = StrengthOfRecommendationRating
+  Binding = code list
+  Reference = #recommendation-strength
+  Definition = A rating system that describes the strength of the recommendation, such as the GRADE, DynaMed, or HGPS systems
+  Conformance = example
+
+=== Sheet evidence-quality =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = high
+  Display = High quality
+  Definition = High quality evidence
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = moderate
+  Display = Moderate quality
+  Definition = Moderate quality evidence
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = low
+  Display = Low quality
+  Definition = Low quality evidence
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = very-low
+  Display = Very low quality
+  Definition = Very low quality evidence
+
+=== Sheet recommendation-strength =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = strong
+  Display = Strong
+  Definition = Strong recommendation
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = weak
+  Display = Weak
+  Definition = Weak recommendation
+
 === Sheet Search =====================================
