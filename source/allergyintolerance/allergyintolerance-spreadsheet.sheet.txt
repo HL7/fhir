@@ -89,21 +89,21 @@
   Id = 3
   Code = active-confirmed
   Display = Active Confirmed
-  Definition = A high level of certainty about the propensity for a reaction to the identified Substance, which may include clinical evidence by testing or rechallenge.
+  Definition = A high level of certainty about the propensity for a reaction to the identified substance, which may include clinical evidence by testing or rechallenge.
   Parent = #1
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = resolved
   Display = Resolved
-  Definition = A reaction to the identified Substance has been clinically reassessed by testing or rechallenge re-exposure and considered to be resolved e.g. change the word rechallenged to re-exposure
+  Definition = A reaction to the identified substance has been clinically reassessed by testing or rechallenge re-exposure and considered to be resolved e.g. change the word rechallenged to re-exposure
   Parent = #2
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = refuted
   Display = Refuted
-  Definition = A propensity for a reaction to the identified Substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.
+  Definition = A propensity for a reaction to the identified substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.
   Parent = #2
 
  -- Row 6 -----------------------------------
