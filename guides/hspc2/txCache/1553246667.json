@@ -1,0 +1,1 @@
+{"resourceType":"OperationOutcome","issue":[{"details":{"text":"Error expanding ValueSet \"http://fhir.org/guides/hspc/ValueSet/IVLPQLabCodes: Error unmarshalling resource: The filter \"Scale = OrdQn\" was not understood in the context of http://loinc.org"}}]}

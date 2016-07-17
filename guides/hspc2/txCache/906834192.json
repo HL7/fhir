@@ -1,0 +1,1 @@
+{"resourceType":"ValueSet","compose":{"include":[{"system":"http://snomed.info/sct","concept":[{"code":"1240000","display":"Prone body position (finding)"},{"code":"40199007","display":"Supine body position (finding)"},{"code":"33586001","display":"Sitting position (finding)"},{"code":"10904000","display":"Orhtostatic body postition (finding)"}]}]}}

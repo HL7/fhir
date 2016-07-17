@@ -1,0 +1,1 @@
+{"resourceType":"ValueSet","compose":{"include":[{"system":"http://snomed.info/sct","concept":[{"code":"181332001","display":"Radial artery"},{"code":"13383001","display":"Apex of heart"}]}]}}
