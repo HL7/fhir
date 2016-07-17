@@ -65,7 +65,7 @@ Every implementer works with the content in the foundation module however they u
   <li><a href="narrative.html">Narrative</a></li>
   <li><a href="extensibility.html">Extensibility</a> &amp; <a href="extensibility-registry.html">Extension Registry</a></li>
   <li><a href="compartmentdefinition.html">Compartments (Patient based access)</a></li>
-  <li><a href="formats.html">Formats</a>: <a href="xml.html">XML</a>, <a href="json.html">JSON</a> &amp; <a href="rdf.html">RDF</a></li>
+  <li><a href="formats.html">Formats</a>: <a href="xml.html">XML</a>, &amp; <a href="json.html">JSON</a></li>
   <li><a href="fluentpath.html">FluentPath</a></li>
   <li><a href="datatypes.html">Data Types</a></li>
   <li><a href="element.html">Element</a></li>
@@ -112,10 +112,15 @@ Every implementer works with the content in the foundation module however they u
 </table>
 
 <a name="secpriv"> </a>
-<h3>Security and Privacy</h3>
-<p>
-See <a href="secpriv-module.html">the Security and Privacy module</a>.
-</p>
+<h3>Relationships with other modules</h3>
+<ul>
+ <li>All the other modules depend on the foundation module </li>
+ <li>The <a href="ontology-module.html">Ontology module</a> builds on the foundation model by adding the <a href="rdf.html">RDF</a>, and strengthening the definitions by linking to external ontologies</li>
+ <li>The <a href="terminology-module.html">Terminology module</a> provides the formal basis for using Concepts defined in Code Systems in the definitions</li>
+ <li>The <a href="conformance-module.html">Conformance module</a> provides the basis for extending the foundation for national and local use</li>
+ <li>The <a href="secpriv-module.html"> Security &amp; Privacy</a> provides the linking framework to external standards for security and privacy</li>
+ <li>The <a href="implsupport-module.html">Implementation Support module</a> builds on the foundation to provide testing and reference implementations</li>
+</ul>
 
 <a name="uses"> </a>
 <h3>Common use Cases</h3>

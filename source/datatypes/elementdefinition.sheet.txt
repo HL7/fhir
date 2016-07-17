@@ -341,7 +341,7 @@
   UML = 0;230
   Short Label = This element is sliced - slices follow
   Definition = Indicates that the element is sliced into a set of alternative definitions (i.e. in a structure definition, there are multiple different constraints on a single element in the base resource). Slicing can be used in any resource that has cardinality ..* on the base resource, or any resource with a choice of types. The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set)
-  Comments = The first element in the sequence, the one that carries the slicing, is the unconstrained element, for reference purposes . This may include the unconstrained children
+  Comments = The first element in the sequence, the one that carries the slicing, is the definition that applies to all the slices. This is based on the unconstrained element, but can apply any constraints as appropriate. This may include the common constraints on the children of the element
   RIM Mapping = N/A
   11179 Mapping = n/a
 
