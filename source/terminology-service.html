@@ -602,13 +602,13 @@ POST [base]
   "entry": [{
     "request": {
       "method": "Get",
-      "url": "ValueSet?system=http://loinc.org&amp;code=2324-4&amp;uri=urn:oid:1.2.3.4.6"
+      "url": "ValueSet/$validate-code?system=http://loinc.org&amp;code=2324-4&amp;uri=urn:oid:1.2.3.4.6"
     }
   },
   {
     "request": {
       "method": "GET",
-      "url": "ValueSet?system=http://snomed.info/sct&amp;codes=22298006&amp;uri=urn:oid:1.2.3.4.7"
+      "url": "ValueSet/$validate-code?system=http://snomed.info/sct&amp;codes=22298006&amp;uri=urn:oid:1.2.3.4.7"
     }
   }]
 }
