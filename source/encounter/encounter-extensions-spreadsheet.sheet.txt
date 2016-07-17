@@ -1,4 +1,11 @@
 ﻿
 === Sheet Bindings =====================================
 
+ -- Row 1 -----------------------------------
+  Binding Name = modeOfArrival
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v2-0430
+  Definition = The method that the patient arrived at the facility
+  Conformance = example
+
 === Sheet Search =====================================
