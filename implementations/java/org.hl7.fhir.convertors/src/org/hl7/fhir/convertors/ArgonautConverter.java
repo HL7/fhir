@@ -604,7 +604,7 @@ public class ArgonautConverter extends ConverterBase {
 
 		Element e = cda.getChild(ae, "representedOrganization");
 		if (e != null)
-			perf.addPractitionerRole().setOrganization(new Reference().setReference("Organization/"+processOrganization(e, cda, convert, context).getId()));
+			perf.addRole().setOrganization(new Reference().setReference("Organization/"+processOrganization(e, cda, convert, context).getId()));
 		perf.setUserData("display", b.toString());
 		return perf;
 	}
@@ -856,7 +856,7 @@ public class ArgonautConverter extends ConverterBase {
 			i++;
 			ai.setPatient(context.subjectRef);
 
-			ai.setRecordedDateElement(convert.makeDateTimeFromTS(cda.getChild(cda.getChild(apa, "effectiveTime"), "low")));
+			ai.setAttestedDateElement(convert.makeDateTimeFromTS(cda.getChild(cda.getChild(apa, "effectiveTime"), "low")));
 			boolean found = false;
 			for (Element e : cda.getChildren(apa, "id")) {
 				Identifier id = convert.makeIdentifierFromII(e);
@@ -879,10 +879,10 @@ public class ArgonautConverter extends ConverterBase {
 					//				if (n.contains("No Known Drug Allergies") && reactions.isEmpty())
 					//					ai.setSubstance(new CodeableConcept().setText(n)); // todo: what do with this? 
 					//				else
-					ai.setSubstance(new CodeableConcept().setText(n));
+					ai.setCode(new CodeableConcept().setText(n));
 				} else
-					ai.setSubstance(inspectCode(convert.makeCodeableConceptFromCD(pec), null));
-				recordAllergyCode(ai.getSubstance());
+					ai.setCode(inspectCode(convert.makeCodeableConceptFromCD(pec), null));
+				recordAllergyCode(ai.getCode());
 				if (!reactions.isEmpty()) {
 					AllergyIntoleranceReactionComponent aie = ai.addReaction();
 					for (Element er : reactions) {
