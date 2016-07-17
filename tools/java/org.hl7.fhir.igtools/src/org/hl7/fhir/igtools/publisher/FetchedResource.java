@@ -39,7 +39,7 @@ public class FetchedResource {
     return this;
   }
   public String getTitle() {
-    return title;
+    return title == null ? "{title?}" : title;
   }
   public FetchedResource setTitle(String title) {
     this.title = title;

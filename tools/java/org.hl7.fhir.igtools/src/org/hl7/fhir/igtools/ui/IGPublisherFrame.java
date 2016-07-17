@@ -21,9 +21,9 @@ import javax.swing.SwingWorker;
 
 import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
+import org.hl7.fhir.dstu3.utils.IWorkerContext.ILoggingService;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
-import org.hl7.fhir.igtools.publisher.IGLogger;
 import org.hl7.fhir.igtools.publisher.Publisher;
 import org.hl7.fhir.igtools.publisher.Publisher.GenerationTool;
 import org.hl7.fhir.utilities.IniFile;
@@ -243,7 +243,7 @@ public class IGPublisherFrame extends javax.swing.JFrame {
 
   // ------ Execcution ------------------------------------------------------------------------------------------
 
-  public class BackgroundPublisherTask extends SwingWorker<String, String> implements IGLogger  {
+  public class BackgroundPublisherTask extends SwingWorker<String, String> implements ILoggingService  {
 
     
     @Override

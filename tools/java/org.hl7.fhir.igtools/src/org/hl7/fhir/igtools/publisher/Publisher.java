@@ -23,6 +23,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.LoggingMXBean;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -62,11 +63,13 @@ import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.EOperationOutcome;
+import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
 import org.hl7.fhir.dstu3.utils.Turtle;
+import org.hl7.fhir.dstu3.utils.IWorkerContext.ILoggingService;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.igtools.renderers.BaseRenderer;
@@ -127,7 +130,7 @@ import com.google.gson.JsonPrimitive;
  *
  */
 
-public class Publisher implements IGLogger {
+public class Publisher implements IWorkerContext.ILoggingService {
 
   public static final boolean USE_COMMONS_EXEC = true;
   
@@ -179,7 +182,7 @@ public class Publisher implements IGLogger {
 
   private long globalStart;
 
-  private IGLogger logger = this;
+  private ILoggingService logger = this;
 
   public void execute(boolean clearCache) throws Exception {
     globalStart = System.nanoTime();
@@ -394,6 +397,11 @@ public class Publisher implements IGLogger {
     tempDir = Utilities.path(root, str(paths, "temp", "temp"));
     outputDir = Utilities.path(root, str(paths, "output", "output"));
     qaDir = Utilities.path(root, str(paths, "qa"));
+    String vsCache = str(paths, "txCache");
+    if (vsCache == null)
+      vsCache = Utilities.path(System.getProperty("user.home"), "fhircache");
+    else
+      vsCache = Utilities.path(root, vsCache); 
     specPath = str(paths, "specification");
 
     igName = Utilities.path(resourcesDir, configuration.get("source").getAsString());
@@ -416,11 +424,11 @@ public class Publisher implements IGLogger {
       log("Unable to find igpack.zip in the jar");
       context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\temp\\igpack.zip");
     }
+    context.setLogger(logger);
     log("Definitions "+context.getVersionRevision());
     context.setAllowLoadingDuplicates(true);
     context.setExpandCodesLimit(1000);
     log("Connect to Terminology Server at "+txServer);
-    String vsCache = Utilities.path(System.getProperty("user.home"), "fhircache");
     Utilities.createDirectory(vsCache);
     context.initTS(vsCache, txServer);
     context.connectToTSServer(txServer);
@@ -726,7 +734,7 @@ public class Publisher implements IGLogger {
     boolean changed = noteFile("Spreadsheet/"+be.getAsString(), f);
     if (changed) {
       f.getValuesetsToLoad().clear();
-      log("load "+path);
+      dlog("load "+path);
       f.setBundle(new IgSpreadsheetParser(context, execTime, igpkp.getCanonical(), f.getValuesetsToLoad(), first, context.getBinaries().get("mappingSpaces.details")).parse(f));
       for (BundleEntryComponent b : f.getBundle().getEntry()) {
         FetchedResource r = f.addResource();
@@ -1793,7 +1801,7 @@ public class Publisher implements IGLogger {
     return null;
   }
 
-  public void setLogger(IGLogger logger) {
+  public void setLogger(ILoggingService logger) {
     this.logger = logger;
 
   }
