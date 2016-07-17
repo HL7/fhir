@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Jul 15, 2016 17:31+1000 for FHIR v1.5.0
+// Generated on Sun, Jul 17, 2016 23:46+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -55,7 +55,7 @@ public class FamilyMemberHistory extends DomainResource {
          */
         PARTIAL, 
         /**
-         * All relevant health information is known and captured.
+         * All available related health information is captured as of the date (and possibly time) when the family member history was taken.
          */
         COMPLETED, 
         /**
@@ -107,7 +107,7 @@ public class FamilyMemberHistory extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case PARTIAL: return "Some health information is known and captured, but not complete - see notes for details.";
-            case COMPLETED: return "All relevant health information is known and captured.";
+            case COMPLETED: return "All available related health information is captured as of the date (and possibly time) when the family member history was taken.";
             case ENTEREDINERROR: return "This instance should not have been part of this patient's medical record.";
             case HEALTHUNKNOWN: return "Health information for this individual is unavailable/unknown.";
             default: return "?";
@@ -533,10 +533,10 @@ public class FamilyMemberHistory extends DomainResource {
     protected DateTimeType date;
 
     /**
-     * A code specifying a state of a Family Member History record.
+     * A code specifying the status of the record of the family history of a specific family member.
      */
     @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="partial | completed | entered-in-error | health-unknown", formalDefinition="A code specifying a state of a Family Member History record." )
+    @Description(shortDefinition="partial | completed | entered-in-error | health-unknown", formalDefinition="A code specifying the status of the record of the family history of a specific family member." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/history-status")
     protected Enumeration<FamilyHistoryStatus> status;
 
@@ -764,7 +764,7 @@ public class FamilyMemberHistory extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (A code specifying a state of a Family Member History record.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (A code specifying the status of the record of the family history of a specific family member.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<FamilyHistoryStatus> getStatusElement() { 
       if (this.status == null)
@@ -784,7 +784,7 @@ public class FamilyMemberHistory extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (A code specifying a state of a Family Member History record.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (A code specifying the status of the record of the family history of a specific family member.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public FamilyMemberHistory setStatusElement(Enumeration<FamilyHistoryStatus> value) { 
       this.status = value;
@@ -792,14 +792,14 @@ public class FamilyMemberHistory extends DomainResource {
     }
 
     /**
-     * @return A code specifying a state of a Family Member History record.
+     * @return A code specifying the status of the record of the family history of a specific family member.
      */
     public FamilyHistoryStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value A code specifying a state of a Family Member History record.
+     * @param value A code specifying the status of the record of the family history of a specific family member.
      */
     public FamilyMemberHistory setStatus(FamilyHistoryStatus value) { 
         if (this.status == null)
@@ -1212,7 +1212,7 @@ public class FamilyMemberHistory extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this family member history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("patient", "Reference(Patient)", "The person who this history concerns.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("date", "dateTime", "The date (and possibly time) when the family member history was taken.", 0, java.lang.Integer.MAX_VALUE, date));
-        childrenList.add(new Property("status", "code", "A code specifying a state of a Family Member History record.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("status", "code", "A code specifying the status of the record of the family history of a specific family member.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("name", "string", "This will either be a name or a description; e.g. \"Aunt Susan\", \"my cousin with the red hair\".", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("relationship", "CodeableConcept", "The type of relationship this person has to the patient (father, mother, brother etc.).", 0, java.lang.Integer.MAX_VALUE, relationship));
         childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));

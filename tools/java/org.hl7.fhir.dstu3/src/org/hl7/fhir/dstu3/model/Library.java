@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Jul 15, 2016 17:31+1000 for FHIR v1.5.0
+// Generated on Sun, Jul 17, 2016 23:46+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -43,44 +43,44 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 /**
- * The Library resource provides a representation container for knowledge artifact component definitions. It is effectively an exposure of the header information for a CQL/ELM library.
+ * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
  */
 @ResourceDef(name="Library", profile="http://hl7.org/fhir/Profile/Library")
 public class Library extends DomainResource {
 
     /**
-     * An absolute URL that is used to identify this module when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this module definition is (or will be) published.
+     * An absolute URL that is used to identify this library when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published.
      */
     @Child(name = "url", type = {UriType.class}, order=0, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Logical URL to reference this module", formalDefinition="An absolute URL that is used to identify this module when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this module definition is (or will be) published." )
+    @Description(shortDefinition="Logical URL to reference this library", formalDefinition="An absolute URL that is used to identify this library when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published." )
     protected UriType url;
 
     /**
-     * A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact.
+     * A logical identifier for the library such as the CMS or NQF identifiers for a measure artifact. Note that at least one identifier is required for non-experimental active artifacts.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Logical identifier(s) for the module", formalDefinition="A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact." )
+    @Description(shortDefinition="Logical identifier(s) for the library", formalDefinition="A logical identifier for the library such as the CMS or NQF identifiers for a measure artifact. Note that at least one identifier is required for non-experimental active artifacts." )
     protected List<Identifier> identifier;
 
     /**
-     * The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification. Note that the version is required for non-experimental published artifact.
+     * The version of the library, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.
      */
     @Child(name = "version", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The version of the module, if any", formalDefinition="The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification. Note that the version is required for non-experimental published artifact." )
+    @Description(shortDefinition="The version of the library, if any", formalDefinition="The version of the library, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts." )
     protected StringType version;
 
     /**
-     * A machine-friendly name for the module. This name should be usable as an identifier for the module by machine processing applications such as code generation.
+     * A machine-friendly name for the library. This name should be usable as an identifier for the library by machine processing applications such as code generation.
      */
     @Child(name = "name", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="A machine-friendly name for the module", formalDefinition="A machine-friendly name for the module. This name should be usable as an identifier for the module by machine processing applications such as code generation." )
+    @Description(shortDefinition="A machine-friendly name for the library", formalDefinition="A machine-friendly name for the library. This name should be usable as an identifier for the library by machine processing applications such as code generation." )
     protected StringType name;
 
     /**
-     * A short, descriptive, user-friendly title for the module.
+     * A short, descriptive, user-friendly title for the library.
      */
     @Child(name = "title", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="A user-friendly title for the module", formalDefinition="A short, descriptive, user-friendly title for the module." )
+    @Description(shortDefinition="A user-friendly title for the library", formalDefinition="A short, descriptive, user-friendly title for the library." )
     protected StringType title;
 
     /**
@@ -92,88 +92,88 @@ public class Library extends DomainResource {
     protected CodeableConcept type;
 
     /**
-     * The status of the module.
+     * The status of the library.
      */
     @Child(name = "status", type = {CodeType.class}, order=6, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="draft | active | inactive", formalDefinition="The status of the module." )
+    @Description(shortDefinition="draft | active | inactive", formalDefinition="The status of the library." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/module-metadata-status")
     protected CodeType status;
 
     /**
-     * Determines whether the module was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.
+     * Determines whether the library was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.
      */
     @Child(name = "experimental", type = {BooleanType.class}, order=7, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="Determines whether the module was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments." )
+    @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="Determines whether the library was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments." )
     protected BooleanType experimental;
 
     /**
-     * A free text natural language description of the module from the consumer's perspective.
+     * A free text natural language description of the library from the consumer's perspective.
      */
     @Child(name = "description", type = {StringType.class}, order=8, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Natural language description of the module", formalDefinition="A free text natural language description of the module from the consumer's perspective." )
+    @Description(shortDefinition="Natural language description of the library", formalDefinition="A free text natural language description of the library from the consumer's perspective." )
     protected StringType description;
 
     /**
-     * A brief description of the purpose of the module.
+     * A brief description of the purpose of the library.
      */
     @Child(name = "purpose", type = {StringType.class}, order=9, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Describes the purpose of the module", formalDefinition="A brief description of the purpose of the module." )
+    @Description(shortDefinition="Describes the purpose of the library", formalDefinition="A brief description of the purpose of the library." )
     protected StringType purpose;
 
     /**
-     * A detailed description of how the module is used from a clinical perspective.
+     * A detailed description of how the library is used from a clinical perspective.
      */
     @Child(name = "usage", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Describes the clinical usage of the module", formalDefinition="A detailed description of how the module is used from a clinical perspective." )
+    @Description(shortDefinition="Describes the clinical usage of the library", formalDefinition="A detailed description of how the library is used from a clinical perspective." )
     protected StringType usage;
 
     /**
-     * The date on which the module was published.
+     * The date on which the library was published.
      */
     @Child(name = "publicationDate", type = {DateType.class}, order=11, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Publication date for this version of the module", formalDefinition="The date on which the module was published." )
+    @Description(shortDefinition="Publication date for this version of the library", formalDefinition="The date on which the library was published." )
     protected DateType publicationDate;
 
     /**
-     * The date on which the module content was last reviewed.
+     * The date on which the library content was last reviewed.
      */
     @Child(name = "lastReviewDate", type = {DateType.class}, order=12, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Last review date for the module", formalDefinition="The date on which the module content was last reviewed." )
+    @Description(shortDefinition="Last review date for the library", formalDefinition="The date on which the library content was last reviewed." )
     protected DateType lastReviewDate;
 
     /**
-     * The period during which the module content is effective.
+     * The period during which the library content is effective.
      */
     @Child(name = "effectivePeriod", type = {Period.class}, order=13, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="The effective date range for the module", formalDefinition="The period during which the module content is effective." )
+    @Description(shortDefinition="The effective date range for the library", formalDefinition="The period during which the library content is effective." )
     protected Period effectivePeriod;
 
     /**
-     * Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable.
+     * Specifies various attributes of the patient population for whom and/or environment of care in which, the library is applicable.
      */
     @Child(name = "coverage", type = {UsageContext.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Describes the context of use for this module", formalDefinition="Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable." )
+    @Description(shortDefinition="Describes the context of use for this library", formalDefinition="Specifies various attributes of the patient population for whom and/or environment of care in which, the library is applicable." )
     protected List<UsageContext> coverage;
 
     /**
-     * Clinical topics related to the content of the module.
+     * Clinical topics related to the content of the library.
      */
     @Child(name = "topic", type = {CodeableConcept.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Descriptional topics for the module", formalDefinition="Clinical topics related to the content of the module." )
+    @Description(shortDefinition="Descriptional topics for the library", formalDefinition="Clinical topics related to the content of the library." )
     protected List<CodeableConcept> topic;
 
     /**
-     * A contributor to the content of the module, including authors, editors, reviewers, and endorsers.
+     * A contributor to the content of the library, including authors, editors, reviewers, and endorsers.
      */
     @Child(name = "contributor", type = {Contributor.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="A content contributor", formalDefinition="A contributor to the content of the module, including authors, editors, reviewers, and endorsers." )
+    @Description(shortDefinition="A content contributor", formalDefinition="A contributor to the content of the library, including authors, editors, reviewers, and endorsers." )
     protected List<Contributor> contributor;
 
     /**
-     * The name of the individual or organization that published the module (also known as the steward for the module). This information is required for non-experimental published artifacts.
+     * The name of the individual or organization that published the library (also known as the steward for the library). This information is required for non-experimental active artifacts.
      */
     @Child(name = "publisher", type = {StringType.class}, order=17, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the module (also known as the steward for the module). This information is required for non-experimental published artifacts." )
+    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the library (also known as the steward for the library). This information is required for non-experimental active artifacts." )
     protected StringType publisher;
 
     /**
@@ -184,17 +184,17 @@ public class Library extends DomainResource {
     protected List<ContactDetail> contact;
 
     /**
-     * A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module.
+     * A copyright statement relating to the library and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the library.
      */
     @Child(name = "copyright", type = {StringType.class}, order=19, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Use and/or publishing restrictions", formalDefinition="A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module." )
+    @Description(shortDefinition="Use and/or publishing restrictions", formalDefinition="A copyright statement relating to the library and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the library." )
     protected StringType copyright;
 
     /**
      * Related resources such as additional documentation, justification, or bibliographic references.
      */
     @Child(name = "relatedResource", type = {RelatedResource.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Related resources for the module", formalDefinition="Related resources such as additional documentation, justification, or bibliographic references." )
+    @Description(shortDefinition="Related resources for the library", formalDefinition="Related resources such as additional documentation, justification, or bibliographic references." )
     protected List<RelatedResource> relatedResource;
 
     /**
@@ -205,17 +205,17 @@ public class Library extends DomainResource {
     protected List<ParameterDefinition> parameter;
 
     /**
-     * The dataRequirement element specifies a data requirement used by some expression within the library.
+     * Describes a set of data that must be provided in order to be able to successfully perform the computations defined by the library.
      */
     @Child(name = "dataRequirement", type = {DataRequirement.class}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Data requirements of the library", formalDefinition="The dataRequirement element specifies a data requirement used by some expression within the library." )
+    @Description(shortDefinition="Data requirements of the library", formalDefinition="Describes a set of data that must be provided in order to be able to successfully perform the computations defined by the library." )
     protected List<DataRequirement> dataRequirement;
 
     /**
-     * The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the content is expected to be a CQL or ELM document.
+     * The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the contentType of the attachment determines how to interpret the content.
      */
     @Child(name = "content", type = {Attachment.class}, order=23, min=1, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="The content of the library", formalDefinition="The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the content is expected to be a CQL or ELM document." )
+    @Description(shortDefinition="The content of the library", formalDefinition="The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the contentType of the attachment determines how to interpret the content." )
     protected Attachment content;
 
     private static final long serialVersionUID = 57392877L;
@@ -238,7 +238,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #url} (An absolute URL that is used to identify this module when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this module definition is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URL that is used to identify this library when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -258,7 +258,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute URL that is used to identify this module when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this module definition is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URL that is used to identify this library when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public Library setUrlElement(UriType value) { 
       this.url = value;
@@ -266,14 +266,14 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return An absolute URL that is used to identify this module when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this module definition is (or will be) published.
+     * @return An absolute URL that is used to identify this library when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URL that is used to identify this module when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this module definition is (or will be) published.
+     * @param value An absolute URL that is used to identify this library when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published.
      */
     public Library setUrl(String value) { 
       if (Utilities.noString(value))
@@ -287,7 +287,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact.)
+     * @return {@link #identifier} (A logical identifier for the library such as the CMS or NQF identifiers for a measure artifact. Note that at least one identifier is required for non-experimental active artifacts.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -340,7 +340,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #version} (The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification. Note that the version is required for non-experimental published artifact.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
+     * @return {@link #version} (The version of the library, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public StringType getVersionElement() { 
       if (this.version == null)
@@ -360,7 +360,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @param value {@link #version} (The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification. Note that the version is required for non-experimental published artifact.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
+     * @param value {@link #version} (The version of the library, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public Library setVersionElement(StringType value) { 
       this.version = value;
@@ -368,14 +368,14 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification. Note that the version is required for non-experimental published artifact.
+     * @return The version of the library, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.
      */
     public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
-     * @param value The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification. Note that the version is required for non-experimental published artifact.
+     * @param value The version of the library, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.
      */
     public Library setVersion(String value) { 
       if (Utilities.noString(value))
@@ -389,7 +389,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #name} (A machine-friendly name for the module. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @return {@link #name} (A machine-friendly name for the library. This name should be usable as an identifier for the library by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
       if (this.name == null)
@@ -409,7 +409,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @param value {@link #name} (A machine-friendly name for the module. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @param value {@link #name} (A machine-friendly name for the library. This name should be usable as an identifier for the library by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public Library setNameElement(StringType value) { 
       this.name = value;
@@ -417,14 +417,14 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return A machine-friendly name for the module. This name should be usable as an identifier for the module by machine processing applications such as code generation.
+     * @return A machine-friendly name for the library. This name should be usable as an identifier for the library by machine processing applications such as code generation.
      */
     public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value A machine-friendly name for the module. This name should be usable as an identifier for the module by machine processing applications such as code generation.
+     * @param value A machine-friendly name for the library. This name should be usable as an identifier for the library by machine processing applications such as code generation.
      */
     public Library setName(String value) { 
       if (Utilities.noString(value))
@@ -438,7 +438,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #title} (A short, descriptive, user-friendly title for the module.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     * @return {@link #title} (A short, descriptive, user-friendly title for the library.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
     public StringType getTitleElement() { 
       if (this.title == null)
@@ -458,7 +458,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @param value {@link #title} (A short, descriptive, user-friendly title for the module.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     * @param value {@link #title} (A short, descriptive, user-friendly title for the library.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
     public Library setTitleElement(StringType value) { 
       this.title = value;
@@ -466,14 +466,14 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return A short, descriptive, user-friendly title for the module.
+     * @return A short, descriptive, user-friendly title for the library.
      */
     public String getTitle() { 
       return this.title == null ? null : this.title.getValue();
     }
 
     /**
-     * @param value A short, descriptive, user-friendly title for the module.
+     * @param value A short, descriptive, user-friendly title for the library.
      */
     public Library setTitle(String value) { 
       if (Utilities.noString(value))
@@ -511,7 +511,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (The status of the module.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (The status of the library.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public CodeType getStatusElement() { 
       if (this.status == null)
@@ -531,7 +531,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (The status of the module.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (The status of the library.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Library setStatusElement(CodeType value) { 
       this.status = value;
@@ -539,14 +539,14 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return The status of the module.
+     * @return The status of the library.
      */
     public String getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The status of the module.
+     * @param value The status of the library.
      */
     public Library setStatus(String value) { 
         if (this.status == null)
@@ -556,7 +556,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #experimental} (Determines whether the module was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     * @return {@link #experimental} (Determines whether the library was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public BooleanType getExperimentalElement() { 
       if (this.experimental == null)
@@ -576,7 +576,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @param value {@link #experimental} (Determines whether the module was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     * @param value {@link #experimental} (Determines whether the library was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public Library setExperimentalElement(BooleanType value) { 
       this.experimental = value;
@@ -584,14 +584,14 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return Determines whether the module was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.
+     * @return Determines whether the library was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.
      */
     public boolean getExperimental() { 
       return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
-     * @param value Determines whether the module was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.
+     * @param value Determines whether the library was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.
      */
     public Library setExperimental(boolean value) { 
         if (this.experimental == null)
@@ -601,7 +601,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #description} (A free text natural language description of the module from the consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @return {@link #description} (A free text natural language description of the library from the consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public StringType getDescriptionElement() { 
       if (this.description == null)
@@ -621,7 +621,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @param value {@link #description} (A free text natural language description of the module from the consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @param value {@link #description} (A free text natural language description of the library from the consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public Library setDescriptionElement(StringType value) { 
       this.description = value;
@@ -629,14 +629,14 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return A free text natural language description of the module from the consumer's perspective.
+     * @return A free text natural language description of the library from the consumer's perspective.
      */
     public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
-     * @param value A free text natural language description of the module from the consumer's perspective.
+     * @param value A free text natural language description of the library from the consumer's perspective.
      */
     public Library setDescription(String value) { 
       if (Utilities.noString(value))
@@ -650,7 +650,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #purpose} (A brief description of the purpose of the module.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
+     * @return {@link #purpose} (A brief description of the purpose of the library.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
     public StringType getPurposeElement() { 
       if (this.purpose == null)
@@ -670,7 +670,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @param value {@link #purpose} (A brief description of the purpose of the module.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
+     * @param value {@link #purpose} (A brief description of the purpose of the library.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
     public Library setPurposeElement(StringType value) { 
       this.purpose = value;
@@ -678,14 +678,14 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return A brief description of the purpose of the module.
+     * @return A brief description of the purpose of the library.
      */
     public String getPurpose() { 
       return this.purpose == null ? null : this.purpose.getValue();
     }
 
     /**
-     * @param value A brief description of the purpose of the module.
+     * @param value A brief description of the purpose of the library.
      */
     public Library setPurpose(String value) { 
       if (Utilities.noString(value))
@@ -699,7 +699,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #usage} (A detailed description of how the module is used from a clinical perspective.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
+     * @return {@link #usage} (A detailed description of how the library is used from a clinical perspective.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
      */
     public StringType getUsageElement() { 
       if (this.usage == null)
@@ -719,7 +719,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @param value {@link #usage} (A detailed description of how the module is used from a clinical perspective.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
+     * @param value {@link #usage} (A detailed description of how the library is used from a clinical perspective.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
      */
     public Library setUsageElement(StringType value) { 
       this.usage = value;
@@ -727,14 +727,14 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return A detailed description of how the module is used from a clinical perspective.
+     * @return A detailed description of how the library is used from a clinical perspective.
      */
     public String getUsage() { 
       return this.usage == null ? null : this.usage.getValue();
     }
 
     /**
-     * @param value A detailed description of how the module is used from a clinical perspective.
+     * @param value A detailed description of how the library is used from a clinical perspective.
      */
     public Library setUsage(String value) { 
       if (Utilities.noString(value))
@@ -748,7 +748,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #publicationDate} (The date on which the module was published.). This is the underlying object with id, value and extensions. The accessor "getPublicationDate" gives direct access to the value
+     * @return {@link #publicationDate} (The date on which the library was published.). This is the underlying object with id, value and extensions. The accessor "getPublicationDate" gives direct access to the value
      */
     public DateType getPublicationDateElement() { 
       if (this.publicationDate == null)
@@ -768,7 +768,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @param value {@link #publicationDate} (The date on which the module was published.). This is the underlying object with id, value and extensions. The accessor "getPublicationDate" gives direct access to the value
+     * @param value {@link #publicationDate} (The date on which the library was published.). This is the underlying object with id, value and extensions. The accessor "getPublicationDate" gives direct access to the value
      */
     public Library setPublicationDateElement(DateType value) { 
       this.publicationDate = value;
@@ -776,14 +776,14 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return The date on which the module was published.
+     * @return The date on which the library was published.
      */
     public Date getPublicationDate() { 
       return this.publicationDate == null ? null : this.publicationDate.getValue();
     }
 
     /**
-     * @param value The date on which the module was published.
+     * @param value The date on which the library was published.
      */
     public Library setPublicationDate(Date value) { 
       if (value == null)
@@ -797,7 +797,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #lastReviewDate} (The date on which the module content was last reviewed.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
+     * @return {@link #lastReviewDate} (The date on which the library content was last reviewed.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
      */
     public DateType getLastReviewDateElement() { 
       if (this.lastReviewDate == null)
@@ -817,7 +817,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @param value {@link #lastReviewDate} (The date on which the module content was last reviewed.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
+     * @param value {@link #lastReviewDate} (The date on which the library content was last reviewed.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
      */
     public Library setLastReviewDateElement(DateType value) { 
       this.lastReviewDate = value;
@@ -825,14 +825,14 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return The date on which the module content was last reviewed.
+     * @return The date on which the library content was last reviewed.
      */
     public Date getLastReviewDate() { 
       return this.lastReviewDate == null ? null : this.lastReviewDate.getValue();
     }
 
     /**
-     * @param value The date on which the module content was last reviewed.
+     * @param value The date on which the library content was last reviewed.
      */
     public Library setLastReviewDate(Date value) { 
       if (value == null)
@@ -846,7 +846,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #effectivePeriod} (The period during which the module content is effective.)
+     * @return {@link #effectivePeriod} (The period during which the library content is effective.)
      */
     public Period getEffectivePeriod() { 
       if (this.effectivePeriod == null)
@@ -862,7 +862,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @param value {@link #effectivePeriod} (The period during which the module content is effective.)
+     * @param value {@link #effectivePeriod} (The period during which the library content is effective.)
      */
     public Library setEffectivePeriod(Period value) { 
       this.effectivePeriod = value;
@@ -870,7 +870,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #coverage} (Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable.)
+     * @return {@link #coverage} (Specifies various attributes of the patient population for whom and/or environment of care in which, the library is applicable.)
      */
     public List<UsageContext> getCoverage() { 
       if (this.coverage == null)
@@ -923,7 +923,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #topic} (Clinical topics related to the content of the module.)
+     * @return {@link #topic} (Clinical topics related to the content of the library.)
      */
     public List<CodeableConcept> getTopic() { 
       if (this.topic == null)
@@ -976,7 +976,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #contributor} (A contributor to the content of the module, including authors, editors, reviewers, and endorsers.)
+     * @return {@link #contributor} (A contributor to the content of the library, including authors, editors, reviewers, and endorsers.)
      */
     public List<Contributor> getContributor() { 
       if (this.contributor == null)
@@ -1029,7 +1029,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #publisher} (The name of the individual or organization that published the module (also known as the steward for the module). This information is required for non-experimental published artifacts.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @return {@link #publisher} (The name of the individual or organization that published the library (also known as the steward for the library). This information is required for non-experimental active artifacts.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
       if (this.publisher == null)
@@ -1049,7 +1049,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @param value {@link #publisher} (The name of the individual or organization that published the module (also known as the steward for the module). This information is required for non-experimental published artifacts.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @param value {@link #publisher} (The name of the individual or organization that published the library (also known as the steward for the library). This information is required for non-experimental active artifacts.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public Library setPublisherElement(StringType value) { 
       this.publisher = value;
@@ -1057,14 +1057,14 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return The name of the individual or organization that published the module (also known as the steward for the module). This information is required for non-experimental published artifacts.
+     * @return The name of the individual or organization that published the library (also known as the steward for the library). This information is required for non-experimental active artifacts.
      */
     public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
-     * @param value The name of the individual or organization that published the module (also known as the steward for the module). This information is required for non-experimental published artifacts.
+     * @param value The name of the individual or organization that published the library (also known as the steward for the library). This information is required for non-experimental active artifacts.
      */
     public Library setPublisher(String value) { 
       if (Utilities.noString(value))
@@ -1131,7 +1131,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #copyright} (A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
+     * @return {@link #copyright} (A copyright statement relating to the library and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the library.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
     public StringType getCopyrightElement() { 
       if (this.copyright == null)
@@ -1151,7 +1151,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @param value {@link #copyright} (A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
+     * @param value {@link #copyright} (A copyright statement relating to the library and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the library.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
     public Library setCopyrightElement(StringType value) { 
       this.copyright = value;
@@ -1159,14 +1159,14 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module.
+     * @return A copyright statement relating to the library and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the library.
      */
     public String getCopyright() { 
       return this.copyright == null ? null : this.copyright.getValue();
     }
 
     /**
-     * @param value A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module.
+     * @param value A copyright statement relating to the library and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the library.
      */
     public Library setCopyright(String value) { 
       if (Utilities.noString(value))
@@ -1286,7 +1286,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #dataRequirement} (The dataRequirement element specifies a data requirement used by some expression within the library.)
+     * @return {@link #dataRequirement} (Describes a set of data that must be provided in order to be able to successfully perform the computations defined by the library.)
      */
     public List<DataRequirement> getDataRequirement() { 
       if (this.dataRequirement == null)
@@ -1339,7 +1339,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #content} (The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the content is expected to be a CQL or ELM document.)
+     * @return {@link #content} (The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the contentType of the attachment determines how to interpret the content.)
      */
     public Attachment getContent() { 
       if (this.content == null)
@@ -1355,7 +1355,7 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @param value {@link #content} (The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the content is expected to be a CQL or ELM document.)
+     * @param value {@link #content} (The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the contentType of the attachment determines how to interpret the content.)
      */
     public Library setContent(Attachment value) { 
       this.content = value;
@@ -1364,30 +1364,30 @@ public class Library extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this module when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this module definition is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
-        childrenList.add(new Property("identifier", "Identifier", "A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("version", "string", "The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification. Note that the version is required for non-experimental published artifact.", 0, java.lang.Integer.MAX_VALUE, version));
-        childrenList.add(new Property("name", "string", "A machine-friendly name for the module. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the module.", 0, java.lang.Integer.MAX_VALUE, title));
+        childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this library when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("identifier", "Identifier", "A logical identifier for the library such as the CMS or NQF identifiers for a measure artifact. Note that at least one identifier is required for non-experimental active artifacts.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("version", "string", "The version of the library, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.", 0, java.lang.Integer.MAX_VALUE, version));
+        childrenList.add(new Property("name", "string", "A machine-friendly name for the library. This name should be usable as an identifier for the library by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the library.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("type", "CodeableConcept", "Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("status", "code", "The status of the module.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("experimental", "boolean", "Determines whether the module was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.", 0, java.lang.Integer.MAX_VALUE, experimental));
-        childrenList.add(new Property("description", "string", "A free text natural language description of the module from the consumer's perspective.", 0, java.lang.Integer.MAX_VALUE, description));
-        childrenList.add(new Property("purpose", "string", "A brief description of the purpose of the module.", 0, java.lang.Integer.MAX_VALUE, purpose));
-        childrenList.add(new Property("usage", "string", "A detailed description of how the module is used from a clinical perspective.", 0, java.lang.Integer.MAX_VALUE, usage));
-        childrenList.add(new Property("publicationDate", "date", "The date on which the module was published.", 0, java.lang.Integer.MAX_VALUE, publicationDate));
-        childrenList.add(new Property("lastReviewDate", "date", "The date on which the module content was last reviewed.", 0, java.lang.Integer.MAX_VALUE, lastReviewDate));
-        childrenList.add(new Property("effectivePeriod", "Period", "The period during which the module content is effective.", 0, java.lang.Integer.MAX_VALUE, effectivePeriod));
-        childrenList.add(new Property("coverage", "UsageContext", "Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable.", 0, java.lang.Integer.MAX_VALUE, coverage));
-        childrenList.add(new Property("topic", "CodeableConcept", "Clinical topics related to the content of the module.", 0, java.lang.Integer.MAX_VALUE, topic));
-        childrenList.add(new Property("contributor", "Contributor", "A contributor to the content of the module, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor));
-        childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the module (also known as the steward for the module). This information is required for non-experimental published artifacts.", 0, java.lang.Integer.MAX_VALUE, publisher));
+        childrenList.add(new Property("status", "code", "The status of the library.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("experimental", "boolean", "Determines whether the library was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.", 0, java.lang.Integer.MAX_VALUE, experimental));
+        childrenList.add(new Property("description", "string", "A free text natural language description of the library from the consumer's perspective.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("purpose", "string", "A brief description of the purpose of the library.", 0, java.lang.Integer.MAX_VALUE, purpose));
+        childrenList.add(new Property("usage", "string", "A detailed description of how the library is used from a clinical perspective.", 0, java.lang.Integer.MAX_VALUE, usage));
+        childrenList.add(new Property("publicationDate", "date", "The date on which the library was published.", 0, java.lang.Integer.MAX_VALUE, publicationDate));
+        childrenList.add(new Property("lastReviewDate", "date", "The date on which the library content was last reviewed.", 0, java.lang.Integer.MAX_VALUE, lastReviewDate));
+        childrenList.add(new Property("effectivePeriod", "Period", "The period during which the library content is effective.", 0, java.lang.Integer.MAX_VALUE, effectivePeriod));
+        childrenList.add(new Property("coverage", "UsageContext", "Specifies various attributes of the patient population for whom and/or environment of care in which, the library is applicable.", 0, java.lang.Integer.MAX_VALUE, coverage));
+        childrenList.add(new Property("topic", "CodeableConcept", "Clinical topics related to the content of the library.", 0, java.lang.Integer.MAX_VALUE, topic));
+        childrenList.add(new Property("contributor", "Contributor", "A contributor to the content of the library, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor));
+        childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the library (also known as the steward for the library). This information is required for non-experimental active artifacts.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("copyright", "string", "A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module.", 0, java.lang.Integer.MAX_VALUE, copyright));
+        childrenList.add(new Property("copyright", "string", "A copyright statement relating to the library and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the library.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("relatedResource", "RelatedResource", "Related resources such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedResource));
         childrenList.add(new Property("parameter", "ParameterDefinition", "The parameter element defines parameters used by the library.", 0, java.lang.Integer.MAX_VALUE, parameter));
-        childrenList.add(new Property("dataRequirement", "DataRequirement", "The dataRequirement element specifies a data requirement used by some expression within the library.", 0, java.lang.Integer.MAX_VALUE, dataRequirement));
-        childrenList.add(new Property("content", "Attachment", "The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the content is expected to be a CQL or ELM document.", 0, java.lang.Integer.MAX_VALUE, content));
+        childrenList.add(new Property("dataRequirement", "DataRequirement", "Describes a set of data that must be provided in order to be able to successfully perform the computations defined by the library.", 0, java.lang.Integer.MAX_VALUE, dataRequirement));
+        childrenList.add(new Property("content", "Attachment", "The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the contentType of the attachment determines how to interpret the content.", 0, java.lang.Integer.MAX_VALUE, content));
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Jul 15, 2016 17:31+1000 for FHIR v1.5.0
+// Generated on Sun, Jul 17, 2016 23:46+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -1723,6 +1723,26 @@ public class QuestionnaireResponse extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam AUTHORED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_AUTHORED);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>The unique identifier for the questionnaire response</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>QuestionnaireResponse.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="QuestionnaireResponse.identifier", description="The unique identifier for the questionnaire response", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>The unique identifier for the questionnaire response</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>QuestionnaireResponse.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>questionnaire</b>

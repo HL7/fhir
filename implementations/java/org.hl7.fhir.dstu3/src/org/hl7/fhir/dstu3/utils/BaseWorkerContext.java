@@ -30,10 +30,12 @@ import org.hl7.fhir.dstu3.model.Parameters;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StringType;
+import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.Parameters.ParametersParameterComponent;
+import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
@@ -45,6 +47,7 @@ import org.hl7.fhir.dstu3.terminologies.ValueSetExpanderFactory;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ETooCostly;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.dstu3.utils.IWorkerContext.ILoggingService;
 import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -76,6 +79,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected boolean noTerminologyServer;
   protected String cache;
   private int expandCodesLimit = 10000;
+  private ILoggingService logger;
 
   @Override
   public CodeSystem fetchCodeSystem(String system) {
@@ -95,6 +99,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         return false;
       if (bndCodeSystems == null) {
         try {
+          log("Terminology server: Check for supported code systems");
         bndCodeSystems = txServer.fetchFeed(txServer.getAddress()+"/CodeSystem?content=not-present&_summary=true&_count=1000");
         } catch (Exception e) {
           if (canRunWithoutTerminology) {
@@ -118,6 +123,11 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }
     nonSupportedCodeSystems.add(system);
     return false;
+  }
+
+  private void log(String message) {
+    if (logger != null)
+      logger.logMessage(message);
   }
 
   @Override
@@ -232,6 +242,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       params.put("_limit", Integer.toString(expandCodesLimit ));
       params.put("_incomplete", "true");
       params.put("profile", "http://www.healthintersections.com.au/fhir/expansion/no-details");
+      log("Terminology Server: $expand on "+getVSSummary(vs));
       ValueSet result = txServer.expandValueset(vs, params);
       return new ValueSetExpansionOutcome(result);  
     } catch (Exception e) {
@@ -379,6 +390,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     ValidationResult res = loadFromCache(cacheName);
     if (res != null)
       return res;
+    log("Terminology Server: $validate-code "+describeValidationParameters(pin));
   Parameters pout = txServer.operateType(ValueSet.class, "validate-code", pin);
   boolean ok = false;
   String message = "No Message returned";
@@ -402,6 +414,25 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   }
 
   
+  @SuppressWarnings("rawtypes")
+  private String describeValidationParameters(Parameters pin) {
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (ParametersParameterComponent p : pin.getParameter()) {
+      if (p.hasValue() && p.getValue() instanceof PrimitiveType) {
+        b.append(p.getName()+"="+((PrimitiveType) p.getValue()).asStringValue());
+      } else if (p.hasValue() && p.getValue() instanceof Coding) {
+        b.append("system="+((Coding) p.getValue()).getSystem());
+        b.append("code="+((Coding) p.getValue()).getCode());
+        b.append("display="+((Coding) p.getValue()).getDisplay());
+      } else if (p.hasResource() && (p.getResource() instanceof ValueSet)) {
+        b.append("valueset="+getVSSummary((ValueSet) p.getResource()));
+        b.append("code="+((Coding) p.getValue()).getCode());
+        b.append("display="+((Coding) p.getValue()).getDisplay());
+      } 
+    }
+    return b.toString();
+  }
+
   private ValidationResult loadFromCache(String fn) throws FileNotFoundException, IOException {
     if (fn == null)
       return null;
@@ -653,5 +684,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     this.expandCodesLimit = expandCodesLimit;
   }
 
+  public void setLogger(ILoggingService logger) {
+    this.logger = logger;
+  }
   
 }

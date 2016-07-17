@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Jul 15, 2016 17:31+1000 for FHIR v1.5.0
+// Generated on Sun, Jul 17, 2016 23:46+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -66,6 +66,10 @@ public class Endpoint extends DomainResource {
          */
         OFF, 
         /**
+         * This instance should not have been part of this patient's medical record.
+         */
+        ENTEREDINERROR, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -80,6 +84,8 @@ public class Endpoint extends DomainResource {
           return ERROR;
         if ("off".equals(codeString))
           return OFF;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -91,6 +97,7 @@ public class Endpoint extends DomainResource {
             case SUSPENDED: return "suspended";
             case ERROR: return "error";
             case OFF: return "off";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -100,6 +107,7 @@ public class Endpoint extends DomainResource {
             case SUSPENDED: return "http://hl7.org/fhir/endpoint-status";
             case ERROR: return "http://hl7.org/fhir/endpoint-status";
             case OFF: return "http://hl7.org/fhir/endpoint-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/endpoint-status";
             default: return "?";
           }
         }
@@ -109,6 +117,7 @@ public class Endpoint extends DomainResource {
             case SUSPENDED: return "This endpoint is temporarily unavailable";
             case ERROR: return "This endpoint has exceeded connectivity thresholds and is considered in an error state and should no longer be attempted to connect to until corrective action is taken";
             case OFF: return "This endpoint is no longer to be used";
+            case ENTEREDINERROR: return "This instance should not have been part of this patient's medical record.";
             default: return "?";
           }
         }
@@ -118,6 +127,7 @@ public class Endpoint extends DomainResource {
             case SUSPENDED: return "Suspended";
             case ERROR: return "Error";
             case OFF: return "Off";
+            case ENTEREDINERROR: return "Entered in error";
             default: return "?";
           }
         }
@@ -136,6 +146,8 @@ public class Endpoint extends DomainResource {
           return EndpointStatus.ERROR;
         if ("off".equals(codeString))
           return EndpointStatus.OFF;
+        if ("entered-in-error".equals(codeString))
+          return EndpointStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown EndpointStatus code '"+codeString+"'");
         }
         public Enumeration<EndpointStatus> fromType(Base code) throws FHIRException {
@@ -152,6 +164,8 @@ public class Endpoint extends DomainResource {
           return new Enumeration<EndpointStatus>(this, EndpointStatus.ERROR);
         if ("off".equals(codeString))
           return new Enumeration<EndpointStatus>(this, EndpointStatus.OFF);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<EndpointStatus>(this, EndpointStatus.ENTEREDINERROR);
         throw new FHIRException("Unknown EndpointStatus code '"+codeString+"'");
         }
     public String toCode(EndpointStatus code) {
@@ -163,6 +177,8 @@ public class Endpoint extends DomainResource {
         return "error";
       if (code == EndpointStatus.OFF)
         return "off";
+      if (code == EndpointStatus.ENTEREDINERROR)
+        return "entered-in-error";
       return "?";
       }
     public String toSystem(EndpointStatus code) {
@@ -181,7 +197,7 @@ public class Endpoint extends DomainResource {
      * active | suspended | error | off.
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="active | suspended | error | off", formalDefinition="active | suspended | error | off." )
+    @Description(shortDefinition="active | suspended | error | off | entered-in-error", formalDefinition="active | suspended | error | off." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/endpoint-status")
     protected Enumeration<EndpointStatus> status;
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Jul 15, 2016 17:31+1000 for FHIR v1.5.0
+// Generated on Sun, Jul 17, 2016 23:46+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -669,10 +669,10 @@ public class PractitionerRole extends DomainResource {
     /**
      * Roles which this practitioner is authorized to perform for the organization.
      */
-    @Child(name = "role", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "code", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Roles which this practitioner may perform", formalDefinition="Roles which this practitioner is authorized to perform for the organization." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/practitioner-role")
-    protected List<CodeableConcept> role;
+    protected List<CodeableConcept> code;
 
     /**
      * Specific specialty of the practitioner.
@@ -753,7 +753,7 @@ public class PractitionerRole extends DomainResource {
     protected List<Endpoint> endpointTarget;
 
 
-    private static final long serialVersionUID = 1307212024L;
+    private static final long serialVersionUID = -1170829137L;
 
   /**
    * Constructor
@@ -949,56 +949,56 @@ public class PractitionerRole extends DomainResource {
     }
 
     /**
-     * @return {@link #role} (Roles which this practitioner is authorized to perform for the organization.)
+     * @return {@link #code} (Roles which this practitioner is authorized to perform for the organization.)
      */
-    public List<CodeableConcept> getRole() { 
-      if (this.role == null)
-        this.role = new ArrayList<CodeableConcept>();
-      return this.role;
+    public List<CodeableConcept> getCode() { 
+      if (this.code == null)
+        this.code = new ArrayList<CodeableConcept>();
+      return this.code;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public PractitionerRole setRole(List<CodeableConcept> theRole) { 
-      this.role = theRole;
+    public PractitionerRole setCode(List<CodeableConcept> theCode) { 
+      this.code = theCode;
       return this;
     }
 
-    public boolean hasRole() { 
-      if (this.role == null)
+    public boolean hasCode() { 
+      if (this.code == null)
         return false;
-      for (CodeableConcept item : this.role)
+      for (CodeableConcept item : this.code)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public CodeableConcept addRole() { //3
+    public CodeableConcept addCode() { //3
       CodeableConcept t = new CodeableConcept();
-      if (this.role == null)
-        this.role = new ArrayList<CodeableConcept>();
-      this.role.add(t);
+      if (this.code == null)
+        this.code = new ArrayList<CodeableConcept>();
+      this.code.add(t);
       return t;
     }
 
-    public PractitionerRole addRole(CodeableConcept t) { //3
+    public PractitionerRole addCode(CodeableConcept t) { //3
       if (t == null)
         return this;
-      if (this.role == null)
-        this.role = new ArrayList<CodeableConcept>();
-      this.role.add(t);
+      if (this.code == null)
+        this.code = new ArrayList<CodeableConcept>();
+      this.code.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #role}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #code}, creating it if it does not already exist
      */
-    public CodeableConcept getRoleFirstRep() { 
-      if (getRole().isEmpty()) {
-        addRole();
+    public CodeableConcept getCodeFirstRep() { 
+      if (getCode().isEmpty()) {
+        addCode();
       }
-      return getRole().get(0);
+      return getCode().get(0);
     }
 
     /**
@@ -1517,7 +1517,7 @@ public class PractitionerRole extends DomainResource {
         childrenList.add(new Property("active", "boolean", "Whether this practitioner's record is in active use.", 0, java.lang.Integer.MAX_VALUE, active));
         childrenList.add(new Property("practitioner", "Reference(Practitioner)", "Practitioner that is able to provide the defined services for the organation.", 0, java.lang.Integer.MAX_VALUE, practitioner));
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization where the Practitioner performs the roles associated.", 0, java.lang.Integer.MAX_VALUE, organization));
-        childrenList.add(new Property("role", "CodeableConcept", "Roles which this practitioner is authorized to perform for the organization.", 0, java.lang.Integer.MAX_VALUE, role));
+        childrenList.add(new Property("code", "CodeableConcept", "Roles which this practitioner is authorized to perform for the organization.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("specialty", "CodeableConcept", "Specific specialty of the practitioner.", 0, java.lang.Integer.MAX_VALUE, specialty));
         childrenList.add(new Property("location", "Reference(Location)", "The location(s) at which this practitioner provides care.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("healthcareService", "Reference(HealthcareService)", "The list of healthcare services that this worker provides for this role's Organization/Location(s).", 0, java.lang.Integer.MAX_VALUE, healthcareService));
@@ -1536,7 +1536,7 @@ public class PractitionerRole extends DomainResource {
         case -1422950650: /*active*/ return this.active == null ? new Base[0] : new Base[] {this.active}; // BooleanType
         case 574573338: /*practitioner*/ return this.practitioner == null ? new Base[0] : new Base[] {this.practitioner}; // Reference
         case 1178922291: /*organization*/ return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Reference
-        case 3506294: /*role*/ return this.role == null ? new Base[0] : this.role.toArray(new Base[this.role.size()]); // CodeableConcept
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : this.code.toArray(new Base[this.code.size()]); // CodeableConcept
         case -1694759682: /*specialty*/ return this.specialty == null ? new Base[0] : this.specialty.toArray(new Base[this.specialty.size()]); // CodeableConcept
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : this.location.toArray(new Base[this.location.size()]); // Reference
         case 1289661064: /*healthcareService*/ return this.healthcareService == null ? new Base[0] : this.healthcareService.toArray(new Base[this.healthcareService.size()]); // Reference
@@ -1566,8 +1566,8 @@ public class PractitionerRole extends DomainResource {
         case 1178922291: // organization
           this.organization = castToReference(value); // Reference
           break;
-        case 3506294: // role
-          this.getRole().add(castToCodeableConcept(value)); // CodeableConcept
+        case 3059181: // code
+          this.getCode().add(castToCodeableConcept(value)); // CodeableConcept
           break;
         case -1694759682: // specialty
           this.getSpecialty().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1611,8 +1611,8 @@ public class PractitionerRole extends DomainResource {
           this.practitioner = castToReference(value); // Reference
         else if (name.equals("organization"))
           this.organization = castToReference(value); // Reference
-        else if (name.equals("role"))
-          this.getRole().add(castToCodeableConcept(value));
+        else if (name.equals("code"))
+          this.getCode().add(castToCodeableConcept(value));
         else if (name.equals("specialty"))
           this.getSpecialty().add(castToCodeableConcept(value));
         else if (name.equals("location"))
@@ -1642,7 +1642,7 @@ public class PractitionerRole extends DomainResource {
         case -1422950650: throw new FHIRException("Cannot make property active as it is not a complex type"); // BooleanType
         case 574573338:  return getPractitioner(); // Reference
         case 1178922291:  return getOrganization(); // Reference
-        case 3506294:  return addRole(); // CodeableConcept
+        case 3059181:  return addCode(); // CodeableConcept
         case -1694759682:  return addSpecialty(); // CodeableConcept
         case 1901043637:  return addLocation(); // Reference
         case 1289661064:  return addHealthcareService(); // Reference
@@ -1673,8 +1673,8 @@ public class PractitionerRole extends DomainResource {
           this.organization = new Reference();
           return this.organization;
         }
-        else if (name.equals("role")) {
-          return addRole();
+        else if (name.equals("code")) {
+          return addCode();
         }
         else if (name.equals("specialty")) {
           return addSpecialty();
@@ -1724,10 +1724,10 @@ public class PractitionerRole extends DomainResource {
         dst.active = active == null ? null : active.copy();
         dst.practitioner = practitioner == null ? null : practitioner.copy();
         dst.organization = organization == null ? null : organization.copy();
-        if (role != null) {
-          dst.role = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : role)
-            dst.role.add(i.copy());
+        if (code != null) {
+          dst.code = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : code)
+            dst.code.add(i.copy());
         };
         if (specialty != null) {
           dst.specialty = new ArrayList<CodeableConcept>();
@@ -1781,7 +1781,7 @@ public class PractitionerRole extends DomainResource {
           return false;
         PractitionerRole o = (PractitionerRole) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(practitioner, o.practitioner, true)
-           && compareDeep(organization, o.organization, true) && compareDeep(role, o.role, true) && compareDeep(specialty, o.specialty, true)
+           && compareDeep(organization, o.organization, true) && compareDeep(code, o.code, true) && compareDeep(specialty, o.specialty, true)
            && compareDeep(location, o.location, true) && compareDeep(healthcareService, o.healthcareService, true)
            && compareDeep(telecom, o.telecom, true) && compareDeep(period, o.period, true) && compareDeep(availableTime, o.availableTime, true)
            && compareDeep(notAvailable, o.notAvailable, true) && compareDeep(availabilityExceptions, o.availabilityExceptions, true)
@@ -1801,7 +1801,7 @@ public class PractitionerRole extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, active, practitioner
-          , organization, role, specialty, location, healthcareService, telecom, period
+          , organization, code, specialty, location, healthcareService, telecom, period
           , availableTime, notAvailable, availabilityExceptions, endpoint);
       }
 
@@ -1855,17 +1855,17 @@ public class PractitionerRole extends DomainResource {
    * <p>
    * Description: <b>The practitioner can perform this role at for the organization</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.role</b><br>
+   * Path: <b>PractitionerRole.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="role", path="PractitionerRole.role", description="The practitioner can perform this role at for the organization", type="token" )
+  @SearchParamDefinition(name="role", path="PractitionerRole.code", description="The practitioner can perform this role at for the organization", type="token" )
   public static final String SP_ROLE = "role";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>role</b>
    * <p>
    * Description: <b>The practitioner can perform this role at for the organization</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.role</b><br>
+   * Path: <b>PractitionerRole.code</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ROLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ROLE);

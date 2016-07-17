@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Jul 15, 2016 17:31+1000 for FHIR v1.5.0
+// Generated on Sun, Jul 17, 2016 23:46+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -695,16 +695,23 @@ public class CarePlan extends DomainResource {
 
 
         /**
+         * Results of the careplan activity.
+         */
+        @Child(name = "outcome", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Results of the activity", formalDefinition="Results of the careplan activity." )
+        protected CodeableConcept outcome;
+
+        /**
          * Notes about the adherence/status/progress of the activity.
          */
-        @Child(name = "progress", type = {Annotation.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "progress", type = {Annotation.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Comments about the activity status/progress", formalDefinition="Notes about the adherence/status/progress of the activity." )
         protected List<Annotation> progress;
 
         /**
          * The details of the proposed activity represented in a specific resource.
          */
-        @Child(name = "reference", type = {Appointment.class, CommunicationRequest.class, DeviceUseRequest.class, DiagnosticOrder.class, MedicationOrder.class, NutritionOrder.class, Order.class, ProcedureRequest.class, ProcessRequest.class, ReferralRequest.class, SupplyRequest.class, VisionPrescription.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "reference", type = {Appointment.class, CommunicationRequest.class, DeviceUseRequest.class, DiagnosticRequest.class, MedicationOrder.class, NutritionRequest.class, ProcedureRequest.class, ProcessRequest.class, ReferralRequest.class, SupplyRequest.class, VisionPrescription.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Activity details defined in specific resource", formalDefinition="The details of the proposed activity represented in a specific resource." )
         protected Reference reference;
 
@@ -716,11 +723,11 @@ public class CarePlan extends DomainResource {
         /**
          * A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.
          */
-        @Child(name = "detail", type = {}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "detail", type = {}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="In-line definition of activity", formalDefinition="A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc." )
         protected CarePlanActivityDetailComponent detail;
 
-        private static final long serialVersionUID = 40181608L;
+        private static final long serialVersionUID = -961931681L;
 
     /**
      * Constructor
@@ -790,6 +797,30 @@ public class CarePlan extends DomainResource {
           if (this.actionResultingTarget == null)
             this.actionResultingTarget = new ArrayList<Resource>();
           return this.actionResultingTarget;
+        }
+
+        /**
+         * @return {@link #outcome} (Results of the careplan activity.)
+         */
+        public CodeableConcept getOutcome() { 
+          if (this.outcome == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CarePlanActivityComponent.outcome");
+            else if (Configuration.doAutoCreate())
+              this.outcome = new CodeableConcept(); // cc
+          return this.outcome;
+        }
+
+        public boolean hasOutcome() { 
+          return this.outcome != null && !this.outcome.isEmpty();
+        }
+
+        /**
+         * @param value {@link #outcome} (Results of the careplan activity.)
+         */
+        public CarePlanActivityComponent setOutcome(CodeableConcept value) { 
+          this.outcome = value;
+          return this;
         }
 
         /**
@@ -911,8 +942,9 @@ public class CarePlan extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("actionResulting", "Reference(Any)", "Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.", 0, java.lang.Integer.MAX_VALUE, actionResulting));
+          childrenList.add(new Property("outcome", "CodeableConcept", "Results of the careplan activity.", 0, java.lang.Integer.MAX_VALUE, outcome));
           childrenList.add(new Property("progress", "Annotation", "Notes about the adherence/status/progress of the activity.", 0, java.lang.Integer.MAX_VALUE, progress));
-          childrenList.add(new Property("reference", "Reference(Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticOrder|MedicationOrder|NutritionOrder|Order|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)", "The details of the proposed activity represented in a specific resource.", 0, java.lang.Integer.MAX_VALUE, reference));
+          childrenList.add(new Property("reference", "Reference(Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationOrder|NutritionRequest|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)", "The details of the proposed activity represented in a specific resource.", 0, java.lang.Integer.MAX_VALUE, reference));
           childrenList.add(new Property("detail", "", "A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
@@ -920,6 +952,7 @@ public class CarePlan extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 836386063: /*actionResulting*/ return this.actionResulting == null ? new Base[0] : this.actionResulting.toArray(new Base[this.actionResulting.size()]); // Reference
+        case -1106507950: /*outcome*/ return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // CodeableConcept
         case -1001078227: /*progress*/ return this.progress == null ? new Base[0] : this.progress.toArray(new Base[this.progress.size()]); // Annotation
         case -925155509: /*reference*/ return this.reference == null ? new Base[0] : new Base[] {this.reference}; // Reference
         case -1335224239: /*detail*/ return this.detail == null ? new Base[0] : new Base[] {this.detail}; // CarePlanActivityDetailComponent
@@ -933,6 +966,9 @@ public class CarePlan extends DomainResource {
         switch (hash) {
         case 836386063: // actionResulting
           this.getActionResulting().add(castToReference(value)); // Reference
+          break;
+        case -1106507950: // outcome
+          this.outcome = castToCodeableConcept(value); // CodeableConcept
           break;
         case -1001078227: // progress
           this.getProgress().add(castToAnnotation(value)); // Annotation
@@ -952,6 +988,8 @@ public class CarePlan extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("actionResulting"))
           this.getActionResulting().add(castToReference(value));
+        else if (name.equals("outcome"))
+          this.outcome = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("progress"))
           this.getProgress().add(castToAnnotation(value));
         else if (name.equals("reference"))
@@ -966,6 +1004,7 @@ public class CarePlan extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 836386063:  return addActionResulting(); // Reference
+        case -1106507950:  return getOutcome(); // CodeableConcept
         case -1001078227:  return addProgress(); // Annotation
         case -925155509:  return getReference(); // Reference
         case -1335224239:  return getDetail(); // CarePlanActivityDetailComponent
@@ -978,6 +1017,10 @@ public class CarePlan extends DomainResource {
       public Base addChild(String name) throws FHIRException {
         if (name.equals("actionResulting")) {
           return addActionResulting();
+        }
+        else if (name.equals("outcome")) {
+          this.outcome = new CodeableConcept();
+          return this.outcome;
         }
         else if (name.equals("progress")) {
           return addProgress();
@@ -1002,6 +1045,7 @@ public class CarePlan extends DomainResource {
           for (Reference i : actionResulting)
             dst.actionResulting.add(i.copy());
         };
+        dst.outcome = outcome == null ? null : outcome.copy();
         if (progress != null) {
           dst.progress = new ArrayList<Annotation>();
           for (Annotation i : progress)
@@ -1019,8 +1063,9 @@ public class CarePlan extends DomainResource {
         if (!(other instanceof CarePlanActivityComponent))
           return false;
         CarePlanActivityComponent o = (CarePlanActivityComponent) other;
-        return compareDeep(actionResulting, o.actionResulting, true) && compareDeep(progress, o.progress, true)
-           && compareDeep(reference, o.reference, true) && compareDeep(detail, o.detail, true);
+        return compareDeep(actionResulting, o.actionResulting, true) && compareDeep(outcome, o.outcome, true)
+           && compareDeep(progress, o.progress, true) && compareDeep(reference, o.reference, true) && compareDeep(detail, o.detail, true)
+          ;
       }
 
       @Override
@@ -1034,7 +1079,7 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionResulting, progress
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionResulting, outcome, progress
           , reference, detail);
       }
 
@@ -3528,7 +3573,7 @@ public class CarePlan extends DomainResource {
    * Path: <b>CarePlan.activity.reference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="activityreference", path="CarePlan.activity.reference", description="Activity details defined in specific resource", type="reference", target={Appointment.class, CommunicationRequest.class, DeviceUseRequest.class, DiagnosticOrder.class, MedicationOrder.class, NutritionOrder.class, Order.class, ProcedureRequest.class, ProcessRequest.class, ReferralRequest.class, SupplyRequest.class, VisionPrescription.class } )
+  @SearchParamDefinition(name="activityreference", path="CarePlan.activity.reference", description="Activity details defined in specific resource", type="reference", target={Appointment.class, CommunicationRequest.class, DeviceUseRequest.class, DiagnosticRequest.class, MedicationOrder.class, NutritionRequest.class, ProcedureRequest.class, ProcessRequest.class, ReferralRequest.class, SupplyRequest.class, VisionPrescription.class } )
   public static final String SP_ACTIVITYREFERENCE = "activityreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>activityreference</b>

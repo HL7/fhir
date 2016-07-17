@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Jul 15, 2016 17:31+1000 for FHIR v1.5.0
+// Generated on Sun, Jul 17, 2016 23:46+1000 for FHIR v1.5.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2434,13 +2434,13 @@ public class Enumerations {
          */
         DEVICEUSESTATEMENT, 
         /**
-         * A record of a request for a diagnostic investigation service to be performed.
-         */
-        DIAGNOSTICORDER, 
-        /**
          * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.
          */
         DIAGNOSTICREPORT, 
+        /**
+         * A record of a request for a diagnostic investigation service to be performed.
+         */
+        DIAGNOSTICREQUEST, 
         /**
          * A manifest that defines a set of documents.
          */
@@ -2534,7 +2534,7 @@ public class Enumerations {
          */
         IMPLEMENTATIONGUIDE, 
         /**
-         * The Library resource provides a representation container for knowledge artifact component definitions. It is effectively an exposure of the header information for a CQL/ELM library.
+         * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
          */
         LIBRARY, 
         /**
@@ -2596,7 +2596,7 @@ public class Enumerations {
         /**
          * A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
          */
-        NUTRITIONORDER, 
+        NUTRITIONREQUEST, 
         /**
          * Measurements and simple assertions made about a patient, device or other subject.
          */
@@ -2609,14 +2609,6 @@ public class Enumerations {
          * A collection of error, warning or information messages that result from a system action.
          */
         OPERATIONOUTCOME, 
-        /**
-         * A request to perform an action.
-         */
-        ORDER, 
-        /**
-         * A response to an order.
-         */
-        ORDERRESPONSE, 
         /**
          * This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.
          */
@@ -2646,7 +2638,7 @@ public class Enumerations {
          */
         PERSON, 
         /**
-         * This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.
+         * This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols.
          */
         PLANDEFINITION, 
         /**
@@ -2960,10 +2952,10 @@ public class Enumerations {
           return DEVICEUSEREQUEST;
         if ("DeviceUseStatement".equals(codeString))
           return DEVICEUSESTATEMENT;
-        if ("DiagnosticOrder".equals(codeString))
-          return DIAGNOSTICORDER;
         if ("DiagnosticReport".equals(codeString))
           return DIAGNOSTICREPORT;
+        if ("DiagnosticRequest".equals(codeString))
+          return DIAGNOSTICREQUEST;
         if ("DocumentManifest".equals(codeString))
           return DOCUMENTMANIFEST;
         if ("DocumentReference".equals(codeString))
@@ -3040,18 +3032,14 @@ public class Enumerations {
           return MODULEDEFINITION;
         if ("NamingSystem".equals(codeString))
           return NAMINGSYSTEM;
-        if ("NutritionOrder".equals(codeString))
-          return NUTRITIONORDER;
+        if ("NutritionRequest".equals(codeString))
+          return NUTRITIONREQUEST;
         if ("Observation".equals(codeString))
           return OBSERVATION;
         if ("OperationDefinition".equals(codeString))
           return OPERATIONDEFINITION;
         if ("OperationOutcome".equals(codeString))
           return OPERATIONOUTCOME;
-        if ("Order".equals(codeString))
-          return ORDER;
-        if ("OrderResponse".equals(codeString))
-          return ORDERRESPONSE;
         if ("OrderSet".equals(codeString))
           return ORDERSET;
         if ("Organization".equals(codeString))
@@ -3224,8 +3212,8 @@ public class Enumerations {
             case DEVICEMETRIC: return "DeviceMetric";
             case DEVICEUSEREQUEST: return "DeviceUseRequest";
             case DEVICEUSESTATEMENT: return "DeviceUseStatement";
-            case DIAGNOSTICORDER: return "DiagnosticOrder";
             case DIAGNOSTICREPORT: return "DiagnosticReport";
+            case DIAGNOSTICREQUEST: return "DiagnosticRequest";
             case DOCUMENTMANIFEST: return "DocumentManifest";
             case DOCUMENTREFERENCE: return "DocumentReference";
             case DOMAINRESOURCE: return "DomainResource";
@@ -3264,12 +3252,10 @@ public class Enumerations {
             case MESSAGEHEADER: return "MessageHeader";
             case MODULEDEFINITION: return "ModuleDefinition";
             case NAMINGSYSTEM: return "NamingSystem";
-            case NUTRITIONORDER: return "NutritionOrder";
+            case NUTRITIONREQUEST: return "NutritionRequest";
             case OBSERVATION: return "Observation";
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
-            case ORDER: return "Order";
-            case ORDERRESPONSE: return "OrderResponse";
             case ORDERSET: return "OrderSet";
             case ORGANIZATION: return "Organization";
             case PARAMETERS: return "Parameters";
@@ -3404,8 +3390,8 @@ public class Enumerations {
             case DEVICEMETRIC: return "http://hl7.org/fhir/resource-types";
             case DEVICEUSEREQUEST: return "http://hl7.org/fhir/resource-types";
             case DEVICEUSESTATEMENT: return "http://hl7.org/fhir/resource-types";
-            case DIAGNOSTICORDER: return "http://hl7.org/fhir/resource-types";
             case DIAGNOSTICREPORT: return "http://hl7.org/fhir/resource-types";
+            case DIAGNOSTICREQUEST: return "http://hl7.org/fhir/resource-types";
             case DOCUMENTMANIFEST: return "http://hl7.org/fhir/resource-types";
             case DOCUMENTREFERENCE: return "http://hl7.org/fhir/resource-types";
             case DOMAINRESOURCE: return "http://hl7.org/fhir/resource-types";
@@ -3444,12 +3430,10 @@ public class Enumerations {
             case MESSAGEHEADER: return "http://hl7.org/fhir/resource-types";
             case MODULEDEFINITION: return "http://hl7.org/fhir/resource-types";
             case NAMINGSYSTEM: return "http://hl7.org/fhir/resource-types";
-            case NUTRITIONORDER: return "http://hl7.org/fhir/resource-types";
+            case NUTRITIONREQUEST: return "http://hl7.org/fhir/resource-types";
             case OBSERVATION: return "http://hl7.org/fhir/resource-types";
             case OPERATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
             case OPERATIONOUTCOME: return "http://hl7.org/fhir/resource-types";
-            case ORDER: return "http://hl7.org/fhir/resource-types";
-            case ORDERRESPONSE: return "http://hl7.org/fhir/resource-types";
             case ORDERSET: return "http://hl7.org/fhir/resource-types";
             case ORGANIZATION: return "http://hl7.org/fhir/resource-types";
             case PARAMETERS: return "http://hl7.org/fhir/resource-types";
@@ -3584,8 +3568,8 @@ public class Enumerations {
             case DEVICEMETRIC: return "Describes a measurement, calculation or setting capability of a medical device.";
             case DEVICEUSEREQUEST: return "Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.";
             case DEVICEUSESTATEMENT: return "A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.";
-            case DIAGNOSTICORDER: return "A record of a request for a diagnostic investigation service to be performed.";
             case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.";
+            case DIAGNOSTICREQUEST: return "A record of a request for a diagnostic investigation service to be performed.";
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
             case DOCUMENTREFERENCE: return "A reference to a document .";
             case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
@@ -3609,7 +3593,7 @@ public class Enumerations {
             case IMMUNIZATION: return "Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.";
             case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
             case IMPLEMENTATIONGUIDE: return "A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.";
-            case LIBRARY: return "The Library resource provides a representation container for knowledge artifact component definitions. It is effectively an exposure of the header information for a CQL/ELM library.";
+            case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
             case LINKAGE: return "Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\".";
             case LIST: return "A set of information summarized from a list of other resources.";
             case LOCATION: return "Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.";
@@ -3624,12 +3608,10 @@ public class Enumerations {
             case MESSAGEHEADER: return "The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.";
             case MODULEDEFINITION: return "The ModuleDefinition resource defines the data requirements for a quality artifact.";
             case NAMINGSYSTEM: return "A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a \"System\" used within the Identifier and Coding data types.";
-            case NUTRITIONORDER: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
+            case NUTRITIONREQUEST: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
             case OBSERVATION: return "Measurements and simple assertions made about a patient, device or other subject.";
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
-            case ORDER: return "A request to perform an action.";
-            case ORDERRESPONSE: return "A response to an order.";
             case ORDERSET: return "This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
             case PARAMETERS: return "This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
@@ -3637,7 +3619,7 @@ public class Enumerations {
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";
             case PAYMENTRECONCILIATION: return "This resource provides payment details and claim references supporting a bulk payment.";
             case PERSON: return "Demographics and administrative information about a person independent of a specific health-related context.";
-            case PLANDEFINITION: return "This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.";
+            case PLANDEFINITION: return "This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols.";
             case PRACTITIONER: return "A person who is directly or indirectly involved in the provisioning of healthcare.";
             case PRACTITIONERROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
             case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
@@ -3764,8 +3746,8 @@ public class Enumerations {
             case DEVICEMETRIC: return "DeviceMetric";
             case DEVICEUSEREQUEST: return "DeviceUseRequest";
             case DEVICEUSESTATEMENT: return "DeviceUseStatement";
-            case DIAGNOSTICORDER: return "DiagnosticOrder";
             case DIAGNOSTICREPORT: return "DiagnosticReport";
+            case DIAGNOSTICREQUEST: return "DiagnosticRequest";
             case DOCUMENTMANIFEST: return "DocumentManifest";
             case DOCUMENTREFERENCE: return "DocumentReference";
             case DOMAINRESOURCE: return "DomainResource";
@@ -3804,12 +3786,10 @@ public class Enumerations {
             case MESSAGEHEADER: return "MessageHeader";
             case MODULEDEFINITION: return "ModuleDefinition";
             case NAMINGSYSTEM: return "NamingSystem";
-            case NUTRITIONORDER: return "NutritionOrder";
+            case NUTRITIONREQUEST: return "NutritionRequest";
             case OBSERVATION: return "Observation";
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
-            case ORDER: return "Order";
-            case ORDERRESPONSE: return "OrderResponse";
             case ORDERSET: return "OrderSet";
             case ORGANIZATION: return "Organization";
             case PARAMETERS: return "Parameters";
@@ -4039,10 +4019,10 @@ public class Enumerations {
           return FHIRAllTypes.DEVICEUSEREQUEST;
         if ("DeviceUseStatement".equals(codeString))
           return FHIRAllTypes.DEVICEUSESTATEMENT;
-        if ("DiagnosticOrder".equals(codeString))
-          return FHIRAllTypes.DIAGNOSTICORDER;
         if ("DiagnosticReport".equals(codeString))
           return FHIRAllTypes.DIAGNOSTICREPORT;
+        if ("DiagnosticRequest".equals(codeString))
+          return FHIRAllTypes.DIAGNOSTICREQUEST;
         if ("DocumentManifest".equals(codeString))
           return FHIRAllTypes.DOCUMENTMANIFEST;
         if ("DocumentReference".equals(codeString))
@@ -4119,18 +4099,14 @@ public class Enumerations {
           return FHIRAllTypes.MODULEDEFINITION;
         if ("NamingSystem".equals(codeString))
           return FHIRAllTypes.NAMINGSYSTEM;
-        if ("NutritionOrder".equals(codeString))
-          return FHIRAllTypes.NUTRITIONORDER;
+        if ("NutritionRequest".equals(codeString))
+          return FHIRAllTypes.NUTRITIONREQUEST;
         if ("Observation".equals(codeString))
           return FHIRAllTypes.OBSERVATION;
         if ("OperationDefinition".equals(codeString))
           return FHIRAllTypes.OPERATIONDEFINITION;
         if ("OperationOutcome".equals(codeString))
           return FHIRAllTypes.OPERATIONOUTCOME;
-        if ("Order".equals(codeString))
-          return FHIRAllTypes.ORDER;
-        if ("OrderResponse".equals(codeString))
-          return FHIRAllTypes.ORDERRESPONSE;
         if ("OrderSet".equals(codeString))
           return FHIRAllTypes.ORDERSET;
         if ("Organization".equals(codeString))
@@ -4397,10 +4373,10 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DEVICEUSEREQUEST);
         if ("DeviceUseStatement".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DEVICEUSESTATEMENT);
-        if ("DiagnosticOrder".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DIAGNOSTICORDER);
         if ("DiagnosticReport".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DIAGNOSTICREPORT);
+        if ("DiagnosticRequest".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DIAGNOSTICREQUEST);
         if ("DocumentManifest".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DOCUMENTMANIFEST);
         if ("DocumentReference".equals(codeString))
@@ -4477,18 +4453,14 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MODULEDEFINITION);
         if ("NamingSystem".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.NAMINGSYSTEM);
-        if ("NutritionOrder".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.NUTRITIONORDER);
+        if ("NutritionRequest".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.NUTRITIONREQUEST);
         if ("Observation".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.OBSERVATION);
         if ("OperationDefinition".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.OPERATIONDEFINITION);
         if ("OperationOutcome".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.OPERATIONOUTCOME);
-        if ("Order".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ORDER);
-        if ("OrderResponse".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ORDERRESPONSE);
         if ("OrderSet".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ORDERSET);
         if ("Organization".equals(codeString))
@@ -4750,10 +4722,10 @@ public class Enumerations {
         return "DeviceUseRequest";
       if (code == FHIRAllTypes.DEVICEUSESTATEMENT)
         return "DeviceUseStatement";
-      if (code == FHIRAllTypes.DIAGNOSTICORDER)
-        return "DiagnosticOrder";
       if (code == FHIRAllTypes.DIAGNOSTICREPORT)
         return "DiagnosticReport";
+      if (code == FHIRAllTypes.DIAGNOSTICREQUEST)
+        return "DiagnosticRequest";
       if (code == FHIRAllTypes.DOCUMENTMANIFEST)
         return "DocumentManifest";
       if (code == FHIRAllTypes.DOCUMENTREFERENCE)
@@ -4830,18 +4802,14 @@ public class Enumerations {
         return "ModuleDefinition";
       if (code == FHIRAllTypes.NAMINGSYSTEM)
         return "NamingSystem";
-      if (code == FHIRAllTypes.NUTRITIONORDER)
-        return "NutritionOrder";
+      if (code == FHIRAllTypes.NUTRITIONREQUEST)
+        return "NutritionRequest";
       if (code == FHIRAllTypes.OBSERVATION)
         return "Observation";
       if (code == FHIRAllTypes.OPERATIONDEFINITION)
         return "OperationDefinition";
       if (code == FHIRAllTypes.OPERATIONOUTCOME)
         return "OperationOutcome";
-      if (code == FHIRAllTypes.ORDER)
-        return "Order";
-      if (code == FHIRAllTypes.ORDERRESPONSE)
-        return "OrderResponse";
       if (code == FHIRAllTypes.ORDERSET)
         return "OrderSet";
       if (code == FHIRAllTypes.ORGANIZATION)
@@ -5289,13 +5257,13 @@ public class Enumerations {
          */
         DEVICEUSESTATEMENT, 
         /**
-         * A record of a request for a diagnostic investigation service to be performed.
-         */
-        DIAGNOSTICORDER, 
-        /**
          * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.
          */
         DIAGNOSTICREPORT, 
+        /**
+         * A record of a request for a diagnostic investigation service to be performed.
+         */
+        DIAGNOSTICREQUEST, 
         /**
          * A manifest that defines a set of documents.
          */
@@ -5389,7 +5357,7 @@ public class Enumerations {
          */
         IMPLEMENTATIONGUIDE, 
         /**
-         * The Library resource provides a representation container for knowledge artifact component definitions. It is effectively an exposure of the header information for a CQL/ELM library.
+         * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
          */
         LIBRARY, 
         /**
@@ -5451,7 +5419,7 @@ public class Enumerations {
         /**
          * A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
          */
-        NUTRITIONORDER, 
+        NUTRITIONREQUEST, 
         /**
          * Measurements and simple assertions made about a patient, device or other subject.
          */
@@ -5464,14 +5432,6 @@ public class Enumerations {
          * A collection of error, warning or information messages that result from a system action.
          */
         OPERATIONOUTCOME, 
-        /**
-         * A request to perform an action.
-         */
-        ORDER, 
-        /**
-         * A response to an order.
-         */
-        ORDERRESPONSE, 
         /**
          * This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.
          */
@@ -5501,7 +5461,7 @@ public class Enumerations {
          */
         PERSON, 
         /**
-         * This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.
+         * This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols.
          */
         PLANDEFINITION, 
         /**
@@ -5807,10 +5767,10 @@ public class Enumerations {
           return DEVICEUSEREQUEST;
         if ("DeviceUseStatement".equals(codeString))
           return DEVICEUSESTATEMENT;
-        if ("DiagnosticOrder".equals(codeString))
-          return DIAGNOSTICORDER;
         if ("DiagnosticReport".equals(codeString))
           return DIAGNOSTICREPORT;
+        if ("DiagnosticRequest".equals(codeString))
+          return DIAGNOSTICREQUEST;
         if ("DocumentManifest".equals(codeString))
           return DOCUMENTMANIFEST;
         if ("DocumentReference".equals(codeString))
@@ -5887,18 +5847,14 @@ public class Enumerations {
           return MODULEDEFINITION;
         if ("NamingSystem".equals(codeString))
           return NAMINGSYSTEM;
-        if ("NutritionOrder".equals(codeString))
-          return NUTRITIONORDER;
+        if ("NutritionRequest".equals(codeString))
+          return NUTRITIONREQUEST;
         if ("Observation".equals(codeString))
           return OBSERVATION;
         if ("OperationDefinition".equals(codeString))
           return OPERATIONDEFINITION;
         if ("OperationOutcome".equals(codeString))
           return OPERATIONOUTCOME;
-        if ("Order".equals(codeString))
-          return ORDER;
-        if ("OrderResponse".equals(codeString))
-          return ORDERRESPONSE;
         if ("OrderSet".equals(codeString))
           return ORDERSET;
         if ("Organization".equals(codeString))
@@ -6067,8 +6023,8 @@ public class Enumerations {
             case DEVICEMETRIC: return "DeviceMetric";
             case DEVICEUSEREQUEST: return "DeviceUseRequest";
             case DEVICEUSESTATEMENT: return "DeviceUseStatement";
-            case DIAGNOSTICORDER: return "DiagnosticOrder";
             case DIAGNOSTICREPORT: return "DiagnosticReport";
+            case DIAGNOSTICREQUEST: return "DiagnosticRequest";
             case DOCUMENTMANIFEST: return "DocumentManifest";
             case DOCUMENTREFERENCE: return "DocumentReference";
             case DOMAINRESOURCE: return "DomainResource";
@@ -6107,12 +6063,10 @@ public class Enumerations {
             case MESSAGEHEADER: return "MessageHeader";
             case MODULEDEFINITION: return "ModuleDefinition";
             case NAMINGSYSTEM: return "NamingSystem";
-            case NUTRITIONORDER: return "NutritionOrder";
+            case NUTRITIONREQUEST: return "NutritionRequest";
             case OBSERVATION: return "Observation";
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
-            case ORDER: return "Order";
-            case ORDERRESPONSE: return "OrderResponse";
             case ORDERSET: return "OrderSet";
             case ORGANIZATION: return "Organization";
             case PARAMETERS: return "Parameters";
@@ -6245,8 +6199,8 @@ public class Enumerations {
             case DEVICEMETRIC: return "http://hl7.org/fhir/resource-types";
             case DEVICEUSEREQUEST: return "http://hl7.org/fhir/resource-types";
             case DEVICEUSESTATEMENT: return "http://hl7.org/fhir/resource-types";
-            case DIAGNOSTICORDER: return "http://hl7.org/fhir/resource-types";
             case DIAGNOSTICREPORT: return "http://hl7.org/fhir/resource-types";
+            case DIAGNOSTICREQUEST: return "http://hl7.org/fhir/resource-types";
             case DOCUMENTMANIFEST: return "http://hl7.org/fhir/resource-types";
             case DOCUMENTREFERENCE: return "http://hl7.org/fhir/resource-types";
             case DOMAINRESOURCE: return "http://hl7.org/fhir/resource-types";
@@ -6285,12 +6239,10 @@ public class Enumerations {
             case MESSAGEHEADER: return "http://hl7.org/fhir/resource-types";
             case MODULEDEFINITION: return "http://hl7.org/fhir/resource-types";
             case NAMINGSYSTEM: return "http://hl7.org/fhir/resource-types";
-            case NUTRITIONORDER: return "http://hl7.org/fhir/resource-types";
+            case NUTRITIONREQUEST: return "http://hl7.org/fhir/resource-types";
             case OBSERVATION: return "http://hl7.org/fhir/resource-types";
             case OPERATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
             case OPERATIONOUTCOME: return "http://hl7.org/fhir/resource-types";
-            case ORDER: return "http://hl7.org/fhir/resource-types";
-            case ORDERRESPONSE: return "http://hl7.org/fhir/resource-types";
             case ORDERSET: return "http://hl7.org/fhir/resource-types";
             case ORGANIZATION: return "http://hl7.org/fhir/resource-types";
             case PARAMETERS: return "http://hl7.org/fhir/resource-types";
@@ -6423,8 +6375,8 @@ public class Enumerations {
             case DEVICEMETRIC: return "Describes a measurement, calculation or setting capability of a medical device.";
             case DEVICEUSEREQUEST: return "Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.";
             case DEVICEUSESTATEMENT: return "A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.";
-            case DIAGNOSTICORDER: return "A record of a request for a diagnostic investigation service to be performed.";
             case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.";
+            case DIAGNOSTICREQUEST: return "A record of a request for a diagnostic investigation service to be performed.";
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
             case DOCUMENTREFERENCE: return "A reference to a document .";
             case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
@@ -6448,7 +6400,7 @@ public class Enumerations {
             case IMMUNIZATION: return "Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.";
             case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
             case IMPLEMENTATIONGUIDE: return "A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.";
-            case LIBRARY: return "The Library resource provides a representation container for knowledge artifact component definitions. It is effectively an exposure of the header information for a CQL/ELM library.";
+            case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
             case LINKAGE: return "Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\".";
             case LIST: return "A set of information summarized from a list of other resources.";
             case LOCATION: return "Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.";
@@ -6463,12 +6415,10 @@ public class Enumerations {
             case MESSAGEHEADER: return "The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.";
             case MODULEDEFINITION: return "The ModuleDefinition resource defines the data requirements for a quality artifact.";
             case NAMINGSYSTEM: return "A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a \"System\" used within the Identifier and Coding data types.";
-            case NUTRITIONORDER: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
+            case NUTRITIONREQUEST: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
             case OBSERVATION: return "Measurements and simple assertions made about a patient, device or other subject.";
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
-            case ORDER: return "A request to perform an action.";
-            case ORDERRESPONSE: return "A response to an order.";
             case ORDERSET: return "This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
             case PARAMETERS: return "This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
@@ -6476,7 +6426,7 @@ public class Enumerations {
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";
             case PAYMENTRECONCILIATION: return "This resource provides payment details and claim references supporting a bulk payment.";
             case PERSON: return "Demographics and administrative information about a person independent of a specific health-related context.";
-            case PLANDEFINITION: return "This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.";
+            case PLANDEFINITION: return "This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols.";
             case PRACTITIONER: return "A person who is directly or indirectly involved in the provisioning of healthcare.";
             case PRACTITIONERROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
             case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
@@ -6601,8 +6551,8 @@ public class Enumerations {
             case DEVICEMETRIC: return "DeviceMetric";
             case DEVICEUSEREQUEST: return "DeviceUseRequest";
             case DEVICEUSESTATEMENT: return "DeviceUseStatement";
-            case DIAGNOSTICORDER: return "DiagnosticOrder";
             case DIAGNOSTICREPORT: return "DiagnosticReport";
+            case DIAGNOSTICREQUEST: return "DiagnosticRequest";
             case DOCUMENTMANIFEST: return "DocumentManifest";
             case DOCUMENTREFERENCE: return "DocumentReference";
             case DOMAINRESOURCE: return "DomainResource";
@@ -6641,12 +6591,10 @@ public class Enumerations {
             case MESSAGEHEADER: return "MessageHeader";
             case MODULEDEFINITION: return "ModuleDefinition";
             case NAMINGSYSTEM: return "NamingSystem";
-            case NUTRITIONORDER: return "NutritionOrder";
+            case NUTRITIONREQUEST: return "NutritionRequest";
             case OBSERVATION: return "Observation";
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
-            case ORDER: return "Order";
-            case ORDERRESPONSE: return "OrderResponse";
             case ORDERSET: return "OrderSet";
             case ORGANIZATION: return "Organization";
             case PARAMETERS: return "Parameters";
@@ -6874,10 +6822,10 @@ public class Enumerations {
           return FHIRDefinedType.DEVICEUSEREQUEST;
         if ("DeviceUseStatement".equals(codeString))
           return FHIRDefinedType.DEVICEUSESTATEMENT;
-        if ("DiagnosticOrder".equals(codeString))
-          return FHIRDefinedType.DIAGNOSTICORDER;
         if ("DiagnosticReport".equals(codeString))
           return FHIRDefinedType.DIAGNOSTICREPORT;
+        if ("DiagnosticRequest".equals(codeString))
+          return FHIRDefinedType.DIAGNOSTICREQUEST;
         if ("DocumentManifest".equals(codeString))
           return FHIRDefinedType.DOCUMENTMANIFEST;
         if ("DocumentReference".equals(codeString))
@@ -6954,18 +6902,14 @@ public class Enumerations {
           return FHIRDefinedType.MODULEDEFINITION;
         if ("NamingSystem".equals(codeString))
           return FHIRDefinedType.NAMINGSYSTEM;
-        if ("NutritionOrder".equals(codeString))
-          return FHIRDefinedType.NUTRITIONORDER;
+        if ("NutritionRequest".equals(codeString))
+          return FHIRDefinedType.NUTRITIONREQUEST;
         if ("Observation".equals(codeString))
           return FHIRDefinedType.OBSERVATION;
         if ("OperationDefinition".equals(codeString))
           return FHIRDefinedType.OPERATIONDEFINITION;
         if ("OperationOutcome".equals(codeString))
           return FHIRDefinedType.OPERATIONOUTCOME;
-        if ("Order".equals(codeString))
-          return FHIRDefinedType.ORDER;
-        if ("OrderResponse".equals(codeString))
-          return FHIRDefinedType.ORDERRESPONSE;
         if ("OrderSet".equals(codeString))
           return FHIRDefinedType.ORDERSET;
         if ("Organization".equals(codeString))
@@ -7228,10 +7172,10 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DEVICEUSEREQUEST);
         if ("DeviceUseStatement".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DEVICEUSESTATEMENT);
-        if ("DiagnosticOrder".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DIAGNOSTICORDER);
         if ("DiagnosticReport".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DIAGNOSTICREPORT);
+        if ("DiagnosticRequest".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DIAGNOSTICREQUEST);
         if ("DocumentManifest".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DOCUMENTMANIFEST);
         if ("DocumentReference".equals(codeString))
@@ -7308,18 +7252,14 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MODULEDEFINITION);
         if ("NamingSystem".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.NAMINGSYSTEM);
-        if ("NutritionOrder".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.NUTRITIONORDER);
+        if ("NutritionRequest".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.NUTRITIONREQUEST);
         if ("Observation".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.OBSERVATION);
         if ("OperationDefinition".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.OPERATIONDEFINITION);
         if ("OperationOutcome".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.OPERATIONOUTCOME);
-        if ("Order".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ORDER);
-        if ("OrderResponse".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ORDERRESPONSE);
         if ("OrderSet".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ORDERSET);
         if ("Organization".equals(codeString))
@@ -7577,10 +7517,10 @@ public class Enumerations {
         return "DeviceUseRequest";
       if (code == FHIRDefinedType.DEVICEUSESTATEMENT)
         return "DeviceUseStatement";
-      if (code == FHIRDefinedType.DIAGNOSTICORDER)
-        return "DiagnosticOrder";
       if (code == FHIRDefinedType.DIAGNOSTICREPORT)
         return "DiagnosticReport";
+      if (code == FHIRDefinedType.DIAGNOSTICREQUEST)
+        return "DiagnosticRequest";
       if (code == FHIRDefinedType.DOCUMENTMANIFEST)
         return "DocumentManifest";
       if (code == FHIRDefinedType.DOCUMENTREFERENCE)
@@ -7657,18 +7597,14 @@ public class Enumerations {
         return "ModuleDefinition";
       if (code == FHIRDefinedType.NAMINGSYSTEM)
         return "NamingSystem";
-      if (code == FHIRDefinedType.NUTRITIONORDER)
-        return "NutritionOrder";
+      if (code == FHIRDefinedType.NUTRITIONREQUEST)
+        return "NutritionRequest";
       if (code == FHIRDefinedType.OBSERVATION)
         return "Observation";
       if (code == FHIRDefinedType.OPERATIONDEFINITION)
         return "OperationDefinition";
       if (code == FHIRDefinedType.OPERATIONOUTCOME)
         return "OperationOutcome";
-      if (code == FHIRDefinedType.ORDER)
-        return "Order";
-      if (code == FHIRDefinedType.ORDERRESPONSE)
-        return "OrderResponse";
       if (code == FHIRDefinedType.ORDERSET)
         return "OrderSet";
       if (code == FHIRDefinedType.ORGANIZATION)
@@ -8329,13 +8265,13 @@ public class Enumerations {
          */
         DEVICEUSESTATEMENT, 
         /**
-         * A record of a request for a diagnostic investigation service to be performed.
-         */
-        DIAGNOSTICORDER, 
-        /**
          * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.
          */
         DIAGNOSTICREPORT, 
+        /**
+         * A record of a request for a diagnostic investigation service to be performed.
+         */
+        DIAGNOSTICREQUEST, 
         /**
          * A manifest that defines a set of documents.
          */
@@ -8429,7 +8365,7 @@ public class Enumerations {
          */
         IMPLEMENTATIONGUIDE, 
         /**
-         * The Library resource provides a representation container for knowledge artifact component definitions. It is effectively an exposure of the header information for a CQL/ELM library.
+         * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
          */
         LIBRARY, 
         /**
@@ -8491,7 +8427,7 @@ public class Enumerations {
         /**
          * A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
          */
-        NUTRITIONORDER, 
+        NUTRITIONREQUEST, 
         /**
          * Measurements and simple assertions made about a patient, device or other subject.
          */
@@ -8504,14 +8440,6 @@ public class Enumerations {
          * A collection of error, warning or information messages that result from a system action.
          */
         OPERATIONOUTCOME, 
-        /**
-         * A request to perform an action.
-         */
-        ORDER, 
-        /**
-         * A response to an order.
-         */
-        ORDERRESPONSE, 
         /**
          * This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.
          */
@@ -8541,7 +8469,7 @@ public class Enumerations {
          */
         PERSON, 
         /**
-         * This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.
+         * This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols.
          */
         PLANDEFINITION, 
         /**
@@ -8737,10 +8665,10 @@ public class Enumerations {
           return DEVICEUSEREQUEST;
         if ("DeviceUseStatement".equals(codeString))
           return DEVICEUSESTATEMENT;
-        if ("DiagnosticOrder".equals(codeString))
-          return DIAGNOSTICORDER;
         if ("DiagnosticReport".equals(codeString))
           return DIAGNOSTICREPORT;
+        if ("DiagnosticRequest".equals(codeString))
+          return DIAGNOSTICREQUEST;
         if ("DocumentManifest".equals(codeString))
           return DOCUMENTMANIFEST;
         if ("DocumentReference".equals(codeString))
@@ -8817,18 +8745,14 @@ public class Enumerations {
           return MODULEDEFINITION;
         if ("NamingSystem".equals(codeString))
           return NAMINGSYSTEM;
-        if ("NutritionOrder".equals(codeString))
-          return NUTRITIONORDER;
+        if ("NutritionRequest".equals(codeString))
+          return NUTRITIONREQUEST;
         if ("Observation".equals(codeString))
           return OBSERVATION;
         if ("OperationDefinition".equals(codeString))
           return OPERATIONDEFINITION;
         if ("OperationOutcome".equals(codeString))
           return OPERATIONOUTCOME;
-        if ("Order".equals(codeString))
-          return ORDER;
-        if ("OrderResponse".equals(codeString))
-          return ORDERRESPONSE;
         if ("OrderSet".equals(codeString))
           return ORDERSET;
         if ("Organization".equals(codeString))
@@ -8942,8 +8866,8 @@ public class Enumerations {
             case DEVICEMETRIC: return "DeviceMetric";
             case DEVICEUSEREQUEST: return "DeviceUseRequest";
             case DEVICEUSESTATEMENT: return "DeviceUseStatement";
-            case DIAGNOSTICORDER: return "DiagnosticOrder";
             case DIAGNOSTICREPORT: return "DiagnosticReport";
+            case DIAGNOSTICREQUEST: return "DiagnosticRequest";
             case DOCUMENTMANIFEST: return "DocumentManifest";
             case DOCUMENTREFERENCE: return "DocumentReference";
             case DOMAINRESOURCE: return "DomainResource";
@@ -8982,12 +8906,10 @@ public class Enumerations {
             case MESSAGEHEADER: return "MessageHeader";
             case MODULEDEFINITION: return "ModuleDefinition";
             case NAMINGSYSTEM: return "NamingSystem";
-            case NUTRITIONORDER: return "NutritionOrder";
+            case NUTRITIONREQUEST: return "NutritionRequest";
             case OBSERVATION: return "Observation";
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
-            case ORDER: return "Order";
-            case ORDERRESPONSE: return "OrderResponse";
             case ORDERSET: return "OrderSet";
             case ORGANIZATION: return "Organization";
             case PARAMETERS: return "Parameters";
@@ -9065,8 +8987,8 @@ public class Enumerations {
             case DEVICEMETRIC: return "http://hl7.org/fhir/resource-types";
             case DEVICEUSEREQUEST: return "http://hl7.org/fhir/resource-types";
             case DEVICEUSESTATEMENT: return "http://hl7.org/fhir/resource-types";
-            case DIAGNOSTICORDER: return "http://hl7.org/fhir/resource-types";
             case DIAGNOSTICREPORT: return "http://hl7.org/fhir/resource-types";
+            case DIAGNOSTICREQUEST: return "http://hl7.org/fhir/resource-types";
             case DOCUMENTMANIFEST: return "http://hl7.org/fhir/resource-types";
             case DOCUMENTREFERENCE: return "http://hl7.org/fhir/resource-types";
             case DOMAINRESOURCE: return "http://hl7.org/fhir/resource-types";
@@ -9105,12 +9027,10 @@ public class Enumerations {
             case MESSAGEHEADER: return "http://hl7.org/fhir/resource-types";
             case MODULEDEFINITION: return "http://hl7.org/fhir/resource-types";
             case NAMINGSYSTEM: return "http://hl7.org/fhir/resource-types";
-            case NUTRITIONORDER: return "http://hl7.org/fhir/resource-types";
+            case NUTRITIONREQUEST: return "http://hl7.org/fhir/resource-types";
             case OBSERVATION: return "http://hl7.org/fhir/resource-types";
             case OPERATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
             case OPERATIONOUTCOME: return "http://hl7.org/fhir/resource-types";
-            case ORDER: return "http://hl7.org/fhir/resource-types";
-            case ORDERRESPONSE: return "http://hl7.org/fhir/resource-types";
             case ORDERSET: return "http://hl7.org/fhir/resource-types";
             case ORGANIZATION: return "http://hl7.org/fhir/resource-types";
             case PARAMETERS: return "http://hl7.org/fhir/resource-types";
@@ -9188,8 +9108,8 @@ public class Enumerations {
             case DEVICEMETRIC: return "Describes a measurement, calculation or setting capability of a medical device.";
             case DEVICEUSEREQUEST: return "Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.";
             case DEVICEUSESTATEMENT: return "A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.";
-            case DIAGNOSTICORDER: return "A record of a request for a diagnostic investigation service to be performed.";
             case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.";
+            case DIAGNOSTICREQUEST: return "A record of a request for a diagnostic investigation service to be performed.";
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
             case DOCUMENTREFERENCE: return "A reference to a document .";
             case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
@@ -9213,7 +9133,7 @@ public class Enumerations {
             case IMMUNIZATION: return "Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.";
             case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
             case IMPLEMENTATIONGUIDE: return "A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.";
-            case LIBRARY: return "The Library resource provides a representation container for knowledge artifact component definitions. It is effectively an exposure of the header information for a CQL/ELM library.";
+            case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
             case LINKAGE: return "Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\".";
             case LIST: return "A set of information summarized from a list of other resources.";
             case LOCATION: return "Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.";
@@ -9228,12 +9148,10 @@ public class Enumerations {
             case MESSAGEHEADER: return "The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.";
             case MODULEDEFINITION: return "The ModuleDefinition resource defines the data requirements for a quality artifact.";
             case NAMINGSYSTEM: return "A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a \"System\" used within the Identifier and Coding data types.";
-            case NUTRITIONORDER: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
+            case NUTRITIONREQUEST: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
             case OBSERVATION: return "Measurements and simple assertions made about a patient, device or other subject.";
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
-            case ORDER: return "A request to perform an action.";
-            case ORDERRESPONSE: return "A response to an order.";
             case ORDERSET: return "This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
             case PARAMETERS: return "This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
@@ -9241,7 +9159,7 @@ public class Enumerations {
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";
             case PAYMENTRECONCILIATION: return "This resource provides payment details and claim references supporting a bulk payment.";
             case PERSON: return "Demographics and administrative information about a person independent of a specific health-related context.";
-            case PLANDEFINITION: return "This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.";
+            case PLANDEFINITION: return "This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols.";
             case PRACTITIONER: return "A person who is directly or indirectly involved in the provisioning of healthcare.";
             case PRACTITIONERROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
             case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
@@ -9311,8 +9229,8 @@ public class Enumerations {
             case DEVICEMETRIC: return "DeviceMetric";
             case DEVICEUSEREQUEST: return "DeviceUseRequest";
             case DEVICEUSESTATEMENT: return "DeviceUseStatement";
-            case DIAGNOSTICORDER: return "DiagnosticOrder";
             case DIAGNOSTICREPORT: return "DiagnosticReport";
+            case DIAGNOSTICREQUEST: return "DiagnosticRequest";
             case DOCUMENTMANIFEST: return "DocumentManifest";
             case DOCUMENTREFERENCE: return "DocumentReference";
             case DOMAINRESOURCE: return "DomainResource";
@@ -9351,12 +9269,10 @@ public class Enumerations {
             case MESSAGEHEADER: return "MessageHeader";
             case MODULEDEFINITION: return "ModuleDefinition";
             case NAMINGSYSTEM: return "NamingSystem";
-            case NUTRITIONORDER: return "NutritionOrder";
+            case NUTRITIONREQUEST: return "NutritionRequest";
             case OBSERVATION: return "Observation";
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
-            case ORDER: return "Order";
-            case ORDERRESPONSE: return "OrderResponse";
             case ORDERSET: return "OrderSet";
             case ORGANIZATION: return "Organization";
             case PARAMETERS: return "Parameters";
@@ -9474,10 +9390,10 @@ public class Enumerations {
           return ResourceType.DEVICEUSEREQUEST;
         if ("DeviceUseStatement".equals(codeString))
           return ResourceType.DEVICEUSESTATEMENT;
-        if ("DiagnosticOrder".equals(codeString))
-          return ResourceType.DIAGNOSTICORDER;
         if ("DiagnosticReport".equals(codeString))
           return ResourceType.DIAGNOSTICREPORT;
+        if ("DiagnosticRequest".equals(codeString))
+          return ResourceType.DIAGNOSTICREQUEST;
         if ("DocumentManifest".equals(codeString))
           return ResourceType.DOCUMENTMANIFEST;
         if ("DocumentReference".equals(codeString))
@@ -9554,18 +9470,14 @@ public class Enumerations {
           return ResourceType.MODULEDEFINITION;
         if ("NamingSystem".equals(codeString))
           return ResourceType.NAMINGSYSTEM;
-        if ("NutritionOrder".equals(codeString))
-          return ResourceType.NUTRITIONORDER;
+        if ("NutritionRequest".equals(codeString))
+          return ResourceType.NUTRITIONREQUEST;
         if ("Observation".equals(codeString))
           return ResourceType.OBSERVATION;
         if ("OperationDefinition".equals(codeString))
           return ResourceType.OPERATIONDEFINITION;
         if ("OperationOutcome".equals(codeString))
           return ResourceType.OPERATIONOUTCOME;
-        if ("Order".equals(codeString))
-          return ResourceType.ORDER;
-        if ("OrderResponse".equals(codeString))
-          return ResourceType.ORDERRESPONSE;
         if ("OrderSet".equals(codeString))
           return ResourceType.ORDERSET;
         if ("Organization".equals(codeString))
@@ -9718,10 +9630,10 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.DEVICEUSEREQUEST);
         if ("DeviceUseStatement".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.DEVICEUSESTATEMENT);
-        if ("DiagnosticOrder".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.DIAGNOSTICORDER);
         if ("DiagnosticReport".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.DIAGNOSTICREPORT);
+        if ("DiagnosticRequest".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.DIAGNOSTICREQUEST);
         if ("DocumentManifest".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.DOCUMENTMANIFEST);
         if ("DocumentReference".equals(codeString))
@@ -9798,18 +9710,14 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.MODULEDEFINITION);
         if ("NamingSystem".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.NAMINGSYSTEM);
-        if ("NutritionOrder".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.NUTRITIONORDER);
+        if ("NutritionRequest".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.NUTRITIONREQUEST);
         if ("Observation".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.OBSERVATION);
         if ("OperationDefinition".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.OPERATIONDEFINITION);
         if ("OperationOutcome".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.OPERATIONOUTCOME);
-        if ("Order".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.ORDER);
-        if ("OrderResponse".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.ORDERRESPONSE);
         if ("OrderSet".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.ORDERSET);
         if ("Organization".equals(codeString))
@@ -9957,10 +9865,10 @@ public class Enumerations {
         return "DeviceUseRequest";
       if (code == ResourceType.DEVICEUSESTATEMENT)
         return "DeviceUseStatement";
-      if (code == ResourceType.DIAGNOSTICORDER)
-        return "DiagnosticOrder";
       if (code == ResourceType.DIAGNOSTICREPORT)
         return "DiagnosticReport";
+      if (code == ResourceType.DIAGNOSTICREQUEST)
+        return "DiagnosticRequest";
       if (code == ResourceType.DOCUMENTMANIFEST)
         return "DocumentManifest";
       if (code == ResourceType.DOCUMENTREFERENCE)
@@ -10037,18 +9945,14 @@ public class Enumerations {
         return "ModuleDefinition";
       if (code == ResourceType.NAMINGSYSTEM)
         return "NamingSystem";
-      if (code == ResourceType.NUTRITIONORDER)
-        return "NutritionOrder";
+      if (code == ResourceType.NUTRITIONREQUEST)
+        return "NutritionRequest";
       if (code == ResourceType.OBSERVATION)
         return "Observation";
       if (code == ResourceType.OPERATIONDEFINITION)
         return "OperationDefinition";
       if (code == ResourceType.OPERATIONOUTCOME)
         return "OperationOutcome";
-      if (code == ResourceType.ORDER)
-        return "Order";
-      if (code == ResourceType.ORDERRESPONSE)
-        return "OrderResponse";
       if (code == ResourceType.ORDERSET)
         return "OrderSet";
       if (code == ResourceType.ORGANIZATION)

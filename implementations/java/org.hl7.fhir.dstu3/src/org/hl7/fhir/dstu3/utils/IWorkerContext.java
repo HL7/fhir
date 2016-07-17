@@ -19,6 +19,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.dstu3.utils.IWorkerContext.ILoggingService;
 import org.hl7.fhir.dstu3.validation.IResourceValidator;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 
@@ -303,5 +304,10 @@ public interface IWorkerContext {
 
   public boolean hasCache();
 
+  public interface ILoggingService {
+    public void logMessage(String message); // status messages, always display
+    public void logDebugMessage(String message); // verbose; only when debugging 
+  }
 
+  public void setLogger(ILoggingService logger);
 }

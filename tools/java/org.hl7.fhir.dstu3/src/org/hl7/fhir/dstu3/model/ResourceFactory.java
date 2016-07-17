@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Jul 15, 2016 17:31+1000 for FHIR v1.5.0
+// Generated on Sun, Jul 17, 2016 23:46+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
@@ -118,8 +118,6 @@ public class ResourceFactory extends Factory {
             return new ActivityDefinition();
         if ("Linkage".equals(name))
             return new Linkage();
-        if ("OrderResponse".equals(name))
-            return new OrderResponse();
         if ("DeviceUseStatement".equals(name))
             return new DeviceUseStatement();
         if ("MessageHeader".equals(name))
@@ -158,8 +156,8 @@ public class ResourceFactory extends Factory {
             return new ValueSet();
         if ("OperationDefinition".equals(name))
             return new OperationDefinition();
-        if ("Order".equals(name))
-            return new Order();
+        if ("DiagnosticRequest".equals(name))
+            return new DiagnosticRequest();
         if ("Immunization".equals(name))
             return new Immunization();
         if ("Device".equals(name))
@@ -220,8 +218,8 @@ public class ResourceFactory extends Factory {
             return new HealthcareService();
         if ("DataElement".equals(name))
             return new DataElement();
-        if ("NutritionOrder".equals(name))
-            return new NutritionOrder();
+        if ("NutritionRequest".equals(name))
+            return new NutritionRequest();
         if ("AuditEvent".equals(name))
             return new AuditEvent();
         if ("MedicationOrder".equals(name))
@@ -240,8 +238,6 @@ public class ResourceFactory extends Factory {
             return new Bundle();
         if ("CompartmentDefinition".equals(name))
             return new CompartmentDefinition();
-        if ("DiagnosticOrder".equals(name))
-            return new DiagnosticOrder();
         if ("Patient".equals(name))
             return new Patient();
         if ("Coverage".equals(name))
@@ -430,8 +426,6 @@ public class ResourceFactory extends Factory {
             return new ActivityDefinition();
         if ("Linkage".equals(name))
             return new Linkage();
-        if ("OrderResponse".equals(name))
-            return new OrderResponse();
         if ("DeviceUseStatement".equals(name))
             return new DeviceUseStatement();
         if ("MessageHeader".equals(name))
@@ -470,8 +464,8 @@ public class ResourceFactory extends Factory {
             return new ValueSet();
         if ("OperationDefinition".equals(name))
             return new OperationDefinition();
-        if ("Order".equals(name))
-            return new Order();
+        if ("DiagnosticRequest".equals(name))
+            return new DiagnosticRequest();
         if ("Immunization".equals(name))
             return new Immunization();
         if ("Device".equals(name))
@@ -532,8 +526,8 @@ public class ResourceFactory extends Factory {
             return new HealthcareService();
         if ("DataElement".equals(name))
             return new DataElement();
-        if ("NutritionOrder".equals(name))
-            return new NutritionOrder();
+        if ("NutritionRequest".equals(name))
+            return new NutritionRequest();
         if ("AuditEvent".equals(name))
             return new AuditEvent();
         if ("MedicationOrder".equals(name))
@@ -552,8 +546,6 @@ public class ResourceFactory extends Factory {
             return new Bundle();
         if ("CompartmentDefinition".equals(name))
             return new CompartmentDefinition();
-        if ("DiagnosticOrder".equals(name))
-            return new DiagnosticOrder();
         if ("Patient".equals(name))
             return new Patient();
         if ("Coverage".equals(name))

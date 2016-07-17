@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Jul 15, 2016 17:31+1000 for FHIR v1.5.0
+// Generated on Sun, Jul 17, 2016 23:46+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -57,6 +57,10 @@ public class ActionDefinition extends Type implements ICompositeType {
          */
         AFTER, 
         /**
+         * The action must be performed concurrent with the related action
+         */
+        CONCURRENT, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -67,6 +71,8 @@ public class ActionDefinition extends Type implements ICompositeType {
           return BEFORE;
         if ("after".equals(codeString))
           return AFTER;
+        if ("concurrent".equals(codeString))
+          return CONCURRENT;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -76,6 +82,7 @@ public class ActionDefinition extends Type implements ICompositeType {
           switch (this) {
             case BEFORE: return "before";
             case AFTER: return "after";
+            case CONCURRENT: return "concurrent";
             default: return "?";
           }
         }
@@ -83,6 +90,7 @@ public class ActionDefinition extends Type implements ICompositeType {
           switch (this) {
             case BEFORE: return "http://hl7.org/fhir/action-relationship-type";
             case AFTER: return "http://hl7.org/fhir/action-relationship-type";
+            case CONCURRENT: return "http://hl7.org/fhir/action-relationship-type";
             default: return "?";
           }
         }
@@ -90,6 +98,7 @@ public class ActionDefinition extends Type implements ICompositeType {
           switch (this) {
             case BEFORE: return "The action must be performed before the related action";
             case AFTER: return "The action must be performed after the related action";
+            case CONCURRENT: return "The action must be performed concurrent with the related action";
             default: return "?";
           }
         }
@@ -97,6 +106,7 @@ public class ActionDefinition extends Type implements ICompositeType {
           switch (this) {
             case BEFORE: return "Before";
             case AFTER: return "After";
+            case CONCURRENT: return "Concurrent";
             default: return "?";
           }
         }
@@ -111,6 +121,8 @@ public class ActionDefinition extends Type implements ICompositeType {
           return ActionRelationshipType.BEFORE;
         if ("after".equals(codeString))
           return ActionRelationshipType.AFTER;
+        if ("concurrent".equals(codeString))
+          return ActionRelationshipType.CONCURRENT;
         throw new IllegalArgumentException("Unknown ActionRelationshipType code '"+codeString+"'");
         }
         public Enumeration<ActionRelationshipType> fromType(Base code) throws FHIRException {
@@ -123,6 +135,8 @@ public class ActionDefinition extends Type implements ICompositeType {
           return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.BEFORE);
         if ("after".equals(codeString))
           return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.AFTER);
+        if ("concurrent".equals(codeString))
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.CONCURRENT);
         throw new FHIRException("Unknown ActionRelationshipType code '"+codeString+"'");
         }
     public String toCode(ActionRelationshipType code) {
@@ -130,6 +144,8 @@ public class ActionDefinition extends Type implements ICompositeType {
         return "before";
       if (code == ActionRelationshipType.AFTER)
         return "after";
+      if (code == ActionRelationshipType.CONCURRENT)
+        return "concurrent";
       return "?";
       }
     public String toSystem(ActionRelationshipType code) {
@@ -468,7 +484,7 @@ public class ActionDefinition extends Type implements ICompositeType {
          * The relationship of this action to the related action.
          */
         @Child(name = "relationship", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="before | after", formalDefinition="The relationship of this action to the related action." )
+        @Description(shortDefinition="before | after | concurrent", formalDefinition="The relationship of this action to the related action." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-relationship-type")
         protected Enumeration<ActionRelationshipType> relationship;
 
