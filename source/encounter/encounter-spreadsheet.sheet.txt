@@ -54,7 +54,7 @@
  -- Row 8 -----------------------------------
   Binding Name = Priority
   Binding = value set
-  Reference = valueset-encounter-priority
+  Reference = http://hl7.org/fhir/ValueSet/v3-ActPriority
   Definition = Indicates the urgency of the encounter.
   Conformance = example
 
