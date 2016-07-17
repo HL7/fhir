@@ -7,7 +7,7 @@
   </meta>
  
   
-  <url value="http://hl7.org/fhir/CodeSystem/test-ig-cs"/>
+  <url value="http://hl7.org/fhir/test/CodeSystem/test-ig-cs"/>
   <version value="0.1"/>
   <name value="Test IG Code System"/>
   <status value="draft"/>

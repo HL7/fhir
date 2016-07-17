@@ -5,7 +5,7 @@
     <resource>
       <ValueSet xmlns="http://hl7.org/fhir">
         <id value="test-ig-bnd1"/>
-        <url value="http://hl7.org/fhir/ValueSet/test-ig-bnd1"/>
+        <url value="http://hl7.org/fhir/test/ValueSet/test-ig-bnd1"/>
         <version value="0.1"/>
         <name value="Test IG Value Set (Bundle 1)"/>
         <status value="draft"/>
@@ -39,7 +39,7 @@
     <resource>
       <ValueSet xmlns="http://hl7.org/fhir">
         <id value="test-ig-bnd2"/>
-        <url value="http://hl7.org/fhir/ValueSet/test-ig-bn2"/>
+        <url value="http://hl7.org/fhir/test/ValueSet/test-ig-bnd2"/>
         <version value="0.1"/>
         <name value="Test IG Value Set (Bundle 2)"/>
         <status value="draft"/>

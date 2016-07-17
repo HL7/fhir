@@ -345,6 +345,17 @@ public class Publisher implements IWorkerContext.ILoggingService {
     return p.getAsString();
   }
 
+  private String ostr(JsonObject obj, String name) throws Exception {
+    if (!obj.has(name))
+      return null;
+    if (!(obj.get(name) instanceof JsonPrimitive))
+      return null;
+    JsonPrimitive p = (JsonPrimitive) obj.get(name);
+    if (!p.isString())
+      return null;
+    return p.getAsString();
+  }
+
   private String str(JsonObject obj, String name, String defValue) throws Exception {
     if (!obj.has(name))
       return defValue;
@@ -397,7 +408,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     tempDir = Utilities.path(root, str(paths, "temp", "temp"));
     outputDir = Utilities.path(root, str(paths, "output", "output"));
     qaDir = Utilities.path(root, str(paths, "qa"));
-    String vsCache = str(paths, "txCache");
+    String vsCache = ostr(paths, "txCache");
     if (vsCache == null)
       vsCache = Utilities.path(System.getProperty("user.home"), "fhircache");
     else
