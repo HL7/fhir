@@ -332,7 +332,7 @@
  -- Row 7 -----------------------------------
   Name = active
   Type = token
-  Description = Whether the organization\'s record is active
+  Description = A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text
   Path = Organization.active
 
  -- Row 8 -----------------------------------

@@ -510,9 +510,9 @@ the entire supplied parameter, including casing and accents.
 Examples:
 </p>
 <table class="grid">
- <tr><td><code>[base]/Patient?name=eve</code></td><td>Any patients with a name containing "eve" at the start of the name. This would include patients with the name "Eve", "Evelyn".</td></tr>
- <tr><td><code>[base]/Patient?name:contains=eve</code></td><td>Any patients with a name containing "eve" at any position. This would include patients with the name "Eve", "Evelyn", and also "Severine".</td></tr>
- <tr><td><code>[base]/Patient?name:exact=Eve</code></td><td>Any patients with a name that is exactly "Eve". Note: This would not include patients with the name "eve" or "EVE".</td></tr>
+ <tr><td><code>[base]/Patient?given=eve</code></td><td>Any patients with a name containing a given part with "eve" at the start of the name. This would include patients with the given name "Eve", "Evelyn".</td></tr>
+ <tr><td><code>[base]/Patient?given:contains=eve</code></td><td>Any patients with a name with a given part containing "eve" at any position. This would include patients with the given name "Eve", "Evelyn", and also "Severine".</td></tr>
+ <tr><td><code>[base]/Patient?given:exact=Eve</code></td><td>Any patients with a name with a given part that is exactly "Eve". Note: This would not include patients with the given name "eve" or "EVE".</td></tr>
 </table>
 <p>
 An additional modifier <code>:text</code>
@@ -528,7 +528,10 @@ It is at the discretion of the server whether to pre-process names, addresses,
 and contact details to remove separator characters prior to matching in order
 to ensure more consistent behavior. For example, a server might remove all
 spaces and <code>-</code> characters from phone numbers. What is most appropriate varies
-depending on culture and context.
+depending on culture and context. 
+A server may also use a free-text style searches on this property to achieve the best results
+When searching whole names and addresses (not parts), servers may also use flexible match 
+or a free-text style searches on names to achieve the best results.
 </p>
 
 

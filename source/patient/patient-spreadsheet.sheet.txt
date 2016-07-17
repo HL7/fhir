@@ -537,7 +537,7 @@
  -- Row 2 -----------------------------------
   Name = name
   Type = string
-  Description = A portion of either family or given name of the patient
+  Description = A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text
   Path = Patient.name
 
  -- Row 3 -----------------------------------
@@ -580,7 +580,7 @@
  -- Row 9 -----------------------------------
   Name = address
   Type = string
-  Description = An address in any kind of address/part of the patient
+  Description = A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text
   Path = Patient.address
 
  -- Row 10 -----------------------------------

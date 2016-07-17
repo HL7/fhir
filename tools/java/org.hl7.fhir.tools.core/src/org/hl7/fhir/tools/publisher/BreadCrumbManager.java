@@ -45,6 +45,8 @@ public class BreadCrumbManager {
     private String filename;
     private String source;
     private String resource;
+    private String icon;
+    
     private List<Node> children = new ArrayList<BreadCrumbManager.Node>();
     
     public String getTitle() {
@@ -85,6 +87,12 @@ public class BreadCrumbManager {
     }
     public void setSource(String source) {
       this.source = source;
+    }
+    public String getIcon() {
+      return icon;
+    }
+    public void setIcon(String icon) {
+      this.icon = icon;
     }
     
   }
@@ -170,6 +178,7 @@ public class BreadCrumbManager {
   private Page parsePage(Element node) throws Exception {
     Page page = new Page();
     page.setTitle(node.getAttribute("title"));
+    page.setIcon(node.getAttribute("icon"));
     if (node.hasAttribute("type")) {
       if (node.getAttribute("type").equals("resource")) {
         page.setType(PageType.resource);
@@ -220,9 +229,9 @@ public class BreadCrumbManager {
 
   public String navlist(String name, String prefix) {
     StringBuilder b = new StringBuilder();
-    b.append("              <li><a href=\""+prefix+"index.html\">"+translations.getMessage("HOME", "Home")+"</a></li>\r\n");
+//    b.append("              <li><a href=\""+prefix+"index.html\">"+translations.getMessage("HOME", "Home")+"</a></li>\r\n");
     for (Node n : home.getChildren()) {
-      b.append("              <li><a href=\""+prefix+((Page) n).getFilename()+"\">"+((Page) n).getTitle()+"</a></li>\r\n");
+      b.append("              <li><a href=\""+prefix+((Page) n).getFilename()+"\">"+imgLink(prefix, (Page) n)+((Page) n).getTitle()+"</a></li>\r\n");
     }
     return b.toString();
   }
@@ -232,7 +241,7 @@ public class BreadCrumbManager {
     if (name.equals("index")) {
       b.append("        <li><b>Home</b></li>\r\n");      
     } else {
-      b.append("        <li><a href=\""+prefix+"index.html\">"+translations.getMessage("HOME", "Home")+"</a></li>\r\n");
+      //b.append("        <li><a href=\""+prefix+"index.html\">"+translations.getMessage("HOME", "Home")+"</a></li>\r\n");
       if (!name.endsWith(".html"))
         name = name + ".html";
       String nt = Utilities.changeFileExt(name, "");
@@ -242,7 +251,7 @@ public class BreadCrumbManager {
         for (int i = 0; i < path.length - 1; i++) {
           focus = getChild(focus, path[i]);
           if (focus.getFilename() != null)
-            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>\r\n");
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>\r\n");
         }
         focus = getChild(focus, path[path.length - 1]);
         b.append("        <li><b>"+focus.resource+"</b></li>");
@@ -252,7 +261,7 @@ public class BreadCrumbManager {
         for (int i = 0; i < path.length - 1; i++) {
           focus = getChild(focus, path[i]);
           if (focus.getFilename() != null)
-            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>\r\n");
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>\r\n");
         }
         focus = getChild(focus, path[path.length - 1]);
         b.append("        <li><b>"+focus.getTitle()+"</b></li>");
@@ -261,7 +270,7 @@ public class BreadCrumbManager {
         Page focus = home;
         for (int i = 0; i < path.length - 1; i++) {
           focus = getChild(focus, path[i]);
-          b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+          b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
         }
         b.append("        <li><b>"+Utilities.escapeXml(title)+"</b></li>");
       } else if (type.equals("example") && name.contains("-") && map.containsKey(name.substring(0, name.indexOf("-")))) {
@@ -270,9 +279,9 @@ public class BreadCrumbManager {
         for (int i = 0; i < path.length; i++) {
           focus = getChild(focus, path[i]);
           if (focus.type == PageType.resource)
-            b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
+            b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+imgLink(prefix, focus)+focus.getReference()+"</a></li>");
           else
-            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
         }
         b.append("        <li><b>Example</b></li>");
       } else {
@@ -285,9 +294,9 @@ public class BreadCrumbManager {
           for (int i = 0; i < path.length; i++) {
             focus = getChild(focus, path[i]);
             if (focus.type == PageType.resource)
-              b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
+              b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+imgLink(prefix, focus)+focus.getReference()+"</a></li>");
             else
-              b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+              b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
           }
           if (type.startsWith("resource-instance"))
             b.append("        <li><b>Example Instance</b></li>");
@@ -301,9 +310,9 @@ public class BreadCrumbManager {
           for (int i = 0; i < path.length; i++) {
             focus = getChild(focus, path[i]);
             if (focus.type == PageType.resource)
-              b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
+              b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+imgLink(prefix, focus)+focus.getReference()+"</a></li>");
             else
-              b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+              b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
           }
           b.append("        <li><b>Generated Questionnaire</b></li>");
         } else if (type.equals("valueset-instance") && name.contains(".")) {
@@ -312,9 +321,9 @@ public class BreadCrumbManager {
           for (int i = 0; i < path.length; i++) {
             focus = getChild(focus, path[i]);
             if (focus.type == PageType.resource)
-              b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
+              b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+imgLink(prefix, focus)+focus.getReference()+"</a></li>");
             else
-              b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+              b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
           }
           b.append("        <li><a href=\""+prefix+name.substring(0, name.indexOf("."))+".html\">"+name.substring(0, name.indexOf("."))+"</a></li>");
           b.append("        <li><b>Instance</b></li>");
@@ -324,9 +333,9 @@ public class BreadCrumbManager {
           for (int i = 0; i < path.length; i++) {
             focus = getChild(focus, path[i]);
             if (focus.type == PageType.resource)
-              b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
+              b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+imgLink(prefix, focus)+focus.getReference()+"</a></li>");
             else
-              b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+              b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
           }
           b.append("        <li><b>Example</b></li>");
         } else if (type.startsWith("res") && map.containsKey(Utilities.fileTitle(name))) {
@@ -334,13 +343,13 @@ public class BreadCrumbManager {
           Page focus = home;
           for (int i = 0; i < path.length - 1; i++) {
             focus = getChild(focus, path[i]);
-            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
           }
           focus = getChild(focus, path[path.length - 1]);
           if (type.equals("resource")) {
             b.append("        <li><b>"+focus.getReference()+"</b></li>");
           } else {
-            b.append("        <li><a href=\""+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
+            b.append("        <li><a href=\""+focus.getReference().toLowerCase()+".html\">"+imgLink(prefix, focus)+focus.getReference()+"</a></li>");
             b.append("        <li><b>"+type.substring(4)+"</b></li>");          
           }
         } else if (type.startsWith("profile:")) {
@@ -353,10 +362,10 @@ public class BreadCrumbManager {
               Page focus = home;
               for (int i = 0; i < path2.length - 1; i++) {
                 focus = getChild(focus, path2[i]);
-                b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+                b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
               }
               focus = getChild(focus, path2[path2.length - 1]);
-              b.append("        <li><a href=\""+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
+              b.append("        <li><a href=\""+focus.getReference().toLowerCase()+".html\">"+imgLink(prefix, focus)+focus.getReference()+"</a></li>");
             } else {
               if (!Utilities.noString(path[0]))
                 b.append("        <li><a href=\""+prefix+path[0].toLowerCase()+".html\">"+path[0]+"</a></li>");
@@ -374,9 +383,9 @@ public class BreadCrumbManager {
             for (int i = 0; i < path.length; i++) {
               focus = getChild(focus, path[i]);
               if (focus.type == PageType.resource)
-                b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
+                b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+imgLink(prefix, focus)+focus.getReference()+"</a></li>");
               else
-                b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+                b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
             }
           }
           b.append("        <li><b>"+Utilities.escapeXml(title)+"</b></li>");
@@ -386,9 +395,9 @@ public class BreadCrumbManager {
           for (int i = 0; i < path.length; i++) {
             focus = getChild(focus, path[i]);
             if (focus.type == PageType.resource)
-              b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
+              b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+imgLink(prefix, focus)+focus.getReference()+"</a></li>");
             else
-              b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+              b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
           }
           b.append("        <li><b>Profile</b></li>");
         } else if (type.startsWith("profile-instance:resource")) {
@@ -404,9 +413,9 @@ public class BreadCrumbManager {
             for (int i = 0; i < path.length; i++) {
               focus = getChild(focus, path[i]);
               if (focus.type == PageType.resource)
-                b.append("          <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
+                b.append("          <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+imgLink(prefix, focus)+focus.getReference()+"</a></li>");
               else
-                b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+                b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
             }
             b.append("        <li><b>Profile Instance</b></li>");
           } else if (type.startsWith("profile-instance:res:")) {
@@ -415,9 +424,9 @@ public class BreadCrumbManager {
             for (int i = 0; i < path.length; i++) {
               focus = getChild(focus, path[i]);
               if (focus.type == PageType.resource)
-                b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
+                b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+imgLink(prefix, focus)+focus.getReference()+"</a></li>");
               else
-                b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+                b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
             }
             b.append("        <li><a href=\""+prefix+Utilities.fileTitle(name)+".html\">"+Utilities.escapeXml(title)+"</a></li>");
             b.append("        <li><b>Profile Instance</b></li>");
@@ -428,9 +437,9 @@ public class BreadCrumbManager {
           for (int i = 0; i < path.length; i++) {
             focus = getChild(focus, path[i]);
             if (focus.type == PageType.resource)
-              b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
+              b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+imgLink(prefix, focus)+focus.getReference()+"</a></li>");
             else
-              b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+              b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
           }
           b.append("        <li><b>Profile</b></li>");
         } else if (type.startsWith("v2:")) {
@@ -438,7 +447,7 @@ public class BreadCrumbManager {
           Page focus = home;
           for (int i = 0; i < path.length - 1; i++) {
             focus = getChild(focus, path[i]);
-            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
           }
           b.append("        <li><a href=\"index.html\">"+Utilities.escapeXml(title)+"</a></li>");
           b.append("        <li><b>Instance</b></li>");
@@ -447,7 +456,7 @@ public class BreadCrumbManager {
           Page focus = home;
           for (int i = 0; i < path.length - 1; i++) {
             focus = getChild(focus, path[i]);
-            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
           }
           b.append("        <li><a href=\"index.html\">"+Utilities.fileTitle(name.substring(3))+"</a></li>");
           b.append("        <li><b>Instance</b></li>");
@@ -456,7 +465,7 @@ public class BreadCrumbManager {
           Page focus = home;
           for (int i = 0; i < path.length - 1; i++) {
             focus = getChild(focus, path[i]);
-            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
           }
           b.append("        <li><a href=\""+prefix+"terminologies.html\">Terminologies</a></li>");
           b.append("        <li><a href=\""+prefix+"terminologies-systems.html\">Systems</a></li>");
@@ -468,6 +477,12 @@ public class BreadCrumbManager {
     }
     b.append("        <!-- "+Utilities.escapeXml(name)+" / "+Utilities.escapeXml(type)+" / "+Utilities.escapeXml(title)+"-->\r\n");
     return b.toString();
+  }
+
+  private String imgLink(String prefix, Page focus) {
+    if (Utilities.noString(focus.icon))
+      return "";
+    return "<img src=\""+prefix+focus.icon+"\"/> ";
   }
 
   public String makeToc() {

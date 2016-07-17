@@ -142,7 +142,7 @@
  -- Row 2 -----------------------------------
   Name = name
   Type = string
-  Description = A portion of name in any name part
+  Description = A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text
   Path = RelatedPerson.name
 
  -- Row 3 -----------------------------------
@@ -173,7 +173,7 @@
  -- Row 7 -----------------------------------
   Name = address
   Type = string
-  Description = An address in any kind of address/part
+  Description = A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text
   Path = RelatedPerson.address
 
  -- Row 8 -----------------------------------
