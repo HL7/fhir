@@ -1,0 +1,1 @@
+{"resourceType":"ValueSet","compose":{"include":[{"system":"http://snomed.info/sct","concept":[{"code":"55561003","display":"Active"},{"code":"73425007","display":"Inactive"},{"code":"413322009","display":"Resolved"}]}]}}
