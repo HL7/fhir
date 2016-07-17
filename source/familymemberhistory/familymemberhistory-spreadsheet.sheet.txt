@@ -41,7 +41,7 @@
   Id = 2
   Code = completed
   Display = Completed
-  Definition = All relevant health information is known and captured.
+  Definition = All available related health information is captured as of the date (and possibly time) when the family member history was taken.
   v3 = ActStatus.completed
 
  -- Row 3 -----------------------------------
@@ -119,7 +119,7 @@
   Type = code
   Binding = FamilyHistoryStatus
   Short Label = partial | completed | entered-in-error | health-unknown
-  Definition = A code specifying a state of a Family Member History record.
+  Definition = A code specifying the status of the record of the family history of a specific family member
   w5 = status
 
  -- Row 6 -----------------------------------
