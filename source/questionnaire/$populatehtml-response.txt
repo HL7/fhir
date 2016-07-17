@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+[other headers]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+  <parameter>
+    <name value="questionnaire"/>
+    <resource>
+      <Binary>
+        <contentType value="text/html"/>
+        <content><!--Base-64 encoded HTML form goes here--></content>
+      </Binary>
+    </resource>
+  </parameter>
+</Parameters>

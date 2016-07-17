@@ -271,6 +271,12 @@
   Type = reference
   Path = QuestionnaireResponse.source
 
+ -- Row 9 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = The unique identifier for the questionnaire response
+  Path = QuestionnaireResponse.identifier
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

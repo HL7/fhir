@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+[other headers]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+  <parameter>
+    <name value="link"/>
+    <valueUri value="https://example.org/form/123457890a.asp"/>
+  </parameter>
+</Parameters>

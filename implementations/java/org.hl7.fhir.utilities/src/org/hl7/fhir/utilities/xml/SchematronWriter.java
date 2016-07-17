@@ -88,10 +88,10 @@ public class SchematronWriter  extends TextStreamWriter  {
 
     for (Section s : sections) {
       ln_i("<sch:pattern>");
-      ln("<sch:title>"+s.title+"</sch:title>");
+      ln("<sch:title>"+Utilities.escapeXml(s.title)+"</sch:title>");
       for (Rule r : s.rules) {
         if (!r.asserts.isEmpty()) {
-          ln_i("<sch:rule context=\""+r.name+"\">");
+          ln_i("<sch:rule context=\""+Utilities.escapeXml(r.name)+"\">");
           for (Assert a : r.asserts) 
             ln("<sch:assert test=\""+Utilities.escapeXml(a.test)+"\">"+Utilities.escapeXml(a.message)+"</sch:assert>");
           ln_o("</sch:rule>");

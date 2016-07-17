@@ -3,6 +3,14 @@
 
 === Sheet Invariants =====================================
 
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Extension
+  English = Must have either extensions or value[x], not both
+  XPath = exists(f:extension)!=exists(f:*[starts-with(local-name(.), \'value\')])
+  Expression = extension.exists() != value.exists()
+  Severity = error
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------

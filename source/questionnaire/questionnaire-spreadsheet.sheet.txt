@@ -653,7 +653,7 @@
   Example.Request = $populate-request.txt
   Example.Response = $populate-response.txt
   Title = Populate Questionnaire
-  Footer = While it is theoretically possible for a [[[QuestionnaireResponse]]] instance to be completely auto-populated and submitted without human review, the intention of this transaction is merely to reduce redundant data entry.  A client **SHOULD** ensure that a human submitter has an opportunity to review the auto-populated answers to confirm correctness as well as to complete or expand on information provided by the auto-population process.\n\nWhen creating an \"empty\" questionnaire, the general algorithm is to create a QuestionnaireResponse with one item for every item in the source Questionnaire, including items with \"enableWhen\", \"display\" items, etc.  If a question has a default, the default answer should be populated.  And the QuestionnaireResponse should point back to the originating Questionnaire.  Repeating items will typically only include a single repetition.  Other extensions and/or \n\nComplex form designs with conditional logic or tight constraints on cardinalities may be challenging to auto-populate.  A server MAY choose to traverse the questionnaire as if it were a human respondent, answering only those questions that are enabled based on previously answered questions.  However, doing so may result in minimal population.  Alternatively, systems may choose to populate all known answers, independent of dependencies and other constraints.  This may cause questions to be answered that should not be answered.  It will be up to the client to appropriately prune the final populated questionnaire once human review has taken place.\n\nInvoking this operation with the \'\'content\'\' parameter may involve the disclosure of personally identifiable healthcare information to the system which is performing the population process.  No such disclosures should be made unless the system on which the operation is being invoked is a \"trusted\" system and appropriate agreements are in place to protect the confidentiality of any information shared with that system.
+  Footer = While it is theoretically possible for a [[[QuestionnaireResponse]]] instance to be completely auto-populated and submitted without human review, the intention of this transaction is merely to reduce redundant data entry.  A client **SHOULD** ensure that a human submitter has an opportunity to review the auto-populated answers to confirm correctness as well as to complete or expand on information provided by the auto-population process.\n\nWhen creating an \"empty\" questionnaire, the general algorithm is to create a QuestionnaireResponse with one item for every item in the source Questionnaire, including items with \"enableWhen\", \"display\" items, etc.  If a question has a default, the default answer should be populated.  And the QuestionnaireResponse should point back to the originating Questionnaire.  Repeating items will typically only include a single repetition.  Other extensions and/or elements may also be populated if the system is aware of appropriate values.\n\nComplex form designs with conditional logic or tight constraints on cardinalities may be challenging to auto-populate.  A server MAY choose to traverse the questionnaire as if it were a human respondent, answering only those questions that are enabled based on previously answered questions.  However, doing so may result in minimal population.  Alternatively, systems may choose to populate all known answers, independent of dependencies and other constraints.  This may cause questions to be answered that should not be answered.  It will be up to the client to appropriately prune the final populated questionnaire once human review has taken place.\n\nInvoking this operation with the \'\'content\'\' parameter may involve the disclosure of personally identifiable healthcare information to the system which is performing the population process.  No such disclosures should be made unless the system on which the operation is being invoked is a \"trusted\" system and appropriate agreements are in place to protect the confidentiality of any information shared with that system.
 
  -- Row 2 -----------------------------------
   Name = populate.identifier
@@ -713,6 +713,138 @@
 
  -- Row 9 -----------------------------------
   Name = populate.issues
+  Use = out
+  Documentation = A list of hints and warnings about problems encountered while populating the questionnaire. These might be show to the user as an advisory note. Note: if the questionnaire cannot be populated at all, then the operation should fail, and an OperationOutcome is returned directly with the failure, rather than using this parameter
+  Type = OperationOutcome
+  Min = 0
+  Max = 1
+
+ -- Row 10 -----------------------------------
+  Name = populatehtml
+  Use = Resource | Instance
+  Documentation = Generates an HTML page as a [[[Binary]]] instance  based on a specified [[[Questionnaire]]], filling in answers to questions where possible based on information provided as part of the operation or already known by the server about the subject of the [[[Questionnaire]]].\n\nIf the operation is not called at the instance level, one and only one of the identifier, questionnaire or questionnaireRef \'in\' parameters must be provided. If called at the instance level, these parameters will be ignored.\n\nThe response will contain a [[[Binary]]] instance containing an HTML page for filling in and submitting the specified [[[Questionnaire]]] and/or an [[[OperationOutcome]]] resource with errors or warnings.\n\nThe generated HTML form instance will be populated with an unanswered set of questions following the group and question structure of the specified [[[Questionnaire]]].  If  *content* parameters were specified or the *local* parameter was set to true, some of the questions may have answers filled in as well.  In the case of repeating questions or groups, typically only one repetition will be provided unless answer values exist that would support populating multiple repetitions.\n\nPopulation of the HTML form with appropriate data is dependent on the questions and/or groups in the [[[Questionnaire]]] having metadata that allows the server to recognize the questions.  This might be through *Questionnaire.group.question.code*, through extensions such as the [[[http://hl7.org/fhir/StructureDefinition/questionnaire-deReference]]] extension or through use of the [[[ConceptMap]]] resource.\n\nRegardless of the mechanism used to link the questions in a questionnaire to a \"known\" mappable concept, solutions using this operation should ensure that the details of the question and associated linkage element are sufficiently similar as to safely allow auto-population; i.e. the question text and context must be sufficiently the same, the value set for the question must fall within the value set for the mapped element, the data types must be the same or convertible, etc.
+  Type = operation
+  Example.Request = $populatehtml-request.txt
+  Example.Response = $populatehtml-response.txt
+  Title = Geneate HTML for Questionnaire
+  Footer = While it is theoretically possible for an HTML form to be completely auto-populated and submitted without human review, the intention of this transaction is merely to reduce redundant data entry.  The HTML form **SHOULD** ensure that a human submitter has an opportunity to review the auto-populated answers to confirm correctness as well as to complete or expand on information provided by the auto-population process.\n\nComplex form designs with conditional logic or tight constraints on cardinalities may be challenging to auto-populate.  A server MAY choose to traverse the questionnaire as if it were a human respondent, answering only those questions that are enabled based on previously answered questions.  However, doing so may result in minimal population.  Alternatively, systems may choose to populate all known answers, independent of dependencies and other constraints.  This may cause questions to be answered that should not be answered.  The generated HTML form is responsible for pruning the final populated questionnaire once human review has taken place.\n\nInvoking this operation with the \'\'content\'\' parameter may involve the disclosure of personally identifiable healthcare information to the system which is performing the population process.  No such disclosures should be made unless the system on which the operation is being invoked is a \"trusted\" system and appropriate agreements are in place to protect the confidentiality of any information shared with that system.
+
+ -- Row 11 -----------------------------------
+  Name = populatehtml.identifier
+  Use = in
+  Documentation = A logical questionnaire identifier (i.e. \'\'Questionnaire.identifier\'\'). The server must know the questionnaire or be able to retrieve it from other known repositories.
+  Type = uri
+  Min = 0
+  Max = 1
+
+ -- Row 12 -----------------------------------
+  Name = populatehtml.questionnaire
+  Use = in
+  Documentation = The [[[Questionnaire]]] is provided directly as part of the request. Servers may choose not to accept questionnaires in this fashion
+  Type = Questionnaire
+  Min = 0
+  Max = 1
+
+ -- Row 13 -----------------------------------
+  Name = populatehtml.questionnaireRef
+  Use = in
+  Documentation = The [[[Questionnaire]]] is provided as a resource reference. Servers may choose not to accept questionnaires in this fashion or may fail if they cannot resolve or access the referenced questionnaire.
+  Type = Reference(Questionnaire)
+  Min = 0
+  Max = 1
+
+ -- Row 14 -----------------------------------
+  Name = populatehtml.content
+  Use = in
+  Documentation = Resources containing information to be used to help populate the generated HTML form.  These may be FHIR resources or may be binaries containing FHIR documents, CDA documents or other source materials.  Servers may not support all possible source materials and may ignore materials they do not recognize.  (They MAY provide warnings if ignoring submitted resources.)
+  Type = Reference(Any)
+  Min = 0
+  Max = *
+
+ -- Row 15 -----------------------------------
+  Name = populatehtml.local
+  Use = in
+  Documentation = If specified and set to \'true\' (and the server is capable), the server should use what resources and other knowledge it has about the referenced subject when pre-populating answers to questions.
+  Type = boolean
+  Min = 0
+  Max = 1
+
+ -- Row 16 -----------------------------------
+  Name = populatehtml.form
+  Use = out
+  Documentation = The URL for the web form  that supports capturing the information defined by questionnaire, possibly partially (or fully)-populated with a set of answers for the specified Questionnaire
+  Type = uri
+  Min = 1
+  Max = 1
+
+ -- Row 17 -----------------------------------
+  Name = populatehtml.issues
+  Use = out
+  Documentation = A list of hints and warnings about problems encountered while populating the questionnaire. These might be show to the user as an advisory note. Note: if the questionnaire cannot be populated at all, then the operation should fail, and an OperationOutcome is returned directly with the failure, rather than using this parameter
+  Type = OperationOutcome
+  Min = 0
+  Max = 1
+
+ -- Row 18 -----------------------------------
+  Name = populatelink
+  Use = Resource | Instance
+  Documentation = Generates a link to a web page to be used to answer a specified [[[Questionnaire]]].  The form at the specified location will be pre-filled with answers to questions where possible based on information provided as part of the operation or already known by the server about the subject of the [[[Questionnaire]]].\n\nIf the operation is not called at the instance level, one and only one of the identifier, questionnaire or questionnaireRef \'in\' parameters must be provided. If called at the instance level, these parameters will be ignored.\n\nThe response will contain a url for the web page to direct the user to.  The page will allow the user to complete/verify the questionnaire answers and to submit the form.\n\nThe specified page will be populated with an unanswered set of questions following the group and question structure of the specified [[[Questionnaire]]].  If  *content* parameters were specified or the *local* parameter was set to true, some of the questions may have answers filled in as well.  In the case of repeating questions or groups, typically only one repetition will be provided unless answer values exist that would support populating multiple repetitions.\n\nPopulation of the page with appropriate data is dependent on the questions and/or groups in the [[[Questionnaire]]] having metadata that allows the server to recognize the questions.  This might be through *Questionnaire.group.question.code*, through extensions such as the [[[http://hl7.org/fhir/StructureDefinition/questionnaire-deReference]]] extension or through use of the [[[ConceptMap]]] resource.\n\nRegardless of the mechanism used to link the questions in a questionnaire to a \"known\" mappable concept, solutions using this operation should ensure that the details of the question and associated linkage element are sufficiently similar as to safely allow auto-population; i.e. the question text and context must be sufficiently the same, the value set for the question must fall within the value set for the mapped element, the data types must be the same or convertible, etc.
+  Type = operation
+  Example.Request = $populatelink-request.txt
+  Example.Response = $populatelink-response.txt
+  Title = Generate a link to a Questionnaire completion webpage
+  Footer = While it is theoretically possible for the questionnaire response to be completely auto-populated and submitted without human review, the intention of this transaction is merely to reduce redundant data entry.  The web page **SHOULD** ensure that a human submitter has an opportunity to review the auto-populated answers to confirm correctness as well as to complete or expand on information provided by the auto-population process.\n\nComplex form designs with conditional logic or tight constraints on cardinalities may be challenging to auto-populate.  A server MAY choose to traverse the questionnaire as if it were a human respondent, answering only those questions that are enabled based on previously answered questions.  However, doing so may result in minimal population.  Alternatively, systems may choose to populate all known answers, independent of dependencies and other constraints.  This may cause questions to be answered that should not be answered.  The web form is responsible for pruning the final populated questionnaire once human review has taken place.\n\nInvoking this operation with the \'\'content\'\' parameter may involve the disclosure of personally identifiable healthcare information to the system which is performing the population process.  No such disclosures should be made unless the system on which the operation is being invoked is a \"trusted\" system and appropriate agreements are in place to protect the confidentiality of any information shared with that system.
+
+ -- Row 19 -----------------------------------
+  Name = populatelink.identifier
+  Use = in
+  Documentation = A logical questionnaire identifier (i.e. \'\'Questionnaire.identifier\'\'). The server must know the questionnaire or be able to retrieve it from other known repositories.
+  Type = uri
+  Min = 0
+  Max = 1
+
+ -- Row 20 -----------------------------------
+  Name = populatelink.questionnaire
+  Use = in
+  Documentation = The [[[Questionnaire]]] is provided directly as part of the request. Servers may choose not to accept questionnaires in this fashion
+  Type = Questionnaire
+  Min = 0
+  Max = 1
+
+ -- Row 21 -----------------------------------
+  Name = populatelink.questionnaireRef
+  Use = in
+  Documentation = The [[[Questionnaire]]] is provided as a resource reference. Servers may choose not to accept questionnaires in this fashion or may fail if they cannot resolve or access the referenced questionnaire.
+  Type = Reference(Questionnaire)
+  Min = 0
+  Max = 1
+
+ -- Row 22 -----------------------------------
+  Name = populatelink.content
+  Use = in
+  Documentation = Resources containing information to be used to help populate the generated HTML form.  These may be FHIR resources or may be binaries containing FHIR documents, CDA documents or other source materials.  Servers may not support all possible source materials and may ignore materials they do not recognize.  (They MAY provide warnings if ignoring submitted resources.)
+  Type = Reference(Any)
+  Min = 0
+  Max = *
+
+ -- Row 23 -----------------------------------
+  Name = populatelink.local
+  Use = in
+  Documentation = If specified and set to \'true\' (and the server is capable), the server should use what resources and other knowledge it has about the referenced subject when pre-populating answers to questions.
+  Type = boolean
+  Min = 0
+  Max = 1
+
+ -- Row 24 -----------------------------------
+  Name = populatelink.link
+  Use = out
+  Documentation = The generated HTML page that supports capturing the information defined by questionnaire, possibly partially (or fully)-populated with a set of answers for the specified Questionnaire
+  Type = Binary
+  Min = 1
+  Max = 1
+
+ -- Row 25 -----------------------------------
+  Name = populatelink.issues
   Use = out
   Documentation = A list of hints and warnings about problems encountered while populating the questionnaire. These might be show to the user as an advisory note. Note: if the questionnaire cannot be populated at all, then the operation should fail, and an OperationOutcome is returned directly with the failure, rather than using this parameter
   Type = OperationOutcome

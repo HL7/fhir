@@ -36,6 +36,13 @@
   Definition = Identifies the purpose for a \"display\" item
   Conformance = extensible
 
+ -- Row 6 -----------------------------------
+  Binding Name = QuestionnaireItemUsageMode
+  Binding = code list
+  Reference = #questionnaire-usage-mode
+  Definition = Identifies the modes of usage of a questionnaire that should enable a particular questionnaire item
+  Conformance = required
+
 === Sheet question-max-occurs =====================================
 
  -- Row 1 -----------------------------------
@@ -53,6 +60,38 @@
  -- Row 2 -----------------------------------
   Code = vertical
   Definition = List choices down the vertical axis
+
+=== Sheet questionnaire-usage-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = capture-display
+  Display = Capture & Display
+  Definition = Render the item regardless of usage mode
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = capture
+  Display = Capture Only
+  Definition = Render the item only when capturing data
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = display
+  Display = Display Only
+  Definition = Render the item only when displaying a completed form
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = display-non-empty
+  Display = Display when Answered
+  Definition = Render the item only when displaying a completed form and the item has been answered (or has child items that have been answered)
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = capture-display-non-empty
+  Display = Capture or, if answered, Display
+  Definition = Render the item when capturing data or when displaying a completed form and the item has been answered (or has child items that have been answered)
 
 === Sheet Extensions-Inv =====================================
 
