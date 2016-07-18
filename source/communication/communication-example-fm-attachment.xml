@@ -27,21 +27,36 @@
     </Organization>
   </contained>
 
-  <!-- Example using Context Extensions
-  <extension url="http://hl7.org/fhir/StructureDefinition/attachment-context-provider">
-    <valueIdentifier>
-	  <system value="http://happyvalley.com/claim"/>
-      <value value="12345"/>
-	</valueIdentifier>
-  </extension>
-  
-  <extension url="http://hl7.org/fhir/StructureDefinition/attachment-context-payor">
-    <valueIdentifier>
-	  <system value="http://www.BenefitsInc.com/fhir/remittance"/>
-      <value value="R3500"/>
-	</valueIdentifier>
-  </extension>
-  -->
+  <contained>
+    <Claim>
+      <id value="claim"/>
+      <identifier>
+	    <system value="http://happyvalley.com/claim"/>
+        <value value="12345"/>
+      </identifier>
+	  <!-- the elements below are required only because of resource cardinalities - may not be actually available to the sender -->
+	  <status value="draft"/>
+	  <type>
+        <system value="http://hl7.org/fhir/ex-claimtype"/>
+        <code value="oral"/>
+	  </type>
+      <patientReference>
+        <reference value="Patient/1"/>
+      </patientReference>
+    </Claim>
+  </contained>
+
+  <contained>
+    <ClaimResponse>
+      <id value="claimresponse"/>
+      <identifier>
+	    <system value="http://www.BenefitsInc.com/fhir/claimresponse"/>
+        <value value="R3500"/>
+      </identifier>
+	  <status value="draft"/>
+    </ClaimResponse>
+  </contained>
+	
   <!-- body of the resource -->
   
   <identifier>
@@ -49,18 +64,20 @@
 		<value value="12345"/>
   </identifier>
   
-   <category>
-      <coding>
-        <system value="http://acme.org/messagetypes"/>
-        <code value="SolicitedAttachment"/>
-      </coding>
+  <category>
+    <coding>
+      <system value="http://acme.org/messagetypes"/>
+      <code value="SolicitedAttachment"/>
+    </coding>
    </category>
+
    <sender>
      <reference value="#provider"/>
    </sender>
    <recipient>
     <reference value="#payor"/>
   </recipient>
+
   <payload>
     <contentAttachment>
 	  <contentType value="application/pdf" />
@@ -78,18 +95,18 @@
 	  <creation value="2010-02-01T10:57:34+01:00"/>
     </contentAttachment>
   </payload>
+
   <status value="completed"/>
+  
+  <!-- Example using topic 0..* Resource(Any)
+  <topic>
+    <reference value="#claim"/>
+  </topic>
+  <topic>
+    <reference value="#claimresponse"/>
+  </topic>
+  -->
+  
   <sent value="2016-06-12T18:01:10-08:00"/>
 
-    <!-- Example using Context element defined as: context[x] 0..* Identifier | Resource(Any)
-    <contextIdentifier>
-	  <system value="http://happyvalley.com/claim"/>
-      <value value="12345"/>
-	</contextIdentifier>
-  
-    <contextIdentifier>
-	  <system value="http://www.BenefitsInc.com/fhir/remittance"/>
-      <value value="R3500"/>
-	</contextIdentifier>
-    -->
 </Communication>
