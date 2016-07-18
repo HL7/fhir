@@ -178,6 +178,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private Calendar execTime = Calendar.getInstance();
   private Set<String> otherFilesStartup = new HashSet<String>();
   private Set<String> otherFilesRun = new HashSet<String>();
+  private Set<String> regenList = new HashSet<String>();
   
 
   private long globalStart;
@@ -472,6 +473,10 @@ public class Publisher implements IWorkerContext.ILoggingService {
       }
     }
     log("Initialization complete");
+    // now, do regeneration
+    JsonArray regenlist = configuration.getAsJsonArray("regenerate");
+    for (JsonElement regen : regenlist)
+      regenList.add(((JsonPrimitive) regen).getAsString());
   }
 
   private void loadIg(JsonObject dep) throws Exception {
@@ -1033,6 +1038,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
     forceDir(Utilities.path(tempDir, "data"));
     
     otherFilesRun.clear();
+    for (String rg : regenList) 
+      regenerate(rg);
+
     for (FetchedFile f : changeList) 
       generateOutputs(f);
 
@@ -1045,6 +1053,27 @@ public class Publisher implements IWorkerContext.ILoggingService {
       if (!changeList.isEmpty())
         generateZips();
     
+  }
+
+  private void regenerate(String uri) throws Exception {
+    Resource res ;
+    if (uri.contains("/StructureDefinition/"))
+      res = context.fetchResource(StructureDefinition.class, uri);
+    else
+      throw new Exception("Unable to process "+uri);
+
+    BaseConformance bc = (BaseConformance) res;
+    
+    FetchedFile f = new FetchedFile();
+    FetchedResource r = f.addResource();
+    r.setResource(res);
+    r.setId(bc.getId());
+    r.setTitle(bc.getName());
+    r.setValidated(true);
+    r.setElement(new ObjectConverter(context).convert(bc));
+    igpkp.findConfiguration(f, r);
+    bc.setUserData("config", r.getConfig());
+    generateOutputs(f);
   }
 
   private void cleanOutput(String folder) throws IOException {
