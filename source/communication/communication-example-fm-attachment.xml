@@ -98,14 +98,13 @@
 
   <status value="completed"/>
   
-  <!-- Example using topic 0..* Resource(Any)
+  <!-- Example using topic 0..* Resource(Any) to provide focal resources -->
   <topic>
     <reference value="#claim"/>
   </topic>
   <topic>
     <reference value="#claimresponse"/>
   </topic>
-  -->
   
   <sent value="2016-06-12T18:01:10-08:00"/>
 

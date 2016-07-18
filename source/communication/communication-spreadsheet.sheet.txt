@@ -135,14 +135,22 @@
   w5 = status
 
  -- Row 10 -----------------------------------
-  Element = Communication.encounter
+  Element = Communication.context
   Card. = 0..1
-  Type = Reference(Encounter)
-  Short Label = Encounter leading to message
+  Type = Reference(Encounter|EpisodeOfCare)
+  Short Label = Encounter or episode leading to message
   Definition = The encounter within which the communication was sent.
   w5 = context
 
  -- Row 11 -----------------------------------
+  Element = Communication.topic
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Label = Focal resources
+  Definition = The resources which were responsible for or related to producing this communication.
+  w5 = context
+
+ -- Row 12 -----------------------------------
   Element = Communication.sent
   Card. = 0..1
   Type = dateTime
@@ -150,7 +158,7 @@
   Definition = The time when this communication was sent.
   w5 = when.init
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Communication.received
   Card. = 0..1
   Type = dateTime
@@ -158,7 +166,7 @@
   Definition = The time when this communication arrived at the destination.
   w5 = when.done
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Communication.reason
   Card. = 0..*
   Type = CodeableConcept
@@ -166,7 +174,7 @@
   Short Label = Indication for message
   Definition = The reason or justification for the communication.
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Communication.subject
   Card. = 0..1
   Type = Reference(Patient)
@@ -174,7 +182,7 @@
   Definition = The patient who was the focus of this communication.
   w5 = who.focus
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Communication.requestDetail
   Card. = 0..1
   Type = Reference(CommunicationRequest)
@@ -215,9 +223,9 @@
   Path = Communication.status
 
  -- Row 7 -----------------------------------
-  Name = encounter
+  Name = context
   Type = reference
-  Path = Communication.encounter
+  Path = Communication.context
 
  -- Row 8 -----------------------------------
   Name = sent
