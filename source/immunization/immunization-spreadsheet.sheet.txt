@@ -364,7 +364,7 @@
 
  -- Row 28 -----------------------------------
   Element = Immunization.vaccinationProtocol.doseSequence
-  Card. = 1..1
+  Card. = 0..1
   Type = positiveInt
   Short Label = Dose number within series
   Definition = Nominal position in a series

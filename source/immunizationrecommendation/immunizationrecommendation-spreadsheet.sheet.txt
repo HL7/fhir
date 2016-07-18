@@ -149,7 +149,7 @@
  -- Row 13 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.protocol.doseSequence
   Card. = 0..1
-  Type = integer
+  Type = positiveInt
   Short Label = Dose number within sequence
   Definition = Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.
   v2 Mapping = OBX-5 : OBX-3 = 30973-2
