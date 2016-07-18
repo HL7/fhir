@@ -171,12 +171,6 @@
   Display = Environment
   Definition = Substances that are encountered in the environment.
 
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = other
-  Display = Other
-  Definition = Other substances that are not covered by any other category.
-
 === Sheet reaction-event-certainty =====================================
 
  -- Row 1 -----------------------------------

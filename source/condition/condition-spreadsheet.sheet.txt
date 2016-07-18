@@ -388,49 +388,79 @@
   Path = Condition.category
 
  -- Row 6 -----------------------------------
-  Name = onset
+  Name = onset-age
+  Type = quantity
+  Description = Onsets as age or age range
+  Path = Condition.onset[x]
+
+ -- Row 7 -----------------------------------
+  Name = onset-date
   Type = date
   Description = Date related onsets (dateTime and Period)
   Path = Condition.onset[x]
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = onset-info
   Type = string
-  Description = Other onsets (boolean, age, range, string)
+  Description = Onsets as a string
   Path = Condition.onset[x]
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
+  Name = abatement-age
+  Type = quantity
+  Description = Abatement as age or age range
+  Path = Condition.abatement[x]
+
+ -- Row 10 -----------------------------------
+  Name = abatement-boolean
+  Type = token
+  Description = Abatement boolean (boolean is true or non-boolean values are present)
+  Path = Condition.abatement[x]
+
+ -- Row 11 -----------------------------------
+  Name = abatement-date
+  Type = string
+  Description = Date-related abatements (dateTime and period)
+  Path = Condition.abatement[x]
+
+ -- Row 12 -----------------------------------
+  Name = abatement-info
+  Type = quantity
+  Description = Abatement as a string
+  Path = Condition.abatement[x]
+
+ -- Row 13 -----------------------------------
   Name = encounter
   Type = reference
   Path = Condition.encounter
 
- -- Row 9 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = asserter
   Type = reference
   Path = Condition.asserter
 
- -- Row 10 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = date-recorded
   Type = date
   Description = A date, when the Condition statement was documented
   Path = Condition.dateRecorded
 
- -- Row 11 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = evidence
   Type = token
   Path = Condition.evidence.code
 
- -- Row 12 -----------------------------------
+ -- Row 17 -----------------------------------
   Name = body-site
   Type = token
   Path = Condition.bodySite
 
- -- Row 13 -----------------------------------
+ -- Row 18 -----------------------------------
   Name = stage
   Type = token
   Path = Condition.stage.summary
 
- -- Row 14 -----------------------------------
+ -- Row 19 -----------------------------------
   Name = patient
   Type = reference
   Path = Condition.patient

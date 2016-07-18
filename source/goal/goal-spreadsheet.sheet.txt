@@ -1,4 +1,4 @@
-
+﻿
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -40,6 +40,11 @@
   Reference = valueset-goal-start-event
   Definition = Codes describing events that can trigger the initiation of a goal
   Conformance = example
+
+ -- Row 7 -----------------------------------
+  Binding Name = GoalDescription
+  Binding = unbound
+  Definition = Codes providing the details of a particular goal.  This will generally be system or implementation guide-specific.  In many systems, only the text element will be used.
 
 === Sheet goal-status =====================================
 
@@ -184,10 +189,12 @@
   Element = Goal.description
   Card. = 1..1
   Summary = Y
-  Type = string
-  Short Label = What\'s the desired outcome?
-  Definition = Human-readable description of a specific desired objective of care.
+  Type = CodeableConcept
+  Binding = GoalDescription
+  Short Label = Code or text describing goal
+  Definition = Code and/or human-readable description of a specific desired objective of care.
   Requirements = Without a description of what\'s trying to be achieved, element has no purpose
+  Comments = If no code is available, use CodeableConcept.text.
   v2 Mapping = GOL-3.2-goal ID.text
   RIM Mapping = .text
 

@@ -14,6 +14,9 @@ A flag has a subject representing the resource that will trigger its display. Th
     <li>An outbreak of Ebola in a particular region (subject=Location) so that all patients from that region have a higher risk of having that condition</li>
     <li>A particular provider is unavailable for referrals over a given period (subject = Practitioner)</li>
     <li>A patient who is enrolled in a clinical trial (subject=Group)</li>
+    <li>Special guidance or caveats to be aware of when following a protocol (subject=PlanDefinition)</li>
+    <li>Warnings about using a drug in a formulary requires special approval (subject=Medication)</li>
+    <li>etc.</li>
 </ul>
 <p>
     
