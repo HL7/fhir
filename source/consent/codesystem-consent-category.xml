@@ -8,30 +8,130 @@
   <description value="This value set includes basic Privacy Consent Directive Type codes. Additional codes may be defined within a Realm, Domain, Local, or virtial-domain."/>
   <copyright value="This is an example set."/>
   <caseSensitive value="true"/>
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other
+       concepts"/>
+    <type value="boolean"/>
+  </property>
+  
   <content value="complete"/>
+  
+  <concept>
+    <display value="Advance Directive Consent examples"/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <concept>
+      <code value="advance-directive"/>
+      <display value="Advance Directive"/>
+      <definition value="Any instructions, written or given verbally by a patient to a health care provider in anticipation of potential need for medical treatment"/>    
+    </concept>	  
+  </concept>	
+  <concept>
+    <display value="Medical/Procedure Informed Consent"/>
+    <definition value="RWJ funded toolkit has several international example consent forms, and excellent overview of issues around medical informed consent"/>    
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <concept>
+      <code value="medical-consent"/>
+      <display value="Medical Consent"/>
+      <definition value="Informed consent is the process of communication between a patient and physician that results in the patient’s authorization or agreement to undergo a specific medical intervention [AMA 1998]. For both ethical and legal reasons, patients must be given enough information to be fully informed before deciding to undergo a major treatment, and this informed consent must be documented in writing."/>
+    </concept>	  
+  </concept>	
+  <concept>
+    <display value="Example of US jurisdictional [federal and state] privacy consent"/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
     <concept>
       <code value="hipaa"/>
       <display value="HIPAA Authorization"/>
-      <definition value="HIPAA 45 CFR Section 164.508 Uses and disclosures for which an authorization is required. (a) Standard: Authorizations for uses and disclosures.  (1) Authorization required: General rule. Except as otherwise permitted or required by this subchapter, a covered entity may not use or disclose protected health information without an authorization that is valid under this section. When a covered entity obtains or receives a valid authorization for its use or disclosure of protected health information, such use or disclosure must be consistent with such authorization. Usage Note:  Authorizations governed under this regulation meet the definition of an opt in class of consent directive."/>    
-    </concept>	
+      <definition value="HIPAA 45 CFR Section 164.508 Uses and disclosures for which an authorization is required. (a) Standard: Authorizations for uses and disclosures. (1) Authorization required: General rule. Except as otherwise permitted or required by this subchapter, a covered entity may not use or disclose protected health information without an authorization that is valid under this section. When a covered entity obtains or receives a valid authorization for its use or disclosure of protected health information, such use or disclosure must be consistent with such authorization. Usage Note: Authorizations governed under this regulation meet the definition of an opt in class of consent directive."/>    
+    </concept>	  
     <concept>
-      <code value="EMRGONLY"/>
-      <display value="emergency only"/>
-      <definition value="Opt-in to disclosure of health information for emergency only consent directive"/>    
-    </concept>
+      <code value="SSA-827"/>
+      <display value="SSA Authorization to Disclose"/>
+      <definition value="SA Form SSA-827 (Authorization to Disclose Information to the Social Security Administration (SSA)). Form is available at https://www.socialsecurity.gov/forms/ssa-827-inst-sp.pdf"/>
+    </concept>	  
+  </concept>	
+  <concept>
+    <display value="US “Mixed” state HIE consent types"/>
+    <definition value="May include federal and state jurisdictional privacy laws"/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
     <concept>
-      <code value="advance-directive"/>
-      <display value="advance directive"/>
-      <definition value="Any instructions, written or given verbally by a patient to a health care provider in anticipation of potential need for medical treatment"/>    
-    </concept>	
+      <code value="DCH-3927"/>
+      <display value="Michigan behavior and mental health consent"/>
+      <definition value="Michigan DCH-3927 Consent to Share Behavioral Health Information for Care Coordination Purposes, which combines 42 CFR Part 2 and Michigan Mental Health Code, Act 258 of 1974. Form is available at http://www.michigan.gov/documents/mdch/DCH-3927_Consent_to_Share_Health_Information_477005_7.docx"/>    
+    </concept>	  
     <concept>
-      <code value="smart-on-fhir"/>
-      <display value="SMART on FHIR Authorization"/>
-      <definition value="A record of a SMART on FHIR Authorization granted by a user"/>    
-    </concept>	
+      <code value="squaxin"/>
+      <display value="Squaxin Indian behavioral health and HIPAA consent"/>
+      <definition value="Squaxin Indian HIPAA and 42 CFR Part 2 Consent for Release and Exchange of Confidential Information, which permits consenter to select healthcare record type and types of treatment purposes.  This consent requires disclosers and recipients to comply with 42 C.F.R. Part 2, and HIPAA 45 C.F.R. parts 160 and 164. It includes patient notice of the refrain policy not to disclose without consent, and revocation rights. https://www.ncsacw.samhsa.gov/files/SI_ConsentForReleaseAndExchange.PDF"/>    
+    </concept>	  
+  </concept>	
+  <concept>
+    <display value="Example international health information exchange consent type"/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
     <concept>
-      <code value="dnr"/>
-      <display value="DNR (Do Not resuscitate)"/>
-      <definition value="A legal document, signed by both the patient and their provider, stating a desire not to have CPR initiated in case of a cardiac event.  Note: This form was replaced in 2003 with the Physician Orders for Life-Sustaining Treatment [POLST]."/>    
-    </concept>	 
-</CodeSystem>
+      <code value="nl-lsp"/>
+      <display value="NL LSP Permission"/>
+      <definition value="LSP (National Exchange Point) requires that providers, hospitals and pharmacy obtain explicit permission [opt-in] from healthcare consumers to submit and retrieve all or only some of a subject of care’s health information collected by the LSP for purpose of treatment, which can be revoked.  Without permission, a provider cannot access LSP information even in an emergency. The LSP provides healthcare consumers with accountings of disclosures. https://www.vzvz.nl/uploaded/FILES/htmlcontent/Formulieren/TOESTEMMINGSFORMULIER.pdf, https://www.ikgeeftoestemming.nl/en, https://www.ikgeeftoestemming.nl/en/registration/find-healthcare-provider"/>    
+    </concept>	  
+    <concept>
+      <code value="at-elga"/>
+      <display value="AT ELGA Opt-in Consent"/>
+      <definition value="Pursuant to Sec. 2 no. 9 Health Telematics Act 2012, ELGA Health Data ( “ELGA-Gesundheitsdaten”) = Medical documents. Austria opted for an opt-out approach. This means that a person is by default ‘ELGA participant’ unless he/she objects. ELGA participants have the following options: General opt out: No participation in ELGA, Partial opt-out: No participation in a particular ELGA application, e.g. eMedication and Case-specific opt-out: No participation in ELGA only regarding a particular case/treatment. There is the possibility to opt-in again. ELGA participants can also exclude the access of a particular ELGA healthcare provider to a particular piece of or all of their ELGA data. http://ec.europa.eu/health/ehealth/docs/laws_austria_en.pdf"/>    
+    </concept>	  
+  </concept>	
+
+  <concept>
+    <display value="Examples of US Research Consent Types"/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <concept>
+      <code value="hipaa"/>
+      <display value="HHS NIH HIPAA Research Authorization"/>
+      <definition value="Guidance and template form https://privacyruleandresearch.nih.gov/pdf/authorization.pdf"/>    
+    </concept>	  
+    <concept>
+      <code value="nci"/>
+      <display value="NCI Cancer Clinical Trial consent"/>
+      <definition value="see http://ctep.cancer.gov/protocolDevelopment/docs/Informed_Consent_Template.docx"/>    
+    </concept>	  
+    <concept>
+      <code value="nih-grdr"/>
+      <display value="NIH Global Rare Disease Patient Registry and Data Repository consent"/>
+      <definition value="Global Rare Disease Patient Registry and Data Repository (GRDR) consent is an agreement of a healthcare consumer to permit collection, access, use and disclosure of de-identified rare disease information and collection of bio-specimens, medical information, family history and other related information from patients to permit the registry collection of health and genetic information, and specimens for pseudonymized disclosure for research purpose of use. https://rarediseases.info.nih.gov/files/informed_consent_template.pdf"/>    
+    </concept>	  
+    <concept>
+      <code value="va-10-10116"/>
+      <display value="VA Form 10-10116"/>
+      <definition value="VA Form 10-10116 Revocation of Authorization for Use and Release of Individually Identifiable Health Information for Veterans Health Administration Research. Note: VA Form 10-10116 is available @ http://www.northerncalifornia.va.gov/northerncalifornia/services/rnd/docs/vha-10-10116.pdf"/>    
+    </concept>	  
+    <concept>
+      <code value="nih-527"/>
+      <display value="NIH Authorization for the Release of Medical Information"/>
+      <definition value="NIH Authorization for the Release of Medical Information is a patient’s consent for the National Institutes of Health Clinical Center to release medical information to care providers, which can be revoked. Note: Consent Form available @ http://cc.nih.gov/participate/_pdf/NIH-527.pdf"/>    
+    </concept>	  
+    <concept>
+      <code value="ga4gh"/>
+      <display value="Population origins and ancestry research consent"/>
+      <definition value="Global Alliance for Genomic Health Data Sharing Consent Form is an example of the GA4GH Population origins and ancestry research consent form. Consenters agree to permitting a specified research project to collect ancestry and genetic information in controlled-access databases, and to allow other researchers to use deidentified information from those databases. http://www.commonaccord.org/index.php?action=doc&amp;file=Wx/org/genomicsandhealth/REWG/Demo/Roberta_Robinson_US"/>
+    </concept>	  
+  </concept>	
+</CodeSystem> 
+ 
