@@ -66,6 +66,13 @@
   XPath = not (*[starts-with(local-name(.), \'age\')] and *[starts-with(local-name(.), \'birth\')])
   Expression = age.empty() or born.empty()
 
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = FamilyMemberHistory
+  English = Can only have estimatedAge is age[x] is present
+  XPath = exists(*[starts-with(local-name(.), \'age\')]) or not(exists(f:estimatedAge))
+  Expression = age.exists() or estimatedAge.empty()
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -165,22 +172,37 @@
  -- Row 10 -----------------------------------
   Element = FamilyMemberHistory.age[x]
   Card. = 0..1
+  Summary = Y
   Inv. = 1
   Type = Age | Range | string
   Short Label = (approximate) age
-  Definition = The actual or approximate age of the relative at the time the family member history is recorded
+  Definition = The age of the relative at the time the family member history is recorded
   Requirements = While age can be calculated from date of birth, sometimes recording age directly is more natureal for clinicians.
+  Comments = use estimatedAge to indicate whether the age is actual or not
   RIM Mapping = participation[typeCode=SBJ].act[classCode=OBS,moodCode=EVN, code=\"age\"].value
 
  -- Row 11 -----------------------------------
+  Element = FamilyMemberHistory.estimatedAge
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = Y
+  Inv. = 2
+  Type = boolean
+  Short Label = Age is estimated?
+  Definition = If true, indicates that the age value specified is an estimated value
+  Requirements = Clinicians often prefer to specify an estimaged age rather than an age range
+  Missing Meaning = It is unknown whether the age is an estimate or not
+
+ -- Row 12 -----------------------------------
   Element = FamilyMemberHistory.deceased[x]
   Card. = 0..1
+  Summary = Y
   Type = boolean | Age | Range | date | string
   Short Label = Dead? How old/when?
   Definition = Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record
   RIM Mapping = player[classCode=LIV, determinerCode=INSTANCE].deceasedInd, deceasedDate (could be URG)  For age, you\'d hang an observation off the role
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = FamilyMemberHistory.note
   Card. = 0..1
   Type = Annotation
@@ -188,7 +210,7 @@
   Definition = This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=ActCode#ANNGEN].value
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = FamilyMemberHistory.condition
   Card. = 0..*
   UML = right
@@ -197,7 +219,7 @@
   Comments = If none of the conditions listed have an outcome of \"death\" specified, that indicates that none of the specified conditions are known to have been the primary cause of death
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=ActCode#ASSERTION, value<Diagnosis]
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = FamilyMemberHistory.condition.code
   Card. = 1..1
   Type = CodeableConcept
@@ -206,7 +228,7 @@
   Definition = The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like \'cancer\' depending on how much is known about the condition and the capabilities of the creating system
   RIM Mapping = .value
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = FamilyMemberHistory.condition.outcome
   Card. = 0..1
   Type = CodeableConcept
@@ -215,7 +237,7 @@
   Definition = Indicates what happened as a result of this condition.  If the condition resulted in death, deceased date is captured on the relation.
   RIM Mapping = outboundRelationship[typeCode=OUTC)].target[classCode=OBS, moodCode=EVN, code=ActCode#ASSERTION].value
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = FamilyMemberHistory.condition.onset[x]
   Card. = 0..1
   Type = Age | Range | Period | string
@@ -225,7 +247,7 @@
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"Subject Age at measurement\", value<Diagnosis].value[@xsi:typeCode=\'TS\' or \'IVL_TS\']  Use originalText for string
   To Do = Define/find appropriate observation code
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = FamilyMemberHistory.condition.note
   Card. = 0..1
   Type = Annotation
