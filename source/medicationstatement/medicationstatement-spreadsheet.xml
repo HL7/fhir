@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>3900</WindowHeight>
-  <WindowWidth>14460</WindowWidth>
+  <WindowHeight>10524</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>739</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4104,11 +4104,11 @@
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">MedicationStatement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Reason not taken is only permitted if wasNotTaken is true</Data><NamedCell
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Reason not taken is only permitted if notTaken is true</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">reasonNotTaken.empty() or wasNotTaken = true</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">reasonNotTaken.empty() or notTaken = true</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:reasonNotTaken) and f:wasNotTaken/@value=false())</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:reasonNotTaken) and f:notTaken/@value=false())</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28.05">
@@ -4117,9 +4117,9 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Reason for use code</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">MedicationStatement</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Reason for use code is only permitted if wasNotTaken is false</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">reasonForUseCode.empty() or wasNotTaken = false</Data></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(*[starts-with(local-name(.), 'reasonForUseCode')]) and f:wasNotTaken/@value=true())</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Reason for use code is only permitted if notTaken is false</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">reasonForUseCode.empty() or notTaken = false</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(*[starts-with(local-name(.), 'reasonForUseCode')]) and f:notTaken/@value=true())</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s107"><Data ss:Type="Number">3</Data><NamedCell
@@ -4127,9 +4127,9 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Reason for use reference</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">MedicationStatement</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Reason for use reference is only permitted if wasNotTaken is false</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">reasonForUseReference.empty() or wasNotTaken = false</Data></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(*[starts-with(local-name(.), 'reasonForUseReference')]) and f:wasNotTaken/@value=true())</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Reason for use reference is only permitted if notTaken is false</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">reasonForUseReference.empty() or notTaken = false</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(*[starts-with(local-name(.), 'reasonForUseReference')]) and f:notTaken/@value=true())</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s107"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4559,6 +4559,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4579,7 +4580,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4840,7 +4841,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

@@ -147,20 +147,13 @@
   Definition = The encounter or episode of care this impression was created as part of.
 
  -- Row 10 -----------------------------------
-  Element = ClinicalImpression.encounter
-  Card. = 0..*
-  Type = Reference(Encounter)
-  Short Label = Reference to encounter
-  Definition = The list of related or associated encounters
-
- -- Row 11 -----------------------------------
   Element = ClinicalImpression.investigations
   Card. = 0..*
   UML = 400;0
   Short Label = One or more sets of investigations (signs, symptions, etc.)
   Definition = One or more sets of investigations (signs, symptions, etc.). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = ClinicalImpression.investigations.code
   Card. = 1..1
   Type = CodeableConcept
@@ -168,7 +161,7 @@
   Short Label = A name/code for the set
   Definition = A name/code for the group (\"set\") of investigations. Typically, this will be something like \"signs\", \"symptoms\", \"clinical\", \"diagnostic\", but the list is not constrained, and others such groups such as (exposure|family|travel|nutitirional) history may be used
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = ClinicalImpression.investigations.item
   Card. = 0..*
   Type = Reference(Observation| QuestionnaireResponse | FamilyMemberHistory | DiagnosticReport|RiskAssessment | ImagingStudy)
@@ -177,14 +170,14 @@
   Comments = Most investigations are observations of one kind of or another but some other specific types of data collection resources can also be used
   v2 Mapping = OBX-21
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = ClinicalImpression.protocol
   Card. = 0..*
   Type = uri
   Short Label = Clinical Protocol followed
   Definition = Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = ClinicalImpression.summary
   Card. = 0..1
   Type = string
@@ -192,14 +185,14 @@
   Definition = A text summary of the investigations and the diagnosis
   v2 Mapping = OBX
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = ClinicalImpression.finding
   Card. = 0..*
   UML = 400;140
   Short Label = Possible or likely findings and diagnoses
   Definition = Specific findings or diagnoses that was considered likely or relevant to ongoing treatment
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = ClinicalImpression.finding.item[x]
   Card. = 1..1
   Type = CodeableConcept | Reference(Condition | Observation)
@@ -208,14 +201,14 @@
   Definition = Specific text, code or reference for finding or diagnosis, which may include ruled-out or resolved conditions
   v2 Mapping = OBX
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = ClinicalImpression.finding.cause
   Card. = 0..1
   Type = string
   Short Label = Which investigations support finding
   Definition = Which investigations support finding or diagnosis
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = ClinicalImpression.prognosisCodeableConcept
   Card. = 0..*
   Type = CodeableConcept
@@ -224,21 +217,21 @@
   Definition = Estimate of likely outcome
   v2 Mapping = PRB-22
 
- -- Row 20 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = ClinicalImpression.prognosisReference
   Card. = 0..*
   Type = Reference(RiskAssessment)
   Short Label = RiskAssessment expressing likely outcome
   Definition = RiskAssessment expressing likely outcome
 
- -- Row 21 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = ClinicalImpression.plan
   Card. = 0..*
   Type = Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationOrder|NutritionRequest|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)
   Short Label = Plan of action after assessment
   Definition = Plan of action after assessment
 
- -- Row 22 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = ClinicalImpression.action
   Card. = 0..*
   Type = Reference(ReferralRequest | ProcedureRequest | Procedure | MedicationOrder | DiagnosticRequest | NutritionRequest | SupplyRequest | Appointment)

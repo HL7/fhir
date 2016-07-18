@@ -144,23 +144,23 @@
  -- Row 1 -----------------------------------
   Id = 1
   Context = MedicationStatement
-  English = Reason not taken is only permitted if wasNotTaken is true
-  XPath = not(exists(f:reasonNotTaken) and f:wasNotTaken/@value=false())
-  Expression = reasonNotTaken.empty() or wasNotTaken = true
+  English = Reason not taken is only permitted if notTaken is true
+  XPath = not(exists(f:reasonNotTaken) and f:notTaken/@value=false())
+  Expression = reasonNotTaken.empty() or notTaken = true
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = MedicationStatement
-  English = Reason for use code is only permitted if wasNotTaken is false
-  XPath = not(exists(*[starts-with(local-name(.), \'reasonForUseCode\')]) and f:wasNotTaken/@value=true())
-  Expression = reasonForUseCode.empty() or wasNotTaken = false
+  English = Reason for use code is only permitted if notTaken is false
+  XPath = not(exists(*[starts-with(local-name(.), \'reasonForUseCode\')]) and f:notTaken/@value=true())
+  Expression = reasonForUseCode.empty() or notTaken = false
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = MedicationStatement
-  English = Reason for use reference is only permitted if wasNotTaken is false
-  XPath = not(exists(*[starts-with(local-name(.), \'reasonForUseReference\')]) and f:wasNotTaken/@value=true())
-  Expression = reasonForUseReference.empty() or wasNotTaken = false
+  English = Reason for use reference is only permitted if notTaken is false
+  XPath = not(exists(*[starts-with(local-name(.), \'reasonForUseReference\')]) and f:notTaken/@value=true())
+  Expression = reasonForUseReference.empty() or notTaken = false
 
 === Sheet Data Elements =====================================
 
@@ -257,7 +257,7 @@
   RIM Mapping = .participation[typeCode=AUT].time
 
  -- Row 10 -----------------------------------
-  Element = MedicationStatement.wasNotTaken
+  Element = MedicationStatement.notTaken
   Card. = 0..1
   Is Modifier = Y
   Summary = y
