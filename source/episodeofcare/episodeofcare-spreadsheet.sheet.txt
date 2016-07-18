@@ -60,7 +60,7 @@
 
  -- Row 7 -----------------------------------
   Id = 7
-  Code = entered-in-error-status
+  Code = entered-in-error
   Display = Entered in Error
   Definition = This instance should not have been part of this patient\'s medical record.
   v3 = ActStatus.nullified
@@ -109,7 +109,7 @@
   Card. = 1..1
   Type = code
   Binding = EpisodeOfCareStatus
-  Short Label = planned | waitlist | active | onhold | finished | cancelled
+  Short Label = planned | waitlist | active | onhold | finished | cancelled | entered-in-error
   Definition = planned | waitlist | active | onhold | finished | cancelled
 
  -- Row 6 -----------------------------------

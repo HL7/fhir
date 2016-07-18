@@ -214,7 +214,7 @@
   Card. = 1..1
   Type = code
   Binding = EncounterStatus
-  Short Label = planned | arrived | in-progress | onleave | finished | cancelled
+  Short Label = planned | arrived | in-progress | onleave | finished | cancelled | entered-in-error
 
  -- Row 6 -----------------------------------
   Element = Encounter.statusHistory.period
