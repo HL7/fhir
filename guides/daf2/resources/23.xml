@@ -23,7 +23,7 @@
 	<patient>
 		<reference value="Patient/1137192"/>
 	</patient>
-	<recordedDate value="2000"/>
+	<attestedDate value="2000"/>
 	<reaction>
 		<manifestation>
 			<coding>

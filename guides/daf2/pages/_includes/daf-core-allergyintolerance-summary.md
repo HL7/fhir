@@ -1,7 +1,7 @@
 #### Complete Summary of the Mandatory Requirements 
 
-1.  One Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk in **AllergyIntolerance.substance**
-    -   AllergyIntolerance.substance with an [ extensible] binding to a Value set (Code set) consisting of:
+1.  One Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk in **AllergyIntolerance.code**
+    -   AllergyIntolerance.code with an [ extensible] binding to a Value set (Code set) consisting of:
         -   NDF-RT codes for drug class allergies
         -   RxNorm codes limited to term types (TTY) , 'BN' Brand Name, 'IN' ingredient, 'MIN' multiple ingredient, and 'PIN' precise ingredient for drug ingredient allergies
         -   SNOMED CT if no other code from above code systems are available.
