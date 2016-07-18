@@ -30,7 +30,7 @@
  -- Row 5 -----------------------------------
   Binding Name = ReferralPriority
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/diagnostic-request-priority
+  Reference = http://hl7.org/fhir/ValueSet/request-priority
   Definition = Codes indicating the relative priority of the referral.
   Conformance = example
 

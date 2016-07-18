@@ -1,79 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="file://Mac/Home/Documents/FHIRBuild/reorder-nodes-template.xslt"?>
-<DiagnosticRequest xmlns="http://hl7.org/fhir">
+<DiagnosticRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticreport.xsd">
 	<id value="example"/>
-	<contained>
-		<Observation>
-			<id value="fasting"/>
-			<!--    the mandatory quality flag:    -->
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://loinc.org"/>
-					<code value="49541-6"/>
-					<display value="Fasting status - Reported"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-			</subject>
-			<valueCodeableConcept>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0136"/>
-					<code value="Y"/>
-					<display value="Yes"/>
-				</coding>
-			</valueCodeableConcept>
-		</Observation>
-	</contained>
-	<identifier>
-		<type>
-			<coding>
-				<system value="http://hl7.org/fhir/identifier-type"/>
-				<code value="PLAC"/>
-			</coding>
-			<text value="Placer"/>
-		</type>
-		<system value="urn:oid:1.3.4.5.6.7"/>
-		<value value="2345234234234"/>
-	</identifier>
-	<status value="received"/>
-	<subject>
-		<reference value="Patient/example"/>
-	</subject>
-	<encounter>
-		<reference value="Encounter/example"/>
-	</encounter>
-	<orderer>
-		<reference value="Practitioner/example"/>
-	</orderer>
-	<reason>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
+	</text>
+		<!-- insert contents here -->
+	<status value="active"/>
+	<stage>
 		<coding>
-			<system value="http://hl7.org/fhir/sid/icd-9"/>
-			<code value="V173"/>
-			<display value="Fam hx-ischem heart dis"/>
+			<code value="original-order"/>
 		</coding>
-	</reason>
-	<supportingInformation>
-		<reference value="#fasting"/>
-	</supportingInformation>
-	<event>
-		<status value="requested"/>
-		<dateTime value="2013-05-02T16:16:00-07:00"/>
-		<actor>
-			<reference value="Practitioner/example"/>
-		</actor>
-	</event>
-	<item>
-		<code>
-			<coding>
-				<system value="http://acme.org/tests"/>
-				<code value="LIPID"/>
-			</coding>
-			<text value="Lipid Panel"/>
-		</code>
-	</item>
-	<note>
-		<text value="patient is afraid of needles"/>
-	</note>
+	</stage>
+	<code>
+		<coding>
+			<code value="example"></code>
+		</coding>
+	</code>
+	<subject><reference value="Patient/example"></reference></subject>
+
 </DiagnosticRequest>

@@ -8,10 +8,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Keith W. Boone</LastAuthor>
+  <LastAuthor>Eric Haas</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
   <LastSaved>2015-04-15T04:11:27Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">2eaca039-8f5b-4e09-a647-90931ca82fc4</WorkbookGuid>
@@ -21,7 +21,7 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>7980</WindowHeight>
-  <WindowWidth>20748</WindowWidth>
+  <WindowWidth>20745</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <RefModeR1C1/>
@@ -131,9 +131,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#FF0000"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s76" ss:Parent="s33">
-   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-  </Style>
   <Style ss:ID="s77">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
@@ -190,14 +187,14 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="89" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.400000000000006"
+  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="87" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:Width="314.39999999999998"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.400000000000006"/>
+   <Column ss:StyleID="s63" ss:Width="314.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.25"/>
    <Column ss:Index="7" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="60"/>
-   <Column ss:Index="9" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.6"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.4"/>
+   <Column ss:Index="9" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.75"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.25"/>
    <Column ss:Index="35" ss:StyleID="s63" ss:Width="45"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Path</Data></Cell>
@@ -230,7 +227,7 @@
     <Cell><Data ss:Type="String">c27</Data></Cell>
     <Cell><Data ss:Type="String">c28</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="40.050000000000004">
+   <Row ss:AutoFitHeight="0" ss:Height="39.9375">
     <Cell><Data ss:Type="String" x:Ticked="1">@codes</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">entered-in-error, marked deleted</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">proposed</Data></Cell>
@@ -261,7 +258,7 @@
     <Cell><Data ss:Type="String">ahead-of-target</Data></Cell>
     <Cell><Data ss:Type="String">behind-target</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="40.050000000000004">
+   <Row ss:AutoFitHeight="0" ss:Height="39.9375">
     <Cell><Data ss:Type="String" x:Ticked="1">@code</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">proposed</Data></Cell>
@@ -292,7 +289,7 @@
     <Cell><Data ss:Type="String">ahead-of-target</Data></Cell>
     <Cell><Data ss:Type="String">behind-target</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="22.95">
+   <Row ss:AutoFitHeight="0" ss:Height="23.0625">
     <Cell><Data ss:Type="String" x:Ticked="1">@definition</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">The record was created in error, and should not be treated as valid (note: in many cases, for record integrity, the information cannot be removed from the record)</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -312,7 +309,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="22.95">
+   <Row ss:AutoFitHeight="0" ss:Height="23.0625">
     <Cell><Data ss:Type="String" x:Ticked="1">Account.status</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -764,58 +761,17 @@
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">DiagnosticRequest.event.status</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">proposed</Data></Cell>
-    <Cell><Data ss:Type="String">planned</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">requested</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">received</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">accepted</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress,review</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">failed</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">DiagnosticRequest.item.status</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell><Data ss:Type="String">proposed</Data></Cell>
-    <Cell><Data ss:Type="String">planned</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">requested</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">received</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">accepted</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress,review</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">failed</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticRequest.status</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell><Data ss:Type="String">proposed</Data></Cell>
-    <Cell><Data ss:Type="String">planned</Data></Cell>
-    <Cell ss:StyleID="s33"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">requested</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">received</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">accepted</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s33"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress,review</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">failed</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -1331,7 +1287,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s68"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
+   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
     <Cell><Data ss:Type="String">Location.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -1350,7 +1306,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">inactive</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
+   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
     <Cell><Data ss:Type="String">MeasureReport.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -1369,7 +1325,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s62"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
+   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
     <Cell><Data ss:Type="String">MedicationAdministration.status</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
@@ -1388,7 +1344,7 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
+   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
     <Cell><Data ss:Type="String">MedicationAdministration.eventHistory.status</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
@@ -1996,12 +1952,11 @@
     <VerticalResolution>-4</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>72</TopRowVisible>
+   <TopRowVisible>15</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>80</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>30</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

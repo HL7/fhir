@@ -1,4 +1,4 @@
-
+﻿
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -464,13 +464,13 @@
   Filename = diagnosticreport-examples-general.xml
 
  -- Row 3 -----------------------------------
-  Name = Report Feed
+  Name = !Report Feed
   Identity = 2763c3ea-6bce-4f15-bdc9-4b41aaceee03
   Description = Snapshot of a live feed from a laboratory
   Filename = diagnosticreport-examples-lab-text.xml
 
  -- Row 4 -----------------------------------
-  Name = Blood examination
+  Name = !Blood examination
   Identity = f001
   Description = Real-world patient example
   Filename = diagnosticreport-example-f001-bloodexam.xml
@@ -482,7 +482,7 @@
   Filename = diagnosticreport-example-f201-brainct.xml
 
  -- Row 6 -----------------------------------
-  Name = Blood culture
+  Name = !Blood culture
   Identity = f202
   Description = Real-world patient example
   Filename = diagnosticreport-example-f202-bloodculture.xml
@@ -494,7 +494,7 @@
   Filename = diagnosticreport-example-dxa.xml
 
  -- Row 8 -----------------------------------
-  Name = Micro Isolate and Sensitivities
+  Name = !Micro Isolate and Sensitivities
   Identity = micro
   Description = An example of a complex Micro Isolate and Sensitivities
   Filename = diagnosticreport-micro1.xml
