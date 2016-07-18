@@ -5,14 +5,14 @@
   Binding Name = AllergyIntoleranceStatus
   Binding = code list
   Reference = #allergy-intolerance-status
-  Definition = Assertion about certainty associated with a propensity, or potential risk, of a reaction to the identified Substance.
+  Definition = Assertion about certainty associated with a propensity, or potential risk, of a reaction to the identified substance.
   Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = AllergyIntoleranceCriticality
   Binding = code list
   Reference = #allergy-intolerance-criticality
-  Definition = Estimate of the potential clinical harm, or seriousness, of a reaction to an identified Substance.
+  Definition = Estimate of the potential clinical harm, or seriousness, of a reaction to an identified substance.
   Conformance = required
 
  -- Row 3 -----------------------------------
@@ -26,14 +26,14 @@
   Binding Name = AllergyIntoleranceCategory
   Binding = code list
   Reference = #allergy-intolerance-category
-  Definition = Category of an identified Substance.
+  Definition = Category of an identified substance.
   Conformance = required
 
  -- Row 5 -----------------------------------
   Binding Name = AllergyIntoleranceCertainty
   Binding = code list
   Reference = #reaction-event-certainty
-  Definition = Statement about the degree of clinical certainty that a Specific Substance was the cause of the Manifestation in an reaction event.
+  Definition = Statement about the degree of clinical certainty that a specific substance was the cause of the manifestation in an reaction event.
   Conformance = required
 
  -- Row 6 -----------------------------------
@@ -177,19 +177,19 @@
   Id = 1
   Code = unlikely
   Display = Unlikely
-  Definition = There is a low level of clinical certainty that the reaction was caused by the identified Substance.
+  Definition = There is a low level of clinical certainty that the reaction was caused by the identified substance.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = likely
   Display = Likely
-  Definition = There is a high level of clinical certainty that the reaction was caused by the identified Substance.
+  Definition = There is a high level of clinical certainty that the reaction was caused by the identified substance.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = confirmed
   Display = Confirmed
-  Definition = There is a very high level of clinical certainty that the reaction was due to the identified Substance, which may include clinical evidence by testing or rechallenge.
+  Definition = There is a very high level of clinical certainty that the reaction was due to the identified substance, which may include clinical evidence by testing or rechallenge.
 
 === Sheet reaction-event-severity =====================================
 
@@ -219,7 +219,7 @@
   Element = AllergyIntolerance
   Aliases = Allergy; Intolerance; Adverse Reaction
   Type = DomainResource
-  Short Label = Allergy or Intolerance (generally: Risk Of Adverse reaction to a substance)
+  Short Label = Allergy or Intolerance (generally: Risk of adverse reaction to a substance)
   Definition = Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
   Requirements = To record a clinical assessment of a propensity, or potential risk to an individual, of an adverse reaction upon future exposure to the specified substance, or class of substance.
   Comments = Substances include, but are not limited to: a therapeutic substance administered correctly at an appropriate dosage for the individual; food; material derived from plants or animals; or venom from insect stings.
@@ -246,8 +246,8 @@
   Type = code
   Binding = AllergyIntoleranceStatus
   Short Label = active | active-confirmed | inactive | resolved | refuted | entered-in-error
-  Definition = Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance
-  Comments = Decision support would typically raise alerts for \'Unconfirmed\', \'Confirmed\', and \'Resolved\' and ignore a \'Refuted\' reaction. In particular, \'Refuted\' may be useful for reconciliation of the Adverse Reaction List. Some implementations may choose to make this field mandatory.
+  Definition = Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product)
+  Comments = Decision support would typically raise alerts for \'active\' and \'active-confirmed\' (and potetially \'resolved\') and ignore a \'refuted\' reaction. In particular, \'refuted\' may be useful for reconciliation of the Adverse Reaction List. Some implementations may choose to make this field mandatory.
   v2 Mapping = IAM-17
   RIM Mapping = statusCode
   w5 = status
@@ -273,9 +273,9 @@
   Summary = Y
   Type = code
   Binding = AllergyIntoleranceCategory
-  Short Label = food | medication | environment | other - Category of Substance
-  Definition = Category of the identified Substance
-  Comments = This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the Substance where coding systems are used, and is effectively redundant in that situation.
+  Short Label = food | medication | environment
+  Definition = Category of the identified substance
+  Comments = This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the substance where coding systems are used, and is effectively redundant in that situation.
   v2 Mapping = AL1-2
   RIM Mapping = value < IntoleranceValue (Agent)
   w5 = class
@@ -288,8 +288,8 @@
   Type = code
   Binding = AllergyIntoleranceCriticality
   Short Label = low | high | unable-to-assess
-  Definition = Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance
-  Comments = The default criticality value for any propensity to an adverse reaction should be \'Low Risk\', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the Substance. \'High Risk\' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere)
+  Definition = Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance
+  Comments = The default criticality value for any propensity to an adverse reaction should be \'Low Risk\', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the substance. \'High Risk\' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere)
   v2 Mapping = AL1-4
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV, value <= SeverityObservation (Severity Level)]
   w5 = grade
@@ -381,7 +381,7 @@
   Type = Annotation
   Short Label = Additional text not captured in other fields
   Definition = Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.
-  Comments = For example: including reason for flagging a seriousness of \'High Risk\'; and instructions related to future exposure or administration of the Substance, such as administration within an Intensive Care Unit or under corticosteroid cover. The notes should be related to an allergy or intolerance as a condition in general and not related to any particular episode of it. For episode notes and descriptions, use AllergyIntolerance.event.description and  AllergyIntolerance.event.notes.
+  Comments = For example: including reason for flagging a seriousness of \'High Risk\'; and instructions related to future exposure or administration of the substance, such as administration within an Intensive Care Unit or under corticosteroid cover. The notes should be related to an allergy or intolerance as a condition in general and not related to any particular episode of it. For episode notes and descriptions, use AllergyIntolerance.event.description and  AllergyIntolerance.event.notes.
   RIM Mapping = subjectOf.observationEvent[code=\"annotation\"].value
 
  -- Row 15 -----------------------------------
@@ -389,7 +389,7 @@
   Card. = 0..*
   UML = right
   Short Label = Adverse Reaction Events linked to exposure to substance
-  Definition = Details about each adverse reaction event linked to exposure to the identified Substance
+  Definition = Details about each adverse reaction event linked to exposure to the identified substance
   RIM Mapping = outBoundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN, code <= CommonClinicalObservationType, value <= ObservationValue (Reaction Type)]
 
  -- Row 16 -----------------------------------
@@ -400,7 +400,7 @@
   Binding = SubstanceCode
   Short Label = Specific substance or pharmaceutical product considered to be responsible for event
   Definition = Identification of the specific substance (or pharmaceutical product) considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the \'code\' and ignore the \'reaction.substance\'.
-  Comments = Coding of the specific substance (or pharmaceutical product) with a terminology capable of triggering decision support should be used wherever possible.  The \'code\' element allows for the use of a specific substance or pharmaceutical product, or a group or class of substances. In the case of an allergy or intolerance to a class of substances, (for example, \"Penicillins\"), the \'reaction.substance\' element could be used to code the specific substance that was identifed as having caused the reaction (for example, \"Amoxycillin\"). Duplication of the value in the \'code\' and \'reaction.substance\' elements is acceptable when a specific substance has been recorded in \'code\'.
+  Comments = Coding of the specific substance (or pharmaceutical product) with a terminology capable of triggering decision support should be used wherever possible.  The \'code\' element allows for the use of a specific substance or pharmaceutical product, or a group or class of substances. In the case of an allergy or intolerance to a class of substances, (for example, \"penicillins\"), the \'reaction.substance\' element could be used to code the specific substance that was identifed as having caused the reaction (for example, \"amoxycillin\"). Duplication of the value in the \'code\' and \'reaction.substance\' elements is acceptable when a specific substance has been recorded in \'code\'.
   RIM Mapping = outBoundRelationship[typeCode=SAS].target[classCode=SBADM, code <= ExposureCode].participation[typeCode=CSM].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]
 
  -- Row 17 -----------------------------------

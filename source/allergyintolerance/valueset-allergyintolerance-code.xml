@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="AllergyIntolerance Substance and Negation Codes"/>
+  <name value="AllergyIntolerance Substance/Product, Condition and Negation Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>

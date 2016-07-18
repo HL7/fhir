@@ -9,19 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Rob Hausam</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-07-16T14:52:18Z</LastSaved>
+  <LastSaved>2016-07-18T20:11:53Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9384</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>9045</WindowHeight>
+  <WindowWidth>21300</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>12</ActiveSheet>
-  <FirstVisibleSheet>10</FirstVisibleSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -815,8 +814,7 @@
  </Names>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="5" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.400000000000006"
-   ss:DefaultRowHeight="15">
+   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="411"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">FHIR Resource-authoring Spreadsheet</Data></Cell>
@@ -868,31 +866,29 @@
     ss:RefersTo="='Data Elements'!R1C1:R101C24" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="101" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s69" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s69" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s70" ss:Width="227.39999999999998"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="77.399999999999991"/>
-   <Column ss:StyleID="s69" ss:Width="29.4"/>
-   <Column ss:StyleID="s69" ss:Width="35.4"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="119.4"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="29.4"/>
+   <Column ss:StyleID="s70" ss:Width="227.25"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="77.25"/>
+   <Column ss:StyleID="s69" ss:Width="29.25"/>
+   <Column ss:StyleID="s69" ss:Width="35.25"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="119.25"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="29.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="27"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="107.4" ss:Span="1"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="107.25" ss:Span="1"/>
    <Column ss:Index="10" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="81"/>
-   <Column ss:StyleID="s69" ss:Width="51.6" ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s69" ss:AutoFitWidth="0"
-    ss:Width="80.400000000000006"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="120.60000000000001"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="161.4"/>
+   <Column ss:StyleID="s69" ss:Width="51.75" ss:Span="1"/>
+   <Column ss:Index="13" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="80.25"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="120.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="219.6"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="219.75"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="120"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="135"/>
-   <Column ss:Index="21" ss:StyleID="s69" ss:AutoFitWidth="0"
-    ss:Width="104.39999999999999"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="50.4"/>
+   <Column ss:Index="21" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="104.25"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="50.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="66"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="119.4"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="119.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s71">
     <Cell ss:StyleID="s72"><Data ss:Type="String">Element</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -1007,7 +1003,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Allergy or Intolerance (generally: Risk Of Adverse reaction to a substance)</Data><NamedCell
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Allergy or Intolerance (generally: Risk of adverse reaction to a substance)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1083,10 +1079,10 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">active | active-confirmed | inactive | resolved | refuted | entered-in-error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Decision support would typically raise alerts for 'Unconfirmed', 'Confirmed', and 'Resolved' and ignore a 'Refuted' reaction. In particular, 'Refuted' may be useful for reconciliation of the Adverse Reaction List. Some implementations may choose to make this field mandatory.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Decision support would typically raise alerts for 'active' and 'active-confirmed' (and potetially 'resolved') and ignore a 'refuted' reaction. In particular, 'refuted' may be useful for reconciliation of the Adverse Reaction List. Some implementations may choose to make this field mandatory.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">statusCode</Data><NamedCell
@@ -1098,7 +1094,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="409.05">
+   <Row ss:AutoFitHeight="0" ss:Height="408.9375">
     <Cell ss:StyleID="s87"><Data ss:Type="String">AllergyIntolerance.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Category; Class</Data><NamedCell
@@ -1157,12 +1153,12 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">food | medication | environment | other - Category of Substance</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">food | medication | environment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Category of the identified Substance</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Category of the identified substance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the Substance where coding systems are used, and is effectively redundant in that situation.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the substance where coding systems are used, and is effectively redundant in that situation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">value &lt; IntoleranceValue (Agent)</Data><NamedCell
@@ -1197,10 +1193,10 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">low | high | unable-to-assess</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The default criticality value for any propensity to an adverse reaction should be 'Low Risk', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the Substance. 'High Risk' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere)</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The default criticality value for any propensity to an adverse reaction should be 'Low Risk', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the substance. 'High Risk' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV, value &lt;= SeverityObservation (Severity Level)]</Data><NamedCell
@@ -1482,7 +1478,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">For example: including reason for flagging a seriousness of 'High Risk'; and instructions related to future exposure or administration of the Substance, such as administration within an Intensive Care Unit or under corticosteroid cover. The notes should be related to an allergy or intolerance as a condition in general and not related to any particular episode of it. For episode notes and descriptions, use AllergyIntolerance.event.description and  AllergyIntolerance.event.notes.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">For example: including reason for flagging a seriousness of 'High Risk'; and instructions related to future exposure or administration of the substance, such as administration within an Intensive Care Unit or under corticosteroid cover. The notes should be related to an allergy or intolerance as a condition in general and not related to any particular episode of it. For episode notes and descriptions, use AllergyIntolerance.event.description and  AllergyIntolerance.event.notes.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">subjectOf.observationEvent[code=&quot;annotation&quot;].value</Data><NamedCell
@@ -1511,7 +1507,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Adverse Reaction Events linked to exposure to substance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Details about each adverse reaction event linked to exposure to the identified Substance</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Details about each adverse reaction event linked to exposure to the identified substance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1549,7 +1545,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Identification of the specific substance (or pharmaceutical product) considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Coding of the specific substance (or pharmaceutical product) with a terminology capable of triggering decision support should be used wherever possible.  The 'code' element allows for the use of a specific substance or pharmaceutical product, or a group or class of substances. In the case of an allergy or intolerance to a class of substances, (for example, &quot;Penicillins&quot;), the 'reaction.substance' element could be used to code the specific substance that was identifed as having caused the reaction (for example, &quot;Amoxycillin&quot;). Duplication of the value in the 'code' and 'reaction.substance' elements is acceptable when a specific substance has been recorded in 'code'. </Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Coding of the specific substance (or pharmaceutical product) with a terminology capable of triggering decision support should be used wherever possible.  The 'code' element allows for the use of a specific substance or pharmaceutical product, or a group or class of substances. In the case of an allergy or intolerance to a class of substances, (for example, &quot;penicillins&quot;), the 'reaction.substance' element could be used to code the specific substance that was identifed as having caused the reaction (for example, &quot;amoxycillin&quot;). Duplication of the value in the 'code' and 'reaction.substance' elements is acceptable when a specific substance has been recorded in 'code'. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">outBoundRelationship[typeCode=SAS].target[classCode=SBADM, code &lt;= ExposureCode].participation[typeCode=CSM].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code &lt;= ExposureAgentEntityType]</Data><NamedCell
@@ -3819,12 +3815,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>15</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3832,6 +3829,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3839,7 +3837,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3856,14 +3855,14 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="50" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s101" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s101" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="116.4"/>
-   <Column ss:StyleID="s101" ss:Width="56.4"/>
+   <Column ss:Index="2" ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="116.25"/>
+   <Column ss:StyleID="s101" ss:Width="56.25"/>
    <Column ss:StyleID="s101" ss:Width="165"/>
-   <Column ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="204.60000000000002"/>
-   <Column ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="198.6"/>
-   <Column ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="188.4"/>
+   <Column ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="188.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s71">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -4376,13 +4375,13 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="29" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s110" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s110" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="71.400000000000006"/>
+   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="71.25"/>
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="57"/>
-   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="110.4"/>
+   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="110.25"/>
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="210"/>
-   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="383.40000000000003"/>
+   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="383.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s111">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">Unique name for search parameter - required, lower-case, dash-delimited string    </ss:Data></Comment><NamedCell
@@ -4626,7 +4625,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
@@ -4643,17 +4641,15 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s110" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s110" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="131.4"/>
-   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="125.4"/>
+   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="131.25"/>
+   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="125.25"/>
    <Column ss:StyleID="s110" ss:Width="24"/>
-   <Column ss:StyleID="s110" ss:Width="26.4"/>
-   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="107.4" ss:Span="1"/>
-   <Column ss:Index="7" ss:StyleID="s110" ss:AutoFitWidth="0"
-    ss:Width="222.60000000000002"/>
-   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="254.39999999999998"
-    ss:Span="1"/>
+   <Column ss:StyleID="s110" ss:Width="26.25"/>
+   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="107.25" ss:Span="1"/>
+   <Column ss:Index="7" ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="222.75"/>
+   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="254.25" ss:Span="1"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s120"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -5276,16 +5272,16 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="21" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s110" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s110" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="83.4" ss:Span="1"/>
-   <Column ss:Index="3" ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="198.6"/>
-   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="158.4"/>
-   <Column ss:StyleID="s110" ss:Width="107.4"/>
-   <Column ss:StyleID="s110" ss:Width="113.39999999999999"/>
+   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="83.25" ss:Span="1"/>
+   <Column ss:Index="3" ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="158.25"/>
+   <Column ss:StyleID="s110" ss:Width="107.25"/>
+   <Column ss:StyleID="s110" ss:Width="113.25"/>
    <Column ss:StyleID="s110" ss:Width="120"/>
-   <Column ss:StyleID="s110" ss:Width="128.4"/>
-   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="74.400000000000006"/>
+   <Column ss:StyleID="s110" ss:Width="128.25"/>
+   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="74.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Event Code</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -5574,10 +5570,10 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Profiles!R1C1:R2C4"/>
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="37" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s110" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s110" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="171"/>
-   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="281.39999999999998"/>
+   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="281.25"/>
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="252"/>
    <Column ss:StyleID="s110" ss:Width="63"/>
    <Row ss:AutoFitHeight="0">
@@ -5862,14 +5858,14 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="40" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s133" ss:DefaultColumnWidth="260.39999999999998"
+   x:FullRows="1" ss:StyleID="s133" ss:DefaultColumnWidth="260.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="128.4"/>
-   <Column ss:StyleID="s133" ss:Width="27.6"/>
-   <Column ss:StyleID="s133" ss:Width="327.59999999999997"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="128.25"/>
+   <Column ss:StyleID="s133" ss:Width="27.75"/>
+   <Column ss:StyleID="s133" ss:Width="327.75"/>
    <Column ss:StyleID="s133" ss:Width="57"/>
-   <Column ss:StyleID="s133" ss:Width="206.4" ss:Span="1"/>
-   <Column ss:Index="7" ss:StyleID="s133" ss:Width="39.6"/>
+   <Column ss:StyleID="s133" ss:Width="206.25" ss:Span="1"/>
+   <Column ss:Index="7" ss:StyleID="s133" ss:Width="39.75"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -6275,8 +6271,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6294,20 +6290,20 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="30" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s110" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s110" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="174"/>
-   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="275.40000000000003"/>
+   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="275.25"/>
    <Column ss:StyleID="s110" ss:Width="51"/>
    <Column ss:StyleID="s110" ss:Width="45"/>
    <Column ss:StyleID="s110" ss:Width="219"/>
-   <Column ss:StyleID="s110" ss:Width="173.39999999999998"/>
-   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="98.4"/>
-   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="89.4"/>
+   <Column ss:StyleID="s110" ss:Width="173.25"/>
+   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="98.25"/>
+   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="89.25"/>
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="173.39999999999998"/>
-   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="165.6" ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="107.4"/>
+   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="173.25"/>
+   <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="165.75" ss:Span="1"/>
+   <Column ss:Index="13" ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="107.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Binding Name</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -6364,7 +6360,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s141"><Data ss:Type="String">AllergyIntoleranceStatus</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Assertion about certainty associated with a propensity, or potential risk, of a reaction to the identified Substance.</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Assertion about certainty associated with a propensity, or potential risk, of a reaction to the identified substance.</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">#allergy-intolerance-status</Data></Cell>
@@ -6378,7 +6374,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s142"><Data ss:Type="String">AllergyIntoleranceCriticality</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Estimate of the potential clinical harm, or seriousness, of a reaction to an identified Substance.</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Estimate of the potential clinical harm, or seriousness, of a reaction to an identified substance.</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">#allergy-intolerance-criticality</Data></Cell>
@@ -6408,7 +6404,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s142"><Data ss:Type="String">AllergyIntoleranceCategory</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Category of an identified Substance.</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Category of an identified substance.</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">#allergy-intolerance-category</Data></Cell>
@@ -6423,7 +6419,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s142"><Data ss:Type="String">AllergyIntoleranceCertainty</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Statement about the degree of clinical certainty that a Specific Substance was the cause of the Manifestation in an reaction event.</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Statement about the degree of clinical certainty that a specific substance was the cause of the manifestation in an reaction event.</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">#reaction-event-certainty</Data></Cell>
@@ -6816,8 +6812,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>5</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6834,17 +6829,15 @@
     ss:RefersTo="='allergy-intolerance-status'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="52" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s133" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s133" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s133" ss:Width="80.400000000000006"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="35.4"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="155.39999999999998"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="80.400000000000006"
-    ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s133" ss:AutoFitWidth="0"
-    ss:Width="245.39999999999998"/>
+   <Column ss:StyleID="s133" ss:Width="80.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="35.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="155.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="242.4"/>
+   <Column ss:Index="9" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="242.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s145"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -7460,8 +7453,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7477,17 +7470,15 @@
     ss:RefersTo="='allergy-intolerance-criticality'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s133" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s133" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s133" ss:Width="80.400000000000006"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="35.4"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="155.39999999999998"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="80.400000000000006"
-    ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s133" ss:AutoFitWidth="0"
-    ss:Width="245.39999999999998"/>
+   <Column ss:StyleID="s133" ss:Width="80.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="35.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="155.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="242.4"/>
+   <Column ss:Index="9" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="242.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -8112,17 +8103,15 @@
     ss:RefersTo="='allergy-intolerance-type'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s133" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s133" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s133" ss:Width="80.400000000000006"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="35.4"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="155.39999999999998"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="80.400000000000006"
-    ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s133" ss:AutoFitWidth="0"
-    ss:Width="245.39999999999998"/>
+   <Column ss:StyleID="s133" ss:Width="80.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="35.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="155.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="242.4"/>
+   <Column ss:Index="9" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="242.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -8728,7 +8717,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
@@ -8747,17 +8736,15 @@
     ss:RefersTo="='allergy-intolerance-category'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="50" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s133" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s133" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s133" ss:Width="80.400000000000006"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="35.4"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="155.39999999999998"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="80.400000000000006"
-    ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s133" ss:AutoFitWidth="0"
-    ss:Width="245.39999999999998"/>
+   <Column ss:StyleID="s133" ss:Width="80.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="35.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="155.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="242.4"/>
+   <Column ss:Index="9" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="242.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -9333,7 +9320,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -9353,9 +9339,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R5</RangeSelection>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9373,17 +9358,15 @@
     ss:RefersTo="='reaction-event-certainty'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s133" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s133" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s133" ss:Width="80.400000000000006"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="35.4"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="155.39999999999998"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="80.400000000000006"
-    ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s133" ss:AutoFitWidth="0"
-    ss:Width="245.39999999999998"/>
+   <Column ss:StyleID="s133" ss:Width="80.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="35.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="155.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="242.4"/>
+   <Column ss:Index="9" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="242.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -9428,7 +9411,7 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Unlikely</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">There is a low level of clinical certainty that the reaction was caused by the identified Substance.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">There is a low level of clinical certainty that the reaction was caused by the identified substance.</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s135"/>
@@ -9439,7 +9422,7 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Likely</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">There is a high level of clinical certainty that the reaction was caused by the identified Substance.</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">There is a high level of clinical certainty that the reaction was caused by the identified substance.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s137"/>
@@ -9450,7 +9433,7 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Confirmed</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">There is a very high level of clinical certainty that the reaction was due to the identified Substance, which may include clinical evidence by testing or rechallenge.</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">There is a very high level of clinical certainty that the reaction was due to the identified substance, which may include clinical evidence by testing or rechallenge.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s137"/>
@@ -9989,6 +9972,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -10006,17 +9991,15 @@
     ss:RefersTo="='reaction-event-severity'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s133" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s133" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s133" ss:Width="80.400000000000006"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="35.4"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="155.39999999999998"/>
-   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="80.400000000000006"
-    ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s133" ss:AutoFitWidth="0"
-    ss:Width="245.39999999999998"/>
+   <Column ss:StyleID="s133" ss:Width="80.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="35.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="155.25"/>
+   <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="242.4"/>
+   <Column ss:Index="9" ss:StyleID="s133" ss:AutoFitWidth="0" ss:Width="242.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
