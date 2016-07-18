@@ -2,13 +2,19 @@
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
   <id value="stroke"/>
   <text>
-   <status value="generated"/>
-   <div xmlns="http://www.w3.org/1999/xhtml">Ischemic stroke, July 18, 2010</div>   
- </text>
-  <patient>
-    <reference value="Patient/example"/>
-  </patient>
-  <code> 
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Ischemic stroke, July 18, 2010</div>
+  </text>
+  <clinicalStatus value="active"/>
+  <verificationStatus value="confirmed"/>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-category"/>
+      <code value="diagnosis"/>
+      <display value="Diagnosis"/>
+    </coding>
+  </category>
+  <code>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="422504002"/>
@@ -16,14 +22,8 @@
     </coding>
     <text value="Stroke"/>
   </code>
- <category>
-   <coding>
-    <system value="http://hl7.org/fhir/condition-category"/>
-    <code value="diagnosis"/> 
-    <display value="Diagnosis"/>
-   </coding>
- </category>
-  <clinicalStatus value="active"/>
-  <verificationStatus value="confirmed"/>
- <onsetDateTime value="2010-07-18"/>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <onsetDateTime value="2010-07-18"/>
 </Condition>

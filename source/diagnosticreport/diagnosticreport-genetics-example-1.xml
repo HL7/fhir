@@ -1,320 +1,317 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <DiagnosticReport xmlns="http://hl7.org/fhir">
   <id value="dg1"/>
   <contained>
-      <Condition>
-          <id value="c1"/>
-          <patient>
-              <reference value="Patient/p1"/>
-          </patient>
-          <code>
-              <coding>
-                  <system value="http://snomed.info/sct"/>
-                  <code value="254626006"/>
-              </coding>
-              <text value="Adenocarcinoma of lung "/>
-          </code>
-          <category>
-              <coding>
-                  <system value="http://hl7.org/fhir/condition-category"/>
-                  <code value="finding"/>
-                  <display value="Finding"/>
-              </coding>
-          </category>
-          <verificationStatus value="provisional"/>
-      </Condition>
+    <Condition>
+      <id value="c1"/>
+      <verificationStatus value="provisional"/>
+      <category>
+        <coding>
+          <system value="http://hl7.org/fhir/condition-category"/>
+          <code value="finding"/>
+          <display value="Finding"/>
+        </coding>
+      </category>
+      <code>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="254626006"/>
+        </coding>
+        <text value="Adenocarcinoma of lung "/>
+      </code>
+      <subject>
+        <reference value="Patient/p1"/>
+      </subject>
+    </Condition>
   </contained>
   <contained>
-      <Observation>
-          <id value="od-1"/>
-          <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
-              <valueReference>
-                  <reference value="Sequence/seq2-1"/>
-              </valueReference>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariationHGVS">
-              <extension url="genomeBuild">
-                  <valueCodeableConcept>
-                      <text value="GRCh 38"/>
-                  </valueCodeableConcept>
-              </extension>
-              <extension url="name">
-                  <valueCodeableConcept>
-                      <text value="c.2708T&gt;C"/>
-                  </valueCodeableConcept>
-              </extension>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
-              <valueCodeableConcept>
-                  <coding>
-                      <system value="http://www.genenames.org"/>
-                      <code value="5244"/>
-                      <display value="ABCB4"/>
-                  </coding>
-              </valueCodeableConcept>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsRegion">
-              <valueCodeableConcept>
-                  <text value="Exon 23"/>
-              </valueCodeableConcept>
-          </extension>
-          <status value="final"/>
-          <code>
-              <coding>
-                  <system value="http://loinc.org"/>
-                  <code value="49874-1"/>
-                  <display value="ABCB4 gene mutation analysis"/>
-              </coding>
-          </code>
-          <interpretation>
-              <coding>
-                  <system value="http://hl7.org/fhir/v2/0078"/>
-                  <code value="POS"/>
-              </coding>
-              <text value="positive"/>
-          </interpretation>
-          <component>
-              <code>
-                  <coding>
-                      <system value="http://loinc.org"/>
-                      <code value="53037-8"/>
-                      <display value="Genetic disease sequence variation interpretation"/>
-                  </coding>
-              </code>
-              <valueCodeableConcept>
-                  <coding>
-                      <code value="LA6682-4"/>
-                      <display value="Unknown significance"/>
-                  </coding>
-              </valueCodeableConcept>
-          </component>
-      </Observation>
+    <Observation>
+      <id value="od-1"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
+        <valueReference>
+          <reference value="Sequence/seq2-1"/>
+        </valueReference>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariationHGVS">
+        <extension url="genomeBuild">
+          <valueCodeableConcept>
+            <text value="GRCh 38"/>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="name">
+          <valueCodeableConcept>
+            <text value="c.2708T&gt;C"/>
+          </valueCodeableConcept>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://www.genenames.org"/>
+            <code value="5244"/>
+            <display value="ABCB4"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsRegion">
+        <valueCodeableConcept>
+          <text value="Exon 23"/>
+        </valueCodeableConcept>
+      </extension>
+      <status value="final"/>
+      <code>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="49874-1"/>
+          <display value="ABCB4 gene mutation analysis"/>
+        </coding>
+      </code>
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="POS"/>
+        </coding>
+        <text value="positive"/>
+      </interpretation>
+      <component>
+        <code>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="53037-8"/>
+            <display value="Genetic disease sequence variation interpretation"/>
+          </coding>
+        </code>
+        <valueCodeableConcept>
+          <coding>
+            <code value="LA6682-4"/>
+            <display value="Unknown significance"/>
+          </coding>
+        </valueCodeableConcept>
+      </component>
+    </Observation>
   </contained>
   <contained>
-      <Observation>
-          <id value="od-2"/>
-          <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
-              <valueReference>
-                  <reference value="Sequence/seq2-2"/>
-              </valueReference>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariationHGVS">
-              <extension url="genomeBuild">
-                  <valueCodeableConcept>
-                      <text value="GRCh 38"/>
-                  </valueCodeableConcept>
-              </extension>
-              <extension url="name">
-                  <valueCodeableConcept>
-                      <text value="c.181T&gt;G"/>
-                  </valueCodeableConcept>
-              </extension>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
-              <valueCodeableConcept>
-                  <coding>
-                      <system value="http://www.genenames.org"/>
-                      <code value="5244"/>
-                      <display value="ABCB4"/>
-                  </coding>
-              </valueCodeableConcept>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsRegion">
-              <valueCodeableConcept>
-                  <text value="Exon 6"/>
-              </valueCodeableConcept>
-          </extension>
-          <status value="final"/>
-          <code>
-              <coding>
-                  <system value="http://loinc.org"/>
-                  <code value="49874-1"/>
-                  <display value="ABCB4 gene mutation analysis"/>
-              </coding>
-          </code>
-          <interpretation>
-              <coding>
-                  <system value="http://hl7.org/fhir/v2/0078"/>
-                  <code value="POS"/>
-              </coding>
-              <text value="positive"/>
-          </interpretation>
-          <component>
-              <code>
-                  <coding>
-                      <system value="http://loinc.org"/>
-                      <code value="53037-8"/>
-                      <display value="Genetic disease sequence variation interpretation"/>
-                  </coding>
-              </code>
-              <valueCodeableConcept>
-                  <coding>
-                      <code value="LA6675-8"/>
-                      <display value="Benign"/>
-                  </coding>
-              </valueCodeableConcept>
-          </component>
-      </Observation>
+    <Observation>
+      <id value="od-2"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
+        <valueReference>
+          <reference value="Sequence/seq2-2"/>
+        </valueReference>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariationHGVS">
+        <extension url="genomeBuild">
+          <valueCodeableConcept>
+            <text value="GRCh 38"/>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="name">
+          <valueCodeableConcept>
+            <text value="c.181T&gt;G"/>
+          </valueCodeableConcept>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://www.genenames.org"/>
+            <code value="5244"/>
+            <display value="ABCB4"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsRegion">
+        <valueCodeableConcept>
+          <text value="Exon 6"/>
+        </valueCodeableConcept>
+      </extension>
+      <status value="final"/>
+      <code>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="49874-1"/>
+          <display value="ABCB4 gene mutation analysis"/>
+        </coding>
+      </code>
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="POS"/>
+        </coding>
+        <text value="positive"/>
+      </interpretation>
+      <component>
+        <code>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="53037-8"/>
+            <display value="Genetic disease sequence variation interpretation"/>
+          </coding>
+        </code>
+        <valueCodeableConcept>
+          <coding>
+            <code value="LA6675-8"/>
+            <display value="Benign"/>
+          </coding>
+        </valueCodeableConcept>
+      </component>
+    </Observation>
   </contained>
   <contained>
-      <Observation>
-          <id value="od-3"/>
-          <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
-              <valueReference>
-                  <reference value="Sequence/seq2-3"/>
-              </valueReference>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariationHGVS">
-              <extension url="genomeBuild">
-                  <valueCodeableConcept>
-                      <text value="GRCh 38"/>
-                  </valueCodeableConcept>
-              </extension>
-              <extension url="name">
-                  <valueCodeableConcept>
-                      <text value="c.2211+16C&gt;T"/>
-                  </valueCodeableConcept>
-              </extension>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
-              <valueCodeableConcept>
-                  <coding>
-                      <system value="http://www.genenames.org"/>
-                      <code value="5244"/>
-                      <display value="ABCB4"/>
-                  </coding>
-              </valueCodeableConcept>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsRegion">
-              <valueCodeableConcept>
-                  <text value="intron 16"/>
-              </valueCodeableConcept>
-          </extension>
-          <status value="final"/>
-          <code>
-              <coding>
-                  <system value="http://loinc.org"/>
-                  <code value="49874-1"/>
-                  <display value="ABCB4 gene mutation analysis"/>
-              </coding>
-          </code>
-          <interpretation>
-              <coding>
-                  <system value="http://hl7.org/fhir/v2/0078"/>
-                  <code value="POS"/>
-              </coding>
-              <text value="positive"/>
-          </interpretation>
-          <component>
-              <code>
-                  <coding>
-                      <system value="http://loinc.org"/>
-                      <code value="53037-8"/>
-                      <display value="Genetic disease sequence variation interpretation"/>
-                  </coding>
-              </code>
-              <valueCodeableConcept>
-                  <coding>
-                      <code value="LA6675-8"/>
-                      <display value="Benign"/>
-                  </coding>
-              </valueCodeableConcept>
-          </component>
-      </Observation>
+    <Observation>
+      <id value="od-3"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
+        <valueReference>
+          <reference value="Sequence/seq2-3"/>
+        </valueReference>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariationHGVS">
+        <extension url="genomeBuild">
+          <valueCodeableConcept>
+            <text value="GRCh 38"/>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="name">
+          <valueCodeableConcept>
+            <text value="c.2211+16C&gt;T"/>
+          </valueCodeableConcept>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://www.genenames.org"/>
+            <code value="5244"/>
+            <display value="ABCB4"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsRegion">
+        <valueCodeableConcept>
+          <text value="intron 16"/>
+        </valueCodeableConcept>
+      </extension>
+      <status value="final"/>
+      <code>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="49874-1"/>
+          <display value="ABCB4 gene mutation analysis"/>
+        </coding>
+      </code>
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="POS"/>
+        </coding>
+        <text value="positive"/>
+      </interpretation>
+      <component>
+        <code>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="53037-8"/>
+            <display value="Genetic disease sequence variation interpretation"/>
+          </coding>
+        </code>
+        <valueCodeableConcept>
+          <coding>
+            <code value="LA6675-8"/>
+            <display value="Benign"/>
+          </coding>
+        </valueCodeableConcept>
+      </component>
+    </Observation>
   </contained>
   <contained>
-      <Observation>
-          <id value="od-4"/>
-          <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
-              <valueReference>
-                  <reference value="Sequence/seq2-4"/>
-              </valueReference>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariationHGVS">
-              <extension url="genomeBuild">
-                  <valueCodeableConcept>
-                      <text value="GRCh 38"/>
-                  </valueCodeableConcept>
-              </extension>
-              <extension url="name">
-                  <valueCodeableConcept>
-                      <text value="c.3487-16T&gt;C"/>
-                  </valueCodeableConcept>
-              </extension>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
-              <valueCodeableConcept>
-                  <coding>
-                      <system value="http://www.genenames.org"/>
-                      <code value="5244"/>
-                      <display value="ABCB4"/>
-                  </coding>
-              </valueCodeableConcept>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsRegion">
-              <valueCodeableConcept>
-                  <text value="intron 26"/>
-              </valueCodeableConcept>
-          </extension>
-          <status value="final"/>
-          <code>
-              <coding>
-                  <system value="http://loinc.org"/>
-                  <code value="49874-1"/>
-                  <display value="ABCB4 gene mutation analysis"/>
-              </coding>
-          </code>
-          <interpretation>
-              <coding>
-                  <system value="http://hl7.org/fhir/v2/0078"/>
-                  <code value="POS"/>
-              </coding>
-              <text value="positive"/>
-          </interpretation>
-          <component>
-              <code>
-                  <coding>
-                      <system value="http://loinc.org"/>
-                      <code value="53037-8"/>
-                      <display value="Genetic disease sequence variation interpretation"/>
-                  </coding>
-              </code>
-              <valueCodeableConcept>
-                  <coding>
-                      <code value="LA6675-8"/>
-                      <display value="Benign"/>
-                  </coding>
-              </valueCodeableConcept>
-          </component>
-      </Observation>
+    <Observation>
+      <id value="od-4"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
+        <valueReference>
+          <reference value="Sequence/seq2-4"/>
+        </valueReference>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariationHGVS">
+        <extension url="genomeBuild">
+          <valueCodeableConcept>
+            <text value="GRCh 38"/>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="name">
+          <valueCodeableConcept>
+            <text value="c.3487-16T&gt;C"/>
+          </valueCodeableConcept>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://www.genenames.org"/>
+            <code value="5244"/>
+            <display value="ABCB4"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsRegion">
+        <valueCodeableConcept>
+          <text value="intron 26"/>
+        </valueCodeableConcept>
+      </extension>
+      <status value="final"/>
+      <code>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="49874-1"/>
+          <display value="ABCB4 gene mutation analysis"/>
+        </coding>
+      </code>
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="POS"/>
+        </coding>
+        <text value="positive"/>
+      </interpretation>
+      <component>
+        <code>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="53037-8"/>
+            <display value="Genetic disease sequence variation interpretation"/>
+          </coding>
+        </code>
+        <valueCodeableConcept>
+          <coding>
+            <code value="LA6675-8"/>
+            <display value="Benign"/>
+          </coding>
+        </valueCodeableConcept>
+      </component>
+    </Observation>
   </contained>
-  
   <extension url="http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsAssessedCondition">
-      <valueReference>
-          <reference value="#c1"/>
-      </valueReference>
+    <valueReference>
+      <reference value="#c1"/>
+    </valueReference>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsAnalysis">
-      <extension url="type" >
-          <valueCodeableConcept>
-              <coding>
-                  <system value="http://loinc.org"/>
-                  <code value="51968-6"/>
-                  <display value="Genetic Disease Analysis Overall Interpretation"/>
-              </coding>
-          </valueCodeableConcept>
-      </extension>
-      <extension url="interpretation" >
-          <valueCodeableConcept>
-              <coding>
-                  <code value="LA9663-1 "/>
-                  <display value="Inconclusive"/>
-              </coding>
-          </valueCodeableConcept>
-      </extension>
+    <extension url="type">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="51968-6"/>
+          <display value="Genetic Disease Analysis Overall Interpretation"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+    <extension url="interpretation">
+      <valueCodeableConcept>
+        <coding>
+          <code value="LA9663-1 "/>
+          <display value="Inconclusive"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
   </extension>
-  
   <status value="final"/>
   <category>
     <coding>
@@ -328,44 +325,40 @@
     </coding>
   </category>
   <code>
-      <coding>
-          <system value="http://loinc.org"/>
-          <code value="49874-1"/>
-          <display value="ABCB4 gene mutation analysis"/>
-      </coding>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="49874-1"/>
+      <display value="ABCB4 gene mutation analysis"/>
+    </coding>
   </code>
   <subject>
-      <reference value="Patient/genetics-example2"/>
-      <display value="Molecular Lab Patient ID: HOSP-23456"/>
+    <reference value="Patient/genetics-example2"/>
+    <display value="Molecular Lab Patient ID: HOSP-23456"/>
   </subject>
   <effectiveDateTime value="2014-03-04T08:30:00+11:00"/>
   <issued value="2014-05-16T10:28:00+01:00"/>
   <performer>
-      <reference value="Practitioner/genetics-example2"/>
-      <display value="Molecular Diagnostic Laboratory"/>
+    <reference value="Practitioner/genetics-example2"/>
+    <display value="Molecular Diagnostic Laboratory"/>
   </performer>
   <specimen>
-      <reference value="Specimen/genetics-example2"/>
-      <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+    <reference value="Specimen/genetics-example2"/>
+    <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
   </specimen>
   <result>
     <reference value="#od-1"/>
     <display value="Genetic analysis master panel for ABCB4 -variant1"/>
   </result>
   <result>
-      <reference value="#od-2"/>
-      <display value="Genetic analysis master panel for ABCB4 -variant2"/>
+    <reference value="#od-2"/>
+    <display value="Genetic analysis master panel for ABCB4 -variant2"/>
   </result>
   <result>
-      <reference value="#od-3"/>
-      <display value="Genetic analysis master panel for ABCB4 -variant3"/>
+    <reference value="#od-3"/>
+    <display value="Genetic analysis master panel for ABCB4 -variant3"/>
   </result>
   <result>
-      <reference value="#od-4"/>
-      <display value="Genetic analysis master panel for ABCB4 -variant4"/>
+    <reference value="#od-4"/>
+    <display value="Genetic analysis master panel for ABCB4 -variant4"/>
   </result>
-
 </DiagnosticReport>
-
-
-

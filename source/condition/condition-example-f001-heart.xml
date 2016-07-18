@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
   <id value="f001"/>
-    <patient>
-        <reference value="Patient/f001"/>
-        <display value="P. van de Heuvel"/>
-    </patient>
-    <encounter>
-        <reference value="Encounter/f001"/>
-    </encounter>
-    <asserter>
-        <reference value="Patient/f001"/>
-        <display value="P. van de Heuvel"/>
-    </asserter>
-    <dateRecorded value="2011-10-05"/>
+  <clinicalStatus value="active"/>
+  <verificationStatus value="confirmed"/>
+  <category>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="439401001"/>
+      <display value="diagnosis"/>
+    </coding>
+  </category>
+  <severity>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="6736007"/>
+      <display value="Moderate"/>
+    </coding>
+  </severity>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="368009"/>
+      <display value="Heart valve disorder"/>
+    </coding>
+  </code>
+  <bodySite>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="40768004"/>
+      <display value="Left thorax"/>
+    </coding>
+    <text value="heart structure"/>
+  </bodySite>
+  <subject>
+    <reference value="Patient/f001"/>
+    <display value="P. van de Heuvel"/>
+  </subject>
+  <context>
+    <reference value="Encounter/f001"/>
+  </context>
+  <onsetDateTime value="2011-08-05"/>
+  <dateRecorded value="2011-10-05"/>
+  <asserter>
+    <reference value="Patient/f001"/>
+    <display value="P. van de Heuvel"/>
+  </asserter>
+  <evidence>
     <code>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="368009"/>
-            <display value="Heart valve disorder"/>
-        </coding>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="426396005"/>
+        <display value="Cardiac chest pain"/>
+      </coding>
     </code>
-    <category>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="439401001"/>
-            <display value="diagnosis"/>
-        </coding>
-    </category>
-    <clinicalStatus value="active"/>
-    <verificationStatus value="confirmed"/>
-    <severity>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="6736007"/>
-            <display value="Moderate"/>
-        </coding>
-    </severity>
-    <onsetDateTime value="2011-08-05"/>
-    <evidence>
-        <code>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="426396005"/>
-                <display value="Cardiac chest pain"/>
-            </coding>
-        </code>
-    </evidence>
-    <bodySite>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="40768004"/>
-                <display value="Left thorax"/>
-            </coding>
-        <text value="heart structure"/>
-    </bodySite>
+  </evidence>
 </Condition>

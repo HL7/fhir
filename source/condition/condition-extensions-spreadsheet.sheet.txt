@@ -52,3 +52,15 @@
   Definition = The condition is resolved.
 
 === Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = based-on
+  Type = reference
+  Description = Matches on the basedon extension value
+  Path = Condition.extension{http://hl7.org/fhir/StructureDefinition/condition-basedon}
+
+ -- Row 2 -----------------------------------
+  Name = parent
+  Type = reference
+  Description = Matches on the parent extension value
+  Path = Condition.extension{http://hl7.org/fhir/StructureDefinition/condition-parent}

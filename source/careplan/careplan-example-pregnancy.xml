@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
   <id value="preg"/>
   <text>
     <status value="additional"/>
@@ -12,14 +13,14 @@
   <contained>
     <Condition>
       <id value="p1"/>
-      <patient>
-        <reference value="Patient/1"/>
-        <display value="Eve Everywoman"/>
-      </patient>
+      <verificationStatus value="confirmed"/>
       <code>
         <text value="pregnancy"/>
       </code>
-      <verificationStatus value="confirmed"/>
+      <subject>
+        <reference value="Patient/1"/>
+        <display value="Eve Everywoman"/>
+      </subject>
     </Condition>
   </contained>
   <contained>
@@ -52,8 +53,8 @@
   </contained>
   <contained>
     <CareTeam>
-        <id value="careteam"/>
-        <participant>
+      <id value="careteam"/>
+      <participant>
         <!-- In New Zealand, there is a Lead Maternity Carer (LMC) - often a midwife -->
         <role>
           <coding>
@@ -129,7 +130,12 @@
       <valueUri value="http://orionhealth.com/fhir/careplan/1andetails"/>
     </extension>
     <detail>
-      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="encounter"/></coding></category>
+      <category>
+        <coding>
+          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
+          <code value="encounter"/>
+        </coding>
+      </category>
       <code>
         <coding>
           <system value="http://example.org/mySystem"/>
@@ -165,7 +171,12 @@
   <activity>
     <detail>
       <!-- This will be the second antenatal encounter - 3 months after LMP. It is not yet scheduled. -->
-      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="encounter"/></coding></category>
+      <category>
+        <coding>
+          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
+          <code value="encounter"/>
+        </coding>
+      </category>
       <code>
         <!-- The code is just for an antenatal encounter. There are many of these, the first is special... -->
         <coding>
@@ -202,7 +213,12 @@
   <activity>
     <detail>
       <!-- This will be the delivery. It is not yet scheduled. -->
-      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="encounter"/></coding></category>
+      <category>
+        <coding>
+          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
+          <code value="encounter"/>
+        </coding>
+      </category>
       <code>
         <coding>
           <system value="http://example.org/mySystem"/>

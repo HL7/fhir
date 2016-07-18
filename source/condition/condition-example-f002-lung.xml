@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
   <id value="f002"/>
-    <patient>
-        <reference value="Patient/f001"/>
-        <display value="P. van de Heuvel"/>
-    </patient>
-    <encounter>
-        <reference value="Encounter/f002"/>
-    </encounter>
-    <asserter>
-        <reference value="Patient/f001"/>
-        <display value="P. van de Heuvel"/>
-    </asserter>
-    <dateRecorded value="2012-06-03"/>
+  <clinicalStatus value="active"/>
+  <verificationStatus value="confirmed"/>
+  <category>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="439401001"/>
+      <display value="diagnosis"/>
+    </coding>
+  </category>
+  <severity>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="24484000"/>
+      <display value="Severe"/>
+    </coding>
+  </severity>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="254637007"/>
+      <display value="NSCLC - Non-small cell lung cancer"/>
+    </coding>
+  </code>
+  <bodySite>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="51185008"/>
+      <display value="Thorax"/>
+    </coding>
+  </bodySite>
+  <subject>
+    <reference value="Patient/f001"/>
+    <display value="P. van de Heuvel"/>
+  </subject>
+  <context>
+    <reference value="Encounter/f002"/>
+  </context>
+  <onsetDateTime value="2011-05-05"/>
+  <dateRecorded value="2012-06-03"/>
+  <asserter>
+    <reference value="Patient/f001"/>
+    <display value="P. van de Heuvel"/>
+  </asserter>
+  <stage>
+    <summary>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="258219007"/>
+        <display value="stage II"/>
+      </coding>
+    </summary>
+  </stage>
+  <evidence>
     <code>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="254637007"/>
-            <display value="NSCLC - Non-small cell lung cancer"/>
-        </coding>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="169069000"/>
+        <display value="CT of thorax"/>
+      </coding>
     </code>
-    <category>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="439401001"/>
-            <display value="diagnosis"/>
-        </coding>
-    </category>
-    <clinicalStatus value="active"/>
-    <verificationStatus value="confirmed"/>
-    <severity>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="24484000"/>
-            <display value="Severe"/>
-        </coding>
-    </severity>
-    <onsetDateTime value="2011-05-05"/>
-    <stage>
-        <summary>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="258219007"/>
-                <display value="stage II"/>
-            </coding>
-        </summary>
-    </stage>
-    <evidence>
-        <code>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="169069000"/>
-                <display value="CT of thorax"/>
-            </coding>
-        </code>
-    </evidence>
-    <bodySite>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="51185008"/>
-                <display value="Thorax"/>    
-            </coding> 
-    </bodySite>
+  </evidence>
 </Condition>

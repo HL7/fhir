@@ -1,58 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
+<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
   <id value="f202"/>
-   <patient>
-      <!--It entails Roel's problem-->
-      <reference value="Patient/f201"/>
-      <display value="Roel"/>
-   </patient>
-   <!--It was not established during an encounter, but through a diagnostic report of december 2012-->
-   <dateRecorded value="2012-12-01"/>
-   <!--The problem was asserted at December first-->
-   <code>
-      <!--The problem is a malignant tumor-->
-      <coding>
-         <system value="http://snomed.info/sct"/>
-         <code value="363346000"/>
-         <display value="Malignant neoplastic disease"/>
-      </coding>
-   </code>
-   <category>
-      <coding>
-         <system value="http://hl7.org/fhir/condition-category"/>
-         <code value="diagnosis"/>
-      </coding>
-   </category>
-   <clinicalStatus value="active"/>
-   <verificationStatus value="confirmed"/>
-   <severity>
-      <coding>
-         <system value="http://snomed.info/sct"/>
-         <code value="24484000"/>
-         <display value="Severe"/>
-      </coding>
-   </severity>
-   <onsetAge>
-      <value value="52"/>
-      <unit value="years"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="a"/>
-   </onsetAge>
-   <!--No remission means no <rebatement>-->
-   <evidence>
-      <!--Problem is confirmed in diagnostic report-->
-      <detail>
-         <reference value="DiagnosticReport/f201"/>
-         <display value="Erasmus' diagnostic report of Roel's tumor"/>
-      </detail>
-   </evidence>
-   <bodySite>
-      <!--Head and neck malignancy-->
-         <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="361355005"/>
-            <display value="Entire head and neck"/>
-         </coding>  
-   </bodySite>
+  <clinicalStatus value="active"/>
+  <verificationStatus value="confirmed"/>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-category"/>
+      <code value="diagnosis"/>
+    </coding>
+  </category>
+  <severity>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="24484000"/>
+      <display value="Severe"/>
+    </coding>
+  </severity>
+  <code>
+    <!--The problem is a malignant tumor-->
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="363346000"/>
+      <display value="Malignant neoplastic disease"/>
+    </coding>
+  </code>
+  <bodySite>
+    <!--Head and neck malignancy-->
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="361355005"/>
+      <display value="Entire head and neck"/>
+    </coding>
+  </bodySite>
+  <subject>
+    <!--It entails Roel's problem-->
+    <reference value="Patient/f201"/>
+    <display value="Roel"/>
+  </subject>
+  <onsetAge>
+    <value value="52"/>
+    <unit value="years"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="a"/>
+  </onsetAge>
+  <dateRecorded value="2012-12-01"/>
+  <evidence>
+    <!--Problem is confirmed in diagnostic report-->
+    <detail>
+      <reference value="DiagnosticReport/f201"/>
+      <display value="Erasmus' diagnostic report of Roel's tumor"/>
+    </detail>
+  </evidence>
 </Condition>

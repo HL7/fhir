@@ -144,72 +144,6 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Condition.patient
-  Card. = 1..1
-  Type = Reference(Patient)
-  Short Label = Who has the condition?
-  Definition = Indicates the patient who the condition record is associated with
-  v2 Mapping = PID-3
-  RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
-  Committee Notes = [#3701]
-  w5 = who.focus
-
- -- Row 4 -----------------------------------
-  Element = Condition.encounter
-  Card. = 0..1
-  Type = Reference(Encounter)
-  Short Label = Encounter when condition first asserted
-  Definition = Encounter during which the condition was first asserted
-  Comments = This record indicates the encounter this particular record is associated with.  In the case of a \"new\" diagnosis reflecting ongoing/revised information about the condition, this might be distinct from the first encounter in which the underlying condition was first \"known\".
-  v2 Mapping = PV1-19 (+PV1-54)
-  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
-  w5 = context
-
- -- Row 5 -----------------------------------
-  Element = Condition.asserter
-  Card. = 0..1
-  Type = Reference(Practitioner|Patient)
-  Short Label = Person who asserts this condition
-  Definition = Individual who is making the condition statement
-  v2 Mapping = REL-7.1 identifier + REL-7.12 type code
-  RIM Mapping = .participation[typeCode=AUT].role
-  w5 = who.author
-
- -- Row 6 -----------------------------------
-  Element = Condition.dateRecorded
-  Card. = 0..1
-  Type = date
-  Short Label = When first entered
-  Definition = A date, when  the Condition statement was documented
-  Comments = The Date Recorded represents the date when this particular Condition record was created in the EHR, not the date of the most recent update in terms of when severity, abatement, etc. were specified.  The date of the last record modification can be retrieved from the resource metadata.
-  v2 Mapping = REL-11
-  RIM Mapping = .participation[typeCode=AUT].time
-  w5 = when.recorded
-
- -- Row 7 -----------------------------------
-  Element = Condition.code
-  Card. = 1..1
-  Type = CodeableConcept
-  Binding = ConditionKind
-  Short Label = Identification of the condition, problem or diagnosis
-  Definition = Identification of the condition, problem or diagnosis.
-  v2 Mapping = PRB-3
-  RIM Mapping = .value
-  w5 = what
-
- -- Row 8 -----------------------------------
-  Element = Condition.category
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = ConditionCategory
-  Short Label = complaint | symptom | finding | diagnosis
-  Definition = A category assigned to the condition.
-  Comments = The categorization is often highly contextual and may appear poorly differentiated or not very useful in other contexts
-  v2 Mapping = \'problem\' if from PRB-3. \'diagnosis\' if from DG1 segment in PV1 message
-  RIM Mapping = .code
-  w5 = class
-
- -- Row 9 -----------------------------------
   Element = Condition.clinicalStatus
   Card. = 0..1
   Is Modifier = y
@@ -220,7 +154,7 @@
   v2 Mapping = PRB-14 / DG1-6
   w5 = status
 
- -- Row 10 -----------------------------------
+ -- Row 4 -----------------------------------
   Element = Condition.verificationStatus
   Card. = 1..1
   Is Modifier = y
@@ -232,7 +166,31 @@
   RIM Mapping = .code (pre or post-coordinated in)  Can use valueNegationInd for refuted
   w5 = status
 
- -- Row 11 -----------------------------------
+ -- Row 5 -----------------------------------
+  Element = Condition.category
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ConditionCategory
+  Short Label = complaint | symptom | finding | diagnosis
+  Definition = A category assigned to the condition.
+  Comments = The categorization is often highly contextual and may appear poorly differentiated or not very useful in other contexts
+  v2 Mapping = \'problem\' if from PRB-3. \'diagnosis\' if from DG1 segment in PV1 message
+  RIM Mapping = .code
+  w5 = class
+
+ -- Row 6 -----------------------------------
+  Element = Condition.severity
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ConditionSeverity
+  Short Label = Subjective severity of condition
+  Definition = A subjective assessment of the severity of the condition as evaluated by the clinician.
+  Comments = Coding of the severity with a terminology is preferred, where possible
+  v2 Mapping = PRB-26 / ABS-3
+  RIM Mapping = Can be pre/post-coordinated into value.  Or ./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"severity\"].value
+  w5 = grade
+
+ -- Row 7 -----------------------------------
   Element = !Condition.certainty
   Card. = 0..1
   Is Modifier = y
@@ -245,19 +203,51 @@
   RIM Mapping = .uncertaintyCode
   w5 = grade
 
- -- Row 12 -----------------------------------
-  Element = Condition.severity
-  Card. = 0..1
+ -- Row 8 -----------------------------------
+  Element = Condition.code
+  Card. = 1..1
   Type = CodeableConcept
-  Binding = ConditionSeverity
-  Short Label = Subjective severity of condition
-  Definition = A subjective assessment of the severity of the condition as evaluated by the clinician.
-  Comments = Coding of the severity with a terminology is preferred, where possible
-  v2 Mapping = PRB-26 / ABS-3
-  RIM Mapping = Can be pre/post-coordinated into value.  Or ./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"severity\"].value
-  w5 = grade
+  Binding = ConditionKind
+  Short Label = Identification of the condition, problem or diagnosis
+  Definition = Identification of the condition, problem or diagnosis.
+  v2 Mapping = PRB-3
+  RIM Mapping = .value
+  w5 = what
 
- -- Row 13 -----------------------------------
+ -- Row 9 -----------------------------------
+  Element = Condition.bodySite
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = BodySite
+  Short Label = Anatomical location, if relevant
+  Definition = The anatomical location where this condition manifests itself
+  Comments = May be a summary code, or a reference to a very precise definition of the location, or both
+  RIM Mapping = .targetBodySiteCode
+
+ -- Row 10 -----------------------------------
+  Element = Condition.subject
+  Card. = 1..1
+  Type = Reference(Patient|Group)
+  Short Label = Who has the condition?
+  Definition = Indicates the patient or group who the condition record is associated with
+  Requirements = Group is typically used for veterinary or public health use cases
+  v2 Mapping = PID-3
+  RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
+  Committee Notes = [#3701]
+  w5 = who.focus
+
+ -- Row 11 -----------------------------------
+  Element = Condition.context
+  Card. = 0..1
+  Type = Reference(Encounter|EpisodeOfCare)
+  Short Label = Encounter when condition first asserted
+  Definition = Encounter during which the condition was first asserted
+  Comments = This record indicates the encounter this particular record is associated with.  In the case of a \"new\" diagnosis reflecting ongoing/revised information about the condition, this might be distinct from the first encounter in which the underlying condition was first \"known\".
+  v2 Mapping = PV1-19 (+PV1-54)
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
+  w5 = context
+
+ -- Row 12 -----------------------------------
   Element = Condition.onset[x]
   Card. = 0..1
   Type = dateTime | Age | Period | Range | string
@@ -269,7 +259,7 @@
   Committee Notes = [#2952]
   w5 = when.init
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Condition.abatement[x]
   Card. = 0..1
   Type = dateTime | Age | boolean | Period | Range | string
@@ -279,7 +269,28 @@
   RIM Mapping = .effectiveTime.high or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"age at remission\"].value or .inboundRelationship[typeCode=SUBJ]source[classCode=CONC, moodCode=EVN].status=completed
   w5 = when.done
 
+ -- Row 14 -----------------------------------
+  Element = Condition.dateRecorded
+  Card. = 0..1
+  Type = date
+  Short Label = When first entered
+  Definition = A date, when  the Condition statement was documented
+  Comments = The Date Recorded represents the date when this particular Condition record was created in the EHR, not the date of the most recent update in terms of when severity, abatement, etc. were specified.  The date of the last record modification can be retrieved from the resource metadata.
+  v2 Mapping = REL-11
+  RIM Mapping = .participation[typeCode=AUT].time
+  w5 = when.recorded
+
  -- Row 15 -----------------------------------
+  Element = Condition.asserter
+  Card. = 0..1
+  Type = Reference(Practitioner|Patient)
+  Short Label = Person who asserts this condition
+  Definition = Individual who is making the condition statement
+  v2 Mapping = REL-7.1 identifier + REL-7.12 type code
+  RIM Mapping = .participation[typeCode=AUT].role
+  w5 = who.author
+
+ -- Row 16 -----------------------------------
   Element = Condition.stage
   Card. = 0..1
   UML = 370;0
@@ -287,7 +298,7 @@
   Definition = Clinical stage or grade of a condition. May include formal severity assessments
   RIM Mapping = ./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"stage/grade\"]
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Condition.stage.summary
   Card. = 0..1
   Inv. = 1
@@ -298,7 +309,7 @@
   v2 Mapping = PRB-14
   RIM Mapping = .value
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Condition.stage.assessment
   Card. = 0..*
   Inv. = 1
@@ -308,7 +319,7 @@
   RIM Mapping = .self
   To Do = When an assessment resource / framework is developed, this will be changed from Any to something narrower
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Condition.evidence
   Card. = 0..*
   UML = 370;180
@@ -317,7 +328,7 @@
   Comments = The evidence may be a simple list of coded symptoms/manifestations, or references to observations or formal assessments, or both
   RIM Mapping = .outboundRelationship[typeCode=SPRT].target[classCode=OBS, moodCode=EVN]
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Condition.evidence.code
   Card. = 0..1
   Inv. = 2
@@ -327,7 +338,7 @@
   Definition = A manifestation or symptom that led to the recording of this condition
   RIM Mapping = [code=\"diagnosis\"].value
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Condition.evidence.detail
   Card. = 0..*
   Inv. = 2
@@ -335,16 +346,6 @@
   Short Label = Supporting information found elsewhere
   Definition = Links to other relevant information, including pathology reports
   RIM Mapping = .self
-
- -- Row 21 -----------------------------------
-  Element = Condition.bodySite
-  Card. = 0..*
-  Type = CodeableConcept
-  Binding = BodySite
-  Short Label = Anatomical location, if relevant
-  Definition = The anatomical location where this condition manifests itself
-  Comments = May be a summary code, or a reference to a very precise definition of the location, or both
-  RIM Mapping = .targetBodySiteCode
 
  -- Row 22 -----------------------------------
   Element = Condition.note
@@ -430,9 +431,9 @@
   Path = Condition.abatement[x]
 
  -- Row 13 -----------------------------------
-  Name = encounter
+  Name = context
   Type = reference
-  Path = Condition.encounter
+  Path = Condition.context
 
  -- Row 14 -----------------------------------
   Name = asserter
@@ -463,8 +464,13 @@
  -- Row 19 -----------------------------------
   Name = patient
   Type = reference
-  Path = Condition.patient
+  Path = Condition.subject
   Target Types = Patient
+
+ -- Row 20 -----------------------------------
+  Name = subject
+  Type = reference
+  Path = Condition.subject
 
 === Sheet Profiles =====================================
 

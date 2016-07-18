@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9384</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>3900</WindowHeight>
+  <WindowWidth>12024</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -265,7 +265,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Condition</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">encounter</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">context</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">asserter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -704,7 +704,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>15</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -712,8 +712,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>23</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
