@@ -78,53 +78,21 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Communication.category
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = CommunicationCategory
-  Short Label = Message category
-  Definition = The type of message conveyed such as alert, notification, reminder, instruction, etc.
-  w5 = class
+  Element = Communication.basedOn
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Label = Request fulfilled by this communication
+  Definition = An order, proposal or plan fulfilled in whole or in part by this Communication
+  Comments = This must point to some sort of a \'Request\' resource, such as CarePlan, CommunicationRequest, ReferralRequest, MedicationOrder, etc.
 
  -- Row 4 -----------------------------------
-  Element = Communication.sender
-  Card. = 0..1
-  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
-  Short Label = Message sender
-  Definition = The entity (e.g. person, organization, clinical information system, or device) which was the source of the communication.
-  w5 = who.actor
+  Element = Communication.parent
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Label = Part of this action
+  Comments = This must point to some sort of an \'Event\' resource such as Communication, Procedure, MedicationAdministration, etc.
 
  -- Row 5 -----------------------------------
-  Element = Communication.recipient
-  Card. = 0..*
-  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group)
-  Short Label = Message recipient
-  Definition = The entity (e.g. person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).
-  w5 = who.focus
-
- -- Row 6 -----------------------------------
-  Element = Communication.payload
-  Card. = 0..*
-  UML = 380;50
-  Short Label = Message payload
-  Definition = Text, attachment(s), or resource(s) that was communicated to the recipient.
-
- -- Row 7 -----------------------------------
-  Element = Communication.payload.content[x]
-  Card. = 1..1
-  Type = string|Attachment|Reference(Any)
-  Short Label = Message part content
-  Definition = A communicated content (or for multi-part communications, one portion of the communication)
-
- -- Row 8 -----------------------------------
-  Element = Communication.medium
-  Card. = 0..*
-  Type = CodeableConcept
-  Binding = CommunicationMedium
-  Short Label = A channel of communication
-  Definition = A channel that was used for this communication (e.g. email, fax).
-
- -- Row 9 -----------------------------------
   Element = Communication.status
   Card. = 0..1
   Is Modifier = Y
@@ -133,6 +101,39 @@
   Short Label = in-progress | completed | suspended | rejected | failed
   Definition = The status of the transmission.
   w5 = status
+
+ -- Row 6 -----------------------------------
+  Element = Communication.category
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = CommunicationCategory
+  Short Label = Message category
+  Definition = The type of message conveyed such as alert, notification, reminder, instruction, etc.
+  w5 = class
+
+ -- Row 7 -----------------------------------
+  Element = Communication.medium
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = CommunicationMedium
+  Short Label = A channel of communication
+  Definition = A channel that was used for this communication (e.g. email, fax).
+
+ -- Row 8 -----------------------------------
+  Element = Communication.subject
+  Card. = 0..1
+  Type = Reference(Patient|Group)
+  Short Label = Focus of message
+  Definition = The patient who was the focus of this communication.
+  w5 = who.focus
+
+ -- Row 9 -----------------------------------
+  Element = Communication.topic
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Label = Focal resources
+  Definition = The resources which were responsible for or related to producing this communication.
+  w5 = context
 
  -- Row 10 -----------------------------------
   Element = Communication.context
@@ -143,14 +144,6 @@
   w5 = context
 
  -- Row 11 -----------------------------------
-  Element = Communication.topic
-  Card. = 0..*
-  Type = Reference(Any)
-  Short Label = Focal resources
-  Definition = The resources which were responsible for or related to producing this communication.
-  w5 = context
-
- -- Row 12 -----------------------------------
   Element = Communication.sent
   Card. = 0..1
   Type = dateTime
@@ -158,7 +151,7 @@
   Definition = The time when this communication was sent.
   w5 = when.init
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Communication.received
   Card. = 0..1
   Type = dateTime
@@ -166,29 +159,51 @@
   Definition = The time when this communication arrived at the destination.
   w5 = when.done
 
+ -- Row 13 -----------------------------------
+  Element = Communication.sender
+  Card. = 0..1
+  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
+  Short Label = Message sender
+  Definition = The entity (e.g. person, organization, clinical information system, or device) which was the source of the communication.
+  w5 = who.actor
+
  -- Row 14 -----------------------------------
+  Element = Communication.recipient
+  Card. = 0..*
+  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group)
+  Short Label = Message recipient
+  Definition = The entity (e.g. person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).
+  w5 = who.focus
+
+ -- Row 15 -----------------------------------
   Element = Communication.reason
   Card. = 0..*
   Type = CodeableConcept
   Binding = CommunicationReason
   Short Label = Indication for message
   Definition = The reason or justification for the communication.
-
- -- Row 15 -----------------------------------
-  Element = Communication.subject
-  Card. = 0..1
-  Type = Reference(Patient)
-  Short Label = Focus of message
-  Definition = The patient who was the focus of this communication.
-  w5 = who.focus
+  w5 = why
 
  -- Row 16 -----------------------------------
-  Element = Communication.requestDetail
-  Card. = 0..1
-  Type = Reference(CommunicationRequest)
-  Short Label = CommunicationRequest producing this message
-  Definition = The communication request that was responsible for producing this communication.
-  w5 = context
+  Element = Communication.payload
+  Card. = 0..*
+  UML = 380;50
+  Short Label = Message payload
+  Definition = Text, attachment(s), or resource(s) that was communicated to the recipient.
+
+ -- Row 17 -----------------------------------
+  Element = Communication.payload.content[x]
+  Card. = 1..1
+  Type = string|Attachment|Reference(Any)
+  Short Label = Message part content
+  Definition = A communicated content (or for multi-part communications, one portion of the communication)
+
+ -- Row 18 -----------------------------------
+  Element = Communication.note
+  Card. = 0..*
+  Type = Annotation
+  Short Label = Comments made about the communication
+  Definition = Additional notes or commentary about the communication by the sender, receiver or other interested parties.
 
 === Sheet Search =====================================
 
@@ -246,11 +261,12 @@
   Name = patient
   Type = reference
   Path = Communication.subject
+  Target Types = Patient
 
  -- Row 12 -----------------------------------
-  Name = request
+  Name = based-on
   Type = reference
-  Path = Communication.requestDetail
+  Path = Communication.basedOn
 
 === Sheet Profiles =====================================
 

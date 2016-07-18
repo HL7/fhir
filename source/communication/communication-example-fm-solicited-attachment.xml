@@ -5,8 +5,6 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">Attachment in response to a Request</div>
   </text>
-  
-  <!-- insert contents here -->
    <contained>
     <Organization>
       <id value="provider"/>
@@ -34,6 +32,9 @@
         <system value="http://www.jurisdiction.com/insurer/123456"/>
         <value value="ABC123"/>
       </identifier>
+      <subject>
+        <reference value="Patient/1"/>
+      </subject>
     </CommunicationRequest>
   </contained>
 
@@ -43,17 +44,24 @@
 		<system value="http://www.providerco.com/communication"/>
 		<value value="12345"/>
   </identifier>
-  
-   <category>
-      <coding>
-        <system value="http://acme.org/messagetypes"/>
-        <code value="SolicitedAttachment"/>
-      </coding>
-   </category>
-   <sender>
-     <reference value="#provider"/>
-   </sender>
-   <recipient>
+  <basedOn>
+    <reference value="#request"/>
+  </basedOn>
+  <status value="completed"/>
+  <category>
+    <coding>
+      <system value="http://acme.org/messagetypes"/>
+      <code value="SolicitedAttachment"/>
+    </coding>
+  </category>
+  <subject>
+    <reference value="Patient/1"/>
+  </subject>
+  <sent value="2016-06-12T18:01:10-08:00"/>
+  <sender>
+    <reference value="#provider"/>
+  </sender>
+  <recipient>
     <reference value="#payor"/>
   </recipient>
   <payload>
@@ -73,9 +81,4 @@
 	  <creation value="2010-02-01T10:57:34+01:00"/>
     </contentAttachment>
   </payload>
-  <status value="completed"/>
-  <sent value="2016-06-12T18:01:10-08:00"/>
-  <requestDetail>
-    <reference value="#request"/>
-  </requestDetail>
 </Communication>

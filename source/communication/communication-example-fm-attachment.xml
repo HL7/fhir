@@ -64,6 +64,8 @@
 		<value value="12345"/>
   </identifier>
   
+  <status value="completed"/>
+  
   <category>
     <coding>
       <system value="http://acme.org/messagetypes"/>
@@ -71,10 +73,23 @@
     </coding>
    </category>
 
-   <sender>
-     <reference value="#provider"/>
-   </sender>
-   <recipient>
+  <subject>
+    <reference value="Patient/1"/>
+  </subject>
+
+  <!-- Example using topic 0..* Resource(Any) to provide focal resources -->
+  <topic>
+    <reference value="#claim"/>
+  </topic>
+  <topic>
+    <reference value="#claimresponse"/>
+  </topic>
+  
+  <sent value="2016-06-12T18:01:10-08:00"/>
+  <sender>
+    <reference value="#provider"/>
+  </sender>
+  <recipient>
     <reference value="#payor"/>
   </recipient>
 
@@ -96,16 +111,5 @@
     </contentAttachment>
   </payload>
 
-  <status value="completed"/>
-  
-  <!-- Example using topic 0..* Resource(Any) to provide focal resources -->
-  <topic>
-    <reference value="#claim"/>
-  </topic>
-  <topic>
-    <reference value="#claimresponse"/>
-  </topic>
-  
-  <sent value="2016-06-12T18:01:10-08:00"/>
 
 </Communication>

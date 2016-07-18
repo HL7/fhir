@@ -324,6 +324,7 @@
   Name = patient
   Type = reference
   Path = ClinicalImpression.subject
+  Target Types = Patient
 
  -- Row 9 -----------------------------------
   Name = assessor
@@ -344,6 +345,11 @@
   Name = context
   Type = reference
   Path = ClinicalImpression.context
+
+ -- Row 13 -----------------------------------
+  Name = subject
+  Type = reference
+  Path = ClinicalImpression.subject
 
 === Sheet Profiles =====================================
 
