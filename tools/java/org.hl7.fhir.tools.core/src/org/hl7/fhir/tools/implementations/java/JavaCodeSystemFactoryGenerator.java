@@ -65,19 +65,23 @@ public class JavaCodeSystemFactoryGenerator extends JavaBaseGenerator {
     write("    if (codeString == null || \"\".equals(codeString))\r\n");
     write("      return null;\r\n");
     for (ConceptDefinitionComponent c : codes) {
-      String cc = Utilities.camelCase(c.getCode());
-      cc = makeConst(cc);
-      write("    if (\""+c.getCode()+"\".equals(codeString))\r\n");
-      write("      return "+tns+"."+cc+";\r\n");
+      if (c.hasCode()) {
+        String cc = Utilities.camelCase(c.getCode());
+        cc = makeConst(cc);
+        write("    if (\""+c.getCode()+"\".equals(codeString))\r\n");
+        write("      return "+tns+"."+cc+";\r\n");
+      }
     }   
     write("    throw new IllegalArgumentException(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
     write("  }\r\n"); 
     write("\r\n");
     write("  public String toCode("+tns+" code) {\r\n");
     for (ConceptDefinitionComponent c : codes) {
-      String cc = Utilities.camelCase(c.getCode());
-      cc = makeConst(cc);
-      write("    if (code == "+tns+"."+cc+")\r\n      return \""+c.getCode()+"\";\r\n");
+      if (c.hasCode()) {
+        String cc = Utilities.camelCase(c.getCode());
+        cc = makeConst(cc);
+        write("    if (code == "+tns+"."+cc+")\r\n      return \""+c.getCode()+"\";\r\n");
+      }
     }
     write("    return \"?\";\r\n"); 
     write("  }\r\n"); 

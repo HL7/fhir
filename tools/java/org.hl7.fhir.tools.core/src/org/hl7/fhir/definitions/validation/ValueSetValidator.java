@@ -394,11 +394,13 @@ public class ValueSetValidator extends BaseValidator {
 
   private void checkCodeCaseDuplicates(List<ValidationMessage> errors, String nameForErrors, CodeSystem cs, Set<String> codes, List<ConceptDefinitionComponent> concepts) {
     for (ConceptDefinitionComponent c : concepts) {
-      String cc = c.getCode().toLowerCase();
+      if (c.hasCode()) {
+        String cc = c.getCode().toLowerCase();
         rule(errors, IssueType.BUSINESSRULE, cs.getUserString("committee")+":CodeSystem["+cs.getId()+"].define", !codes.contains(cc), 
-          "Value set "+nameForErrors+" ("+cs.getName()+"): Code '"+cc+"' is defined twice, different by case - this is not allowed in a FHIR definition");
-      if (c.hasConcept())
-        checkCodeCaseDuplicates(errors, nameForErrors, cs, codes, c.getConcept());
+            "Value set "+nameForErrors+" ("+cs.getName()+"): Code '"+cc+"' is defined twice, different by case - this is not allowed in a FHIR definition");
+        if (c.hasConcept())
+          checkCodeCaseDuplicates(errors, nameForErrors, cs, codes, c.getConcept());
+      }
     }
   }
 

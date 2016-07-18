@@ -19,6 +19,7 @@
   <content value="complete"/>
   
   <concept>
+    <code value="cat1"/>
     <display value="Advance Directive Consent examples"/>
     <property>
       <code value="notSelectable"/>
@@ -31,6 +32,7 @@
     </concept>	  
   </concept>	
   <concept>
+    <code value="cat2"/>
     <display value="Medical/Procedure Informed Consent"/>
     <definition value="RWJ funded toolkit has several international example consent forms, and excellent overview of issues around medical informed consent"/>    
     <property>
@@ -44,6 +46,7 @@
     </concept>	  
   </concept>	
   <concept>
+    <code value="cat3"/>
     <display value="Example of US jurisdictional [federal and state] privacy consent"/>
     <property>
       <code value="notSelectable"/>
@@ -61,6 +64,7 @@
     </concept>	  
   </concept>	
   <concept>
+    <code value="cat4"/>
     <display value="US “Mixed” state HIE consent types"/>
     <definition value="May include federal and state jurisdictional privacy laws"/>
     <property>
@@ -79,6 +83,7 @@
     </concept>	  
   </concept>	
   <concept>
+    <code value="cat5"/>
     <display value="Example international health information exchange consent type"/>
     <property>
       <code value="notSelectable"/>
@@ -97,13 +102,14 @@
   </concept>	
 
   <concept>
+    <code value="cat6"/>
     <display value="Examples of US Research Consent Types"/>
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>
     </property>
     <concept>
-      <code value="hipaa"/>
+      <code value="nih-hipaa"/>
       <display value="HHS NIH HIPAA Research Authorization"/>
       <definition value="Guidance and template form https://privacyruleandresearch.nih.gov/pdf/authorization.pdf"/>    
     </concept>	  
