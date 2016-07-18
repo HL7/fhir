@@ -22,7 +22,7 @@
     <display value="Peter Chalmers"/> 
   </informationSource>
   <dateAsserted value="2014-02-22"/>
-  <wasNotTaken value="false"/>
+  <notTaken value="false"/>
   <note>
     <text value="Father indicates they miss the occasional dose"/>
   </note>

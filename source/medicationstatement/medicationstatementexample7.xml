@@ -39,7 +39,7 @@
     <display value="Donald Duck"/> 
   </informationSource>
   <dateAsserted value="2015-02-22"/>
-  <wasNotTaken value="true"/>
+  <notTaken value="true"/>
   <note>
     <text value="patient plans to start using for seasonal allergies in the Spring when pollen is in the air"/>
   </note>
