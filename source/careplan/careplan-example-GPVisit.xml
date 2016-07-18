@@ -17,10 +17,10 @@
     <!-- This is the reason for the encounter. It is referenced by the concern -->
     <Condition>
       <id value="p1"/>
-      <patient>
+      <subject>
         <reference value="Patient/100"/>
         <display value="Peter James Chalmers"/>
-      </patient>
+      </subject>
       <code>
         <!-- Could coded if we wanted to...-->
         <text value="Overseas encounter"/>
