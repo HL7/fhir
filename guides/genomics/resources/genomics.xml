@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<id value="genomics"/>
+	<url value="http://hl7.org/fhir/genomics"/>
+	<version value="1"/>
+	<name value="Genomics Implementation Guide"/>
+	<status value="draft"/>
+	<experimental value="false"/>
+	<publisher value="HL7 / Clinical Genomics"/>
+  <package>
+    <name value="examples"/>
+    <resource>
+      <example value="true"/>
+      <name value="Sequence Example"/>
+      <sourceReference>
+        <reference value="Sequence/example"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <example value="true"/>
+      <name value="Genetic Observation Example"/>
+      <sourceReference>
+        <reference value="Observation/example-genetics-1"/>
+      </sourceReference>
+    </resource>
+  </package>
+	<page>
+		<source value="index.html"/>
+		<title value="Document"/>
+		<kind value="page"/>
+	</page>
+</ImplementationGuide>

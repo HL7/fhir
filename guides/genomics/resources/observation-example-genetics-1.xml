@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="example-genetics-1"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNASequenceVariant" >
+    <valueString value="NG_007726.3:g.146252T&gt;G" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene" >
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://www.genenames.org" />
+        <code value="3236" />
+        <display value="EGFR" />
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNARegionName" >
+    <valueString value="Exon 21" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass" >
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/LOINC-48002-0-answerlist" />
+        <code value="LA6684-0" />
+        <display value="somatic" />
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <status value="final"/>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="55233-1"/>
+      <display value="Genetic analysis master panel"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/example-genetics-somatic"/>
+    <display value="Molecular Lab Patient ID: HOSP-23456"/>
+  </subject>
+  <issued value="2013-04-03T15:30:10+01:00"/>
+  <performer>
+    <reference value="Practitioner/example-genetics-somatic"/>
+    <display value="Molecular Diagnostics Laboratory"/>
+  </performer>
+  <valueCodeableConcept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="10828004"/>
+      <display value="Positive"/>
+    </coding>
+  </valueCodeableConcept>
+  <specimen>
+    <reference value="Specimen/genetics-example1-somatic"/>
+    <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+  </specimen>
+</Observation>
