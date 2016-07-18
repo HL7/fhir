@@ -1,0 +1,30 @@
+{
+  "tool" : "jekyll",
+  "paths" : {
+    "resources" : "resources",
+    "pages" : "pages",
+    "temp" : "temp",
+    "output" : "output",
+    "qa" : "qa",
+    "txCache" : "txCache",
+    "specification" : "http://hl7-fhir.github.io"
+  },
+  "defaults" : {
+    "Any" : {
+	  	"template-format" : "instance-template-format.html",
+      "template-base" : "instance-template-base.html"
+    }
+  },
+	"canonicalBase": "http://hl7.org/fhir/genomics",  
+	"source": "genomics.xml",
+  "regenerate" : [
+    "http://hl7.org/fhir/StructureDefinition/Sequence",
+    "http://hl7.org/fhir/StructureDefinition/observationforgenetics"
+  ],
+	"resources": {
+		"StructureDefinition/Sequence": {
+			"defns": "http://hl7-fhir.github.io/sequence-definitions.html",
+			"base": "http://hl7-fhir.github.io/sequence.html"
+		}
+	}
+}
