@@ -18,7 +18,9 @@
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
       </subject>
-      <description value="Retropharyngeal abscess removal"/>
+      <description>
+        <text value="Retropharyngeal abscess removal"/>
+      </description>
       <status value="achieved"/>
       <!-- urn:oid:2.16.840.1.113883.4.642.1.38 -->
       <note>

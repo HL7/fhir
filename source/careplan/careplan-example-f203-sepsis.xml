@@ -38,7 +38,9 @@
         <reference value="Patient/f201"/>
         <display value="Roel"/>
       </subject>
-      <description value="Check whether further treatment of sepsis/pulmonary abcess is required"/>
+      <description>
+        <text value="Check whether further treatment of sepsis/pulmonary abcess is required"/>
+      </description>
       <status value="cancelled"/>
     </Goal>
   </contained>

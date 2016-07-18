@@ -95,7 +95,9 @@
         <reference value="Patient/100"/>
         <display value="Peter James Chalmers"/>
       </subject>
-      <description value="Complete consultation"/>
+      <description>
+        <text value="Complete consultation"/>
+      </description>
       <status value="planned"/>
     </Goal>
   </contained>

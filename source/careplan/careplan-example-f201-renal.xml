@@ -38,7 +38,9 @@
         <reference value="Patient/f201"/>
         <display value="Roel"/>
       </subject>
-      <description value="Re-established renal function with at least healthy nutrients."/>
+      <description>
+        <text value="Re-established renal function with at least healthy nutrients."/>
+      </description>
       <status value="achieved"/>
     </Goal>
   </contained>

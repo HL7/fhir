@@ -196,7 +196,9 @@
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
-      <description value="Maintain Peak flow above 500"/>
+      <description>
+        <text value="Maintain Peak flow above 500"/>
+      </description>
       <status value="in-progress"/>
     </Goal>
   </contained>
@@ -207,7 +209,9 @@
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
-      <description value="Eve will aim to record Peak Flow daily. An activity is created to prompt her."/>
+      <description>
+        <text value="Eve will aim to record Peak Flow daily. An activity is created to prompt her."/>
+      </description>
       <status value="in-progress"/>
     </Goal>
   </contained>

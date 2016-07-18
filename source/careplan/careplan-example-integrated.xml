@@ -166,7 +166,9 @@
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
-      <description value="Eve will lose weight and reduce her GERDS symptoms by improving her diet"/>
+      <description>
+        <text value="Eve will lose weight and reduce her GERDS symptoms by improving her diet"/>
+      </description>
       <status value="in-progress"/>
     </Goal>
   </contained>
@@ -177,7 +179,9 @@
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
-      <description value="Eve will improve her GERDS symptoms"/>
+      <description>
+        <text value="Eve will improve her GERDS symptoms"/>
+      </description>
       <status value="in-progress"/>
     </Goal>
   </contained>
@@ -188,7 +192,9 @@
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
-      <description value="Eve will increase her energy by being more active"/>
+      <description>
+        <text value="Eve will increase her energy by being more active"/>
+      </description>
       <status value="in-progress"/>
     </Goal>
   </contained>
@@ -199,7 +205,9 @@
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
-      <description value="Eve will set up her medications and take as prescribed"/>
+      <description>
+        <text value="Eve will set up her medications and take as prescribed"/>
+      </description>
       <status value="in-progress"/>
     </Goal>
   </contained>
@@ -210,7 +218,9 @@
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
-      <description value="Eve will restart her light treatments"/>
+      <description>
+        <text value="Eve will restart her light treatments"/>
+      </description>
       <status value="in-progress"/>
     </Goal>
   </contained>

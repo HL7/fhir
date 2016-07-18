@@ -87,7 +87,9 @@
         <reference value="Patient/f201"/>
         <display value="Roel"/>
       </subject>
-      <description value="Elimination of the spenoid bone tumor"/>
+      <description>
+        <text value="Elimination of the spenoid bone tumor"/>
+      </description>
       <status value="in-progress"/>
     </Goal>
   </contained>

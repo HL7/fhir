@@ -92,7 +92,9 @@
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
-      <description value="Maintain patient's health throughout pregnancy and ensure a healthy child"/>
+      <description>
+        <text value="Maintain patient's health throughout pregnancy and ensure a healthy child"/>
+      </description>
       <status value="in-progress"/>
     </Goal>
   </contained>
