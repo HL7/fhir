@@ -259,26 +259,29 @@ always return a body that contains an <a href="operationoutcome.html">OperationO
 <a name="mime-type"> </a>
 <h3>Content Types and encodings</h3>
 <p>
-The formal MIME-type for FHIR resources is <code>application/xml+fhir</code> or <code>application/json+fhir</code>.
+The formal MIME-type for FHIR resources is <code>application/fhir+xml</code> or <code>application/fhir+json</code>.
 The correct mime type SHALL be used by clients and servers:
 </p>
 <ul>
- <li>XML: <code>application/xml+fhir</code></li>
- <li>JSON: <code>application/json+fhir</code></li>
+ <li>XML: <code>application/fhir+xml</code></li>
+ <li>JSON: <code>application/fhir+json</code></li>
  <li>RDF: <code>text/turtle</code> (only the Turtle format is supported)</li>
 </ul>
 <p>
-Servers SHALL support server-driven content negotiation
-as described in <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html#sec12">section 12</a>
+Servers SHALL support server-driven content negotiation as described in <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html#sec12">section 12</a>
 of the HTTP specification. 
+</p>
+<p>
+Note: between FHIR DSTU2 and STU3, the correct mime type was changed from application/xml+fhir and application/json+fhir to application/fhir+xml and application/fhir+json.
+Servers MAY also support the older mime types, and are encouraged to do so to smooth the transtion process.
 </p>
 <p>
 However in order to support various implementation limitations, servers SHOULD
 support the optional <code>_format</code> parameter to specify alternative response formats by their MIME-types.
 This parameter allows a client to override the <code>accept</code> header value when it is unable to set it correctly
 due to internal limitations (e.g. XSLT usage).
-For the <code>_format</code> parameter, the values <code>xml</code>, <code>text/xml</code>, <code>application/xml</code>, and <code>application/xml+fhir</code> SHALL be interpreted to mean
-the <a href="xml.html">XML format</a>, the codes <code>json</code>, <code>application/json</code> and <code>application/json+fhir</code> SHALL be interpreted to mean the
+For the <code>_format</code> parameter, the values <code>xml</code>, <code>text/xml</code>, <code>application/xml</code>, and <code>application/fhir+xml</code> SHALL be interpreted to mean
+the <a href="xml.html">XML format</a>, the codes <code>json</code>, <code>application/json</code> and <code>application/fhir+json</code> SHALL be interpreted to mean the
 <a href="json.html">JSON format</a>, and the codes <code>ttl</code> and <code>text/turtle</code> SHALL be interpreted to mean the
 <a href="rdf.html">Turtle RDF format</a>. In addition, the values <code>html</code> and <code>text/html</code> are allowed.
 </p>
@@ -538,7 +541,7 @@ HTTP 200 OK
 Date: Sat, 09 Feb 2013 16:09:50 GMT
 Last-Modified: Sat, 02 Feb 2013 12:02:47 GMT
 ETag: W/"23"
-Content-Type: application/json+fhir
+Content-Type: application/fhir+json
 </pre>
 <p>
 If provided, the value of the ETag SHALL match the value of the version id for the resource. Servers

@@ -122,7 +122,7 @@ systems adhere to the specification.
 
 <h4 id="operation-execution">Operation Execution</h4>
 <p>
-  The setup, test, and teardown sections of a TestScript can contain operation elements.  Operations are intended to be executed in sequence and they represent the logic defined by the TestScript.  Operations define a type, sourceId, targetid, destination, responseId, contentType, and other parameters.  The type of the operation aligns with a corresponding RESTful API interaction.  The sourceId and targetId of an operation define the context of the fixture data the operation is acting against (see <a href="#fixtures">Fixtures</a>).  The destination defines the server the operation is executed on and is only required for tests that include multiple servers.  The responseId specifies a fixture ID to use to map to the server response.  The contentType defines the format (XML or JSON) and the corresponding mime-type (application/xml+fhir and application/json+fhir) to use in the RESTful operation (defaulting to XML).  The parameters of an operation allow providing additional data required for execution.
+  The setup, test, and teardown sections of a TestScript can contain operation elements.  Operations are intended to be executed in sequence and they represent the logic defined by the TestScript.  Operations define a type, sourceId, targetid, destination, responseId, contentType, and other parameters.  The type of the operation aligns with a corresponding RESTful API interaction.  The sourceId and targetId of an operation define the context of the fixture data the operation is acting against (see <a href="#fixtures">Fixtures</a>).  The destination defines the server the operation is executed on and is only required for tests that include multiple servers.  The responseId specifies a fixture ID to use to map to the server response.  The contentType defines the format (XML or JSON) and the corresponding mime-type (application/fhir+xml and application/fhir+json) to use in the RESTful operation (defaulting to XML).  The parameters of an operation allow providing additional data required for execution.
 </p>
 <p>
   TestScript execution engines must load the operation details and execute the operation against the server(s) under test.  Operations that are expected to result in an error or exception, shall immediately be followed by one or more "assertion" operations (that test for those error conditions), otherwise the test fails. This allows for "negative" testing (for example, the test script may perform operations that should return a 4XX or 5XX HTTP response code).  Test execution is halted as soon as an operation or assertion fails. If an operation or assertion fails, then the test ends in failure and the test script execution proceeds to the next test.  Once all tests have completed execution, the teardown section is executed.  Once teardown completes, the suite execution is complete.  If any setup or test operation or assertion failed, the test script is marked in failure.  Failures in teardown are ignored.
@@ -217,7 +217,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
   </operation>
 </action>
 </xmp></div>
-<p>The <a href="testscript-definitions.html#TestScript.setup.action.operation.contentType">contentType</a> element is optional and will default to "xml" which will translate to HTTP request header "Content-Type" being set to "application/xml+fhir" by test engines.  In this case, though, it was used to set it to "application/json+fhir".</p>
+<p>The <a href="testscript-definitions.html#TestScript.setup.action.operation.contentType">contentType</a> element is optional and will default to "xml" which will translate to HTTP request header "Content-Type" being set to "application/fhir+xml" by test engines.  In this case, though, it was used to set it to "application/fhir+json".</p>
 <p>The <a href="testscript-definitions.html#TestScript.setup.action.operation.responseId">responseId</a> element was used to store the response in a reference called "R1".  This reference will hold both the response headers and the response body.</p>
 <p>Verify that the search operation returned the right status code:</p>
 <div class="xmlCode"><xmp>
@@ -670,7 +670,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 
 <hr/><!-- =========================================================================================================================================================== -->
 <h4 id="howToSpecifyAcceptHeader">Specify Accept header in request</h4>
-<p>The default "Accept" header that will be set on all GET operations (such as read, vread, search, history, etc.) will be "application/xml+fhir".</p>
+<p>The default "Accept" header that will be set on all GET operations (such as read, vread, search, history, etc.) will be "application/fhir+xml".</p>
 <p>There are two ways to change the default "Accept" header:</p>
 <ol>
 <li>
@@ -684,7 +684,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
   </operation>
 </action>
 </xmp></div>
-<p>Test engines will set the Accept header to "application/json+fhir" if "json" is specified and will use "application/xml+fhir" if "xml" is specified.</p>
+<p>Test engines will set the Accept header to "application/fhir+json" if "json" is specified and will use "application/fhir+xml" if "xml" is specified.</p>
 </li>
 <li>
 <p>Use the <a href="testscript-definitions.html#TestScript.setup.action.operation.requestHeader">requestHeader</a> element to set "Accept" <span style="font-weight:bold;">explicitly</span>:</p>
@@ -694,7 +694,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
     <type value="read" />
     <requestHeader>
       <field value="Accept" />
-      <value value="application/json+fhir" />
+      <value value="application/fhir+json" />
     </requestHeader>
     <targetId value="F1" />
   </operation>
@@ -706,7 +706,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 
 <hr/><!-- =========================================================================================================================================================== -->
 <h4 id="howToSpecifyContentTypeHeader">Specify Content-Type header in request</h4>
-<p>The default "Content-Type" header that will be set on all POST/PUT operations (such as create, update, etc.) will be "application/xml+fhir".</p>
+<p>The default "Content-Type" header that will be set on all POST/PUT operations (such as create, update, etc.) will be "application/fhir+xml".</p>
 <p>There are two ways to change the default "Content-Type" header:</p>
 <ol>
 <li>
@@ -720,7 +720,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
   </operation>
 </action>
 </xmp></div>
-<p>Test engines will set the Content-Type header to "application/json+fhir" if "json" is specified and will use "application/xml+fhir" if "xml" is specified.</p>
+<p>Test engines will set the Content-Type header to "application/fhir+json" if "json" is specified and will use "application/fhir+xml" if "xml" is specified.</p>
 </li>
 <li>
 <p>Use the <a href="testscript-definitions.html#TestScript.setup.action.operation.requestHeader">requestHeader</a> element to set Content-Type <span style="font-weight:bold;">explicitly</span>:</p>
@@ -730,7 +730,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
     <type value="create" />
     <requestHeader>
       <field value="Content-Type" />
-      <value value="application/json+fhir" />
+      <value value="application/fhir+json" />
     </requestHeader>
     <targetId value="F1" />
   </operation>
@@ -753,7 +753,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
   </assert>
 </action>
 </xmp></div>
-<p>Test engines will verify that "application/json+fhir" is present in Content-Type header if "json" is specified and will verify that "application/xml+fhir" is present if "xml" is specified.</p>
+<p>Test engines will verify that "application/fhir+json" is present in Content-Type header if "json" is specified and will verify that "application/fhir+xml" is present if "xml" is specified.</p>
 </li>
 <li>
 <p>Use the <a href="testscript-definitions.html#TestScript.setup.action.assert.requestHeader">requestHeader</a> element to verify Content-Type <span style="font-weight:bold;">explicitly</span>:</p>
@@ -761,7 +761,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 <action>
   <assert>
     <headerField value="Content-Type" />
-    <value value="application/json+fhir" />
+    <value value="application/fhir+json" />
   </assert>
 </action>
 </xmp></div>
@@ -877,7 +877,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
   <operation>
     <type value="search" />
     <resource value="Patient"/>
-    <params value="?family=Doe&amp;given=Joe&amp;_format=application/json+fhir"/>
+    <params value="?family=Doe&amp;given=Joe&amp;_format=application/fhir+json"/>
     <responseId value="R1" />
   </operation>
 </action>
@@ -888,7 +888,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 <action>
   <assert>
     <headerField value="Content-Type" />
-    <value value="application/json+fhir" />
+    <value value="application/fhir+json" />
   </assert>
 </action>
 </xmp></div>
@@ -1009,12 +1009,12 @@ and TestScript.teardown.action.operation elements. The operation elements should
   </tr>
   <tr>
     <th>accept</th>
-    <td colspan="8">The <a href="testscript-definitions.html#TestScript.setup.action.operation.accept">accept</a> element can be used to specify the "Accept" header in the outgoing HTTP request. If "json" is specified, then "Accept" value of "application/json+fhir" will be set in the request header. If "xml" is specified, then "application/xml+fhir" will be used.</td>
+    <td colspan="8">The <a href="testscript-definitions.html#TestScript.setup.action.operation.accept">accept</a> element can be used to specify the "Accept" header in the outgoing HTTP request. If "json" is specified, then "Accept" value of "application/fhir+json" will be set in the request header. If "xml" is specified, then "application/fhir+xml" will be used.</td>
     <td>N/A</td>
   </tr>
   <tr>
     <th>contentType</th>
-    <td colspan="8">The <a href="testscript-definitions.html#TestScript.setup.action.operation.contentType">contentType</a> element can be used to specify the "Content-Type" header in the outgoing HTTP request. If "json" is specified, then "Content-Type" value of "application/json+fhir" will be set in the request header. If "xml" is specified, then "application/xml+fhir" will be used.</td>
+    <td colspan="8">The <a href="testscript-definitions.html#TestScript.setup.action.operation.contentType">contentType</a> element can be used to specify the "Content-Type" header in the outgoing HTTP request. If "json" is specified, then "Content-Type" value of "application/fhir+json" will be set in the request header. If "xml" is specified, then "application/fhir+xml" will be used.</td>
     <td>N/A</td>
   </tr>
   <tr>

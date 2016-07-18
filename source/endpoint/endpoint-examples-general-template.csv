@@ -1,9 +1,9 @@
 status,name,managingOrganization,contact,connectionType,method,address,payloadFormat,payloadType,header
-active,CarePlan repository,Telstra Health,Brian Postlethwaite,rest-hook,POST,https://sqlonfhir-dstu2.azurewebsites.net/fhir,application/xml+fhir,CarePlan, 
-active,Questionnaire Destination,Telstra Health,Brian Postlethwaite,rest-hook,POST,https://sqlonfhir-dstu2.azurewebsites.net/fhir,application/xml+fhir,QuestionnaireResponse,x-custom proxy-notes
-active,Referral Requests,Telstra Health,Brian Postlethwaite,rest-hook,POST,https://sqlonfhir-dstu2.azurewebsites.net/fhir,application/xml+fhir,ReferralRequest, 
-active,Referral Requests,Epic demo organization,Kevin Paprocki,rest-hook,POST,https://open.epic.com/Interface/FHIR,application/json+fhir,ReferralRequest QuestionnaireResponse,Authorization 234522345
-active,Subscription receiver,Telstra Health,Brian Postlethwaite,email,POST PUT DELETE,subscriptions@example.org,application/xml+fhir,ReferralRequest, 
+active,CarePlan repository,Telstra Health,Brian Postlethwaite,rest-hook,POST,https://sqlonfhir-dstu2.azurewebsites.net/fhir,application/fhir+xml,CarePlan, 
+active,Questionnaire Destination,Telstra Health,Brian Postlethwaite,rest-hook,POST,https://sqlonfhir-dstu2.azurewebsites.net/fhir,application/fhir+xml,QuestionnaireResponse,x-custom proxy-notes
+active,Referral Requests,Telstra Health,Brian Postlethwaite,rest-hook,POST,https://sqlonfhir-dstu2.azurewebsites.net/fhir,application/fhir+xml,ReferralRequest, 
+active,Referral Requests,Epic demo organization,Kevin Paprocki,rest-hook,POST,https://open.epic.com/Interface/FHIR,application/fhir+json,ReferralRequest QuestionnaireResponse,Authorization 234522345
+active,Subscription receiver,Telstra Health,Brian Postlethwaite,email,POST PUT DELETE,subscriptions@example.org,application/fhir+xml,ReferralRequest, 
 active,valid usecase?,Telstra Health,Brian Postlethwaite,message,POST,https://sqlonfhir-dstu2.azurewebsites.net/fhir,PDF,CDA-EventSummary, 
 active,v2 referral Requests,Epic demo organization,Kevin Paprocki,MLLP,POST,127.0.0.1,HL7v2,REF-I12, 
 active,xds event summaries,Epic demo organization,Kevin Paprocki,SOAP,POST,https://open.epic.com/Interface/XDS.b,XDA/XDS,CDA-EventSummary, 

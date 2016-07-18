@@ -183,8 +183,8 @@ In the example below we see the creation of a Patient.
 <pre class="http linecounter">
 <code>POST {some base path}/Patient HTTP/1.1</code>
 <code>Authorization: Bearer 37CC0B0E-C15B-4578-9AC1-D83DCED2B2F9</code>
-<code>Accept: application/json+fhir</code>
-<code>Content-Type: application/json+fhir</code>
+<code>Accept: application/fhir+json</code>
+<code>Content-Type: application/fhir+json</code>
 <code>Content-Length: 1198</code>
 <code> </code>
 <code>{</code>
@@ -203,7 +203,7 @@ Notes:
 <ul>
   <li><b>/Patient</b> (line 1) - the manager for all patients - use the name of the type of resource</li>
   <li><b>Authorization</b> (line 2) - see <a href="security.html">Security for FHIR</a></li>
-  <li><b>Accept, Content-Type</b> (lines 3-4) - the content type for all FHIR resources as represented in JSON (or application/xml+fhir for the XML version). FHIR resources are always represented in UTF-8</li>
+  <li><b>Accept, Content-Type</b> (lines 3-4) - the content type for all FHIR resources as represented in JSON (or application/fhir+xml for the XML version). FHIR resources are always represented in UTF-8</li>
   <li><b>id</b> (line 9) - No id for a resource that is being created - the server will assign one</li>
   <li>Resource Content, lines 8+ - There's no meta property at this point. The rest of the resource is the same content as above</li>
 </ul>
@@ -222,7 +222,7 @@ do so.
 <pre class="http linecounter">
 <code>HTTP/1.1 201 Created</code>
 <code>Content-Length: 161</code>
-<code>Content-Type: application/json+fhir</code>
+<code>Content-Type: application/fhir+json</code>
 <code>Date: Mon, 18 Aug 2014 01:43:30 GMT</code>
 <code>ETag: "1"</code>
 <code>Location: http://example.com/Patient/347</code>
@@ -260,7 +260,7 @@ Here is an example of a server rejecting a resource because of server defined bu
 <pre class="http linecounter">
 <code>HTTP/1.1 422 Unprocessable Entity</code>
 <code>Content-Length: 161</code>
-<code>Content-Type: application/json+fhir</code>
+<code>Content-Type: application/fhir+json</code>
 <code>Date: Mon, 18 Aug 2014 01:43:30 GMT</code>
 <code> </code>
 <code>{</code>
@@ -297,7 +297,7 @@ Here's an example.
 <pre class="http linecounter">
 <code>GET /Patient/347?_format=xml HTTP/1.1</code>
 <code>Host: example.com</code>
-<code>Accept: application/xml+fhir</code>
+<code>Accept: application/fhir+xml</code>
 <code>Cache-Control: no-cache</code>
 </pre>
 </div>
@@ -321,7 +321,7 @@ The response to a GET contains the Resource.
 <pre class="http linecounter">
 <code>HTTP/1.1 200 OK</code>
 <code>Content-Length: 729</code>
-<code>Content-Type: application/xml+fhir</code>
+<code>Content-Type: application/fhir+xml</code>
 <code>Last-Modified: Sun, 17 Aug 2014 15:43:30 GMT</code>
 <code>ETag: "1"</code>
 <code> </code>
@@ -381,7 +381,7 @@ The response to a search request is a <a href="bundle.html">Bundle</a>: a list o
 <pre class="json linecounter">
 <code>HTTP/1.1 200 OK</code>
 <code>Content-Length: 14523</code>
-<code>Content-Type: application/xml+fhir</code>
+<code>Content-Type: application/fhir+xml</code>
 <code>Last-Modified: Sun, 17 Aug 2014 15:49:30 GMT</code>
 <code> </code>
 <code>{</code>
@@ -449,9 +449,9 @@ Here is an example of updating a patient:
 <pre class="http linecounter">
 <code>PUT /Patient/347 HTTP/1.1</code>
 <code>Host: example.com</code>
-<code>Content-Type: application/json+fhir</code>
+<code>Content-Type: application/fhir+json</code>
 <code>Content-Length: 1435</code>
-<code>Accept: application/json+fhir</code>
+<code>Accept: application/fhir+json</code>
 <code>If-Match: 1</code>
 <code> </code>
 <code>{</code>
@@ -486,7 +486,7 @@ The response to an update request has metadata / status, and optionally an Opera
 <pre class="http linecounter">
 <code>HTTP/1.1 200 OK</code>
 <code>Content-Length: 161</code>
-<code>Content-Type: application/json+fhir</code>
+<code>Content-Type: application/fhir+json</code>
 <code>Date: Mon, 18 Aug 2014 01:43:30 GMT</code>
 <code>ETag: "2"</code>
 <code> </code>

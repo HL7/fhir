@@ -16,7 +16,7 @@
   <channel>
     <type value="rest-hook"/>
     <endpoint value="https://biliwatch.com/customers/mount-auburn-miu/on-result"/>
-    <payload value="application/json"/>
+    <payload value="application/fhir+json"/>
     <header value="Authorization: Bearer secret-token-abc-123"/>
   </channel>  
   <end value="2021-01-01T00:00:00Z"/>

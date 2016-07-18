@@ -3186,7 +3186,7 @@
     <Cell ss:StyleID="s99"><Data ss:Type="String">The content-type or mime-type to use for RESTful operation in the 'Accept' header.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">If this is specified, then test engine shall set the 'Accept' header to the corresponding value.    If 'xml' is specified, then 'Accept' header of 'application/xml+fhir' will be set.  If 'json' is specified, then 'application/json+fhir' will be used.    If you'd like to explicitly set the 'Accept' to some other value then use the 'requestHeader' element.</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">If this is specified, then test engine shall set the 'Accept' header to the corresponding value.    If 'xml' is specified, then 'Accept' header of 'application/fhir+xml' will be set.  If 'json' is specified, then 'application/fhir+json' will be used.    If you'd like to explicitly set the 'Accept' to some other value then use the 'requestHeader' element.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3221,7 +3221,7 @@
     <Cell ss:StyleID="s99"><Data ss:Type="String">The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">If this is specified, then test engine shall set the 'Content-Type' header to the corresponding value.    If 'xml' is specified, then 'Content-Type' header of 'application/xml+fhir' will be set.    If 'json' is specified, then 'application/json+fhir' will be used.    If you'd like to explicitly set the 'Content-Type' to some other value then use the 'requestHeader' element.</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">If this is specified, then test engine shall set the 'Content-Type' header to the corresponding value.    If 'xml' is specified, then 'Content-Type' header of 'application/fhir+xml' will be set.    If 'json' is specified, then 'application/fhir+json' will be used.    If you'd like to explicitly set the 'Content-Type' to some other value then use the 'requestHeader' element.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3449,10 +3449,10 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">HTTP headerfield value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The value of the header e.g. &quot;application/xml&quot;</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The value of the header e.g. &quot;application/fhir+xml&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">If header element is specified, then value is required.  No conversions will be done by Test Engine e.g. &quot;xml&quot; to &quot;application/xml+fhir&quot;.  The values will be set in HTTP headers &quot;as-is&quot;.  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">If header element is specified, then value is required.  No conversions will be done by Test Engine e.g. &quot;xml&quot; to &quot;application/fhir+xml&quot;.  The values will be set in HTTP headers &quot;as-is&quot;.  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3815,7 +3815,7 @@
     <Cell ss:StyleID="s99"><Data ss:Type="String">The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">If this is specified, then test engine shall confirm that the content-type of the last operation's headers is set to this value.  If &quot;assert.sourceId&quot; element is specified, then the evaluation will be done against the headers mapped to that sourceId (and not the last operation's headers).    If 'xml' is specified, then 'Content-Type' header of 'application/xml+fhir' will be confirmed. If 'json' is specified, then 'application/json+fhir' will be used. If you'd like to have more control over the string, then use 'assert.headerField' instead.</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">If this is specified, then test engine shall confirm that the content-type of the last operation's headers is set to this value.  If &quot;assert.sourceId&quot; element is specified, then the evaluation will be done against the headers mapped to that sourceId (and not the last operation's headers).    If 'xml' is specified, then 'Content-Type' header of 'application/fhir+xml' will be confirmed. If 'json' is specified, then 'application/fhir+json' will be used. If you'd like to have more control over the string, then use 'assert.headerField' instead.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -11306,7 +11306,7 @@
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s158"/>
     <Cell ss:StyleID="s158"><Data ss:Type="String">xml</Data></Cell>
-    <Cell ss:StyleID="s158"><Data ss:Type="String">XML content-type corresponding to the application/xml+fhir mime-type.</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">XML content-type corresponding to the application/fhir+xml mime-type.</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s159"/>
@@ -11317,7 +11317,7 @@
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">json</Data></Cell>
-    <Cell ss:StyleID="s158"><Data ss:Type="String">JSON content-type corresponding to the application/json+fhir mime-type.</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">JSON content-type corresponding to the application/fhir+json mime-type.</Data></Cell>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s150"/>

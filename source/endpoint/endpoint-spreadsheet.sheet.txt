@@ -161,7 +161,7 @@
   Card. = 1..1
   Type = string
   Short Label = Mimetype to send, or blank for no payload
-  Definition = The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification
+  Definition = The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the mime type is blank, then there is no payload in the notification, just a notification
   Comments = Sending the payload has obvious security consequences. The server is responsible for ensuring that the content is appropriately secured
   To Do = Should this have multiple cardinality?
 

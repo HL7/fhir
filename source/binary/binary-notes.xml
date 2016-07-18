@@ -6,7 +6,7 @@
 <p>
 Binary resources behave slightly differently to all other resources on the RESTful API.
 Specifically, when a read request is made for the binary resource that doesn't explicitly
-specify the FHIR content types "application/xml+fhir" or "application/json+fhir", then 
+specify the FHIR content types "application/fhir+xml" or "application/fhir+json", then 
 the content should be returned using the content type stated in the resource. 
 e.g. if the content type in the resource is "application/pdf", then the content should
 be returned as a PDF directly. 
@@ -23,7 +23,7 @@ is not available directly, though some of it is replicated in the HTTP response 
 </p>
 <p>
 When a binary is written the server (<a href="http.html#create">create</a>/<a href="http.html#update">update</a> - POST or PUT),
-the data is accepted as is and treated as a the binary content of a <code>Binary</code>, including when the content type is "application/xml+fhir" or "application/json+fhir",
+the data is accepted as is and treated as a the binary content of a <code>Binary</code>, including when the content type is "application/fhir+xml" or "application/fhir+json",
 except for the special case where the content is actually a <code>Binary</code> resource.
 </p>
 

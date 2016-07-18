@@ -72,13 +72,13 @@
   Id = 1
   Code = xml
   Display = xml
-  Definition = XML content-type corresponding to the application/xml+fhir mime-type.
+  Definition = XML content-type corresponding to the application/fhir+xml mime-type.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = json
   Display = json
-  Definition = JSON content-type corresponding to the application/json+fhir mime-type.
+  Definition = JSON content-type corresponding to the application/fhir+json mime-type.
 
  -- Row 3 -----------------------------------
   Id = 3
@@ -889,7 +889,7 @@
   Binding = ContentType
   Short Label = xml | json | ttl | none
   Definition = The content-type or mime-type to use for RESTful operation in the \'Accept\' header.
-  Comments = If this is specified, then test engine shall set the \'Accept\' header to the corresponding value.    If \'xml\' is specified, then \'Accept\' header of \'application/xml+fhir\' will be set.  If \'json\' is specified, then \'application/json+fhir\' will be used.    If you\'d like to explicitly set the \'Accept\' to some other value then use the \'requestHeader\' element.
+  Comments = If this is specified, then test engine shall set the \'Accept\' header to the corresponding value.    If \'xml\' is specified, then \'Accept\' header of \'application/fhir+xml\' will be set.  If \'json\' is specified, then \'application/fhir+json\' will be used.    If you\'d like to explicitly set the \'Accept\' to some other value then use the \'requestHeader\' element.
   Missing Meaning = xml
 
  -- Row 67 -----------------------------------
@@ -899,7 +899,7 @@
   Binding = ContentType
   Short Label = xml | json | ttl | none
   Definition = The content-type or mime-type to use for RESTful operation in the \'Content-Type\' header.
-  Comments = If this is specified, then test engine shall set the \'Content-Type\' header to the corresponding value.    If \'xml\' is specified, then \'Content-Type\' header of \'application/xml+fhir\' will be set.    If \'json\' is specified, then \'application/json+fhir\' will be used.    If you\'d like to explicitly set the \'Content-Type\' to some other value then use the \'requestHeader\' element.
+  Comments = If this is specified, then test engine shall set the \'Content-Type\' header to the corresponding value.    If \'xml\' is specified, then \'Content-Type\' header of \'application/fhir+xml\' will be set.    If \'json\' is specified, then \'application/fhir+json\' will be used.    If you\'d like to explicitly set the \'Content-Type\' to some other value then use the \'requestHeader\' element.
   Missing Meaning = xml
 
  -- Row 68 -----------------------------------
@@ -956,7 +956,7 @@
   Type = string
   Short Label = HTTP headerfield value
   Definition = The value of the header e.g. \"application/xml\"
-  Comments = If header element is specified, then value is required.  No conversions will be done by Test Engine e.g. \"xml\" to \"application/xml+fhir\".  The values will be set in HTTP headers \"as-is\".  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.
+  Comments = If header element is specified, then value is required.  No conversions will be done by Test Engine e.g. \"xml\" to \"application/fhir+xml\".  The values will be set in HTTP headers \"as-is\".  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.
 
  -- Row 75 -----------------------------------
   Element = TestScript.setup.action.operation.responseId
@@ -1044,7 +1044,7 @@
   Binding = ContentType
   Short Label = xml | json | ttl | none
   Definition = The content-type or mime-type to use for RESTful operation in the \'Content-Type\' header.
-  Comments = If this is specified, then test engine shall confirm that the content-type of the last operation\'s headers is set to this value.  If \"assert.sourceId\" element is specified, then the evaluation will be done against the headers mapped to that sourceId (and not the last operation\'s headers).    If \'xml\' is specified, then \'Content-Type\' header of \'application/xml+fhir\' will be confirmed. If \'json\' is specified, then \'application/json+fhir\' will be used. If you\'d like to have more control over the string, then use \'assert.headerField\' instead.
+  Comments = If this is specified, then test engine shall confirm that the content-type of the last operation\'s headers is set to this value.  If \"assert.sourceId\" element is specified, then the evaluation will be done against the headers mapped to that sourceId (and not the last operation\'s headers).    If \'xml\' is specified, then \'Content-Type\' header of \'application/fhir+xml\' will be confirmed. If \'json\' is specified, then \'application/fhir+json\' will be used. If you\'d like to have more control over the string, then use \'assert.headerField\' instead.
   Missing Meaning = xml
 
  -- Row 86 -----------------------------------

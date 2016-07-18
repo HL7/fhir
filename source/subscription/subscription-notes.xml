@@ -109,7 +109,7 @@ as a healthcare institution.
   "channel": {
     "type": "rest-hook",
     "url": "https://internal.acme.com/research/saturn",
-    "payload": "application/xml+json"
+    "payload": "application/fhir+json"
   }
 </pre>
 

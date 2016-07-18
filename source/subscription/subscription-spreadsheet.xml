@@ -1274,7 +1274,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Mimetype to send, or omit for no payload</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the payload is not present, then there is no payload in the notification, just a notification</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the payload is not present, then there is no payload in the notification, just a notification</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Sending the payload has obvious security implications. The server is responsible for ensuring that the content is appropriately secured</Data><NamedCell

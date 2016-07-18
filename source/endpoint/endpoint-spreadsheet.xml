@@ -1367,7 +1367,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Mimetype to send, or blank for no payload</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the mime type is blank, then there is no payload in the notification, just a notification</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Sending the payload has obvious security consequences. The server is responsible for ensuring that the content is appropriately secured</Data><NamedCell
@@ -1380,10 +1380,10 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="27"><Data ss:Type="String">application/xml+fhir</Data></Cell>
-    <Cell><Data ss:Type="String">application/xml+fhir</Data></Cell>
-    <Cell><Data ss:Type="String">application/xml+fhir</Data></Cell>
-    <Cell><Data ss:Type="String">application/json+fhir</Data></Cell>
+    <Cell ss:Index="27"><Data ss:Type="String">application/fhir+xml</Data></Cell>
+    <Cell><Data ss:Type="String">application/fhir+xml</Data></Cell>
+    <Cell><Data ss:Type="String">application/fhir+xml</Data></Cell>
+    <Cell><Data ss:Type="String">application/fhir+json</Data></Cell>
     <Cell ss:Index="32"><Data ss:Type="String">PDF</Data></Cell>
     <Cell><Data ss:Type="String">XDA/XDS</Data></Cell>
     <Cell><Data ss:Type="String">v2</Data></Cell>

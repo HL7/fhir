@@ -28,7 +28,7 @@
 		<start value="2014-09-01"/>
 	</period>
 	<address value="http://fhir3.healthintersections.com.au/open/CarePlan"/>
-	<payloadFormat value="application/xml+fhir"/>
+	<payloadFormat value="application/fhir+xml"/>
 	<payloadType>
 		<coding>
         <system value="http://hl7.org/fhir/resource-types" />
