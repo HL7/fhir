@@ -5,18 +5,33 @@
   <name value="Consent Action Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This value set includes sample Consent Action codes."/>
+  <description value="This value set includes example Consent Action codes."/>
   <copyright value="This is an example set."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="read"/>
-    <display value="Read"/>
-    <definition value="Read the data (e.g. read and search resources)"/>
+    <code value="collect"/>
+    <display value="Collect"/>
+    <definition value="Gather/acquire information by an entity to achieve a stated purpose"/>
   </concept>
   <concept>
-    <code value="write"/>
-    <display value="Write"/>
-    <definition value="Update the data (e.g. create and update resources)"/>
+    <code value="access"/>
+    <display value="Access"/>
+    <definition value="Provide an entity access to information to achieve a stated purpose"/>
+  </concept>
+  <concept>
+    <code value="use"/>
+    <display value="Use"/>
+    <definition value="Use of stored information by an entity fo the stated purpose"/>
+  </concept>
+  <concept>
+    <code value="disclose"/>
+    <display value="Disclose"/>
+    <definition value="Release / transfer of information to an entity "/>
+  </concept>
+  <concept>
+    <code value="correct"/>
+    <display value="Access and Correct"/>
+    <definition value="Allowing an entity to correct a patient's information"/>
   </concept>
 </CodeSystem>
