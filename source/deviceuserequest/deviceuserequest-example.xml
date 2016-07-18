@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DeviceUseRequest xmlns="http://hl7.org/fhir">
-  <id value="example"/>
-  <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">To be filled out at a later time</div>
-  </text>
-  
-  <!-- insert contents here -->
-  <device>
-    <reference value="Device/example"/>
-  </device>
-  
-  <subject>
-    <reference value="Patient/example"/>
-  </subject>
-  
+<DeviceUseRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://Mac/Home/Documents/FHIR/build/schema/deviceuserequest.xsd">
+	<id value="example"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">To be filled out at a later time</div>
+	</text>
+	<!-- insert contents here -->
+	<status value="completed"/>
+	<stage>
+		<coding>
+			<code value="original-order"/>
+		</coding>
+	</stage>
+	<code>
+		<coding>
+			<system value="http://example.org"/>
+			<code value="example code"/>
+			<display value="example"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
 </DeviceUseRequest>

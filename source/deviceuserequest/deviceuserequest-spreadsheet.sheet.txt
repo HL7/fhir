@@ -3,103 +3,38 @@
 
  -- Row 1 -----------------------------------
   Binding Name = DeviceUseRequestStatus
-  Binding = code list
-  Reference = #device-use-request-status
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-status
   Definition = Codes representing the status of the request.
+  Conformance = required
 
  -- Row 2 -----------------------------------
-  Binding Name = DeviceUseRequestPriority
-  Binding = code list
-  Reference = #device-use-request-priority
-  Definition = Codes representing the priority of the request.
-
-=== Sheet device-use-request-status =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = proposed
-  Display = Proposed
-  Definition = The request has been proposed.
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = planned
-  Display = Planned
-  Definition = The request has been planned.
+  Binding Name = DeviceUseRequestStage
+  Binding = value set
+  Reference = valueset-request-stage
+  Definition = The kind of diagnostic request
+  Conformance = extensible
 
  -- Row 3 -----------------------------------
-  Id = 3
-  Code = requested
-  Display = Requested
-  Definition = The request has been placed.
+  Binding Name = DeviceUseRequestCode
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/device-kind
+  Definition = Codes for devices that can be requested
+  Conformance = example
 
  -- Row 4 -----------------------------------
-  Id = 4
-  Code = received
-  Display = Received
-  Definition = The receiving system has received the request but not yet decided whether it will be performed.
+  Binding Name = DeviceUseRequestParticipantRole
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/participant-role
+  Definition = Indicates specific responsibility of an individual within the care team, such as \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
+  Conformance = example
 
  -- Row 5 -----------------------------------
-  Id = 5
-  Code = accepted
-  Display = Accepted
-  Definition = The receiving system has accepted the request but work has not yet commenced.
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = in-progress
-  Display = In Progress
-  Definition = The work to fulfill the order is happening.
-
- -- Row 7 -----------------------------------
-  Id = 7
-  Code = completed
-  Display = Completed
-  Definition = The work has been complete, the report(s) released, and no further work is planned.
-
- -- Row 8 -----------------------------------
-  Id = 8
-  Code = suspended
-  Display = Suspended
-  Definition = The request has been held by originating system/user request.
-
- -- Row 9 -----------------------------------
-  Id = 9
-  Code = rejected
-  Display = Rejected
-  Definition = The receiving system has declined to fulfill the request.
-
- -- Row 10 -----------------------------------
-  Id = 10
-  Code = aborted
-  Display = Aborted
-  Definition = The request was attempted, but due to some procedural error, it could not be completed.
-
-=== Sheet device-use-request-priority =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = routine
-  Display = Routine
-  Definition = The request has a normal priority.
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = urgent
-  Display = Urgent
-  Definition = The request should be done urgently.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = stat
-  Display = Stat
-  Definition = The request is time-critical.
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = asap
-  Display = ASAP
-  Definition = The request should be acted on as soon as possible.
+  Binding Name = DeviceUseRequestReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-code
+  Definition = Diagnosis or problem codes justifying the reason for requesting the device.
+  Conformance = example
 
 === Sheet Invariants =====================================
 
@@ -108,145 +43,301 @@
  -- Row 1 -----------------------------------
   Element = DeviceUseRequest
   Type = DomainResource
-  Short Label = A request for a patient to use or be given a medical device
+  Short Label = Medical device request
   Definition = Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.
   w5 = workflow.order
 
  -- Row 2 -----------------------------------
-  Element = DeviceUseRequest.bodySite[x]
-  Card. = 0..1
-  Type = CodeableConcept|Reference(BodySite)
-  Short Label = Target body site
-  Definition = Indicates the site on the subject\'s body where the device should be used ( i.e. the target site).
-  Requirements = Knowing where the device is targeted is important for tracking if multiple sites are possible.
-  RIM Mapping = targetSiteCode
-
- -- Row 3 -----------------------------------
-  Element = DeviceUseRequest.status
-  Card. = 0..1
-  Is Modifier = Y
-  Type = code
-  Binding = DeviceUseRequestStatus
-  Short Label = proposed | planned | requested | received | accepted | in-progress | completed | suspended | rejected | aborted
-  Definition = The status of the request.
-  QUICK mapping = Action.currentStatus
-  w5 = status
-
- -- Row 4 -----------------------------------
-  Element = DeviceUseRequest.device
-  Card. = 1..1
-  Type = Reference(Device)
-  Short Label = Device requested
-  Definition = The details of the device  to be used.
-  QUICK mapping = DeviceUse.device
-
- -- Row 5 -----------------------------------
-  Element = DeviceUseRequest.encounter
-  Card. = 0..1
-  Type = Reference(Encounter)
-  Short Label = Encounter motivating request
-  Definition = An encounter that provides additional context in which this request is made.
-  QUICK mapping = ClinicalStatement.encounter
-  w5 = context
-
- -- Row 6 -----------------------------------
   Element = DeviceUseRequest.identifier
   Card. = 0..*
+  Summary = Y
   Type = Identifier
   Short Label = Request identifier
   Definition = Identifiers assigned to this order by the orderer or by the receiver.
   QUICK mapping = ClinicalStatement.identifier
+  Committee Notes = DeviceUseRequest.DeviceUseRequest.identifier
   w5 = id
 
- -- Row 7 -----------------------------------
-  Element = DeviceUseRequest.indication
+ -- Row 3 -----------------------------------
+  Element = DeviceUseRequest.definition
   Card. = 0..*
-  Type = CodeableConcept
-  Short Label = Reason for request
-  Definition = Reason or justification for the use of this device.
-  QUICK mapping = Action.indication.reason
-  w5 = why
+  Summary = Y
+  Type = Reference(Any)
+  Short Label = Protocol or definition
+  Definition = Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.
+
+ -- Row 4 -----------------------------------
+  Element = DeviceUseRequest.basedOn
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Any)
+  Short Label = What request fulfills
+  Definition = Plan/proposal/order fulfilled by this request
+  QUICK mapping = Proposal.prnReason.reason
+  Committee Notes = DeviceUseRequest.prnReason
+
+ -- Row 5 -----------------------------------
+  Element = DeviceUseRequest.replaces
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Any)
+  Short Label = What request replaces
+  Definition = The request takes the place of the referenced completed or terminated request(s)
+
+ -- Row 6 -----------------------------------
+  Element = DeviceUseRequest.requisition
+  Card. = 0..1
+  Summary = Y
+  Type = Identifier
+  Short Label = Identifier of composite request
+  Definition = Composite request this is part of
+
+ -- Row 7 -----------------------------------
+  Element = DeviceUseRequest.status
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = DeviceUseRequestStatus
+  Short Label = draft | active | suspended | completed | entered-in-error | cancelled
+  Definition = The status of the request.
+  QUICK mapping = Action.currentStatus
+  Committee Notes = DeviceUseRequest.status
+  w5 = status
 
  -- Row 8 -----------------------------------
-  Element = DeviceUseRequest.notes
-  Card. = 0..*
-  Type = string
-  Short Label = Notes or comments
-  Definition = Details about this request that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.
-  QUICK mapping = ClinicalStatement.additionalText
+  Element = DeviceUseRequest.stage
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = CodeableConcept
+  Binding = DeviceUseRequestStage
+  Short Label = proposal | plan | original-order | encoded | reflex-order
+  Definition = Whether the request is a proposal, plan, an original order or a reflex order.
+  w5 = class
 
  -- Row 9 -----------------------------------
-  Element = DeviceUseRequest.prnReason
-  Card. = 0..*
+  Element = DeviceUseRequest.code
+  Card. = 1..1
+  Summary = Y
   Type = CodeableConcept
-  Short Label = PRN
-  Definition = The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.
-  QUICK mapping = Proposal.prnReason.reason
+  Binding = DeviceUseRequestCode
+  Short Label = Device requested
+  Definition = The details of the device  to be used.
+  QUICK mapping = DeviceUse.device
+  Committee Notes = DeviceUseRequest.device
+  w5 = what
 
  -- Row 10 -----------------------------------
-  Element = DeviceUseRequest.orderedOn
-  Card. = 0..1
-  Type = dateTime
-  Short Label = When ordered
-  Definition = The time when the request was made.
-  QUICK mapping = Proposal.proposedAtTime
-  w5 = when.init
-
- -- Row 11 -----------------------------------
-  Element = DeviceUseRequest.recordedOn
-  Card. = 0..1
-  Type = dateTime
-  Short Label = When recorded
-  Definition = The time at which the request was made/recorded.
-  QUICK mapping = ClinicalStatement.statementDateTime
-  w5 = when.recorded
-
- -- Row 12 -----------------------------------
   Element = DeviceUseRequest.subject
   Card. = 1..1
-  Type = Reference(Patient)
+  Summary = Y
+  Type = Reference(Patient|Group|Location|Device)
   Short Label = Focus of request
   Definition = The patient who will use the device.
   QUICK mapping = ClinicalStatement.subject
+  Committee Notes = DeviceUseRequest.subject
   w5 = who.focus
 
- -- Row 13 -----------------------------------
-  Element = DeviceUseRequest.timing[x]
+ -- Row 11 -----------------------------------
+  Element = DeviceUseRequest.context
   Card. = 0..1
-  Type = Timing|Period|dateTime
-  Short Label = Schedule for use
-  Definition = The timing schedule for the use of the device The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".
+  Summary = Y
+  Type = Reference(Encounter|EpisodeOfCare)
+  Short Label = Encounter or Episode motivating request
+  Definition = An encounter that provides additional context in which this request is made.
+  QUICK mapping = ClinicalStatement.encounter
+  Committee Notes = DeviceUseRequest.encounter
+  w5 = context
+
+ -- Row 12 -----------------------------------
+  Element = DeviceUseRequest.occurrence[x]
+  Card. = 0..1
+  Summary = Y
+  Type = dateTime| Period| Timing
+  Short Label = Desired time or schedule for use
+  Definition = The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".
   QUICK mapping = DeviceUse.applicationSchedule
+  Committee Notes = DeviceUseRequest.timing[x]
   w5 = when.planned
 
- -- Row 14 -----------------------------------
-  Element = DeviceUseRequest.priority
+ -- Row 13 -----------------------------------
+  Element = DeviceUseRequest.authored
   Card. = 0..1
-  Type = code
-  Binding = DeviceUseRequestPriority
-  Short Label = routine | urgent | stat | asap
-  Definition = Characterizes how quickly the  use of device must be initiated. Includes concepts such as stat, urgent, routine.
-  QUICK mapping = Proposal.urgency
-  w5 = grade
+  Summary = Y
+  Type = dateTime
+  Short Label = When recorded
+  Definition = When the request transitioned to being actionable
+  QUICK mapping = ClinicalStatement.statementDateTime
+  Committee Notes = DeviceUseRequest.recordedOn
+  w5 = when.recorded
+
+ -- Row 14 -----------------------------------
+  Element = DeviceUseRequest.requester
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Device|Practitioner|Organization)
+  Short Label = Who/what is requesting diagnostics
+  Definition = Who/what is requesting diagnostics.  The practitioner that holds legal responsibility for ordering the investigation.
+  w5 = who.author
+
+ -- Row 15 -----------------------------------
+  Element = DeviceUseRequest.performerType
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = DeviceUseRequestParticipantRole
+  Short Label = Fille role
+  Definition = Desired type of performer for doing the diagnostic testing.
+  w5 = who.actor
+
+ -- Row 16 -----------------------------------
+  Element = DeviceUseRequest.performer
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Practitioner | Organization | Patient | Device | RelatedPerson)
+  Short Label = Requested Filler
+  Definition = The desired perfomer for doing the diagnostic testing.
+  w5 = who.actor
+
+ -- Row 17 -----------------------------------
+  Element = DeviceUseRequest.reasonCode
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = DeviceUseRequestReason
+  Short Label = Coded Reason for request
+  Definition = Reason or justification for the use of this device.
+  QUICK mapping = Action.indication.reason
+  Committee Notes = DeviceUseRequest.indication
+  w5 = why
+
+ -- Row 18 -----------------------------------
+  Element = DeviceUseRequest.reasonReference
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Any)
+  Short Label = Linked Reason for request
+  Definition = Reason or justification for the use of this device.
+  w5 = why
+
+ -- Row 19 -----------------------------------
+  Element = DeviceUseRequest.supportingInfo
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Label = Additional clinical information
+  Definition = Additional clinical information about the patient that may influence the request fulfilment.  For example, this may includes body where on the subject\'s the device will be used ( i.e. the target site).
+  Requirements = Knowing where the device is targeted is important for tracking if multiple sites are possible.
+
+ -- Row 20 -----------------------------------
+  Element = DeviceUseRequest.note
+  Card. = 0..*
+  Type = Annotation
+  Short Label = Notes or comments
+  Definition = Details about this request that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.
+  QUICK mapping = ClinicalStatement.additionalText
+  Committee Notes = DeviceUseRequest.notes
+
+ -- Row 21 -----------------------------------
+  Element = DeviceUseRequest.relevantHistory
+  Card. = 0..*
+  Type = Reference(Provenance)
+  Short Label = Request provenance
+  Definition = Key events in the history of the request.
+  Comments = This may not include provenances for all versions of the request – only those deemed “relevant” or important.\rThis SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude\rAll Provenances should have some historical version of this Request as their subject.
 
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = subject
-  Type = reference
-  Description = Search by subject
-  Path = DeviceUseRequest.subject
+  Name = author-date
+  Type = date
+  Description = When the request transitioned to being actionable
+  Path = DeviceUseRequest.authored
 
  -- Row 2 -----------------------------------
-  Name = patient
+  Name = based-on
   Type = reference
-  Description = Search by subject - a patient
-  Path = DeviceUseRequest.subject
+  Description = Plan/proposal/order fulfilled by this request
+  Path = DeviceUseRequest.basedOn
 
  -- Row 3 -----------------------------------
-  Name = device
+  Name = stage
+  Type = token
+  Description = proposal | plan | original-order |reflex-order
+  Path = DeviceUseRequest.stage
+
+ -- Row 4 -----------------------------------
+  Name = code
+  Type = token
+  Description = What’s being requested/ordered
+  Path = DeviceUseRequest.code
+
+ -- Row 5 -----------------------------------
+  Name = definition
   Type = reference
-  Path = DeviceUseRequest.device
+  Description = Protocol or definition followed by this request
+  Path = DeviceUseRequest.definition
+
+ -- Row 6 -----------------------------------
+  Name = encounter
+  Type = reference
+  Description = Encounter or Episode during which request was created
+  Path = DeviceUseRequest.context
+
+ -- Row 7 -----------------------------------
+  Name = event-date
+  Type = date
+  Description = When service should occur
+  Path = DeviceUseRequest.occurrenceDateTime | DeviceUseRequest.occurrencePeriod
+
+ -- Row 8 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Business identifier for request/order
+  Path = DeviceUseRequest.identifier
+
+ -- Row 9 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = Individual the service is ordered for
+  Path = DeviceUseRequest.subject
+  Target Types = Patient
+
+ -- Row 10 -----------------------------------
+  Name = filler
+  Type = reference
+  Description = Desired performer for service
+  Path = DeviceUseRequest.performer
+
+ -- Row 11 -----------------------------------
+  Name = replaces
+  Type = reference
+  Description = Request takes the place of referenced completed or terminated requests
+  Path = DeviceUseRequest.replaces
+
+ -- Row 12 -----------------------------------
+  Name = requester
+  Type = reference
+  Description = Who/what is requesting service 
+  Path = DeviceUseRequest.requester
+
+ -- Row 13 -----------------------------------
+  Name = requisition
+  Type = token
+  Description = Composite request this is part of
+  Path = DeviceUseRequest.requisition
+
+ -- Row 14 -----------------------------------
+  Name = status
+  Type = token
+  Description = entered-in-error | draft | active |suspended | completed 
+  Path = DeviceUseRequest.status
+
+ -- Row 15 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = Individual the service is ordered for
+  Path = DeviceUseRequest.subject
 
 === Sheet Profiles =====================================
 

@@ -3,8 +3,8 @@
 
  -- Row 1 -----------------------------------
   Binding Name = DiagnosticRequestStatus
-  Binding = code list
-  Reference = #diagnostic-request-status
+  Binding = value set
+  Reference = valueset-request-status
   Definition = The status of a diagnostic order.
   Conformance = required
 
@@ -25,7 +25,7 @@
   Conformance = example
 
  -- Row 4 -----------------------------------
-  Binding Name = DiagnosticRequestCategory
+  Binding Name = DiagnosticRequestStage
   Binding = value set
   Reference = valueset-diagnostic-request-stage
   Definition = The kind of diagnostic request
@@ -37,43 +37,6 @@
   Reference = http://hl7.org/fhir/ValueSet/participant-role
   Definition = Indicates specific responsibility of an individual within the care team, such as \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
   Conformance = example
-
-=== Sheet diagnostic-request-status =====================================
-
- -- Row 1 -----------------------------------
-  Id = 13
-  Code = draft
-  Display = Draft
-  Definition = The request is in preliminary form prior to being sent.
-
- -- Row 2 -----------------------------------
-  Code = active
-  Display = Active
-  Definition = The request is complete and is ready for fulfillment.
-
- -- Row 3 -----------------------------------
-  Id = 9
-  Code = suspended
-  Display = Suspended
-  Definition = The request has been held by originating system/user request.
-
- -- Row 4 -----------------------------------
-  Id = 8
-  Code = completed
-  Display = Completed
-  Definition = The work has been completed, the report(s) released, and no further work is planned.
-
- -- Row 5 -----------------------------------
-  Id = 14
-  Code = entered-in-error
-  Display = Entered in Error
-  Definition = The request was entered in error and voided.
-
- -- Row 6 -----------------------------------
-  Id = 12
-  Code = cancelled
-  Display = Cancelled
-  Definition = The request has been withdrawn.
 
 === Sheet Invariants =====================================
 
@@ -114,7 +77,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Any)
-  Short Label = What request fulfils
+  Short Label = What request fulfills
   Definition = Plan/proposal/order fulfilled by this request
   Committee Notes = [#10296]
 
@@ -132,7 +95,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Label = Identifier of Composite request
+  Short Label = Identifier of composite request
   Definition = Composite request this is part of
   Committee Notes = [#10296]
 
@@ -156,7 +119,7 @@
   Is Modifier = Y
   Summary = Y
   Type = CodeableConcept
-  Binding = DiagnosticRequestCategory
+  Binding = DiagnosticRequestStage
   Short Label = proposal | plan | orig. order | encoded +
   Definition = Whether the request is a proposal, plan, an original order or a reflex order.
   Committee Notes = [#3720][#10296]

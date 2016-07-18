@@ -6,7 +6,7 @@
 	<status value="draft"/>
 	<description value="The kind of request."/>
 	<caseSensitive value="true"/>
-	<valueSet value="http://hl7.org/fhir/ValueSet/diagnostic-request-stage"/>
+	<valueSet value="http://hl7.org/fhir/ValueSet/request-stage"/>
 	<content value="complete"/>
 	<concept>
 		<code value="proposal"/>
