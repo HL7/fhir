@@ -32,6 +32,10 @@
   </name>
   <gender value="male"/>
   <birthDate value="1932-09-24"/>
+  <generalPractitioner>
+    <reference value="Practitioner/example"/>
+    <display value="Dr Adam Careful"/>
+  </generalPractitioner>
   <managingOrganization>
     <reference value="Organization/2"/>
     <display value="Good Health Clinic"/>

@@ -130,6 +130,18 @@
       <system value="phone"/>
       <value value="+33 (237) 998327"/>
     </telecom>
+    <address>
+      <use value="home"/>
+      <type value="both"/>
+      <line value="534 Erewhon St"/>
+      <city value="PleasantVille"/>
+      <district value="Rainbow"/>
+      <state value="Vic"/>
+      <postalCode value="3999"/>
+      <period>
+        <start value="1974-12-25"/>
+      </period>
+    </address>
     <gender value="female"/>
     <period>
     <!--  The contact relationship started in 2012  -->
