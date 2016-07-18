@@ -26,7 +26,7 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
 
-*/
+ */
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
@@ -39,33 +39,35 @@ import org.hl7.fhir.utilities.Utilities;
 
 /*
 This is used to generate an enumeration for every value set not already generated as part of the resources.
-  
-*/
+
+ */
 public class JavaCodeSystemGenerator extends JavaBaseGenerator {
 
-	public JavaCodeSystemGenerator(OutputStream out) throws UnsupportedEncodingException {
-		super(out);
-	}
+  public JavaCodeSystemGenerator(OutputStream out) throws UnsupportedEncodingException {
+    super(out);
+  }
 
-	public void generate(Date genDate, String version, CodeSystem cs, String tns) throws Exception {		
-		write("package org.hl7.fhir.dstu3.model.codesystems;\r\n");
-		write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
-		write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
+  public void generate(Date genDate, String version, CodeSystem cs, String tns) throws Exception {		
+    write("package org.hl7.fhir.dstu3.model.codesystems;\r\n");
+    write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
+    write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
     write("\r\n");
     write("import org.hl7.fhir.dstu3.exceptions.FHIRException;\r\n");
     write("\r\n");
 
     write("public enum "+tns+" {\r\n");
     write("\r\n");
-		
+
     List<ConceptDefinitionComponent> codes = listAllCodes(cs);
     for (ConceptDefinitionComponent c : codes) {
-      String cc = Utilities.camelCase(c.getCode());
-      cc = makeConst(cc);
-      write("        /**\r\n");
-      write("         * "+c.getDefinition()+"\r\n");
-      write("         */\r\n");      
-      write("        "+cc.toUpperCase()+", \r\n");
+      if (c.hasCode()) {
+        String cc = Utilities.camelCase(c.getCode());
+        cc = makeConst(cc);
+        write("        /**\r\n");
+        write("         * "+c.getDefinition()+"\r\n");
+        write("         */\r\n");      
+        write("        "+cc.toUpperCase()+", \r\n");
+      }
     }
     write("        /**\r\n");
     write("         * added to help the parsers\r\n");
@@ -76,10 +78,12 @@ public class JavaCodeSystemGenerator extends JavaBaseGenerator {
     write("            if (codeString == null || \"\".equals(codeString))\r\n");
     write("                return null;\r\n");
     for (ConceptDefinitionComponent c : codes) {
-      String cc = Utilities.camelCase(c.getCode());
-      cc = makeConst(cc);
-      write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
-      write("          return "+cc+";\r\n");
+      if (c.hasCode()) {
+        String cc = Utilities.camelCase(c.getCode());
+        cc = makeConst(cc);
+        write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
+        write("          return "+cc+";\r\n");
+      }
     }   
     write("        throw new FHIRException(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
     write("        }\r\n"); 
@@ -87,9 +91,11 @@ public class JavaCodeSystemGenerator extends JavaBaseGenerator {
     write("        public String toCode() {\r\n");
     write("          switch (this) {\r\n");
     for (ConceptDefinitionComponent c : codes) {
-      String cc = Utilities.camelCase(c.getCode());
-      cc = makeConst(cc);
-      write("            case "+cc+": return \""+c.getCode()+"\";\r\n");
+      if (c.hasCode()) {
+        String cc = Utilities.camelCase(c.getCode());
+        cc = makeConst(cc);
+        write("            case "+cc+": return \""+c.getCode()+"\";\r\n");
+      }
     }   
     write("            default: return \"?\";\r\n");
     write("          }\r\n"); 
@@ -102,9 +108,11 @@ public class JavaCodeSystemGenerator extends JavaBaseGenerator {
     write("        public String getDefinition() {\r\n");
     write("          switch (this) {\r\n");
     for (ConceptDefinitionComponent c : codes) {
-      String cc = Utilities.camelCase(c.getCode());
-      cc = makeConst(cc);
-      write("            case "+cc+": return \""+Utilities.escapeJava(c.getDefinition())+"\";\r\n");
+      if (c.hasCode()) {
+        String cc = Utilities.camelCase(c.getCode());
+        cc = makeConst(cc);
+        write("            case "+cc+": return \""+Utilities.escapeJava(c.getDefinition())+"\";\r\n");
+      }
     }   
     write("            default: return \"?\";\r\n");
     write("          }\r\n"); 
@@ -113,9 +121,11 @@ public class JavaCodeSystemGenerator extends JavaBaseGenerator {
     write("        public String getDisplay() {\r\n");
     write("          switch (this) {\r\n");
     for (ConceptDefinitionComponent c : codes) {
-      String cc = Utilities.camelCase(c.getCode());
-      cc = makeConst(cc);
-      write("            case "+cc+": return \""+Utilities.escapeJava(Utilities.noString(c.getDisplay()) ? c.getCode() : c.getDisplay())+"\";\r\n");
+      if (c.hasCode()) {
+        String cc = Utilities.camelCase(c.getCode());
+        cc = makeConst(cc);
+        write("            case "+cc+": return \""+Utilities.escapeJava(Utilities.noString(c.getDisplay()) ? c.getCode() : c.getDisplay())+"\";\r\n");
+      }
     }   
     write("            default: return \"?\";\r\n");
     write("          }\r\n"); 
@@ -124,8 +134,8 @@ public class JavaCodeSystemGenerator extends JavaBaseGenerator {
     write("\r\n");
 
     write("\r\n");
-		write("}\r\n");
-		write("\r\n");
-		flush();
-	}
+    write("}\r\n");
+    write("\r\n");
+    flush();
+  }
 }
