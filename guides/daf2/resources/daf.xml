@@ -246,7 +246,7 @@
 		<resource>
 			<example value="false"/>
 			<sourceReference>
-				<reference value="StructureDefinition/daf-diagnosticorder"/>
+				<reference value="StructureDefinition/daf-diagnosticrequest"/>
 			</sourceReference>
 		</resource>
 		<resource>
@@ -575,7 +575,7 @@
   <acronym target="daf-resultobsratio" id="daf-rto"/>
   <acronym target="daf-resultobsother" id="daf-oth"/>
   <acronym target="daf-diagnosticreport" id="daf-dir"/>
-  <acronym target="daf-diagnosticorder" id="daf-dio"/>
+  <acronym target="daf-diagnosticrequest" id="daf-dio"/>
   <acronym target="daf-resultobservationcode" id="daf-cod"/>
  -->
 	<binary value="daf-actors-and-interactions.png"/>
@@ -636,12 +636,12 @@
 			</page>
 		</page>
 		<page>
-			<source value="diagnosticorder-daf.html"/>
+			<source value="diagnosticrequest-daf.html"/>
 			<title value="Diagnostic Orders"/>
 			<kind value="page"/>
 			<format value="generated"/>
 			<page>
-				<source value="daf-diagnosticorder.html"/>
+				<source value="daf-diagnosticrequest.html"/>
 				<title value="Diagnostic Order Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>

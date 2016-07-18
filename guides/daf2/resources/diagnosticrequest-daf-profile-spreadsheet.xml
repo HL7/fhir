@@ -978,15 +978,15 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">id</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">diagnosticorder-daf</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">diagnosticrequest-daf</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">name</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">U.S. Data Access Framework (DAF) DiagnosticOrder Profile</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">U.S. Data Access Framework (DAF) DiagnosticRequest Profile</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">display</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">DAF-DiagnosticOrder</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">DAF-DiagnosticRequest</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">author.name</Data></Cell>
@@ -1002,7 +1002,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69.75">
     <Cell ss:StyleID="s74"><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Defines constraints and extensions on the DiagnosticOrder resource for use in querying and retrieving DiagnosticOrder information.</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Defines constraints and extensions on the DiagnosticRequest resource for use in querying and retrieving DiagnosticRequest information.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">status</Data></Cell>
@@ -1014,7 +1014,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">DAF-DiagnosticOrder</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">DAF-DiagnosticRequest</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">version</Data></Cell>
@@ -1022,12 +1022,12 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/daf/StructureDefinition/diagnosticorder"><Data
-      ss:Type="String">http://hl7.org/fhir/daf/StructureDefinition/diagnosticorder</Data></Cell>
+    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/daf/StructureDefinition/diagnosticrequest"><Data
+      ss:Type="String">http://hl7.org/fhir/daf/StructureDefinition/diagnosticrequest</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">diagnosticorder-daf-profile-introduction.xml</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">diagnosticrequest-daf-profile-introduction.xml</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s82"><Data ss:Type="String">publication.status</Data></Cell>
@@ -1035,7 +1035,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s83"><Data ss:Type="String">notes</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">diagnosticorder-daf-profile-notes.xml</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">diagnosticrequest-daf-profile-notes.xml</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0"/>
   </Table>
@@ -1078,10 +1078,10 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="DAF-DiagnosticOrder">
+ <Worksheet ss:Name="DAF-DiagnosticRequest">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='DAF-DiagnosticOrder'!R1C4:R102C25" ss:Hidden="1"/>
+    ss:RefersTo="='DAF-DiagnosticRequest'!R1C4:R102C25" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="103" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s85" ss:DefaultColumnWidth="45.599999999999994"
@@ -1200,7 +1200,7 @@
     <Cell ss:StyleID="s94"/>
     <Cell ss:StyleID="s95"><Data ss:Type="String">DAF Diagnostic Order</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticOrder</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">DiagnosticRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">DO</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1231,7 +1231,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">determine (psuedo)code for generation.</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticOrder.text</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1261,7 +1261,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticOrder.text.status</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.text.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1293,7 +1293,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Limited to single patient per Diagnostic Order (Requisition)</Data></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.subject</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Patient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1326,7 +1326,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Limited to single orderer per Diagnostic Order (Requisition)</Data></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.orderer</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.orderer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Ordering Provider, OP, Submitter, Placer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1359,7 +1359,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">Need to be able to identify the placer and order Id, using type extensions would be preferred.  Pending gforge comment</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Limit to Globally unique IDs using a URI ( could be a URL)</Data></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.identifier</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Placer ID, Filler ID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1391,7 +1391,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">&lt;&lt;&lt;map</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.identifier.use</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.identifier.use</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1423,7 +1423,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">&lt;&lt;&lt;map</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticOrder.identifier.type</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.identifier.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1455,7 +1455,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">&lt;&lt;&lt;map</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.identifier.system</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.identifier.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1486,7 +1486,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">&lt;&lt;&lt;map</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.identifier.value</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.identifier.value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1517,7 +1517,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Limit to Globally unique IDs using a URI ( could be a URL)</Data></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticOrder.identifier</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1548,7 +1548,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">&lt;&lt;&lt;map</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticOrder.identifier.use</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.identifier.use</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1580,7 +1580,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">&lt;&lt;&lt;map</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticOrder.identifier.type</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.identifier.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1612,7 +1612,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">&lt;&lt;&lt;map</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticOrder.identifier.system</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.identifier.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1643,7 +1643,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">&lt;&lt;&lt;map</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticOrder.identifier.value</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.identifier.value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1674,7 +1674,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.encounter</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1705,7 +1705,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.reason</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.reason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1735,7 +1735,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticOrder.supportingInformation</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.supportingInformation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1768,7 +1768,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">AOES are captured in the USLabObservation resource and Reasons for the testing in USLabCondition</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">DAFSupportingInformation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.supportingInformation</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.supportingInformation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1802,7 +1802,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">create conformance rule in conformance resource</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticOrder.specimen</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1833,7 +1833,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.status</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1865,7 +1865,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.priority</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.priority</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1896,7 +1896,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.event</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..*</Data><NamedCell
@@ -1927,7 +1927,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">create value set for use cases.- extensible,bound start with existing.</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.event.description</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.event.description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1961,7 +1961,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.event.description.coding</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.event.description.coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1992,7 +1992,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.event.description.coding.system</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.event.description.coding.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2023,7 +2023,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.event.description.coding.code</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.event.description.coding.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2054,7 +2054,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">invarient for precision</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.event.dateTime</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.event.dateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2086,7 +2086,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.item</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..*</Data><NamedCell
@@ -2118,7 +2118,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">create conformance rule in conformance resource</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Requires at least a code, code system an d display text.</Data></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.item.code</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.item.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2154,7 +2154,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.item.code.coding</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.item.code.coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..*</Data><NamedCell
@@ -2185,7 +2185,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.item.code.coding.system</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.item.code.coding.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2216,7 +2216,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">regex to LOINC invarient  ( how create context  for slice onlyhave lloyd check the regex</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.item.code.coding.code</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.item.code.coding.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2248,7 +2248,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.item.code.coding.display</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.item.code.coding.display</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2280,7 +2280,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticOrder.item.code.coding</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.item.code.coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2311,7 +2311,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticOrder.item.code.coding.system</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.item.code.coding.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2344,7 +2344,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticOrder.item.code.coding.code</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.item.code.coding.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2375,7 +2375,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticOrder.item.code.coding.display</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.item.code.coding.display</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2407,7 +2407,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.item.code.text</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.item.code.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2438,7 +2438,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticOrder.item.specimen</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.item.specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2469,7 +2469,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.item.bodySite</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.item.bodySite</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2498,7 +2498,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticOrder.item.status</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DiagnosticRequest.item.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -4163,10 +4163,10 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="DAF-DiagnosticOrder-Inv">
+ <Worksheet ss:Name="DAF-DiagnosticRequest-Inv">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='DAF-DiagnosticOrder-Inv'!R1C1:R2C7" ss:Hidden="1"/>
+    ss:RefersTo="='DAF-DiagnosticRequest-Inv'!R1C1:R2C7" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s121" ss:DefaultRowHeight="15">
@@ -4214,7 +4214,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">DiagnosticOrder.item.code</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">DiagnosticRequest.item.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Must have a LOINC or a Local code or both.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

@@ -161,30 +161,30 @@
           <tr>
             
             <th>
-              <a href="diagnosticorder-daf.html">DAFDiagnosticOrder</a>
+              <a href="diagnosticrequest-daf.html">DAFDiagnosticRequest</a>
             </th>
             
             <td>
               
-              <a title="Allows discovery of DAFDiagnosticOrder resources based on different search criteria" href="#DAFDiagnosticOrderSearch">SHOULD</a>
+              <a title="Allows discovery of DAFDiagnosticRequest resources based on different search criteria" href="#DAFDiagnosticRequestSearch">SHOULD</a>
             
             </td>
             
             <td>
               
-              <a title="Allows retrieval of a specific DAFDiagnosticOrder by id" href="#DAFDiagnosticOrderSearch">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFDiagnosticRequest by id" href="#DAFDiagnosticRequestSearch">SHOULD</a>
             
             </td>
             
             <td>
               
-              <a title="Allows retrieval of a historical version of a DAFDiagnosticOrder" href="#DAFDiagnosticOrderSearch">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFDiagnosticRequest" href="#DAFDiagnosticRequestSearch">SHOULD</a>
             
             </td>
             
             <td>
               
-              <a title="Allows review of changes to DAFDiagnosticOrder over time" href="#DAFDiagnosticOrderSearch">SHOULD</a>
+              <a title="Allows review of changes to DAFDiagnosticRequest over time" href="#DAFDiagnosticRequestSearch">SHOULD</a>
             
             </td>
           
@@ -864,19 +864,19 @@
 		  
           <tr>
 		    
-            <td id="DAFDiagnosticOrderSearch">DAFDiagnosticOrder</td>
+            <td id="DAFDiagnosticRequestSearch">DAFDiagnosticRequest</td>
 			
             <td>
 				
               <ul>
 					
                 <li>
-                  <a href="diagnosticorder.html#search">identifier</a> - Search for DiagnosticOrder by identifiers (
+                  <a href="diagnosticrequest.html#search">identifier</a> - Search for DiagnosticRequest by identifiers (
                   <a href="../search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="diagnosticorder.html#search">patient</a> - Search for DiagnosticOrders for a patient (
+                  <a href="diagnosticrequest.html#search">patient</a> - Search for DiagnosticRequests for a patient (
                   <a href="../search.html#reference">reference</a>)
                 </li>
 					
@@ -889,7 +889,7 @@
                 <li>Chained parameter - patient.family</li>
 					
                 <li>
-                  <a href="diagnosticorder.html#search">orderer</a> - Search based on ordering provider (
+                  <a href="diagnosticrequest.html#search">orderer</a> - Search based on ordering provider (
                   <a href="../search.html#reference">reference</a>)
                 </li>
 					
@@ -900,12 +900,12 @@
                 <li>Chained parameter - orderer.family</li>
 					
                 <li>
-                  <a href="diagnosticorder.html#search">code</a> - Search based on type of the test ordered (
+                  <a href="diagnosticrequest.html#search">code</a> - Search based on type of the test ordered (
                   <a href="../search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="diagnosticorder.html#search">encounter</a> - Search based on encounter resulting in the order (
+                  <a href="diagnosticrequest.html#search">encounter</a> - Search based on encounter resulting in the order (
                   <a href="../search.html#reference">reference</a>)
                 </li>
 					
@@ -914,15 +914,15 @@
                 <li>Chained parameter - encounter.type</li>
 					
                 <li>
-                  <a href="diagnosticorder.html#search">item-date</a> - Search based on order date (
+                  <a href="diagnosticrequest.html#search">item-date</a> - Search based on order date (
                   <a href="../search.html#date">date</a>)
                 </li>
 					
-                <li>Include parameter - DiagnosticOrder.subject</li>
+                <li>Include parameter - DiagnosticRequest.subject</li>
 					
-                <li>Include parameter - DiagnosticOrder.orderer</li>
+                <li>Include parameter - DiagnosticRequest.orderer</li>
 					
-                <li>Include parameter - DiagnosticOrder.encounter</li>
+                <li>Include parameter - DiagnosticRequest.encounter</li>
 				
               </ul>
 			
@@ -1997,41 +1997,41 @@
       </searchParam>
     </resource>
     <resource>
-      <type value="DiagnosticOrder"/>
+      <type value="DiagnosticRequest"/>
       <profile>
-        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-diagnosticorder"/>
+        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-diagnosticrequest"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
-        <documentation value="Allows discovery of existing DAFDiagnosticOrder resources using different search criteria"/>
+        <documentation value="Allows discovery of existing DAFDiagnosticRequest resources using different search criteria"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
-        <documentation value="Allows retrieval of a specific DAFDiagnosticOrder by id"/>
+        <documentation value="Allows retrieval of a specific DAFDiagnosticRequest by id"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
-        <documentation value="Allows review of changes to DAFDiagnosticOrder instance over time"/>
+        <documentation value="Allows review of changes to DAFDiagnosticRequest instance over time"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
-        <documentation value="Allows retrieval of a historical version of a DAFDiagnosticOrder instance"/>
+        <documentation value="Allows retrieval of a historical version of a DAFDiagnosticRequest instance"/>
       </interaction>
-      <searchInclude value="DiagnosticOrder.subject"/>
-      <searchInclude value="DiagnosticOrder.orderer"/>
-      <searchInclude value="DiagnosticOrder.encounter"/>
+      <searchInclude value="DiagnosticRequest.subject"/>
+      <searchInclude value="DiagnosticRequest.orderer"/>
+      <searchInclude value="DiagnosticRequest.encounter"/>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>

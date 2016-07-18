@@ -6,7 +6,6 @@
     "temp" : "temp",
     "output" : "output",
     "qa" : "qa",
-    "txCache" : "txCache",
     "specification" : "c:\\work\\org.hl7.fhir\\build\\publish"
   },
   "defaults" : {
@@ -23,7 +22,7 @@
     "careplan-daf-core-profile-spreadsheet.xml",
     "condition-daf-profile-spreadsheet.xml",
 	"condition-daf-core-profile-spreadsheet.xml",
-    "diagnosticorder-daf-profile-spreadsheet.xml",
+    "diagnosticrequest-daf-profile-spreadsheet.xml",
     "diagnosticreport-daf-profile-spreadsheet.xml",
 	"diagnosticreport-daf-core-profile-spreadsheet.xml",
 	"device-daf-core-profile-spreadsheet.xml",
@@ -90,9 +89,9 @@
 			"defns": "daf-core-device-definitions.html",
 			"base": "daf-core-device.html"
 		},
-		"StructureDefinition/daf-diagnosticorder": {
-			"defns": "daf-diagnosticorder-definitions.html",
-			"base": "daf-diagnosticorder.html"
+		"StructureDefinition/daf-diagnosticrequest": {
+			"defns": "daf-diagnosticrequest-definitions.html",
+			"base": "daf-diagnosticrequest.html"
 		},
 		"StructureDefinition/daf-diagnosticreport": {
 			"defns": "daf-diagnosticreport-definitions.html",

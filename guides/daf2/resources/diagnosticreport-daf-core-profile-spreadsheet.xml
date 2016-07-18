@@ -1906,7 +1906,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Reference(DiagnosticOrder){http://hl7.org/fhir/daf/StructureDefinition/daf-diagnosticorder}</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Reference(DiagnosticRequest){http://hl7.org/fhir/daf/StructureDefinition/daf-diagnosticrequest}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
