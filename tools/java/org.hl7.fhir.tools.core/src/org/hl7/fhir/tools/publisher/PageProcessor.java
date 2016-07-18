@@ -6730,7 +6730,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   @Override
-  public BindingResolution resolveBinding(ElementDefinitionBindingComponent binding) {
+  public BindingResolution resolveBinding(StructureDefinition profile, ElementDefinitionBindingComponent binding) {
     BindingResolution br = new BindingResolution();
     if (!binding.hasValueSet()) {
       br.url = "terminologies.html#unbound";

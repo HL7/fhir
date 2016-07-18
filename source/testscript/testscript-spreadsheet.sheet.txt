@@ -955,7 +955,7 @@
   Card. = 1..1
   Type = string
   Short Label = HTTP headerfield value
-  Definition = The value of the header e.g. \"application/xml\"
+  Definition = The value of the header e.g. \"application/fhir+xml\"
   Comments = If header element is specified, then value is required.  No conversions will be done by Test Engine e.g. \"xml\" to \"application/fhir+xml\".  The values will be set in HTTP headers \"as-is\".  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.
 
  -- Row 75 -----------------------------------

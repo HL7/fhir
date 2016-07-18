@@ -2120,7 +2120,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     checkInvariants(errors, stack.getLiteralPath(), profile, definition, null, null, resource, element);
 
     // get the list of direct defined children, including slices
-    List<ElementDefinition> childDefinitions = ProfileUtilities.getChildMap(profile, definition.getName(), definition.getPath(), definition.getContentReference());
+    List<ElementDefinition> childDefinitions = ProfileUtilities.getChildMap(profile, definition);
 
     // 1. List the children, and remember their exact path (convenience)
     List<ElementInfo> children = new ArrayList<InstanceValidator.ElementInfo>();

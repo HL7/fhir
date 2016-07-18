@@ -401,7 +401,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   }
 
   @Override
-  public BindingResolution resolveBinding(ElementDefinitionBindingComponent binding) {
+  public BindingResolution resolveBinding(StructureDefinition profile, ElementDefinitionBindingComponent binding) {
     return null;
   }
 

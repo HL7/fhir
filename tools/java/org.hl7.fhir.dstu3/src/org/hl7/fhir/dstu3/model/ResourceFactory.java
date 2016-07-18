@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Jul 17, 2016 23:46+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 18, 2016 12:13+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
@@ -78,8 +78,6 @@ public class ResourceFactory extends Factory {
             return new Practitioner();
         if ("ExpansionProfile".equals(name))
             return new ExpansionProfile();
-        if ("OrderSet".equals(name))
-            return new OrderSet();
         if ("Slot".equals(name))
             return new Slot();
         if ("Person".equals(name))
@@ -110,8 +108,6 @@ public class ResourceFactory extends Factory {
             return new Substance();
         if ("SearchParameter".equals(name))
             return new SearchParameter();
-        if ("Protocol".equals(name))
-            return new Protocol();
         if ("Communication".equals(name))
             return new Communication();
         if ("ActivityDefinition".equals(name))
@@ -224,8 +220,6 @@ public class ResourceFactory extends Factory {
             return new AuditEvent();
         if ("MedicationOrder".equals(name))
             return new MedicationOrder();
-        if ("DecisionSupportRule".equals(name))
-            return new DecisionSupportRule();
         if ("PaymentReconciliation".equals(name))
             return new PaymentReconciliation();
         if ("Condition".equals(name))
@@ -246,8 +240,6 @@ public class ResourceFactory extends Factory {
             return new QuestionnaireResponse();
         if ("ProcessResponse".equals(name))
             return new ProcessResponse();
-        if ("ModuleDefinition".equals(name))
-            return new ModuleDefinition();
         if ("NamingSystem".equals(name))
             return new NamingSystem();
         if ("DecisionSupportServiceModule".equals(name))
@@ -386,8 +378,6 @@ public class ResourceFactory extends Factory {
             return new Practitioner();
         if ("ExpansionProfile".equals(name))
             return new ExpansionProfile();
-        if ("OrderSet".equals(name))
-            return new OrderSet();
         if ("Slot".equals(name))
             return new Slot();
         if ("Person".equals(name))
@@ -418,8 +408,6 @@ public class ResourceFactory extends Factory {
             return new Substance();
         if ("SearchParameter".equals(name))
             return new SearchParameter();
-        if ("Protocol".equals(name))
-            return new Protocol();
         if ("Communication".equals(name))
             return new Communication();
         if ("ActivityDefinition".equals(name))
@@ -532,8 +520,6 @@ public class ResourceFactory extends Factory {
             return new AuditEvent();
         if ("MedicationOrder".equals(name))
             return new MedicationOrder();
-        if ("DecisionSupportRule".equals(name))
-            return new DecisionSupportRule();
         if ("PaymentReconciliation".equals(name))
             return new PaymentReconciliation();
         if ("Condition".equals(name))
@@ -554,8 +540,6 @@ public class ResourceFactory extends Factory {
             return new QuestionnaireResponse();
         if ("ProcessResponse".equals(name))
             return new ProcessResponse();
-        if ("ModuleDefinition".equals(name))
-            return new ModuleDefinition();
         if ("NamingSystem".equals(name))
             return new NamingSystem();
         if ("DecisionSupportServiceModule".equals(name))

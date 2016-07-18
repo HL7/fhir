@@ -776,7 +776,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+map.getName()+" ("+map.getUri()+")</h3>");
         if (map.hasComments())
           s.append("<p>"+Utilities.escapeXml(map.getComments())+"</p>");
-        else if (preambles.has(map.getUri()))   
+        else if (preambles != null && preambles.has(map.getUri()))   
           s.append(preambles.get(map.getUri()).getAsString());
 
         s.append("<table class=\"grid\">\r\n");

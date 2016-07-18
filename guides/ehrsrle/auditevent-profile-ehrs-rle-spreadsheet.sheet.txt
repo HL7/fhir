@@ -16,187 +16,182 @@
   Type = DomainResource
 
  -- Row 2 -----------------------------------
-  Element = AuditEvent.event
+  Element = AuditEvent.type
   Card. = !1..1
   Must Support = Y
 
  -- Row 3 -----------------------------------
-  Element = AuditEvent.event.type
-  Card. = !1..1
+  Element = AuditEvent.subtype
+  Card. = !0..*
   Must Support = Y
 
  -- Row 4 -----------------------------------
-  Element = AuditEvent.event.subtype
-  Card. = !0..*
+  Element = AuditEvent.action
+  Card. = !0..1
   Must Support = Y
 
  -- Row 5 -----------------------------------
-  Element = AuditEvent.event.action
-  Card. = !0..1
-  Must Support = Y
-
- -- Row 6 -----------------------------------
-  Element = AuditEvent.event.dateTime
+  Element = AuditEvent.recorded
   Card. = !1..1
   Must Support = Y
 
+ -- Row 6 -----------------------------------
+  Element = !AuditEvent.outcome
+  Card. = !0..1
+
  -- Row 7 -----------------------------------
-  Element = !AuditEvent.event.outcome
+  Element = !AuditEvent.outcomeDesc
   Card. = !0..1
 
  -- Row 8 -----------------------------------
-  Element = !AuditEvent.event.outcomeDesc
-  Card. = !0..1
-
- -- Row 9 -----------------------------------
-  Element = AuditEvent.event.purposeOfEvent
+  Element = AuditEvent.purposeOfEvent
   Card. = !0..*
   Must Support = Y
 
- -- Row 10 -----------------------------------
-  Element = AuditEvent.participant
+ -- Row 9 -----------------------------------
+  Element = AuditEvent.agent
   Card. = !1..*
   Must Support = Y
 
- -- Row 11 -----------------------------------
-  Element = AuditEvent.participant.role
+ -- Row 10 -----------------------------------
+  Element = AuditEvent.agent.role
   Card. = !0..*
   Must Support = Y
 
+ -- Row 11 -----------------------------------
+  Element = AuditEvent.agent.reference
+  Card. = !0..1
+  Must Support = Y
+
  -- Row 12 -----------------------------------
-  Element = AuditEvent.participant.reference
+  Element = AuditEvent.agent.userId
   Card. = !0..1
   Must Support = Y
 
  -- Row 13 -----------------------------------
-  Element = AuditEvent.participant.userId
+  Element = !AuditEvent.agent.altId
   Card. = !0..1
-  Must Support = Y
 
  -- Row 14 -----------------------------------
-  Element = !AuditEvent.participant.altId
+  Element = !AuditEvent.agent.name
   Card. = !0..1
 
  -- Row 15 -----------------------------------
-  Element = !AuditEvent.participant.name
-  Card. = !0..1
-
- -- Row 16 -----------------------------------
-  Element = AuditEvent.participant.requestor
+  Element = AuditEvent.agent.requestor
   Card. = !1..1
   Must Support = Y
 
- -- Row 17 -----------------------------------
-  Element = AuditEvent.participant.location
+ -- Row 16 -----------------------------------
+  Element = AuditEvent.agent.location
   Card. = !0..1
   Must Support = Y
 
- -- Row 18 -----------------------------------
-  Element = AuditEvent.participant.policy
+ -- Row 17 -----------------------------------
+  Element = AuditEvent.agent.policy
   Card. = !0..*
   Must Support = Y
 
- -- Row 19 -----------------------------------
-  Element = !AuditEvent.participant.media
+ -- Row 18 -----------------------------------
+  Element = !AuditEvent.agent.media
   Card. = !0..1
 
+ -- Row 19 -----------------------------------
+  Element = AuditEvent.agent.network
+  Card. = !0..1
+  Must Support = Y
+
  -- Row 20 -----------------------------------
-  Element = AuditEvent.participant.network
+  Element = AuditEvent.agent.network.address
   Card. = !0..1
   Must Support = Y
 
  -- Row 21 -----------------------------------
-  Element = AuditEvent.participant.network.address
+  Element = AuditEvent.agent.network.type
   Card. = !0..1
   Must Support = Y
 
  -- Row 22 -----------------------------------
-  Element = AuditEvent.participant.network.type
-  Card. = !0..1
-  Must Support = Y
-
- -- Row 23 -----------------------------------
-  Element = AuditEvent.participant.purposeOfUse
+  Element = AuditEvent.agent.purposeOfUse
   Card. = !0..*
   Must Support = Y
 
- -- Row 24 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = AuditEvent.source
   Card. = !1..1
   Must Support = Y
 
- -- Row 25 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = AuditEvent.source.site
   Card. = !0..1
   Must Support = Y
 
- -- Row 26 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = AuditEvent.source.identifier
   Card. = !1..1
   Must Support = Y
 
- -- Row 27 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = AuditEvent.source.type
   Card. = !0..*
   Must Support = Y
 
- -- Row 28 -----------------------------------
-  Element = AuditEvent.object
+ -- Row 27 -----------------------------------
+  Element = AuditEvent.entity
   Card. = !0..*
   Must Support = Y
 
+ -- Row 28 -----------------------------------
+  Element = AuditEvent.entity.identifier
+  Card. = !0..1
+  Must Support = Y
+
  -- Row 29 -----------------------------------
-  Element = AuditEvent.object.identifier
+  Element = AuditEvent.entity.reference
   Card. = !0..1
   Must Support = Y
 
  -- Row 30 -----------------------------------
-  Element = AuditEvent.object.reference
+  Element = AuditEvent.entity.type
   Card. = !0..1
   Must Support = Y
 
  -- Row 31 -----------------------------------
-  Element = AuditEvent.object.type
+  Element = AuditEvent.entity.role
   Card. = !0..1
   Must Support = Y
 
  -- Row 32 -----------------------------------
-  Element = AuditEvent.object.role
+  Element = AuditEvent.entity.lifecycle
   Card. = !0..1
   Must Support = Y
 
  -- Row 33 -----------------------------------
-  Element = AuditEvent.object.lifecycle
-  Card. = !0..1
+  Element = AuditEvent.entity.securityLabel
+  Card. = !0..*
   Must Support = Y
 
  -- Row 34 -----------------------------------
-  Element = AuditEvent.object.securityLabel
-  Card. = !0..*
-  Must Support = Y
+  Element = !AuditEvent.entity.name
+  Card. = !0..1
 
  -- Row 35 -----------------------------------
-  Element = !AuditEvent.object.name
+  Element = !AuditEvent.entity.description
   Card. = !0..1
 
  -- Row 36 -----------------------------------
-  Element = !AuditEvent.object.description
+  Element = !AuditEvent.entity.query
   Card. = !0..1
 
  -- Row 37 -----------------------------------
-  Element = !AuditEvent.object.query
-  Card. = !0..1
-
- -- Row 38 -----------------------------------
-  Element = !AuditEvent.object.detail
+  Element = !AuditEvent.entity.detail
   Card. = !0..*
 
- -- Row 39 -----------------------------------
-  Element = !AuditEvent.object.detail.type
+ -- Row 38 -----------------------------------
+  Element = !AuditEvent.entity.detail.type
   Card. = !1..1
 
- -- Row 40 -----------------------------------
-  Element = !AuditEvent.object.detail.value
+ -- Row 39 -----------------------------------
+  Element = !AuditEvent.entity.detail.value
   Card. = !1..1
 
 === Sheet Search =====================================

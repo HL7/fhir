@@ -2,17 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/observation-interpretation",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|A|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "A",
-        "definition": null,
-        "display": "Abnormal"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/v2/0078|null|HH|null",
       "severity": null,
       "message": null,
@@ -91,17 +80,6 @@
     },
     {
       "hash": "#|http://hl7.org/fhir/v2/0078|null|N|Normal",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "N",
-        "definition": null,
-        "display": "Normal"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|N|null",
       "severity": null,
       "message": null,
       "definition": {

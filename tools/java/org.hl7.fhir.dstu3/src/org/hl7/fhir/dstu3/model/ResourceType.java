@@ -2,7 +2,7 @@ package org.hl7.fhir.dstu3.model;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
-// Generated on Sun, Jul 17, 2016 23:46+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 18, 2016 12:13+1000 for FHIR v1.5.0
 
 public enum ResourceType {
     Account,
@@ -32,7 +32,6 @@ public enum ResourceType {
     Contract,
     Coverage,
     DataElement,
-    DecisionSupportRule,
     DecisionSupportServiceModule,
     DetectedIssue,
     Device,
@@ -77,13 +76,11 @@ public enum ResourceType {
     MedicationOrder,
     MedicationStatement,
     MessageHeader,
-    ModuleDefinition,
     NamingSystem,
     NutritionRequest,
     Observation,
     OperationDefinition,
     OperationOutcome,
-    OrderSet,
     Organization,
     Parameters,
     Patient,
@@ -97,7 +94,6 @@ public enum ResourceType {
     ProcedureRequest,
     ProcessRequest,
     ProcessResponse,
-    Protocol,
     Provenance,
     Questionnaire,
     QuestionnaireResponse,
@@ -177,8 +173,6 @@ public enum ResourceType {
       return "coverage";
     case DataElement:
       return "dataelement";
-    case DecisionSupportRule:
-      return "decisionsupportrule";
     case DecisionSupportServiceModule:
       return "decisionsupportservicemodule";
     case DetectedIssue:
@@ -267,8 +261,6 @@ public enum ResourceType {
       return "medicationstatement";
     case MessageHeader:
       return "messageheader";
-    case ModuleDefinition:
-      return "moduledefinition";
     case NamingSystem:
       return "namingsystem";
     case NutritionRequest:
@@ -279,8 +271,6 @@ public enum ResourceType {
       return "operationdefinition";
     case OperationOutcome:
       return "operationoutcome";
-    case OrderSet:
-      return "orderset";
     case Organization:
       return "organization";
     case Parameters:
@@ -307,8 +297,6 @@ public enum ResourceType {
       return "processrequest";
     case ProcessResponse:
       return "processresponse";
-    case Protocol:
-      return "protocol";
     case Provenance:
       return "provenance";
     case Questionnaire:
@@ -411,8 +399,6 @@ public enum ResourceType {
       return Coverage;
     if ("DataElement".equals(code))
       return DataElement;
-    if ("DecisionSupportRule".equals(code))
-      return DecisionSupportRule;
     if ("DecisionSupportServiceModule".equals(code))
       return DecisionSupportServiceModule;
     if ("DetectedIssue".equals(code))
@@ -501,8 +487,6 @@ public enum ResourceType {
       return MedicationStatement;
     if ("MessageHeader".equals(code))
       return MessageHeader;
-    if ("ModuleDefinition".equals(code))
-      return ModuleDefinition;
     if ("NamingSystem".equals(code))
       return NamingSystem;
     if ("NutritionRequest".equals(code))
@@ -513,8 +497,6 @@ public enum ResourceType {
       return OperationDefinition;
     if ("OperationOutcome".equals(code))
       return OperationOutcome;
-    if ("OrderSet".equals(code))
-      return OrderSet;
     if ("Organization".equals(code))
       return Organization;
     if ("Parameters".equals(code))
@@ -541,8 +523,6 @@ public enum ResourceType {
       return ProcessRequest;
     if ("ProcessResponse".equals(code))
       return ProcessResponse;
-    if ("Protocol".equals(code))
-      return Protocol;
     if ("Provenance".equals(code))
       return Provenance;
     if ("Questionnaire".equals(code))

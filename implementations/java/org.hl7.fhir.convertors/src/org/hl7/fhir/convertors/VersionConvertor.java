@@ -3271,18 +3271,16 @@ public class VersionConvertor {
 		tgt.setPrevious(convertReference(src.getPrevious()));
 		for (org.hl7.fhir.dstu2.model.Reference t : src.getProblem())
 			tgt.addProblem(convertReference(t));
-		tgt.setTrigger(convertType(src.getTrigger()));
 		for (org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent t : src.getInvestigations())
 			tgt.addInvestigations(convertClinicalImpressionInvestigationsComponent(t));
 		tgt.setProtocol(src.getProtocol());
 		tgt.setSummary(src.getSummary());
 		for (org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionFindingComponent t : src.getFinding())
 			tgt.addFinding(convertClinicalImpressionFindingComponent(t));
-		for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getResolved())
-			tgt.addResolved(convertCodeableConcept(t));
 		for (org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionRuledOutComponent t : src.getRuledOut())
 			tgt.addRuledOut(convertClinicalImpressionRuledOutComponent(t));
-		tgt.setPrognosis(src.getPrognosis());
+		if (src.hasPrognosis())
+		  tgt.addPrognosis().setText(src.getPrognosis());
 		for (org.hl7.fhir.dstu2.model.Reference t : src.getPlan())
 			tgt.addPlan(convertReference(t));
 		for (org.hl7.fhir.dstu2.model.Reference t : src.getAction())
@@ -3303,18 +3301,15 @@ public class VersionConvertor {
 		tgt.setPrevious(convertReference(src.getPrevious()));
 		for (org.hl7.fhir.dstu3.model.Reference t : src.getProblem())
 			tgt.addProblem(convertReference(t));
-		tgt.setTrigger(convertType(src.getTrigger()));
 		for (org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent t : src.getInvestigations())
 			tgt.addInvestigations(convertClinicalImpressionInvestigationsComponent(t));
 		tgt.setProtocol(src.getProtocol());
 		tgt.setSummary(src.getSummary());
 		for (org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionFindingComponent t : src.getFinding())
 			tgt.addFinding(convertClinicalImpressionFindingComponent(t));
-		for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getResolved())
-			tgt.addResolved(convertCodeableConcept(t));
 		for (org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionRuledOutComponent t : src.getRuledOut())
 			tgt.addRuledOut(convertClinicalImpressionRuledOutComponent(t));
-		tgt.setPrognosis(src.getPrognosis());
+		tgt.setPrognosis(src.getPrognosisFirstRep().getText());
 		for (org.hl7.fhir.dstu3.model.Reference t : src.getPlan())
 			tgt.addPlan(convertReference(t));
 		for (org.hl7.fhir.dstu3.model.Reference t : src.getAction())
@@ -3326,7 +3321,7 @@ public class VersionConvertor {
 		if (src == null)
 			return null;
 		switch (src) {
-		case INPROGRESS: return org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionStatus.INPROGRESS;
+		case INPROGRESS: return org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionStatus.DRAFT;
 		case COMPLETED: return org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionStatus.COMPLETED;
 		case ENTEREDINERROR: return org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionStatus.ENTEREDINERROR;
 		default: return org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionStatus.NULL;
@@ -3337,7 +3332,7 @@ public class VersionConvertor {
 		if (src == null)
 			return null;
 		switch (src) {
-		case INPROGRESS: return org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionStatus.INPROGRESS;
+		case DRAFT: return org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionStatus.INPROGRESS;
 		case COMPLETED: return org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionStatus.COMPLETED;
 		case ENTEREDINERROR: return org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionStatus.ENTEREDINERROR;
 		default: return org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionStatus.NULL;

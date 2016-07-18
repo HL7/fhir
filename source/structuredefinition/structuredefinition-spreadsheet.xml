@@ -4720,7 +4720,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(f:element[1][not(contains(f:path/@value, '.'))]/f:type)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="String">!16</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="Number">16</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">element ids need to be unique</Data></Cell>
     <Cell ss:StyleID="s90"/>
@@ -4730,7 +4730,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">count(*/f:element)=count(*/f:element/@id)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="String">!17</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="Number">17</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">element ids need to be unique</Data></Cell>
     <Cell ss:StyleID="s90"/>
@@ -5036,7 +5036,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

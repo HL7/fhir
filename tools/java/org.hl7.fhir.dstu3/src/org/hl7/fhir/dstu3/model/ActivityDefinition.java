@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Jul 17, 2016 23:46+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 18, 2016 12:13+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -317,27 +317,34 @@ public class ActivityDefinition extends DomainResource {
     @Block()
     public static class ActivityDefinitionDynamicValueComponent extends BackboneElement implements IBaseBackboneElement {
         /**
+         * A brief, natural language description of the intended semantics of the dynamic value.
+         */
+        @Child(name = "description", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Natural language description of the dynamic value", formalDefinition="A brief, natural language description of the intended semantics of the dynamic value." )
+        protected StringType description;
+
+        /**
          * The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.
          */
-        @Child(name = "path", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "path", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The path to the element to be set dynamically", formalDefinition="The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression." )
         protected StringType path;
 
         /**
          * The media type of the language for the expression.
          */
-        @Child(name = "language", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "language", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Language of the expression", formalDefinition="The media type of the language for the expression." )
         protected StringType language;
 
         /**
          * An expression specifying the value of the customized element.
          */
-        @Child(name = "expression", type = {StringType.class}, order=3, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "expression", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="An expression that provides the dynamic value for the customization", formalDefinition="An expression specifying the value of the customized element." )
         protected StringType expression;
 
-        private static final long serialVersionUID = -1704320150L;
+        private static final long serialVersionUID = 448404361L;
 
     /**
      * Constructor
@@ -346,14 +353,54 @@ public class ActivityDefinition extends DomainResource {
         super();
       }
 
-    /**
-     * Constructor
-     */
-      public ActivityDefinitionDynamicValueComponent(StringType path, StringType expression) {
-        super();
-        this.path = path;
-        this.expression = expression;
-      }
+        /**
+         * @return {@link #description} (A brief, natural language description of the intended semantics of the dynamic value.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public StringType getDescriptionElement() { 
+          if (this.description == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ActivityDefinitionDynamicValueComponent.description");
+            else if (Configuration.doAutoCreate())
+              this.description = new StringType(); // bb
+          return this.description;
+        }
+
+        public boolean hasDescriptionElement() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        public boolean hasDescription() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        /**
+         * @param value {@link #description} (A brief, natural language description of the intended semantics of the dynamic value.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public ActivityDefinitionDynamicValueComponent setDescriptionElement(StringType value) { 
+          this.description = value;
+          return this;
+        }
+
+        /**
+         * @return A brief, natural language description of the intended semantics of the dynamic value.
+         */
+        public String getDescription() { 
+          return this.description == null ? null : this.description.getValue();
+        }
+
+        /**
+         * @param value A brief, natural language description of the intended semantics of the dynamic value.
+         */
+        public ActivityDefinitionDynamicValueComponent setDescription(String value) { 
+          if (Utilities.noString(value))
+            this.description = null;
+          else {
+            if (this.description == null)
+              this.description = new StringType();
+            this.description.setValue(value);
+          }
+          return this;
+        }
 
         /**
          * @return {@link #path} (The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
@@ -394,9 +441,13 @@ public class ActivityDefinition extends DomainResource {
          * @param value The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.
          */
         public ActivityDefinitionDynamicValueComponent setPath(String value) { 
+          if (Utilities.noString(value))
+            this.path = null;
+          else {
             if (this.path == null)
               this.path = new StringType();
             this.path.setValue(value);
+          }
           return this;
         }
 
@@ -488,14 +539,19 @@ public class ActivityDefinition extends DomainResource {
          * @param value An expression specifying the value of the customized element.
          */
         public ActivityDefinitionDynamicValueComponent setExpression(String value) { 
+          if (Utilities.noString(value))
+            this.expression = null;
+          else {
             if (this.expression == null)
               this.expression = new StringType();
             this.expression.setValue(value);
+          }
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
+          childrenList.add(new Property("description", "string", "A brief, natural language description of the intended semantics of the dynamic value.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("path", "string", "The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.", 0, java.lang.Integer.MAX_VALUE, path));
           childrenList.add(new Property("language", "string", "The media type of the language for the expression.", 0, java.lang.Integer.MAX_VALUE, language));
           childrenList.add(new Property("expression", "string", "An expression specifying the value of the customized element.", 0, java.lang.Integer.MAX_VALUE, expression));
@@ -504,6 +560,7 @@ public class ActivityDefinition extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 3433509: /*path*/ return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
         case -1613589672: /*language*/ return this.language == null ? new Base[0] : new Base[] {this.language}; // StringType
         case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
@@ -515,6 +572,9 @@ public class ActivityDefinition extends DomainResource {
       @Override
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
+        case -1724546052: // description
+          this.description = castToString(value); // StringType
+          break;
         case 3433509: // path
           this.path = castToString(value); // StringType
           break;
@@ -531,7 +591,9 @@ public class ActivityDefinition extends DomainResource {
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("path"))
+        if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("path"))
           this.path = castToString(value); // StringType
         else if (name.equals("language"))
           this.language = castToString(value); // StringType
@@ -544,6 +606,7 @@ public class ActivityDefinition extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
         case -1613589672: throw new FHIRException("Cannot make property language as it is not a complex type"); // StringType
         case -1795452264: throw new FHIRException("Cannot make property expression as it is not a complex type"); // StringType
@@ -554,7 +617,10 @@ public class ActivityDefinition extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("path")) {
+        if (name.equals("description")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ActivityDefinition.description");
+        }
+        else if (name.equals("path")) {
           throw new FHIRException("Cannot call addChild on a primitive type ActivityDefinition.path");
         }
         else if (name.equals("language")) {
@@ -570,6 +636,7 @@ public class ActivityDefinition extends DomainResource {
       public ActivityDefinitionDynamicValueComponent copy() {
         ActivityDefinitionDynamicValueComponent dst = new ActivityDefinitionDynamicValueComponent();
         copyValues(dst);
+        dst.description = description == null ? null : description.copy();
         dst.path = path == null ? null : path.copy();
         dst.language = language == null ? null : language.copy();
         dst.expression = expression == null ? null : expression.copy();
@@ -583,8 +650,8 @@ public class ActivityDefinition extends DomainResource {
         if (!(other instanceof ActivityDefinitionDynamicValueComponent))
           return false;
         ActivityDefinitionDynamicValueComponent o = (ActivityDefinitionDynamicValueComponent) other;
-        return compareDeep(path, o.path, true) && compareDeep(language, o.language, true) && compareDeep(expression, o.expression, true)
-          ;
+        return compareDeep(description, o.description, true) && compareDeep(path, o.path, true) && compareDeep(language, o.language, true)
+           && compareDeep(expression, o.expression, true);
       }
 
       @Override
@@ -594,13 +661,13 @@ public class ActivityDefinition extends DomainResource {
         if (!(other instanceof ActivityDefinitionDynamicValueComponent))
           return false;
         ActivityDefinitionDynamicValueComponent o = (ActivityDefinitionDynamicValueComponent) other;
-        return compareValues(path, o.path, true) && compareValues(language, o.language, true) && compareValues(expression, o.expression, true)
-          ;
+        return compareValues(description, o.description, true) && compareValues(path, o.path, true) && compareValues(language, o.language, true)
+           && compareValues(expression, o.expression, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, language, expression
-          );
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, path, language
+          , expression);
       }
 
   public String fhirType() {

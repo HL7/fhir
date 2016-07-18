@@ -146,7 +146,7 @@ public class ReviewSpreadsheetGenerator {
   private String describeBinding(ElementDefinition def) {
     if (!def.hasBinding())
       return "";
-    BindingResolution br = pkp.resolveBinding(def.getBinding());
+    BindingResolution br = pkp.resolveBinding(null, def.getBinding());
     return br.display;
   }
 

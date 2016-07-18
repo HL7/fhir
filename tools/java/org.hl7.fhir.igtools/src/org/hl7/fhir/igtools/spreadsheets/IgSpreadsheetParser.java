@@ -314,7 +314,7 @@ public class IgSpreadsheetParser {
     else
       sd.setStatus(ConformanceResourceStatus.DRAFT);
 
-    StructureDefinition base = this.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Extension");
+    StructureDefinition base = this.context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
     ProfileUtilities utils = new ProfileUtilities(this.context, issues, null);
     if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
       List<String> errors = new ArrayList<String>();

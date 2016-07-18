@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Jul 17, 2016 23:46+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 18, 2016 12:13+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -54,7 +54,7 @@ public class AllergyIntolerance extends DomainResource {
          */
         ACTIVE, 
         /**
-         * A high level of certainty about the propensity for a reaction to the identified Substance, which may include clinical evidence by testing or rechallenge.
+         * A high level of certainty about the propensity for a reaction to the identified substance, which may include clinical evidence by testing or rechallenge.
          */
         ACTIVECONFIRMED, 
         /**
@@ -62,11 +62,11 @@ public class AllergyIntolerance extends DomainResource {
          */
         INACTIVE, 
         /**
-         * A reaction to the identified Substance has been clinically reassessed by testing or rechallenge re-exposure and considered to be resolved e.g. change the word rechallenged to re-exposure
+         * A reaction to the identified substance has been clinically reassessed by testing or rechallenge re-exposure and considered to be resolved e.g. change the word rechallenged to re-exposure
          */
         RESOLVED, 
         /**
-         * A propensity for a reaction to the identified Substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.
+         * A propensity for a reaction to the identified substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.
          */
         REFUTED, 
         /**
@@ -122,10 +122,10 @@ public class AllergyIntolerance extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case ACTIVE: return "An active record of a risk of a reaction to the identified substance.";
-            case ACTIVECONFIRMED: return "A high level of certainty about the propensity for a reaction to the identified Substance, which may include clinical evidence by testing or rechallenge.";
+            case ACTIVECONFIRMED: return "A high level of certainty about the propensity for a reaction to the identified substance, which may include clinical evidence by testing or rechallenge.";
             case INACTIVE: return "An inactivated record of a risk of a reaction to the identified substance";
-            case RESOLVED: return "A reaction to the identified Substance has been clinically reassessed by testing or rechallenge re-exposure and considered to be resolved e.g. change the word rechallenged to re-exposure";
-            case REFUTED: return "A propensity for a reaction to the identified Substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.";
+            case RESOLVED: return "A reaction to the identified substance has been clinically reassessed by testing or rechallenge re-exposure and considered to be resolved e.g. change the word rechallenged to re-exposure";
+            case REFUTED: return "A propensity for a reaction to the identified substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.";
             case ENTEREDINERROR: return "The statement was entered in error and is not valid.";
             default: return "?";
           }

@@ -32,23 +32,24 @@
     <min value="1"/>
   </element>
   <element>
-    <path value="Patient.deceased[x]"/>
-    <type>
-      <code value="dateTime"/>
-    </type>
-  </element>
-  <element>
     <path value="Patient.gender"/>
     <fixedCode value="female"/>
   </element>
   <element>
-    <path value="Patient.birthdate"/>
+    <path value="Patient.birthDate"/>
     <constraint>
       <key value="tst-1"/>
       <severity value="error"/>
       <human value="A full date is required"/>
       <expression value="length() = 8"/>
     </constraint>
+  </element>
+  <element>
+    <path value="Patient.deceased[x]"/>
+    <type>
+      <code value="dateTime"/>
+    </type>
+    <mustSupport value="true"/>
   </element>
  </differential>
 </StructureDefinition>

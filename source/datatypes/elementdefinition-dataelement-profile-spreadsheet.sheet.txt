@@ -44,7 +44,7 @@
   Card. = 0..0
 
  -- Row 10 -----------------------------------
-  Element = ElementDefinition.nameReference
+  Element = ElementDefinition.contentReference
   Card. = 0..0
 
  -- Row 11 -----------------------------------

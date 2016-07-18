@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Jul 17, 2016 23:46+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 18, 2016 12:13+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -52,11 +52,11 @@ public class TestScript extends BaseConformance {
 
     public enum ContentType {
         /**
-         * XML content-type corresponding to the application/xml+fhir mime-type.
+         * XML content-type corresponding to the application/fhir+xml mime-type.
          */
         XML, 
         /**
-         * JSON content-type corresponding to the application/json+fhir mime-type.
+         * JSON content-type corresponding to the application/fhir+json mime-type.
          */
         JSON, 
         /**
@@ -107,8 +107,8 @@ public class TestScript extends BaseConformance {
         }
         public String getDefinition() {
           switch (this) {
-            case XML: return "XML content-type corresponding to the application/xml+fhir mime-type.";
-            case JSON: return "JSON content-type corresponding to the application/json+fhir mime-type.";
+            case XML: return "XML content-type corresponding to the application/fhir+xml mime-type.";
+            case JSON: return "JSON content-type corresponding to the application/fhir+json mime-type.";
             case TTL: return "RDF content-type corresponding to the text/turtle mime-type.";
             case NONE: return "Prevent the use of the corresponding http header.";
             default: return "?";
@@ -5811,10 +5811,10 @@ public class TestScript extends BaseConformance {
         protected StringType field;
 
         /**
-         * The value of the header e.g. "application/xml".
+         * The value of the header e.g. "application/fhir+xml".
          */
         @Child(name = "value", type = {StringType.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="HTTP headerfield value", formalDefinition="The value of the header e.g. \"application/xml\"." )
+        @Description(shortDefinition="HTTP headerfield value", formalDefinition="The value of the header e.g. \"application/fhir+xml\"." )
         protected StringType value;
 
         private static final long serialVersionUID = 274395337L;
@@ -5881,7 +5881,7 @@ public class TestScript extends BaseConformance {
         }
 
         /**
-         * @return {@link #value} (The value of the header e.g. "application/xml".). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         * @return {@link #value} (The value of the header e.g. "application/fhir+xml".). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public StringType getValueElement() { 
           if (this.value == null)
@@ -5901,7 +5901,7 @@ public class TestScript extends BaseConformance {
         }
 
         /**
-         * @param value {@link #value} (The value of the header e.g. "application/xml".). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         * @param value {@link #value} (The value of the header e.g. "application/fhir+xml".). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public SetupActionOperationRequestHeaderComponent setValueElement(StringType value) { 
           this.value = value;
@@ -5909,14 +5909,14 @@ public class TestScript extends BaseConformance {
         }
 
         /**
-         * @return The value of the header e.g. "application/xml".
+         * @return The value of the header e.g. "application/fhir+xml".
          */
         public String getValue() { 
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
-         * @param value The value of the header e.g. "application/xml".
+         * @param value The value of the header e.g. "application/fhir+xml".
          */
         public SetupActionOperationRequestHeaderComponent setValue(String value) { 
             if (this.value == null)
@@ -5928,7 +5928,7 @@ public class TestScript extends BaseConformance {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("field", "string", "The HTTP header field e.g. \"Accept\".", 0, java.lang.Integer.MAX_VALUE, field));
-          childrenList.add(new Property("value", "string", "The value of the header e.g. \"application/xml\".", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value", "string", "The value of the header e.g. \"application/fhir+xml\".", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       @Override

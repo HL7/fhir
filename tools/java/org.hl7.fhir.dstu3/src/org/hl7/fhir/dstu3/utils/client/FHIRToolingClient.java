@@ -65,7 +65,7 @@ import org.stringtemplate.v4.compiler.StringTable;
  * fhirClient.initialize("http://my.fhir.domain/myServiceRoot");
  * </code></pre>
  *
- * Default Accept and Content-Type headers are application/xml+fhir and application/j+fhir.
+ * Default Accept and Content-Type headers are application/fhir+xml and application/fhir+json.
  *
  * These can be changed by invoking the following setter functions:
  *

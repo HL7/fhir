@@ -24,64 +24,54 @@
   Type = string
 
  -- Row 5 -----------------------------------
-  Element = CodeSystem.immutable
-  Card. = 0..1
-  Type = boolean
-
- -- Row 6 -----------------------------------
   Element = CodeSystem.publisher
   Card. = 1..1
   Aliases = steward
   Type = string
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = CodeSystem.description
   Card. = 1..1
   Aliases = scope
   Type = markdown
   RIM Mapping = N/A
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = CodeSystem.status
   Card. = 1..1
   Type = code
   RIM Mapping = N/A
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = CodeSystem.experimental
   Card. = 1..1
   Type = boolean
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = CodeSystem.caseSensitive
   Card. = 1..1
   Type = boolean
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = CodeSystem.concept
   Card. = 1..*
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = CodeSystem.concept.code
   Card. = 1..1
   Type = code
 
- -- Row 13 -----------------------------------
-  Element = CodeSystem.concept.abstract
-  Card. = 0..1
-  Type = boolean
-
- -- Row 14 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = CodeSystem.concept.display
   Card. = 1..1
   Type = string
 
- -- Row 15 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = CodeSystem.concept.definition
   Card. = 1..1
   Type = string
 
- -- Row 16 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = CodeSystem.concept.concept
   Card. = 0..*
   Type = @CodeSystem.concept

@@ -1,16 +1,4 @@
 ﻿{
   "url": "http://hl7.org/fhir/ValueSet/profile-code",
-  "outcomes": [
-    {
-      "hash": "|http://snomed.info/sct|null|314079002|314079002",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Hyperlipidaemia screening test"
-      }
-    }
-  ]
+  "outcomes": []
 }

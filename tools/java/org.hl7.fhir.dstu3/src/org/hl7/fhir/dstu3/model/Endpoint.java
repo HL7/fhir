@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Jul 17, 2016 23:46+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 18, 2016 12:13+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -258,10 +258,10 @@ public class Endpoint extends DomainResource {
     protected UriType address;
 
     /**
-     * The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification.
+     * The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the mime type is blank, then there is no payload in the notification, just a notification.
      */
     @Child(name = "payloadFormat", type = {StringType.class}, order=9, min=1, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Mimetype to send, or blank for no payload", formalDefinition="The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification." )
+    @Description(shortDefinition="Mimetype to send, or blank for no payload", formalDefinition="The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the mime type is blank, then there is no payload in the notification, just a notification." )
     protected StringType payloadFormat;
 
     /**
@@ -697,7 +697,7 @@ public class Endpoint extends DomainResource {
     }
 
     /**
-     * @return {@link #payloadFormat} (The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification.). This is the underlying object with id, value and extensions. The accessor "getPayloadFormat" gives direct access to the value
+     * @return {@link #payloadFormat} (The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the mime type is blank, then there is no payload in the notification, just a notification.). This is the underlying object with id, value and extensions. The accessor "getPayloadFormat" gives direct access to the value
      */
     public StringType getPayloadFormatElement() { 
       if (this.payloadFormat == null)
@@ -717,7 +717,7 @@ public class Endpoint extends DomainResource {
     }
 
     /**
-     * @param value {@link #payloadFormat} (The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification.). This is the underlying object with id, value and extensions. The accessor "getPayloadFormat" gives direct access to the value
+     * @param value {@link #payloadFormat} (The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the mime type is blank, then there is no payload in the notification, just a notification.). This is the underlying object with id, value and extensions. The accessor "getPayloadFormat" gives direct access to the value
      */
     public Endpoint setPayloadFormatElement(StringType value) { 
       this.payloadFormat = value;
@@ -725,14 +725,14 @@ public class Endpoint extends DomainResource {
     }
 
     /**
-     * @return The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification.
+     * @return The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the mime type is blank, then there is no payload in the notification, just a notification.
      */
     public String getPayloadFormat() { 
       return this.payloadFormat == null ? null : this.payloadFormat.getValue();
     }
 
     /**
-     * @param value The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification.
+     * @param value The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the mime type is blank, then there is no payload in the notification, just a notification.
      */
     public Endpoint setPayloadFormat(String value) { 
         if (this.payloadFormat == null)
@@ -915,7 +915,7 @@ public class Endpoint extends DomainResource {
         childrenList.add(new Property("method", "Coding", "The http verb to be used when calling this endpoint.", 0, java.lang.Integer.MAX_VALUE, method));
         childrenList.add(new Property("period", "Period", "The interval during which the managing organization assumes the defined responsibility.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("address", "uri", "The uri that describes the actual end-point to send messages to.", 0, java.lang.Integer.MAX_VALUE, address));
-        childrenList.add(new Property("payloadFormat", "string", "The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification.", 0, java.lang.Integer.MAX_VALUE, payloadFormat));
+        childrenList.add(new Property("payloadFormat", "string", "The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the mime type is blank, then there is no payload in the notification, just a notification.", 0, java.lang.Integer.MAX_VALUE, payloadFormat));
         childrenList.add(new Property("payloadType", "CodeableConcept", "The payload type describes the acceptable content that can be communicated on the endpoint.", 0, java.lang.Integer.MAX_VALUE, payloadType));
         childrenList.add(new Property("header", "string", "Additional headers / information to send as part of the notification.", 0, java.lang.Integer.MAX_VALUE, header));
         childrenList.add(new Property("publicKey", "string", "The public part of the 'keys' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available.", 0, java.lang.Integer.MAX_VALUE, publicKey));

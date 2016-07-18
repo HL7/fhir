@@ -100,6 +100,8 @@ public class ToolingExtensions {
   public static final String EXT_UNCLOSED = "http://hl7.org/fhir/StructureDefinition/valueset-unclosed";
   public static final String EXT_FMM_LEVEL = "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm";
   public static final String EXT_RESOURCE_CATEGORY = "http://hl7.org/fhir/StructureDefinition/structuredefinition-category";
+  public static final String EXT_TABLE_NAME = "http://hl7.org/fhir/StructureDefinition/structuredefinition-table-name";
+;
 
 
   // specific extension helpers

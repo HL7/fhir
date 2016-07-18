@@ -192,7 +192,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   }
 
   @Override
-  public BindingResolution resolveBinding(ElementDefinitionBindingComponent binding) {
+  public BindingResolution resolveBinding(StructureDefinition profile, ElementDefinitionBindingComponent binding) {
     BindingResolution br = new BindingResolution();
     if (!binding.hasValueSet()) {
       br.url = specPath("terminologies.html#unbound");
