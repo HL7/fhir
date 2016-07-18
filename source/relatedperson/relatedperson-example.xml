@@ -31,6 +31,7 @@
     <system value="urn:oid:1.2.250.1.61"/>
     <value value="272117510400399"/>
   </identifier>
+  <active value="true"/>
 
   <patient>
     <reference value="Patient/example" />

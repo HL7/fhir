@@ -50,6 +50,17 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = Schedule.active
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = Y
+  Type = boolean
+  Short Label = Whether this schedule is in active use
+  Definition = Whether this schedule record is in active use, or should not be used (such as was entered in error)
+  Default Value = True
+  w5 = status
+
+ -- Row 4 -----------------------------------
   Element = Schedule.serviceCategory
   Card. = 0..1
   Summary = Y
@@ -57,7 +68,7 @@
   Binding = service-category
   Short Label = A broad categorisation of the service that is to be performed during this appointment
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Schedule.serviceType
   Card. = 0..*
   Summary = Y
@@ -67,7 +78,7 @@
   iCal Mapping = n/a
   w5 = class
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Schedule.specialty
   Card. = 0..*
   Summary = Y
@@ -75,7 +86,7 @@
   Binding = specialty
   Short Label = The specialty of a practitioner that would be required to perform the service requested in this appointment
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Schedule.actor
   Card. = 1..1
   Summary = Y
@@ -85,7 +96,7 @@
   Committee Notes = Many discussions were had at 2 WGMs over the name of this field, and considered individual, subject and several others, but landed on this property name as it doesn\'t have other meanings and is applicable for people, services, locations and devices
   w5 = who.focus
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Schedule.planningHorizon
   Card. = 0..1
   Summary = Y
@@ -94,14 +105,14 @@
   iCal Mapping = DTSTART:20131201T003000Z DTEND:2014030101T003000Z
   w5 = when.planned
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Schedule.comment
   Card. = 0..1
   Type = string
   Short Label = Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated
   iCal Mapping = COMMENT:(comment) If there is no comment, then the line can be excluded from the iCalendar entry
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = !Schedule.lastModified
   Card. = 0..1
   Type = dateTime
@@ -135,6 +146,12 @@
   Type = token
   Description = A Schedule Identifier
   Path = Schedule.identifier
+
+ -- Row 5 -----------------------------------
+  Name = active
+  Type = token
+  Description = Is the schedule in active use
+  Path = Schedule.active
 
 === Sheet Profiles =====================================
 
