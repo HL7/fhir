@@ -70,7 +70,7 @@ This is a case where a Patient is giving a limited (read-only) access to an indi
     <action>
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="read"/>
+        <code value="access"/>
       </coding>
     </action> 
   </except>  

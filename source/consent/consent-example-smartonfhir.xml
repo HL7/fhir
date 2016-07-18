@@ -27,13 +27,6 @@
 <Consent xmlns="http://hl7.org/fhir"> 
   <id value="consent-example-smartonfhir"/>
   <status value="active"/>
-  <category>
-    <coding>
-      <system value="http://hl7.org/fhir/consentcategorycodes"/>
-      <code value="smart-on-fhir"/>
-      <display value="SMART on FHIR Authorization"/>
-    </coding>
-  </category>
   <dateTime value="2016-06-23T17:02:33+10:00"/>
   <period>
     <start value="2016-06-23T17:02:33+10:00"/>
@@ -73,7 +66,7 @@
     <action> 
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="read"/>
+        <code value="access"/>
       </coding>
     </action>
     <class>

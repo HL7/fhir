@@ -48,13 +48,13 @@
     <action>
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="read"/>
+        <code value="access"/>
       </coding>
     </action> 
     <action>
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="write"/>
+        <code value="correct"/>
       </coding>
     </action> 
     <type>

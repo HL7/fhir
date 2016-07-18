@@ -56,7 +56,7 @@
     <action>
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="read"/>
+        <code value="access"/>
       </coding>
     </action> 
     <!-- any data with confidentiality N -->
@@ -88,7 +88,7 @@
     <action>
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="read"/>
+        <code value="access"/>
       </coding>
     </action> 
     <!-- any data with tag PSY (see security labels) -->
@@ -120,7 +120,7 @@
     <action>
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="read"/>
+        <code value="access"/>
       </coding>
     </action> 
     <!-- any data with and tag SOC (see security labels). todo: SOC is not defined yet -->
@@ -148,7 +148,7 @@
     <action>
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="read"/>
+        <code value="access"/>
       </coding>
     </action> 
     <securityLabel>
@@ -173,7 +173,7 @@
     <action>
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="read"/>
+        <code value="access"/>
       </coding>
     </action> 
     <securityLabel>
@@ -198,7 +198,7 @@
     <action>
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="read"/>
+        <code value="access"/>
       </coding>
     </action> 
     <securityLabel>
@@ -223,7 +223,7 @@
     <action>
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="read"/>
+        <code value="access"/>
       </coding>
     </action> 
     <securityLabel>
@@ -249,7 +249,7 @@
     <action>
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="read"/>
+        <code value="access"/>
       </coding>
     </action> 
     <securityLabel>
@@ -274,7 +274,7 @@
     <action>
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="read"/>
+        <code value="access"/>
       </coding>
     </action> 
     <securityLabel>
@@ -299,7 +299,7 @@
     <action>
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="read"/>
+        <code value="access"/>
       </coding>
     </action> 
     <securityLabel>
@@ -324,7 +324,7 @@
     <action>
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="read"/>
+        <code value="access"/>
       </coding>
     </action> 
     <securityLabel>
@@ -351,7 +351,7 @@
     <action>
       <coding>
         <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="read"/>
+        <code value="access"/>
       </coding>
     </action> 
     <securityLabel>
