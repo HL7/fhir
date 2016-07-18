@@ -1,130 +1,113 @@
-<a name="modules"> </a>
-<p><b>Modules:</b></p>
-
-<div style="height: 425px; width: 745px; background-color: #ffffe6; border-radius: 6px; border: 2px solid #668cff; position: relative; margin: 5px;" id="diagram">
-
- <div onclick="window.location='clinicalreasoning-module.html';" style="position: absolute; top: 10px; left: 10px; width: 720px; height: 40px; background-color: white; border-radius: 3px; border: 1px solid grey; cursor: pointer; cursor: hand; " id="reasoning">
-   <div style="position: absolute; top: 3px; left: 3px; width: 32px; height: 32px;" id="clinicalreasoning-icon"><img src="reasoning.png"/></div>
-   <div style="position: absolute; top: 0px; left: 32px; width: 146px; height: 40px; border-right: 1px solid grey;" id="clinicalreasoning-head">
-      <p style="margin: 10px 8px"><b>Clinical Reasoning</b></p>
-   </div>
-   <div style="position: absolute; top: 0px; left: 178px; width: 539px; background-color: #f7f7f7; height: 38px;" id="clinicalreasoning-body">
-      <p style="margin: 10px">Decision Support, Clinical Quality Measures</p>
-   </div>
+<div id="diagram">
+ <div id="reasoning" class="box box_row box_one linkbox" onclick="window.location='clinicalreasoning-module.html';">
+  <p class="head" style="background-image: url('reasoning.png');">
+   <span>Clinical Reasoning</span>
+  </p>
+  <p class="content"><span>Decision Support, Clinical Quality Measures</span></p>
  </div>
  
- <div onclick="window.location='clinicalsummary-module.html';" style="position: absolute; top: 60px; left: 10px; width: 136px; height: 120px; background-color: white; border-radius: 3px; border: 1px solid grey; cursor: pointer; cursor: hand; " id="clinical">
-   <div style="position: absolute; top: 3px; left: 3px; width: 32px; height: 32px;" id="clinical-icon"><img src="clinical.png"/></div>
-   <div style="position: absolute; top: 0px; left: 0px; width: 136px; height: 40px; border-bottom: 1px solid grey;" id="clinical-head">
-      <p style="margin: 10px 8px 10px 40px"><b>Clinical</b></p>
-   </div>
-   <div style="position: absolute; top: 41px; left: 0px; width: 134px; background-color: #f7f7f7; height: 76px;" id="clinicalreasoning-body">
-      <p style="margin: 10px"><a href="allergyintolerance.html">Allergy</a>, <a href="condition.html">Problem</a> etc</p>
-   </div>
- </div>
- <div onclick="window.location='diagnostics-module.html';" style="position: absolute; top: 60px; left: 156px; width: 136px; height: 120px; background-color: white; border-radius: 3px; border: 1px solid grey; cursor: pointer; cursor: hand; " id="diagnostics">
-   <div style="position: absolute; top: 3px; left: 3px; width: 32px; height: 32px;" id="diagnostics-icon"><img src="diagnostics.jpg"/></div>
-   <div style="position: absolute; top: 0px; left: 0px; width: 136px; height: 40px; border-bottom: 1px solid grey;" id="diagnostics-head">
-      <p style="margin: 10px 8px 10px 40px"><b>Diagnostics</b></p>
-   </div>
-   <div style="position: absolute; top: 41px; left: 0px; width: 134px; background-color: #f7f7f7; height: 76px;" id="diagnostics-body">
-      <p style="margin: 10px"><a href="observation.html">Observation</a>, <a href="diagnosticreport.html">Report</a>, <a href="diagnosticrequest.html">Order</a> etc</p>
-   </div>
- </div>
-
- <div onclick="window.location='medications-module.html';" style="position: absolute; top: 60px; left: 302px; width: 136px; height: 120px; background-color: white; border-radius: 3px; border: 1px solid grey; cursor: pointer; cursor: hand; " id="medications">
-   <div style="position: absolute; top: 3px; left: 3px; width: 32px; height: 32px;" id="medication-icon"><img src="medication.png"/></div>
-   <div style="position: absolute; top: 0px; left: 0px; width: 136px; height: 40px; border-bottom: 1px solid grey;" id="medication-head">
-      <p style="margin: 10px 8px 10px 40px"><b>Medications</b></p>
-   </div>
-   <div style="position: absolute; top: 41px; left: 0px; width: 134px; background-color: #f7f7f7; height: 76px;" id="medication-body">
-      <p style="margin: 10px"><a href="medicationorder.html">Order</a>, <a href="medicationdispense.html">Dispense</a>, <a href="medicationadministration.html">Administration</a>, <a href="medicationstatement.html">Statement</a> etc</p>
-   </div>
-
-   </div>
- <div onclick="window.location='workflow-module.html';" style="position: absolute; top: 60px; left: 448px; width: 136px; height: 120px; background-color: white; border-radius: 3px; border: 1px solid grey; cursor: pointer; cursor: hand; " id="workflow">
-   <div style="position: absolute; top: 3px; left: 3px; width: 32px; height: 32px;" id="workflow-icon"><img src="workflow.png"/></div>
-   <div style="position: absolute; top: 0px; left: 0px; width: 136px; height: 40px; border-bottom: 1px solid grey;" id="workflow-head">
-      <p style="margin: 10px 8px 10px 40px"><b>Workflow</b></p>
-   </div>
-   <div style="position: absolute; top: 41px; left: 0px; width: 134px; background-color: #f7f7f7; height: 76px;" id="workflow-body">
-      <p style="margin: 10px"><a href="task.html">Task</a>, <a href="subscription.html">Subscription</a> etc</p>
-   </div>
- </div>
- <div onclick="window.location='financial-module.html';" style="position: absolute; top: 60px; left: 594px; width: 136px; height: 120px; background-color: white; border-radius: 3px; border: 1px solid grey; cursor: pointer; cursor: hand; " id="financial">
-   <div style="position: absolute; top: 3px; left: 3px; width: 32px; height: 32px;" id="financial-icon"><img src="financial.png"/></div>
-   <div style="position: absolute; top: 0px; left: 0px; width: 136px; height: 40px; border-bottom: 1px solid grey;" id="financial-head">
-      <p style="margin: 10px 8px 10px 40px"><b>Financial</b></p>
-   </div>
-   <div style="position: absolute; top: 41px; left: 0px; width: 134px; background-color: #f7f7f7; height: 76px;" id="financial-body">
-      <p style="margin: 10px"><a href="claim.html">Claim</a>, <a href="eligibility.html">Eligibility</a> etc</p>
-   </div>
- </div> 
-
- <div onclick="window.location='administration-module.html';" style="position: absolute; top: 190px; left: 10px; width: 720px; height: 40px; background-color: white; border-radius: 3px; border: 1px solid grey; cursor: pointer; cursor: hand; " id="administration">
-   <div style="position: absolute; top: 3px; left: 3px; width: 32px; height: 32px;" id="administration-icon"><img src="administration.jpg"/></div>
-   <div style="position: absolute; top: 0px; left: 32px; width: 120px; height: 40px; border-right: 1px solid grey;" id="administration-head">
-      <p style="margin: 10px 8px"><b>Administration</b></p>
-   </div>
-   <div style="position: absolute; top: 0px; left: 152px; width: 565px; background-color: #f7f7f7; height: 38px;" id="administration-body">
-      <p style="margin: 10px"><a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a>, <a href="device.html">Device</a>, <a href="organization.html">Organization</a>, <a href="location.html">Location</a>, <a href="healthcare.html">Healthcare Service</a></p>
-   </div>
+ <div class="box_row box_more">
+  <div id="clinical" class="box linkbox" onclick="window.location='clinicalsummary-module.html';">
+   <p class="head" style="background-image: url('clinical.png');">
+    <span>Clinical</span>
+   </p>
+   <p class="content">
+    <a href="allergyintolerance.html">Allergy</a>, <a href="condition.html">Problem</a> etc
+   </p>
+  </div>
+  <div id="diagnostics" class="box linkbox" onclick="window.location='diagnostics-module.html';">
+   <p class="head" style="background-image: url('diagnostics.jpg');">
+    <span>Diagnostics</span>
+   </p>
+   <p class="content">
+    <a href="observation.html">Observation</a>, <a href="diagnosticreport.html">Report</a>, <a href="diagnosticorder.html">Order</a> etc
+   </p>
+  </div>
+  <div id="medication" class="box linkbox" onclick="window.location='medications-module.html';">
+   <p class="head" style="background-image: url('medication.png');">
+    <span>Medications</span>
+   </p>
+   <p class="content">
+    <a href="medicationorder.html">Order</a>, <a href="medicationdispense.html">Dispense</a>, <a href="medicationadministration.html">Administration</a>, <a href="medicationstatement.html">Statement</a> etc
+   </p>
+  </div>
+  <div id="workflow" class="box linkbox" onclick="window.location='workflow-module.html';">
+   <p class="head" style="background-image: url('workflow.png');">
+    <span>Workflow</span>
+   </p>
+   <p class="content">
+    <a href="task.html">Task</a>, <a href="subscription.html">Subscription</a> etc
+   </p>
+  </div>
+  <div id="financial" class="box linkbox" onclick="window.location='financial-module.html';">
+   <p class="head" style="background-image: url('financial.png');">
+    <span>Financial</span>
+   </p>
+   <p class="content">
+    <a href="claim.html">Claim</a>, <a href="eligibility.html">Eligibility</a> etc
+   </p>
+  </div>
  </div>
  
- <div onclick="window.location='ontology-module.html';" style="position: absolute; top: 240px; left: 10px; width: 136px; height: 120px; background-color: white; border-radius: 3px; border: 1px solid grey; cursor: pointer; cursor: hand; " id="ontology">
-   <div style="position: absolute; top: 3px; left: 3px; width: 32px; height: 32px;" id="onotology-icon"><img src="onotology.png"/></div>
-   <div style="position: absolute; top: 0px; left: 0px; width: 136px; height: 40px; border-bottom: 1px solid grey;" id="onotology-head">
-      <p style="margin: 10px 8px 10px 40px"><b>Ontology</b></p>
-   </div>
-   <div style="position: absolute; top: 41px; left: 0px; width: 134px; background-color: #f7f7f7; height: 76px;" id="onotology-body">
-      <p style="margin: 10px"><a href="rdf.html">RDF</a><br/>todo</p>
-   </div>
- </div>
- <div onclick="window.location='terminology-module.html';" style="position: absolute; top: 240px; left: 156px; width: 136px; height: 120px; background-color: white; border-radius: 3px; border: 1px solid grey; cursor: pointer; cursor: hand; " id="terminology">
-   <div style="position: absolute; top: 3px; left: 3px; width: 32px; height: 32px;" id="terminology-icon"><img src="terminology.png"/></div>
-   <div style="position: absolute; top: 0px; left: 0px; width: 136px; height: 40px; border-bottom: 1px solid grey;" id="terminology-head">
-      <p style="margin: 10px 8px 10px 40px"><b>Terminology</b></p>
-   </div>
-   <div style="position: absolute; top: 41px; left: 0px; width: 134px; background-color: #f7f7f7; height: 76px;" id="terminology-body">
-      <p style="margin: 10px"><a href="codesystem.html">CodeSystem</a><br/><a href="valueset.html">ValueSet</a><br/><a href="conceptmap.html">ConceptMap</a><br/><a href="terminology-service.html">Terminology Svc</a></p>
-   </div>
- </div>
- <div onclick="window.location='conformance-module.html';" style="position: absolute; top: 240px; left: 302px; width: 136px; height: 120px; background-color: white; border-radius: 3px; border: 1px solid grey; cursor: pointer; cursor: hand; " id="conformance">
-   <div style="position: absolute; top: 3px; left: 3px; width: 32px; height: 32px;" id="conformance-icon"><img src="conformance.jpg"/></div>
-   <div style="position: absolute; top: 0px; left: 0px; width: 136px; height: 40px; border-bottom: 1px solid grey;" id="conformance-head">
-      <p style="margin: 10px 8px 10px 38px"><b>Conformance</b></p>
-   </div>
-   <div style="position: absolute; top: 41px; left: 0px; width: 134px; background-color: #f7f7f7; height: 76px;" id="conformance-body">
-      <p style="margin: 10px"><a href="structuredefinition.html">StructureDefn</a><br/><a href="conformance.html">Conformance</a><br/><a href="profiling.html">Profiling</a></p>
-   </div>
- </div>
- <div onclick="window.location='secpriv-module.html';" style="position: absolute; top: 240px; left: 448px; width: 136px; height: 120px; background-color: white; border-radius: 3px; border: 1px solid grey; cursor: pointer; cursor: hand; " id="secpriv">
-   <div style="position: absolute; top: 3px; left: 3px; width: 32px; height: 32px;" id="secpriv-icon"><img src="secpriv.jpg"/></div>
-   <div style="position: absolute; top: 0px; left: 0px; width: 136px; height: 40px; border-bottom: 1px solid grey;" id="secpriv-head">
-      <p style="margin: 4px 8px 4px 40px"><b>Security &amp; Privacy</b></p>
-   </div>
-   <div style="position: absolute; top: 41px; left: 0px; width: 134px; background-color: #f7f7f7; height: 76px;" id="secpriv-body">
-      <p style="margin: 10px"><a href="consent.html">Consent</a></p>
-   </div>
- </div>
- <div onclick="window.location='implsupport-module.html';" style="position: absolute; top: 240px; left: 594px; width: 136px; height: 120px; background-color: white; border-radius: 3px; border: 1px solid grey; cursor: pointer; cursor: hand; " id="implsupp">
-   <div style="position: absolute; top: 3px; left: 3px; width: 32px; height: 32px;" id="implsupport-icon"><img src="implsupport.png"/></div>
-   <div style="position: absolute; top: 0px; left: 0px; width: 136px; height: 40px; border-bottom: 1px solid grey;" id="implsupport-head">
-      <p style="margin: 4px 8px 4px 37px"><b>Implementer Support</b></p>
-   </div>
-   <div style="position: absolute; top: 41px; left: 0px; width: 134px; background-color: #f7f7f7; height: 76px;" id="implsupport-body">
-      <p style="margin: 10px"><a href="downloads.html">Downloads</a><br/><a href="testing.html">Testing</a></p>
-   </div>
- </div> 
-
- <div onclick="window.location='foundation-module.html';" style="position: absolute; top: 370px; left: 10px; width: 720px; height: 40px; background-color: white; border-radius: 3px; border: 1px solid grey; cursor: pointer; cursor: hand; " id="foundation">
-   <div style="position: absolute; top: 3px; left: 3px; width: 32px; height: 32px;" id="foundation-icon"><img src="foundation.png"/></div>
-   <div style="position: absolute; top: 0px; left: 32px; width: 96px; height: 40px; border-right: 1px solid grey;" id="foundation-head">
-      <p style="margin: 10px 8px"><b>Foundation</b></p>
-   </div>
-   <div style="position: absolute; top: 0px; left: 129px; width: 588px; background-color: #f7f7f7; height: 38px;" id="foundation-body">
-      <p style="margin: 10px"><a href="documentation.html">Base Documentation</a>, <a href="xml.html">XML</a>, <a href="json.html">JSON</a>, <a href="http.html">REST API</a> + <a href="search.html">Search</a>, <a href="datatypes.html">Data Types</a>, <a href="extensibility.html">Extensions</a></p>
-   </div>
+ <div id="administration" class="box box_row box_one linkbox" onclick="window.location='administration-module.html';">
+  <p class="head" style="background-image: url('administration.jpg');">
+   <span>Administration</span>
+  </p>
+  <p class="content"><span>
+   <a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a>, <a href="device.html">Device</a>, <a href="organization.html">Organization</a>, <a href="location.html">Location</a>, <a href="healthcare.html">Healthcare Service</a></span>
+  </p>
  </div>
  
+ <div class="box_row box_more">
+  <div id="ontology" class="box linkbox" onclick="window.location='ontology-module.html';">
+   <p class="head" style="background-image: url('ontology.png');">
+    <span>Ontology</span>
+   </p>
+   <p class="content">
+    <a href="rdf.html">RDF</a><br/>
+    todo
+   </p>
+  </div>
+  <div id="terminology" class="box linkbox" onclick="window.location='terminology-module.html';">
+   <p class="head" style="background-image: url('terminology.png');">
+    <span>Terminology</span>
+   </p>
+   <p class="content">
+    <a href="codesystem.html">CodeSystem</a><br/><a href="valueset.html">ValueSet</a><br/><a href="conceptmap.html">ConceptMap</a><br/><a href="terminology-service.html">Terminology Svc</a>
+   </p>
+  </div>
+  <div id="conformance" class="box linkbox" onclick="window.location='conformance-module.html';">
+   <p class="head" style="background-image: url('conformance.jpg');">
+    <span>Conformance</span>
+   </p>
+   <p class="content">
+    <a href="structuredefinition.html">StructureDefn</a><br/><a href="conformance.html">Conformance</a><br/><a href="profiling.html">Profiling</a>
+   </p>
+  </div>
+  <div id="secpriv" class="box linkbox" onclick="window.location='secpriv-module.html';">
+   <p class="head" style="background-image: url('secpriv.jpg');">
+    <span>Security &amp; Privacy</span>
+   </p>
+   <p class="content">
+    <a href="consent.html">Consent</a>
+   </p>
+  </div>
+  <div id="implsupport" class="box linkbox" onclick="window.location='implsupport-module.html';">
+   <p class="head" style="background-image: url('implsupport.png');">
+    <span>Implementer Support</span>
+   </p>
+   <p class="content">
+    <a href="downloads.html">Downloads</a><br/><a href="testing.html">Testing</a>
+   </p>
+  </div>
+ </div>
+ 
+ <div id="foundation" class="box box_row box_one linkbox" onclick="window.location='foundation-module.html';">
+  <p class="head" style="background-image: url('foundation.png');">
+   <span>Foundation</span>
+  </p>
+  <p class="content"><span>
+   <a href="documentation.html">Base Documentation</a>, <a href="xml.html">XML</a>, <a href="json.html">JSON</a>, <a href="http.html">REST API</a> + <a href="search.html">Search</a>, <a href="datatypes.html">Data Types</a>, <a href="extensibility.html">Extensions</a></span>
+  </p>
+ </div>
 </div>
