@@ -25,6 +25,14 @@
       <filter>
         <property value="concept"/>
         <op value="is-a"/>
+        <value value="_ActSuppliedItemDetectedIssueCode"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
         <value value="_SupplyDetectedIssueCode"/>
       </filter>
     </include>

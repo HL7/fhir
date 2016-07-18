@@ -41,6 +41,16 @@
   Binding = unbound
   Definition = Indicates why the task is needed.  E.g. Suspended because patient admitted to hospital.
 
+ -- Row 7 -----------------------------------
+  Binding Name = TaskInputParameterType
+  Binding = unbound
+  Definition = Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. \"Comparison source\", \"Applicable consent\", \"Concommitent Medications\", etc.
+
+ -- Row 8 -----------------------------------
+  Binding Name = TaskOutputParameterType
+  Binding = unbound
+  Definition = Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. \"Identified issues\", \"Preliminary results\", \"Filler order\", \"Final results\", etc.
+
 === Sheet task-performer-type =====================================
 
  -- Row 1 -----------------------------------
@@ -242,6 +252,7 @@
   Type = CodeableConcept
   Short Label = Reason for current status
   Definition = An explanation as to why this task is held, failed, was refused, etc.
+  Comments = This applies to the current status.  Look at the history of the task to see reasons for past statuses
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=\"status change\"].reasonCode
 
  -- Row 8 -----------------------------------
@@ -265,6 +276,7 @@
   Definition = Indicates the \"level\" of actionability associated with the Task.  I.e. Is this a proposed task, a planned task, an actionable task, etc.
   Comments = This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.
   RIM Mapping = .moodCode
+  w5 = class
 
  -- Row 10 -----------------------------------
   Element = Task.code
@@ -293,8 +305,8 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Task Description
-  Definition = A description of this task.
+  Short Label = Human-readable explanation of task
+  Definition = A free-text description of what is to be performed.
   RIM Mapping = .text
 
  -- Row 13 -----------------------------------
@@ -305,6 +317,7 @@
   Short Label = What task is acting on
   Definition = The request being actioned or the resource being manipulated by this task
   Requirements = Used to identify the thing to be done
+  Comments = If multiple resources need to be manipulated, use sub-tasks.  (This ensures that status can be tracked independently for each referenced resource.)
   RIM Mapping = .outboundRelationship[typeCode=SUBJ].target
   w5 = what
 
@@ -316,7 +329,7 @@
   Type = Reference(Any)
   Short Label = Beneficiary of the Task
   Definition = The entity who benefits from the performance of the service specified in the task (e.g., the patient).
-  Requirements = Used to track tasks outstanding for a beneficiary.  Do not use to track the task owner or creator (see owner and creator respectively).
+  Requirements = Used to track tasks outstanding for a beneficiary.  Do not use to track the task owner or creator (see owner and creator respectively).  This can also affect access control
   RIM Mapping = .participation[typeCode=RCT].role
   w5 = who.focus
 
@@ -340,7 +353,6 @@
   Short Label = Task Creation Date
   Definition = The date and time this task was created.
   Requirements = Most often used along with lastUpdated to track duration of task to supporting monitoring and management.
-  Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
   RIM Mapping = .participation[typeCode=AUT].time
   w5 = when.recorded
 
@@ -354,7 +366,6 @@
   Short Label = Task Last Modified Date
   Definition = The date and time of last modification to this task.
   Requirements = Used along with history to track task activity and time in a particular task state.  This enables monitoring and management.
-  Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ, ].source[classCode=CACT, moodCode=EVN].effectiveTime
 
  -- Row 18 -----------------------------------
@@ -366,7 +377,6 @@
   Short Label = Task Creator
   Definition = The creator of the task.
   Requirements = Identifies who created this task.  May be used by access control mechanisms (e.g., to ensure that only the creator can cancel a task).
-  Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
 
@@ -379,7 +389,7 @@
   Short Label = Task Owner
   Definition = The owner of this task.  The participant who can execute this task.
   Requirements = Identifies who is expected to perform this task.
-  Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
+  Comments = Tasks may be created with an owner not yet identified
   RIM Mapping = .participation[typeCode=PRF].role
   w5 = who.actor
 
@@ -454,27 +464,31 @@
   Summary = Y
   Type = uri
   Short Label = Task Definition
-  Definition = A reference to a formal or informal definition of the task.
+  Definition = A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.
   Requirements = Enables a formal definition of how he task is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation) to be associated with a task, enabling automation.
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
 
  -- Row 28 -----------------------------------
   Element = Task.input
   Card. = 0..*
+  Aliases = Supporting Information
   UML = 400;125
   Type = =Parameter
-  Short Label = Task Input
-  Definition = Inputs to the task
+  Short Label = Supporting information
+  Definition = Additional information that may be needed in the execution of the task
   Requirements = Resources and data used to perform the task.  This data is used in the business logic of task execution, and is stored separately because it varies between workflows.
   RIM Mapping = ???
 
  -- Row 29 -----------------------------------
-  Element = Task.input.name
+  Element = Task.input.type
   Card. = 1..1
-  Type = string
-  Short Label = Input Name
-  Definition = The name of the input parameter.
+  Aliases = Name
+  Type = CodeableConcept
+  Binding = TaskInputParameterType
+  Short Label = Label for the input
+  Definition = A code or description indicating how the input is intended to be used as part of the task execution
   Requirements = Inputs are named to enable task automation to bind data and pass it from one task to the next.
+  Comments = If referencing a BPMN workflow or Protocol, the \"system\" is the URL for the workflow definition and the code is the \"name\" of the required input.
   RIM Mapping = ???
 
  -- Row 30 -----------------------------------
@@ -483,23 +497,24 @@
   Type = *
   Short Label = Input Value
   Definition = The value of the input parameter as a basic type.
-  Requirements = Task inputs can take any form.
   RIM Mapping = ???
 
  -- Row 31 -----------------------------------
   Element = Task.output
   Card. = 0..*
   UML = 400;200
-  Type = @Task.input
+  Type = @Parameter
   Short Label = Task Output
   Definition = Outputs produced by the Task
   Requirements = Resources and data produced during the execution the task.  This data is generated by the business logic of task execution, and is stored separately because it varies between workflows.
   RIM Mapping = ???
 
  -- Row 32 -----------------------------------
-  Element = Task.output.name
+  Element = Task.output.type
   Card. = 1..1
-  Type = string
+  Aliases = Name
+  Type = CodeableConcept
+  Binding = TaskOutputParameterType
   Short Label = Output Name
   Definition = The name of the Output parameter.
   Requirements = Outputs are named to enable task automation to bind data and pass it from one task to the next.

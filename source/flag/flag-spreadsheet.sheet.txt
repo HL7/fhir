@@ -101,9 +101,9 @@
   Element = Flag.subject
   Card. = 1..1
   Summary = Y
-  Type = Reference(Patient|Location|Group|Organization|Practitioner)
+  Type = Reference(Patient|Location|Group|Organization|Practitioner|PlanDefinition| Medication|Procedure)
   Short Label = Who/What is flag about?
-  Definition = The patient, location, group , organization , or practitioner this is about record this flag is associated with
+  Definition = The patient, location, group , organization , or practitioner, etc. this is about record this flag is associated with
   RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT | LOCE | ASSIGNED]
   w5 = who.focus
 
