@@ -58,6 +58,7 @@ import org.hl7.fhir.dstu3.model.ResourceType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
@@ -1287,6 +1288,86 @@ public class Publisher implements IWorkerContext.ILoggingService {
     for (ResourceType rt : ResourceType.values()) {
       generateResourceReferences(rt);
     }
+    generateProfiles();
+    generateExtensions();
+    generateLogicals();
+  }
+
+  private void generateProfiles() throws Exception {
+    StringBuilder list = new StringBuilder();
+    StringBuilder table = new StringBuilder();
+    boolean found = false;
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        if (r.getElement().fhirType().equals("StructureDefinition")) {
+          StructureDefinition sd = (StructureDefinition) r.getResource();
+          if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT && sd.getKind() == StructureDefinitionKind.RESOURCE) {
+            found = true;
+            String name = sd.getName();
+            genEntryItem(list, table, f, r, name);
+          }
+        }
+      }
+    }
+    if (found) {
+      fragment("list-profiles", list.toString(), otherFilesRun);
+      fragment("table-profiles", table.toString(), otherFilesRun);
+    }
+  }
+
+  private void generateExtensions() throws Exception {
+    StringBuilder list = new StringBuilder();
+    StringBuilder table = new StringBuilder();
+    boolean found = false;
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        if (r.getElement().fhirType().equals("StructureDefinition")) {
+          StructureDefinition sd = (StructureDefinition) r.getResource();
+          if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT && sd.getType().equals("Extension")) {
+            found = true;
+            String name = sd.getName();
+            genEntryItem(list, table, f, r, name);
+          }
+        }
+      }
+    }
+    if (found) {
+      fragment("list-extensions", list.toString(), otherFilesRun);
+      fragment("table-extensions", table.toString(), otherFilesRun);
+    }
+  }
+
+  private void generateLogicals() throws Exception {
+    StringBuilder list = new StringBuilder();
+    StringBuilder table = new StringBuilder();
+    boolean found = false;
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        if (r.getElement().fhirType().equals("StructureDefinition")) {
+          StructureDefinition sd = (StructureDefinition) r.getResource();
+          if (sd.getKind() == StructureDefinitionKind.LOGICAL) {
+            found = true;
+            String name = sd.getName();
+            genEntryItem(list, table, f, r, name);
+          }
+        }
+      }
+    }
+    if (found) {
+      fragment("list-logicals", list.toString(), otherFilesRun);
+      fragment("table-logicals", table.toString(), otherFilesRun);
+    }
+  }
+
+  private void genEntryItem(StringBuilder list, StringBuilder table, FetchedFile f, FetchedResource r, String name) throws Exception {
+    String ref = igpkp.getLinkFor(f, r);
+    String desc = r.getTitle();
+    if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
+      name = ((BaseConformance) r.getResource()).getName();
+      desc = getDesc((BaseConformance) r.getResource(), desc);
+    }
+    list.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> "+Utilities.escapeXml(desc)+"</li>\r\n");
+    table.append(" <tr><td><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> </td><td>"+new BaseRenderer(context, null, igpkp).processMarkdown("description", desc)+"</td></tr>\r\n");
   }
 
   private void generateResourceReferences(ResourceType rt) throws Exception {
@@ -1300,14 +1381,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
           String name = r.getTitle();
           if (Utilities.noString(name))
             name = rt.toString();
-          String ref = igpkp.getLinkFor(f, r);
-          String desc = r.getTitle();
-          if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
-            name = ((BaseConformance) r.getResource()).getName();
-            desc = getDesc((BaseConformance) r.getResource(), desc);
-          }
-          list.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a>"+Utilities.escapeXml(desc)+"</li>/r/n");
-          table.append(" <tr><td><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a></td><td>"+new BaseRenderer(context, null, igpkp).processMarkdown("description", desc)+"</td></tr>\r\n");
+          genEntryItem(list, table, f, r, name);
         }
       }
     }
