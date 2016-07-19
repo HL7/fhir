@@ -475,8 +475,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
     log("Initialization complete");
     // now, do regeneration
     JsonArray regenlist = configuration.getAsJsonArray("regenerate");
-    for (JsonElement regen : regenlist)
-      regenList.add(((JsonPrimitive) regen).getAsString());
+    if (regenlist != null)
+      for (JsonElement regen : regenlist)
+        regenList.add(((JsonPrimitive) regen).getAsString());
   }
 
   private void loadIg(JsonObject dep) throws Exception {
