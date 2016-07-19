@@ -420,7 +420,7 @@
 
  -- Row 11 -----------------------------------
   Name = abatement-date
-  Type = string
+  Type = date
   Description = Date-related abatements (dateTime and period)
   Path = Condition.abatement[x]
 

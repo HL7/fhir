@@ -1540,7 +1540,7 @@
                   <a href="../search.html#token">token</a>)
                 </li>
 					
-                <li>Include parameter - Condition.patient</li>
+                <li>Include parameter - Condition.subject</li>
 					
                 <li>Include parameter - Condition.encounter</li>
 					
@@ -2964,7 +2964,7 @@
         <code value="vread"/>
         <documentation value="Allows retrieval of a historical version of a DAF-Condition instance"/>
       </interaction>
-      <searchInclude value="Condition.patient"/>
+      <searchInclude value="Condition.subject"/>
       <searchInclude value="Condition.encounter"/>
       <searchInclude value="Condition.asserter"/>
       <searchParam>
