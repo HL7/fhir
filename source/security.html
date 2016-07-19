@@ -176,6 +176,27 @@ as much as it is true for a server returning resources on a GET. The presumption
 proper authorization, to the satisfaction of the data holder, the data does not get communicated.
 </p>
 <p>
+Two of the classic Access Control models are: Role-Based Access Control (RBAC), and Attribute-Based Access Control (ABAC). 
+</p>
+<p>
+In Role-Based Access Control (RBAC), permissions are operations on an object that a user wishes to access. 
+Permissions are grouped into roles. A role characterizes the functions a user is allowed to perform. Roles 
+are assigned to users. If the user’s role has the appropriate permissions to access an object, then that 
+user is granted access to the object. FHIR readily enables RBAC, as FHIR Resources are object types and 
+the CRUDE events (the FHIR equivalent to permissions in the RBAC scheme) are operations on those objects. 
+</p>
+<p>
+In Attribute-Based Access Control (ABAC), a user requests to perform operations on objects. That user's 
+access request is granted or denied based on a set of access control policies that are specified in terms 
+of attributes and conditions. FHIR readily enables ABAC, as instances of a Resource in FHIR (again, 
+Resources are object types) can have attributes associated with them. These attributes include security 
+tags, environment conditions, and a host of user and object characteristics, which are the same 
+attributes as those used in ABAC. Attributes help define the access control policies that determine 
+the operations a user may perform on a Resource (in FHIR) or object (in ABAC). 
+For example, a tag (or attribute) may specify that the identified Resource (object) is not to be 
+further disclosed without explicit consent from the patient.
+</p>
+<p>
 The rules behind the access control decision are often very complex, and potentially depends on information sourced from:
 </p>
 <ul>
