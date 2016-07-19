@@ -1,14 +1,8 @@
-#### Complete Summary of the Mandatory Requirements 
+#### Summary of the Mandatory Requirements 
 
-1.  One Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk in **AllergyIntolerance.code**
-    -   AllergyIntolerance.code with an [ extensible] binding to a Value set (Code set) consisting of:
-        -   NDF-RT codes for drug class allergies
-        -   RxNorm codes limited to term types (TTY) , 'BN' Brand Name, 'IN' ingredient, 'MIN' multiple ingredient, and 'PIN' precise ingredient for drug ingredient allergies
-        -   SNOMED CT if no other code from above code systems are available.
-
-2.  One patient reference in **AllergyIntolerance.patient**
-3.  One status in **AllergyIntolerance.status**
-    -   AllergyIntolerance.status is bound to **[AllergyIntoleranceStatus]** Value set (Code set)
-
-  [ extensible]: Implementation_Guide#Extensible_binding_for_CodeableConcept_Datatype "wikilink"
-  [AllergyIntoleranceStatus]: http://hl7.org/fhir/DSTU2/valueset-allergy-intolerance-status.html
+1.  One patient reference in `AllergyIntolerance.patient`
+1.  One Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk in `AllergyIntolerance.code` which has an [extensible](http://hl7-fhir.github.io/terminologies.html#extensible) binding to:
+    -    [DAF Core Substance-Reactant for Intolerance and Negation Codes](valueset-daf-core-substance.html) Value set
+1.  One status in `AllergyIntolerance.status` which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
+    -   [AllergyIntoleranceStatus](http://hl7-fhir.github.io/valueset-allergy-intolerance-status.html) Value set
+  

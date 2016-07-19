@@ -1,65 +1,24 @@
 {
-  "tool" : "jekyll",
-  "paths" : {
-    "resources" : "resources",
-    "pages" : "pages",
-    "temp" : "temp",
-    "output" : "output",
-    "qa" : "qa",
-    "specification" : "c:\\work\\org.hl7.fhir\\build\\publish"
-  },
-  "defaults" : {
-    "Any" : {
-	  	"template-format" : "instance-template-format.html",
-      "template-base" : "instance-template-base.html"
-    }
-  },
-	"canonicalBase": "http://hl7.org/fhir/daf",  
+	"tool": "jekyll",
+	"paths": {
+		"resources": "resources",
+		"pages": "pages",
+		"temp": "temp",
+		"output": "output",
+		"qa": "qa",
+		"specification": "http://hl7-fhir.github.io/"
+	},
+	"defaults": {
+		"Any": {
+			"template-format": "instance-template-format.html",
+			"template-base": "instance-template-base.html"
+		}
+	},
+	"canonicalBase": "http://hl7.org/fhir/daf",
 	"source": "daf.xml",
-  "spreadsheets" : [  
-    "allergyintolerance-daf-profile-spreadsheet.xml",
-  	"allergyintolerance-daf-core-profile-spreadsheet.xml",
-    "careplan-daf-core-profile-spreadsheet.xml",
-    "condition-daf-profile-spreadsheet.xml",
-	"condition-daf-core-profile-spreadsheet.xml",
-    "diagnosticrequest-daf-profile-spreadsheet.xml",
-    "diagnosticreport-daf-profile-spreadsheet.xml",
-	"diagnosticreport-daf-core-profile-spreadsheet.xml",
-	"device-daf-core-profile-spreadsheet.xml",
-    "encounter-daf-profile-spreadsheet.xml",
-    "familymemberhistory-daf-profile-spreadsheet.xml",
-    "goal-daf-core-profile-spreadsheet.xml",
-    "immunization-daf-profile-spreadsheet.xml",
-	"immunization-daf-core-profile-spreadsheet.xml",
-    "list-daf-profile-spreadsheet.xml",
-    "location-daf-profile-spreadsheet.xml",
-    "location-daf-core-profile-spreadsheet.xml",
-    "medication-daf-profile-spreadsheet.xml",
-	"medication-daf-core-profile-spreadsheet.xml",
-    "medicationadministration-daf-profile-spreadsheet.xml",
-    "medicationdispense-daf-profile-spreadsheet.xml",
-    "medicationorder-daf-profile-spreadsheet.xml",
-    "medicationorder-daf-core-profile-spreadsheet.xml",
-	"medicationstatement-daf-profile-spreadsheet.xml",   
-    "medicationstatement-daf-core-profile-spreadsheet.xml",
-    "observation-daf-vitalsigns-profile-spreadsheet.xml",
-	"observation-daf-core-vitalsigns-profile-spreadsheet.xml",
-    "observation-daf-results-profile-spreadsheet.xml",
-	"observation-daf-core-results-profile-spreadsheet.xml",
-    "observation-daf-smokingstatus-profile-spreadsheet.xml",
-	"observation-daf-core-smokingstatus-profile-spreadsheet.xml",
-    "organization-daf-profile-spreadsheet.xml",
-    "organization-daf-core-profile-spreadsheet.xml",
-    "patient-daf-profile-spreadsheet.xml",
-	"patient-daf-core-profile-spreadsheet.xml",
-    "practitioner-daf-profile-spreadsheet.xml",
-    "practitioner-daf-core-profile-spreadsheet.xml",
-    "procedure-daf-profile-spreadsheet.xml",
-	"procedure-daf-core-profile-spreadsheet.xml",
-    "relatedperson-daf-profile-spreadsheet.xml",
-    "spec-daf-profile-spreadsheet.xml",
-    "substance-daf-profile-spreadsheet.xml"
-  ],  
+	"spreadsheets": [
+		"allergyintolerance-daf-profile-spreadsheet.xml", "allergyintolerance-daf-core-profile-spreadsheet.xml", "careplan-daf-core-profile-spreadsheet.xml", "condition-daf-profile-spreadsheet.xml", "condition-daf-core-profile-spreadsheet.xml", "diagnosticrequest-daf-profile-spreadsheet.xml", "diagnosticreport-daf-profile-spreadsheet.xml", "diagnosticreport-daf-core-profile-spreadsheet.xml", "device-daf-core-profile-spreadsheet.xml", "encounter-daf-profile-spreadsheet.xml", "familymemberhistory-daf-profile-spreadsheet.xml", "goal-daf-core-profile-spreadsheet.xml", "immunization-daf-profile-spreadsheet.xml", "immunization-daf-core-profile-spreadsheet.xml", "list-daf-profile-spreadsheet.xml", "location-daf-profile-spreadsheet.xml", "location-daf-core-profile-spreadsheet.xml", "medication-daf-profile-spreadsheet.xml", "medication-daf-core-profile-spreadsheet.xml", "medicationadministration-daf-profile-spreadsheet.xml", "medicationdispense-daf-profile-spreadsheet.xml", "medicationorder-daf-profile-spreadsheet.xml", "medicationorder-daf-core-profile-spreadsheet.xml", "medicationstatement-daf-profile-spreadsheet.xml", "medicationstatement-daf-core-profile-spreadsheet.xml", "observation-daf-vitalsigns-profile-spreadsheet.xml", "observation-daf-core-vitalsigns-profile-spreadsheet.xml", "observation-daf-results-profile-spreadsheet.xml", "observation-daf-core-results-profile-spreadsheet.xml", "observation-daf-smokingstatus-profile-spreadsheet.xml", "observation-daf-core-smokingstatus-profile-spreadsheet.xml", "organization-daf-profile-spreadsheet.xml", "organization-daf-core-profile-spreadsheet.xml", "patient-daf-profile-spreadsheet.xml", "patient-daf-core-profile-spreadsheet.xml", "practitioner-daf-profile-spreadsheet.xml", "practitioner-daf-core-profile-spreadsheet.xml", "procedure-daf-profile-spreadsheet.xml", "procedure-daf-core-profile-spreadsheet.xml", "relatedperson-daf-profile-spreadsheet.xml", "spec-daf-profile-spreadsheet.xml", "substance-daf-profile-spreadsheet.xml"
+	],
 	"resources": {
 		"StructureDefinition/daf-allergyintolerance": {
 			"defns": "daf-allergyintolerance-definitions.html",
@@ -85,7 +44,7 @@
 			"defns": "daf-core-condition-definitions.html",
 			"base": "daf-core-condition.html"
 		},
-			"StructureDefinition/daf-core-device": {
+		"StructureDefinition/daf-core-device": {
 			"defns": "daf-core-device-definitions.html",
 			"base": "daf-core-device.html"
 		},
@@ -255,146 +214,143 @@
 		},
 		"ValueSet/daf-substance": {
 			"base": "valueset-daf-substance.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-procedure-type": {
 			"base": "valueset-daf-procedure-type.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-product-form": {
 			"base": "valueset-daf-product-form.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-race": {
 			"base": "valueset-daf-race.html",
-      "template-base" : null
+			"template-base": null
 		},
-		
 		"ValueSet/daf-core-substance": {
 			"base": "valueset-daf-core-substance.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-substance-ndfrt": {
 			"base": "valueset-daf-substance-ndfrt.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-substance-rxnorm": {
 			"base": "valueset-daf-substance-rxnorm.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-substance-sct": {
 			"base": "valueset-daf-substance-sct.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-substance-unii": {
 			"base": "valueset-daf-substance-unii.html",
-      "template-base" : null
+			"template-base": null
 		},
-		
 		"ValueSet/daf-core-substance-ndfrt": {
 			"base": "valueset-daf-core-substance-ndfrt.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-core-substance-rxnorm": {
 			"base": "valueset-daf-core-substance-rxnorm.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-core-substance-sct": {
 			"base": "valueset-daf-core-substance-sct.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-core-substance-unii": {
 			"base": "valueset-daf-core-substance-unii.html",
-      "template-base" : null
+			"template-base": null
 		},
-		
 		"ValueSet/daf-ucum-vitals-common": {
 			"base": "valueset-daf-ucum-vitals-common.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-ingredient-name": {
 			"base": "valueset-daf-ingredient-name.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-medication-brandname": {
 			"base": "valueset-daf-medication-brandname.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-medication-clinicalname": {
 			"base": "valueset-daf-medication-clinicalname.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-medication-drugclass": {
 			"base": "valueset-daf-medication-drugclass.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-problem-severity": {
 			"base": "valueset-daf-problem-severity.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-problem-type": {
 			"base": "valueset-daf-problem-type.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-bodysite": {
 			"base": "valueset-daf-bodysite.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-concern-status": {
 			"base": "valueset-daf-concern-status.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-cvx": {
 			"base": "valueset-daf-cvx.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-encounter-dischargedisposition": {
 			"base": "valueset-daf-encounter-dischargedisposition.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-encounter-reason": {
 			"base": "valueset-daf-encounter-reason.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-encounter-type": {
 			"base": "valueset-daf-encounter-type.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-ethnicity": {
 			"base": "valueset-daf-ethnicity.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-list-MedListCode": {
 			"base": "valueset-daf-list-MedListCode.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-manifestation-ccda-codes": {
 			"base": "valueset-daf-manifestation-ccda-codes.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-medication-codes": {
 			"base": "valueset-daf-medication-codes.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-medication-route": {
 			"base": "valueset-daf-medication-route.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-observation-ccdasmokingstatus": {
 			"base": "valueset-daf-observation-ccdasmokingstatus.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-observation-CCDAVitalSignResult": {
 			"base": "valueset-daf-observation-CCDAVitalSignResult.html",
-      "template-base" : null
+			"template-base": null
 		},
 		"ValueSet/daf-problem": {
 			"base": "valueset-daf-problem.html",
-      "template-base" : null
+			"template-base": null
 		},
-		"AllergyIntolerance/23": {
-			"base": "allergyintolerance-23.html",
-      "template-base" : null
+		"AllergyIntolerance/example": {
+			"base": "allergyintolerance-example.html",
+			"template-base": null
 		}
 	}
 }

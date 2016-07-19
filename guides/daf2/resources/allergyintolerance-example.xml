@@ -5,10 +5,12 @@
 		<profile value="http://hl7.org/fhir/daf/structureDefinition/daf-core-allergyintolerance">
 		</profile>
 	</meta>
+	<!--
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">Sensitivity to sulfonamide antibacterial</div>
 	</text>
+-->
 	<status value="active"/>
 	<category value="medication"/>
 	<criticality value="high"/>

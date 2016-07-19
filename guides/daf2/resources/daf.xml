@@ -225,6 +225,14 @@
 				<reference value="StructureDefinition/daf-core-careplan"/>
 			</sourceReference>
 		</resource>
+<!--
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/daf-core-careteam"/>
+			</sourceReference>
+		</resource
+-->
 		<resource>
 			<example value="false"/>
 			<sourceReference>
@@ -527,15 +535,14 @@
 		<!-- examples   -->
 		<resource>
 			<example value="true"/>
-			<name value="Allergy Intolerance Examples"/>
+			<name value="Allergy Intolerance Example"/>
 			<sourceReference>
-				<reference value="AllergyIntolerance/23"/>
+				<reference value="AllergyIntolerance/example"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/daf-core-allergyintolerance"/>
 			</exampleFor>
 		</resource>
-		
 		<!--daf-core-core valuesets-->
 		<resource>
 			<example value="false"/>
@@ -567,8 +574,6 @@
 				<reference value="ValueSet/daf-core-substance-unii"/>
 			</sourceReference>
 		</resource>
-	
-	
 	</package>
 	<!-- 
   <acronym target="daf-resultobsquantity" id="daf-qty"/>
@@ -697,7 +702,7 @@
 		</page>
 		<page>
 			<source value="goal-daf-core.html"/>
-			<title value="Goals"/>
+			<title value="Goal"/>
 			<kind value="page"/>
 			<format value="generated"/>
 			<page>
