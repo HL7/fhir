@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="example-genetics-2"/>
+  <status value="final"/>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="55233-1"/>
+      <display value="Genetic analysis master panel"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/example-genetics-somatic"/>
+    <display value="Molecular Lab Patient ID: HOSP-23456"/>
+  </subject>
+  <issued value="2013-04-03T15:30:10+01:00"/>
+  <performer>
+    <reference value="Practitioner/example-genetics-somatic"/>
+    <display value="Molecular Diagnostics Laboratory"/>
+  </performer>
+  <valueCodeableConcept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="10828004"/>
+      <display value="Positive"/>
+    </coding>
+  </valueCodeableConcept>
+  <related>
+    <type value="derived-from"/>
+    <target>
+      <reference value="Observation/example-observation-genetics-1"/>
+    </target>
+  </related>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="51967-8"/>
+        <display value="Genetic disease assessed"/>
+      </coding>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="363358000"/>
+        <display value="Malignant tumor of lung (disorder)"/>
+      </coding>
+      <text value="Lung cancer"/>
+    </valueCodeableConcept>
+  </component>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="53037-8"/>
+        <display value="Genetic disease sequence variation interpretation"/>
+      </coding>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <code value="LA6669-1"/>
+        <display value="Pathogenic"/>
+      </coding>
+    </valueCodeableConcept>
+  </component>
+</Observation>

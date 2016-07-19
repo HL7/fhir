@@ -18,9 +18,37 @@
     </resource>
     <resource>
       <example value="true"/>
-      <name value="Genetic Observation Example"/>
+      <name value="Genetic Observation Example A"/>
       <sourceReference>
         <reference value="Observation/example-genetics-1"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <example value="true"/>
+      <name value="Genetic Observation Example B"/>
+      <sourceReference>
+        <reference value="Observation/example-genetics-2"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <example value="true"/>
+      <name value="Genetic Observation Example C"/>
+      <sourceReference>
+        <reference value="Observation/example-genetics-3"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <example value="true"/>
+      <name value="Genetic Report Example 1"/>
+      <sourceReference>
+        <reference value="DiagnosticReport/dg1"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <example value="true"/>
+      <name value="Genetic Report Example 2"/>
+      <sourceReference>
+        <reference value="DiagnosticReport/dg2"/>
       </sourceReference>
     </resource>
   </package>
