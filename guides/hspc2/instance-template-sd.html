@@ -1,0 +1,56 @@
+---
+category: home
+---
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profiles - HSPC Implementation Guide</title>
+  {% include header.html %}
+</head>
+<body>
+{% include navbar.html %}
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+  <!-- CONTENT CONTENT -->
+
+<div class="col-9">
+
+<h2>{{[title]}}</h2>
+
+<p>
+Source: <a href="{{[type]}}-{{[id]}}.xml.html">XML</a>, <a href="{{[type]}}-{{[id]}}.json.html">JSON</a>, <a href="{{[type]}}-{{[id]}}.ttl.html">Turtle</a>
+</p>
+
+<h3>Differential</h3>
+
+{% include {{[type]}}-{{[id]}}-diff.xhtml %}
+
+<h3>Snapshot</h3>
+
+{% include {{[type]}}-{{[id]}}-snapshot.xhtml %}
+
+<h3>Definitions</h3>
+
+{% include {{[type]}}-{{[id]}}-dict.xhtml %}
+
+{% include footer.html %}
+
+
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+{% include footer.html %}
+</body>
+</html>
+
+
+
