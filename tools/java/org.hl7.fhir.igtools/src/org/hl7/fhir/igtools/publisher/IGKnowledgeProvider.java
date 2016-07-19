@@ -23,6 +23,7 @@ import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
+import org.hl7.fhir.utilities.Utilities;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -42,6 +43,8 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     super();
     this.context = context;
     this.pathToSpec = pathToSpec;
+    if (this.pathToSpec.endsWith("/"))
+      this.pathToSpec = this.pathToSpec.substring(0, this.pathToSpec.length()-1);
     this.errors = errors;
     loadPaths(igs);
   }
@@ -135,7 +138,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   }
 
   private String makeCanonical(String ref) {
-    return canonical+"/"+ref;
+    return Utilities.pathReverse(canonical, ref);
   }
 
   private void brokenLinkWarning(String ref) {
@@ -147,7 +150,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   }
 
   private String specPath(String path) {
-    return pathToSpec+"/"+path;
+    return Utilities.pathReverse(pathToSpec, path);
   }
 
   public String getDefinitions(StructureDefinition sd) {

@@ -351,7 +351,11 @@ public class StructureDefinitionRenderer extends BaseRenderer {
             if (vs == null)
               vss = "<a href=\""+prefix+uri+"\">"+Utilities.escapeXml(uri)+"</a>";
             else { 
-              vss = "<a href=\""+prefix+vs.getUserData("path")+"\">"+Utilities.escapeXml(vs.getName())+"</a>";
+              String p = vs.getUserString("path");
+              if (p.startsWith("http:"))
+                vss = "<a href=\""+p+"\">"+Utilities.escapeXml(vs.getName())+"</a>";
+              else
+                vss = "<a href=\""+p+"\">"+Utilities.escapeXml(vs.getName())+"</a>";
               vsn = vs.getName();
             }
           }
