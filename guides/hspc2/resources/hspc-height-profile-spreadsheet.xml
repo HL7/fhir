@@ -1566,7 +1566,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Observation.observation-bodyPosition</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">!Observation.observation-bodyPosition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
@@ -24183,7 +24183,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s97"/>
     <Cell ss:StyleID="s97"/>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Observation.observation-bodyPosition</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">!Observation.observation-bodyPosition</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
