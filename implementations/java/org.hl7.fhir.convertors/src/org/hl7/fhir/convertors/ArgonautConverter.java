@@ -789,8 +789,8 @@ public class ArgonautConverter extends ConverterBase {
 			cond.setId(context.baseId+"-problem-"+Integer.toString(i));
 			cond.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/condition-daf-dafcondition");
 			i++;
-			cond.setPatient(context.subjectRef);
-			cond.setEncounter(new Reference().setReference("Encounter/"+context.encounter.getId()));
+			cond.setSubject(context.subjectRef);
+			cond.setContext(new Reference().setReference("Encounter/"+context.encounter.getId()));
 			cond.setVerificationStatus(getVerificationStatusFromAct(cda.getChild(pca, "statusCode")));
 
 			cond.setDateRecordedElement(convert.makeDateFromTS(cda.getChild(cda.getChild(pca, "effectiveTime"), "low")));

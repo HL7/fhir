@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 18, 2016 12:13+1000 for FHIR v1.5.0
+// Generated on Tue, Jul 19, 2016 06:18+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -586,7 +586,7 @@ public class Immunization extends DomainResource {
         /**
          * Nominal position in a series.
          */
-        @Child(name = "doseSequence", type = {PositiveIntType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "doseSequence", type = {PositiveIntType.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Dose number within series", formalDefinition="Nominal position in a series." )
         protected PositiveIntType doseSequence;
 
@@ -659,9 +659,8 @@ public class Immunization extends DomainResource {
     /**
      * Constructor
      */
-      public ImmunizationVaccinationProtocolComponent(PositiveIntType doseSequence, CodeableConcept doseStatus) {
+      public ImmunizationVaccinationProtocolComponent(CodeableConcept doseStatus) {
         super();
-        this.doseSequence = doseSequence;
         this.doseStatus = doseStatus;
       }
 

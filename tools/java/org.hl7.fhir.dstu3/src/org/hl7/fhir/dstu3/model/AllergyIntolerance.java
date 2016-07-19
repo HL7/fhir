@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 18, 2016 12:13+1000 for FHIR v1.5.0
+// Generated on Tue, Jul 19, 2016 06:18+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -306,10 +306,6 @@ public class AllergyIntolerance extends DomainResource {
          */
         ENVIRONMENT, 
         /**
-         * Other substances that are not covered by any other category.
-         */
-        OTHER, 
-        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -322,8 +318,6 @@ public class AllergyIntolerance extends DomainResource {
           return MEDICATION;
         if ("environment".equals(codeString))
           return ENVIRONMENT;
-        if ("other".equals(codeString))
-          return OTHER;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -334,7 +328,6 @@ public class AllergyIntolerance extends DomainResource {
             case FOOD: return "food";
             case MEDICATION: return "medication";
             case ENVIRONMENT: return "environment";
-            case OTHER: return "other";
             default: return "?";
           }
         }
@@ -343,7 +336,6 @@ public class AllergyIntolerance extends DomainResource {
             case FOOD: return "http://hl7.org/fhir/allergy-intolerance-category";
             case MEDICATION: return "http://hl7.org/fhir/allergy-intolerance-category";
             case ENVIRONMENT: return "http://hl7.org/fhir/allergy-intolerance-category";
-            case OTHER: return "http://hl7.org/fhir/allergy-intolerance-category";
             default: return "?";
           }
         }
@@ -352,7 +344,6 @@ public class AllergyIntolerance extends DomainResource {
             case FOOD: return "Any substance consumed to provide nutritional support for the body.";
             case MEDICATION: return "Substances administered to achieve a physiological effect.";
             case ENVIRONMENT: return "Substances that are encountered in the environment.";
-            case OTHER: return "Other substances that are not covered by any other category.";
             default: return "?";
           }
         }
@@ -361,7 +352,6 @@ public class AllergyIntolerance extends DomainResource {
             case FOOD: return "Food";
             case MEDICATION: return "Medication";
             case ENVIRONMENT: return "Environment";
-            case OTHER: return "Other";
             default: return "?";
           }
         }
@@ -378,8 +368,6 @@ public class AllergyIntolerance extends DomainResource {
           return AllergyIntoleranceCategory.MEDICATION;
         if ("environment".equals(codeString))
           return AllergyIntoleranceCategory.ENVIRONMENT;
-        if ("other".equals(codeString))
-          return AllergyIntoleranceCategory.OTHER;
         throw new IllegalArgumentException("Unknown AllergyIntoleranceCategory code '"+codeString+"'");
         }
         public Enumeration<AllergyIntoleranceCategory> fromType(Base code) throws FHIRException {
@@ -394,8 +382,6 @@ public class AllergyIntolerance extends DomainResource {
           return new Enumeration<AllergyIntoleranceCategory>(this, AllergyIntoleranceCategory.MEDICATION);
         if ("environment".equals(codeString))
           return new Enumeration<AllergyIntoleranceCategory>(this, AllergyIntoleranceCategory.ENVIRONMENT);
-        if ("other".equals(codeString))
-          return new Enumeration<AllergyIntoleranceCategory>(this, AllergyIntoleranceCategory.OTHER);
         throw new FHIRException("Unknown AllergyIntoleranceCategory code '"+codeString+"'");
         }
     public String toCode(AllergyIntoleranceCategory code) {
@@ -405,8 +391,6 @@ public class AllergyIntolerance extends DomainResource {
         return "medication";
       if (code == AllergyIntoleranceCategory.ENVIRONMENT)
         return "environment";
-      if (code == AllergyIntoleranceCategory.OTHER)
-        return "other";
       return "?";
       }
     public String toSystem(AllergyIntoleranceCategory code) {

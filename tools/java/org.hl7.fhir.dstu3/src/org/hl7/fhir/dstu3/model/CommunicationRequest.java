@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 18, 2016 12:13+1000 for FHIR v1.5.0
+// Generated on Tue, Jul 19, 2016 06:18+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -571,7 +571,7 @@ public class CommunicationRequest extends DomainResource {
      */
     @Child(name = "priority", type = {CodeableConcept.class}, order=13, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Message urgency", formalDefinition="Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/diagnostic-request-priority")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-priority")
     protected CodeableConcept priority;
 
     private static final long serialVersionUID = 146906020L;

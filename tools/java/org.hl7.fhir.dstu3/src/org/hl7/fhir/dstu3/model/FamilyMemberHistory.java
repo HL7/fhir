@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 18, 2016 12:13+1000 for FHIR v1.5.0
+// Generated on Tue, Jul 19, 2016 06:18+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -571,34 +571,41 @@ public class FamilyMemberHistory extends DomainResource {
     protected Type born;
 
     /**
-     * The actual or approximate age of the relative at the time the family member history is recorded.
+     * The age of the relative at the time the family member history is recorded.
      */
-    @Child(name = "age", type = {Age.class, Range.class, StringType.class}, order=8, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="(approximate) age", formalDefinition="The actual or approximate age of the relative at the time the family member history is recorded." )
+    @Child(name = "age", type = {Age.class, Range.class, StringType.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="(approximate) age", formalDefinition="The age of the relative at the time the family member history is recorded." )
     protected Type age;
+
+    /**
+     * If true, indicates that the age value specified is an estimated value.
+     */
+    @Child(name = "estimatedAge", type = {BooleanType.class}, order=9, min=0, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="Age is estimated?", formalDefinition="If true, indicates that the age value specified is an estimated value." )
+    protected BooleanType estimatedAge;
 
     /**
      * Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record.
      */
-    @Child(name = "deceased", type = {BooleanType.class, Age.class, Range.class, DateType.class, StringType.class}, order=9, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "deceased", type = {BooleanType.class, Age.class, Range.class, DateType.class, StringType.class}, order=10, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Dead? How old/when?", formalDefinition="Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record." )
     protected Type deceased;
 
     /**
      * This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.
      */
-    @Child(name = "note", type = {Annotation.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="General note about related person", formalDefinition="This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible." )
     protected Annotation note;
 
     /**
      * The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.
      */
-    @Child(name = "condition", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "condition", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Condition that the related person had", formalDefinition="The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition." )
     protected List<FamilyMemberHistoryConditionComponent> condition;
 
-    private static final long serialVersionUID = -1799103041L;
+    private static final long serialVersionUID = 1798797770L;
 
   /**
    * Constructor
@@ -989,14 +996,14 @@ public class FamilyMemberHistory extends DomainResource {
     }
 
     /**
-     * @return {@link #age} (The actual or approximate age of the relative at the time the family member history is recorded.)
+     * @return {@link #age} (The age of the relative at the time the family member history is recorded.)
      */
     public Type getAge() { 
       return this.age;
     }
 
     /**
-     * @return {@link #age} (The actual or approximate age of the relative at the time the family member history is recorded.)
+     * @return {@link #age} (The age of the relative at the time the family member history is recorded.)
      */
     public Age getAgeAge() throws FHIRException { 
       if (!(this.age instanceof Age))
@@ -1009,7 +1016,7 @@ public class FamilyMemberHistory extends DomainResource {
     }
 
     /**
-     * @return {@link #age} (The actual or approximate age of the relative at the time the family member history is recorded.)
+     * @return {@link #age} (The age of the relative at the time the family member history is recorded.)
      */
     public Range getAgeRange() throws FHIRException { 
       if (!(this.age instanceof Range))
@@ -1022,7 +1029,7 @@ public class FamilyMemberHistory extends DomainResource {
     }
 
     /**
-     * @return {@link #age} (The actual or approximate age of the relative at the time the family member history is recorded.)
+     * @return {@link #age} (The age of the relative at the time the family member history is recorded.)
      */
     public StringType getAgeStringType() throws FHIRException { 
       if (!(this.age instanceof StringType))
@@ -1039,10 +1046,55 @@ public class FamilyMemberHistory extends DomainResource {
     }
 
     /**
-     * @param value {@link #age} (The actual or approximate age of the relative at the time the family member history is recorded.)
+     * @param value {@link #age} (The age of the relative at the time the family member history is recorded.)
      */
     public FamilyMemberHistory setAge(Type value) { 
       this.age = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #estimatedAge} (If true, indicates that the age value specified is an estimated value.). This is the underlying object with id, value and extensions. The accessor "getEstimatedAge" gives direct access to the value
+     */
+    public BooleanType getEstimatedAgeElement() { 
+      if (this.estimatedAge == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create FamilyMemberHistory.estimatedAge");
+        else if (Configuration.doAutoCreate())
+          this.estimatedAge = new BooleanType(); // bb
+      return this.estimatedAge;
+    }
+
+    public boolean hasEstimatedAgeElement() { 
+      return this.estimatedAge != null && !this.estimatedAge.isEmpty();
+    }
+
+    public boolean hasEstimatedAge() { 
+      return this.estimatedAge != null && !this.estimatedAge.isEmpty();
+    }
+
+    /**
+     * @param value {@link #estimatedAge} (If true, indicates that the age value specified is an estimated value.). This is the underlying object with id, value and extensions. The accessor "getEstimatedAge" gives direct access to the value
+     */
+    public FamilyMemberHistory setEstimatedAgeElement(BooleanType value) { 
+      this.estimatedAge = value;
+      return this;
+    }
+
+    /**
+     * @return If true, indicates that the age value specified is an estimated value.
+     */
+    public boolean getEstimatedAge() { 
+      return this.estimatedAge == null || this.estimatedAge.isEmpty() ? false : this.estimatedAge.getValue();
+    }
+
+    /**
+     * @param value If true, indicates that the age value specified is an estimated value.
+     */
+    public FamilyMemberHistory setEstimatedAge(boolean value) { 
+        if (this.estimatedAge == null)
+          this.estimatedAge = new BooleanType();
+        this.estimatedAge.setValue(value);
       return this;
     }
 
@@ -1217,7 +1269,8 @@ public class FamilyMemberHistory extends DomainResource {
         childrenList.add(new Property("relationship", "CodeableConcept", "The type of relationship this person has to the patient (father, mother, brother etc.).", 0, java.lang.Integer.MAX_VALUE, relationship));
         childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
         childrenList.add(new Property("born[x]", "Period|date|string", "The actual or approximate date of birth of the relative.", 0, java.lang.Integer.MAX_VALUE, born));
-        childrenList.add(new Property("age[x]", "Age|Range|string", "The actual or approximate age of the relative at the time the family member history is recorded.", 0, java.lang.Integer.MAX_VALUE, age));
+        childrenList.add(new Property("age[x]", "Age|Range|string", "The age of the relative at the time the family member history is recorded.", 0, java.lang.Integer.MAX_VALUE, age));
+        childrenList.add(new Property("estimatedAge", "boolean", "If true, indicates that the age value specified is an estimated value.", 0, java.lang.Integer.MAX_VALUE, estimatedAge));
         childrenList.add(new Property("deceased[x]", "boolean|Age|Range|date|string", "Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record.", 0, java.lang.Integer.MAX_VALUE, deceased));
         childrenList.add(new Property("note", "Annotation", "This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("condition", "", "The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.", 0, java.lang.Integer.MAX_VALUE, condition));
@@ -1235,6 +1288,7 @@ public class FamilyMemberHistory extends DomainResource {
         case -1249512767: /*gender*/ return this.gender == null ? new Base[0] : new Base[] {this.gender}; // Enumeration<AdministrativeGender>
         case 3029833: /*born*/ return this.born == null ? new Base[0] : new Base[] {this.born}; // Type
         case 96511: /*age*/ return this.age == null ? new Base[0] : new Base[] {this.age}; // Type
+        case 2130167587: /*estimatedAge*/ return this.estimatedAge == null ? new Base[0] : new Base[] {this.estimatedAge}; // BooleanType
         case 561497972: /*deceased*/ return this.deceased == null ? new Base[0] : new Base[] {this.deceased}; // Type
         case 3387378: /*note*/ return this.note == null ? new Base[0] : new Base[] {this.note}; // Annotation
         case -861311717: /*condition*/ return this.condition == null ? new Base[0] : this.condition.toArray(new Base[this.condition.size()]); // FamilyMemberHistoryConditionComponent
@@ -1273,6 +1327,9 @@ public class FamilyMemberHistory extends DomainResource {
         case 96511: // age
           this.age = (Type) value; // Type
           break;
+        case 2130167587: // estimatedAge
+          this.estimatedAge = castToBoolean(value); // BooleanType
+          break;
         case 561497972: // deceased
           this.deceased = (Type) value; // Type
           break;
@@ -1307,6 +1364,8 @@ public class FamilyMemberHistory extends DomainResource {
           this.born = (Type) value; // Type
         else if (name.equals("age[x]"))
           this.age = (Type) value; // Type
+        else if (name.equals("estimatedAge"))
+          this.estimatedAge = castToBoolean(value); // BooleanType
         else if (name.equals("deceased[x]"))
           this.deceased = (Type) value; // Type
         else if (name.equals("note"))
@@ -1329,6 +1388,7 @@ public class FamilyMemberHistory extends DomainResource {
         case -1249512767: throw new FHIRException("Cannot make property gender as it is not a complex type"); // Enumeration<AdministrativeGender>
         case 67532951:  return getBorn(); // Type
         case -1419716831:  return getAge(); // Type
+        case 2130167587: throw new FHIRException("Cannot make property estimatedAge as it is not a complex type"); // BooleanType
         case -1311442804:  return getDeceased(); // Type
         case 3387378:  return getNote(); // Annotation
         case -861311717:  return addCondition(); // FamilyMemberHistoryConditionComponent
@@ -1386,6 +1446,9 @@ public class FamilyMemberHistory extends DomainResource {
           this.age = new StringType();
           return this.age;
         }
+        else if (name.equals("estimatedAge")) {
+          throw new FHIRException("Cannot call addChild on a primitive type FamilyMemberHistory.estimatedAge");
+        }
         else if (name.equals("deceasedBoolean")) {
           this.deceased = new BooleanType();
           return this.deceased;
@@ -1438,6 +1501,7 @@ public class FamilyMemberHistory extends DomainResource {
         dst.gender = gender == null ? null : gender.copy();
         dst.born = born == null ? null : born.copy();
         dst.age = age == null ? null : age.copy();
+        dst.estimatedAge = estimatedAge == null ? null : estimatedAge.copy();
         dst.deceased = deceased == null ? null : deceased.copy();
         dst.note = note == null ? null : note.copy();
         if (condition != null) {
@@ -1462,8 +1526,8 @@ public class FamilyMemberHistory extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(patient, o.patient, true) && compareDeep(date, o.date, true)
            && compareDeep(status, o.status, true) && compareDeep(name, o.name, true) && compareDeep(relationship, o.relationship, true)
            && compareDeep(gender, o.gender, true) && compareDeep(born, o.born, true) && compareDeep(age, o.age, true)
-           && compareDeep(deceased, o.deceased, true) && compareDeep(note, o.note, true) && compareDeep(condition, o.condition, true)
-          ;
+           && compareDeep(estimatedAge, o.estimatedAge, true) && compareDeep(deceased, o.deceased, true) && compareDeep(note, o.note, true)
+           && compareDeep(condition, o.condition, true);
       }
 
       @Override
@@ -1474,13 +1538,13 @@ public class FamilyMemberHistory extends DomainResource {
           return false;
         FamilyMemberHistory o = (FamilyMemberHistory) other;
         return compareValues(date, o.date, true) && compareValues(status, o.status, true) && compareValues(name, o.name, true)
-           && compareValues(gender, o.gender, true);
+           && compareValues(gender, o.gender, true) && compareValues(estimatedAge, o.estimatedAge, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, patient, date
-          , status, name, relationship, gender, born, age, deceased, note, condition
-          );
+          , status, name, relationship, gender, born, age, estimatedAge, deceased, note
+          , condition);
       }
 
   @Override

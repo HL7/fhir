@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Jul 18, 2016 12:13+1000 for FHIR v1.5.0
+// Generated on Tue, Jul 19, 2016 06:18+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -2877,6 +2877,8 @@ public class XmlParser extends XmlParserBase {
   protected boolean parseCarePlanCarePlanActivityDetailComponentContent(int eventType, XmlPullParser xpp, CarePlan owner, CarePlan.CarePlanActivityDetailComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
         res.setCategory(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("definition")) {
+        res.setDefinition(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
         res.setCode(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reasonCode")) {
@@ -3891,38 +3893,46 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected boolean parseClinicalImpressionContent(int eventType, XmlPullParser xpp, ClinicalImpression res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("patient")) {
-        res.setPatient(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("assessor")) {
-        res.setAssessor(parseReference(xpp));
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
+        res.getIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
         res.setStatusElement(parseEnumeration(xpp, ClinicalImpression.ClinicalImpressionStatus.NULL, new ClinicalImpression.ClinicalImpressionStatusEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("date")) {
-        res.setDateElement(parseDateTime(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
+        res.setCode(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("subject")) {
+        res.setSubject(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("assessor")) {
+        res.setAssessor(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("date")) {
+        res.setDateElement(parseDateTime(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "effective")) {
+        res.setEffective(parseType("effective", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("context")) {
+        res.setContext(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("previous")) {
         res.setPrevious(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("problem")) {
         res.getProblem().add(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("encounter")) {
-        res.getEncounter().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("investigations")) {
         res.getInvestigations().add(parseClinicalImpressionClinicalImpressionInvestigationsComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("protocol")) {
-        res.setProtocolElement(parseUri(xpp));
+        res.getProtocol().add(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("summary")) {
         res.setSummaryElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("finding")) {
         res.getFinding().add(parseClinicalImpressionClinicalImpressionFindingComponent(xpp, res));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("ruledOut")) {
-        res.getRuledOut().add(parseClinicalImpressionClinicalImpressionRuledOutComponent(xpp, res));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("prognosis")) {
-        res.getPrognosis().add(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("prognosisCodeableConcept")) {
+        res.getPrognosisCodeableConcept().add(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("prognosisReference")) {
+        res.getPrognosisReference().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("plan")) {
         res.getPlan().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("action")) {
         res.getAction().add(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("note")) {
+        res.getNote().add(parseAnnotation(xpp));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
         return false;
     return true;
@@ -3969,35 +3979,10 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected boolean parseClinicalImpressionClinicalImpressionFindingComponentContent(int eventType, XmlPullParser xpp, ClinicalImpression owner, ClinicalImpression.ClinicalImpressionFindingComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("item")) {
-        res.setItem(parseCodeableConcept(xpp));
+      if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "item")) {
+        res.setItem(parseType("item", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("cause")) {
         res.setCauseElement(parseString(xpp));
-      } else if (!parseBackboneContent(eventType, xpp, res))
-        return false;
-    return true;
-  }
-
-  protected ClinicalImpression.ClinicalImpressionRuledOutComponent parseClinicalImpressionClinicalImpressionRuledOutComponent(XmlPullParser xpp, ClinicalImpression owner) throws XmlPullParserException, IOException, FHIRFormatError {
-    ClinicalImpression.ClinicalImpressionRuledOutComponent res = new ClinicalImpression.ClinicalImpressionRuledOutComponent();
-    parseBackboneAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-  if (!parseClinicalImpressionClinicalImpressionRuledOutComponentContent(eventType, xpp, owner, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    parseElementClose(res);
-    return res;
-  }
-
-  protected boolean parseClinicalImpressionClinicalImpressionRuledOutComponentContent(int eventType, XmlPullParser xpp, ClinicalImpression owner, ClinicalImpression.ClinicalImpressionRuledOutComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("item")) {
-        res.setItem(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reason")) {
-        res.setReasonElement(parseString(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
     return true;
@@ -4254,30 +4239,36 @@ public class XmlParser extends XmlParserBase {
   protected boolean parseCommunicationContent(int eventType, XmlPullParser xpp, Communication res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
         res.getIdentifier().add(parseIdentifier(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
-        res.setCategory(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("sender")) {
-        res.setSender(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("recipient")) {
-        res.getRecipient().add(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("payload")) {
-        res.getPayload().add(parseCommunicationCommunicationPayloadComponent(xpp, res));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("medium")) {
-        res.getMedium().add(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("basedOn")) {
+        res.getBasedOn().add(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("parent")) {
+        res.getParent().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
         res.setStatusElement(parseEnumeration(xpp, Communication.CommunicationStatus.NULL, new Communication.CommunicationStatusEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("encounter")) {
-        res.setEncounter(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
+        res.setCategory(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("medium")) {
+        res.getMedium().add(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("subject")) {
+        res.setSubject(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("topic")) {
+        res.getTopic().add(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("context")) {
+        res.setContext(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("sent")) {
         res.setSentElement(parseDateTime(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("received")) {
         res.setReceivedElement(parseDateTime(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("sender")) {
+        res.setSender(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("recipient")) {
+        res.getRecipient().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reason")) {
         res.getReason().add(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("subject")) {
-        res.setSubject(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requestDetail")) {
-        res.setRequestDetail(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("payload")) {
+        res.getPayload().add(parseCommunicationCommunicationPayloadComponent(xpp, res));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("note")) {
+        res.getNote().add(parseAnnotation(xpp));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
         return false;
     return true;
@@ -4825,34 +4816,34 @@ public class XmlParser extends XmlParserBase {
   protected boolean parseConditionContent(int eventType, XmlPullParser xpp, Condition res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
         res.getIdentifier().add(parseIdentifier(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("patient")) {
-        res.setPatient(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("encounter")) {
-        res.setEncounter(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("asserter")) {
-        res.setAsserter(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("dateRecorded")) {
-        res.setDateRecordedElement(parseDate(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
-        res.setCode(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
-        res.setCategory(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("clinicalStatus")) {
         res.setClinicalStatusElement(parseCode(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("verificationStatus")) {
         res.setVerificationStatusElement(parseEnumeration(xpp, Condition.ConditionVerificationStatus.NULL, new Condition.ConditionVerificationStatusEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
+        res.setCategory(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("severity")) {
         res.setSeverity(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
+        res.setCode(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("bodySite")) {
+        res.getBodySite().add(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("subject")) {
+        res.setSubject(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("context")) {
+        res.setContext(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "onset")) {
         res.setOnset(parseType("onset", xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "abatement")) {
         res.setAbatement(parseType("abatement", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("dateRecorded")) {
+        res.setDateRecordedElement(parseDate(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("asserter")) {
+        res.setAsserter(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("stage")) {
         res.setStage(parseConditionConditionStageComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("evidence")) {
         res.getEvidence().add(parseConditionConditionEvidenceComponent(xpp, res));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("bodySite")) {
-        res.getBodySite().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("note")) {
         res.getNote().add(parseAnnotation(xpp));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
@@ -6546,85 +6537,43 @@ public class XmlParser extends XmlParserBase {
   protected boolean parseDiagnosticRequestContent(int eventType, XmlPullParser xpp, DiagnosticRequest res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
         res.getIdentifier().add(parseIdentifier(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("definition")) {
+        res.getDefinition().add(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("basedOn")) {
+        res.getBasedOn().add(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("replaces")) {
+        res.getReplaces().add(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requisition")) {
+        res.setRequisition(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
         res.setStatusElement(parseEnumeration(xpp, DiagnosticRequest.DiagnosticRequestStatus.NULL, new DiagnosticRequest.DiagnosticRequestStatusEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("priority")) {
-        res.setPriorityElement(parseEnumeration(xpp, DiagnosticRequest.DiagnosticRequestPriority.NULL, new DiagnosticRequest.DiagnosticRequestPriorityEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("stage")) {
+        res.setStage(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
+        res.setCode(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("subject")) {
         res.setSubject(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("encounter")) {
-        res.setEncounter(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("orderer")) {
-        res.setOrderer(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("context")) {
+        res.setContext(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "occurrence")) {
+        res.setOccurrence(parseType("occurrence", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("authored")) {
+        res.setAuthoredElement(parseDateTime(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requester")) {
+        res.setRequester(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("performerType")) {
+        res.setPerformerType(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("performer")) {
+        res.setPerformer(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reason")) {
         res.getReason().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("supportingInformation")) {
         res.getSupportingInformation().add(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("event")) {
-        res.getEvent().add(parseDiagnosticRequestDiagnosticRequestEventComponent(xpp, res));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("item")) {
-        res.getItem().add(parseDiagnosticRequestDiagnosticRequestItemComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("note")) {
         res.getNote().add(parseAnnotation(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("relevantHistory")) {
+        res.getRelevantHistory().add(parseReference(xpp));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
-        return false;
-    return true;
-  }
-
-  protected DiagnosticRequest.DiagnosticRequestEventComponent parseDiagnosticRequestDiagnosticRequestEventComponent(XmlPullParser xpp, DiagnosticRequest owner) throws XmlPullParserException, IOException, FHIRFormatError {
-    DiagnosticRequest.DiagnosticRequestEventComponent res = new DiagnosticRequest.DiagnosticRequestEventComponent();
-    parseBackboneAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-  if (!parseDiagnosticRequestDiagnosticRequestEventComponentContent(eventType, xpp, owner, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    parseElementClose(res);
-    return res;
-  }
-
-  protected boolean parseDiagnosticRequestDiagnosticRequestEventComponentContent(int eventType, XmlPullParser xpp, DiagnosticRequest owner, DiagnosticRequest.DiagnosticRequestEventComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
-        res.setStatusElement(parseEnumeration(xpp, DiagnosticRequest.DiagnosticRequestStatus.NULL, new DiagnosticRequest.DiagnosticRequestStatusEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
-        res.setDescription(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("dateTime")) {
-        res.setDateTimeElement(parseDateTime(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("actor")) {
-        res.setActor(parseReference(xpp));
-      } else if (!parseBackboneContent(eventType, xpp, res))
-        return false;
-    return true;
-  }
-
-  protected DiagnosticRequest.DiagnosticRequestItemComponent parseDiagnosticRequestDiagnosticRequestItemComponent(XmlPullParser xpp, DiagnosticRequest owner) throws XmlPullParserException, IOException, FHIRFormatError {
-    DiagnosticRequest.DiagnosticRequestItemComponent res = new DiagnosticRequest.DiagnosticRequestItemComponent();
-    parseBackboneAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-  if (!parseDiagnosticRequestDiagnosticRequestItemComponentContent(eventType, xpp, owner, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    parseElementClose(res);
-    return res;
-  }
-
-  protected boolean parseDiagnosticRequestDiagnosticRequestItemComponentContent(int eventType, XmlPullParser xpp, DiagnosticRequest owner, DiagnosticRequest.DiagnosticRequestItemComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
-        res.setCode(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("bodySite")) {
-        res.setBodySite(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
-        res.setStatusElement(parseEnumeration(xpp, DiagnosticRequest.DiagnosticRequestStatus.NULL, new DiagnosticRequest.DiagnosticRequestStatusEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("event")) {
-        res.getEvent().add(parseDiagnosticRequestDiagnosticRequestEventComponent(xpp, owner));
-      } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
     return true;
   }
@@ -8601,6 +8550,8 @@ public class XmlParser extends XmlParserBase {
         res.setBorn(parseType("born", xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "age")) {
         res.setAge(parseType("age", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("estimatedAge")) {
+        res.setEstimatedAgeElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "deceased")) {
         res.setDeceased(parseType("deceased", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("note")) {
@@ -8705,7 +8656,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
         res.getCategory().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
-        res.setDescriptionElement(parseString(xpp));
+        res.setDescription(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
         res.setStatusElement(parseEnumeration(xpp, Goal.GoalStatus.NULL, new Goal.GoalStatusEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("statusDate")) {
@@ -8998,6 +8949,8 @@ public class XmlParser extends XmlParserBase {
   protected boolean parseHealthcareServiceContent(int eventType, XmlPullParser xpp, HealthcareService res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
         res.getIdentifier().add(parseIdentifier(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("active")) {
+        res.setActiveElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("providedBy")) {
         res.setProvidedBy(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("serviceCategory")) {
@@ -9704,7 +9657,7 @@ public class XmlParser extends XmlParserBase {
 
   protected boolean parseImmunizationRecommendationImmunizationRecommendationRecommendationProtocolComponentContent(int eventType, XmlPullParser xpp, ImmunizationRecommendation owner, ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("doseSequence")) {
-        res.setDoseSequenceElement(parseInteger(xpp));
+        res.setDoseSequenceElement(parsePositiveInt(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("authority")) {
@@ -11336,8 +11289,8 @@ public class XmlParser extends XmlParserBase {
         res.getSupportingInformation().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("dateAsserted")) {
         res.setDateAssertedElement(parseDateTime(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("wasNotTaken")) {
-        res.setWasNotTakenElement(parseBoolean(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("notTaken")) {
+        res.setNotTakenElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reasonNotTaken")) {
         res.getReasonNotTaken().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reasonForUseCode")) {
@@ -13708,20 +13661,24 @@ public class XmlParser extends XmlParserBase {
   protected boolean parseQuestionnaireResponseContent(int eventType, XmlPullParser xpp, QuestionnaireResponse res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
         res.setIdentifier(parseIdentifier(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("basedOn")) {
+        res.getBasedOn().add(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("parent")) {
+        res.getParent().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("questionnaire")) {
         res.setQuestionnaire(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
         res.setStatusElement(parseEnumeration(xpp, QuestionnaireResponse.QuestionnaireResponseStatus.NULL, new QuestionnaireResponse.QuestionnaireResponseStatusEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("subject")) {
         res.setSubject(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("context")) {
+        res.setContext(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("author")) {
         res.setAuthor(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("authored")) {
         res.setAuthoredElement(parseDateTime(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("source")) {
         res.setSource(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("encounter")) {
-        res.setEncounter(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("item")) {
         res.getItem().add(parseQuestionnaireResponseQuestionnaireResponseItemComponent(xpp, res));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
@@ -13860,6 +13817,8 @@ public class XmlParser extends XmlParserBase {
   protected boolean parseRelatedPersonContent(int eventType, XmlPullParser xpp, RelatedPerson res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
         res.getIdentifier().add(parseIdentifier(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("active")) {
+        res.setActiveElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("patient")) {
         res.setPatient(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("relationship")) {
@@ -13985,6 +13944,8 @@ public class XmlParser extends XmlParserBase {
   protected boolean parseScheduleContent(int eventType, XmlPullParser xpp, Schedule res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
         res.getIdentifier().add(parseIdentifier(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("active")) {
+        res.setActiveElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("serviceCategory")) {
         res.setServiceCategory(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("serviceType")) {
@@ -15410,8 +15371,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected boolean parseTaskParameterComponentContent(int eventType, XmlPullParser xpp, Task owner, Task.ParameterComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
-        res.setNameElement(parseString(xpp));
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
+        res.setType(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "value")) {
         res.setValue(parseType("value", xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
@@ -15435,8 +15396,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected boolean parseTaskTaskOutputComponentContent(int eventType, XmlPullParser xpp, Task owner, Task.TaskOutputComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
-        res.setNameElement(parseString(xpp));
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
+        res.setType(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "value")) {
         res.setValue(parseType("value", xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
@@ -20528,6 +20489,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCategory()) {
         composeCodeableConcept("category", element.getCategory());
       }
+      if (element.hasDefinition()) {
+        composeReference("definition", element.getDefinition());
+      }
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
       }
@@ -21584,19 +21548,31 @@ public class XmlParser extends XmlParserBase {
 
   protected void composeClinicalImpressionElements(ClinicalImpression element) throws IOException {
       composeDomainResourceElements(element);
-      if (element.hasPatient()) {
-        composeReference("patient", element.getPatient());
+      if (element.hasIdentifier()) { 
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier("identifier", e);
+      }
+      if (element.hasStatusElement())
+        composeEnumeration("status", element.getStatusElement(), new ClinicalImpression.ClinicalImpressionStatusEnumFactory());
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
+      }
+      if (element.hasDescriptionElement()) {
+        composeString("description", element.getDescriptionElement());
+      }
+      if (element.hasSubject()) {
+        composeReference("subject", element.getSubject());
       }
       if (element.hasAssessor()) {
         composeReference("assessor", element.getAssessor());
       }
-      if (element.hasStatusElement())
-        composeEnumeration("status", element.getStatusElement(), new ClinicalImpression.ClinicalImpressionStatusEnumFactory());
       if (element.hasDateElement()) {
         composeDateTime("date", element.getDateElement());
       }
-      if (element.hasDescriptionElement()) {
-        composeString("description", element.getDescriptionElement());
+      if (element.hasEffective()) {
+        composeType("effective", element.getEffective());
+      }      if (element.hasContext()) {
+        composeReference("context", element.getContext());
       }
       if (element.hasPrevious()) {
         composeReference("previous", element.getPrevious());
@@ -21605,16 +21581,13 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getProblem()) 
           composeReference("problem", e);
       }
-      if (element.hasEncounter()) { 
-        for (Reference e : element.getEncounter()) 
-          composeReference("encounter", e);
-      }
       if (element.hasInvestigations()) { 
         for (ClinicalImpression.ClinicalImpressionInvestigationsComponent e : element.getInvestigations()) 
           composeClinicalImpressionClinicalImpressionInvestigationsComponent("investigations", e);
       }
-      if (element.hasProtocolElement()) {
-        composeUri("protocol", element.getProtocolElement());
+      if (element.hasProtocol()) { 
+        for (UriType e : element.getProtocol()) 
+          composeUri("protocol", e);
       }
       if (element.hasSummaryElement()) {
         composeString("summary", element.getSummaryElement());
@@ -21623,13 +21596,13 @@ public class XmlParser extends XmlParserBase {
         for (ClinicalImpression.ClinicalImpressionFindingComponent e : element.getFinding()) 
           composeClinicalImpressionClinicalImpressionFindingComponent("finding", e);
       }
-      if (element.hasRuledOut()) { 
-        for (ClinicalImpression.ClinicalImpressionRuledOutComponent e : element.getRuledOut()) 
-          composeClinicalImpressionClinicalImpressionRuledOutComponent("ruledOut", e);
+      if (element.hasPrognosisCodeableConcept()) { 
+        for (CodeableConcept e : element.getPrognosisCodeableConcept()) 
+          composeCodeableConcept("prognosisCodeableConcept", e);
       }
-      if (element.hasPrognosis()) { 
-        for (CodeableConcept e : element.getPrognosis()) 
-          composeCodeableConcept("prognosis", e);
+      if (element.hasPrognosisReference()) { 
+        for (Reference e : element.getPrognosisReference()) 
+          composeReference("prognosisReference", e);
       }
       if (element.hasPlan()) { 
         for (Reference e : element.getPlan()) 
@@ -21638,6 +21611,10 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAction()) { 
         for (Reference e : element.getAction()) 
           composeReference("action", e);
+      }
+      if (element.hasNote()) { 
+        for (Annotation e : element.getNote()) 
+          composeAnnotation("note", e);
       }
   }
 
@@ -21675,30 +21652,9 @@ public class XmlParser extends XmlParserBase {
   protected void composeClinicalImpressionClinicalImpressionFindingComponentElements(ClinicalImpression.ClinicalImpressionFindingComponent element) throws IOException {
       composeBackboneElements(element);
       if (element.hasItem()) {
-        composeCodeableConcept("item", element.getItem());
-      }
-      if (element.hasCauseElement()) {
+        composeType("item", element.getItem());
+      }      if (element.hasCauseElement()) {
         composeString("cause", element.getCauseElement());
-      }
-  }
-
-  protected void composeClinicalImpressionClinicalImpressionRuledOutComponent(String name, ClinicalImpression.ClinicalImpressionRuledOutComponent element) throws IOException {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.enter(FHIR_NS, name);
-      composeClinicalImpressionClinicalImpressionRuledOutComponentElements(element);
-      composeElementClose(element);
-      xml.exit(FHIR_NS, name);
-    }
-  }
-
-  protected void composeClinicalImpressionClinicalImpressionRuledOutComponentElements(ClinicalImpression.ClinicalImpressionRuledOutComponent element) throws IOException {
-      composeBackboneElements(element);
-      if (element.hasItem()) {
-        composeCodeableConcept("item", element.getItem());
-      }
-      if (element.hasReasonElement()) {
-        composeString("reason", element.getReasonElement());
       }
   }
 
@@ -21951,8 +21907,38 @@ public class XmlParser extends XmlParserBase {
         for (Identifier e : element.getIdentifier()) 
           composeIdentifier("identifier", e);
       }
+      if (element.hasBasedOn()) { 
+        for (Reference e : element.getBasedOn()) 
+          composeReference("basedOn", e);
+      }
+      if (element.hasParent()) { 
+        for (Reference e : element.getParent()) 
+          composeReference("parent", e);
+      }
+      if (element.hasStatusElement())
+        composeEnumeration("status", element.getStatusElement(), new Communication.CommunicationStatusEnumFactory());
       if (element.hasCategory()) {
         composeCodeableConcept("category", element.getCategory());
+      }
+      if (element.hasMedium()) { 
+        for (CodeableConcept e : element.getMedium()) 
+          composeCodeableConcept("medium", e);
+      }
+      if (element.hasSubject()) {
+        composeReference("subject", element.getSubject());
+      }
+      if (element.hasTopic()) { 
+        for (Reference e : element.getTopic()) 
+          composeReference("topic", e);
+      }
+      if (element.hasContext()) {
+        composeReference("context", element.getContext());
+      }
+      if (element.hasSentElement()) {
+        composeDateTime("sent", element.getSentElement());
+      }
+      if (element.hasReceivedElement()) {
+        composeDateTime("received", element.getReceivedElement());
       }
       if (element.hasSender()) {
         composeReference("sender", element.getSender());
@@ -21961,34 +21947,17 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getRecipient()) 
           composeReference("recipient", e);
       }
-      if (element.hasPayload()) { 
-        for (Communication.CommunicationPayloadComponent e : element.getPayload()) 
-          composeCommunicationCommunicationPayloadComponent("payload", e);
-      }
-      if (element.hasMedium()) { 
-        for (CodeableConcept e : element.getMedium()) 
-          composeCodeableConcept("medium", e);
-      }
-      if (element.hasStatusElement())
-        composeEnumeration("status", element.getStatusElement(), new Communication.CommunicationStatusEnumFactory());
-      if (element.hasEncounter()) {
-        composeReference("encounter", element.getEncounter());
-      }
-      if (element.hasSentElement()) {
-        composeDateTime("sent", element.getSentElement());
-      }
-      if (element.hasReceivedElement()) {
-        composeDateTime("received", element.getReceivedElement());
-      }
       if (element.hasReason()) { 
         for (CodeableConcept e : element.getReason()) 
           composeCodeableConcept("reason", e);
       }
-      if (element.hasSubject()) {
-        composeReference("subject", element.getSubject());
+      if (element.hasPayload()) { 
+        for (Communication.CommunicationPayloadComponent e : element.getPayload()) 
+          composeCommunicationCommunicationPayloadComponent("payload", e);
       }
-      if (element.hasRequestDetail()) {
-        composeReference("requestDetail", element.getRequestDetail());
+      if (element.hasNote()) { 
+        for (Annotation e : element.getNote()) 
+          composeAnnotation("note", e);
       }
   }
 
@@ -22528,46 +22497,46 @@ public class XmlParser extends XmlParserBase {
         for (Identifier e : element.getIdentifier()) 
           composeIdentifier("identifier", e);
       }
-      if (element.hasPatient()) {
-        composeReference("patient", element.getPatient());
-      }
-      if (element.hasEncounter()) {
-        composeReference("encounter", element.getEncounter());
-      }
-      if (element.hasAsserter()) {
-        composeReference("asserter", element.getAsserter());
-      }
-      if (element.hasDateRecordedElement()) {
-        composeDate("dateRecorded", element.getDateRecordedElement());
-      }
-      if (element.hasCode()) {
-        composeCodeableConcept("code", element.getCode());
-      }
-      if (element.hasCategory()) {
-        composeCodeableConcept("category", element.getCategory());
-      }
       if (element.hasClinicalStatusElement()) {
         composeCode("clinicalStatus", element.getClinicalStatusElement());
       }
       if (element.hasVerificationStatusElement())
         composeEnumeration("verificationStatus", element.getVerificationStatusElement(), new Condition.ConditionVerificationStatusEnumFactory());
+      if (element.hasCategory()) {
+        composeCodeableConcept("category", element.getCategory());
+      }
       if (element.hasSeverity()) {
         composeCodeableConcept("severity", element.getSeverity());
+      }
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
+      }
+      if (element.hasBodySite()) { 
+        for (CodeableConcept e : element.getBodySite()) 
+          composeCodeableConcept("bodySite", e);
+      }
+      if (element.hasSubject()) {
+        composeReference("subject", element.getSubject());
+      }
+      if (element.hasContext()) {
+        composeReference("context", element.getContext());
       }
       if (element.hasOnset()) {
         composeType("onset", element.getOnset());
       }      if (element.hasAbatement()) {
         composeType("abatement", element.getAbatement());
-      }      if (element.hasStage()) {
+      }      if (element.hasDateRecordedElement()) {
+        composeDate("dateRecorded", element.getDateRecordedElement());
+      }
+      if (element.hasAsserter()) {
+        composeReference("asserter", element.getAsserter());
+      }
+      if (element.hasStage()) {
         composeConditionConditionStageComponent("stage", element.getStage());
       }
       if (element.hasEvidence()) { 
         for (Condition.ConditionEvidenceComponent e : element.getEvidence()) 
           composeConditionConditionEvidenceComponent("evidence", e);
-      }
-      if (element.hasBodySite()) { 
-        for (CodeableConcept e : element.getBodySite()) 
-          composeCodeableConcept("bodySite", e);
       }
       if (element.hasNote()) { 
         for (Annotation e : element.getNote()) 
@@ -24309,18 +24278,48 @@ public class XmlParser extends XmlParserBase {
         for (Identifier e : element.getIdentifier()) 
           composeIdentifier("identifier", e);
       }
+      if (element.hasDefinition()) { 
+        for (Reference e : element.getDefinition()) 
+          composeReference("definition", e);
+      }
+      if (element.hasBasedOn()) { 
+        for (Reference e : element.getBasedOn()) 
+          composeReference("basedOn", e);
+      }
+      if (element.hasReplaces()) { 
+        for (Reference e : element.getReplaces()) 
+          composeReference("replaces", e);
+      }
+      if (element.hasRequisition()) {
+        composeIdentifier("requisition", element.getRequisition());
+      }
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new DiagnosticRequest.DiagnosticRequestStatusEnumFactory());
-      if (element.hasPriorityElement())
-        composeEnumeration("priority", element.getPriorityElement(), new DiagnosticRequest.DiagnosticRequestPriorityEnumFactory());
+      if (element.hasStage()) {
+        composeCodeableConcept("stage", element.getStage());
+      }
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
+      }
       if (element.hasSubject()) {
         composeReference("subject", element.getSubject());
       }
-      if (element.hasEncounter()) {
-        composeReference("encounter", element.getEncounter());
+      if (element.hasContext()) {
+        composeReference("context", element.getContext());
       }
-      if (element.hasOrderer()) {
-        composeReference("orderer", element.getOrderer());
+      if (element.hasOccurrence()) {
+        composeType("occurrence", element.getOccurrence());
+      }      if (element.hasAuthoredElement()) {
+        composeDateTime("authored", element.getAuthoredElement());
+      }
+      if (element.hasRequester()) {
+        composeReference("requester", element.getRequester());
+      }
+      if (element.hasPerformerType()) {
+        composeCodeableConcept("performerType", element.getPerformerType());
+      }
+      if (element.hasPerformer()) {
+        composeReference("performer", element.getPerformer());
       }
       if (element.hasReason()) { 
         for (CodeableConcept e : element.getReason()) 
@@ -24330,68 +24329,13 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getSupportingInformation()) 
           composeReference("supportingInformation", e);
       }
-      if (element.hasEvent()) { 
-        for (DiagnosticRequest.DiagnosticRequestEventComponent e : element.getEvent()) 
-          composeDiagnosticRequestDiagnosticRequestEventComponent("event", e);
-      }
-      if (element.hasItem()) { 
-        for (DiagnosticRequest.DiagnosticRequestItemComponent e : element.getItem()) 
-          composeDiagnosticRequestDiagnosticRequestItemComponent("item", e);
-      }
       if (element.hasNote()) { 
         for (Annotation e : element.getNote()) 
           composeAnnotation("note", e);
       }
-  }
-
-  protected void composeDiagnosticRequestDiagnosticRequestEventComponent(String name, DiagnosticRequest.DiagnosticRequestEventComponent element) throws IOException {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.enter(FHIR_NS, name);
-      composeDiagnosticRequestDiagnosticRequestEventComponentElements(element);
-      composeElementClose(element);
-      xml.exit(FHIR_NS, name);
-    }
-  }
-
-  protected void composeDiagnosticRequestDiagnosticRequestEventComponentElements(DiagnosticRequest.DiagnosticRequestEventComponent element) throws IOException {
-      composeBackboneElements(element);
-      if (element.hasStatusElement())
-        composeEnumeration("status", element.getStatusElement(), new DiagnosticRequest.DiagnosticRequestStatusEnumFactory());
-      if (element.hasDescription()) {
-        composeCodeableConcept("description", element.getDescription());
-      }
-      if (element.hasDateTimeElement()) {
-        composeDateTime("dateTime", element.getDateTimeElement());
-      }
-      if (element.hasActor()) {
-        composeReference("actor", element.getActor());
-      }
-  }
-
-  protected void composeDiagnosticRequestDiagnosticRequestItemComponent(String name, DiagnosticRequest.DiagnosticRequestItemComponent element) throws IOException {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.enter(FHIR_NS, name);
-      composeDiagnosticRequestDiagnosticRequestItemComponentElements(element);
-      composeElementClose(element);
-      xml.exit(FHIR_NS, name);
-    }
-  }
-
-  protected void composeDiagnosticRequestDiagnosticRequestItemComponentElements(DiagnosticRequest.DiagnosticRequestItemComponent element) throws IOException {
-      composeBackboneElements(element);
-      if (element.hasCode()) {
-        composeCodeableConcept("code", element.getCode());
-      }
-      if (element.hasBodySite()) {
-        composeCodeableConcept("bodySite", element.getBodySite());
-      }
-      if (element.hasStatusElement())
-        composeEnumeration("status", element.getStatusElement(), new DiagnosticRequest.DiagnosticRequestStatusEnumFactory());
-      if (element.hasEvent()) { 
-        for (DiagnosticRequest.DiagnosticRequestEventComponent e : element.getEvent()) 
-          composeDiagnosticRequestDiagnosticRequestEventComponent("event", e);
+      if (element.hasRelevantHistory()) { 
+        for (Reference e : element.getRelevantHistory()) 
+          composeReference("relevantHistory", e);
       }
   }
 
@@ -26392,7 +26336,10 @@ public class XmlParser extends XmlParserBase {
         composeType("born", element.getBorn());
       }      if (element.hasAge()) {
         composeType("age", element.getAge());
-      }      if (element.hasDeceased()) {
+      }      if (element.hasEstimatedAgeElement()) {
+        composeBoolean("estimatedAge", element.getEstimatedAgeElement());
+      }
+      if (element.hasDeceased()) {
         composeType("deceased", element.getDeceased());
       }      if (element.hasNote()) {
         composeAnnotation("note", element.getNote());
@@ -26493,8 +26440,8 @@ public class XmlParser extends XmlParserBase {
         for (CodeableConcept e : element.getCategory()) 
           composeCodeableConcept("category", e);
       }
-      if (element.hasDescriptionElement()) {
-        composeString("description", element.getDescriptionElement());
+      if (element.hasDescription()) {
+        composeCodeableConcept("description", element.getDescription());
       }
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new Goal.GoalStatusEnumFactory());
@@ -26801,6 +26748,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
           composeIdentifier("identifier", e);
+      }
+      if (element.hasActiveElement()) {
+        composeBoolean("active", element.getActiveElement());
       }
       if (element.hasProvidedBy()) {
         composeReference("providedBy", element.getProvidedBy());
@@ -27527,7 +27477,7 @@ public class XmlParser extends XmlParserBase {
   protected void composeImmunizationRecommendationImmunizationRecommendationRecommendationProtocolComponentElements(ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent element) throws IOException {
       composeBackboneElements(element);
       if (element.hasDoseSequenceElement()) {
-        composeInteger("doseSequence", element.getDoseSequenceElement());
+        composePositiveInt("doseSequence", element.getDoseSequenceElement());
       }
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());
@@ -29185,8 +29135,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDateAssertedElement()) {
         composeDateTime("dateAsserted", element.getDateAssertedElement());
       }
-      if (element.hasWasNotTakenElement()) {
-        composeBoolean("wasNotTaken", element.getWasNotTakenElement());
+      if (element.hasNotTakenElement()) {
+        composeBoolean("notTaken", element.getNotTakenElement());
       }
       if (element.hasReasonNotTaken()) { 
         for (CodeableConcept e : element.getReasonNotTaken()) 
@@ -31663,6 +31613,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
       }
+      if (element.hasBasedOn()) { 
+        for (Reference e : element.getBasedOn()) 
+          composeReference("basedOn", e);
+      }
+      if (element.hasParent()) { 
+        for (Reference e : element.getParent()) 
+          composeReference("parent", e);
+      }
       if (element.hasQuestionnaire()) {
         composeReference("questionnaire", element.getQuestionnaire());
       }
@@ -31670,6 +31628,9 @@ public class XmlParser extends XmlParserBase {
         composeEnumeration("status", element.getStatusElement(), new QuestionnaireResponse.QuestionnaireResponseStatusEnumFactory());
       if (element.hasSubject()) {
         composeReference("subject", element.getSubject());
+      }
+      if (element.hasContext()) {
+        composeReference("context", element.getContext());
       }
       if (element.hasAuthor()) {
         composeReference("author", element.getAuthor());
@@ -31679,9 +31640,6 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasSource()) {
         composeReference("source", element.getSource());
-      }
-      if (element.hasEncounter()) {
-        composeReference("encounter", element.getEncounter());
       }
       if (element.hasItem()) { 
         for (QuestionnaireResponse.QuestionnaireResponseItemComponent e : element.getItem()) 
@@ -31827,6 +31785,9 @@ public class XmlParser extends XmlParserBase {
         for (Identifier e : element.getIdentifier()) 
           composeIdentifier("identifier", e);
       }
+      if (element.hasActiveElement()) {
+        composeBoolean("active", element.getActiveElement());
+      }
       if (element.hasPatient()) {
         composeReference("patient", element.getPatient());
       }
@@ -31963,6 +31924,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
           composeIdentifier("identifier", e);
+      }
+      if (element.hasActiveElement()) {
+        composeBoolean("active", element.getActiveElement());
       }
       if (element.hasServiceCategory()) {
         composeCodeableConcept("serviceCategory", element.getServiceCategory());
@@ -33415,8 +33379,8 @@ public class XmlParser extends XmlParserBase {
 
   protected void composeTaskParameterComponentElements(Task.ParameterComponent element) throws IOException {
       composeBackboneElements(element);
-      if (element.hasNameElement()) {
-        composeString("name", element.getNameElement());
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
       }
       if (element.hasValue()) {
         composeType("value", element.getValue());
@@ -33434,8 +33398,8 @@ public class XmlParser extends XmlParserBase {
 
   protected void composeTaskTaskOutputComponentElements(Task.TaskOutputComponent element) throws IOException {
       composeBackboneElements(element);
-      if (element.hasNameElement()) {
-        composeString("name", element.getNameElement());
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
       }
       if (element.hasValue()) {
         composeType("value", element.getValue());

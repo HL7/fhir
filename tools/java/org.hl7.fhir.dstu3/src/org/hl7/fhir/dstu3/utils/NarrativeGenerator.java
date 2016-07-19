@@ -2550,7 +2550,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       String href = prefix+getCsRef(e);
       if (href.contains("#"))
         href = href + "-"+Utilities.nmtokenize(c.getCode());
-      else
+      else 
         href = href + "#"+e.getId()+"_"+Utilities.nmtokenize(c.getCode());
       a.setAttribute("href", href);
     }

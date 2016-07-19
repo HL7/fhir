@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 18, 2016 12:13+1000 for FHIR v1.5.0
+// Generated on Tue, Jul 19, 2016 06:18+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -498,11 +498,11 @@ public class Goal extends DomainResource {
     protected List<CodeableConcept> category;
 
     /**
-     * Human-readable description of a specific desired objective of care.
+     * Code and/or human-readable description of a specific desired objective of care.
      */
-    @Child(name = "description", type = {StringType.class}, order=5, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="What's the desired outcome?", formalDefinition="Human-readable description of a specific desired objective of care." )
-    protected StringType description;
+    @Child(name = "description", type = {CodeableConcept.class}, order=5, min=1, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Code or text describing goal", formalDefinition="Code and/or human-readable description of a specific desired objective of care." )
+    protected CodeableConcept description;
 
     /**
      * Indicates whether the goal has been reached and is still considered relevant.
@@ -573,7 +573,7 @@ public class Goal extends DomainResource {
     @Description(shortDefinition="What was end result of goal?", formalDefinition="Identifies the change (or lack of change) at the point where the goal was deemed to be cancelled or achieved." )
     protected List<GoalOutcomeComponent> outcome;
 
-    private static final long serialVersionUID = 189427428L;
+    private static final long serialVersionUID = 772552830L;
 
   /**
    * Constructor
@@ -585,7 +585,7 @@ public class Goal extends DomainResource {
   /**
    * Constructor
    */
-    public Goal(StringType description, Enumeration<GoalStatus> status) {
+    public Goal(CodeableConcept description, Enumeration<GoalStatus> status) {
       super();
       this.description = description;
       this.status = status;
@@ -827,19 +827,15 @@ public class Goal extends DomainResource {
     }
 
     /**
-     * @return {@link #description} (Human-readable description of a specific desired objective of care.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @return {@link #description} (Code and/or human-readable description of a specific desired objective of care.)
      */
-    public StringType getDescriptionElement() { 
+    public CodeableConcept getDescription() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Goal.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType(); // bb
+          this.description = new CodeableConcept(); // cc
       return this.description;
-    }
-
-    public boolean hasDescriptionElement() { 
-      return this.description != null && !this.description.isEmpty();
     }
 
     public boolean hasDescription() { 
@@ -847,27 +843,10 @@ public class Goal extends DomainResource {
     }
 
     /**
-     * @param value {@link #description} (Human-readable description of a specific desired objective of care.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @param value {@link #description} (Code and/or human-readable description of a specific desired objective of care.)
      */
-    public Goal setDescriptionElement(StringType value) { 
+    public Goal setDescription(CodeableConcept value) { 
       this.description = value;
-      return this;
-    }
-
-    /**
-     * @return Human-readable description of a specific desired objective of care.
-     */
-    public String getDescription() { 
-      return this.description == null ? null : this.description.getValue();
-    }
-
-    /**
-     * @param value Human-readable description of a specific desired objective of care.
-     */
-    public Goal setDescription(String value) { 
-        if (this.description == null)
-          this.description = new StringType();
-        this.description.setValue(value);
       return this;
     }
 
@@ -1257,7 +1236,7 @@ public class Goal extends DomainResource {
         childrenList.add(new Property("start[x]", "date|CodeableConcept", "The date or event after which the goal should begin being pursued.", 0, java.lang.Integer.MAX_VALUE, start));
         childrenList.add(new Property("target[x]", "date|Duration", "Indicates either the date or the duration after start by which the goal should be met.", 0, java.lang.Integer.MAX_VALUE, target));
         childrenList.add(new Property("category", "CodeableConcept", "Indicates a category the goal falls within.", 0, java.lang.Integer.MAX_VALUE, category));
-        childrenList.add(new Property("description", "string", "Human-readable description of a specific desired objective of care.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("description", "CodeableConcept", "Code and/or human-readable description of a specific desired objective of care.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("status", "code", "Indicates whether the goal has been reached and is still considered relevant.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("statusDate", "date", "Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.", 0, java.lang.Integer.MAX_VALUE, statusDate));
         childrenList.add(new Property("statusReason", "CodeableConcept", "Captures the reason for the current status.", 0, java.lang.Integer.MAX_VALUE, statusReason));
@@ -1276,7 +1255,7 @@ public class Goal extends DomainResource {
         case 109757538: /*start*/ return this.start == null ? new Base[0] : new Base[] {this.start}; // Type
         case -880905839: /*target*/ return this.target == null ? new Base[0] : new Base[] {this.target}; // Type
         case 50511102: /*category*/ return this.category == null ? new Base[0] : this.category.toArray(new Base[this.category.size()]); // CodeableConcept
-        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // CodeableConcept
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<GoalStatus>
         case 247524032: /*statusDate*/ return this.statusDate == null ? new Base[0] : new Base[] {this.statusDate}; // DateType
         case 2051346646: /*statusReason*/ return this.statusReason == null ? new Base[0] : this.statusReason.toArray(new Base[this.statusReason.size()]); // CodeableConcept
@@ -1309,7 +1288,7 @@ public class Goal extends DomainResource {
           this.getCategory().add(castToCodeableConcept(value)); // CodeableConcept
           break;
         case -1724546052: // description
-          this.description = castToString(value); // StringType
+          this.description = castToCodeableConcept(value); // CodeableConcept
           break;
         case -892481550: // status
           this.status = new GoalStatusEnumFactory().fromType(value); // Enumeration<GoalStatus>
@@ -1353,7 +1332,7 @@ public class Goal extends DomainResource {
         else if (name.equals("category"))
           this.getCategory().add(castToCodeableConcept(value));
         else if (name.equals("description"))
-          this.description = castToString(value); // StringType
+          this.description = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("status"))
           this.status = new GoalStatusEnumFactory().fromType(value); // Enumeration<GoalStatus>
         else if (name.equals("statusDate"))
@@ -1382,7 +1361,7 @@ public class Goal extends DomainResource {
         case 1316793566:  return getStart(); // Type
         case -815579825:  return getTarget(); // Type
         case 50511102:  return addCategory(); // CodeableConcept
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case -1724546052:  return getDescription(); // CodeableConcept
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<GoalStatus>
         case 247524032: throw new FHIRException("Cannot make property statusDate as it is not a complex type"); // DateType
         case 2051346646:  return addStatusReason(); // CodeableConcept
@@ -1425,7 +1404,8 @@ public class Goal extends DomainResource {
           return addCategory();
         }
         else if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Goal.description");
+          this.description = new CodeableConcept();
+          return this.description;
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type Goal.status");
@@ -1531,8 +1511,7 @@ public class Goal extends DomainResource {
         if (!(other instanceof Goal))
           return false;
         Goal o = (Goal) other;
-        return compareValues(description, o.description, true) && compareValues(status, o.status, true) && compareValues(statusDate, o.statusDate, true)
-          ;
+        return compareValues(status, o.status, true) && compareValues(statusDate, o.statusDate, true);
       }
 
       public boolean isEmpty() {
