@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>3900</WindowHeight>
-  <WindowWidth>12024</WindowWidth>
+  <WindowHeight>10524</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>763</TabRatio>
@@ -4345,7 +4345,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28.8">
     <Cell ss:StyleID="s119"><Data ss:Type="String">abatement-date</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">Condition.abatement[x]</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">Condition.abatement.as(dateTime) | Condition.abatement.as(Period)</Data></Cell>
@@ -4546,8 +4546,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>19</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>10</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
