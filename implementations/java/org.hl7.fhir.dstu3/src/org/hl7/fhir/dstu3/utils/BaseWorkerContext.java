@@ -99,7 +99,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         return false;
       if (bndCodeSystems == null) {
         try {
-          log("Terminology server: Check for supported code systems");
+          log("Terminology server: Check for supported code systems for "+system);
         bndCodeSystems = txServer.fetchFeed(txServer.getAddress()+"/CodeSystem?content=not-present&_summary=true&_count=1000");
         } catch (Exception e) {
           if (canRunWithoutTerminology) {
