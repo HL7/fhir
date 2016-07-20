@@ -16,17 +16,58 @@
 	},
 	"canonicalBase": "http://hl7.org/fhir/daf",
 	"source": "daf.xml",
-	"spreadsheets": [
-		"allergyintolerance-daf-profile-spreadsheet.xml", "allergyintolerance-daf-core-profile-spreadsheet.xml", "careplan-daf-core-profile-spreadsheet.xml", "condition-daf-profile-spreadsheet.xml", "condition-daf-core-profile-spreadsheet.xml", "diagnosticrequest-daf-profile-spreadsheet.xml", "diagnosticreport-daf-profile-spreadsheet.xml", "diagnosticreport-daf-core-profile-spreadsheet.xml", "device-daf-core-profile-spreadsheet.xml", "encounter-daf-profile-spreadsheet.xml", "familymemberhistory-daf-profile-spreadsheet.xml", "goal-daf-core-profile-spreadsheet.xml", "immunization-daf-profile-spreadsheet.xml", "immunization-daf-core-profile-spreadsheet.xml", "list-daf-profile-spreadsheet.xml", "location-daf-profile-spreadsheet.xml", "location-daf-core-profile-spreadsheet.xml", "medication-daf-profile-spreadsheet.xml", "medication-daf-core-profile-spreadsheet.xml", "medicationadministration-daf-profile-spreadsheet.xml", "medicationdispense-daf-profile-spreadsheet.xml", "medicationorder-daf-profile-spreadsheet.xml", "medicationorder-daf-core-profile-spreadsheet.xml", "medicationstatement-daf-profile-spreadsheet.xml", "medicationstatement-daf-core-profile-spreadsheet.xml", "observation-daf-vitalsigns-profile-spreadsheet.xml", "observation-daf-core-vitalsigns-profile-spreadsheet.xml", "observation-daf-results-profile-spreadsheet.xml", "observation-daf-core-results-profile-spreadsheet.xml", "observation-daf-smokingstatus-profile-spreadsheet.xml", "observation-daf-core-smokingstatus-profile-spreadsheet.xml", "organization-daf-profile-spreadsheet.xml", "organization-daf-core-profile-spreadsheet.xml", "patient-daf-profile-spreadsheet.xml", "patient-daf-core-profile-spreadsheet.xml", "practitioner-daf-profile-spreadsheet.xml", "practitioner-daf-core-profile-spreadsheet.xml", "procedure-daf-profile-spreadsheet.xml", "procedure-daf-core-profile-spreadsheet.xml", "relatedperson-daf-profile-spreadsheet.xml", "spec-daf-profile-spreadsheet.xml", "substance-daf-profile-spreadsheet.xml"
+"spreadsheets": [
+	"allergyintolerance-daf-core-profile-spreadsheet.xml",
+	"careplan-daf-core-profile-spreadsheet.xml",
+	"condition-daf-core-profile-spreadsheet.xml",
+	"diagnosticreport-daf-core-profile-spreadsheet.xml",
+	"device-daf-core-profile-spreadsheet.xml",
+	"goal-daf-core-profile-spreadsheet.xml",
+	"immunization-daf-core-profile-spreadsheet.xml",
+	"location-daf-core-profile-spreadsheet.xml",
+	"medication-daf-core-profile-spreadsheet.xml",
+	"medicationorder-daf-core-profile-spreadsheet.xml",
+	"medicationstatement-daf-core-profile-spreadsheet.xml",
+	"observation-daf-core-vitalsigns-profile-spreadsheet.xml",
+	"observation-daf-core-results-profile-spreadsheet.xml",
+	"observation-daf-core-smokingstatus-profile-spreadsheet.xml",
+	"organization-daf-core-profile-spreadsheet.xml",
+	"patient-daf-core-profile-spreadsheet.xml",
+	"practitioner-daf-core-profile-spreadsheet.xml",
+	"procedure-daf-core-profile-spreadsheet.xml",
+	"allergyintolerance-daf-profile-spreadsheet.xml",
+	"condition-daf-profile-spreadsheet.xml",
+	"diagnosticrequest-daf-profile-spreadsheet.xml",
+	"diagnosticreport-daf-profile-spreadsheet.xml",
+	"encounter-daf-profile-spreadsheet.xml",
+	"familymemberhistory-daf-profile-spreadsheet.xml",
+	"immunization-daf-profile-spreadsheet.xml",
+	"list-daf-profile-spreadsheet.xml",
+	"location-daf-profile-spreadsheet.xml",
+	"medication-daf-profile-spreadsheet.xml",
+	"medicationadministration-daf-profile-spreadsheet.xml",
+	"medicationdispense-daf-profile-spreadsheet.xml",
+	"medicationorder-daf-profile-spreadsheet.xml",
+	"medicationstatement-daf-profile-spreadsheet.xml",
+	"observation-daf-vitalsigns-profile-spreadsheet.xml",
+	"observation-daf-results-profile-spreadsheet.xml",
+	"observation-daf-smokingstatus-profile-spreadsheet.xml",
+	"organization-daf-profile-spreadsheet.xml",
+	"patient-daf-profile-spreadsheet.xml",
+	"practitioner-daf-profile-spreadsheet.xml",
+	"procedure-daf-profile-spreadsheet.xml",
+	"relatedperson-daf-profile-spreadsheet.xml",
+	"spec-daf-profile-spreadsheet.xml",
+	"substance-daf-profile-spreadsheet.xml"
 	],
 	"resources": {
-		"StructureDefinition/daf-allergyintolerance": {
-			"defns": "daf-allergyintolerance-definitions.html",
-			"base": "daf-allergyintolerance.html"
-		},
 		"StructureDefinition/daf-core-allergyintolerance": {
 			"defns": "daf-core-allergyintolerance-definitions.html",
 			"base": "daf-core-allergyintolerance.html"
+		},
+		"StructureDefinition/daf-allergyintolerance": {
+			"defns": "daf-allergyintolerance-definitions.html",
+			"base": "daf-allergyintolerance.html"
 		},
 		"StructureDefinition/daf-allergylist": {
 			"defns": "daf-allergylist-definitions.html",
@@ -212,10 +253,6 @@
 			"defns": "daf-procedurelist-definitions.html",
 			"base": "daf-procedurelist.html"
 		},
-		"ValueSet/daf-substance": {
-			"base": "valueset-daf-substance.html",
-			"template-base": null
-		},
 		"ValueSet/daf-procedure-type": {
 			"base": "valueset-daf-procedure-type.html",
 			"template-base": null
@@ -230,6 +267,10 @@
 		},
 		"ValueSet/daf-core-substance": {
 			"base": "valueset-daf-core-substance.html",
+			"template-base": null
+		},
+		"ValueSet/daf-substance": {
+			"base": "valueset-daf-substance.html",
 			"template-base": null
 		},
 		"ValueSet/daf-substance-ndfrt": {
