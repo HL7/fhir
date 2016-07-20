@@ -497,6 +497,17 @@
 				<reference value="StructureDefinition/daf-core-vitalsigns"/>
 			</sourceReference>
 		</resource>
+				<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/daf-core-birth-sex"/>
+			</sourceReference>
+		</resource>
+		
+				<resource>
+			<example value="false"/>
+
+		</resource>
 		<!--  search parameters -->
 		<resource>
 			<example value="false"/>
@@ -572,6 +583,12 @@
 			<example value="false"/>
 			<sourceReference>
 				<reference value="ValueSet/daf-core-substance-unii"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/us-core-birth-sex"/>
 			</sourceReference>
 		</resource>
 	</package>
