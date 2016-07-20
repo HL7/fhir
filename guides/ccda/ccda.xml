@@ -14,9 +14,6 @@
   <package>
     <name value="CCDA Package"/>
     <description value="Resource profiles and extensions necessary to support C-CDA on FHIR."/>
-    
-
- 
     <resource>
       <example value="false"/>
       <name value="C-CDA on FHIR Authorization Extension"/>
@@ -266,127 +263,158 @@
             <reference value="http://hl7.org/fhir/StructureDefinition/ccda-procedure-note-composition"/>
           </exampleFor> -->
     </resource>
-   <resource>
+    <resource>
+     <example value="false"/>
      <name value="V3 Data type ANY (DataValue)"/>
      <sourceUri value="CDA\cda-logical-ANY.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type BL (Boolean)"/>
      <sourceUri value="CDA\cda-logical-BL.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type ED (EncapsulatedData)"/>
      <sourceUri value="CDA\cda-logical-ED.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type ST (CharacterString)"/>
      <sourceUri value="CDA\cda-logical-ST.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type CD (ConceptDescriptor)"/>
      <sourceUri value="CDA\cda-logical-CD.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type CR (ConceptRole)"/>
      <sourceUri value="CDA\cda-logical-CR.xml"/>
    </resource>
-   <resource>
+    <resource>
+     <example value="false"/>
      <name value="V3 Data type CS (CodedSimpleValue)"/>
      <sourceUri value="CDA\cda-logical-CS.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type CV (CodedValue)"/>
      <sourceUri value="CDA\cda-logical-CV.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type CE (CodedWithEquivalents)"/>
      <sourceUri value="CDA\cda-logical-CE.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type SC (CharacterStringWithCode)"/>
      <sourceUri value="CDA\cda-logical-SC.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type II (InstanceIdentifier)"/>
      <sourceUri value="CDA\cda-logical-II.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type TEL (TelecommunicationAddress)"/>
      <sourceUri value="CDA\cda-logical-TEL.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type AD (PostalAddress)"/>
      <sourceUri value="CDA\cda-logical-AD.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type EN (EntityName)"/>
      <sourceUri value="CDA\cda-logical-EN.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type QTY (Quantity)"/>
      <sourceUri value="CDA\cda-logical-QTY.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type INT (IntegerNumber)"/>
      <sourceUri value="CDA\cda-logical-INT.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type REAL (RealNumber)"/>
      <sourceUri value="CDA\cda-logical-REAL.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type RTO_PQ_PQ (Ratio)"/>
      <sourceUri value="CDA\cda-logical-RTO_PQ_PQ.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type PQ (PhysicalQuantity)"/>
      <sourceUri value="CDA\cda-logical-PQ.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type PQR (PhysicalQuantityRepresentation)"/>
      <sourceUri value="CDA\cda-logical-PQR.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type MO (MonetaryAmount)"/>
      <sourceUri value="CDA\cda-logical-MO.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type TS (PointInTime)"/>
      <sourceUri value="CDA\cda-logical-TS.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type IVL_TS (Interval)"/>
      <sourceUri value="CDA\cda-logical-IVL_TS.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type IVL_PQ (Interval)"/>
      <sourceUri value="CDA\cda-logical-IVL_PQ.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type IVL_INT (Interval)"/>
      <sourceUri value="CDA\cda-logical-IVL_INT.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type PIVL_TS (PeriodicIntervalOfTime)"/>
      <sourceUri value="CDA\cda-logical-PIVL_TS.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type EIVL_TS (EventRelatedPeriodicInterval)"/>
      <sourceUri value="CDA\cda-logical-EIVL_TS.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type SXCM_TS (GeneralTimingSpecification)"/>
      <sourceUri value="CDA\cda-logical-SXCM_TS.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="V3 Data type SXPR_TS (A set-component that is itself made up of set-components that are evaluated as one value)"/>
      <sourceUri value="CDA\cda-logical-SXPR_TS.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="Base Type for all classes in the CDA structure"/>
      <sourceUri value="CDA\cda-logical-InfrastructureRoot.xml"/>
    </resource>
-   <resource>
+    <resource>
+      <example value="false"/>
      <name value="CDA R2"/>
      <sourceUri value="CDA\cda-logical-ClinicalDocument.xml"/>
    </resource>
