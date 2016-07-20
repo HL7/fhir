@@ -223,7 +223,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
           else if (ref.equals("http://www.iso.org/iso/country_codes.htm"))
             br.display = "ISO Country Codes";
           else
-            br.display = "????";
+            br.display = ref;
         }
       }
     } else {
@@ -256,9 +256,15 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
           br.url = specPath("v2/"+ref.substring(26)+"/index.html"); 
           br.display = ref.substring(26);
         } else {
-          brokenLinkWarning(ref);
-          br.url = ref;
-          br.display = "????";
+          ValueSet vs = context.fetchResource(ValueSet.class, ref);
+          if (vs == null) {
+            br.url = ref.substring(9)+".html"; // broken link, 
+            br.display = ref.substring(9);
+            brokenLinkWarning(ref);
+          } else {
+            br.url = vs.getUserString("path");
+            br.display = vs.getName(); 
+          }
         }
       }
     }
