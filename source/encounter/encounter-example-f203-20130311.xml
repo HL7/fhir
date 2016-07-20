@@ -1,78 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../publish/encounter.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounter.xsd">
-  <id value="f203"/>
- <identifier>
-    <use value="temp"/>
-    <value value="Encounter_Roel_20130311"/>
- </identifier>
- <status value="finished"/><!--Encounter has finished-->
+    <id value="f203"/>
+    <identifier>
+        <use value="temp"/>
+        <value value="Encounter_Roel_20130311"/>
+    </identifier>
+    <status value="finished"/>
+    <statusHistory>
+        <status value="arrived"/>
+        <period>
+            <start value="2013-03-08"/>
+        </period>
+    </statusHistory>
+    <!--Encounter has finished-->
     <class>
         <!--Inpatient encounter for straphylococcus infection-->
         <system value="http://hl7.org/fhir/v3/ActCode"/>
         <code value="IMP"/>
         <display value="inpatient encounter"/>
     </class>
- <type>
-    <coding>
-       <system value="http://snomed.info/sct"/>
-       <code value="183807002"/>
-       <display value="Inpatient stay for nine days"/>
-    </coding>
- </type>
- <priority><!--High priority-->
-    <coding>
-       <system value="http://snomed.info/sct"/>
-       <code value="394849002"/>
-       <display value="High priority"/>
-    </coding>
- </priority>
- <patient>
-     <reference value="Patient/f201"/>
-     <display value="Roel"/>
- </patient>
- <participant>
-     <individual>
-         <reference value="Practitioner/f201"/>
-    </individual>
- </participant>
-  <period>
-      <start value="2013-03-11"/>
-      <end value="2013-03-20"/>
-  </period>
- <reason>
-   <text value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
- </reason> 
-<!--No indication, because no referral took place-->
- <hospitalization> 
-<!--  <origin>
-     <reference value="Location/2"/>     
-  </origin>--> 
-  <admitSource>
-    <coding>
-       <system value="http://snomed.info/sct"/>
-       <code value="309902002"/>
-       <display value="Clinical Oncology Department"/>
-    </coding>
-  </admitSource>
-  <reAdmission>
-	  <coding>
-		  <display value="readmitted"/>
-	  </coding>
-  </reAdmission>
-  <!--accomodation details are not available-->
-  <dietPreference>
-    <coding>
-       <system value="http://snomed.info/sct"/>
-       <code value="276026009"/>
-       <display value="Fluid balance regulation"/>
-    </coding>
-  </dietPreference>
-  <!--no special courtesy or arrangements-->
-<!--  <destination><!-\-Fictive-\->
-     <reference value="Location/f202"/>  
-  </destination>-->
- </hospitalization>
- <serviceProvider>
-     <reference value="Organization/f201"/>
- </serviceProvider>
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="183807002"/>
+            <display value="Inpatient stay for nine days"/>
+        </coding>
+    </type>
+    <priority>
+        <!--High priority-->
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="394849002"/>
+            <display value="High priority"/>
+        </coding>
+    </priority>
+    <patient>
+        <reference value="Patient/f201"/>
+        <display value="Roel"/>
+    </patient>
+    <episodeOfCare>
+        <reference value="EpisodeOfCare/12345"/>
+    </episodeOfCare>
+    <incomingReferral>
+        <reference value="ReferralRequest/12345"/>
+    </incomingReferral>
+    <participant>
+        <type>
+            <coding>
+                <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+                <code value="PART"/>
+            </coding>
+        </type>
+        <individual>
+            <reference value="Practitioner/f201"/>
+        </individual>
+    </participant>
+    <appointment>
+        <reference value="Appointment/12345"/>
+    </appointment>
+    <period>
+        <start value="2013-03-11"/>
+        <end value="2013-03-20"/>
+    </period>
+    <reason>
+        <text value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
+    </reason>
+    <account>
+        <reference value="Account/12345"></reference>
+    </account>
+    <!--No indication, because no referral took place-->
+    <hospitalization>
+        <origin>
+            <reference value="Location/2"/>
+        </origin>
+        <admitSource>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="309902002"/>
+                <display value="Clinical Oncology Department"/>
+            </coding>
+        </admitSource>
+        <admittingDiagnosis>
+            <reference value="Condition/12345"/>
+        </admittingDiagnosis>
+        <reAdmission>
+            <coding>
+                <display value="readmitted"/>
+            </coding>
+        </reAdmission>
+        <!--accomodation details are not available-->
+        <dietPreference>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="276026009"/>
+                <display value="Fluid balance regulation"/>
+            </coding>
+        </dietPreference>
+        <specialCourtesy>
+            <coding>
+                <system value="http://hl7.org/fhir/v3/EncounterSpecialCourtesy"/>
+                <code value="NRM"/>
+                <display value="normal courtesy"/>
+            </coding>
+        </specialCourtesy>
+        <specialArrangement>
+            <coding>
+                <system value="http://hl7.org/fhir/encounter-special-arrangements"/>
+                <code value="wheel"/>
+                <display value="Wheelchair"/>
+            </coding>
+        </specialArrangement>
+        <destination>
+            <!--Fictive-->
+            <reference value="Location/f202"/>
+        </destination>
+        <dischargeDiagnosis>
+            <reference value="Condition/54321"/>
+        </dischargeDiagnosis>
+    </hospitalization>
+    <serviceProvider>
+        <reference value="Organization/f201"/>
+    </serviceProvider>
+    <partOf>
+        <reference value="Encounter/ff456"/>
+    </partOf>
 </Encounter>
