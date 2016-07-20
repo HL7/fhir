@@ -33,7 +33,7 @@
   Card. = 0..1
   Is Modifier = Y
   Summary = Y
-  Type = code
+  Type = CodeableConcept
   Short Label = active | suspended | inactive | entered in error
   Definition = Indicates whether the care team is currently active, suspended, inactive, or entered in error
   w5 = status
