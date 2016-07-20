@@ -2350,7 +2350,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           + "do the expansions or find a terminology server that supports the same version of the value sets");
       for (ValueSet vs : page.getValueSets().values()) {
         if (vs.getUserData(ToolResourceUtilities.NAME_VS_USE_MARKER) != null) {
-          ValueSetExpansionOutcome vse = page.getWorkerContext().expandVS(vs, true);
+          ValueSetExpansionOutcome vse = page.getWorkerContext().expandVS(vs, true, true);
           if (vse.getValueset() != null) {
             ValueSet vsc = vs.copy();
             vsc.setText(null);
@@ -6106,7 +6106,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.log("unable to resolve "+params.get("identifier"), LogMessageType.Process);
         return null;
       }
-      vs = page.expandValueSet(vs);
+      vs = page.expandValueSet(vs, true);
       if (vs == null) {
         page.log("unable to expand "+params.get("identifier"), LogMessageType.Process);
         return null;

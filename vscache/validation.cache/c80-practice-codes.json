@@ -1,36 +1,4 @@
 ﻿{
   "url": "http://hl7.org/fhir/ValueSet/c80-practice-codes",
-  "outcomes": [
-    {
-      "hash": "#|http://example.org/specialty|null|gp|General Practice",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|172676009|Myringotomy and insertion of short-term tympanic ventilation tube (procedure)",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|172676009|Myringotomy and insertion of tympanic ventilation tube",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|47505003|Posttraumatic stress disorder",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|null|null|408480009|Clinical immunology",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "408480009",
-        "definition": null,
-        "display": "Clinical immunology"
-      }
-    }
-  ]
+  "outcomes": []
 }

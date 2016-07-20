@@ -24,6 +24,7 @@ import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.Conformance;
+import org.hl7.fhir.dstu3.model.ExpansionProfile;
 import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.Parameters;
@@ -80,6 +81,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected String cache;
   private int expandCodesLimit = 10000;
   private ILoggingService logger;
+  private ExpansionProfile expProfile;
 
   @Override
   public CodeSystem fetchCodeSystem(String system) {
@@ -131,19 +133,19 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   }
 
   @Override
-  public ValueSetExpansionOutcome expandVS(ValueSet vs, boolean cacheOk) {
+  public ValueSetExpansionOutcome expandVS(ValueSet vs, boolean cacheOk, boolean heirarchical) {
     try {
       if (vs.hasExpansion()) {
         return new ValueSetExpansionOutcome(vs.copy());
       }
       String cacheFn = null;
       if (cache != null) {
-        cacheFn = Utilities.path(cache, determineCacheId(vs)+".json");
+        cacheFn = Utilities.path(cache, determineCacheId(vs, heirarchical)+".json");
         if (new File(cacheFn).exists())
           return loadFromCache(vs.copy(), cacheFn);
       }
       if (cacheOk && vs.hasUrl()) {
-        ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs);
+        ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs, expProfile.setExcludeNested(!heirarchical));
         if (vse.getValueset() != null) {
           if (cache != null) {
             FileOutputStream s = new FileOutputStream(cacheFn);
@@ -185,7 +187,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     parser.compose(new FileOutputStream(cacheFn), res);
   }
 
-  private String determineCacheId(ValueSet vs) throws Exception {
+  private String determineCacheId(ValueSet vs, boolean heirarchical) throws Exception {
     // just the content logical definition is hashed
     ValueSet vsid = new ValueSet();
     vsid.setCompose(vs.getCompose());
@@ -202,6 +204,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       if (cs != null) 
         s = s + cacheValue(cs);
     }
+    s = s + "-"+Boolean.toString(heirarchical);
     String r = Integer.toString(s.hashCode());
 //    TextFile.stringToFile(s, Utilities.path(cache, r+".id.json"));
     return r;
@@ -292,7 +295,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       return null;
     if (failed.contains(vs.getUrl()))
       return null;
-    ValueSetExpansionOutcome vse = expandVS(vs, true);
+    ValueSetExpansionOutcome vse = expandVS(vs, true, false);
     if (vse.getValueset() == null || notcomplete(vse.getValueset())) {
       failed.add(vs.getUrl());
       return null;
@@ -331,7 +334,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       return null;
     if (failed.contains(vs.getUrl()))
       return null;
-    ValueSetExpansionOutcome vse = expandVS(vs, true);
+    ValueSetExpansionOutcome vse = expandVS(vs, true, false);
     if (vse.getValueset() == null || notcomplete(vse.getValueset())) {
       failed.add(vs.getUrl());
       return null;
@@ -466,11 +469,11 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   }
 
   @Override
-  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws TerminologyServiceException {
+  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc, boolean heirachical) throws TerminologyServiceException {
     ValueSet vs = new ValueSet();
     vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().getInclude().add(inc);
-    ValueSetExpansionOutcome vse = expandVS(vs, true);
+    ValueSetExpansionOutcome vse = expandVS(vs, true, heirachical);
     ValueSet valueset = vse.getValueset();
     if (valueset == null)
       throw new TerminologyServiceException("Error Expanding ValueSet: "+vse.getError());
@@ -583,7 +586,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     if (vs.hasExpansion())
       return verifyCodeInExpansion(vs, system, code, display);
     else {
-      ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs);
+      ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs, null);
       if (vse.getValueset() != null) 
         return verifyCodeExternal(vs, new Coding().setSystem(system).setCode(code).setDisplay(display), false);
       else
@@ -595,7 +598,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     if (vs.hasExpansion())
       return verifyCodeInExpansion(vs, code);
     else {
-      ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs);
+      ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs, null);
       return verifyCodeInExpansion(vse.getValueset(), code);
     }
   }
@@ -688,4 +691,12 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     this.logger = logger;
   }
   
+  public ExpansionProfile getExpansionProfile() {
+    return expProfile;
+  }
+
+  public void setExpansionProfile(ExpansionProfile expProfile) {
+    this.expProfile = expProfile;
+  }
+
 }

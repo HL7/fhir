@@ -848,7 +848,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("cs-content"))
         src = s1 + csContent(Utilities.fileTitle(file), ((CodeSystem) resource), genlevel(level)) + s3;
       else if (com[0].equals("vsexpansionig"))
-        src = s1 + expandValueSetIG((ValueSet) resource) + s3;
+        src = s1 + expandValueSetIG((ValueSet) resource, true) + s3;
       else if (com[0].equals("v3expansion"))
         src = s1 + expandV3ValueSet(name) + s3;
       else if (com[0].equals("level"))
@@ -3841,7 +3841,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //      else if (com[0].equals("vsexpansion"))
 //        src = s1 + expandValueSet(Utilities.fileTitle(file), resource == null ? null : (ValueSet) resource) + s3;
       else if (com[0].equals("vsexpansionig"))
-        src = s1 + expandValueSetIG((ValueSet) resource) + s3;
+        src = s1 + expandValueSetIG((ValueSet) resource, true) + s3;
       else if (com[0].equals("pub-notice"))
         src = s1 + publicationNotice + s3;      
       else if (com[0].startsWith("!"))
@@ -3924,11 +3924,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return n;
   }
 
-  private String expandValueSetIG(ValueSet vs) throws Exception {
+  private String expandValueSetIG(ValueSet vs, boolean heirarchy) throws Exception {
     if (!hasDynamicContent(vs))
       return "";
     try {
-      ValueSetExpansionOutcome result = workerContext.expandVS(vs, true);
+      ValueSetExpansionOutcome result = workerContext.expandVS(vs, true, heirarchy);
       if (result.getError() != null)
         return "<hr/>\r\n"+VS_INC_START+"<!--1-->"+processExpansionError(result.getError())+VS_INC_END;
       ValueSet exp = result.getValueset();
@@ -4001,8 +4001,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return expandVS(vs, "../../", "v3/"+name);
   }
   
-  public ValueSet expandValueSet(ValueSet vs) throws Exception {
-    ValueSetExpansionOutcome result = workerContext.expandVS(vs, true);
+  public ValueSet expandValueSet(ValueSet vs, boolean heirarchy) throws Exception {
+    ValueSetExpansionOutcome result = workerContext.expandVS(vs, true, heirarchy);
     if (result.getError() != null)
       return null;
     else
@@ -4260,7 +4260,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("vsexpansion"))
         src = s1 + expandValueSet(Utilities.fileTitle(file), resource == null ? null : (ValueSet) resource, genlevel(level)) + s3;
       else if (com[0].equals("vsexpansionig"))
-        src = s1 + expandValueSetIG((ValueSet) resource) + s3;
+        src = s1 + expandValueSetIG((ValueSet) resource, true) + s3;
       else if (com[0].equals("vsdef"))
         if (resource instanceof CodeSystem)
           src = s1 + Utilities.escapeXml(((CodeSystem) resource).getDescription()) + s3;
@@ -7169,7 +7169,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public String expandVS(ValueSet vs, String prefix, String base) {
     try {
-      ValueSetExpansionOutcome result = workerContext.expandVS(vs, true);
+      ValueSetExpansionOutcome result = workerContext.expandVS(vs, true, true);
       if (result.getError() != null)
         return "<hr/>\r\n"+VS_INC_START+"<!--3-->"+processExpansionError(result.getError())+VS_INC_END;
 

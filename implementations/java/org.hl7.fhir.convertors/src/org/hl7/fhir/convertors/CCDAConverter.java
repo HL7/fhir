@@ -37,6 +37,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.AllergyIntolerance;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
@@ -71,6 +72,7 @@ import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceType;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Composition.CompositionAttestationMode;
 import org.hl7.fhir.dstu3.model.Composition.CompositionAttesterComponent;
+import org.hl7.fhir.dstu3.model.Composition.DocumentConfidentiality;
 import org.hl7.fhir.dstu3.model.Composition.SectionComponent;
 import org.hl7.fhir.dstu3.model.ListResource.ListEntryComponent;
 import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
@@ -280,9 +282,9 @@ public class CCDAConverter {
 		// main todo: fill out the narrative, but before we can do that, we have to convert everything else
 	}
 
-	protected String convertConfidentiality(Element child) {
+	protected DocumentConfidentiality convertConfidentiality(Element child) throws FHIRException {
 		// TODO Auto-generated method stub
-		return child.getAttribute("code");
+		return DocumentConfidentiality.fromCode(child.getAttribute("code"));
 	}
 
 

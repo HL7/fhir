@@ -39,6 +39,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.output.ByteArrayOutputStream;
@@ -121,6 +122,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.FilterOperator;
@@ -2227,7 +2229,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       XhtmlNode tr = t.addTag("tr");
       tr.addTag("td").addTag("b").addText("Code");
       for (String lang : langs)
-        tr.addTag("td").addTag("b").addText(lang);
+        tr.addTag("td").addTag("b").addText(describeLang(lang));
       for (ConceptDefinitionComponent c : cs.getConcept()) {
         addLanguageRow(c, t, langs);
       }
@@ -2285,7 +2287,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (vs.hasCompose()) {
         if (vs.getCompose().hasExclude()) {
           try {
-            ValueSetExpansionOutcome vse = context.expandVS(vs, true);
+            ValueSetExpansionOutcome vse = context.expandVS(vs, true, false);
             count = 0;
             count += conceptCount(vse.getValueset().getExpansion().getContains());
             return count;
@@ -2317,6 +2319,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   private boolean generateExpansion(XhtmlNode x, ValueSet vs, ValueSet src, boolean header) throws FHIRFormatError, DefinitionException, IOException {
     boolean hasExtensions = false;
+    List<String> langs = new ArrayList<String>();
+    
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
     for (ConceptMap a : context.findMapsForSource(vs.getUrl())) {
       String url = "";
@@ -2371,10 +2375,81 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
     addMapHeaders(tr, mymaps);
     for (ValueSetExpansionContainsComponent c : vs.getExpansion().getContains()) {
-      addExpansionRowToTable(t, c, 0, doSystem, doDefinition, mymaps, allCS);
+      addExpansionRowToTable(t, c, 0, doSystem, doDefinition, mymaps, allCS, langs);
     }
+
+    // now, build observed languages
+    
+    if (langs.size() > 0) {
+      Collections.sort(langs);
+      x.addTag("p").addTag("b").addText("Additional Language Displays");
+      t = x.addTag("table").setAttribute("class", "codes");
+      tr = t.addTag("tr");
+      tr.addTag("td").addTag("b").addText("Code");
+      for (String lang : langs)
+        tr.addTag("td").addTag("b").addText(describeLang(lang));
+      for (ValueSetExpansionContainsComponent c : vs.getExpansion().getContains()) {
+        addLanguageRow(c, t, langs);
+      }
+    }
+    
     return hasExtensions;
   }
+
+  private void addLanguageRow(ValueSetExpansionContainsComponent c, XhtmlNode t, List<String> langs) {
+    XhtmlNode tr = t.addTag("tr");
+    tr.addTag("td").addText(c.getCode());
+    for (String lang : langs) {
+      String d = null;
+      for (Extension ext : c.getExtension()) {
+        if (ToolingExtensions.EXT_TRANSLATION.equals(ext.getUrl())) {
+          String l = ToolingExtensions.readStringExtension(ext, "lang");
+          if (lang.equals(l))
+            d = ToolingExtensions.readStringExtension(ext, "content");;
+        }
+      }
+      tr.addTag("td").addText(d == null ? "" : d);
+    }
+    for (ValueSetExpansionContainsComponent cc : c.getContains()) {
+      addLanguageRow(cc, t, langs);
+    }    
+  }
+
+
+  private String describeLang(String lang) {
+    ValueSet v = context.fetchResource(ValueSet.class, "http://hl7.org/fhir/ValueSet/languages");
+    if (v != null) {
+      ConceptReferenceComponent l = null;
+      for (ConceptReferenceComponent cc : v.getCompose().getIncludeFirstRep().getConcept()) {
+        if (cc.getCode().equals(lang)) 
+          l = cc;
+      }
+      if (l == null) {
+        if (lang.contains("-"))
+          lang = lang.substring(0, lang.indexOf("-")); 
+        for (ConceptReferenceComponent cc : v.getCompose().getIncludeFirstRep().getConcept()) {
+          if (cc.getCode().equals(lang) || cc.getCode().startsWith(lang+"-")) 
+            l = cc;
+        }
+      }
+      if (l != null) {
+        if (lang.contains("-"))
+          lang = lang.substring(0, lang.indexOf("-")); 
+        String en = l.getDisplay();
+        String nativelang = null;
+        for (ConceptReferenceDesignationComponent cd : l.getDesignation()) {
+          if (cd.getLanguage().equals(lang))
+            nativelang = cd.getValue();
+        }
+        if (nativelang == null)
+          return en+" ("+lang+")";
+        else
+          return nativelang+" ("+en+", "+lang+")";
+      }
+    }
+    return lang;
+  }
+
 
   private boolean checkDoDefinition(List<ValueSetExpansionContainsComponent> contains) {
     for (ValueSetExpansionContainsComponent c : contains) {
@@ -2531,15 +2606,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return tr;
   }
 
-  private void addExpansionRowToTable(XhtmlNode t, ValueSetExpansionContainsComponent c, int i, boolean doSystem, boolean doDefinition, Map<ConceptMap, String> mymaps, CodeSystem allCS) {
+  private void addExpansionRowToTable(XhtmlNode t, ValueSetExpansionContainsComponent c, int i, boolean doSystem, boolean doDefinition, Map<ConceptMap, String> mymaps, CodeSystem allCS, List<String> langs) {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
 
     String tgt = makeAnchor(c.getSystem(), c.getCode());
     td.addTag("a").setAttribute("name", tgt).addText(" ");
 
-    String s = Utilities.padLeft("", '.', i*2);
-
+    String s = Utilities.padLeft("", '\u00A0', i*2);
+    
     td.addText(s);
     Resource e = context.fetchCodeSystem(c.getSystem());
     if (e == null)
@@ -2588,8 +2663,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
           td.addTag("i").addText("("+mapping.comp.getComments()+")");
       }
     }
+    for (Extension ext : c.getExtension()) {
+      if (ToolingExtensions.EXT_TRANSLATION.equals(ext.getUrl())) {
+        String lang = ToolingExtensions.readStringExtension(ext,  "lang");
+        if (!Utilities.noString(lang) && !langs.contains(lang))
+          langs.add(lang);
+      }
+    }
     for (ValueSetExpansionContainsComponent cc : c.getContains()) {
-      addExpansionRowToTable(t, cc, i+1, doSystem, doDefinition, mymaps, allCS);
+      addExpansionRowToTable(t, cc, i+1, doSystem, doDefinition, mymaps, allCS, langs);
     }
   }
 
@@ -2743,6 +2825,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   private boolean generateComposition(XhtmlNode x, ValueSet vs, boolean header) throws FHIRException, IOException {
     boolean hasExtensions = false;
+    List<String> langs = new ArrayList<String>();
+
     if (header) {
       XhtmlNode h = x.addTag("h2");
       h.addText(vs.getName());
@@ -2761,14 +2845,46 @@ public class NarrativeGenerator implements INarrativeGenerator {
       AddVsRef(imp.getValue(), li);
     }
     for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
-      hasExtensions = genInclude(ul, inc, "Include") || hasExtensions;
+      hasExtensions = genInclude(ul, inc, "Include", langs) || hasExtensions;
     }
     for (ConceptSetComponent exc : vs.getCompose().getExclude()) {
-      hasExtensions = genInclude(ul, exc, "Exclude") || hasExtensions;
+      hasExtensions = genInclude(ul, exc, "Exclude", langs) || hasExtensions;
     }
+
+    // now, build observed languages
+    
+    if (langs.size() > 0) {
+      Collections.sort(langs);
+      x.addTag("p").addTag("b").addText("Additional Language Displays");
+      XhtmlNode t = x.addTag("table").setAttribute("class", "codes");
+      XhtmlNode tr = t.addTag("tr");
+      tr.addTag("td").addTag("b").addText("Code");
+      for (String lang : langs)
+        tr.addTag("td").addTag("b").addText(describeLang(lang));
+      for (ConceptSetComponent c : vs.getCompose().getInclude()) {
+        for (ConceptReferenceComponent cc : c.getConcept()) {
+          addLanguageRow(cc, t, langs);
+        }
+      }
+    }
+    
     return hasExtensions;
   }
 
+    private void addLanguageRow(ConceptReferenceComponent c, XhtmlNode t, List<String> langs) {
+      XhtmlNode tr = t.addTag("tr");
+      tr.addTag("td").addText(c.getCode());
+      for (String lang : langs) {
+        String d = null;
+        for (ConceptReferenceDesignationComponent cd : c.getDesignation()) {
+          String l = cd.getLanguage();
+          if (lang.equals(l))
+            d = cd.getValue();
+        }
+        tr.addTag("td").addText(d == null ? "" : d);
+      }
+    }
+    
   private void AddVsRef(String value, XhtmlNode li) {
 
     ValueSet vs = context.fetchResource(ValueSet.class, value);
@@ -2806,7 +2922,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return prefix+ref;
   }
 
-  private boolean genInclude(XhtmlNode ul, ConceptSetComponent inc, String type) throws FHIRException {
+  private boolean genInclude(XhtmlNode ul, ConceptSetComponent inc, String type, List<String> langs) throws FHIRException {
     boolean hasExtensions = false;
     XhtmlNode li;
     li = ul.addTag("li");
@@ -2849,6 +2965,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
           if (ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_COMMENT)) {
             smartAddText(tr.addTag("td"), "Note: "+ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_COMMENT));
+          }
+          for (ConceptReferenceDesignationComponent cd : c.getDesignation()) {
+            if (cd.hasLanguage() && !langs.contains(cd.getLanguage()))
+              langs.add(cd.getLanguage());
           }
         }
       }
@@ -2901,7 +3021,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (!context.hasCache()) {
       ValueSetExpansionComponent vse;
       try {
-        vse = context.expandVS(inc);
+        vse = context.expandVS(inc, false);
       } catch (TerminologyServiceException e1) {
         return null;
       }

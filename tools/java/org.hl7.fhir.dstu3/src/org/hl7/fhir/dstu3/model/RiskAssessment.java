@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 19, 2016 06:18+1000 for FHIR v1.5.0
+// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -48,6 +48,176 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  */
 @ResourceDef(name="RiskAssessment", profile="http://hl7.org/fhir/Profile/RiskAssessment")
 public class RiskAssessment extends DomainResource {
+
+    public enum RiskAssessmentStatus {
+        /**
+         * The existence of the observation is registered, but there is no result yet available.
+         */
+        REGISTERED, 
+        /**
+         * This is an initial or interim observation: data may be incomplete or unverified.
+         */
+        PRELIMINARY, 
+        /**
+         * The observation is complete.
+         */
+        FINAL, 
+        /**
+         * The observation has been modified subsequent to being Final.
+         */
+        AMENDED, 
+        /**
+         * The observation is unavailable because the measurement was not started or not completed (also sometimes called "aborted").
+         */
+        CANCELLED, 
+        /**
+         * The observation has been withdrawn following previous final release.
+         */
+        ENTEREDINERROR, 
+        /**
+         * The observation status is unknown.  Note that "unknown" is a value of last resort and every attempt should be made to provide a meaningful value other than "unknown".
+         */
+        UNKNOWN, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static RiskAssessmentStatus fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("registered".equals(codeString))
+          return REGISTERED;
+        if ("preliminary".equals(codeString))
+          return PRELIMINARY;
+        if ("final".equals(codeString))
+          return FINAL;
+        if ("amended".equals(codeString))
+          return AMENDED;
+        if ("cancelled".equals(codeString))
+          return CANCELLED;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
+        if ("unknown".equals(codeString))
+          return UNKNOWN;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown RiskAssessmentStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case REGISTERED: return "registered";
+            case PRELIMINARY: return "preliminary";
+            case FINAL: return "final";
+            case AMENDED: return "amended";
+            case CANCELLED: return "cancelled";
+            case ENTEREDINERROR: return "entered-in-error";
+            case UNKNOWN: return "unknown";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case REGISTERED: return "http://hl7.org/fhir/observation-status";
+            case PRELIMINARY: return "http://hl7.org/fhir/observation-status";
+            case FINAL: return "http://hl7.org/fhir/observation-status";
+            case AMENDED: return "http://hl7.org/fhir/observation-status";
+            case CANCELLED: return "http://hl7.org/fhir/observation-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/observation-status";
+            case UNKNOWN: return "http://hl7.org/fhir/observation-status";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case REGISTERED: return "The existence of the observation is registered, but there is no result yet available.";
+            case PRELIMINARY: return "This is an initial or interim observation: data may be incomplete or unverified.";
+            case FINAL: return "The observation is complete.";
+            case AMENDED: return "The observation has been modified subsequent to being Final.";
+            case CANCELLED: return "The observation is unavailable because the measurement was not started or not completed (also sometimes called \"aborted\").";
+            case ENTEREDINERROR: return "The observation has been withdrawn following previous final release.";
+            case UNKNOWN: return "The observation status is unknown.  Note that \"unknown\" is a value of last resort and every attempt should be made to provide a meaningful value other than \"unknown\".";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case REGISTERED: return "Registered";
+            case PRELIMINARY: return "Preliminary";
+            case FINAL: return "Final";
+            case AMENDED: return "Amended";
+            case CANCELLED: return "cancelled";
+            case ENTEREDINERROR: return "Entered in Error";
+            case UNKNOWN: return "Unknown Status";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class RiskAssessmentStatusEnumFactory implements EnumFactory<RiskAssessmentStatus> {
+    public RiskAssessmentStatus fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("registered".equals(codeString))
+          return RiskAssessmentStatus.REGISTERED;
+        if ("preliminary".equals(codeString))
+          return RiskAssessmentStatus.PRELIMINARY;
+        if ("final".equals(codeString))
+          return RiskAssessmentStatus.FINAL;
+        if ("amended".equals(codeString))
+          return RiskAssessmentStatus.AMENDED;
+        if ("cancelled".equals(codeString))
+          return RiskAssessmentStatus.CANCELLED;
+        if ("entered-in-error".equals(codeString))
+          return RiskAssessmentStatus.ENTEREDINERROR;
+        if ("unknown".equals(codeString))
+          return RiskAssessmentStatus.UNKNOWN;
+        throw new IllegalArgumentException("Unknown RiskAssessmentStatus code '"+codeString+"'");
+        }
+        public Enumeration<RiskAssessmentStatus> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("registered".equals(codeString))
+          return new Enumeration<RiskAssessmentStatus>(this, RiskAssessmentStatus.REGISTERED);
+        if ("preliminary".equals(codeString))
+          return new Enumeration<RiskAssessmentStatus>(this, RiskAssessmentStatus.PRELIMINARY);
+        if ("final".equals(codeString))
+          return new Enumeration<RiskAssessmentStatus>(this, RiskAssessmentStatus.FINAL);
+        if ("amended".equals(codeString))
+          return new Enumeration<RiskAssessmentStatus>(this, RiskAssessmentStatus.AMENDED);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<RiskAssessmentStatus>(this, RiskAssessmentStatus.CANCELLED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<RiskAssessmentStatus>(this, RiskAssessmentStatus.ENTEREDINERROR);
+        if ("unknown".equals(codeString))
+          return new Enumeration<RiskAssessmentStatus>(this, RiskAssessmentStatus.UNKNOWN);
+        throw new FHIRException("Unknown RiskAssessmentStatus code '"+codeString+"'");
+        }
+    public String toCode(RiskAssessmentStatus code) {
+      if (code == RiskAssessmentStatus.REGISTERED)
+        return "registered";
+      if (code == RiskAssessmentStatus.PRELIMINARY)
+        return "preliminary";
+      if (code == RiskAssessmentStatus.FINAL)
+        return "final";
+      if (code == RiskAssessmentStatus.AMENDED)
+        return "amended";
+      if (code == RiskAssessmentStatus.CANCELLED)
+        return "cancelled";
+      if (code == RiskAssessmentStatus.ENTEREDINERROR)
+        return "entered-in-error";
+      if (code == RiskAssessmentStatus.UNKNOWN)
+        return "unknown";
+      return "?";
+      }
+    public String toSystem(RiskAssessmentStatus code) {
+      return code.getSystem();
+      }
+    }
 
     @Block()
     public static class RiskAssessmentPredictionComponent extends BackboneElement implements IBaseBackboneElement {
@@ -539,7 +709,7 @@ public class RiskAssessment extends DomainResource {
     @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=false)
     @Description(shortDefinition="registered | preliminary | final | amended +", formalDefinition="The status of the RiskAssessment, using the same statuses as an Observation." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/observation-status")
-    protected CodeType status;
+    protected Enumeration<RiskAssessmentStatus> status;
 
     /**
      * The type of the risk assessment performed.
@@ -650,7 +820,7 @@ public class RiskAssessment extends DomainResource {
     @Description(shortDefinition="Comments on the risk assessment", formalDefinition="Additional comments about the risk assessment." )
     protected Annotation note;
 
-    private static final long serialVersionUID = -2068193194L;
+    private static final long serialVersionUID = 1014111911L;
 
   /**
    * Constructor
@@ -662,7 +832,7 @@ public class RiskAssessment extends DomainResource {
   /**
    * Constructor
    */
-    public RiskAssessment(CodeType status) {
+    public RiskAssessment(Enumeration<RiskAssessmentStatus> status) {
       super();
       this.status = status;
     }
@@ -772,12 +942,12 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return {@link #status} (The status of the RiskAssessment, using the same statuses as an Observation.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public CodeType getStatusElement() { 
+    public Enumeration<RiskAssessmentStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.status");
         else if (Configuration.doAutoCreate())
-          this.status = new CodeType(); // bb
+          this.status = new Enumeration<RiskAssessmentStatus>(new RiskAssessmentStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -792,7 +962,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * @param value {@link #status} (The status of the RiskAssessment, using the same statuses as an Observation.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public RiskAssessment setStatusElement(CodeType value) { 
+    public RiskAssessment setStatusElement(Enumeration<RiskAssessmentStatus> value) { 
       this.status = value;
       return this;
     }
@@ -800,16 +970,16 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return The status of the RiskAssessment, using the same statuses as an Observation.
      */
-    public String getStatus() { 
+    public RiskAssessmentStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the RiskAssessment, using the same statuses as an Observation.
      */
-    public RiskAssessment setStatus(String value) { 
+    public RiskAssessment setStatus(RiskAssessmentStatus value) { 
         if (this.status == null)
-          this.status = new CodeType();
+          this.status = new Enumeration<RiskAssessmentStatus>(new RiskAssessmentStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1328,7 +1498,7 @@ public class RiskAssessment extends DomainResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
         case -332612366: /*basedOn*/ return this.basedOn == null ? new Base[0] : new Base[] {this.basedOn}; // Reference
         case -995424086: /*parent*/ return this.parent == null ? new Base[0] : new Base[] {this.parent}; // Reference
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // CodeType
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<RiskAssessmentStatus>
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
@@ -1359,7 +1529,7 @@ public class RiskAssessment extends DomainResource {
           this.parent = castToReference(value); // Reference
           break;
         case -892481550: // status
-          this.status = castToCode(value); // CodeType
+          this.status = new RiskAssessmentStatusEnumFactory().fromType(value); // Enumeration<RiskAssessmentStatus>
           break;
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
@@ -1411,7 +1581,7 @@ public class RiskAssessment extends DomainResource {
         else if (name.equals("parent"))
           this.parent = castToReference(value); // Reference
         else if (name.equals("status"))
-          this.status = castToCode(value); // CodeType
+          this.status = new RiskAssessmentStatusEnumFactory().fromType(value); // Enumeration<RiskAssessmentStatus>
         else if (name.equals("code"))
           this.code = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("subject"))
@@ -1446,7 +1616,7 @@ public class RiskAssessment extends DomainResource {
         case -1618432855:  return getIdentifier(); // Identifier
         case -332612366:  return getBasedOn(); // Reference
         case -995424086:  return getParent(); // Reference
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // CodeType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<RiskAssessmentStatus>
         case 3059181:  return getCode(); // CodeableConcept
         case -1867885268:  return getSubject(); // Reference
         case 951530927:  return getContext(); // Reference

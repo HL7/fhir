@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 19, 2016 06:18+1000 for FHIR v1.5.0
+// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -168,6 +168,176 @@ public class CodeSystem extends BaseConformance {
       return "?";
       }
     public String toSystem(CodeSystemContentMode code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum FilterOperator {
+        /**
+         * The specified property of the code equals the provided value.
+         */
+        EQUAL, 
+        /**
+         * Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (i.e. include child codes)
+         */
+        ISA, 
+        /**
+         * The specified property of the code does not have an is-a relationship with the provided value.
+         */
+        ISNOTA, 
+        /**
+         * The specified property of the code  matches the regex specified in the provided value.
+         */
+        REGEX, 
+        /**
+         * The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).
+         */
+        IN, 
+        /**
+         * The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list).
+         */
+        NOTIN, 
+        /**
+         * Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (e.g. include parent codes)
+         */
+        GENERALIZES, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static FilterOperator fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("=".equals(codeString))
+          return EQUAL;
+        if ("is-a".equals(codeString))
+          return ISA;
+        if ("is-not-a".equals(codeString))
+          return ISNOTA;
+        if ("regex".equals(codeString))
+          return REGEX;
+        if ("in".equals(codeString))
+          return IN;
+        if ("not-in".equals(codeString))
+          return NOTIN;
+        if ("generalizes".equals(codeString))
+          return GENERALIZES;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown FilterOperator code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case EQUAL: return "=";
+            case ISA: return "is-a";
+            case ISNOTA: return "is-not-a";
+            case REGEX: return "regex";
+            case IN: return "in";
+            case NOTIN: return "not-in";
+            case GENERALIZES: return "generalizes";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case EQUAL: return "http://hl7.org/fhir/filter-operator";
+            case ISA: return "http://hl7.org/fhir/filter-operator";
+            case ISNOTA: return "http://hl7.org/fhir/filter-operator";
+            case REGEX: return "http://hl7.org/fhir/filter-operator";
+            case IN: return "http://hl7.org/fhir/filter-operator";
+            case NOTIN: return "http://hl7.org/fhir/filter-operator";
+            case GENERALIZES: return "http://hl7.org/fhir/filter-operator";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case EQUAL: return "The specified property of the code equals the provided value.";
+            case ISA: return "Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (i.e. include child codes)";
+            case ISNOTA: return "The specified property of the code does not have an is-a relationship with the provided value.";
+            case REGEX: return "The specified property of the code  matches the regex specified in the provided value.";
+            case IN: return "The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).";
+            case NOTIN: return "The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list).";
+            case GENERALIZES: return "Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (e.g. include parent codes)";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case EQUAL: return "Equals";
+            case ISA: return "Is A (by subsumption)";
+            case ISNOTA: return "Not (Is A) (by subsumption)";
+            case REGEX: return "Regular Expression";
+            case IN: return "In Set";
+            case NOTIN: return "Not in Set";
+            case GENERALIZES: return "Generalizes (by Subsumption)";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class FilterOperatorEnumFactory implements EnumFactory<FilterOperator> {
+    public FilterOperator fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("=".equals(codeString))
+          return FilterOperator.EQUAL;
+        if ("is-a".equals(codeString))
+          return FilterOperator.ISA;
+        if ("is-not-a".equals(codeString))
+          return FilterOperator.ISNOTA;
+        if ("regex".equals(codeString))
+          return FilterOperator.REGEX;
+        if ("in".equals(codeString))
+          return FilterOperator.IN;
+        if ("not-in".equals(codeString))
+          return FilterOperator.NOTIN;
+        if ("generalizes".equals(codeString))
+          return FilterOperator.GENERALIZES;
+        throw new IllegalArgumentException("Unknown FilterOperator code '"+codeString+"'");
+        }
+        public Enumeration<FilterOperator> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("=".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.EQUAL);
+        if ("is-a".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.ISA);
+        if ("is-not-a".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.ISNOTA);
+        if ("regex".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.REGEX);
+        if ("in".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.IN);
+        if ("not-in".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.NOTIN);
+        if ("generalizes".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.GENERALIZES);
+        throw new FHIRException("Unknown FilterOperator code '"+codeString+"'");
+        }
+    public String toCode(FilterOperator code) {
+      if (code == FilterOperator.EQUAL)
+        return "=";
+      if (code == FilterOperator.ISA)
+        return "is-a";
+      if (code == FilterOperator.ISNOTA)
+        return "is-not-a";
+      if (code == FilterOperator.REGEX)
+        return "regex";
+      if (code == FilterOperator.IN)
+        return "in";
+      if (code == FilterOperator.NOTIN)
+        return "not-in";
+      if (code == FilterOperator.GENERALIZES)
+        return "generalizes";
+      return "?";
+      }
+    public String toSystem(FilterOperator code) {
       return code.getSystem();
       }
     }
@@ -580,7 +750,7 @@ public class CodeSystem extends BaseConformance {
         @Child(name = "operator", type = {CodeType.class}, order=3, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Operators that can be used with filter", formalDefinition="A list of operators that can be used with the filter." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/filter-operator")
-        protected List<CodeType> operator;
+        protected List<Enumeration<FilterOperator>> operator;
 
         /**
          * A description of what the value for the filter should be.
@@ -589,7 +759,7 @@ public class CodeSystem extends BaseConformance {
         @Description(shortDefinition="What to use for the value", formalDefinition="A description of what the value for the filter should be." )
         protected StringType value;
 
-        private static final long serialVersionUID = 20272432L;
+        private static final long serialVersionUID = -1087409836L;
 
     /**
      * Constructor
@@ -704,16 +874,16 @@ public class CodeSystem extends BaseConformance {
         /**
          * @return {@link #operator} (A list of operators that can be used with the filter.)
          */
-        public List<CodeType> getOperator() { 
+        public List<Enumeration<FilterOperator>> getOperator() { 
           if (this.operator == null)
-            this.operator = new ArrayList<CodeType>();
+            this.operator = new ArrayList<Enumeration<FilterOperator>>();
           return this.operator;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public CodeSystemFilterComponent setOperator(List<CodeType> theOperator) { 
+        public CodeSystemFilterComponent setOperator(List<Enumeration<FilterOperator>> theOperator) { 
           this.operator = theOperator;
           return this;
         }
@@ -721,7 +891,7 @@ public class CodeSystem extends BaseConformance {
         public boolean hasOperator() { 
           if (this.operator == null)
             return false;
-          for (CodeType item : this.operator)
+          for (Enumeration<FilterOperator> item : this.operator)
             if (!item.isEmpty())
               return true;
           return false;
@@ -730,10 +900,10 @@ public class CodeSystem extends BaseConformance {
         /**
          * @return {@link #operator} (A list of operators that can be used with the filter.)
          */
-        public CodeType addOperatorElement() {//2 
-          CodeType t = new CodeType();
+        public Enumeration<FilterOperator> addOperatorElement() {//2 
+          Enumeration<FilterOperator> t = new Enumeration<FilterOperator>(new FilterOperatorEnumFactory());
           if (this.operator == null)
-            this.operator = new ArrayList<CodeType>();
+            this.operator = new ArrayList<Enumeration<FilterOperator>>();
           this.operator.add(t);
           return t;
         }
@@ -741,11 +911,11 @@ public class CodeSystem extends BaseConformance {
         /**
          * @param value {@link #operator} (A list of operators that can be used with the filter.)
          */
-        public CodeSystemFilterComponent addOperator(String value) { //1
-          CodeType t = new CodeType();
+        public CodeSystemFilterComponent addOperator(FilterOperator value) { //1
+          Enumeration<FilterOperator> t = new Enumeration<FilterOperator>(new FilterOperatorEnumFactory());
           t.setValue(value);
           if (this.operator == null)
-            this.operator = new ArrayList<CodeType>();
+            this.operator = new ArrayList<Enumeration<FilterOperator>>();
           this.operator.add(t);
           return this;
         }
@@ -753,11 +923,11 @@ public class CodeSystem extends BaseConformance {
         /**
          * @param value {@link #operator} (A list of operators that can be used with the filter.)
          */
-        public boolean hasOperator(String value) { 
+        public boolean hasOperator(FilterOperator value) { 
           if (this.operator == null)
             return false;
-          for (CodeType v : this.operator)
-            if (v.equals(value)) // code
+          for (Enumeration<FilterOperator> v : this.operator)
+            if (v.getValue().equals(value)) // code
               return true;
           return false;
         }
@@ -820,7 +990,7 @@ public class CodeSystem extends BaseConformance {
         switch (hash) {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case -500553564: /*operator*/ return this.operator == null ? new Base[0] : this.operator.toArray(new Base[this.operator.size()]); // CodeType
+        case -500553564: /*operator*/ return this.operator == null ? new Base[0] : this.operator.toArray(new Base[this.operator.size()]); // Enumeration<FilterOperator>
         case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -837,7 +1007,7 @@ public class CodeSystem extends BaseConformance {
           this.description = castToString(value); // StringType
           break;
         case -500553564: // operator
-          this.getOperator().add(castToCode(value)); // CodeType
+          this.getOperator().add(new FilterOperatorEnumFactory().fromType(value)); // Enumeration<FilterOperator>
           break;
         case 111972721: // value
           this.value = castToString(value); // StringType
@@ -854,7 +1024,7 @@ public class CodeSystem extends BaseConformance {
         else if (name.equals("description"))
           this.description = castToString(value); // StringType
         else if (name.equals("operator"))
-          this.getOperator().add(castToCode(value));
+          this.getOperator().add(new FilterOperatorEnumFactory().fromType(value));
         else if (name.equals("value"))
           this.value = castToString(value); // StringType
         else
@@ -866,7 +1036,7 @@ public class CodeSystem extends BaseConformance {
         switch (hash) {
         case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -500553564: throw new FHIRException("Cannot make property operator as it is not a complex type"); // CodeType
+        case -500553564: throw new FHIRException("Cannot make property operator as it is not a complex type"); // Enumeration<FilterOperator>
         case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
         default: return super.makeProperty(hash, name);
         }
@@ -897,8 +1067,8 @@ public class CodeSystem extends BaseConformance {
         dst.code = code == null ? null : code.copy();
         dst.description = description == null ? null : description.copy();
         if (operator != null) {
-          dst.operator = new ArrayList<CodeType>();
-          for (CodeType i : operator)
+          dst.operator = new ArrayList<Enumeration<FilterOperator>>();
+          for (Enumeration<FilterOperator> i : operator)
             dst.operator.add(i.copy());
         };
         dst.value = value == null ? null : value.copy();

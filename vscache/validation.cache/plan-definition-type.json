@@ -1,0 +1,16 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/plan-definition-type",
+  "outcomes": [
+    {
+      "hash": "#|null|null|protocol|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "protocol",
+        "definition": null,
+        "display": "Protocol"
+      }
+    }
+  ]
+}

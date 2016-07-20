@@ -17,6 +17,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -39,6 +40,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.DataElement;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.dstu3.model.ExpansionProfile;
 import org.hl7.fhir.dstu3.model.NamingSystem;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent;
@@ -139,6 +141,15 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     this.maps = maps;
     this.profiles = profiles;
     this.cacheValidation = true;
+    setExpansionProfile(buildExpansionProfile());
+  }
+
+  private ExpansionProfile buildExpansionProfile() {
+    ExpansionProfile res = new ExpansionProfile();
+    res.setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase());
+    res.setExcludeNested(false);
+    res.setIncludeDesignations(true);
+    return res;
   }
 
   public boolean hasClient() {
@@ -831,11 +842,11 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   
   
   @Override
-  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) {
+  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc, boolean heirarchy) {
     ValueSet vs = new ValueSet();
     vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().getInclude().add(inc);
-    ValueSetExpansionOutcome vse = expandVS(vs, true);
+    ValueSetExpansionOutcome vse = expandVS(vs, true, heirarchy);
     if (vse.getValueset() == null)
       return null;
     else

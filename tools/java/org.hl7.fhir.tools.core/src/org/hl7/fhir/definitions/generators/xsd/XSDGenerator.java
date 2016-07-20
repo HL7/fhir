@@ -127,7 +127,7 @@ public class XSDGenerator  {
 		write("    <xs:restriction base=\"code-primitive\">\r\n");
 		ValueSet vs = enums.get(en);
     vs.setUserData(ToolResourceUtilities.NAME_VS_USE_MARKER, true);
-		ValueSet ex = workerContext.expandVS(vs, true).getValueset();
+		ValueSet ex = workerContext.expandVS(vs, true, false).getValueset();
       for (ValueSetExpansionContainsComponent cc : ex.getExpansion().getContains()) {
         genIncludedCode(cc);
       }

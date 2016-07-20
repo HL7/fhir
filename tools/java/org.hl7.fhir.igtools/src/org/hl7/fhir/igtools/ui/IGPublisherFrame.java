@@ -351,7 +351,8 @@ public class IGPublisherFrame extends javax.swing.JFrame {
       b.append("\r\n");
 
       b.append("= Validation =\r\n");
-      b.append(TextFile.fileToString(Utilities.changeFileExt(qa, ".txt")));
+      if (qa != null && new File(Utilities.changeFileExt(qa, ".txt")).exists())
+        b.append(TextFile.fileToString(Utilities.changeFileExt(qa, ".txt")));
 
       b.append("\r\n");
       b.append("\r\n");

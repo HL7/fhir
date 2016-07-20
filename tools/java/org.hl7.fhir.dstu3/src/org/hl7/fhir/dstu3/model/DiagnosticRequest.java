@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 19, 2016 06:18+1000 for FHIR v1.5.0
+// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -110,12 +110,12 @@ public class DiagnosticRequest extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case DRAFT: return "http://hl7.org/fhir/diagnostic-request-status";
-            case ACTIVE: return "http://hl7.org/fhir/diagnostic-request-status";
-            case SUSPENDED: return "http://hl7.org/fhir/diagnostic-request-status";
-            case COMPLETED: return "http://hl7.org/fhir/diagnostic-request-status";
-            case ENTEREDINERROR: return "http://hl7.org/fhir/diagnostic-request-status";
-            case CANCELLED: return "http://hl7.org/fhir/diagnostic-request-status";
+            case DRAFT: return "http://hl7.org/fhir/request-status";
+            case ACTIVE: return "http://hl7.org/fhir/request-status";
+            case SUSPENDED: return "http://hl7.org/fhir/request-status";
+            case COMPLETED: return "http://hl7.org/fhir/request-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/request-status";
+            case CANCELLED: return "http://hl7.org/fhir/request-status";
             default: return "?";
           }
         }
@@ -225,7 +225,7 @@ public class DiagnosticRequest extends DomainResource {
      * Plan/proposal/order fulfilled by this request.
      */
     @Child(name = "basedOn", type = {Reference.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="What request fulfils", formalDefinition="Plan/proposal/order fulfilled by this request." )
+    @Description(shortDefinition="What request fulfills", formalDefinition="Plan/proposal/order fulfilled by this request." )
     protected List<Reference> basedOn;
     /**
      * The actual objects that are the target of the reference (Plan/proposal/order fulfilled by this request.)
@@ -249,7 +249,7 @@ public class DiagnosticRequest extends DomainResource {
      * Composite request this is part of.
      */
     @Child(name = "requisition", type = {Identifier.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Identifier of Composite request", formalDefinition="Composite request this is part of." )
+    @Description(shortDefinition="Identifier of composite request", formalDefinition="Composite request this is part of." )
     protected Identifier requisition;
 
     /**
@@ -257,7 +257,7 @@ public class DiagnosticRequest extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=5, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="draft | active | suspended | completed | entered-in-error | cancelled", formalDefinition="The status of the order." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/diagnostic-request-status")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-status")
     protected Enumeration<DiagnosticRequestStatus> status;
 
     /**

@@ -59,6 +59,7 @@ import org.hl7.fhir.dstu3.model.Encounter.EncounterHospitalizationComponent;
 import org.hl7.fhir.dstu3.model.Encounter.EncounterStatus;
 import org.hl7.fhir.dstu3.model.Enumerations.DocumentReferenceStatus;
 import org.hl7.fhir.dstu3.model.Immunization.ImmunizationExplanationComponent;
+import org.hl7.fhir.dstu3.model.Immunization.ImmunizationStatus;
 import org.hl7.fhir.dstu3.model.ListResource.ListMode;
 import org.hl7.fhir.dstu3.model.ListResource.ListStatus;
 import org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementDosageComponent;
@@ -1293,10 +1294,10 @@ public class ArgonautConverter extends ConverterBase {
 		saveResource(list);
 	}
 
-	private String convertImmunizationStatus(Element child) {
+	private ImmunizationStatus convertImmunizationStatus(Element child) {
 		String s = child.getAttribute("code");
 		if (s.equals("completed"))
-  		return "completed"; 
+  		return ImmunizationStatus.COMPLETED; 
 		throw new Error("Unexpected status "+s); 
 	}
 

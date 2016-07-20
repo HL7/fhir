@@ -53,6 +53,7 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
+import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -1610,14 +1611,21 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		String tn = null;
 		if (e.typeCode().equals("code") && e.hasBinding()) {
 			BindingSpecification cd = e.getBinding();
-			if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
+			if (cd != null && (cd.getBinding() == BindingSpecification.BindingMethod.CodeList)) {
 				tn = getCodeListType(cd.getValueSet().getName());
 				if (!enumNames.contains(tn)) {
 					enumNames.add(tn);
 					enums.add(e);
 				}
 				typeNames.put(e,  "Enumeration<"+tn+">");
-			}
+			} else if (cd != null && (cd.getBinding() == BindingSpecification.BindingMethod.ValueSet && cd.getStrength() == BindingStrength.REQUIRED)) {
+        tn = getCodeListType(cd.getName());
+        if (!enumNames.contains(tn)) {
+          enumNames.add(tn);
+          enums.add(e);
+        }
+        typeNames.put(e,  "Enumeration<"+tn+">");
+      }
 		}
 		if (tn == null) {
 			if (e.getTypes().size() > 0 && !e.usesCompositeType()) {

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 19, 2016 06:18+1000 for FHIR v1.5.0
+// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -47,6 +47,128 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  */
 @ResourceDef(name="Condition", profile="http://hl7.org/fhir/Profile/Condition")
 public class Condition extends DomainResource {
+
+    public enum ConditionClinicalStatus {
+        /**
+         * The subject is currently experiencing the symptoms of the condition.
+         */
+        ACTIVE, 
+        /**
+         * The subject is re-experiencing the symptoms of the condition after a period of remission or presumed resolution.
+         */
+        RELAPSE, 
+        /**
+         * The subject is no longer experiencing the symptoms of the condition, but there is a risk of the symptoms returning.
+         */
+        REMISSION, 
+        /**
+         * The subject is no longer experiencing the symptoms of the condition and there is no perceived risk of the symptoms returning.
+         */
+        RESOLVED, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static ConditionClinicalStatus fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return ACTIVE;
+        if ("relapse".equals(codeString))
+          return RELAPSE;
+        if ("remission".equals(codeString))
+          return REMISSION;
+        if ("resolved".equals(codeString))
+          return RESOLVED;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ConditionClinicalStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case ACTIVE: return "active";
+            case RELAPSE: return "relapse";
+            case REMISSION: return "remission";
+            case RESOLVED: return "resolved";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case ACTIVE: return "http://hl7.org/fhir/condition-clinical";
+            case RELAPSE: return "http://hl7.org/fhir/condition-clinical";
+            case REMISSION: return "http://hl7.org/fhir/condition-clinical";
+            case RESOLVED: return "http://hl7.org/fhir/condition-clinical";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case ACTIVE: return "The subject is currently experiencing the symptoms of the condition.";
+            case RELAPSE: return "The subject is re-experiencing the symptoms of the condition after a period of remission or presumed resolution.";
+            case REMISSION: return "The subject is no longer experiencing the symptoms of the condition, but there is a risk of the symptoms returning.";
+            case RESOLVED: return "The subject is no longer experiencing the symptoms of the condition and there is no perceived risk of the symptoms returning.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case ACTIVE: return "Active";
+            case RELAPSE: return "Relapse";
+            case REMISSION: return "Remission";
+            case RESOLVED: return "Resolved";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ConditionClinicalStatusEnumFactory implements EnumFactory<ConditionClinicalStatus> {
+    public ConditionClinicalStatus fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return ConditionClinicalStatus.ACTIVE;
+        if ("relapse".equals(codeString))
+          return ConditionClinicalStatus.RELAPSE;
+        if ("remission".equals(codeString))
+          return ConditionClinicalStatus.REMISSION;
+        if ("resolved".equals(codeString))
+          return ConditionClinicalStatus.RESOLVED;
+        throw new IllegalArgumentException("Unknown ConditionClinicalStatus code '"+codeString+"'");
+        }
+        public Enumeration<ConditionClinicalStatus> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("active".equals(codeString))
+          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.ACTIVE);
+        if ("relapse".equals(codeString))
+          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.RELAPSE);
+        if ("remission".equals(codeString))
+          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.REMISSION);
+        if ("resolved".equals(codeString))
+          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.RESOLVED);
+        throw new FHIRException("Unknown ConditionClinicalStatus code '"+codeString+"'");
+        }
+    public String toCode(ConditionClinicalStatus code) {
+      if (code == ConditionClinicalStatus.ACTIVE)
+        return "active";
+      if (code == ConditionClinicalStatus.RELAPSE)
+        return "relapse";
+      if (code == ConditionClinicalStatus.REMISSION)
+        return "remission";
+      if (code == ConditionClinicalStatus.RESOLVED)
+        return "resolved";
+      return "?";
+      }
+    public String toSystem(ConditionClinicalStatus code) {
+      return code.getSystem();
+      }
+    }
 
     public enum ConditionVerificationStatus {
         /**
@@ -663,7 +785,7 @@ public class Condition extends DomainResource {
     @Child(name = "clinicalStatus", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | relapse | remission | resolved", formalDefinition="The clinical status of the condition." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-clinical")
-    protected CodeType clinicalStatus;
+    protected Enumeration<ConditionClinicalStatus> clinicalStatus;
 
     /**
      * The verification status to support the clinical status of the condition.
@@ -783,7 +905,7 @@ public class Condition extends DomainResource {
     @Description(shortDefinition="Additional information about the Condition", formalDefinition="Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = 432863554L;
+    private static final long serialVersionUID = 948853814L;
 
   /**
    * Constructor
@@ -858,12 +980,12 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #clinicalStatus} (The clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getClinicalStatus" gives direct access to the value
      */
-    public CodeType getClinicalStatusElement() { 
+    public Enumeration<ConditionClinicalStatus> getClinicalStatusElement() { 
       if (this.clinicalStatus == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.clinicalStatus");
         else if (Configuration.doAutoCreate())
-          this.clinicalStatus = new CodeType(); // bb
+          this.clinicalStatus = new Enumeration<ConditionClinicalStatus>(new ConditionClinicalStatusEnumFactory()); // bb
       return this.clinicalStatus;
     }
 
@@ -878,7 +1000,7 @@ public class Condition extends DomainResource {
     /**
      * @param value {@link #clinicalStatus} (The clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getClinicalStatus" gives direct access to the value
      */
-    public Condition setClinicalStatusElement(CodeType value) { 
+    public Condition setClinicalStatusElement(Enumeration<ConditionClinicalStatus> value) { 
       this.clinicalStatus = value;
       return this;
     }
@@ -886,19 +1008,19 @@ public class Condition extends DomainResource {
     /**
      * @return The clinical status of the condition.
      */
-    public String getClinicalStatus() { 
+    public ConditionClinicalStatus getClinicalStatus() { 
       return this.clinicalStatus == null ? null : this.clinicalStatus.getValue();
     }
 
     /**
      * @param value The clinical status of the condition.
      */
-    public Condition setClinicalStatus(String value) { 
-      if (Utilities.noString(value))
+    public Condition setClinicalStatus(ConditionClinicalStatus value) { 
+      if (value == null)
         this.clinicalStatus = null;
       else {
         if (this.clinicalStatus == null)
-          this.clinicalStatus = new CodeType();
+          this.clinicalStatus = new Enumeration<ConditionClinicalStatus>(new ConditionClinicalStatusEnumFactory());
         this.clinicalStatus.setValue(value);
       }
       return this;
@@ -1575,7 +1697,7 @@ public class Condition extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -462853915: /*clinicalStatus*/ return this.clinicalStatus == null ? new Base[0] : new Base[] {this.clinicalStatus}; // CodeType
+        case -462853915: /*clinicalStatus*/ return this.clinicalStatus == null ? new Base[0] : new Base[] {this.clinicalStatus}; // Enumeration<ConditionClinicalStatus>
         case -842509843: /*verificationStatus*/ return this.verificationStatus == null ? new Base[0] : new Base[] {this.verificationStatus}; // Enumeration<ConditionVerificationStatus>
         case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
         case 1478300413: /*severity*/ return this.severity == null ? new Base[0] : new Base[] {this.severity}; // CodeableConcept
@@ -1602,7 +1724,7 @@ public class Condition extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
         case -462853915: // clinicalStatus
-          this.clinicalStatus = castToCode(value); // CodeType
+          this.clinicalStatus = new ConditionClinicalStatusEnumFactory().fromType(value); // Enumeration<ConditionClinicalStatus>
           break;
         case -842509843: // verificationStatus
           this.verificationStatus = new ConditionVerificationStatusEnumFactory().fromType(value); // Enumeration<ConditionVerificationStatus>
@@ -1656,7 +1778,7 @@ public class Condition extends DomainResource {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("clinicalStatus"))
-          this.clinicalStatus = castToCode(value); // CodeType
+          this.clinicalStatus = new ConditionClinicalStatusEnumFactory().fromType(value); // Enumeration<ConditionClinicalStatus>
         else if (name.equals("verificationStatus"))
           this.verificationStatus = new ConditionVerificationStatusEnumFactory().fromType(value); // Enumeration<ConditionVerificationStatus>
         else if (name.equals("category"))
@@ -1693,7 +1815,7 @@ public class Condition extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
-        case -462853915: throw new FHIRException("Cannot make property clinicalStatus as it is not a complex type"); // CodeType
+        case -462853915: throw new FHIRException("Cannot make property clinicalStatus as it is not a complex type"); // Enumeration<ConditionClinicalStatus>
         case -842509843: throw new FHIRException("Cannot make property verificationStatus as it is not a complex type"); // Enumeration<ConditionVerificationStatus>
         case 50511102:  return getCategory(); // CodeableConcept
         case 1478300413:  return getSeverity(); // CodeableConcept
@@ -2107,21 +2229,21 @@ public class Condition extends DomainResource {
    * Search parameter: <b>abatement-date</b>
    * <p>
    * Description: <b>Date-related abatements (dateTime and period)</b><br>
-   * Type: <b>string</b><br>
+   * Type: <b>date</b><br>
    * Path: <b>Condition.abatement[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="abatement-date", path="Condition.abatement.as(dateTime) | Condition.abatement.as(Period)", description="Date-related abatements (dateTime and period)", type="string" )
+  @SearchParamDefinition(name="abatement-date", path="Condition.abatement.as(dateTime) | Condition.abatement.as(Period)", description="Date-related abatements (dateTime and period)", type="date" )
   public static final String SP_ABATEMENT_DATE = "abatement-date";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>abatement-date</b>
    * <p>
    * Description: <b>Date-related abatements (dateTime and period)</b><br>
-   * Type: <b>string</b><br>
+   * Type: <b>date</b><br>
    * Path: <b>Condition.abatement[x]</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam ABATEMENT_DATE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ABATEMENT_DATE);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam ABATEMENT_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ABATEMENT_DATE);
 
  /**
    * Search parameter: <b>asserter</b>

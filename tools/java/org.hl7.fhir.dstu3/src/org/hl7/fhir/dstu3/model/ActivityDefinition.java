@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 19, 2016 06:18+1000 for FHIR v1.5.0
+// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -47,6 +47,112 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  */
 @ResourceDef(name="ActivityDefinition", profile="http://hl7.org/fhir/Profile/ActivityDefinition")
 public class ActivityDefinition extends DomainResource {
+
+    public enum ActivityDefinitionStatus {
+        /**
+         * The module is in draft state
+         */
+        DRAFT, 
+        /**
+         * The module is active
+         */
+        ACTIVE, 
+        /**
+         * The module is inactive, either rejected before publication, or retired after publication
+         */
+        INACTIVE, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static ActivityDefinitionStatus fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("draft".equals(codeString))
+          return DRAFT;
+        if ("active".equals(codeString))
+          return ACTIVE;
+        if ("inactive".equals(codeString))
+          return INACTIVE;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ActivityDefinitionStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case DRAFT: return "draft";
+            case ACTIVE: return "active";
+            case INACTIVE: return "inactive";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case DRAFT: return "http://hl7.org/fhir/module-metadata-status";
+            case ACTIVE: return "http://hl7.org/fhir/module-metadata-status";
+            case INACTIVE: return "http://hl7.org/fhir/module-metadata-status";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case DRAFT: return "The module is in draft state";
+            case ACTIVE: return "The module is active";
+            case INACTIVE: return "The module is inactive, either rejected before publication, or retired after publication";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case DRAFT: return "Draft";
+            case ACTIVE: return "Active";
+            case INACTIVE: return "Inactive";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ActivityDefinitionStatusEnumFactory implements EnumFactory<ActivityDefinitionStatus> {
+    public ActivityDefinitionStatus fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("draft".equals(codeString))
+          return ActivityDefinitionStatus.DRAFT;
+        if ("active".equals(codeString))
+          return ActivityDefinitionStatus.ACTIVE;
+        if ("inactive".equals(codeString))
+          return ActivityDefinitionStatus.INACTIVE;
+        throw new IllegalArgumentException("Unknown ActivityDefinitionStatus code '"+codeString+"'");
+        }
+        public Enumeration<ActivityDefinitionStatus> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("draft".equals(codeString))
+          return new Enumeration<ActivityDefinitionStatus>(this, ActivityDefinitionStatus.DRAFT);
+        if ("active".equals(codeString))
+          return new Enumeration<ActivityDefinitionStatus>(this, ActivityDefinitionStatus.ACTIVE);
+        if ("inactive".equals(codeString))
+          return new Enumeration<ActivityDefinitionStatus>(this, ActivityDefinitionStatus.INACTIVE);
+        throw new FHIRException("Unknown ActivityDefinitionStatus code '"+codeString+"'");
+        }
+    public String toCode(ActivityDefinitionStatus code) {
+      if (code == ActivityDefinitionStatus.DRAFT)
+        return "draft";
+      if (code == ActivityDefinitionStatus.ACTIVE)
+        return "active";
+      if (code == ActivityDefinitionStatus.INACTIVE)
+        return "inactive";
+      return "?";
+      }
+    public String toSystem(ActivityDefinitionStatus code) {
+      return code.getSystem();
+      }
+    }
 
     public enum ActivityDefinitionCategory {
         /**
@@ -310,6 +416,112 @@ public class ActivityDefinition extends DomainResource {
       return "?";
       }
     public String toSystem(ActivityDefinitionCategory code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum ActivityParticipantType {
+        /**
+         * The participant is the patient under evaluation
+         */
+        PATIENT, 
+        /**
+         * The participant is a practitioner involved in the patient's care
+         */
+        PRACTITIONER, 
+        /**
+         * The participant is a person related to the patient
+         */
+        RELATEDPERSON, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static ActivityParticipantType fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("patient".equals(codeString))
+          return PATIENT;
+        if ("practitioner".equals(codeString))
+          return PRACTITIONER;
+        if ("related-person".equals(codeString))
+          return RELATEDPERSON;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ActivityParticipantType code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case PATIENT: return "patient";
+            case PRACTITIONER: return "practitioner";
+            case RELATEDPERSON: return "related-person";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case PATIENT: return "http://hl7.org/fhir/action-participant-type";
+            case PRACTITIONER: return "http://hl7.org/fhir/action-participant-type";
+            case RELATEDPERSON: return "http://hl7.org/fhir/action-participant-type";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PATIENT: return "The participant is the patient under evaluation";
+            case PRACTITIONER: return "The participant is a practitioner involved in the patient's care";
+            case RELATEDPERSON: return "The participant is a person related to the patient";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PATIENT: return "Patient";
+            case PRACTITIONER: return "Practitioner";
+            case RELATEDPERSON: return "Related Person";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ActivityParticipantTypeEnumFactory implements EnumFactory<ActivityParticipantType> {
+    public ActivityParticipantType fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("patient".equals(codeString))
+          return ActivityParticipantType.PATIENT;
+        if ("practitioner".equals(codeString))
+          return ActivityParticipantType.PRACTITIONER;
+        if ("related-person".equals(codeString))
+          return ActivityParticipantType.RELATEDPERSON;
+        throw new IllegalArgumentException("Unknown ActivityParticipantType code '"+codeString+"'");
+        }
+        public Enumeration<ActivityParticipantType> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("patient".equals(codeString))
+          return new Enumeration<ActivityParticipantType>(this, ActivityParticipantType.PATIENT);
+        if ("practitioner".equals(codeString))
+          return new Enumeration<ActivityParticipantType>(this, ActivityParticipantType.PRACTITIONER);
+        if ("related-person".equals(codeString))
+          return new Enumeration<ActivityParticipantType>(this, ActivityParticipantType.RELATEDPERSON);
+        throw new FHIRException("Unknown ActivityParticipantType code '"+codeString+"'");
+        }
+    public String toCode(ActivityParticipantType code) {
+      if (code == ActivityParticipantType.PATIENT)
+        return "patient";
+      if (code == ActivityParticipantType.PRACTITIONER)
+        return "practitioner";
+      if (code == ActivityParticipantType.RELATEDPERSON)
+        return "related-person";
+      return "?";
+      }
+    public String toSystem(ActivityParticipantType code) {
       return code.getSystem();
       }
     }
@@ -718,7 +930,7 @@ public class ActivityDefinition extends DomainResource {
     @Child(name = "status", type = {CodeType.class}, order=5, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="draft | active | inactive", formalDefinition="The status of the asset." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/module-metadata-status")
-    protected CodeType status;
+    protected Enumeration<ActivityDefinitionStatus> status;
 
     /**
      * Determines whether the asset was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.
@@ -870,7 +1082,7 @@ public class ActivityDefinition extends DomainResource {
     @Child(name = "participantType", type = {CodeType.class}, order=25, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="patient | practitioner | related-person", formalDefinition="The type of participant in the action." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-participant-type")
-    protected List<CodeType> participantType;
+    protected List<Enumeration<ActivityParticipantType>> participantType;
 
     /**
      * Identifies the food, drug or other product being consumed or supplied in the activity.
@@ -905,7 +1117,7 @@ public class ActivityDefinition extends DomainResource {
     @Description(shortDefinition="Dynamic aspects of the definition", formalDefinition="Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result." )
     protected List<ActivityDefinitionDynamicValueComponent> dynamicValue;
 
-    private static final long serialVersionUID = 119212419L;
+    private static final long serialVersionUID = -606309039L;
 
   /**
    * Constructor
@@ -917,7 +1129,7 @@ public class ActivityDefinition extends DomainResource {
   /**
    * Constructor
    */
-    public ActivityDefinition(CodeType status) {
+    public ActivityDefinition(Enumeration<ActivityDefinitionStatus> status) {
       super();
       this.status = status;
     }
@@ -1174,12 +1386,12 @@ public class ActivityDefinition extends DomainResource {
     /**
      * @return {@link #status} (The status of the asset.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public CodeType getStatusElement() { 
+    public Enumeration<ActivityDefinitionStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.status");
         else if (Configuration.doAutoCreate())
-          this.status = new CodeType(); // bb
+          this.status = new Enumeration<ActivityDefinitionStatus>(new ActivityDefinitionStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1194,7 +1406,7 @@ public class ActivityDefinition extends DomainResource {
     /**
      * @param value {@link #status} (The status of the asset.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ActivityDefinition setStatusElement(CodeType value) { 
+    public ActivityDefinition setStatusElement(Enumeration<ActivityDefinitionStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1202,16 +1414,16 @@ public class ActivityDefinition extends DomainResource {
     /**
      * @return The status of the asset.
      */
-    public String getStatus() { 
+    public ActivityDefinitionStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the asset.
      */
-    public ActivityDefinition setStatus(String value) { 
+    public ActivityDefinition setStatus(ActivityDefinitionStatus value) { 
         if (this.status == null)
-          this.status = new CodeType();
+          this.status = new Enumeration<ActivityDefinitionStatus>(new ActivityDefinitionStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -2133,16 +2345,16 @@ public class ActivityDefinition extends DomainResource {
     /**
      * @return {@link #participantType} (The type of participant in the action.)
      */
-    public List<CodeType> getParticipantType() { 
+    public List<Enumeration<ActivityParticipantType>> getParticipantType() { 
       if (this.participantType == null)
-        this.participantType = new ArrayList<CodeType>();
+        this.participantType = new ArrayList<Enumeration<ActivityParticipantType>>();
       return this.participantType;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setParticipantType(List<CodeType> theParticipantType) { 
+    public ActivityDefinition setParticipantType(List<Enumeration<ActivityParticipantType>> theParticipantType) { 
       this.participantType = theParticipantType;
       return this;
     }
@@ -2150,7 +2362,7 @@ public class ActivityDefinition extends DomainResource {
     public boolean hasParticipantType() { 
       if (this.participantType == null)
         return false;
-      for (CodeType item : this.participantType)
+      for (Enumeration<ActivityParticipantType> item : this.participantType)
         if (!item.isEmpty())
           return true;
       return false;
@@ -2159,10 +2371,10 @@ public class ActivityDefinition extends DomainResource {
     /**
      * @return {@link #participantType} (The type of participant in the action.)
      */
-    public CodeType addParticipantTypeElement() {//2 
-      CodeType t = new CodeType();
+    public Enumeration<ActivityParticipantType> addParticipantTypeElement() {//2 
+      Enumeration<ActivityParticipantType> t = new Enumeration<ActivityParticipantType>(new ActivityParticipantTypeEnumFactory());
       if (this.participantType == null)
-        this.participantType = new ArrayList<CodeType>();
+        this.participantType = new ArrayList<Enumeration<ActivityParticipantType>>();
       this.participantType.add(t);
       return t;
     }
@@ -2170,11 +2382,11 @@ public class ActivityDefinition extends DomainResource {
     /**
      * @param value {@link #participantType} (The type of participant in the action.)
      */
-    public ActivityDefinition addParticipantType(String value) { //1
-      CodeType t = new CodeType();
+    public ActivityDefinition addParticipantType(ActivityParticipantType value) { //1
+      Enumeration<ActivityParticipantType> t = new Enumeration<ActivityParticipantType>(new ActivityParticipantTypeEnumFactory());
       t.setValue(value);
       if (this.participantType == null)
-        this.participantType = new ArrayList<CodeType>();
+        this.participantType = new ArrayList<Enumeration<ActivityParticipantType>>();
       this.participantType.add(t);
       return this;
     }
@@ -2182,11 +2394,11 @@ public class ActivityDefinition extends DomainResource {
     /**
      * @param value {@link #participantType} (The type of participant in the action.)
      */
-    public boolean hasParticipantType(String value) { 
+    public boolean hasParticipantType(ActivityParticipantType value) { 
       if (this.participantType == null)
         return false;
-      for (CodeType v : this.participantType)
-        if (v.equals(value)) // code
+      for (Enumeration<ActivityParticipantType> v : this.participantType)
+        if (v.getValue().equals(value)) // code
           return true;
       return false;
     }
@@ -2399,7 +2611,7 @@ public class ActivityDefinition extends DomainResource {
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // CodeType
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ActivityDefinitionStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // StringType
@@ -2419,7 +2631,7 @@ public class ActivityDefinition extends DomainResource {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
-        case 841294093: /*participantType*/ return this.participantType == null ? new Base[0] : this.participantType.toArray(new Base[this.participantType.size()]); // CodeType
+        case 841294093: /*participantType*/ return this.participantType == null ? new Base[0] : this.participantType.toArray(new Base[this.participantType.size()]); // Enumeration<ActivityParticipantType>
         case -309474065: /*product*/ return this.product == null ? new Base[0] : new Base[] {this.product}; // Type
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
         case 1052666732: /*transform*/ return this.transform == null ? new Base[0] : new Base[] {this.transform}; // Reference
@@ -2448,7 +2660,7 @@ public class ActivityDefinition extends DomainResource {
           this.title = castToString(value); // StringType
           break;
         case -892481550: // status
-          this.status = castToCode(value); // CodeType
+          this.status = new ActivityDefinitionStatusEnumFactory().fromType(value); // Enumeration<ActivityDefinitionStatus>
           break;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -2508,7 +2720,7 @@ public class ActivityDefinition extends DomainResource {
           this.location = castToReference(value); // Reference
           break;
         case 841294093: // participantType
-          this.getParticipantType().add(castToCode(value)); // CodeType
+          this.getParticipantType().add(new ActivityParticipantTypeEnumFactory().fromType(value)); // Enumeration<ActivityParticipantType>
           break;
         case -309474065: // product
           this.product = (Type) value; // Type
@@ -2540,7 +2752,7 @@ public class ActivityDefinition extends DomainResource {
         else if (name.equals("title"))
           this.title = castToString(value); // StringType
         else if (name.equals("status"))
-          this.status = castToCode(value); // CodeType
+          this.status = new ActivityDefinitionStatusEnumFactory().fromType(value); // Enumeration<ActivityDefinitionStatus>
         else if (name.equals("experimental"))
           this.experimental = castToBoolean(value); // BooleanType
         else if (name.equals("description"))
@@ -2580,7 +2792,7 @@ public class ActivityDefinition extends DomainResource {
         else if (name.equals("location"))
           this.location = castToReference(value); // Reference
         else if (name.equals("participantType"))
-          this.getParticipantType().add(castToCode(value));
+          this.getParticipantType().add(new ActivityParticipantTypeEnumFactory().fromType(value));
         else if (name.equals("product[x]"))
           this.product = (Type) value; // Type
         else if (name.equals("quantity"))
@@ -2601,7 +2813,7 @@ public class ActivityDefinition extends DomainResource {
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
         case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // CodeType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ActivityDefinitionStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // StringType
@@ -2621,7 +2833,7 @@ public class ActivityDefinition extends DomainResource {
         case 3059181:  return getCode(); // CodeableConcept
         case 164632566:  return getTiming(); // Type
         case 1901043637:  return getLocation(); // Reference
-        case 841294093: throw new FHIRException("Cannot make property participantType as it is not a complex type"); // CodeType
+        case 841294093: throw new FHIRException("Cannot make property participantType as it is not a complex type"); // Enumeration<ActivityParticipantType>
         case 1753005361:  return getProduct(); // Type
         case -1285004149:  return getQuantity(); // SimpleQuantity
         case 1052666732:  return getTransform(); // Reference
@@ -2804,8 +3016,8 @@ public class ActivityDefinition extends DomainResource {
         dst.timing = timing == null ? null : timing.copy();
         dst.location = location == null ? null : location.copy();
         if (participantType != null) {
-          dst.participantType = new ArrayList<CodeType>();
-          for (CodeType i : participantType)
+          dst.participantType = new ArrayList<Enumeration<ActivityParticipantType>>();
+          for (Enumeration<ActivityParticipantType> i : participantType)
             dst.participantType.add(i.copy());
         };
         dst.product = product == null ? null : product.copy();

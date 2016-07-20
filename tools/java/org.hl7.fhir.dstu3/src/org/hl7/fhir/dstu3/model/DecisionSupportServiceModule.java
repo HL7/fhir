@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 19, 2016 06:18+1000 for FHIR v1.5.0
+// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -47,6 +47,112 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  */
 @ResourceDef(name="DecisionSupportServiceModule", profile="http://hl7.org/fhir/Profile/DecisionSupportServiceModule")
 public class DecisionSupportServiceModule extends DomainResource {
+
+    public enum DecisionSupportServiceModuleStatus {
+        /**
+         * The module is in draft state
+         */
+        DRAFT, 
+        /**
+         * The module is active
+         */
+        ACTIVE, 
+        /**
+         * The module is inactive, either rejected before publication, or retired after publication
+         */
+        INACTIVE, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static DecisionSupportServiceModuleStatus fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("draft".equals(codeString))
+          return DRAFT;
+        if ("active".equals(codeString))
+          return ACTIVE;
+        if ("inactive".equals(codeString))
+          return INACTIVE;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown DecisionSupportServiceModuleStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case DRAFT: return "draft";
+            case ACTIVE: return "active";
+            case INACTIVE: return "inactive";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case DRAFT: return "http://hl7.org/fhir/module-metadata-status";
+            case ACTIVE: return "http://hl7.org/fhir/module-metadata-status";
+            case INACTIVE: return "http://hl7.org/fhir/module-metadata-status";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case DRAFT: return "The module is in draft state";
+            case ACTIVE: return "The module is active";
+            case INACTIVE: return "The module is inactive, either rejected before publication, or retired after publication";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case DRAFT: return "Draft";
+            case ACTIVE: return "Active";
+            case INACTIVE: return "Inactive";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class DecisionSupportServiceModuleStatusEnumFactory implements EnumFactory<DecisionSupportServiceModuleStatus> {
+    public DecisionSupportServiceModuleStatus fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("draft".equals(codeString))
+          return DecisionSupportServiceModuleStatus.DRAFT;
+        if ("active".equals(codeString))
+          return DecisionSupportServiceModuleStatus.ACTIVE;
+        if ("inactive".equals(codeString))
+          return DecisionSupportServiceModuleStatus.INACTIVE;
+        throw new IllegalArgumentException("Unknown DecisionSupportServiceModuleStatus code '"+codeString+"'");
+        }
+        public Enumeration<DecisionSupportServiceModuleStatus> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("draft".equals(codeString))
+          return new Enumeration<DecisionSupportServiceModuleStatus>(this, DecisionSupportServiceModuleStatus.DRAFT);
+        if ("active".equals(codeString))
+          return new Enumeration<DecisionSupportServiceModuleStatus>(this, DecisionSupportServiceModuleStatus.ACTIVE);
+        if ("inactive".equals(codeString))
+          return new Enumeration<DecisionSupportServiceModuleStatus>(this, DecisionSupportServiceModuleStatus.INACTIVE);
+        throw new FHIRException("Unknown DecisionSupportServiceModuleStatus code '"+codeString+"'");
+        }
+    public String toCode(DecisionSupportServiceModuleStatus code) {
+      if (code == DecisionSupportServiceModuleStatus.DRAFT)
+        return "draft";
+      if (code == DecisionSupportServiceModuleStatus.ACTIVE)
+        return "active";
+      if (code == DecisionSupportServiceModuleStatus.INACTIVE)
+        return "inactive";
+      return "?";
+      }
+    public String toSystem(DecisionSupportServiceModuleStatus code) {
+      return code.getSystem();
+      }
+    }
 
     /**
      * An absolute URL that is used to identify this module when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this module definition is (or will be) published.
@@ -89,7 +195,7 @@ public class DecisionSupportServiceModule extends DomainResource {
     @Child(name = "status", type = {CodeType.class}, order=5, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="draft | active | inactive", formalDefinition="The status of the module." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/module-metadata-status")
-    protected CodeType status;
+    protected Enumeration<DecisionSupportServiceModuleStatus> status;
 
     /**
      * Determines whether the module was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.
@@ -217,7 +323,7 @@ public class DecisionSupportServiceModule extends DomainResource {
     @Description(shortDefinition="Data requirements for the module", formalDefinition="Data requirements are a machine processable description of the data required by the module in order to perform a successful evaluation." )
     protected List<DataRequirement> dataRequirement;
 
-    private static final long serialVersionUID = 945454465L;
+    private static final long serialVersionUID = -1173012327L;
 
   /**
    * Constructor
@@ -229,7 +335,7 @@ public class DecisionSupportServiceModule extends DomainResource {
   /**
    * Constructor
    */
-    public DecisionSupportServiceModule(CodeType status) {
+    public DecisionSupportServiceModule(Enumeration<DecisionSupportServiceModuleStatus> status) {
       super();
       this.status = status;
     }
@@ -486,12 +592,12 @@ public class DecisionSupportServiceModule extends DomainResource {
     /**
      * @return {@link #status} (The status of the module.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public CodeType getStatusElement() { 
+    public Enumeration<DecisionSupportServiceModuleStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DecisionSupportServiceModule.status");
         else if (Configuration.doAutoCreate())
-          this.status = new CodeType(); // bb
+          this.status = new Enumeration<DecisionSupportServiceModuleStatus>(new DecisionSupportServiceModuleStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -506,7 +612,7 @@ public class DecisionSupportServiceModule extends DomainResource {
     /**
      * @param value {@link #status} (The status of the module.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public DecisionSupportServiceModule setStatusElement(CodeType value) { 
+    public DecisionSupportServiceModule setStatusElement(Enumeration<DecisionSupportServiceModuleStatus> value) { 
       this.status = value;
       return this;
     }
@@ -514,16 +620,16 @@ public class DecisionSupportServiceModule extends DomainResource {
     /**
      * @return The status of the module.
      */
-    public String getStatus() { 
+    public DecisionSupportServiceModuleStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the module.
      */
-    public DecisionSupportServiceModule setStatus(String value) { 
+    public DecisionSupportServiceModule setStatus(DecisionSupportServiceModuleStatus value) { 
         if (this.status == null)
-          this.status = new CodeType();
+          this.status = new Enumeration<DecisionSupportServiceModuleStatus>(new DecisionSupportServiceModuleStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1424,7 +1530,7 @@ public class DecisionSupportServiceModule extends DomainResource {
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // CodeType
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DecisionSupportServiceModuleStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // StringType
@@ -1467,7 +1573,7 @@ public class DecisionSupportServiceModule extends DomainResource {
           this.title = castToString(value); // StringType
           break;
         case -892481550: // status
-          this.status = castToCode(value); // CodeType
+          this.status = new DecisionSupportServiceModuleStatusEnumFactory().fromType(value); // Enumeration<DecisionSupportServiceModuleStatus>
           break;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -1541,7 +1647,7 @@ public class DecisionSupportServiceModule extends DomainResource {
         else if (name.equals("title"))
           this.title = castToString(value); // StringType
         else if (name.equals("status"))
-          this.status = castToCode(value); // CodeType
+          this.status = new DecisionSupportServiceModuleStatusEnumFactory().fromType(value); // Enumeration<DecisionSupportServiceModuleStatus>
         else if (name.equals("experimental"))
           this.experimental = castToBoolean(value); // BooleanType
         else if (name.equals("description"))
@@ -1590,7 +1696,7 @@ public class DecisionSupportServiceModule extends DomainResource {
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
         case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // CodeType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DecisionSupportServiceModuleStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // StringType

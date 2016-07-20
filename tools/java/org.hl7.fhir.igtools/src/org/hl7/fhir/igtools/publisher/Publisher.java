@@ -650,6 +650,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
     needToBuild = loadBundles(needToBuild, igf);
     for (ImplementationGuidePackageComponent pack : ig.getPackage()) {
       for (ImplementationGuidePackageResourceComponent res : pack.getResource()) {
+        if (!res.hasSourceReference())
+          throw new Exception("Missing source reference on "+res.getName());
         if (!bndIds.contains(res.getSourceReference().getReference())) {
           FetchedFile f = fetcher.fetch(res.getSource(), igf);
           needToBuild = noteFile(res, f) || needToBuild;
@@ -1683,7 +1685,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (wantGen(r, "xref")) 
       fragment("ValueSet-"+vs.getId()+"-xref", vsr.xref(), f.getOutputNames());
     if (wantGen(r, "expansion")) { 
-      ValueSetExpansionOutcome exp = context.expandVS(vs, true);
+      ValueSetExpansionOutcome exp = context.expandVS(vs, true, true);
       if (exp.getValueset() != null) {
         NarrativeGenerator gen = new NarrativeGenerator("", null, context);
         gen.setTooCostlyNote("This value set has >1000 codes in it. In order to keep the publication size manageable, only a selection (1000 codes) of the whole set of codes is shown");

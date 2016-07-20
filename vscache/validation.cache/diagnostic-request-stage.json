@@ -1,0 +1,10 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/diagnostic-request-stage",
+  "outcomes": [
+    {
+      "hash": "#|null|null|original-order|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    }
+  ]
+}

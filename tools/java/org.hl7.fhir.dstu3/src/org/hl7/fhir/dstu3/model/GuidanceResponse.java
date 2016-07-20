@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 19, 2016 06:18+1000 for FHIR v1.5.0
+// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -186,6 +186,870 @@ public class GuidanceResponse extends DomainResource {
       }
     }
 
+    public enum ActionRelationshipType {
+        /**
+         * The action must be performed before the related action
+         */
+        BEFORE, 
+        /**
+         * The action must be performed after the related action
+         */
+        AFTER, 
+        /**
+         * The action must be performed concurrent with the related action
+         */
+        CONCURRENT, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static ActionRelationshipType fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("before".equals(codeString))
+          return BEFORE;
+        if ("after".equals(codeString))
+          return AFTER;
+        if ("concurrent".equals(codeString))
+          return CONCURRENT;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ActionRelationshipType code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case BEFORE: return "before";
+            case AFTER: return "after";
+            case CONCURRENT: return "concurrent";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case BEFORE: return "http://hl7.org/fhir/action-relationship-type";
+            case AFTER: return "http://hl7.org/fhir/action-relationship-type";
+            case CONCURRENT: return "http://hl7.org/fhir/action-relationship-type";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case BEFORE: return "The action must be performed before the related action";
+            case AFTER: return "The action must be performed after the related action";
+            case CONCURRENT: return "The action must be performed concurrent with the related action";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case BEFORE: return "Before";
+            case AFTER: return "After";
+            case CONCURRENT: return "Concurrent";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ActionRelationshipTypeEnumFactory implements EnumFactory<ActionRelationshipType> {
+    public ActionRelationshipType fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("before".equals(codeString))
+          return ActionRelationshipType.BEFORE;
+        if ("after".equals(codeString))
+          return ActionRelationshipType.AFTER;
+        if ("concurrent".equals(codeString))
+          return ActionRelationshipType.CONCURRENT;
+        throw new IllegalArgumentException("Unknown ActionRelationshipType code '"+codeString+"'");
+        }
+        public Enumeration<ActionRelationshipType> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("before".equals(codeString))
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.BEFORE);
+        if ("after".equals(codeString))
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.AFTER);
+        if ("concurrent".equals(codeString))
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.CONCURRENT);
+        throw new FHIRException("Unknown ActionRelationshipType code '"+codeString+"'");
+        }
+    public String toCode(ActionRelationshipType code) {
+      if (code == ActionRelationshipType.BEFORE)
+        return "before";
+      if (code == ActionRelationshipType.AFTER)
+        return "after";
+      if (code == ActionRelationshipType.CONCURRENT)
+        return "concurrent";
+      return "?";
+      }
+    public String toSystem(ActionRelationshipType code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum ActionRelationshipAnchor {
+        /**
+         * The action relationship is anchored to the start of the related action
+         */
+        START, 
+        /**
+         * The action relationship is anchored to the end of the related action
+         */
+        END, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static ActionRelationshipAnchor fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("start".equals(codeString))
+          return START;
+        if ("end".equals(codeString))
+          return END;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ActionRelationshipAnchor code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case START: return "start";
+            case END: return "end";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case START: return "http://hl7.org/fhir/action-relationship-anchor";
+            case END: return "http://hl7.org/fhir/action-relationship-anchor";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case START: return "The action relationship is anchored to the start of the related action";
+            case END: return "The action relationship is anchored to the end of the related action";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case START: return "Start";
+            case END: return "End";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ActionRelationshipAnchorEnumFactory implements EnumFactory<ActionRelationshipAnchor> {
+    public ActionRelationshipAnchor fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("start".equals(codeString))
+          return ActionRelationshipAnchor.START;
+        if ("end".equals(codeString))
+          return ActionRelationshipAnchor.END;
+        throw new IllegalArgumentException("Unknown ActionRelationshipAnchor code '"+codeString+"'");
+        }
+        public Enumeration<ActionRelationshipAnchor> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("start".equals(codeString))
+          return new Enumeration<ActionRelationshipAnchor>(this, ActionRelationshipAnchor.START);
+        if ("end".equals(codeString))
+          return new Enumeration<ActionRelationshipAnchor>(this, ActionRelationshipAnchor.END);
+        throw new FHIRException("Unknown ActionRelationshipAnchor code '"+codeString+"'");
+        }
+    public String toCode(ActionRelationshipAnchor code) {
+      if (code == ActionRelationshipAnchor.START)
+        return "start";
+      if (code == ActionRelationshipAnchor.END)
+        return "end";
+      return "?";
+      }
+    public String toSystem(ActionRelationshipAnchor code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum ActionType {
+        /**
+         * The action is to create a new resource
+         */
+        CREATE, 
+        /**
+         * The action is to update an existing resource
+         */
+        UPDATE, 
+        /**
+         * The action is to remove an existing resource
+         */
+        REMOVE, 
+        /**
+         * The action is to fire a specific event
+         */
+        FIREEVENT, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static ActionType fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("create".equals(codeString))
+          return CREATE;
+        if ("update".equals(codeString))
+          return UPDATE;
+        if ("remove".equals(codeString))
+          return REMOVE;
+        if ("fire-event".equals(codeString))
+          return FIREEVENT;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ActionType code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case CREATE: return "create";
+            case UPDATE: return "update";
+            case REMOVE: return "remove";
+            case FIREEVENT: return "fire-event";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case CREATE: return "http://hl7.org/fhir/action-type";
+            case UPDATE: return "http://hl7.org/fhir/action-type";
+            case REMOVE: return "http://hl7.org/fhir/action-type";
+            case FIREEVENT: return "http://hl7.org/fhir/action-type";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case CREATE: return "The action is to create a new resource";
+            case UPDATE: return "The action is to update an existing resource";
+            case REMOVE: return "The action is to remove an existing resource";
+            case FIREEVENT: return "The action is to fire a specific event";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case CREATE: return "Create";
+            case UPDATE: return "Update";
+            case REMOVE: return "Remove";
+            case FIREEVENT: return "Fire Event";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ActionTypeEnumFactory implements EnumFactory<ActionType> {
+    public ActionType fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("create".equals(codeString))
+          return ActionType.CREATE;
+        if ("update".equals(codeString))
+          return ActionType.UPDATE;
+        if ("remove".equals(codeString))
+          return ActionType.REMOVE;
+        if ("fire-event".equals(codeString))
+          return ActionType.FIREEVENT;
+        throw new IllegalArgumentException("Unknown ActionType code '"+codeString+"'");
+        }
+        public Enumeration<ActionType> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("create".equals(codeString))
+          return new Enumeration<ActionType>(this, ActionType.CREATE);
+        if ("update".equals(codeString))
+          return new Enumeration<ActionType>(this, ActionType.UPDATE);
+        if ("remove".equals(codeString))
+          return new Enumeration<ActionType>(this, ActionType.REMOVE);
+        if ("fire-event".equals(codeString))
+          return new Enumeration<ActionType>(this, ActionType.FIREEVENT);
+        throw new FHIRException("Unknown ActionType code '"+codeString+"'");
+        }
+    public String toCode(ActionType code) {
+      if (code == ActionType.CREATE)
+        return "create";
+      if (code == ActionType.UPDATE)
+        return "update";
+      if (code == ActionType.REMOVE)
+        return "remove";
+      if (code == ActionType.FIREEVENT)
+        return "fire-event";
+      return "?";
+      }
+    public String toSystem(ActionType code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum ActionGroupingBehavior {
+        /**
+         * Any group marked with this behavior should be displayed as a visual group to the end user
+         */
+        VISUALGROUP, 
+        /**
+         * A group with this behavior logically groups its sub-elements, and may be shown as a visual group to the end user, but it is not required to do so
+         */
+        LOGICALGROUP, 
+        /**
+         * A group of related alternative actions is a sentence group if the target referenced by the action is the same in all the actions and each action simply constitutes a different variation on how to specify the details for the target. For example, two actions that could be in a SentenceGroup are "aspirin, 500 mg, 2 times per day" and "aspirin, 300 mg, 3 times per day". In both cases, aspirin is the target referenced by the action, and the two actions represent different options for how aspirin might be ordered for the patient. Note that a SentenceGroup would almost always have an associated selection behavior of "AtMostOne", unless it's a required action, in which case, it would be "ExactlyOne"
+         */
+        SENTENCEGROUP, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static ActionGroupingBehavior fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("visual-group".equals(codeString))
+          return VISUALGROUP;
+        if ("logical-group".equals(codeString))
+          return LOGICALGROUP;
+        if ("sentence-group".equals(codeString))
+          return SENTENCEGROUP;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ActionGroupingBehavior code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case VISUALGROUP: return "visual-group";
+            case LOGICALGROUP: return "logical-group";
+            case SENTENCEGROUP: return "sentence-group";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case VISUALGROUP: return "http://hl7.org/fhir/action-grouping-behavior";
+            case LOGICALGROUP: return "http://hl7.org/fhir/action-grouping-behavior";
+            case SENTENCEGROUP: return "http://hl7.org/fhir/action-grouping-behavior";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case VISUALGROUP: return "Any group marked with this behavior should be displayed as a visual group to the end user";
+            case LOGICALGROUP: return "A group with this behavior logically groups its sub-elements, and may be shown as a visual group to the end user, but it is not required to do so";
+            case SENTENCEGROUP: return "A group of related alternative actions is a sentence group if the target referenced by the action is the same in all the actions and each action simply constitutes a different variation on how to specify the details for the target. For example, two actions that could be in a SentenceGroup are \"aspirin, 500 mg, 2 times per day\" and \"aspirin, 300 mg, 3 times per day\". In both cases, aspirin is the target referenced by the action, and the two actions represent different options for how aspirin might be ordered for the patient. Note that a SentenceGroup would almost always have an associated selection behavior of \"AtMostOne\", unless it's a required action, in which case, it would be \"ExactlyOne\"";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case VISUALGROUP: return "Visual Group";
+            case LOGICALGROUP: return "Logical Group";
+            case SENTENCEGROUP: return "Sentence Group";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ActionGroupingBehaviorEnumFactory implements EnumFactory<ActionGroupingBehavior> {
+    public ActionGroupingBehavior fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("visual-group".equals(codeString))
+          return ActionGroupingBehavior.VISUALGROUP;
+        if ("logical-group".equals(codeString))
+          return ActionGroupingBehavior.LOGICALGROUP;
+        if ("sentence-group".equals(codeString))
+          return ActionGroupingBehavior.SENTENCEGROUP;
+        throw new IllegalArgumentException("Unknown ActionGroupingBehavior code '"+codeString+"'");
+        }
+        public Enumeration<ActionGroupingBehavior> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("visual-group".equals(codeString))
+          return new Enumeration<ActionGroupingBehavior>(this, ActionGroupingBehavior.VISUALGROUP);
+        if ("logical-group".equals(codeString))
+          return new Enumeration<ActionGroupingBehavior>(this, ActionGroupingBehavior.LOGICALGROUP);
+        if ("sentence-group".equals(codeString))
+          return new Enumeration<ActionGroupingBehavior>(this, ActionGroupingBehavior.SENTENCEGROUP);
+        throw new FHIRException("Unknown ActionGroupingBehavior code '"+codeString+"'");
+        }
+    public String toCode(ActionGroupingBehavior code) {
+      if (code == ActionGroupingBehavior.VISUALGROUP)
+        return "visual-group";
+      if (code == ActionGroupingBehavior.LOGICALGROUP)
+        return "logical-group";
+      if (code == ActionGroupingBehavior.SENTENCEGROUP)
+        return "sentence-group";
+      return "?";
+      }
+    public String toSystem(ActionGroupingBehavior code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum ActionSelectionBehavior {
+        /**
+         * Any number of the actions in the group may be chosen, from zero to all
+         */
+        ANY, 
+        /**
+         * All the actions in the group must be selected as a single unit
+         */
+        ALL, 
+        /**
+         * All the actions in the group are meant to be chosen as a single unit: either all must be selected by the end user, or none may be selected
+         */
+        ALLORNONE, 
+        /**
+         * The end user must choose one and only one of the selectable actions in the group. The user may not choose none of the actions in the group
+         */
+        EXACTLYONE, 
+        /**
+         * The end user may choose zero or at most one of the actions in the group
+         */
+        ATMOSTONE, 
+        /**
+         * The end user must choose a minimum of one, and as many additional as desired
+         */
+        ONEORMORE, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static ActionSelectionBehavior fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("any".equals(codeString))
+          return ANY;
+        if ("all".equals(codeString))
+          return ALL;
+        if ("all-or-none".equals(codeString))
+          return ALLORNONE;
+        if ("exactly-one".equals(codeString))
+          return EXACTLYONE;
+        if ("at-most-one".equals(codeString))
+          return ATMOSTONE;
+        if ("one-or-more".equals(codeString))
+          return ONEORMORE;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ActionSelectionBehavior code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case ANY: return "any";
+            case ALL: return "all";
+            case ALLORNONE: return "all-or-none";
+            case EXACTLYONE: return "exactly-one";
+            case ATMOSTONE: return "at-most-one";
+            case ONEORMORE: return "one-or-more";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case ANY: return "http://hl7.org/fhir/action-selection-behavior";
+            case ALL: return "http://hl7.org/fhir/action-selection-behavior";
+            case ALLORNONE: return "http://hl7.org/fhir/action-selection-behavior";
+            case EXACTLYONE: return "http://hl7.org/fhir/action-selection-behavior";
+            case ATMOSTONE: return "http://hl7.org/fhir/action-selection-behavior";
+            case ONEORMORE: return "http://hl7.org/fhir/action-selection-behavior";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case ANY: return "Any number of the actions in the group may be chosen, from zero to all";
+            case ALL: return "All the actions in the group must be selected as a single unit";
+            case ALLORNONE: return "All the actions in the group are meant to be chosen as a single unit: either all must be selected by the end user, or none may be selected";
+            case EXACTLYONE: return "The end user must choose one and only one of the selectable actions in the group. The user may not choose none of the actions in the group";
+            case ATMOSTONE: return "The end user may choose zero or at most one of the actions in the group";
+            case ONEORMORE: return "The end user must choose a minimum of one, and as many additional as desired";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case ANY: return "Any";
+            case ALL: return "All";
+            case ALLORNONE: return "All Or None";
+            case EXACTLYONE: return "Exactly One";
+            case ATMOSTONE: return "At Most One";
+            case ONEORMORE: return "One Or More";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ActionSelectionBehaviorEnumFactory implements EnumFactory<ActionSelectionBehavior> {
+    public ActionSelectionBehavior fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("any".equals(codeString))
+          return ActionSelectionBehavior.ANY;
+        if ("all".equals(codeString))
+          return ActionSelectionBehavior.ALL;
+        if ("all-or-none".equals(codeString))
+          return ActionSelectionBehavior.ALLORNONE;
+        if ("exactly-one".equals(codeString))
+          return ActionSelectionBehavior.EXACTLYONE;
+        if ("at-most-one".equals(codeString))
+          return ActionSelectionBehavior.ATMOSTONE;
+        if ("one-or-more".equals(codeString))
+          return ActionSelectionBehavior.ONEORMORE;
+        throw new IllegalArgumentException("Unknown ActionSelectionBehavior code '"+codeString+"'");
+        }
+        public Enumeration<ActionSelectionBehavior> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("any".equals(codeString))
+          return new Enumeration<ActionSelectionBehavior>(this, ActionSelectionBehavior.ANY);
+        if ("all".equals(codeString))
+          return new Enumeration<ActionSelectionBehavior>(this, ActionSelectionBehavior.ALL);
+        if ("all-or-none".equals(codeString))
+          return new Enumeration<ActionSelectionBehavior>(this, ActionSelectionBehavior.ALLORNONE);
+        if ("exactly-one".equals(codeString))
+          return new Enumeration<ActionSelectionBehavior>(this, ActionSelectionBehavior.EXACTLYONE);
+        if ("at-most-one".equals(codeString))
+          return new Enumeration<ActionSelectionBehavior>(this, ActionSelectionBehavior.ATMOSTONE);
+        if ("one-or-more".equals(codeString))
+          return new Enumeration<ActionSelectionBehavior>(this, ActionSelectionBehavior.ONEORMORE);
+        throw new FHIRException("Unknown ActionSelectionBehavior code '"+codeString+"'");
+        }
+    public String toCode(ActionSelectionBehavior code) {
+      if (code == ActionSelectionBehavior.ANY)
+        return "any";
+      if (code == ActionSelectionBehavior.ALL)
+        return "all";
+      if (code == ActionSelectionBehavior.ALLORNONE)
+        return "all-or-none";
+      if (code == ActionSelectionBehavior.EXACTLYONE)
+        return "exactly-one";
+      if (code == ActionSelectionBehavior.ATMOSTONE)
+        return "at-most-one";
+      if (code == ActionSelectionBehavior.ONEORMORE)
+        return "one-or-more";
+      return "?";
+      }
+    public String toSystem(ActionSelectionBehavior code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum ActionRequiredBehavior {
+        /**
+         * An action with this behavior must be included in the actions processed by the end user; the end user may not choose not to include this action
+         */
+        MUST, 
+        /**
+         * An action with this behavior may be included in the set of actions processed by the end user
+         */
+        COULD, 
+        /**
+         * An action with this behavior must be included in the set of actions processed by the end user, unless the end user provides documentation as to why the action was not included
+         */
+        MUSTUNLESSDOCUMENTED, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static ActionRequiredBehavior fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("must".equals(codeString))
+          return MUST;
+        if ("could".equals(codeString))
+          return COULD;
+        if ("must-unless-documented".equals(codeString))
+          return MUSTUNLESSDOCUMENTED;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ActionRequiredBehavior code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case MUST: return "must";
+            case COULD: return "could";
+            case MUSTUNLESSDOCUMENTED: return "must-unless-documented";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case MUST: return "http://hl7.org/fhir/action-required-behavior";
+            case COULD: return "http://hl7.org/fhir/action-required-behavior";
+            case MUSTUNLESSDOCUMENTED: return "http://hl7.org/fhir/action-required-behavior";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case MUST: return "An action with this behavior must be included in the actions processed by the end user; the end user may not choose not to include this action";
+            case COULD: return "An action with this behavior may be included in the set of actions processed by the end user";
+            case MUSTUNLESSDOCUMENTED: return "An action with this behavior must be included in the set of actions processed by the end user, unless the end user provides documentation as to why the action was not included";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case MUST: return "Must";
+            case COULD: return "Could";
+            case MUSTUNLESSDOCUMENTED: return "Must Unless Documented";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ActionRequiredBehaviorEnumFactory implements EnumFactory<ActionRequiredBehavior> {
+    public ActionRequiredBehavior fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("must".equals(codeString))
+          return ActionRequiredBehavior.MUST;
+        if ("could".equals(codeString))
+          return ActionRequiredBehavior.COULD;
+        if ("must-unless-documented".equals(codeString))
+          return ActionRequiredBehavior.MUSTUNLESSDOCUMENTED;
+        throw new IllegalArgumentException("Unknown ActionRequiredBehavior code '"+codeString+"'");
+        }
+        public Enumeration<ActionRequiredBehavior> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("must".equals(codeString))
+          return new Enumeration<ActionRequiredBehavior>(this, ActionRequiredBehavior.MUST);
+        if ("could".equals(codeString))
+          return new Enumeration<ActionRequiredBehavior>(this, ActionRequiredBehavior.COULD);
+        if ("must-unless-documented".equals(codeString))
+          return new Enumeration<ActionRequiredBehavior>(this, ActionRequiredBehavior.MUSTUNLESSDOCUMENTED);
+        throw new FHIRException("Unknown ActionRequiredBehavior code '"+codeString+"'");
+        }
+    public String toCode(ActionRequiredBehavior code) {
+      if (code == ActionRequiredBehavior.MUST)
+        return "must";
+      if (code == ActionRequiredBehavior.COULD)
+        return "could";
+      if (code == ActionRequiredBehavior.MUSTUNLESSDOCUMENTED)
+        return "must-unless-documented";
+      return "?";
+      }
+    public String toSystem(ActionRequiredBehavior code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum ActionPrecheckBehavior {
+        /**
+         * An action with this behavior is one of the most frequent action that is, or should be, included by an end user, for the particular context in which the action occurs. The system displaying the action to the end user should consider "pre-checking" such an action as a convenience for the user
+         */
+        YES, 
+        /**
+         * An action with this behavior is one of the less frequent actions included by the end user, for the particular context in which the action occurs. The system displaying the actions to the end user would typically not "pre-check" such an action
+         */
+        NO, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static ActionPrecheckBehavior fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("yes".equals(codeString))
+          return YES;
+        if ("no".equals(codeString))
+          return NO;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ActionPrecheckBehavior code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case YES: return "yes";
+            case NO: return "no";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case YES: return "http://hl7.org/fhir/action-precheck-behavior";
+            case NO: return "http://hl7.org/fhir/action-precheck-behavior";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case YES: return "An action with this behavior is one of the most frequent action that is, or should be, included by an end user, for the particular context in which the action occurs. The system displaying the action to the end user should consider \"pre-checking\" such an action as a convenience for the user";
+            case NO: return "An action with this behavior is one of the less frequent actions included by the end user, for the particular context in which the action occurs. The system displaying the actions to the end user would typically not \"pre-check\" such an action";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case YES: return "Yes";
+            case NO: return "No";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ActionPrecheckBehaviorEnumFactory implements EnumFactory<ActionPrecheckBehavior> {
+    public ActionPrecheckBehavior fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("yes".equals(codeString))
+          return ActionPrecheckBehavior.YES;
+        if ("no".equals(codeString))
+          return ActionPrecheckBehavior.NO;
+        throw new IllegalArgumentException("Unknown ActionPrecheckBehavior code '"+codeString+"'");
+        }
+        public Enumeration<ActionPrecheckBehavior> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("yes".equals(codeString))
+          return new Enumeration<ActionPrecheckBehavior>(this, ActionPrecheckBehavior.YES);
+        if ("no".equals(codeString))
+          return new Enumeration<ActionPrecheckBehavior>(this, ActionPrecheckBehavior.NO);
+        throw new FHIRException("Unknown ActionPrecheckBehavior code '"+codeString+"'");
+        }
+    public String toCode(ActionPrecheckBehavior code) {
+      if (code == ActionPrecheckBehavior.YES)
+        return "yes";
+      if (code == ActionPrecheckBehavior.NO)
+        return "no";
+      return "?";
+      }
+    public String toSystem(ActionPrecheckBehavior code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum ActionCardinalityBehavior {
+        /**
+         * The action may only be selected one time
+         */
+        SINGLE, 
+        /**
+         * The action may be selected multiple times
+         */
+        MULTIPLE, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static ActionCardinalityBehavior fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("single".equals(codeString))
+          return SINGLE;
+        if ("multiple".equals(codeString))
+          return MULTIPLE;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ActionCardinalityBehavior code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case SINGLE: return "single";
+            case MULTIPLE: return "multiple";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case SINGLE: return "http://hl7.org/fhir/action-cardinality-behavior";
+            case MULTIPLE: return "http://hl7.org/fhir/action-cardinality-behavior";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case SINGLE: return "The action may only be selected one time";
+            case MULTIPLE: return "The action may be selected multiple times";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case SINGLE: return "Single";
+            case MULTIPLE: return "Multiple";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ActionCardinalityBehaviorEnumFactory implements EnumFactory<ActionCardinalityBehavior> {
+    public ActionCardinalityBehavior fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("single".equals(codeString))
+          return ActionCardinalityBehavior.SINGLE;
+        if ("multiple".equals(codeString))
+          return ActionCardinalityBehavior.MULTIPLE;
+        throw new IllegalArgumentException("Unknown ActionCardinalityBehavior code '"+codeString+"'");
+        }
+        public Enumeration<ActionCardinalityBehavior> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("single".equals(codeString))
+          return new Enumeration<ActionCardinalityBehavior>(this, ActionCardinalityBehavior.SINGLE);
+        if ("multiple".equals(codeString))
+          return new Enumeration<ActionCardinalityBehavior>(this, ActionCardinalityBehavior.MULTIPLE);
+        throw new FHIRException("Unknown ActionCardinalityBehavior code '"+codeString+"'");
+        }
+    public String toCode(ActionCardinalityBehavior code) {
+      if (code == ActionCardinalityBehavior.SINGLE)
+        return "single";
+      if (code == ActionCardinalityBehavior.MULTIPLE)
+        return "multiple";
+      return "?";
+      }
+    public String toSystem(ActionCardinalityBehavior code) {
+      return code.getSystem();
+      }
+    }
+
     @Block()
     public static class GuidanceResponseActionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
@@ -269,7 +1133,7 @@ public class GuidanceResponse extends DomainResource {
         @Child(name = "type", type = {CodeType.class}, order=11, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="create | update | remove | fire-event", formalDefinition="The type of action to perform (create, update, remove)." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-type")
-        protected CodeType type;
+        protected Enumeration<ActionType> type;
 
         /**
          * Defines the grouping behavior for the action and its children.
@@ -277,7 +1141,7 @@ public class GuidanceResponse extends DomainResource {
         @Child(name = "groupingBehavior", type = {CodeType.class}, order=12, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="visual-group | logical-group | sentence-group", formalDefinition="Defines the grouping behavior for the action and its children." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-grouping-behavior")
-        protected CodeType groupingBehavior;
+        protected Enumeration<ActionGroupingBehavior> groupingBehavior;
 
         /**
          * Defines the selection behavior for the action and its children.
@@ -285,7 +1149,7 @@ public class GuidanceResponse extends DomainResource {
         @Child(name = "selectionBehavior", type = {CodeType.class}, order=13, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="any | all | all-or-none | exactly-one | at-most-one | one-or-more", formalDefinition="Defines the selection behavior for the action and its children." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-selection-behavior")
-        protected CodeType selectionBehavior;
+        protected Enumeration<ActionSelectionBehavior> selectionBehavior;
 
         /**
          * Defines the requiredness behavior for the action.
@@ -293,7 +1157,7 @@ public class GuidanceResponse extends DomainResource {
         @Child(name = "requiredBehavior", type = {CodeType.class}, order=14, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="must | could | must-unless-documented", formalDefinition="Defines the requiredness behavior for the action." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-required-behavior")
-        protected CodeType requiredBehavior;
+        protected Enumeration<ActionRequiredBehavior> requiredBehavior;
 
         /**
          * Defines whether the action should usually be preselected.
@@ -301,7 +1165,7 @@ public class GuidanceResponse extends DomainResource {
         @Child(name = "precheckBehavior", type = {CodeType.class}, order=15, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="yes | no", formalDefinition="Defines whether the action should usually be preselected." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-precheck-behavior")
-        protected CodeType precheckBehavior;
+        protected Enumeration<ActionPrecheckBehavior> precheckBehavior;
 
         /**
          * Defines whether the action can be selected multiple times.
@@ -309,7 +1173,7 @@ public class GuidanceResponse extends DomainResource {
         @Child(name = "cardinalityBehavior", type = {CodeType.class}, order=16, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="single | multiple", formalDefinition="Defines whether the action can be selected multiple times." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-cardinality-behavior")
-        protected CodeType cardinalityBehavior;
+        protected Enumeration<ActionCardinalityBehavior> cardinalityBehavior;
 
         /**
          * The resource that is the target of the action (e.g. CommunicationRequest).
@@ -330,7 +1194,7 @@ public class GuidanceResponse extends DomainResource {
         @Description(shortDefinition="Sub action", formalDefinition="Sub actions." )
         protected List<GuidanceResponseActionComponent> action;
 
-        private static final long serialVersionUID = 1076186160L;
+        private static final long serialVersionUID = -1194209905L;
 
     /**
      * Constructor
@@ -826,12 +1690,12 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #type} (The type of action to perform (create, update, remove).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public CodeType getTypeElement() { 
+        public Enumeration<ActionType> getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GuidanceResponseActionComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeType(); // bb
+              this.type = new Enumeration<ActionType>(new ActionTypeEnumFactory()); // bb
           return this.type;
         }
 
@@ -846,7 +1710,7 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @param value {@link #type} (The type of action to perform (create, update, remove).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public GuidanceResponseActionComponent setTypeElement(CodeType value) { 
+        public GuidanceResponseActionComponent setTypeElement(Enumeration<ActionType> value) { 
           this.type = value;
           return this;
         }
@@ -854,19 +1718,19 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return The type of action to perform (create, update, remove).
          */
-        public String getType() { 
+        public ActionType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of action to perform (create, update, remove).
          */
-        public GuidanceResponseActionComponent setType(String value) { 
-          if (Utilities.noString(value))
+        public GuidanceResponseActionComponent setType(ActionType value) { 
+          if (value == null)
             this.type = null;
           else {
             if (this.type == null)
-              this.type = new CodeType();
+              this.type = new Enumeration<ActionType>(new ActionTypeEnumFactory());
             this.type.setValue(value);
           }
           return this;
@@ -875,12 +1739,12 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #groupingBehavior} (Defines the grouping behavior for the action and its children.). This is the underlying object with id, value and extensions. The accessor "getGroupingBehavior" gives direct access to the value
          */
-        public CodeType getGroupingBehaviorElement() { 
+        public Enumeration<ActionGroupingBehavior> getGroupingBehaviorElement() { 
           if (this.groupingBehavior == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GuidanceResponseActionComponent.groupingBehavior");
             else if (Configuration.doAutoCreate())
-              this.groupingBehavior = new CodeType(); // bb
+              this.groupingBehavior = new Enumeration<ActionGroupingBehavior>(new ActionGroupingBehaviorEnumFactory()); // bb
           return this.groupingBehavior;
         }
 
@@ -895,7 +1759,7 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @param value {@link #groupingBehavior} (Defines the grouping behavior for the action and its children.). This is the underlying object with id, value and extensions. The accessor "getGroupingBehavior" gives direct access to the value
          */
-        public GuidanceResponseActionComponent setGroupingBehaviorElement(CodeType value) { 
+        public GuidanceResponseActionComponent setGroupingBehaviorElement(Enumeration<ActionGroupingBehavior> value) { 
           this.groupingBehavior = value;
           return this;
         }
@@ -903,19 +1767,19 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return Defines the grouping behavior for the action and its children.
          */
-        public String getGroupingBehavior() { 
+        public ActionGroupingBehavior getGroupingBehavior() { 
           return this.groupingBehavior == null ? null : this.groupingBehavior.getValue();
         }
 
         /**
          * @param value Defines the grouping behavior for the action and its children.
          */
-        public GuidanceResponseActionComponent setGroupingBehavior(String value) { 
-          if (Utilities.noString(value))
+        public GuidanceResponseActionComponent setGroupingBehavior(ActionGroupingBehavior value) { 
+          if (value == null)
             this.groupingBehavior = null;
           else {
             if (this.groupingBehavior == null)
-              this.groupingBehavior = new CodeType();
+              this.groupingBehavior = new Enumeration<ActionGroupingBehavior>(new ActionGroupingBehaviorEnumFactory());
             this.groupingBehavior.setValue(value);
           }
           return this;
@@ -924,12 +1788,12 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #selectionBehavior} (Defines the selection behavior for the action and its children.). This is the underlying object with id, value and extensions. The accessor "getSelectionBehavior" gives direct access to the value
          */
-        public CodeType getSelectionBehaviorElement() { 
+        public Enumeration<ActionSelectionBehavior> getSelectionBehaviorElement() { 
           if (this.selectionBehavior == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GuidanceResponseActionComponent.selectionBehavior");
             else if (Configuration.doAutoCreate())
-              this.selectionBehavior = new CodeType(); // bb
+              this.selectionBehavior = new Enumeration<ActionSelectionBehavior>(new ActionSelectionBehaviorEnumFactory()); // bb
           return this.selectionBehavior;
         }
 
@@ -944,7 +1808,7 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @param value {@link #selectionBehavior} (Defines the selection behavior for the action and its children.). This is the underlying object with id, value and extensions. The accessor "getSelectionBehavior" gives direct access to the value
          */
-        public GuidanceResponseActionComponent setSelectionBehaviorElement(CodeType value) { 
+        public GuidanceResponseActionComponent setSelectionBehaviorElement(Enumeration<ActionSelectionBehavior> value) { 
           this.selectionBehavior = value;
           return this;
         }
@@ -952,19 +1816,19 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return Defines the selection behavior for the action and its children.
          */
-        public String getSelectionBehavior() { 
+        public ActionSelectionBehavior getSelectionBehavior() { 
           return this.selectionBehavior == null ? null : this.selectionBehavior.getValue();
         }
 
         /**
          * @param value Defines the selection behavior for the action and its children.
          */
-        public GuidanceResponseActionComponent setSelectionBehavior(String value) { 
-          if (Utilities.noString(value))
+        public GuidanceResponseActionComponent setSelectionBehavior(ActionSelectionBehavior value) { 
+          if (value == null)
             this.selectionBehavior = null;
           else {
             if (this.selectionBehavior == null)
-              this.selectionBehavior = new CodeType();
+              this.selectionBehavior = new Enumeration<ActionSelectionBehavior>(new ActionSelectionBehaviorEnumFactory());
             this.selectionBehavior.setValue(value);
           }
           return this;
@@ -973,12 +1837,12 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #requiredBehavior} (Defines the requiredness behavior for the action.). This is the underlying object with id, value and extensions. The accessor "getRequiredBehavior" gives direct access to the value
          */
-        public CodeType getRequiredBehaviorElement() { 
+        public Enumeration<ActionRequiredBehavior> getRequiredBehaviorElement() { 
           if (this.requiredBehavior == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GuidanceResponseActionComponent.requiredBehavior");
             else if (Configuration.doAutoCreate())
-              this.requiredBehavior = new CodeType(); // bb
+              this.requiredBehavior = new Enumeration<ActionRequiredBehavior>(new ActionRequiredBehaviorEnumFactory()); // bb
           return this.requiredBehavior;
         }
 
@@ -993,7 +1857,7 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @param value {@link #requiredBehavior} (Defines the requiredness behavior for the action.). This is the underlying object with id, value and extensions. The accessor "getRequiredBehavior" gives direct access to the value
          */
-        public GuidanceResponseActionComponent setRequiredBehaviorElement(CodeType value) { 
+        public GuidanceResponseActionComponent setRequiredBehaviorElement(Enumeration<ActionRequiredBehavior> value) { 
           this.requiredBehavior = value;
           return this;
         }
@@ -1001,19 +1865,19 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return Defines the requiredness behavior for the action.
          */
-        public String getRequiredBehavior() { 
+        public ActionRequiredBehavior getRequiredBehavior() { 
           return this.requiredBehavior == null ? null : this.requiredBehavior.getValue();
         }
 
         /**
          * @param value Defines the requiredness behavior for the action.
          */
-        public GuidanceResponseActionComponent setRequiredBehavior(String value) { 
-          if (Utilities.noString(value))
+        public GuidanceResponseActionComponent setRequiredBehavior(ActionRequiredBehavior value) { 
+          if (value == null)
             this.requiredBehavior = null;
           else {
             if (this.requiredBehavior == null)
-              this.requiredBehavior = new CodeType();
+              this.requiredBehavior = new Enumeration<ActionRequiredBehavior>(new ActionRequiredBehaviorEnumFactory());
             this.requiredBehavior.setValue(value);
           }
           return this;
@@ -1022,12 +1886,12 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #precheckBehavior} (Defines whether the action should usually be preselected.). This is the underlying object with id, value and extensions. The accessor "getPrecheckBehavior" gives direct access to the value
          */
-        public CodeType getPrecheckBehaviorElement() { 
+        public Enumeration<ActionPrecheckBehavior> getPrecheckBehaviorElement() { 
           if (this.precheckBehavior == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GuidanceResponseActionComponent.precheckBehavior");
             else if (Configuration.doAutoCreate())
-              this.precheckBehavior = new CodeType(); // bb
+              this.precheckBehavior = new Enumeration<ActionPrecheckBehavior>(new ActionPrecheckBehaviorEnumFactory()); // bb
           return this.precheckBehavior;
         }
 
@@ -1042,7 +1906,7 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @param value {@link #precheckBehavior} (Defines whether the action should usually be preselected.). This is the underlying object with id, value and extensions. The accessor "getPrecheckBehavior" gives direct access to the value
          */
-        public GuidanceResponseActionComponent setPrecheckBehaviorElement(CodeType value) { 
+        public GuidanceResponseActionComponent setPrecheckBehaviorElement(Enumeration<ActionPrecheckBehavior> value) { 
           this.precheckBehavior = value;
           return this;
         }
@@ -1050,19 +1914,19 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return Defines whether the action should usually be preselected.
          */
-        public String getPrecheckBehavior() { 
+        public ActionPrecheckBehavior getPrecheckBehavior() { 
           return this.precheckBehavior == null ? null : this.precheckBehavior.getValue();
         }
 
         /**
          * @param value Defines whether the action should usually be preselected.
          */
-        public GuidanceResponseActionComponent setPrecheckBehavior(String value) { 
-          if (Utilities.noString(value))
+        public GuidanceResponseActionComponent setPrecheckBehavior(ActionPrecheckBehavior value) { 
+          if (value == null)
             this.precheckBehavior = null;
           else {
             if (this.precheckBehavior == null)
-              this.precheckBehavior = new CodeType();
+              this.precheckBehavior = new Enumeration<ActionPrecheckBehavior>(new ActionPrecheckBehaviorEnumFactory());
             this.precheckBehavior.setValue(value);
           }
           return this;
@@ -1071,12 +1935,12 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #cardinalityBehavior} (Defines whether the action can be selected multiple times.). This is the underlying object with id, value and extensions. The accessor "getCardinalityBehavior" gives direct access to the value
          */
-        public CodeType getCardinalityBehaviorElement() { 
+        public Enumeration<ActionCardinalityBehavior> getCardinalityBehaviorElement() { 
           if (this.cardinalityBehavior == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GuidanceResponseActionComponent.cardinalityBehavior");
             else if (Configuration.doAutoCreate())
-              this.cardinalityBehavior = new CodeType(); // bb
+              this.cardinalityBehavior = new Enumeration<ActionCardinalityBehavior>(new ActionCardinalityBehaviorEnumFactory()); // bb
           return this.cardinalityBehavior;
         }
 
@@ -1091,7 +1955,7 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @param value {@link #cardinalityBehavior} (Defines whether the action can be selected multiple times.). This is the underlying object with id, value and extensions. The accessor "getCardinalityBehavior" gives direct access to the value
          */
-        public GuidanceResponseActionComponent setCardinalityBehaviorElement(CodeType value) { 
+        public GuidanceResponseActionComponent setCardinalityBehaviorElement(Enumeration<ActionCardinalityBehavior> value) { 
           this.cardinalityBehavior = value;
           return this;
         }
@@ -1099,19 +1963,19 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return Defines whether the action can be selected multiple times.
          */
-        public String getCardinalityBehavior() { 
+        public ActionCardinalityBehavior getCardinalityBehavior() { 
           return this.cardinalityBehavior == null ? null : this.cardinalityBehavior.getValue();
         }
 
         /**
          * @param value Defines whether the action can be selected multiple times.
          */
-        public GuidanceResponseActionComponent setCardinalityBehavior(String value) { 
-          if (Utilities.noString(value))
+        public GuidanceResponseActionComponent setCardinalityBehavior(ActionCardinalityBehavior value) { 
+          if (value == null)
             this.cardinalityBehavior = null;
           else {
             if (this.cardinalityBehavior == null)
-              this.cardinalityBehavior = new CodeType();
+              this.cardinalityBehavior = new Enumeration<ActionCardinalityBehavior>(new ActionCardinalityBehaviorEnumFactory());
             this.cardinalityBehavior.setValue(value);
           }
           return this;
@@ -1244,12 +2108,12 @@ public class GuidanceResponse extends DomainResource {
         case -384107967: /*relatedAction*/ return this.relatedAction == null ? new Base[0] : new Base[] {this.relatedAction}; // GuidanceResponseActionRelatedActionComponent
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
         case 767422259: /*participant*/ return this.participant == null ? new Base[0] : this.participant.toArray(new Base[this.participant.size()]); // Reference
-        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
-        case 586678389: /*groupingBehavior*/ return this.groupingBehavior == null ? new Base[0] : new Base[] {this.groupingBehavior}; // CodeType
-        case 168639486: /*selectionBehavior*/ return this.selectionBehavior == null ? new Base[0] : new Base[] {this.selectionBehavior}; // CodeType
-        case -1163906287: /*requiredBehavior*/ return this.requiredBehavior == null ? new Base[0] : new Base[] {this.requiredBehavior}; // CodeType
-        case -1174249033: /*precheckBehavior*/ return this.precheckBehavior == null ? new Base[0] : new Base[] {this.precheckBehavior}; // CodeType
-        case -922577408: /*cardinalityBehavior*/ return this.cardinalityBehavior == null ? new Base[0] : new Base[] {this.cardinalityBehavior}; // CodeType
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ActionType>
+        case 586678389: /*groupingBehavior*/ return this.groupingBehavior == null ? new Base[0] : new Base[] {this.groupingBehavior}; // Enumeration<ActionGroupingBehavior>
+        case 168639486: /*selectionBehavior*/ return this.selectionBehavior == null ? new Base[0] : new Base[] {this.selectionBehavior}; // Enumeration<ActionSelectionBehavior>
+        case -1163906287: /*requiredBehavior*/ return this.requiredBehavior == null ? new Base[0] : new Base[] {this.requiredBehavior}; // Enumeration<ActionRequiredBehavior>
+        case -1174249033: /*precheckBehavior*/ return this.precheckBehavior == null ? new Base[0] : new Base[] {this.precheckBehavior}; // Enumeration<ActionPrecheckBehavior>
+        case -922577408: /*cardinalityBehavior*/ return this.cardinalityBehavior == null ? new Base[0] : new Base[] {this.cardinalityBehavior}; // Enumeration<ActionCardinalityBehavior>
         case -341064690: /*resource*/ return this.resource == null ? new Base[0] : new Base[] {this.resource}; // Reference
         case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // GuidanceResponseActionComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -1291,22 +2155,22 @@ public class GuidanceResponse extends DomainResource {
           this.getParticipant().add(castToReference(value)); // Reference
           break;
         case 3575610: // type
-          this.type = castToCode(value); // CodeType
+          this.type = new ActionTypeEnumFactory().fromType(value); // Enumeration<ActionType>
           break;
         case 586678389: // groupingBehavior
-          this.groupingBehavior = castToCode(value); // CodeType
+          this.groupingBehavior = new ActionGroupingBehaviorEnumFactory().fromType(value); // Enumeration<ActionGroupingBehavior>
           break;
         case 168639486: // selectionBehavior
-          this.selectionBehavior = castToCode(value); // CodeType
+          this.selectionBehavior = new ActionSelectionBehaviorEnumFactory().fromType(value); // Enumeration<ActionSelectionBehavior>
           break;
         case -1163906287: // requiredBehavior
-          this.requiredBehavior = castToCode(value); // CodeType
+          this.requiredBehavior = new ActionRequiredBehaviorEnumFactory().fromType(value); // Enumeration<ActionRequiredBehavior>
           break;
         case -1174249033: // precheckBehavior
-          this.precheckBehavior = castToCode(value); // CodeType
+          this.precheckBehavior = new ActionPrecheckBehaviorEnumFactory().fromType(value); // Enumeration<ActionPrecheckBehavior>
           break;
         case -922577408: // cardinalityBehavior
-          this.cardinalityBehavior = castToCode(value); // CodeType
+          this.cardinalityBehavior = new ActionCardinalityBehaviorEnumFactory().fromType(value); // Enumeration<ActionCardinalityBehavior>
           break;
         case -341064690: // resource
           this.resource = castToReference(value); // Reference
@@ -1342,17 +2206,17 @@ public class GuidanceResponse extends DomainResource {
         else if (name.equals("participant"))
           this.getParticipant().add(castToReference(value));
         else if (name.equals("type"))
-          this.type = castToCode(value); // CodeType
+          this.type = new ActionTypeEnumFactory().fromType(value); // Enumeration<ActionType>
         else if (name.equals("groupingBehavior"))
-          this.groupingBehavior = castToCode(value); // CodeType
+          this.groupingBehavior = new ActionGroupingBehaviorEnumFactory().fromType(value); // Enumeration<ActionGroupingBehavior>
         else if (name.equals("selectionBehavior"))
-          this.selectionBehavior = castToCode(value); // CodeType
+          this.selectionBehavior = new ActionSelectionBehaviorEnumFactory().fromType(value); // Enumeration<ActionSelectionBehavior>
         else if (name.equals("requiredBehavior"))
-          this.requiredBehavior = castToCode(value); // CodeType
+          this.requiredBehavior = new ActionRequiredBehaviorEnumFactory().fromType(value); // Enumeration<ActionRequiredBehavior>
         else if (name.equals("precheckBehavior"))
-          this.precheckBehavior = castToCode(value); // CodeType
+          this.precheckBehavior = new ActionPrecheckBehaviorEnumFactory().fromType(value); // Enumeration<ActionPrecheckBehavior>
         else if (name.equals("cardinalityBehavior"))
-          this.cardinalityBehavior = castToCode(value); // CodeType
+          this.cardinalityBehavior = new ActionCardinalityBehaviorEnumFactory().fromType(value); // Enumeration<ActionCardinalityBehavior>
         else if (name.equals("resource"))
           this.resource = castToReference(value); // Reference
         else if (name.equals("action"))
@@ -1374,12 +2238,12 @@ public class GuidanceResponse extends DomainResource {
         case -384107967:  return getRelatedAction(); // GuidanceResponseActionRelatedActionComponent
         case 164632566:  return getTiming(); // Type
         case 767422259:  return addParticipant(); // Reference
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
-        case 586678389: throw new FHIRException("Cannot make property groupingBehavior as it is not a complex type"); // CodeType
-        case 168639486: throw new FHIRException("Cannot make property selectionBehavior as it is not a complex type"); // CodeType
-        case -1163906287: throw new FHIRException("Cannot make property requiredBehavior as it is not a complex type"); // CodeType
-        case -1174249033: throw new FHIRException("Cannot make property precheckBehavior as it is not a complex type"); // CodeType
-        case -922577408: throw new FHIRException("Cannot make property cardinalityBehavior as it is not a complex type"); // CodeType
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<ActionType>
+        case 586678389: throw new FHIRException("Cannot make property groupingBehavior as it is not a complex type"); // Enumeration<ActionGroupingBehavior>
+        case 168639486: throw new FHIRException("Cannot make property selectionBehavior as it is not a complex type"); // Enumeration<ActionSelectionBehavior>
+        case -1163906287: throw new FHIRException("Cannot make property requiredBehavior as it is not a complex type"); // Enumeration<ActionRequiredBehavior>
+        case -1174249033: throw new FHIRException("Cannot make property precheckBehavior as it is not a complex type"); // Enumeration<ActionPrecheckBehavior>
+        case -922577408: throw new FHIRException("Cannot make property cardinalityBehavior as it is not a complex type"); // Enumeration<ActionCardinalityBehavior>
         case -341064690:  return getResource(); // Reference
         case -1422950858:  return addAction(); // GuidanceResponseActionComponent
         default: return super.makeProperty(hash, name);
@@ -1563,7 +2427,7 @@ public class GuidanceResponse extends DomainResource {
         @Child(name = "relationship", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="before | after", formalDefinition="The relationship of this action to the related action." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-relationship-type")
-        protected CodeType relationship;
+        protected Enumeration<ActionRelationshipType> relationship;
 
         /**
          * A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.
@@ -1578,9 +2442,9 @@ public class GuidanceResponse extends DomainResource {
         @Child(name = "anchor", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="start | end", formalDefinition="An optional indicator for how the relationship is anchored to the related action. For example \"before the start\" or \"before the end\" of the related action." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-relationship-anchor")
-        protected CodeType anchor;
+        protected Enumeration<ActionRelationshipAnchor> anchor;
 
-        private static final long serialVersionUID = -1200619014L;
+        private static final long serialVersionUID = 451097227L;
 
     /**
      * Constructor
@@ -1592,7 +2456,7 @@ public class GuidanceResponse extends DomainResource {
     /**
      * Constructor
      */
-      public GuidanceResponseActionRelatedActionComponent(Identifier actionIdentifier, CodeType relationship) {
+      public GuidanceResponseActionRelatedActionComponent(Identifier actionIdentifier, Enumeration<ActionRelationshipType> relationship) {
         super();
         this.actionIdentifier = actionIdentifier;
         this.relationship = relationship;
@@ -1625,12 +2489,12 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #relationship} (The relationship of this action to the related action.). This is the underlying object with id, value and extensions. The accessor "getRelationship" gives direct access to the value
          */
-        public CodeType getRelationshipElement() { 
+        public Enumeration<ActionRelationshipType> getRelationshipElement() { 
           if (this.relationship == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GuidanceResponseActionRelatedActionComponent.relationship");
             else if (Configuration.doAutoCreate())
-              this.relationship = new CodeType(); // bb
+              this.relationship = new Enumeration<ActionRelationshipType>(new ActionRelationshipTypeEnumFactory()); // bb
           return this.relationship;
         }
 
@@ -1645,7 +2509,7 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @param value {@link #relationship} (The relationship of this action to the related action.). This is the underlying object with id, value and extensions. The accessor "getRelationship" gives direct access to the value
          */
-        public GuidanceResponseActionRelatedActionComponent setRelationshipElement(CodeType value) { 
+        public GuidanceResponseActionRelatedActionComponent setRelationshipElement(Enumeration<ActionRelationshipType> value) { 
           this.relationship = value;
           return this;
         }
@@ -1653,16 +2517,16 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return The relationship of this action to the related action.
          */
-        public String getRelationship() { 
+        public ActionRelationshipType getRelationship() { 
           return this.relationship == null ? null : this.relationship.getValue();
         }
 
         /**
          * @param value The relationship of this action to the related action.
          */
-        public GuidanceResponseActionRelatedActionComponent setRelationship(String value) { 
+        public GuidanceResponseActionRelatedActionComponent setRelationship(ActionRelationshipType value) { 
             if (this.relationship == null)
-              this.relationship = new CodeType();
+              this.relationship = new Enumeration<ActionRelationshipType>(new ActionRelationshipTypeEnumFactory());
             this.relationship.setValue(value);
           return this;
         }
@@ -1715,12 +2579,12 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #anchor} (An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.). This is the underlying object with id, value and extensions. The accessor "getAnchor" gives direct access to the value
          */
-        public CodeType getAnchorElement() { 
+        public Enumeration<ActionRelationshipAnchor> getAnchorElement() { 
           if (this.anchor == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GuidanceResponseActionRelatedActionComponent.anchor");
             else if (Configuration.doAutoCreate())
-              this.anchor = new CodeType(); // bb
+              this.anchor = new Enumeration<ActionRelationshipAnchor>(new ActionRelationshipAnchorEnumFactory()); // bb
           return this.anchor;
         }
 
@@ -1735,7 +2599,7 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @param value {@link #anchor} (An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.). This is the underlying object with id, value and extensions. The accessor "getAnchor" gives direct access to the value
          */
-        public GuidanceResponseActionRelatedActionComponent setAnchorElement(CodeType value) { 
+        public GuidanceResponseActionRelatedActionComponent setAnchorElement(Enumeration<ActionRelationshipAnchor> value) { 
           this.anchor = value;
           return this;
         }
@@ -1743,19 +2607,19 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.
          */
-        public String getAnchor() { 
+        public ActionRelationshipAnchor getAnchor() { 
           return this.anchor == null ? null : this.anchor.getValue();
         }
 
         /**
          * @param value An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.
          */
-        public GuidanceResponseActionRelatedActionComponent setAnchor(String value) { 
-          if (Utilities.noString(value))
+        public GuidanceResponseActionRelatedActionComponent setAnchor(ActionRelationshipAnchor value) { 
+          if (value == null)
             this.anchor = null;
           else {
             if (this.anchor == null)
-              this.anchor = new CodeType();
+              this.anchor = new Enumeration<ActionRelationshipAnchor>(new ActionRelationshipAnchorEnumFactory());
             this.anchor.setValue(value);
           }
           return this;
@@ -1773,9 +2637,9 @@ public class GuidanceResponse extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -889046145: /*actionIdentifier*/ return this.actionIdentifier == null ? new Base[0] : new Base[] {this.actionIdentifier}; // Identifier
-        case -261851592: /*relationship*/ return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // CodeType
+        case -261851592: /*relationship*/ return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // Enumeration<ActionRelationshipType>
         case -1019779949: /*offset*/ return this.offset == null ? new Base[0] : new Base[] {this.offset}; // Type
-        case -1413299531: /*anchor*/ return this.anchor == null ? new Base[0] : new Base[] {this.anchor}; // CodeType
+        case -1413299531: /*anchor*/ return this.anchor == null ? new Base[0] : new Base[] {this.anchor}; // Enumeration<ActionRelationshipAnchor>
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1788,13 +2652,13 @@ public class GuidanceResponse extends DomainResource {
           this.actionIdentifier = castToIdentifier(value); // Identifier
           break;
         case -261851592: // relationship
-          this.relationship = castToCode(value); // CodeType
+          this.relationship = new ActionRelationshipTypeEnumFactory().fromType(value); // Enumeration<ActionRelationshipType>
           break;
         case -1019779949: // offset
           this.offset = (Type) value; // Type
           break;
         case -1413299531: // anchor
-          this.anchor = castToCode(value); // CodeType
+          this.anchor = new ActionRelationshipAnchorEnumFactory().fromType(value); // Enumeration<ActionRelationshipAnchor>
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -1806,11 +2670,11 @@ public class GuidanceResponse extends DomainResource {
         if (name.equals("actionIdentifier"))
           this.actionIdentifier = castToIdentifier(value); // Identifier
         else if (name.equals("relationship"))
-          this.relationship = castToCode(value); // CodeType
+          this.relationship = new ActionRelationshipTypeEnumFactory().fromType(value); // Enumeration<ActionRelationshipType>
         else if (name.equals("offset[x]"))
           this.offset = (Type) value; // Type
         else if (name.equals("anchor"))
-          this.anchor = castToCode(value); // CodeType
+          this.anchor = new ActionRelationshipAnchorEnumFactory().fromType(value); // Enumeration<ActionRelationshipAnchor>
         else
           super.setProperty(name, value);
       }
@@ -1819,9 +2683,9 @@ public class GuidanceResponse extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -889046145:  return getActionIdentifier(); // Identifier
-        case -261851592: throw new FHIRException("Cannot make property relationship as it is not a complex type"); // CodeType
+        case -261851592: throw new FHIRException("Cannot make property relationship as it is not a complex type"); // Enumeration<ActionRelationshipType>
         case -1960684787:  return getOffset(); // Type
-        case -1413299531: throw new FHIRException("Cannot make property anchor as it is not a complex type"); // CodeType
+        case -1413299531: throw new FHIRException("Cannot make property anchor as it is not a complex type"); // Enumeration<ActionRelationshipAnchor>
         default: return super.makeProperty(hash, name);
         }
 

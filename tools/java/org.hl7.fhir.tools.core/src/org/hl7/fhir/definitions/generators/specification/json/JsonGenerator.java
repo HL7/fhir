@@ -243,7 +243,7 @@ public class JsonGenerator  {
 			    if (e.getBinding() != null) {
 			      ValueSet vs = enums.get(e.getBinding().getName());
 			      if (vs!= null) {
-			        ValueSet ex = workerContext.expandVS(vs, true).getValueset();
+			        ValueSet ex = workerContext.expandVS(vs, true, false).getValueset();
 			        JsonArray enums = new JsonArray();
 			        for (ValueSetExpansionContainsComponent cc : ex.getExpansion().getContains()) {
 			          enums.add(new JsonPrimitive(cc.getCode()));

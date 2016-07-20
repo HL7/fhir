@@ -42,6 +42,7 @@ import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -625,6 +626,14 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
         }
         typeNames.put(e,  rootOf(path)+"."+tn);
       }
+      if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.ValueSet && cd.getStrength() == BindingStrength.REQUIRED) {
+        tn = getCodeListType(cd.getName());
+        if (!enumNames.contains(tn)) {
+          enumNames.add(tn);
+          enums.add(e);
+        }
+        typeNames.put(e,  rootOf(path)+"."+tn);
+      }
     }
     if (tn == null) {
       if (e.usesCompositeType()) {
@@ -954,6 +963,8 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
     } else if (isJavaPrimitive(e)) {
       BindingSpecification cd = e.getBinding();
       if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList)
+        tname = "Enum"; 
+      if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.BindingMethod.ValueSet && cd.getStrength() == BindingStrength.REQUIRED)
         tname = "Enum"; 
       gname = "get"+upFirst(checkJavaReservedWord(name))+"Element()";
     }

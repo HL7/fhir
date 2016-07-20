@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 19, 2016 06:18+1000 for FHIR v1.5.0
+// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -48,6 +48,176 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
 @ResourceDef(name="PractitionerRole", profile="http://hl7.org/fhir/Profile/PractitionerRole")
 public class PractitionerRole extends DomainResource {
 
+    public enum DaysOfWeek {
+        /**
+         * Monday
+         */
+        MON, 
+        /**
+         * Tuesday
+         */
+        TUE, 
+        /**
+         * Wednesday
+         */
+        WED, 
+        /**
+         * Thursday
+         */
+        THU, 
+        /**
+         * Friday
+         */
+        FRI, 
+        /**
+         * Saturday
+         */
+        SAT, 
+        /**
+         * Sunday
+         */
+        SUN, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static DaysOfWeek fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("mon".equals(codeString))
+          return MON;
+        if ("tue".equals(codeString))
+          return TUE;
+        if ("wed".equals(codeString))
+          return WED;
+        if ("thu".equals(codeString))
+          return THU;
+        if ("fri".equals(codeString))
+          return FRI;
+        if ("sat".equals(codeString))
+          return SAT;
+        if ("sun".equals(codeString))
+          return SUN;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown DaysOfWeek code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case MON: return "mon";
+            case TUE: return "tue";
+            case WED: return "wed";
+            case THU: return "thu";
+            case FRI: return "fri";
+            case SAT: return "sat";
+            case SUN: return "sun";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case MON: return "http://hl7.org/fhir/days-of-week";
+            case TUE: return "http://hl7.org/fhir/days-of-week";
+            case WED: return "http://hl7.org/fhir/days-of-week";
+            case THU: return "http://hl7.org/fhir/days-of-week";
+            case FRI: return "http://hl7.org/fhir/days-of-week";
+            case SAT: return "http://hl7.org/fhir/days-of-week";
+            case SUN: return "http://hl7.org/fhir/days-of-week";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case MON: return "Monday";
+            case TUE: return "Tuesday";
+            case WED: return "Wednesday";
+            case THU: return "Thursday";
+            case FRI: return "Friday";
+            case SAT: return "Saturday";
+            case SUN: return "Sunday";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case MON: return "Monday";
+            case TUE: return "Tuesday";
+            case WED: return "Wednesday";
+            case THU: return "Thursday";
+            case FRI: return "Friday";
+            case SAT: return "Saturday";
+            case SUN: return "Sunday";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class DaysOfWeekEnumFactory implements EnumFactory<DaysOfWeek> {
+    public DaysOfWeek fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("mon".equals(codeString))
+          return DaysOfWeek.MON;
+        if ("tue".equals(codeString))
+          return DaysOfWeek.TUE;
+        if ("wed".equals(codeString))
+          return DaysOfWeek.WED;
+        if ("thu".equals(codeString))
+          return DaysOfWeek.THU;
+        if ("fri".equals(codeString))
+          return DaysOfWeek.FRI;
+        if ("sat".equals(codeString))
+          return DaysOfWeek.SAT;
+        if ("sun".equals(codeString))
+          return DaysOfWeek.SUN;
+        throw new IllegalArgumentException("Unknown DaysOfWeek code '"+codeString+"'");
+        }
+        public Enumeration<DaysOfWeek> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("mon".equals(codeString))
+          return new Enumeration<DaysOfWeek>(this, DaysOfWeek.MON);
+        if ("tue".equals(codeString))
+          return new Enumeration<DaysOfWeek>(this, DaysOfWeek.TUE);
+        if ("wed".equals(codeString))
+          return new Enumeration<DaysOfWeek>(this, DaysOfWeek.WED);
+        if ("thu".equals(codeString))
+          return new Enumeration<DaysOfWeek>(this, DaysOfWeek.THU);
+        if ("fri".equals(codeString))
+          return new Enumeration<DaysOfWeek>(this, DaysOfWeek.FRI);
+        if ("sat".equals(codeString))
+          return new Enumeration<DaysOfWeek>(this, DaysOfWeek.SAT);
+        if ("sun".equals(codeString))
+          return new Enumeration<DaysOfWeek>(this, DaysOfWeek.SUN);
+        throw new FHIRException("Unknown DaysOfWeek code '"+codeString+"'");
+        }
+    public String toCode(DaysOfWeek code) {
+      if (code == DaysOfWeek.MON)
+        return "mon";
+      if (code == DaysOfWeek.TUE)
+        return "tue";
+      if (code == DaysOfWeek.WED)
+        return "wed";
+      if (code == DaysOfWeek.THU)
+        return "thu";
+      if (code == DaysOfWeek.FRI)
+        return "fri";
+      if (code == DaysOfWeek.SAT)
+        return "sat";
+      if (code == DaysOfWeek.SUN)
+        return "sun";
+      return "?";
+      }
+    public String toSystem(DaysOfWeek code) {
+      return code.getSystem();
+      }
+    }
+
     @Block()
     public static class PractitionerRoleAvailableTimeComponent extends BackboneElement implements IBaseBackboneElement {
         /**
@@ -56,7 +226,7 @@ public class PractitionerRole extends DomainResource {
         @Child(name = "daysOfWeek", type = {CodeType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="mon | tue | wed | thu | fri | sat | sun", formalDefinition="Indicates which days of the week are available between the start and end Times." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/days-of-week")
-        protected List<CodeType> daysOfWeek;
+        protected List<Enumeration<DaysOfWeek>> daysOfWeek;
 
         /**
          * Is this always available? (hence times are irrelevant) e.g. 24 hour service.
@@ -79,7 +249,7 @@ public class PractitionerRole extends DomainResource {
         @Description(shortDefinition="Closing time of day (ignored if allDay = true)", formalDefinition="The closing time of day. Note: If the AllDay flag is set, then this time is ignored." )
         protected TimeType availableEndTime;
 
-        private static final long serialVersionUID = 2079379177L;
+        private static final long serialVersionUID = -2139510127L;
 
     /**
      * Constructor
@@ -91,16 +261,16 @@ public class PractitionerRole extends DomainResource {
         /**
          * @return {@link #daysOfWeek} (Indicates which days of the week are available between the start and end Times.)
          */
-        public List<CodeType> getDaysOfWeek() { 
+        public List<Enumeration<DaysOfWeek>> getDaysOfWeek() { 
           if (this.daysOfWeek == null)
-            this.daysOfWeek = new ArrayList<CodeType>();
+            this.daysOfWeek = new ArrayList<Enumeration<DaysOfWeek>>();
           return this.daysOfWeek;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public PractitionerRoleAvailableTimeComponent setDaysOfWeek(List<CodeType> theDaysOfWeek) { 
+        public PractitionerRoleAvailableTimeComponent setDaysOfWeek(List<Enumeration<DaysOfWeek>> theDaysOfWeek) { 
           this.daysOfWeek = theDaysOfWeek;
           return this;
         }
@@ -108,7 +278,7 @@ public class PractitionerRole extends DomainResource {
         public boolean hasDaysOfWeek() { 
           if (this.daysOfWeek == null)
             return false;
-          for (CodeType item : this.daysOfWeek)
+          for (Enumeration<DaysOfWeek> item : this.daysOfWeek)
             if (!item.isEmpty())
               return true;
           return false;
@@ -117,10 +287,10 @@ public class PractitionerRole extends DomainResource {
         /**
          * @return {@link #daysOfWeek} (Indicates which days of the week are available between the start and end Times.)
          */
-        public CodeType addDaysOfWeekElement() {//2 
-          CodeType t = new CodeType();
+        public Enumeration<DaysOfWeek> addDaysOfWeekElement() {//2 
+          Enumeration<DaysOfWeek> t = new Enumeration<DaysOfWeek>(new DaysOfWeekEnumFactory());
           if (this.daysOfWeek == null)
-            this.daysOfWeek = new ArrayList<CodeType>();
+            this.daysOfWeek = new ArrayList<Enumeration<DaysOfWeek>>();
           this.daysOfWeek.add(t);
           return t;
         }
@@ -128,11 +298,11 @@ public class PractitionerRole extends DomainResource {
         /**
          * @param value {@link #daysOfWeek} (Indicates which days of the week are available between the start and end Times.)
          */
-        public PractitionerRoleAvailableTimeComponent addDaysOfWeek(String value) { //1
-          CodeType t = new CodeType();
+        public PractitionerRoleAvailableTimeComponent addDaysOfWeek(DaysOfWeek value) { //1
+          Enumeration<DaysOfWeek> t = new Enumeration<DaysOfWeek>(new DaysOfWeekEnumFactory());
           t.setValue(value);
           if (this.daysOfWeek == null)
-            this.daysOfWeek = new ArrayList<CodeType>();
+            this.daysOfWeek = new ArrayList<Enumeration<DaysOfWeek>>();
           this.daysOfWeek.add(t);
           return this;
         }
@@ -140,11 +310,11 @@ public class PractitionerRole extends DomainResource {
         /**
          * @param value {@link #daysOfWeek} (Indicates which days of the week are available between the start and end Times.)
          */
-        public boolean hasDaysOfWeek(String value) { 
+        public boolean hasDaysOfWeek(DaysOfWeek value) { 
           if (this.daysOfWeek == null)
             return false;
-          for (CodeType v : this.daysOfWeek)
-            if (v.equals(value)) // code
+          for (Enumeration<DaysOfWeek> v : this.daysOfWeek)
+            if (v.getValue().equals(value)) // code
               return true;
           return false;
         }
@@ -303,7 +473,7 @@ public class PractitionerRole extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 68050338: /*daysOfWeek*/ return this.daysOfWeek == null ? new Base[0] : this.daysOfWeek.toArray(new Base[this.daysOfWeek.size()]); // CodeType
+        case 68050338: /*daysOfWeek*/ return this.daysOfWeek == null ? new Base[0] : this.daysOfWeek.toArray(new Base[this.daysOfWeek.size()]); // Enumeration<DaysOfWeek>
         case -1414913477: /*allDay*/ return this.allDay == null ? new Base[0] : new Base[] {this.allDay}; // BooleanType
         case -1039453818: /*availableStartTime*/ return this.availableStartTime == null ? new Base[0] : new Base[] {this.availableStartTime}; // TimeType
         case 101151551: /*availableEndTime*/ return this.availableEndTime == null ? new Base[0] : new Base[] {this.availableEndTime}; // TimeType
@@ -316,7 +486,7 @@ public class PractitionerRole extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 68050338: // daysOfWeek
-          this.getDaysOfWeek().add(castToCode(value)); // CodeType
+          this.getDaysOfWeek().add(new DaysOfWeekEnumFactory().fromType(value)); // Enumeration<DaysOfWeek>
           break;
         case -1414913477: // allDay
           this.allDay = castToBoolean(value); // BooleanType
@@ -335,7 +505,7 @@ public class PractitionerRole extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("daysOfWeek"))
-          this.getDaysOfWeek().add(castToCode(value));
+          this.getDaysOfWeek().add(new DaysOfWeekEnumFactory().fromType(value));
         else if (name.equals("allDay"))
           this.allDay = castToBoolean(value); // BooleanType
         else if (name.equals("availableStartTime"))
@@ -349,7 +519,7 @@ public class PractitionerRole extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 68050338: throw new FHIRException("Cannot make property daysOfWeek as it is not a complex type"); // CodeType
+        case 68050338: throw new FHIRException("Cannot make property daysOfWeek as it is not a complex type"); // Enumeration<DaysOfWeek>
         case -1414913477: throw new FHIRException("Cannot make property allDay as it is not a complex type"); // BooleanType
         case -1039453818: throw new FHIRException("Cannot make property availableStartTime as it is not a complex type"); // TimeType
         case 101151551: throw new FHIRException("Cannot make property availableEndTime as it is not a complex type"); // TimeType
@@ -380,8 +550,8 @@ public class PractitionerRole extends DomainResource {
         PractitionerRoleAvailableTimeComponent dst = new PractitionerRoleAvailableTimeComponent();
         copyValues(dst);
         if (daysOfWeek != null) {
-          dst.daysOfWeek = new ArrayList<CodeType>();
-          for (CodeType i : daysOfWeek)
+          dst.daysOfWeek = new ArrayList<Enumeration<DaysOfWeek>>();
+          for (Enumeration<DaysOfWeek> i : daysOfWeek)
             dst.daysOfWeek.add(i.copy());
         };
         dst.allDay = allDay == null ? null : allDay.copy();

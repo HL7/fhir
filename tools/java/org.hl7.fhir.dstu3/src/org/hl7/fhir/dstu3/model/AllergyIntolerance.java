@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 19, 2016 06:18+1000 for FHIR v1.5.0
+// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -506,15 +506,15 @@ public class AllergyIntolerance extends DomainResource {
 
     public enum AllergyIntoleranceCertainty {
         /**
-         * There is a low level of clinical certainty that the reaction was caused by the identified Substance.
+         * There is a low level of clinical certainty that the reaction was caused by the identified substance.
          */
         UNLIKELY, 
         /**
-         * There is a high level of clinical certainty that the reaction was caused by the identified Substance.
+         * There is a high level of clinical certainty that the reaction was caused by the identified substance.
          */
         LIKELY, 
         /**
-         * There is a very high level of clinical certainty that the reaction was due to the identified Substance, which may include clinical evidence by testing or rechallenge.
+         * There is a very high level of clinical certainty that the reaction was due to the identified substance, which may include clinical evidence by testing or rechallenge.
          */
         CONFIRMED, 
         /**
@@ -553,9 +553,9 @@ public class AllergyIntolerance extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case UNLIKELY: return "There is a low level of clinical certainty that the reaction was caused by the identified Substance.";
-            case LIKELY: return "There is a high level of clinical certainty that the reaction was caused by the identified Substance.";
-            case CONFIRMED: return "There is a very high level of clinical certainty that the reaction was due to the identified Substance, which may include clinical evidence by testing or rechallenge.";
+            case UNLIKELY: return "There is a low level of clinical certainty that the reaction was caused by the identified substance.";
+            case LIKELY: return "There is a high level of clinical certainty that the reaction was caused by the identified substance.";
+            case CONFIRMED: return "There is a very high level of clinical certainty that the reaction was due to the identified substance, which may include clinical evidence by testing or rechallenge.";
             default: return "?";
           }
         }
@@ -1333,10 +1333,10 @@ public class AllergyIntolerance extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
-     * Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.
+     * Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="active | active-confirmed | inactive | resolved | refuted | entered-in-error", formalDefinition="Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance." )
+    @Description(shortDefinition="active | active-confirmed | inactive | resolved | refuted | entered-in-error", formalDefinition="Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/allergy-intolerance-status")
     protected Enumeration<AllergyIntoleranceStatus> status;
 
@@ -1349,18 +1349,18 @@ public class AllergyIntolerance extends DomainResource {
     protected Enumeration<AllergyIntoleranceType> type;
 
     /**
-     * Category of the identified Substance.
+     * Category of the identified substance.
      */
     @Child(name = "category", type = {CodeType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="food | medication | environment | other - Category of Substance", formalDefinition="Category of the identified Substance." )
+    @Description(shortDefinition="food | medication | environment", formalDefinition="Category of the identified substance." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/allergy-intolerance-category")
     protected Enumeration<AllergyIntoleranceCategory> category;
 
     /**
-     * Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.
+     * Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance.
      */
     @Child(name = "criticality", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="low | high | unable-to-assess", formalDefinition="Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance." )
+    @Description(shortDefinition="low | high | unable-to-assess", formalDefinition="Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality")
     protected Enumeration<AllergyIntoleranceCriticality> criticality;
 
@@ -1437,10 +1437,10 @@ public class AllergyIntolerance extends DomainResource {
     protected List<Annotation> note;
 
     /**
-     * Details about each adverse reaction event linked to exposure to the identified Substance.
+     * Details about each adverse reaction event linked to exposure to the identified substance.
      */
     @Child(name = "reaction", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Adverse Reaction Events linked to exposure to substance", formalDefinition="Details about each adverse reaction event linked to exposure to the identified Substance." )
+    @Description(shortDefinition="Adverse Reaction Events linked to exposure to substance", formalDefinition="Details about each adverse reaction event linked to exposure to the identified substance." )
     protected List<AllergyIntoleranceReactionComponent> reaction;
 
     private static final long serialVersionUID = 2033085856L;
@@ -1514,7 +1514,7 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<AllergyIntoleranceStatus> getStatusElement() { 
       if (this.status == null)
@@ -1534,7 +1534,7 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public AllergyIntolerance setStatusElement(Enumeration<AllergyIntoleranceStatus> value) { 
       this.status = value;
@@ -1542,14 +1542,14 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @return Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.
+     * @return Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).
      */
     public AllergyIntoleranceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.
+     * @param value Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).
      */
     public AllergyIntolerance setStatus(AllergyIntoleranceStatus value) { 
       if (value == null)
@@ -1612,7 +1612,7 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @return {@link #category} (Category of the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
+     * @return {@link #category} (Category of the identified substance.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
      */
     public Enumeration<AllergyIntoleranceCategory> getCategoryElement() { 
       if (this.category == null)
@@ -1632,7 +1632,7 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @param value {@link #category} (Category of the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
+     * @param value {@link #category} (Category of the identified substance.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
      */
     public AllergyIntolerance setCategoryElement(Enumeration<AllergyIntoleranceCategory> value) { 
       this.category = value;
@@ -1640,14 +1640,14 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @return Category of the identified Substance.
+     * @return Category of the identified substance.
      */
     public AllergyIntoleranceCategory getCategory() { 
       return this.category == null ? null : this.category.getValue();
     }
 
     /**
-     * @param value Category of the identified Substance.
+     * @param value Category of the identified substance.
      */
     public AllergyIntolerance setCategory(AllergyIntoleranceCategory value) { 
       if (value == null)
@@ -1661,7 +1661,7 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @return {@link #criticality} (Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getCriticality" gives direct access to the value
+     * @return {@link #criticality} (Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance.). This is the underlying object with id, value and extensions. The accessor "getCriticality" gives direct access to the value
      */
     public Enumeration<AllergyIntoleranceCriticality> getCriticalityElement() { 
       if (this.criticality == null)
@@ -1681,7 +1681,7 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @param value {@link #criticality} (Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getCriticality" gives direct access to the value
+     * @param value {@link #criticality} (Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance.). This is the underlying object with id, value and extensions. The accessor "getCriticality" gives direct access to the value
      */
     public AllergyIntolerance setCriticalityElement(Enumeration<AllergyIntoleranceCriticality> value) { 
       this.criticality = value;
@@ -1689,14 +1689,14 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @return Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.
+     * @return Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance.
      */
     public AllergyIntoleranceCriticality getCriticality() { 
       return this.criticality == null ? null : this.criticality.getValue();
     }
 
     /**
-     * @param value Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.
+     * @param value Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance.
      */
     public AllergyIntolerance setCriticality(AllergyIntoleranceCriticality value) { 
       if (value == null)
@@ -2056,7 +2056,7 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @return {@link #reaction} (Details about each adverse reaction event linked to exposure to the identified Substance.)
+     * @return {@link #reaction} (Details about each adverse reaction event linked to exposure to the identified substance.)
      */
     public List<AllergyIntoleranceReactionComponent> getReaction() { 
       if (this.reaction == null)
@@ -2111,10 +2111,10 @@ public class AllergyIntolerance extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this allergy/intolerance concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("status", "code", "Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("status", "code", "Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("type", "code", "Identification of the underlying physiological mechanism for the reaction risk.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("category", "code", "Category of the identified Substance.", 0, java.lang.Integer.MAX_VALUE, category));
-        childrenList.add(new Property("criticality", "code", "Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.", 0, java.lang.Integer.MAX_VALUE, criticality));
+        childrenList.add(new Property("category", "code", "Category of the identified substance.", 0, java.lang.Integer.MAX_VALUE, category));
+        childrenList.add(new Property("criticality", "code", "Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance.", 0, java.lang.Integer.MAX_VALUE, criticality));
         childrenList.add(new Property("code", "CodeableConcept", "Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  This may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., \"Latex\"), an allergy or intolerance condition (e.g., \"Latex allergy\"), or a negated/excluded code for a specific substance or class (e.g., \"No latex allergy\") or a general or categorical negated statement (e.g.,  \"No known allergy\", \"No known drug allergies\").", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("patient", "Reference(Patient)", "The patient who has the allergy or intolerance.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("attestedDate", "dateTime", "Indicates the most recent date on which the recorder has asserted that the information represented by this AllergyIntolerance record is accurate.", 0, java.lang.Integer.MAX_VALUE, attestedDate));
@@ -2123,7 +2123,7 @@ public class AllergyIntolerance extends DomainResource {
         childrenList.add(new Property("onset", "dateTime", "Record of the date and/or time of the onset of the Allergy or Intolerance.", 0, java.lang.Integer.MAX_VALUE, onset));
         childrenList.add(new Property("lastOccurrence", "dateTime", "Represents the date and/or time of the last known occurrence of a reaction event.", 0, java.lang.Integer.MAX_VALUE, lastOccurrence));
         childrenList.add(new Property("note", "Annotation", "Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.", 0, java.lang.Integer.MAX_VALUE, note));
-        childrenList.add(new Property("reaction", "", "Details about each adverse reaction event linked to exposure to the identified Substance.", 0, java.lang.Integer.MAX_VALUE, reaction));
+        childrenList.add(new Property("reaction", "", "Details about each adverse reaction event linked to exposure to the identified substance.", 0, java.lang.Integer.MAX_VALUE, reaction));
       }
 
       @Override
@@ -2645,17 +2645,17 @@ public class AllergyIntolerance extends DomainResource {
  /**
    * Search parameter: <b>category</b>
    * <p>
-   * Description: <b>food | medication | environment | other - Category of Substance</b><br>
+   * Description: <b>food | medication | environment</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AllergyIntolerance.category</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="category", path="AllergyIntolerance.category", description="food | medication | environment | other - Category of Substance", type="token" )
+  @SearchParamDefinition(name="category", path="AllergyIntolerance.category", description="food | medication | environment", type="token" )
   public static final String SP_CATEGORY = "category";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>category</b>
    * <p>
-   * Description: <b>food | medication | environment | other - Category of Substance</b><br>
+   * Description: <b>food | medication | environment</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AllergyIntolerance.category</b><br>
    * </p>

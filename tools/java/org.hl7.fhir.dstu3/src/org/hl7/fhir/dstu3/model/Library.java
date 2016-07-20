@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jul 19, 2016 06:18+1000 for FHIR v1.5.0
+// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -47,6 +47,112 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  */
 @ResourceDef(name="Library", profile="http://hl7.org/fhir/Profile/Library")
 public class Library extends DomainResource {
+
+    public enum LibraryStatus {
+        /**
+         * The module is in draft state
+         */
+        DRAFT, 
+        /**
+         * The module is active
+         */
+        ACTIVE, 
+        /**
+         * The module is inactive, either rejected before publication, or retired after publication
+         */
+        INACTIVE, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static LibraryStatus fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("draft".equals(codeString))
+          return DRAFT;
+        if ("active".equals(codeString))
+          return ACTIVE;
+        if ("inactive".equals(codeString))
+          return INACTIVE;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown LibraryStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case DRAFT: return "draft";
+            case ACTIVE: return "active";
+            case INACTIVE: return "inactive";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case DRAFT: return "http://hl7.org/fhir/module-metadata-status";
+            case ACTIVE: return "http://hl7.org/fhir/module-metadata-status";
+            case INACTIVE: return "http://hl7.org/fhir/module-metadata-status";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case DRAFT: return "The module is in draft state";
+            case ACTIVE: return "The module is active";
+            case INACTIVE: return "The module is inactive, either rejected before publication, or retired after publication";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case DRAFT: return "Draft";
+            case ACTIVE: return "Active";
+            case INACTIVE: return "Inactive";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class LibraryStatusEnumFactory implements EnumFactory<LibraryStatus> {
+    public LibraryStatus fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("draft".equals(codeString))
+          return LibraryStatus.DRAFT;
+        if ("active".equals(codeString))
+          return LibraryStatus.ACTIVE;
+        if ("inactive".equals(codeString))
+          return LibraryStatus.INACTIVE;
+        throw new IllegalArgumentException("Unknown LibraryStatus code '"+codeString+"'");
+        }
+        public Enumeration<LibraryStatus> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("draft".equals(codeString))
+          return new Enumeration<LibraryStatus>(this, LibraryStatus.DRAFT);
+        if ("active".equals(codeString))
+          return new Enumeration<LibraryStatus>(this, LibraryStatus.ACTIVE);
+        if ("inactive".equals(codeString))
+          return new Enumeration<LibraryStatus>(this, LibraryStatus.INACTIVE);
+        throw new FHIRException("Unknown LibraryStatus code '"+codeString+"'");
+        }
+    public String toCode(LibraryStatus code) {
+      if (code == LibraryStatus.DRAFT)
+        return "draft";
+      if (code == LibraryStatus.ACTIVE)
+        return "active";
+      if (code == LibraryStatus.INACTIVE)
+        return "inactive";
+      return "?";
+      }
+    public String toSystem(LibraryStatus code) {
+      return code.getSystem();
+      }
+    }
 
     /**
      * An absolute URL that is used to identify this library when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published.
@@ -97,7 +203,7 @@ public class Library extends DomainResource {
     @Child(name = "status", type = {CodeType.class}, order=6, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="draft | active | inactive", formalDefinition="The status of the library." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/module-metadata-status")
-    protected CodeType status;
+    protected Enumeration<LibraryStatus> status;
 
     /**
      * Determines whether the library was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.
@@ -218,7 +324,7 @@ public class Library extends DomainResource {
     @Description(shortDefinition="The content of the library", formalDefinition="The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the contentType of the attachment determines how to interpret the content." )
     protected Attachment content;
 
-    private static final long serialVersionUID = 57392877L;
+    private static final long serialVersionUID = -1238044018L;
 
   /**
    * Constructor
@@ -230,7 +336,7 @@ public class Library extends DomainResource {
   /**
    * Constructor
    */
-    public Library(CodeableConcept type, CodeType status, Attachment content) {
+    public Library(CodeableConcept type, Enumeration<LibraryStatus> status, Attachment content) {
       super();
       this.type = type;
       this.status = status;
@@ -513,12 +619,12 @@ public class Library extends DomainResource {
     /**
      * @return {@link #status} (The status of the library.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public CodeType getStatusElement() { 
+    public Enumeration<LibraryStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Library.status");
         else if (Configuration.doAutoCreate())
-          this.status = new CodeType(); // bb
+          this.status = new Enumeration<LibraryStatus>(new LibraryStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -533,7 +639,7 @@ public class Library extends DomainResource {
     /**
      * @param value {@link #status} (The status of the library.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Library setStatusElement(CodeType value) { 
+    public Library setStatusElement(Enumeration<LibraryStatus> value) { 
       this.status = value;
       return this;
     }
@@ -541,16 +647,16 @@ public class Library extends DomainResource {
     /**
      * @return The status of the library.
      */
-    public String getStatus() { 
+    public LibraryStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the library.
      */
-    public Library setStatus(String value) { 
+    public Library setStatus(LibraryStatus value) { 
         if (this.status == null)
-          this.status = new CodeType();
+          this.status = new Enumeration<LibraryStatus>(new LibraryStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1399,7 +1505,7 @@ public class Library extends DomainResource {
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // CodeType
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<LibraryStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // StringType
@@ -1444,7 +1550,7 @@ public class Library extends DomainResource {
           this.type = castToCodeableConcept(value); // CodeableConcept
           break;
         case -892481550: // status
-          this.status = castToCode(value); // CodeType
+          this.status = new LibraryStatusEnumFactory().fromType(value); // Enumeration<LibraryStatus>
           break;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -1517,7 +1623,7 @@ public class Library extends DomainResource {
         else if (name.equals("type"))
           this.type = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("status"))
-          this.status = castToCode(value); // CodeType
+          this.status = new LibraryStatusEnumFactory().fromType(value); // Enumeration<LibraryStatus>
         else if (name.equals("experimental"))
           this.experimental = castToBoolean(value); // BooleanType
         else if (name.equals("description"))
@@ -1565,7 +1671,7 @@ public class Library extends DomainResource {
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
         case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
         case 3575610:  return getType(); // CodeableConcept
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // CodeType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<LibraryStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // StringType

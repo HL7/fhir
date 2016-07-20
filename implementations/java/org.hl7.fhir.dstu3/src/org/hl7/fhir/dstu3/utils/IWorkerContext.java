@@ -9,6 +9,7 @@ import org.hl7.fhir.dstu3.formats.ParserType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ConceptMap;
+import org.hl7.fhir.dstu3.model.ExpansionProfile;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
@@ -147,6 +148,9 @@ public interface IWorkerContext {
   
   // -- Terminology services ------------------------------------------------------
 
+  public ExpansionProfile getExpansionProfile();
+  public void setExpansionProfile(ExpansionProfile expProfile);
+
   // these are the terminology services used internally by the tools
   /**
    * Find the code system definition for the nominated system uri. 
@@ -186,7 +190,7 @@ public interface IWorkerContext {
    * @param source
    * @return
    */
-  public ValueSetExpansionOutcome expandVS(ValueSet source, boolean cacheOk);
+  public ValueSetExpansionOutcome expandVS(ValueSet source, boolean cacheOk, boolean heiarchical);
   
   /**
    * Value set expanion inside the internal expansion engine - used 
@@ -197,7 +201,7 @@ public interface IWorkerContext {
    * @return
    * @throws FHIRException 
    */
-  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws TerminologyServiceException;
+  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc, boolean heiarchical) throws TerminologyServiceException;
   
   public class ValidationResult {
     private ConceptDefinitionComponent definition;

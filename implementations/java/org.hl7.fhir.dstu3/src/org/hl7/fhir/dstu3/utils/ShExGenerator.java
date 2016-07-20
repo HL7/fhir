@@ -705,7 +705,7 @@ public class ShExGenerator {
 
   private String genValueSet(ValueSet vs) {
     ST vsd = tmplt(VALUE_SET_DEFINITION).add("vsuri", vsprefix(vs.getUrl())).add("comment", vs.getDescription());
-    ValueSetExpander.ValueSetExpansionOutcome vse = context.expandVS(vs, true);
+    ValueSetExpander.ValueSetExpansionOutcome vse = context.expandVS(vs, true, false);
     List<String> valid_codes = new ArrayList<String>();
     if(vse != null && vse.getValueset() != null && vse.getValueset().hasExpansion() && vse.getValueset().getExpansion().hasContains()) {
       for(ValueSet.ValueSetExpansionContainsComponent vsec : vse.getValueset().getExpansion().getContains())
