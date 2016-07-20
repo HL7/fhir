@@ -25,7 +25,7 @@ provides a clinical or workflow context for a set of observations. </p>
   <li>Core characteristics like  <a href="observation-example-pregnancy.html">pregnancy status</a>, or a <a href="observation-example-death.html">death assertion</a></li>
 </ul>
 
-<p>The following core <a href="profiling.html">profiles</a> for the Observation resource have been defined as well. <strong>If implementations use the Observation Resource, they SHALL conform to these profiles when expressing the profile-specific concepts as structured data:</strong> 
+<p>The following core <a href="profiling.html">profiles</a> for the Observation resource have been defined as well. <b>If implementations use the Observation Resource, they SHALL conform to these profiles when expressing the profile-specific concepts as structured data:</b> 
 </p>
 <ul>
   <li><a href="observation-vitalsigns.html">Vital signs:</a> temperature, blood pressure, respiration rate</li>
