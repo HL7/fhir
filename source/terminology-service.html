@@ -523,7 +523,7 @@ If the concepts can be compared, then the server returns an outcome code:
 Test whether a SNOMED CT Concept 399211009 (History of myocardial infarction) is subsumed by 22298006 (Myocardial infarction):
 </p>
 <pre class="http">
-GET [base]/CodeSystem/$subsumes?system=http://snomed.info/sct&amp;codeSub=3738000&amp;codeSuper=235856003
+GET [base]/CodeSystem/$subsumes?system=http://snomed.info/sct&amp;codeA=3738000&amp;codeB=235856003
 </pre>
 <p>
 Or using Codings:
@@ -545,14 +545,14 @@ POST [base]/CodeSystem/$subsumes
     &lt;valuString value=&quot;http://snomed.info/sct/32506021000036107/version/20160430&quot;/&gt;
   &lt;/parameter&gt;
   &lt;parameter&gt;
-    &lt;name value=&quot;codingSub&quot;/&gt;
+    &lt;name value=&quot;codingA&quot;/&gt;
     &lt;valueCoding&gt;
       &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
       &lt;code value=&quot;3738000&quot;/&gt;
     &lt;/valueCoding&gt;
   &lt;/parameter&gt;
   &lt;parameter&gt;
-    &lt;name value=&quot;codingSuper&quot;/&gt;
+    &lt;name value=&quot;codingB&quot;/&gt;
     &lt;valueCoding&gt;
       &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
       &lt;code value=&quot;235856003&quot;/&gt;

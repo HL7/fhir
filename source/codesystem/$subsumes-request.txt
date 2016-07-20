@@ -1,5 +1,5 @@
 // Using simple parameters: is viral hepatitis a disorder of the liver?
-GET [base]/CodeSystem/$subsumes?system=http://snomed.info/sct&codeSub=3738000&codeSuper=235856003
+GET [base]/CodeSystem/$subsumes?system=http://snomed.info/sct&codeA=3738000&codeB=235856003
 
 --------------------------------------
 // Using Codings 
@@ -18,14 +18,14 @@ POST [base]/CodeSystem/$subsumes
     <valuString value="http://snomed.info/sct/32506021000036107/version/20160430"/>
   </parameter>
   <parameter>
-    <name value="codingSub"/>
+    <name value="codingA"/>
     <valueCoding>
       <system value="http://snomed.info/sct"/>
       <code value="3738000"/>
     </valueCoding>
   </parameter>
   <parameter>
-    <name value="codingSuper"/>
+    <name value="codingB"/>
     <valueCoding>
       <system value="http://snomed.info/sct"/>
       <code value="235856003"/>
