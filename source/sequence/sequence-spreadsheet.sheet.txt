@@ -746,7 +746,7 @@
 
  -- Row 47 -----------------------------------
   Element = Sequence.structureVariant
-  Card. = 0..1
+  Card. = 0..*
   Definition = Structural variant.
 
  -- Row 48 -----------------------------------

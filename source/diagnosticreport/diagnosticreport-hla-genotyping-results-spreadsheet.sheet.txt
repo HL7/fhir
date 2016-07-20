@@ -17,21 +17,13 @@
 
  -- Row 3 -----------------------------------
   Element = DiagnosticReport.extension
-  Profile Name = AlleleAsignmentDate
-  Card. = 0..1
-  Type = Extension{#AlleleAsignmentDate}
-  Short Label = AlleleAsignmentData
-  Definition = AlleleAsignmentData
-
- -- Row 4 -----------------------------------
-  Element = DiagnosticReport.extension
   Profile Name = Glstring
   Card. = 0..1
   Type = Extension{#Glstring}
   Short Label = Glstring
   Definition = Glstring
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Element = DiagnosticReport.extension
   Profile Name = Haploid
   Card. = 0..*
@@ -39,15 +31,7 @@
   Short Label = Haploid
   Definition = Haploid
 
- -- Row 6 -----------------------------------
-  Element = DiagnosticReport.extension
-  Profile Name = ConsensusSequenceBlock
-  Card. = 0..*
-  Type = Extension{#ConsensusSequenceBlock}
-  Short Label = ConsensusSequenceBlock
-  Definition = ConsensusSequenceBlock
-
- -- Row 7 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = DiagnosticReport.extension
   Profile Name = Method
   Card. = 0..1

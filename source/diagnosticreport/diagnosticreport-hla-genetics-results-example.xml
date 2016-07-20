@@ -2,27 +2,12 @@
 
 <DiagnosticReport xmlns="http://hl7.org/fhir">
   <id value="hla-1"/>
-  
-  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleAsignmentDate">
-      <valueDate value="2014-10-22"/>
-  </extension>
+
   <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsGlstring">
       <extension url="text" >
           <valueString value="HLA-A*01:01:01+HLA-A*24:02:01"/>
       </extension>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsConsensusSequenceBlock">
-      <valueReference>
-          <reference value="Observation/consensus-sequence-block-example-1"/>
-      </valueReference>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsConsensusSequenceBlock">
-      <valueReference>
-          <reference value="Observation/consensus-sequence-block-example-2"/>
-      </valueReference>
-  </extension>
-
-
   <status value="final"/>
   <code>
       <text value="HLA genotyping results"/>
