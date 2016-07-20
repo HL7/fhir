@@ -335,6 +335,7 @@
   Binding = AdditionalInstructions
   Short Label = Supplemental instructions - e.g. \"with meals\"
   Definition = Additional instructions such as \"Swallow with plenty of water\" which may or may not be coded.
+  RIM Mapping = .text
 
  -- Row 19 -----------------------------------
   Element = MedicationStatement.dosage.timing

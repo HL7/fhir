@@ -244,6 +244,7 @@
   Type = SimpleQuantity
   Short Label = Amount of medication expressed as a timing amount
   Definition = The amount of medication expressed as a timing amount.
+  RIM Mapping = effectiveUseTime
 
  -- Row 12 -----------------------------------
   Element = MedicationDispense.whenPrepared
@@ -449,7 +450,6 @@
   Binding = MedicationDispenseStatus
   Short Label = in-progress | on-hold | completed | entered-in-error | stopped
   Definition = The status for the event
-  RIM Mapping = statusCode
 
  -- Row 34 -----------------------------------
   Element = MedicationDispense.eventHistory.action
@@ -465,7 +465,6 @@
   Type = dateTime
   Short Label = The date at which the event happened
   Definition = The date/time at which the event occurred
-  RIM Mapping = effectiveTime
 
  -- Row 36 -----------------------------------
   Element = MedicationDispense.eventHistory.actor
@@ -481,7 +480,6 @@
   Binding = MedicationDispenseActionReason
   Short Label = Reason the action was taken
   Definition = The reason why the action was taken
-  RIM Mapping = reasonCode
 
 === Sheet Search =====================================
 

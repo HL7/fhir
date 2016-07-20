@@ -351,7 +351,6 @@
   Binding = MedicationAdministrationStatus
   Short Label = in-progress | on-hold | completed | entered-in-error | stopped
   Definition = The status for the event
-  RIM Mapping = statusCode
 
  -- Row 24 -----------------------------------
   Element = MedicationAdministration.eventHistory.action
@@ -367,7 +366,6 @@
   Type = dateTime
   Short Label = The date at which the event happened
   Definition = The date/time at which the event occurred
-  RIM Mapping = effectiveTime
 
  -- Row 26 -----------------------------------
   Element = MedicationAdministration.eventHistory.actor
@@ -383,7 +381,6 @@
   Binding = MedicationAdminstrationActionReason
   Short Label = Reason the action was taken
   Definition = The reason why the action was taken
-  RIM Mapping = reasonCode
 
 === Sheet Search =====================================
 

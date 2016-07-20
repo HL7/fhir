@@ -278,7 +278,6 @@
   Binding = MedicationOrderCategory
   Short Label = Type of medication usage
   Definition = Indicates where type of medication order and where the medication is expected to be consumed or administered
-  RIM Mapping = category.observation{code=?].value
 
  -- Row 13 -----------------------------------
   Element = MedicationOrder.dosageInstruction
@@ -499,7 +498,6 @@
   Binding = MedicationOrderStatus
   Short Label = active | on-hold | completed | entered-in-error | stopped | draft
   Definition = The status for the event
-  RIM Mapping = statusCode
 
  -- Row 37 -----------------------------------
   Element = MedicationOrder.eventHistory.action
@@ -515,7 +513,6 @@
   Type = dateTime
   Short Label = The date at which the event happened
   Definition = The date/time at which the event occurred
-  RIM Mapping = effectiveTime
 
  -- Row 39 -----------------------------------
   Element = MedicationOrder.eventHistory.actor
@@ -523,7 +520,6 @@
   Type = Reference(Practitioner)
   Short Label = Who took the action
   Definition = The person responsible for taking the action
-  RIM Mapping = .participation[AUT or PFM]
 
  -- Row 40 -----------------------------------
   Element = MedicationOrder.eventHistory.reason
@@ -532,7 +528,6 @@
   Binding = MedicationOrderActionReason
   Short Label = Reason the action was taken
   Definition = The reason why the action was taken
-  RIM Mapping = reasonCode
 
 === Sheet Search =====================================
 
