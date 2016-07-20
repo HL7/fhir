@@ -254,7 +254,7 @@
 			"base": "daf-procedurelist.html"
 		},
 		
-		"StructureDefinition/daf-procedurelist": {
+		"StructureDefinition/us-core-birth-sex": {
 			"defns": "us-core-birth-sex-definitions.html",
 			"base": "us-core-birth-sex.html"
 		},		
@@ -397,7 +397,7 @@
 			"template-base": null
 		},
 
-		"ValueSet/daf-problem": {
+		"ValueSet/us-core-birth-sex": {
 			"base": "valueset-us-core-birth-sex",
 			"template-base": null
 		},		
