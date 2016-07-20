@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","expansion":{"extension":[{"url":"http://hl7.org/fhir/StructureDefinition/valueset-toocostly","valueBoolean":true}],"identifier":"urn:uuid:2c1fd3f5-6b97-44be-ac4c-ce07684fe1ff","timestamp":"2016-06-17T07:34:35Z"}}

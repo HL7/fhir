@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:2128744c-e0c4-4c49-9ebd-d7ef36629444","timestamp":"2016-06-25T22:38:11Z","parameter":[{"name":"version","valueUri":"http://snomed.info/sct?version=http://snomed.info/sct/731000124108/version/20150901"}],"contains":[{"system":"http://snomed.info/sct","code":"385432009","display":"Not applicable"}]}}

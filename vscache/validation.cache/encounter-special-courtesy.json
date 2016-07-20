@@ -1,0 +1,16 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/encounter-special-courtesy",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/v3/EncounterSpecialCourtesy|null|NRM|normal courtesy",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "NRM",
+        "definition": null,
+        "display": "normal courtesy"
+      }
+    }
+  ]
+}
