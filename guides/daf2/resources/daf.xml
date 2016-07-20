@@ -26,6 +26,14 @@
 				<reference value="ValueSet/daf-procedure-type"/>
 			</sourceReference>
 		</resource>
+		
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/us-core-birth-sex"/>
+			</sourceReference>
+		</resource>	
+			
 		<resource>
 			<example value="false"/>
 			<sourceReference>
@@ -494,19 +502,14 @@
 		<resource>
 			<example value="false"/>
 			<sourceReference>
-				<reference value="StructureDefinition/daf-core-vitalsigns"/>
+				<reference value="StructureDefinition/us-core-birth-sex"/>
 			</sourceReference>
 		</resource>
 				<resource>
 			<example value="false"/>
 			<sourceReference>
-				<reference value="StructureDefinition/daf-core-birth-sex"/>
+				<reference value="StructureDefinition/daf-core-vitalsigns"/>
 			</sourceReference>
-		</resource>
-		
-				<resource>
-			<example value="false"/>
-
 		</resource>
 		<!--  search parameters -->
 		<resource>
@@ -583,12 +586,6 @@
 			<example value="false"/>
 			<sourceReference>
 				<reference value="ValueSet/daf-core-substance-unii"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/us-core-birth-sex"/>
 			</sourceReference>
 		</resource>
 	</package>
