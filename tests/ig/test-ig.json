@@ -6,7 +6,8 @@
     "temp" : "temp",
     "output" : "output",
     "qa" : "qa",
-    "specification" : "c:\\work\\org.hl7.fhir\\build\\publish"
+    "txCache" : "txCache",
+    "specification" : "../../../publish"
   },
 	"canonicalBase": "http://hl7.org/fhir/test",
 	"defaults": {
