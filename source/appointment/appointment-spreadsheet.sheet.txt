@@ -242,6 +242,7 @@
   Type = CodeableConcept
   Binding = specialty
   Short Label = The specialty of a practitioner that would be required to perform the service requested in this appointment
+  RIM Mapping = .performer.AssignedPerson.code
   w5 = class
 
  -- Row 7 -----------------------------------
@@ -270,7 +271,7 @@
   Type = unsignedInt
   Short Label = Used to make informed decisions if needing to re-prioritize
   Definition = The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority)
-  Comments = Seeking implementer feedback on this property and how interoperable it is.\n\nUsing an extension to record a codeableconcept for named values may be tested at a future connectathon
+  Comments = Seeking implementer feedback on this property and how interoperable it is.\r\rUsing an extension to record a codeableconcept for named values may be tested at a future connectathon
   v2 Mapping = ARQ-12, SCH-11.6 / TQ1-9
   RIM Mapping = .priorityCode
   iCal Mapping = PRIORITY
@@ -314,6 +315,7 @@
   Type = positiveInt
   Short Label = Can be less than start/end (e.g. estimate)
   Definition = Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate or is a planned appointment request)
+  RIM Mapping = .effectiveTime.width
   Committee Notes = Removed when taking out the recurrence fields
 
  -- Row 14 -----------------------------------
@@ -322,6 +324,7 @@
   Type = Schedule
   Short Label = When (if) appointment repeats
   Definition = The recurrence schedule for the appointment. The end date in the schedule marks the end of the recurrence(s), not the end of an individual appointment
+  RIM Mapping = .effectiveTime[@xsi:type=(\'PIVL_TS\', \'SXPR_TS\')]
 
  -- Row 15 -----------------------------------
   Element = !Appointment.timezone
@@ -330,6 +333,7 @@
   Short Label = For when schedule crosses a daylight saving boundary
   Definition = The timezone that the times are to be converted to. Required for recurring appointments to remain accurate where the schedule makes the appointment cross a daylight saving boundary
   Comments = The timezone should be a value referenced from a timezone database
+  RIM Mapping = .effectiveTime
 
  -- Row 16 -----------------------------------
   Element = Appointment.slot
@@ -346,6 +350,7 @@
   Short Label = The date that this appointment was initially created
   Definition = The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.
   Comments = This property is required for many use cases where the age of an appointment is considered in processing workflows for scheduling and billing of appointments.
+  RIM Mapping = .author.time
 
  -- Row 18 -----------------------------------
   Element = !Appointment.location
@@ -362,8 +367,9 @@
   Type = string
   Short Label = Additional comments
   Definition = Additional comments about the appointment
-  Comments = Additional text to aid in facilitating the appointment. For instance, a comment might be, \"patient should proceed immediately to infusion room upon arrival\"\n\nWhere this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.
+  Comments = Additional text to aid in facilitating the appointment. For instance, a comment might be, \"patient should proceed immediately to infusion room upon arrival\"\r\rWhere this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.
   v2 Mapping = NTE-3
+  RIM Mapping = .subjectOf.observationEvent[code=\"annotation\"].value
   iCal Mapping = COMMENT
 
  -- Row 20 -----------------------------------
@@ -383,6 +389,7 @@
   Short Label = Participants involved in appointment
   Definition = List of participants involved in the appointment
   v2 Mapping = PID, AIP, AIG, AIL
+  RIM Mapping = performer | reusableDevice | subject | location
   iCal Mapping = ATTENDEE component to be created
 
  -- Row 22 -----------------------------------
@@ -393,8 +400,9 @@
   Binding = ParticipantType
   Short Label = Role of participant in the appointment
   Definition = Role of participant in the appointment
-  Comments = The role of the participant can be used to declare what the actor will be doing in the scope of this appointment.\n\nIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\n\nThis value MUST be the same when creating an AppointmentResponse so that they can be matched, and subsequently update the Appointment.
+  Comments = The role of the participant can be used to declare what the actor will be doing in the scope of this appointment.\r\rIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\r\rThis value MUST be the same when creating an AppointmentResponse so that they can be matched, and subsequently update the Appointment.
   v2 Mapping = AIP-4, AIG-4
+  RIM Mapping = .@typeCode
   iCal Mapping = n/a
 
  -- Row 23 -----------------------------------
@@ -405,7 +413,7 @@
   Short Label = Person, Location/HealthcareService or Device
   Definition = A Person, Location/HealthcareService or Device that is participating in the appointment
   v2 Mapping = PID-3-Patient ID List | AIL-3 | AIG-3 | AIP-3
-  RIM Mapping = performer | reusableDevice | subject | location
+  RIM Mapping = performer.person | reusableDevice.manufacturedDevice | subject.patient | location.serviceDeliveryLocation
   iCal Mapping = ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource) where the participant type is not \"information-only\"
   w5 = who
 
@@ -417,7 +425,7 @@
   Binding = ParticipantRequired
   Short Label = required | optional | information-only
   Definition = Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.
-  RIM Mapping = performer.performIndicator
+  RIM Mapping = performer.performInd
   iCal Mapping = ROLE=REQ-PARTICIPANT (roleparam)
 
  -- Row 25 -----------------------------------
