@@ -1,0 +1,169 @@
+---
+# jekyll prompt
+title:  CCDA Index page
+---
+<!DOCTYPE HTML>
+<!-- [%settitle Guideline Appropriate Ordering Implementation Guide%] -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+[%file newheader%]
+  </head>
+  <body>
+[%file newnavbar%]
+    <div class="col-9">
+      <a name="CCDA"> </a>
+      <h2>C-CDA on FHIR Implementation Guide (IG)</h2>
+      <p><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=408">C-CDA</a> is one of the most widely implemented implementation guides for CDA and covers a significant scope of clinical care. Its target of the 'common/essential' elements of healthcare is closely aligned with FHIR's focus on the '80%'. There is significant interest in industry and government in the ability to interoperate between CDA and FHIR and C-CDA is a logical starting point. Implementers and regulators have both expressed an interest in the ability to map between FHIR and C-CDA.</p>
+
+	  <p>This Implementation Guide defines a series of FHIR profiles on the Composition resource to represent the various document types in C-CDA. This release does not directly map every C-CDA template to FHIR profiles, rather tries to accomplish the C-CDA use case using Composition resource profiles created under this project (the equivalent of Level 2 CDA documents), and linking to the profiles created under the Data Access Framework (DAF) project for any coded entries that would normally be included in C-CDA sections. The hope is that this results in a simpler, more streamlined standard that reuses existing work and focuses on the 80% that implementers actually need in production systems (the hope is that DAF represents that 80% needed for coded entries).</p>
+
+	  <p>The Composition profiles in this IG do not require coded data in any section. This is a departure from C-CDA, which requires coded data for Problems, Results, Medications, etc. This departure is intentional, as the C-CDA requirement for coded one or more coded entries in these sections resulted in some very complicated workarounds using nullFlavors to handle the fact that sometimes a patient is not on any medications, or has no current problems. In general, FHIR takes the approach that if something is nullable, it should simply be optional to ease the burden on implementers, thus C-CDA on FHIR does not require any coded entries, but rather uses the "required if known" approach, meaning that if an implementer's system has data for a section that requires data under Meaningful Use, they need to sent it, but if they have no data there is no need for a null entry. </p>
+
+	  <p>We encourage feedback on these Composition profiles, and the general approach to the project as a whole. We also encourage implementers who wish to see more of the coded data from C-CDA mapped to FHIR to comment on the DAF project and make their requests known there. Once DAF creates new profiles, this project can reference them.</p>
+
+
+      <h3>Scope</h3>
+      <p>To represent Consolidated CDA Templates for Clinical Notes (C-CDA) 2.1 templates using FHIR profiles.<br/>
+        This first stage of the project defines all the C-CDA document-level profiles on the Composition resource and contained sections.<br/><br/>
+        Any coded data used by sections will be accomplished by referencing relevant U.S. Data Access Framework (DAF) FHIR profiles.
+      </p>
+      <!--<h3>Conformance</h3>
+      <p>...</p>
+      <h3>Operations</h3>
+      <p>...</p>-->
+      <h3>Resource Profiles</h3>
+      <p>This guide defines the following profiles.</p>
+      <table class="codes">
+        <tr><td><b>Profile Name</b></td><td><b>Description</b></td></tr>
+        <tr><td><a href="ccda-us-realm-header-composition.html">C-CDA on FHIR US Realm Header</a></td><td>This profile defines constraints that represent common administrative and demographic concepts for US Realm clinical documents. Further specification, such as type, are provided in document profiles that conform to this profile.</td></tr>
+        <tr><td><a href="ccda-care-plan-composition.html">C-CDA on FHIR Care Plan</a></td><td>A Care Plan (including Home Health Plan of Care (HHPoC)) is a consensus-driven dynamic plan that represents a patient's and Care Team Members' prioritized concerns, goals, and planned interventions. It serves as a blueprint shared by all Care Team Members (including the patient, their caregivers and providers), to guide the patient's care. A Care Plan integrates multiple interventions proposed by multiple providers and disciplines for multiple conditions.</td></tr>
+        <tr><td><a href="ccda-ccd-composition.html">C-CDA on FHIR Continuity of Care Document (CCD)</a></td><td>The Continuity of Care (CCD) profile represents a core data set of the most relevant administrative, demographic, and clinical information facts about a patient's healthcare, covering one or more healthcare encounters. It provides a means for one healthcare practitioner, system, or setting to aggregate all of the pertinent data about a patient and forward it to another to support the continuity of care.<br/><br/></td></tr>
+        <tr><td><a href="ccda-consultation-note-composition.html">C-CDA on FHIR Consultation Note</a></td><td>The Consultation Note is generated by a request from a clinician for an opinion or advice from another clinician. Consultations may involve face-to-face time with the patient or may fall under the auspices of telemedicine visits. Consultations may occur while the patient is inpatient or ambulatory. The Consultation Note should also be used to summarize an Emergency Room or Urgent Care encounter.</td></tr>
+        <tr><td><a href="ccda-diagnostic-imaging-composition.html">C-CDA on FHIR Diagnostic Imaging Report</a></td><td>A Diagnostic Imaging Report (DIR) is a document that contains a consulting specialist’s interpretation of image data. It conveys the interpretation to the referring (ordering) physician and becomes part of the patient’s medical record. It is for use in Radiology, Endoscopy, Cardiology, and other imaging specialties.</td></tr>
+        <tr><td><a href="ccda-discharge-summary-composition.html">C-CDA on FHIR Discharge Summary</a></td><td>The Discharge Summary is a document which synopsizes a patient's admission to a hospital, LTPAC provider, or other setting. It provides information for the continuation of care following discharge.</td></tr>
+        <tr><td><a href="ccda-history-and-physical-composition.html">C-CDA on FHIR History and Physical</a></td><td>A History and Physical note is a medical report that documents the current and past conditions of the patient. It contains essential information that helps determine an individual's health status.</td></tr>
+        <tr><td><a href="ccda-procedure-note-composition.html">C-CDA on FHIR Procedure Note</a></td><td>A Procedure Note encompasses many types of non-operative procedures including interventional cardiology, gastrointestinal endoscopy, osteopathic manipulation, and many other specialty fields. Procedure Notes are differentiated from Operative Notes because they do not involve incision or excision as the primary act.<br/><br/>
+          The Procedure Note is created immediately following a non-operative procedure. It records the indications for the procedure and, when applicable, postprocedure diagnosis, pertinent events of the procedure, and the patient’s tolerance for the procedure. It should be detailed enough to justify the procedure, describe the course of the procedure, and provide continuity of care.</td></tr>
+        <tr><td><a href="ccda-progress-note-composition.html">C-CDA on FHIR Progress Note</a></td><td>This profile represents a patient’s clinical status during a hospitalization, outpatient visit, treatment with a LTPAC provider, or other healthcare encounter.</td></tr>
+        <tr><td><a href="ccda-referral-note-composition.html">C-CDA on FHIR Referral Note</a></td><td>A Referral Note communicates pertinent information from a provider who is requesting services of another provider of clinical or non-clinical services. The information in this document includes the reason for the referral and additional information that would augment decision making and care delivery.</td></tr>
+        <tr><td><a href="ccda-operative-note-composition.html">C-CDA on FHIR Operative Note</a></td><td>The Operative Note is a frequently used type of procedure note with specific requirements set forth by regulatory agencies.<br/><br/>
+          The Operative Note is created immediately following a surgical or other high-risk procedure. It records the pre- and post-surgical diagnosis, pertinent events of the procedure, as well as the condition of the patient following the procedure. The report should be sufficiently detailed to support the diagnoses, justify the treatment, document the course of the procedure, and provide continuity of care.</td></tr>
+        <tr><td><a href="ccda-transfer-summary-composition.html">C-CDA on FHIR Transfer Summary</a></td><td>The Transfer Summary standardizes critical information for exchange of information between providers of care when a patient moves between health care settings.<br/><br/>
+          Standardization of information used in this form will promote interoperability; create information suitable for reuse in quality measurement, public health, research, and for reimbursement.</td></tr>
+      </table>
+      <p>This guide references the following DAF profiles.</p>
+      <table class="codes">
+        <tr><td><b>Profile Name</b></td></tr>
+        <tr><td><a href="http://www.hl7.org/fhir/daf/daf-allergyintolerance.html">U.S. DAF AllergyIntolerance Profile</a></td></tr>
+        <tr><td><a href="http://www.hl7.org/fhir/daf/daf-condition.html">U.S. DAF Condition Profile</a></td></tr>
+        <tr><td><a href="http://www.hl7.org/fhir/daf/daf-diagnosticorder.html">U.S. DAF DiagnosticOrder Profile</a></td></tr>
+        <tr><td><a href="http://www.hl7.org/fhir/daf/daf-diagnosticreport.html">U.S. DAF DiagnosticReport Profile</a></td></tr>
+        <tr><td><a href="http://www.hl7.org/fhir/daf/daf-medicationstatement.html">U.S. DAF MedicationStatement Profile</a></td></tr>
+        <tr><td><a href="http://www.hl7.org/fhir/daf/daf-resultobs.html">U.S. DAF Results Profile</a></td></tr>
+        <tr><td><a href="http://www.hl7.org/fhir/daf/daf-vitalsigns.html">U.S. DAF Vital Signs Profile</a></td></tr>
+        <tr><td><a href="http://www.hl7.org/fhir/daf/daf-organization.html">U.S. DAF Organization Profile</a></td></tr>
+        <tr><td><a href="http://www.hl7.org/fhir/daf/daf-patient.html">U.S. DAF Patient Profile</a></td></tr>
+        <tr><td><a href="http://www.hl7.org/fhir/daf/daf-pract.html">U.S. DAF Practitioner Profile</a></td></tr>
+        <tr><td><a href="http://www.hl7.org/fhir/daf/daf-procedure.html">U.S. DAF Procedure Profile</a></td></tr>
+        <tr><td><a href="http://www.hl7.org/fhir/daf/daf-relatedperson.html">U.S. DAF Related Person Profile</a></td></tr>
+
+      </table>
+      <h3>Extensions</h3>
+        <p>This guide defines the following extensions.</p>
+      <table class="codes">
+        <tr><td><b>Name</b></td><td><b>Definition</b></td></tr>
+        <tr><td><a href="ccda-authorization-extension.html">C-CDA on FHIR Authorization</a></td><td>An extension to represent CDA header authorization element.</td></tr>
+        <tr><td><a href="ccda-data-enterer-extension.html">C-CDA on FHIR Data Enterer</a></td><td>An extension to represent CDA header dataEnterer element.</td></tr>
+        <tr><td><a href="ccda-in-fulfillment-of-order-extension.html">C-CDA on FHIR Data Enterer</a></td><td>An extension to represent CDA inFulfillmentOf/order header element.</td></tr>
+        <tr><td><a href="ccda-informant-extension.html">C-CDA on FHIR Informant</a></td><td>An extension to represent CDA informant header element.</td></tr>
+        <tr><td><a href="ccda-participant-extension.html">C-CDA on FHIR Participant</a></td><td>An extension to represent CDA participant header element.</td></tr>
+        <tr><td><a href="ccda-performer-extension.html">C-CDA on FHIR Performer</a></td><td>An extension to represent CDA performer header element.</td></tr>
+      </table>
+      <h3>Value Sets</h3>
+        <p>This guide references the following value sets.</p>
+      <table class="codes">
+        <tr><td><b>Name</b></td><td><b>Definition</b></td></tr>
+        <tr><td><a href="valueset-2.16.840.1.113883.1.11.16926.html">HL7 BasicConfidentialityKind</a></td><td>A value set of HL7 Codes indicating the level of confidentiality an act.</td></tr>
+        <!--
+        <tr><td><a href="https://loinc.org/">ConsultDocumentType</a></td><td>A value set of LOINC codes indicating the type of consultation note.</td></tr>
+        -->
+        <tr><td><a href="valueset-1.3.6.1.4.1.12009.10.2.5.html">LOINC Imaging Document Codes</a></td><td>A value set of LOINC codes indicating the type of imaging document.</td></tr>
+        <!--
+        <tr><td><a href="https://loinc.org/">DischargeSummaryDocumentTypeCode</a></td><td>A value set of LOINC codes indicating the type of discharge summary.</td></tr>
+        -->
+        <tr><td><a href="valueset-2.16.840.1.113883.1.11.20.22.html">HPDocumentType</a></td><td>A value set of LOINC codes indicating the type of history and physical.</td></tr>
+        <!--
+        <tr><td><a href="https://loinc.org/">SurgicalOperationNoteDocumentTypeCode</a></td><td>A value set of LOINC codes indicating the type of surgical operation note.</td></tr>
+        -->
+        <tr><td><a href="valueset-2.16.840.1.113883.11.20.6.1.html">ProcedureNoteDocumentTypeCodes</a></td><td>A value set of LOINC codes indicating the type of procedure note.</td></tr>
+        <tr><td><a href="valueset-2.16.840.1.113883.11.20.6.1.html">ProgressNoteDocumentTypeCode</a></td><td>A value set of LOINC codes indicating the type of progress note</td></tr>
+        <tr><td><a href="valueset-2.16.840.1.113883.1.11.20.2.3.html">ReferralDocumentType</a></td><td>A value set of LOINC codes indicating the type of referral.</td></tr>
+      </table>
+      <h3>Code Systems</h3>
+        <p>This guide references the following code systems.</p>
+      <table class="codes">
+        <tr><td><b>Name</b></td><td><b>Definition</b></td></tr>
+        <tr><td><a href="http://www.hl7.org/documentcenter/private/standards_temp_79FF72FC-1C23-BA17-0C8C4C04A3FAD7CA/v3/edition_web/infrastructure/vocabulary/Confidentiality.html">ConfidentialityCode</a></td><td>A set of codes specifying the security classification of acts and roles in accordance with the definition for concept domain "Confidentiality".</td></tr>
+        <tr><td><a href="https://www.dabsoft.ch/dicom/16/D/">DCM</a></td><td>DICOM Controlled Terminology</td></tr>
+        <tr><td><a href="http://hl7.org/fhir/composition-attestation-mode">FHIR CompositionAttestationMode</a></td><td>FHIR defined inline code system.</td></tr>
+        <tr><td><a href="http://www.hl7.org/documentcenter/private/standards_temp_7A2D3075-1C23-BA17-0CBDF0D01B1DCF02/v3/edition_web/infrastructure/vocabulary/ActClass.html">HL7ActClass</a></td><td>Codes indicating the class of an act.</td></tr>
+        <tr><td><a href="https://loinc.org/">LOINC</a></td><td>Logical Observation Identifiers Names and Codes (LOINC).</td></tr>
+
+      </table>
+      <h3>References</h3>
+      <table class="codes">
+        <tr><td><b>Name</b></td><td><b>Definition</b></td></tr>
+        <tr><td><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=379">HL7 Implementation Guide for CDA Release 2: Consolidated CDA Templates for Clinical Notes</a></td><td>The Consolidated CDA (C-CDA) implementation guide contains a library of CDA templates, incorporating and harmonizing previous efforts from Health Level Seven (HL7), Integrating the Healthcare Enterprise (IHE), and Health Information Technology Standards Panel (HITSP). It represents harmonization of the HL7 Health Story guides, HITSP C32, related components of IHE Patient Care Coordination (IHE PCC), and Continuity of Care (CCD). C-CDA Release 1 included all required CDA templates in Final Rules for Stage 1 Meaningful Use and 45 CFR Part 170 – Health Information Technology: Initial Set of Standards, Implementation Specifications, and Certification Criteria for Electronic Health Record Technology; Final Rule.</td></tr>
+        <tr><td><a href="http://www.hl7.org/fhir/daf/daf.html">U.S. Data Access Framework (DAF) FHIR Implementation Guide (IG)</a></td><td>A U.S. Realm guide for making use of FHIR resources to support queries between systems within an enterprise and across enterprises</td></tr>
+      </table>
+		<h2>CDA Logical Model</h2>
+		<p>This defines a Logical Model for CDA itself (the HL7 V3 RIM-based standard). Uses to be evaluated. This is not intended to be part of C-CDA on FHIR but is currently published here until we find a good home for it.</p>
+		<table class="grid">
+		<tr>
+		<td><a href="ANY.html">ANY</a></td>
+		<td><a href="BL.html">BL</a></td>
+		<td><a href="ED.html">ED</a></td>
+		<td><a href="ST.html">ST</a></td>
+		<td><a href="CD.html">CD</a></td>
+		</tr>
+		<tr>
+		<td><a href="CR.html">CR</a></td>
+		<td><a href="CS.html">CS</a></td>
+		<td><a href="CV.html">CV</a></td>
+		<td><a href="CE.html">CE</a></td>
+		<td><a href="SC.html">SC</a></td>
+		</tr>
+		<tr>
+		<td><a href="II.html">II</a></td>
+		<td><a href="TEL.html">TEL</a></td>
+		<td><a href="AD.html">AD</a></td>
+		<td><a href="EN.html">EN</a></td>
+		<td><a href="QTY.html">QTY</a></td>
+		</tr>
+		<tr>
+		<td><a href="INT.html">INT</a></td>
+		<td><a href="REAL.html">REAL</a></td>
+		<td><a href="RTO_PQ_PQ.html">RTO_PQ_PQ</a></td>
+		<td><a href="PQ.html">PQ</a></td>
+		<td><a href="PQR.html">PQR</a></td>
+		</tr>
+		<tr>
+		<td><a href="MO.html">MO</a></td>
+		<td><a href="TS.html">TS</a></td>
+		<td><a href="IVL_TS.html">IVL_TS</a></td>
+		<td><a href="IVL_PQ.html">IVL_PQ</a></td>
+		<td><a href="IVL_INT.html">IVL_INT</a></td>
+		</tr>
+		<tr>
+		<td><a href="PIVL.html">PIVL</a></td>
+		<td><a href="EIVL.html">EIVL</a></td>
+		<td><a href="SXCM_TS.html">SXCM_TS</a></td>
+		<td><a href="SXPR_TS.html">SXPR_TS</a></td>
+		<td><a href="InfrastructureRoot.html">InfrastructureRoot</a></td>
+		<td><a href="ClinicalDocument.html">ClinicalDocument</a></td>
+		</tr>
+		</table>
+  </div>
+  [%file newfooter%]
+  </body>
+</html>
