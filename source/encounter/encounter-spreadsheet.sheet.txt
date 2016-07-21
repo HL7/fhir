@@ -208,7 +208,7 @@
   Short Label = List of past encounter statuses
   Definition = The status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them
   Comments = The current status is always found in the current version of the resource, not the status history
-  RIM Mapping = No equivalent
+  RIM Mapping = n/a
 
  -- Row 5 -----------------------------------
   Element = Encounter.statusHistory.status
@@ -216,14 +216,14 @@
   Type = code
   Binding = EncounterStatus
   Short Label = planned | arrived | in-progress | onleave | finished | cancelled | entered-in-error
-  RIM Mapping = No equivalent
+  RIM Mapping = n/a
 
  -- Row 6 -----------------------------------
   Element = Encounter.statusHistory.period
   Card. = 1..1
   Type = Period
   Short Label = The time that the episode was in the specified status
-  RIM Mapping = No equivalent
+  RIM Mapping = n/a
 
  -- Row 7 -----------------------------------
   Element = Encounter.class
