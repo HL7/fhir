@@ -277,6 +277,14 @@
 			"defns": "us-core-birth-sex-definitions.html",
 			"base": "us-core-birth-sex.html"
 		},
+		"StructureDefinition/daf-research-data-models": {
+			"defns": "daf-research-data-models-definitions.html",
+			"base": "daf-research-data-models.html"
+		},
+		"StructureDefinition/daf-research-query-formats": {
+			"defns": "daf-research-query-formats-definitions.html",
+			"base": "daf-research-query-formats.html"
+		},
 		"ValueSet/daf-procedure-type": {
 			"base": "valueset-daf-procedure-type.html",
 			"template-base": null
