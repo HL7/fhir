@@ -175,7 +175,7 @@ public class TypeParser {
           throw new Exception("Unknown type '"+t.getName()+"'");
         TypeRefComponent tc = new TypeRefComponent().setCode(sd.getType());
         list.add(tc);
-        tc.setProfile(sd.getUrl());
+        tc.setProfile(t.getProfile());
       }
     }    
     return list;

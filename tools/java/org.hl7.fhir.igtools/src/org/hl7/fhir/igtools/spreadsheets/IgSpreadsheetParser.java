@@ -704,7 +704,7 @@ public class IgSpreadsheetParser {
 
     if (!Utilities.noString(sheet.getColumn(row, "Type"))) {
       TypeParser tp = new TypeParser();
-      List<TypeRef> types = tp.parse(sheet.getColumn(row, "Type"), true, "??", context, !path.contains("."));
+      List<TypeRef> types = tp.parse(sheet.getColumn(row, "Type"), true, metadata("extension.uri"), context, !path.contains("."));
       if (types.size() == 1 && types.get(0).getName().startsWith("@"))  
         e.setContentReference("#"+types.get(0).getName().substring(1));
       else if (types.size() > 0)
@@ -1148,7 +1148,7 @@ public class IgSpreadsheetParser {
       if (!Utilities.noString(s))
         exv.setMaxLength(Integer.parseInt(s));
       TypeParser tp = new TypeParser();
-      List<TypeRef> types = tp.parse(sheet.getColumn(row, "Type"), true, "??", context, false);
+      List<TypeRef> types = tp.parse(sheet.getColumn(row, "Type"), true, metadata("extension.uri"), context, false);
       exv.getType().addAll(tp.convert(context, exv.getPath(), types, false, exv));
       exv.setExample(processValue(sheet, row, "Example", sheet.getColumn(row, "Example"), exv));
     }
