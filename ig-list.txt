@@ -2,4 +2,5 @@ C:\work\org.hl7.fhir\build\tests\ig\test-ig.json
 C:\work\com.healthintersections.fhir\nehta\rcpa\rcpa.json
 C:\work\org.hl7.fhir\build\guides\daf2\daf.json
 C:\work\org.hl7.fhir\build\guides\hspc2\hspc.json
+C:\work\org.hl7.fhir\build\guides\ccda2\ccda.json
 C:\work\org.hl7.fhir\build\guides\uslab2\uslab.json

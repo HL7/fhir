@@ -50,7 +50,7 @@
 
     note that since we give a literal URL here, there's an expectation 
 			that accessing that URL will give some form of representation of 
-			the full code system, or a pointer about how to get more infomration. 
+			the full code system, or a pointer about how to get more information. 
 	
 			This is not an absolute requirement, but it may be enforced by some 
 			servers - for instance, the HL7 valueset registry will.   -->

@@ -167,11 +167,15 @@ public class HierarchicalTableGenerator  {
       for (Piece p : pieces)
         p.addToHint(text);            
     }
-    public Piece addImage(String src, String hint, String alt) {
-      if (pieces.size() > 0 && pieces.get(0).tag == null)
-        pieces.get(0).text += " ";
+    public Piece addImage(String src, String hint, String alt, String fgColor, String bgColor) {
 //      Piece img = new Piece("img");
       Piece img = new Piece(null, alt, hint);
+      img.addStyle("padding: 3px");
+      if (fgColor != null) {
+        img.addStyle("color: "+fgColor);
+        img.addStyle("background-color: "+bgColor);
+      }
+        
 //      img.attributes = new HashMap<String, String>();
 //      img.attributes.put("src", src);
 //      img.attributes.put("alt", alt);

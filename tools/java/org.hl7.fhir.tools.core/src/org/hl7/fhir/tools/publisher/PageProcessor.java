@@ -6689,7 +6689,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           url = definitions.getPageTitles().get(linkText);
         } else {
 		      getValidationErrors().add(
-              new ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, -1, -1, location, "Unresolved logical URL "+linkText, IssueSeverity.WARNING));
+              new ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, -1, -1, location, "Unresolved logical URL '"+linkText+"'", IssueSeverity.WARNING));
           //        throw new Exception("Unresolved logical URL "+url);
         }
       }
