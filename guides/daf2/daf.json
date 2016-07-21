@@ -16,9 +16,11 @@
 	},
 	"canonicalBase": "http://hl7.org/fhir/daf",
 	"source": "daf.xml",
+
 "spreadsheets": [
 	"allergyintolerance-daf-core-profile-spreadsheet.xml",
 	"careplan-daf-core-profile-spreadsheet.xml",
+	"careteam-daf-core-profile-spreadsheet.xml",
 	"condition-daf-core-profile-spreadsheet.xml",
 	"diagnosticreport-daf-core-profile-spreadsheet.xml",
 	"device-daf-core-profile-spreadsheet.xml",
@@ -61,6 +63,7 @@
 	"spec-daf-profile-spreadsheet.xml",
 	"task-daf-profile-spreadsheet.xml",
 	"substance-daf-profile-spreadsheet.xml"
+
 	],
 	"resources": {
 		"StructureDefinition/daf-core-allergyintolerance": {
@@ -79,6 +82,13 @@
 			"defns": "daf-core-careplan-definitions.html",
 			"base": "daf-core-careplan.html"
 		},
+		
+		"StructureDefinition/daf-core-careteam": {
+			"defns": "daf-core-careteam-definitions.html",
+			"base": "daf-core-careteam.html"
+		},		
+		
+		
 		"StructureDefinition/daf-condition": {
 			"defns": "daf-condition-definitions.html",
 			"base": "daf-condition.html"
@@ -263,13 +273,10 @@
 			"defns": "daf-procedurelist-definitions.html",
 			"base": "daf-procedurelist.html"
 		},
-		
 		"StructureDefinition/us-core-birth-sex": {
 			"defns": "us-core-birth-sex-definitions.html",
 			"base": "us-core-birth-sex.html"
-		},		
-		
-		
+		},
 		"ValueSet/daf-procedure-type": {
 			"base": "valueset-daf-procedure-type.html",
 			"template-base": null
@@ -406,12 +413,10 @@
 			"base": "valueset-daf-problem.html",
 			"template-base": null
 		},
-
 		"ValueSet/us-core-birth-sex": {
 			"base": "valueset-us-core-birth-sex",
 			"template-base": null
-		},		
-		
+		},
 		"AllergyIntolerance/example": {
 			"base": "allergyintolerance-example.html",
 			"template-base": null
