@@ -31,7 +31,7 @@
   Definition = Identifier for a person within a particular scope.
   Requirements = People are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the patient. Examples are national person identifier and local identifier
   v2 Mapping = NK1-33
-  RIM Mapping = id
+  RIM Mapping = .id
   Committee Notes = Keeping RelatedPerson.id cardinality as a matter of safety in the same manner as Person Activate
   w5 = id
 
@@ -44,6 +44,7 @@
   Short Label = Whether this related person\'s record is in active use
   Definition = Whether this related person record is in active use
   Requirements = Need to be able to mark a related person record as not to be used, such as if it was created in error
+  RIM Mapping = .statusCode
   Default Value = True
   w5 = status
 
@@ -113,6 +114,7 @@
   Summary = Y
   Type = date
   Short Label = The date on which the related person was born
+  RIM Mapping = player.birthTime
 
  -- Row 10 -----------------------------------
   Element = RelatedPerson.address
@@ -141,6 +143,7 @@
   Type = Period
   Short Label = Period of time that this relationship is considered valid
   Definition = The period of time that this relationship is considered to be valid. If there are no dates defined, then the interval is unknown.
+  RIM Mapping = .effectiveTime
   w5 = when.done
 
 === Sheet Search =====================================

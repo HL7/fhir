@@ -59,7 +59,7 @@
   Definition = Whether this practitioner\'s record is in active use
   Requirements = Need to be able to mark a practitioner record as not to be used because it was created in error
   Comments = Default is true. \n\nIf the practitioner is not in use by one organization, then it should mark the period on the PractitonerRole with an end date (even if they are active) as they may be active in another role.
-  RIM Mapping = ./StatusCode
+  RIM Mapping = ./statusCode
   Default Value = True
   w5 = status
 
@@ -69,6 +69,7 @@
   Summary = y
   Type = Reference(Practitioner)
   Short Label = Practitioner that is able to provide the defined services for the organation
+  RIM Mapping = .player
 
  -- Row 5 -----------------------------------
   Element = PractitionerRole.organization
@@ -130,6 +131,7 @@
   Type = ContactPoint
   Short Label = Contact details that are specific to the role/location/service
   Requirements = Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these.
+  RIM Mapping = .telecom
 
  -- Row 11 -----------------------------------
   Element = PractitionerRole.period
@@ -151,6 +153,7 @@
   Short Label = Times the Service Site is available
   Definition = A collection of times that the Service Site is available
   Comments = More detailed availability information may be provided in associated Schedule/Slot resources.
+  RIM Mapping = ./effectiveTime
 
  -- Row 13 -----------------------------------
   Element = PractitionerRole.availableTime.daysOfWeek
@@ -159,6 +162,7 @@
   Binding = DaysOfWeek
   Short Label = mon | tue | wed | thu | fri | sat | sun
   Definition = Indicates which days of the week are available between the start and end Times
+  RIM Mapping = ./effectiveTime
 
  -- Row 14 -----------------------------------
   Element = PractitionerRole.availableTime.allDay
@@ -166,6 +170,7 @@
   Type = boolean
   Short Label = Always available? e.g. 24 hour service
   Definition = Is this always available? (hence times are irrelevant) e.g. 24 hour service
+  RIM Mapping = ./effectiveTime
 
  -- Row 15 -----------------------------------
   Element = PractitionerRole.availableTime.availableStartTime
@@ -174,6 +179,7 @@
   Short Label = Opening time of day (ignored if allDay = true)
   Definition = The opening time of day. Note: If the AllDay flag is set, then this time is ignored
   Comments = The timezone is expected to be for where this HealthcareService is provided at.
+  RIM Mapping = ./effectiveTime
 
  -- Row 16 -----------------------------------
   Element = PractitionerRole.availableTime.availableEndTime
@@ -182,12 +188,14 @@
   Short Label = Closing time of day (ignored if allDay = true)
   Definition = The closing time of day. Note: If the AllDay flag is set, then this time is ignored
   Comments = The timezone is expected to be for where this HealthcareService is provided at.
+  RIM Mapping = ./effectiveTime
 
  -- Row 17 -----------------------------------
   Element = PractitionerRole.notAvailable
   Card. = 0..*
   Short Label = Not available during this time due to provided reason
   Definition = The HealthcareService is not available during this period of time due to the provided reason
+  RIM Mapping = ./effectiveTime
 
  -- Row 18 -----------------------------------
   Element = PractitionerRole.notAvailable.description
@@ -195,6 +203,7 @@
   Type = string
   Short Label = Reason presented to the user explaining why time not available
   Definition = The reason that can be presented to the user as to why this time is not available
+  RIM Mapping = n/a
 
  -- Row 19 -----------------------------------
   Element = PractitionerRole.notAvailable.during
@@ -202,6 +211,7 @@
   Type = Period
   Short Label = Service not availablefrom this date
   Definition = Service is not available (seasonally or for a public holiday) from this date
+  RIM Mapping = ./effectiveTime
 
  -- Row 20 -----------------------------------
   Element = PractitionerRole.availabilityExceptions
@@ -209,6 +219,7 @@
   Type = string
   Short Label = Description of availability exceptions
   Definition = A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times
+  RIM Mapping = ./effectiveTime
 
  -- Row 21 -----------------------------------
   Element = PractitionerRole.endpoint
@@ -216,6 +227,7 @@
   Type = Reference(Endpoint)
   Short Label = Technical endpoints providing access to services operated for the practitioner with this role
   Requirements = Organizations have multiple systems that provide various services and ,ay also be different for practitioners too.\n\nSo the endpoint satisfies the need to be able to define the technical connection details for how to connect to them, and for what purpose.
+  RIM Mapping = n/a
 
 === Sheet Search =====================================
 

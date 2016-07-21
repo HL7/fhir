@@ -110,7 +110,7 @@
  -- Row 3 -----------------------------------
   Id = 3
   Code = in-progress
-  Display = in Progress
+  Display = In Progress
   Definition = The Encounter has begun and the patient is present / the practitioner and the patient are meeting.
 
  -- Row 4 -----------------------------------
