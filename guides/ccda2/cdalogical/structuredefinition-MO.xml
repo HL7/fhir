@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="MO"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+    <valueUri value="urn:hl7-org:v3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/MO"/>
+  <name value="V3 Data type MO (MonetaryAmount)"/>
+  <display value="V3 Data type MO (MonetaryAmount)"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7"/>
+  <description value="A monetary amount is a quantity expressing the amount of money in some currency. Currencies are the units in which monetary amounts are denominated in different economic regions. While the monetary amount is a single kind of quantity (money) the exchange rates between the different units are variable. This is the principle difference between physical quantity and monetary amounts, and the reason why currency units are not physical units."/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/QTY"/>
+  <derivation value="specialization"/>
+  <snapshot>
+    <element>
+      <path value="MO"/>
+      <min value="1"/>
+      <max value="*"/>
+    </element>
+    <element>
+      <path value="MO.nullFlavor"/>
+      <representation value="xmlAttr"/>
+      <label value="Exceptional Value Detail"/>
+      <definition value="If a value is an exceptional value (NULL-value), this specifies in what way and why proper information is missing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="MO.value"/>
+      <label value="Value"/>
+      <definition value="The magnitude of the monetary amount in terms of the currency unit."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="REAL"/>
+      </type>
+    </element>
+    <element>
+      <path value="MO.currency"/>
+      <label value="Currency"/>
+      <definition value="The currency unit as defined in ISO 4217."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CS"/>
+      </type>
+    </element>
+  </snapshot>
+  <differential>
+    <element>
+      <path value="MO"/>
+      <min value="1"/>
+      <max value="*"/>
+    </element>
+    <element>
+      <path value="MO.value"/>
+      <label value="Value"/>
+      <definition value="The magnitude of the monetary amount in terms of the currency unit."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="REAL"/>
+      </type>
+    </element>
+    <element>
+      <path value="MO.currency"/>
+      <label value="Currency"/>
+      <definition value="The currency unit as defined in ISO 4217."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CS"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

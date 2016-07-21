@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="AD"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+    <valueUri value="urn:hl7-org:v3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/AD"/>
+  <name value="V3 Data type AD (PostalAddress)"/>
+  <display value="V3 Data type AD (PostalAddress)"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7"/>
+  <description value="Mailing and home or office addresses. A sequence of address parts, such as street or post office Box, city, postal code, country, etc."/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ANY"/>
+  <derivation value="specialization"/>
+  <snapshot>
+    <element>
+      <path value="AD"/>
+      <min value="1"/>
+      <max value="*"/>
+    </element>
+    <element>
+      <path value="AD.nullFlavor"/>
+      <representation value="xmlAttr"/>
+      <label value="Exceptional Value Detail"/>
+      <definition value="If a value is an exceptional value (NULL-value), this specifies in what way and why proper information is missing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="AD.delimiter"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.country"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.state"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.county"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.city"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.postalCode"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.streetAddressLine"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.houseNumber"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.houseNumberNumeric"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.direction"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.streetName"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.streetNameBase"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.streetNameType"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.additionalLocator"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.unitID"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.unitType"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.careOf"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.censusTract"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.deliveryAddressLine"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.deliveryInstallationType"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.deliveryInstallationArea"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.deliveryInstallationQualifier"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.deliveryMode"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.deliveryModeIdentifier"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.buildingNumberSuffix"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.postBox"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.precinct"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.other"/>
+      <representation value="xmlText"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.use"/>
+      <representation value="xmlAttr"/>
+      <label value="Use Code"/>
+      <definition value="A set of codes advising a system or user which address in a set of like addresses to select for a given purpose."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-defaulttype">
+        <valueString value="SXPR_TS"/>
+      </extension>
+      <path value="AD.useablePeriod"/>
+      <representation value="typeAttr"/>
+      <label value="Useable Period"/>
+      <definition value="A General Timing Specification (GTS) specifying the periods of time during which the address can be used. This is used to specify different addresses for different times of the week or year."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="IVL_TS"/>
+      </type>
+      <type>
+        <code value="EIVL_TS"/>
+      </type>
+      <type>
+        <code value="PIVL_TS"/>
+      </type>
+      <type>
+        <code value="SXPR_TS"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.isNotOrdered"/>
+      <representation value="xmlAttr"/>
+      <label value="Is Not Ordered"/>
+      <definition value="A boolean value specifying whether the order of the address parts is known or not. While the address parts are always a Sequence, the order in which they are presented may or may not be known. Where this matters, the isNotOrdered property can be used to convey this information."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+  </snapshot>
+  <differential>
+    <element>
+      <path value="AD"/>
+      <min value="1"/>
+      <max value="*"/>
+    </element>
+    <element>
+      <path value="AD.delimiter"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.country"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.state"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.county"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.city"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.postalCode"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.streetAddressLine"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.houseNumber"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.houseNumberNumeric"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.direction"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.streetName"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.streetNameBase"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.streetNameType"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.additionalLocator"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.unitID"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.unitType"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.careOf"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.censusTract"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.deliveryAddressLine"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.deliveryInstallationType"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.deliveryInstallationArea"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.deliveryInstallationQualifier"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.deliveryMode"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.deliveryModeIdentifier"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.buildingNumberSuffix"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.postBox"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.precinct"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.other"/>
+      <representation value="xmlText"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.use"/>
+      <representation value="xmlAttr"/>
+      <label value="Use Code"/>
+      <definition value="A set of codes advising a system or user which address in a set of like addresses to select for a given purpose."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-defaulttype">
+        <valueString value="SXPR_TS"/>
+      </extension>
+      <path value="AD.useablePeriod"/>
+      <representation value="typeAttr"/>
+      <label value="Useable Period"/>
+      <definition value="A General Timing Specification (GTS) specifying the periods of time during which the address can be used. This is used to specify different addresses for different times of the week or year."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="IVL_TS"/>
+      </type>
+      <type>
+        <code value="EIVL_TS"/>
+      </type>
+      <type>
+        <code value="PIVL_TS"/>
+      </type>
+      <type>
+        <code value="SXPR_TS"/>
+      </type>
+    </element>
+    <element>
+      <path value="AD.isNotOrdered"/>
+      <representation value="xmlAttr"/>
+      <label value="Is Not Ordered"/>
+      <definition value="A boolean value specifying whether the order of the address parts is known or not. While the address parts are always a Sequence, the order in which they are presented may or may not be known. Where this matters, the isNotOrdered property can be used to convey this information."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
