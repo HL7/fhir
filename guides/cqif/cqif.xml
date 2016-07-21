@@ -155,29 +155,44 @@
       <kind value="toc"/>
     </page>
     <page>
+		<source value="cqif-topics-using-expressions.html"/>
+		<title value="Using Expressions"/>
+		<kind value="page"/> 
+    </page>
+    <page>
+		<source value="cqif-topics-definitional-resources.html"/>
+		<title value="Definitional Resources"/>
+		<kind value="page"/>
+    </page>
+    <page>
 		<source value="cqif-knowledge-artifact-representation.html"/>
-		<title value="Representation Knowledge Artifacts"/>
-		<kind value="page"/>
-    </page>
-    <page>
-		<source value="cqif-integrating-decision-support.html"/>
-		<title value="Integration Decision Support in a Clinical Workflow"/>
-		<kind value="page"/>
-    </page>
-    <page>
-		<source value="cqif-documentation-templates.html"/>
-		<title value="Using a Documentation Template in a Clinical Workflow"/>
-		<kind value="page"/>
-    </page>
-    <page>
-		<source value="cqif-order-sets.html"/>
-		<title value="Using an Order Set in a Clinical Workflow"/>
+		<title value="Representing Knowledge Assets"/>
 		<kind value="page"/>
     </page>
     <page>
 		<source value="cqif-knowledge-artifact-distribution.html"/>
-		<title value="Sharing Knowledge Artifacts"/>
+		<title value="Sharing and Managing Knowledge Assets"/>
 		<kind value="page"/>
+    </page>
+    <page>
+		<source value="cqif-cds-on-fhir.html"/>
+		<title value="Clinical Decision Support"/>
+		<kind value="page"/>
+		<page>
+			<source value="cqif-integrating-decision-support.html"/>
+			<title value="Integrating Decision Support in a Clinical Workflow"/>
+			<kind value="page"/>
+		</page>
+		<page>
+			<source value="cqif-documentation-templates.html"/>
+			<title value="Using a Documentation Template in a Clinical Workflow"/>
+			<kind value="page"/>
+		</page>
+		<page>
+			<source value="cqif-order-sets.html"/>
+			<title value="Using an Order Set in a Clinical Workflow"/>
+			<kind value="page"/>
+		</page>
     </page>
     <page>
 		<source value="cqif-quality-reporting.html"/>
