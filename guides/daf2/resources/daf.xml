@@ -388,6 +388,12 @@
 		<resource>
 			<example value="false"/>
 			<sourceReference>
+				<reference value="StructureDefinition/daf-operationdefinition"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
 				<reference value="StructureDefinition/daf-organization"/>
 			</sourceReference>
 		</resource>
@@ -491,6 +497,12 @@
 			<example value="false"/>
 			<sourceReference>
 				<reference value="StructureDefinition/daf-substance"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/daf-task"/>
 			</sourceReference>
 		</resource>
 		<resource>
@@ -876,6 +888,18 @@
 			</page>
 		</page>
 		<page>
+			<source value="operationdefinition-daf.html"/>
+			<title value="OperationDefinition Orders"/>
+			<kind value="page"/>
+			<format value="generated"/>
+			<page>
+				<source value="daf-operationdefinition.html"/>
+				<title value="OperationDefinition Details"/>
+				<kind value="resource"/>
+				<format value="generated"/>
+			</page>
+		</page>
+		<page>
 			<source value="patient-daf.html"/>
 			<title value="Patients"/>
 			<kind value="page"/>
@@ -955,6 +979,18 @@
 			<page>
 				<source value="daf-core-procedure.html"/>
 				<title value="Procedure Details"/>
+				<kind value="resource"/>
+				<format value="generated"/>
+			</page>
+		</page>
+		<page>
+			<source value="task-daf.html"/>
+			<title value="Task"/>
+			<kind value="page"/>
+			<format value="generated"/>
+			<page>
+				<source value="daf-task.html"/>
+				<title value="Task Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>
 			</page>

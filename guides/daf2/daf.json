@@ -31,6 +31,7 @@
 	"observation-daf-core-vitalsigns-profile-spreadsheet.xml",
 	"observation-daf-core-results-profile-spreadsheet.xml",
 	"observation-daf-core-smokingstatus-profile-spreadsheet.xml",
+	"operationdefinition-daf-profile-spreadsheet.xml",
 	"organization-daf-core-profile-spreadsheet.xml",
 	"patient-daf-core-profile-spreadsheet.xml",
 	"practitioner-daf-core-profile-spreadsheet.xml",
@@ -58,6 +59,7 @@
 	"procedure-daf-profile-spreadsheet.xml",
 	"relatedperson-daf-profile-spreadsheet.xml",
 	"spec-daf-profile-spreadsheet.xml",
+	"task-daf-profile-spreadsheet.xml",
 	"substance-daf-profile-spreadsheet.xml"
 	],
 	"resources": {
@@ -153,6 +155,10 @@
 			"defns": "daf-medicationstatement-definitions.html",
 			"base": "daf-medicationstatement.html"
 		},
+		"StructureDefinition/daf-core-operationdefinition": {
+			"defns": "daf-operationdefinition-definitions.html",
+			"base": "daf-operationdefinition.html"
+		},
 		"StructureDefinition/daf-organization": {
 			"defns": "daf-organization-definitions.html",
 			"base": "daf-organization.html"
@@ -220,6 +226,10 @@
 		"StructureDefinition/daf-substance": {
 			"defns": "daf-substance-definitions.html",
 			"base": "daf-substance.html"
+		},
+		"StructureDefinition/daf-task": {
+			"defns": "daf-task-definitions.html",
+			"base": "daf-task.html"
 		},
 		"StructureDefinition/daf-vitalsigns": {
 			"defns": "daf-vitalsigns-definitions.html",
