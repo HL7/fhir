@@ -11,7 +11,7 @@ The purpose of this Resource is to be used to express a Consent regarding Health
 uses for consent:
 </p>
 <ul>
- <li>Privacy Consent: consent to share infomration</li>
+ <li>Privacy Consent: consent to share information</li>
  <li>Treatment Consent: consent to undergo a specific treatment (or record of refusal to consent)</li>
  <li>Advance Care Directives (e.g. DNR)</li>
 </ul>
@@ -22,12 +22,18 @@ investigated and tested.
 </p>
 <h3>Privacy and Consent</h3>
 <p>
+Define:
+Healthcare Consumer = Patient = subject of care
+Consenter 
+Proxy
+
 Privacy policies define how Individually Identifiable Health Information (IIHI) is to be collected, accessed, 
 used and disclosed.  
 
-A Privacy Consent Directive as a legal record of a healthcare consumer's agreement with a party responsible 
-for enforcing the patient's choices, which permits or denies identified actors or roles to perform actions 
-affecting the patient within a given context for specific purposes and periods of time.
+A Privacy Consent Directive as a legal record of a patient's (e.g. a healthcare consumer) agreement 
+with a party responsible for enforcing the patient's choices, which permits or denies identified 
+actors or roles to perform actions affecting the patient within a given context for specific purposes 
+and periods of time.
 
 It grants or withholds authorization to collect, access, use, or disclose IIHI about the client. 
 

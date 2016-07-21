@@ -47,13 +47,13 @@ public class TableGenerator extends BaseGenerator {
     Cell gc = gen.new Cell();
     row.getCells().add(gc);
     if (e.hasMustSupport() && e.isMustSupport()) 
-      gc.addImage("mustsupport.png", "This element must be supported", "S");
+      gc.addImage("mustsupport.png", "This element must be supported", "S", "white", "red");
     if (e.isModifier()) 
-      gc.addImage("modifier.png", "This element is a modifier element", "?!");
+      gc.addImage("modifier.png", "This element is a modifier element", "?!", null, null);
     if (e.isSummary()) 
-      gc.addImage("summary.png", "This element is included in summaries", "Σ");
+      gc.addImage("summary.png", "This element is included in summaries", "Σ", null, null);
     if (!e.getInvariants().isEmpty() || !e.getStatedInvariants().isEmpty()) 
-      gc.addImage("lock.png", "This element has or is affected by some invariants", "I");
+      gc.addImage("lock.png", "This element has or is affected by some invariants", "I", null, null);
   
     if (resource) {
       row.getCells().add(gen.new Cell()); 

@@ -32,7 +32,7 @@ import com.google.gson.JsonPrimitive;
 public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase.ILinkResolver {
 
   private IWorkerContext context;
-  private JsonObject specPaths;
+  private SpecMapManager specPaths;
   private Set<String> msgs = new HashSet<String>();
   private String pathToSpec;
   private String canonical;
@@ -90,12 +90,12 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     }
   }
 
-  public void loadSpecPaths(JsonObject paths) {
+  public void loadSpecPaths(SpecMapManager paths) throws Exception {
     this.specPaths = paths;
     for (BaseConformance bc : context.allConformanceResources()) {
-      JsonElement e = paths.get(bc.getUrl());
-      if (e != null)
-        bc.setUserData("path", specPath(e.getAsString()));
+      String s = paths.getPath(bc.getUrl());
+      if (s != null)
+        bc.setUserData("path", specPath(s));
     }    
   }
 

@@ -15,6 +15,8 @@ public class SpecMapManager {
 
   private JsonObject spec;
   private JsonObject paths;
+  private JsonObject pages;
+  private String base;
 
   public SpecMapManager(String version, String svnRevision, Calendar genDate) {
     spec = new JsonObject();
@@ -23,11 +25,14 @@ public class SpecMapManager {
     spec.addProperty("date", genDate.toString());
     paths = new JsonObject();
     spec.add("paths", paths);
+    pages = new JsonObject();
+    spec.add("pages", pages);
   }
 
   public SpecMapManager(byte[] bytes) throws JsonSyntaxException, IOException {
     spec = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.bytesToString(bytes));
     paths = spec.getAsJsonObject("paths");
+    pages = spec.getAsJsonObject("pages");
   }
 
   public void path(String url, String path) {
@@ -45,7 +50,11 @@ public class SpecMapManager {
   }
 
   public String getPath(String url) throws Exception {
-    return str(paths, url);
+    return strOpt(paths, url);
+  }
+
+  public String getPage(String title) throws Exception {
+    return strOpt(pages, title);
   }
 
   private String str(JsonObject obj, String name) throws Exception {
@@ -57,6 +66,29 @@ public class SpecMapManager {
     if (!p.isString())
       throw new Exception("Property "+name+" not a string");
     return p.getAsString();
+  }
+
+  private String strOpt(JsonObject obj, String name) throws Exception {
+    if (!obj.has(name))
+      return null;
+    if (!(obj.get(name) instanceof JsonPrimitive))
+      throw new Exception("Property "+name+" not a primitive");
+    JsonPrimitive p = (JsonPrimitive) obj.get(name);
+    if (!p.isString())
+      throw new Exception("Property "+name+" not a string");
+    return p.getAsString();
+  }
+
+  public void page(String title, String url) {
+    pages.addProperty(title, url);    
+  }
+
+  public String getBase() {
+    return base;
+  }
+
+  public void setBase(String base) {
+    this.base = base;
   }
 
   

@@ -40,6 +40,7 @@ import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.igtools.publisher.FetchedFile;
 import org.hl7.fhir.igtools.publisher.FetchedResource;
 import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
+import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -55,13 +56,11 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   ProfileUtilities utils;
   private StructureDefinition sd;
   private String destDir;
-  private JsonObject preambles;
 
-  public StructureDefinitionRenderer(IWorkerContext context, String prefix, StructureDefinition sd, String destDir, IGKnowledgeProvider igp, JsonObject preambles) {
-    super(context, prefix, igp);
+  public StructureDefinitionRenderer(IWorkerContext context, String prefix, StructureDefinition sd, String destDir, IGKnowledgeProvider igp, List<SpecMapManager> maps) {
+    super(context, prefix, igp, maps);
     this.sd = sd;
     this.destDir = destDir;
-    this.preambles = preambles;
     utils = new ProfileUtilities(context, null, igp);
   }
 
@@ -782,8 +781,8 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+map.getName()+" ("+map.getUri()+")</h3>");
         if (map.hasComments())
           s.append("<p>"+Utilities.escapeXml(map.getComments())+"</p>");
-        else if (preambles != null && preambles.has(map.getUri()))   
-          s.append(preambles.get(map.getUri()).getAsString());
+//        else if (specmaps != null && preambles.has(map.getUri()))   
+//          s.append(preambles.get(map.getUri()).getAsString());
 
         s.append("<table class=\"grid\">\r\n");
 

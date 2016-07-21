@@ -1,9 +1,13 @@
 package org.hl7.fhir.igtools.renderers;
 
+import java.util.List;
+import java.util.Map;
+
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
+import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.utilities.Utilities;
 
 import com.github.rjeschke.txtmark.Processor;
@@ -12,13 +16,15 @@ public class BaseRenderer {
   protected IWorkerContext context;
   protected String prefix;
   protected IGKnowledgeProvider igp;
+  protected List<SpecMapManager> specmaps;
 
 
-  public BaseRenderer(IWorkerContext context, String prefix, IGKnowledgeProvider igp) {
+  public BaseRenderer(IWorkerContext context, String prefix, IGKnowledgeProvider igp, List<SpecMapManager> specmaps) {
     super();
     this.context = context;
     this.prefix = prefix;
     this.igp = igp;
+    this.specmaps = specmaps;
   }
 
   public String processMarkdown(String location, String text) throws Exception {
@@ -30,9 +36,10 @@ public class BaseRenderer {
       String left = text.substring(0, text.indexOf("[[["));
       String linkText = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
       String right = text.substring(text.indexOf("]]]")+3);
-      String url = "";
+      String url = getBySpecMap(linkText);
       String[] parts = linkText.split("\\#");
-      if (parts[0].contains("/StructureDefinition/")) {
+      
+      if (url == null && parts[0].contains("/StructureDefinition/")) {
         StructureDefinition ed = context.fetchResource(StructureDefinition.class, parts[0]);
         if (ed == null)
           throw new Error("Unable to find extension "+parts[0]);
@@ -48,7 +55,7 @@ public class BaseRenderer {
           else
             url = p.getUserData("filename")+suffix;
         } else {
-          throw new Exception("Unresolved logical URL "+linkText+" in markdown");
+          throw new Exception("Unresolved logical URL '"+linkText+"' in markdown");
         }
       }
       text = left+"["+linkText+"]("+url+")"+right;
@@ -65,11 +72,19 @@ public class BaseRenderer {
         i--;
       }
     }
-    
-    
+        
     // 3. markdown
     String s = Processor.process(checkEscape(text));
     return s;
+  }
+
+  private String getBySpecMap(String linkText) throws Exception {
+    for (SpecMapManager map : specmaps) {
+      String url = map.getPage(linkText);
+      if (url != null)
+        return Utilities.pathReverse(map.getBase(), url);
+    }      
+    return null;
   }
 
   private String checkEscape(String text) {

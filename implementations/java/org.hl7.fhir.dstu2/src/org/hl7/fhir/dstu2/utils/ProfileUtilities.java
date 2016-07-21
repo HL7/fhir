@@ -1455,13 +1455,13 @@ public class ProfileUtilities {
       Cell gc = gen.new Cell();
       row.getCells().add(gc);
       if (element != null && element.getIsModifier())
-        checkForNoChange(element.getIsModifierElement(), gc.addImage(corePath+"modifier.png", "This element is a modifier element", "?!"));
+        checkForNoChange(element.getIsModifierElement(), gc.addImage(corePath+"modifier.png", "This element is a modifier element", "?!", null, null));
       if (element != null && element.getMustSupport())
-        checkForNoChange(element.getMustSupportElement(), gc.addImage(corePath+"mustsupport.png", "This element must be supported", "S"));
+        checkForNoChange(element.getMustSupportElement(), gc.addImage(corePath+"mustsupport.png", "This element must be supported", "S", null, null));
       if (element != null && element.getIsSummary())
-        checkForNoChange(element.getIsSummaryElement(), gc.addImage(corePath+"summary.png", "This element is included in summaries", "∑"));
+        checkForNoChange(element.getIsSummaryElement(), gc.addImage(corePath+"summary.png", "This element is included in summaries", "∑", null, null));
       if (element != null && (!element.getConstraint().isEmpty() || !element.getCondition().isEmpty()))
-        gc.addImage(corePath+"lock.png", "This element has or is affected by some invariants", "I");
+        gc.addImage(corePath+"lock.png", "This element has or is affected by some invariants", "I", null, null);
 
       ExtensionContext extDefn = null;
       if (ext) {

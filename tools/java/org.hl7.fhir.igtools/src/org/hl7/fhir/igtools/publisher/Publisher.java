@@ -168,7 +168,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private SimpleWorkerContext context;
   private InstanceValidator validator;
   private IGKnowledgeProvider igpkp;
-  private JsonObject specDetails;
+  private List<SpecMapManager> specMaps = new ArrayList<SpecMapManager>();
   private boolean first;
 
   private Map<ImplementationGuidePackageResourceComponent, FetchedFile> fileMap = new HashMap<ImplementationGuidePackageResourceComponent, FetchedFile>();
@@ -469,7 +469,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
     loadSpecDetails(context.getBinaries().get("spec.internals"));
     igpkp = new IGKnowledgeProvider(context, specPath, configuration, errors);
-    igpkp.loadSpecPaths(specDetails.get("paths").getAsJsonObject());
+    igpkp.loadSpecPaths(specMaps.get(0));
     fetcher.setPkp(igpkp);
     for (String s : context.getBinaries().keySet())
       if (needFile(s)) {
@@ -503,6 +503,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
     log("Load "+name+" ("+location+") from "+source);
     Map<String, byte[]> files = fetchDefinitions(source);
     SpecMapManager igm = new SpecMapManager(files.get("spec.internals")); 
+    igm.setBase(location);
+    specMaps.add(igm);
     if (!Constants.VERSION.equals(igm.getVersion()))
       log("Version mismatch. This IG is version "+Constants.VERSION+", while the IG is from version "+igm.getVersion()+". Will try to run anyway)");
       
@@ -636,9 +638,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   public void loadSpecDetails(byte[] bs) throws IOException {
-    String s = TextFile.bytesToString(bs);
-    Gson g = new Gson();
-    specDetails = g.fromJson(s, JsonObject.class);
+    SpecMapManager map = new SpecMapManager(bs);
+    map.setBase(specPath);
+    specMaps.add(map);
   }
 
 
@@ -1411,7 +1413,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       desc = getDesc((BaseConformance) r.getResource(), desc);
     }
     list.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> "+Utilities.escapeXml(desc)+"</li>\r\n");
-    table.append(" <tr><td><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> </td><td>"+new BaseRenderer(context, null, igpkp).processMarkdown("description", desc)+"</td></tr>\r\n");
+    table.append(" <tr><td><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> </td><td>"+new BaseRenderer(context, null, igpkp, specMaps).processMarkdown("description", desc)+"</td></tr>\r\n");
   }
 
   private void generateResourceReferences(ResourceType rt) throws Exception {
@@ -1693,7 +1695,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
    * @throws Exception 
    */
   private void generateOutputsCodeSystem(FetchedFile f, FetchedResource fr, CodeSystem cs) throws Exception {
-    CodeSystemRenderer csr = new CodeSystemRenderer(context, specPath, cs, igpkp);
+    CodeSystemRenderer csr = new CodeSystemRenderer(context, specPath, cs, igpkp, specMaps);
     if (wantGen(fr, "summary")) 
       fragment("CodeSystem-"+cs.getId()+"-summary", csr.summary(wantGen(fr, "xml"), wantGen(fr, "json"), wantGen(fr, "ttl")), f.getOutputNames());
     if (wantGen(fr, "content")) 
@@ -1714,7 +1716,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
    * @throws Exception 
    */
   private void generateOutputsValueSet(FetchedFile f, FetchedResource r, ValueSet vs) throws Exception {
-    ValueSetRenderer vsr = new ValueSetRenderer(context, specPath, vs, igpkp);
+    ValueSetRenderer vsr = new ValueSetRenderer(context, specPath, vs, igpkp, specMaps);
     if (wantGen(r, "summary")) 
       fragment("ValueSet-"+vs.getId()+"-summary", vsr.summary(wantGen(r, "xml"), wantGen(r, "json"), wantGen(r, "ttl")), f.getOutputNames());
     if (wantGen(r, "cld")) 
@@ -1777,7 +1779,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (wantGen(r, "json-schema")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-json-schema", "yet to be done: json schema as html", f.getOutputNames());
 
-    StructureDefinitionRenderer sdr = new StructureDefinitionRenderer(context, specPath+"/", sd, Utilities.path(tempDir), igpkp, specDetails.getAsJsonObject("maps"));
+    StructureDefinitionRenderer sdr = new StructureDefinitionRenderer(context, specPath+"/", sd, Utilities.path(tempDir), igpkp, specMaps);
     if (wantGen(r, "summary")) 
       fragment("StructureDefinition-"+sd.getId()+"-summary", sdr.summary(), f.getOutputNames());
     if (wantGen(r, "header")) 
