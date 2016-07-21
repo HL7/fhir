@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
+  <id value="daf-operation-1"/>
+  <url value="http://h7.org/fhir/OperationDefinition/daf-extract-operation"/>
+  <name value="Extract Data"/>
+  <status value="draft"/>
+  <kind value="operation"/>
+  <date value="2016-07-24"/>
+  <description value="Enable data extraction from Clinical Data Sources (e.g EMRs) for Research Purposes"/>
+  <code value="extract-data"/>
+  <comment value="Pilots underway in PCORNet"/>
+  <base>
+    <reference value="OperationDefinition/daf-extract-operation"/>
+  </base>
+  <system value="true"/>
+  <instance value="false"/>
+  <parameter>
+    <name value="timereference"/>
+    <use value="in"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="This is the reference time based on which the extraction program will retrieve data for only those patients whose records have been created/updated after the reference time."/>
+    <type value="dateTime"/>
+  </parameter>
+  <parameter>
+    <name value="patient"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="When a Patient is specified, the extraction program needs to only extract the data for a specific patient.If not specified, the extraction program will evaluate all consented patient records based on the reference time to identify the ones that have changed and need to be extracted."/>
+    <type value="Reference"/>
+  </parameter>
+  <parameter>
+    <name value="return"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The results of the extraction would provide the data for each patient whose data has been created/updated based on the referenceTime. This data will be in the form of a Bundle which has all the resources that are pertinent for each patient whose data has been extracted. "/>
+    <type value="Bundle"/>
+  </parameter>
+  <parameter>
+    <name value="issues"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="A list of hints and warnings about problems encountered while extracting the data. These might be show to the user as an advisory note. Note: if the extraction cannot be performed at all, then the operation should fail, and an OperationOutcome is returned directly with the failure, rather than using this parameter. "/>
+    <type value="OperationOutcome"/>
+  </parameter>
+  
+</OperationDefinition>

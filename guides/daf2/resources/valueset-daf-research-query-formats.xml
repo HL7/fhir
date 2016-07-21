@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<id value="daf-research-query-formats"/>
+	<meta>
+		<lastUpdated value="2016-03-25T16:34:24.987-04:00"/>
+		<profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+	</meta>
+	<url value="http://hl7.org/fhir/daf/ValueSet/daf-research-query-formats"/>
+	<version value="1.0.0"/>
+	<name value="DAF Research Query Formats"/>
+	<status value="active"/>
+	<experimental value="true"/>
+	<!-- TBD -->
+	<publisher value="US Realm Steering Committee"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<date value="2016-07-24"/>
+	<description value="Research Query Formats that are in use widely in the industry currently"/>
+	<compose>
+		<include>
+			<concept>
+				<code value="SAS"/>
+				<display value="Queries are created using the SAS language"/>
+			</concept>
+			<concept>
+				<code value="SQL"/>
+				<display value="Queries are created using the SQL language"/>
+			</concept>
+			<concept>
+				<code value="FHIR-SEARCH"/>
+				<display value="Queries are created using FHIR Search mechanisms"/>
+			</concept>
+			<concept>
+				<code value="PopMedNet-JSON"/>
+				<display value="Queries are created using PopMedNet JSON format, which is used in PCORNet."/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>

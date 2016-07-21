@@ -417,6 +417,14 @@
 			"base": "valueset-us-core-birth-sex",
 			"template-base": null
 		},
+		"ValueSet/daf-research-data-models": {
+			"base": "valueset-daf-research-data-models",
+			"template-base": null
+		},
+		"ValueSet/daf-research-query-formats": {
+			"base": "valueset-daf-research-query-formats",
+			"template-base": null
+		},
 		"AllergyIntolerance/example": {
 			"base": "allergyintolerance-example.html",
 			"template-base": null
