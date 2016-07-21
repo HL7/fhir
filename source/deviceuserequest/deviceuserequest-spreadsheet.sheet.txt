@@ -45,6 +45,7 @@
   Type = DomainResource
   Short Label = Medical device request
   Definition = Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.
+  Committee Notes = no map to dstu element: orderedON,priority
   w5 = workflow.order
 
  -- Row 2 -----------------------------------
@@ -117,13 +118,13 @@
   w5 = class
 
  -- Row 9 -----------------------------------
-  Element = DeviceUseRequest.code
+  Element = DeviceUseRequest.device[x]
   Card. = 1..1
   Summary = Y
-  Type = CodeableConcept
+  Type = Reference(Device) | CodeableConcept
   Binding = DeviceUseRequestCode
   Short Label = Device requested
-  Definition = The details of the device  to be used.
+  Definition = The details of the device to be used.
   QUICK mapping = DeviceUse.device
   Committee Notes = DeviceUseRequest.device
   w5 = what
@@ -269,8 +270,8 @@
  -- Row 4 -----------------------------------
   Name = code
   Type = token
-  Description = What’s being requested/ordered
-  Path = DeviceUseRequest.code
+  Description = Code for what is being requested/ordered
+  Path = DeviceUseRequest.deviceCodeableConcept
 
  -- Row 5 -----------------------------------
   Name = definition
@@ -338,6 +339,12 @@
   Type = reference
   Description = Individual the service is ordered for
   Path = DeviceUseRequest.subject
+
+ -- Row 16 -----------------------------------
+  Name = device
+  Type = reference
+  Description = Reference to resource that is being requested/ordered
+  Path = DeviceUseRequest.deviceReference
 
 === Sheet Profiles =====================================
 

@@ -12,13 +12,9 @@
 			<code value="original-order"/>
 		</coding>
 	</stage>
-	<code>
-		<coding>
-			<system value="http://example.org"/>
-			<code value="example code"/>
-			<display value="example"/>
-		</coding>
-	</code>
+	<deviceReference>
+		<reference value="Device/example"></reference>
+	</deviceReference>
 	<subject>
 		<reference value="Patient/example"/>
 	</subject>

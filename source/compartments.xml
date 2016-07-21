@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2013-07-04T21:40:46Z</Created>
-  <LastSaved>2015-11-17T21:49:24Z</LastSaved>
+  <LastSaved>2016-07-21T04:30:04Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>5970</WindowHeight>
+  <WindowHeight>3840</WindowHeight>
   <WindowWidth>25260</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>-15</WindowTopY>
@@ -302,7 +302,7 @@
     <Cell><Data ss:Type="String">subject | requester | filler</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">requester |  filler</Data></Cell>
-    <Cell><Data ss:Type="String">subject | requester |  filler</Data></Cell>
+    <Cell><Data ss:Type="String">device | subject | requester |  filler</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceUseStatement</Data></Cell>
@@ -311,7 +311,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticRequest</Data></Cell>
-    <Cell><Data ss:Type="String">subject | requester | filler</Data></Cell>
+    <Cell><Data ss:Type="String">subject | filler</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">requester |  filler</Data></Cell>
     <Cell><Data ss:Type="String">subject | requester |  filler</Data></Cell>
@@ -705,7 +705,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>27</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -713,7 +713,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>34</ActiveRow>
+     <ActiveRow>33</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
