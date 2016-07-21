@@ -1,0 +1,28 @@
+{
+	"tool": "jekyll",
+	"paths": {
+		"resources": ["resources", "examples", "cdalogical"],
+		"pages": "pages",
+		"temp": "temp",
+		"output": "output",
+		"qa": "qa",
+		"specification": "http://hl7-fhir.github.io/"
+	},
+  "dependencyList" : [
+    {
+      "name" : "DAF",
+      "location" : "http://hl7.org/fhir/daf",
+      "source" : "../daf2/output"
+    }
+  ],
+	"defaults": {
+		"Any": {
+			"template-format": "instance-template-format.html",
+			"template-base": "instance-template-base.html"
+		}
+	},
+	"canonicalBase": "http://hl7.org/fhir/ccda",
+	"source": "implementationguide/ccda.xml",
+	"resources": {
+  }
+}
