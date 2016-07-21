@@ -18,6 +18,7 @@
  -- Row 2 -----------------------------------
   Element = Binary.contentType
   Card. = 1..1
+  Summary = y
   Type = code
   Binding = MimeType
   Short Label = MimeType of the binary content

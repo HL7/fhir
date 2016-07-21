@@ -33,6 +33,9 @@ requested mime type (e.g. if the Accept header is appplication/json, and the <co
 is vnd.xacml+json). However servers may not always be able to interpret mime types correctly,
 and clients SHOULD be prepared to receive either format.
 </p>
+<p>
+Note that the _summary parameter does not apply when the mime type is not one of the stanard FHIR content types.
+</p>
 
 <h3>Security Considerations</h3>
 <p>
