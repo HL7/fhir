@@ -1,0 +1,1 @@
+{"resourceType":"ValueSet","compose":{"include":[{"system":"http://snomed.info/sct","concept":[{"code":"40199007","display":"Supine body position"},{"code":"33586001","display":"Sitting position"},{"code":"10904000","display":"Orthostatic body position"}]}]}}

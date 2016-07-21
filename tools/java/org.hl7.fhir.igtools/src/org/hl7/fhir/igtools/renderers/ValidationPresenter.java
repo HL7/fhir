@@ -18,6 +18,8 @@ import org.stringtemplate.v4.ST;
 
 public class ValidationPresenter implements Comparator<FetchedFile> {
 
+  private static final String INTERNAL_LINK = "internal";
+
   private SimpleWorkerContext context;
 
   public ValidationPresenter(SimpleWorkerContext context) {
@@ -35,9 +37,14 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
   public String generate(String title, List<ValidationMessage> linkErrors, List<FetchedFile> files, String path) throws IOException {
     StringBuilder b = new StringBuilder();
     b.append(genHeader(title));
+    b.append(genSummaryRowInteral(linkErrors));
     files = sorted(files);
     for (FetchedFile f : files) 
       b.append(genSummaryRow(f));
+    b.append(genEnd());
+    b.append(genStartInternal());
+    for (ValidationMessage vm : linkErrors)
+      b.append(genDetails(vm));
     b.append(genEnd());
     for (FetchedFile f : files) {
       b.append(genStart(f));
@@ -50,10 +57,15 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
 
     b = new StringBuilder();
     b.append(genHeaderTxt(title));
+    b.append(genSummaryRowTxtInternal(linkErrors));
     files = sorted(files);
     for (FetchedFile f : files) 
       b.append(genSummaryRowTxt(f));
     b.append(genEnd());
+    b.append(genStartTxtInternal());
+    for (ValidationMessage vm : linkErrors)
+      b.append(genDetailsTxt(vm));
+    b.append(genEndTxt());
     for (FetchedFile f : files) {
       b.append(genStartTxt(f));
       for (ValidationMessage vm : f.getErrors())
@@ -63,7 +75,7 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
     b.append(genFooterTxt(title));
     TextFile.stringToFile(b.toString(), Utilities.changeFileExt(path, ".txt"));
     return path;
-}
+  }
 
   // HTML templating
   private final String headerTemplate = 
@@ -178,14 +190,30 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
     return t.render();
   }
 
+  private String genSummaryRowInteral(List<ValidationMessage> list) {
+    ST t = template(summaryTemplate);
+    t.add("link", INTERNAL_LINK);
+    
+    t.add("filename", "Build Errors");
+    String ec = errCount(list);
+    t.add("errcount", ec);
+    t.add("other", otherCount(list));
+    if ("0".equals(ec))
+      t.add("color", "#EFFFEF");
+    else
+      t.add("color", colorForLevel(IssueSeverity.ERROR));
+      
+    return t.render();
+  }
+
   private String genSummaryRow(FetchedFile f) {
     ST t = template(summaryTemplate);
     t.add("link", makelink(f));
     
     t.add("filename", f.getName());
-    String ec = errCount(f);
+    String ec = errCount(f.getErrors());
     t.add("errcount", ec);
-    t.add("other", otherCount(f));
+    t.add("other", otherCount(f.getErrors()));
     if ("0".equals(ec))
       t.add("color", "#EFFFEF");
     else
@@ -197,29 +225,40 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
   private String genSummaryRowTxt(FetchedFile f) {
     ST t = template(summaryTemplateText);
     t.add("filename", f.getName());
-    String ec = errCount(f);
+    String ec = errCount(f.getErrors());
     t.add("errcount", ec);
-    t.add("other", otherCount(f));
+    t.add("other", otherCount(f.getErrors()));
       
     return t.render();
   }
 
-  private String makelink(FetchedFile f) {
-    return f.getName().replace("/", "_").replace("\\", "_");
+  private String genSummaryRowTxtInternal(List<ValidationMessage> linkErrors) {
+    ST t = template(summaryTemplateText);
+    t.add("filename", "Build Errors");
+    String ec = errCount(linkErrors);
+    t.add("errcount", ec);
+    t.add("other", otherCount(linkErrors));
+      
+    return t.render();
   }
 
-  private String errCount(FetchedFile f) {
+  
+  private String makelink(FetchedFile f) {
+    return f.getName().replace("/", "_").replace("\\", "_").replace(":", "_");
+  }
+
+  private String errCount(List<ValidationMessage> list) {
     int c = 0;
-    for (ValidationMessage vm : f.getErrors()) {
+    for (ValidationMessage vm : list) {
       if (vm.getLevel() == IssueSeverity.ERROR || vm.getLevel() == IssueSeverity.FATAL)
         c++;
     }
     return Integer.toString(c);
   }
 
-  private Object otherCount(FetchedFile f) {
+  private Object otherCount(List<ValidationMessage> list) {
     int c = 0;
-    for (ValidationMessage vm : f.getErrors()) {
+    for (ValidationMessage vm : list) {
       if (vm.getLevel() == IssueSeverity.INFORMATION || vm.getLevel() == IssueSeverity.WARNING)
         c++;
     }
@@ -233,6 +272,24 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
     t.add("path", f.getPath());
     return t.render();
   }
+  private String genStartInternal() {
+    ST t = template(startTemplate);
+    t.add("link", INTERNAL_LINK);
+    t.add("filename", "Build Errors");
+    t.add("path", "n/a");
+    return t.render();
+  }
+
+  
+
+  private String genStartTxtInternal() {
+    ST t = template(startTemplateText);
+    t.add("link", INTERNAL_LINK);
+    t.add("filename", "Build Errors");
+    t.add("path", "n/a");
+    return t.render();
+  }
+
   private String genStartTxt(FetchedFile f) {
     ST t = template(startTemplateText);
     t.add("link", makelink(f));

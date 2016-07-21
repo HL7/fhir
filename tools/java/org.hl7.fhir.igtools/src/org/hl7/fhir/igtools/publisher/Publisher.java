@@ -28,6 +28,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import javax.swing.UIManager;
+import javax.swing.text.html.HTML;
 
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.PumpStreamHandler;
@@ -54,6 +55,7 @@ import org.hl7.fhir.dstu3.model.ImplementationGuide;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceType;
@@ -187,6 +189,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private long globalStart;
 
   private ILoggingService logger = this;
+
+  private HTLMLInspector inspector;
 
   public void execute(boolean clearCache) throws Exception {
     globalStart = System.nanoTime();
@@ -425,6 +429,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
     igName = Utilities.path(resourceDirs.get(0), configuration.get("source").getAsString());
 
+    inspector = new HTLMLInspector(outputDir);
+    
     log("Publish "+igName);
 
     log("Check folders");
@@ -1074,7 +1080,25 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (runTool()) 
       if (!changeList.isEmpty())
         generateZips();
-    
+  
+    log("Checking Output HTML");
+    List<ValidationMessage> linkmsgs = inspector.check();
+    int bl = 0;
+    int lf = 0;
+    for (ValidationMessage m : linkmsgs) {
+      if (m.getLevel() == IssueSeverity.ERROR) {
+        if (m.getType() == IssueType.NOTFOUND)
+          bl++;
+        else
+         lf++;
+      }
+    }
+    log("  .. "+Integer.toString(lf)+" "+checkPlural("page", lf)+" invalid xhtml, "+Integer.toString(bl)+" broken "+checkPlural("link", bl));
+    errors.addAll(linkmsgs);
+  }
+
+  private String checkPlural(String word, int c) {
+    return c == 1 ? word : Utilities.pluralizeMe(word);
   }
 
   private void regenerate(String uri) throws Exception {
