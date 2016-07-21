@@ -1,0 +1,63 @@
+<ValueSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/valueset.xsd" xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.11.20.6.1" />
+    <url value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.6.1" />
+    <name value="ProcedureNoteDocumentTypeCodes" />
+    <status value="active" />
+    <description value="A value set of LOINC document codes for Procedure Notes.&#xD;&#xA;&#xD;&#xA;Specific URL Pending" />
+    <compose>
+        <include>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <concept>
+                <code value="28570-0" />
+            </concept>
+            <concept>
+                <code value="11505-5" />
+            </concept>
+            <concept>
+                <code value="18744-3" />
+            </concept>
+            <concept>
+                <code value="18745-0" />
+            </concept>
+            <concept>
+                <code value="18746-8" />
+            </concept>
+            <concept>
+                <code value="18751-8" />
+            </concept>
+            <concept>
+                <code value="18753-4" />
+            </concept>
+            <concept>
+                <code value="18836-7" />
+            </concept>
+            <concept>
+                <code value="28577-5" />
+            </concept>
+            <concept>
+                <code value="28625-2" />
+            </concept>
+            <concept>
+                <code value="29757-2" />
+            </concept>
+            <concept>
+                <code value="33721-2" />
+            </concept>
+            <concept>
+                <code value="34121-4" />
+            </concept>
+            <concept>
+                <code value="34896-1" />
+            </concept>
+            <concept>
+                <code value="34899-5" />
+            </concept>
+            <concept>
+                <code value="47048-4" />
+            </concept>
+            <concept>
+                <code value="48807-2" />
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

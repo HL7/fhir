@@ -1,0 +1,3839 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ccda-transfer-summary-composition" />
+  <meta>
+    <lastUpdated value="2016-03-23T12:19:09.013-07:00" />
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2" />
+  </extension>
+  <url value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-transfer-summary-composition" />
+  <name value="Transfer Summary (C-CDA on FHIR)" />
+  <status value="draft" />
+  <contact>
+    <name value="Corey Spears" />
+    <telecom>
+      <system value="phone" />
+      <value value="+19174267397" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="spears.corey@gmail.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The Transfer Summary standardizes critical information for exchange of information between providers of care when a patient moves between health care settings." />
+  <requirements value="To support documents, and also to capture the EN13606 notion of an attested commit to the patient EHR, and to allow a set of disparate resources at the information/engineering level to be gathered into a clinical statement." />
+  <fhirVersion value="1.5.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Composition" />
+  <baseDefinition value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-us-realm-header-composition" />
+  <derivation value="constraint"/>
+  <differential>
+    <element>
+      <path value="Composition" />
+      <short value="A set of resources composed into a single coherent clinical statement with clinical attestation" />
+      <definition value="A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained." />
+      <comments value="While the focus of this specification is on patient-specific clinical statements, this resource can also apply to other healthcare-related statements such as study protocol designs, healthcare invoices and other activities that are not necessarily patient-specific or clinical." />
+      <min value="0" />
+      <max value="*" />
+      <base>
+        <path value="Composition" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+    </element>
+    <element>
+      <path value="Composition.identifier.type" />
+      <short value="Description of identifier" />
+      <definition value="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose." />
+      <comments value="This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type." />
+      <requirements value="Allows users to make use of identifiers when the identifier system is not known." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Identifier.type" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <isSummary value="true" />
+      <binding>
+        <strength value="extensible" />
+        <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/identifier-type" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Composition.identifier.type.coding" />
+      <short value="Code defined by a terminology system" />
+      <definition value="A reference to a code defined by a terminology system." />
+      <comments value="The Transfer Summary recommends use of the document type code 18761-7 &quot;Provider Unspecified Transfer Summary&quot;, with further specification provided by author or performer," />
+      <requirements value="Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="CodeableConcept.coding" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="Coding" />
+      </type>
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.identifier.type.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.identifier.type.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <comments value="The Transfer Summary recommends use of the document type code 18761-7 &quot;Provider Unspecified Transfer Summary&quot;, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. For example, an Obstetrics and Gynecology Transfer Summary note would not be authored by a Pediatric Cardiologist.&#xD;&#xA;Pre-coordinated codes are those that indicate the specialty or service provided in the LOINC Long Common Name (Print Name in the TransferDocumentType valueSet table)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.type" />
+      <label value="Transfer Summary" />
+      <short value="Kind of composition (LOINC if possible)" />
+      <definition value="Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition." />
+      <comments value="For Composition type, LOINC is ubiquitous and strongly endorsed by HL7. Most implementation guides will require a specific LOINC code, or use LOINC as an extensible binding." />
+      <requirements value="Key metadata element describing the composition, used in searching/filtering." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.type" />
+        <min value="1" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <isSummary value="true" />
+      <binding>
+        <strength value="preferred" />
+        <description value="Type of a composition." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/doc-typecodes" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Composition.type.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <valueSetUri value="http://search.loinc.org/search.zul?query=transfer+summary+note" />
+      </binding>
+    </element>
+    <element>
+      <path value="Composition.encounter" />
+      <short value="Context of the Composition" />
+      <definition value="The encounter in a Transfer Summary contains the representation of providers who are wholly or partially responsible for the safety and well-being of a subject of care." />
+      <requirements value="Provides context for the composition and supports searching." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.encounter" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Encounter" />
+      </type>
+      <isSummary value="true" />
+    </element>
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section" />
+      <slicing>
+        <discriminator value="code.coding.code" />
+        <rules value="openAtEnd" />
+      </slicing>
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <min value="0" />
+      <max value="*" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+    </element>
+	<!-- Advance Directives Section -->
+	<!-- No DAF Advance Directive Entry Definition -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_advance_directives" />
+      <label value="Advance Directives Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="This section contains data defining the patient’s advance directives and any reference to supporting documentation, including living wills, healthcare proxies, and CPR and resuscitation status. If the referenced documents are available, they can be included in the exchange package.&#xD;&#xA;The most recent directives are required, if known, and should be listed in as much detail as possible.&#xD;&#xA;This section differentiates between &quot;advance directives&quot; and &quot;advance directive documents&quot;. The former is the directions to be followed whereas the latter refers to a legal document containing those directions." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Advance Directives Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="42348-3" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Advance directives" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Advance Dierctive Observation or Advance Directive Organizer" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->
+	
+	<!-- Allergies and Intolerances Section -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_allergies_and_intolerances" />
+      <label value="Allergies and Intolerances Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="This section lists and describes any medication allergies, adverse reactions, idiosyncratic reactions, anaphylaxis/anaphylactoid reactions to food items, and metabolic variations or adverse reactions/allergies to other substances (such as latex, iodine, tape adhesives). At a minimum, it should list currently active and any relevant historical allergies and adverse reactions." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Allergies and Intolerances Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="48765-2" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Allergies &amp;or adverse reactions" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF AllergyIntolerance Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance)." />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance" />
+		</type>
+	</element>	
+	
+	<!-- Physical Exam Section -->
+	<!-- No DAF Longitudinal Wound Care Observation Entry -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_physical_exam" />
+      <label value="Physical Exam Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="The section includes direct observations made by a clinician. The examination may include the use of simple instruments and may also describe simple maneuvers performed directly on the patient’s body.&#xD;&#xA;It also includes observations made by the examining clinician using only inspection, palpation, auscultation, and percussion. It does not include laboratory or imaging findings.&#xD;&#xA;The exam may be limited to pertinent body systems based on the patient’s chief complaint or it may include a comprehensive examination. The examination may be reported as a collection of random clinical statements or it may be reported categorically.&#xD;&#xA;The Physical Exam Section may contain multiple nested subsections." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Physical Exam Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="29545-1" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Physical findings" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Longitudinal Wound Care Observation" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->
+	
+	<!-- Encounters Section -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_encounters" />
+      <label value="Encounters Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="This section lists and describes any healthcare encounters pertinent to the patient’s current health status or historical health history. An encounter is an interaction, regardless of the setting, between a patient and a practitioner who is vested with primary responsibility for diagnosing, evaluating, or treating the patient’s condition. It may include visits, appointments, as well as non-face-to-face interactions. It is also a contact between a patient and a practitioner who has primary responsibility (exercising independent judgment) for assessing and treating the patient at a given contact. This section may contain all encounters for the time period being summarized, but should include notable encounters." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Encounters Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="46240-8" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="History of hospitalizations+History of outpatient visits" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF Encounter Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-encounter)." />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-encounter" />
+		</type>
+	</element>
+	
+	<!-- Family History Section -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_family_history" />
+      <label value="Family History Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="This section contains data defining the patient’s genetic relatives in terms of possible or relevant health risk factors that have a potential impact on the patient’s healthcare risk profile." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Family History Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="10157-6" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="History of family member diseases" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF FamilyMemberHistory Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-familymemberhistory)." />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-familymemberhistory" />
+		</type>
+	</element>
+	
+	<!-- Functional Status Section -->
+	<!-- No DAF Functional Status Organizer or Functional Status Observation Entry -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_functional_status" />
+      <label value="Functional Status Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="The Functional Status Section contains observations and assessments of a patient's physical abilities. A patient’s functional status may include information regarding the patient’s ability to perform Activities of Daily Living (ADLs) in areas such as Mobility (e.g., ambulation), Self-Care (e.g., bathing, dressing, feeding, grooming) or Instrumental Activities of Daily Living (IADLs) (e.g., shopping, using a telephone, balancing a check book). Problems that impact function (e.g., dyspnea, dysphagia) can be contained in the section." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <label value="Functional Status Section" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Functional Status Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="47420-5" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Functional status assessment note" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Functional Status Observation or Functional Status Organizer" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->
+	
+	<!-- Discharge Diagnosis Section -->
+	<!-- No DAF Hospital Discharge Diagnosis Entry -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slide_discharge_diagnosis" />
+      <label value="Discharge Diagnosis Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="This section represents problems or diagnoses present at the time of discharge which occurred during the hospitalization or need to be monitored after hospitalization. This section includes an optional entry to record patient conditions." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Discharge Diagnosis Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="11535-2" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Hospital discharge Dx" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Hospital Discharge Diagnosis" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->
+	
+	<!-- Immunizations Section -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_immunizations" />
+      <label value="Immunizations Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="The Immunizations Section defines a patient's current immunization status and pertinent immunization history. The primary use case for the Immunization Section is to enable communication of a patient's immunization status. The section should include current immunization status, and may contain the entire immunization history that is relevant to the period of time being summarized." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Immunizations Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="11369-6" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="History of immunization" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF Immunization (identifier: http://hl7.org/fhir/StructureDefinition/daf-immunization)." />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-immunization" />
+		</type>
+	</element>
+	
+	<!-- Medical Equipment Section -->
+	<!-- No DAF Non-Medicinal Supply Entry, but there is a DAF Procedure Entry  -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_medical_equipment" />
+      <label value="Medical Equipment Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="This section defines a patient's implanted and external health and medical devices and equipment. This section lists any pertinent durable medical equipment (DME) used to help maintain the patient’s health status. All equipment relevant to the diagnosis, care, or treatment of a patient should be included." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Medical Equipment Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="46264-8" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="History of medical device use" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Non-Medicinal Supply Activity or Procedure Activity Procedure" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->
+	
+	<!-- Medications Section -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_medications" />
+      <label value="Medications Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="The Medications Section contains a patient's current medications and pertinent medication history. At a minimum, the currently active medications are listed. An entire medication history is an option. The section can describe a patient's prescription and dispense history and information about intended drug monitoring.&#xD;&#xA;This section requires either an entry indicating the subject is not known to be on any medications or entries summarizing the subject's medications." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Medications Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="10160-0" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="History of medication use" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF MedicationStatement Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-medicationstatement)." />
+		<min value="0" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-medicationstatement" />
+		</type>
+	</element>
+	
+	<!-- Payers Section -->
+	<!-- No DAF Coverage Activity Entry -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_payers" />
+      <label value="Payers Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="The Payers Section contains data on the patient’s payers, whether &quot;third party&quot; insurance, self-pay, other payer or guarantor, or some combination of payers, and is used to define which entity is the responsible fiduciary for the financial aspects of a patient’s care.&#xD;&#xA;Each unique instance of a payer and all the pertinent data needed to contact, bill to, and collect from that payer should be included. Authorization information that can be used to define pertinent referral, authorization tracking number, procedure, therapy, intervention, device, or similar authorizations for the patient or provider, or both should be included. At a minimum, the patient’s pertinent current payment sources should be listed.&#xD;&#xA;The sources of payment are represented as a Coverage Activity, which identifies all of the insurance policies or government or other programs that cover some or all of the patient's healthcare expenses. The policies or programs are sequenced by preference. The Coverage Activity has a sequence number that represents the preference order. Each policy or program identifies the covered party with respect to the payer, so that the identifiers can be recorded." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Payers Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="48768-6" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Payment sources" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Non-Medicinal Supply Activity or Procedure Activity Procedure" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->	
+	
+	<!-- Plan of Treatment Section -->
+	<!-- Multiple Plan of Treatment entry types, not sure which support this section -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_plan_of_treatment" />
+      <label value="Plan of Treatment Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="This section contains data that define pending orders, interventions, encounters, services, and procedures for the patient. It is limited to prospective, unfulfilled, or incomplete orders and requests only. These are indicated by the @moodCode of the entries within this section. All active, incomplete, or pending orders, appointments, referrals, procedures, services, or any other pending event of clinical significance to the current care of the patient should be listed.&#xD;&#xA;This section may also contain information about ongoing care of the patient, clinical reminders, patient’s values, beliefs, preferences, care expectations, and overarching care goals.&#xD;&#xA;Clinical reminders are placed here to provide prompts for disease prevention and management, patient safety, and healthcare quality improvements, including widely accepted performance measures.&#xD;&#xA;Values may include the importance of quality of life over longevity. These values are taken into account when prioritizing all problems and their treatments.&#xD;&#xA;Beliefs may include comfort with dying or the refusal of blood transfusions because of the patient’s religious convictions.&#xD;&#xA;Preferences may include liquid medicines over tablets, or treatment via secure email instead of in person.&#xD;&#xA;Care expectations may range from being treated only by female clinicians, to expecting all calls to be returned within 24 hours.&#xD;&#xA;Overarching goals described in this section are not tied to a specific condition, problem, health concern, or intervention. Examples of overarching goals could be to minimize pain or dependence on others, or to walk a daughter down the aisle for her marriage.&#xD;&#xA;The plan may also indicate that patient education will be provided." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Plan of Treatment Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="18776-5" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Plan of treatment" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+    
+	<!-- Problem Section --> 
+	<element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_problem" />
+      <label value="Problem Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="This section lists and describes all relevant clinical problems at the time the document is generated. At a minimum, all pertinent current and historical problems should be listed. Overall health status may be represented in this section." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Problem Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="11450-4" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Problem list" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="MAY contain zero or more [0..*] U.S. DAF Condition Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-condition)." />
+		<min value="0" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-condition" />
+		</type>
+	</element>
+	
+	<!-- Procedures Section -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_procedures" />
+      <label value="Procedures Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="This section describes all interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient historically at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized. The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM), therefore this section contains procedure templates represented with three RIM classes: Act. Observation, and Procedure. Procedure act is for procedures that alter the physical condition of a patient (e.g., splenectomy). Observation act is for procedures that result in new information about a patient but do not cause physical alteration (e.g., EEG). Act is for all other types of procedures (e.g., dressing change)." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Procedures Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="47519-4" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="History of procedures" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF Procedure Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-procedure)." />
+		<min value="0" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-procedure" />
+		</type>
+	</element>
+	
+	<!-- Results Section -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_results" />
+      <label value="Results Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="The Results Section contains observations of results generated by laboratories, imaging procedures, and other procedures. These coded result observations are contained within a Results Organizer in the Results Section. The scope includes observations such as hematology, chemistry, serology, virology, toxicology, microbiology, plain x-ray, ultrasound, CT, MRI, angiography, echocardiography, nuclear medicine, pathology, and procedure observations. The section often includes notable results such as abnormal values or relevant trends, and could contain all results for the period of time being documented.&#xD;&#xA;Laboratory results are typically generated by laboratories providing analytic services in areas such as chemistry, hematology, serology, histology, cytology, anatomic pathology, microbiology, and/or virology. These observations are based on analysis of specimens obtained from the patient and submitted to the laboratory.&#xD;&#xA;Imaging results are typically generated by a clinician reviewing the output of an imaging procedure, such as where a cardiologist reports the left ventricular ejection fraction based on the review of a cardiac echocardiogram.&#xD;&#xA;Procedure results are typically generated by a clinician to provide more granular information about component observations made during a procedure, such as where a gastroenterologist reports the size of a polyp observed during a colonoscopy." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Results Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="30954-2" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Relevant diagnostic tests &amp;or laboratory data" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="MAY contain zero or more [0..*] U.S. DAF Results Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-resultobs." />
+		<min value="0" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs" />
+		</type>
+	</element>
+	
+	<!-- Social History Section -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_social_history" />
+      <label value="Social History Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="This section contains social history data that influence a patient’s physical, psychological or emotional health (e.g., smoking status, pregnancy). Demographic data, such as marital status, race, ethnicity, and religious affiliation, is captured in the header." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Social History Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="29762-2" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Social history" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	
+	<!-- Vital Signs Extension -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_vital_signs" />
+      <label value="Vital Signs Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="The Vital Signs Section contains relevant vital signs for the context and use case of the document type, such as blood pressure, heart rate, respiratory rate, height, weight, body mass index, head circumference, pulse oximetry, temperature, and body surface area. The section should include notable vital signs such as the most recent, maximum and/or minimum, baseline, or relevant trends.&#xD;&#xA;Vital signs are represented in the same way as other results, but are aggregated into their own section to follow clinical conventions." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Vital Signs Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="8716-3" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Vital signs" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S.DAF Vital Signs Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-vitalsigns)." />
+		<min value="0" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-vitalsigns" />
+		</type>
+	</element>
+	
+	<!-- Mental Status Section -->
+	<!-- No DAF Assessment Scale Observation, Mental Status Observation, or Mental Status Organizer Entry -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_mental_status" />
+      <label value="Mental Status Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="The Mental Status Section contains observations and evaluations related to a patient’s psychological and mental competency and deficits including, but not limited to any of the following types of information:&#xD;&#xA;• Appearance (e.g., unusual grooming, clothing or body modifications)&#xD;&#xA;• Attitude (e.g., cooperative, guarded, hostile)&#xD;&#xA;• Behavior/psychomotor (e.g., abnormal movements, eye contact, tics)&#xD;&#xA;• Mood and affect (e.g., anxious, angry, euphoric)&#xD;&#xA;• Speech and Language (e.g., pressured speech, perseveration)&#xD;&#xA;• Thought process (e.g., logic, coherence)&#xD;&#xA;• Thought content (e.g., delusions, phobias)&#xD;&#xA;• Perception (e.g., voices, hallucinations)&#xD;&#xA;• Cognition (e.g., memory, alertness/consciousness, attention, orientation) – which were included in Cognitive Status Observation in earlier publications of C-CDA.&#xD;&#xA;• Insight and judgment (e.g., understanding of condition, decision making)" />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Mental Status Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="10190-7" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Mental status" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	
+	<!-- General Status Section -->
+	<!-- No entries for General Status -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_general_status" />
+      <label value="General Status Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="The General Status section describes general observations and readily observable attributes of the patient, including affect and demeanor, apparent age compared to actual age, gender, ethnicity, nutritional status based on appearance, body build and habitus (e.g., muscular, cachectic, obese), developmental or other deformities, gait and mobility, personal hygiene, evidence of distress, and voice quality and speech." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="General Status Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="10210-3" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Physical findings of General status" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+    
+	<!-- Review of Systems Section -->
+	<!-- No entries for Review of Systems -->
+	<element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_review_of_systems" />
+      <label value="Review of Systems Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="The Review of Systems Section contains a relevant collection of symptoms and functions systematically gathered by a clinician. It includes symptoms the patient is currently experiencing, some of which were not elicited during the history of present illness, as well as a potentially large number of pertinent negatives, for example, symptoms that the patient denied experiencing." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Review of Systems Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="10187-3" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Review of systems" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+    
+	<!-- Nutrition Section -->
+	<!-- No DAF Nutrional Status Observation Entry -->
+	<element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_nutrition" />
+      <label value="Nutrition Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="The Nutrition Section represents diet and nutrition information including special diet requirements and restrictions (e.g., texture modified diet, liquids only, enteral feeding). It also represents the overall nutritional status of the patient and nutrition assessment findings." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Nutrition Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="61144-2" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Diet and nutrition" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Nutrional Status Observation" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->	
+	
+	<!-- Reason for Referral Section -->
+	<!-- No DAF Patient Referral Act -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_reason_for_referral" />
+      <label value="Reason for Referral Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="This section describes the clinical reason why a provider is sending a patient to another provider for care. The reason for referral may become the reason for visit documented by the receiving provider." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Reason for Referral Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="42349-1" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Reason for referral" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Patient Referral Act" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->	
+	
+	<!-- History of Past Illness Section -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_history_of_past_illness" />
+      <label value="History of Past Illness Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="This section contains a record of the patient’s past complaints, problems, and diagnoses. It contains data from the patient’s past up to the patient’s current complaint or reason for seeking medical care." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="History of Past Illness Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="11348-0" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="History of past illness" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="MAY contain zero or more [0..*] U.S. DAF Condition Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-condition)." />
+		<min value="0" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-condition" />
+		</type>
+	</element>
+
+	<!-- History of Present Illness Section -->
+	<!-- No entries for History of Present Illness -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_history_of_present_illness" />
+      <label value="History of Present Illness Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="The History of Present Illness section describes the history related to the reason for the encounter. It contains the historical details leading up to and pertaining to the patient’s current complaint or reason for seeking medical care." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="History of Present Illness Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="10164-2" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="History of present illness" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+
+	<!-- Assessment and Plan Section -->
+	<!-- No DAF Planned Act Entry -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_assessment_and_plan" />
+      <label value="Assessment and Plan Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="This section represents the clinician’s conclusions and working assumptions that will guide treatment of the patient. The Assessment and Plan Section may be combined or separated to meet local policy requirements." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Assessment and Plan Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="51847-2" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Evaluation+Plan note" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	
+	<!-- Assessment Section -->
+	<!-- No entries for Assessment Section -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_assessment" />
+      <label value="Assessment Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="The Assessment Section (also referred to as “impression” or “diagnoses” outside of the context of CDA) represents the clinician's conclusions and working assumptions that will guide treatment of the patient. The assessment may be a list of specific disease entities or a narrative block." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Assessment Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="51848-0" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Evaluation note" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+
+	<!-- Admission Medications Section -->
+	<!-- No DAF Admission Medication Entry -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_admission_medications" />
+      <label value="Admission Medications Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="The section contains the medications taken by the patient prior to and at the time of admission to the facility." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Admission Medications Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="42346-7" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Medications on admission" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Admission Medication" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->	
+	
+	<!-- Admission Diagnosis Section -->
+	<!-- No DAF Hospital Admission Diagnosis Entry -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_admission_diagnosis" />
+      <label value="Admission Diagnosis Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="This section contains a narrative description of the problems or diagnoses identified by the clinician at the time of the patient’s admission. This section may contain coded entries representing the admitting diagnoses." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Admission Diagnosis Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="46241-6" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Hospital admission Dx" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	<!--
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="SHOULD contain zero or more [0..*] U.S. Hospital Admission Diagnosis" />
+		<min value="1" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="" />
+		</type>
+	</element>
+	-->	
+	
+	<!-- Course of Care Section -->
+	<!-- No entries for Course of Care -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_course_of_care" />
+      <label value="Course of Care Section" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="The Course of Care section describes what happened during the course of an encounter." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+    <element>
+      <path value="Composition.section.title" />
+      <short value="Label for section (e.g. for ToC)" />
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
+      <comments value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element." />
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized." />
+      <alias value="header" />
+      <alias value="label" />
+      <alias value="caption" />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.title" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Course of Care Section" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.system" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://loinc.org" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Coding.code" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="8648-8" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <base>
+        <path value="Coding.display" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Hospital course" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Composition.section.text" />
+      <short value="Text summary of the section, for human interpretation" />
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
+      <comments value="Document profiles may define what content should be represented in the narrative to ensure clinical safety." />
+      <min value="1" />
+      <max value="1" />
+      <base>
+        <path value="Composition.section.text" />
+        <min value="0" />
+        <max value="1" />
+      </base>
+      <type>
+        <code value="Narrative" />
+      </type>
+    </element>
+	
+	<!-- Related Persons -->
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <name value="section_slice_related_persons" />
+      <label value="Related Persons" />
+      <short value="Composition is broken into sections" />
+      <definition value="The root of the sections that make up the composition." />
+      <comments value="A list of relevant persons related to the patient." />
+      <min value="0" />
+      <max value="*" />
+      <base>
+        <path value="Composition.section" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <type>
+        <code value="BackboneElement" />
+      </type>
+    </element>
+	<element>
+		<path value="Composition.section.entry" />
+		<short value="entry" />
+		<definition value="MAY contain zero or more [0..*] U.S. DAF Related Person (identifier: http://hl7.org/fhir/StructureDefinition/daf-relatedperson)." />
+		<min value="0" />
+		<max value="*" />
+		<type>
+			<code value="Reference" />
+			<profile value="http://hl7.org/fhir/StructureDefinition/daf-relatedperson" />
+		</type>
+	</element>
+  </differential>
+</StructureDefinition>

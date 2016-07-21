@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="0376cf91-5616-4596-90e5-6ea8833201ad"/>
+  <type value="document"/>
+  <entry>
+    <fullUrl value="urn:uuid:08acbeca-4a9a-4765-87c6-63dc184ba300"/>
+    <resource>
+      <Composition>
+        <id value="02929943-f5bc-4717-9d09-db65b3b8bb5e"/>
+        <language value="en-US"/>
+        <identifier>
+          <system value="urn:oid:2.16.840.1.113883.19.5.99999.19"/>
+          <value value="sTT988"/>
+        </identifier>
+        <date value="2013-08-15T10:30:00-08:00"/>
+        <type>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="34133-9"/>
+            <display value="Summarization of Episode Note"/>
+          </coding>
+        </type>
+        <title value="Patient Chart Summary"/>
+        <subject>
+          <reference value="urn:uuid:08acbeca-4a9a-4765-87c6-63dc184ba300"/>
+        </subject>
+      </Composition>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Patient>
+        <id value="08acbeca-4a9a-4765-87c6-63dc184ba300"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/us-core-religion">
+          <valueCodeableConcept>
+            <coding>
+              <system value="urn:oid:2.16.840.1.113883.5.1076"/>
+              <code value="1013"/>
+              <display value="Christian (non-Catholic, non-specific)"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/Race"/>
+              <code value="2106-3"/>
+              <display value="White"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/Race"/>
+              <code value="2076-8"/>
+              <display value="Hawaiian or Other Pacific Islander"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/us-core-ethnicity">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/Race"/>
+              <code value="2186-5"/>
+              <display value="Not Hispanic or Latino"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <identifier>
+          <system value="urn:oid:2.16.840.1.113883.4.1"/>
+          <value value="444-22-2222"/>
+        </identifier>
+        <name>
+          <use value="usual"/>
+          <family value="Betterhalf"/>
+          <given value="Eve"/>
+        </name>
+        <name>
+          <family value="Everywoman"/>
+          <given value="Eve"/>
+        </name>
+        <telecom>
+          <system value="pager"/>
+          <value value="+1(555)555-2003"/>
+          <use value="home"/>
+        </telecom>
+        <gender value="female"/>
+        <birthDate value="1975-05-01"/>
+        <address>
+          <use value="home"/>
+          <line value="2222 Home Street"/>
+          <city value="Beaverton"/>
+          <state value="OR"/>
+          <postalCode value="97867"/>
+          <country value="US"/>
+        </address>
+        <maritalStatus>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.5.2"/>
+            <code value="M"/>
+            <display value="Married"/>
+          </coding>
+        </maritalStatus>
+      </Patient>
+    </resource>
+  </entry>
+</Bundle>

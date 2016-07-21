@@ -1,0 +1,72 @@
+map "http://hl7.org/fhir/StructureMap/cda-tel" = "V3/FHIR Mappings: ED"
+
+conceptmap "#map-use" {
+//  source "http://hl7.org/fhir/ValueSet/address-use"
+//  target "http://hl7.org/fhir/ValueSet/v3-AddressUse"
+  
+  prefix f = "http://hl7.org/fhir/contact-point-use"
+  prefix v3 = "http://hl7.org/fhir/v3/AddressUse"
+  
+  v3:H == f:home
+  v3:HP <= f:home
+  v3:HV <= f:home
+  v3:WP	== f:work
+  v3:DIR <= f:work
+  v3:PUB <= f:work
+  v3:BAD <= f:old
+  v3:TMP <= f:temp
+  v3:AS --
+  v3:EC --
+  v3:MC == f:mobile
+  v3:PG --
+}
+
+conceptmap "#map-use2" {
+//  source "http://hl7.org/fhir/ValueSet/address-use"
+//  target "http://hl7.org/fhir/ValueSet/v3-AddressUse"
+  
+  prefix f = "http://hl7.org/fhir/contact-point-use"
+  prefix v3 = "http://hl7.org/fhir/v3/AddressUse"
+  
+  f:home == v3:H
+  f:work == v3:WP
+  f:old >= v3:BAD
+  f:temp >= v3:TMP
+  f:mobile == v3:MC
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/cda-TEL" as source
+uses "http://hl7.org/fhir/StructureDefinition/ContactPoint" as target
+uses "http://hl7.org/fhir/StructureDefinition/cda-TEL" as target
+uses "http://hl7.org/fhir/StructureDefinition/ContactPoint" as source
+
+imports "http://hl7.org/fhir/StructureMap/cda-any"
+
+group TEL2ContactPoint extends ANY2Element
+  input src : TEL as source;
+  input tgt : ContactPoint as target;
+
+  tel.phone: for src.value as v where value.startsWith('tel:') and use.select($this = 'PG').empty() make tgt.system = 'phone', tgt.value = evaluate(v, substring(4)) // skip the tel: bit
+  tel.pager: for src.value as v where value.startsWith('tel:') and use.select($this = 'PG').exists() make tgt.system = 'pager', tgt.value = evaluate(v, substring(4)) // skip the tel: bit
+  tel.fax: for src.value as v where value.startsWith('fax:') make tgt.system = 'phone', tgt.value = evaluate(v, substring(4)) // skip the fax: bit
+  tel.email: for src.value as v where value.startsWith('mailto:') make tgt.system = 'eeail', tgt.value = evaluate(v, substring(7)) // skip the mailto: bit
+  tel.use: for src.use as v make tgt.use = translate(v, "#map-use", "code") // todo: that map is the wrong way around
+
+endgroup
+
+group ContactPoint2TEL extends Element2ANY
+  input src : ContactPoint as source;
+  input tgt : TEL as target;
+
+  tel.phone: for src.value as v where src.system = 'phone' make tgt.value = append("tel:", v) // note that this ignores the issue of whether the telephone number is a correct canonical URL. Same applies to the rest of the mappings
+  
+  
+  
+  
+  
+  tel.pager: for src.value as v where value.startsWith('tel:') and use.select($this = 'PG').exists() make tgt.system = 'pager', tgt.value = evaluate(v, substring(4)) // skip the tel: bit
+  tel.fax: for src.value as v where value.startsWith('fax:') make tgt.system = 'phone', tgt.value = evaluate(v, substring(4)) // skip the fax: bit
+  tel.email: for src.value as v where value.startsWith('mailto:') make tgt.system = 'eeail', tgt.value = evaluate(v, substring(7)) // skip the mailto: bit
+  tel.use: for src.use as v make tgt.use = translate(v, "#map-use", "code") // todo: that map is the wrong way around
+
+endgroup

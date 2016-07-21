@@ -1,0 +1,155 @@
+﻿   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type ANY (DataValue)"/>
+     <sourceUri value="cda\cda-logical-ANY.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type BL (Boolean)"/>
+     <sourceUri value="cda\cda-logical-BL.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type ED (EncapsulatedData)"/>
+     <sourceUri value="cda\cda-logical-ED.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type ST (CharacterString)"/>
+     <sourceUri value="cda\cda-logical-ST.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type CD (ConceptDescriptor)"/>
+     <sourceUri value="cda\cda-logical-CD.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type CR (ConceptRole)"/>
+     <sourceUri value="cda\cda-logical-CR.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type CS (CodedSimpleValue)"/>
+     <sourceUri value="cda\cda-logical-CS.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type CV (CodedValue)"/>
+     <sourceUri value="cda\cda-logical-CV.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type CE (CodedWithEquivalents)"/>
+     <sourceUri value="cda\cda-logical-CE.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type SC (CharacterStringWithCode)"/>
+     <sourceUri value="cda\cda-logical-SC.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type II (InstanceIdentifier)"/>
+     <sourceUri value="cda\cda-logical-II.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type TEL (TelecommunicationAddress)"/>
+     <sourceUri value="cda\cda-logical-TEL.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type AD (PostalAddress)"/>
+     <sourceUri value="cda\cda-logical-AD.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type EN (EntityName)"/>
+     <sourceUri value="cda\cda-logical-EN.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type QTY (Quantity)"/>
+     <sourceUri value="cda\cda-logical-QTY.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type INT (IntegerNumber)"/>
+     <sourceUri value="cda\cda-logical-INT.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type REAL (RealNumber)"/>
+     <sourceUri value="cda\cda-logical-REAL.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type RTO_PQ_PQ (Ratio)"/>
+     <sourceUri value="cda\cda-logical-RTO_PQ_PQ.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type PQ (PhysicalQuantity)"/>
+     <sourceUri value="cda\cda-logical-PQ.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type PQR (PhysicalQuantityRepresentation)"/>
+     <sourceUri value="cda\cda-logical-PQR.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type MO (MonetaryAmount)"/>
+     <sourceUri value="cda\cda-logical-MO.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type TS (PointInTime)"/>
+     <sourceUri value="cda\cda-logical-TS.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type IVL_TS (Interval)"/>
+     <sourceUri value="cda\cda-logical-IVL_TS.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type IVL_PQ (Interval)"/>
+     <sourceUri value="cda\cda-logical-IVL_PQ.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type IVL_INT (Interval)"/>
+     <sourceUri value="cda\cda-logical-IVL_INT.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type PIVL_TS (PeriodicIntervalOfTime)"/>
+     <sourceUri value="cda\cda-logical-PIVL_TS.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type EIVL_TS (EventRelatedPeriodicInterval)"/>
+     <sourceUri value="cda\cda-logical-EIVL_TS.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type SXCM_TS (GeneralTimingSpecification)"/>
+     <sourceUri value="cda\cda-logical-SXCM_TS.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="V3 Data type SXPR_TS (A set-component that is itself made up of set-components that are evaluated as one value)"/>
+     <sourceUri value="cda\cda-logical-SXPR_TS.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="Base Type for all classes in the CDA structure"/>
+     <sourceUri value="cda\cda-logical-InfrastructureRoot.xml"/>
+   </resource>
+   <resource>
+     <purpose value="logical"/>
+     <name value="CDA R2"/>
+     <sourceUri value="cda\cda-logical-ClinicalDocument.xml"/>
+   </resource>
