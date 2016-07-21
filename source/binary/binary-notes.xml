@@ -26,7 +26,13 @@ When a binary is written the server (<a href="http.html#create">create</a>/<a hr
 the data is accepted as is and treated as a the binary content of a <code>Binary</code>, including when the content type is "application/fhir+xml" or "application/fhir+json",
 except for the special case where the content is actually a <code>Binary</code> resource.
 </p>
-
+<p>
+Note that when client requests a binary resource using a generic mime type (application/xml, text/xml, or application/json),
+the server SHOULD return the content directly if the content-type format matches the 
+requested mime type (e.g. if the Accept header is appplication/json, and the <code>contentType</code>
+is vnd.xacml+json). However servers may not always be able to interpret mime types correctly,
+and clients SHOULD be prepared to receive either format.
+</p>
 
 <h3>Security Considerations</h3>
 <p>

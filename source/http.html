@@ -276,14 +276,14 @@ Note: between FHIR DSTU2 and STU3, the correct mime type was changed from applic
 Servers MAY also support the older mime types, and are encouraged to do so to smooth the transtion process.
 </p>
 <p>
-However in order to support various implementation limitations, servers SHOULD
-support the optional <code>_format</code> parameter to specify alternative response formats by their MIME-types.
-This parameter allows a client to override the <code>accept</code> header value when it is unable to set it correctly
-due to internal limitations (e.g. XSLT usage).
-For the <code>_format</code> parameter, the values <code>xml</code>, <code>text/xml</code>, <code>application/xml</code>, and <code>application/fhir+xml</code> SHALL be interpreted to mean
-the <a href="xml.html">XML format</a>, the codes <code>json</code>, <code>application/json</code> and <code>application/fhir+json</code> SHALL be interpreted to mean the
-<a href="json.html">JSON format</a>, and the codes <code>ttl</code> and <code>text/turtle</code> SHALL be interpreted to mean the
-<a href="rdf.html">Turtle RDF format</a>. In addition, the values <code>html</code> and <code>text/html</code> are allowed.
+In order to support various implementation limitations, servers SHOULD support the optional <code>_format</code> parameter to 
+specify alternative response formats by their MIME-types. This parameter allows a client to override the <code>accept</code> 
+header value when it is unable to set it correctly due to internal limitations (e.g. XSLT usage). For the <code>_format</code> 
+parameter, the values <code>xml</code>, <code>text/xml</code>, <code>application/xml</code>, and <code>application/fhir+xml</code> 
+SHALL be interpreted to mean the <a href="xml.html">XML format</a>, the codes <code>json</code>, <code>application/json</code> and 
+<code>application/fhir+json</code> SHALL be interpreted to mean the <a href="json.html">JSON format</a>, and the codes <code>ttl</code> 
+and <code>text/turtle</code> SHALL be interpreted to mean the <a href="rdf.html">Turtle RDF format</a>. In addition, the values 
+<code>html</code> and <code>text/html</code> are allowed.
 </p>
 <p>
 FHIR uses UTF-8 for all request and response bodies. Since the HTTP specification (section 3.7.1)
@@ -300,6 +300,13 @@ The content types <code>application/x-www-form-urlencoded</code> is also accepte
 <p>
 If neither the accept header nor the _format parameter are specified, the MIME-type 
 of the content returned by the server is undefined and may vary.
+</p>
+<p>
+Implementation Note: If a client provides a generic mime type in the Accept header
+(application/xml, text/json, or application/json), the server SHOULD respond with
+the requested mime type, using the XML or JSON formats described in this specification 
+as the best representation for the named mime type (though see the <a href="binary.html#rest">note on the 
+Binary resource</a>.
 </p>
 
 <a name="versioning"> </a>
