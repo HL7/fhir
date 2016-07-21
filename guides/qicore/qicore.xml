@@ -21,6 +21,9 @@
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="bodysite-profile-spreadsheet.xml"/>
     </extension>
+	<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="claim-profile-spreadsheet.xml"/>
+    </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="communication-profile-spreadsheet.xml"/>
     </extension>
@@ -29,6 +32,9 @@
     </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="condition-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="coverage-profile-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="device-profile-spreadsheet.xml"/>
@@ -391,13 +397,13 @@
       </page>
     </page>
     <page>
-      <source value="communication-qicore.html"/>
-      <title value="Communication"/>
+      <source value="claim-qicore.html"/>
+      <title value="Claim"/>
       <kind value="page"/>
       <format value="generated"/>
       <page>
-        <source value="qicore-communication.html"/>
-        <title value="Communication Details"/>
+        <source value="qicore-claim.html"/>
+        <title value="Claim Details"/>
         <kind value="resource"/>
         <format value="generated"/>
       </page>
@@ -422,6 +428,18 @@
       <page>
         <source value="qicore-condition.html"/>
         <title value="Condition Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+    <page>
+      <source value="coverage-qicore.html"/>
+      <title value="Coverage"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="qicore-coverage.html"/>
+        <title value="Coverage Details"/>
         <kind value="resource"/>
         <format value="generated"/>
       </page>
