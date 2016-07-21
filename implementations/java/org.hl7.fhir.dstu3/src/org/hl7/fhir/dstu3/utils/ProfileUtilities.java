@@ -151,6 +151,7 @@ public class ProfileUtilities {
   private List<ValidationMessage> messages;
   private List<String> snapshotStack = new ArrayList<String>();
   private ProfileKnowledgeProvider pkp;
+  private boolean igmode;
 
   public ProfileUtilities(IWorkerContext context, List<ValidationMessage> messages, ProfileKnowledgeProvider pkp) {
     super();
@@ -161,6 +162,15 @@ public class ProfileUtilities {
 
   private class UnusedTracker {
     private boolean used;
+  }
+
+  public boolean isIgmode() {
+    return igmode;
+  }
+
+
+  public void setIgmode(boolean igmode) {
+    this.igmode = igmode;
   }
 
   public interface ProfileKnowledgeProvider {
@@ -1769,7 +1779,7 @@ public class ProfileUtilities {
           if (ed != null) {
             String p = ed.getUserString("path");
             if (p != null) {
-              ref = p.startsWith("http:") ? p : Utilities.pathReverse(corePath, p);
+              ref = p.startsWith("http:") || igmode ? p : Utilities.pathReverse(corePath, p);
             }
           }
           c.getPieces().add(gen.new Piece(null, "URL: ", null).addStyle("font-weight:bold"));

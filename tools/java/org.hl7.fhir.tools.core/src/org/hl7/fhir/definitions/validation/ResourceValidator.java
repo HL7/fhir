@@ -792,8 +792,6 @@ public class ResourceValidator extends BaseValidator {
 
     // now, rules for the source
     suppressedwarning(errors, IssueType.STRUCTURE, "Binding @ "+path, cd.getBinding() != BindingMethod.Unbound, "Need to provide a binding");
-    rule(errors, IssueType.STRUCTURE, "Binding @ "+path, cd.getElementType() != ElementType.Simple || cd.getBinding() != BindingMethod.Unbound, "Need to provide a binding for code elements");
-    rule(errors, IssueType.STRUCTURE, "Binding @ "+path, (cd.getElementType() != ElementType.Simple || cd.getStrength() == BindingStrength.REQUIRED || cd.hasMax()), "Must be a required binding if bound to a code instead of a Coding/CodeableConcept");
     rule(errors, IssueType.STRUCTURE, "Binding @ "+path, Utilities.noString(cd.getDefinition())  || (cd.getDefinition().charAt(0) == cd.getDefinition().toUpperCase().charAt(0)), "Definition cannot start with a lowercase letter");
     if (cd.getBinding() == BindingMethod.CodeList) {
       if (path.toLowerCase().endsWith("status")) {
@@ -846,11 +844,18 @@ public class ResourceValidator extends BaseValidator {
         rule(errors, IssueType.STRUCTURE, path, cd.getElementType() == ElementType.Complex, "Cannot use a binding from both code and Coding/CodeableConcept elements");
       else
         rule(errors, IssueType.STRUCTURE, path, cd.getElementType() == ElementType.Simple, "Cannot use a binding from both code and Coding/CodeableConcept elements");
+    rule(errors, IssueType.STRUCTURE, "Binding @ "+path, (cd.getElementType() != ElementType.Simple || cd.getStrength() == BindingStrength.REQUIRED || cd.hasMax()) || isExemptFromProperBindingRules(path), "Must be a required binding if bound to a code instead of a Coding/CodeableConcept");
+    rule(errors, IssueType.STRUCTURE, "Binding @ "+path, cd.getElementType() != ElementType.Simple || cd.getBinding() != BindingMethod.Unbound, "Need to provide a binding for code elements");
   }
     
   
 
-	private boolean hasInternalReference(ValueSet vs) {
+	// grand fathered in, to be removed
+	private boolean isExemptFromProperBindingRules(String path) {
+    return Utilities.existsInList(path, "ModuleMetadata.type", "ActionDefinition.type", "ElementDefinition.type.code", "Account.status", "MedicationOrder.category", "MedicationStatement.category", "Sequence.type", "StructureDefinition.type");
+  }
+
+  private boolean hasInternalReference(ValueSet vs) {
 	  for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
 	    String url = inc.getSystem();
 	    if (url.startsWith("http://hl7.org/fhir") && !url.contains("/v2/") && !url.contains("/v3/"))

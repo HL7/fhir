@@ -62,6 +62,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     this.sd = sd;
     this.destDir = destDir;
     utils = new ProfileUtilities(context, null, igp);
+    utils.setIgmode(true);
   }
 
   public String summary() {
