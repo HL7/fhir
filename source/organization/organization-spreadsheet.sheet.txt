@@ -123,6 +123,7 @@
   Short Label = A list of alternate names that the organization is known as, or was known as in the past
   Requirements = Over time locations and organizations go through many changes and can be known by different names.\n\nFor searching knowing previous names that the location was known by can be very useful.
   Comments = There are no dates associated with the alias/historic names, as this is not intended to track when names were used, but to assist in searching so that older names can still result in identifying the organization
+  RIM Mapping = .name
   Committee Notes = This is used in many registries, and is often very important in searching
 
  -- Row 7 -----------------------------------
@@ -289,6 +290,7 @@
   Type = Reference(Endpoint)
   Short Label = Technical endpoints providing access to services operated for the organization
   Requirements = Organizations have multiple systems that provide various services and need to be able to define the technical connection details for how to connect to them, and for what purpose.
+  RIM Mapping = n/a
 
 === Sheet Search =====================================
 

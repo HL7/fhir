@@ -226,6 +226,7 @@
   Type = CodeableConcept
   Binding = service-category
   Short Label = A broad categorisation of the service that is to be performed during this appointment
+  RIM Mapping = n/a, might be inferred from the ServiceDeliveryLocation
 
  -- Row 5 -----------------------------------
   Element = Appointment.serviceType
@@ -234,6 +235,7 @@
   Type = CodeableConcept
   Binding = service-type
   Short Label = The specific service that is to be performed during this appointment
+  RIM Mapping = n/a, might be inferred from the ServiceDeliveryLocation
 
  -- Row 6 -----------------------------------
   Element = Appointment.specialty
@@ -436,6 +438,7 @@
   Short Label = accepted | declined | tentative | needs-action
   Definition = Participation status of the Patient
   v2 Mapping = AIP-12, AIG-14
+  RIM Mapping = n/a
   iCal Mapping = ATTENDEE;CN=\"Brian Postlethwaite\";RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)
 
  -- Row 26 -----------------------------------

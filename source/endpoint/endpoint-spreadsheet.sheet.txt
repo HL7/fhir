@@ -70,6 +70,7 @@
   Type = DomainResource
   Short Label = The technical details of an endpoint that can be used for electronic services
   Definition = The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.
+  RIM Mapping = n/a
   w5 = infrastructure.exchange
 
  -- Row 2 -----------------------------------
@@ -79,6 +80,7 @@
   Type = Identifier
   Short Label = Identifies this endpoint across multiple systems
   Definition = Identifier for the organization that is used to identify the endpoint across multiple disparate systems
+  RIM Mapping = n/a
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -90,6 +92,7 @@
   Binding = EndpointStatus
   Short Label = active | suspended | error | off | entered-in-error
   Definition = active | suspended | error | off
+  RIM Mapping = n/a
   w5 = status
 
  -- Row 4 -----------------------------------
@@ -99,6 +102,7 @@
   Type = string
   Short Label = A name that this endpoint can be identified by
   Definition = A friendly name that this endpoint can be referred to with
+  RIM Mapping = n/a
 
  -- Row 5 -----------------------------------
   Element = Endpoint.managingOrganization
@@ -108,6 +112,7 @@
   Short Label = Organization that manages this endpoint (may not be the organization that exposes the endpoint)
   Definition = The organization that manages this endpoint (even if technically another organisation is hosting this in the cloud, it is the organisation associated with the data)
   Comments = This property is not typically used when searching for Endpoint resources for usage. The typical usage is via the reference from an aplicable Organization/Location/Practitioner resource, which is where the context is provided. Multiple Locations may reference a single endpoint, and don\'t have to be within the same organization resource, but most likely within the same organizational heirarchy
+  RIM Mapping = n/a
   Committee Notes = This was left as 0..1 to permit small systems having an implied Organization
 
  -- Row 6 -----------------------------------
@@ -116,6 +121,7 @@
   Type = ContactPoint
   Short Label = Contact details for source (e.g. troubleshooting)
   Definition = Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting
+  RIM Mapping = n/a
 
  -- Row 7 -----------------------------------
   Element = Endpoint.connectionType
@@ -125,6 +131,7 @@
   Binding = SubscriptionChannelType
   Short Label = rest-hook | websocket | email | sms | message
   Definition = The type of channel to send notifications on
+  RIM Mapping = n/a
   To Do = Just as with subscription, should harmonize with http://hl7.org/fhir/ValueSet/message-transport
   w5 = class
 
@@ -136,6 +143,7 @@
   Binding = http-verb
   Short Label = The http verb to be used when calling this endpoint
   Comments = This is the HTTP method that must be used when using the connection
+  RIM Mapping = n/a
   To Do = Should this be single, or multiple cardinality?
 
  -- Row 9 -----------------------------------
@@ -145,6 +153,7 @@
   Type = Period
   Short Label = Interval during responsibility is assumed
   Definition = The interval during which the managing organization assumes the defined responsibility
+  RIM Mapping = n/a
   w5 = when.init
 
  -- Row 10 -----------------------------------
@@ -155,6 +164,7 @@
   Short Label = Where the channel points to
   Definition = The uri that describes the actual end-point to send messages to
   Comments = For rest-hook, and websocket, the end-point must be an http: or https: URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since their may be more than one, clients should avoid using relative URIs)
+  RIM Mapping = n/a
 
  -- Row 11 -----------------------------------
   Element = Endpoint.payloadFormat
@@ -163,6 +173,7 @@
   Short Label = Mimetype to send, or blank for no payload
   Definition = The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the mime type is blank, then there is no payload in the notification, just a notification
   Comments = Sending the payload has obvious security consequences. The server is responsible for ensuring that the content is appropriately secured
+  RIM Mapping = n/a
   To Do = Should this have multiple cardinality?
 
  -- Row 12 -----------------------------------
@@ -174,6 +185,7 @@
   Short Label = The type of content that may be used at this endpoint (e.g. XDS Discharge summaries)
   Definition = The payload type describes the acceptable content that can be communicated on the endpoint
   Comments = The payloadFormat describes the wire format of the data, where the payloadType indicates the specific document/schema that is being transferred. E.g. DischargeSummary or CarePlan
+  RIM Mapping = n/a
 
  -- Row 13 -----------------------------------
   Element = !Endpoint.payloadSubType
@@ -181,6 +193,7 @@
   Summary = Y
   Type = CodeableConcept
   Short Label = The subtypes of content that can be used on this endpoint (e.g. DischargeSummary)
+  RIM Mapping = n/a
 
  -- Row 14 -----------------------------------
   Element = Endpoint.header
@@ -189,6 +202,7 @@
   Short Label = Usage depends on the channel type
   Definition = Additional headers / information to send as part of the notification
   Comments = Exactly what these mean depend on the channel type. The can convey additional information to the recipient and/or meet security requirements
+  RIM Mapping = n/a
 
  -- Row 15 -----------------------------------
   Element = Endpoint.publicKey
@@ -196,6 +210,7 @@
   Type = string
   Short Label = PKI Public keys to support secure communications
   Definition = The public part of the \'keys\' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available
+  RIM Mapping = n/a
 
 === Sheet Search =====================================
 
