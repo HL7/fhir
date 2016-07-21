@@ -179,6 +179,14 @@
   Expression = entry.where(fullUrl).select(fullUrl&resource.meta.versionId).isDistinct()
   Severity = error
 
+ -- Row 8 -----------------------------------
+  Id = 8
+  Context = Bundle.entry
+  English = fullUrl cannot be a version specific reference
+  XPath = not(exists(f:fullUrl[contains(@value, \'/_history/\')]))
+  Expression = fullUrl.contains(\'/_history/\').not()
+  Severity = error
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
