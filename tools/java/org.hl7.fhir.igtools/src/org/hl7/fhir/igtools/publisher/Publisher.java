@@ -46,8 +46,10 @@ import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.Constants;
+import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
@@ -148,7 +150,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
   private GenerationTool tool;
 
-  private String resourcesDir;
+  private List<String> resourceDirs = new ArrayList<String>();
   private String pagesDir;
   private String tempDir;
   private String outputDir;
@@ -160,7 +162,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private String igName;
 
 
-  private IFetchFile fetcher = new SimpleFetcher();
+  private IFetchFile fetcher = new SimpleFetcher(resourceDirs);
   private SimpleWorkerContext context;
   private InstanceValidator validator;
   private IGKnowledgeProvider igpkp;
@@ -405,7 +407,11 @@ public class Publisher implements IWorkerContext.ILoggingService {
     String root = Utilities.getDirectoryForFile(configFile);
     if (Utilities.noString(root))
       root = getCurentDirectory();
-    resourcesDir = Utilities.path(root, str(paths, "resources", "resources"));
+    if (paths.get("resources") instanceof JsonArray) {
+      for (JsonElement e : (JsonArray) paths.get("resources"))
+        resourceDirs.add(Utilities.path(root, ((JsonPrimitive) e).getAsString()));       
+    } else
+      resourceDirs.add(Utilities.path(root, str(paths, "resources", "resources")));
     pagesDir =  Utilities.path(root, str(paths, "pages", "pages"));
     tempDir = Utilities.path(root, str(paths, "temp", "temp"));
     outputDir = Utilities.path(root, str(paths, "output", "output"));
@@ -417,12 +423,13 @@ public class Publisher implements IWorkerContext.ILoggingService {
       vsCache = Utilities.path(root, vsCache); 
     specPath = str(paths, "specification");
 
-    igName = Utilities.path(resourcesDir, configuration.get("source").getAsString());
+    igName = Utilities.path(resourceDirs.get(0), configuration.get("source").getAsString());
 
     log("Publish "+igName);
 
     log("Check folders");
-    checkDir(resourcesDir);
+    for (String s : resourceDirs)
+      checkDir(s);
     checkDir(pagesDir);
     forceDir(tempDir);
     forceDir(Utilities.path(tempDir, "_includes"));
@@ -909,6 +916,17 @@ public class Publisher implements IWorkerContext.ILoggingService {
               throw new Exception("Error parsing "+f.getName()+": "+e.getMessage(), e);
             }
           BaseConformance bc = (BaseConformance) r.getResource();
+          boolean altered = false;
+          if (!bc.hasDate()) {
+            altered = true;
+            bc.setDateElement(new DateTimeType(execTime));
+          }
+          if (!bc.hasStatus()) {
+            altered = true;
+            bc.setStatus(ConformanceResourceStatus.DRAFT);
+          }
+          if (altered)
+            r.setElement(new ObjectConverter(context).convert(bc));
           igpkp.checkForPath(f, r, bc);
           try {
             context.seeResource(bc.getUrl(), bc);

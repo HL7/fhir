@@ -352,7 +352,9 @@ public class StructureDefinitionRenderer extends BaseRenderer {
               vss = "<a href=\""+prefix+uri+"\">"+Utilities.escapeXml(uri)+"</a>";
             else { 
               String p = vs.getUserString("path");
-              if (p.startsWith("http:"))
+              if (p == null)
+                vss = "<a href=\"??\">"+Utilities.escapeXml(vs.getName())+" (missing link)</a>";
+              else if (p.startsWith("http:"))
                 vss = "<a href=\""+p+"\">"+Utilities.escapeXml(vs.getName())+"</a>";
               else
                 vss = "<a href=\""+p+"\">"+Utilities.escapeXml(vs.getName())+"</a>";

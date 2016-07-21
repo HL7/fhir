@@ -2452,10 +2452,12 @@ public class ProfileUtilities {
       boolean hasValue = false;
       List<ElementDefinition> children = getChildMap(profile, ed);
       for (ElementDefinition child : children) {
-        org.hl7.fhir.dstu3.elementmodel.Element e = createExampleElement(profile, child, accessor);
-        if (e != null) {
-          hasValue = true;
-          res.getChildren().add(e);
+        if (!child.hasContentReference()) {
+          org.hl7.fhir.dstu3.elementmodel.Element e = createExampleElement(profile, child, accessor);
+          if (e != null) {
+            hasValue = true;
+            res.getChildren().add(e);
+          }
         }
       }
       if (hasValue)
