@@ -40,10 +40,10 @@
         <display value="Roel"/>
     </patient>
     <episodeOfCare>
-        <reference value="EpisodeOfCare/12345"/>
+        <reference value="EpisodeOfCare/example"/>
     </episodeOfCare>
     <incomingReferral>
-        <reference value="ReferralRequest/12345"/>
+        <reference value="ReferralRequest/example"/>
     </incomingReferral>
     <participant>
         <type>
@@ -57,7 +57,7 @@
         </individual>
     </participant>
     <appointment>
-        <reference value="Appointment/12345"/>
+        <reference value="Appointment/example"/>
     </appointment>
     <period>
         <start value="2013-03-11"/>
@@ -67,7 +67,7 @@
         <text value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
     </reason>
     <account>
-        <reference value="Account/12345"></reference>
+        <reference value="Account/example"></reference>
     </account>
     <!--No indication, because no referral took place-->
     <hospitalization>
@@ -82,7 +82,7 @@
             </coding>
         </admitSource>
         <admittingDiagnosis>
-            <reference value="Condition/12345"/>
+            <reference value="Condition/stroke"/>
         </admittingDiagnosis>
         <reAdmission>
             <coding>
@@ -113,16 +113,16 @@
         </specialArrangement>
         <destination>
             <!--Fictive-->
-            <reference value="Location/f202"/>
+            <reference value="Location/2"/>
         </destination>
         <dischargeDiagnosis>
-            <reference value="Condition/54321"/>
+            <reference value="Condition/f201"/>
         </dischargeDiagnosis>
     </hospitalization>
     <serviceProvider>
-        <reference value="Organization/f201"/>
+        <reference value="Organization/2"/>
     </serviceProvider>
     <partOf>
-        <reference value="Encounter/ff456"/>
+        <reference value="Encounter/f203"/>
     </partOf>
 </Encounter>

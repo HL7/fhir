@@ -44,7 +44,7 @@
         <display value="Peter James Chalmers"/>
     </subject>
     <owner>
-        <reference value="Organization/123456"/>
+        <reference value="Organization/hl7"/>
     </owner>
     <description value="Hospital charges"/>
 </Account>
