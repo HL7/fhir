@@ -74,7 +74,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
       super();
       this.id = id;
       this.name = name;
-      this.oid = oid;
+      this.oid = oid.trim();
       this.code = code;
       this.ver = ver;
     }

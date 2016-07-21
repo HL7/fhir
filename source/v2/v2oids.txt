@@ -60,7 +60,7 @@
 131	Contact Role	2.16.840.1.133883.18.58	contactRole2  2.5
 133	Procedure Practitioner Identifier Code Type	2.16.840.1.133883.18.59	procedurePractitionerIdentifierCodeType	
 135	Assignment of Benefits	2.16.840.1.133883.18.60	assignmentOfBenefits	
-136	Yes/No Table	n/a	assignmentOfBenefits	
+136	Yes/No Table	2.16.840.1.113883.18.347	expandedYes-NoIndicator	
 137	Mail Claim Party	2.16.840.1.133883.18.61	mailClaimParty	
 140	Military Service	2.16.840.1.133883.18.62	militaryService	
 141	Military Rank/Grade	2.16.840.1.133883.18.63	militaryRank/grade	
@@ -356,7 +356,6 @@
 547	Jurisdictional Breadth	2.16.840.1.133883.18.354	jurisdictionalBreadth	
 548	Signatory's Relationship to Subject	2.16.840.1.133883.18.355	signatory'sRelationshipToSubject	
 550	Body Parts	2.16.840.1.133883.18.356	bodyParts	
-552	Advanced Beneficiary Notice Override Reason	2.16.840.1.133883.18.356      	advancedBeneficiaryNoticeOverrideReason	
 553	Invoice Control Code	2.16.840.1.133883.18.357	invoiceControlCode	
 554	Invoice Reason Codes	2.16.840.1.133883.18.358	invoiceReasonCodes	
 555	Invoice Type	2.16.840.1.133883.18.359	invoiceType	
@@ -422,8 +421,7 @@
 909	Patient Results Release Categorization Scheme	2.16.840.1.133883.18.419	patientResultsReleaseCategorizationScheme	
 912	Participation	2.16.840.1.133883.18.420	participation	
 914	Root Cause	2.16.840.1.133883.18.421	rootCause	
-916	Relevant Clincial Information	2.16.840.1.133883.18.421	relevantClinicalInformation	
-// 916	Relevant Clincial Information	2.16.840.1.133883.18.422	relevantClinicalInformation2	
+916	Relevant Clincial Information	2.16.840.1.133883.18.422	relevantClinicalInformation	
 917	Bolus Type	2.16.840.1.133883.18.423	bolusType	
 918	PCA Type	2.16.840.1.133883.18.424	pcaType	
 919	Exclusive Test	2.16.840.1.133883.18.425	exclusiveTest	
