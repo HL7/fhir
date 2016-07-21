@@ -8,23 +8,22 @@ This is the entry page for these DAF-core artifacts:
 |-------------- |---------------|
 |[AllergyIntolerance](daf-core-allergyintolerance.html)|AllergyIntolerance|
 |[CarePlan](daf-core-careplan.html)|CarePlan|
+|[CareTeam](daf-core-careteam.html)|CareTeam|
 |[Condition](daf-core-condition.html)|Condition|
-|[Device-UDI](daf-core-device-udi.html)|Device|
+|[Device-UDI](daf-core-device.html)|Device|
 |[DiagnosticReport-Results](daf-core-diagnosticreport.html)|DiagnosticReport|
-|[Endpoint](daf-core-goals.html)|EndPoint|
-|[Goal](daf-core-immunization.html)|Goal|
-|[Immunization](daf-core-location.html)|Immunization|
-|[Location](daf-core-medication.html)|Location|
-|[Medication](daf-core-medicationorder.html)|Medication|
-|[MedicationOrder](daf-core-medicationstatement.html)|MedicationOrder|
-|[MedicationStatement](daf-core-observation-results.html)|MedicationStatement|
-|[Observation-Smokingstatus](daf-core-observation-smokingstatus.html)|Observation|
-|[Observation-Vitalsigns](daf-core-observation-vitalsigns.html)|Observation|
+|[Goal](daf-core-goal.html)|Goal|
+|[Immunization](daf-core-immunization.html)|Immunization|
+|[Location](daf-core-location.html)|Location|
+|[Medication](daf-core-medication.html)|Medication|
+|[MedicationOrder](daf-core-medicationorder.html)|MedicationOrder|
+|[MedicationStatement](daf-core-medicationstatement.html)|MedicationStatement|
+|[Observation-Smokingstatus](daf-core-smokingstatus.html)|Observation|
+|[Observation-Vitalsigns](daf-core-vitalsigns.html)|Observation|
 |[Organization](daf-core-organization.html)|Organization|
 |[Patient](daf-core-patient.html)|Patient|
-|[Practitioner](daf-core-practitioner.html)|Practitioner|
-|[Procedure](daf-core-practitioner.html)|Procedure|
-
+|[Practitioner](daf-core-pract.html)|Practitioner|
+|[Procedure](daf-core-procedure.html)|Procedure|
 
 
 ##  ValueSet definitions:( may already have  List of all DAF core value sets: [terminologies](terminologies-daf-core.html-daf-core.html))

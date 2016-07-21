@@ -233,6 +233,13 @@
 				<reference value="StructureDefinition/daf-core-careplan"/>
 			</sourceReference>
 		</resource>
+		
+				<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/daf-core-careteam"/>
+			</sourceReference>
+		</resource>
 <!--
 		<resource>
 			<example value="false"/>
