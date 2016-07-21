@@ -120,7 +120,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   public void checkForPath(FetchedFile f, FetchedResource r, BaseConformance bc) {
     if (!bc.getUrl().endsWith("/"+bc.getId()))
       error("Resource id/url mismatch: "+bc.getId()+"/"+bc.getUrl());
-    if (!r.getId().equals("/"+bc.getId()))
+    if (!r.getId().equals(bc.getId()))
       error("Resource id/id mismatch: "+r.getId()+"/"+bc.getUrl());
     if (r.getConfig() == null)
       findConfiguration(f, r);
@@ -128,6 +128,8 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     bc.setUserData("config", e);
     if (e != null) 
       bc.setUserData("path", e.get("base").getAsString());
+    else
+      bc.setUserData("path", r.getElement().fhirType()+"/"+r.getId()+".html");
   }
 
   private void error(String msg) {

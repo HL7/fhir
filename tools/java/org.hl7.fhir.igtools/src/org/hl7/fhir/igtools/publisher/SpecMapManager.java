@@ -1,8 +1,11 @@
 package org.hl7.fhir.igtools.publisher;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import org.hl7.fhir.dstu3.formats.FormatUtilities;
+import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.utilities.TextFile;
 
 import com.google.gson.Gson;
@@ -22,7 +25,7 @@ public class SpecMapManager {
     spec = new JsonObject();
     spec.addProperty("version", version);
     spec.addProperty("build", svnRevision);
-    spec.addProperty("date", genDate.toString());
+    spec.addProperty("date", new SimpleDateFormat("yyyy-MM-dd").format(genDate.getTime()));
     paths = new JsonObject();
     spec.add("paths", paths);
     pages = new JsonObject();

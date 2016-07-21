@@ -1764,7 +1764,13 @@ public class ProfileUtilities {
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
           String fullUrl = url.startsWith("#") ? baseURL+url : url;
           StructureDefinition ed = context.fetchResource(StructureDefinition.class, url);
-          String ref = ed == null ? null : (String) corePath+ed.getUserData("path");
+          String ref = null;
+          if (ed != null) {
+            String p = ed.getUserString("path");
+            if (p != null) {
+              ref = p.startsWith("http:") ? p : Utilities.pathReverse(corePath, p);
+            }
+          }
           c.getPieces().add(gen.new Piece(null, "URL: ", null).addStyle("font-weight:bold"));
           c.getPieces().add(gen.new Piece(ref, fullUrl, null));
         }
@@ -2117,8 +2123,9 @@ public class ProfileUtilities {
         } else if (ed.getType().get(0).getCode().equals("Extension") && child.getSelf().getType().size() == 1 && child.getSelf().getType().get(0).hasProfile()) {
           StructureDefinition profile = context.fetchResource(StructureDefinition.class, child.getSelf().getType().get(0).getProfile());
           if (profile==null)
-            throw new FHIRException("Unable to resolve profile " + child.getSelf().getType().get(0).getProfile() + " in element " + ed.getPath());
-          ccmp = new ElementDefinitionComparer(true, profile.getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
+            ccmp = null; // this might happen before everything is loaded. And we don't so much care about sot order in this case
+          else
+            ccmp = new ElementDefinitionComparer(true, profile.getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
         } else if (ed.getType().size() == 1 && !ed.getType().get(0).getCode().equals("*")) {
           StructureDefinition profile = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode());
           if (profile==null)
@@ -2138,7 +2145,8 @@ public class ProfileUtilities {
         } else {
           throw new Error("Not handled yet (sortElements: "+ed.getPath()+":"+typeCode(ed.getType())+")");
         }
-        sortElements(child, ccmp, errors);
+        if (ccmp != null)
+          sortElements(child, ccmp, errors);
       }
     }
   }

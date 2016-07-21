@@ -2490,6 +2490,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       if (sd.hasUserData("path"))
         spm.path(sd.getUrl(), sd.getUserString("path").replace("\\", "/"));
     }
+    for (StructureDefinition sd : page.getWorkerContext().getExtensionDefinitions().values()) {
+      if (sd.hasUserData("path"))
+        spm.path(sd.getUrl(), sd.getUserString("path").replace("\\", "/"));
+    }
     for (String s : page.getCodeSystems().keySet()) {
       CodeSystem cs = page.getCodeSystems().get(s);
       if (cs == null)

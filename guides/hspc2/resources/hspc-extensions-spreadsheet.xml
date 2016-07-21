@@ -4566,23 +4566,23 @@
     <Cell><Data ss:Type="String">The place number for the patient if part of a multiple birth.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">citezenship</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">citizenship</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">Patient</Data></Cell>
-    <Cell><Data ss:Type="String">Citezenship</Data></Cell>
+    <Cell><Data ss:Type="String">Citizenship</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Citezenship</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Citizenship</Data></Cell>
     <Cell><Data ss:Type="String">The list of codes that describe the country state a patient claims membership to.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">citezenshipPeriod</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">citizenshipPeriod</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">Patient</Data></Cell>
-    <Cell><Data ss:Type="String">Citezenship Period</Data></Cell>
+    <Cell><Data ss:Type="String">Citizenship Period</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Period</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Citezenship Period</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Citizenship Period</Data></Cell>
     <Cell><Data ss:Type="String">The start time and end time an individual claims to be or have been a member of a country.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
