@@ -6,10 +6,11 @@
     <lastUpdated value="2015-03-17T12:06:30.047+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
-    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.72"/>
-  </extension>
   <url value="http://hl7.org/fhir/ValueSet/valueset-clinical-speciality"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.3.88.12.80.72"/>
+	</identifier>
   <version value="20091109"/>
   <name value="Practice Setting Code Value Set"/>
   <status value="active"/>

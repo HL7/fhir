@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
-    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.3221.8.11"/>
-  </extension>
   <name value="DAF Medication Product Form"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.3.88.12.3221.8.11"/>
+	</identifier>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>

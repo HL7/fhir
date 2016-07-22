@@ -2,10 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="daf-bodysite"/>
-  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
-    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.3221.8.9"/>
-  </extension>
   <url value="http://hl7.org/fhir/ValueSet/daf-bodysite"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.3.88.12.3221.8.9"/>
+	</identifier>
   <name value="Body Site Value Set"/>
   <status value="active"/>
   <publisher value="PHIN VADS"/>

@@ -2,10 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="daf-country"/>
-  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
-    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.63"/>
-  </extension>
   <url value="http://hl7.org/fhir/ValueSet/daf-country"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.3.88.12.80.63"/>
+	</identifier>
   <name value="Country Value Set"/>
   <status value="active"/>
   <publisher value="HL7 FHIR"/>
