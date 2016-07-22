@@ -10,11 +10,11 @@
 
 <div class="col-9">
 
-<a name="overview"/>
-<h3>Overview</h3>
+<a name="using-expressions"/>
+<h3>Using Expressions</h3>
 <p>This topic discusses the use of expression logic within FHIR resources using expression languages such as FluentPath and Clinical Quality Language (CQL). The clinical reasoning module defines an approach to the representing logic that enables dynamic functionality to be utilized directly within the Clinical Reasoning resources, as well as within FHIR resources more generally using extensions.</p>
 
-<h3>Expression Elements</h3>
+<h4>Expression Elements</h4>
 <p>In general, the use of expressions involves the following elements:</p>
 
 <ul>
@@ -31,10 +31,10 @@
 	<li>Mixed - The logic in this case is communicated using both a natural language description, as well as a computable expression in a formal language. This is useful for communicating to environments that may support the computation, but may need the semantics communicated via natural language.</li>
 </ul>
 
-<h4>Description</h4>
+<h5>Description</h5>
 <p>The <i>description</i> element can be used either alone, to communicate unstructured logic, or together with the other elements to provide a natural language narrative for the formal representation. The element is typically optional to enable usage in both contexts.</p>
 
-<h4>Expression Language</h4>
+<h5>Expression Language</h5>
 <p>The <i>language</i> element identifies the expression language used to represent the logic. The Clinical Reasoning module defines support for FluentPath and Clinical Quality Language, but support for other languages can be provided.</p>
 
 <p>The language element is specified using the Media Type of the language. For inline expressions, this SHALL be a text media type:</p>
@@ -62,7 +62,7 @@
 	&lt;/event&gt;
 </code></pre>
 
-<h4>Expression</h4>
+<h5>Expression</h5>
 <p>The <i>expression</i> element specifes the formal representation of the expression logic in the identified expression language. The expression may be inline, as in the above examples, or it may be a reference to a named expression defined in a logic library. For example, the following fragment illustrates the use of a named expression to define a dynamicValue as part of an activity definition:</p>
 
 <pre><code>	&lt;dynamicValue&gt;
@@ -84,7 +84,7 @@
 
 <p>For simplicity, resources that use logic libraries SHOULD reference at most one library to avoid the need to qualify expression references.</p>
 
-<h3>Evaluation Context</h3>
+<h4>Evaluation Context</h4>
 <p>In general, when an expression is evaluated, it is evaluated in the context of the containing resource. This means that the resource is available within the expression so that the current values of the resource can be accessed.</p>
 
 <p>Note that this is the general case for establishing the evaluation context for expressions. Some resources, such as the Measure, will define specific behavior for the evaluation context that overrides this general behavior.</p>
@@ -93,10 +93,12 @@
 
 <p>For CQL expressions, an implicit <code>Context</code> parameter is defined that allows the expression access to the containing resource.</p>
 
-<h4>Parameters</h4>
+<h5>Parameters</h5>
 <p>In addition to the evaluation context, the expression may access parameters defined by referenced libraries. As with expression identifier resolution, the name of a parameter can be used directly so long as there is only one library referenced by the resource. Otherwise, the name of the library must be used to qualify the parameter name to avoid ambiguity.</p>
 
-<h4>Data Requirements</h4>
+<p>If the expression uses parameters, a library SHALL be used to define the required parameters.</p>
+
+<h5>Data Requirements</h5>
 <p>The data requirements for a given expression describe the minimum data required in order to achieve a successful evaluation of the expression. More data may in general be provided, but not less. For example, an expression may reference lab results for A1C tests over the past two years. If a system provides data for the last three years, the expression can still be successfully evaluated, but if a system provides data for only the last year, the expression may produce incorrect results based on the absence of the expected data.</p>
 
 <p>In the scenario that an evaluation service is not colocated with the clinical information, the service has no general way of knowing whether or not a request has fulfilled the stated data requirements for a expression. As such, this is a critical aspect of implementation. The service assumes the stated data requirements will be provided as part of a request, and requesters shall provide at least the data specified by the data requirements when requesting evaluation for an expression.</p>
@@ -110,10 +112,10 @@
 
 <p>For CQL expressions that contain retrieves, a library SHOULD be used to describe the data requirements. However, the $data-requirements operation can also be used to infer the data requirements based on usage within the expression.</p>
 
-<h3>FluentPath</h3>
+<h4>FluentPath</h4>
 <p><a href="fluentpath.html">FluentPath</a> is a lightweight path-based navigation language intended to provide simple but flexible access to graph-structured data. It is defined as a general purpose specification available <a href="fluentpath.html">here</a>.</p>
 
-<h3>Clinical Quality Language</h3>
+<h4>Clinical Quality Language</h4>
 <p>Clinical Quality Language defines a high-level clinically-oriented syntax to enable formal representation of clinical logic. It is defined as a general purpose specification available here:</p>
 
 <p><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">HL7 Standard: Clinical Quality Language Specification, Release 1</a>.</p>

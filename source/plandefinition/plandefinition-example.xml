@@ -22,7 +22,7 @@
 			<!-- Null reference exception due to no primitive value, fix pending...
 			<timingTiming>
 				<event>
-					<extension url="http://fhir.org/cql-expression">
+					<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-cqlExpression">
 						<valueString value="Now()"/>
 					</extension>
 				</event>
