@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="daf-core-narrative-status"/>
+
+  <url value="http://hl7.org/fhir/daf/ValueSet/daf-core-narrative-status"/>
+  <name value="Narrative Status"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project Team"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set limits the text status for the resource narrative."/>
+  <copyright value="HL7"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/narrative-status"/>
+      <concept>
+        <code value="additional"/>
+        <display value="additional"/>
+      </concept>
+      <concept>
+        <code value="generated"/>
+        <display value="generated"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
