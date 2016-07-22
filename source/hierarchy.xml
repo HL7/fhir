@@ -326,11 +326,6 @@ signatures.html
         <page title="DataRequirement Detailed Descriptions" filename="datarequirement-definitions.html"/>
         <page title="DataRequirement Mappings" filename="datarequirement-mappings.html"/>
       </page>
-      <page title="ActionDefinition" filename="actiondefinition.html">
-        <page title="ActionDefinition Examples" filename="actiondefinition-examples.html"/>
-        <page title="ActionDefinition Detailed Descriptions" filename="actiondefinition-definitions.html"/>
-        <page title="ActionDefinition Mappings" filename="actiondefinition-mappings.html"/>
-      </page>
       <page title="ParameterDefinition" filename="parameterdefinition.html">
         <page title="ParameterDefinition Examples" filename="parameterdefinition-examples.html"/>
         <page title="ParameterDefinition Detailed Descriptions" filename="parameterdefinition-definitions.html"/>

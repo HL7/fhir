@@ -13,58 +13,51 @@
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/action-type
   Definition = The type of action to be performed
-  Conformance = required
+  Conformance = extensible
 
  -- Row 3 -----------------------------------
-  Binding Name = ActionBehaviorType
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/action-behavior-type
-  Definition = The type of behavior to be defined
-  Conformance = required
-
- -- Row 4 -----------------------------------
   Binding Name = ActionRelationshipType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/action-relationship-type
   Definition = Defines the types of relationships between actions
   Conformance = required
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = ActionRelationshipAnchor
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/action-relationship-anchor
   Definition = Defines possible anchors for the relationship between actions
   Conformance = required
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = ActionGroupingBehavior
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/action-grouping-behavior
   Definition = Defines organization behavior of a group
   Conformance = required
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = ActionSelectionBehavior
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/action-selection-behavior
   Definition = Defines selection behavior of a group
   Conformance = required
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Binding Name = ActionRequiredBehavior
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/action-required-behavior
   Definition = Defines requiredness behavior for selecting an action or an action group
   Conformance = required
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Binding Name = ActionPrecheckBehavior
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/action-precheck-behavior
   Definition = Defines selection frequency behavior for an action or group
   Conformance = required
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Binding Name = ActionCardinalityBehavior
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/action-cardinality-behavior
@@ -319,7 +312,7 @@
  -- Row 29 -----------------------------------
   Element = GuidanceResponse.action.type
   Card. = 0..1
-  Type = code
+  Type = Coding
   Binding = ActionType
   Short Label = create | update | remove | fire-event
   Definition = The type of action to perform (create, update, remove)
