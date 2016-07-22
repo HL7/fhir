@@ -607,6 +607,13 @@
 				<reference value="ValueSet/daf-core-substance-unii"/>
 			</sourceReference>
 		</resource>
+    
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="OperationDefinition/daf-load-operation"/>
+			</sourceReference>
+		</resource>
 	</package>
 	<!-- 
   <acronym target="daf-resultobsquantity" id="daf-qty"/>

@@ -12,10 +12,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -837,6 +839,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     load("StructureDefinition");
     load("ConceptMap");
     load("StructureMap");
+    load("OperationDefinition");
     generateSnapshots();
     generateLogicalMaps();
     generateAdditionalExamples();
@@ -1881,7 +1884,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         }
       }
     } else {
-      System.out.println("FHIR Implementation Guide Publisher ("+Constants.VERSION+"-"+Constants.REVISION+")");
+      System.out.println("FHIR Implementation Guide Publisher ("+Constants.VERSION+"-"+Constants.REVISION+") @ "+nowAsString());
       Publisher self = new Publisher();
       self.setConfigFile(getNamedParam(args, "-ig"));
       self.setTxServer(getNamedParam(args, "-tx"));
@@ -1918,6 +1921,12 @@ public class Publisher implements IWorkerContext.ILoggingService {
         }
     }
   }
+
+  private static String nowAsString() {
+    Calendar cal = Calendar.getInstance();
+    DateFormat df = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM);
+    return df.format(cal.getTime());
+    }
 
   public void setConfigFile(String configFile) {
     this.configFile = configFile;

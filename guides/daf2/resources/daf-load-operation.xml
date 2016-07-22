@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <OperationDefinition xmlns="http://hl7.org/fhir">
-  <id value="daf-operation-2"/>
-  <url value="http://h7.org/fhir/OperationDefinition/daf-load-operation"/>
+  <id value="daf-load-operation"/>
+  <url value="http://h7.org/fhir/daf/OperationDefinition/daf-load-operation"/>
   <name value="Load Data"/>
   <status value="draft"/>
   <kind value="operation"/>
