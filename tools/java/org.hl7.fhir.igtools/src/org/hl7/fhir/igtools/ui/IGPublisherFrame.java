@@ -322,52 +322,8 @@ public class IGPublisherFrame extends javax.swing.JFrame {
 
   protected void btnGetHelpClick(ActionEvent evt) {
     try {
-      StringBuilder b = new StringBuilder();
-      b.append("= Log =\r\n");
-      b.append(fullLog);
-      b.append("\r\n\r\n");
-      b.append("= System =\r\n");
-
-      b.append("ig: ");
-      b.append((String) cbxIGName.getSelectedItem());
-      b.append("\r\n");
-
-      b.append("current.dir: ");
-      b.append(getCurentDirectory());
-      b.append("\r\n");
-
-      b.append("user.dir: ");
-      b.append(System.getProperty("user.home"));
-      b.append("\r\n");
-
-      b.append("tx.server: ");
-      b.append("http://fhir3.healthintersections.com.au/open");
-      b.append("\r\n");
-
-      b.append("tx.cache: ");
-      b.append(Utilities.path(System.getProperty("user.home"), "fhircache"));
-      b.append("\r\n");
-
-      b.append("\r\n");
-
-      b.append("= Validation =\r\n");
-      if (qa != null && new File(Utilities.changeFileExt(qa, ".txt")).exists())
-        b.append(TextFile.fileToString(Utilities.changeFileExt(qa, ".txt")));
-
-      b.append("\r\n");
-      b.append("\r\n");
-      
-      b.append("= IG =\r\n");
-      b.append(TextFile.fileToString((String) cbxIGName.getSelectedItem()));
-
-      b.append("\r\n");
-      b.append("\r\n");
-      b.append("= VS.cache =\r\n");
-      for (String s : new File(Utilities.path(System.getProperty("user.home"), "fhircache")).list()) {
-        b.append(s);
-        b.append("\r\n");
-      }
-      StringSelection stringSelection = new StringSelection(b.toString());
+      String text = Publisher.buildReport((String) cbxIGName.getSelectedItem(), fullLog.toString(), Utilities.changeFileExt(qa, ".txt"));
+      StringSelection stringSelection = new StringSelection(text);
       Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
       clpbrd.setContents(stringSelection, null);
       JOptionPane.showMessageDialog(this, "Report copied to clipboard. Now paste it into an email to grahame@hl7.org");
@@ -377,11 +333,5 @@ public class IGPublisherFrame extends javax.swing.JFrame {
     }
   }
 
-  private String getCurentDirectory() {
-    String currentDirectory;
-    File file = new File(".");
-    currentDirectory = file.getAbsolutePath();
-    return currentDirectory;
-  }
 
 }

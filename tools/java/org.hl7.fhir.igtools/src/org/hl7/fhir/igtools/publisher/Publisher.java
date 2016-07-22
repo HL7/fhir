@@ -1,6 +1,7 @@
 package org.hl7.fhir.igtools.publisher;
 
 import java.awt.EventQueue;
+import java.awt.datatransfer.StringSelection;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -30,7 +31,6 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import javax.swing.UIManager;
-import javax.swing.text.html.HTML;
 
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.PumpStreamHandler;
@@ -188,6 +188,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private Set<String> otherFilesStartup = new HashSet<String>();
   private Set<String> otherFilesRun = new HashSet<String>();
   private Set<String> regenList = new HashSet<String>();
+  private StringBuilder filelog;
   
 
   private long globalStart;
@@ -415,6 +416,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     String root = Utilities.getDirectoryForFile(configFile);
     if (Utilities.noString(root))
       root = getCurentDirectory();
+    log("Use Current directory: "+root);
     if (paths.get("resources") instanceof JsonArray) {
       for (JsonElement e : (JsonArray) paths.get("resources"))
         resourceDirs.add(Utilities.path(root, ((JsonPrimitive) e).getAsString()));       
@@ -559,11 +561,10 @@ public class Publisher implements IWorkerContext.ILoggingService {
     return res;
   }
 
-  private String getCurentDirectory() {
+  private static String getCurentDirectory() {
     String currentDirectory;
     File file = new File(".");
     currentDirectory = file.getAbsolutePath();
-    log("Use Current directory: "+currentDirectory);
     return currentDirectory;
   }
 
@@ -1961,6 +1962,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (hasParam(args, "-gui") || args.length == 0) {
       runGUI();
     } else if (hasParam(args, "-multi")) {
+      int i = 1;
       for (String ig : TextFile.fileToString(getNamedParam(args, "-multi")).split("\\r?\\n")) {
         if (!ig.startsWith(";")) {
           System.out.println("=======================================================================================");
@@ -1968,6 +1970,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
           Publisher self = new Publisher();
           self.setConfigFile(ig);
           self.setTxServer(getNamedParam(args, "-tx"));
+          self.filelog = new StringBuilder();
           try {
             self.execute(hasParam(args, "-resetTx"));
           } catch (Exception e) {
@@ -1977,9 +1980,11 @@ public class Publisher implements IWorkerContext.ILoggingService {
             e.printStackTrace();
             break;
           }
+          TextFile.stringToFile(buildReport(ig, self.filelog.toString(), Utilities.path(self.qaDir, "validation.txt")), Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher-"+Integer.toString(i)+".log"));
           System.out.println("=======================================================================================");
           System.out.println("");
           System.out.println("");
+          i++;
         }
       }
     } else {
@@ -2010,14 +2015,19 @@ public class Publisher implements IWorkerContext.ILoggingService {
         System.out.println("");
         System.out.println("For additional information, see http://wiki.hl7.org/index.php?title=Proposed_new_FHIR_IG_build_Process");
       } else 
+        self.filelog = new StringBuilder();
         try {
           self.execute(hasParam(args, "-resetTx"));
         } catch (Exception e) {
-          System.out.println("Publishing Implementation Guide Failed: "+e.getMessage());
-          System.out.println("");
-          System.out.println("Stack Dump (for debugging):");
+          self.log("Publishing Implementation Guide Failed: "+e.getMessage());
+          self.log("");
+          self.log("Stack Dump (for debugging):");
           e.printStackTrace();
+          for (StackTraceElement st : e.getStackTrace()) {
+            self.filelog.append(st.toString());
+          }
         }
+        TextFile.stringToFile(buildReport(getNamedParam(args, "-ig"), self.filelog.toString(), Utilities.path(self.qaDir, "validation.txt")), Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher.log"));
     }
   }
 
@@ -2077,7 +2087,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
   @Override
   public void logMessage(String msg) {
-    System.out.println(msg);    
+    System.out.println(msg);
+    filelog.append(msg+"\r\n");
   }
 
   public String getQAFile() {
@@ -2086,9 +2097,53 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
   @Override
   public void logDebugMessage(String msg) {
-    // ignore 
-    // System.out.println(msg);    
-    
+    filelog.append(msg+"\r\n");
   }
+
+  public static String buildReport(String ig, String log, String qafile) throws FileNotFoundException, IOException {
+    StringBuilder b = new StringBuilder();
+    b.append("= Log =\r\n");
+    b.append(log);
+    b.append("\r\n\r\n");
+    b.append("= System =\r\n");
+
+    b.append("ig: ");
+    b.append(ig);
+    b.append("\r\n");
+
+    b.append("current.dir: ");
+    b.append(getCurentDirectory());
+    b.append("\r\n");
+
+    b.append("user.dir: ");
+    b.append(System.getProperty("user.home"));
+    b.append("\r\n");
+
+    b.append("tx.server: ");
+    b.append("http://fhir3.healthintersections.com.au/open");
+    b.append("\r\n");
+
+    b.append("tx.cache: ");
+    b.append(Utilities.path(System.getProperty("user.home"), "fhircache"));
+    b.append("\r\n");
+
+    b.append("\r\n");
+
+    b.append("= Validation =\r\n");
+    if (qafile != null && new File(qafile).exists())
+      b.append(TextFile.fileToString(qafile));
+
+    b.append("\r\n");
+    b.append("\r\n");
+    
+    b.append("= IG =\r\n");
+    b.append(TextFile.fileToString(ig));
+
+    b.append("\r\n");
+    b.append("\r\n");
+    return b.toString();
+  }
+
+
 
 }
