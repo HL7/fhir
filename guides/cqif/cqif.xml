@@ -166,12 +166,12 @@
     </page>
     <page>
 		<source value="cqif-knowledge-artifact-representation.html"/>
-		<title value="Representing Knowledge Assets"/>
+		<title value="Representing Knowledge Artifacts"/>
 		<kind value="page"/>
     </page>
     <page>
 		<source value="cqif-knowledge-artifact-distribution.html"/>
-		<title value="Sharing and Managing Knowledge Assets"/>
+		<title value="Sharing Knowledge Artifacts"/>
 		<kind value="page"/>
     </page>
     <page>
