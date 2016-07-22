@@ -6,7 +6,7 @@
   Binding = code list
   Reference = #account-status
   Definition = Indicates whether the account is available to be used.
-  Conformance = Preferred
+  Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = AccountType
