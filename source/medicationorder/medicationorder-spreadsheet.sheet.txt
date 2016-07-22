@@ -158,6 +158,7 @@
   Short Label = Prescription of medication to for patient
   Definition = An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationOrder\" rather than \"MedicationPrescription\" to generalize the use across inpatient and outpatient settings as well as for care plans, etc.
   Comments = The WG will be updating the MedicationOrder resource  to adjust each affected resource to align with the workflow pattern (see workflow.html).  MedicationOrder will be renamed to MedicationRequest as part of these changes.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx
   RIM Mapping = CombinedMedicationRequest
   w5 = clinical.medication
 
@@ -167,6 +168,7 @@
   Type = Identifier
   Short Label = External identifier
   Definition = External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records have to be tracked through an entire system.
+  SCRIPT 10.6 Mapping = Message/Header/PrescriberOrderNumber
   v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
   RIM Mapping = id
   w5 = id
@@ -180,6 +182,7 @@
   Binding = MedicationOrderStatus
   Short Label = active | on-hold | completed | entered-in-error | stopped | draft
   Definition = A code specifying the state of the order.  Generally this will be active or completed state
+  SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = statusCode
   w5 = status
 
@@ -192,6 +195,7 @@
   Short Label = Medication to be taken
   Definition = Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
   Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the prescribed medication. When the only available information is a text description of the medication, Medication.code.text should be used
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed\n\nMedication.code.coding.code = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCode\n\nMedication.code.coding.system = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCodeQualifier\n\nMedication.code.coding.display = Message/Body/NewRx/MedicationPrescribed/DrugDescription
   v2 Mapping = RXE-2-Give Code / RXO-1-Requested Give Code / RXC-2-Component Code
   RIM Mapping = consumable.administrableMedication
   w5 = what
@@ -204,6 +208,7 @@
   Short Label = Who prescription is for
   Definition = A link to a resource representing the person to whom the medication will be given.
   Comments = SubstanceAdministration->subject->Patient
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/Patient\n\n(need detail to link to specific patient … Patient.Identification in SCRIPT)
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = subject.role
   w5 = who.focus
@@ -215,6 +220,7 @@
   Short Label = Created during encounter/admission/stay
   Definition = A link to a resource that identifies the particular occurrence of contact between patient and health care provider.
   Comments = SubstanceAdministration->component->EncounterEvent
+  SCRIPT 10.6 Mapping = no mapping
   v2 Mapping = PV1-19-Visit Number
   RIM Mapping = componentOf.patientEncounter
   w5 = context
@@ -226,6 +232,7 @@
   Type = dateTime
   Short Label = When prescription was initially authorized
   Definition = The date (and perhaps time) when the prescription was initially written
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/WrittenDate
   v2 Mapping = RXE-32-Original Order Date/Time / ORC-9-Date/Time of Transaction
   RIM Mapping = author.time
   w5 = when.recorded
@@ -237,6 +244,7 @@
   Type = Reference(Practitioner)
   Short Label = Who ordered the initial medication(s)
   Definition = The healthcare professional responsible for authorizing the initial prescription.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/Prescriber\n\n(need detail to link to specific prescriber … Prescriber.Identification in SCRIPT)
   v2 Mapping = RXE-13-Ordering Provider\'s DEA Number / RXO-14-Ordering Provider\'s DEA Number / RXE-14-Pharmacist/Treatment Supplier\'s Verifier ID / RXO-15-Pharmacist/Treatment Supplier\'s Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation=\'OP\' (all but last deprecated)
   RIM Mapping = author.role
   w5 = who.actor
@@ -249,6 +257,7 @@
   Short Label = Reason or indication for writing the prescription
   Definition = Can be the reason or the indication for writing the prescription.
   Comments = This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonReference.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Diagnosis/Primary/Value
   v2 Mapping = ORC-16-Order Control Code Reason /RXE-27-Give Indication/RXO-20-Indication / RXD-21-Indication / RXG-22-Indication / RXA-19-Indication
   RIM Mapping = reason.observation.reasonCode
   w5 = why
@@ -260,6 +269,7 @@
   Short Label = Condition that supports why the prescription is being written
   Definition = Condition that supports why the prescription is being written
   Comments = This is a reference to a condition that is the reason for the medication order.  If only a code exists, use reasonCode.
+  SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = reason.observation[code=ASSERTION].value
   w5 = why
 
@@ -269,6 +279,7 @@
   Type = Annotation
   Short Label = Information about the prescription
   Definition = Extra information about the prescription that could not be conveyed by the other attributes.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Note
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
 
  -- Row 12 -----------------------------------
@@ -278,6 +289,7 @@
   Binding = MedicationOrderCategory
   Short Label = Type of medication usage
   Definition = Indicates where type of medication order and where the medication is expected to be consumed or administered
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Directions\n\nor \n\nMessage/Body/NewRx/MedicationPrescribed/StructuredSIG
 
  -- Row 13 -----------------------------------
   Element = MedicationOrder.dosageInstruction
@@ -286,6 +298,7 @@
   Short Label = How medication should be taken
   Definition = Indicates how the medication is to be used by the patient
   Comments = When the dose or rate is intended to change over the entire administration period, e.g. Tapering dose prescriptions, multiple instances of dosage instructions will need to be supplied to convey the different doses/rates. Another common example in institutional settings is \'titration\' of an IV medication dose to maintain a specific stated hemodynamic value or range e.g. drug x to be administered to maintain AM (arterial mean) greater than 65.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Directions\n\nor \n\n//element(*,SIGType)/FreeText
   RIM Mapping = component.substanceAdministrationRequest
 
  -- Row 14 -----------------------------------
@@ -304,6 +317,7 @@
   Binding = AdditionalInstructions
   Short Label = Supplemental instructions - e.g. \"with meals\"
   Definition = Additional instructions such as \"Swallow with plenty of water\" which may or may not be coded.
+  SCRIPT 10.6 Mapping = //element(*,SIGType)/Timing
   v2 Mapping = RXE-7.2-Provider\'s Administration Instructions.text / RXO-7.2-Provider\'s Administration Instructions.text / TQ1-10-Condition Text / TQ1-11-Text Instruction
   RIM Mapping = component.substanceAdministrationRequest.text
 
@@ -314,6 +328,7 @@
   Short Label = When medication should be administered
   Definition = The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn\'t imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.
   Comments = This attribute may not always be populated while the DosageInstruction.text is expected to be populated.  If both are populated, then the DosageInstruction.text should reflect the content of the Dosage.timing.
+  SCRIPT 10.6 Mapping = //element(*,SIGType)/SiteofAdministration
   v2 Mapping = TQ1-X / ORC Quantity/timing
   RIM Mapping = effectiveTime
 
@@ -325,6 +340,7 @@
   Short Label = Take \"as needed\" (for x)
   Definition = Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
   Comments = Specifically if \'boolean\' datatype is selected, then the following logic applies:  If set to True, this indicates that the medication is only taken when needed, within the specified schedule.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/StructuredSIG/SiteofAdministration
   RIM Mapping = boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false  CodeableConcept: precondition.observationEventCriterion[code=\"Assertion\"].value
 
  -- Row 18 -----------------------------------
@@ -334,6 +350,7 @@
   Binding = MedicationAdministrationSite
   Short Label = Body site to administer to
   Definition = A coded specification of the anatomic site where the medication first enters the body
+  SCRIPT 10.6 Mapping = //element(*,SIGType)/RouteofAdministration
   v2 Mapping = RXR-2-Administration Site
   RIM Mapping = approachSiteCode
 
@@ -344,6 +361,7 @@
   Binding = RouteOfAdministration
   Short Label = How drug should enter body
   Definition = A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient\'s body.
+  SCRIPT 10.6 Mapping = //element(*,SIGType)/Dose/DoseDeliveryMethodCode
   v2 Mapping = RXR-1-Route
   RIM Mapping = routeCode
 
@@ -355,6 +373,7 @@
   Short Label = Technique for administering medication
   Definition = A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  For examples, Slow Push; Deep IV.
   Comments = Terminologies used often pre-coordinate this term with the route and or form of administration.
+  SCRIPT 10.6 Mapping = //element(*,SIGType)/Dose
   v2 Mapping = RXR-4-Administration Method
   RIM Mapping = methodCode
 
@@ -365,6 +384,7 @@
   Short Label = Amount of medication per dose
   Definition = The amount of therapeutic or other substance given at one administration event.
   Comments = Note that this specifies the quantity of the specified medication, not the quantity for each active ingredient(s). Each ingredient amount can be communicated in the Medication resource. For example, if one wants to communicate that a tablet was 375 mg, where the dose was one tablet, you can use the Medication resource to document that the tablet was comprised of 375 mg of drug XYZ. Alternatively if the dose was 375 mg, then you may only need to use the Medication resource to indicate this was a tablet. If the example were an IV such as dopamine and you wanted to communicate that 400mg of dopamine was mixed in 500 ml of some IV solution, then this would all be communicated in the Medication resource. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule e.g. 500 ml in dose, with timing used to convey that this should be done over 4 hours.
+  SCRIPT 10.6 Mapping = //element(*,SIGType)/MaximumDoseRestriction
   v2 Mapping = RXE-23-Give Rate Amount / RXE-24.1-Give Rate Units.code / RXE-24.3-Give Rate Units.name of coding system
   RIM Mapping = doseQuantity
 
@@ -375,6 +395,7 @@
   Short Label = Upper limit on medication per unit of time
   Definition = The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.
   Comments = This is intended for use as an adjunct to the dosage when there is an upper cap.  For example \"2 tablets every 4 hours to a maximum of 8/day\"
+  SCRIPT 10.6 Mapping = //element(*,SIGType)/MaximumDoseRestriction
   v2 Mapping = RXE-4-Give Amount - Maximum / RXE-5-Give Units
   RIM Mapping = maxDoseQuantity
 
@@ -385,6 +406,8 @@
   Short Label = Upper limit on medication per administration
   Definition = The maximum total quantity of a therapeutic substance that may be administered to a subject per administration.
   Comments = This is intended for use as an adjunct to the dosage when there is an upper cap.  For example, a body surface area related dose with a maximum amount, such as 1.5 mg/m2 (maximum 2 mg) IV over 5 – 10 minutes would have doseQuantity of 1.5 mg/m2 and maxDosePerAdministration of 2 mg.
+  SCRIPT 10.6 Mapping = //element(*,SIGType)/MaximumDoseRestriction
+  RIM Mapping = no mapping
 
  -- Row 24 -----------------------------------
   Element = MedicationOrder.dosageInstruction.maxDosePerLifetime
@@ -392,6 +415,7 @@
   Type = SimpleQuantity
   Short Label = Upper limit on medication per lifetime of the patient
   Definition = The maximum total quantity of a therapeutic substance that may be administered per lifetime of the subject.
+  RIM Mapping = no mapping
 
  -- Row 25 -----------------------------------
   Element = MedicationOrder.dosageInstruction.rate[x]
@@ -400,6 +424,7 @@
   Short Label = Amount of medication per unit of time
   Definition = Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn\'t imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.
   Comments = It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationOrder with an updated rate, or captured with a new MedicationOrder with the new rate.
+  SCRIPT 10.6 Mapping = no mapping
   v2 Mapping = RXE-22-Give Per (Time Unit)
   RIM Mapping = rateQuantity
 
@@ -409,6 +434,7 @@
   UML = 400;240
   Short Label = Medication supply authorization
   Definition = Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/ExpirationDate
   RIM Mapping = component.supplyEvent
 
  -- Row 27 -----------------------------------
@@ -419,6 +445,7 @@
   Definition = This indicates the validity period of a prescription (stale dating the Prescription)
   Requirements = Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.
   Comments = It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Refills
   RIM Mapping = effectiveTime
 
  -- Row 28 -----------------------------------
@@ -428,6 +455,7 @@
   Short Label = Number of refills authorized
   Definition = An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does NOT include the original order dispense. This means that if an order indicates dispense 30 tablets plus \"3 repeats\", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.
   Comments = If displaying \"number of authorized fills\", add 1 to this number.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Quantity
   v2 Mapping = RXE-12-Number of Refills
   RIM Mapping = repeatNumber
 
@@ -437,6 +465,7 @@
   Type = SimpleQuantity
   Short Label = Amount of medication to supply per dispense
   Definition = The amount that is to be dispensed for one fill.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/DaysSupply
   v2 Mapping = RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system
   RIM Mapping = quantity
 
@@ -447,6 +476,7 @@
   Short Label = Number of days supply per dispense
   Definition = Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last.
   Comments = In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Substitutions
   RIM Mapping = expectedUseTime
 
  -- Row 31 -----------------------------------
@@ -455,6 +485,7 @@
   UML = 0;260
   Short Label = Any restrictions on medication substitution
   Definition = Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber\'s intent. If nothing is specified substitution may be done.
+  SCRIPT 10.6 Mapping = specific values within Message/Body/NewRx/MedicationPrescribed/Substitutions
   RIM Mapping = subjectOf.substitutionPersmission
 
  -- Row 32 -----------------------------------
@@ -463,6 +494,7 @@
   Type = boolean
   Short Label = Whether substitution is allowed or not
   Definition = True if the prescriber allows a different drug to be dispensed from what was prescribed.
+  SCRIPT 10.6 Mapping = specific values within Message/Body/NewRx/MedicationPrescribed/Substitutions
   v2 Mapping = RXO-9-Allow Substitutions / RXE-9-Substitution Status
   RIM Mapping = code
 
@@ -473,6 +505,7 @@
   Binding = MedicationIntendedSubstitutionReason
   Short Label = Why should (not) substitution be made
   Definition = Indicates the reason for the substitution, or why substitution must or must not be performed.
+  SCRIPT 10.6 Mapping = not mapped
   v2 Mapping = RXE-9 Substition status
   RIM Mapping = reasonCode
 
@@ -482,6 +515,7 @@
   Type = Reference(MedicationOrder)
   Short Label = An order/prescription that this supersedes
   Definition = A link to a resource representing an earlier order related order or prescription.
+  SCRIPT 10.6 Mapping = not mapped
   RIM Mapping = .outboundRelationship[typeCode=?RPLC or ?SUCC]/target[classCode=SBADM,moodCode=RQO]
 
  -- Row 35 -----------------------------------
@@ -490,6 +524,8 @@
   Short Label = A list of events of interest in the lifecycle
   Definition = A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed
   Comments = This is not the same as an audit trail. It is a view of the important things that happened in the past. Typically, there would only be one entry for any given status, and systems may not record all the status events
+  SCRIPT 10.6 Mapping = not mapped
+  RIM Mapping = not mapped
 
  -- Row 36 -----------------------------------
   Element = MedicationOrder.eventHistory.status
@@ -498,6 +534,8 @@
   Binding = MedicationOrderStatus
   Short Label = active | on-hold | completed | entered-in-error | stopped | draft
   Definition = The status for the event
+  SCRIPT 10.6 Mapping = not mapped
+  RIM Mapping = not mapped
 
  -- Row 37 -----------------------------------
   Element = MedicationOrder.eventHistory.action
@@ -506,6 +544,8 @@
   Binding = MedicationOrderAction
   Short Label = Action taken (e.g. verify, discontinue)
   Definition = The action that was taken (e.g. verify, discontinue)
+  SCRIPT 10.6 Mapping = not mapped
+  RIM Mapping = not mapped
 
  -- Row 38 -----------------------------------
   Element = MedicationOrder.eventHistory.dateTime
@@ -513,6 +553,8 @@
   Type = dateTime
   Short Label = The date at which the event happened
   Definition = The date/time at which the event occurred
+  SCRIPT 10.6 Mapping = not mapped
+  RIM Mapping = not mapped
 
  -- Row 39 -----------------------------------
   Element = MedicationOrder.eventHistory.actor
@@ -520,6 +562,8 @@
   Type = Reference(Practitioner)
   Short Label = Who took the action
   Definition = The person responsible for taking the action
+  SCRIPT 10.6 Mapping = not mapped
+  RIM Mapping = not mapped
 
  -- Row 40 -----------------------------------
   Element = MedicationOrder.eventHistory.reason

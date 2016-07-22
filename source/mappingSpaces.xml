@@ -264,4 +264,12 @@
 		<sort>31</sort>
     <publish>true</publish>
 	</space>
+	<space>
+		<url>http://ncpdp.org/SCRIPT10_6</url>
+		<columnName>SCRIPT 10.6 Mapping</columnName>
+		<title>Mapping to NCPDP SCRIPT 10.6</title>
+		<id>script10.6</id>
+		<sort>32</sort>
+		<publish>true</publish>
+	</space>
 </mappingSpaces>
