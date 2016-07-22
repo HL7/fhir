@@ -233,13 +233,20 @@ public class Element extends Base {
 	}
 
 	@Override
-	protected void listChildren(
-	    List<org.hl7.fhir.dstu3.model.Property> result) {
-	// TODO Auto-generated method stub
-    
+	protected void listChildren(List<org.hl7.fhir.dstu3.model.Property> childProps) {
+	  for (Element c : children) {
+	    childProps.add(new org.hl7.fhir.dstu3.model.Property(c.getName(), c.fhirType(), c.getProperty().getDefinition().getDefinition(), c.getProperty().getDefinition().getMin(), maxToInt(c.getProperty().getDefinition().getMax()), c));
+	  }
   }
 
-	@Override
+	private int maxToInt(String max) {
+    if (max.equals("*"))
+      return Integer.MAX_VALUE;
+    else
+      return Integer.parseInt(max);
+  }
+
+  @Override
 	public boolean isPrimitive() {
 		return type != null ? property.isPrimitive(type) : property.isPrimitive(property.getType(name));
 	}
