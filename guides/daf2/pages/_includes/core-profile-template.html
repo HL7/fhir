@@ -71,7 +71,7 @@ Formal Views of Profile Content
 
  <div id="tabs-summ">
   <div id="tbl-summ">
-   <p>This structure is derived from <a href="{{site.data.fhir.path}}/{{page.code}}.html">{{page.tcode}}</a>.</p>
+   <p>This structure is derived from <a href="{{site.data.structuredefinitions[page.id].basepath}}">{{site.data.structuredefinitions[page.id].basename}}</a> </p>
    <div id="tbl-diff-inner">
      <a name="summary"> </a>
 
@@ -86,7 +86,7 @@ Formal Views of Profile Content
 
  <div id="tabs-diff">
   <div id="tbl-diff">
-   <p>This structure is derived from <a href="{{site.data.fhir.path}}/{{page.code}}.html">{{page.tcode}}</a>.</p>
+   <p>This structure is derived from <a href="{{site.data.structuredefinitions[page.id].basepath}}">{{site.data.structuredefinitions[page.id].basename}}</a> </p>
    <div id="tbl-diff-inner">
    {%include StructureDefinition-daf-{{page.code}}-diff.xhtml%}
    </div>

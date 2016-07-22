@@ -39,6 +39,7 @@ import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
 import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
+import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
@@ -79,6 +80,7 @@ import org.hl7.fhir.dstu3.utils.Turtle;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ILoggingService;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
+import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.igtools.renderers.BaseRenderer;
 import org.hl7.fhir.igtools.renderers.CodeSystemRenderer;
 import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
@@ -441,7 +443,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     checkDir(pagesDir);
     forceDir(tempDir);
     forceDir(Utilities.path(tempDir, "_includes"));
-    forceDir(Utilities.path(tempDir, "data"));
+    forceDir(Utilities.path(tempDir, "_data"));
     forceDir(outputDir);
     forceDir(qaDir);
 
@@ -478,8 +480,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
         checkMakeFile(context.getBinaries().get(s), Utilities.path(qaDir, s), otherFilesStartup);    
         checkMakeFile(context.getBinaries().get(s), Utilities.path(tempDir, s), otherFilesStartup);
       }
-    otherFilesStartup.add(Utilities.path(tempDir, "data"));
-    otherFilesStartup.add(Utilities.path(tempDir, "data", "fhir.json"));
+    otherFilesStartup.add(Utilities.path(tempDir, "_data"));
+    otherFilesStartup.add(Utilities.path(tempDir, "_data", "fhir.json"));
+    otherFilesStartup.add(Utilities.path(tempDir, "_data", "structuredefinitions.json"));
     otherFilesStartup.add(Utilities.path(tempDir, "_includes"));
     
     JsonArray deps = configuration.getAsJsonArray("dependencyList");
@@ -977,42 +980,76 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void generateSnapshots() throws Exception {
-    ProfileUtilities utils = new ProfileUtilities(context, null, null);
+    /**
+    if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
+      assert(errors.size() == 0);
+    }
+     
+     * 
+     */
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
-        if (r.getResource() instanceof StructureDefinition) {
-          boolean changed = false;
+        if (r.getResource() instanceof StructureDefinition && !r.isSnapshotted()) {
           StructureDefinition sd = (StructureDefinition) r.getResource();
-          String p = sd.getDifferential().getElement().get(0).getPath();
-          if (p.contains(".")) {
-            changed = true;
-            sd.getDifferential().getElement().add(0, new ElementDefinition().setPath(p.substring(0, p.indexOf("."))));
-          }
-          if (!sd.hasSnapshot() && sd.getKind() != StructureDefinitionKind.LOGICAL) {
-            StructureDefinition base = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
-            if (base != null) {
-              utils.generateSnapshot(base, sd, sd.getUrl(), sd.getName());
-              changed = true;
-            }
-          }
-          if (!sd.hasSnapshot() && sd.getKind() == StructureDefinitionKind.LOGICAL) {
-            utils.populateLogicalSnapshot(sd);
-          }
-          if (changed || !r.getElement().hasChild("snapshot"))
-            r.setElement(new ObjectConverter(context).convert(sd));
+          generateSnapshot(f, r, sd);
         }
       }
     }
 
     for (StructureDefinition derived : context.allStructures()) {
-      if (!derived.hasSnapshot()) {
-        StructureDefinition base = context.fetchResource(StructureDefinition.class, derived.getBaseDefinition());
-        if (base != null)
-          utils.generateSnapshot(base, derived, derived.getUrl(), derived.getName());
+      if (!derived.hasSnapshot() && derived.hasBaseDefinition()) {
+        throw new Exception("No snapshot found on "+derived.getUrl());
       }
     }
   }
-  
+
+  private void generateSnapshot(FetchedFile f, FetchedResource r, StructureDefinition sd) throws Exception {
+    boolean changed = false;
+    ProfileUtilities utils = new ProfileUtilities(context, f.getErrors(), igpkp);
+    StructureDefinition base = fetchSnapshotted(sd.getBaseDefinition());
+    if (sd.getKind() != StructureDefinitionKind.LOGICAL) {
+      if (!sd.hasSnapshot()) { 
+        List<String> errors = new ArrayList<String>();
+        utils.sortDifferential(base, sd, "profile "+sd.getUrl(), errors);
+        for (String s : errors)
+          f.getErrors().add(new ValidationMessage(Source.ProfileValidator, IssueType.INVALID, sd.getUrl(), s, IssueSeverity.ERROR));
+        utils.setIds(sd, sd.getName());
+
+        String p = sd.getDifferential().getElement().get(0).getPath();
+        if (p.contains(".")) {
+          changed = true;
+          sd.getDifferential().getElement().add(0, new ElementDefinition().setPath(p.substring(0, p.indexOf("."))));
+        }
+        utils.generateSnapshot(base, sd, sd.getUrl(), sd.getName());
+        changed = true;
+      }
+    } else { //sd.getKind() == StructureDefinitionKind.LOGICAL 
+      if (base != null && !sd.hasSnapshot()) {
+        utils.populateLogicalSnapshot(sd);
+        changed = true;
+      }
+    }
+    if (changed || (!r.getElement().hasChild("snapshot") && sd.hasSnapshot()))
+      r.setElement(new ObjectConverter(context).convert(sd));
+    r.setSnapshotted(true);
+  }
+
+  private StructureDefinition fetchSnapshotted(String url) throws Exception {
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        if (r.getResource() instanceof StructureDefinition) {
+          StructureDefinition sd = (StructureDefinition) r.getResource();
+          if (sd.getUrl().equals(url)) {
+            if (!r.isSnapshotted())
+              generateSnapshot(f, r, sd);
+            return sd;
+          }
+        }
+      }
+    }
+    return context.fetchResource(StructureDefinition.class, url);
+  }
+
   private void generateLogicalMaps() throws Exception {
     StructureMapUtilities mu = new StructureMapUtilities(context, null, null);
     for (FetchedFile f : fileList) {
@@ -1317,6 +1354,42 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private void generateSummaryOutputs() throws Exception {
     generateResourceReferences();
 
+    generateDataFile();
+    
+    // now, list the profiles - all the profiles
+    JsonObject data = new JsonObject();
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        if (r.getElement().fhirType().equals("StructureDefinition")) {
+          StructureDefinition sd = (StructureDefinition) r.getResource();
+
+          JsonObject item = new JsonObject();
+          data.add(sd.getId(), item);
+          item.addProperty("url", sd.getUrl());
+          item.addProperty("name", sd.getName());
+          item.addProperty("path", sd.getUserString("path"));
+          item.addProperty("basename", sd.getUserString("path"));
+          item.addProperty("kind", sd.getKind().toCode());
+          item.addProperty("type", sd.getType());
+          item.addProperty("base", sd.getBaseDefinition());
+          StructureDefinition base = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
+          if (base != null) {
+            item.addProperty("basename", base.getName());
+            item.addProperty("basepath", base.getUserString("path"));
+          }
+          item.addProperty("status", sd.getStatus().toCode());
+          item.addProperty("date", sd.getDate().toString());
+          item.addProperty("publisher", sd.getPublisher());
+          item.addProperty("copyright", sd.getCopyright());
+        }
+      }
+    }
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    String json = gson.toJson(data);
+    TextFile.stringToFile(json, Utilities.path(tempDir, "_data", "structuredefinitions.json"));
+  }
+
+  private void generateDataFile() throws IOException {
     JsonObject data = new JsonObject();
     data.addProperty("path", specPath);
     data.addProperty("canonical", igpkp.getCanonical());
@@ -1330,7 +1403,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     String json = gson.toJson(data);
-    TextFile.stringToFile(json, Utilities.path(tempDir, "data", "fhir.json"));
+    TextFile.stringToFile(json, Utilities.path(tempDir, "_data", "fhir.json"));
   }
 
   private void generateResourceReferences() throws Exception {
@@ -1500,7 +1573,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     } else {
       for (FetchedResource r : f.getResources()) {
         try {
-          saveDirectResourceOutputs(f, r);
+          saveDirectResourceOutputs(f, r, makeVars(r));
 
           // now, start generating resource type specific stuff 
           if (r.getResource() != null) { // we only do this for conformance resources we've already loaded
@@ -1536,6 +1609,28 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
  
+  private Map<String, String> makeVars(FetchedResource r) {
+    Map<String, String> map = new HashMap<String, String>();
+    if (r.getResource() != null) {
+      switch (r.getResource().getResourceType()) {
+      case StructureDefinition:
+        StructureDefinition sd = (StructureDefinition) r.getResource();
+        String url = sd.getUrl();
+        StructureDefinition base = context.fetchResource(StructureDefinition.class, url);
+        if (base == null) {
+          map.put("parent-name", base.getName());
+          map.put("parent-link", base.getUserString("path"));
+        } else {
+          map.put("parent-name", "?? Unknown reference");
+          map.put("parent-link", "??");
+        }
+        return map;  
+      default: return null;
+      }
+    } else
+      return null;
+  }
+
   private boolean wantGen(FetchedResource r, String code) {
     if (r.getConfig() != null && hasBoolean(r.getConfig(), code))
       return getBoolean(r.getConfig(), code);
@@ -1601,8 +1696,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
    * @throws FileNotFoundException
    * @throws Exception
    */
-  private void saveDirectResourceOutputs(FetchedFile f, FetchedResource r) throws FileNotFoundException, Exception {
-    genWrapperBase(r, getTemplate(r, "template-base"), f.getOutputNames());
+  private void saveDirectResourceOutputs(FetchedFile f, FetchedResource r, Map<String, String> vars) throws FileNotFoundException, Exception {
+    genWrapperBase(r, getTemplate(r, "template-base"), f.getOutputNames(), vars);
     
     String template = getTemplate(r, "template-format");
     if (wantGen(r, "xml")) {
@@ -1610,21 +1705,21 @@ public class Publisher implements IWorkerContext.ILoggingService {
       f.getOutputNames().add(path);
       new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).compose(r.getElement(), new FileOutputStream(path), OutputStyle.PRETTY, "??");
       if (tool == GenerationTool.Jekyll)
-        genWrapperFmt(r, template, "xml", f.getOutputNames());  
+        genWrapperFmt(r, template, "xml", f.getOutputNames(), vars);  
     }
     if (wantGen(r, "json")) {
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".json");
       f.getOutputNames().add(path);
       new org.hl7.fhir.dstu3.elementmodel.JsonParser(context).compose(r.getElement(), new FileOutputStream(path), OutputStyle.PRETTY, "??");
       if (tool == GenerationTool.Jekyll)
-        genWrapperFmt(r, template, "json", f.getOutputNames());  
+        genWrapperFmt(r, template, "json", f.getOutputNames(), vars);  
     }
     if (wantGen(r, "ttl")) {
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".ttl");
       f.getOutputNames().add(path);
       new org.hl7.fhir.dstu3.elementmodel.TurtleParser(context).compose(r.getElement(), new FileOutputStream(path), OutputStyle.PRETTY, "??");
       if (tool == GenerationTool.Jekyll)
-        genWrapperFmt(r, template, "ttl", f.getOutputNames());  
+        genWrapperFmt(r, template, "ttl", f.getOutputNames(), vars);  
     }
 
     if (wantGen(r, "xml-html")) {
@@ -1662,20 +1757,24 @@ public class Publisher implements IWorkerContext.ILoggingService {
     //  fragment(f.getId()+"-gen-html", html);
   }
 
-  private void genWrapperFmt(FetchedResource r, String template, String format, Set<String> outputTracker) throws FileNotFoundException, IOException {
+  private void genWrapperFmt(FetchedResource r, String template, String format, Set<String> outputTracker, Map<String, String> vars) throws FileNotFoundException, IOException {
     if (template != null) {
       template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), template));
       template = template.replace("{{[title]}}", r.getTitle() == null ? "?title?" : r.getTitle());
       template = template.replace("{{[name]}}", r.getId()+"-"+format+"-html");
       template = template.replace("{{[id]}}", r.getId());
       template = template.replace("{{[type]}}", r.getElement().fhirType());
+      if (vars != null) {
+        for (String n : vars.keySet())
+          template = template.replace("{{["+n+"]}}", vars.get(n));
+      }
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+"."+format+".html");
       TextFile.stringToFile(template, path, false);
       outputTracker.add(path);
     }
   }
 
-  private void genWrapperBase(FetchedResource r, String template, Set<String> outputTracker) throws FileNotFoundException, IOException {
+  private void genWrapperBase(FetchedResource r, String template, Set<String> outputTracker, Map<String, String> vars) throws FileNotFoundException, IOException {
     if (template != null) {
       template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), template));
       template = template.replace("{{[title]}}", r.getTitle());

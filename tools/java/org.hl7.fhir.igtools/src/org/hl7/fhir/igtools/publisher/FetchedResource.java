@@ -16,6 +16,7 @@ public class FetchedResource {
   private JsonObject config;
   private boolean validated;
   private List<String> profiles = new ArrayList<String>();
+  private boolean snapshotted;
 
   public Resource getResource() {
     return resource;
@@ -64,6 +65,13 @@ public class FetchedResource {
   }
   public String getUrlTail() {
     return "/"+element.fhirType()+"/"+id;
+  }
+  public boolean isSnapshotted() {
+    return snapshotted;
+  }
+  public void setSnapshotted(boolean snapshotted) {
+    this.snapshotted = snapshotted;
+    
   }
 
   

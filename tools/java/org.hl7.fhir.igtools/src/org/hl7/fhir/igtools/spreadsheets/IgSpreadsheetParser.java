@@ -240,7 +240,6 @@ public class IgSpreadsheetParser {
           }
         }
     }
-    sd.getDifferential().getElementFirstRep().getType().clear();
     
     if (logical) {
       sd.setKind(StructureDefinitionKind.LOGICAL);  
@@ -256,10 +255,14 @@ public class IgSpreadsheetParser {
       sd.setAbstract(false);
       sd.setId(n.toLowerCase());
       sd.setType(sd.getDifferential().getElementFirstRep().getPath());
-      sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+sd.getType());
+      if (sd.getDifferential().getElementFirstRep().getType().size() == 1 && sd.getDifferential().getElementFirstRep().getType().get(0).hasProfile())
+        sd.setBaseDefinition(sd.getDifferential().getElementFirstRep().getType().get(0).getProfile());
+      else
+        sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+sd.getType());
       if (!context.getResourceNames().contains(sd.getType()))
         throw new Exception("Unknown Resource "+sd.getType());
     }
+    sd.getDifferential().getElementFirstRep().getType().clear();
     sd.setUrl(base+"/StructureDefinition/"+sd.getId());
     bundle.addEntry().setResource(sd).setFullUrl(sd.getUrl());
     
@@ -314,14 +317,6 @@ public class IgSpreadsheetParser {
     else
       sd.setStatus(ConformanceResourceStatus.DRAFT);
 
-    StructureDefinition base = this.context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
-    ProfileUtilities utils = new ProfileUtilities(this.context, issues, null);
-    if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
-      List<String> errors = new ArrayList<String>();
-      utils.sortDifferential(base, sd, "profile "+sd.getUrl(), errors);
-      assert(errors.size() == 0);
-    }
-    utils.setIds(sd, sd.getName());
     return sd;
   }
 
