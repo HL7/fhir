@@ -17,9 +17,20 @@ This specification includes support for the provision of a terminology service -
 service that lets healthcare applications make use of codes and value sets without having to become
 experts in the fine details of the code system, value set and concept map resources, and the underlying 
 code systems and terminological principles. A server that supports all the functionality described here 
-can be described as a "FHIR Terminology Service", and SHALL conform to <a href="conformance-terminology-server.html">this 
-conformance statement</a>.
+can be described as a "FHIR Terminology Service", and SHALL conform to the <a href="terminology-server.html">
+terminology server conformance statement</a>. Note that servers can declare that they provide 
+terminology services in their conformance statement:
 </p>
+<div class="example">
+<pre class="xml">
+&lt;Conformance xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;!-- snip --&gt;
+  &lt;instantiates value=&quot;http://hl7.org/fhir/Conformance/terminology-server&quot;/&gt;  
+  &lt;!-- snip --&gt;
+&lt;/Conformance&gt;
+</pre>
+</div>
+
 
 <h3>Security</h3>
 <p>
