@@ -301,12 +301,6 @@ signatures.html
       <page type="resource" resource="GuidanceResponse"/>
       <page type="resource" resource="Measure"/>
       <page type="resource" resource="MeasureReport"/>
-
-      <page title="ModuleMetadata" filename="modulemetadata.html">
-        <page title="ModuleMetadata Examples" filename="modulemetadata-examples.html"/>
-        <page title="ModuleMetadata Detailed Descriptions" filename="modulemetadata-definitions.html"/>
-        <page title="ModuleMetadata Mappings" filename="modulemetadata-mappings.html"/>
-      </page>
       <page title="ContactDetail" filename="contactdetail.html">
         <page title="ContactDetail Examples" filename="contactdetail-examples.html"/>
         <page title="ContactDetail Detailed Descriptions" filename="contactdetail-definitions.html"/>

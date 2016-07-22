@@ -10,8 +10,8 @@
 
  -- Row 2 -----------------------------------
   Binding Name = LibraryStatus
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/module-metadata-status
+  Binding = code list
+  Reference = #module-metadata-status
   Definition = The status of the knowledge asset
   Conformance = required
 
@@ -40,6 +40,26 @@
   Code = module-definition
   Display = Module Definition
   Definition = The resource defines the dependencies, parameters, and data requirements for a particular module or evaluation context
+
+=== Sheet module-metadata-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = draft
+  Display = Draft
+  Definition = The module is in draft state
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = active
+  Display = Active
+  Definition = The module is active
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = inactive
+  Display = Inactive
+  Definition = The module is inactive, either rejected before publication, or retired after publication
 
 === Sheet Invariants =====================================
 

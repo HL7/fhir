@@ -200,27 +200,20 @@
   Comments = Each related resource is either an attachment, or a reference to another resource, but not both
 
  -- Row 22 -----------------------------------
-  Element = DecisionSupportServiceModule.moduleMetadata
-  Card. = 0..1
-  Type = ModuleMetadata
-  Short Label = Metadata for the service module
-  Definition = The metadata for the decision support service module, including publishing, life-cycle, version, documentation, and supporting evidence
-
- -- Row 23 -----------------------------------
   Element = DecisionSupportServiceModule.trigger
   Card. = 0..*
   Type = TriggerDefinition
   Short Label = \"when\" the module should be invoked
   Definition = The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow
 
- -- Row 24 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = DecisionSupportServiceModule.parameter
   Card. = 0..*
   Type = ParameterDefinition
   Short Label = Parameters to the module
   Definition = The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse
 
- -- Row 25 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = DecisionSupportServiceModule.dataRequirement
   Card. = 0..*
   Type = DataRequirement
