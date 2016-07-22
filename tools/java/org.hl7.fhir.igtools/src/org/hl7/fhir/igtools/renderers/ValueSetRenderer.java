@@ -11,6 +11,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.EOperationOutcome;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
@@ -37,8 +38,8 @@ public class ValueSetRenderer extends BaseRenderer {
     b.append(" <tr><td>Definition:</td><td>"+processMarkdown("description", vs.getDescription())+"</td></tr>\r\n");
     if (vs.hasPublisher())
       b.append(" <tr><td>Publisher:</td><td>"+Utilities.escapeXml(vs.getPublisher())+"</td></tr>\r\n");
-    if (ToolingExtensions.hasOID(vs))
-      b.append(" <tr><td>OID:</td><td>"+ToolingExtensions.getOID(vs)+"(for OID based terminology systems)</td></tr>\r\n");
+    if (ValueSetUtilities.hasOID(vs))
+      b.append(" <tr><td>OID:</td><td>"+ValueSetUtilities.getOID(vs)+"(for OID based terminology systems)</td></tr>\r\n");
     if (vs.hasCopyright())
       b.append(" <tr><td>Copyright:</td><td>"+Utilities.escapeXml(vs.getCopyright())+"</td></tr>\r\n");
     if (xml || json || ttl) {

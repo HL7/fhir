@@ -148,7 +148,9 @@ import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ProfileComparer;
 import org.hl7.fhir.dstu3.utils.ProfileComparer.ProfileComparison;
@@ -2089,7 +2091,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String n : names) {
       CodeSystem cs = map.get(n);
       String id = tail(cs.getUrl());
-      String oid = ToolingExtensions.getOID(cs);
+      String oid = CodeSystemUtilities.getOID(cs);
       if (oid != null)
         oid = oid.substring(8);
       s.append(" <tr><td><a href=\"v3/").append(id).append("/cs.html\">").append(Utilities.escapeXml(id))
@@ -2120,7 +2122,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String n : names) {
       ValueSet vs = map.get(n);
       String id = tail(vs.getUrl()).substring(3);
-      String oid = ToolingExtensions.getOID(vs);
+      String oid = ValueSetUtilities.getOID(vs);
       if (oid != null)
         oid = oid.substring(8);
       String[] desc = vs.getDescription().split("\\(OID \\= ");
@@ -3345,7 +3347,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           String path = (String) ae.getUserData("path");
           s.append(" <tr><td><a href=\""+pathTail(Utilities.changeFileExt(path, ".html"))+"\">"+n+"</a></td><td>"+Utilities.escapeXml(vs.getDescription())+"</td><td>"+sourceSummary(vs)+"</td>");
           if (hasId)
-            s.append("<td>"+Utilities.oidTail(ToolingExtensions.getOID(ae))+"</td>");
+            s.append("<td>"+Utilities.oidTail(ValueSetUtilities.getOID(ae))+"</td>");
           s.append("</tr>\r\n");
         }
       }
@@ -3870,13 +3872,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String generateOID(ValueSet vs) throws Exception {
     if (vs == null)
       return "";
-    return unUrn(ToolingExtensions.getOID(vs));
+    return unUrn(ValueSetUtilities.getOID(vs));
   }
 
   private String generateOID(CodeSystem cs) throws Exception {
     if (cs == null)
       return "";
-    return unUrn(ToolingExtensions.getOID(cs));
+    return unUrn(CodeSystemUtilities.getOID(cs));
   }
 
   private String unUrn(String oid) {
@@ -7253,7 +7255,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           b.append("  <tr>\r\n");
           b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getUrl().substring(20)+"</a></td>\r\n");
           b.append("    <td>"+cs.getName()+": "+Utilities.escapeXml(cs.getDescription())+"</td>\r\n");
-          String oid = ToolingExtensions.getOID(cs);
+          String oid = CodeSystemUtilities.getOID(cs);
           b.append("    <td>"+(oid == null ? "" : oid.substring(8))+"</td>\r\n");
           b.append("  </tr>\r\n");
         }

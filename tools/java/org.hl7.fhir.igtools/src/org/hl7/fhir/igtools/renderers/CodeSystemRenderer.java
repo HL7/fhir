@@ -10,9 +10,11 @@ import java.util.Set;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.Identifier;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.utils.EOperationOutcome;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
@@ -40,8 +42,8 @@ public class CodeSystemRenderer extends BaseRenderer {
     b.append(" <tr><td>Definition:</td><td>"+processMarkdown("description", cs.getDescription())+"</td></tr>\r\n");
     if (cs.hasPublisher())
       b.append(" <tr><td>Publisher:</td><td>"+Utilities.escapeXml(cs.getPublisher())+"</td></tr>\r\n");
-    if (ToolingExtensions.hasOID(cs))
-      b.append(" <tr><td>OID:</td><td>"+ToolingExtensions.getOID(cs)+"(for OID based terminology systems)</td></tr>\r\n");
+    if (CodeSystemUtilities.hasOID(cs))
+      b.append(" <tr><td>OID:</td><td>"+CodeSystemUtilities.getOID(cs)+"(for OID based terminology systems)</td></tr>\r\n");
     if (cs.hasCopyright())
       b.append(" <tr><td>Copyright:</td><td>"+Utilities.escapeXml(cs.getCopyright())+"</td></tr>\r\n");
     if (xml || json || ttl) {

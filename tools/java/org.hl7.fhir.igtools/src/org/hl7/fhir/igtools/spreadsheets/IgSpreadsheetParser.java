@@ -452,7 +452,7 @@ public class IgSpreadsheetParser {
         vs.setName(bindingName);
         String oid = sheet.getColumn(row, "Oid");
         if (!Utilities.noString(oid))
-          ToolingExtensions.setOID(vs, oid);
+          ValueSetUtilities.setOID(vs, oid);
         String st = sheet.getColumn(row, "Status");
         if (Utilities.noString(st))
           st = "draft";
@@ -480,7 +480,7 @@ public class IgSpreadsheetParser {
           if (valuesetsToLoad.containsKey(id))
             throw new Exception("Duplicate Value Set id "+id);
           valuesetsToLoad.put(id, ref);
-          ref = "ValueSet/"+id;
+          ref = Utilities.pathReverse(base, "ValueSet", id);
         }
         bs.setValueSet(new Reference(ref));
       } else {

@@ -67,7 +67,7 @@ public class ToolingExtensions {
 
   // validated
   public static final String EXT_SUBSUMES = "http://hl7.org/fhir/StructureDefinition/codesystem-subsumes"; 
-  private static final String EXT_OID = "http://hl7.org/fhir/StructureDefinition/valueset-oid";
+//  private static final String EXT_OID = "http://hl7.org/fhir/StructureDefinition/valueset-oid";
 //  public static final String EXT_DEPRECATED = "http://hl7.org/fhir/StructureDefinition/codesystem-deprecated";
   public static final String EXT_DEFINITION = "http://hl7.org/fhir/StructureDefinition/valueset-definition";
   public static final String EXT_COMMENT = "http://hl7.org/fhir/StructureDefinition/valueset-comments";
@@ -124,15 +124,15 @@ public class ToolingExtensions {
     return getExtension(e, url) != null;
   }
 
-  public static void addStringExtension(DomainResource dr, String url, String content) {
-    if (!StringUtils.isBlank(content)) {
-      Extension ex = getExtension(dr, url);
-      if (ex != null)
-        ex.setValue(new StringType(content));
-      else
-        dr.getExtension().add(Factory.newExtension(url, new StringType(content), true));   
-    }
-  }
+//  public static void addStringExtension(DomainResource dr, String url, String content) {
+//    if (!StringUtils.isBlank(content)) {
+//      Extension ex = getExtension(dr, url);
+//      if (ex != null)
+//        ex.setValue(new StringType(content));
+//      else
+//        dr.getExtension().add(Factory.newExtension(url, new StringType(content), true));   
+//    }
+//  }
 
   public static void addMarkdownExtension(DomainResource dr, String url, String content) {
     if (!StringUtils.isBlank(content)) {
@@ -347,34 +347,34 @@ public class ToolingExtensions {
       resource.getExtension().add(new Extension(new UriType(uri)).setValue(new StringType(value)));
   }
 
-  public static String getOID(CodeSystem define) {
-    return readStringExtension(define, EXT_OID);    
-  }
-
-  public static String getOID(ValueSet vs) {
-    return readStringExtension(vs, EXT_OID);    
-  }
-
-  public static void setOID(CodeSystem define, String oid) throws FHIRFormatError, URISyntaxException {
-    if (!oid.startsWith("urn:oid:"))
-      throw new FHIRFormatError("Error in OID format");
-    if (oid.startsWith("urn:oid:urn:oid:"))
-      throw new FHIRFormatError("Error in OID format");
-    if (!hasExtension(define, EXT_OID))
-    define.getExtension().add(Factory.newExtension(EXT_OID, Factory.newUri(oid), false));       
-    else if (!oid.equals(readStringExtension(define, EXT_OID)))
-      throw new Error("Attempt to assign multiple OIDs to a code system");
-  }
-  public static void setOID(ValueSet vs, String oid) throws FHIRFormatError, URISyntaxException {
-    if (!oid.startsWith("urn:oid:"))
-      throw new FHIRFormatError("Error in OID format");
-    if (oid.startsWith("urn:oid:urn:oid:"))
-      throw new FHIRFormatError("Error in OID format");
-    if (!hasExtension(vs, EXT_OID))
-    vs.getExtension().add(Factory.newExtension(EXT_OID, Factory.newUri(oid), false));       
-    else if (!oid.equals(readStringExtension(vs, EXT_OID)))
-      throw new Error("Attempt to assign multiple OIDs to value set "+vs.getName()+" ("+vs.getUrl()+"). Has "+readStringExtension(vs, EXT_OID)+", trying to add "+oid);
-  }
+//  public static String getOID(CodeSystem define) {
+//    return readStringExtension(define, EXT_OID);    
+//  }
+//
+//  public static String getOID(ValueSet vs) {
+//    return readStringExtension(vs, EXT_OID);    
+//  }
+//
+//  public static void setOID(CodeSystem define, String oid) throws FHIRFormatError, URISyntaxException {
+//    if (!oid.startsWith("urn:oid:"))
+//      throw new FHIRFormatError("Error in OID format");
+//    if (oid.startsWith("urn:oid:urn:oid:"))
+//      throw new FHIRFormatError("Error in OID format");
+//    if (!hasExtension(define, EXT_OID))
+//    define.getExtension().add(Factory.newExtension(EXT_OID, Factory.newUri(oid), false));       
+//    else if (!oid.equals(readStringExtension(define, EXT_OID)))
+//      throw new Error("Attempt to assign multiple OIDs to a code system");
+//  }
+//  public static void setOID(ValueSet vs, String oid) throws FHIRFormatError, URISyntaxException {
+//    if (!oid.startsWith("urn:oid:"))
+//      throw new FHIRFormatError("Error in OID format");
+//    if (oid.startsWith("urn:oid:urn:oid:"))
+//      throw new FHIRFormatError("Error in OID format");
+//    if (!hasExtension(vs, EXT_OID))
+//    vs.getExtension().add(Factory.newExtension(EXT_OID, Factory.newUri(oid), false));       
+//    else if (!oid.equals(readStringExtension(vs, EXT_OID)))
+//      throw new Error("Attempt to assign multiple OIDs to value set "+vs.getName()+" ("+vs.getUrl()+"). Has "+readStringExtension(vs, EXT_OID)+", trying to add "+oid);
+//  }
 
   public static boolean hasLanguageTranslation(Element element, String lang) {
     for (Extension e : element.getExtension()) {
@@ -488,13 +488,13 @@ public class ToolingExtensions {
     }
   }
 
-  public static boolean hasOID(ValueSet vs) {
-    return hasExtension(vs, EXT_OID);
-  }
-  
-  public static boolean hasOID(CodeSystem cs) {
-    return hasExtension(cs, EXT_OID);
-  }
-  
+//  public static boolean hasOID(ValueSet vs) {
+//    return hasExtension(vs, EXT_OID);
+//  }
+//  
+//  public static boolean hasOID(CodeSystem cs) {
+//    return hasExtension(cs, EXT_OID);
+//  }
+//  
   
 }

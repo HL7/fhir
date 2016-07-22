@@ -189,7 +189,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
 //      s.append("<p>OID for code system: " + csOid + "</p>\r\n");
     if (vsOid != null) {
 //      s.append("<p>OID for value set: " + vsOid + " (this is the value set that includes the entire code system)</p>\r\n");
-      ToolingExtensions.setOID(vs, "urn:oid:"+vsOid);
+      ValueSetUtilities.setOID(vs, "urn:oid:"+vsOid);
       
     }
     r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"), "text");
@@ -206,7 +206,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     CodeSystem cs = new CodeSystem();
     cs.setUrl("http://hl7.org/fhir/v3/" + id);
     cs.setId("v3-"+FormatUtilities.makeId(id));
-    ToolingExtensions.setOID(cs, "urn:oid:"+csOid);
+    CodeSystemUtilities.setOID(cs, "urn:oid:"+csOid);
     CodeSystemConvertor.populate(cs, vs);
     cs.setUserData("path", "v3" + "/" + id + "/" + "cs.html");
     cs.setUserData("filename", "v3" + "/" + id + "/" + "cs.html");
@@ -347,7 +347,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
           cslist.add(vs.getId());
 
           vs.setUserData("path", "v3" + "/" + id + "/" + "vs.html");
-          ToolingExtensions.setOID(vs, "urn:oid:"+e.getAttribute("id"));
+          ValueSetUtilities.setOID(vs, "urn:oid:"+e.getAttribute("id"));
           if (vs.hasDate())
             vs.getMeta().setLastUpdatedElement(new InstantType(vs.getDate()));
           else

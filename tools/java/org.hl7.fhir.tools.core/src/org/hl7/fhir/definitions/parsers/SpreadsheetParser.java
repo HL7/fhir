@@ -106,6 +106,7 @@ import org.hl7.fhir.dstu3.model.UnsignedIntType;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.UuidType;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
@@ -1142,10 +1143,10 @@ public class SpreadsheetParser {
           vs.setUserData("path", ig.getCode()+"/valueset-"+vs.getId()+".html");
         } else
           vs.setUserData("path", "valueset-"+vs.getId()+".html");
-        if (!ToolingExtensions.hasOID(vs))
-        ToolingExtensions.setOID(vs, "urn:oid:"+BindingSpecification.DEFAULT_OID_VS + cd.getId());
+        if (!ValueSetUtilities.hasOID(vs))
+          ValueSetUtilities.setOID(vs, "urn:oid:"+BindingSpecification.DEFAULT_OID_VS + cd.getId());
         if (vs.getUserData("cs") != null)
-          ToolingExtensions.setOID((CodeSystem) vs.getUserData("cs"), "urn:oid:"+BindingSpecification.DEFAULT_OID_CS + cd.getId());
+          CodeSystemUtilities.setOID((CodeSystem) vs.getUserData("cs"), "urn:oid:"+BindingSpecification.DEFAULT_OID_CS + cd.getId());
         if (definitions != null)
           definitions.getBoundValueSets().put(vs.getUrl(), vs);
         else

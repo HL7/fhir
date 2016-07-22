@@ -11,6 +11,7 @@ import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent;
+import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -29,7 +30,7 @@ public class CodeSystemConvertor {
       nname = Utilities.changeFileExt(name, "-cs.xml");
     if (new File(nname).exists()) {
       FileInputStream input = new FileInputStream(nname);
-      CodeSystem cs = ValueSetUtilities.makeShareable((CodeSystem) p.parse(input));
+      CodeSystem cs = CodeSystemUtilities.makeShareable((CodeSystem) p.parse(input));
       populate(cs, vs);
 //      if (codeSystems.containsKey(cs.getUrl())) 
 //        throw new Exception("Duplicate Code System: "+cs.getUrl());

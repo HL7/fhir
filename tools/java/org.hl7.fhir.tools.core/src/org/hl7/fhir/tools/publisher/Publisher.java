@@ -191,8 +191,10 @@ import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent;
+import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.LogicalModelUtilities;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
@@ -1218,8 +1220,8 @@ public class Publisher implements URIResolver, SectionNumberer {
             ns.setDate(page.getGenDate().getTime());
           ns.setDescription(cs.getDescription());
           ns.addUniqueId().setType(NamingSystemIdentifierType.URI).setValue(cs.getUrl()).setPreferred(true);
-          if (ToolingExtensions.getOID(cs) != null)
-            ns.addUniqueId().setType(NamingSystemIdentifierType.OID).setValue(ToolingExtensions.getOID(cs).substring(8)).setPreferred(false);
+          if (CodeSystemUtilities.getOID(cs) != null)
+            ns.addUniqueId().setType(NamingSystemIdentifierType.OID).setValue(CodeSystemUtilities.getOID(cs).substring(8)).setPreferred(false);
           ns.setUserData("path", cs.getUserData("path"));
           bnd.addEntry().setResource(ns).setFullUrl(cs.getUrl().replace("ValueSet", "NamingSystem"));
         }
@@ -5669,7 +5671,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       } catch (Exception e) {
         throw new Exception("Error processing "+n+".html: "+e.getMessage(), e);
       }
-      sf = addSectionNumbers(n + ".html", "template-valueset", sf, Utilities.oidTail(ToolingExtensions.getOID(vs)), ig == null ? 0 : 1, null, ig);
+      sf = addSectionNumbers(n + ".html", "template-valueset", sf, Utilities.oidTail(ValueSetUtilities.getOID(vs)), ig == null ? 0 : 1, null, ig);
 
       TextFile.stringToFile(sf, page.getFolders().dstDir + n + ".html");
       try {
@@ -5735,7 +5737,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       } catch (Exception e) {
         throw new Exception("Error processing "+n+".html: "+e.getMessage(), e);
       }
-      sf = addSectionNumbers(n + ".html", "template-codesystem", sf, Utilities.oidTail(ToolingExtensions.getOID(cs)), ig == null ? 0 : 1, null, ig);
+      sf = addSectionNumbers(n + ".html", "template-codesystem", sf, Utilities.oidTail(CodeSystemUtilities.getOID(cs)), ig == null ? 0 : 1, null, ig);
 
       TextFile.stringToFile(sf, page.getFolders().dstDir + n + ".html");
       try {
@@ -5789,12 +5791,11 @@ public class Publisher implements URIResolver, SectionNumberer {
         vs.getText().setDiv(new XhtmlNode(NodeType.Element));
         vs.getText().getDiv().setName("div");
       }
-      if (ToolingExtensions.getOID(vs) == null)
+      if (ValueSetUtilities.getOID(vs) == null)
         throw new Exception("No OID on value set "+vs.getUrl());
 
       page.getValueSets().put(vs.getUrl(), vs);
       page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-
     }
     for (ValueSet vs : page.getDefinitions().getBoundValueSets().values()) {
       page.getVsValidator().validate(page.getValidationErrors(), vs.getUserString("filename"), vs, true, false);
@@ -6037,7 +6038,6 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void generateCodeSystemPart2(ValueSet vs) throws Exception {
-
     if (!Utilities.noString(vs.getUserString("v2map")))
       generateConceptMapV2(vs, vs.getId(), vs.getUrl(), "http://hl7.org/fhir/" + vs.getId());
     if (!Utilities.noString(vs.getUserString("v3map")))
