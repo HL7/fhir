@@ -24,12 +24,14 @@ import org.hl7.fhir.dstu3.model.Element;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.Factory;
+import org.hl7.fhir.dstu3.model.ElementDefinition.AggregationMode;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
@@ -122,12 +124,6 @@ public class ProfileUtilities {
     }
     
   }
-
-
-
-
-  private final boolean ADD_REFERENCE_TO_TABLE = true;
-
 
   private static final String ROW_COLOR_ERROR = "#ffcccc";
   private static final String ROW_COLOR_FATAL = "#ff9999";
@@ -1306,6 +1302,9 @@ public class ProfileUtilities {
   }
 
 
+  private static final int AGG_NONE = 0;
+  private static final int AGG_IND = 1;
+  private static final int AGG_GR = 2;
   private Cell genTypes(HierarchicalTableGenerator gen, Row r, ElementDefinition e, String profileBaseFileName, StructureDefinition profile, String corePath, String imagePath) {
     Cell c = gen.new Cell();
     r.getCells().add(c);
@@ -1329,12 +1328,40 @@ public class ProfileUtilities {
 
     boolean first = true;
     Element source = types.get(0); // either all types are the same, or we don't consider any of them the same
+    int aggMode = AGG_NONE;
 
-    boolean allReference = ADD_REFERENCE_TO_TABLE && !types.isEmpty();
+    boolean allReference = !types.isEmpty();
+    Set<AggregationMode> aggs = new HashSet<ElementDefinition.AggregationMode>();
     for (TypeRefComponent t : types) {
-      if (!(t.getCode().equals("Reference") && t.hasProfile()))
+      if (t.getCode().equals("Reference") && t.hasProfile()) {
+        for (Enumeration<AggregationMode> en : t.getAggregation())
+          aggs.add(en.getValue());
+      } else
         allReference = false;
+      
     }
+    if (allReference) {
+      c.getPieces().add(gen.new Piece(corePath+"references.html", "Reference", null));
+      c.getPieces().add(gen.new Piece(null, "(", null));
+      if (aggs.size() > 0) {
+        boolean allSame = true;
+        for (TypeRefComponent t : types) {
+          for (AggregationMode agg : aggs) {
+            boolean found = false;
+            for (Enumeration<AggregationMode> en : t.getAggregation())
+              if (en.getValue() == agg)
+                found = true;
+            if (!found)
+              allSame = false;
+          }
+        }
+        aggMode = allSame ? AGG_GR : AGG_IND;
+        if (aggMode != AGG_GR)
+          allReference = false;
+      }
+    } else 
+      aggMode = aggs.size() == 0 ? AGG_NONE : AGG_IND;
+
     if (allReference) {
       c.getPieces().add(gen.new Piece(corePath+"references.html", "Reference", null));
       c.getPieces().add(gen.new Piece(null, "(", null));
@@ -1349,7 +1376,7 @@ public class ProfileUtilities {
         c.addPiece(checkForNoChange(tl, gen.new Piece(null,", ", null)));
       tl = t;
       if (t.getCode().equals("Reference") || (t.getCode().equals("Resource") && t.hasProfile())) {
-        if (ADD_REFERENCE_TO_TABLE && !allReference) {
+        if (!allReference) {
           c.getPieces().add(gen.new Piece(corePath+"references.html", "Reference", null));
           c.getPieces().add(gen.new Piece(null, "(", null));
         }
@@ -1376,8 +1403,20 @@ public class ProfileUtilities {
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+t.getProfile().substring(1).toLowerCase()+".html", t.getProfile(), null)));
         else
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+t.getProfile(), t.getProfile(), null)));
-        if (ADD_REFERENCE_TO_TABLE && !allReference) {
+        if (!allReference) {
           c.getPieces().add(gen.new Piece(null, ")", null));
+          if (t.getAggregation().size() > 0) {
+            c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", " {", null));
+            boolean firstA = true;
+            for (Enumeration<AggregationMode> a : t.getAggregation()) {
+              if (firstA = true)
+                firstA = false;
+              else
+                c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", ", ", null));
+              c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", codeForAggregation(a.getValue()), null));
+            }
+            c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", "}", null));
+          }
         }
       } else if (t.hasProfile()) { // a profiled type
         String ref;
@@ -1394,9 +1433,31 @@ public class ProfileUtilities {
     }
     if (allReference) {
       c.getPieces().add(gen.new Piece(null, ")", null));
+      if (aggs.size() > 0) {
+        c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", " {", null));
+        boolean firstA = true;
+        for (AggregationMode a : aggs) {
+          if (firstA = true)
+            firstA = false;
+          else
+            c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", ", ", null));
+          c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", codeForAggregation(a), null));
+        }
+        c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", "}", null));
+      }
     }
     return c;
   }
+
+  private String codeForAggregation(AggregationMode a) {
+    switch (a) {
+    case BUNDLED : return "b";
+    case CONTAINED : return "c";
+    case REFERENCED: return "r";
+    }
+    return "?";
+  }
+
 
   private String checkPrepend(String corePath, String path) {
     if (pkp.prependLinks())

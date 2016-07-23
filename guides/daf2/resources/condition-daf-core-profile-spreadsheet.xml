@@ -542,9 +542,6 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s122" ss:Parent="s62">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Center" ss:Indent="1"/>
-  </Style>
   <Style ss:ID="s123">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
@@ -892,6 +889,9 @@
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s167">
    <Interior/>
   </Style>
  </Styles>
@@ -5633,8 +5633,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">clinicalStatus.exists() != verificationStatus = 'entered-in-error'</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s122" ss:HRef="http://argonautwiki.hl7.org/index.php?title=Problem_Invariants"><Data
-      ss:Type="String">exists(f:clinicalStatus)=(f:verificationStatus/@value!=&quot;entered-in-error&quot;)</Data><NamedCell
+    <Cell ss:StyleID="s167"><Data ss:Type="String">exists(f:clinicalStatus)=(f:verificationStatus/@value!='entered-in-error')</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6103,7 +6102,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

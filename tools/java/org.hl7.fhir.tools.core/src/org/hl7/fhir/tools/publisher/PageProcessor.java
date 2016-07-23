@@ -5248,7 +5248,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (ap == null)
         b.append("    <td></td>\r\n");
       else
-        b.append("    <td><a href=\""+ap.getId()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
+        b.append("    <td>for <a href=\""+ap.getId()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
       b.append(" </tr>\r\n");
     }
     if (count == 0)
