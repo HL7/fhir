@@ -2384,6 +2384,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml", false);
       zip.addFileName("conceptmaps.xml", page.getFolders().dstDir + "conceptmaps.xml", false);
       zip.addFileName("dataelements.xml", page.getFolders().dstDir + "dataelements.xml", false);
+      zip.addFileName("dataelements.xml", page.getFolders().dstDir + "fhir-all-xsd.zip", false);
       zip.close();
 
       zip = new ZipGenerator(page.getFolders().dstDir + "definitions.json.zip");
@@ -5897,38 +5898,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     grp.setSource(srcs);
     grp.setTarget(tgts);
     return grp;
-  }
-
-  private void genV2MapItems(ValueSet vs, String srcCS, ConceptMap cm, Set<String> tbls, ConceptDefinitionComponent c) throws Exception {
-    if (!Utilities.noString(c.getUserString("v2"))) {
-      for (String m : c.getUserString("v2").split(",")) {
-        SourceElementComponent cc = new ConceptMap.SourceElementComponent();
-        cc.setCode(c.getCode());
-        TargetElementComponent map = new ConceptMap.TargetElementComponent();
-        cc.getTarget().add(map);
-        String[] n = m.split("\\(");
-        getGroup(cm, srcCS, "http://hl7.org/fhir/v2/" + n[0].substring(1)).getElement().add(cc);
-        if (n.length > 1)
-          map.setComments(n[1].substring(0, n[1].length() - 1));
-        n = n[0].split("\\.");
-        tbls.add(n[0].substring(1));
-        map.setCode(n[1].trim());
-        if (n[0].charAt(0) == '=')
-          map.setEquivalence(ConceptMapEquivalence.EQUAL);
-        if (n[0].charAt(0) == '~')
-          map.setEquivalence(ConceptMapEquivalence.EQUIVALENT);
-        if (n[0].charAt(0) == '>')
-          map.setEquivalence(ConceptMapEquivalence.WIDER);
-        if (n[0].charAt(0) == '<') {
-          map.setEquivalence(ConceptMapEquivalence.NARROWER);
-          if (!map.hasComments())
-            throw new Exception("Missing comments for narrower match on "+vs.getName()+"/"+c.getCode());
-        }
-      }
-    }
-    for (ConceptDefinitionComponent cc : c.getConcept()) {
-      genV2MapItems(vs, srcCS, cm, tbls, cc);
-    }
   }
 
   private void generateConceptMapV3(ValueSet vs, String filename, String src, String srcCS) throws Exception {

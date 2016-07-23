@@ -1448,7 +1448,7 @@
 
  -- Row 5 -----------------------------------
   Name = TerminologyServer
-  Identity = conformance-terminology-server
+  Identity = terminology-server
   Description = Terminology Server Base Conformance Statement
   Filename = conformance-terminology-server.xml
 

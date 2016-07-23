@@ -21,6 +21,7 @@ import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.Extension;
@@ -63,9 +64,10 @@ public class IgParser {
   private Map<String, ConstraintStructure> profileIds;
   private Map<String, CodeSystem> codeSystems;
   private BindingNameRegistry registry;
+  private Map<String, ConceptMap> maps;
 
 
-  public IgParser(Logger logger, BuildWorkerContext context, Calendar genDate, ProfileKnowledgeProvider pkp, Map<String, BindingSpecification> commonBindings, String committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, BindingNameRegistry registry) {
+  public IgParser(Logger logger, BuildWorkerContext context, Calendar genDate, ProfileKnowledgeProvider pkp, Map<String, BindingSpecification> commonBindings, String committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, BindingNameRegistry registry, Map<String, ConceptMap> maps) {
     super();
     this.logger = logger;
     this.context = context;
@@ -77,6 +79,7 @@ public class IgParser {
     this.profileIds = profileIds;
     this.codeSystems = codeSystems;
     this.registry = registry;
+    this.maps = maps;
   }
 
   public void load(String rootDir, ImplementationGuideDefn igd, List<ValidationMessage> issues, Set<String> loadedIgs) throws Exception {
@@ -227,7 +230,7 @@ public class IgParser {
           pr.setSource(fn.getAbsolutePath());
           pr.setSourceType(ConformancePackageSourceType.Spreadsheet);
           SpreadsheetParser sparser = new SpreadsheetParser(pr.getCategory(), new CSFileInputStream(pr.getSource()), Utilities.noString(pr.getId()) ? pr.getSource() : pr.getId(), igd, 
-                rootDir, logger, registry, context.getVersion(), context, genDate, false, igd.getExtensions(), pkp, false, committee, mappings, profileIds, codeSystems);
+                rootDir, logger, registry, context.getVersion(), context, genDate, false, igd.getExtensions(), pkp, false, committee, mappings, profileIds, codeSystems, maps);
           sparser.getBindings().putAll(commonBindings);
           sparser.setFolder(Utilities.getDirectoryForFile(pr.getSource()));
           sparser.parseConformancePackage(pr, null, Utilities.getDirectoryForFile(pr.getSource()), pr.getCategory(), issues);
@@ -259,7 +262,7 @@ public class IgParser {
           if (s.endsWith("-spreadsheet.xml"))
             s = s.substring(0, s.length()-16);
           String id = igd.getCode()+"-"+s;
-          SpreadsheetParser sparser = new SpreadsheetParser(igd.getCode(), new CSFileInputStream(fn), id, igd, rootDir, logger, registry, context.getVersion(), context, genDate, false, igd.getExtensions(), pkp, false, committee, mappings, profileIds, codeSystems);
+          SpreadsheetParser sparser = new SpreadsheetParser(igd.getCode(), new CSFileInputStream(fn), id, igd, rootDir, logger, registry, context.getVersion(), context, genDate, false, igd.getExtensions(), pkp, false, committee, mappings, profileIds, codeSystems, maps);
           sparser.getBindings().putAll(commonBindings);
           sparser.setFolder(Utilities.getDirectoryForFile(fn.getAbsolutePath()));
           LogicalModel lm = sparser.parseLogicalModel();

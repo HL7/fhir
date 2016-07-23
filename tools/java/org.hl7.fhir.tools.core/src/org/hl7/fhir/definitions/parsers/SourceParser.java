@@ -76,6 +76,7 @@ import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.Composition;
+import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
@@ -133,6 +134,7 @@ public class SourceParser {
   private final Set<String> igNames = new HashSet<String>();
   private boolean forPublication;
   private List<FHIRPathUsage> fpUsages;
+  
 
   public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version, BuildWorkerContext context, Calendar genDate, Map<String, StructureDefinition> extensionDefinitions, PageProcessor page, List<FHIRPathUsage> fpUsages) {
     this.logger = logger;
@@ -251,7 +253,7 @@ public class SourceParser {
     
     for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       if (!Utilities.noString(ig.getSource())) {
-        new IgParser(page, page.getWorkerContext(), page.getGenDate(), page, definitions.getCommonBindings(), ig.getCommittee(), definitions.getMapTypes(), definitions.getProfileIds(), definitions.getCodeSystems(), registry).load(rootDir, ig, issues, igNames);
+        new IgParser(page, page.getWorkerContext(), page.getGenDate(), page, definitions.getCommonBindings(), ig.getCommittee(), definitions.getMapTypes(), definitions.getProfileIds(), definitions.getCodeSystems(), registry, page.getConceptMaps()).load(rootDir, ig, issues, igNames);
         // register what needs registering
         for (ValueSet vs : ig.getValueSets()) {
           definitions.getExtraValuesets().put(vs.getId(), vs);
@@ -574,7 +576,7 @@ public class SourceParser {
     String[] v = ini.getStringProperty("profiles", n).split("\\:");
     File spreadsheet = new CSFile(rootDir+v[1]);
     if (TextFile.fileToString(spreadsheet.getAbsolutePath()).contains("urn:schemas-microsoft-com:office:spreadsheet")) {
-      SpreadsheetParser sparser = new SpreadsheetParser(n, new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, false, ini, v[0], definitions.getProfileIds(), fpUsages);
+      SpreadsheetParser sparser = new SpreadsheetParser(n, new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, false, ini, v[0], definitions.getProfileIds(), fpUsages, page.getConceptMaps());
       try {
         Profile pack = new Profile(usage);
         pack.setTitle(n);
@@ -634,7 +636,7 @@ public class SourceParser {
 
   private void loadConformancePackage(Profile ap, String committee, List<ValidationMessage> issues) throws FileNotFoundException, IOException, Exception {
     if (ap.getSourceType() == ConformancePackageSourceType.Spreadsheet) {
-      SpreadsheetParser sparser = new SpreadsheetParser(ap.getCategory(), new CSFileInputStream(ap.getSource()), Utilities.noString(ap.getId()) ? ap.getSource() : ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, false, ini, committee, definitions.getProfileIds(), fpUsages);
+      SpreadsheetParser sparser = new SpreadsheetParser(ap.getCategory(), new CSFileInputStream(ap.getSource()), Utilities.noString(ap.getId()) ? ap.getSource() : ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, false, ini, committee, definitions.getProfileIds(), fpUsages, page.getConceptMaps());
       sparser.setFolder(Utilities.getDirectoryForFile(ap.getSource()));
       sparser.parseConformancePackage(ap, definitions, Utilities.getDirectoryForFile(ap.getSource()), ap.getCategory(), issues);
     } else // if (ap.getSourceType() == ConformancePackageSourceType.Bundle) {
@@ -644,7 +646,8 @@ public class SourceParser {
   private void loadGlobalBindings() throws Exception {
     logger.log("Load Common Bindings", LogMessageType.Process);
 
-    BindingsParser parser = new BindingsParser(new CSFileInputStream(new CSFile(termDir + "bindings.xml")), termDir + "bindings.xml", srcDir, registry, version, definitions.getCodeSystems());
+    BindingsParser parser = new BindingsParser(new CSFileInputStream(new CSFile(termDir + "bindings.xml")), termDir + "bindings.xml", srcDir, registry, version, 
+        definitions.getCodeSystems(), page.getConceptMaps());
     List<BindingSpecification> cds = parser.parse();
 
     for (BindingSpecification cd : cds) {
@@ -736,7 +739,7 @@ public class SourceParser {
       TypeRef t = ts.get(0);
       File csv = new CSFile(dtDir + t.getName().toLowerCase() + ".xml");
       if (csv.exists()) {
-        SpreadsheetParser p = new SpreadsheetParser("core", new CSFileInputStream(csv), csv.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, true, ini, "fhir", definitions.getProfileIds(), fpUsages);
+        SpreadsheetParser p = new SpreadsheetParser("core", new CSFileInputStream(csv), csv.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, true, ini, "fhir", definitions.getProfileIds(), fpUsages, page.getConceptMaps());
         org.hl7.fhir.definitions.model.TypeDefn el = p.parseCompositeType();
         map.put(t.getName(), el);
         el.getAcceptableGenericTypes().addAll(ts.get(0).getParams());
@@ -797,7 +800,7 @@ public class SourceParser {
       throw new Exception("No Workgroup found for resource "+n+": '"+ini.getStringProperty("workgroups", n)+"'");
     
     SpreadsheetParser sparser = new SpreadsheetParser("core", new CSFileInputStream(
-        spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract, extensionDefinitions, page, false, ini, wg.getCode(), definitions.getProfileIds(), fpUsages);
+        spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract, extensionDefinitions, page, false, ini, wg.getCode(), definitions.getProfileIds(), fpUsages, page.getConceptMaps());
     ResourceDefn root;
     try {
       root = sparser.parseResource();

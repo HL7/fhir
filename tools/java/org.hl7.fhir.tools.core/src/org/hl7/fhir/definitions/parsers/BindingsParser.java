@@ -43,6 +43,7 @@ import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.dstu3.model.ValueSet;
@@ -65,14 +66,16 @@ public class BindingsParser {
   private BindingNameRegistry registry;
   private TabDelimitedSpreadSheet tabfmt;
   private Map<String, CodeSystem> codeSystems;
+  private Map<String, ConceptMap> maps;
 
-  public BindingsParser(InputStream file, String filename, String root, BindingNameRegistry registry, String version, Map<String, CodeSystem> codeSystems) {
+  public BindingsParser(InputStream file, String filename, String root, BindingNameRegistry registry, String version, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps) {
     this.file = file;
     this.filename = filename;
     this.root = root;
     this.registry = registry;
     this.version = version;
     this.codeSystems = codeSystems;
+    this.maps = maps;
     tabfmt = new TabDelimitedSpreadSheet();
     tabfmt.setFileName(filename, Utilities.changeFileExt(filename, ".sheet.txt"));
   }
@@ -157,7 +160,7 @@ public class BindingsParser {
         if (cs == null)
           throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' not resolved");
         tabfmt.sheet(ref.substring(1));
-        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, tabfmt, codeSystems).execute();
+        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, tabfmt, codeSystems, maps).execute(sheet.getColumn(row, "v2"), sheet.getColumn(row, "v3"));
       } else if (cd.getBinding() == BindingMethod.ValueSet) {
         if (ref.startsWith("http:")) {
           cd.setReference(sheet.getColumn(row, "Reference")); // will sort this out later

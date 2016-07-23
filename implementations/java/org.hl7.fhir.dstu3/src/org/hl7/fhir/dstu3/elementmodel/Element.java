@@ -220,11 +220,13 @@ public class Element extends Base {
   	}
   		
   	List<Base> result = new ArrayList<Base>();
+  	if (children != null) {
   	for (Element child : children) {
   		if (child.getName().equals(name))
   			result.add(child);
   		if (child.getName().startsWith(name) && child.getProperty().isChoice() && child.getProperty().getName().equals(name+"[x]"))
   			result.add(child);
+  	}
   	}
   	if (result.isEmpty() && checkValid) {
 //  		throw new FHIRException("not determined yet");
@@ -234,9 +236,11 @@ public class Element extends Base {
 
 	@Override
 	protected void listChildren(List<org.hl7.fhir.dstu3.model.Property> childProps) {
+	  if (children != null) {
 	  for (Element c : children) {
 	    childProps.add(new org.hl7.fhir.dstu3.model.Property(c.getName(), c.fhirType(), c.getProperty().getDefinition().getDefinition(), c.getProperty().getDefinition().getMin(), maxToInt(c.getProperty().getDefinition().getMax()), c));
 	  }
+  }
   }
 	
 	private int maxToInt(String max) {

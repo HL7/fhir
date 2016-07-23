@@ -157,8 +157,7 @@ private Map<String, Object> userData;
   		listChildren(children);
   		List<Base> result = new ArrayList<Base>();
   		for (Property c : children)
-  			if (name.equals("*") || c.getName().equals(name) || (c.getName().endsWith("[x]") && c.getName().startsWith(name)))
-  				result.addAll(c.getValues());
+				result.addAll(c.getValues());
   		return result.toArray(new Base[result.size()]);
   	}
   	else

@@ -172,7 +172,6 @@ public class ValidationEngine {
   }
 
 	public void processXml() throws Exception {
-    outputs = new ArrayList<ValidationMessage>();
 
     // ok all loaded
     System.out.println("  .. validate (xml)");
@@ -290,15 +289,22 @@ public class ValidationEngine {
     @Override
     public LSInput resolveResource(final String type, final String namespaceURI, final String publicId, String systemId, final String baseURI) {
       //      if (!(namespaceURI.equals("http://hl7.org/fhir"))) //|| namespaceURI.equals("http://www.w3.org/1999/xhtml")))
+      if (new File("C:\\work\\org.hl7.fhir\\build\\publish\\"+systemId).exists())
+        try {
+          return new SchemaInputSource(new FileInputStream("C:\\work\\org.hl7.fhir\\build\\publish\\"+systemId), publicId, systemId, namespaceURI);
+        } catch (FileNotFoundException e) {
+          e.printStackTrace();
+        }
       if (!files.containsKey(systemId))
         return null;
       return new SchemaInputSource(new ByteArrayInputStream(files.get(systemId)), publicId, systemId, namespaceURI);
     }
   }
 
-  private Schema readSchema() throws SAXException {
+  private Schema readSchema() throws SAXException, FileNotFoundException {
     StreamSource[] sources = new StreamSource[1];
-    sources[0] = new StreamSource(new ByteArrayInputStream(definitions.get("fhir-all.xsd")));
+//    sources[0] = new StreamSource(new ByteArrayInputStream(definitions.get("fhir-all.xsd")));
+    sources[0] = new StreamSource(new FileInputStream("C:\\work\\org.hl7.fhir\\build\\publish\\fhir-all.xsd"));
 
     SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
     schemaFactory.setErrorHandler(new ValidationErrorHandler(outputs, "xml source"));
@@ -366,6 +372,7 @@ public class ValidationEngine {
   }
 
   public void init() throws SAXException, IOException, FHIRException {
+    outputs = new ArrayList<ValidationMessage>();
 		context = SimpleWorkerContext.fromDefinitions(definitions);    
 		schema = readSchema();
   }

@@ -55,6 +55,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
+import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
@@ -593,13 +594,13 @@ public class ProfileGenerator {
 
     // first, the differential
     p.setDifferential(new StructureDefinitionDifferentialComponent());
-    defineElement(null, p, p.getDifferential().getElement(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None, true, "Element");
+    defineElement(null, p, p.getDifferential().getElement(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None, true, "Element", b);
     p.getDifferential().getElement().get(0).setIsSummaryElement(null);
     
     reset();
     // now. the snapshot
     p.setSnapshot(new StructureDefinitionSnapshotComponent());
-    defineElement(null, p, p.getSnapshot().getElement(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.DataType, true, "Element");
+    defineElement(null, p, p.getSnapshot().getElement(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.DataType, true, "Element", b);
     for (ElementDefinition ed : p.getSnapshot().getElement())
       if (!ed.hasBase())
         generateElementDefinition(ed, getParent(ed, p.getSnapshot().getElement()));
@@ -790,12 +791,12 @@ public class ProfileGenerator {
 
     // first, the differential
     p.setDifferential(new StructureDefinitionDifferentialComponent());
-    defineElement(null, p, p.getDifferential().getElement(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None, true, "BackboneElement");
+    defineElement(null, p, p.getDifferential().getElement(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None, true, "BackboneElement", r.getRoot().typeCode());
 
     reset();
     // now. the snapshot
     p.setSnapshot(new StructureDefinitionSnapshotComponent());
-    defineElement(null, p, p.getSnapshot().getElement(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.Resource, true, "BackboneElement");
+    defineElement(null, p, p.getSnapshot().getElement(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.Resource, true, "BackboneElement", r.getRoot().typeCode());
     for (ElementDefinition ed : p.getSnapshot().getElement())
       if (!ed.hasBase())
         generateElementDefinition(ed, getParent(ed, p.getSnapshot().getElement()));
@@ -890,7 +891,7 @@ public class ProfileGenerator {
     Set<String> containedSlices = new HashSet<String>();
 
     p.setDifferential(new StructureDefinitionDifferentialComponent());
-    defineElement(pack, p, p.getDifferential().getElement(), resource.getRoot(), resource.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None, true, null);
+    defineElement(pack, p, p.getDifferential().getElement(), resource.getRoot(), resource.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None, true, null, null);
     List<String> names = new ArrayList<String>();
     names.addAll(resource.getSearchParams().keySet());
     Collections.sort(names);
@@ -1068,7 +1069,7 @@ public class ProfileGenerator {
   /**
    * note: snapshot implies that we are generating a resource or a data type; for other profiles, the snapshot is generated elsewhere
    */
-  private ElementDefinition defineElement(Profile ap, StructureDefinition p, List<ElementDefinition> elements, ElementDefn e, String path, Set<String> slices, List<SliceHandle> parentSlices, SnapShotMode snapshot, boolean root, String defType) throws Exception 
+  private ElementDefinition defineElement(Profile ap, StructureDefinition p, List<ElementDefinition> elements, ElementDefn e, String path, Set<String> slices, List<SliceHandle> parentSlices, SnapShotMode snapshot, boolean root, String defType, String inheritedType) throws Exception 
   {
     boolean handleDiscriminator = true;
     if (!Utilities.noString(e.getProfileName()) && !e.getDiscriminator().isEmpty() && !slices.contains(path)) {
@@ -1111,35 +1112,14 @@ public class ProfileGenerator {
       ce.setName(e.getProfileName());
     }
 
-    if (!Utilities.noString(e.getComments()))
-      ce.setComments(e.getComments());
-    if (!Utilities.noString(e.getShortDefn()))
-      ce.setShort(e.getShortDefn());
-    if (!Utilities.noString(e.getDefinition())) {
-      ce.setDefinition(e.getDefinition());
-      if (!Utilities.noString(e.getShortDefn()))
-        ce.setShort(e.getShortDefn());
+    if (!Utilities.noString(inheritedType)) {
+      ElementDefn inh = definitions.getElementDefn(inheritedType);
+      buildDefinitionFromElement(path, ce, inh, ap, p);
     }
-    if (path.contains(".") && !Utilities.noString(e.getRequirements())) 
-      ce.setRequirements(e.getRequirements());
-    if (e.hasMustSupport())
-      ce.setMustSupport(e.isMustSupport());
-
+    buildDefinitionFromElement(path, ce, e, ap, p);
     if (!Utilities.noString(e.getStatedType()))
       ToolingExtensions.addStringExtension(ce, "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name", e.getStatedType());
 
-    if (!Utilities.noString(e.getMaxLength())) 
-      ce.setMaxLength(Integer.parseInt(e.getMaxLength())); 
-
-    // no purpose here
-    if (e.getMinCardinality() != null)
-      ce.setMin(e.getMinCardinality());
-    if (e.getMaxCardinality() != null)
-      ce.setMax(e.getMaxCardinality() == Integer.MAX_VALUE ? "*" : e.getMaxCardinality().toString());
-
-    // we don't know mustSupport here
-    if (e.hasModifier())
-      ce.setIsModifier(e.isModifier());
 
     if (!root) {
       if (e.typeCode().startsWith("@"))  {
@@ -1220,6 +1200,69 @@ public class ProfileGenerator {
         }
       }
     }
+    if (e.getW5() != null)
+      addMapping(p, ce, "http://hl7.org/fhir/w5", e.getW5(), ap);
+
+    if (e.hasBinding()) {
+      ce.setBinding(generateBinding(e.getBinding()));
+    }
+
+    if (snapshot != SnapShotMode.None && !e.getElements().isEmpty()) {    
+      //      makeExtensionSlice("extension", p, c, e, path);
+      //      if (snapshot == SnapShotMode.Resource) { 
+      //        makeExtensionSlice("modifierExtension", p, c, e, path);
+
+      //        if (!path.contains(".")) {
+      //          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResources().get("Resource").getRoot().getElementByName("language")));
+      //          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName("text")));
+      //          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName("contained")));
+      //        }
+      //      }
+    }
+    Set<String> containedSlices = new HashSet<String>();
+    if (snapshot != SnapShotMode.None) {
+      if (!root && Utilities.noString(e.typeCode())) {
+        if (snapshot == SnapShotMode.Resource)
+          defineAncestorElements("BackboneElement", path, snapshot, containedSlices, p, elements, defType);
+        else
+          defineAncestorElements("Element", path, snapshot, containedSlices, p, elements, defType);
+      } else if (root && !Utilities.noString(e.typeCode())) 
+        defineAncestorElements(e.typeCode(), path, snapshot, containedSlices, p, elements, defType);
+    }
+    for (ElementDefn child : e.getElements()) 
+      defineElement(ap, p, elements, child, path+"."+child.getName(), containedSlices, myParents, snapshot, false, defType, null);
+
+    return ce;
+  }
+
+  private void buildDefinitionFromElement(String path, ElementDefinition ce, ElementDefn e, Profile ap, StructureDefinition p) throws FHIRException {
+    if (!Utilities.noString(e.getComments()))
+      ce.setComments(e.getComments());
+    if (!Utilities.noString(e.getShortDefn()))
+      ce.setShort(e.getShortDefn());
+    if (!Utilities.noString(e.getDefinition())) {
+      ce.setDefinition(e.getDefinition());
+      if (!Utilities.noString(e.getShortDefn()))
+        ce.setShort(e.getShortDefn());
+    }
+    if (path.contains(".") && !Utilities.noString(e.getRequirements())) 
+      ce.setRequirements(e.getRequirements());
+    if (e.hasMustSupport())
+      ce.setMustSupport(e.isMustSupport());
+
+    if (!Utilities.noString(e.getMaxLength())) 
+      ce.setMaxLength(Integer.parseInt(e.getMaxLength())); 
+
+    // no purpose here
+    if (e.getMinCardinality() != null)
+      ce.setMin(e.getMinCardinality());
+    if (e.getMaxCardinality() != null)
+      ce.setMax(e.getMaxCardinality() == Integer.MAX_VALUE ? "*" : e.getMaxCardinality().toString());
+
+    // we don't know mustSupport here
+    if (e.hasModifier())
+      ce.setIsModifier(e.isModifier());
+    
     // ce.setConformance(getType(e.getConformance()));
     for (Invariant id : e.getStatedInvariants()) 
       ce.addCondition(id.getId());
@@ -1249,8 +1292,6 @@ public class ProfileGenerator {
         addMapping(p, ce, n, e.getMapping(n), ap);
       }
     }
-    if (e.getW5() != null)
-      addMapping(p, ce, "http://hl7.org/fhir/w5", e.getW5(), ap);
     ToolingExtensions.addDisplayHint(ce, e.getDisplayHint());
 
     for (String in : e.getInvariants().keySet()) {
@@ -1273,37 +1314,6 @@ public class ProfileGenerator {
       ce.getConstraint().add(con);
     }
     // we don't have anything to say about constraints on resources
-
-    if (e.hasBinding()) {
-      ce.setBinding(generateBinding(e.getBinding()));
-    }
-
-    if (snapshot != SnapShotMode.None && !e.getElements().isEmpty()) {    
-      //      makeExtensionSlice("extension", p, c, e, path);
-      //      if (snapshot == SnapShotMode.Resource) { 
-      //        makeExtensionSlice("modifierExtension", p, c, e, path);
-
-      //        if (!path.contains(".")) {
-      //          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResources().get("Resource").getRoot().getElementByName("language")));
-      //          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName("text")));
-      //          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName("contained")));
-      //        }
-      //      }
-    }
-    Set<String> containedSlices = new HashSet<String>();
-    if (snapshot != SnapShotMode.None) {
-      if (!root && Utilities.noString(e.typeCode())) {
-        if (snapshot == SnapShotMode.Resource)
-          defineAncestorElements("BackboneElement", path, snapshot, containedSlices, p, elements, defType);
-        else
-          defineAncestorElements("Element", path, snapshot, containedSlices, p, elements, defType);
-      } else if (root && !Utilities.noString(e.typeCode())) 
-        defineAncestorElements(e.typeCode(), path, snapshot, containedSlices, p, elements, defType);
-    }
-    for (ElementDefn child : e.getElements()) 
-      defineElement(ap, p, elements, child, path+"."+child.getName(), containedSlices, myParents, snapshot, false, defType);
-
-    return ce;
   }
 
   private String getIdForPath(List<ElementDefinition> list, String path) throws Exception {
@@ -1348,7 +1358,7 @@ public class ProfileGenerator {
       defineAncestorElements(e.typeCode(), path, snapshot, containedSlices, p, elements, dt);
 
     for (ElementDefn child : e.getElements()) {
-      ElementDefinition ed = defineElement(null, p, elements, child, path+"."+child.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), snapshot, false, dt);
+      ElementDefinition ed = defineElement(null, p, elements, child, path+"."+child.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), snapshot, false, dt, null);
       ed.getBase().setPath(e.getName()+"."+child.getName());
       if (child.getMinCardinality() != null)
         ed.getBase().setMin(e.getMinCardinality());
@@ -1742,7 +1752,7 @@ public class ProfileGenerator {
 
     // first, the differential
     p.setSnapshot(new StructureDefinitionSnapshotComponent());
-    defineElement(null, p, p.getSnapshot().getElement(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None, true, "Element");
+    defineElement(null, p, p.getSnapshot().getElement(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None, true, "Element", "Element");
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addText("to do");

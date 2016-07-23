@@ -146,6 +146,36 @@ import com.github.rjeschke.txtmark.Processor;
 
 public class NarrativeGenerator implements INarrativeGenerator {
 
+  public void generate(DomainResource r) throws EOperationOutcome, FHIRException, IOException {
+    if (r instanceof ConceptMap) {
+      generate((ConceptMap) r); // Maintainer = Grahame
+    } else if (r instanceof ValueSet) {
+      generate((ValueSet) r, true); // Maintainer = Grahame
+    } else if (r instanceof CodeSystem) {
+      generate((CodeSystem) r, true); // Maintainer = Grahame
+    } else if (r instanceof OperationOutcome) {
+      generate((OperationOutcome) r); // Maintainer = Grahame
+    } else if (r instanceof Conformance) {
+      generate((Conformance) r);   // Maintainer = Grahame
+    } else if (r instanceof CompartmentDefinition) {
+      generate((CompartmentDefinition) r);   // Maintainer = Grahame
+    } else if (r instanceof OperationDefinition) {
+      generate((OperationDefinition) r);   // Maintainer = Grahame
+    } else {
+      StructureDefinition p = null;
+      if (r.hasMeta())
+        for (UriType pu : r.getMeta().getProfile())
+          if (p == null)
+            p = context.fetchResource(StructureDefinition.class, pu.getValue());
+      if (p == null)
+        p = context.fetchResource(StructureDefinition.class, r.getResourceType().toString());
+      if (p == null)
+        p = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+r.getResourceType().toString().toLowerCase());
+      if (p != null)
+        generateByProfile(r, p, true);
+    }
+  }
+
   private interface PropertyWrapper {
     public String getName();
     public boolean hasValues();
@@ -745,36 +775,6 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return this;
   }
 
-
-  public void generate(DomainResource r) throws EOperationOutcome, FHIRException, IOException {
-    if (r instanceof ConceptMap) {
-      generate((ConceptMap) r); // Maintainer = Grahame
-    } else if (r instanceof ValueSet) {
-      generate((ValueSet) r, true); // Maintainer = Grahame
-    } else if (r instanceof CodeSystem) {
-      generate((CodeSystem) r, true); // Maintainer = Grahame
-    } else if (r instanceof OperationOutcome) {
-      generate((OperationOutcome) r); // Maintainer = Grahame
-    } else if (r instanceof Conformance) {
-      generate((Conformance) r);   // Maintainer = Grahame
-    } else if (r instanceof CompartmentDefinition) {
-      generate((CompartmentDefinition) r);   // Maintainer = Grahame
-    } else if (r instanceof OperationDefinition) {
-      generate((OperationDefinition) r);   // Maintainer = Grahame
-    } else {
-      StructureDefinition p = null;
-      if (r.hasMeta())
-        for (UriType pu : r.getMeta().getProfile())
-          if (p == null)
-            p = context.fetchResource(StructureDefinition.class, pu.getValue());
-      if (p == null)
-        p = context.fetchResource(StructureDefinition.class, r.getResourceType().toString());
-      if (p == null)
-        p = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+r.getResourceType().toString().toLowerCase());
-      if (p != null)
-        generateByProfile(r, p, true);
-    }
-  }
 
   // dom based version, for build program
   public String generate(Element doc) throws IOException, org.hl7.fhir.exceptions.FHIRException {
@@ -1992,9 +1992,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
             }
           }
           if (!ccm.hasEquivalence())
-            tr.addTag("td").addText(ConceptMapEquivalence.EQUIVALENT.toString());
+            tr.addTag("td").addText(":"+"("+ConceptMapEquivalence.EQUIVALENT.toCode()+")");
           else
-            tr.addTag("td").addText(ccm.getEquivalence().toString());
+            tr.addTag("td").addText(":"+ccm.getEquivalence().toCode());
           td = tr.addTag("td");
           if (targets.get("code").size() == 1)
             td.addText(ccm.getCode());
@@ -2175,13 +2175,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private boolean generateDefinition(XhtmlNode x, CodeSystem cs, boolean header) throws FHIRFormatError, DefinitionException, IOException {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
-    for (ConceptMap a : context.findMapsForSource(cs.getValueSet())) {
-      String url = "";
-      ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) a.getTarget()).getReference());
-      if (vsr != null)
-        url = (String) vsr.getUserData("filename");
-      mymaps.put(a, url);
-    }
+//    for (ConceptMap a : context.findMapsForSource(cs.getValueSet())) {
+//      String url = "";
+//      ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) a.getTarget()).getReference());
+//      if (vsr != null)
+//        url = (String) vsr.getUserData("filename");
+//      mymaps.put(a, url);
+//    }
     // also, look in the contained resources for a concept map
     for (Resource r : cs.getContained()) {
       if (r instanceof ConceptMap) {
@@ -2322,13 +2322,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
     List<String> langs = new ArrayList<String>();
     
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
-    for (ConceptMap a : context.findMapsForSource(vs.getUrl())) {
-      String url = "";
-      ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) a.getTarget()).getReference());
-      if (vsr != null)
-        url = (String) vsr.getUserData("filename");
-      mymaps.put(a, url);
-    }
+//    for (ConceptMap a : context.findMapsForSource(vs.getUrl())) {
+//      String url = "";
+//      ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) a.getTarget()).getReference());
+//      if (vsr != null)
+//        url = (String) vsr.getUserData("filename");
+//      mymaps.put(a, url);
+//    }
 
     if (header) {
       XhtmlNode h = x.addTag("h3");

@@ -77,6 +77,7 @@ import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
+import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.DateType;
@@ -162,8 +163,9 @@ public class SpreadsheetParser {
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
   private List<FHIRPathUsage> fpUsages;
   private Map<String, CodeSystem> codeSystems;
+  private Map<String, ConceptMap> maps;
 
-	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, String committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages) throws Exception {
+	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, String committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, Map<String, ConceptMap> maps) throws Exception {
 	  this.usageContext = usageContext;
 		this.name = name;
   	xls = new XLSXmlParser(in, name);	
@@ -193,9 +195,10 @@ public class SpreadsheetParser {
 		tabfmt.setFileName(((CSFileInputStream) in).getPath(), Utilities.changeFileExt(((CSFileInputStream) in).getPath(), ".sheet.txt"));
 		this.profileIds = profileIds;
 		this.codeSystems = definitions.getCodeSystems();
+		this.maps = maps;
 	}
 
-  public SpreadsheetParser(String usageContext, InputStream in, String name, ImplementationGuideDefn ig, String root, Logger log, BindingNameRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems) throws Exception {
+  public SpreadsheetParser(String usageContext, InputStream in, String name, ImplementationGuideDefn ig, String root, Logger log, BindingNameRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps) throws Exception {
     this.usageContext = usageContext;
     this.name = name;
     this.registry = registry;
@@ -225,6 +228,7 @@ public class SpreadsheetParser {
     tabfmt.setFileName(((CSFileInputStream) in).getPath(), Utilities.changeFileExt(((CSFileInputStream) in).getPath(), ".sheet.txt"));
     this.profileIds = profileIds;
     this.codeSystems = codeSystems;
+    this.maps = maps;
   }
 
 
@@ -1112,7 +1116,7 @@ public class SpreadsheetParser {
           throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' not resolved");
         tabfmt.sheet(ref.substring(1));
         vsGen.updateHeader(cd, cd.getValueSet());
-        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, tabfmt, codeSystems).execute();
+        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, tabfmt, codeSystems, maps).execute(sheet.getColumn(row, "v2"), checkV3Mapping(sheet.getColumn(row, "v3")));
       } else if (cd.getBinding() == BindingMethod.ValueSet) {
         if (ref.startsWith("http:"))
           cd.setReference(sheet.getColumn(row, "Reference")); // will sort this out later
