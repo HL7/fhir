@@ -5224,31 +5224,31 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String produceExtensions(ResourceDefn resource) {
     int count = 0;
-    Map<String, CSPair> map = new HashMap<String, CSPair>();
-    for (Profile ap: resource.getConformancePackages()) {
-      for (ConstraintStructure cs : ap.getProfiles()) {
-        if (isExtension(cs, resource.getName()))
-          map.put(cs.getTitle(), new CSPair(ap, cs));
-      }
-    }
-    for (Profile ap: definitions.getPackList()) {
-      for (ConstraintStructure cs : ap.getProfiles()) {
-        if (isExtension(cs, resource.getName()))
-          map.put(cs.getTitle(), new CSPair(ap, cs));
+    Map<String, StructureDefinition> map = new HashMap<String, StructureDefinition>();
+    for (StructureDefinition sd : workerContext.getExtensionDefinitions().values()) {
+      if (sd.getContextType() == ExtensionContext.RESOURCE) {
+        boolean inc = false;
+        for (StringType s : sd.getContext()) {
+          inc = inc || (s.getValue().equals(resource.getName()) || s.getValue().startsWith(resource.getName()+"."));
+        }
+        if (inc)
+          map.put(sd.getId(), sd);
       }
     }
     
     StringBuilder b = new StringBuilder();
     for (String s : sorted(map.keySet())) {
-      CSPair cs = map.get(s);
-      ImplementationGuideDefn ig = definitions.getIgs().get(cs.p.getCategory());
+      StructureDefinition cs = map.get(s);
       count++;
       b.append("  <tr>\r\n");
-      String ref = (ig.isCore() ? "" : ig.getCode()+File.separator)+cs.cs.getId()+".html";
-      b.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.cs.getTitle())).append("</a></td>\r\n");
-      b.append("    <td>").append(Utilities.escapeXml(cs.p.getDescription())).append("</td>\r\n");
-      ref = (ig.isCore() ? "" : ig.getCode()+File.separator)+cs.p.getId().toLowerCase()+".html";
-      b.append("    <td>for <a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.p.getTitle())).append("</a></td>\r\n");
+      String ref = cs.getUserString("path");
+      b.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.getId())).append("</a></td>\r\n");
+      b.append("    <td>").append(Utilities.escapeXml(cs.getName())).append("</td>\r\n");
+      Profile ap = (Profile) cs.getUserData("profile");
+      if (ap == null)
+        b.append("    <td></td>\r\n");
+      else
+        b.append("    <td><a href=\""+ap.getId()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
       b.append(" </tr>\r\n");
     }
     if (count == 0)
