@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Conformance xmlns="http://hl7.org/fhir">
-  <id value="conformance-daf-query-responder-core"/>
+  <id value="conformance-daf-core-query-responder"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
-      <h2>DAF Responder</h2>
+      <h2>DAF Core Responder</h2>
       
       <p>(Requirements Definition)</p>
       
-      <p>Published: 2016-03-28</p>
+      <p>Published: 2016-08-01 (draft)</p>
       
       <p>Published by: 
         <b>
@@ -36,7 +36,7 @@
             
             <th>FHIR Version:</th>
             
-            <td>DSTU2</td>
+            <td>STU3</td>
           
           </tr>
           
