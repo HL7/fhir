@@ -69,6 +69,7 @@ import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
 import org.hl7.fhir.definitions.generators.specification.JsonSpecGenerator;
 import org.hl7.fhir.definitions.generators.specification.MappingsGenerator;
+import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
 import org.hl7.fhir.definitions.generators.specification.ResourceTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerator;
@@ -143,6 +144,7 @@ import org.hl7.fhir.dstu3.model.SearchParameter;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
@@ -797,9 +799,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("vsdesc"))
         src = s1 + (resource != null ? new XhtmlComposer().compose(((ValueSet) resource).getText().getDiv()) :  generateVSDesc(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txusage"))
-        src = s1 + generateBSUsage((ValueSet) resource, genlevel(level)) + s3;
+        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(level)) + s3;
       else if (com[0].equals("vsusage"))
-        src = s1 + generateBSUsage((ValueSet) resource, genlevel(level)) + s3;
+        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(level)) + s3;
       else if (com[0].equals("csusage"))
         src = s1 + generateCSUsage((CodeSystem) resource, genlevel(level)) + s3;
       else if (com[0].equals("vssummary"))
@@ -931,6 +933,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genCompModel(((ProfileComparison) object).getSuperset(), "union", file.substring(0, file.indexOf(".")), genlevel(level))+s3;
       else if (com[0].equals("identifierlist"))
         src = s1 + genIdentifierList()+s3;
+      else if (com[0].equals("allsearchparams"))
+        src = s1 + genAllSearchParams()+s3;
       else if (com[0].equals("internalsystemlist"))
         src = s1 + genCSList()+s3;
       else if (com[0].equals("example-usage"))
@@ -2391,8 +2395,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "<p>\r\nThis Code system is used in the following value sets:\r\n</p>\r\n<ul>\r\n"+b.toString()+"</ul>\r\n";
   }
   
-  private String generateBSUsage(ValueSet vs, String prefix) throws Exception {        
+  private String generateValueSetUsage(ValueSet vs, String prefix) throws Exception {        
     StringBuilder b = new StringBuilder();
+    if (vs.hasUrl()) {
+      for (CodeSystem cs : getCodeSystems().values()) {
+        if (cs != null) {
+          if (vs.getUrl().equals(cs.getValueSet())) {
+            b.append(" <li>This value set is the designated 'entire code system' value set for <a href=\"").append(prefix+cs.getUserString("path")).append("\">").append(cs.getName()).append("</a> ").append("</li>\r\n");
+          }
+        }
+      }
+    }
+    
+    for (ConceptMap cm : getConceptMaps().values()) {
+      if (cm.hasSourceUriType() && cm.getSourceUriType().equals(vs.getUrl())) {
+        b.append(" <li>This value set has translations in the ConceptMap <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
+      }
+    }
     for (ResourceDefn r : definitions.getBaseResources().values()) {
       scanForUsage(b, vs, r.getRoot(), r.getName().toLowerCase()+".html#def", prefix);
       scanForOperationUsage(b, vs, r, r.getName().toLowerCase()+"-operations.html#", prefix);
@@ -3182,7 +3201,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (!isAbstract)
       b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
     if (!isAbstract)
-      b.append(makeHeaderTab("Profiles", n+"-profiles.html", "profiles".equals(mode)));
+      b.append(makeHeaderTab("Profiles &amp; Extensions", n+"-profiles.html", "profiles".equals(mode)));
 //    if (!isAbstract)
 //      b.append(makeHeaderTab("HTML Form", n+"-questionnaire.html", "questionnaire".equals(mode)));
     if (hasOps)
@@ -3829,9 +3848,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         else
           src = s1 + Utilities.escapeXml(((ValueSet) resource).getDescription()) + s3;
       else if (com[0].equals("txusage"))
-        src = s1 + generateBSUsage((ValueSet) resource, genlevel(0)) + s3;
+        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(0)) + s3;
       else if (com[0].equals("vsusage"))
-        src = s1 + generateBSUsage((ValueSet) resource, genlevel(0)) + s3;
+        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(0)) + s3;
       else if (com[0].equals("csusage"))
         src = s1 + generateCSUsage((CodeSystem) resource, genlevel(0)) + s3;
       else if (com[0].equals("vssummary"))
@@ -4286,9 +4305,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("vsdesc"))
         src = s1 + (resource != null ? Utilities.escapeXml(((ValueSet) resource).getDescription()) :  generateVSDesc(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txusage"))
-        src = s1 + generateBSUsage((ValueSet) resource, genlevel(level)) + s3;
+        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(level)) + s3;
       else if (com[0].equals("vsusage"))
-        src = s1 + generateBSUsage((ValueSet) resource, genlevel(level)) + s3;
+        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(level)) + s3;
       else if (com[0].equals("csusage"))
         src = s1 + generateCSUsage((CodeSystem) resource, genlevel(level)) + s3;
       else if (com[0].equals("v2Index"))
@@ -4362,6 +4381,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + s3;
       else if (com[0].equals("identifierlist"))
         src = s1 + genIdentifierList()+s3;
+      else if (com[0].equals("allsearchparams"))
+        src = s1 + genAllSearchParams()+s3;
       else if (com[0].equals("internalsystemlist"))
         src = s1 + genCSList()+s3;
       else if (com[0].equals("ig.title"))
@@ -4606,8 +4627,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+loadXmlNotes(name, "notes", false, null, resource, tabs, null)+s3;
       else if (com[0].equals("examples")) 
         src = s1+produceExamples(resource)+s3;
-      else if (com[0].equals("profiles")) 
+      else if (com[0].equals("profilelist")) 
         src = s1+produceProfiles(resource)+s3;
+      else if (com[0].equals("extensionlist")) 
+        src = s1+produceExtensions(resource)+s3;
       else if (com[0].equals("wg")) 
         src = s1+(resource.getWg() == null ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+resource.getWg().getUrl()+"\">"+resource.getWg().getName()+"</a> Work Group")+s3;
       else if (com[0].equals("fmm")) 
@@ -5155,30 +5178,100 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return s.toString();
   }
 
+  private class CSPair {
+    Profile p;
+    ConstraintStructure cs;
+    public CSPair(Profile p, ConstraintStructure cs) {
+      super();
+      this.p = p;
+      this.cs = cs;
+    }
+  }
+
   private String produceProfiles(ResourceDefn resource) {
-    StringBuilder s = new StringBuilder();
     int count = 0;
-    for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
-      boolean started = false;
-      for (Profile ap: resource.getConformancePackages()) {
-        if (ig.getCode().equals(ap.getCategory())) {
-          produceProfileLine(s, ig, started, ap);
-          started = true;
-          count++;
-        }
-      }
-      for (Profile ap: definitions.getPackList()) {
-        if (ig.getCode().equals(ap.getCategory()) && ap.coversResource(resource)) {
-          produceProfileLine(s, ig, started, ap);
-          started = true;
-          count++;
-        }
+    Map<String, CSPair> map = new HashMap<String, CSPair>();
+    for (Profile ap: resource.getConformancePackages()) {
+      for (ConstraintStructure cs : ap.getProfiles()) {
+        if (coversResource(cs, resource.getName()))
+          map.put(cs.getTitle(), new CSPair(ap, cs));
       }
     }
+    for (Profile ap: definitions.getPackList()) {
+      for (ConstraintStructure cs : ap.getProfiles()) {
+        if (coversResource(cs, resource.getName()))
+          map.put(cs.getTitle(), new CSPair(ap, cs));
+      }
+    }
+    
+    StringBuilder b = new StringBuilder();
+    for (String s : sorted(map.keySet())) {
+      CSPair cs = map.get(s);
+      ImplementationGuideDefn ig = definitions.getIgs().get(cs.p.getCategory());
+      count++;
+      b.append("  <tr>\r\n");
+      String ref = (ig.isCore() ? "" : ig.getCode()+File.separator)+cs.cs.getId()+".html";
+      b.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.cs.getTitle())).append("</a></td>\r\n");
+      b.append("    <td>").append(Utilities.escapeXml(cs.p.getDescription())).append("</td>\r\n");
+      ref = (ig.isCore() ? "" : ig.getCode()+File.separator)+cs.p.getId().toLowerCase()+".html";
+      b.append("    <td>for <a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.p.getTitle())).append("</a></td>\r\n");
+      b.append(" </tr>\r\n");
+    }
     if (count == 0)
-      s.append("<tr><td colspan=\"2\">No Profiles defined for this resource</td></tr>");
-    return s.toString();
+      b.append("<tr><td>No Profiles defined for this resource</td></tr>");
+    return b.toString();
   }
+
+  private String produceExtensions(ResourceDefn resource) {
+    int count = 0;
+    Map<String, CSPair> map = new HashMap<String, CSPair>();
+    for (Profile ap: resource.getConformancePackages()) {
+      for (ConstraintStructure cs : ap.getProfiles()) {
+        if (isExtension(cs, resource.getName()))
+          map.put(cs.getTitle(), new CSPair(ap, cs));
+      }
+    }
+    for (Profile ap: definitions.getPackList()) {
+      for (ConstraintStructure cs : ap.getProfiles()) {
+        if (isExtension(cs, resource.getName()))
+          map.put(cs.getTitle(), new CSPair(ap, cs));
+      }
+    }
+    
+    StringBuilder b = new StringBuilder();
+    for (String s : sorted(map.keySet())) {
+      CSPair cs = map.get(s);
+      ImplementationGuideDefn ig = definitions.getIgs().get(cs.p.getCategory());
+      count++;
+      b.append("  <tr>\r\n");
+      String ref = (ig.isCore() ? "" : ig.getCode()+File.separator)+cs.cs.getId()+".html";
+      b.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.cs.getTitle())).append("</a></td>\r\n");
+      b.append("    <td>").append(Utilities.escapeXml(cs.p.getDescription())).append("</td>\r\n");
+      ref = (ig.isCore() ? "" : ig.getCode()+File.separator)+cs.p.getId().toLowerCase()+".html";
+      b.append("    <td>for <a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.p.getTitle())).append("</a></td>\r\n");
+      b.append(" </tr>\r\n");
+    }
+    if (count == 0)
+      b.append("<tr><td>No Extensions defined for this resource</td></tr>");
+    
+    return b.toString();
+  }
+
+  private boolean isExtension(ConstraintStructure item, String name) {
+    if (item.getDefn() != null && item.getDefn().getName().equals("Extension"))
+      return true;
+    if (item.getDefn() == null && item.getResource() != null && item.getResource().getType().equals("Extension"))
+      return true;
+    return false;
+  }
+
+  private boolean coversResource(ConstraintStructure item, String rn) {
+    if (item.getDefn() != null && item.getDefn().getName().equals(rn))
+      return true;
+    if (item.getDefn() == null && item.getResource() != null && item.getResource().getType().equals(rn))
+      return true;
+    return false;
+}
 
   private void produceProfileLine(StringBuilder s, ImplementationGuideDefn ig, boolean started, Profile ap) {
     if (!started) 
@@ -7467,5 +7560,52 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     throw new Exception("unhandled default value");
   }
 
+  private String genAllSearchParams() {
+    List<SearchParameter> splist = new ArrayList<SearchParameter>();
+    
+    for (ResourceDefn rd : getDefinitions().getBaseResources().values())
+      addSearchParams(splist, rd);
+    for (ResourceDefn rd : getDefinitions().getResources().values())
+      addSearchParams(splist, rd);
+    for (Profile cp : getDefinitions().getPackList()) {
+      addSearchParams(splist, cp);
+    }
+    StringBuilder b = new StringBuilder();
+    genSearchParams(b, splist, "Resource");
+    genSearchParams(b, splist, "DomainResource");
+    for (String n : definitions.sortedResourceNames())
+      genSearchParams(b, splist, n);
+    return b.toString();
+  }
   
+  private void genSearchParams(StringBuilder b, List<SearchParameter> splist, String base) {
+    List<SearchParameter> list = new ArrayList<SearchParameter>();
+    for (SearchParameter sp : splist) {
+      if (sp.getBase().equals(base)) {
+        list.add(sp);
+      }
+    }
+    if (list.size() > 0) {
+      b.append("<tr><td colspan=\"4\" style=\"background-color: #dddddd\"><b><a href=\""+base.toLowerCase()+".html\">"+base+"</a></b></td></tr>\r\n");
+      for (SearchParameter sp : list) {
+        b.append("<tr><td>"+sp.getCode()+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+Utilities.escapeXml(sp.getDescription())+"</td><td>"+Utilities.escapeXml(sp.getExpression())+"</td></tr>\r\n");
+      }
+    }
+  }
+
+  private void addSearchParams(List<SearchParameter> splist, ResourceDefn rd) {
+    if (rd.getConformancePack() == null) {
+      for (SearchParameterDefn spd : rd.getSearchParams().values()) {
+        splist.add(spd.getResource());
+      }
+    } else
+      addSearchParams(splist, rd.getConformancePack());
+  }
+
+  private void addSearchParams(List<SearchParameter> splist, Profile conformancePack) {
+    for (SearchParameter sp : conformancePack.getSearchParameters()) {
+      splist.add(sp);
+    }
+  }
+
 }
