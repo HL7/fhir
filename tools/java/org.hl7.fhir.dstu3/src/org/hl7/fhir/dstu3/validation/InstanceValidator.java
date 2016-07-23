@@ -2354,6 +2354,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           msg = ex.getMessage(); 
         }
         if (!ok) {
+          ok = fpe.evaluateToBoolean(resource, element, n);
           if (inv.getSeverity() == ConstraintSeverity.ERROR)
             rule(errors, IssueType.INVARIANT, element.line(), element.col(), path, ok, inv.getHuman()+" ("+msg+") ["+inv.getExpression()+"]");
           else if (inv.getSeverity() == ConstraintSeverity.WARNING)

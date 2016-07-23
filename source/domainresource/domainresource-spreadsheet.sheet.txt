@@ -22,7 +22,7 @@
   Context = DomainResource
   English = If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource
   XPath = not(exists(for $id in f:contained/*/@id return $id[not(ancestor::f:contained/parent::*/descendant::f:reference/@value=concat(\'#\', $id))]))
-  Expression = contained.select((\'#\'+id in %resource.descendents().reference).not()).empty()
+  Expression = contained.where((\'#\'+id in %resource.descendents().reference).not()).empty()
 
  -- Row 4 -----------------------------------
   Id = 4
@@ -81,3 +81,16 @@
   Definition = May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions
   Comments = There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone
   RIM Mapping = N/A
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = _text
+  Type = string
+  Description = Search on the narrative of the resource
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================
