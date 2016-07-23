@@ -80,27 +80,6 @@
 		</ValueSet>
 	</contained>
 	<contained>
-		<CodeSystem>
-			<id value="2179414-permitted-cs"/>
-      <url value="http://example.org/fhir/2179414"/>
-			<status value="active"/>
-      <caseSensitive value="true"/>
-      <content value="complete"/>
-      <concept>
-        <code value="0"/>
-      </concept>
-      <concept>
-        <code value="1"/>
-      </concept>
-      <concept>
-        <code value="2"/>
-      </concept>
-      <concept>
-        <code value="3"/>
-      </concept>
-		</CodeSystem>
-	</contained>
-	<contained>
 		<ValueSet>
 			<!--                <definition value="Not specified"/>    -->
 			<id value="2179414-permitted"/>
