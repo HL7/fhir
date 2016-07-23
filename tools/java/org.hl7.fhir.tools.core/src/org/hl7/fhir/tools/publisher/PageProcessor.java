@@ -4730,7 +4730,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         names.add(comp.getName());
     }
     StringBuilder b = new StringBuilder();
-    b.append("<a href=\"compartments.html\">Compartments</a>: ");
+    b.append("<a href=\"compartmentdefinition.html\">Compartments</a>: ");
     if (names.isEmpty())
       b.append("Not linked to any defined compartments");
     else {
@@ -7461,7 +7461,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       }
     }
     for (Compartment t : definitions.getCompartments()) {
-      definitions.addNs(t.getUri(), t.getName(), "compartments.html#"+t.getName());      
+      definitions.addNs(t.getUri(), t.getName(), "compartmentdefinition.html#"+t.getName());      
     }
     
     List<String> list = new ArrayList<String>();
