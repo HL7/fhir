@@ -19,7 +19,6 @@
 					<code value="306206005"/>
 				</coding>
 			</code>
-			<!-- Null reference exception due to no primitive value, fix pending...
 			<timingTiming>
 				<event>
 					<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-cqlExpression">
@@ -27,7 +26,6 @@
 					</extension>
 				</event>
 			</timingTiming>
-            -->
 			<participantType value="practitioner"/>
 		</ActivityDefinition>
 	</contained>
@@ -71,6 +69,38 @@
 				</quantity>
 			</dispenseRequest>
 			-->
+			<dynamicValue>
+				<path value="dosageInstruction.text"/>
+				<expression value="'1 tablet oral 1 time daily'"/>
+			</dynamicValue>
+			<dynamicValue>
+				<path value="dosageInstruction.timing.repeat.frequency"/>
+				<expression value="1"/>
+			</dynamicValue>
+			<dynamicValue>
+				<path value="dosageInstruction.timing.repeat.period"/>
+				<expression value="1"/>
+			</dynamicValue>
+			<dynamicValue>
+				<path value="dosageInstruction.timing.repeat.periodUnit"/>
+				<expression value="'d'"/>
+			</dynamicValue>
+			<dynamicValue>
+				<path value="dosageInstruction.route.coding"/>
+				<expression value="code '26643006' from &quot;http://snomed.info/sct&quot; display 'Oral route (qualifier value)'"/>
+			</dynamicValue>
+			<dynamicValue>
+				<path value="dosageInstruction.doseQuantity"/>
+				<expression value="1 '{tbl}'"/>
+			</dynamicValue>
+			<dynamicValue>
+				<path value="dispenseRequest.numberOfRepeatsAllowed"/>
+				<expression value="3"/>
+			</dynamicValue>
+			<dynamicValue>
+				<path value="dispenseRequest.quantity"/>
+				<expression value="30 '{tbl}'"/>
+			</dynamicValue>
 		</ActivityDefinition>
 	</contained>
 	<contained>

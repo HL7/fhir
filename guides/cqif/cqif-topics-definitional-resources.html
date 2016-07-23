@@ -10,9 +10,76 @@
 
 <div class="col-9">
 
-<a name="overview"/>
-<h3>Overview</h3>
-<p>Lorem ipsom dolor</p>
+<a name="definitional-resources"/>
+<h3>Definitional Resources</h3>
+<p>Part of defining knowledge artifacts such as order sets, protocols, and decision support rules is describing in a patient- or context-independent way the activities to be performed. For example, when defining an order set, the orderable items must be described with enough detail to enable the creation of the items when the order set is applied. These descriptions can be thought of as <i>templates</i> for the creation of patient- or context-specific resources and are often referred to as <i>definitional</i> resources, to distinguish them from <i>intent</i> resources (that signal an intention to take some action for a specific patient), as well as <i>event</i> resources (that signal that some action has actually been taken for a patient).</p>
+
+<p>In the most general case, these definitional resources only need to describe the most basic aspects of the activitiy to be performed, such as:</p>
+
+<ul>
+	<li>Who - Which person should perform the activity, often specified as a participant role such as a provider specialty.</li>
+	<li>What - What type of activity should be performed, often specified simply as a category or a concept.</li>
+	<li>When - When the activity should be performed, often specified relative to the time the plan is applied.</li>
+	<li>Where - Where the activity should take place, often specified as a facility role.</li>
+</ul>
+
+<p>However, this level of conceptual description often does not carry enough information to enable computable description of activities. For example, medication activities will often involve specific substance and dosage information that must be captured as part of the definition. And further, it is often the case that the values for the elements of resources to be created cannot be specified exactly as part of the definition, but be specified using a formula that allows for the calculation to be based on patient- or context-specific information.</p>
+
+<p>The ActivityDefinition resource supports the description of definitional resources within FHIR:</p>
+
+<table class="grid">
+	<tbody>
+		<tr><td>Who</td><td>participantType</td><td>Specifies the type of participant that should perform the activity.</td></tr>
+		<tr><td>What</td><td>category and code</td><td>Specifies the type of activity to be performed.</td></tr>
+		<tr><td>When</td><td>timing</td><td>Specifies when the activity should occur.</td></tr>
+		<tr><td>Where</td><td>location</td><td>Specifies where the activity should occur.</td></tr>
+	</tbody>
+</table>
+
+<p>For example, the following fragment illustrates a definition to create a referral request:</p>
+
+<pre><code>&lt;ActivityDefinition&gt;
+  &lt;description value=&quot;refer to primary care mental-health integrated care program for evaluation and treatment
+   of mental health conditions now&quot;/&gt;
+  &lt;category value=&quot;referral&quot;/&gt;
+  &lt;code&gt;
+    &lt;coding&gt;
+      &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+      &lt;code value=&quot;306206005&quot;/&gt;
+    &lt;/coding&gt;
+  &lt;/code&gt;
+  &lt;timingTiming&gt;
+    &lt;event&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqif-basic-cqlExpression&quot;&gt;
+        &lt;valueString value=&quot;Now()&quot;/&gt;
+      &lt;/extension&gt;
+    &lt;/event&gt;
+  &lt;/timingTiming&gt;
+  &lt;participantType value=&quot;practitioner&quot;/&gt;
+&lt;/ActivityDefinition&gt;
+</code></pre>
+
+<p>Note the use of an expression to represent the value of the timing element as <code>Now()</code>.</p>
+
+<p>For medication activities, the ActivityDefinition resource has some basic elements such as the <i>product</i> and <i>quantity</i>, but there is not enough information to describe more complex dosing scenarios. In those cases, the <i>dynamicValue</i> expression elements can be used to describe the values for elements that are present on the target resource, but not in the definitional resource. For example:</p>
+
+<pre><code>&lt;ActivityDefinition&gt;
+	&lt;id value=&quot;citalopramPrescription&quot;/&gt;
+	&lt;status value=&quot;draft&quot;/&gt;
+	&lt;category value=&quot;drug&quot;/&gt;
+	&lt;productReference&gt;
+		&lt;reference value=&quot;#citalopramMedication&quot;/&gt;
+	&lt;/productReference&gt;
+	&lt;dynamicValue&gt;
+		&lt;path value=&quot;dispenseRequest.numberOfRepeatsAllowed&quot;/&gt;
+		&lt;expression value=&quot;3&quot;/&gt;
+	&lt;/dynamicValue&gt;
+	&lt;dynamicValue&gt;
+		&lt;path value=&quot;dispenseRequest.quantity&quot;/&gt;
+		&lt;expression value=&quot;30 &apos;{tbl}&apos;&quot;/&gt;
+	&lt;/dynamicValue&gt;
+&lt;/ActivityDefinition&gt;
+</code></pre>
 
 </div>
 [%file newfooter%]
