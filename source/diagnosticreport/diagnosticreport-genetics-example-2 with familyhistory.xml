@@ -50,7 +50,7 @@
   
   <extension url="http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsFamilyMemberHistory">
       <valueReference>
-          <reference value="#dg1"/>
+          <reference value="#f1-genetics"/>
       </valueReference>
   </extension>
   

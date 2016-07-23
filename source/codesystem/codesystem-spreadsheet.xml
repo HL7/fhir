@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16284</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>10524</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4661,7 +4661,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">CodeSystem</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Within a code system definition, all the codes SHALL be unique</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">descendents().code.isDistinct()</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">(concept.code | descendents().concept.code).isDistinct()</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">count(distinct-values(descendant::f:concept/f:code/@value))=count(descendant::f:concept)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5029,6 +5029,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5048,8 +5049,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6149,7 +6149,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

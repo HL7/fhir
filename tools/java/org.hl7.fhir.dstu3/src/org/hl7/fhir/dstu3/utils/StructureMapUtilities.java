@@ -86,7 +86,7 @@ public class StructureMapUtilities {
 	}
 
 	private IWorkerContext worker;
-	private FHIRPathEngine fpe;
+	private FluentPathEngine fpe;
 	private Map<String, StructureMap> library;
 	private ITransformerServices services;
 
@@ -95,7 +95,7 @@ public class StructureMapUtilities {
 		this.worker = worker;
 		this.library = library;
 		this.services = services;
-		fpe = new FHIRPathEngine(worker);
+		fpe = new FluentPathEngine(worker);
 	}
 
 

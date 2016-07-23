@@ -1032,6 +1032,11 @@
   </subject>
   <entry>
     <item>
+      <reference value="#image"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
       <reference value="#2"/>
     </item>
   </entry>

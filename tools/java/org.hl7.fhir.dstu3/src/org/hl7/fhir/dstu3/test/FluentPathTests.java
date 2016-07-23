@@ -34,7 +34,8 @@ import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.CarePlan;
-import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
+import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.utils.FluentPathEngine;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.junit.Test;
@@ -50,6 +51,7 @@ public class FluentPathTests {
   static private Questionnaire questionnaire;
   static private Parameters parameters;
   static private CarePlan careplan;
+  static private CodeSystem codesystem;
 
   private Patient patient() throws FHIRFormatError, FileNotFoundException, IOException {
     if (patient == null)
@@ -93,15 +95,25 @@ public class FluentPathTests {
     return careplan;
   }
 
+  private CodeSystem codesystem() throws FHIRFormatError, FileNotFoundException, IOException {
+    if (codesystem == null)
+      codesystem = (CodeSystem) new XmlParser().parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/codesystem-example.xml"));
+    return codesystem;
+  }
+
   private org.hl7.fhir.dstu3.elementmodel.Element careplanE() throws FHIRFormatError, FileNotFoundException, IOException, DefinitionException, org.hl7.fhir.exceptions.FHIRException {
     return new org.hl7.fhir.dstu3.elementmodel.XmlParser(TestingUtilities.context).parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/careplan-example.xml"));
+  }
+
+  private org.hl7.fhir.dstu3.elementmodel.Element codesystemE() throws FHIRFormatError, FileNotFoundException, IOException, DefinitionException, org.hl7.fhir.exceptions.FHIRException {
+    return new org.hl7.fhir.dstu3.elementmodel.XmlParser(TestingUtilities.context).parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/codesystem-example.xml"));
   }
 
   @SuppressWarnings("deprecation")
   private void test(Resource resource, String expression, int count, String... types) throws FileNotFoundException, IOException, FHIRException {
     if (TestingUtilities.context == null)
     	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip");
-    FHIRPathEngine fp = new FHIRPathEngine(TestingUtilities.context);
+    FluentPathEngine fp = new FluentPathEngine(TestingUtilities.context);
 
     ExpressionNode node = fp.parse(expression);
     fp.check(null, resource.getResourceType().toString(), resource.getResourceType().toString(), node);
@@ -126,8 +138,8 @@ public class FluentPathTests {
   @SuppressWarnings("deprecation")
   private void testBoolean(Resource resource, String expression, boolean value) throws FileNotFoundException, IOException, FHIRException {
     if (TestingUtilities.context == null)
-    	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
-    FHIRPathEngine fp = new FHIRPathEngine(TestingUtilities.context);
+    	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip");
+    FluentPathEngine fp = new FluentPathEngine(TestingUtilities.context);
 
     ExpressionNode node = fp.parse(expression);
     fp.check(null, resource.getResourceType().toString(), resource.getResourceType().toString(), node);
@@ -141,8 +153,8 @@ public class FluentPathTests {
   @SuppressWarnings("deprecation")
   private void testBoolean(Element resource, String expression, boolean value) throws FileNotFoundException, IOException, FHIRException {
     if (TestingUtilities.context == null)
-      TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
-    FHIRPathEngine fp = new FHIRPathEngine(TestingUtilities.context);
+      TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip");
+    FluentPathEngine fp = new FluentPathEngine(TestingUtilities.context);
 
     ExpressionNode node = fp.parse(expression);
     fp.check(null, resource.fhirType(), resource.fhirType(), node);
@@ -157,7 +169,7 @@ public class FluentPathTests {
   private void testBoolean(Resource resource, Base focus, String focusType, String expression, boolean value) throws FileNotFoundException, IOException, FHIRException {
     if (TestingUtilities.context == null)
     	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation-min.xml.zip");
-    FHIRPathEngine fp = new FHIRPathEngine(TestingUtilities.context);
+    FluentPathEngine fp = new FluentPathEngine(TestingUtilities.context);
 
     ExpressionNode node = fp.parse(expression);
     fp.check(null, resource == null ? null : resource.getResourceType().toString(), focusType, node);
@@ -171,7 +183,7 @@ public class FluentPathTests {
   private void testWrong(Resource resource, String expression) throws FileNotFoundException, IOException, FHIRException {
     if (TestingUtilities.context == null)
     	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip");
-    FHIRPathEngine fp = new FHIRPathEngine(TestingUtilities.context);
+    FluentPathEngine fp = new FluentPathEngine(TestingUtilities.context);
 
     try {
       ExpressionNode node = fp.parse(expression);
@@ -991,8 +1003,14 @@ public class FluentPathTests {
 
   @Test
   public void testCareplan() throws FileNotFoundException, IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
-    testBoolean(careplan(), "contained.select(('#'+id in %resource.descendents().reference).not()).empty()", false);
-    testBoolean(careplanE(), "contained.select(('#'+id in %resource.descendents().reference).not()).empty()", false);
+    testBoolean(careplan(), "contained.where(('#'+id in %resource.descendents().reference).not()).empty()", true);
+    testBoolean(careplan(), "contained.where(('#'+id in %resource.descendents().reference)).empty().not()", true);
+    testBoolean(careplanE(), "contained.where(('#'+id in %resource.descendents().reference).not()).empty()", true);
+  }
+
+  public void testCodeSystem() throws FileNotFoundException, IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
+    testBoolean(codesystem(), "descendents().code.isDistinct()", true);
+    testBoolean(codesystemE(), "descendents().code.isDistinct()", true);
   }
 
 }

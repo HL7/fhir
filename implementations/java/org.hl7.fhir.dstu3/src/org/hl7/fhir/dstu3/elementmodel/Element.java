@@ -370,6 +370,11 @@ public class Element extends Base {
     return getNamedChild(name) != null;
   }
 
+  @Override
+  public String toString() {
+    return fhirType() + "["+(children == null || hasValue() ? value : Integer.toString(children.size())+" children")+"]";
+  }
+
 //  @Override
 //  public boolean equalsDeep(Base other) {
 //    if (!super.equalsDeep(other))

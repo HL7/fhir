@@ -96,7 +96,7 @@ For those who have not been overweight, a 2 year interval is appropriate for the
 		</condition>
 		<!--	Activities that occur within timepoint-->
 		<activityDefinition>
-			<reference value="procedure"/>
+			<reference value="#procedure"/>
 		</activityDefinition>
 	</actionDefinition>
 </PlanDefinition>

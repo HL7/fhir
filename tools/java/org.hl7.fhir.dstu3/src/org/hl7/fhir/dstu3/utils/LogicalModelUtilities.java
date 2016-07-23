@@ -19,8 +19,8 @@ import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.Type;
-import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext;
-import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext.FunctionDetails;
+import org.hl7.fhir.dstu3.utils.FluentPathEngine.IEvaluationContext;
+import org.hl7.fhir.dstu3.utils.FluentPathEngine.IEvaluationContext.FunctionDetails;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -66,7 +66,7 @@ public class LogicalModelUtilities implements IEvaluationContext {
     bnd.setId(UUID.randomUUID().toString().toLowerCase());
     bnd.getMeta().setLastUpdated(new Date());
     
-    FHIRPathEngine fp = new FHIRPathEngine(context);
+    FluentPathEngine fp = new FluentPathEngine(context);
     fp.setConstantResolver(this);
     
     // first, look for data
@@ -124,7 +124,7 @@ public class LogicalModelUtilities implements IEvaluationContext {
     return null;
   }
 
-  private void parseExpressions(FHIRPathEngine fp, String key, LogicalModelNode node) throws Exception {
+  private void parseExpressions(FluentPathEngine fp, String key, LogicalModelNode node) throws Exception {
     node.setMapping(getLogicalMapping(node.getDefinition(), key));
     if (node.hasChildren())
       for (LogicalModelNode child : node.getChildren()) 
@@ -147,7 +147,7 @@ public class LogicalModelUtilities implements IEvaluationContext {
     return null;
   }
 
-  private void executeExpressions(FHIRPathEngine fp, LogicalModelNode node) throws Exception {
+  private void executeExpressions(FluentPathEngine fp, LogicalModelNode node) throws Exception {
     if (node.isEmpty())
       return; // don't execute expressions if there's no data
     if (node.hasChildren())

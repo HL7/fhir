@@ -12,11 +12,28 @@
 <div class="col-9">
 
 <%resheader profiles%>
-<h2>Resource <%title%> - Profiles</h2>
+<h2>Resource <%title%> - Extensions &amp; Profiles</h2>
+
+<p>
+This table lists profiles and extenions for the <%title%> resource. For background information, see 
+<a href="profiling#resources">Profiling Resources</a> and <a href="extensibility">Extensibility</a>.
+Additional profiles and resources may be found in published 
+<a href="http://fhir.org/guides/registry">Implementation Guides</a>, or in the 
+<a href="http://registry.fhir.org">Conformance resource registry</a>.
+</p>
+
+<h3>Profiles</h3>
 
 <table class="list">
-<%profiles%>
+<%profilelist%>
 </table>
+
+<h3>Extensions</h3>
+
+<table class="list">
+<%extensionlist%>
+</table>
+
 
 </div>
 

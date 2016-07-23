@@ -195,7 +195,7 @@ import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
-import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
+import org.hl7.fhir.dstu3.utils.FluentPathEngine;
 import org.hl7.fhir.dstu3.utils.LogicalModelUtilities;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ProfileComparer;
@@ -843,7 +843,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     
     page.log(" ...Check FHIR Path Expressions", LogMessageType.Process);
     StringBuilder b = new StringBuilder();
-    FHIRPathEngine fp = new FHIRPathEngine(page.getWorkerContext());
+    FluentPathEngine fp = new FluentPathEngine(page.getWorkerContext());
     for (FHIRPathUsage p : fpUsages) {
       b.append(p.getResource() + " (" + p.getContext() + "): " + p.getExpression()+"\r\n");
       try {
@@ -2119,6 +2119,18 @@ public class Publisher implements URIResolver, SectionNumberer {
         produceCompartment(c);
       }
     }
+    Bundle searchParamsFeed = new Bundle();
+    searchParamsFeed.setId("searchParams");
+    searchParamsFeed.setType(BundleType.COLLECTION);
+    searchParamsFeed.setMeta(new Meta().setLastUpdated(resourceBundle.getMeta().getLastUpdated()));
+    for (ResourceDefn rd : page.getDefinitions().getBaseResources().values())
+      addSearchParams(searchParamsFeed, rd);
+    for (ResourceDefn rd : page.getDefinitions().getResources().values())
+      addSearchParams(searchParamsFeed, rd);
+    for (Profile cp : page.getDefinitions().getPackList()) {
+      addSearchParams(searchParamsFeed, cp);
+    }
+    checkBundleURLs(searchParamsFeed);
 
     for (String n : page.getIni().getPropertyNames("pages")) {
       if (buildFlags.get("all") || buildFlags.get("page-" + n.toLowerCase())) {
@@ -2226,18 +2238,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       s.close();
       Utilities.copyFile(page.getFolders().dstDir + "extension-definitions.xml", page.getFolders().dstDir + "examples" + File.separator + "extension-definitions.xml");
 
-      Bundle searchParamsFeed = new Bundle();
-      searchParamsFeed.setId("searchParams");
-      searchParamsFeed.setType(BundleType.COLLECTION);
-      searchParamsFeed.setMeta(new Meta().setLastUpdated(resourceBundle.getMeta().getLastUpdated()));
-      for (ResourceDefn rd : page.getDefinitions().getBaseResources().values())
-        addSearchParams(searchParamsFeed, rd);
-      for (ResourceDefn rd : page.getDefinitions().getResources().values())
-        addSearchParams(searchParamsFeed, rd);
-      for (Profile cp : page.getDefinitions().getPackList()) {
-        addSearchParams(searchParamsFeed, cp);
-      }
-      checkBundleURLs(searchParamsFeed);
       s = new FileOutputStream(page.getFolders().dstDir + "search-parameters.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, searchParamsFeed);
       s.close();
@@ -2894,14 +2894,18 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void addSearchParams(Bundle bundle, ResourceDefn rd) throws Exception {
     if (rd.getConformancePack() == null) {
       for (SearchParameterDefn spd : rd.getSearchParams().values()) {
-        StructureDefinition p = new StructureDefinition();
-        p.setFhirVersion(page.getVersion());
-        p.setKind(StructureDefinitionKind.RESOURCE);
-        p.setAbstract(true);
-        p.setPublisher("Health Level Seven International (" + rd.getWg() + ")");
-        p.setName(rd.getName());
-        p.addContact().addTelecom().setSystem(ContactPointSystem.OTHER).setValue("http://hl7.org/fhir");
-        SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd);
+        if (spd.getResource() == null) {
+          StructureDefinition p = new StructureDefinition();
+          p.setFhirVersion(page.getVersion());
+          p.setKind(StructureDefinitionKind.RESOURCE);
+          p.setAbstract(true);
+          p.setPublisher("Health Level Seven International (" + rd.getWg() + ")");
+          p.setName(rd.getName());
+          p.addContact().addTelecom().setSystem(ContactPointSystem.OTHER).setValue("http://hl7.org/fhir");
+          SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd);
+          spd.setResource(sp);
+        }
+        SearchParameter sp = spd.getResource();
         bundle.addEntry().setResource(sp).setFullUrl(sp.getUrl());
       }
     } else

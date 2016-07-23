@@ -58,6 +58,7 @@ public class SearchParameterDefn {
   private List<String> composites = new ArrayList<String>();
   private Set<String> targets = new HashSet<String>();
   private Set<String> manualTargets = new HashSet<String>();
+  private SearchParameter resource;
   
   // operational tracking
   private String xPath;
@@ -176,5 +177,14 @@ public class SearchParameterDefn {
   public SearchParameter.XPathUsageType getxPathUsage() {
     return xPathUsage;
   }
+
+  public SearchParameter getResource() {
+    return resource;
+  }
+
+  public void setResource(SearchParameter resource) {
+    this.resource = resource;
+  }
+  
   
 }

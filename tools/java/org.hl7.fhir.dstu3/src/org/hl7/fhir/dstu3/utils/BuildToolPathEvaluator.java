@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.hl7.fhir.dstu3.model.Base;
 
-public class BuildToolPathEvaluator extends FHIRPathEngine {
+public class BuildToolPathEvaluator extends FluentPathEngine {
 
   
   public BuildToolPathEvaluator(IWorkerContext worker) {

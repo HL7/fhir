@@ -49,6 +49,7 @@
       </identifier>
     </Practitioner>
   </contained>
+  <!--   TODO: decide how to do this
   <contained>
   
     <Observation>
@@ -75,7 +76,7 @@
         </coding>
       </valueCodeableConcept>
     </Observation>
-  </contained>
+  </contained> -->
   <status value="completed"/>
   <subject>
     <reference value="#patsub"/>

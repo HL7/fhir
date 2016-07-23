@@ -76,7 +76,7 @@ import org.hl7.fhir.dstu3.model.UnsignedIntType;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.UuidType;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
+import org.hl7.fhir.dstu3.utils.FluentPathEngine;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
@@ -1175,7 +1175,7 @@ public class IgSpreadsheetParser {
             throw new Exception("Search Param "+sd.getId()+"/"+n+" has no description "+ getLocation(row));
           if (!sp.hasXpathUsage()) 
             throw new Exception("Search Param "+sd.getId()+"/"+n+" has no expression usage "+ getLocation(row));
-          FHIRPathEngine engine = new FHIRPathEngine(context);
+          FluentPathEngine engine = new FluentPathEngine(context);
           engine.check(null, sd.getType(), sd.getType(), sp.getExpression());
           bundle.addEntry().setResource(sp).setFullUrl(sp.getUrl());
         }
