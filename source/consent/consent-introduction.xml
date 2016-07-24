@@ -4,8 +4,13 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 
-<a name="PCD"> Privacy Consent Directive (PCD) </a>
-
+<p><b>Definitions:</b></p>
+<table class="grid">
+ <tr><td>Consent</td><td>The record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time</td></tr>
+ <tr><td>Consent Directive</td><td>The legal record of a healthcare consumer's agreement with a party responsible for enforcing the consumer’s choices, which permits or denies identified actors or roles to perform actions affecting the consumer within a given context for specific purposes and periods of time</td></tr>
+ <tr><td>Policy context</td><td>Any organizational or jurisdictional policies, which may limit the consumer’s policy choices, and which includes the named range of actions allowed</td></tr>
+ <tr><td>Healthcare Consumer</td><td>The individual establishing his/her personal consent (i.e. Consenter). In FHIR, this is referred to as the 'Patient' though this word is not used across all contexts of care</td></tr>
+</table>
 <p>
 The purpose of this Resource is to be used to express a Consent regarding Healthcare. There are 3 possible
 uses for consent:
@@ -20,31 +25,21 @@ This resource is scoped to cover all 3 uses, but at this time, only the privacy 
 is investigated, and the scope of the resource may change when the other possible scopes are 
 investigated and tested. 
 </p>
-<h3>Privacy and Consent</h3>
+
+<h3><a name="PCD"> Privacy Consent Directive (PCD)</a></h3>
+
 <p>
-Define:
-Healthcare Consumer = Patient = subject of care
-Consenter 
-Proxy
-
-Privacy policies define how Individually Identifiable Health Information (IIHI) is to be collected, accessed, 
-used and disclosed.  
-
-A Privacy Consent Directive as a legal record of a patient's (e.g. a healthcare consumer) agreement 
-with a party responsible for enforcing the patient's choices, which permits or denies identified 
-actors or roles to perform actions affecting the patient within a given context for specific purposes 
-and periods of time.
-
-It grants or withholds authorization to collect, access, use, or disclose IIHI about the client. 
-
-All consent directives have a policy context, which is any set of organizational or jurisdictional policies
-which may limit the consumer’s policy choices, and which include a named range of actions allowed.
-
+Privacy policies define how Individually Identifiable Health Information 
+(IIHI) is to be collected, accessed, used and disclosed. A Privacy Consent 
+Directive as a legal record of a patient's (e.g. a healthcare consumer) 
+agreement with a party responsible for enforcing the patient's choices, 
+which permits or denies identified actors or roles to perform actions 
+affecting the patient within a given context for specific purposes and 
+periods of time. All consent directives have a policy context, which is
+any set of organizational or jurisdictional policies which may limit the 
+consumer’s policy choices, and which include a named range of actions allowed.
 In addition, Privacy Consent Directives provide the ability for a healthcare client 
 to delegate authority to a Substitute Decision Maker who may act on behalf of that individual.
-
-<!-- Healthcare Consumer.  The individual establishing his/her personal consent (i.e. Consenter) -->
-
 Alternatively, a client may author/publish their privacy preferences as a self-declared Privacy Consent Directive.  
 </p>
 <p>
