@@ -2353,7 +2353,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           + "do the expansions or find a terminology server that supports the same version of the value sets");
       for (ValueSet vs : page.getValueSets().values()) {
         if (vs.getUserData(ToolResourceUtilities.NAME_VS_USE_MARKER) != null) {
-          ValueSetExpansionOutcome vse = page.getWorkerContext().expandVS(vs, true, true);
+          ValueSetExpansionOutcome vse = page.getWorkerContext().expandVS(vs, true, false);
           if (vse.getValueset() != null) {
             ValueSet vsc = vs.copy();
             vsc.setText(null);

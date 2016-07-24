@@ -452,7 +452,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   private SnomedServerResponse queryForTerm(String code) throws Exception {
     if (!triedServer || serverOk) {
       triedServer = true;
-      serverOk = false;
       HttpClient httpclient = new DefaultHttpClient();
        HttpGet httpget = new HttpGet("http://fhir2.healthintersections.com.au/snomed/tool/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20"));
 //      HttpGet httpget = new HttpGet("http://localhost:960/snomed/tool/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20")); // don't like the url encoded this way
@@ -463,7 +462,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document xdoc = builder.parse(instream);
-        serverOk = true;
         // we always get back a version, and a type. What we do depends on the type 
         String t = xdoc.getDocumentElement().getAttribute("type");
         if (t.equals("error")) 
@@ -697,7 +695,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     if (true) { //(!triedServer || serverOk) {
       try {
         triedServer = true;
-        serverOk = false;
         // for this, we use the FHIR client
         if (txServer == null) {
           txServer = new FHIRToolingClient(tsServer);
@@ -706,13 +703,15 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         params.put("code", code);
         params.put("system", "http://loinc.org");
         Parameters result = txServer.lookupCode(params);
-        serverOk = true;
 
         for (ParametersParameterComponent p : result.getParameter()) {
           if (p.getName().equals("display"))
             return ((StringType) p.getValue()).asStringValue();
         }
         throw new Exception("Did not find LOINC code in return values");
+      } catch (EFhirClientException e) {
+        serverOk = true;
+        throw e;
       } catch (Exception e) {
         serverOk = false;
         throw e;

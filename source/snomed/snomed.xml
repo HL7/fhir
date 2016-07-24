@@ -11865,6 +11865,10 @@
     <display value="Hays Converter cow"/>
     <display value="Hays Converter cow (organism)"/>
   </concept>
+  <concept id="237840007" display="Disorder of electrolytes">
+    <display value="Disorder of electrolytes"/>
+    <display value="Disorder of electrolytes (disorder)"/>
+  </concept>
   <concept id="23992007" display="Black-winged bronze turkey">
     <display value="Black-winged bronze turkey"/>
     <display value="Black-winged bronze turkey (organism)"/>
@@ -13041,6 +13045,11 @@
     <display value="Belgian bearded chicken"/>
     <display value="Belgian bearded chicken (organism)"/>
   </concept>
+  <concept id="30242009" display="Scarlet fever">
+    <display value="Scarlet fever"/>
+    <display value="Scarlatina"/>
+    <display value="Scarlet fever (disorder)"/>
+  </concept>
   <concept id="302545001" display="Entire foot (body structure)">
     <display value="Foot"/>
     <display value="Entire foot"/>
@@ -14162,6 +14171,10 @@
     <display value="Film-coated tablet (product)"/>
     <display value="Film-coated tablet"/>
     <display value="Film-coated tablet (qualifier value)"/>
+  </concept>
+  <concept id="385093006" display="Community acquired pneumonia (disorder)">
+    <display value="Community acquired pneumonia (disorder)"/>
+    <display value="Community acquired pneumonia"/>
   </concept>
   <concept id="385101003" display="Ointment">
     <display value="Ointment (product)"/>
@@ -15589,6 +15602,11 @@
     <display value="Push"/>
     <display value="Push - dosing instruction imperative"/>
   </concept>
+  <concept id="421026006" display="Oral tablet">
+    <display value="Oral tablet (product)"/>
+    <display value="Oral tablet"/>
+    <display value="Oral tablet (qualifier value)"/>
+  </concept>
   <concept id="42108003" display="Congenital fusion of kidneys (disorder)">
     <display value="Congenital fusion of kidneys"/>
     <display value="Congenital fusion of kidneys (disorder)"/>
@@ -15946,6 +15964,20 @@
     <display value="Graft specimen from patient (specimen)"/>
     <display value="Graft sample"/>
     <display value="Graft specimen from patient"/>
+  </concept>
+  <concept id="44054006" display="Type 2 diabetes mellitus">
+    <display value="Type 2 diabetes mellitus"/>
+    <display value="NIDDM"/>
+    <display value="Diabetes mellitus type 2"/>
+    <display value="Non-insulin-dependent diabetes mellitus"/>
+    <display value="Maturity onset diabetes mellitus"/>
+    <display value="NIDDM - Non-insulin dependent diabetes mellitus"/>
+    <display value="Type II diabetes mellitus"/>
+    <display value="Diabetes mellitus - adult onset"/>
+    <display value="Diabetes mellitus type II"/>
+    <display value="Non-insulin dependent diabetes mellitus"/>
+    <display value="NCDMM"/>
+    <display value="Diabetes mellitus type 2 (disorder)"/>
   </concept>
   <concept id="440622005" display="Specimen received (situation)">
     <display value="Specimen received (situation)"/>
@@ -16540,6 +16572,10 @@
   <concept id="47314009" display="Dark brown turkey (organism)">
     <display value="Dark brown turkey (organism)"/>
     <display value="Dark brown turkey"/>
+  </concept>
+  <concept id="473189005" display="On subcutaneous insulin for diabetes mellitus">
+    <display value="On subcutaneous insulin for diabetes mellitus"/>
+    <display value="On subcutaneous insulin for diabetes mellitus (finding)"/>
   </concept>
   <concept id="47505003" display="Posttraumatic stress disorder (disorder)">
     <display value="Traumatic neurosis"/>

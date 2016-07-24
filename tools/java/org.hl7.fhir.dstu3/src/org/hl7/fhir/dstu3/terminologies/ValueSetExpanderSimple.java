@@ -153,16 +153,18 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   }
 
   private void addCodes(ValueSetExpansionComponent expand, List<ValueSetExpansionParameterComponent> params, ExpansionProfile profile) throws ETooCostly {
-    if (expand.getContains().size() > maxExpansionSize)
-      throw new ETooCostly("Too many codes to display (>" + Integer.toString(expand.getContains().size()) + ")");
-    for (ValueSetExpansionParameterComponent p : expand.getParameter()) {
-      if (!existsInParams(params, p.getName(), p.getValue()))
-        params.add(p);
+    if (expand != null) {
+      if (expand.getContains().size() > maxExpansionSize)
+        throw new ETooCostly("Too many codes to display (>" + Integer.toString(expand.getContains().size()) + ")");
+      for (ValueSetExpansionParameterComponent p : expand.getParameter()) {
+        if (!existsInParams(params, p.getName(), p.getValue()))
+          params.add(p);
+      }
+
+      copyImportContains(expand.getContains(), null, profile);
+
+      total = expand.getTotal();
     }
-
-    copyImportContains(expand.getContains(), null, profile);
-
-    total = expand.getTotal();
   }
 
   private void excludeCode(String theSystem, String theCode) {
