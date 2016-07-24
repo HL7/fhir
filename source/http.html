@@ -632,8 +632,7 @@ When the server processes this delete, it performs a search as specified using t
 on how many matches are found:
 </p>
 <ul>
- <li><b>No matches</b>: The server returns <code>404</code> Not found</li>
- <li><b>One Match</b>: The server performs an ordinary <code>delete</code> on the matching resource</li>
+ <li><b>No matches</b> or <b>One Match</b>: The server performs an ordinary <code>delete</code> on the matching resource</li>
  <li><b>Multiple matches</b>: Servers may choose to delete all the matching resources, or it may choose to return a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough.
    A server indicates whether it can delete multiple resources in its <a href="conformance-definitions.html#Conformance.rest.resource.conditionalDelete">Conformance Statement (.rest.resource.conditionalDelete)</a>.
    if there are multiple matches, either all must deleted, or the server SHALL return an error</li>
