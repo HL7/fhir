@@ -99,6 +99,7 @@
   Type = Identifier
   Short Label = Business Identifier
   Definition = The Response business identifier
+  w5 = id
 
  -- Row 4 -----------------------------------
   Element = EligibilityResponse.status
@@ -109,6 +110,7 @@
   Binding = EligibilityResponseStatus
   Short Label = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  w5 = status
 
  -- Row 5 -----------------------------------
   Element = EligibilityResponse.request[x]
@@ -117,6 +119,7 @@
   Short Label = Claim reference
   Definition = Original request resource reference
   CDAnet v4 Mapping = A02|G01
+  w5 = why
 
  -- Row 6 -----------------------------------
   Element = EligibilityResponse.outcome
@@ -140,6 +143,7 @@
   Binding = Ruleset
   Short Label = Resource version
   Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
+  w5 = id.version
 
  -- Row 9 -----------------------------------
   Element = EligibilityResponse.originalRuleset
@@ -156,6 +160,7 @@
   Type = dateTime
   Short Label = Creation date
   Definition = The date when the enclosed suite of services were performed or completed
+  w5 = when.recorded
 
  -- Row 11 -----------------------------------
   Element = EligibilityResponse.organization[x]
@@ -171,6 +176,7 @@
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
+  w5 = who.source
 
  -- Row 13 -----------------------------------
   Element = EligibilityResponse.requestOrganization[x]
@@ -178,6 +184,7 @@
   Type = Identifier|Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
+  w5 = who.source
 
  -- Row 14 -----------------------------------
   Element = EligibilityResponse.inforce

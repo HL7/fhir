@@ -78,6 +78,7 @@
   Type = Identifier
   Short Label = Business Identifier
   Definition = The Response business identifier
+  w5 = id
 
  -- Row 4 -----------------------------------
   Element = EligibilityRequest.status
@@ -88,6 +89,7 @@
   Binding = EligibilityRequestStatus
   Short Label = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  w5 = status
 
  -- Row 5 -----------------------------------
   Element = EligibilityRequest.ruleset
@@ -96,6 +98,7 @@
   Binding = Ruleset
   Short Label = Resource version
   Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
+  w5 = id.version
 
  -- Row 6 -----------------------------------
   Element = EligibilityRequest.originalRuleset
@@ -112,6 +115,7 @@
   Type = dateTime
   Short Label = Creation date
   Definition = The date when this resource was created.
+  w5 = when.recorded
 
  -- Row 8 -----------------------------------
   Element = EligibilityRequest.insurer[x]
@@ -119,6 +123,7 @@
   Type = Identifier|Reference(Organization)
   Short Label = Target
   Definition = The Insurer who is target  of the request.
+  w5 = who
 
  -- Row 9 -----------------------------------
   Element = EligibilityRequest.provider[x]
@@ -127,6 +132,7 @@
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
+  w5 = who.source
 
  -- Row 10 -----------------------------------
   Element = EligibilityRequest.organization[x]
@@ -134,6 +140,7 @@
   Type = Identifier|Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
+  w5 = who.source
 
  -- Row 11 -----------------------------------
   Element = EligibilityRequest.priority
@@ -142,6 +149,7 @@
   Binding = ProcessPriority
   Short Label = Desired processing priority
   Definition = Immediate (STAT), best effort (NORMAL), deferred (DEFER)
+  w5 = class
 
  -- Row 12 -----------------------------------
   Element = EligibilityRequest.enterer[x]
@@ -149,6 +157,7 @@
   Type = Identifier|Reference(Practitioner)
   Short Label = Author
   Definition = Person who created the invoice/claim/pre-determination or pre-authorization.
+  w5 = who.author
 
  -- Row 13 -----------------------------------
   Element = EligibilityRequest.facility[x]
@@ -156,6 +165,7 @@
   Type = Identifier|Reference(Location)
   Short Label = Servicing Facility
   Definition = Facility where the services were provided.
+  w5 = where
 
  -- Row 14 -----------------------------------
   Element = !Patient Information
@@ -168,6 +178,7 @@
   Definition = Patient Resource
   Comments = 1..1
   CDAnet v4 Mapping = C06,C07,C08, C05, C04
+  w5 = who.focus
 
  -- Row 16 -----------------------------------
   Element = !Insurance Information
@@ -195,6 +206,7 @@
   Short Label = Estimated date or dates of Service
   Definition = The date or dates when the enclosed suite of services were performed or completed
   CDAnet v4 Mapping = F09
+  w5 = when.done
 
  -- Row 20 -----------------------------------
   Element = EligibilityRequest.benefitCategory

@@ -130,6 +130,7 @@
   Type = Identifier
   Short Label = Response  number
   Definition = The Response business identifier
+  w5 = id
 
  -- Row 4 -----------------------------------
   Element = ClaimResponse.status
@@ -140,6 +141,7 @@
   Binding = ClaimResponseStatus
   Short Label = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  w5 = status
 
  -- Row 5 -----------------------------------
   Element = ClaimResponse.request[x]
@@ -148,6 +150,7 @@
   Short Label = Id of resource triggering adjudication
   Definition = Original request resource referrence
   CDAnet v4 Mapping = A02|G01
+  w5 = why
 
  -- Row 6 -----------------------------------
   Element = ClaimResponse.ruleset
@@ -157,6 +160,7 @@
   Binding = Ruleset
   Short Label = Resource version
   Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
+  w5 = id.version
 
  -- Row 7 -----------------------------------
   Element = ClaimResponse.originalRuleset
@@ -174,6 +178,7 @@
   Type = dateTime
   Short Label = Creation date
   Definition = The date when the enclosed suite of services were performed or completed
+  w5 = when.recorded
 
  -- Row 9 -----------------------------------
   Element = ClaimResponse.organization[x]
@@ -189,6 +194,7 @@
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
+  w5 = who.source
 
  -- Row 11 -----------------------------------
   Element = ClaimResponse.requestOrganization[x]
@@ -196,6 +202,7 @@
   Type = Identifier|Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
+  w5 = who.source
 
  -- Row 12 -----------------------------------
   Element = ClaimResponse.outcome
