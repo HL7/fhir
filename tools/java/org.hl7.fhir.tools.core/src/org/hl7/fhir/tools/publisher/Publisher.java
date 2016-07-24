@@ -1166,6 +1166,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
     page.log(" ...value sets", LogMessageType.Process);
     generateValueSetsPart2();
+    generateConceptMaps();
     page.saveSnomed();
     if (isGenerate) {
       /// regenerate. TODO: this is silly - need to generate before so that xpaths are populated. but need to generate now to fill them properly
@@ -5825,39 +5826,16 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
   }
 
-  private void generateConceptMapV2(ValueSet vs, String filename, String src, String srcCS) throws Exception {
-    ConceptMap cm = new ConceptMap();
-    cm.setId("v2-"+FormatUtilities.makeId(Utilities.fileTitle(filename)));
-    cm.setUrl("http://hl7.org/fhir/ConceptMap/v2-" + Utilities.fileTitle(filename));
-    // no version?? vs.setVersion(...
-    cm.setName("v2 map for " + vs.getName());
-    cm.setPublisher("HL7 (FHIR Project)");
-    for (ValueSetContactComponent cs : vs.getContact()) {
-      ConceptMapContactComponent cd = cm.addContact();
-      cd.setName(cs.getName());
-      for (ContactPoint ccs : cs.getTelecom())
-        cd.addTelecom(ccs.copy());
+  private void generateConceptMaps() throws Exception {
+    for (ConceptMap cm : page.getConceptMaps().values()) {
+      if (cm.hasUserData("generate")) {
+        generateConceptMap(cm);
+      }
     }
-    cm.setCopyright(vs.getCopyright());
-
-    Set<String> tbls = new HashSet<String>();
-    cm.setStatus(ConformanceResourceStatus.DRAFT); // until we publish
-    // DSTU, then .review
-    cm.setDate(page.getGenDate().getTime());
-    cm.setSource(Factory.makeReference(src));
-    cm.setTarget(Factory.makeReference(vs.getUserString("v2map")));
-//    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
-//      genV2MapItems(vs, srcCS, cm, tbls, c);
-//    }
-    StringBuilder b = new StringBuilder();
-    boolean first = false;
-    for (String s : tbls) {
-      if (first)
-        b.append(", ");
-      first = true;
-      b.append(s);
-    }
-    cm.setDescription("v2 Map (" + b.toString() + ")");
+    
+  }
+  private void generateConceptMap(ConceptMap cm) throws Exception {
+    String filename = cm.getUserString("path");
     NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNote(PageProcessor.TOO_MANY_CODES_TEXT);
     gen.generate(cm);
 
@@ -5892,177 +5870,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     page.getConceptMaps().put(cm.getUrl(), cm);
     page.getEpub().registerFile(n + ".html", cm.getName(), EPubManager.XHTML_TYPE, false);
   }
-
-  private ConceptMapGroupComponent getGroup(ConceptMap map, String srcs, String tgts) {
-    for (ConceptMapGroupComponent grp : map.getGroup()) {
-      if (grp.getSource().equals(srcs) && grp.getTarget().equals(tgts))
-        return grp;
-    }
-    ConceptMapGroupComponent grp = map.addGroup(); 
-    grp.setSource(srcs);
-    grp.setTarget(tgts);
-    return grp;
-  }
-
-  private void generateConceptMapV3(ValueSet vs, String filename, String src, String srcCS) throws Exception {
-    ConceptMap cm = new ConceptMap();
-    cm.setId("v3-"+FormatUtilities.makeId(Utilities.fileTitle(filename)));
-    cm.setUrl("http://hl7.org/fhir/ConceptMap/v3-" + Utilities.fileTitle(filename));
-    // no version?? vs.setVersion(...
-    cm.setName("v3 map for " + vs.getName());
-    cm.setPublisher("HL7 (FHIR Project)");
-    for (ValueSetContactComponent cs : vs.getContact()) {
-      ConceptMapContactComponent cd = cm.addContact();
-      cd.setName(cs.getName());
-      for (ContactPoint ccs : cs.getTelecom())
-        cd.addTelecom(ccs.copy());
-    }
-    cm.setCopyright(vs.getCopyright());
-
-    Set<String> tbls = new HashSet<String>();
-    cm.setStatus(ConformanceResourceStatus.DRAFT); // until we publish
-    // DSTU, then .review
-    cm.setDate(page.getGenDate().getTime());
-    cm.setSource(Factory.makeReference(src));
-    cm.setTarget(Factory.makeReference("http://hl7.org/fhir/ValueSet/v3-"+vs.getUserString("v3map")));
-//    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
-//      genV3MapItems(vs, srcCS, cm, tbls, c);
-//    }
-    StringBuilder b = new StringBuilder();
-    boolean first = false;
-    for (String s : tbls) {
-      if (first)
-        b.append(", ");
-      first = true;
-      b.append(s);
-    }
-    cm.setDescription("v3 Map (" + b.toString() + ")");
-    NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNote(PageProcessor.TOO_MANY_CODES_TEXT);
-    gen.generate(cm);
-    IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
-    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.json"));
-    json.compose(s, cm);
-    s.close();
-    json = new JsonParser().setOutputStyle(OutputStyle.CANONICAL);
-    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.canonical.json"));
-    json.compose(s, cm);
-    s.close();
-    String n = Utilities.changeFileExt(filename, "-map-v3");
-    jsonToXhtml(n, cm.getName(), resource2Json(cm), "conceptmap-instance", "Concept Map");
-    IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
-    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.xml"));
-    xml.compose(s, cm);
-    s.close();
-    xml = new XmlParser().setOutputStyle(OutputStyle.CANONICAL);
-    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.canonical.xml"));
-    xml.compose(s, cm);
-    s.close();
-    cloneToXhtml(n, cm.getName(), false, "conceptmap-instance", "Concept Map");
-
-    // now, we create an html page from the narrative
-    String narrative = new XhtmlComposer().setXmlOnly(true).compose(cm.getText().getDiv());
-    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative);
-    html = page.processPageIncludes(Utilities.changeFileExt(filename, "-map-v3.html"), html, "conceptmap-instance", null, null, null, "Concept Map", null);
-    TextFile.stringToFile(html, page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.html"));
-
-    cm.setUserData("path", Utilities.changeFileExt(filename, "-map-v3.html"));
-    conceptMapsFeed.getEntry().add(new BundleEntryComponent().setResource(cm).setFullUrl(cm.getUrl()));
-    page.getConceptMaps().put(cm.getUrl(), cm);
-    page.getEpub().registerFile(n + ".html", cm.getName(), EPubManager.XHTML_TYPE, false);
-  }
-
-  private void genV3MapItems(ValueSet vs, String srcCS, ConceptMap cm, Set<String> tbls, ConceptDefinitionComponent c) throws Exception {
-    if (!Utilities.noString(c.getUserString("v3"))) {
-      for (String m : c.getUserString("v3").split(",")) {
-        SourceElementComponent cc = new SourceElementComponent();
-        cc.setCode(c.getCode());
-        TargetElementComponent map = new TargetElementComponent();
-        cc.getTarget().add(map);
-        String[] n = m.split("\\(");
-        if (n.length > 1)
-          map.setComments(n[1].substring(0, n[1].length() - 1));
-        n = n[0].split("\\.");
-        if (n.length != 2)
-          throw new Exception("Error processing v3 map value for "+vs.getName()+"."+c.getCode()+" '"+m+"' - format should be CodeSystem.code (comment) - the comment bit is optional");
-        String codesystem = n[0].substring(1);
-        getGroup(cm, srcCS, "http://hl7.org/fhir/v3/" + codesystem).getElement().add(cc);
-        if (n[0].charAt(0) == '=')
-          map.setEquivalence(ConceptMapEquivalence.EQUAL);
-        else if (n[0].charAt(0) == '~')
-          map.setEquivalence(ConceptMapEquivalence.EQUIVALENT);
-        else if (n[0].charAt(0) == '>') {
-          map.setEquivalence(ConceptMapEquivalence.NARROWER);
-          if (!map.hasComments())
-            throw new Exception("Missing comments for narrower match on "+vs.getName()+"/"+c.getCode());
-
-        } else if (n[0].charAt(0) == '<')
-          map.setEquivalence(ConceptMapEquivalence.WIDER);
-        else {
-          map.setEquivalence(ConceptMapEquivalence.EQUAL);
-          codesystem = n[0];
-        }
-        tbls.add(codesystem);
-        map.setCode(n[1]);
-      }
-    }
-    for (ConceptDefinitionComponent cc : c.getConcept()) {
-      genV3MapItems(vs, srcCS, cm, tbls, cc);
-    }
-  }
-
-  private void generateCodeSystemPart2(ValueSet vs) throws Exception {
-    if (!Utilities.noString(vs.getUserString("v2map")))
-      generateConceptMapV2(vs, vs.getId(), vs.getUrl(), "http://hl7.org/fhir/" + vs.getId());
-    if (!Utilities.noString(vs.getUserString("v3map")))
-      generateConceptMapV3(vs, vs.getId(), vs.getUrl(), "http://hl7.org/fhir/" + vs.getId());
-
-//    new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
-//
-//      addToResourceFeed(vs, valueSetsFeed, vs.getId());
-//
-//      String sf;
-//      if (cd.hasInternalCodes() && cd.getReferredValueSet() != null)
-//        sf = page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir + "template-tx.html"), "codeSystem", null, null, null, "Value Set");
-//      else {
-//        cd.getReferredValueSet().setUserData("filename", filename);
-//        sf = page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir + "template-vs.html"), "codeSystem", null, cd.getReferredValueSet(), null, "Value Set");
-//      }
-//      if (cd.getVsOid() == null)
-//        throw new Error("no oid for value set "+vs.getName()+" ("+vs.getUrl()+")");
-//      sf = addSectionNumbers(filename + ".html", "template-valueset", sf, Utilities.oidTail(cd.getVsOid()));
-//      TextFile.stringToFile(sf, page.getFolders().dstDir + filename);
-//      String src = page.processPageIncludesForBook(filename, TextFile.fileToString(page.getFolders().srcDir + "template-tx-book.html"), "codeSystem", null);
-//      cachePage(filename, src, "Code System " + vs.getName());
-//
-//      IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
-//      FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, ".json"));
-//      json.compose(s, vs);
-//      s.close();
-//      IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
-//      s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, ".xml"));
-//      xml.compose(s, vs);
-//      s.close();
-//      cloneToXhtml(Utilities.fileTitle(filename), "Definition for Value Set" + vs.getName(), false, "valueset-instance", "Value Set");
-//      jsonToXhtml(Utilities.fileTitle(filename), "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance", "Value Set");
-  }
-
-//  private void addCode(ValueSet vs, List<ConceptDefinitionComponent> list, DefinedCode c) {
-//    ConceptDefinitionComponent d = new ValueSet.ConceptDefinitionComponent();
-//    list.add(d);
-//    d.setCode(c.getCode());
-//    if (!Utilities.noString(c.getDisplay()))
-//      d.setDisplay(c.getDisplay());
-//    if (!Utilities.noString(c.getDefinition()))
-//      d.setDefinition(c.getDefinition());
-//    for (DefinedCode g : c.getChildCodes()) {
-//      addCode(vs, d.getConcept(), g);
-//    }
-//    for (String n : c.getLangs().keySet()) {
-//      ConceptDefinitionDesignationComponent designation = d.addDesignation();
-//      designation.setLanguage(n);
-//      designation.setValue(c.getLangs().get(n));
-//    }
-//  }
 
   public static Map<String, String> splitQuery(URL url) throws UnsupportedEncodingException {
     Map<String, String> query_pairs = new LinkedHashMap<String, String>();

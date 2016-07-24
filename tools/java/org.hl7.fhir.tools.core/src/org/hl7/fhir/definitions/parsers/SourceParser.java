@@ -647,7 +647,7 @@ public class SourceParser {
     logger.log("Load Common Bindings", LogMessageType.Process);
 
     BindingsParser parser = new BindingsParser(new CSFileInputStream(new CSFile(termDir + "bindings.xml")), termDir + "bindings.xml", srcDir, registry, version, 
-        definitions.getCodeSystems(), page.getConceptMaps());
+        definitions.getCodeSystems(), page.getConceptMaps(), genDate);
     List<BindingSpecification> cds = parser.parse();
 
     for (BindingSpecification cd : cds) {

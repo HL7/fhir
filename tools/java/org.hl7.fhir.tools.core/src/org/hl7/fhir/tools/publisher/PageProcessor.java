@@ -2411,7 +2411,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (cm.hasSourceUriType() && cm.getSourceUriType().equals(vs.getUrl())) {
         b.append(" <li>This value set has translations in the ConceptMap <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
       }
+      if (cm.hasSourceReference() && (cm.getSourceReference().getReference().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getSourceReference().getReference()))) {
+        b.append(" <li>This value set has translations in the ConceptMap <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
+      }
     }
+    for (ConceptMap cm : getConceptMaps().values()) {
+      if (cm.hasTargetUriType() && cm.getTargetUriType().equals(vs.getUrl())) {
+        b.append(" <li>This value set is the target of translations in the ConceptMap <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
+      }
+      if (cm.hasTargetReference() && (cm.getTargetReference().getReference().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getTargetReference().getReference()))) {
+        b.append(" <li>This value set is the target of translations in the ConceptMap <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
+      }
+    }
+    
     for (ResourceDefn r : definitions.getBaseResources().values()) {
       scanForUsage(b, vs, r.getRoot(), r.getName().toLowerCase()+".html#def", prefix);
       scanForOperationUsage(b, vs, r, r.getName().toLowerCase()+"-operations.html#", prefix);
@@ -4631,6 +4643,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+produceProfiles(resource)+s3;
       else if (com[0].equals("extensionlist")) 
         src = s1+produceExtensions(resource)+s3;
+      else if (com[0].equals("searchextensionlist")) 
+        src = s1+produceSearchExtensions(resource)+s3;
       else if (com[0].equals("wg")) 
         src = s1+(resource.getWg() == null ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+resource.getWg().getUrl()+"\">"+resource.getWg().getName()+"</a> Work Group")+s3;
       else if (com[0].equals("fmm")) 
@@ -5253,6 +5267,26 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
     if (count == 0)
       b.append("<tr><td>No Extensions defined for this resource</td></tr>");
+    
+    return b.toString();
+  }
+
+  private String produceSearchExtensions(ResourceDefn resource) {
+    int count = 0;
+    Map<String, SearchParameter> map = new HashMap<String, SearchParameter>();
+    
+    for (Profile cp : getDefinitions().getPackList()) {
+      addSearchParams(map, cp, resource.getName());
+    }    
+
+    StringBuilder b = new StringBuilder();
+    for (String s : sorted(map.keySet())) {
+      SearchParameter sp = map.get(s);
+      count++;
+      b.append("<tr><td>"+sp.getCode()+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+Utilities.escapeXml(sp.getDescription())+"</td><td>"+Utilities.escapeXml(sp.getExpression())+"</td></tr>\r\n");
+    }
+    if (count == 0)
+      b.append("<tr><td>No Search Extensions defined for this resource</td></tr>");
     
     return b.toString();
   }
@@ -7605,6 +7639,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private void addSearchParams(List<SearchParameter> splist, Profile conformancePack) {
     for (SearchParameter sp : conformancePack.getSearchParameters()) {
       splist.add(sp);
+    }
+  }
+
+  private void addSearchParams(Map<String, SearchParameter> spmap, Profile conformancePack, String rn) {
+    for (SearchParameter sp : conformancePack.getSearchParameters()) {
+      if (sp.getBase().equals(rn)) {
+        spmap.put(sp.getId(), sp);
+      }
     }
   }
 

@@ -32,6 +32,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -44,6 +45,7 @@ import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
+import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.dstu3.model.ValueSet;
@@ -67,8 +69,9 @@ public class BindingsParser {
   private TabDelimitedSpreadSheet tabfmt;
   private Map<String, CodeSystem> codeSystems;
   private Map<String, ConceptMap> maps;
+  private Calendar genDate;
 
-  public BindingsParser(InputStream file, String filename, String root, BindingNameRegistry registry, String version, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps) {
+  public BindingsParser(InputStream file, String filename, String root, BindingNameRegistry registry, String version, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps, Calendar genDate) {
     this.file = file;
     this.filename = filename;
     this.root = root;
@@ -76,6 +79,8 @@ public class BindingsParser {
     this.version = version;
     this.codeSystems = codeSystems;
     this.maps = maps;
+    this.genDate = genDate;
+    
     tabfmt = new TabDelimitedSpreadSheet();
     tabfmt.setFileName(filename, Utilities.changeFileExt(filename, ".sheet.txt"));
   }
@@ -150,6 +155,7 @@ public class BindingsParser {
         cd.getValueSet().setUserData("filename", "valueset-"+cd.getValueSet().getId());
         cd.getValueSet().setUserData("path", "valueset-"+cd.getValueSet().getId()+".html");
         cd.getValueSet().setName(cd.getName());
+        cd.getValueSet().setDateElement(new DateTimeType(genDate));
         cd.getValueSet().setStatus(ConformanceResourceStatus.DRAFT);
         cd.getValueSet().setDescription(sheet.getColumn(row, "Description"));
         if (!cd.getValueSet().hasDescription())

@@ -193,6 +193,7 @@ public class CodeListToValueSetParser {
     ConceptMap cm = new ConceptMap();
     cm.setId("cm-"+vs.getId()+"-v2");
     cm.setUserData("path", cm.getId()+".html");
+    cm.setUserData("generate", true);
     cm.setUrl("http://hl7.org/fhir/ConceptMap/" + cm.getId());
     cm.setName("v2 map for " + vs.getName());
     cm.setPublisher("HL7 (FHIR Project)");
@@ -278,12 +279,13 @@ public class CodeListToValueSetParser {
   }
 
   private void generateConceptMapV3(String v3map, ValueSet vs, CodeSystem cs) throws Exception {
-    if (v3map.startsWith("http://hl7.org/fhir/ValueSet/v3-"))
+    if (!v3map.startsWith("http://hl7.org/fhir/ValueSet/v3-"))
       v3map = "http://hl7.org/fhir/ValueSet/v3-"+v3map;
-    
+
     ConceptMap cm = new ConceptMap();
     cm.setId("cm-"+vs.getId()+"-v3");
     cm.setUserData("path", cm.getId()+".html");
+    cm.setUserData("generate", true);
     cm.setUrl("http://hl7.org/fhir/ConceptMap/" + cm.getId());
     cm.setName("v3 map for " + vs.getName());
     cm.setPublisher("HL7 (FHIR Project)");
