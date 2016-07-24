@@ -39,9 +39,13 @@ The TestScript resource is an infrastructure support resource used to represent 
 implementation's level of adherence to the FHIR specification.
 </p>
 <p>
-The TestScript resource is a part of the conformance framework; its purpose is to 
-test whether systems conform to a set of expectations. The expectations are expressed
-using a combination of the following resources:
+TestScript is a part of the conformance framework and is used to validate the behavior of FHIR systems, specifically their correct
+implementation of StructureDefinition, ValueSet, OperationDefinition, Conformance and other FHIR resources that govern system behavior.
+TestScript instances may be included as part of ImplementationGuides to help define and test the desired behavior of systems that
+choose to comply with the implementation guide.
+</p>
+<p>
+The following resources represent the FHIR conformance framework that are used to express the expected behavior of a FHIR compliant system:
 </p>
 <ul>
   <li><a title="A value set specifies a set of codes drawn from one or more code systems." href="valueset.html">ValueSet</a> </li>
