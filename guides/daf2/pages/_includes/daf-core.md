@@ -7,13 +7,14 @@ This is the entry page for these DAF-core artifacts:
 |Profile Page|Base Resource|
 |-------------- |---------------|
 |[AllergyIntolerance](daf-core-allergyintolerance.html)|AllergyIntolerance|
-|[CarePlan](daf-core-careplan.html)|CarePlan|
+|[Assessment and Plan of Treatment](daf-core-careplan.html)|CarePlan|
 |[CareTeam](daf-core-careteam.html)|CareTeam|
 |[Condition](daf-core-condition.html)|Condition|
 |[Device-UDI](daf-core-device.html)|Device|
-|[DiagnosticReport-Results](daf-core-diagnosticreport.html)|DiagnosticReport|
 |[Goal](daf-core-goal.html)|Goal|
 |[Immunization](daf-core-immunization.html)|Immunization|
+|[Lab DiagnosticReport](daf-core-diagnosticreport.html)|DiagnosticReport|
+|[Lab Observation](daf-core-resultobs.html)|Observation|
 |[Location](daf-core-location.html)|Location|
 |[Medication](daf-core-medication.html)|Medication|
 |[MedicationOrder](daf-core-medicationorder.html)|MedicationOrder|
