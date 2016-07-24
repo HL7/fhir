@@ -1,0 +1,106 @@
+<!--<!DOCTYPE HTML>-->
+
+<!--
+These elements SHALL always appear in this order. These basic elements shared by all resources come first
+in order to support consistent definitions for schema and UML derived code. 
+-->
+
+<!--[%settitle Workflow%]-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title/>
+<!--[%file newheader%]-->
+</head>
+<body>
+<!--[%file newnavbar%]-->
+
+<div class="col-9">
+
+<a name="root"> </a>
+<h2>Workflow</h2>
+<p>
+Workflow is an essential part of healthcare - orders, care protocols, referrals are the drivers of most activity within in-patient settings and a great deal of activity in
+community care as well.  FHIR is concerned with workflow when there's a need to share information about workflow state or relationships, when there's a need to coordinate
+or drive the execution of workflow across systems and when there's a need to define allowed actions, dependencies and conditions on behavior.
+</p>
+<p><b>Workflow state &amp; relationships</b></p>
+<p>
+FHIR does not need to be used for the execution of workflow.  Orders, care plans, lab results, hospital admissions, claim payments and other records can all be shared using
+FHIR without the process to actually solicit fulfillment of those orders or requesting payment of those claims being driven by a FHIR transaction.  Interoperable support for
+workflow execution is actually a more advanced FHIR activity because it requires a higher degree of standardization.  Rather than merely standardizing the data to exchange,
+interoperable workflow execution requires standardization of the processes, roles and activities of the different systems.  However, even without using FHIR for
+workflow execution, there's still a need to standardize the data elements related to workflow: how does an event or a result point to the order that authorized it?  How do
+parent steps and child steps get linked together?  How does a care plan identify what protocol it's adhering to?
+</p>
+<p>
+FHIR defines three categories of resources that are involved in activities - <a href="#request">requests</a>, <a href="#event">events</a> and 
+<a href="#definition">definitions</a>.  Each of these different types has a "pattern" associated with that resources that fall into that category are encouraged to adhere to.
+These patterns provide standard elements that are typical for most resources of each type.  Strict adherence is not required as work groups are expected to align with
+typical domain behavior and requirements as more authoritative than "desired" architectural patterns.  In some cases, capabilities might be supported with extensions rather than
+core elements where a pattern capability is deemed to be "not common, but still relevant" for a given resource.
+</p>
+<p>
+A full description of the patterns and their interrelationships can be found in the <a href="#respatterns">Workflow Resource Patterns</a> section of this page.
+</p>
+<p><b>Workflow execution</b></p>
+<p>
+In addition to defining patterns for resources used in workflow processes, FHIR supports the execution of those processes as well.  However, FHIR does not define a "one size 
+fits all" solution for workflow architecture.  FHIR supports a variety of interoperability paradigms and most of them (<a href="http.html">REST</a>,
+<a href="messaging.html">Messaging</a> and <a href="services.html">Services</a> provide support for driving workflow execution.  (The <a href="documents.html">Document</a>
+paradigm does not directly support driving behavior, though it can be combined with one of the other patterns to do so.)  In addition, several of these paradigms allow multiple
+approaches to supporting workflow, depending on the context and needs of the workflow process.
+</p>
+<p>The <a href="#commpatterns">Workflow Communication Patterns</a> section of this page describes a number of options for workflow execution, summarizes their respective pros 
+and cons and makes recommendations for the circumstances in which they might best be used.</p>
+<p><b>Workflow definition</b></p>
+<p>
+The definition of protocols, order sets, guidelines and other structures that define what sorts of activities should occur, what order they should occur on, what dependencies
+they have, in what circumstances they should start or end, etc. is handled by a pair of resources:
+</p>
+<ul>
+  <li><a href="plandefinition.html">PlanDefinition</a> defines the interrelationships of steps and the rules around their execution</li>
+  <li><a href="activitydefinition.html">ActivityDefinition</a> defines an activity to be performed as a single step</li>
+</ul>
+<p>
+The use of these two artifacts is documented TODO.
+</p>
+
+<a name="respatterns"> </a>
+<h3>Workflow Resource Patterns</h3>
+<p>Not all resources in FHIR are related to workflow - many are used to describe entities and roles (patients, medications, etc.) or infrastructure (structure definitions,
+value sets, etc.).  However, a large proportion of the FHIR resources are devoted to the description of activities in one fashion or another and almost all of these fall
+into the realm of workflow - they describe things that can be done (definitions), are desired to be done (requests) or that have been done (events).  The table below
+summarizes the list of workflow-relevant resources:</p>
+
+<a name="list"> </a>
+<h4>Workflow resources</h4>
+<table>
+  <tbody>
+    <tr>
+      <th></th>
+    </tr>
+  </tbody>
+</table>
+
+
+<a name="relationships"> </a>
+<h4>Workflow Resource relationships</h4>
+
+<a name="request"> </a>
+<h4>Request Resource Pattern</h4>
+
+<a name="event"> </a>
+<h4>Event Resource Pattern</h4>
+
+<a name="definition"> </a>
+<h4>Definition Resource Pattern</h4>
+
+<a name="commpatterns"> </a>
+<h3>Workflow Communication Patterns</h3>
+
+
+</div>
+
+<!--[%file newfooter%]-->
+</body>
+</html>
