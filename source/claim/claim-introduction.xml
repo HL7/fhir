@@ -4,8 +4,8 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
-The OralHealthClaim  is one of a suite of similar resources (VisionClaim, PharmacyClaim, ProfessionalClaim, InstitutionalClaim) which are used by providers to 
-exchange the financial information, and supporting clinical information, regarding the provision of healthcare services. The primary uses of this resource is to support eClaims, 
+The Claim is used by providers and payors, insurers, to exchange the financial information, and supporting clinical information, regarding the provision
+ of healthcare services with payors an firms which provide data analytics. The primary uses of this resource is to support eClaims, 
 the exchange of proposed or actual services to benefit payors, insurers and national health programs, for treatment payment planning and reimbursement.
 </p>
 <p>
@@ -26,7 +26,7 @@ The Claim also supports:
 </ul>
 </p>
 <p>
-Todo
+
 </p>
 </div>
 

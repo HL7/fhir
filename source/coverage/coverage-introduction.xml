@@ -5,9 +5,12 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
-The Coverage resource is intended to provide the high level identifiers and potentially descriptors of insurance plans which may used to pay for,
- in part or in whole, the provision of health care products and services.
-Todo
+The Coverage resource is intended to provide the high level identifiers and potentially descriptors of an insurance plan which may used to pay for,
+ in part or in whole, the provision of health care products and services. 
+</p>
+<p>
+This resource may also be used to register 'SelfPay' where and individual or organization other than an insurer it taking responsibility for payment for a
+ portion of the health care costs.
 </p>
 </div>
 

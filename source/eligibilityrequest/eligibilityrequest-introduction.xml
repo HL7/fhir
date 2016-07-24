@@ -3,7 +3,6 @@
 <div>
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
-<p><b>This resource has not yet undergone proper review by FM. At this time, it is to be considered as a draft.</b></p>
 <p>
 The EligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an Eligibility Response,
 with information regarding whether the stated coverage is valid and in-force, and potentially the amount of coverage which may be available to any 

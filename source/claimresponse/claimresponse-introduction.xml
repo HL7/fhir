@@ -5,7 +5,7 @@
 <h2>Scope and Usage</h2>
 <p>
 The ClaimResponse resource provides application level error or application level adjudication results
- which are the result of processing a submitted disciplineClaim which is the functional corollary of 
+ which are the result of processing a submitted Claim resource where that Claim may be which is the functional corollary of 
  a Claim, Pre-Determination or a Pre-Authorization.
  </p>
  <p>
@@ -16,11 +16,10 @@ The ClaimResponse resource provides application level error or application level
  submitted later. Only an actual claim may be expected to result in actual payment.
  </p>
 <p>
-The ClaimResponse resource is the response for the submission of: OralHealthClaim, VisionClaim etc. 
+The ClaimResponse resource is the response for the submission of: Claim, Re-adjudication 
 and Reversals.
 </p>
 <p>
-Todo
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>
 </div>
