@@ -271,6 +271,7 @@ function is limited to finding and controlling access to the resource, and conne
 resources to technical or clinical workflow.
 </p>
 
+<a name="simple-tags"> </a>
 <h4>Tags</h4>
 <p>
 Tags are used to associate additional operational information with the Resources, including
@@ -332,6 +333,7 @@ and when they must be tested, which will make the profile assertion more reliabl
 The list of profiles on a resource is a set, where each profile is unique based the <code>value</code> of the URI.
 </p>
 
+<a name="security-labels"> </a>
 <h4>Security Labels</h4>
 <p>
 A security label is attached to a resource to provide specific security metadata 
@@ -343,6 +345,7 @@ The list of security on a resource is a set, where each tag is unique based on t
 <code>system</code>+<code>code</code> combination.
 </p>
 
+<a name="tag-updates"> </a>
 <h3>Updates to Tags, Profiles, and Security Labels</h3>
 <p>
 When a resource is updated (e.g. on the RESTful interface), servers generally follow this
@@ -385,7 +388,7 @@ The Maturity level is strongly related to stability; the higher the maturity lev
 For further information, and discussion, see the <a href="http://wiki.hl7.org/index.php?title=FHIR_Maturity_Model">FHIR Wiki</a>.
 </p>
  
-
+<a name="furtherinfo"> </a>
 <h3>Further Information</h3>
 <ul>
   <li><a href="conformance-rules.html">Conformance Rules</a></li>
