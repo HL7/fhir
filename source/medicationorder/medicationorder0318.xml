@@ -72,7 +72,7 @@
         <doseQuantity>
             <value value="500"/>
             <unit value="mg"/>
-            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <system value="http://unitsofmeasure.org"/>
             <code value="mg"/>
         </doseQuantity>
     </dosageInstruction>

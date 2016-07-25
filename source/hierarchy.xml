@@ -14,9 +14,9 @@ signatures.html
       mappings
       -->
 <fhir>
-  <page title="Home" note="(map + search) - focus on useful links" filename="index.html" icon="index.png">
+  <page title="Home" note="(map + search) - focus on useful links" filename="index.html">
     <!-- indexing content, not owned by any particular module  (e.g. owned by the product director) -->
-    <page title="Table of Contents" filename="toc.html">
+    <page title="Table of Contents" filename="toc.html" icon="index.png">
       <page title="Profile List" filename="profilelist.html"/>
       <page title="Resources" filename="resourcelist.html"/>
       <page title="Namespace List" filename="ns.html"/>
