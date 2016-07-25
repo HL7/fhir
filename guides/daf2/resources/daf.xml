@@ -572,6 +572,34 @@
 				<reference value="Conformance/conformance-daf-core-query-requestor"/>
 			</sourceReference>
 		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="DAF-Research Data Source"/>
+			<sourceReference>
+				<reference value="Conformance/conformance-daf-datasource"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="DAF-Research Data Mart"/>
+			<sourceReference>
+				<reference value="Conformance/conformance-daf-datamart"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="DAF-Research Query Requester"/>
+			<sourceReference>
+				<reference value="Conformance/conformance-daf-research-queryrequester"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="DAF Research Query Responder"/>
+			<sourceReference>
+				<reference value="Conformance/conformance-daf-research-queryresponder"/>
+			</sourceReference>
+		</resource>
 		<!-- examples   -->
 		<resource>
 			<example value="true"/>
