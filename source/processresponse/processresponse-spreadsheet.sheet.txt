@@ -205,49 +205,49 @@
   Path = ProcessResponse.identifier
 
  -- Row 2 -----------------------------------
-  Name = requestidentifier
+  Name = request-identifier
   Type = token
   Description = The reference to the claim
   Path = ProcessResponse.requestIdentifier
 
  -- Row 3 -----------------------------------
-  Name = requestreference
+  Name = request-reference
   Type = reference
   Description = The reference to the claim
   Path = ProcessResponse.requestReference
 
  -- Row 4 -----------------------------------
-  Name = organizationidentifier
+  Name = organization-identifier
   Type = token
   Description = The organization who generated this resource
   Path = ProcessResponse.organizationIdentifier
 
  -- Row 5 -----------------------------------
-  Name = organizationreference
+  Name = organization-reference
   Type = reference
   Description = The organization who generated this resource
   Path = ProcessResponse.organizationReference
 
  -- Row 6 -----------------------------------
-  Name = requestprovideridentifier
+  Name = request-provide-ridentifier
   Type = token
   Description = The Provider who is responsible the request transaction
   Path = ProcessResponse.requestProviderIdentifier
 
  -- Row 7 -----------------------------------
-  Name = requestproviderreference
+  Name = request-provider-reference
   Type = reference
   Description = The Provider who is responsible the request transaction
   Path = ProcessResponse.requestProviderReference
 
  -- Row 8 -----------------------------------
-  Name = requestorganizationidentifier
+  Name = request-organization-identifier
   Type = token
   Description = The Organization who is responsible the request transaction
   Path = ProcessResponse.requestOrganizationIdentifier
 
  -- Row 9 -----------------------------------
-  Name = requestorganizationreference
+  Name = request-organization-reference
   Type = reference
   Description = The Organization who is responsible the request transaction
   Path = ProcessResponse.requestOrganizationReference

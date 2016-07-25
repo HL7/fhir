@@ -284,25 +284,25 @@
   Path = PaymentReconciliation.identifier
 
  -- Row 2 -----------------------------------
-  Name = requestidentifier
+  Name = request-identifier
   Type = token
   Description = The reference to the claim
   Path = PaymentReconciliation.requestIdentifier
 
  -- Row 3 -----------------------------------
-  Name = requestreference
+  Name = request-reference
   Type = reference
   Description = The reference to the claim
   Path = PaymentReconciliation.requestReference
 
  -- Row 4 -----------------------------------
-  Name = organizationidentifier
+  Name = organization-identifier
   Type = token
   Description = The organization who generated this resource
   Path = PaymentReconciliation.organizationIdentifier
 
  -- Row 5 -----------------------------------
-  Name = organizationreference
+  Name = organization-reference
   Type = reference
   Description = The organization who generated this resource
   Path = PaymentReconciliation.organizationReference
@@ -326,25 +326,25 @@
   Path = PaymentReconciliation.disposition
 
  -- Row 9 -----------------------------------
-  Name = requestprovideridentifier
+  Name = request-provider-identifier
   Type = token
   Description = The reference to the provider who sumbitted the claim
   Path = PaymentReconciliation.requestProviderIdentifier
 
  -- Row 10 -----------------------------------
-  Name = requestproviderreference
+  Name = request-provider-reference
   Type = reference
   Description = The reference to the provider who sumbitted the claim
   Path = PaymentReconciliation.requestProviderReference
 
  -- Row 11 -----------------------------------
-  Name = requestorganizationidentifier
+  Name = request-organization-identifier
   Type = token
   Description = The organization who generated this resource
   Path = PaymentReconciliation.requestOrganizationIdentifier
 
  -- Row 12 -----------------------------------
-  Name = requestorganizationreference
+  Name = request-organization-reference
   Type = reference
   Description = The organization who generated this resource
   Path = PaymentReconciliation.requestOrganizationReference
