@@ -18,29 +18,40 @@
 			<code value="FHIR-Server"/>
 		</profile>
 	</destination>
+	<metadata>
+		<capability>
+			<validated value="true"/>
+			<description value="Patient Create Operation"/>
+			<origin value="1"/>
+			<destination value="1"/>
+			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#create"/>
+			<conformance>
+				<reference value="Conformance/example" />
+			</conformance>
+		</capability>
+		<capability>
+			<validated value="true"/>
+			<description value="Patient Read Operation"/>
+			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#read"/>
+			<conformance>
+				<reference value="Conformance/example" />
+			</conformance>
+		</capability>
+		<capability>
+			<validated value="true"/>
+			<description value="Patient Update Operation"/>
+			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#update"/>
+			<conformance>
+				<reference value="Conformance/example" />
+			</conformance>
+		</capability>
+	</metadata>
 	<fixture id="F1">
 		<resource>
 			<reference value="Patient/example"/>
 		</resource>
 	</fixture>
 	<setup>
-		<metadata>
-			<link>
-				<url value="http://hl7.org/implement/standards/FHIR-Develop/patient.html"/>
-				<description value="FHIR Patient"/>
-			</link>
-			<capability>
-				<required value="true"/>
-				<validated value="true"/>
-				<description value="Patient Create Operation"/>
-				<origin value="1"/>
-				<destination value="1"/>
-				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#create"/>
-				<conformance>
-					<reference value="Conformance/example" />
-				</conformance>
-			</capability>
-		</metadata>
 		<action>
 			<operation>
 				<type>
@@ -56,19 +67,6 @@
 	<test id="READ01">
 		<name value="Read Patient"/>
 		<description value="Read the patient from server 0."/>
-		<metadata>
-			<capability>
-				<required value="true"/>
-				<validated value="true"/>
-				<description value="Patient Read Operation"/>
-				<origin value="1"/>
-				<destination value="1"/>
-				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#read"/>
-				<conformance>
-					<reference value="Conformance/example" />
-				</conformance>
-			</capability>
-		</metadata>
 		<action>
 			<operation>
 				<!--   this operation reads the fixture "F1" from server-0 and maps the response to fixture "R1"   -->
@@ -108,24 +106,6 @@
 	<test id="WRITE01">
 		<name value="Write Patient"/>
 		<description value="Write the patient read from server 0 to server 1."/>
-		<metadata>
-			<capability>
-				<validated value="true"/>
-				<description value="Patient Create Operation"/>
-				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#create"/>
-				<conformance>
-					<reference value="Conformance/example" />
-				</conformance>
-			</capability>
-			<capability>
-				<validated value="true"/>
-				<description value="Patient Read Operation"/>
-				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#read"/>
-				<conformance>
-					<reference value="Conformance/example" />
-				</conformance>
-			</capability>
-		</metadata>
 		<action>
 			<operation>
 				<!--   this operation creates the fixture "R1" that was read from
@@ -190,16 +170,6 @@
 	<test id="UPDATE01">
 		<name value="Update Patient"/>
 		<description value="Update the patient on server 0 with the one read from server 1."/>
-		<metadata>
-			<capability>
-				<validated value="true"/>
-				<description value="Patient Update Operation"/>
-				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#update"/>
-				<conformance>
-					<reference value="Conformance/example" />
-				</conformance>
-			</capability>
-		</metadata>
 		<action>
 			<operation>
 				<!--   this operation updates the fixture "R1" on

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Jul 25, 2016 21:27+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 25, 2016 11:14-0400 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -16935,8 +16935,6 @@ public class JsonParser extends JsonParserBase {
 
   protected void parseTestScriptTestScriptSetupComponentProperties(JsonObject json, TestScript owner, TestScript.TestScriptSetupComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
-    if (json.has("metadata"))
-      res.setMetadata(parseTestScriptTestScriptMetadataComponent(json.getAsJsonObject("metadata"), owner));
     if (json.has("action")) {
       JsonArray array = json.getAsJsonArray("action");
       for (int i = 0; i < array.size(); i++) {
@@ -17249,8 +17247,6 @@ public class JsonParser extends JsonParserBase {
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
-    if (json.has("metadata"))
-      res.setMetadata(parseTestScriptTestScriptMetadataComponent(json.getAsJsonObject("metadata"), owner));
     if (json.has("action")) {
       JsonArray array = json.getAsJsonArray("action");
       for (int i = 0; i < array.size(); i++) {
@@ -37072,9 +37068,6 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeTestScriptTestScriptSetupComponentInner(TestScript.TestScriptSetupComponent element) throws IOException {
       composeBackbone(element);
-      if (element.hasMetadata()) {
-        composeTestScriptTestScriptMetadataComponent("metadata", element.getMetadata());
-      }
       if (element.hasAction()) {
         openArray("action");
         for (TestScript.SetupActionComponent e : element.getAction()) 
@@ -37411,9 +37404,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
         composeStringExtras("description", element.getDescriptionElement(), false);
-      }
-      if (element.hasMetadata()) {
-        composeTestScriptTestScriptMetadataComponent("metadata", element.getMetadata());
       }
       if (element.hasAction()) {
         openArray("action");

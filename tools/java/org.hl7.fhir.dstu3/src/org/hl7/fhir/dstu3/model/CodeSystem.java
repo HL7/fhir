@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 25, 2016 21:27+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 25, 2016 11:14-0400 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -56,7 +56,7 @@ public class CodeSystem extends BaseConformance {
          */
         GROUPEDBY, 
         /**
-         * Child elements in the heirarchy have [standard definition of subsumption from else where in fhir spec]
+         * A hierarchy where the child concepts are "a kind of" the parent (typically an IS-A relationship.)
          */
         SUBSUMES, 
         /**
@@ -64,7 +64,7 @@ public class CodeSystem extends BaseConformance {
          */
         PARTOF, 
         /**
-         * Child elements in the heirarchy represent more specific classification paths (often, but no always, this means subsumption; one common difference is the presence of "not otherwise classified")
+         * Child concepts in the hierarchy may have only one parent and there is a presumption that the code system is a "closed world" meaning all things must be in the hierarchy. This results in concepts such as "not otherwise clasified."
          */
         CLASSIFIEDWITH, 
         /**
@@ -108,9 +108,9 @@ public class CodeSystem extends BaseConformance {
         public String getDefinition() {
           switch (this) {
             case GROUPEDBY: return "No particular relationship between the concepts can be assumed, except what can be determined by inspection of the definitions of the elements (possible reasons to use this: importing from a source where this is not defined, or where various parts of the heirarchy have different meanings)";
-            case SUBSUMES: return "Child elements in the heirarchy have [standard definition of subsumption from else where in fhir spec]";
+            case SUBSUMES: return "A hierarchy where the child concepts are \"a kind of\" the parent (typically an IS-A relationship.)";
             case PARTOF: return "Child elements list the individual parts of a composite whole (e.g. bodysite)";
-            case CLASSIFIEDWITH: return "Child elements in the heirarchy represent more specific classification paths (often, but no always, this means subsumption; one common difference is the presence of \"not otherwise classified\")";
+            case CLASSIFIEDWITH: return "Child concepts in the hierarchy may have only one parent and there is a presumption that the code system is a \"closed world\" meaning all things must be in the hierarchy. This results in concepts such as \"not otherwise clasified.\"";
             default: return "?";
           }
         }
@@ -2763,7 +2763,7 @@ public class CodeSystem extends BaseConformance {
     /**
      * The meaning of the heirarchy of concepts.
      */
-    @Child(name = "hierarchyMeaning", type = {CodeType.class}, order=9, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "hierarchyMeaning", type = {CodeType.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="grouped-by | subsumes | part-of | classified-with", formalDefinition="The meaning of the heirarchy of concepts." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning")
     protected Enumeration<CodeSystemHierarchyMeaning> hierarchyMeaning;
@@ -2830,10 +2830,9 @@ public class CodeSystem extends BaseConformance {
   /**
    * Constructor
    */
-    public CodeSystem(Enumeration<ConformanceResourceStatus> status, Enumeration<CodeSystemHierarchyMeaning> hierarchyMeaning, Enumeration<CodeSystemContentMode> content) {
+    public CodeSystem(Enumeration<ConformanceResourceStatus> status, Enumeration<CodeSystemContentMode> content) {
       super();
       this.status = status;
-      this.hierarchyMeaning = hierarchyMeaning;
       this.content = content;
     }
 
@@ -3354,9 +3353,13 @@ public class CodeSystem extends BaseConformance {
      * @param value The meaning of the heirarchy of concepts.
      */
     public CodeSystem setHierarchyMeaning(CodeSystemHierarchyMeaning value) { 
+      if (value == null)
+        this.hierarchyMeaning = null;
+      else {
         if (this.hierarchyMeaning == null)
           this.hierarchyMeaning = new Enumeration<CodeSystemHierarchyMeaning>(new CodeSystemHierarchyMeaningEnumFactory());
         this.hierarchyMeaning.setValue(value);
+      }
       return this;
     }
 

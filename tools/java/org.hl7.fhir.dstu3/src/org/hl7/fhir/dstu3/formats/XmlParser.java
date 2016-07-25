@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Jul 25, 2016 21:27+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 25, 2016 11:14-0400 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -15660,9 +15660,7 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected boolean parseTestScriptTestScriptSetupComponentContent(int eventType, XmlPullParser xpp, TestScript owner, TestScript.TestScriptSetupComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("metadata")) {
-        res.setMetadata(parseTestScriptTestScriptMetadataComponent(xpp, owner));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("action")) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("action")) {
         res.getAction().add(parseTestScriptSetupActionComponent(xpp, owner));
       } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
@@ -15978,8 +15976,6 @@ public class XmlParser extends XmlParserBase {
         res.setNameElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("metadata")) {
-        res.setMetadata(parseTestScriptTestScriptMetadataComponent(xpp, owner));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("action")) {
         res.getAction().add(parseTestScriptTestActionComponent(xpp, owner));
       } else if (!parseBackboneContent(eventType, xpp, res))
@@ -33417,9 +33413,6 @@ public class XmlParser extends XmlParserBase {
 
   protected void composeTestScriptTestScriptSetupComponentElements(TestScript.TestScriptSetupComponent element) throws IOException {
       composeBackboneElements(element);
-      if (element.hasMetadata()) {
-        composeTestScriptTestScriptMetadataComponent("metadata", element.getMetadata());
-      }
       if (element.hasAction()) { 
         for (TestScript.SetupActionComponent e : element.getAction()) 
           composeTestScriptSetupActionComponent("action", e);
@@ -33717,9 +33710,6 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());
-      }
-      if (element.hasMetadata()) {
-        composeTestScriptTestScriptMetadataComponent("metadata", element.getMetadata());
       }
       if (element.hasAction()) { 
         for (TestScript.TestActionComponent e : element.getAction()) 

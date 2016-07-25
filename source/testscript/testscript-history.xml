@@ -18,6 +18,14 @@
 				<reference value="Conformance/example" />
 			</conformance>
 		</capability>
+		<capability>
+			<required value="true"/>
+			<description value="Patient History Operation"/>
+			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#history"/>
+			<conformance>
+				<reference value="Conformance/example" />
+			</conformance>
+		</capability>
 	</metadata>
 	<fixture id="example-patient">
 		<resource>
@@ -51,16 +59,6 @@
 	<test id="HISTORY01">
 		<name value="History for specific resource"/>
 		<description value="History for specific resource."/>
-		<metadata>
-			<capability>
-				<required value="true"/>
-				<description value="Patient History Operation"/>
-				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#history"/>
-				<conformance>
-					<reference value="Conformance/example" />
-				</conformance>
-			</capability>
-		</metadata>
 		<action>
 			<operation>
 				<type>

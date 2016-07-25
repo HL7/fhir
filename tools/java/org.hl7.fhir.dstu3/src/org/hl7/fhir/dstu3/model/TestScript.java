@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 25, 2016 21:27+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 25, 2016 11:14-0400 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -4325,20 +4325,13 @@ public class TestScript extends BaseConformance {
     @Block()
     public static class TestScriptSetupComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.
-         */
-        @Child(name = "metadata", type = {TestScriptMetadataComponent.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Capabilities  that are assumed to function correctly on the FHIR server being tested", formalDefinition="Capabilities that must exist and are assumed to function correctly on the FHIR server being tested." )
-        protected TestScriptMetadataComponent metadata;
-
-        /**
          * Action would contain either an operation or an assertion.
          */
-        @Child(name = "action", type = {}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "action", type = {}, order=1, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="A setup operation or assert to perform", formalDefinition="Action would contain either an operation or an assertion." )
         protected List<SetupActionComponent> action;
 
-        private static final long serialVersionUID = 9850834L;
+        private static final long serialVersionUID = -123374486L;
 
     /**
      * Constructor
@@ -4346,30 +4339,6 @@ public class TestScript extends BaseConformance {
       public TestScriptSetupComponent() {
         super();
       }
-
-        /**
-         * @return {@link #metadata} (Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.)
-         */
-        public TestScriptMetadataComponent getMetadata() { 
-          if (this.metadata == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TestScriptSetupComponent.metadata");
-            else if (Configuration.doAutoCreate())
-              this.metadata = new TestScriptMetadataComponent(); // cc
-          return this.metadata;
-        }
-
-        public boolean hasMetadata() { 
-          return this.metadata != null && !this.metadata.isEmpty();
-        }
-
-        /**
-         * @param value {@link #metadata} (Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.)
-         */
-        public TestScriptSetupComponent setMetadata(TestScriptMetadataComponent value) { 
-          this.metadata = value;
-          return this;
-        }
 
         /**
          * @return {@link #action} (Action would contain either an operation or an assertion.)
@@ -4426,14 +4395,12 @@ public class TestScript extends BaseConformance {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("metadata", "@TestScript.metadata", "Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.", 0, java.lang.Integer.MAX_VALUE, metadata));
           childrenList.add(new Property("action", "", "Action would contain either an operation or an assertion.", 0, java.lang.Integer.MAX_VALUE, action));
         }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -450004177: /*metadata*/ return this.metadata == null ? new Base[0] : new Base[] {this.metadata}; // TestScriptMetadataComponent
         case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // SetupActionComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -4443,9 +4410,6 @@ public class TestScript extends BaseConformance {
       @Override
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -450004177: // metadata
-          this.metadata = (TestScriptMetadataComponent) value; // TestScriptMetadataComponent
-          break;
         case -1422950858: // action
           this.getAction().add((SetupActionComponent) value); // SetupActionComponent
           break;
@@ -4456,9 +4420,7 @@ public class TestScript extends BaseConformance {
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("metadata"))
-          this.metadata = (TestScriptMetadataComponent) value; // TestScriptMetadataComponent
-        else if (name.equals("action"))
+        if (name.equals("action"))
           this.getAction().add((SetupActionComponent) value);
         else
           super.setProperty(name, value);
@@ -4467,7 +4429,6 @@ public class TestScript extends BaseConformance {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -450004177:  return getMetadata(); // TestScriptMetadataComponent
         case -1422950858:  return addAction(); // SetupActionComponent
         default: return super.makeProperty(hash, name);
         }
@@ -4476,11 +4437,7 @@ public class TestScript extends BaseConformance {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("metadata")) {
-          this.metadata = new TestScriptMetadataComponent();
-          return this.metadata;
-        }
-        else if (name.equals("action")) {
+        if (name.equals("action")) {
           return addAction();
         }
         else
@@ -4490,7 +4447,6 @@ public class TestScript extends BaseConformance {
       public TestScriptSetupComponent copy() {
         TestScriptSetupComponent dst = new TestScriptSetupComponent();
         copyValues(dst);
-        dst.metadata = metadata == null ? null : metadata.copy();
         if (action != null) {
           dst.action = new ArrayList<SetupActionComponent>();
           for (SetupActionComponent i : action)
@@ -4506,7 +4462,7 @@ public class TestScript extends BaseConformance {
         if (!(other instanceof TestScriptSetupComponent))
           return false;
         TestScriptSetupComponent o = (TestScriptSetupComponent) other;
-        return compareDeep(metadata, o.metadata, true) && compareDeep(action, o.action, true);
+        return compareDeep(action, o.action, true);
       }
 
       @Override
@@ -4520,7 +4476,7 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(metadata, action);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(action);
       }
 
   public String fhirType() {
@@ -8684,20 +8640,13 @@ public class TestScript extends BaseConformance {
         protected StringType description;
 
         /**
-         * Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.
-         */
-        @Child(name = "metadata", type = {TestScriptMetadataComponent.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Capabilities  that are expected to function correctly on the FHIR server being tested", formalDefinition="Capabilities that must exist and are assumed to function correctly on the FHIR server being tested." )
-        protected TestScriptMetadataComponent metadata;
-
-        /**
          * Action would contain either an operation or an assertion.
          */
-        @Child(name = "action", type = {}, order=4, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "action", type = {}, order=3, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="A test operation or assert to perform", formalDefinition="Action would contain either an operation or an assertion." )
         protected List<TestActionComponent> action;
 
-        private static final long serialVersionUID = -1607790780L;
+        private static final long serialVersionUID = -865006110L;
 
     /**
      * Constructor
@@ -8805,30 +8754,6 @@ public class TestScript extends BaseConformance {
         }
 
         /**
-         * @return {@link #metadata} (Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.)
-         */
-        public TestScriptMetadataComponent getMetadata() { 
-          if (this.metadata == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TestScriptTestComponent.metadata");
-            else if (Configuration.doAutoCreate())
-              this.metadata = new TestScriptMetadataComponent(); // cc
-          return this.metadata;
-        }
-
-        public boolean hasMetadata() { 
-          return this.metadata != null && !this.metadata.isEmpty();
-        }
-
-        /**
-         * @param value {@link #metadata} (Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.)
-         */
-        public TestScriptTestComponent setMetadata(TestScriptMetadataComponent value) { 
-          this.metadata = value;
-          return this;
-        }
-
-        /**
          * @return {@link #action} (Action would contain either an operation or an assertion.)
          */
         public List<TestActionComponent> getAction() { 
@@ -8885,7 +8810,6 @@ public class TestScript extends BaseConformance {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of this test used for tracking/logging purposes by test engines.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("description", "string", "A short description of the test used by test engines for tracking and reporting purposes.", 0, java.lang.Integer.MAX_VALUE, description));
-          childrenList.add(new Property("metadata", "@TestScript.metadata", "Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.", 0, java.lang.Integer.MAX_VALUE, metadata));
           childrenList.add(new Property("action", "", "Action would contain either an operation or an assertion.", 0, java.lang.Integer.MAX_VALUE, action));
         }
 
@@ -8894,7 +8818,6 @@ public class TestScript extends BaseConformance {
         switch (hash) {
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case -450004177: /*metadata*/ return this.metadata == null ? new Base[0] : new Base[] {this.metadata}; // TestScriptMetadataComponent
         case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // TestActionComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -8910,9 +8833,6 @@ public class TestScript extends BaseConformance {
         case -1724546052: // description
           this.description = castToString(value); // StringType
           break;
-        case -450004177: // metadata
-          this.metadata = (TestScriptMetadataComponent) value; // TestScriptMetadataComponent
-          break;
         case -1422950858: // action
           this.getAction().add((TestActionComponent) value); // TestActionComponent
           break;
@@ -8927,8 +8847,6 @@ public class TestScript extends BaseConformance {
           this.name = castToString(value); // StringType
         else if (name.equals("description"))
           this.description = castToString(value); // StringType
-        else if (name.equals("metadata"))
-          this.metadata = (TestScriptMetadataComponent) value; // TestScriptMetadataComponent
         else if (name.equals("action"))
           this.getAction().add((TestActionComponent) value);
         else
@@ -8940,7 +8858,6 @@ public class TestScript extends BaseConformance {
         switch (hash) {
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -450004177:  return getMetadata(); // TestScriptMetadataComponent
         case -1422950858:  return addAction(); // TestActionComponent
         default: return super.makeProperty(hash, name);
         }
@@ -8955,10 +8872,6 @@ public class TestScript extends BaseConformance {
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.description");
         }
-        else if (name.equals("metadata")) {
-          this.metadata = new TestScriptMetadataComponent();
-          return this.metadata;
-        }
         else if (name.equals("action")) {
           return addAction();
         }
@@ -8971,7 +8884,6 @@ public class TestScript extends BaseConformance {
         copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.description = description == null ? null : description.copy();
-        dst.metadata = metadata == null ? null : metadata.copy();
         if (action != null) {
           dst.action = new ArrayList<TestActionComponent>();
           for (TestActionComponent i : action)
@@ -8987,8 +8899,8 @@ public class TestScript extends BaseConformance {
         if (!(other instanceof TestScriptTestComponent))
           return false;
         TestScriptTestComponent o = (TestScriptTestComponent) other;
-        return compareDeep(name, o.name, true) && compareDeep(description, o.description, true) && compareDeep(metadata, o.metadata, true)
-           && compareDeep(action, o.action, true);
+        return compareDeep(name, o.name, true) && compareDeep(description, o.description, true) && compareDeep(action, o.action, true)
+          ;
       }
 
       @Override
@@ -9002,8 +8914,8 @@ public class TestScript extends BaseConformance {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, description, metadata
-          , action);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, description, action
+          );
       }
 
   public String fhirType() {
@@ -10938,6 +10850,26 @@ public class TestScript extends BaseConformance {
    }
 
  /**
+   * Search parameter: <b>date</b>
+   * <p>
+   * Description: <b>Date for this version of the TestScript</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>TestScript.date</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="date", path="TestScript.date", description="Date for this version of the TestScript", type="date" )
+  public static final String SP_DATE = "date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <p>
+   * Description: <b>Date for this version of the TestScript</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>TestScript.date</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
    * Search parameter: <b>identifier</b>
    * <p>
    * Description: <b>External identifier</b><br>
@@ -10958,44 +10890,24 @@ public class TestScript extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>testscript-test-capability</b>
+   * Search parameter: <b>use-context</b>
    * <p>
-   * Description: <b>TestScript test required and validated capability</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>TestScript.test.metadata.capability.description</b><br>
+   * Description: <b>Content intends to support these contexts</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>TestScript.useContext</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="testscript-test-capability", path="TestScript.test.metadata.capability.description", description="TestScript test required and validated capability", type="string" )
-  public static final String SP_TESTSCRIPT_TEST_CAPABILITY = "testscript-test-capability";
+  @SearchParamDefinition(name="use-context", path="TestScript.useContext", description="Content intends to support these contexts", type="token" )
+  public static final String SP_USE_CONTEXT = "use-context";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>testscript-test-capability</b>
+   * <b>Fluent Client</b> search parameter constant for <b>use-context</b>
    * <p>
-   * Description: <b>TestScript test required and validated capability</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>TestScript.test.metadata.capability.description</b><br>
+   * Description: <b>Content intends to support these contexts</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>TestScript.useContext</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam TESTSCRIPT_TEST_CAPABILITY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TESTSCRIPT_TEST_CAPABILITY);
-
- /**
-   * Search parameter: <b>testscript-setup-capability</b>
-   * <p>
-   * Description: <b>TestScript setup required and validated capability</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>TestScript.setup.metadata.capability.description</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="testscript-setup-capability", path="TestScript.setup.metadata.capability.description", description="TestScript setup required and validated capability", type="string" )
-  public static final String SP_TESTSCRIPT_SETUP_CAPABILITY = "testscript-setup-capability";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>testscript-setup-capability</b>
-   * <p>
-   * Description: <b>TestScript setup required and validated capability</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>TestScript.setup.metadata.capability.description</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam TESTSCRIPT_SETUP_CAPABILITY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TESTSCRIPT_SETUP_CAPABILITY);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam USE_CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_USE_CONTEXT);
 
  /**
    * Search parameter: <b>name</b>
@@ -11036,6 +10948,26 @@ public class TestScript extends BaseConformance {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
+   * Search parameter: <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher (Organization or individual)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>TestScript.publisher</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="publisher", path="TestScript.publisher", description="Name of the publisher (Organization or individual)", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher (Organization or individual)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>TestScript.publisher</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
    * Search parameter: <b>testscript-capability</b>

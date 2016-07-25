@@ -7,6 +7,10 @@
 	<status value="draft"/>
 	<description value="Test Script for testing search, read, and conditional create and delete"/>
 	<metadata>
+		<link>
+			<url value="http://hl7.org/implement/standards/FHIR-Develop/patient.html"/>
+			<description value="FHIR Patient"/>
+		</link>
 		<capability>
 			<required value="true"/>
 			<description value="Patient Create and Read Operations"/>
@@ -28,6 +32,14 @@
 			<required value="true"/>
 			<description value="Patient Conditional Create Operation"/>
 			<link value="http://hl7-fhir.github.io/http.html#2.1.0.13.1"/>
+			<conformance>
+				<reference value="Conformance/example" />
+			</conformance>
+		</capability>
+		<capability>
+			<validated value="true"/>
+			<description value="Patient Search Operation"/>
+			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#search"/>
 			<conformance>
 				<reference value="Conformance/example" />
 			</conformance>
@@ -67,20 +79,6 @@
 	<test id="Test1">
 		<name value="Create"/>
 		<description value="Create, read, search, conditional create, conditional delete."/>
-		<metadata>
-			<link>
-				<url value="http://hl7.org/implement/standards/FHIR-Develop/patient.html"/>
-				<description value="FHIR Patient"/>
-			</link>
-			<capability>
-				<validated value="true"/>
-				<description value="Patient Search Operation"/>
-				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#search"/>
-				<conformance>
-					<reference value="Conformance/example" />
-				</conformance>
-			</capability>
-		</metadata>
 		<!--   Create the patient using fixture   -->
 		<action>
 			<operation>

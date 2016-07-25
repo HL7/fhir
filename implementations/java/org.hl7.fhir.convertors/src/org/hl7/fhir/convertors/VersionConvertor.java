@@ -2388,7 +2388,7 @@ public class VersionConvertor {
 	private org.hl7.fhir.dstu3.model.AppointmentResponse.ParticipantStatus convertParticipantStatus(org.hl7.fhir.dstu2.model.AppointmentResponse.ParticipantStatus src) {
 		switch (src) {
 		case ACCEPTED: return org.hl7.fhir.dstu3.model.AppointmentResponse.ParticipantStatus.ACCEPTED;
-		case DECLINED: return org.hl7.fhir.dstu3.model.AppointmentResponse.ParticipantStatus.DECLINED; 
+		case DECLINED: return org.hl7.fhir.dstu3.model.AppointmentResponse.ParticipantStatus.DECLINED;
 		case TENTATIVE:  return org.hl7.fhir.dstu3.model.AppointmentResponse.ParticipantStatus.TENTATIVE;
 		case INPROCESS:  return org.hl7.fhir.dstu3.model.AppointmentResponse.ParticipantStatus.ACCEPTED;
 		case COMPLETED:  return org.hl7.fhir.dstu3.model.AppointmentResponse.ParticipantStatus.ACCEPTED;
@@ -2400,7 +2400,7 @@ public class VersionConvertor {
 	private org.hl7.fhir.dstu2.model.AppointmentResponse.ParticipantStatus convertParticipantStatus(org.hl7.fhir.dstu3.model.AppointmentResponse.ParticipantStatus src) {
 		switch (src) {
 		case ACCEPTED: return org.hl7.fhir.dstu2.model.AppointmentResponse.ParticipantStatus.ACCEPTED;
-		case DECLINED: return org.hl7.fhir.dstu2.model.AppointmentResponse.ParticipantStatus.DECLINED; 
+		case DECLINED: return org.hl7.fhir.dstu2.model.AppointmentResponse.ParticipantStatus.DECLINED;
 		case TENTATIVE:  return org.hl7.fhir.dstu2.model.AppointmentResponse.ParticipantStatus.TENTATIVE;
 		case NEEDSACTION:  return org.hl7.fhir.dstu2.model.AppointmentResponse.ParticipantStatus.NEEDSACTION;
     default:  return org.hl7.fhir.dstu2.model.AppointmentResponse.ParticipantStatus.NULL;
@@ -4055,7 +4055,7 @@ public class VersionConvertor {
 		try {
 			tgt.setClinicalStatus(org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus.fromCode(src.getClinicalStatus()));
 		} catch (org.hl7.fhir.dstu3.exceptions.FHIRException e) {
-			throw new FHIRException(e); 
+			throw new FHIRException(e);
 		}
 		tgt.setVerificationStatus(convertConditionVerificationStatus(src.getVerificationStatus()));
 		tgt.setSeverity(convertCodeableConcept(src.getSeverity()));
@@ -6042,7 +6042,7 @@ public class VersionConvertor {
 //		}
 //	}
 
-	
+
 	public org.hl7.fhir.dstu3.model.DiagnosticReport convertDiagnosticReport(org.hl7.fhir.dstu2.model.DiagnosticReport src) throws FHIRException {
 		if (src == null)
 			return null;
@@ -12337,9 +12337,9 @@ public class VersionConvertor {
 		tgt.setSnapshot(convertStructureDefinitionSnapshotComponent(src.getSnapshot()));
 		tgt.setDifferential(convertStructureDefinitionDifferentialComponent(src.getDifferential()));
 		if (tgt.hasBase()) {
-		  if (tgt.hasDifferential()) 
+		  if (tgt.hasDifferential())
 		    tgt.getDifferential().getElement().get(0).addType().setCode(tail(tgt.getBase()));
-		  if (tgt.hasSnapshot()) 
+		  if (tgt.hasSnapshot())
 		    tgt.getSnapshot().getElement().get(0).addType().setCode(tail(tgt.getBase()));
 		}
 		return tgt;
@@ -13027,7 +13027,6 @@ public class VersionConvertor {
 			return null;
 		org.hl7.fhir.dstu3.model.TestScript.TestScriptSetupComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.TestScriptSetupComponent();
 		copyElement(src, tgt);
-		tgt.setMetadata(convertTestScriptMetadataComponent(src.getMetadata()));
 		for (org.hl7.fhir.dstu2.model.TestScript.TestScriptSetupActionComponent t : src.getAction())
 			tgt.addAction(convertSetupActionComponent(t));
 		return tgt;
@@ -13038,7 +13037,6 @@ public class VersionConvertor {
 			return null;
 		org.hl7.fhir.dstu2.model.TestScript.TestScriptSetupComponent tgt = new org.hl7.fhir.dstu2.model.TestScript.TestScriptSetupComponent();
 		copyElement(src, tgt);
-		tgt.setMetadata(convertTestScriptMetadataComponent(src.getMetadata()));
 		for (org.hl7.fhir.dstu3.model.TestScript.SetupActionComponent t : src.getAction())
 			tgt.addAction(convertSetupActionComponent(t));
 		return tgt;
@@ -13306,7 +13304,6 @@ public class VersionConvertor {
 		copyElement(src, tgt);
 		tgt.setName(src.getName());
 		tgt.setDescription(src.getDescription());
-		tgt.setMetadata(convertTestScriptMetadataComponent(src.getMetadata()));
 		for (org.hl7.fhir.dstu2.model.TestScript.TestScriptTestActionComponent t : src.getAction())
 			tgt.addAction(convertTestActionComponent(t));
 		return tgt;
@@ -13319,7 +13316,6 @@ public class VersionConvertor {
 		copyElement(src, tgt);
 		tgt.setName(src.getName());
 		tgt.setDescription(src.getDescription());
-		tgt.setMetadata(convertTestScriptMetadataComponent(src.getMetadata()));
 		for (org.hl7.fhir.dstu3.model.TestScript.TestActionComponent t : src.getAction())
 			tgt.addAction(convertTestActionComponent(t));
 		return tgt;

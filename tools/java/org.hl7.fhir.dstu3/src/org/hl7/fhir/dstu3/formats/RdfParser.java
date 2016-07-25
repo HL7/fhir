@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Jul 25, 2016 21:27+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 25, 2016 11:14-0400 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -11533,8 +11533,6 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeBackboneElement(t, "setup", name, element, index);
-    if (element.hasMetadata())
-      composeTestScriptTestScriptMetadataComponent(t, "TestScript", "metadata", element.getMetadata(), -1);
     for (int i = 0; i < element.getAction().size(); i++)
       composeTestScriptSetupActionComponent(t, "TestScript", "action", element.getAction().get(i), i);
   }
@@ -11761,8 +11759,6 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "TestScript", "name", element.getNameElement(), -1);
     if (element.hasDescriptionElement())
       composeString(t, "TestScript", "description", element.getDescriptionElement(), -1);
-    if (element.hasMetadata())
-      composeTestScriptTestScriptMetadataComponent(t, "TestScript", "metadata", element.getMetadata(), -1);
     for (int i = 0; i < element.getAction().size(); i++)
       composeTestScriptTestActionComponent(t, "TestScript", "action", element.getAction().get(i), i);
   }

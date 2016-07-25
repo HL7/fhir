@@ -6,6 +6,26 @@
 	<name value="Update Test Script"/>
 	<status value="draft"/>
 	<description value="Test Script for update of the patient resource"/>
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Patient Create, Read, and Delete Operations"/>
+			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#create"/>
+			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#read"/>
+			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#delete"/>
+			<conformance>
+				<reference value="Conformance/example" />
+			</conformance>
+		</capability>
+		<capability>
+			<validated value="true"/>
+			<description value="Patient Update Operation"/>
+			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#update"/>
+			<conformance>
+				<reference value="Conformance/example" />
+			</conformance>
+		</capability>
+	</metadata>
 	<fixture id="example-patient">
 		<resource>
 			<reference value="Patient/example"/>
@@ -29,26 +49,6 @@
 	<test id="UPDATE01">
 		<name value="Update Patient"/>
 		<description value="Update a patient and validate response."/>
-		<metadata>
-			<capability>
-				<required value="true"/>
-				<description value="Patient Create, Read, and Delete Operations"/>
-				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#create"/>
-				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#read"/>
-				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#delete"/>
-				<conformance>
-					<reference value="Conformance/example" />
-				</conformance>
-			</capability>
-			<capability>
-				<validated value="true"/>
-				<description value="Patient Update Operation"/>
-				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#update"/>
-				<conformance>
-					<reference value="Conformance/example" />
-				</conformance>
-			</capability>
-		</metadata>
 		<action>
 			<operation>
 				<type>
