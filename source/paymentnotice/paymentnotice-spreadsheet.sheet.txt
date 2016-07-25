@@ -63,7 +63,8 @@
   Card. = 0..*
   Type = Identifier
   Short Label = Business Identifier
-  Definition = The Response business identifier
+  Definition = The notice business identifier
+  w5 = id
 
  -- Row 4 -----------------------------------
   Element = PaymentNotice.status
@@ -75,6 +76,7 @@
   Short Label = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
   To Do = The category of claim this is
+  w5 = status
 
  -- Row 5 -----------------------------------
   Element = PaymentNotice.ruleset
@@ -83,6 +85,7 @@
   Binding = Ruleset
   Short Label = Resource version
   Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
+  w5 = id.version
 
  -- Row 6 -----------------------------------
   Element = PaymentNotice.originalRuleset
@@ -99,6 +102,7 @@
   Type = dateTime
   Short Label = Creation date
   Definition = The date when this resource was created.
+  w5 = when.recorded
 
  -- Row 8 -----------------------------------
   Element = PaymentNotice.target[x]
@@ -114,6 +118,7 @@
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
+  w5 = who.source
 
  -- Row 10 -----------------------------------
   Element = PaymentNotice.organization[x]
@@ -121,20 +126,23 @@
   Type = Identifier|Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
+  w5 = who.source
 
  -- Row 11 -----------------------------------
   Element = PaymentNotice.request[x]
   Card. = 0..1
   Type = Identifier|Reference(Any)
   Short Label = Request reference
-  Definition = Reference of resource to reverse
+  Definition = Reference of resource for which payment is being made.
+  w5 = who.focus
 
  -- Row 12 -----------------------------------
   Element = PaymentNotice.response[x]
   Card. = 0..1
   Type = Identifier|Reference(Any)
   Short Label = Response reference
-  Definition = Reference of response to resource to reverse
+  Definition = Reference of response to resource for which payment is being made.
+  w5 = who.focus
 
  -- Row 13 -----------------------------------
   Element = PaymentNotice.paymentStatus
@@ -150,6 +158,7 @@
   Type = date
   Short Label = Payment or clearing date
   Definition = The date when the above payment action occurrred.
+  w5 = when.done
 
 === Sheet Search =====================================
 

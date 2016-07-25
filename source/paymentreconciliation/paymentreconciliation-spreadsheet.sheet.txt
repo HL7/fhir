@@ -64,6 +64,7 @@
   Type = Identifier
   Short Label = Business Identifier
   Definition = The Response business identifier
+  w5 = id
 
  -- Row 4 -----------------------------------
   Element = PaymentReconciliation.status
@@ -75,6 +76,7 @@
   Short Label = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
   To Do = The category of claim this is
+  w5 = status
 
  -- Row 5 -----------------------------------
   Element = PaymentReconciliation.request[x]
@@ -83,6 +85,7 @@
   Short Label = Claim reference
   Definition = Original request resource reference
   CDAnet v4 Mapping = A02|G01
+  w5 = why
 
  -- Row 6 -----------------------------------
   Element = PaymentReconciliation.outcome
@@ -106,6 +109,7 @@
   Binding = Ruleset
   Short Label = Resource version
   Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
+  w5 = id.version
 
  -- Row 9 -----------------------------------
   Element = PaymentReconciliation.originalRuleset
@@ -122,6 +126,7 @@
   Type = dateTime
   Short Label = Creation date
   Definition = The date when the enclosed suite of services were performed or completed
+  w5 = when.recorded
 
  -- Row 11 -----------------------------------
   Element = PaymentReconciliation.period
@@ -129,6 +134,7 @@
   Type = Period
   Short Label = Period covered
   Definition = The period of time for which payments have been gathered into this bulk payment for settlement.
+  w5 = when.done
 
  -- Row 12 -----------------------------------
   Element = PaymentReconciliation.organization[x]
@@ -136,6 +142,7 @@
   Type = Identifier|Reference(Organization)
   Short Label = Insurer
   Definition = The Insurer who produced this adjudicated response.
+  w5 = who.source
 
  -- Row 13 -----------------------------------
   Element = PaymentReconciliation.requestProvider[x]
@@ -179,7 +186,7 @@
   Definition = The claim or financial resource.
 
  -- Row 19 -----------------------------------
-  Element = PaymentReconciliation.detail.responce[x]
+  Element = PaymentReconciliation.detail.response[x]
   Card. = 0..1
   Type = Identifier|Reference(Any)
   Short Label = Claim Response
@@ -198,6 +205,7 @@
   Type = Identifier|Reference(Organization)
   Short Label = Payee
   Definition = The organization which is receiving the payment.
+  w5 = who.focus
 
  -- Row 22 -----------------------------------
   Element = PaymentReconciliation.detail.date
