@@ -22,6 +22,7 @@
 	"careplan-daf-core-profile-spreadsheet.xml",
 	"careteam-daf-core-profile-spreadsheet.xml",
 	"condition-daf-core-profile-spreadsheet.xml",
+	"conformance-daf-profile-spreadsheet.xml",
 	"diagnosticreport-daf-core-profile-spreadsheet.xml",
 	"device-daf-core-profile-spreadsheet.xml",
 	"goal-daf-core-profile-spreadsheet.xml",
@@ -96,6 +97,10 @@
 		"StructureDefinition/daf-core-condition": {
 			"defns": "daf-core-condition-definitions.html",
 			"base": "daf-core-condition.html"
+		},
+		"StructureDefinition/daf-conformance": {
+			"defns": "daf-conformance-definitions.html",
+			"base": "daf-conformance.html"
 		},
 		"StructureDefinition/daf-core-device": {
 			"defns": "daf-core-device-definitions.html",

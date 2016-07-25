@@ -28,7 +28,7 @@
     <use value="out"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="A list of hints and warnings about problems encountered while extracting the data. These might be show to the user as an advisory note. Note: if the extraction cannot be performed at all, then the operation should fail, and an OperationOutcome is returned directly with the failure, rather than using this parameter. "/>
+    <documentation value="A list of hints and warnings about problems encountered while loading the data. These might be show to the user as an advisory note. Note: if the loading cannot be performed at all, then the operation should fail, and an OperationOutcome is returned directly with the failure, rather than using this parameter. "/>
     <type value="OperationOutcome"/>
   </parameter>
   

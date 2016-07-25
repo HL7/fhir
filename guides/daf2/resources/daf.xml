@@ -263,6 +263,12 @@
 		<resource>
 			<example value="false"/>
 			<sourceReference>
+				<reference value="StructureDefinition/daf-conformance"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
 				<reference value="StructureDefinition/daf-core-device"/>
 			</sourceReference>
 		</resource>
@@ -1017,6 +1023,18 @@
 			<page>
 				<source value="daf-core-condition.html"/>
 				<title value="Condition Details"/>
+				<kind value="resource"/>
+				<format value="generated"/>
+			</page>
+		</page>
+		<page>
+			<source value="conformance-daf.html"/>
+			<title value="Conformance"/>
+			<kind value="page"/>
+			<format value="generated"/>
+			<page>
+				<source value="daf-conformance.html"/>
+				<title value="Conformance Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>
 			</page>
