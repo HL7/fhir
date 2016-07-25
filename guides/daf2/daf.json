@@ -53,6 +53,7 @@
 	"medicationdispense-daf-profile-spreadsheet.xml",
 	"medicationorder-daf-profile-spreadsheet.xml",
 	"medicationstatement-daf-profile-spreadsheet.xml",
+	"observation-daf-queryresults-profile-spreadsheet.xml",
 	"observation-daf-vitalsigns-profile-spreadsheet.xml",
 	"observation-daf-results-profile-spreadsheet.xml",
 	"observation-daf-smokingstatus-profile-spreadsheet.xml",
@@ -60,6 +61,7 @@
 	"patient-daf-profile-spreadsheet.xml",
 	"practitioner-daf-profile-spreadsheet.xml",
 	"procedure-daf-profile-spreadsheet.xml",
+	"provenance-daf-profile-spreadsheet.xml",
 	"relatedperson-daf-profile-spreadsheet.xml",
 	"spec-daf-profile-spreadsheet.xml",
 	"task-daf-profile-spreadsheet.xml",
@@ -210,6 +212,10 @@
 			"defns": "daf-core-procedure-definitions.html",
 			"base": "daf-core-procedure.html"
 		},
+		"StructureDefinition/daf-provenance": {
+			"defns": "daf-provenance-definitions.html",
+			"base": "daf-provenance.html"
+		},
 		"StructureDefinition/daf-relatedperson": {
 			"defns": "daf-relatedperson-definitions.html",
 			"base": "daf-relatedperson.html"
@@ -253,6 +259,10 @@
 		"StructureDefinition/daf-core-vitalsigns": {
 			"defns": "daf-core-vitalsigns-definitions.html",
 			"base": "daf-core-vitalsigns.html"
+		},
+		"StructureDefinition/daf-queryresults": {
+			"defns": "daf-queryresults-definitions.html",
+			"base": "daf-queryresults.html"
 		},
 		"StructureDefinition/daf-immunization": {
 			"defns": "daf-immunization-definitions.html",

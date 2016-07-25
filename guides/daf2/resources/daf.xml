@@ -467,6 +467,12 @@
 		<resource>
 			<example value="false"/>
 			<sourceReference>
+				<reference value="StructureDefinition/daf-provenance"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
 				<reference value="StructureDefinition/daf-relatedperson"/>
 			</sourceReference>
 		</resource>
@@ -522,6 +528,12 @@
 			<example value="false"/>
 			<sourceReference>
 				<reference value="StructureDefinition/daf-vitalsigns"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="StructureDefinition/daf-queryresults"/>
 			</sourceReference>
 		</resource>
 		<resource>
@@ -718,6 +730,18 @@
 			<page>
 				<source value="daf-core-allergyintolerance.html"/>
 				<title value="Allergy/Intolerance Details"/>
+				<kind value="resource"/>
+				<format value="generated"/>
+			</page>
+		</page>
+		<page>
+			<source value="conformance-daf.html"/>
+			<title value="Conformance"/>
+			<kind value="page"/>
+			<format value="generated"/>
+			<page>
+				<source value="daf-conformance.html"/>
+				<title value="Conformance Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>
 			</page>
@@ -1028,18 +1052,6 @@
 			</page>
 		</page>
 		<page>
-			<source value="conformance-daf.html"/>
-			<title value="Conformance"/>
-			<kind value="page"/>
-			<format value="generated"/>
-			<page>
-				<source value="daf-conformance.html"/>
-				<title value="Conformance Details"/>
-				<kind value="resource"/>
-				<format value="generated"/>
-			</page>
-		</page>
-		<page>
 			<source value="procedure-daf.html"/>
 			<title value="Procedures"/>
 			<kind value="page"/>
@@ -1059,6 +1071,18 @@
 			<page>
 				<source value="daf-core-procedure.html"/>
 				<title value="Procedure Details"/>
+				<kind value="resource"/>
+				<format value="generated"/>
+			</page>
+		</page>
+		<page>
+			<source value="provenance-daf.html"/>
+			<title value="Provenance"/>
+			<kind value="page"/>
+			<format value="generated"/>
+			<page>
+				<source value="daf-provenance.html"/>
+				<title value="Provenance Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>
 			</page>
@@ -1119,6 +1143,18 @@
 			<page>
 				<source value="daf-core-vitalsigns.html"/>
 				<title value="Vital Signs Details"/>
+				<kind value="resource"/>
+				<format value="generated"/>
+			</page>
+		</page>
+		<page>
+			<source value="observation-daf-queryresults.html"/>
+			<title value="QueryResults"/>
+			<kind value="page"/>
+			<format value="generated"/>
+			<page>
+				<source value="daf-queryresults.html"/>
+				<title value="QueryResults Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>
 			</page>
