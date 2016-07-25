@@ -9,4 +9,27 @@
   Description = Derived from from both HL7 v3 and SNOMED CT code systems
   Conformance = example
 
+ -- Row 2 -----------------------------------
+  Binding Name = ObservationProcedureNegationReason
+  Binding = value set
+  Reference = valueset-procedure-not-performed-reason
+  Definition = A code that identifies the reason that an observation procedure was not performed.
+  Conformance = example
+
+=== Sheet Extensions-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = notPerformed
+  English = Reason not performed is only permitted if notPerformed indicator is true
+  XPath = not(exists(f:reasonNotPerformed)) or f:notPerformedIndicator/@value=true()
+  Expression = reasonNotPerformed.empty() or notPerformedIndicator = true
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = notPerformed
+  English = If notPerformedIndicator is true, then Observation.value is not allowed
+  XPath = f:notPerformedIndicator/@value=true() and not(exists(f.value))
+  Expression = notPerformedIndicator = true and value.empty()
+
 === Sheet Search =====================================
