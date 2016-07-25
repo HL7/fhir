@@ -101,6 +101,7 @@
   Binding = CoverageStatus
   Short Label = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  w5 = status
 
  -- Row 3 -----------------------------------
   Element = Coverage.issuer[x]
@@ -113,6 +114,7 @@
   CDAnet v4 Mapping = A05
   v2 Mapping = IN1-3
   CPhA3 (Pharmacy) Mapping = C.30
+  w5 = who.author
 
  -- Row 4 -----------------------------------
   Element = Coverage.isAgreement
@@ -139,6 +141,7 @@
   Short Label = Coverage start and end dates
   Definition = Time period during which the coverage is in force. A missing start date indicates the start date isn\'t known, a missing end date means the coverage is continuing to be in force.
   v2 Mapping = IN1-12 / IN1-13
+  w5 = when.done
 
  -- Row 7 -----------------------------------
   Element = Coverage.type
@@ -150,6 +153,7 @@
   Definition = The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health.
   Requirements = The order of application of coverages is dependent on the types of coverage.
   v2 Mapping = IN1-15
+  w5 = class
 
  -- Row 8 -----------------------------------
   Element = Coverage.planholder[x]
@@ -163,6 +167,7 @@
   CPhA3 (Pharmacy) Mapping = C.35
   To Do = D01 through D09
   Committee Notes = C.35
+  w5 = who.focus
 
  -- Row 9 -----------------------------------
   Element = Coverage.beneficiary[x]
@@ -176,6 +181,7 @@
   CPhA3 (Pharmacy) Mapping = C.35
   To Do = D01 through D09
   Committee Notes = C.35
+  w5 = who.focus
 
  -- Row 10 -----------------------------------
   Element = Coverage.relationship
@@ -198,6 +204,7 @@
   CDAnet v4 Mapping = C02
   v2 Mapping = IN1-2
   CPhA3 (Pharmacy) Mapping = C.32, C.33, C.39
+  w5 = id
 
  -- Row 12 -----------------------------------
   Element = Coverage.group
