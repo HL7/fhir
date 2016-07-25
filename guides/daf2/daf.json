@@ -452,19 +452,19 @@
 			"base": "valueset-daf-core-immunization-status.html",
 			"template-base": null
 		},
-		"ValueSet/valueset-daf-core-careteam-provider-roles": {
+		"ValueSet/daf-core-careteam-provider-roles": {
 			"base": "valueset-daf-core-careteam-provider-roles.html",
 			"template-base": null
 		},
-		"ValueSet/valueset-daf-core-ucum-vitals-common": {
+		"ValueSet/daf-core-ucum-vitals-common": {
 			"base": "valueset-daf-core-ucum-vitals-common.html",
 			"template-base": null
 		},
-		"ValueSet/valueset-daf-core-observation-vitals": {
+		"ValueSet/daf-core-observation-vitals": {
 			"base": "valueset-daf-core-observation-vitals.html",
 			"template-base": null
 		},
-		"ValueSet/valueset-daf-core-narrative-status": {
+		"ValueSet/daf-core-narrative-status": {
 			"base": "valueset-daf-core-narrative-status.html",
 			"template-base": null
 		},
