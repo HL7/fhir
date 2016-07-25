@@ -17,10 +17,10 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>8640</WindowHeight>
-  <WindowWidth>13470</WindowWidth>
+  <WindowWidth>23250</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -3378,7 +3378,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3979,14 +3978,14 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">The business identifier of the notice</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s120"><Data ss:Type="String">organizationidentifier</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">organization-identifier</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">PaymentNotice.organizationIdentifier</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">The organization who generated this resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s120"><Data ss:Type="String">organizationreference</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">organization-reference</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">PaymentNotice.organizationReference</Data></Cell>
@@ -4000,49 +3999,49 @@
     <Cell ss:StyleID="s122"><Data ss:Type="String">Creation date fro the notice</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s120"><Data ss:Type="String">provideridentifier</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">provider-identifier</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">PaymentNotice.providerIdentifier</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">The reference to the provider</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s120"><Data ss:Type="String">providerreference</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">provider-reference</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">PaymentNotice.providerReference</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">The reference to the provider</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s120"><Data ss:Type="String">requestidentifier</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">request-identifier</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">PaymentNotice.requestIdentifier</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">The Claim</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s120"><Data ss:Type="String">requestreference</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">request-reference</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">PaymentNotice.requestReference</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">The Claim</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s120"><Data ss:Type="String">responseidentifier</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">response-identifier</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">PaymentNotice.responseIdentifier</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">The ClaimResponse</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s120"><Data ss:Type="String">responsereference</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">response-reference</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">PaymentNotice.responseReference</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">The ClaimResponse</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s120"><Data ss:Type="String">paymentstatus</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">payment-status</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">PaymentNotice.paymentStatus</Data></Cell>
@@ -4211,6 +4210,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4230,7 +4230,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>11</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

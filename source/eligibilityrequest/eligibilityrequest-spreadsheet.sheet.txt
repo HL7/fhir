@@ -233,13 +233,13 @@
   Path = EligibilityRequest.identifier
 
  -- Row 2 -----------------------------------
-  Name = patientreference
+  Name = patient-reference
   Type = reference
   Description = The reference to the patient
   Path = EligibilityRequest.patientReference
 
  -- Row 3 -----------------------------------
-  Name = patientidentifier
+  Name = patient-identifier
   Type = token
   Description = The reference to the patient
   Path = EligibilityRequest.patientIdentifier
@@ -251,37 +251,37 @@
   Path = EligibilityRequest.created
 
  -- Row 5 -----------------------------------
-  Name = providerreference
+  Name = provider-reference
   Type = reference
   Description = The reference to the provider
   Path = EligibilityRequest.providerReference
 
  -- Row 6 -----------------------------------
-  Name = provideridentifier
+  Name = provider-identifier
   Type = token
   Description = The reference to the provider
   Path = EligibilityRequest.provideridentifier
 
  -- Row 7 -----------------------------------
-  Name = organizationreference
+  Name = organization-reference
   Type = reference
   Description = The reference to the providing organization
   Path = EligibilityRequest.organizationReference
 
  -- Row 8 -----------------------------------
-  Name = organizationidentifier
+  Name = organization-identifier
   Type = token
   Description = The reference to the providing organization
   Path = EligibilityRequest.organizationidentifier
 
  -- Row 9 -----------------------------------
-  Name = facilityreference
+  Name = facility-reference
   Type = reference
   Description = Facility responsible for the goods and services
   Path = EligibilityRequest.facilityReference
 
  -- Row 10 -----------------------------------
-  Name = facilityidentifier
+  Name = facility-identifier
   Type = token
   Description = Facility responsible for the goods and services
   Path = EligibilityRequest.facilityidentifier

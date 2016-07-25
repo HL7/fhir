@@ -142,7 +142,7 @@
  -- Row 1 -----------------------------------
   Name = identifier
   Type = token
-  Description = The business identifier of the Explanation of Benefit
+  Description = The business identifier of the EnrollmentResponse
   Path = EnrollmentResponse.identifier
 
  -- Row 2 -----------------------------------

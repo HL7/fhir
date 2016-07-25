@@ -17,10 +17,10 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>8640</WindowHeight>
-  <WindowWidth>15705</WindowWidth>
+  <WindowWidth>23250</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4122,7 +4122,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4687,7 +4686,7 @@
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="32" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s116" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="92.25"/>
+   <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="57"/>
    <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="109.5"/>
    <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="210"/>
@@ -4721,14 +4720,14 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">The business identifier of the Eligibility</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">patientreference</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">patient-reference</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">EligibilityRequest.patientReference</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">The reference to the patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">patientidentifier</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">patient-identifier</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">EligibilityRequest.patientIdentifier</Data></Cell>
@@ -4742,42 +4741,42 @@
     <Cell ss:StyleID="s123"><Data ss:Type="String">The creation date for the EOB</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">providerreference</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">provider-reference</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">EligibilityRequest.providerReference</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">The reference to the provider</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">provideridentifier</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">provider-identifier</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">EligibilityRequest.provideridentifier</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">The reference to the provider</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">organizationreference</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">organization-reference</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">EligibilityRequest.organizationReference</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">The reference to the providing organization</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">organizationidentifier</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">organization-identifier</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">EligibilityRequest.organizationidentifier</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">The reference to the providing organization</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">facilityreference</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">facility-reference</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">EligibilityRequest.facilityReference</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">Facility responsible for the goods and services</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">facilityidentifier</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">facility-identifier</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">EligibilityRequest.facilityidentifier</Data></Cell>
@@ -4932,6 +4931,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4951,8 +4951,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

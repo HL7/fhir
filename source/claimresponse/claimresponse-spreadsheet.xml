@@ -17,10 +17,10 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>8640</WindowHeight>
-  <WindowWidth>13470</WindowWidth>
+  <WindowWidth>23250</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4420,7 +4420,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5020,28 +5019,28 @@
     <Cell ss:StyleID="s123"><Data ss:Type="String">The identity of the insurer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s124"><Data ss:Type="String">requestreference</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">request-reference</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s125"><Data ss:Type="String">ClaimResponse.requestReference</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">The claim reference</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s124"><Data ss:Type="String">requestidentifier</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">request-identifier</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s125"><Data ss:Type="String">ClaimResponse.requestIdentifier</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">The claim reference</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s124"><Data ss:Type="String">organizationreference</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">organization-reference</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s125"><Data ss:Type="String">ClaimResponse.organizationReference</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">The organization who generated this resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s124"><Data ss:Type="String">organizationidentifier</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">organization-identifier</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s125"><Data ss:Type="String">ClaimResponse.organizationIdentifier</Data></Cell>
@@ -5224,6 +5223,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5243,8 +5243,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

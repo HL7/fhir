@@ -169,13 +169,13 @@
   Path = PaymentNotice.identifier
 
  -- Row 2 -----------------------------------
-  Name = organizationidentifier
+  Name = organization-identifier
   Type = token
   Description = The organization who generated this resource
   Path = PaymentNotice.organizationIdentifier
 
  -- Row 3 -----------------------------------
-  Name = organizationreference
+  Name = organization-reference
   Type = reference
   Description = The organization who generated this resource
   Path = PaymentNotice.organizationReference
@@ -187,43 +187,43 @@
   Path = PaymentNotice.created
 
  -- Row 5 -----------------------------------
-  Name = provideridentifier
+  Name = provider-identifier
   Type = token
   Description = The reference to the provider
   Path = PaymentNotice.providerIdentifier
 
  -- Row 6 -----------------------------------
-  Name = providerreference
+  Name = provider-reference
   Type = reference
   Description = The reference to the provider
   Path = PaymentNotice.providerReference
 
  -- Row 7 -----------------------------------
-  Name = requestidentifier
+  Name = request-identifier
   Type = token
   Description = The Claim
   Path = PaymentNotice.requestIdentifier
 
  -- Row 8 -----------------------------------
-  Name = requestreference
+  Name = request-reference
   Type = reference
   Description = The Claim
   Path = PaymentNotice.requestReference
 
  -- Row 9 -----------------------------------
-  Name = responseidentifier
+  Name = response-identifier
   Type = token
   Description = The ClaimResponse
   Path = PaymentNotice.responseIdentifier
 
  -- Row 10 -----------------------------------
-  Name = responsereference
+  Name = response-reference
   Type = reference
   Description = The ClaimResponse
   Path = PaymentNotice.responseReference
 
  -- Row 11 -----------------------------------
-  Name = paymentstatus
+  Name = payment-status
   Type = token
   Description = The type of payment notice
   Path = PaymentNotice.paymentStatus

@@ -262,9 +262,9 @@
  -- Row 38 -----------------------------------
   Binding Name = PayeeResourceType
   Binding = code list
-  Reference = #resource-type
+  Reference = #ex-payee-resource-type
   Definition = The type of payee Resource
-  Conformance = required
+  Conformance = example
 
  -- Row 39 -----------------------------------
   Binding Name = CareTeamRole
@@ -341,7 +341,7 @@
   Display = Other
   Definition = A locally defined or otherwise resolved status.
 
-=== Sheet resource-type =====================================
+=== Sheet ex-payee-resource-type =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -1397,25 +1397,25 @@
   Path = Claim.priority
 
  -- Row 4 -----------------------------------
-  Name = patientreference
+  Name = patient-reference
   Type = reference
   Description = Patient receiving the services
   Path = Claim.patientReference
 
  -- Row 5 -----------------------------------
-  Name = patientidentifier
+  Name = patient-identifier
   Type = token
   Description = Patient receiving the services
   Path = Claim.patientIdentifier
 
  -- Row 6 -----------------------------------
-  Name = providerreference
+  Name = provider-reference
   Type = reference
   Description = Provider responsible for the Claim
   Path = Claim.providerReference
 
  -- Row 7 -----------------------------------
-  Name = provideridentifier
+  Name = provider-identifier
   Type = token
   Description = Provider responsible for the Claim
   Path = Claim.providerIdentifier
@@ -1427,37 +1427,37 @@
   Path = Claim.created
 
  -- Row 9 -----------------------------------
-  Name = insurerreference
+  Name = insurer-reference
   Type = reference
   Description = The target payor/insurer for the Claim
   Path = Claim.insurerReference
 
  -- Row 10 -----------------------------------
-  Name = insureridentifier
+  Name = insurer-identifier
   Type = token
   Description = The target payor/insurer for the Claim
   Path = Claim.insurerIdentifier
 
  -- Row 11 -----------------------------------
-  Name = organizationreference
+  Name = organization-reference
   Type = reference
   Description = The reference to the providing organization
   Path = Claim.organizationReference
 
  -- Row 12 -----------------------------------
-  Name = organizationidentifier
+  Name = organization-identifier
   Type = token
   Description = The reference to the providing organization
   Path = Claim.organizationIdentifier
 
  -- Row 13 -----------------------------------
-  Name = facilityreference
+  Name = facility-reference
   Type = reference
   Description = Facility responsible for the goods and services
   Path = Claim.facilityReference
 
  -- Row 14 -----------------------------------
-  Name = facilityidentifier
+  Name = facility-identifier
   Type = token
   Description = Facility responsible for the goods and services
   Path = Claim.facilityIdentifier

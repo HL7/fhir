@@ -151,25 +151,25 @@
   Path = EnrollmentRequest.organizationreference
 
  -- Row 3 -----------------------------------
-  Name = subjectidentifier
+  Name = subject-identifier
   Type = token
   Description = The party to be enrolled
   Path = EnrollmentRequest.subjectidentifier
 
  -- Row 4 -----------------------------------
-  Name = subjectreference
+  Name = subject-reference
   Type = reference
   Description = The party to be enrolled
   Path = EnrollmentRequest.subjectreference
 
  -- Row 5 -----------------------------------
-  Name = patientidentifier
+  Name = patient-identifier
   Type = token
   Description = The party to be enrolled
   Path = EnrollmentRequest.subjectidentifier
 
  -- Row 6 -----------------------------------
-  Name = patientreference
+  Name = patient-reference
   Type = reference
   Description = The party to be enrolled
   Path = EnrollmentRequest.subjectreference

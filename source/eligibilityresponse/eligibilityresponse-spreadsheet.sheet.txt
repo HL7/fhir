@@ -333,25 +333,25 @@
   Path = EligibilityResponse.identifier
 
  -- Row 2 -----------------------------------
-  Name = requestidentifier
+  Name = request-identifier
   Type = token
   Description = The EligibilityRequest reference
   Path = EligibilityResponse.requestIdentifier
 
  -- Row 3 -----------------------------------
-  Name = requestreference
+  Name = request-reference
   Type = reference
   Description = The EligibilityRequest reference
   Path = EligibilityResponse.requestReference
 
  -- Row 4 -----------------------------------
-  Name = organizationidentifier
+  Name = organization-identifier
   Type = token
   Description = The organization which generated this resource
   Path = EligibilityResponse.organizationIdentifier
 
  -- Row 5 -----------------------------------
-  Name = organizationreference
+  Name = organization-reference
   Type = reference
   Description = The organization which generated this resource
   Path = EligibilityResponse.organizationReference
@@ -375,25 +375,25 @@
   Path = EligibilityResponse.disposition
 
  -- Row 9 -----------------------------------
-  Name = requestprovideridentifier
+  Name = request-provider-identifier
   Type = token
   Description = The EligibilityRequest provider
   Path = EligibilityResponse.requestProviderIdentifier
 
  -- Row 10 -----------------------------------
-  Name = requestproviderreference
+  Name = request-provider-reference
   Type = reference
   Description = The EligibilityRequest provider
   Path = EligibilityResponse.requestProviderReference
 
  -- Row 11 -----------------------------------
-  Name = requestorganizationidentifier
+  Name = request-organization-identifier
   Type = token
   Description = The EligibilityRequest organization
   Path = EligibilityResponse.requestOrganizationIdentifier
 
  -- Row 12 -----------------------------------
-  Name = requestorganizationreference
+  Name = request-organization-reference
   Type = reference
   Description = The EligibilityRequest organization
   Path = EligibilityResponse.requestOrganizationReference
