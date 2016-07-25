@@ -1,0 +1,39 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This is <b>NOT</b> a resource.  It is not part of the FHIR schema and cannot appear directly in FHIR instances.  It is a logical model that defines a pattern adhered to by
+other resources.  This pattern serves two purposes:
+</p>
+<ul>
+  <li>It offers guidance to work groups designing resources and helps ensure consistency of content created by different work groups</li>
+  <li>It provides a standard "view" that might be useful for implementers in processing and manipulating all resources that adhere to the same pattern.  (Tooling that supports
+  this may become available in a future release.)</li>
+</ul>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+This logical model is one of three common <a href="workflow.html#respatterns">workflow patterns</a>.  The other two patterns are <a href="request.html">Request</a> and
+<a href="definition.html">Definition</a>.  This pattern is followed by (or is intended to be followed by a number of <a href="workflow.html#list">other FHIR resources</a>/
+</p>
+
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+This resource represents a pattern.  It provides a standard list of data elements with cardinalities, data types, definitions, rationale and usage notes that will ideally be 
+adhered to by resources that fall into the "request" workflow category.  However, adherence to this pattern is not mandatory.  Not all healthcare domains are the same.
+Concepts that may be generally applicable (and thus are included in this standard pattern) might still not be relevant everywhere or may be sufficiently uncommon that they
+are more appropriate to include as extensions than as core properties of the resource.  Work groups are encouraged to adjust descriptions, usage notes and rationale to be
+specific to their resource (e.g. use the term "procedure" or "observation" rather than "event").  As well, design notes in the comments column marked with [square
+brackets] identifies areas where domain variation is expected and encouraged.  Other variation, including differences in names, cardinalities, data types and the decision to
+omit an element outright are also possible, but should be discussed with the FHIR Infrastructure work group's Workflow project to ensure the rationale for non-alignment is
+understood, to confirm that the deviation is necessary and to identify whether any adjustments to the pattern are appropriate.
+</p>
+</div>
+
+</div>
