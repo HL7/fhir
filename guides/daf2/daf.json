@@ -448,7 +448,7 @@
 			"base": "valueset-daf-research-query-formats.html",
 			"template-base": null
 		},
-		"ValueSet/valueset-daf-core-immunization-status": {
+		"ValueSet/daf-core-immunization-status": {
 			"base": "valueset-daf-core-immunization-status.html",
 			"template-base": null
 		},

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 25, 2016 21:27+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -378,128 +378,6 @@ public class GuidanceResponse extends DomainResource {
       return "?";
       }
     public String toSystem(ActionRelationshipAnchor code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum ActionType {
-        /**
-         * The action is to create a new resource
-         */
-        CREATE, 
-        /**
-         * The action is to update an existing resource
-         */
-        UPDATE, 
-        /**
-         * The action is to remove an existing resource
-         */
-        REMOVE, 
-        /**
-         * The action is to fire a specific event
-         */
-        FIREEVENT, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static ActionType fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("create".equals(codeString))
-          return CREATE;
-        if ("update".equals(codeString))
-          return UPDATE;
-        if ("remove".equals(codeString))
-          return REMOVE;
-        if ("fire-event".equals(codeString))
-          return FIREEVENT;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown ActionType code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case CREATE: return "create";
-            case UPDATE: return "update";
-            case REMOVE: return "remove";
-            case FIREEVENT: return "fire-event";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case CREATE: return "http://hl7.org/fhir/action-type";
-            case UPDATE: return "http://hl7.org/fhir/action-type";
-            case REMOVE: return "http://hl7.org/fhir/action-type";
-            case FIREEVENT: return "http://hl7.org/fhir/action-type";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case CREATE: return "The action is to create a new resource";
-            case UPDATE: return "The action is to update an existing resource";
-            case REMOVE: return "The action is to remove an existing resource";
-            case FIREEVENT: return "The action is to fire a specific event";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case CREATE: return "Create";
-            case UPDATE: return "Update";
-            case REMOVE: return "Remove";
-            case FIREEVENT: return "Fire Event";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ActionTypeEnumFactory implements EnumFactory<ActionType> {
-    public ActionType fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("create".equals(codeString))
-          return ActionType.CREATE;
-        if ("update".equals(codeString))
-          return ActionType.UPDATE;
-        if ("remove".equals(codeString))
-          return ActionType.REMOVE;
-        if ("fire-event".equals(codeString))
-          return ActionType.FIREEVENT;
-        throw new IllegalArgumentException("Unknown ActionType code '"+codeString+"'");
-        }
-        public Enumeration<ActionType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("create".equals(codeString))
-          return new Enumeration<ActionType>(this, ActionType.CREATE);
-        if ("update".equals(codeString))
-          return new Enumeration<ActionType>(this, ActionType.UPDATE);
-        if ("remove".equals(codeString))
-          return new Enumeration<ActionType>(this, ActionType.REMOVE);
-        if ("fire-event".equals(codeString))
-          return new Enumeration<ActionType>(this, ActionType.FIREEVENT);
-        throw new FHIRException("Unknown ActionType code '"+codeString+"'");
-        }
-    public String toCode(ActionType code) {
-      if (code == ActionType.CREATE)
-        return "create";
-      if (code == ActionType.UPDATE)
-        return "update";
-      if (code == ActionType.REMOVE)
-        return "remove";
-      if (code == ActionType.FIREEVENT)
-        return "fire-event";
-      return "?";
-      }
-    public String toSystem(ActionType code) {
       return code.getSystem();
       }
     }
@@ -1130,10 +1008,10 @@ public class GuidanceResponse extends DomainResource {
         /**
          * The type of action to perform (create, update, remove).
          */
-        @Child(name = "type", type = {CodeType.class}, order=11, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "type", type = {Coding.class}, order=11, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="create | update | remove | fire-event", formalDefinition="The type of action to perform (create, update, remove)." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-type")
-        protected Enumeration<ActionType> type;
+        protected Coding type;
 
         /**
          * Defines the grouping behavior for the action and its children.
@@ -1194,7 +1072,7 @@ public class GuidanceResponse extends DomainResource {
         @Description(shortDefinition="Sub action", formalDefinition="Sub actions." )
         protected List<GuidanceResponseActionComponent> action;
 
-        private static final long serialVersionUID = -1194209905L;
+        private static final long serialVersionUID = 704760748L;
 
     /**
      * Constructor
@@ -1688,19 +1566,15 @@ public class GuidanceResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #type} (The type of action to perform (create, update, remove).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         * @return {@link #type} (The type of action to perform (create, update, remove).)
          */
-        public Enumeration<ActionType> getTypeElement() { 
+        public Coding getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GuidanceResponseActionComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Enumeration<ActionType>(new ActionTypeEnumFactory()); // bb
+              this.type = new Coding(); // cc
           return this.type;
-        }
-
-        public boolean hasTypeElement() { 
-          return this.type != null && !this.type.isEmpty();
         }
 
         public boolean hasType() { 
@@ -1708,31 +1582,10 @@ public class GuidanceResponse extends DomainResource {
         }
 
         /**
-         * @param value {@link #type} (The type of action to perform (create, update, remove).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         * @param value {@link #type} (The type of action to perform (create, update, remove).)
          */
-        public GuidanceResponseActionComponent setTypeElement(Enumeration<ActionType> value) { 
+        public GuidanceResponseActionComponent setType(Coding value) { 
           this.type = value;
-          return this;
-        }
-
-        /**
-         * @return The type of action to perform (create, update, remove).
-         */
-        public ActionType getType() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value The type of action to perform (create, update, remove).
-         */
-        public GuidanceResponseActionComponent setType(ActionType value) { 
-          if (value == null)
-            this.type = null;
-          else {
-            if (this.type == null)
-              this.type = new Enumeration<ActionType>(new ActionTypeEnumFactory());
-            this.type.setValue(value);
-          }
           return this;
         }
 
@@ -2085,7 +1938,7 @@ public class GuidanceResponse extends DomainResource {
           childrenList.add(new Property("relatedAction", "", "A relationship to another action such as \"before\" or \"30-60 minutes after start of\".", 0, java.lang.Integer.MAX_VALUE, relatedAction));
           childrenList.add(new Property("timing[x]", "dateTime|Period|Duration|Range", "An optional value describing when the action should be performed.", 0, java.lang.Integer.MAX_VALUE, timing));
           childrenList.add(new Property("participant", "Reference(Patient|Person|Practitioner|RelatedPerson)", "The participant in the action.", 0, java.lang.Integer.MAX_VALUE, participant));
-          childrenList.add(new Property("type", "code", "The type of action to perform (create, update, remove).", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("type", "Coding", "The type of action to perform (create, update, remove).", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("groupingBehavior", "code", "Defines the grouping behavior for the action and its children.", 0, java.lang.Integer.MAX_VALUE, groupingBehavior));
           childrenList.add(new Property("selectionBehavior", "code", "Defines the selection behavior for the action and its children.", 0, java.lang.Integer.MAX_VALUE, selectionBehavior));
           childrenList.add(new Property("requiredBehavior", "code", "Defines the requiredness behavior for the action.", 0, java.lang.Integer.MAX_VALUE, requiredBehavior));
@@ -2108,7 +1961,7 @@ public class GuidanceResponse extends DomainResource {
         case -384107967: /*relatedAction*/ return this.relatedAction == null ? new Base[0] : new Base[] {this.relatedAction}; // GuidanceResponseActionRelatedActionComponent
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
         case 767422259: /*participant*/ return this.participant == null ? new Base[0] : this.participant.toArray(new Base[this.participant.size()]); // Reference
-        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ActionType>
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
         case 586678389: /*groupingBehavior*/ return this.groupingBehavior == null ? new Base[0] : new Base[] {this.groupingBehavior}; // Enumeration<ActionGroupingBehavior>
         case 168639486: /*selectionBehavior*/ return this.selectionBehavior == null ? new Base[0] : new Base[] {this.selectionBehavior}; // Enumeration<ActionSelectionBehavior>
         case -1163906287: /*requiredBehavior*/ return this.requiredBehavior == null ? new Base[0] : new Base[] {this.requiredBehavior}; // Enumeration<ActionRequiredBehavior>
@@ -2155,7 +2008,7 @@ public class GuidanceResponse extends DomainResource {
           this.getParticipant().add(castToReference(value)); // Reference
           break;
         case 3575610: // type
-          this.type = new ActionTypeEnumFactory().fromType(value); // Enumeration<ActionType>
+          this.type = castToCoding(value); // Coding
           break;
         case 586678389: // groupingBehavior
           this.groupingBehavior = new ActionGroupingBehaviorEnumFactory().fromType(value); // Enumeration<ActionGroupingBehavior>
@@ -2206,7 +2059,7 @@ public class GuidanceResponse extends DomainResource {
         else if (name.equals("participant"))
           this.getParticipant().add(castToReference(value));
         else if (name.equals("type"))
-          this.type = new ActionTypeEnumFactory().fromType(value); // Enumeration<ActionType>
+          this.type = castToCoding(value); // Coding
         else if (name.equals("groupingBehavior"))
           this.groupingBehavior = new ActionGroupingBehaviorEnumFactory().fromType(value); // Enumeration<ActionGroupingBehavior>
         else if (name.equals("selectionBehavior"))
@@ -2238,7 +2091,7 @@ public class GuidanceResponse extends DomainResource {
         case -384107967:  return getRelatedAction(); // GuidanceResponseActionRelatedActionComponent
         case 164632566:  return getTiming(); // Type
         case 767422259:  return addParticipant(); // Reference
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<ActionType>
+        case 3575610:  return getType(); // Coding
         case 586678389: throw new FHIRException("Cannot make property groupingBehavior as it is not a complex type"); // Enumeration<ActionGroupingBehavior>
         case 168639486: throw new FHIRException("Cannot make property selectionBehavior as it is not a complex type"); // Enumeration<ActionSelectionBehavior>
         case -1163906287: throw new FHIRException("Cannot make property requiredBehavior as it is not a complex type"); // Enumeration<ActionRequiredBehavior>
@@ -2299,7 +2152,8 @@ public class GuidanceResponse extends DomainResource {
           return addParticipant();
         }
         else if (name.equals("type")) {
-          throw new FHIRException("Cannot call addChild on a primitive type GuidanceResponse.type");
+          this.type = new Coding();
+          return this.type;
         }
         else if (name.equals("groupingBehavior")) {
           throw new FHIRException("Cannot call addChild on a primitive type GuidanceResponse.groupingBehavior");
@@ -2392,7 +2246,7 @@ public class GuidanceResponse extends DomainResource {
           return false;
         GuidanceResponseActionComponent o = (GuidanceResponseActionComponent) other;
         return compareValues(label, o.label, true) && compareValues(title, o.title, true) && compareValues(description, o.description, true)
-           && compareValues(textEquivalent, o.textEquivalent, true) && compareValues(type, o.type, true) && compareValues(groupingBehavior, o.groupingBehavior, true)
+           && compareValues(textEquivalent, o.textEquivalent, true) && compareValues(groupingBehavior, o.groupingBehavior, true)
            && compareValues(selectionBehavior, o.selectionBehavior, true) && compareValues(requiredBehavior, o.requiredBehavior, true)
            && compareValues(precheckBehavior, o.precheckBehavior, true) && compareValues(cardinalityBehavior, o.cardinalityBehavior, true)
           ;

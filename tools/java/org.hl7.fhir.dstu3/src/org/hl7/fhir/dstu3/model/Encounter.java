@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 25, 2016 21:27+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -143,7 +143,7 @@ public class Encounter extends DomainResource {
           switch (this) {
             case PLANNED: return "Planned";
             case ARRIVED: return "Arrived";
-            case INPROGRESS: return "in Progress";
+            case INPROGRESS: return "In Progress";
             case ONLEAVE: return "On Leave";
             case FINISHED: return "Finished";
             case CANCELLED: return "Cancelled";
@@ -224,9 +224,7 @@ public class Encounter extends DomainResource {
          */
         PLANNED, 
         /**
-         * The patient is currently at this location, or was between the period specified.
-
-A system may update these records when the patient leaves the location to either reserved, or completed
+         * The patient is currently at this location, or was between the period specified.A system may update these records when the patient leaves the location to either reserved, or completed
          */
         ACTIVE, 
         /**
@@ -234,9 +232,7 @@ A system may update these records when the patient leaves the location to either
          */
         RESERVED, 
         /**
-         * The patient was at this location during the period specified.
-
-Not to be used when the patient is currently at the location
+         * The patient was at this location during the period specified.Not to be used when the patient is currently at the location
          */
         COMPLETED, 
         /**
@@ -280,9 +276,9 @@ Not to be used when the patient is currently at the location
         public String getDefinition() {
           switch (this) {
             case PLANNED: return "The patient is planned to be moved to this location at some point in the future.";
-            case ACTIVE: return "The patient is currently at this location, or was between the period specified.\n\nA system may update these records when the patient leaves the location to either reserved, or completed";
+            case ACTIVE: return "The patient is currently at this location, or was between the period specified.\r\rA system may update these records when the patient leaves the location to either reserved, or completed";
             case RESERVED: return "This location is held empty for this patient.";
-            case COMPLETED: return "The patient was at this location during the period specified.\n\nNot to be used when the patient is currently at the location";
+            case COMPLETED: return "The patient was at this location during the period specified.\r\rNot to be used when the patient is currently at the location";
             default: return "?";
           }
         }

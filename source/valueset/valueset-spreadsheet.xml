@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>5904</WindowHeight>
-  <WindowWidth>23016</WindowWidth>
+  <WindowHeight>14124</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
@@ -810,6 +810,29 @@
    <Interior/>
    <NumberFormat/>
    <Protection/>
+  </Style>
+  <Style ss:ID="s158">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s159">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="16" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s160">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
   </Style>
  </Styles>
  <Names>
@@ -4917,7 +4940,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="49" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="57" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s117" ss:DefaultColumnWidth="51"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="171"/>
@@ -5079,6 +5102,214 @@
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s137"><Data ss:Type="String">Paging support - how many codes should be provided in a partial view. Paging only applies to flat expansions - servers ignore paging if the expansion is not flat.  If count = 0, the client is asking how large the expansion is. Servers SHOULD honor this request for hierarchical expansions as well, and simply return the overall count</Data></Cell>
     <Cell ss:StyleID="s138"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s68">
+    <Cell ss:StyleID="s160"><Data ss:Type="String">expand.includeDesignations</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether concept designations are to be included or excluded in value set expansions. Overrides the value in the expansion profile if there is one</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:Index="16" ss:StyleID="s89"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s92"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s68">
+    <Cell ss:StyleID="s160"><Data ss:Type="String">expand.includeDefinition</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether the value set definition is included or excluded in value set expansions. Overrides the value in the expansion profile if there is one</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:Index="16" ss:StyleID="s89"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s92"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s68">
+    <Cell ss:StyleID="s160"><Data ss:Type="String">expand.includeInactive</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether inactive concepts are included or excluded in value set expansions. Overrides the value in the expansion profile if there is one</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:Index="16" ss:StyleID="s89"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s92"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s68">
+    <Cell ss:StyleID="s160"><Data ss:Type="String">expand.excludeNested</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains). Overrides the value in the expansion profile if there is one</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:Index="16" ss:StyleID="s89"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s92"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s68">
+    <Cell ss:StyleID="s160"><Data ss:Type="String">expand.excludeNotForUI</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether or not the value set expansion includes codes which cannot be displayed in user interfaces. Overrides the value in the expansion profile if there is one</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:Index="16" ss:StyleID="s89"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s92"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s68">
+    <Cell ss:StyleID="s160"><Data ss:Type="String">expand.excludePostCoordinated</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether or not the value set expansion includes post coordinated codes. Overrides the value in the expansion profile if there is one</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:Index="16" ss:StyleID="s89"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s92"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s68">
+    <Cell ss:StyleID="s160"><Data ss:Type="String">expand.displayLanguage</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Specifies the language to be used for description in the expansions i.e. the language to be used for ValueSet.expansion.contains.display. Overrides the value in the expansion profile if there is one</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:Index="16" ss:StyleID="s89"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s92"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s68">
+    <Cell ss:StyleID="s160"><Data ss:Type="String">expand.limitedExpansion</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete. Overrides the value in the expansion profile if there is one</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:Index="16" ss:StyleID="s89"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s92"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s122"><Data ss:Type="String">expand.return</Data></Cell>
@@ -5258,7 +5489,7 @@
     <Cell ss:StyleID="s137"><Data ss:Type="String">A valid display for the concept if the system wishes to display this to a user</Data></Cell>
     <Cell ss:StyleID="s138"/>
    </Row>
-   <Row ss:Index="30" ss:AutoFitHeight="0">
+   <Row ss:Index="38" ss:AutoFitHeight="0">
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s136"/>
@@ -5486,7 +5717,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5499,10 +5730,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

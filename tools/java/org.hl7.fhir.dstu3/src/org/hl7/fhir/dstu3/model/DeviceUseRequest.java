@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 25, 2016 21:27+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -269,12 +269,12 @@ public class DeviceUseRequest extends DomainResource {
     protected CodeableConcept stage;
 
     /**
-     * The details of the device  to be used.
+     * The details of the device to be used.
      */
-    @Child(name = "code", type = {CodeableConcept.class}, order=7, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Device requested", formalDefinition="The details of the device  to be used." )
+    @Child(name = "device", type = {Device.class, CodeableConcept.class}, order=7, min=1, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Device requested", formalDefinition="The details of the device to be used." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/device-kind")
-    protected CodeableConcept code;
+    protected Type device;
 
     /**
      * The patient who will use the device.
@@ -397,7 +397,7 @@ public class DeviceUseRequest extends DomainResource {
     protected List<Provenance> relevantHistoryTarget;
 
 
-    private static final long serialVersionUID = -954219686L;
+    private static final long serialVersionUID = 387661336L;
 
   /**
    * Constructor
@@ -409,10 +409,10 @@ public class DeviceUseRequest extends DomainResource {
   /**
    * Constructor
    */
-    public DeviceUseRequest(CodeableConcept stage, CodeableConcept code, Reference subject) {
+    public DeviceUseRequest(CodeableConcept stage, Type device, Reference subject) {
       super();
       this.stage = stage;
-      this.code = code;
+      this.device = device;
       this.subject = subject;
     }
 
@@ -756,26 +756,47 @@ public class DeviceUseRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #code} (The details of the device  to be used.)
+     * @return {@link #device} (The details of the device to be used.)
      */
-    public CodeableConcept getCode() { 
-      if (this.code == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DeviceUseRequest.code");
-        else if (Configuration.doAutoCreate())
-          this.code = new CodeableConcept(); // cc
-      return this.code;
-    }
-
-    public boolean hasCode() { 
-      return this.code != null && !this.code.isEmpty();
+    public Type getDevice() { 
+      return this.device;
     }
 
     /**
-     * @param value {@link #code} (The details of the device  to be used.)
+     * @return {@link #device} (The details of the device to be used.)
      */
-    public DeviceUseRequest setCode(CodeableConcept value) { 
-      this.code = value;
+    public Reference getDeviceReference() throws FHIRException { 
+      if (!(this.device instanceof Reference))
+        throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.device.getClass().getName()+" was encountered");
+      return (Reference) this.device;
+    }
+
+    public boolean hasDeviceReference() { 
+      return this.device instanceof Reference;
+    }
+
+    /**
+     * @return {@link #device} (The details of the device to be used.)
+     */
+    public CodeableConcept getDeviceCodeableConcept() throws FHIRException { 
+      if (!(this.device instanceof CodeableConcept))
+        throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.device.getClass().getName()+" was encountered");
+      return (CodeableConcept) this.device;
+    }
+
+    public boolean hasDeviceCodeableConcept() { 
+      return this.device instanceof CodeableConcept;
+    }
+
+    public boolean hasDevice() { 
+      return this.device != null && !this.device.isEmpty();
+    }
+
+    /**
+     * @param value {@link #device} (The details of the device to be used.)
+     */
+    public DeviceUseRequest setDevice(Type value) { 
+      this.device = value;
       return this;
     }
 
@@ -1382,7 +1403,7 @@ public class DeviceUseRequest extends DomainResource {
         childrenList.add(new Property("requisition", "Identifier", "Composite request this is part of.", 0, java.lang.Integer.MAX_VALUE, requisition));
         childrenList.add(new Property("status", "code", "The status of the request.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("stage", "CodeableConcept", "Whether the request is a proposal, plan, an original order or a reflex order.", 0, java.lang.Integer.MAX_VALUE, stage));
-        childrenList.add(new Property("code", "CodeableConcept", "The details of the device  to be used.", 0, java.lang.Integer.MAX_VALUE, code));
+        childrenList.add(new Property("device[x]", "Reference(Device)|CodeableConcept", "The details of the device to be used.", 0, java.lang.Integer.MAX_VALUE, device));
         childrenList.add(new Property("subject", "Reference(Patient|Group|Location|Device)", "The patient who will use the device.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "An encounter that provides additional context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, context));
         childrenList.add(new Property("occurrence[x]", "dateTime|Period|Timing", "The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".", 0, java.lang.Integer.MAX_VALUE, occurrence));
@@ -1407,7 +1428,7 @@ public class DeviceUseRequest extends DomainResource {
         case 395923612: /*requisition*/ return this.requisition == null ? new Base[0] : new Base[] {this.requisition}; // Identifier
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DeviceUseRequestStatus>
         case 109757182: /*stage*/ return this.stage == null ? new Base[0] : new Base[] {this.stage}; // CodeableConcept
-        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -1335157162: /*device*/ return this.device == null ? new Base[0] : new Base[] {this.device}; // Type
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
         case 1687874001: /*occurrence*/ return this.occurrence == null ? new Base[0] : new Base[] {this.occurrence}; // Type
@@ -1449,8 +1470,8 @@ public class DeviceUseRequest extends DomainResource {
         case 109757182: // stage
           this.stage = castToCodeableConcept(value); // CodeableConcept
           break;
-        case 3059181: // code
-          this.code = castToCodeableConcept(value); // CodeableConcept
+        case -1335157162: // device
+          this.device = (Type) value; // Type
           break;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
@@ -1509,8 +1530,8 @@ public class DeviceUseRequest extends DomainResource {
           this.status = new DeviceUseRequestStatusEnumFactory().fromType(value); // Enumeration<DeviceUseRequestStatus>
         else if (name.equals("stage"))
           this.stage = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("code"))
-          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("device[x]"))
+          this.device = (Type) value; // Type
         else if (name.equals("subject"))
           this.subject = castToReference(value); // Reference
         else if (name.equals("context"))
@@ -1549,7 +1570,7 @@ public class DeviceUseRequest extends DomainResource {
         case 395923612:  return getRequisition(); // Identifier
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DeviceUseRequestStatus>
         case 109757182:  return getStage(); // CodeableConcept
-        case 3059181:  return getCode(); // CodeableConcept
+        case 25206378:  return getDevice(); // Type
         case -1867885268:  return getSubject(); // Reference
         case 951530927:  return getContext(); // Reference
         case -2022646513:  return getOccurrence(); // Type
@@ -1592,9 +1613,13 @@ public class DeviceUseRequest extends DomainResource {
           this.stage = new CodeableConcept();
           return this.stage;
         }
-        else if (name.equals("code")) {
-          this.code = new CodeableConcept();
-          return this.code;
+        else if (name.equals("deviceReference")) {
+          this.device = new Reference();
+          return this.device;
+        }
+        else if (name.equals("deviceCodeableConcept")) {
+          this.device = new CodeableConcept();
+          return this.device;
         }
         else if (name.equals("subject")) {
           this.subject = new Reference();
@@ -1681,7 +1706,7 @@ public class DeviceUseRequest extends DomainResource {
         dst.requisition = requisition == null ? null : requisition.copy();
         dst.status = status == null ? null : status.copy();
         dst.stage = stage == null ? null : stage.copy();
-        dst.code = code == null ? null : code.copy();
+        dst.device = device == null ? null : device.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.context = context == null ? null : context.copy();
         dst.occurrence = occurrence == null ? null : occurrence.copy();
@@ -1730,7 +1755,7 @@ public class DeviceUseRequest extends DomainResource {
         DeviceUseRequest o = (DeviceUseRequest) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(definition, o.definition, true)
            && compareDeep(basedOn, o.basedOn, true) && compareDeep(replaces, o.replaces, true) && compareDeep(requisition, o.requisition, true)
-           && compareDeep(status, o.status, true) && compareDeep(stage, o.stage, true) && compareDeep(code, o.code, true)
+           && compareDeep(status, o.status, true) && compareDeep(stage, o.stage, true) && compareDeep(device, o.device, true)
            && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true) && compareDeep(occurrence, o.occurrence, true)
            && compareDeep(authored, o.authored, true) && compareDeep(requester, o.requester, true) && compareDeep(performerType, o.performerType, true)
            && compareDeep(performer, o.performer, true) && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
@@ -1750,8 +1775,8 @@ public class DeviceUseRequest extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
-          , replaces, requisition, status, stage, code, subject, context, occurrence, authored
-          , requester, performerType, performer, reasonCode, reasonReference, supportingInfo
+          , replaces, requisition, status, stage, device, subject, context, occurrence
+          , authored, requester, performerType, performer, reasonCode, reasonReference, supportingInfo
           , note, relevantHistory);
       }
 
@@ -1809,19 +1834,19 @@ public class DeviceUseRequest extends DomainResource {
  /**
    * Search parameter: <b>code</b>
    * <p>
-   * Description: <b>What’s being requested/ordered</b><br>
+   * Description: <b>Code for what is being requested/ordered</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>DeviceUseRequest.code</b><br>
+   * Path: <b>DeviceUseRequest.deviceCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="DeviceUseRequest.code", description="What’s being requested/ordered", type="token" )
+  @SearchParamDefinition(name="code", path="DeviceUseRequest.device.as(CodeableConcept)", description="Code for what is being requested/ordered", type="token" )
   public static final String SP_CODE = "code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>code</b>
    * <p>
-   * Description: <b>What’s being requested/ordered</b><br>
+   * Description: <b>Code for what is being requested/ordered</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>DeviceUseRequest.code</b><br>
+   * Path: <b>DeviceUseRequest.deviceCodeableConcept</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
@@ -2087,6 +2112,32 @@ public class DeviceUseRequest extends DomainResource {
    * the path value of "<b>DeviceUseRequest:definition</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_DEFINITION = new ca.uhn.fhir.model.api.Include("DeviceUseRequest:definition").toLocked();
+
+ /**
+   * Search parameter: <b>device</b>
+   * <p>
+   * Description: <b>Reference to resource that is being requested/ordered</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DeviceUseRequest.deviceReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="device", path="DeviceUseRequest.device.as(Reference)", description="Reference to resource that is being requested/ordered", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device") }, target={Device.class } )
+  public static final String SP_DEVICE = "device";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>device</b>
+   * <p>
+   * Description: <b>Reference to resource that is being requested/ordered</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DeviceUseRequest.deviceReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DEVICE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DEVICE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DeviceUseRequest:device</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_DEVICE = new ca.uhn.fhir.model.api.Include("DeviceUseRequest:device").toLocked();
 
  /**
    * Search parameter: <b>status</b>

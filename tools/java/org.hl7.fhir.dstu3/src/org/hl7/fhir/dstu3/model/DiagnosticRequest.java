@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 25, 2016 21:27+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -1676,7 +1676,7 @@ public class DiagnosticRequest extends DomainResource {
    * Path: <b>DiagnosticRequest.requester</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requester", path="DiagnosticRequest.requester", description="Who/what is requesting service ", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Organization.class, Practitioner.class } )
+  @SearchParamDefinition(name="requester", path="DiagnosticRequest.requester", description="Who/what is requesting service ", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Organization.class, Practitioner.class } )
   public static final String SP_REQUESTER = "requester";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requester</b>

@@ -7,6 +7,7 @@
   <experimental value="false"/>
   <description value="This value set includes basic Privacy Consent Directive Type codes. Additional codes may be defined within a Realm, Domain, Local, or virtial-domain."/>
   <copyright value="This is an example set."/>
+  <hierarchyMeaning value="subsumes"/>
   <caseSensitive value="true"/>
   <property>
     <code value="notSelectable"/>

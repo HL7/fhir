@@ -37,6 +37,7 @@ import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
+import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
@@ -216,6 +217,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     csid.setId(cs.getId());
     csid.setVersion(cs.getVersion());
     csid.setContent(cs.getContent());
+    csid.setHierarchyMeaning(CodeSystemHierarchyMeaning.GROUPEDBY);
     for (ConceptDefinitionComponent cc : cs.getConcept()) 
       csid.getConcept().add(processCSConcept(cc));
     JsonParser parser = new JsonParser();

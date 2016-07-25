@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 25, 2016 21:27+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -296,34 +296,27 @@ public class DecisionSupportServiceModule extends DomainResource {
     protected List<RelatedResource> relatedResource;
 
     /**
-     * The metadata for the decision support service module, including publishing, life-cycle, version, documentation, and supporting evidence.
-     */
-    @Child(name = "moduleMetadata", type = {ModuleMetadata.class}, order=20, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Metadata for the service module", formalDefinition="The metadata for the decision support service module, including publishing, life-cycle, version, documentation, and supporting evidence." )
-    protected ModuleMetadata moduleMetadata;
-
-    /**
      * The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow.
      */
-    @Child(name = "trigger", type = {TriggerDefinition.class}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "trigger", type = {TriggerDefinition.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="\"when\" the module should be invoked", formalDefinition="The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow." )
     protected List<TriggerDefinition> trigger;
 
     /**
      * The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.
      */
-    @Child(name = "parameter", type = {ParameterDefinition.class}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "parameter", type = {ParameterDefinition.class}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Parameters to the module", formalDefinition="The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse." )
     protected List<ParameterDefinition> parameter;
 
     /**
      * Data requirements are a machine processable description of the data required by the module in order to perform a successful evaluation.
      */
-    @Child(name = "dataRequirement", type = {DataRequirement.class}, order=23, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "dataRequirement", type = {DataRequirement.class}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Data requirements for the module", formalDefinition="Data requirements are a machine processable description of the data required by the module in order to perform a successful evaluation." )
     protected List<DataRequirement> dataRequirement;
 
-    private static final long serialVersionUID = -1173012327L;
+    private static final long serialVersionUID = -1525091153L;
 
   /**
    * Constructor
@@ -1312,30 +1305,6 @@ public class DecisionSupportServiceModule extends DomainResource {
     }
 
     /**
-     * @return {@link #moduleMetadata} (The metadata for the decision support service module, including publishing, life-cycle, version, documentation, and supporting evidence.)
-     */
-    public ModuleMetadata getModuleMetadata() { 
-      if (this.moduleMetadata == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DecisionSupportServiceModule.moduleMetadata");
-        else if (Configuration.doAutoCreate())
-          this.moduleMetadata = new ModuleMetadata(); // cc
-      return this.moduleMetadata;
-    }
-
-    public boolean hasModuleMetadata() { 
-      return this.moduleMetadata != null && !this.moduleMetadata.isEmpty();
-    }
-
-    /**
-     * @param value {@link #moduleMetadata} (The metadata for the decision support service module, including publishing, life-cycle, version, documentation, and supporting evidence.)
-     */
-    public DecisionSupportServiceModule setModuleMetadata(ModuleMetadata value) { 
-      this.moduleMetadata = value;
-      return this;
-    }
-
-    /**
      * @return {@link #trigger} (The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow.)
      */
     public List<TriggerDefinition> getTrigger() { 
@@ -1516,7 +1485,6 @@ public class DecisionSupportServiceModule extends DomainResource {
         childrenList.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("relatedResource", "RelatedResource", "Related resources such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedResource));
-        childrenList.add(new Property("moduleMetadata", "ModuleMetadata", "The metadata for the decision support service module, including publishing, life-cycle, version, documentation, and supporting evidence.", 0, java.lang.Integer.MAX_VALUE, moduleMetadata));
         childrenList.add(new Property("trigger", "TriggerDefinition", "The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow.", 0, java.lang.Integer.MAX_VALUE, trigger));
         childrenList.add(new Property("parameter", "ParameterDefinition", "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.", 0, java.lang.Integer.MAX_VALUE, parameter));
         childrenList.add(new Property("dataRequirement", "DataRequirement", "Data requirements are a machine processable description of the data required by the module in order to perform a successful evaluation.", 0, java.lang.Integer.MAX_VALUE, dataRequirement));
@@ -1545,7 +1513,6 @@ public class DecisionSupportServiceModule extends DomainResource {
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ContactDetail
         case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
         case 1554540889: /*relatedResource*/ return this.relatedResource == null ? new Base[0] : this.relatedResource.toArray(new Base[this.relatedResource.size()]); // RelatedResource
-        case 455891387: /*moduleMetadata*/ return this.moduleMetadata == null ? new Base[0] : new Base[] {this.moduleMetadata}; // ModuleMetadata
         case -1059891784: /*trigger*/ return this.trigger == null ? new Base[0] : this.trigger.toArray(new Base[this.trigger.size()]); // TriggerDefinition
         case 1954460585: /*parameter*/ return this.parameter == null ? new Base[0] : this.parameter.toArray(new Base[this.parameter.size()]); // ParameterDefinition
         case 629147193: /*dataRequirement*/ return this.dataRequirement == null ? new Base[0] : this.dataRequirement.toArray(new Base[this.dataRequirement.size()]); // DataRequirement
@@ -1617,9 +1584,6 @@ public class DecisionSupportServiceModule extends DomainResource {
         case 1554540889: // relatedResource
           this.getRelatedResource().add(castToRelatedResource(value)); // RelatedResource
           break;
-        case 455891387: // moduleMetadata
-          this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
-          break;
         case -1059891784: // trigger
           this.getTrigger().add(castToTriggerDefinition(value)); // TriggerDefinition
           break;
@@ -1676,8 +1640,6 @@ public class DecisionSupportServiceModule extends DomainResource {
           this.copyright = castToString(value); // StringType
         else if (name.equals("relatedResource"))
           this.getRelatedResource().add(castToRelatedResource(value));
-        else if (name.equals("moduleMetadata"))
-          this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
         else if (name.equals("trigger"))
           this.getTrigger().add(castToTriggerDefinition(value));
         else if (name.equals("parameter"))
@@ -1711,7 +1673,6 @@ public class DecisionSupportServiceModule extends DomainResource {
         case 951526432:  return addContact(); // ContactDetail
         case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // StringType
         case 1554540889:  return addRelatedResource(); // RelatedResource
-        case 455891387:  return getModuleMetadata(); // ModuleMetadata
         case -1059891784:  return addTrigger(); // TriggerDefinition
         case 1954460585:  return addParameter(); // ParameterDefinition
         case 629147193:  return addDataRequirement(); // DataRequirement
@@ -1783,10 +1744,6 @@ public class DecisionSupportServiceModule extends DomainResource {
         else if (name.equals("relatedResource")) {
           return addRelatedResource();
         }
-        else if (name.equals("moduleMetadata")) {
-          this.moduleMetadata = new ModuleMetadata();
-          return this.moduleMetadata;
-        }
         else if (name.equals("trigger")) {
           return addTrigger();
         }
@@ -1852,7 +1809,6 @@ public class DecisionSupportServiceModule extends DomainResource {
           for (RelatedResource i : relatedResource)
             dst.relatedResource.add(i.copy());
         };
-        dst.moduleMetadata = moduleMetadata == null ? null : moduleMetadata.copy();
         if (trigger != null) {
           dst.trigger = new ArrayList<TriggerDefinition>();
           for (TriggerDefinition i : trigger)
@@ -1889,8 +1845,8 @@ public class DecisionSupportServiceModule extends DomainResource {
            && compareDeep(lastReviewDate, o.lastReviewDate, true) && compareDeep(effectivePeriod, o.effectivePeriod, true)
            && compareDeep(coverage, o.coverage, true) && compareDeep(topic, o.topic, true) && compareDeep(contributor, o.contributor, true)
            && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(copyright, o.copyright, true)
-           && compareDeep(relatedResource, o.relatedResource, true) && compareDeep(moduleMetadata, o.moduleMetadata, true)
-           && compareDeep(trigger, o.trigger, true) && compareDeep(parameter, o.parameter, true) && compareDeep(dataRequirement, o.dataRequirement, true)
+           && compareDeep(relatedResource, o.relatedResource, true) && compareDeep(trigger, o.trigger, true)
+           && compareDeep(parameter, o.parameter, true) && compareDeep(dataRequirement, o.dataRequirement, true)
           ;
       }
 
@@ -1912,8 +1868,7 @@ public class DecisionSupportServiceModule extends DomainResource {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, identifier, version
           , name, title, status, experimental, description, purpose, usage, publicationDate
           , lastReviewDate, effectivePeriod, coverage, topic, contributor, publisher, contact
-          , copyright, relatedResource, moduleMetadata, trigger, parameter, dataRequirement
-          );
+          , copyright, relatedResource, trigger, parameter, dataRequirement);
       }
 
   @Override

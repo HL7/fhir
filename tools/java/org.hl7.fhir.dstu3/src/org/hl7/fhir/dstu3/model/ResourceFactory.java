@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 25, 2016 21:27+1000 for FHIR v1.5.0
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
@@ -275,8 +275,6 @@ public class ResourceFactory extends Factory {
             return new Count();
         if ("DataRequirement".equals(name))
             return new DataRequirement();
-        if ("ActionDefinition".equals(name))
-            return new ActionDefinition();
         if ("Money".equals(name))
             return new Money();
         if ("HumanName".equals(name))
@@ -305,8 +303,6 @@ public class ResourceFactory extends Factory {
             return new TriggerDefinition();
         if ("SimpleQuantity".equals(name))
             return new SimpleQuantity();
-        if ("ModuleMetadata".equals(name))
-            return new ModuleMetadata();
         if ("Quantity".equals(name))
             return new Quantity();
         if ("Period".equals(name))
@@ -570,8 +566,6 @@ public class ResourceFactory extends Factory {
             return new Count();
         if ("DataRequirement".equals(name))
             return new DataRequirement();
-        if ("ActionDefinition".equals(name))
-            return new ActionDefinition();
         if ("Money".equals(name))
             return new Money();
         if ("HumanName".equals(name))
@@ -600,8 +594,6 @@ public class ResourceFactory extends Factory {
             return new TriggerDefinition();
         if ("SimpleQuantity".equals(name))
             return new SimpleQuantity();
-        if ("ModuleMetadata".equals(name))
-            return new ModuleMetadata();
         if ("Quantity".equals(name))
             return new Quantity();
         if ("Period".equals(name))

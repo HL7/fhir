@@ -82,7 +82,7 @@ public class CSVReader extends InputStreamReader {
 	 * @throws FHIRException 
 	 * @
 	 */
-	protected String[] parseLine() throws IOException, FHIRException  {
+	public String[] parseLine() throws IOException, FHIRException  {
 		List<String> res = new ArrayList<String>();
 		StringBuilder b = new StringBuilder();
 		boolean inQuote = false;

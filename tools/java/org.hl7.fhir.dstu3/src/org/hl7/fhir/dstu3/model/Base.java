@@ -579,20 +579,6 @@ private Map<String, Object> userData;
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a ElementDefinition");
 	}
 
-	public ModuleMetadata castToModuleMetadata(Base b) throws FHIRException {
-		if (b instanceof ModuleMetadata)
-			return (ModuleMetadata) b;
-		else
-			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a ModuleMetadata");
-	}
-
-	public ActionDefinition castToActionDefinition(Base b) throws FHIRException {
-		if (b instanceof ActionDefinition)
-			return (ActionDefinition) b;
-		else
-			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a ActionDefinition");
-	}
-
 	public DataRequirement castToDataRequirement(Base b) throws FHIRException {
 		if (b instanceof DataRequirement)
 			return (DataRequirement) b;

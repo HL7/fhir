@@ -14,6 +14,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
+import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -215,6 +216,10 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     cs.setCaseSensitive(true);
     cs.setContent(CodeSystemContentMode.COMPLETE);
     cs.setValueSet(vs.getUrl());
+    if (Utilities.existsInList(cs.getId(), "v3-AddressPartType"))
+      cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.PARTOF);
+    else
+      cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.SUBSUMES);
 
     List<CodeInfo> codes = new ArrayList<CodeInfo>();
     // first, collate all the codes

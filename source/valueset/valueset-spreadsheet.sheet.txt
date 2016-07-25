@@ -825,6 +825,70 @@
   Max = 1
 
  -- Row 10 -----------------------------------
+  Name = expand.includeDesignations
+  Use = in
+  Documentation = Controls whether concept designations are to be included or excluded in value set expansions. Overrides the value in the expansion profile if there is one
+  Type = boolean
+  Min = 0
+  Max = 1
+
+ -- Row 11 -----------------------------------
+  Name = expand.includeDefinition
+  Use = in
+  Documentation = Controls whether the value set definition is included or excluded in value set expansions. Overrides the value in the expansion profile if there is one
+  Type = boolean
+  Min = 0
+  Max = 1
+
+ -- Row 12 -----------------------------------
+  Name = expand.includeInactive
+  Use = in
+  Documentation = Controls whether inactive concepts are included or excluded in value set expansions. Overrides the value in the expansion profile if there is one
+  Type = boolean
+  Min = 0
+  Max = 1
+
+ -- Row 13 -----------------------------------
+  Name = expand.excludeNested
+  Use = in
+  Documentation = Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains). Overrides the value in the expansion profile if there is one
+  Type = boolean
+  Min = 0
+  Max = 1
+
+ -- Row 14 -----------------------------------
+  Name = expand.excludeNotForUI
+  Use = in
+  Documentation = Controls whether or not the value set expansion includes codes which cannot be displayed in user interfaces. Overrides the value in the expansion profile if there is one
+  Type = boolean
+  Min = 0
+  Max = 1
+
+ -- Row 15 -----------------------------------
+  Name = expand.excludePostCoordinated
+  Use = in
+  Documentation = Controls whether or not the value set expansion includes post coordinated codes. Overrides the value in the expansion profile if there is one
+  Type = boolean
+  Min = 0
+  Max = 1
+
+ -- Row 16 -----------------------------------
+  Name = expand.displayLanguage
+  Use = in
+  Documentation = Specifies the language to be used for description in the expansions i.e. the language to be used for ValueSet.expansion.contains.display. Overrides the value in the expansion profile if there is one
+  Type = code
+  Min = 0
+  Max = 1
+
+ -- Row 17 -----------------------------------
+  Name = expand.limitedExpansion
+  Use = in
+  Documentation = If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete. Overrides the value in the expansion profile if there is one
+  Type = boolean
+  Min = 0
+  Max = 1
+
+ -- Row 18 -----------------------------------
   Name = expand.return
   Use = out
   Documentation = The result of the expansion
@@ -832,7 +896,7 @@
   Min = 1
   Max = 1
 
- -- Row 11 -----------------------------------
+ -- Row 19 -----------------------------------
   Name = validate-code
   Use = Resource | Instance
   Documentation = Validate that a coded value is in the set of codes allowed by a value set.   If the operation is not called at the instance level, one of the in parameters \"identifier\" or \"valueset\" must be provided.  One (and only one) of the in parameters (code, coding, codeableConcept) must be provided.  The operation returns a result (true / false), an error message, and the recommended display for the code
@@ -841,7 +905,7 @@
   Example.Response = $validate-code-response.txt
   Title = Value Set based Validation
 
- -- Row 12 -----------------------------------
+ -- Row 20 -----------------------------------
   Name = validate-code.identifier
   Use = in
   Documentation = A logical value set identifier (i.e. ValueSet.url). The server must know the value set (e.g. it is defined explicitly in the server\'s value sets, or it is defined implicitly by some code system known to the server
@@ -849,7 +913,7 @@
   Min = 0
   Max = 1
 
- -- Row 13 -----------------------------------
+ -- Row 21 -----------------------------------
   Name = validate-code.context
   Use = in
   Documentation = The context of the value set, so that the server can resolve this to a value set to validate against. The recommended format for this URI is [Structure Definition URL]#[name or path into structure definition] e.g. http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#Observation.interpretation. Other forms may be used but are not defined. This form is only useable if the terminology server also has access to the profile registry that the server is using, but can be used to delegate the mapping from an application context to a binding at run-time
@@ -857,7 +921,7 @@
   Min = 0
   Max = 1
 
- -- Row 14 -----------------------------------
+ -- Row 22 -----------------------------------
   Name = validate-code.valueSet
   Use = in
   Documentation = The value set is provided directly as part of the request. Servers may choose not to accept value sets in this fashion. This parameter is used when the client wants the server to expand a value set that is not stored on the server
@@ -865,7 +929,7 @@
   Min = 0
   Max = 1
 
- -- Row 15 -----------------------------------
+ -- Row 23 -----------------------------------
   Name = validate-code.code
   Use = in
   Documentation = The code that is to be validated. If a code is provided, a system must be provided
@@ -873,7 +937,7 @@
   Min = 0
   Max = 1
 
- -- Row 16 -----------------------------------
+ -- Row 24 -----------------------------------
   Name = validate-code.system
   Use = in
   Documentation = The system for the code that is to be validated
@@ -881,7 +945,7 @@
   Min = 0
   Max = 1
 
- -- Row 17 -----------------------------------
+ -- Row 25 -----------------------------------
   Name = validate-code.version
   Use = in
   Documentation = The version of the system, if one was provided in the source data
@@ -889,7 +953,7 @@
   Min = 0
   Max = 1
 
- -- Row 18 -----------------------------------
+ -- Row 26 -----------------------------------
   Name = validate-code.display
   Use = in
   Documentation = The display associated with the code, if provided. If a display is provided a code must be provided. If no display is provided, the server cannot validate the display value, but may choose to return a recommended display name in an extension in the outcome. Whether displays are case sensitive is code system dependent
@@ -897,7 +961,7 @@
   Min = 0
   Max = 1
 
- -- Row 19 -----------------------------------
+ -- Row 27 -----------------------------------
   Name = validate-code.coding
   Use = in
   Documentation = A coding to validate
@@ -905,7 +969,7 @@
   Min = 0
   Max = 1
 
- -- Row 20 -----------------------------------
+ -- Row 28 -----------------------------------
   Name = validate-code.codeableConcept
   Use = in
   Documentation = A full codeableConcept to validate. The server returns true if one of the coding values is in the value set, and may also validate that the codings are not in conflict with each other if more than one is present
@@ -913,7 +977,7 @@
   Min = 0
   Max = 1
 
- -- Row 21 -----------------------------------
+ -- Row 29 -----------------------------------
   Name = validate-code.date
   Use = in
   Documentation = The date for which the validation should be checked. Normally, this is the current conditions (which is the default values) but under some circumstances, systems need to validate that a correct code was used at some point in the past. A typical example of this would be where code selection is constrained to the set of codes that were available when the patient was treated, not when the record is being edited. Note that which date is appropriate is a matter for implementation policy.
@@ -921,7 +985,7 @@
   Min = 0
   Max = 1
 
- -- Row 22 -----------------------------------
+ -- Row 30 -----------------------------------
   Name = validate-code.abstract
   Use = in
   Documentation = if true, then an abstract code is allowed to be used in the context of the code that is being validated. Typically, abstract codes are allowed to be used in value set specifications (e.g. any code that is subsumed by an abstract code). If false (which is the default value), then only concrete codes as defined by the value set are allowed
@@ -929,7 +993,7 @@
   Min = 0
   Max = 1
 
- -- Row 23 -----------------------------------
+ -- Row 31 -----------------------------------
   Name = validate-code.result
   Use = out
   Documentation = True if the concept details supplied are valid
@@ -937,7 +1001,7 @@
   Min = 1
   Max = 1
 
- -- Row 24 -----------------------------------
+ -- Row 32 -----------------------------------
   Name = validate-code.message
   Use = out
   Documentation = Error details, if result = false. If this is provided when result = true, the message carries hints and warnings
@@ -945,7 +1009,7 @@
   Min = 0
   Max = 1
 
- -- Row 25 -----------------------------------
+ -- Row 33 -----------------------------------
   Name = validate-code.display
   Use = out
   Documentation = A valid display for the concept if the system wishes to display this to a user

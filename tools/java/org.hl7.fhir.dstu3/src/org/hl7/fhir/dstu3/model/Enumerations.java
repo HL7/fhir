@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 25, 2016 21:27+1000 for FHIR v1.5.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -1036,10 +1036,6 @@ public class Enumerations {
 
     public enum DataType {
         /**
-         * The definition of an action to be performed. Some aspects of the definition are specified statically, and some aspects can be specified dynamically by referencing logic defined in a library.
-         */
-        ACTIONDEFINITION, 
-        /**
          * An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations and which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.
          */
         ADDRESS, 
@@ -1119,10 +1115,6 @@ public class Enumerations {
          * The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.
          */
         META, 
-        /**
-         * The ModuleMetadata structure defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.
-         */
-        MODULEMETADATA, 
         /**
          * An amount of economic utility in some recognised currency.
          */
@@ -1262,8 +1254,6 @@ public class Enumerations {
         public static DataType fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("ActionDefinition".equals(codeString))
-          return ACTIONDEFINITION;
         if ("Address".equals(codeString))
           return ADDRESS;
         if ("Age".equals(codeString))
@@ -1304,8 +1294,6 @@ public class Enumerations {
           return IDENTIFIER;
         if ("Meta".equals(codeString))
           return META;
-        if ("ModuleMetadata".equals(codeString))
-          return MODULEMETADATA;
         if ("Money".equals(codeString))
           return MONEY;
         if ("Narrative".equals(codeString))
@@ -1376,7 +1364,6 @@ public class Enumerations {
         }
         public String toCode() {
           switch (this) {
-            case ACTIONDEFINITION: return "ActionDefinition";
             case ADDRESS: return "Address";
             case AGE: return "Age";
             case ANNOTATION: return "Annotation";
@@ -1397,7 +1384,6 @@ public class Enumerations {
             case HUMANNAME: return "HumanName";
             case IDENTIFIER: return "Identifier";
             case META: return "Meta";
-            case MODULEMETADATA: return "ModuleMetadata";
             case MONEY: return "Money";
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
@@ -1436,7 +1422,6 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
-            case ACTIONDEFINITION: return "http://hl7.org/fhir/data-types";
             case ADDRESS: return "http://hl7.org/fhir/data-types";
             case AGE: return "http://hl7.org/fhir/data-types";
             case ANNOTATION: return "http://hl7.org/fhir/data-types";
@@ -1457,7 +1442,6 @@ public class Enumerations {
             case HUMANNAME: return "http://hl7.org/fhir/data-types";
             case IDENTIFIER: return "http://hl7.org/fhir/data-types";
             case META: return "http://hl7.org/fhir/data-types";
-            case MODULEMETADATA: return "http://hl7.org/fhir/data-types";
             case MONEY: return "http://hl7.org/fhir/data-types";
             case NARRATIVE: return "http://hl7.org/fhir/data-types";
             case PARAMETERDEFINITION: return "http://hl7.org/fhir/data-types";
@@ -1496,7 +1480,6 @@ public class Enumerations {
         }
         public String getDefinition() {
           switch (this) {
-            case ACTIONDEFINITION: return "The definition of an action to be performed. Some aspects of the definition are specified statically, and some aspects can be specified dynamically by referencing logic defined in a library.";
             case ADDRESS: return "An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations and which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.";
             case AGE: return "A duration of time during which an organism (or a process) has existed.";
             case ANNOTATION: return "A  text note which also  contains information about who made the statement and when.";
@@ -1517,7 +1500,6 @@ public class Enumerations {
             case HUMANNAME: return "A human's name with the ability to identify parts and usage.";
             case IDENTIFIER: return "A technical identifier - identifies some entity uniquely and unambiguously.";
             case META: return "The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.";
-            case MODULEMETADATA: return "The ModuleMetadata structure defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.";
             case MONEY: return "An amount of economic utility in some recognised currency.";
             case NARRATIVE: return "A human-readable formatted text, including images.";
             case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
@@ -1556,7 +1538,6 @@ public class Enumerations {
         }
         public String getDisplay() {
           switch (this) {
-            case ACTIONDEFINITION: return "ActionDefinition";
             case ADDRESS: return "Address";
             case AGE: return "Age";
             case ANNOTATION: return "Annotation";
@@ -1577,7 +1558,6 @@ public class Enumerations {
             case HUMANNAME: return "HumanName";
             case IDENTIFIER: return "Identifier";
             case META: return "Meta";
-            case MODULEMETADATA: return "ModuleMetadata";
             case MONEY: return "Money";
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
@@ -1621,8 +1601,6 @@ public class Enumerations {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("ActionDefinition".equals(codeString))
-          return DataType.ACTIONDEFINITION;
         if ("Address".equals(codeString))
           return DataType.ADDRESS;
         if ("Age".equals(codeString))
@@ -1663,8 +1641,6 @@ public class Enumerations {
           return DataType.IDENTIFIER;
         if ("Meta".equals(codeString))
           return DataType.META;
-        if ("ModuleMetadata".equals(codeString))
-          return DataType.MODULEMETADATA;
         if ("Money".equals(codeString))
           return DataType.MONEY;
         if ("Narrative".equals(codeString))
@@ -1739,8 +1715,6 @@ public class Enumerations {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("ActionDefinition".equals(codeString))
-          return new Enumeration<DataType>(this, DataType.ACTIONDEFINITION);
         if ("Address".equals(codeString))
           return new Enumeration<DataType>(this, DataType.ADDRESS);
         if ("Age".equals(codeString))
@@ -1781,8 +1755,6 @@ public class Enumerations {
           return new Enumeration<DataType>(this, DataType.IDENTIFIER);
         if ("Meta".equals(codeString))
           return new Enumeration<DataType>(this, DataType.META);
-        if ("ModuleMetadata".equals(codeString))
-          return new Enumeration<DataType>(this, DataType.MODULEMETADATA);
         if ("Money".equals(codeString))
           return new Enumeration<DataType>(this, DataType.MONEY);
         if ("Narrative".equals(codeString))
@@ -1852,8 +1824,6 @@ public class Enumerations {
         throw new FHIRException("Unknown DataType code '"+codeString+"'");
         }
     public String toCode(DataType code) {
-      if (code == DataType.ACTIONDEFINITION)
-        return "ActionDefinition";
       if (code == DataType.ADDRESS)
         return "Address";
       if (code == DataType.AGE)
@@ -1894,8 +1864,6 @@ public class Enumerations {
         return "Identifier";
       if (code == DataType.META)
         return "Meta";
-      if (code == DataType.MODULEMETADATA)
-        return "ModuleMetadata";
       if (code == DataType.MONEY)
         return "Money";
       if (code == DataType.NARRATIVE)
@@ -2074,10 +2042,6 @@ public class Enumerations {
 
     public enum FHIRAllTypes {
         /**
-         * The definition of an action to be performed. Some aspects of the definition are specified statically, and some aspects can be specified dynamically by referencing logic defined in a library.
-         */
-        ACTIONDEFINITION, 
-        /**
          * An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations and which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.
          */
         ADDRESS, 
@@ -2157,10 +2121,6 @@ public class Enumerations {
          * The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.
          */
         META, 
-        /**
-         * The ModuleMetadata structure defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.
-         */
-        MODULEMETADATA, 
         /**
          * An amount of economic utility in some recognised currency.
          */
@@ -2756,8 +2716,6 @@ public class Enumerations {
         public static FHIRAllTypes fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("ActionDefinition".equals(codeString))
-          return ACTIONDEFINITION;
         if ("Address".equals(codeString))
           return ADDRESS;
         if ("Age".equals(codeString))
@@ -2798,8 +2756,6 @@ public class Enumerations {
           return IDENTIFIER;
         if ("Meta".equals(codeString))
           return META;
-        if ("ModuleMetadata".equals(codeString))
-          return MODULEMETADATA;
         if ("Money".equals(codeString))
           return MONEY;
         if ("Narrative".equals(codeString))
@@ -3098,7 +3054,6 @@ public class Enumerations {
         }
         public String toCode() {
           switch (this) {
-            case ACTIONDEFINITION: return "ActionDefinition";
             case ADDRESS: return "Address";
             case AGE: return "Age";
             case ANNOTATION: return "Annotation";
@@ -3119,7 +3074,6 @@ public class Enumerations {
             case HUMANNAME: return "HumanName";
             case IDENTIFIER: return "Identifier";
             case META: return "Meta";
-            case MODULEMETADATA: return "ModuleMetadata";
             case MONEY: return "Money";
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
@@ -3272,7 +3226,6 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
-            case ACTIONDEFINITION: return "http://hl7.org/fhir/data-types";
             case ADDRESS: return "http://hl7.org/fhir/data-types";
             case AGE: return "http://hl7.org/fhir/data-types";
             case ANNOTATION: return "http://hl7.org/fhir/data-types";
@@ -3293,7 +3246,6 @@ public class Enumerations {
             case HUMANNAME: return "http://hl7.org/fhir/data-types";
             case IDENTIFIER: return "http://hl7.org/fhir/data-types";
             case META: return "http://hl7.org/fhir/data-types";
-            case MODULEMETADATA: return "http://hl7.org/fhir/data-types";
             case MONEY: return "http://hl7.org/fhir/data-types";
             case NARRATIVE: return "http://hl7.org/fhir/data-types";
             case PARAMETERDEFINITION: return "http://hl7.org/fhir/data-types";
@@ -3446,7 +3398,6 @@ public class Enumerations {
         }
         public String getDefinition() {
           switch (this) {
-            case ACTIONDEFINITION: return "The definition of an action to be performed. Some aspects of the definition are specified statically, and some aspects can be specified dynamically by referencing logic defined in a library.";
             case ADDRESS: return "An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations and which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.";
             case AGE: return "A duration of time during which an organism (or a process) has existed.";
             case ANNOTATION: return "A  text note which also  contains information about who made the statement and when.";
@@ -3467,7 +3418,6 @@ public class Enumerations {
             case HUMANNAME: return "A human's name with the ability to identify parts and usage.";
             case IDENTIFIER: return "A technical identifier - identifies some entity uniquely and unambiguously.";
             case META: return "The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.";
-            case MODULEMETADATA: return "The ModuleMetadata structure defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.";
             case MONEY: return "An amount of economic utility in some recognised currency.";
             case NARRATIVE: return "A human-readable formatted text, including images.";
             case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
@@ -3620,7 +3570,6 @@ public class Enumerations {
         }
         public String getDisplay() {
           switch (this) {
-            case ACTIONDEFINITION: return "ActionDefinition";
             case ADDRESS: return "Address";
             case AGE: return "Age";
             case ANNOTATION: return "Annotation";
@@ -3641,7 +3590,6 @@ public class Enumerations {
             case HUMANNAME: return "HumanName";
             case IDENTIFIER: return "Identifier";
             case META: return "Meta";
-            case MODULEMETADATA: return "ModuleMetadata";
             case MONEY: return "Money";
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
@@ -3799,8 +3747,6 @@ public class Enumerations {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("ActionDefinition".equals(codeString))
-          return FHIRAllTypes.ACTIONDEFINITION;
         if ("Address".equals(codeString))
           return FHIRAllTypes.ADDRESS;
         if ("Age".equals(codeString))
@@ -3841,8 +3787,6 @@ public class Enumerations {
           return FHIRAllTypes.IDENTIFIER;
         if ("Meta".equals(codeString))
           return FHIRAllTypes.META;
-        if ("ModuleMetadata".equals(codeString))
-          return FHIRAllTypes.MODULEMETADATA;
         if ("Money".equals(codeString))
           return FHIRAllTypes.MONEY;
         if ("Narrative".equals(codeString))
@@ -4145,8 +4089,6 @@ public class Enumerations {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("ActionDefinition".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ACTIONDEFINITION);
         if ("Address".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ADDRESS);
         if ("Age".equals(codeString))
@@ -4187,8 +4129,6 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.IDENTIFIER);
         if ("Meta".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.META);
-        if ("ModuleMetadata".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MODULEMETADATA);
         if ("Money".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MONEY);
         if ("Narrative".equals(codeString))
@@ -4486,8 +4426,6 @@ public class Enumerations {
         throw new FHIRException("Unknown FHIRAllTypes code '"+codeString+"'");
         }
     public String toCode(FHIRAllTypes code) {
-      if (code == FHIRAllTypes.ACTIONDEFINITION)
-        return "ActionDefinition";
       if (code == FHIRAllTypes.ADDRESS)
         return "Address";
       if (code == FHIRAllTypes.AGE)
@@ -4528,8 +4466,6 @@ public class Enumerations {
         return "Identifier";
       if (code == FHIRAllTypes.META)
         return "Meta";
-      if (code == FHIRAllTypes.MODULEMETADATA)
-        return "ModuleMetadata";
       if (code == FHIRAllTypes.MONEY)
         return "Money";
       if (code == FHIRAllTypes.NARRATIVE)
@@ -4833,10 +4769,6 @@ public class Enumerations {
 
     public enum FHIRDefinedType {
         /**
-         * The definition of an action to be performed. Some aspects of the definition are specified statically, and some aspects can be specified dynamically by referencing logic defined in a library.
-         */
-        ACTIONDEFINITION, 
-        /**
          * An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations and which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.
          */
         ADDRESS, 
@@ -4916,10 +4848,6 @@ public class Enumerations {
          * The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.
          */
         META, 
-        /**
-         * The ModuleMetadata structure defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.
-         */
-        MODULEMETADATA, 
         /**
          * An amount of economic utility in some recognised currency.
          */
@@ -5507,8 +5435,6 @@ public class Enumerations {
         public static FHIRDefinedType fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("ActionDefinition".equals(codeString))
-          return ACTIONDEFINITION;
         if ("Address".equals(codeString))
           return ADDRESS;
         if ("Age".equals(codeString))
@@ -5549,8 +5475,6 @@ public class Enumerations {
           return IDENTIFIER;
         if ("Meta".equals(codeString))
           return META;
-        if ("ModuleMetadata".equals(codeString))
-          return MODULEMETADATA;
         if ("Money".equals(codeString))
           return MONEY;
         if ("Narrative".equals(codeString))
@@ -5845,7 +5769,6 @@ public class Enumerations {
         }
         public String toCode() {
           switch (this) {
-            case ACTIONDEFINITION: return "ActionDefinition";
             case ADDRESS: return "Address";
             case AGE: return "Age";
             case ANNOTATION: return "Annotation";
@@ -5866,7 +5789,6 @@ public class Enumerations {
             case HUMANNAME: return "HumanName";
             case IDENTIFIER: return "Identifier";
             case META: return "Meta";
-            case MODULEMETADATA: return "ModuleMetadata";
             case MONEY: return "Money";
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
@@ -6017,7 +5939,6 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
-            case ACTIONDEFINITION: return "http://hl7.org/fhir/data-types";
             case ADDRESS: return "http://hl7.org/fhir/data-types";
             case AGE: return "http://hl7.org/fhir/data-types";
             case ANNOTATION: return "http://hl7.org/fhir/data-types";
@@ -6038,7 +5959,6 @@ public class Enumerations {
             case HUMANNAME: return "http://hl7.org/fhir/data-types";
             case IDENTIFIER: return "http://hl7.org/fhir/data-types";
             case META: return "http://hl7.org/fhir/data-types";
-            case MODULEMETADATA: return "http://hl7.org/fhir/data-types";
             case MONEY: return "http://hl7.org/fhir/data-types";
             case NARRATIVE: return "http://hl7.org/fhir/data-types";
             case PARAMETERDEFINITION: return "http://hl7.org/fhir/data-types";
@@ -6189,7 +6109,6 @@ public class Enumerations {
         }
         public String getDefinition() {
           switch (this) {
-            case ACTIONDEFINITION: return "The definition of an action to be performed. Some aspects of the definition are specified statically, and some aspects can be specified dynamically by referencing logic defined in a library.";
             case ADDRESS: return "An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations and which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.";
             case AGE: return "A duration of time during which an organism (or a process) has existed.";
             case ANNOTATION: return "A  text note which also  contains information about who made the statement and when.";
@@ -6210,7 +6129,6 @@ public class Enumerations {
             case HUMANNAME: return "A human's name with the ability to identify parts and usage.";
             case IDENTIFIER: return "A technical identifier - identifies some entity uniquely and unambiguously.";
             case META: return "The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.";
-            case MODULEMETADATA: return "The ModuleMetadata structure defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.";
             case MONEY: return "An amount of economic utility in some recognised currency.";
             case NARRATIVE: return "A human-readable formatted text, including images.";
             case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
@@ -6361,7 +6279,6 @@ public class Enumerations {
         }
         public String getDisplay() {
           switch (this) {
-            case ACTIONDEFINITION: return "ActionDefinition";
             case ADDRESS: return "Address";
             case AGE: return "Age";
             case ANNOTATION: return "Annotation";
@@ -6382,7 +6299,6 @@ public class Enumerations {
             case HUMANNAME: return "HumanName";
             case IDENTIFIER: return "Identifier";
             case META: return "Meta";
-            case MODULEMETADATA: return "ModuleMetadata";
             case MONEY: return "Money";
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
@@ -6538,8 +6454,6 @@ public class Enumerations {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("ActionDefinition".equals(codeString))
-          return FHIRDefinedType.ACTIONDEFINITION;
         if ("Address".equals(codeString))
           return FHIRDefinedType.ADDRESS;
         if ("Age".equals(codeString))
@@ -6580,8 +6494,6 @@ public class Enumerations {
           return FHIRDefinedType.IDENTIFIER;
         if ("Meta".equals(codeString))
           return FHIRDefinedType.META;
-        if ("ModuleMetadata".equals(codeString))
-          return FHIRDefinedType.MODULEMETADATA;
         if ("Money".equals(codeString))
           return FHIRDefinedType.MONEY;
         if ("Narrative".equals(codeString))
@@ -6880,8 +6792,6 @@ public class Enumerations {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("ActionDefinition".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ACTIONDEFINITION);
         if ("Address".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ADDRESS);
         if ("Age".equals(codeString))
@@ -6922,8 +6832,6 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.IDENTIFIER);
         if ("Meta".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.META);
-        if ("ModuleMetadata".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MODULEMETADATA);
         if ("Money".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MONEY);
         if ("Narrative".equals(codeString))
@@ -7217,8 +7125,6 @@ public class Enumerations {
         throw new FHIRException("Unknown FHIRDefinedType code '"+codeString+"'");
         }
     public String toCode(FHIRDefinedType code) {
-      if (code == FHIRDefinedType.ACTIONDEFINITION)
-        return "ActionDefinition";
       if (code == FHIRDefinedType.ADDRESS)
         return "Address";
       if (code == FHIRDefinedType.AGE)
@@ -7259,8 +7165,6 @@ public class Enumerations {
         return "Identifier";
       if (code == FHIRDefinedType.META)
         return "Meta";
-      if (code == FHIRDefinedType.MODULEMETADATA)
-        return "ModuleMetadata";
       if (code == FHIRDefinedType.MONEY)
         return "Money";
       if (code == FHIRDefinedType.NARRATIVE)

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jul 20, 2016 17:32+1000 for FHIR v1.5.0
+// Generated on Mon, Jul 25, 2016 21:27+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -3600,11 +3600,11 @@ public class Sequence extends DomainResource {
     /**
      * Structural variant.
      */
-    @Child(name = "structureVariant", type = {}, order=14, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "structureVariant", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="", formalDefinition="Structural variant." )
-    protected SequenceStructureVariantComponent structureVariant;
+    protected List<SequenceStructureVariantComponent> structureVariant;
 
-    private static final long serialVersionUID = 1674606659L;
+    private static final long serialVersionUID = -1713460757L;
 
   /**
    * Constructor
@@ -4276,25 +4276,54 @@ public class Sequence extends DomainResource {
     /**
      * @return {@link #structureVariant} (Structural variant.)
      */
-    public SequenceStructureVariantComponent getStructureVariant() { 
+    public List<SequenceStructureVariantComponent> getStructureVariant() { 
       if (this.structureVariant == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Sequence.structureVariant");
-        else if (Configuration.doAutoCreate())
-          this.structureVariant = new SequenceStructureVariantComponent(); // cc
+        this.structureVariant = new ArrayList<SequenceStructureVariantComponent>();
       return this.structureVariant;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Sequence setStructureVariant(List<SequenceStructureVariantComponent> theStructureVariant) { 
+      this.structureVariant = theStructureVariant;
+      return this;
+    }
+
     public boolean hasStructureVariant() { 
-      return this.structureVariant != null && !this.structureVariant.isEmpty();
+      if (this.structureVariant == null)
+        return false;
+      for (SequenceStructureVariantComponent item : this.structureVariant)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public SequenceStructureVariantComponent addStructureVariant() { //3
+      SequenceStructureVariantComponent t = new SequenceStructureVariantComponent();
+      if (this.structureVariant == null)
+        this.structureVariant = new ArrayList<SequenceStructureVariantComponent>();
+      this.structureVariant.add(t);
+      return t;
+    }
+
+    public Sequence addStructureVariant(SequenceStructureVariantComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.structureVariant == null)
+        this.structureVariant = new ArrayList<SequenceStructureVariantComponent>();
+      this.structureVariant.add(t);
+      return this;
     }
 
     /**
-     * @param value {@link #structureVariant} (Structural variant.)
+     * @return The first repetition of repeating field {@link #structureVariant}, creating it if it does not already exist
      */
-    public Sequence setStructureVariant(SequenceStructureVariantComponent value) { 
-      this.structureVariant = value;
-      return this;
+    public SequenceStructureVariantComponent getStructureVariantFirstRep() { 
+      if (getStructureVariant().isEmpty()) {
+        addStructureVariant();
+      }
+      return getStructureVariant().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -4333,7 +4362,7 @@ public class Sequence extends DomainResource {
         case -1798816354: /*readCoverage*/ return this.readCoverage == null ? new Base[0] : new Base[] {this.readCoverage}; // IntegerType
         case 1950800714: /*repository*/ return this.repository == null ? new Base[0] : this.repository.toArray(new Base[this.repository.size()]); // SequenceRepositoryComponent
         case -400605635: /*pointer*/ return this.pointer == null ? new Base[0] : this.pointer.toArray(new Base[this.pointer.size()]); // Reference
-        case 757269394: /*structureVariant*/ return this.structureVariant == null ? new Base[0] : new Base[] {this.structureVariant}; // SequenceStructureVariantComponent
+        case 757269394: /*structureVariant*/ return this.structureVariant == null ? new Base[0] : this.structureVariant.toArray(new Base[this.structureVariant.size()]); // SequenceStructureVariantComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -4385,7 +4414,7 @@ public class Sequence extends DomainResource {
           this.getPointer().add(castToReference(value)); // Reference
           break;
         case 757269394: // structureVariant
-          this.structureVariant = (SequenceStructureVariantComponent) value; // SequenceStructureVariantComponent
+          this.getStructureVariant().add((SequenceStructureVariantComponent) value); // SequenceStructureVariantComponent
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -4423,7 +4452,7 @@ public class Sequence extends DomainResource {
         else if (name.equals("pointer"))
           this.getPointer().add(castToReference(value));
         else if (name.equals("structureVariant"))
-          this.structureVariant = (SequenceStructureVariantComponent) value; // SequenceStructureVariantComponent
+          this.getStructureVariant().add((SequenceStructureVariantComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -4445,7 +4474,7 @@ public class Sequence extends DomainResource {
         case -1798816354: throw new FHIRException("Cannot make property readCoverage as it is not a complex type"); // IntegerType
         case 1950800714:  return addRepository(); // SequenceRepositoryComponent
         case -400605635:  return addPointer(); // Reference
-        case 757269394:  return getStructureVariant(); // SequenceStructureVariantComponent
+        case 757269394:  return addStructureVariant(); // SequenceStructureVariantComponent
         default: return super.makeProperty(hash, name);
         }
 
@@ -4501,8 +4530,7 @@ public class Sequence extends DomainResource {
           return addPointer();
         }
         else if (name.equals("structureVariant")) {
-          this.structureVariant = new SequenceStructureVariantComponent();
-          return this.structureVariant;
+          return addStructureVariant();
         }
         else
           return super.addChild(name);
@@ -4550,7 +4578,11 @@ public class Sequence extends DomainResource {
           for (Reference i : pointer)
             dst.pointer.add(i.copy());
         };
-        dst.structureVariant = structureVariant == null ? null : structureVariant.copy();
+        if (structureVariant != null) {
+          dst.structureVariant = new ArrayList<SequenceStructureVariantComponent>();
+          for (SequenceStructureVariantComponent i : structureVariant)
+            dst.structureVariant.add(i.copy());
+        };
         return dst;
       }
 

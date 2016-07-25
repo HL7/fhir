@@ -8,6 +8,7 @@
   <publisher value="FHIR Project"/>
   <description value="The set of interactions defined by the RESTful part of the FHIR specification."/>
   <valueSet value="http://hl7.org/fhir/ValueSet/restful-interaction"/>
+  <hierarchyMeaning value="subsumes"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

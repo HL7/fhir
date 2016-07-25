@@ -10565,7 +10565,7 @@ public class VersionConvertor {
 		copyElement(src, tgt);
 		tgt.setType(convertCoding(src.getType()));
 		tgt.setRequest(convertType(src.getRequest()));
-		tgt.setResponce(convertType(src.getResponce()));
+		tgt.setResponse(convertType(src.getResponce()));
 		tgt.setSubmitter(convertType(src.getSubmitter()));
 		tgt.setPayee(convertType(src.getPayee()));
 		tgt.setDate(src.getDate());
@@ -10581,8 +10581,8 @@ public class VersionConvertor {
 		tgt.setType(convertCoding(src.getType()));
 		if (src.hasRequestReference())
 			tgt.setRequest((org.hl7.fhir.dstu2.model.Reference) convertType(src.getRequest()));
-		if (src.hasResponceReference())
-			tgt.setResponce((org.hl7.fhir.dstu2.model.Reference) convertType(src.getResponce()));
+		if (src.hasResponseReference())
+			tgt.setResponce((org.hl7.fhir.dstu2.model.Reference) convertType(src.getResponse()));
 		if (src.hasSubmitterReference())
 			tgt.setSubmitter((org.hl7.fhir.dstu2.model.Reference) convertType(src.getSubmitter()));
 		if (src.hasPayeeReference())

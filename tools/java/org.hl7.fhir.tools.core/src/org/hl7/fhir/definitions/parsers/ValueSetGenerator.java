@@ -18,6 +18,7 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.EventDefn;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
+import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
@@ -256,6 +257,7 @@ public class ValueSetGenerator {
     DocumentBuilder builder = factory.newDocumentBuilder();
     Document doc = builder.parse(new File(Utilities.path(folder, "..", "..", "implementations", "translations.xml")));
     Element n = XMLUtil.getFirstChild(doc.getDocumentElement());
+    cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.SUBSUMES);
     while (n != null) {
       if ("true".equals(n.getAttribute("ecode"))) {
         String code = n.getAttribute("id");

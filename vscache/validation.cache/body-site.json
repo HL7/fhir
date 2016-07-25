@@ -1,4 +1,10 @@
 ﻿{
   "url": "http://hl7.org/fhir/ValueSet/body-site",
-  "outcomes": []
+  "outcomes": [
+    {
+      "hash": "|http://snomed.info/sct|null|67734004|Upper Trunk Structure",
+      "severity": "error",
+      "message": "Unknown Code 67734004 in http://hl7.org/fhir/ValueSet/body-site"
+    }
+  ]
 }

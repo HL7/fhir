@@ -1,47 +1,4 @@
 ﻿{
   "url": "http://hl7.org/fhir/ValueSet/languages",
-  "outcomes": [
-    {
-      "hash": "#|http://tools.ietf.org/html/bcp47|null|en-US|null",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|urn:ietf:bcp:47|null|nl-NL|Dutch",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|urn:ietf:bcp:47|null|nl|Dutch",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "nl",
-        "definition": null,
-        "display": "Dutch"
-      }
-    },
-    {
-      "hash": "#|urn:oid:2.16.840.1.113883.6.121|null|fr|France",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|urn:oid:2.16.840.1.113883.6.121|null|nl|Dutch",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "nl",
-        "definition": null,
-        "display": "Dutch"
-      }
-    },
-    {
-      "hash": "#|urn:oid:2.16.840.1.113883.6.121|null|nl|Netherlands",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    }
-  ]
+  "outcomes": []
 }
