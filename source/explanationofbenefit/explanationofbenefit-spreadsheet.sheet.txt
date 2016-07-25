@@ -415,6 +415,7 @@
   Type = Identifier
   Short Label = Business Identifier
   Definition = The EOB Business Identifier.
+  w5 = id
 
  -- Row 4 -----------------------------------
   Element = ExplanationOfBenefit.status
@@ -425,6 +426,7 @@
   Binding = ExplanationOfBenefitStatus
   Short Label = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  w5 = status
 
  -- Row 5 -----------------------------------
   Element = ExplanationOfBenefit.author[x]
@@ -433,6 +435,7 @@
   Short Label = Insurer
   Definition = The insurer which is responsible for the explanation of benefit.
   CDAnet v4 Mapping = B02
+  w5 = who.author
 
  -- Row 6 -----------------------------------
   Element = ExplanationOfBenefit.claim[x]
@@ -441,6 +444,7 @@
   Short Label = Claim reference
   Definition = The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.
   CDAnet v4 Mapping = A02|G01
+  w5 = why
 
  -- Row 7 -----------------------------------
   Element = ExplanationOfBenefit.claimResponse[x]
@@ -458,6 +462,7 @@
   Short Label = Type or discipline
   Definition = The category of claim, eg, oral, pharmacy, vision, insitutional, professional.
   Comments = Affects which fields and value sets are used
+  w5 = class
 
  -- Row 9 -----------------------------------
   Element = ExplanationOfBenefit.subType
@@ -467,6 +472,7 @@
   Short Label = Finer grained claim type information
   Definition = A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service. In the US the BillType.
   Comments = This may contain the local bill type codes such as the US UB-04 bill type code.
+  w5 = class
 
  -- Row 10 -----------------------------------
   Element = ExplanationOfBenefit.ruleset
@@ -476,6 +482,7 @@
   Binding = Ruleset
   Short Label = Current specification followed
   Definition = The version of the specification on which this instance relies.
+  w5 = id.version
 
  -- Row 11 -----------------------------------
   Element = ExplanationOfBenefit.originalRuleset
@@ -492,6 +499,7 @@
   Type = dateTime
   Short Label = Creation date
   Definition = The date when the EOB was created
+  w5 = when.recorded
 
  -- Row 13 -----------------------------------
   Element = ExplanationOfBenefit.billablePeriod
@@ -499,6 +507,7 @@
   Type = Period
   Short Label = Period for charge submission
   Definition = The billable period for which charges are being submitted.
+  w5 = when.done
 
  -- Row 14 -----------------------------------
   Element = ExplanationOfBenefit.outcome
@@ -523,6 +532,7 @@
   Short Label = Responsible provider for the claim
   Definition = The provider which is responsible for the claim.
   CDAnet v4 Mapping = B02
+  w5 = who.source
 
  -- Row 17 -----------------------------------
   Element = ExplanationOfBenefit.organization[x]
@@ -531,6 +541,7 @@
   Short Label = Responsible organization for the claim
   Definition = The provider which is responsible for the claim.
   CDAnet v4 Mapping = B02
+  w5 = who.source
 
  -- Row 18 -----------------------------------
   Element = ExplanationOfBenefit.facility[x]
@@ -538,6 +549,7 @@
   Type = Identifier|Reference(Location)
   Short Label = Servicing Facility
   Definition = Facility where the services were provided.
+  w5 = where
 
  -- Row 19 -----------------------------------
   Element = ExplanationOfBenefit.related
@@ -653,6 +665,7 @@
   Short Label = Treatment Referral
   Definition = The referral resource which lists the date, practitioner, reason and other supporting information.
   CDAnet v4 Mapping = B05
+  w5 = who.cause
 
  -- Row 35 -----------------------------------
   Element = ExplanationOfBenefit.information
@@ -788,6 +801,7 @@
   Short Label = The subject of the Products and Services
   Definition = Patient Resource.
   CDAnet v4 Mapping = C06,C07,C08, C05, C04
+  w5 = who.focus
 
  -- Row 53 -----------------------------------
   Element = !Insurance Information
@@ -931,6 +945,7 @@
   Card. = 1..1
   Type = Identifier|Reference(Practitioner|Organization)
   Definition = The members of the team who provided the overall service.
+  w5 = who.actor
 
  -- Row 73 -----------------------------------
   Element = ExplanationOfBenefit.item.careTeam.responsible
@@ -1014,6 +1029,7 @@
   Short Label = Date or dates of Service
   Definition = The date or dates when the enclosed suite of services were performed or completed.
   CDAnet v4 Mapping = F09
+  w5 = when.done
 
  -- Row 83 -----------------------------------
   Element = ExplanationOfBenefit.item.location[x]
@@ -1022,6 +1038,7 @@
   Binding = ServicePlace
   Short Label = Place of service
   Definition = Where the service was provided.
+  w5 = where
 
  -- Row 84 -----------------------------------
   Element = ExplanationOfBenefit.item.quantity
