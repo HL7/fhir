@@ -440,13 +440,19 @@ public class Publisher implements IWorkerContext.ILoggingService {
     log("Publish "+igName);
 
     log("Check folders");
-    for (String s : resourceDirs)
+    for (String s : resourceDirs) {
+      dlog("Source: "+s);
       checkDir(s);
+    }
+    dlog("Pages: "+pagesDir);
     checkDir(pagesDir);
+    dlog("Temp: "+tempDir);
     forceDir(tempDir);
     forceDir(Utilities.path(tempDir, "_includes"));
     forceDir(Utilities.path(tempDir, "_data"));
+    dlog("Output: "+outputDir);
     forceDir(outputDir);
+    dlog("Temp: "+qaDir);
     forceDir(qaDir);
 
     log("Load Validation Pack (internal)");
@@ -622,13 +628,15 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void checkMakeFile(byte[] bs, String path, Set<String> outputTracker) throws IOException {
+    dlog("Check Generate "+path);
     outputTracker.add(path);
     File f = new CSFile(path);
     byte[] existing = null;
     if (f.exists())
       existing = TextFile.fileToBytes(path);
-    if (!Arrays.equals(bs, existing))
+    if (!Arrays.equals(bs, existing)) {
       TextFile.bytesToFile(bs, path);
+    }
   }
 
   private boolean needFile(String s) {
