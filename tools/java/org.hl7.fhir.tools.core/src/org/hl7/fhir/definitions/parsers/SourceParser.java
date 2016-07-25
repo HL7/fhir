@@ -60,6 +60,7 @@ import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
 import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
 import org.hl7.fhir.definitions.model.Invariant;
+import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
@@ -202,6 +203,11 @@ public class SourceParser {
       for (String n : shared )
         definitions.getShared().add(loadCompositeType(n, definitions.getStructures()));
 
+    String[] logical = ini.getPropertyNames("logical"); 
+    if(logical != null)
+      for (String n : logical)
+        definitions.getIgs().get("core").getLogicalModels().add(loadLogicalModel(n));
+
 
     // basic infrastructure
     for (String n : ini.getPropertyNames("resource-infrastructure")) {
@@ -273,6 +279,20 @@ public class SourceParser {
       }
     }
   }
+
+  private LogicalModel loadLogicalModel(String n) throws Exception {
+    File spreadsheet = new CSFile(Utilities.path(srcDir, n, n+"-spreadsheet.xml"));    
+    SpreadsheetParser sparser = new SpreadsheetParser(n, new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, false, ini, "fhir", definitions.getProfileIds(), fpUsages, page.getConceptMaps());
+    sparser.setFolder(Utilities.getDirectoryForFile(spreadsheet.getAbsolutePath()));
+    LogicalModel lm = sparser.parseLogicalModel();
+    lm.setId(n);
+    lm.setSource(spreadsheet.getAbsolutePath());
+    lm.getResource().setName(lm.getId());
+    return lm;
+  }
+
+
+
 
   private void processSearchExpressions() throws Exception {
     for (ResourceDefn rd : definitions.getBaseResources().values())

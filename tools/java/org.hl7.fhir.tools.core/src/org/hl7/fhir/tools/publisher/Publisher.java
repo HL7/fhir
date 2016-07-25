@@ -2067,7 +2067,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void produceSpec() throws Exception {
     for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs()) {
       for (LogicalModel lm : ig.getLogicalModels()) {
-        page.log(" ...ig logical model " + lm.getId(), LogMessageType.Process);
+        page.log(" ...logical model " + lm.getId(), LogMessageType.Process);
         produceLogicalModel(lm, ig);
       }
     }
@@ -4564,7 +4564,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     String mappingsList = mgen.getMappingsList();
 
     SvgGenerator svg = new SvgGenerator(page, "../");
-    String fn = ig.getCode()+File.separator+n;
+    String fn = ig.getPrefix()+File.separator+n;
     if (lm.hasResource())
       svg.generate(lm.getResource(), page.getFolders().dstDir + fn+".svg", "2");
     else

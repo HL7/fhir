@@ -14,13 +14,22 @@ public class ResourceTableGenerator extends TableGenerator {
 
   public XhtmlNode generate(ElementDefn e, String prefix) throws Exception {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(dest, inlineGraphics);
-    RenderMode mode = e.typeCode().equals("Logical") ? RenderMode.LOGICAL : RenderMode.RESOURCE;
+    RenderMode mode = e.typeCode().equals("Logical") && hasLogicalMapping(e) ? RenderMode.LOGICAL : RenderMode.RESOURCE;
     TableModel model = gen.initNormalTable(prefix, mode == RenderMode.LOGICAL);
 
     
     model.getRows().add(genElement(e, gen, true, e.getName(), false, prefix, mode));
     
     return gen.generate(model, prefix);
+  }
+
+  private boolean hasLogicalMapping(ElementDefn e) {
+    if (e.getMappings().containsKey("http://hl7.org/fhir/logical"))
+        return true;
+    for (ElementDefn c : e.getElements())
+      if (hasLogicalMapping(c))
+        return true;
+    return false;
   }
 
  
