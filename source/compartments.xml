@@ -11,7 +11,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2013-07-04T21:40:46Z</Created>
   <LastSaved>2016-07-21T04:30:04Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">747a3dc3-14ba-4528-94a7-b06f9d606003</WorkbookGuid>
@@ -20,10 +20,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>3840</WindowHeight>
-  <WindowWidth>25260</WindowWidth>
-  <WindowTopX>-15</WindowTopX>
-  <WindowTopY>-15</WindowTopY>
+  <WindowHeight>8640</WindowHeight>
+  <WindowWidth>23250</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -212,8 +212,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Claim</Data></Cell>
-    <Cell><Data ss:Type="String">patientidentifier | patientreference</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">provideridentifier | providerreference</Data></Cell>
+    <Cell><Data ss:Type="String">patient-identifier | patient-reference</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">provider-identifier | provider-reference</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ClaimResponse</Data></Cell>
@@ -355,7 +355,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EnrollmentRequest</Data></Cell>
-    <Cell><Data ss:Type="String">subjectreference</Data></Cell>
+    <Cell><Data ss:Type="String">subject-reference</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EnrollmentResponse</Data></Cell>
@@ -551,11 +551,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ProcessRequest</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">providerreference</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">provider-reference</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ProcessResponse</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">requestproviderreference</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">request-provider-reference</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!Protocol</Data></Cell>
@@ -705,7 +705,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>70</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -713,8 +713,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>33</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>86</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
