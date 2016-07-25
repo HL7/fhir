@@ -643,10 +643,23 @@
 			</sourceReference>
 		</resource>
     
+		<!-- Operations -->
 		<resource>
 			<example value="false"/>
 			<sourceReference>
 				<reference value="OperationDefinition/daf-load-operation"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="OperationDefinition/daf-extract-operation"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="OperationDefinition/daf-execute-query"/>
 			</sourceReference>
 		</resource>
 	</package>

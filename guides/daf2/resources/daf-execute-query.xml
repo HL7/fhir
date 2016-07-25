@@ -1,26 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <OperationDefinition xmlns="http://hl7.org/fhir">
-  <id value="daf-operation-2"/>
-  <url value="http://hl7.org/fhir/OperationDefinition/daf-load-operation"/>
-  <name value="Load Data"/>
+  <id value="daf-execute-query"/>
+  <url value="http://hl7.org/fhir/daf/OperationDefinition/daf-execute-query"/>
+  <name value="Execute Query"/>
   <status value="draft"/>
   <kind value="operation"/>
   <date value="2016-07-24"/>
-  <description value="Enable Loading data extracted from data sources into data marts."/>
-  <code value="load-data"/>
+  <description value="Enable composition and execution of a query."/>
+  <code value="execute-query"/>
   <comment value="Pilots underway in PCORNet"/>
   <base>
-    <reference value="OperationDefinition/daf-load-operation"/>
+    <reference value="OperationDefinition/daf-execute-query"/>
   </base>
   <system value="true"/>
   <instance value="false"/>
   <parameter>
-    <name value="input"/>
+    <name value="queryformat"/>
     <use value="in"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="The Bundle resource that contains the extracted data from the extract-data operation is used as input to the load-data operation."/>
+    <documentation value="The format of the actual query (e.g SAS, SQL).This will be used by the Data Marts to determine how to execute the query."/>
+    <type value="CodeableConcept"/>
+  </parameter>
+  <parameter>
+    <name value="dataModel"/>
+    <use value="in"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="The data model that was used to construct the query."/>
+    <type value="CodeableConcept"/>
+  </parameter>
+  <parameter>
+    <name value="querypackage"/>
+    <use value="in"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="The actual query string."/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="instructions"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The actual query string."/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="return"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="A Bundle containing the resulting data. "/>
     <type value="Bundle"/>
   </parameter>
   <parameter>
@@ -28,7 +60,7 @@
     <use value="out"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="A list of hints and warnings about problems encountered while extracting the data. These might be show to the user as an advisory note. Note: if the extraction cannot be performed at all, then the operation should fail, and an OperationOutcome is returned directly with the failure, rather than using this parameter. "/>
+    <documentation value="A list of hints and warnings about problems encountered while executing the query. These might be shown to the user as an advisory note. Note: if the query cannot be executed at all, then the operation should fail, and an OperationOutcome is returned directly with the failure, rather than using this parameter. "/>
     <type value="OperationOutcome"/>
   </parameter>
   

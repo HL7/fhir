@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <OperationDefinition xmlns="http://hl7.org/fhir">
-  <id value="daf-operation-1"/>
-  <url value="http://hl7.org/fhir/OperationDefinition/daf-extract-operation"/>
+  <id value="daf-extract-operation"/>
+  <url value="http://hl7.org/fhir/daf/OperationDefinition/daf-extract-operation"/>
   <name value="Extract Data"/>
   <status value="draft"/>
   <kind value="operation"/>
