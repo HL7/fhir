@@ -24,23 +24,24 @@ in order to support consistent definitions for schema and UML derived code.
  <tr>
  <td width="33%">
 <ul>
-  <li><a href="conformance.html">CapabilityStatement</a></li>
+  <li><a href="conformance.html">Conformance (a.k.a. Capability statement)</a></li>
   <li><a href="structuredefinition.html">StructureDefinition</a></li>
-  <li><a href="elementdefinition.html">ElementDefinition</a></li>  
-</ul>
-</td>
- <td width="33%">
- <ul>
   <li><a href="operationdefinition.html">OperationDefinition</a></li>
   <li><a href="searchparameter.html">SearchParameter</a></li>
-  <li><a href="compartmentdefinition.html">CompartmentDefinition</a></li>
   </ul>
 </td>
  <td width="33%">
-<ul>
- <li><a href="namingsystem.html">NamingSystem</a></li>
+ <ul>
+  <li><a href="compartmentdefinition.html">CompartmentDefinition</a></li>
   <li><a href="dataelement.html">DataElement</a></li>
   <li><a href="implementationguide.html">ImplementationGuide</a></li>
+  <li><a href="elementdefinition.html">ElementDefinition (datatype)</a></li>    
+</ul>
+</td>
+ <td width="33%">
+<ul>
+  <li><a href="profiling.html">Full profiling details</a></li>
+  <li><a href="conformance-rules.html">Detailed conformance rules</a></li>
  </ul>
 </td>
 </tr>
@@ -72,7 +73,7 @@ in order to support consistent definitions for schema and UML derived code.
         listed above in a computable fashion. These resources are collectively called the
             <em>conformance resources</em>. Although these conformance resources can be used in
         isolation they are typically used in the context of an <em>Implementation Guide</em> or a
-            <em>capability statement</em>:</p>
+            <em>capability statement (Conformance resource)</em>:</p>
     <ul>
         <li><em>Implementation Guides</em> are documents published by a domain, institution or
             vendor that describe how FHIR is adapted to support a certain usecase (or set of
@@ -88,18 +89,19 @@ in order to support consistent definitions for schema and UML derived code.
     <p>The content of an Implementation Guide is described using the <a
             href="implementationguide.html">ImplementationGuide</a> resource,
         while the capability statement is represented by the <a
-            href="conformance.html">CapabilityStatement</a>. These two resources
+            href="conformance.html">Conformance</a> resource. These two resources
         make use of the complete set of conformance resources to fully capture the set of
-        adaptations they represent. More specifically, the conformance resources are:</p>
+        adaptations they represent.  Note that the Conformance resource is one of the <em>conformance resources</em>,
+		the first just describing the capabilities of a system, while the latter is the set of all conformance resources, including:</p>
+	
     <ul>
         <li>The <a href="structuredefinition.html">StructureDefinition</a>
             defines how a particular structure (Resource, Extension or Data Type) is used:<ul>
-                <li>Describe how existing elements in resources are used</li>
-                <li>Identify existing elements that are not used</li>
-                <li>Define extensions that can be used in resources or data types</li>
-                <li>Exact rules about constrainment can be found in the section on <a
-                        href="conformance-rules.html">conformance rules</a>
-                </li>
+                <li>Describe how existing elements in resources are used and identify existing elements that are not used. Exact rules on how to do this can be found in the section on <a href="conformance-rules.html">conformance rules</a>
+				</li>
+                <li>Define <a href="extensibility.html">extensions</a> that can be used in resources or data types.</li>
+				<li>Refine the contents of valuesets, see the <a href="terminology-module.html">terminology module</a> for more details.
+				</li>
             </ul>
         </li>
         <li>The <a href="operationdefinition.html">OperationDefinition</a>
@@ -109,14 +111,11 @@ in order to support consistent definitions for schema and UML derived code.
             additional search capabilities in addition to those in the base specification </li>
         <li>The <a href="compartmentdefinition.html">CompartmentDefinition</a>
             describes a logical grouping for resources, used in access control or search</li>
-        <li>The <a href="namingsystem.html">NamingSystem</a> resources names
-            terminologies and identifier systems in use in a domain</li>
         <li>The <a href="dataelement.html">DataElement</a> resource is a formal
             description of a single piece of information that can be gathered and reported.</li>
     </ul>
-	    <p>Conformance resources may be used independently of both of these resources, to cover uses
-        that do not need the context of a guide or capability statement. See the section 
-		<a href="#uses">Common use cases</a> for examples of such uses.</p>
+
+	    <p>Conformance resources may be used independently, not just within the context of an ImplementationGuide resource or capability statement. See the section <a href="#uses">Common use cases</a> for examples of such uses.</p>
 
     <p>The conformance resources and their relationships are shown below:</p>
     <p><img src="conformance-module-resources.png" alt="Image showing the conformance resources" width="800px"/></p>
@@ -136,20 +135,22 @@ in order to support consistent definitions for schema and UML derived code.
             search parameters or compartments definitions uploaded to that system. This may result
             in searches that use large amounts of processing power, expose sensitive patient data,
             or both.</li>
-        <li>If a server acts as a repository of any conformance resource, it should provide
-            read-only access, so dependent systems do not run the risk of being misconfigured.</li>
+        <li>If a server acts as a repository of conformance resources, it should tightly control
+modifications to its data: updates to conformance resources are usually managed by a review process to ensure
+backwards compatibility ad stability. Worst case, changes to these resources may result in dependent systems 
+running the risk of being misconfigured.</li>
     </ul>
 
 
 <a name="uses"> </a>
 <h3>Common use Cases</h3>
 <p>Conformance resources are commonuly used as part of an <a href="implementationguide.html">Implementation Guide</a> or 
-<a href="conformance.html">CapabilityStatement</a>. There are many ways to use the resources independently however, including:</p>
+<a href="conformance.html">Conformance</a> resource. There are many ways to use the resources independently however, including:</p>
 
     <ul>
         <li>An instance of a resource may reference one or more <code>StructureDefinitions</code> to
             claim conformance to the rules layed out in those StructureDefinitions</li>
-        <li>A server may serve <code>CapabilityStatement</code> resources, effectively functioning
+        <li>A server may serve <code>Conformance</code> resources, effectively functioning
             as a discovery endpoint for services within an organization</li>
         <li>A server may hold a set of DataElement resources to become a Data Dictionary of
             reuseable datamodels as per ISO 11179.</li>
@@ -166,9 +167,8 @@ in order to support consistent definitions for schema and UML derived code.
 <h3>Developmental Roadmap</h3>
     <p>A subset of the conformance resources have been tested and used in production tooling and as
         such have reached a maturity level where changes become less likely. These are
-            <code>CapabilityStatement</code>, <code>StructureDefinition</code>,
-            <code>ValueSet</code>, <code>OperationDefinition</code>, <code>SearchParameter</code>,
-            <code>DataElement</code> and <code>NamingSystem</code>. </p>
+            <code>Conformance</code>, <code>StructureDefinition</code>,
+            <code>ValueSet</code>, <code>OperationDefinition</code>, <code>SearchParameter</code> and <code>DataElement</code>.</p>
     <p>Other resources are still under development:</p>
     <ul>
         <li><code>ImplementationGuide</code>: used in the HL7 production tooling, but has not received much use
