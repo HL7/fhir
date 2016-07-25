@@ -64,6 +64,7 @@
   Type = Identifier
   Short Label = Business Identifier
   Definition = The Response business identifier
+  w5 = id
 
  -- Row 4 -----------------------------------
   Element = ProcessResponse.status
@@ -74,6 +75,7 @@
   Binding = ProcessResponseStatus
   Short Label = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  w5 = status
 
  -- Row 5 -----------------------------------
   Element = ProcessResponse.request[x]
@@ -82,6 +84,7 @@
   Short Label = Request reference
   Definition = Original request resource reference
   CDAnet v4 Mapping = A02|G01
+  w5 = why
 
  -- Row 6 -----------------------------------
   Element = ProcessResponse.outcome
@@ -105,6 +108,7 @@
   Binding = Ruleset
   Short Label = Resource version
   Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
+  w5 = id.version
 
  -- Row 9 -----------------------------------
   Element = ProcessResponse.originalRuleset
@@ -121,6 +125,7 @@
   Type = dateTime
   Short Label = Creation date
   Definition = The date when the enclosed suite of services were performed or completed
+  w5 = when.recorded
 
  -- Row 11 -----------------------------------
   Element = ProcessResponse.organization[x]
@@ -128,6 +133,7 @@
   Type = Identifier|Reference(Organization)
   Short Label = Authoring Organization
   Definition = The organization who produced this adjudicated response.
+  w5 = who.source
 
  -- Row 12 -----------------------------------
   Element = ProcessResponse.requestProvider[x]

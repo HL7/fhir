@@ -90,6 +90,7 @@
   Type = Identifier
   Short Label = Business Identifier
   Definition = The ProcessRequest business identifier
+  w5 = id
 
  -- Row 4 -----------------------------------
   Element = ProcessRequest.status
@@ -100,6 +101,7 @@
   Binding = ProcessRequestStatus
   Short Label = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  w5 = status
 
  -- Row 5 -----------------------------------
   Element = ProcessRequest.ruleset
@@ -108,6 +110,7 @@
   Binding = Ruleset
   Short Label = Resource version
   Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
+  w5 = id.version
 
  -- Row 6 -----------------------------------
   Element = ProcessRequest.originalRuleset
@@ -125,6 +128,7 @@
   Binding = ActionList
   Short Label = cancel | poll | reprocess | status
   Definition = The type of processing action being requested, for example Reversal, Readjudication, StatusRequest,PendedRequest
+  w5 = class
 
  -- Row 8 -----------------------------------
   Element = ProcessRequest.created
@@ -132,6 +136,7 @@
   Type = dateTime
   Short Label = Creation date
   Definition = The date when this resource was created.
+  w5 = when.recorded
 
  -- Row 9 -----------------------------------
   Element = ProcessRequest.target[x]
@@ -139,6 +144,7 @@
   Type = Identifier|Reference(Organization)
   Short Label = Target of the request
   Definition = The organization which is the target of the request.
+  w5 = who.focus
 
  -- Row 10 -----------------------------------
   Element = ProcessRequest.provider[x]
@@ -147,6 +153,7 @@
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the action specified in this request.
   CDAnet v4 Mapping = B01
+  w5 = who.source
 
  -- Row 11 -----------------------------------
   Element = ProcessRequest.organization[x]
@@ -154,6 +161,7 @@
   Type = Identifier|Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the action speccified in this request.
+  w5 = who.source
 
  -- Row 12 -----------------------------------
   Element = ProcessRequest.request[x]

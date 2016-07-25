@@ -89,6 +89,7 @@
   Definition = Business identifier which may be used by other parties to reference or identify the prescription.
   v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
   RIM Mapping = id
+  w5 = id
 
  -- Row 3 -----------------------------------
   Element = VisionPrescription.dateWritten
@@ -98,6 +99,7 @@
   Definition = The date (and perhaps time) when the prescription was written
   v2 Mapping = RXE-32-Original Order Date/Time / ORC-9-Date/Time of Transaction
   RIM Mapping = author.time
+  w5 = when.recorded
 
  -- Row 4 -----------------------------------
   Element = VisionPrescription.patient
@@ -107,6 +109,7 @@
   Definition = A link to a resource representing the person to whom the vision products will be supplied.
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = subject.role
+  w5 = who.focus
 
  -- Row 5 -----------------------------------
   Element = VisionPrescription.prescriber
@@ -116,6 +119,7 @@
   Definition = The healthcare professional responsible for authorizing the prescription
   v2 Mapping = RXE-13-Ordering Provider\'s DEA Number / RXO-14-Ordering Provider\'s DEA Number / RXE-14-Pharmacist/Treatment Supplier\'s Verifier ID / RXO-15-Pharmacist/Treatment Supplier\'s Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation=\'OP\' (all but last deprecated)
   RIM Mapping = author.role
+  w5 = who.author
 
  -- Row 6 -----------------------------------
   Element = VisionPrescription.encounter
@@ -125,6 +129,7 @@
   Definition = A link to a resource that identifies the particular occurrence of contact between patient and health care provider.
   v2 Mapping = PV1-19-Visit Number
   RIM Mapping = componentOf.patientEncounter
+  w5 = context
 
  -- Row 7 -----------------------------------
   Element = VisionPrescription.reason[x]
@@ -134,6 +139,7 @@
   Definition = Can be the reason or the indication for writing the prescription.
   v2 Mapping = ORC-16-Order Control Code Reason
   RIM Mapping = reason.observation or reason.observation[code=ASSERTION].value
+  w5 = why
 
  -- Row 8 -----------------------------------
   Element = VisionPrescription.dispense
