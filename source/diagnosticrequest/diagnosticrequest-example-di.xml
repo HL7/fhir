@@ -2,9 +2,11 @@
 <!--
 This example is used for DetectedIssue/Duplicate Therapy example will need to edit that as well
 
---><DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+-->
+<DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICS-AIR/ehaas/Documents/FHIR/build/schema/diagnosticrequest.xsd">
 	<id value="di"/>
-	<extension url="http://example.org/bodysitecode">
+<!--	
+	<extension url="http://example.org/DoNotUse/StructureDefinition/RevisionDate">
 		<valueCodeableConcept>
 			<coding>
 				<system value="http://snomed.info/sct"/>
@@ -13,7 +15,8 @@ This example is used for DetectedIssue/Duplicate Therapy example will need to ed
 			</coding>
 		</valueCodeableConcept>
 	</extension>
-	<status value="active"/>
+	
+-->	<status value="active"/>
 	<stage>
 		<coding>
 			<system value="http://hl7.org/fhir/request-stage"/>
@@ -36,7 +39,6 @@ This example is used for DetectedIssue/Duplicate Therapy example will need to ed
 		<display value="Dr. Adam Careful"/>
 	</requester>
 	<reason>
-		<coding/>
 		<text value="Check for metastatic disease"/>
 	</reason>
 </DiagnosticRequest>

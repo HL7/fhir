@@ -20,7 +20,7 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>-6195</WindowTopX>
   <WindowTopY>450</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4382,7 +4382,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6484,7 +6483,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s162"><Data ss:Type="String">!DI Order</Data></Cell>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">DI Order</Data></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s93"><Data ss:Type="String">CT Scan order</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">di</Data></Cell>
@@ -6493,7 +6492,7 @@
     <Cell ss:StyleID="s163"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s162"><Data ss:Type="String">!Free T4</Data></Cell>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">Free T4</Data></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Free T4 Add on Order</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">ft4</Data></Cell>
@@ -6502,7 +6501,7 @@
     <Cell ss:StyleID="s163"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s162"><Data ss:Type="String">!Order-genetics-1</Data></Cell>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">Order-genetics-1</Data></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Order for ABCB4 gene mutation analysis</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">og-example1</Data></Cell>
@@ -6822,6 +6821,7 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6841,6 +6841,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>9</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

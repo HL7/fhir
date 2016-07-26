@@ -377,19 +377,19 @@
   Filename = diagnosticrequest-example-lipid.xml
 
  -- Row 2 -----------------------------------
-  Name = !DI Order
+  Name = DI Order
   Identity = di
   Description = CT Scan order
   Filename = diagnosticrequest-example-di.xml
 
  -- Row 3 -----------------------------------
-  Name = !Free T4
+  Name = Free T4
   Identity = ft4
   Description = Free T4 Add on Order
   Filename = diagnosticrequest-example-ft4.xml
 
  -- Row 4 -----------------------------------
-  Name = !Order-genetics-1
+  Name = Order-genetics-1
   Identity = og-example1
   Description = Order for ABCB4 gene mutation analysis
   Filename = diagnosticrequest-genetics-example-1.xml
