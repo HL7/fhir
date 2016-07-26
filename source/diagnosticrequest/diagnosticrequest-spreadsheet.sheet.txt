@@ -120,7 +120,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = DiagnosticRequestStage
-  Short Label = proposal | plan | orig. order | encoded +
+  Short Label = proposal | plan | original-order | reflex-order
   Definition = Whether the request is a proposal, plan, an original order or a reflex order.
   Committee Notes = [#3720][#10296]
   w5 = class

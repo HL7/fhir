@@ -97,7 +97,7 @@ public class CodeSystemUtilities {
     if (!oid.startsWith("urn:oid:"))
        oid = "urn:oid:" + oid;
     if (!cs.hasIdentifier())
-      cs.setIdentifier(new Identifier().setSystem("").setValue(oid));
+      cs.setIdentifier(new Identifier().setSystem("urn:ietf:rfc:3986").setValue(oid));
     else if ("urn:ietf:rfc:3986".equals(cs.getIdentifier().getSystem()) && cs.getIdentifier().hasValue() && cs.getIdentifier().getValue().startsWith("urn:oid:"))
       cs.getIdentifier().setValue(oid);
     else

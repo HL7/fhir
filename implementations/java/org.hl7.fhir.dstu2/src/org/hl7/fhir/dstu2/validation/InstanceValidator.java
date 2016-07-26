@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.hl7.fhir.dstu2.exceptions.PathEngineException;
 import org.hl7.fhir.dstu2.formats.FormatUtilities;
 import org.hl7.fhir.dstu2.model.Address;
 import org.hl7.fhir.dstu2.model.Attachment;
@@ -2121,7 +2122,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 				BaseOnWrapper e = new BaseOnWrapper(context, element, profile, ed, typename, typeProfile);
 				String expr = inv.getExtensionString("http://hl7.org/fhir/StructureDefinition/structuredefinition-expression");
 				FHIRPathEngine fpe = new FHIRPathEngine(context);
-		    boolean ok = fpe.evaluateToBoolean(res, e, expr);
+		    boolean ok = true;
+        try {
+          ok = fpe.evaluateToBoolean(res, e, expr);
+        } catch (PathEngineException e1) {
+          rule(errors, IssueType.INVARIANT, element.line(), element.col(), path, false, e1.getMessage()+": "+inv.getHuman()+fpe.forLog());
+        }
 				if (!ok) {
 					if (inv.getSeverity() == ConstraintSeverity.ERROR)
 						rule(errors, IssueType.INVARIANT, element.line(), element.col(), path, ok, inv.getHuman()+fpe.forLog());

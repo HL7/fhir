@@ -8,12 +8,12 @@ import java.io.IOException;
 
 import org.hl7.fhir.convertors.VersionConvertor;
 import org.hl7.fhir.convertors.VersionConvertor.VersionConvertorAdvisor;
+import org.hl7.fhir.dstu2.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu2.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2.model.Resource;
 import org.hl7.fhir.dstu2.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
-import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;

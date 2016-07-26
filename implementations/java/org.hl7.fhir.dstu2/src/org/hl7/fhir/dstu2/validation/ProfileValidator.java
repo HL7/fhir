@@ -48,7 +48,7 @@ public class ProfileValidator extends BaseValidator {
               if (rule(errors, IssueType.BUSINESSRULE, profile.getId()+"::"+ed.getPath()+"::"+inv.getKey(), exprExt != null, "The invariant has no FHIR Path expression ("+inv.getXpath()+")")) {
                 String expr = ((StringType) exprExt.getValue()).asStringValue();
                 try {
-                  new FHIRPathEngine(context).check(null, profile.getConstrainedType(), ed.getPath(), expr, inv.hasXpath() && inv.getXpath().startsWith("@value"));
+                  new FHIRPathEngine(context).check(null, profile.getConstrainedType(), ed.getPath(), expr);
                 } catch (Exception e) {
 //                  rule(errors, IssueType.STRUCTURE, profile.getId()+"::"+ed.getPath()+"::"+inv.getId(), exprExt != null, e.getMessage());
                 }

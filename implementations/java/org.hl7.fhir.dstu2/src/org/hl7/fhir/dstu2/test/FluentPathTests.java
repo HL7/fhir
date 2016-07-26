@@ -1,5 +1,8 @@
-package org.hl7.fhir.dstu3.test;
+package org.hl7.fhir.dstu2.test;
 
+import static org.junit.Assert.*;
+
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -8,18 +11,25 @@ import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.hl7.fhir.dstu3.formats.XmlParser;
-import org.hl7.fhir.dstu3.model.Base;
-import org.hl7.fhir.dstu3.model.BooleanType;
-import org.hl7.fhir.dstu3.model.ExpressionNode;
-import org.hl7.fhir.dstu3.model.PrimitiveType;
-import org.hl7.fhir.dstu3.model.Resource;
-import org.hl7.fhir.dstu3.test.TestingUtilities;
-import org.hl7.fhir.dstu3.utils.FluentPathEngine;
-import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
+import org.hl7.fhir.dstu2.exceptions.DefinitionException;
+import org.hl7.fhir.dstu2.exceptions.PathEngineException;
+import org.hl7.fhir.dstu2.formats.XmlParser;
+import org.hl7.fhir.dstu2.model.Base;
+import org.hl7.fhir.dstu2.model.BooleanType;
+import org.hl7.fhir.dstu2.model.ExpressionNode;
+import org.hl7.fhir.dstu2.model.PrimitiveType;
+import org.hl7.fhir.dstu2.model.Resource;
+import org.hl7.fhir.dstu2.test.TestingUtilities;
+import org.hl7.fhir.dstu2.utils.FHIRLexer.FHIRLexerException;
+import org.hl7.fhir.dstu2.utils.FHIRPathEngine;
+import org.hl7.fhir.dstu2.utils.SimpleWorkerContext;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -34,11 +44,11 @@ import junit.framework.Assert;
 @RunWith(Parameterized.class)
 public class FluentPathTests {
 
-  private static FluentPathEngine fp;
+  private static FHIRPathEngine fp;
 
   @Parameters(name = "{index}: file {0}")
   public static Iterable<Object[]> data() throws ParserConfigurationException, SAXException, IOException {
-    Document dom = XMLUtil.parseFileToDom("C:\\work\\fluentpath\\spec\\tests-fhir-r3.xml");
+    Document dom = XMLUtil.parseFileToDom("C:\\work\\fluentpath\\spec\\tests-fhir-r2.xml");
     
     List<Element> list = new ArrayList<Element>();
     List<Element> groups = new ArrayList<Element>();
@@ -83,11 +93,11 @@ public class FluentPathTests {
 
   @SuppressWarnings("deprecation")
   @Test
-  public void test() throws FileNotFoundException, IOException, FHIRException, org.hl7.fhir.dstu3.exceptions.FHIRException {
+  public void test() throws FileNotFoundException, IOException, FHIRException, PathEngineException, DefinitionException {
     if (TestingUtilities.context == null)
-      TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip");
+      TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir.dstu2\\build\\publish\\validation-min.xml.zip");
     if (fp == null)
-      fp = new FluentPathEngine(TestingUtilities.context);
+      fp = new FHIRPathEngine(TestingUtilities.context);
     String input = test.getAttribute("inputfile");
     String expression = XMLUtil.getNamedChild(test, "expression").getTextContent();
     boolean fail = "true".equals(XMLUtil.getNamedChild(test, "expression").getAttribute("invalid"));
@@ -100,7 +110,7 @@ public class FluentPathTests {
       if (Utilities.noString(input))
         fp.check(null, null, null, node);
       else {
-        res = new XmlParser().parse(new FileInputStream(Utilities.path("C:\\work\\org.hl7.fhir\\build\\publish", input)));
+        res = new XmlParser().parse(new FileInputStream(Utilities.path("C:\\work\\org.hl7.fhir.dstu2\\build\\publish", input)));
         fp.check(res, res.getResourceType().toString(), res.getResourceType().toString(), node);
       }
       outcome = fp.evaluate(res, node);

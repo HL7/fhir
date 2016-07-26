@@ -139,9 +139,17 @@ private Map<String, Object> userData;
   public List<Base> listChildrenByName(String name) {
     List<Property> children = new ArrayList<Property>();
     listChildren(children);
+    if (name.equals("*")) {
+      List<Base> res = new ArrayList<Base>();
+      for (Property p : children) {
+        res.addAll(p.getValues());
+      }
+      return res;
+    } else {
     for (Property c : children)
-      if (c.getName().equals(name) || (c.getName().endsWith("[x]") && name.startsWith(c.getName())))
+      if (c.getName().equals(name) || (c.getName().equals(name+"[x]")))
         return c.getValues();
+    }
     return new ArrayList<Base>();
   }
 
@@ -517,6 +525,15 @@ private Map<String, Object> userData;
 	protected boolean isMetadataBased() {
   	return false;
 	}
+
+  public static boolean equals(String v1, String v2) {
+    if (v1 == null && v2 == null)
+      return true;
+    else if (v1 == null || v2 == null)
+      return false;
+    else
+      return v1.equals(v2);
+  }
 
 
 }
