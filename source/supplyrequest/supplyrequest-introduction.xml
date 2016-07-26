@@ -4,6 +4,8 @@
 <a name="scope"> </a>
 
 <h2>Scope and Usage</h2>
+
+<p><strong>This resource is a <em>request</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.  It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow  pattern for <a href="workflow.html"><em>request</em> resources</a>.</strong></p>
 <p>
 The scope of the SupplyRequest resource is for recording the request of supplies used in the healthcare process.  This includes supplies specifically
 used in the treatment of patients as well as supply movement within an institution (transport a set of supplies from 

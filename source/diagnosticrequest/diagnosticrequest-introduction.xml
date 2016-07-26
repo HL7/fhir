@@ -2,6 +2,7 @@
 	<div>
 <a name="scope"> </a>
 		<h2>Scope and Usage</h2>
+		<p><strong>This resource is a <em>request</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</strong></p>
 		<p>
 A <i>Diagnostic Request</i> is a record of a request for a set of diagnostic investigations to be performed.
 The investigation will lead to a <a href="diagnosticreport.html">Diagnostic Report</a> that summarizes the
@@ -50,7 +51,7 @@ The DiagnosticRequest supports references to the numerous other resources that d
 The CarePlan resource can be used to describe more sophisticated requests for combinations of services and DiagnosticRequest may be referenced as part of a CarePlan.  Similarly ClinicalImpression resource can reference DiagnosticRequest as part of a follow up to plan to the assessment. 
 </p>
 		<p>
-Note that the Diagnostic Request itself is not a request to perform the investigation - but rather a record of the fact that a request was made. To actually initiate the workflow beyond simply the existence of a Diagnostic Request may be required. This can be achieved by using an <a href="task.html">Task</a> resource, with the Diagnostic Request referenced from the Order.details, or by using the Diagnostic Request resource in the context of an messaging or service workflow where the request is explicit or implicit."
+Note that the Diagnostic Request itself is not a request to perform the investigation - but rather a record of the fact that a request was made. To actually initiate the workflow beyond simply the existence of a Diagnostic Request may be required. This can be achieved by using an <a href="task.html">Task</a> resource, with the Diagnostic Request referenced from the Task.details, or by using the Diagnostic Request resource in the context of an messaging or service workflow where the request is explicit or implicit."
 
 </p>
 	</div>
