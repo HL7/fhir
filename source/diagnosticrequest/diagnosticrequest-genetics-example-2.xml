@@ -20,7 +20,7 @@
 			</valueReference>
 		</extension>
 	</extension>
-	<status value="received"/>
+	<status value="active"/>
 	<stage>
 		<coding>
 			<system value="http://hl7.org/fhir/request-stage"/>

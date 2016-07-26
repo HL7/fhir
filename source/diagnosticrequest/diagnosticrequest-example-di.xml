@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir //ERICS-AIR/ehaas/Documents/FHIR/build/schema/diagnosticrequest.xsd" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<!--
+This example is used for DetectedIssue/Duplicate Therapy example will need to edit that as well
+
+--><DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
 	<id value="di"/>
 	<extension url="http://example.org/bodysitecode">
 		<valueCodeableConcept>
@@ -10,7 +13,7 @@
 			</coding>
 		</valueCodeableConcept>
 	</extension>
-	<status value="requested"/>
+	<status value="active"/>
 	<stage>
 		<coding>
 			<system value="http://hl7.org/fhir/request-stage"/>

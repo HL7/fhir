@@ -19,8 +19,8 @@
 		<definition value="The request is a plan"/>
 	</concept>
 	<concept>
-		<code value="orginal-order"/>
-		<display value="Orginal Order"/>
+		<code value="original-order"/>
+		<display value="Original Order"/>
 		<definition value="The request is an order."/>
 	</concept>
 	<concept>

@@ -371,7 +371,7 @@
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
-  Name = !Lipids
+  Name = Lipids
   Identity = lipid
   Description = Lipid Panel Order
   Filename = diagnosticrequest-example-lipid.xml

@@ -5,7 +5,7 @@
 	<stage>
 		<coding>
 			<system value="http://hl7.org/fhir/request-stage"/>
-			<code value="original-order"/>
+			<code value="reflex-order"/>
 		</coding>
 	</stage>
 	<code>

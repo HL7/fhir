@@ -2,7 +2,7 @@
 <!--  lab report example: a CBC  -->
 <DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
 	<id value="og-example1"/>
-	<status value="received"/>
+	<status value="active"/>
 	<stage>
 		<coding>
 			<system value="http://hl7.org/fhir/request-stage"/>
