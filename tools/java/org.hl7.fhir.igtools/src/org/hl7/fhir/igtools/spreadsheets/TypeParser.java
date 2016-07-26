@@ -44,7 +44,13 @@ public class TypeParser {
 
 
 	public List<TypeRef> parse(String n, boolean inProfile, String profileExtensionBase, BaseWorkerContext resolver, boolean allowElement) throws Exception {
+	  return parse(n, inProfile, profileExtensionBase, resolver, allowElement, null);
+	}
+
+		public List<TypeRef> parse(String n, boolean inProfile, String profileExtensionBase, BaseWorkerContext resolver, boolean allowElement, String sheetName) throws Exception {
 		ArrayList<TypeRef> a = new ArrayList<TypeRef>();
+		
+		String exceptionPrefix = sheetName==null ? "":"Error parsing sheet " + sheetName + " - ";
 
 		if (n == null || n.equals("") || n.startsWith("!"))
 			return a;
@@ -69,12 +75,12 @@ public class TypeParser {
 			String typeString = typeList[i];
 			if (typeString.contains("<")) {
 				if (!inProfile) {
-					throw new Exception("Can't specify aggregation mode for types unless defining a profile");
+					throw new Exception(exceptionPrefix + "Can't specify aggregation mode for types unless defining a profile: "+typeString);
 				}
 				int startPos = typeString.indexOf("<");
 				int endPos = typeString.indexOf(">");
 				if (endPos < startPos) {
-					throw new Exception("Missing '>' in data type definition: " + typeList[i]);
+					throw new Exception(exceptionPrefix + "Missing '>' in data type definition: " + typeList[i]);
 				}
 				t.getAggregations().addAll(Arrays.asList(typeString.substring(startPos + 1, endPos).trim().split(",")));
 					
@@ -83,23 +89,23 @@ public class TypeParser {
 			
 			if (typeString.contains("{")) {
 				if (!inProfile) {
-					throw new Exception("Can't specify profile for types unless defining a profile");
+					throw new Exception(exceptionPrefix + "Can't specify profile for types unless defining a profile");
 				}
 				int startPos = typeString.indexOf("{");
 				int endPos = typeString.indexOf("}");
 				if (endPos < startPos) {
-					throw new Exception("Missing '}' in data type definition: " + typeList[i]);
+				  throw new Exception(exceptionPrefix + "Missing '}' in data type definition: " + typeList[i]);
 				}
 				String pt = typeString.substring(startPos + 1, endPos).trim();
-        typeString = typeString.substring(0, startPos);
+				typeString = typeString.substring(0, startPos);
 				if (pt.startsWith("#")) {
 				  // what to do here depends on what it refers to 
 				  if (typeString.equals("Extension"))
 				    pt = profileExtensionBase + pt.substring(1);
 				  else if (typeString.startsWith("Reference"))
-            pt = pt.substring(1).toLowerCase();
+					pt = pt.substring(1).toLowerCase();
 				  else
-				    throw new Exception("Unhandled case");				    
+				    throw new Exception(exceptionPrefix + "Unhandled case");				    
 				}
 				t.setProfile(pt);
 			}
@@ -108,13 +114,13 @@ public class TypeParser {
 				int startPos = typeString.indexOf("(");
 				int endPos = typeString.indexOf(")");
 				if (endPos < startPos) {
-					throw new Exception("Missing ')' in data type definition: " + typeList[i]);
+					throw new Exception(exceptionPrefix + "Missing ')' in data type definition: " + typeList[i]);
 				}
 				String[] params = typeString.substring(startPos + 1, endPos).split(",");
 				for (int j=0;j<params.length;j++) {
 	        if (typeString.startsWith("Reference("))
 	          if (inProfile && !resolver.getResourceNames().contains(params[j].trim()) && !"Any".equals(params[j].trim()))
-	            throw new Exception("Unknown resource "+params[j].trim());
+	            throw new Exception(exceptionPrefix + "Unknown resource "+params[j].trim());
 					t.getParams().add(params[j].trim());
 				}
 				typeString = typeString.substring(0, startPos);
@@ -122,7 +128,7 @@ public class TypeParser {
 			
 			t.setName(typeString.trim());
 			if (t.getName().equals("Element") && !allowElement)
-			  throw new Exception("The type 'Element' is illegal in this context");
+			  throw new Exception(exceptionPrefix + "The type 'Element' is illegal in this context");
 			a.add(t);
 		}
 

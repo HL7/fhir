@@ -76,30 +76,683 @@ summarizes the list of workflow-relevant resources:</p>
 
 <a name="list"> </a>
 <h4>Workflow resources</h4>
+<table style="grid">
+  <tbody>
+    <tr>
+      <th>Requests</th>
+      <td colspan="3">Resources that ask for or express a desire/intention for something to be done</td>
+    </tr>
+    <tr>
+      <td>
+        <ul>
+          <li><a href="appointment.html">Appointment</a><sup><a href="#listnotes">*</a></sup></li>
+          <li><a href="careplan.html">CarePlan</a></li>
+          <li><a href="claim.html">Claim</a></li>
+          <li><a href="communicationrequest.html">CommunicationRequest</a></li>
+          <li><a href="deviceuserequest.html">DeviceUseRequest</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="diagnosticrequest.html">DiagnosticRequest</a></li>
+          <li><a href="eligibilityrequest.html">EligibilityRequest</a></li>
+          <li><a href="enrollmentrequest.html">EnrollmentRequest</a></li>
+          <li><a href="immunizationrecommendation.html">ImmunizationRecommendation</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="medicationorder.html">MedicationOrder</a></li>
+          <li><a href="nutritionrequest.html">NutritionRequest</a></li>
+          <li><a href="procedurerequest.html">ProcedureRequest</a></li>
+          <li><a href="processrequest.html">ProcessRequest</a><sup><a href="#listnotes">&#8224;</a></sup></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="referralrequest.html">ReferralRequest</a></li>
+          <li><a href="task.html">Task</a></li>
+          <li><a href="supplyrequest.html">SupplyRequest</a></li>
+          <li><a href="visionprescription.html">VisionPrescription</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Events</th>
+      <td colspan="3">Resources that express that something has been done and which can potentially be done as a result of a request</td>
+    </tr>
+    <tr>
+      <td>
+        <ul>
+          <li><a href="allergyintolerance.html">AllergyIntolerance</a></li>
+          <li><a href="appointmentresponse.html">AppointmentResponse</a><sup><a href="#listnotes">*</a></sup></li>
+          <li><a href="claimresponse.html">ClaimResponse</a></li>
+          <li><a href="clinicalimpression.html">ClinicalImpression</a></li>
+          <li><a href="communication.html">Communication</a></li>
+          <li><a href="composition.html">Composition</a></li>
+          <li><a href="condition (aka problem).html">Condition (aka Problem)</a></li>
+          <li><a href="consent.html">Consent</a></li>
+          <li><a href="contract.html">Contract</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="coverage.html">Coverage</a></li>
+          <li><a href="deviceusestatement.html">DeviceUseStatement</a></li>
+          <li><a href="diagnosticreport.html">DiagnosticReport</a></li>
+          <li><a href="eligibilityresponse.html">EligibilityResponse</a></li>
+          <li><a href="encounter.html">Encounter</a></li>
+          <li><a href="enrollmentresponse.html">EnrollmentResponse</a></li>
+          <li><a href="episodeofcare.html">EpisodeOfCare</a></li>
+          <li><a href="explanationofbenefit.html">ExplanationOfBenefit</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="familymemberhistory.html">FamilyMemberHistory</a></li>
+          <li><a href="guidanceresponse.html">GuidanceResponse</a></li>
+          <li><a href="imagingstudy.html">ImagingStudy</a></li>
+          <li><a href="immunization.html">Immunization</a></li>
+          <li><a href="measurereport.html">MeasureReport</a></li>
+          <li><a href="medicationadministration.html">MedicationAdministration</a></li>
+          <li><a href="medicationdispense.html">MedicationDispense</a></li>
+          <li><a href="medicationstatement.html">MedicationStatement</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="observation.html">Observation</a></li>
+          <li><a href="paymentnotice.html">PaymentNotice</a></li>
+          <li><a href="paymentreconciliation.html">PaymentReconciliation</a></li>
+          <li><a href="procedure.html">Procedure</a></li>
+          <li><a href="processresponse.html">ProcessResponse</a><sup><a href="#listnotes">&#8224;</a></sup></li>
+          <li><a href="questionnaireresponse.html">QuestionnaireResponse</a></li>
+          <li><a href="riskassessment.html">RiskAssessment</a></li>
+          <li><a href="supplydelivery.html">SupplyDelivery</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Definitions</th>
+      <td colspan="3">Resources that define something that can potentially happen in a patient and time-independent manner</td>
+    </tr>
+    <tr>
+      <td>
+        <ul>
+          <li><a href="activitydefinition.html">ActivityDefinition</a></li>
+          <li><a href="dataelement.html">DataElement</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="healthcareservice.html">HealthcareService</a></li>
+          <li><a href="measure.html">Measure</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="operationdefinition.html">OperationDefinition</a></li>
+          <li><a href="plandefinition.html">PlanDefinition</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="questionnaire.html">Questionnaire</a></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<a name="listnotes"> </a>
 <table>
   <tbody>
     <tr>
-      <th></th>
+      <td>*</td>
+      <td>The <a href="appointment.html">Appointment</a> and <a href="appointmentresponse.html">AppointmentResponse</a> resources do not follow the same sort of 
+      request/response pattern as the other resources.  Their design is based on iCal conventions, so their model won't reflect the same alignment as most other resources.
+      They are included here for completeness.</td>
+    </tr>
+    <tr>
+      <td>&#8224;</td>
+      <td><a href="processrequest.html">ProcessRequest</a> and <a href="processresponse.html">ProcessResponse</a> are candidates for retirement with their function subsumed by 
+      <a href="task.html">Task</a></td>
     </tr>
   </tbody>
 </table>
 
 
 <a name="relationships"> </a>
-<h4>Workflow Resource relationships</h4>
+<h4>Workflow Resource Relationships</h4>
+<p>
+These three patterns of resources have a standard set of relationships, both with themselves, as well as with each other.
+</p>
+<img width="624" height="421" src="../images/workflow-relations.png" alt="Workflow relationships diagram showing Request, Event and Definition and their relationships to themselves and each other"/>
+<p>
+Specifically:
+</p>
+<ul>
+  <li>both requests and events can point to their respective definitions</li>
+  <li>events and requests can point to the proposals, plans or orders they are based on</li>
+  <li>events and definitions can be organized into parent-child relationships of parents and components</li>
+  <li>definitions and requests can both replace prior versions of the same type of artifact</li>
+</ul>
+<p>
+This list of relationships is not exhaustive, but covers those that are "standardized" as part of the patterns.  Further description and guidance on these relationships can 
+be found in the <a href="request.html">Request</a>, <a href="event.html">Event</a> and <a href="definition.html">Definition</a> logical models.
+</p>
 
 <a name="request"> </a>
 <h4>Request Resource Pattern</h4>
+<p>
+Requests are resources that represent the proposal, plan or order for an activity to occur.  A <a href="request.html">Request</a> pattern defines the common elements typically
+present on all request resources.
+</p>
 
 <a name="event"> </a>
 <h4>Event Resource Pattern</h4>
+<p>
+Events are resources that represent the ongoing or completed execution of some activity or observation.  For example, a clinical procedure, a financial transaction, the recording
+of an allergy or diagnosis, etc.  An <a href="event.html">Event</a> pattern defines the common elements 
+typically present on all event resources.
+</p>
 
 <a name="definition"> </a>
 <h4>Definition Resource Pattern</h4>
+<p>
+Definitions are resources that represent activities that could be performed in a time and subject-independent manner such as a protocol, order set, clinical guideline, etc.
+A <a href="definition.html">Definition</a> pattern defines the common elements typically present on all event resources.
+</p>
 
 <a name="commpatterns"> </a>
 <h3>Workflow Communication Patterns</h3>
+<p>
+Workflow execution is supported in FHIR by a large number of mechanisms.  In considering how best to interoperate around workflow, there are a number of considerations:
+</p>
+<ul>
+  <li>Which paradigm do you want to use (REST, messaging or services)?</li>
+  <li>Is there infrastructure in place to support polling, push notifications via subscriptions or both?</li>
+  <li>Is there a need for confirmation that the desired performer agrees to act, or can that be presumed?</li>
+  <li>Is there a need to negotiate whether/how the requested action will be performed?</li>
+  <li>Can the requesting and performing system communicate directly?  Are they able to post to each other's servers (if using REST)?</li>
+  <li>Is there an ability/need to have an intermediary to facilitate workflow execution?</li>
+  <li>How many potential actors are involved?</li>
+  <li>Will the workflow always be directed or is there a pool of potential performers who could choose to perform the requested action?</li>
+</ul>
+<p>
+This section highlights some of the more common patterns and identifies their characteristics and
+limitations and provides recommendations on when each approach may be most useful or relevant.  Please note that this list of patterns is not exhaustive.  Patterns can be
+combined in various ways and there are likely some possibilities we haven't thought about yet (feel free to submit additional patterns using the 'submit a change' link at the
+bottom of the page).  As well, the recommendations given here are just that - recommendations.  Implementers are free to choose which patterns they wish to support.  Because of
+this, tight interoperability around workflow execution (as with any other tight interoperability using FHIR) will depend on communicating participants doing some up-front
+negotiation around how they plan to support workflow execution or all communicating partners will need to adhere to an implementation guide that sets out clear interoperability
+expectations.
+</p>
+<p>
+Prior to reviewing this list of options, readers are encouraged to be familiar with the following pages and resources: <a href="http.html">REST</a>, 
+<a href="messaging.html">messaging</a>, <a href="operations.html">operations</a>, <a href="services.html">services</a> and the <a href="subscription.html">Subscription</a>
+resource.
+</p>
+<p>
+The scenarios below make use of a few conventions:
+</p>
+<ul>
+  <li>The focus here is on a "request" and the actioning of that request.  Almost all workflows can be broken down to a sequence of these steps, though the responsibilities
+  of the different parties may shift for each interaction and there can be more than two parties involved in the overall workflow</li>
+  <li>The request could be as simple as "please look at this information" and the response could be as simple as an implicit "it's been looked at" or the request could be for
+  some more involve action that may involve reporting back multiple interim and final steps</li>
+  <li>The requester is referred to as the "placer" and the performer is referred to as the "filler", which are often seen as order-specific terms.  However, in this context,
+  the terms hold whether the request is expressed as a proposal, plan or full-blown order</li>
+  <li>Each of the patterns defines the set of steps involved in processing the request, lists some of the benefits and limitations associated with the approach and then
+  makes recommendations about when the pattern is most appropriate</li>
+</ul>
 
+<a name="commpatterns"> </a>
+<h4>Communication Pattern Overview</h4>
+<p>
+The list of patterns discussed here is as follows:
+</p>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <a href="#optiona">Option A: Simple RESTful POST or PUT</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="#optionb">Option B: Direct POST of request to fulfiller's system</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="#optionc">Option C: POST of request to placer/intermediary system, receiver uses polling</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="#optiond">Option D: POST of request to placer/intermediary system, receiver uses subscription</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="#option">Option x: </a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="#optione">Option E: POST of Task to filler system</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="#optionf">Option F: POST of "open" Task to intermediary system</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="#optiong">Option G: POST of "request" resource for filler system, response via Task</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="#optionh">Option H: Workflow broker</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="#optioni">Option I: Messaging request from placer to filler &amp; acknowledgment</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="#optionj">Option H: Services request from placer to filler &amp; acknowledgment</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="#additional">Additional Scenarios</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+TODO: Insert Jose's decision tree here?
+</p>
+
+<a name="optiona"> </a>
+<h4>Option A: Simple RESTful POST or PUT</h4>
+<h5>Steps</h5>
+<ol>
+  <li>The placer makes a RESTful call to <a href="http.html#create">create</a> or <a href="http.html#create">update</a> a record or a POST to invoke an 
+  <a href="operations.html#executing">operation</a> over HTTP</li>
+  <li>The receiver responds with a 2xx HTTP response indicating whether the request was successfully processed or not and, if appropriate, provides the response to the request
+  in the payload of the HTTP response</li>
+</ol>
+<h5>Benefits</h5>
+<ul>
+  <li>Simplest of all the possible workflow architectures</li>
+  <li>Placer knows whether the request was accepted or not and knows when the task has been done</li>
+</ul>
+<h5>Limitations</h5>
+<ul>
+  <li>Only works for automated execution where the decision to perform the request and the execution of the request can be done synchronously within the HTTP timeout period
+  (generally on the order of 10s of seconds).</li>
+  <li>Requires that the placer have authority to post directly to the placer's system</li>
+  <li>Requires that the "request" be expressible as a simple creation, update or operation invocation</li>
+</ul>
+<h5>Usage Recommendations</h5>
+<p>
+This is by far the most common pattern in FHIR for simple changes as it requires the least overhead.  However, if human processing is involved in the request execution, then
+this approach won't suffice.  This approach is listed here to make sure that implementers consider whether they can make this one work first before falling back to one of the
+more sophisticated patterns.
+</p>
+
+<a name="optionb"> </a>
+<h4>Option B: Direct POST of request to fulfiller's system</h4>
+<h5>Steps</h5>
+<ol>
+  <li>Placer system invokes a <a href="http.html#create">create</a> by POSTing a 'request' resource (e.g. <a href="medicationorder.html">MedicationOrder</a>, 
+  <a href="diagnosticrequest.html">DiagnosticRequest</a>, <a href="referralrequest.html">ReferralRequest</a>, etc.) to the appropriate RESTful resource 
+  endpoint (e.g. [base]/MedicationOrder) on the filler system and places an <a href="codesystem-common-tags.html#common-tags-actionable">actionable</a> 
+  <a href="resource.html#simple-tags">tag</a> on the resource that indicates the request is intended to be acted upon, not merely stored.</li>
+  <li>The filler synchronously responds with a "201" indicating that that they have received and stored (created) the resource on their system</li>
+  <li>At some later point, the filler POSTs an 'event' resource (e.g. <a href="medicationdispense.html">MedicationDispense</a>, 
+  <a href="diagnosticreport.html">DiagosticReport</a>, <a href="encounter.html">Encounter</a>, etc.) to the appropriate resource endpoint on the placer 
+  system, including a <code>basedOn</code> link to the 'request' resource that the action was performed in fulfillment of.</li>
+  <li>The placer system synchronously responds with a "201" indicating they've received and store (created) the resource on their system</li>
+</ol>
+<h5>Benefits</h5>
+<ul>
+  <li>Lowest amount of overhead.  No need for <a href="task.html">Task</a>.  No need for polling or subscriptions</li>
+  <li>Explicit acknowledgement that filler has received the request</li>
+</ul>
+<h5>Limitations</h5>
+<ul>
+  <li>Can only use when requesting fulfillment (can't use to request status change or other updates)</li>
+  <li>Placer and filler must be able to communicate directly (i.e. know each other's respective endpoints) and must each have a FHIR server and must have "write" permissions to 
+  each other's servers.  This could become unmanageable if there are a large (or dynamic) number of placers and fillers that need to communicate</li>
+  <li>No indication of agreement to act on the request</li>
+  <li>There's no ability to negotiate fulfillment - no ability to say "no"</li>
+</ul>
+<h5>Usage Recommendations</h5>
+<p>
+Use this approach when there's no ability to have intermediaries and no support/need for complexity of Task, polling or pub/sub (and no need for negotiation or the ability for 
+the filler to say "no").  This is a pseudo-messaging architecture that doesn't actually use messaging architecture.
+</p>
+
+<a name="optionc"> </a>
+<h4>Option C: POST of request to placer/intermediary system, receiver uses polling</h4>
+<h5>Steps</h5>
+<ol>
+  <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. MedicationOrder, DiagnosticOrder, ReferralRequest, etc.) to the appropriate RESTful resource 
+  endpoint (e.g. [base]/MedicationOrder) on either its own system or a third party intermediary system and sets a "flag" on the resource that indicates the request is 
+  "actionable".  The request explicitly identifies the intended fullfiller</li>
+  <li>The filler system, at some agreed frequency, RESTfully queries the placer or intermediary system to see if there are any "new" requests that: are tagged as "actionable", 
+  have the filler identified as the intended performer, and are a type of request "of interest" to the filler.  (The queries could be initiated by the filler system 
+  automatically in the background or upon triggering by user of the filler system.)</li>
+  <li>At some later point, the filler POSTs an 'event' resource (e.g. MedicationDispense, DiagosticReport, Encounter, etc.) to the appropriate resource endpoint on either its 
+  own system, the same intermediary as the request was placed on or some alternate intermediary, including a link to the 'request' resource that the action was performed in 
+  fulfillment of.</li>
+  <li>The placer system, at some agreed frequency, RESTfully queries the filler or intermediary system to see if there are any "new" events that are tied to any outstanding 
+  orders the placer has initiated.  (The queries could be initiated by the placer system automatically in the background or upon triggering by user of the placer system.)</li>
+</ol>
+<h5>Benefits</h5>
+<ul>
+  <li>Placer &amp; Server don't have to communicate directly (can act through intermediary).  This can reduce the number of point-to-point interfaces that need to be supported.</li>
+  <li>No need for Task.</li>
+</ul>
+<h5>Limitations</h5>
+<ul>
+  <li>Can only use when requesting fulfillment (can't use to request status change or other updates)</li>
+  <li>Placer and filler must regularly poll to see if there's anything new.  (Can represent significant communication overhead)</li>
+  <li>Polling by the placer for "anything related to these 500 open orders" could be onerous, especially if some orders never get closed.</li>
+  <li>Placer and fulfiller must know where to poll for content - this could be a large number of systems</li>
+  <li>No indication of agreement to act on the request</li>
+  <li>There's no ability to negotiate fulfillment - no ability to say "no"</li>
+  <li>Placer may not know when (or if) filler system has retrieved the request</li>
+</ul>
+<h5>Usage Recommendations</h5>
+<p>
+Use this when there's no ability to have intermediaries and no support/need for complexity of Task and where no Subscription infrastructure exists.  This is a more typically 
+RESTful approach where data resides on the server "owned" by the data creator and is accessed by other systems.
+</p>
+
+<a name="optiond"> </a>
+<h4>Option D: POST of request to placer/intermediary system, receiver uses subscription</h4>
+<h5>Steps</h5>
+<ol>
+  <li>Same as <a href="#optionc">Option C</a> - placer posts to itself or to intermediary</li>
+  <li>Filler has set up a subscription to requests of interest (same criteria as for B)</li>
+  <li>When placer's request is posted, filler receives a notification that a new, relevant request exists and queries to receive it</li>
+  <li>Same pattern follows for transmission of response from filler back to placer</li>
+</ol>
+<h5>Benefits</h5>
+<ul>
+  <li>Placer &amp; Server don't have to communicate directly (can act through intermediary).  This can reduce the number of point-to-point interfaces that need to be 
+  supported.</li>
+  <li>No need for Task</li>
+  <li>Lower communication overhead than polling</li>
+</ul>
+<h5>Limitations</h5>
+<ul>
+  <li>Can only use when requesting fulfillment (can't use to request status change or other updates)</li>
+  <li>Additional complexity of setting up and maintaining a subscription infrastructure</li>
+  <li>Placer and fulfiller must know where to subscribe for content - this could be a large number of systems</li>
+  <li>No indication of agreement to act on the request</li>
+  <li>There's no ability to negotiate fulfillment - no ability to say "no"</li>
+  <li>Placer may not know when (or if) filler system has retrieved the request</li>
+</ul>
+<h5>Usage Recommendations</h5>
+<p>
+Same a <a href="#optionc">Option C</a>, but in an environment where subscription capability does exist.
+</p>
+
+<a name="optione"> </a>
+<h4>Option E: POST of Task to filler system</h4>
+<h5>Steps</h5>
+<ol>
+  <li>Placer POSTs the request to its own system or to an intermediary system</li>
+  <li>Placer POSTs a Task resource to the filler system, pointing to the request resource and seeking fulfillment</li>
+  <li>Fulfiller system queries to retrieve the referenced request</li>
+  <li>Fulfiller Updates the Task to indicate acceptance of the task (and possibly interim progress notes)</li>
+  <li>Placer either polls the Task to note acceptance and changes or uses a subscription to determine the same</li>
+  <li>Fulfiller POSTs an event resource to its own system or to an intermediary system </li>
+  <li>Fulfiller Updates the Task resource to change its status to completed and to point to the event resource</li>
+  <li>Placer system becomes aware of the update via polling or subscription and retrieves the referenced event resource</li>
+</ol>
+<h5>Benefits</h5>
+<ul>
+  <li>Can use this approach for request other than just when requesting fulfillment (e.g. to request status change or other updates)</li>
+  <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
+  <li>Explicit acknowledgement that filler has received and agreed to act on the request</li>
+</ul>
+<h5>Limitations</h5>
+<ul>
+  <li>Additional complexity of setting up and maintaining a subscription or polling infrastructure</li>
+  <li>Additional complexity of using Task</li>
+  <li>
+    <p>Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints) and have a FHIR server and must have "write" permissions to 
+    each other's servers</p>
+    <ul>
+      <li>This could become unmanageable if there are a large (or dynamic) number of placers and fillers that need to communicate</li>
+      <li>May not apply if there's an intermediary</li>
+    </ul>
+  </li>
+  <li>Placer and fulfiller must know where to subscribe for content - this could be a large number of systems</li>
+  <li>Placer may not know when (or if) filler system has retrieved the request</li>
+</ul>
+<h5>Usage Recommendations</h5>
+<p>
+Not clear why would anyone do this . . .
+</p>
+
+<a name="optionf"> </a>
+<h4>Option F: POST of "open" Task to intermediary system</h4>
+<h5>Steps</h5>
+<ol>
+  <li>Placer POSTs the request to its own system or to an intermediary system</li>
+  <li>Placer POSTs a Task resource to its own system or an intermediary system, pointing to the request resource and seeking fulfillment.<br/>
+  Task does not have a specified "performer" (but may have performer type)</li>
+  <li>Fulfiller system uses either polling or pub/sub to become aware of the existence of the task</li>
+  <li>Fulfiller system queries to retrieve the referenced request</li>
+  <li>Fulfiller system updates the Task to indicate "ownership" and agreement to fulfill </li>
+  <li>Fulfiller may update the Task to indicate interim progress notes</li>
+  <li>Placer either polls the Task to note acceptance and changes or uses a subscription to determine the same</li>
+  <li>Fulfiller POSTs an event resource to its own system or to an intermediary system</li>
+  <li>Fulfiller Updates the Task resource to change its status to completed and to point to the event resource</li>
+  <li>Placer system becomes aware of the update via polling or subscription and retrieves the referenced event resource</li>
+</ol>
+<h5>Benefits</h5>
+<ul>
+  <li>No need for placer and fulfiller system to talk to each other directly</li>
+  <li>Can use this approach for request other than just when requesting fulfillment (e.g. to request status change or other updates)</li>
+  <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
+  <li>Explicit acknowledgement that filler has received and agreed to act on the request</li>
+</ul>
+<h5>Limitations</h5>
+<ul>
+  <li>Additional complexity of setting up and maintaining a subscription or polling infrastructure</li>
+  <li>Additional complexity of using Task</li>
+  <li>
+    <p>Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints) and have a FHIR server and must have "write" permissions to 
+    each other's servers</p>
+    <ul>
+      <li>This could become unmanageable if there are a large (or dynamic) number of placers and fillers that need to communicate</li>
+      <li>May not apply if there's an intermediary</li>
+    </ul>
+  </li>
+  <li>Placer and fulfiller must know where to subscribe for content - this could be a large number of systems</li>
+  <li>Placer may not know when (or if) filler system has retrieved the request</li>
+</ul>
+<h5>Usage Recommendations</h5>
+<p>
+Used when requests are not (always) directed to a specific filler and where fillers may respond to tasks from multiple placers.  This creates a sort of "market" where fillers 
+choose what to take on and negotiate what work they perform.
+</p>
+
+<a name="optiong"> </a>
+<h4>Option G: POST of "request" resource for filler system, response via Task</h4>
+<h5>Steps</h5>
+<ol>
+  <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. MedicationOrder, DiagnosticOrder, ReferralRequest, etc.) to the appropriate RESTful resource 
+  endpoint (e.g. [base]/MedicationOrder) on the filler, placer or intermediary system and sets a "tag" on the resource that indicates the request is "actionable"</li>
+  <li>Filler POSTs a Task resource to its own system or an intermediary system, pointing to the request resource and indicating intent to fulfill or refusal to fulfill</li>
+  <li>Placer system uses either polling or pub/sub to become aware of the existence of the task and fulfillment intent</li>
+  <li>Fulfiller may update the Task to indicate interim progress notes</li>
+  <li>Placer either polls the Task to note acceptance and changes or uses a subscription to determine the same</li>
+  <li>Fulfiller POSTs an event resource to its own system or to an intermediary system</li>
+  <li>Fulfiller Updates the Task resource to change its status to completed and to point to the event resource</li>
+  <li>Placer system becomes aware of the update via polling or subscription and retrieves the referenced event resource</li>
+</ol>
+<h5>Benefits</h5>
+<ul>
+  <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
+  <li>Explicit acknowledgement that filler has received and agreed to act on the request (though no need for the placer to check)</li>
+</ul>
+<h5>Limitations</h5>
+<ul>
+  <li>Can only use when requesting fulfillment (can't use to request status change or other updates)</li>
+  <li>Additional complexity of setting up and maintaining a subscription or polling infrastructure</li>
+  <li>Additional complexity of using Task</li>
+  <li>Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints) and have a FHIR server and have "write" permissions to each 
+  other's servers (if no intermediary is used)</li>
+  <li>Placer and fulfiller must know where to subscribe for content - this could be a large number of systems</li>
+</ul>
+<h5>Usage Recommendations</h5>
+<p>
+Use this when the filler needs to have complete ownership over the task and there's no ability for both placer &amp; filler to manipulate tasks on a common server
+</p>
+
+<a name="optionh"> </a>
+<h4>Option H: Workflow broker</h4>
+<img alt="Diagram showing interaction of placer, filler and workflow broker" src="../images/workflow-optionh.png"/>
+<h5>Steps</h5>
+<ol>
+  <li>Placer POSTs the request to its own system or to an intermediary system</li>
+  <li>Broker detects that new un-assigned request (without a Task yet created and falling within the scope of the Broker to ensure fulfillment) via polling or subscription</li>
+  <li>Broker POSTs a Task resource  to its own system or an intermediary system, pointing to the request resource and seeking fulfillment from a specific filler<br/>
+  Task does not have a specified "performer" (but may have performer type)</li>
+  <li>If the Task is rejected by one potential recipient, the broker may create a new task to seek fulfillment from others</li>
+  <li>Continue as per <a href="#optiong">Option G</a></li>
+</ol>
+<h5>Benefits</h5>
+<ul>
+  <li>Offloads responsibility for seeking fulfillment from the placer system, but more actively solicits fulfillment than a simple "post the task and see who takes it".  
+  Also allows prioritized assignment of tasks (i.e. some fillers may be preferred over others)</li>
+</ul>
+<h5>Limitations</h5>
+<ul>
+  <li>Requires a broker to exist</li>
+  <li>Broker must know all available fillers and their capabilities to allow appropriate assignment</li>
+</ul>
+<h5>Usage Recommendations</h5>
+<p>
+Appropriate in environments that have a workflow engine that takes on responsibility for ensuring fulfillment
+</p>
+
+<a name="optioni"> </a>
+<h4>Option I: Messaging request from placer to filler &amp; acknowledgment</h4>
+<h5>Steps</h5>
+<ol>
+  <li>Placer sends message to filler system including Request resource (and other relevant resources) along with a MessageHeader with an "event" code saying "please fulfill" 
+  and "data" element pointing to the Request resource as the item to fulfill.  Message could potentially use Task instead of MessageHeader.event to convey desired action 
+  (ongoing discussion)</li>
+  <li>Filler system sends a response indicating receipt of the message and, optionally an indication of their intention to fulfill the request</li>
+  <li>Filler system may send incremental messages to the placer showing progress (e.g. specimen collected, preliminary results, final results)</li>
+</ol>
+<h5>Benefits</h5>
+<ul>
+  <li>Reduced number of communications</li>
+  <li>All relevant data sent in one package</li>
+  <li>Responses can be asynchronous and content may routed</li>
+  <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
+  <li>Can request things other than just fulfillment (e.g. please suspend)</li>
+  <li>Explicit acknowledgement that filler has received and agreed to act on the request (though no need for the placer to check)</li>
+</ul>
+<h5>Limitations</h5>
+<ul>
+  <li>Messaging is "heavy"</li>
+  <li>Need to negotiate what allowed responses are and what data can be present in request and response messages</li>
+  <li>Additional complexity of setting up and maintaining a subscription or polling infrastructure</li>
+  <li>Additional complexity of using Task</li>
+  <li>Need message delivery infrastructure in place</li>
+</ul>
+<h5>Usage Recommendations</h5>
+<p>
+Existing messaging (likely v2) infrastructure and a need to stay consistent with that architecture
+</p>
+
+<a name="optionj"> </a>
+<h4>Option J: Services request from placer to filler &amp; acknowledgment</h4>
+<p>
+<i>This scenario needs work - there's not a lot of experience using FHIR services to manage the fulfillment process</i>
+</p>
+<h5>Steps</h5>
+<ol>
+  <li>Placer may create and store a Request resource on their own system or an intermediary.</li>
+  <li>Placer invokes a service on the filler system saying "please fulfill this order", including the content or a reference to the request resource and any other relevant 
+  data</li>
+  <li>Filler system responds (synchronously if using HTTP, but may be asynchronous if using SOAP or other transport mechanisms) with conformation of receipt and, optionally 
+  indication of intention to fulfill and/or results</li>
+  <li></li>
+</ol>
+<h5>Benefits</h5>
+<ul>
+  <li>???</li>
+</ul>
+<h5>Limitations</h5>
+<ul>
+  <li>???</li>
+</ul>
+<h5>Usage Recommendations</h5>
+<p>
+TBD
+</p>
+
+<a name="additional"> </a>
+<h4>Additional Scenarios</h4>
+<h5>Querying the status of a workflow using REST</h5>
+<ol>
+  <li>Placer sends query for Task(s) that have a focus of the request of interest to a system (placer system, intermediary or filler) that holds tasks related to their request.</li>
+  <li>System returns a query response showing all related tasks (typically just one).  Task shows current status.</li>
+</ol>
+
+<h5>Querying the status of a workflow using services</h5>
+<ol>
+  <li>Placer invokes a "what's the status of this order" service, passing the request business identifier or URL of the request</li>
+  <li>Services responds with a Task showing the current state of the fulfillment of the request</li>
+</ol>
+
+<h5>Cancellation of a Task using REST - placer owns</h5>
+<ol>
+  <li>Placer sends an update to the Task setting the status to "cancelled"</li>
+  <li>Filler receives notification of the update (because the task is on their system or because they poll it or are subscribed to it) and ceases work if they are able</li>
+</ol>
+
+<h5>Cancellation of a Task using REST - filler owns</h5>
+<ol>
+  <li>Placer creates a new task requesting cancellation of the original fulfillment task<br/>
+  Fulfillment of the "cancellation task" can be requested using any of the mechanisms above</li>
+  <li>Filler decides whether they are able to cancel the task and update the "cancellation" task to indicate either cancellation is complete or has been refused</li>
+</ol>
+
+<h3>Open Issues</h3>
+<blockquote class="dstu-note">
+<p>
+<b>STU Notes:</b>
+</p>
+<ul>
+  <li>It is possible to replace some portions of the <a href="messageheader.html">MessageHeader</a> with a reference to the <a href="task.html">Task</a> resource.
+  Doing so would mean consistency in how asynchronous requests are represented using REST and messaging.  However, it introduces an additional layer of complexity and
+  formality into the messaging paradigm that may be unwelcome, particularly for those systems that do not currently foresee a need to support both RESTful and messaging
+  invocations of workflow</li>
+  <li>The <a href="operationdefinition.html">OperationDefinition</a> resource could be used to define types of tasks and the sets of parameters that are allowed to go with
+  them.  Is this an appropriate use of the OperationDefinition resource?</li>
+  <li>The <a href="supplyrequest.html">SupplyRequest</a>, <a href="deviceuserequest.html">DeviceUseRequest</a> and <a href="visionprescription.html">VisionPrescription</a>
+  resources have a significant degree of overlap.  Should they remain distinct resources?</li>
+</ul>
+</blockquote>
 
 </div>
 

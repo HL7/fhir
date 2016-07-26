@@ -6789,6 +6789,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     text = text.replace("||", "\r\n\r\n");
     while (text.contains("[[[")) {
       String left = text.substring(0, text.indexOf("[[["));
+      if (text.indexOf("]]]") < 0)
+        throw new Error(location + ": Missing closing ]]] in markdown text: " + text);
       String linkText = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
       String right = text.substring(text.indexOf("]]]")+3);
       String url = "";
@@ -6796,7 +6798,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (parts[0].contains("/StructureDefinition/")) {
         StructureDefinition ed = workerContext.getExtensionStructure(null, parts[0]);
         if (ed == null)
-          throw new Error("Unable to find extension "+parts[0]);
+          throw new Error(location + ": Unable to find extension "+parts[0]);
         url = ed.getUserData("filename")+".html";
       } 
       if (Utilities.noString(url)) {
