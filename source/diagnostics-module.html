@@ -21,41 +21,97 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="intro"> </a>
 <h3>Introduction</h3>
 <p>
-In this section: scope, what outcome modules seeks providem why would you look at it's content
-
-from the master doc:Observations + DR/DO+ etc genomics
-
-Editor : Eric Haas
-
-
+The Diagnostics Module provides an overview and guide to the FHIR content that addresses ordering and reporting of clinical diagnostics including laboratory testing, imaging and genomics.  
 </p>
 
 <a name="index"> </a>
 <h3>Index</h3>
-<p>
-In this section: links to key content pages in the module
-</p>
+<p>The Diagnostics module covers the following resources:</p>
+
+<table width="100%" style="table-layout: fixed">
+ <tr>
+ <td width="33%">
+<ul>
+<li><a href="observation.html">Observation</a></li>
+<li><a href="diagnosticreport.html">DiagnosticReport</a></li>
+<li><a href="diagnosticrequest.html">DiagnosticRequest</a></li>
+  </ul>
+</td>
+ <td width="33%">
+<ul>
+<li><a href="imagingstudy.html">ImagingStudy</a></li>
+<li><a href="imagingmanifest.html">ImagingManifest</a></li>
+<li><a href="sequence.html">Sequence</a></li>
+</ul>
+</td>
+ <td width="33%">
+<ul>
+ <li><a href="specimen.html">Specimen</a></li>
+ <li><a href="bodysite.html">BodySite</a></li>
+ </ul>
+</td>
+</tr>
+</table>
+
+   <p>The diagnostic resources and their relationships are shown below:</p>
+    <img src="diagnostic-module-resources.png" alt="Image showing the diagnostic resources" width="800px"/>
+    
 
 <a name="secpriv"> </a>
 <h3>Security and Privacy</h3>
-<p>
-In this section: description of key security and privacy issues, or references to pages that deal with this. 
-For the security / privcay module itself, this section does not exist. For other modules, the paragraph/section can end with this boilerplate:
-For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
+<p> 
+The diagnostic resources often represent patient-related data, and as such are susceptible to data breaching.  Necessary privacy and security provision must be in place for searching and fetching this information.  For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
 </p>
 
 <a name="uses"> </a>
 <h3>Common use Cases</h3>
 <p>
-In this section: common problems in the space of the module, ways to go about solving them, or references to additional problem based linkes
+Diagnostic resources are commonly used as to order and report clinical diagnostics:
+
+<ul>
+<li>Ordering a Laboratory Test such as a <a href="todo">lipid panel</a></li>
+<li>Reporting a Laboratory Test such as a <a href="diagnosticreport-example-lipids.html">lipid panel</a></li>
+<li>Ordering an imaging study</li>
+<li>Reporting an imaging study such as a <a href="imagingstudy-example.html">CT study</a></li>
+<li>Ordering a genetics test</li>
+<li>Reporting a genetics test such as <a href="diagnosticreport-hla-genetics-results-example.html">HLA genotyping</a></li>
+</ul>
+
+
+
+There are many ways to use these resources independently as well.  The Observation resource in particular is central to capturing many measurements and events in healthcare and is often used outside the context of diagnostic orders and reports.
+
+<ul>
+<li>recording vital signs such as <a href="observation-example-f202-temperature.html">temperature</a></li>
+<li>recording other observations such as patient's social history like <a href="">tobacco use</a></li>
+<li>recording other characteristics of subject such as <a href="">pregnancy status</a>.</li>
+<li>recording clinical assessment tool scores such as an <a href="observation-example-5minute-apgar-score.html">Apgar score</a>.</li>
+<li>identifying and describing a <a href="specimen-example-serum.html">specimen</a> or <a href="bodysite-example-tumor.html">body site</a></li>
+</ul>
 </p>
 
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>
 <p>
-In this section: what the current overall state is, what work is in train, what the goals over the next 18 months or so are
-</p>
 
+
+<ul>
+<li>The <code>Observation</code> and <code>Diagnostic Report</code> resources have been tested and used in production tooling and as such have reached a <a href="resource.html#maturity">maturity level (FMM)</a> where changes become less likely.</li>
+<li>The <code>ImagingStudy</code> resource has had some limited testing and use.  Further use of this resource in production tooling in order for it to reach a more stable FMM level.</li>
+</ul>
+<p>These other diagnostic resources are still under development:</p>
+<ul>
+<li><code>DiagnosticRequest</code>: used in the HL7 production tooling and in several implementation guides. As a result of the addition of <a href="workflow.html">FHIR workflow</a> for STU3, the <code>DiagnosticRequest</code> resources has undergone substantial changes since DSTU2. It has been renamed from <code>DiagnosticOrder</code> and its structure and content updated to align with a general "request" pattern.  Because of this, it remains an immature resource.</li>
+<li><code>Specimen</code>: We expect to see more widespread use of this resource and future updates to its FMM level</li>
+<li><code>ImagingManifest</code>: We expect to see more widespread use of this resource and future updates to its FMM level</li>
+<li><code>Sequence</code>: This resource remains draft and we expect to see more widespread use of this resource and future updates to its FMM level</li>
+<li><code>BodySite</code>: This resource remains draft and its whether it remains a FHIR core resource is still uncertain.  It can only be referenced using extensions.</li>
+</ul>
+
+
+
+</p>
+<p>Editor : Eric Haas</p>
 </div>
 
 [%file newfooter%]
