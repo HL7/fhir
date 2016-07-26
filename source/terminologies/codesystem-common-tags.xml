@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+	<id value="common-tags"/>
+	<url value="http://hl7.org/fhir/common-tags"/>
+	<name value="Common Tags"/>
+	<status value="draft"/>
+	<description value="Standard tags defined as part of the FHIR core specification"/>
+	<caseSensitive value="true"/>
+	<valueSet value="http://hl7.org/fhir/ValueSet/common-tags"/>
+	<content value="complete"/>
+	<concept>
+		<code value="actionable"/>
+		<display value="Actionable"/>
+		<definition value="This request is intended to be acted upon, not merely stored"/>
+	</concept>
+</CodeSystem>
