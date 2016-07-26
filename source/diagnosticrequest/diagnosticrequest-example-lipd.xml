@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="file://Mac/Home/Documents/FHIRBuild/reorder-nodes-template.xslt"?>
-<DiagnosticRequest xmlns="http://hl7.org/fhir">
+<DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
 	<id value="lipid"/>
 	<contained>
 		<Observation>
@@ -38,15 +37,32 @@
 		<value value="2345234234234"/>
 	</identifier>
 	<status value="received"/>
+	<stage>
+		<coding>
+			<system value="http://hl7.org/fhir/request-stage"/>
+			<code value="original-order"/>
+		</coding>
+	</stage>
+	<code>
+		<coding>
+			<system value="http://acme.org/tests"/>
+			<code value="LIPID"/>
+		</coding>
+		<text value="Lipid Panel"/>
+	</code>
 	<subject>
 		<reference value="Patient/example"/>
 	</subject>
-	<encounter>
+	<context>
 		<reference value="Encounter/example"/>
-	</encounter>
-	<orderer>
+	</context>
+	<occurrenceDateTime value="2013-05-02T16:16:00-07:00"/>
+	<requester>
 		<reference value="Practitioner/example"/>
-	</orderer>
+	</requester>
+	<performer>
+		<reference value="Practitioner/example"/>
+	</performer>
 	<reason>
 		<coding>
 			<system value="http://hl7.org/fhir/sid/icd-9"/>
@@ -57,23 +73,8 @@
 	<supportingInformation>
 		<reference value="#fasting"/>
 	</supportingInformation>
-	<event>
-		<status value="requested"/>
-		<dateTime value="2013-05-02T16:16:00-07:00"/>
-		<actor>
-			<reference value="Practitioner/example"/>
-		</actor>
-	</event>
-	<item>
-		<code>
-			<coding>
-				<system value="http://acme.org/tests"/>
-				<code value="LIPID"/>
-			</coding>
-			<text value="Lipid Panel"/>
-		</code>
-	</item>
 	<note>
+		<authorReference/>
 		<text value="patient is afraid of needles"/>
 	</note>
 </DiagnosticRequest>
