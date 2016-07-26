@@ -11,53 +11,34 @@
 <div class="col-9">
 
 <h3>Knowledge Artifact Representation</h3>
-<p>For the purposes of this guide, a Knowledge Artifact is a structured, computable, and shareable representation of clinical knowledge. A comprehensive definition of clinical knowledge is of course beyond the scope of this guide, but we effectively mean any knowledge relevant to improving patient care. For example, "Patients with diabetes should have regular comprehensive foot examinations to identify risk factors predictive of ulcers and amputations" is a statement of clinical knowledge. A knowledge artifact would then be some representation that can be used to integrate that knowledge into existing healthcare delivery systems.</p>
+<p>For the purposes of the Clinical Reasoning module, a Knowledge Artifact is a structured, computable, and shareable representation of clinical knowledge. A comprehensive definition of clinical knowledge is of course beyond the scope of this module, but we effectively mean any knowledge relevant to improving patient care. For example, "Patients with diabetes should have regular comprehensive foot examinations to identify risk factors predictive of ulcers and amputations" is a statement of clinical knowledge. A knowledge artifact would then be some representation that can be used to integrate that knowledge into existing healthcare delivery systems.</p>
 
-<p>There are any number of ways to accomplish this integration of clinical knowledge, ranging from direct implementation within an existing EHR system all the way up to the use of high-level representation and reasoning systems that can adapt clinical workflow to provide cognitive support to clinicians. Within this guide, we aim to provide a representation that is both flexible enough to represent a broad range of knowledge artifacts, but simple and specific enough to enable automated integration of the content.</p>
+<p>There are any number of ways to accomplish this integration of clinical knowledge, ranging from direct implementation within an existing EHR system all the way up to the use of high-level representation and reasoning systems that can adapt clinical workflow to provide cognitive support to clinicians. Within this module, we aim to provide a representation that is both flexible enough to represent a broad range of knowledge artifacts, but simple and specific enough to enable automated integration of the content.</p>
 
+<a name="knowledge-artifact-components"/>
+<h4>Knowledge Artifact Components</h4>
 <p>To acheive these goals, we define several components that are present in a broad variety of knowledge artifacts:</p>
-
-<img alt="Clinical Quality Framework Knowledge Artifact Components" src="cqif-knowledge-artifact-components.png"/>
 
 <table class="grid">
 	<thead>
 		<tr><th>Component</th><th>Description</th></tr>
 	</thead>
 	<tbody>
-		<tr><td><a href="[%fhir-path%]modulemetadata.html">Metadata</a></td><td>Information about the knowledge artifact such as status, publisher, documentation, and supporting evidence.</td></tr>
-		<tr><td><a href="[%fhir-path%]parameterdefinition.html">Parameters</a></td><td>Values that can be provided at the time of evaluation to influence the behavior of the artifact based on setting-specific configuration.</td></tr>
-		<tr><td><a href="[%fhir-path%]datarequirement.html">Data</a></td><td>Clinical information used by the artifact as part of the representation of knowledge</td></tr>
-		<tr><td><a href="[%fhir-path%]actiondefinition.html">Actions</a></td><td>Descriptions of actions to be taken as part of the implementation of knowledge</td></tr>
-		<tr><td><a href="[%fhir-path%]triggerdefinition.html">Triggers</a></td><td>Information about what events should trigger the use of the artifact</td></tr>
-		<tr><td><a href="[%fhir-path%]library.html">Logic</a></td><td>Expressions used to represent reasoning such as whether or not some criteria is satisfied, or calculation of new values from existing one.</td></tr>
+		<tr><td><a href="#artifact-identity">Artifact Identity</a></td><td>Information used to uniquely identify an artifact.</td></tr>
+		<tr><td><a href="#metadata">Metadata</a></td><td>Information about the knowledge artifact such as lifecycle status, publisher, documentation, and supporting evidence.</td></tr>
+		<tr><td><a href="#action-definitions">Action Definitions</a></td><td>Descriptions of actions to be taken as part of the implementation of knowledge</td></tr>
+		<tr><td><a href="#trigger-definitions">Trigger Definitions</a></td><td>Information about what events should trigger the use of the artifact</td></tr>
+		<tr><td><a href="#expression-logic">Expression Logic</a></td><td>Expressions used to represent reasoning such as whether or not some criteria is satisfied, or calculation of new values from existing ones.</td></tr>
 	</tbody>
 </table>
 
-<p>These components are then combined in various ways to represent several different types of knowledge artifacts:</p>
+<a name="artifact-identity"/>
+<h5>Artifact Identity</h5>
+<p>As with any FHIR resource, the instance identity is specified by the <a href="[%fhir-path%]resource-definitions.html#Resource.id">id</a> element. In addition, artifacts may have logical identifiers based on the content or behavior they provide. For example, the CMS or NQF identifiers for measure content. These logical identifiers can be provided in the <code>identifier</code> element defined on each resource.</p>
 
-<img alt="Clinical Quality Framework Knowledge Artifact Types" src="cqif-knowledge-artifact-types.png"/>
+<p>In addition to identity, the <code>version</code> element can be used to specify a content version for the artifact. In general, version numbers are required for published, non-experimental artifacts, and optional otherwise.</p>
 
-<table class="grid">
-	<thead>
-		<tr><th>Artifact Type</th><th>Description</th><th>Example</th></tr>
-	</thead>
-	<tbody>
-		<tr><td><a href="[%fhir-path%]library.html">Library</a></td><td>A sharable package of clinical logic expressed in Clinical Quality Language.</td><td>Expressions that define the criteria that must be met to determine whether or not a patient has diabetes.</td></tr>
-		<tr><td><a href="[%fhir-path%]decisionsupportrule.html">DecisionSupportRule</a></td><td>A decision support rule of the form [on Event] if Condition then Action, defining actions that shoud be taken whenever some condition is met in response to a particular event.</td><td>On admission of a patient, if the patient has diabetes and has not had a recent foot examination, place an unsigned order for a comprehensive foot exam.</td></tr>
-		<tr><td><a href="cqif-questionnaire.html">DocumentationTemplate</a></td><td>A structured form for recording information on a patient into a set of predefined data slots.</td><td>A form containing the information that should be gathered during a comprehensive diabetic foot exam.</td></tr>
-		<tr><td><a href="[%fhir-path%]orderset.html">OrderSet</a></td><td>A pre-defined and approved group of orders related to a particular clinical condition (e.g., hypertension treatment and monitoring) or stage of care (e.g., hospital admission to Coronary Care Unit). Order sets are used within electronic health record systems as a checklist for physicians when treating a patient with a specific condition. An order set is a structured collection of orders presented to the physician in a computerized physician order entry system (CPOE).</td><td>The specific tasks that should be performed to provide effective treatment for a new diagnosis of diabetes.</td></tr>
-		<tr><td><a href="[%fhir-path%]measure.html">Measure</a></td><td>A quantitative tool to assess the performance of an individual or organization with respect to a specified process or outcome via the measurement of actions, processes, or outcomes of clinical care. Quality measures are often derived from clinical quidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.</td><td>Percentage of patients aged 18-75 years of age with diabetes who had a foot exam during the measurement period.</td></tr>
-	</tbody>
-</table>
-
-<p>In addition to the definitions provided by the base resources, this guide provides additional information on how to use these resources consistent with other decision support service specifications, as described in the following sections.</p>
-
-<h4>Artifact Identity</h4>
-<p>As with any FHIR resource, the instance identity is specified by the <a href="[%fhir-path%]resource-definitions.html#Resource.id">id</a> element. In addition, modules may have logical identifiers based on the content or behavior they provide. For example, the CMS or NQF identifiers for measure content. These identifiers can be provided in the <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.identifier">identifier</a> element.</p>
-
-<p>In addition to identity, the <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> structure allows, but does not require, a <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.version">version</a> to be specified.</p>
-
-<p>When using the <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.identifier">identifier</a> element to provide the Entity Identifier for a module consistent with the Decision Support Service (DSS) specification, the following mappings apply:</p>
+<p>When using the <code>identifier</code> element to provide the Entity Identifier for a module consistent with the Decision Support Service (DSS) specification, the following mappings apply:</p>
 
 <table class="list">
 	<thead>
@@ -70,15 +51,45 @@
 	</tbody>
 </table>
 
-<a name="documentation"/>
-<h4>Documentation</h4>
+<a name="metadata"/>
+<h5>Metadata</h5>
 
-<p>The <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> structure provides several elements related to documentation of the module, including <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.title">title</a>, <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.description">description</a>, <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.purpose">purpose</a>, and <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.usage">usage</a>. In addition to these elements, additional supporting documentation, citations, and evidence can be provided via the <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.relatedresource">relatedResource</a> element.</p>
+<p>Each of the various knowledge artifact resources defines a set of elements that provide consistent representation of metadata such as title, description, and usage, repository indexing and publication information, as well as additional supporting documentation and evidence:</p>
+
+<table class="grid">
+	<thead>
+		<tr><th>Element</th><th>Description</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>name</td><td>A machine-friendly name for the artifact</td></tr>
+		<tr><td>title</td><td>A user-friendly title for the artifact</td></tr>
+		<tr><td>status</td><td>The lifecycle status for the artifact (draft, active, or inactive)</td></tr>
+		<tr><td>experimental</td><td>Whether the artifact is for testing purposes, rather than production usage</td></tr>
+		<tr><td>description</td><td>A natural langauge description of the artifact</td></tr>
+		<tr><td>purpose</td><td>Describes the purpose of the artifact</td></tr>
+		<tr><td>usage</td><td>Describes the clinical usage of the artifact</td></tr>
+		<tr><td>publicationDate</td><td>The date this version of the artifact was published</td></tr>
+		<tr><td>lastReviewDate</td><td>The date this version of the artifact was last reviewed</td></tr>
+		<tr><td>effectivePeriod</td><td>The effective date range for the artifact</td></tr>
+		<tr><td>coverage</td><td>Describes the context of use for this artifact</td></tr>
+		<tr><td>topic</td><td>Descriptional topics for the artifact</td></tr>
+		<tr><td>contributor</td><td>A content contributor</td></tr>
+		<tr><td>publisher</td><td>The name of the publisher (either an organization or an individual)</td></tr>
+		<tr><td>contact</td><td>Contact details for the publisher</td></tr>
+		<tr><td>copyright</td><td>Legal copyright description for the artifact</td></tr>
+		<tr><td>relatedResource</td><td>Related resources for the artifact, including additional documentation, supporting evidence, or knowledge management dependencies</td></tr>
+	</tbody>
+</table>
+
+<a name="documentation"/>
+<h6>Documentation</h6>
+
+<p>General documentation elements, including description, purpose, and usage, provide immediately available documentation for the use of the artifact as part of the artifact. Additional documentation can be provided using the <code>relatedResource</code> element to link to detailed information, supporting evidence, and to additional required artifacts as appropriate.</p>
 
 <a name="publication-information"/>
-<h4>Publication Information</h4>
+<h6>Publication Information</h6>
 
-The <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.status">status</a> element of the <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> structure describes the lifecycle status of the module, indicating whether the module is a <i>draft</i>, <i>test</i>, <i>active</i>, or <i>retired</i> artifact. This representation is consistent with the states described by the Quality Metadata Conceptual Model. The following table provides a mapping from the states defined here, to the states as defined in the Clinical Decision Support Knowledge Artifact Specification (CDS KAS), as well as the Decision Support Service (DSS) standard:
+<p>The <code>status</code> element describes the lifecycle status of the artifact, indicating whether it is a <i>draft</i>, <i>active</i>, or <i>inactive</i> artifact. This representation is consistent with the states described by the Quality Metadata Conceptual Model. The following table provides a mapping from the states defined here, to the states as defined in the Clinical Decision Support Knowledge Artifact Specification (CDS KAS), as well as the Decision Support Service (DSS) standard:</p>
 
 <table class="list">
 	<thead>
@@ -86,13 +97,92 @@ The <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.status"
 	</thead>
 	<tbody>
 		<tr><td><b>draft</b></td><td>Draft</td><td>DRAFT</td></tr>
-		<tr><td><b>test</b></td><td>InTest</td><td>DEFINED</td></tr>
+		<tr><td><b>draft, experimental</b></td><td>InTest</td><td>DEFINED</td></tr>
 		<tr><td><b>active</b></td><td>Active</td><td>APPROVED, PROMOTED</td></tr>
 		<tr><td><b>inactive</b></td><td>Inactive</td><td>REJECTED, RETIRED</td></tr>
 	</tbody>
 </table>
 
-<p>In addition, the <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> structure provides elements for tracking publication information including <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.contributor">contributor</a>, <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.publisher">publisher</a>, <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.steward">steward</a>, and <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.rightsdeclaration">rightsDeclaration</a>.</p>
+<p>Note that the <code>experimental</code> element can be used independent of the lifecycle status. This allows the full lifecycle of an artifact to be tested.</p>
+
+<a name="action-definitions"/>
+<h5>Action Definitions</h5>
+
+<p>Actions describe the "output" actions of the knowledge artifact. These may be in the form of messages (such as reminders), or structured clinical acts (e.g., a laboratory test order) that can be implemented via clinical systems such as a computerized provider entry system or a documentation system, or they may create new events (e.g., declaration of a patient state such as failure of a treatment). Each action definition contains the following basic information:</p>
+
+<table class="grid">
+	<tbody>
+		<tr><td>Description</td><td>Descriptive information such as identifier, label, title, and textEquivalent.</td></tr>
+		<tr><td>Documentation</td><td>Supporting documentation, citations, or evidence in support of the action.</td></tr>
+		<tr><td>Related Action Definitions</td><td>Each action definition can specify relationships to other actions, allowing timings and offsets to be expressed.</td></tr>
+		<tr><td>Trigger Definition</td><td>Triggering events for the action. See the section on trigger definitions below for more information.</td></tr>
+		<tr><td>Condition</td><td>An optional condition specifying whether the action definition applies.</td></tr>
+		<tr><td>Timing</td><td>A description of when the action definition should occur.</td></tr>
+		<tr><td>Behavior</td><td>Various behaviors that communicate the intended semantics of groups and actions (e.g. selection behavior, grouping behavior, etc.)</td></tr>
+		<tr><td>Activity Definition</td><td>A description of what activity is to be performed. To enable reuse and modularity, ActivityDefinition resources may be reusesd by multiple action definitions.</td></tr>
+		<tr><td>Dynamic Values</td><td>Expressions that can be used to specify dynamic values for the resulting activity.</td></tr>
+		<tr><td>Child Actions</td><td>Each action may contain any number of child actions, allowing a hierarchy of actions to be described (for example, sections in an order set).</td></tr>
+	</tbody>
+</table>
+
+<a name="trigger-definitions"/>
+<h6>Trigger Definitions</h6>
+
+<p>Each action may have any number of triggers associated to indicate what events should trigger the action to be taken. These triggers may be specified as named events, or they may be data criteria triggers, specified using the data requirements structure.</p>
+
+<a name="expression-logic"/>
+<h6>Expression Logic</h6>
+
+<p>Each action may have an associated condition that specifies whether the action is applicable. The $apply operation is used to render a plan definition, and the parameters to the apply are available as context to expressions within the plan definition, including the applicable condition, and the dynamic values.</p>
+
+<a name="knowledge-artifact-resources"/>
+<h4>Knowledge Artifact Resources</h4>
+<p>The Clinical Reasoning module defines several resources, including Library, PlanDefinition, and Measure to represent each of the components described above. By combining these components in different ways, several different types of knowledge artifacts can be represented:</p>
+
+<table class="grid">
+	<thead>
+		<tr><th>Artifact Type</th><th>Description</th><th>Example</th></tr>
+	</thead>
+	<tbody>
+		<tr><td><a href="#library">Library</a></td><td>A general purpose container for clinical knowledge defined in non-FHIR structures. For example, a sharable package of clinical logic expressed in Clinical Quality Language.</td><td>Expressions that define the criteria that must be met to determine whether or not a patient has diabetes.</td></tr>
+		<tr><td><a href="#event-condition-action-rule">Event-Condition-Action (ECA) Rule</a></td><td>A decision support rule of the form [on Event] if Condition then Action, defining actions that shoud be taken whenever some condition is met in response to a particular event.</td><td>On admission of a patient, if the patient has diabetes and has not had a recent foot examination, place an unsigned order for a comprehensive foot exam.</td></tr>
+		<tr><td><a href="#order-set">Order Set</a></td><td>A pre-defined and approved group of orders related to a particular clinical condition (e.g., hypertension treatment and monitoring) or stage of care (e.g., hospital admission to Coronary Care Unit). Order sets are used within electronic health record systems as a checklist for physicians when treating a patient with a specific condition. An order set is a structured collection of orders presented to the physician in a computerized physician order entry system (CPOE).</td><td>The specific orders to be placed when a patient presents with diabetes.</td></tr>
+		<tr><td><a href="#protocol">Protocol</a></td><td>A pre-defined procedural method written to standardize a set of activities. Protocols can be used within laboratory settings to standardize handling of specimens or the steps involved in a specific test, to describe the methodology for effective treatment of a particular condition, or the steps to be taken in a particular research trial.</td><td>The specific tasks that should be performed to provide effective treatment for a new diagnosis of diabetes.</td></tr>
+		<tr><td><a href="#documentation-template">Documentation Template</a></td><td>A structured form for recording information on a patient into a set of predefined data slots.</td><td>A form describing the information that should be gathered during a comprehensive diabetic foot exam.</td></tr>
+		<tr><td><a href="[%fhir-path%]measure.html">Measure</a></td><td>A quantitative tool to assess the performance of an individual or organization with respect to a specified process or outcome via the measurement of actions, processes, or outcomes of clinical care. Quality measures are often derived from clinical quidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.</td><td>Percentage of patients aged 18-75 years of age with diabetes who had a foot exam during the measurement period.</td></tr>
+	</tbody>
+</table>
+
+<a name="library"/>
+<h4>Library</h4>
+
+<p>The <a href="[%fhir-path%]library.html">Library</a> resource is a general purpose container for clinical knowledge that may be defined in non-FHIR representations. For example, a Clinical Quality Language expression library can be represented as a Library resource so that it can be referenced as part of other knowledge artifacts.</p>
+
+<a name="event-condition-action-rule"/>
+<h4>Event-Condition-Action (ECA) Rule</h4>
+
+<p>An Event-Condition-Action (ECA) rule is an artifact with the general syntax "on event, if condition is true, then do action." The event triggers the invocation of the rule; the condition is a logical test that, if satisfied or evaluates "true", causes an action; while the action describes a set of activities to be performed. These actions may in turn cause further events to occur, which may in turn cause other ECA rules to fire.</p>
+
+<p>The PlanDefinition resource can be used to represent an ECA rule using the actionDefinition element. A single, top-level actionDefinition represents the overall rule, with the triggerDefinition element used to specify the triggering event(s), the condition element used to specify the applicable condition for the rule, and the actionDefinition itself describing the action to be performed.</p>
+
+<a name="order-set"/>
+<h4>Order Set</h4>
+
+<p>An order set is a pre-defined and approved group of orders related to a particular clinical condition (e.g., hypertension treatment and monitoring) or stage of care (e.g., hospital admission to Coronary Care Unit). An order set is typically used as a checklist for clinicians when managing a patient with a specific condition. It is a structured collection of orders relevant to that condition and presented to the clinician in a computerized provider order entry system (CPOE).</p>
+
+<p>The PlanDefinition resource can be used to represent an Order Set, using action definitions to define the items in the order set. The actions in an order set are typically organized hierarchically, as a set of sections, sub-sections, etc., with the actions themselves at the very bottom of the structure. In the PlanDefinition resource, each section, and sub-section, as well as the individual items are all represented as action definitions. Each group and/or subgroup may have behavior indicators associated with it, e.g., the number of actions that can/should/must be selected from the group of actions.</p>
+
+<a name="protocol"/>
+<h4>Protocol</h4>
+
+<p>A protocol is a pre-defined procedural method written to standardize a set of activities. Protocols can be used within laboratory settings to standardize handling of specimens or the steps involved in a specific test, to describe the methodology for effective treatment of a particular condition, or the steps to be taken in a particular research trial.</p>
+
+<p>The PlanDefinition resource can be used to represent a Protocol, using the action definitions to define the steps of the protocol and the relationships between them. Triggering events for each action, as well as applicable conditions can all be specified using the appropriate action definition elements within the PlanDefinition.</p>
+
+<a name="documentation-template"/>
+<h4>Documentation Template</h4>
+
+<p>A documentation template is a structured form for recording information on a patient into a set of pre-defined data slots. These templates are used to guide structured data entry within an EHR or other clinical information system. Some types of clinical documents that can be represented via the documentation template artifacts are encounter summaries, procedure notes, patient-reported outcomes, and flowsheets.</p>
 
 </div>
 [%file newfooter%]
