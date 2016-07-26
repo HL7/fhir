@@ -2,21 +2,33 @@
 <DiagnosticReport xmlns="http://hl7.org/fhir">
   <id value="f202"/>
   <contained>
-    <DiagnosticRequest>
-			<id value="req"/>
-			<subject>
-        <reference value="Patient/f201"/>
-        <display value="Roel"/>
-      </subject>
-			<encounter>
-        <reference value="Encounter/f203"/>
-        <display value="Roel's encounter on March eleventh 2013"/>
-      </encounter>
-			<orderer>
-        <reference value="Practitioner/f201"/>
-        <display value="Dokter Bronsig"/>
-      </orderer>
-		</DiagnosticRequest>
+<DiagnosticRequest>
+	<id value="req"/>
+	<stage>
+		<coding>
+			<system value="http://hl7.org/fhir/request-stage"/>
+			<code value="original-order"/>
+		</coding>
+	</stage>
+<code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="104177005"/>
+      <display value="Blood culture for bacteria, including anaerobic screen"/>
+    </coding>
+  </code>	<subject>
+		<reference value="Patient/f201"/>
+		<display value="Roel"/>
+	</subject>
+	<context>
+		<reference value="Encounter/f203"/>
+		<display value="Roel&apos;s encounter on March eleventh 2013"/>
+	</context>
+	<requester>
+		<reference value="Practitioner/f201"/>
+		<display value="Dokter Bronsig"/>
+	</requester>
+</DiagnosticRequest>
   </contained>
   <status value="final"/>
   <category>

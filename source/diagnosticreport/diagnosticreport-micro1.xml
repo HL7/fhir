@@ -944,15 +944,28 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
   </contained>
   <contained>
   <!--   ORC information   -->
-    <DiagnosticRequest>
-			<id value="req"/>
-			<identifier>
-        <value value="255337816"/>
-      </identifier>
-			<subject>
-        <reference value="Patient/example"/>
-      <!--   patient chosen at random   -->
-      </subject></DiagnosticRequest>
+<DiagnosticRequest>
+	<id value="req"/>
+	<identifier>
+		<value value="255337816"/>
+	</identifier>
+	<stage>
+		<coding>
+			<system value="http://hl7.org/fhir/request-stage"/>
+			<code value="original-order"/>
+		</coding>
+	</stage>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="632-0"/>
+		</coding>
+		<text value="Culture, MRSA"/>
+	</code>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+</DiagnosticRequest>
   </contained>
   <identifier>
     <system value="http://hnam.org/identifiers/orders"/>
