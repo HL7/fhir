@@ -34,6 +34,10 @@ brackets] identifies areas where domain variation is expected and encouraged.  O
 omit an element outright are also possible, but should be discussed with the FHIR Infrastructure work group's Workflow project to ensure the rationale for non-alignment is
 understood, to confirm that the deviation is necessary and to identify whether any adjustments to the pattern are appropriate.
 </p>
+<p>
+This pattern provides a linkage to the <a href="w5.html">W5</a> list of standard data elements.  Resources that adhere to this pattern should ensure their w5 mappings are
+consistent, as is their data element ordering.
+</p>
 </div>
 
 </div>

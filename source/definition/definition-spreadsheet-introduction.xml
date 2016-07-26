@@ -38,6 +38,10 @@ understood, to confirm that the deviation is necessary and to identify whether a
 Unlike the request and event patterns, this pattern has not yet been formally reviewed, nor applied to any of its candidate resources.  It should therefore be treated as a
 draft for comment.  Alignment with this pattern (and the content of the pattern) will be discussed by work groups as part of ballot reconciliation.
 </p>
+<p>
+This pattern provides a linkage to the <a href="w5.html">W5</a> list of standard data elements.  Resources that adhere to this pattern should ensure their w5 mappings are
+consistent, as is their data element ordering.
+</p>
 </div>
 
 </div>

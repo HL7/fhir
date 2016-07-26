@@ -1,0 +1,154 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = DefinitionStatus
+  Binding = code list
+  Reference = #definition-status
+  Definition = Codes identifying the stage lifecycle stage of a definition
+
+ -- Row 2 -----------------------------------
+  Binding Name = DefinitionSubject
+  Binding = unbound
+  Definition = Codes identifying the type of subject intended to be the recpient or focus of the defined action.  These should ideally be consistent across definition resources.
+
+ -- Row 3 -----------------------------------
+  Binding Name = PerformerType
+  Binding = unbound
+  Definition = Identifies types of practitioners, devices or others that are intended to perform a defined action.  While the detailed constraints of relevant providers will vary by resource, some degree of consistency around recommended codes across request and definition resources would be desirable
+
+=== Sheet definition-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = draft
+  Display = Draft
+  v3 = =ActStatus.new
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = active
+  Display = Active
+  v3 = =ActStatus.active
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = withdrawn
+  Display = Suspended
+  v3 = =ActStatus.suspended
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Definition
+  Type = Logical
+  Short Label = Definition Pattern
+  Definition = A pattern to be followed by resources that represent a specific proposal, plan and/or order for some sort of action or service
+  RIM Mapping = Act[moodCode<=DEFN]
+
+ -- Row 2 -----------------------------------
+  Element = Definition.identifier
+  Card. = 0..1
+  Summary = Y
+  Type = Identifier
+  Short Label = Business Identifer for definition/protocol
+  Definition = Identifiers assigned to this request by the requester, performer and other systems
+  Requirements = Allows identification of the definition as it is known by various participating systems and in a way that remains consistent across servers
+  RIM Mapping = .identifier
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Definition.definition
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Definition)
+  Short Label = Instantiates protocol or definition
+  Definition = A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this definition
+  Requirements = Protocols and order sets may be refinements of more generic protocols and order sets
+  Comments = [The allowed reference resources may be adjusted as appropriate for the request resource]
+  RIM Mapping = .outboundRelationship[typeCode=DEFN].target
+
+ -- Row 4 -----------------------------------
+  Element = Definition.parent
+  Card. = 0..*
+  Aliases = container
+  Summary = Y
+  Type = Reference(Definition)
+  Short Label = Part of referenced definition
+  Definition = A larger definition of which this particular definition is a component or step
+  Requirements = E.g. Drug administration as part of a procedure, procedure as part of observation, etc.
+  Comments = [The allowed reference resources may be adjusted as appropriate for the event resource]
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=DEFN]
+
+ -- Row 5 -----------------------------------
+  Element = Definition.replaces
+  Card. = 0..*
+  Aliases = supersedes, prior, renewed order
+  Summary = Y
+  Type = Reference(Definition)
+  Short Label = Request(s) replaced by this request
+  Definition = Completed or terminated request(s) whose function is taken by this new request
+  Requirements = As new versions of a protocol or guideline are defined, allows identification of what versions are replaced by a new instance
+  RIM Mapping = .outboundRelationship[typeCode=RPLC].target
+
+ -- Row 6 -----------------------------------
+  Element = Definition.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = DefinitionStatus
+  Short Label = draft | active | withdrawn
+  Definition = The current state of the definition
+  RIM Mapping = .status
+  To Do = Should this be a common code system for all definitions?
+  w5 = status
+
+ -- Row 7 -----------------------------------
+  Element = Definition.subject[x]
+  Card. = 0..1
+  Aliases = patient
+  Summary = Y
+  Type = CodeableConcept | Reference(Group)
+  Binding = DefinitionSubject
+  Short Label = Type of individual the defined service is for
+  Definition = A code or group definition that describes the intended subject of instantiations of this definition.
+  Requirements = Many protocols, order sets and guidelines are inted for use only with specific types of patients or subjects.
+  RIM Mapping = .participation[typeCode=SBJ].role
+  w5 = who.focus
+
+ -- Row 8 -----------------------------------
+  Element = Definition.date
+  Card. = 0..1
+  Aliases = created
+  Summary = Y
+  Type = dateTime
+  Short Label = Date status first applied
+  Definition = For draft definitions, indicates the date of initial creation.  For active definitions, represents the date of activation.  For withdrawn definitions, indicates the date of withdrawal.
+  RIM Mapping = .participation[typeCode=AUT].time
+  w5 = when.recorded
+
+ -- Row 9 -----------------------------------
+  Element = Definition.author
+  Card. = 0..1
+  Aliases = author
+  Summary = Y
+  Type = Reference(Practitioner|Organization)
+  Short Label = Who/what is requesting service
+  Definition = The individual or group with primary responsibility for the content of this definition.
+  RIM Mapping = .participation[typeCode=AUT].role
+  w5 = who.author
+
+ -- Row 10 -----------------------------------
+  Element = Definition.performerType
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = PerformerType
+  Short Label = Desired kind of service performer
+  Definition = The type of individual that is expected to act upon instances of this definition
+  RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=KIND].code
+  To Do = Need to define who.performer
+  w5 = who.actor
