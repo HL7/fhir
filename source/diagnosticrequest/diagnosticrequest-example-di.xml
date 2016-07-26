@@ -1,40 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- Diagnostic image example - CT scan --><!-- This example is used with detectedissue-example-dup, so don't make changes that would cause it to no longer be a duplicate --><DiagnosticRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/DiagnosticRequest.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir //ERICS-AIR/ehaas/Documents/FHIR/build/schema/diagnosticrequest.xsd" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id value="di"/>
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">
-			<p>Chest CT - ordered May 8, 2013 by Dr. Adam Careful</p>
-		</div>
-	</text>
-	<status value="requested"/>
-	<subject>
-		<reference value="Patient/dicom"/>
-	</subject>
-	<orderer>
-		<reference value="Practitioner/example"/>
-		<display value="Dr. Adam Careful"/>
-	</orderer>
-	<reason>
-		<text value="Check for metastatic disease"/>
-	</reason>
-	<event>
-		<status value="requested"/>
-		<dateTime value="2013-05-08T09:33:27+07:00"/>
-	</event>
-	<item>
-		<code>
-			<coding>
-				<system value="http://loinc.org"/>
-				<code value="24627-2"/>
-			</coding>
-			<text value="Chest CT"/>
-		</code>
-		<bodySite>
+	<extension url="http://example.org/bodysitecode">
+		<valueCodeableConcept>
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="51185008"/>
 				<display value="Thoracic structure"/>
 			</coding>
-		</bodySite>
-	</item>
+		</valueCodeableConcept>
+	</extension>
+	<status value="requested"/>
+	<stage>
+		<coding>
+			<system value="http://hl7.org/fhir/request-stage"/>
+			<code value="original-order"/>
+		</coding>
+	</stage>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="24627-2"/>
+		</coding>
+		<text value="Chest CT"/>
+	</code>
+	<subject>
+		<reference value="Patient/dicom"/>
+	</subject>
+	<occurrenceDateTime value="2013-05-08T09:33:27+07:00"/>
+	<requester>
+		<reference value="Practitioner/example"/>
+		<display value="Dr. Adam Careful"/>
+	</requester>
+	<reason>
+		<coding/>
+		<text value="Check for metastatic disease"/>
+	</reason>
 </DiagnosticRequest>

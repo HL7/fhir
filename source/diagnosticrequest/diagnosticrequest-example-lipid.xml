@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICS-AIR/ehaas/Documents/FHIR/build/schema/diagnosticrequest.xsd">
+	<id value="lipid"/>
+	<contained>
+		<Observation>
+			<id value="fasting"/>
+			<!--    the mandatory quality flag:    -->
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="49541-6"/>
+					<display value="Fasting status - Reported"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/example"/>
+			</subject>
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://hl7.org/fhir/v2/0136"/>
+					<code value="Y"/>
+					<display value="Yes"/>
+				</coding>
+			</valueCodeableConcept>
+		</Observation>
+	</contained>
+	<identifier>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/identifier-type"/>
+				<code value="PLAC"/>
+			</coding>
+			<text value="Placer"/>
+		</type>
+		<system value="urn:oid:1.3.4.5.6.7"/>
+		<value value="2345234234234"/>
+	</identifier>
+	<status value="active"/>
+	<stage>
+		<coding>
+			<system value="http://hl7.org/fhir/request-stage"/>
+			<code value="original-order"/>
+		</coding>
+	</stage>
+	<code>
+		<coding>
+			<system value="http://acme.org/tests"/>
+			<code value="LIPID"/>
+		</coding>
+		<text value="Lipid Panel"/>
+	</code>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	<context>
+		<reference value="Encounter/example"/>
+	</context>
+	<occurrenceDateTime value="2013-05-02T16:16:00-07:00"/>
+	<requester>
+		<reference value="Practitioner/example"/>
+	</requester>
+	<performer>
+		<reference value="Practitioner/example"/>
+	</performer>
+	<reason>
+		<coding>
+			<system value="http://hl7.org/fhir/sid/icd-9"/>
+			<code value="V173"/>
+			<display value="Fam hx-ischem heart dis"/>
+		</coding>
+	</reason>
+	<supportingInformation>
+		<reference value="#fasting"/>
+	</supportingInformation>
+	<note>
+		<text value="patient is afraid of needles"/>
+	</note>
+</DiagnosticRequest>

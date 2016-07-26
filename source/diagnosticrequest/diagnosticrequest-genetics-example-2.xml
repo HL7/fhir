@@ -1,36 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?><!--  lab report example: a CBC  --><DiagnosticRequest xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  lab report example: a CBC  
+****NOTE: *** this example is not valid - code element required.
+-->
+<DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
 	<id value="og-example2"/>
 	<extension url="http://hl7.org/fhir/StructureDefinition/diagnosticrequest-geneticsItem">
-        <extension url="code">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://loinc.org"/>
-                    <code value="49874-1"/>
-                </coding>
-                <text value="ABCB4 gene mutation analysis"/>
-            </valueCodeableConcept>
-        </extension>
-        <extension url="geneticsObservation">
-            <valueReference>
-                <reference value="Observation/example"/>
-            </valueReference>
-        </extension>
-    </extension>
+		<extension url="code">
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="49874-1"/>
+				</coding>
+				<text value="ABCB4 gene mutation analysis"/>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="geneticsObservation">
+			<valueReference>
+				<reference value="Observation/example"/>
+			</valueReference>
+		</extension>
+	</extension>
 	<status value="received"/>
+	<stage>
+		<coding>
+			<system value="http://hl7.org/fhir/request-stage"/>
+			<code value="original-order"/>
+		</coding>
+	</stage>
 	<subject>
 		<reference value="Patient/example"/>
 	</subject>
-	<encounter>
+	<context>
 		<reference value="Encounter/example"/>
-	</encounter>
-	<orderer>
+	</context>
+	<occurrenceDateTime value="2014-05-12T16:16:00-07:00"/>
+	<requester>
 		<reference value="Practitioner/example"/>
-	</orderer>
-	<event>
-		<status value="requested"/>
-		<dateTime value="2014-05-12T16:16:00-07:00"/>
-		<actor>
-			<reference value="Practitioner/456"/>
-		</actor>
-	</event>
+	</requester>
+	<performer>
+		<reference value="Practitioner/456"/>
+	</performer>
 </DiagnosticRequest>

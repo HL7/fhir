@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticRequest xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<id value="ft4"/>
-
-	<status value="requested"/>
+	<status value="active"/>
+	<stage>
+		<coding>
+			<system value="http://hl7.org/fhir/request-stage"/>
+			<code value="original-order"/>
+		</coding>
+	</stage>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="3024-7"/>
+		</coding>
+		<text value="Free T4"/>
+	</code>
 	<subject>
 		<reference value="Patient/pat2"/>
 	</subject>
-	<orderer>
+	<occurrenceDateTime value="2015-08-27T09:33:27+07:00"/>
+	<requester>
 		<reference value="Practitioner/example"/>
-	</orderer>
-
-	<event>
-		<status value="requested"/>
-		<dateTime value="2015-08-27T09:33:27+07:00"/>
-	</event>
-	<item>
-		<code>
-			<coding>
-				<system value="http://loinc.org"/>
-				<code value="3024-7"/>
-			</coding>
-			<text value="Free T4"/>
-		</code>
-	</item>
+	</requester>
 </DiagnosticRequest>
