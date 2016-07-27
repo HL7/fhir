@@ -55,7 +55,7 @@ in order to support consistent definitions for schema and UML derived code.
 		<tr><td><a href="cqif/cqif-topics-using-expressions.html">Using Expressions</a></td><td>If you want to see how to add dynamic capabilities to FHIR resources using expressions, start here.</td></tr>
 		<tr><td><a href="cqif/cqif-topics-definitional-resources.html">Definitional Resources</a></td><td>If you want to see how to describe definitional resources using the ActivityDefinition resource, start here.</td></tr>
 		<tr><td><a href="cqif/cqif-knowledge-artifact-representation.html">Representing Knowledge Artifacts</a></td><td>If you want to represent knowledge artifacts such as Event-Condition-Action rules, Order Sets, or Quality Measures, start here.</td></tr>
-		<tr><td><a href="cqif/cqif-knowledge-artifact-distribution.html">Sharing Knowledge Artifacts</a></td><td>If you want to share and distribute knowledge assets, start here.</td></tr>
+		<tr><td><a href="cqif/cqif-knowledge-artifact-distribution.html">Sharing Knowledge Artifacts</a></td><td>If you want to share and distribute knowledge artifacts, start here.</td></tr>
 		<tr><td><a href="cqif/cqif-cds-on-fhir.html">Clinical Decision Support</a></td><td>If you want to use the Clinical Reasoning module to provide or use Clinical Decision Support services, start here.</td></tr>
 		<tr><td><a href="cqif/cqif-quality-reporting.html">Quality Reporting</a></td><td>If you want to define or report clinical quality measures, start here.</td></tr>
 	</tbody>
@@ -73,6 +73,7 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="index"> </a>
 <h3>Index</h3>
 
+<a name="index-resources"/>
 <h4>Resources</h4>
 
 <table class="grid">
@@ -90,6 +91,7 @@ in order to support consistent definitions for schema and UML derived code.
 	</tbody>
 </table>
 
+<a name="index-extensions"/>
 <h4>Extensions</h4>
 
 <table class="grid">
@@ -105,13 +107,33 @@ in order to support consistent definitions for schema and UML derived code.
 	</tbody>
 </table>
 
+<a name="index-profiles"/>
+<h4>Profiles</h4>
+
+<table class="grid">
+	<thead>
+		<tr><th>Profile</th><th>Description</th></tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="cqif-questionnaire.html">CQIF-Questionnaire</a></td>
+			<td>Defines extensions to the base Questionnaire that allow it to be used as a DocumentationTemplate with behavior specified via logic in CQL libraries.</td>
+		</tr>
+	</tbody>
+</table>
+
 <a name="secpriv"> </a>
 <h3>Security and Privacy</h3>
-<p>
-In this section: description of key security and privacy issues, or references to pages that deal with this. 
-For the security / privcay module itself, this section does not exist. For other modules, the paragraph/section can end with this boilerplate:
-For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
-</p>
+
+<p>Because Knowledge Artifacts are typically patient-independent, many of the resources in the clinical reasoning module have no patient security and privacy concerns beyond the normal sensitivity that should be paid in any electronic healthcare system environment. However, the evaluation use case, including decision support guidance request/response, as well as quality measure evaluation have significant patient security and privacy concerns.</p>
+
+<p>For the clinical decision support evaluation use case, as with any patient-specific information, care should be taken to ensure that the request and response are properly secured both at rest and in-motion, and that all access to the patient's information is done via a properly authenticated and authorized mechanism. This is particularly true of decision support artifacts where the logic is ingested as part of the definition of the artifact. In this scenario, the evaluation engine must ensure that data access within the ingested logic is subject to the same authentication and authorization requirements as any other access.</p>
+
+<p>For guidance services that receive patient information, ensure that logging and auditing trails do not inadvertently compromise patient privacy and security by logging potentially sensitive information in an unencrypted way. In addition, guidance and recommendations returned from the service must ensure that content that contains patient information is clearly indicated so that consuming clients can take the appropriate care in integrating and displaying the resulting guidance.</p>
+
+<p>For quality measure evaluation, individual and patient-list reports have the potential to contain large amounts of patient information. As with the decision support guidance responses, care must be taken to ensure the patient information is only accessible to properly authenticated and authorized agents, and that inadvertent breaches are minimized by following appropriate logging and auditing protocols.</p>
+
+<p>For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.</p>
 
 <a name="uses"> </a>
 <h3>Common use Cases</h3>
@@ -142,9 +164,20 @@ For more general considerations, see <a href="secpriv-module.html">the Security 
 
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>
-<p>
-In this section: what the current overall state is, what work is in train, what the goals over the next 18 months or so are
-</p>
+
+<p>The resources defined for the Clinical Reasoning module are the result of the combined efforts of multiple communities working on the shared goal of harmonized standards and specifications for clinical decision support and quality measurement artifacts. The current state of the module reflects changes incorporated both from previous ballots on the FHIR-specific material, as well as content derived from several other balloted specifications in the CDS and CQM domains. The content at this point is capable of supporting the two primary use cases of sharing and evaluation in both domains and for a fairly broad variety of artifacts.</p>
+
+<p>The goals of the module over the next year are to provide a stable basis for implementation of the sharing and evaluation use cases. The Clinical Quality Framework Initiative will use these resources as the basis for implementation projects, targeting an FMM level of 3 or 4 for all module resources within a year. We are actively seeking comments on all areas of the module, with particular focus on supporting the following scenarios:</p>
+
+<ul>
+	<li>The use of FluentPath and CQL to provide dynamic functionality throughout FHIR</li>
+	<li>FHIR-Based Knowledge Artifact Repository</li>
+	<li>FHIR-Based Clinical Decision Support Service</li>
+	<li>FHIR-Based Quality Measure Evaluation and Reporting</li>
+	<li>FHIR-Based Order Set Catalog/Ordering Services</li>
+	<li>The use of FHIR operations as the protocol for defining artifact evaluation requests and responses. In particular, the ability to bundle multiple requests into a single operation, as well as the use of a generic FHIR operation for any module evaluation, versus defining an evaluation specific to a given knowledge module.</li>
+	<li>The use of FHIR interactions in general as a mechanism for enabling knowledge module repository and distribution functionality.</li>
+</ul>
 
 <a name="background"/>
 <h3>Background</h3>
@@ -181,16 +214,6 @@ In this section: what the current overall state is, what work is in train, what 
 	<li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">HL7 Version 3 Standard: Representation of the Health Quality Measure Format (eMeasure) DSTU, Release 2</a></li>
 	<li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=12">HL7 Version 3 Standard: Decision Support Service, Release 2</a></li>
 	<li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=334">HL7 Version 3 Implementation Guide: Decision Support Service, Release 1</a></li>
-</ul>
-
-<a name="ballot-objectives"/>
-<h3>Ballot Objectives</h3>
-
-<p>For this ballot cycle, we are presenting this guidance as an STU ballot with the objective of providing a basis for the representation and evaluation of shareable clinical knowledge artifacts. We welcome any comments, criticisms and suggestions on any topic, but in particular, we seek feedback on the following areas:</p>
-
-<ul>
-	<li>The use of FHIR operations as the protocol for defining artifact evaluation requests and responses. In particular, the ability to bundle multiple requests into a single operation, as well as the use of a generic FHIR operation for any module evaluation, versus defining an evaluation specific to a given knowledge module.</li>
-	<li>The use of FHIR interactions in general as a mechanism for enabling knowledge module repository and distribution functionality.</li>
 </ul>
 
 <a name="copyright-information"/>

@@ -22,7 +22,7 @@
 		<text value="Appropriate Use Criteria"/>
 	</topic>
   
-	<!-- Patient Data Requirement -->
+	<!-- Patient Parameter -->
 	<parameter>
 		<name value="patient"/>
 		<use value="in"/>
@@ -34,7 +34,7 @@
 		<!--mustSupport value="birthDate"/-->
 	</parameter>
 
-	<!-- Order Data Requirement -->
+	<!-- Order Parameter -->
 	<parameter>
 		<name value="order"/>
 		<use value="in"/>

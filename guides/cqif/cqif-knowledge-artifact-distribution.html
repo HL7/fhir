@@ -16,7 +16,54 @@
 
 <img alt="Knowledge Artifact Sharing" src="cqif-knowledge-artifact-distribution.png"/>
 
-<p>The distribution use case involves enabling knowledge artifacts to be distributed as documents via a FHIR server. The search and read interactions defined by the FHIR infrastructure can be used for this purpose. The <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> structure defines several search parameters to enable searching based on the various attributes of a knowledge module. The FHIR search interaction specifies that search results are returned in a Bundle, and the entries in that bundle allow a score to be specified, consistent with the Decision Support Service (DSS) relevance result. Note that the DSS score range is 1 to 100, while the FHIR score range is 0..1.</p>
+<p>The distribution use case involves enabling knowledge artifacts to be distributed as resources via a FHIR server. The search and read interactions defined by the FHIR infrastructure can be used for this purpose. The Library, ActivityDefinition, PlanDefinition, Questionnaire, and Measure resources can all be used to represent knowledge artifacts, and so define several search parameters specifically to enable searching based on the various attributes of a knowledge module.</p>
+
+<p>In particular, the <code>coverage</code> and <code>topic</code> elements are intended to provide both semantic and topical indexing functionality for use in knowledge repositories. For example, the following fragment illustrates the use of the coverage attribute to indicate semantic usage context for an example suicide risk order set:</p>
+
+<pre><code>	&lt;coverage&gt;
+		&lt;patientAgeGroup&gt;
+			&lt;coding&gt;
+				&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+				&lt;code value=&quot;133936004&quot;/&gt;
+				&lt;display value=&quot;Adult&quot;/&gt;
+			&lt;/coding&gt;
+		&lt;/patientAgeGroup&gt;
+		&lt;clinicalFocus&gt;
+			&lt;coding&gt;
+				&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+				&lt;code value=&quot;87512008&quot;/&gt;
+				&lt;display value=&quot;Mild major depression&quot;/&gt;
+			&lt;/coding&gt;
+		&lt;/clinicalFocus&gt;
+		&lt;clinicalFocus&gt;
+			&lt;coding&gt;
+				&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+				&lt;code value=&quot;394687007&quot;/&gt;
+				&lt;display value=&quot;Low suicide risk&quot;/&gt;
+			&lt;/coding&gt;
+		&lt;/clinicalFocus&gt;
+		&lt;targetUser&gt;
+			&lt;coding&gt;
+				&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+				&lt;code value=&quot;309343006&quot;/&gt;
+				&lt;display value=&quot;Physician&quot;/&gt;
+			&lt;/coding&gt;
+		&lt;/targetUser&gt;
+		&lt;clinicalVenue&gt;
+			&lt;coding&gt;
+				&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+				&lt;code value=&quot;440655000&quot;/&gt;
+				&lt;display value=&quot;Outpatient environment&quot;/&gt;
+			&lt;/coding&gt;
+		&lt;/clinicalVenue&gt;
+	&lt;/coverage&gt;
+</code></pre>
+
+<p>The <code>coverage</code> element can contain any number of characteristics that define the particular context of use for the artifact. Note that within a single coverage element, the intended semantics are that <i>all</i> the characteristics that are present apply. Because each artifact may have any number of <code>coverage</code> elements, combinations of coverage elements convey the intended semantics that <i>any</i> of the coverages apply.</p>
+
+<p>In addition, the <code>coverage</code> element is intended to convey <i>prescriptive</i> semantics about the appropriate context of use for an artifact, while the <code>topic</code> element is intended to convey <i>descriptive</i> semantics suitable for indexing and searching using the <code>topic</code> search parameter.</p>
+
+<p>The FHIR search interaction specifies that search results are returned in a Bundle, and the entries in that bundle allow a score to be specified, consistent with the Decision Support Service (DSS) relevance result. Note that the DSS score range is 1 to 100, while the FHIR score range is 0..1.</p>
 
 <p>The following table lists the search criteria elements defined by the Decision Support Service (DSS) standard along with their appropriate representation in FHIR:</p>
 
@@ -26,9 +73,9 @@
 	</thead>
 	<tbody>
 		<tr><td>Maximum Results</td><td>_count global search parameter</td></tr>
-		<tr><td>Minimum Score</td><td>KnowledgeModule.minScore search parameter</td></tr>
-		<tr><td>Knowledge Module Trait</td><td>Knowledge search parameters (identifier, keyword, topic, title, description, version)</td></tr>
-		<tr><td>Knowledge Module Status</td><td>KnowledgeModule.status search parameter</td></tr>
+		<tr><td>Minimum Score</td><td>KnowledgeArtifact.minScore search parameter</td></tr>
+		<tr><td>Knowledge Module Trait</td><td>Knowledge search parameters (identifier, topic, title, description, version)</td></tr>
+		<tr><td>Knowledge Module Status</td><td>KnowledgeArtifact.status search parameter</td></tr>
 		<tr><td>Evaluation Result Semantics</td><td>Not Implemented</td></tr>
 		<tr><td>Data Requirements</td><td>Not Implemented</td></tr>
 		<tr><td>Relationships to specific Knowledge Modules</td><td>Not Implemented</td></tr>
@@ -36,6 +83,8 @@
 </table>
 
 <p>Support for exclusion criteria as described in the DSS is provided by the :not search parameter modifier of FHIR.</p>
+
+<p>Implementing at least the FHIR search and get interactions for the clinical reasoning resources (Library, ActivityDefinition, PlanDefinition, and Measure) is then a basic implementation of a Knowledge Artifact Repository. More sophisticated management functionality including semantic indexing, change management and dependency tracking can be provided on top of this basic functionality using the same resource structures.</p>
 
 </div>
 [%file newfooter%]

@@ -7,11 +7,11 @@
 <i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Improvement Framework Implementation Guide</a>.</i>
 </p>
 
-<p>The Library resource represents a shareable library of clinical logic, written in Clinical Quality Language (CQL). In addition to representing the metadata of the library, the resource has elements that expose the components defined within the library such as code system and value set references, named expressions and parameters.</p>
+<p>The Library resource is a general purpose container for clinical knowledge that is defined using a non-FHIR representation. For example, a shareable library of clinical logic, written in Clinical Quality Language (CQL), or the XML Schema for an information model. In addition to representing the metadata of the library, the resource has elements for tracking dependencies, as well as for representing the parameters and data requirements for any expression functionality provided by the library.</p>
 
-<p>The actual content of the library is represented using the Attachment data type, and may either be referenced with a url to some CQL repository, or the content may be embedded as a base-64 encoded string. Either way, the content may be shared as a CQL text document, or, for a more computable representation, as an (Expression Logical Model) ELM XML or JSON document.</p>
+<p>The actual content of the library is represented using the Attachment data type, and may either be referenced with a url, or the content may be embedded as a base-64 encoded string. Either way, the contentType element of the attachment is used to indicate the representation of the library content.</p>
 
-<p>Note that because the library content may be embedded as well as retrievable from a CQL repository via the attachment URL, the possibility exists for the embedded content to be different from the content on the repository. With proper versioning and governance, this should never occur, but to minimize the potential impact of this possibility, implementers SHALL give precedence to the embedded content of a library when it is present.</p>
+<p>Note that because the library content may be embedded as well as retrievable from an external repository via the attachment URL, the possibility exists for the embedded content to be different from the content on the repository. With proper versioning and governance, this should never occur, but to minimize the potential impact of this possibility, implementers SHALL give precedence to the embedded content of a library when it is present.</p>
 
 </div>
 

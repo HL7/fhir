@@ -10,189 +10,263 @@
 
 <div class="col-9">
 
-<a name="overview"/>
-<h3>Overview</h3>
-<p>This section of the guide discusses the profiles and operation definitions used to meet the three main use cases of:</p>
-
-<ol>
-	<li>Sharing - The representation of computable knowledge artifacts</li>
-	<li>Evaluation - The evaluation of patient data using knowledge artifacts</li>
-	<li>Distribution - The exposure of a searchable repository of knowledge artifacts</li>
-</ol>
-
-<a name="contents"></a>
-<h3>Contents</h3>
-
-<p>The following links provide quick access to specific implementation scenarios described by this guide:</p>
-
-<ul>
-	<li><a href="cqif-cds-on-fhir.html#evaluation">Guidance Request/Response ($evaluate operation)</a></li>
-	<li><a href="cqif-cds-on-fhir.html#service-modules">Defining a Decision Support Service Module</a></li>
-	<li><a href="cqif-cds-on-fhir.html#eca-rules">Representing a Decision Support Rule</a></li>
-	<li><a href="cqif-cds-on-fhir.html#documentation-templates">Representing a Documentation Template</a></li>
-	<li><a href="cqif-cds-on-fhir.html#order-sets">Representing an Order Set</a></li>
-</ul>
-
-<p>The following table lists the resources and profiles that are used within this IG:</p>
-
-<table class="grid">
-	<thead>
-		<tr>
-			<th>Resource/Profile</th>
-			<th>Description</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><a href="[%fhir-path%]guidanceresponse.html">GuidanceResponse</a></td>
-			<td>Represents the response to a decision support guidance request, including any output parameters returned by the evaluation.</td>
-		</tr>
-		<tr>
-			<td><a href="[%fhir-path%]decisionsupportservicemodule.html">DecisionSupportServiceModule</a></td>
-			<td>Defines a decision support service module, such as immunization assessment, drug-drug interaction, or guideline appropriate ordering assessment.</td>
-		</tr>
-		<tr>
-			<td><a href="[%fhir-path%]decisionsupportrule.html">DecisionSupportRule</a></td>
-			<td>Defines a decision support rule of the form [on Event] if Condition then Action.</td>
-		</tr>
-		<tr>
-			<td><a href="cqif-questionnaire.html">CQIF-Questionnaire</a></td>
-			<td>Defines extensions to the base Questionnaire that allow it to be used as a DocumentationTemplate with behavior specified via logic in CQL libraries.</td>
-		</tr>
-		<tr>
-			<td><a href="[%fhir-path%]orderset.html">OrderSet</a></td>
-			<td>Represents an order set definition that can be applied to a specific patient to produce a orders for an evidence-based care plan.</td>
-		</tr>
-	</tbody>
-</table>
-
-<a name="sharing"/>
-<h3>Sharing</h3>
-<p>In addition to the <a href="[%fhir-path%]library.html">Library</a> resource defined in the common section, the implementation guide provides mechanisms for representing the following types of artifacts:</p>
-
-<ul>
-	<li>Service Modules</li>
-	<li>Event Condition Action (ECA) Rules</li>
-	<li>Documentation Templates</li>
-	<li>Order Sets</li>
-</ul>
-
-<p>The following sections discuss the representation of each of these artifact types.</p>
+<a name="clinical-decision-support"/>
+<h3>Clinical Decision Support</h3>
+<p>This section of the clinical reasoning module discusses the evaluation use case for clinical decision support and how the various knowledge artifacts can be integrated into clinical workflow.</p>
 
 <a name="service-modules"></a>
 <h4>Decision Support Service Modules</h4>
 
-<p>The <a href="[%fhir-path%]decisionsupportservicemodule.html">DecisionSupportServiceModule</a> structure provides a mechanism for describing the functionality made available by a particular service. For example, a service provide immunization modules, or drug-drug interaction checking. From the perspective of the consumer, how this functionality is performed is irrelevant, the only aspect of interest is a description of what the module does, and the inputs and outputs it requires.</p>
+<p>The <a href="[%fhir-path%]decisionsupportservicemodule.html">DecisionSupportServiceModule</a> resource provides a mechanism for describing the functionality made available by a particular service. For example, a service may provide an immunization forecasting module, or drug-drug interaction checking. From the perspective of the consumer, how this functionality is performed is irrelevant, the only aspect of interest is a description of what the module does, and the inputs and outputs it requires.</p>
 
-<p>As such, this resource simply uses a <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> resource to define the common information relevant to all quality artifacts, and then defines the input and output data requirements as parameters, similar to the way operations are defined within the FHIR core. The main difference is that the parameters to a service module are allowed to define additional filters for code and date range, in the same way that data requirements are specified within a <a href="[%fhir-path%]moduledefinition.html">ModuleDefinition</a> resource. For more information on this aspect, see the <a href="cqif-common.html#data-requirements">Data Requirements</a> discussion.</p>
+<p>As such, this resource uses the same metadata elements to define the common information relevant to all knowledge artifacts, and then defines the input and output parameters as well as any data requirements for the service module in the same way that parameters and data requirements are defined for expression logic in general.</p>
 
 <p>As an example, the functionality defined by the <a href="[%fhir-path%]gao/gao.html">Guideline Appropriate Ordering IG</a> can be expressed as a DecisionSupportServiceModule: <a href="[%fhir-path%]decisionsupportservicemodule-example.html">Decision Support Service Module Example</a>.</p>
 
-<!--
-<a name="simple-rules"/>
-<h4>Simple Rules</h4>
+<pre><code>	&lt;DecisionSupportServiceModule&gt;
+	  &lt;id value=&quot;example&quot;/&gt;
+	  &lt;text&gt;
+		&lt;status value=&quot;generated&quot; /&gt;
+		&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;Guideline Appropriate Ordering Module&lt;/div&gt;
+	  &lt;/text&gt;
+	  
+		&lt;identifier&gt;
+		  &lt;use value=&quot;official&quot;/&gt;
+		  &lt;value value=&quot;guildeline-appropriate-ordering&quot;/&gt;
+		&lt;/identifier&gt;
+		&lt;version value=&quot;1.0.0&quot;/&gt;
+		&lt;title value=&quot;Guideline Appropriate Ordering Module&quot;/&gt;
+		&lt;status value=&quot;draft&quot;/&gt;
+		&lt;description value=&quot;Guideline appropriate ordering is used to assess appropriateness of an order given a patient, a proposed order, and a set of clinical indications.&quot;/&gt;
+		&lt;publicationDate value=&quot;2015-07-22&quot;/&gt;
+		&lt;topic&gt;
+			&lt;text value=&quot;Guideline Appropriate Ordering&quot;/&gt;
+		&lt;/topic&gt;
+		&lt;topic&gt;
+			&lt;text value=&quot;Appropriate Use Criteria&quot;/&gt;
+		&lt;/topic&gt;
+	  
+		&lt;!-- Patient Parameter --&gt;
+		&lt;parameter&gt;
+			&lt;name value=&quot;patient&quot;/&gt;
+			&lt;use value=&quot;in&quot;/&gt;
+			&lt;type value=&quot;Patient&quot;/&gt;
+			&lt;profile&gt;
+				&lt;reference value=&quot;http://hl7.org/fhir/StructureDefinition/gao-patient&quot;/&gt;
+			&lt;/profile&gt;
+		&lt;/parameter&gt;
+	
+		&lt;!-- Order Parameter --&gt;
+		&lt;parameter&gt;
+			&lt;name value=&quot;order&quot;/&gt;
+			&lt;use value=&quot;in&quot;/&gt;
+			&lt;type value=&quot;Order&quot;/&gt;
+			&lt;profile&gt;
+				&lt;reference value=&quot;http://hl7.org/fhir/StructureDefinition/gao-order&quot;/&gt;
+			&lt;/profile&gt;
+		&lt;/parameter&gt;
+		
+		&lt;!-- Order Output --&gt;
+		&lt;parameter&gt;
+			&lt;name value=&quot;order&quot;/&gt;
+			&lt;use value=&quot;out&quot;/&gt;
+			&lt;type value=&quot;Order&quot;/&gt;
+			&lt;profile&gt;
+				&lt;reference value=&quot;http://hl7.org/fhir/StructureDefinition/gao-order&quot;/&gt;
+			&lt;/profile&gt;
+		&lt;/parameter&gt;
+		
+		&lt;!-- Result --&gt;
+		&lt;parameter&gt;
+			&lt;name value=&quot;result&quot;/&gt;
+			&lt;use value=&quot;out&quot;/&gt;
+			&lt;type value=&quot;Basic&quot;/&gt;
+			&lt;profile&gt;
+				&lt;reference value=&quot;http://hl7.org/fhir/StructureDefinition/gao-result&quot;/&gt;
+			&lt;/profile&gt;
+		&lt;/parameter&gt;
+		
+	&lt;/DecisionSupportServiceModule&gt;
+</code></pre>
 
-<p>This implementation guide introduces the notion of a Simple Rule to allow for the sharing, evaluation, and distribution of simple decision support rules that don't necessarily fit the pattern established by Event-Condition-Action rules.</p>
+<a name="guidance-request"/>
+<h4>Guidance Request</h4>
 
-<p>For example, a decision support service may support the evaluation of creatinine levels as part of assessing renal function. A Simple Rule allows an artifact to be defined that contains only the evaluation logic involved in determining creatinine level. This logic may then be shared independently from the larger Event-Condition-Action rule describing the overall renal function assessment.</p>
+<p>The DecisionSupportServiceModule resource defines an <a href="[%fhir-path%]decisionsupportservicemodule-operations.html#evaluate">$evaluate</a> operation that allows for consistent invocation of decision support functionality across a broad range of decision support artifacts. This consistency enables consumers to implement the request/response pipeline once to enable access to any decision support functionality provided by the service.</p>
 
-<p>For simple rules, the rule element is used to define the logic involved in the rule, and the result of evaluating this expression is the result of the rule.</p>
--->
-<!-- TODO: Provide a simple rule example -->
+<p>The <a href="[%fhir-path%]guidanceresponse.html">GuidanceResponse</a> structure provides a general mechanism for representing the actions to be performed in response to a guidance evaluation request.</p>
 
-<a name="eca-rules"/>
-<h4>Event Condition Action (ECA) Rules</h4>
+<p>The $evaluate operation provides a complete example of a request and response using the Guideline Appropriate Ordering decision support service module: <a href="[%fhir-path%]decisionsupportservicemodule-operations.html#4.10.8.1.1">$evaluate operation example</a>:</p>
 
-<p>As the name implies, Event Condition Action (ECA) rules define actions that should be taken whenever some condition is met in response to a particular event. This implementation guide defines three types of events that can trigger the evaluation of an ECA rule:</p>
+<pre><code>	POST [base]/DecisionSupportServiceModule/example/$evaluate
+	
+	&lt;Parameters&gt;
+		&lt;id value=&quot;evaluate-operation-request-example&quot;/&gt;
+		&lt;!--  This example demonstrates the $evaluate operation against a DecisionSupportServiceModule resource. --&gt;
+		&lt;parameter&gt;
+			&lt;name value=&quot;requestId&quot;/&gt;
+			&lt;valueString value=&quot;guidanceRequest1&quot;/&gt;
+		&lt;/parameter&gt;
+		&lt;parameter&gt;
+			&lt;name value=&quot;setting&quot;/&gt;
+			&lt;valueCoding&gt;
+				&lt;system value=&quot;http://hl7.org/fhir/encounter-class&quot;/&gt;
+				&lt;code value=&quot;inpatient&quot;/&gt;
+			&lt;/valueCoding&gt;
+		&lt;/parameter&gt;
+		&lt;parameter&gt;
+			&lt;name value=&quot;patient&quot;/&gt;
+			&lt;resource&gt;
+				&lt;Patient&gt;
+					&lt;id value=&quot;example&quot;/&gt;
+					&lt;meta&gt;
+						&lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/qicore-patient&quot;/&gt;
+						&lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/gao-patient&quot;/&gt;
+					&lt;/meta&gt;
+					... &lt;!-- Excluded for brevity --&gt;
+				&lt;/Patient&gt;
+			&lt;/resource&gt;
+		&lt;/parameter&gt;
+		&lt;parameter&gt;
+			&lt;name value=&quot;order&quot;/&gt;
+			&lt;resource&gt;
+				&lt;Order&gt;
+					&lt;id value=&quot;order1&quot;/&gt;
+					&lt;meta&gt;
+						&lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/gao-order&quot;/&gt;
+					&lt;/meta&gt;
+					&lt;contained&gt;
+						&lt;DiagnosticRequest&gt;
+							&lt;id value=&quot;DiagnosticRequest1&quot;/&gt;
+							&lt;meta&gt;
+								&lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/gao-diagnosticrequest&quot;/&gt;
+							&lt;/meta&gt;
+							&lt;subject&gt;
+								&lt;reference value=&quot;Patient/example&quot;/&gt;
+							&lt;/subject&gt;
+							&lt;item&gt;
+								&lt;code&gt;
+									&lt;coding&gt;
+										&lt;system value=&quot;http://www.ama-assn.org/go/cpt&quot;/&gt;
+										&lt;code value=&quot;70450&quot;/&gt;
+										&lt;display value=&quot;CT, head, wo iv contrast&quot;/&gt;
+									&lt;/coding&gt;
+								&lt;/code&gt;
+							&lt;/item&gt;
+						&lt;/DiagnosticRequest&gt;
+					&lt;/contained&gt;
+					&lt;date value=&quot;2012-12-28T09:03:04+11:00&quot;/&gt;
+					&lt;subject&gt;
+						&lt;reference value=&quot;Patient/example&quot;/&gt;
+					&lt;/subject&gt;
+					&lt;source&gt;
+						&lt;reference value=&quot;Practitioner/example&quot;/&gt;
+					&lt;/source&gt;
+					&lt;reasonCodeableConcept&gt;
+						&lt;coding&gt;
+							&lt;system value=&quot;http://hl7.org/fhir/sid/icd-9&quot;/&gt;
+							&lt;code value=&quot;70450&quot;/&gt;
+							&lt;display value=&quot;Headache, Chronic, no new features&quot;/&gt;
+						&lt;/coding&gt;
+					&lt;/reasonCodeableConcept&gt;
+					&lt;detail&gt;
+						&lt;reference value=&quot;#DiagnosticRequest1&quot;/&gt;
+					&lt;/detail&gt;
+				&lt;/Order&gt;
+			&lt;/resource&gt;
+		&lt;/parameter&gt;
+	&lt;/Parameters&gt;
+</code></pre>
 
-<ul>
-	<li>Named Event</li>
-	<li>Scheduled Event</li>
-	<li>Data Event</li>
-</ul>
+<p>The above example uses the profiles defined in the <a href="[%fhir-path%]gao/gao.html">Guideline Appropriate Ordering IG</a>. In this specific case, the request includes the patient information, and the order being assessed including the indication and the procedure.</p>
 
-<p>A named event is an event identified by the implementation environment. This type of event allows ECA rules to be triggered by any event generated within the implementation environment. A scheduled event occurs on a fixed or periodic schedule. And finally, a data event occurs in response to some data-related event in the integrated environment such as a record being added or updated.</p>
+<p>If the appropriateness tests succeeds, the response provides an appropriateness score based on a specific guideline:</p>
 
-<p>An ECA rule may have any number of events that can trigger the rule. Note that this may also be zero, as the rule may be evaluated by direct request. Also note that because ECA rules are shareable artifacts, the definition of the triggering events must be utilized by the implementation environment to determine when to invoke the rule.</p>
+<pre><code>	&lt;GuidanceResponse&gt;
+		&lt;!-- This example demonstrates the response to an $evaluate operation using the GuidanceResponse resource. --&gt;
+		&lt;contained&gt;
+			&lt;Parameters &gt;
+				&lt;id value=&quot;outputParameters1&quot;/&gt;
+				&lt;parameter&gt;
+					&lt;name value=&quot;order&quot;/&gt;
+					&lt;valueReference&gt;
+						&lt;reference value=&quot;#order1&quot;/&gt;
+					&lt;/valueReference&gt;
+				&lt;/parameter&gt;
+				&lt;parameter&gt;
+					&lt;name value=&quot;result&quot;/&gt;
+					&lt;resource&gt;
+						&lt;!-- GAO Result, profile of Basic --&gt;
+						&lt;Basic&gt;
+							&lt;id value=&quot;result1&quot;/&gt;
+							&lt;meta&gt;
+								&lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-gao-result&quot;/&gt;
+							&lt;/meta&gt;
+							&lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-score&quot;&gt;
+								&lt;valueDecimal value=&quot;7&quot;/&gt;
+							&lt;/extension&gt;
+							&lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-item&quot;&gt;
+								&lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-item#code&quot;&gt;
+									&lt;valueCodeableConcept&gt;
+										&lt;coding&gt;
+											&lt;system value=&quot;http://www.ama-assn.org/go/cpt&quot;/&gt;
+											&lt;code value=&quot;70450&quot;/&gt;
+											&lt;display value=&quot;CT, head, wo iv contrast&quot;/&gt;
+										&lt;/coding&gt;  
+									&lt;/valueCodeableConcept&gt;
+								&lt;/extension&gt;
+							&lt;/extension&gt;
+							&lt;!-- Appropriate Use Criteria Identifier --&gt;
+							&lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-guideline&quot;&gt;
+								&lt;valueUri value=&quot;http://someguidelineprovider.org/radiology-appropriateness-guidelines.html&quot;/&gt;
+							&lt;/extension&gt;
+							&lt;!-- Certified HealthCare Information Technology Identifier --&gt;
+							&lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-device&quot;&gt;
+								&lt;valueReference&gt;
+									&lt;reference value=&quot;#device1&quot;/&gt;
+								&lt;/valueReference&gt;
+							&lt;/extension&gt;
+							&lt;!-- Provider NPI --&gt;
+							&lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-practitioner&quot;&gt;
+								&lt;valueIdentifier&gt;
+									&lt;value value=&quot;exampleNPI&quot;/&gt;
+								&lt;/valueIdentifier&gt;
+							&lt;/extension&gt;
+							&lt;identifier&gt;
+								&lt;value value=&quot;result1&quot;/&gt;
+							&lt;/identifier&gt;
+							&lt;code&gt;
+								&lt;coding&gt;
+									&lt;code value=&quot;within&quot;/&gt;
+									&lt;display value=&quot;Order is within identified guidelines&quot;/&gt;
+								&lt;/coding&gt;
+							&lt;/code&gt;
+							&lt;subject&gt;
+								&lt;reference value=&quot;#order1&quot;/&gt;
+							&lt;/subject&gt;
+						&lt;/Basic&gt;
+					&lt;/resource&gt;
+				&lt;/parameter&gt;
+			&lt;/Parameters&gt;
+		&lt;/contained&gt;
+		&lt;requestId value=&quot;guidanceRequest1&quot;/&gt;
+		&lt;module&gt;
+			&lt;reference value=&quot;DecisionSupportServiceModule/example&quot;/&gt;
+		&lt;/module&gt;
+		&lt;status value=&quot;success&quot;/&gt;
+		&lt;outputParameters&gt;
+			&lt;reference value=&quot;#outputParameters1&quot;/&gt;
+		&lt;/outputParameters&gt;
+	&lt;/GuidanceResponse&gt;
+</code></pre>
 
-<p>Each ECA rule must have a single condition that is evaluated whenever any of the events occur. If this condition evaluates to true, the actions defined by the rule are returned as the result of the evaluation.</p>
-
-<p>And finally, each ECA rule defines actions that should be performed. This implementation guide defines the following types of actions:</p>
-
-<ul>
-	<li>Create</li>
-	<li>Update</li>
-	<li>Remove</li>
-	<li>Fire Event</li>
-</ul>
-
-<p>The Create, Update, and Remove actions indicate that particular resources should be created, updated, or removed, and the Fire Event action indicates that a particular named event should be triggered.</p>
-
-<p>To represent ECA Rules, the <a href="[%fhir-path%]decisionsupportrule-definitions.html#DecisionSupportRule.trigger">trigger</a> element of the <a href="[%fhir-path%]decisionsupportrule.html">DecisionSupportRule</a> is used to represent the triggering events for the artifact, the <a href="[%fhir-path%]decisionsupportrule-definitions.html#DecisionSupportRule.condition">condition</a> element is used to provide the name of an expression that defines the condition of the rule, and the <a href="[%fhir-path%]decisionsupportrule-definitions.html#DecisionSupportRule.action">action</a> element defines the actions to be performed.</p>
-
-<p>The <a href="[%fhir-path%]decisionsupportrule-example.html">Chlamydia Screening CDS</a> example illustrates the representation of a decision support event-condition-action rule; specifically, the example Chlamydia Screening CDS rule from the Clinical Quality Language specification.</p>
-
-<a name="documentation-templates"/>
-<h4>Documentation Templates</h4>
-
-<p>A documentation template is a structured template for recording information about a patient into a set of pre-defined data slots. These templates are used to guide structured data entry within an EHR or other clinical information system. Some examples of clinical documents that can be represented via documentation template artifacts are encounter summaries, procedure notes, patient-reported outcomes, and flowsheets.</p>
-
-<p>Within FHIR, the <a href="[%fhir-path%]questionnaire.html">Questionnaire</a> resource is available for modeling the structure of questionnaires. As such, a Documentation Template artifact is represented by defining extensions to allow the <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> for the artifact to be specified, as well as to allow references to <a href="[%fhir-path%]library.html">Library</a> resources to introduce behavior to the documentation template.</p>
-
-<p>Documentation Templates often include not only a description of the data to be collected, but the behavior of the template during evaluation. For example, whether or not to display a particular question or group of questions based on answers to previously asked questions, or calculating the value of an answer based on other answers. The Questionnaire resource by itself does not provide this functionality, so this guide introduces a <a href="cqif-questionnaire.html">CQIF-Questionnaire</a> profile of the <a href="../questionnaire.html">Questionnaire</a> resource to allow this behavior to be modeled.</p>
-
-<p>As an example, the PHQ-9 Health Questionnaire contains a question that is answered by totaling the weights from the answers of each of the previous questions. The <a href="questionnaire-cqif-example.html">CQIF Questionnaire</a> example illustrates the representation of this questionnaire with the required logic for computation.</p>
-
-<a name="order-sets"/>
-<h4>Order Sets</h4>
-
-<p>An order set is a pre-defined and approved group of orders related to a particular clinical condition (e.g. hypertension treatment and monitoring) or stage of care (e.g. hospital admission to Coronary Care Unit). An order set is used as a checklist for the clinician when managing a patient with a specific condition. It is a structured collection of orders relevant to that condition and presented to the clinician in a computerized provider order entry (CPOE) system.</p>
-
-<p>Within this implementation guide, order sets are represented using the <a href="[%fhir-path%]orderset.html">OrderSet</a> structure. The <a href="[%fhir-path%]orderset-definitions.html#OrderSet.item">item</a> element provides the ability to define hierarchical groups of items, where each specific item defines an orderable item, together with behaviors that determine how the orderable items are related to each other.</p>
-
-<p>If the order set contains only static items (i.e. there are no context-dependent values that must be provided to complete the orderable), then the <a href="[%fhir-path%]orderset-definitions.html#OrderSet.item.resource">resource</a> element contains a reference to a complete resource instance representing the orderable.</p>
-
-<p>However, each orderable item usually needs to be completed with contextual information based on the particular patient that the order set is being used with. In this case, either the user completing the order set must provide a value, or the order set definition can provide an expression that provides the necessary value based on the patient in context. These expressions are defined for each item using the <a href="[%fhir-path%]orderset-definitions.html#OrderSet.item.customization">customization</a> element. Each customization specifies a <i>path</i> and the name of an <i>expression</i> that, when evaluated in context, provides a value for the element defined by the path.</p>
-
-<p>This mixture of static and dynamic description of each orderable allows the order set to be presented structurally in terms of native resources, while still allowing for complete flexibility and customization of the contents based on the patient, encounter, and setting at the point-of-care.</p>
-
-<p>As an example, the Low Suicide Risk example order set from the Clinical Decision Support Knowledge Artifact Specification was represented using the OrderSet structure: <a href="[%fhir-path%]orderset-example.html">Low Suicide Risk Example Order Set</a>.</p>
-
-<!--
-<a name="libraries"/>
-<h4>Libraries</h4>
-
-<p>Libraries were introduced into the Clinical Decision Support Knowledge Artifact Specification as a means of reusing components of artifact definitions. However, because they are generally useful for sharing components in both the quality measurement and decision support domains, libraries are implemented at the common level.</p>
-
-<a name="cds-kas-artifacts"/>
-<h4>CDS KAS Artifacts</h4>
-
-<p>In addition to representing these artifacts directly, the use of artifact definitions that are based on the existing Clinical Decision Support Knowledge Artifact Specification is supported by allowing the content element to contain a DocumentReference that points to the actual artifact. For example, the following example illustrates how to expose the PHQ-9 Documentation Template Example from the Clinical Decision Support Knowledge Artifact Specification as a guidance artifact: <a href="guidanceartifact-hedreference-example.html">Guidance Artirfact HeD Reference</a></p>
-
-<p>In this case, the information represented in the KnowledgeModule can be inferred from the referenced artifact, and potentially generated by a simple transform.</p>
--->
-
-<a name="evaluation"/>
-<h3>Evaluation</h3>
-
-<p>To support the evaluation use case, the DecisionSupportServiceModule and DecisionSupportRule resources both define an <a href="[%fhir-path%]decisionsupportservicemodule-operations.html#evaluate">$evaluate</a> operation with the same signature. The operation allows for consistent invocation of decision support functionality across a broad range of decision support artifacts, allowing consumers to implement the request/response pipeline once to enable access to any decision support functionality provided by the service.</p>
-
-<p>In addition, the <a href="[%fhir-path%]guidanceresponse.html">GuidanceResponse</a> structure provides a general mechanism for representing the actions to be performed in response to a guidance evaluation request.</p>
-
-<p>The $evaluate operation provides a complete example of a request and response using the Guideline Appropriate Ordering decision support service module: <a href="[%fhir-path%]decisionsupportservicemodule-operations.html#4.10.8.1.1">$evaluate operation example</a></p>
-
-<p>The above example uses the profiles defined in the <a href="[%fhir-path%]gao/gao.html">Guideline Appropriate Ordering IG</a>.</p>
+<p>Note that this example is incomplete and reproduced here for illustration purposes only. Refer to the Guideline Appropriate Ordering Implementation Guide for a more complete description of GAO.</p>
 
 <h4>Simple Evaluation Request/Response</h4>
 <p>In the simplest case, an application requests guidance from a decision support service as part of a particular trigger, usually a specific point in a clinical workflow. For example, on the placement of an order for a specific imaging study, the application performs an $evaluate on the Guideline Appropriate Ordering module. The decision support service processes the request and determines whether the order is appropriate given the patient information and indication for the requested procedure. The result is returned as a GuidanceResponse resource with a status of success, and the calling application examines the appropriateness score and determines the appropriate action to take, either proceed with placing the order, or prompt the user that the requested procedure is not appropriate based on the guidelines returned in the response.</p>
 
 <h4>Conversational Request/Response</h4>
 <p>In some cases, the decision support service may determine that additional information is required in order to continue processing, or that additional information may result in a more accurate or more appropriate result. In these cases, the GuidanceResponse will be returned with a status of data-requested or data-required, to indicate the particular scenario. In these cases, the GuidanceResponse will contain additional information, usually stated in the form of additional DataRequirement specifications, to let the calling application know what data is needed. The calling application then repeats the request, providing the additional requested information, and the service continues processing.</p>
-
-<a name="distribution"/>
-<h3>Distribution</h3>
-
-<p>The distribution use case functionality as described within the common section of this implementation guide is sufficient for the clinical decision support use case. As such, this section does not introduce any new functionality in support of the distribution use case.</p>
 
 </div>
 [%file newfooter%]
