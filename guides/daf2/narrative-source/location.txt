@@ -1,0 +1,36 @@
+-----------------------
+
+The following data-elements are mandatory (i.e data MUST be present).
+These are presented below in simple human-readable explanations along
+with sample data to demonstrate the requirements.
+
+Each Location must have:
+
+1. A status of the Location
+1. A name
+1. A list of contact information
+1. A managing Organization
+
+`Formal Summary of the Mandatory Requirements`
+
+1. A `Location.active`
+1. A `Location.name`
+1. A `Location.telecom`
+1. A `Location.address`
+1. A `managingOrganization`
+
+Future recommended elements:
+
+1. A `Location.type`
+    -   The Location.type must come from `value set?`
+
+1. At least one identifier in `Location.identifier` (NPI, taxID, etc)
+    -   NPI preferred
+    -   Tax id is allowed
+    -   Local id is allowed in addition to 'authoritative' identifier
+
+`[`Location` `Resource` `Example`]`
+
+  [`Location` `Resource` `Example`]: Location_Resource_Example
+    "wikilink"esource_Example
+    "wikilink"
