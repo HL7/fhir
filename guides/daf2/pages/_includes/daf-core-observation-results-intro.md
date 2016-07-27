@@ -22,7 +22,10 @@ Each Observation *should* have:
 
 **Profile specific implementation guidance:**
 
-* 
+* Additional codes that translate or map to the Observation code or category codes are allowed.  For example:
+   -  providing both a local system codes and a LOINC code that it map to
+   -  providing a more specific category codes such as "chemistry', SNOMED CT concepts, or system specific codes in addition to the "laboratory" category code.
+* if there is no result then you have to supply a reason unless Observation is being used to group other results then there is no value. Instead, it includes composite values or references to other Observations
 * Additional elements from [DAF Observation Profile](daf-Observation.html) may be present.
 
  [SNOMED CT]: http://snomed.info/sct

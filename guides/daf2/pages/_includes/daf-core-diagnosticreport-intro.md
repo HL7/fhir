@@ -1,4 +1,4 @@
-Laboratory results are grouped and summarized using the DiagnosticReport resource which reference Observation resources.  Each Observation resource represents an individual laboratory test and result value, a “nested” panel (such as a microbial susceptibility panel) which references other observations, or rarely a laboratory test with component result values.  This profile sets minimum expectations for use of the DiagnosticReport resource to record, search and fetch laboratory results associated with a patient within the DAF FHIR IG. It identifies which core elements, extensions, vocabularies and value sets must be Supported by clients and servers. For the definition of Supported please refer to DAF FHIR IG. The data elements identified by the profile are based on ONC 2015 Edition Common Clinical Data Set(CCDS).
+Laboratory results are grouped and summarized using the DiagnosticReport resource which reference [Observation] resource(s).  Each Observation resource represents an individual laboratory test and result value, a “nested” panel (such as a microbial susceptibility panel) which references other observations, or rarely a laboratory test with component result values.  This profile sets minimum expectations for use of the DiagnosticReport resource to record, search and fetch laboratory results associated with a patient within the DAF FHIR IG. It identifies which core elements, extensions, vocabularies and value sets must be Supported by clients and servers. For the definition of Supported please refer to DAF FHIR IG. The data elements identified by the profile are based on ONC 2015 Edition Common Clinical Data Set(CCDS).
 
 
 ##### Mandatory Data Elements and Terminology
@@ -20,8 +20,10 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Profile specific implementation guidance:**
 
-* Additional codes that translate or map to the Observation code or category codes are allowed.  For example:
+* Additional codes that translate or map to the DiagnosticReport codes or category codes are allowed.  For example:
    -  providing both a local system codes and a LOINC code that it map to
-   -  providing a more specific category codes such as "chemistry', SNOMED CT concepts, or system specific codes in addition to the "laboratory" category code.
-* if there is no result then you have to supply a reason unless Observation is being used to group other results then there is no value. Instead, it includes composite values or references to other Observations
-* Additional elements from [DAF Observation Profile](daf-Observation.html) may be present.
+   -  providing a more specific category codes such as “CH” (chemistry) in addition to the "LAB"  category code.
+
+* Additional elements from [DAF DiagnosticReport Profile](daf-DiagnosticReport.html) may be present.
+
+[Observation]: daf-core-resultobs.html
