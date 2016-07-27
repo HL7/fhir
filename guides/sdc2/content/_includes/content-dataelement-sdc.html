@@ -1,0 +1,133 @@
+<div>
+  <div>
+    <a name="scope"/>
+    <h3>Scope and Usage</h3>
+    <p>
+    This profile sets expectations for use of the <a href="../dataelement.html">DataElement</a> resource within the 
+    <a href="sdc.html">Structured Data Capture</a> implementation guide.  This includes
+    identifying which core elements and extensions must be supported.
+    </p>
+    <p>
+    The focus of this profile is on those characteristics of Data Elements which are necessary to support the
+    definition of forms (questionnaires) that can support auto-population or pre-population of content on the basis
+    of referenced data elements.
+    </p>
+    <p>
+    For the purposes of this profile, <i>Supported</i> means that clients SHALL be capable of processing the element/extension and use the information to control the display
+    and information capture associated with the <a href="../dataelement.html">DataElement</a>.  It means that servers SHALL be capable of persisting those elements and returning 
+    them in response to requests.
+    </p>
+  </div>
+  <div>
+    <a name="boundaries"/>
+    <h3>Boundaries and Relationships</h3>
+    <p>
+    This profile relies on the use of a number of other profiles, some required, others available for use &quot;when necessary&quot;:
+    </p>
+    <ul>
+      <li>
+        <a href="../dataelement-11179.html">datalement-11179</a> which defines extensions for ISO-11179-specific concepts, such as ObjectClass and Property</li>
+      <li>
+        <a href="../element-extensions.html">element-extensions</a> which defines extensions describing constraints on the values for data elements.  There are used here to constrain the allowed values for questions.</li>
+      <li>
+        <a href="../iso-21090.html">iso-21090</a> provides extensions for strings allowing the conveying of language and translation extensions which may be relevant in some environment</li>
+    </ul>
+  </div>
+  <a name="content"> </a>
+  <h3>Content</h3>
+  <table class="lines">
+    <tr>
+      <td colspan="2">
+        <b>Profiles</b>: </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="sdc-element.html">SDC-Element</a>
+      </td>
+      <td>Sets expectations for data elements registered or used as part of the structured data capture project</td>
+    </tr>
+  </table>
+  <a name="language"/>
+  <h3>Language and translations</h3>
+  <p>
+  In some environments, it may be necessary for a questionnaire to support multiple languages.  The rendering tool would select the appropriate
+  language based on a configuration setting, or perhaps would display all available languages and the user would read the one they are familiar with.
+  Systems MAY choose to provide support for identifying language and translations.  If they do, they SHALL do so using the generic language and
+  translation extensions FHIR defines based on the ISO21090 data type specification:
+  </p>
+  <ul>
+    <li>
+      <a href="../extension-iso21090-st-language.html">http://hl7.org/fhir/StructureDefinition/iso21090-ST-language</a> allows the language of a particular (or any other data
+       type) to be identified</li>
+    <li>
+      <a href="../extension-iso21090-st-translation.html">http://hl7.org/fhir/StructureDefinition/iso21090-ST-translation</a> allows additional repetitions in alternate languages 
+      to be communicated.  (The language for each translation would be communicated using the above #language extension)</li>
+  </ul>
+  <p>
+  These extensions can be used on absolutely any string element on <a href="../questionnaire.html">Questionnaire</a>, <a href="../valueset.html">ValueSet</a>, one of 
+  the data types or any other resource.  The base string should be the primary language of the questionnaire.  It is what will be rendered by systems that do
+  not support the translation extension or by systems whose language preference is other than one of the languages provided.
+  </p>
+  <p>
+  The ISO 19763 specification permits declaring language on questionnaire titles, descriptions, display names for codes and many other strings.  It also supports
+  capturing multiple variants of these strings with distinct languages.  These capabilities can be mirrored using the above extensions.
+  </p>
+  <a name="issues"/>
+  <h3>Open Issues</h3>
+  <p>
+  While DataElement.stringency has been introduced, a formal set of rules defining exactly what level of &quot;tightness&quot; must exist for a stringency code, and
+  in particular, what the rules are for data elements intended for use in auto-population/pre-population has not yet been defined.  For example, if a data element
+  supports a subset of the answer codes that the question does, is that acceptable?  Must the question text be word-for-word identical?  Is it acceptable if the
+  data element length is shorter than the permitted length for the question?  Is it acceptable if units of measure are not an exact match so long as conversion
+  factors are known?
+  </p>
+  <p>
+  Opinions on these and related questions of stringency are welcome.
+  </p>
+  <h3>
+    <span class="sectioncount">B.3.0.6<a name="B.3.0.6"> </a>
+    </span> Example List <a title="link to here" class="self-link" href="dataelement-sdc.html#B.3.0.6">
+      <img src="../target.png"/>
+    </a>
+  </h3>
+  <table class="list">
+    <tbody>
+      <tr>
+        <td>
+          <a href="dataelement-sdc-profile-example.html">C-CDA-Gender</a>
+        </td>
+        <td>
+          <a href="dataelement-sdc-profile-example.xml.html">XML</a>
+        </td>
+        <td>
+          <a href="dataelement-sdc-profile-example.json.html">JSON</a>
+        </td>
+        <td>FHIR Gender with mapping to C-CDA</td>
+      </tr>
+    </tbody>
+  </table>
+  <br/>
+  <p>
+  Additional examples of this profile can be found as contained resources within the following examples:
+  </p>
+  <table class="list">
+    <tbody>
+      <tr>
+        <td>
+          <a href="questionnaire-sdc-profile-example-ussg-fht.html">SDC-LOINC USSG Family History</a>
+        </td>
+        <td>
+          <a href="questionnaire-sdc-profile-example-ussg-fht.xml.html">XML</a>
+        </td>
+        <td>
+          <a href="questionnaire-sdc-profile-example-ussg-fht.json.html">JSON</a>
+        </td>
+        <td>LOINC US Surgeon General family history including data elements &amp; value sets.  Note: This example isn't strictly valid against SDC as data elements do not have 
+        definitions and don't include mappings to SDC-approved specificaitons for auto-population</td>
+      </tr>
+    </tbody>
+  </table>
+    <p>
+  Usage note: every effort has been made to ensure that the examples are correct and useful, but they are not a normative part of the specification.
+  </p>
+</div>
