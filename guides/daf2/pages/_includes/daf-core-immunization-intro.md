@@ -23,7 +23,6 @@ Based upon the 2015 Edition Certification Requirements, the [NDC vaccine codes] 
 
 * Additional elements from [DAF Immunization Profile](daf-Immunization.html) may be present.
 
-  [Argonaut Immunization Status Valueset]: Argonaut_Immunization_Status_Valueset "wikilink"
   [CVX code set]: http://hl7.org/fhir/daf/valueset-daf-cvx.html
   [DAF Immunization Profile]: http://hl7.org/fhir/daf/daf-immunization.html
   [NDC vaccine codes]: NDC_vaccine_codes "wikilink"
