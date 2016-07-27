@@ -1,0 +1,20 @@
+narrative notes 
+
+for references use valueset-blah.html
+
+use "value set"  no "(code set)" 
+
+for binding use: 
+
+extensible
+
+which has an [extensible](http://hl7-fhir.github.io/terminologies.html#extensible) binding to:
+
+required
+
+which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
+
+do a global find  for http://hl7.org/fhir/DSTU2/
+and replace with   http://hl7-fhir.github.io/
+
+Will need to update when goes STU3

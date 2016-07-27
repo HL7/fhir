@@ -1,0 +1,37 @@
+Mandatory Data Elements
+-----------------------
+
+The following data-elements in the Procedure resource are mandatory (i.e data MUST be present). These are presented below in simple human-readable explanation and a more thorough formal summary of the requirements. Sample data is provided to demonstrate the requirements.
+
+**Each Procedure must have:**
+
+1.  a patient
+1.  a code that identifies the type of procedure performed on the patient
+1.  when the procedure was performed
+1.  a status
+
+**Formal Summary of the Mandatory Requirements**
+
+1.  One patient reference in **Procedure.patient**
+1.  One Identification of the procedure in **Procedure.code** which is bound to:
+    -   [SNOMED CT] Value set or
+    -   [CPT-4/HCPC for procedures] Value set
+
+1.  A date or a time period in **Procedure.performedDateTime** or **Procedure.performedPeriod**
+1.  A status code in Procedure.status which is bound to **[ProcedureStatus]** Value set
+
+Additional elements from [DAF Procedure Profile] may be present.
+
+**Optional vocabulary standards, ICD-10-PCS and Code on Dental Procedures and Nomenclature (CDT Code)**
+
+Based upon the 2015 Edition Certification Requirements, [ICD-10-PCS codes] MAY be supported as translations to either SNOMED-CT or CPT-4/HCPC. If choosing to primarily to dental procedures, the [Code on Dental Procedures and Nomenclature (CDT Code)] may be used.
+
+**[`Procedure` `Example`]**
+
+  [SNOMED CT]: http://hl7.org/fhir/valueset-procedure-code.html
+  [CPT-4/HCPC for procedures]: CPT-4/HCPC_for_procedures "wikilink"
+  [ProcedureStatus]: http://hl7.org/fhir/valueset-procedure-status.html
+  [DAF Procedure Profile]: http://hl7.org/fhir/daf/daf-Procedure.html
+  [ICD-10-PCS codes]: ICD-10-PCS_codes "wikilink"
+  [Code on Dental Procedures and Nomenclature (CDT Code)]: CDT_ValueSet "wikilink"
+  [`Procedure` `Example`]: Procedure_Example "wikilink" "wikilink"

@@ -1,0 +1,28 @@
+Mandatory Data Elements
+-----------------------
+
+The following data-elements in the Device resource are mandatory (i.e data MUST be present). These are presented below in simple human-readable explanation and a more thorough summary of the requirements. Sample data is provided to demonstrate the requirements.
+
+**Each Device resource must have:**
+
+1.  a patient
+
+<!-- -->
+
+1.  a UDI string (“udicarrier”)
+1.  a code identifying the type of resource
+
+#### Complete Summary of the Mandatory Requirements
+
+1.  One patient reference in **Device.patient**
+1.  One udicarrier string in **Device.udi**
+    -   The Human Readable Form (HRF) representation of the barcode string as printed on the packaging of the device **SHALL** be used. The AIDC representation cannot be conveyed in FHIR, Because of limitations on character sets in XML and the need to round-trip JSON data through XML.
+
+1.  A code in **Device.type**
+    -   Device.type with an extensible binding to SNOMED CT [Device Types]
+
+**[`Implantable` `Device` `Example`]**
+
+  [Device Types]: http://hl7-fhir.github.io/valueset-device-kind.html
+  [`Implantable` `Device` `Example`]: Implantable_Device_Example "wikilink"
+wikilink"

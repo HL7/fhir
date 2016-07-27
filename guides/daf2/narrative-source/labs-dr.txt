@@ -1,0 +1,36 @@
+### DiagnosticReport
+
+When lab test or lab panel, such as CBC, is ordered, a DiagnosticReport represents the order fulfillment and references each of the resulting discrete Observations within that panel.
+
+#### Each DiagnosticReport must have:
+
+-   a patient
+-   a code (preferably a LOINC code) which tells you what is being measured
+    -   note: additional codes that translate or map to these are allowed - e.g. system specific codes
+-   at least one result (an Observation reference)
+-   a status
+-   a category code of 'LAB'
+    -   note: additional category codes that translate or map to these are allowed - e.g. more specific category codes such as “CH” (chemistry)
+-   a time indicating when the measurement was taken
+-   a time indicating when the measurement was reported
+-   who issues the report
+
+##### Complete Summary of the Mandatory Requirements
+
+1.  One patient in **DiagnosticReport.subject**
+1.  One status in **DiagnosticReport.status**
+1.  One category in **DiagnosticReport.category** which must have:
+    -   a fixed **DiagnosticReport.category.coding.system=“<http://hl7.org/fhir/DiagnosticReport-category>”**
+    -   a fixed **DiagnosticReport.category.coding.code=“LAB”**
+
+1.  One code in **DiagnosticReport.code** which must have if available:
+    -   a fixed **DiagnosticReport.code.coding.system=“<http://loinc.org>”**
+    -   a LOINC code in **DiagnosticReport.code.coding.code**
+    -   Other additional codes are allowed - e.g. system specific codes. All codes SHALL have an system value
+
+1.  One or more **DiagnosticReport.result**
+    -   **DiagnosticReport.result.reference** reference the Observations that are part of this diagnostic report.
+
+1.  A date and time in **DiagnosticReport.effectiveDateTime** or **DiagnosticReport.effectivePeriod**
+1.  A date and time in **DiagnosticReport.issued**
+1.  A practitioner or organization **DiagnosticReport.performer**

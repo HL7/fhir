@@ -1,0 +1,41 @@
+Mandatory Data Elements
+-----------------------
+
+The following data-elements are mandatory (i.e data MUST be present). These are presented below in simple human-readable explanations along with sample data to demonstrate the requirements.
+
+**Each Immunization must have:**
+
+1.  a status
+1.  a date the vaccine was administered
+1.  a vaccine code that identifies the kind of vaccine administered
+1.  a patient
+1.  a flag to indicate whether vaccine was given
+1.  a flag to indicate whether the vaccine was reported by patient rather than directly administered.
+
+**Formal Summary of the Mandatory Requirements**
+
+1.  One status in **Immunization.status** which is bound to the **[Argonaut Immunization Status Valueset]**
+
+<!-- -->
+
+1.  One dateTime in **Immunization.date**
+1.  One vaccine code in **Immunization.vaccineCode** which is bound to the **[CVX code set]**
+1.  One patient in **Immunization.patient**
+1.  One boolean value in **Immunization.wasNotGiven**
+1.  One boolean value in **Immunization.reported**
+
+Additional elements from [DAF Immunization Profile] may be present.
+
+**NDC codes as a translational data element**
+
+Based upon the 2015 Edition Certification Requirements, the [NDC vaccine codes] SHOULD be supported as [translations] to the CVX vaccine codes. A [NDC to CVX concept map] is provided and the translation is illustrated in the example below.
+
+**[`Immunization` `Example`]**
+
+  [Argonaut Immunization Status Valueset]: Argonaut_Immunization_Status_Valueset "wikilink"
+  [CVX code set]: http://hl7.org/fhir/daf/valueset-daf-cvx.html
+  [DAF Immunization Profile]: http://hl7.org/fhir/daf/daf-immunization.html
+  [NDC vaccine codes]: NDC_vaccine_codes "wikilink"
+  [translations]: Implementation_Guide#Definitions "wikilink"
+  [NDC to CVX concept map]: NDC_to_CVX_concept_map "wikilink"
+  [`Immunization` `Example`]: Immunization_Example "wikilink"

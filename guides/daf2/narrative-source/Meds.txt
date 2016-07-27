@@ -1,0 +1,53 @@
+Mandatory Data Elements
+-----------------------
+
+The following data-elements are mandatory (i.e data MUST be present). These are presented below in simple human-readable explanations along with sample data to demonstrate the requirements. '''Each MedicationStatement must have:
+
+1.  a patient
+1.  a status
+1.  a date or date range
+1.  a medication
+
+'''Formal Summary of the Mandatory Requirements
+
+1.  One medication via **MedicationStatement.medicationCodeableConcept** or **MedicationStatement.medicationReference**
+1.  One patient reference in **MedicationStatement.patient**
+1.  One status in **MedicationStatement.status**
+1.  One date or period in **MedicationStatement.effectiveDateTime or MedicationStatment.effectivePeriod**
+
+Additional elements from [DAF MedicationStatement Profile] may be present.
+
+**[`MedicationStatement` `Example`]**
+
+**Each MedicationOrder must have:**
+
+1.  a date for when written
+1.  a status
+1.  a patient
+1.  a prescriber
+1.  a medication
+
+**Formal Summary of the Mandatory Requirements**
+
+1.  One medication via **MedicationOrder.medicationCodeableConcept** or **MedicationOrder.medicationReference**
+1.  One date in **MedicationOrder.dateWritten**
+1.  One status in **MedicationOrder.status**
+1.  One patient reference in **MedicationOrder.patient**
+1.  One practitioner in **MedicationOrder.prescriber**
+
+Additional elements from [DAF MedicationOrder Profile] may be present.
+
+**[`MedicationOrder` `Example`]**
+
+When using **medicationReference**, the Medication resource must have:
+
+'''Formal Summary of the Mandatory Requirements
+
+1.  a drug code in **Medication.code** or a product in **Medication.product**
+    -   Medication.code is extensibly bound to [Medication Clinical Drug (RxNorm)]
+
+  [DAF MedicationStatement Profile]: http://hl7.org/fhir/daf/medicationstatement-daf.html
+  [`MedicationStatement` `Example`]: MedicationStatement_Example "wikilink"
+  [DAF MedicationOrder Profile]: http://hl7.org/fhir/daf/medicationorder-daf.html
+  [`MedicationOrder` `Example`]: MedicationOrder_Example "wikilink"
+  [Medication Clinical Drug (RxNorm)]: http://hl7.org/fhir/daf/valueset-daf-medication-codes.html
