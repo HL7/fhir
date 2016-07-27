@@ -38,6 +38,7 @@
 
 <p>For example, the following fragment illustrates a definition to create a referral request:</p>
 
+<a name="referral-request-activity-definition">
 <pre><code>&lt;ActivityDefinition&gt;
   &lt;description value=&quot;refer to primary care mental-health integrated care program for evaluation and treatment
    of mental health conditions now&quot;/&gt;
@@ -58,11 +59,13 @@
   &lt;participantType value=&quot;practitioner&quot;/&gt;
 &lt;/ActivityDefinition&gt;
 </code></pre>
+</a>
 
 <p>Note the use of an expression to represent the value of the timing element as <code>Now()</code>.</p>
 
 <p>For medication activities, the ActivityDefinition resource has some basic elements such as the <i>product</i> and <i>quantity</i>, but there is not enough information to describe more complex dosing scenarios. In those cases, the <i>dynamicValue</i> expression elements can be used to describe the values for elements that are present on the target resource, but not in the definitional resource. For example:</p>
 
+<a name="medication-activity-definition">
 <pre><code>&lt;ActivityDefinition&gt;
 	&lt;id value=&quot;citalopramPrescription&quot;/&gt;
 	&lt;status value=&quot;draft&quot;/&gt;
@@ -80,6 +83,7 @@
 	&lt;/dynamicValue&gt;
 &lt;/ActivityDefinition&gt;
 </code></pre>
+</a>
 
 </div>
 [%file newfooter%]

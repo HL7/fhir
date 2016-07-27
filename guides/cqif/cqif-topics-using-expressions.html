@@ -55,12 +55,14 @@
 
 <p>Note that when extensions are used, each language defines a specific extension, so the content type is implied. For example:</p>
 
+<a name="dynamic-value-for-a-resource-element">
 <pre><code>	&lt;event&gt;
 		&lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqif-basic-cqlExpression&quot;&gt;
 			&lt;valueString value=&quot;Now()&quot;/&gt;
 		&lt;/extension&gt;
 	&lt;/event&gt;
 </code></pre>
+</a>
 
 <h5>Expression</h5>
 <p>The <i>expression</i> element specifes the formal representation of the expression logic in the identified expression language. The expression may be inline, as in the above examples, or it may be a reference to a named expression defined in a logic library. For example, the following fragment illustrates the use of a named expression to define a dynamicValue as part of an activity definition:</p>
