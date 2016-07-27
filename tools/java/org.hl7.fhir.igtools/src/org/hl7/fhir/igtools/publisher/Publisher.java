@@ -718,6 +718,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private boolean loadPrePages() throws Exception {
+    if (prePagesDir == null)
+      return false;
+    
     FetchedFile dir = fetcher.fetch(prePagesDir);
     if (!dir.isFolder())
       throw new Exception("pre-processed page reference is not a folder");
@@ -973,6 +976,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
   private Element loadFromXml(FetchedFile file) throws Exception {
     org.hl7.fhir.dstu3.elementmodel.XmlParser xp = new org.hl7.fhir.dstu3.elementmodel.XmlParser(context);
+    xp.setAllowXsiLocation(true);
     xp.setupValidation(ValidationPolicy.EVERYTHING, file.getErrors()); 
     return xp.parse(new ByteArrayInputStream(file.getSource()));
   }
@@ -1854,6 +1858,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       template = template.replace("{{[title]}}", r.getTitle() == null ? "?title?" : r.getTitle());
       template = template.replace("{{[name]}}", r.getId()+"-"+format+"-html");
       template = template.replace("{{[id]}}", r.getId());
+      template = template.replace("{{[fmt]}}", format);
       template = template.replace("{{[type]}}", r.getElement().fhirType());
       template = template.replace("{{[uid]}}", r.getElement().fhirType()+"="+r.getId());
       if (vars != null) {
