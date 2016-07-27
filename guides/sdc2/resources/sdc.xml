@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/implementationguide.xsd">
+  <id value="sdc"/>
+  <url value="http://hl7.org/fhir/sdc"/>
+  <name value="Structured Data Capture"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="Health Level Seven International (Orders and Observations - Structured Data Capture)"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The SDC specification provides an infrastructure to standardize the capture and expanded use of patient-level data collected within an EHR.&lt;br/&gt;This includes two components:&lt;br/&gt;* Support more sophisticated questionnaire/form use-cases such as those needed for research, oncology, pathology and other clinical domains.&lt;br/&gt;*Support pre-population and auto-population of EHR data into forms/questionnaires for uses outside direct clinical care (patient safety, adverse event reporting, public health reporting, etc.)."/>
+  <useContext>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+  </useContext>
+  <package>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="dataelement-sdc-profile-spreadsheet.xml"/>
+    </extension>
+    <name value="base"/>
+    <resource>
+      <example value="true"/>
+      <name value="C-CDA-Gender"/>
+      <description value="FHIR Gender with mapping to C-CDA"/>
+      <sourceReference>
+        <reference value="DataElement/dataelement-sdc-profile-example"/>
+      </sourceReference>
+      <exampleFor>
+        <reference value="StructureDefinition/sdc-element"/>
+      </exampleFor>
+    </resource>
+  </package>
+</ImplementationGuide>

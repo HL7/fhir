@@ -1,0 +1,31 @@
+{
+	"tool": "jekyll",
+	"paths": {
+		"resources": "resources",
+		"pages": "pages",
+		"temp": "temp",
+		"output": "output",
+		"qa": "qa",
+		"specification": "http://hl7-fhir.github.io/"
+	},
+	"canonicalBase": "http://hl7.org/fhir/sdc",
+	"source": "sdc.xml",
+  "pre-process": {
+    "folder": "content",
+    "transform": "correct_content.xslt"
+  },
+  "spreadsheets": [
+    "dataelement-sdc-profile-spreadsheet.xml"
+	],
+	"resources": {
+		"StructureDefinition/sdc-element": {
+			"defns": "sdc-element-definitions.html",
+			"base": "sdc-element.html"
+		},
+		"DataElement/dataelement-sdc-profile-example": {
+			"base": "dataelement-sdc-profile-example.html",
+			"template-base": "instance-template-base.html",
+			"template-format": "instance-template-format.html"
+		}
+	}
+}

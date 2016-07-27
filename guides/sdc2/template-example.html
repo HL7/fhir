@@ -1,0 +1,13 @@
+---
+---
+{% include template-_start.html %}
+
+<h2>DAF-Core {{page.tcode}} Example: {{page.example}}</h2>
+<p>
+This is the narrative for the resource. See also the <a href="{{name}}-xml.html">XML</a> or <a href="{{name}}-json.html">JSON</a><!--or <a href="{{page.type}}-example-{{page.example}}-ttl.html">Turtle</a>--> format. This example conforms to the profile {{page.tcode}}.
+</p>
+
+<p>
+{{page.code}}
+</p>
+{% include template-_end.html %}

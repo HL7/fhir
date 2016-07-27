@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+{% assign basename = page.path | remove: '.html' %}
+    <title>Sdc\{basename} - FHIR v{{site.data.fhir.version}}</title>
+  
+    {% include include-header.html %}  
+  
+  </head>
+  <body>
+    {% include include-navbar.html %}
+  
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->	
+        <ul class="breadcrumb">
+          <li title="Structured Data Capture"><b>SDC</b></li>
+        </ul>	
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+    
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+            <div class="col-9">

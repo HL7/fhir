@@ -1,0 +1,9 @@
+{% include template-_start.html %}
+<div class="col-9">
+  <a name="root"> </a> 
+  <h2><span class="sectioncount">B.{{page.id}}</span> {{page.title}} <a title="link to here" class="self-link" href="{{page.path}}#root"><img src="target.png"/></a></h2>
+
+  {% include content-{{basename}}.html %}
+
+</div>
+{% include template-_end.html %}
