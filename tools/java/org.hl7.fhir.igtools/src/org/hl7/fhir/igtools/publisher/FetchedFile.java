@@ -12,6 +12,10 @@ import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 
 public class FetchedFile {
+  public final static int PROCESS_RESOURCE = 0;
+  public final static int PROCESS_XSLT = 1;
+  public final static int PROCESS_NONE = 2;
+  
   private String path;
   private String name;
   
@@ -26,7 +30,7 @@ public class FetchedFile {
   private Map<String, String> valuesetsToLoad = new HashMap<String, String>();
   private boolean folder;
   private List<String> files; // if it's a folder
-  private boolean noProcess;
+  private int processMode;
   private Set<String> outputNames = new HashSet<String>();
 
   public String getPath() {
@@ -111,15 +115,16 @@ public class FetchedFile {
       files = new ArrayList<String>();
     return files;
   }
-  public boolean isNoProcess() {
-    return noProcess;
-  }
-  public void setNoProcess(boolean noProcess) {
-    this.noProcess = noProcess;
-  }
-  
+
   public Set<String> getOutputNames() {
     return outputNames;
   }
- 
+  public int getProcessMode() {
+    return processMode;
+  }
+  public void setProcessMode(int processMode) {
+    this.processMode = processMode;
+  }
+
+  
 }

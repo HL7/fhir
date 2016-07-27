@@ -316,23 +316,30 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
     @Override
     public String getTypeCode() {
-      throw new Error("todo");
+      if (definition == null || definition.getType().size() != 1)
+        throw new Error("not handled");
+      return definition.getType().get(0).getCode();
     }
 
     @Override
     public String getDefinition() {
-      throw new Error("todo");
+      if (definition == null)
+        throw new Error("not handled");
+      return definition.getDefinition();
     }
 
     @Override
     public int getMinCardinality() {
-      throw new Error("todo");
-      //      return definition.getMin();
+      if (definition == null)
+        throw new Error("not handled");
+      return definition.getMin();
     }
 
     @Override
     public int getMaxCardinality() {
-      throw new Error("todo");
+      if (definition == null)
+        throw new Error("not handled");
+      return definition.getMax().equals("*") ? Integer.MAX_VALUE : Integer.parseInt(definition.getMax());
     }
 
     @Override
@@ -938,7 +945,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
               if (ed == null) {
                 if (url.startsWith("http://hl7.org/fhir"))
                   throw new DefinitionException("unknown extension "+url);
-                System.out.println("unknown extension "+url);
+                // System.out.println("unknown extension "+url);
                 pe = new PropertyWrapperDirect(new Property(p.getName()+"["+url+"]", p.getTypeCode(), p.getDefinition(), p.getMinCardinality(), p.getMaxCardinality(), ex));
               } else {
                 ElementDefinition def = ed.getSnapshot().getElement().get(0);

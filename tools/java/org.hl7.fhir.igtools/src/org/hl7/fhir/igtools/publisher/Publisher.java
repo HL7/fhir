@@ -31,6 +31,12 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import javax.swing.UIManager;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.PumpStreamHandler;
@@ -94,6 +100,7 @@ import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
+import org.hl7.fhir.utilities.ZipURIResolver;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
@@ -196,6 +203,12 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private ILoggingService logger = this;
 
   private HTLMLInspector inspector;
+
+  private String prePagesDir;
+
+  private String prePagesXslt;
+
+  private byte[] xslt;
 
   public void execute(boolean clearCache) throws Exception {
     globalStart = System.nanoTime();
@@ -432,7 +445,15 @@ public class Publisher implements IWorkerContext.ILoggingService {
     else
       vsCache = Utilities.path(root, vsCache); 
     specPath = str(paths, "specification");
-
+    if (configuration.has("pre-process")) {
+      JsonObject pp = configuration.getAsJsonObject("pre-process");
+      prePagesDir = Utilities.path(root, str(pp, "folder"));
+      prePagesXslt = Utilities.path(root, str(pp, "transform"));
+      checkDir(prePagesDir);
+      checkFile(prePagesXslt);
+      xslt = TextFile.fileToBytes(prePagesXslt);
+    }
+    
     igName = Utilities.path(resourceDirs.get(0), configuration.get("source").getAsString());
 
     inspector = new HTLMLInspector(outputDir);
@@ -690,9 +711,47 @@ public class Publisher implements IWorkerContext.ILoggingService {
     }
 
     // load static pages
+    needToBuild = loadPrePages() || needToBuild;
     needToBuild = loadPages() || needToBuild;
     execTime = Calendar.getInstance();
     return needToBuild;
+  }
+
+  private boolean loadPrePages() throws Exception {
+    FetchedFile dir = fetcher.fetch(prePagesDir);
+    if (!dir.isFolder())
+      throw new Exception("pre-processed page reference is not a folder");
+    return loadPrePages(dir);
+  }
+
+  private boolean loadPrePages(FetchedFile dir) throws Exception {
+    boolean changed = false;
+    if (!altMap.containsKey("pre-page/"+dir.getPath())) {
+      changed = true;
+      altMap.put("pre-page/"+dir.getPath(), dir);
+      dir.setProcessMode(FetchedFile.PROCESS_XSLT);
+      changeList.add(dir);
+    }
+    for (String link : dir.getFiles()) {
+      FetchedFile f = fetcher.fetch(link);
+      if (f.isFolder())
+        changed = loadPrePages(f) || changed;
+      else 
+        changed = loadPrePage(f) || changed;
+    }
+    return changed;
+  }
+
+  private boolean loadPrePage(FetchedFile file) {
+    FetchedFile existing = altMap.get("pre-page/"+file.getPath());
+    if (existing == null || existing.getTime() != file.getTime() || existing.getHash() != file.getHash()) {
+      file.setProcessMode(FetchedFile.PROCESS_XSLT);
+      changeList.add(file);
+      altMap.put("pre-page/"+file.getPath(), file);
+      return true;
+    } else {
+      return false;
+    }
   }
 
   private boolean loadPages() throws Exception {
@@ -707,7 +766,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (!altMap.containsKey("page/"+dir.getPath())) {
       changed = true;
       altMap.put("page/"+dir.getPath(), dir);
-      dir.setNoProcess(true);
+      dir.setProcessMode(FetchedFile.PROCESS_NONE);
       changeList.add(dir);
     }
     for (String link : dir.getFiles()) {
@@ -723,7 +782,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private boolean loadPage(FetchedFile file) {
     FetchedFile existing = altMap.get("page/"+file.getPath());
     if (existing == null || existing.getTime() != file.getTime() || existing.getHash() != file.getHash()) {
-      file.setNoProcess(true);
+      file.setProcessMode(FetchedFile.PROCESS_NONE);
       changeList.add(file);
       altMap.put("page/"+file.getPath(), file);
       return true;
@@ -1565,10 +1624,10 @@ public class Publisher implements IWorkerContext.ILoggingService {
       logger.logMessage(s);
   }
 
-  private void generateOutputs(FetchedFile f) {
+  private void generateOutputs(FetchedFile f) throws TransformerException {
 //    log(" * "+f.getName());
 
-    if (f.isNoProcess()) {
+    if (f.getProcessMode() == FetchedFile.PROCESS_NONE) {
       String dst = tempDir + f.getPath().substring(pagesDir.length());
       try {
         if (f.isFolder()) {
@@ -1576,6 +1635,17 @@ public class Publisher implements IWorkerContext.ILoggingService {
           Utilities.createDirectory(dst);
         } else
           checkMakeFile(f.getSource(), dst, f.getOutputNames());
+      } catch (IOException e) {
+        log("Exception generating page "+dst+": "+e.getMessage());
+      } 
+    } else if (f.getProcessMode() == FetchedFile.PROCESS_XSLT) {
+      String dst = tempDir + f.getPath().substring(pagesDir.length());
+      try {
+        if (f.isFolder()) {
+          f.getOutputNames().add(dst);
+          Utilities.createDirectory(dst);
+        } else
+          checkMakeFile(transform(f.getSource()), dst, f.getOutputNames());
       } catch (IOException e) {
         log("Exception generating page "+dst+": "+e.getMessage());
       } 
@@ -1618,6 +1688,18 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
  
+  private byte[] transform(byte[] source) throws TransformerException {
+    TransformerFactory f = TransformerFactory.newInstance();
+    StreamSource xsrc = new StreamSource(new ByteArrayInputStream(xslt));
+    Transformer t = f.newTransformer(xsrc);
+
+    StreamSource src = new StreamSource(new ByteArrayInputStream(source));
+    ByteArrayOutputStream out = new ByteArrayOutputStream();
+    StreamResult res = new StreamResult(out);
+    t.transform(src, res);
+    return out.toByteArray();  
+  }
+
   private Map<String, String> makeVars(FetchedResource r) {
     Map<String, String> map = new HashMap<String, String>();
     if (r.getResource() != null) {
@@ -1773,6 +1855,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       template = template.replace("{{[name]}}", r.getId()+"-"+format+"-html");
       template = template.replace("{{[id]}}", r.getId());
       template = template.replace("{{[type]}}", r.getElement().fhirType());
+      template = template.replace("{{[uid]}}", r.getElement().fhirType()+"="+r.getId());
       if (vars != null) {
         for (String n : vars.keySet())
           template = template.replace("{{["+n+"]}}", vars.get(n));
@@ -1790,6 +1873,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       template = template.replace("{{[type]}}", r.getElement().fhirType());
       template = template.replace("{{[id]}}", r.getId());
       template = template.replace("{{[name]}}", r.getId()+"-html");
+      template = template.replace("{{[uid]}}", r.getElement().fhirType()+"="+r.getId());
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".html");
       TextFile.stringToFile(template, path, false);
       outputTracker.add(path);
