@@ -1,8 +1,8 @@
 #### Complete Summary of the Mandatory Requirements
 
-1.  A patient reference in **Goal.patient**
-1.  A description in **Goal.description**
-1.  A status in **Goal.status**
-    -   Goal.status is bound to **[GoalStatus]** Value set (Code set)
+1.  A patient reference in `Goal.subject`
+1.  A  text description in `Goal.description`
+1.  A status in `Goal.status` which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
+    -   [GoalStatus] value set.
 
-  [GoalStatus]: http://hl7.org/fhir/DSTU2/valueset-Goal-status.html
+  [GoalStatus]: http://hl7-fhir.github.io/valueset-goal-status.html
