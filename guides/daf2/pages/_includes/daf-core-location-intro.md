@@ -13,7 +13,7 @@ Each Location must have:
 1. A status of the Location
 1. A name
 1. A list of contact information
-1. A managing Organizati
+1. A managing Organization
 
 **Profile specific implementation guidance:**
 
