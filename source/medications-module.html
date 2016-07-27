@@ -21,67 +21,130 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="intro"> </a>
 <h3>Introduction</h3>
 <p>
-In this section: scope, what outcome modules seeks providem why would you look at it's content Editor: David Hay
+This module is concerned with resources and functionality in 2 main domains:
 </p>
 
+<ul>
+	<li>The ordering, supply, administration and recording of medications</li>
+	<li>Recording of Immunizations given (or not given), and recommendations for an individual patient at a point in time.</li>
+</ul>
+
 <h3>Resources</h3>
-Resources referenced by this module
+
+
 
 <table class="grid">
+	<tr><td>Resource</td><td>Purpose</td></tr>
+	<tr><td colspan="2"><strong>Medications</strong></td></tr>
+	<tr>
+		<td valign="top"><a href="medicationorder.html">MedicationOrder</a></td>
+		<td>
+		<p>Represents an instruction for the administration of medication to a patient - both in the inpatient (hospital) and
+		community setting. It can also include instructions for the dispensing, the reasons why the administration should
+		occur and other data.</p>
+		<p>It is called an 'Order' to be consistent with other FHIR resources, but a common alias for this resource is a 'Prescription'.
+		The Order itself represents the content of the instruction and is not, by itself, actionable. The workflow process
+		around 'fulfilling' the order is part of the <a href="workflow-module.html">generic FHIR workflow</a> (see below),
+			with the MedicationOrder representing the contents.</p>
 
-
-<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
-[%res-category Medication|Medication resources%]
-
-[%res-item Medication%]
-[%res-item MedicationOrder%]
-[%res-item MedicationAdministration%]
-[%res-item MedicationDispense%]
-[%res-item MedicationStatement%]
-
-[%res-category Immunization|Immunization resources %]
-
-[%res-item Immunization%]
-[%res-item ImmunizationRecommendation%]
+	</td></tr>
+	<tr>
+		<td><a href="medicationdispense.html">MedicationDispense</a></td>
+		<td>The provision of a supply of a medication with the intention that it is subsequently consumed by a patient
+			(usually in response to a prescription).</td></tr>
+	<tr>
+		<td><a href="medicationadministration.html">MedicationAdministration</a></td>
+		<td>A record of a patient actually consuming a medicine, or if it has otherwise been administered to them</td></tr>
+	<tr>
+		<td><a href="medicationstatement.html">MedicationStatement</a></td>
+		<td>This is a record of a medication being taken
+		by a patient or that a medication has been given to a patient, where the record is the result of a report from the
+		patient or another clinician. A medication statement is not a part of the prescribe->dispense->administer sequence,
+		but is a report that such a sequence (or at least a part of it) did take place, resulting in a belief that the patient
+		has received a particular medication. It is commonly used in constructing a patients 'Current Medications' list.</td></tr>
+	<tr>
+		<td><a href="medication.html">Medication</a></td>
+		<td>The medication resource represents an actual medication that can be given to a patient, and referenced by the
+			other medication resources. In many cases, this resource is not needed and the drug is indicated by
+		 a reference to the appropriate terminology and so can be represented using a codeable concept. In other cases however,
+		it may be desired to indicate more details than the simple drug (such as the packaging, whether it is a generic medication
+			or the active and inactive ingredients)
+		and so the Medication resource can be used for this.</td></tr>
+	<tr>
+		<td colspan="2"><strong>Immunisations</strong></td></tr>
+	<tr>
+		<td><a href="immunization.html">Immunization</a></td>
+		<td>The Immunization resource is intended to cover the recording of current and historical administration of vaccines
+			to patients across all healthcare disciplines in all care settings and all regions.
+			This includes immunization of both humans and animals, but does not include the administration of non-vaccine agents,
+			even those that may have or claim to have immunological effects.</td></tr>
+	<tr>
+		<td><a href="immunizationrecommendation.html">ImmunizationRecommendation</a></td>
+		<td>A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility
+			according to a published schedule) with optional supporting justification</td></tr>
 
 </table>
 
-<a name="index"> </a>
-<h3>Index</h3>
-<p>
-In this section: links to key content pages in the module
 
-From the master doc: Medication Resources (+immunization) + medication management services
+<a name="uses"> </a>
+<h3>Common Use Cases</h3>
+<ul>
+	<li>Placing a medication Order (aka Prescription). The MedicationOrder resource itself is a record of what is to be
+		given to the patient - not an actual instruction to do so. This is actioned using the common
+		<a href="workflow-module.html">workflow functionality</a> .
+	</li>
+	<li>Listing a patients current medications. This is represented using the <a href="list.html">List</a> resource, which allows an author
+		to construct a 'curated' list. This has features beyond a simple collection of resources - such as the ability
+		to state that the patient is not currently taking any medications at the time that the list is constructed,
+		or changes that are made at a point in time (sometimes called medicine reconciliation). FHIR defines a number of specific
+		<a href="lifecycle.html#lists">functional lists</a> for this purpose, and a specific
+		<a href="list-operations.html#find">operation</a> to retrieve it. Note that FHIR does not describe how the
+		list should be maintained by the individual system, as that will vary widely between implementations.
+	</li>
+	<li>Retrieving a list of Immunizations. This can be achieved using a <a href="http://hl7-fhir.github.io/http.html#search">simple query</a>
+		against the <a href="http://hl7-fhir.github.io/immunization.html">Immunization</a> resource type. Note that an Immunization resource can specifically state that it was not given,
+		as well as any reactions that occurred. Note that if the reaction is considered to be an indication of an allergy
+		or intolerance, then a separate <a href="http://hl7-fhir.github.io/allergyintolerance.html">AllergyIntolerance</a>  resource should be created.
+	</li>
+	<li>Retrieving recommendations for a specific patient at a point in time. The recommendation for immunizations to give
+		would be represented by an ImmunizationRecommendation resource, but the determination of that recommendation is a
+		part of <a href="clinicalreasoning-module.html">Decision Support</a>, with the actual immunization schedule being represented by a generic
+		<a href="plandefinition.html">Plan Definition</a>, individual <a href="careplan.html">Care Plan</a> or some other record.
 
-<a href="list-operations.html#find">Find a functional list.</a> For this module applies to the regular medications
+	</li>
 
 
-</p>
+</ul>
+
+<h3>Other resources</h3>
+	There are other resources that are of particular interest in the medication domain.
+	<ul>
+		<li> <a href="supplyrequest.html">SupplyRequest</a> and <a href="supplydelivery.html">SupplyDelivery</a> which,
+		like MedicationOrder, are 'detail' resources used as part of <a href="workflow-module.html">workflow</a>workflow. They are concerned with
+			the request of supplies used in the healthcare process. This includes supplies specifically used in the
+			treatment of patients as well as supply movement within an institution
+			(transport a set of supplies from materials management to a service unit (nurse station).</li>
+
+	</ul>
 
 <a name="secpriv"> </a>
 <h3>Security and Privacy</h3>
 <p>
-In this section: description of key security and privacy issues, or references to pages that deal with this. 
-For the security / privcay module itself, this section does not exist. For other modules, the paragraph/section can end with this boilerplate:
-For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
+	As with all clinical data, Medications (in particular) can be sensitive information as specific medications can indicate
+	the presence of private information such as mental health disorders or HIV. However, withholding information about what
+	medications a person is taking can lead to catastrophic results, and so needs to be considered very carefully. At the least,
+	a clinician should be made aware that there is information available that they have not been given when making clinical decisions.
 </p>
 
-<a name="uses"> </a>
-<h3>Common use Cases</h3>
+<p>For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.</p>
 
-<h4>Placing a medication Order (aka Prescription)</h4>
-<h4>Recording a dispense</h4>
-<h4>Updating the patients Usual Medication List</h4>
-<h4>Getting the patients Immunization history</h4>
-<h4>Invoking Immunization based decision support</h4>
 
-<h5>Correcting errors</h5>
 
-<h3>Miscellaneous</h3>
-<h5>When to choose a code or a Medication resource</h5>
+
+<h3>Correcting errors</h3>
 
 <p>
-In this section: common problems in the space of the module, ways to go about solving them, or references to additional problem based linkes
+In this section: common problems in the space of the module, ways to go about solving them, or references to additional problem based links
 </p>
 
 <a name="roadmap"> </a>
@@ -89,7 +152,6 @@ In this section: common problems in the space of the module, ways to go about so
 <p>
 In this section: what the current overall state is, what work is in train, what the goals over the next 18 months or so are
 </p>
-
 </div>
 
 [%file newfooter%]
