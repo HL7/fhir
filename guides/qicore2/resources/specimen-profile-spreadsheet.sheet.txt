@@ -1,0 +1,108 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = !QICorePrecoordinatedBodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/qicore-bodysite-precoordinated
+  Definition = Precoordinated body sites such as \'left ear\'
+  Conformance = preferred
+
+=== Sheet QICore-Specimen =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Specimen
+  Profile Name = QICore-Specimen
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = Specimen.container
+
+ -- Row 3 -----------------------------------
+  Element = Specimen.container.extension
+  Profile Name = Specimen.container.sequenceNumber
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/specimen-sequenceNumber}
+  QIDAM Mapping = Not in QIDAM, but recognized as important since there are labs where the sequence of the collection is important (e.g., knowing that 1 is the first sample, 2 is the second, etc.).
+
+ -- Row 4 -----------------------------------
+  Element = Specimen.collection
+
+ -- Row 5 -----------------------------------
+  Element = !Specimen.collection.extension
+  Profile Name = Specimen.collection.specialHandling
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/specimen-specialHandling}
+
+ -- Row 6 -----------------------------------
+  Element = !Specimen.collection.extension
+  Profile Name = !Specimen.collection.collectionPriority
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/specimen-collectionPriority}
+
+ -- Row 7 -----------------------------------
+  Element = !Specimen.collection.extension
+  Profile Name = !Specimen.collection.volumeFuzzy
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/specimen-volumeFuzzy}
+
+ -- Row 8 -----------------------------------
+  Element = !Specimen.collection.quantity
+
+ -- Row 9 -----------------------------------
+  Element = !Specimen.collection.quantity.extension
+  Profile Name = Specimen.collection.quantity.isDryWeight
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/specimen-isDryWeight}
+
+ -- Row 10 -----------------------------------
+  Element = Specimen.treatment
+
+ -- Row 11 -----------------------------------
+  Element = !Specimen.treatment.extension
+  Profile Name = Specimen.treatment.treatmentTime
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/specimen-treatmentTime}
+
+ -- Row 12 -----------------------------------
+  Element = Specimen.type
+  Must Support = Y
+
+ -- Row 13 -----------------------------------
+  Element = Specimen.parent
+  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/qicore-specimen}
+
+ -- Row 14 -----------------------------------
+  Element = Specimen.subject
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device} | Reference(Substance){http://hl7.org/fhir/StructureDefinition/qicore-substance} | Reference(Group)
+
+ -- Row 15 -----------------------------------
+  Element = Specimen.receivedTime
+  Must Support = Y
+
+ -- Row 16 -----------------------------------
+  Element = Specimen.collection.collector
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+
+ -- Row 17 -----------------------------------
+  Element = Specimen.collection.collected[x]
+  Must Support = Y
+
+ -- Row 18 -----------------------------------
+  Element = Specimen.collection.bodySite
+  Must Support = Y
+
+ -- Row 19 -----------------------------------
+  Element = Specimen.treatment.procedure
+  Must Support = Y
+
+ -- Row 20 -----------------------------------
+  Element = Specimen.treatment.additive
+  Type = Reference(Substance){http://hl7.org/fhir/StructureDefinition/qicore-substance}
+
+ -- Row 21 -----------------------------------
+  Element = Specimen.container.additive[x]
+  Type = CodeableConcept | Reference(Substance){http://hl7.org/fhir/StructureDefinition/qicore-substance}
+
+=== Sheet Search =====================================

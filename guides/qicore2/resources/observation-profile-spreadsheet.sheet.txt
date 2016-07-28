@@ -1,0 +1,184 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICoreObservationDelta
+  Binding = value set
+  Reference = valueset-observation-delta
+  Definition = Code system values for Observation Delta Value Set
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = QICoreObservationBodyPosition
+  Binding = value set
+  Reference = valueset-observation-body-position
+  Definition = SNOMED CT code system values descending from the following:\'body position finding\' 9851009
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = !QICoreObservationPrecondition
+  Binding = value set
+  Reference = valueset-observation-precondition
+  Definition = Code indicating condition, state, or problem that the patient is in or has prior to a therapy or procedure.
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = QICoreObservationVerificationMethod
+  Binding = value set
+  Reference = valueset-observation-verification
+  Definition = Code for method by which the observation result was validated, e.g., human review, sliding average.
+  Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = QICoreObservationName
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/uslab-obs-codes
+  Definition = LOINC codes
+  Conformance = preferred
+
+ -- Row 6 -----------------------------------
+  Binding Name = QICoreObservationCodedResult
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/uslab-obs-codedresults
+  Definition = SNOMED CT for coded results
+  Conformance = preferred
+
+ -- Row 7 -----------------------------------
+  Binding Name = !QICorePrecoordinatedBodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/qicore-bodysite-precoordinated
+  Definition = Precoordinated body sites such as \'left ear\'
+  Conformance = preferred
+
+=== Sheet QICore-Observation =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = QICore-Observation
+  Aliases = Vital Signs, Measurement, Results, Tests
+  Type = Resource
+  QDM Mapping = \"Patient Characteristic\" or \"Laboratory Test, Performed\" or \"Physical Exam, Performed\"
+
+ -- Row 2 -----------------------------------
+  Element = Observation.extension
+  Profile Name = bodyPosition
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-bodyPosition}
+  Binding = QICoreObservationBodyPosition
+  QIDAM Mapping = Not in QIDAM, but recognized as important to intrepreting many observations for the purposes of CDS.
+
+ -- Row 3 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = delta
+  Card. = 0..1
+  Aliases = Delta Flag, Trend
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-delta}
+  Binding = QICoreObservationDelta
+
+ -- Row 4 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = associatedPrecondition
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-associatedPrecondition}
+  Binding = QICoreObservationPrecondition
+
+ -- Row 5 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = associatedOrder
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-associatedOrder}
+
+ -- Row 6 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = validationMethod
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-validationMethod}
+  Binding = QICoreObservationVerificationMethod
+
+ -- Row 7 -----------------------------------
+  Element = !Observation.extension
+  Profile Name = reason
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-reason}
+
+ -- Row 8 -----------------------------------
+  Element = Observation.bodySite
+  Must Support = Y
+  Type = CodeableConcept
+
+ -- Row 9 -----------------------------------
+  Element = Observation.code
+  Must Support = Y
+  Binding = QICoreObservationName
+  QDM Mapping = primary code
+
+ -- Row 10 -----------------------------------
+  Element = Observation.value[x]
+  Must Support = Y
+  Binding = QICoreObservationCodedResult
+  QDM Mapping = result
+
+ -- Row 11 -----------------------------------
+  Element = Observation.interpretation
+  Must Support = Y
+  QDM Mapping = result
+
+ -- Row 12 -----------------------------------
+  Element = Observation.effective[x]
+  Must Support = Y
+  QDM Mapping = start datetime, stop datetime
+
+ -- Row 13 -----------------------------------
+  Element = Observation.issued
+  Must Support = Y
+
+ -- Row 14 -----------------------------------
+  Element = Observation.status
+  Must Support = Y
+  QDM Mapping = status
+
+ -- Row 15 -----------------------------------
+  Element = !Observation.reliability
+  Must Support = Y
+
+ -- Row 16 -----------------------------------
+  Element = Observation.method
+  Must Support = Y
+  QDM Mapping = method
+
+ -- Row 17 -----------------------------------
+  Element = Observation.subject
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Group) | Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device} | Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+
+ -- Row 18 -----------------------------------
+  Element = Observation.specimen
+  Must Support = Y
+  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/qicore-specimen}
+
+ -- Row 19 -----------------------------------
+  Element = Observation.performer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
+
+ -- Row 20 -----------------------------------
+  Element = Observation.device
+  Type = Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device} | Reference(DeviceMetric)
+
+ -- Row 21 -----------------------------------
+  Element = Observation.encounter
+  Must Support = Y
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+
+ -- Row 22 -----------------------------------
+  Element = Observation.related
+  Must Support = Y
+
+ -- Row 23 -----------------------------------
+  Element = Observation.related.target
+  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation} | Reference(QuestionnaireResponse)
+
+ -- Row 24 -----------------------------------
+  Element = Observation.dataAbsentReason
+  QDM Mapping = negation rationale
+
+=== Sheet Search =====================================

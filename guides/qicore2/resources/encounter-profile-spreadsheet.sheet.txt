@@ -1,0 +1,219 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICoreEncounterReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-encounter-reason
+  Definition = Encounter Reason Value Set to describe reason for encounter
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = QICoreEncounterConditionRole
+  Binding = value set
+  Reference = valueset-encounter-condition-role
+  Definition = The role of the condition within this encounter
+  Description = The role of the condition within this encounter
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = QICoreEncounterType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-encounter-type
+  Definition = Encounter Type Value set to describe the type of encounter
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = !QICoreEncounterDiet
+  Binding = value set
+  Reference = valueset-encounter-diet
+  Definition = The dietary preferences for the patient in the encounter
+  Description = The dietary preferences for the patient in the encounter
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = QICorePriority
+  Binding = value set
+  Reference = valueset-priority
+  Definition = The priority of the encounter (e.g., Urgent, Normal, etc.)
+  Description = The priority of the encounter (e.g., Urgent, Normal, etc.)
+  Conformance = preferred
+
+ -- Row 6 -----------------------------------
+  Binding Name = QICoreCancelReason
+  Binding = value set
+  Reference = valueset-encounter-canceled-reason
+  Conformance = example
+
+=== Sheet QICore-Encounter =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Encounter
+  Profile Name = QICore-Encounter
+  Type = Resource
+  QDM Mapping = Encounter, Active or Performed
+
+ -- Row 2 -----------------------------------
+  Element = !Encounter.extension
+  Profile Name = Encounter.primaryCondition
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/encounter-primaryCondition}
+
+ -- Row 3 -----------------------------------
+  Element = !Encounter.extension.valueReference
+  Profile Name = Encounter.primaryCondition.valueReference
+  Type = Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition}
+
+ -- Row 4 -----------------------------------
+  Element = Encounter.extension
+  Profile Name = Encounter.relatedCondition
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/encounter-relatedCondition}
+  QDM Mapping = Encounter.RelatedCondition comes indirectly from Diagnosis, Active: Ordinality in QDM. However, ordinality should be in the context of an encounter, which is why we added it to Encounter. Instead of ordinality, we added conditionRole, which is more expressive, and can take values such as primary, secondary, dischange, admission.
+
+ -- Row 5 -----------------------------------
+  Element = Encounter.extension.extension
+  Profile Name = Encounter.relatedCondition.condition
+  Card. = 1..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/encounter-relatedCondition#condition}
+
+ -- Row 6 -----------------------------------
+  Element = Encounter.extension.extension.valueReference
+  Profile Name = Encounter.relatedCondition.condition.valueReference
+  Card. = 1..1
+  Type = Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition}
+
+ -- Row 7 -----------------------------------
+  Element = Encounter.extension.extension
+  Profile Name = Encounter.relatedCondition.role
+  Card. = 1..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/encounter-relatedCondition#role}
+  Binding = QICoreEncounterConditionRole
+
+ -- Row 8 -----------------------------------
+  Element = Encounter.hospitalization
+
+ -- Row 9 -----------------------------------
+  Element = !Encounter.hospitalization.extension
+  Profile Name = Encounter.hospitalization.admission
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/encounter-admission}
+  QDM Mapping = admission datetime
+
+ -- Row 10 -----------------------------------
+  Element = !Encounter.hospitalization.extension
+  Profile Name = Encounter.hospitalization.discharge
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/encounter-discharge}
+  QDM Mapping = discharge datetime
+
+ -- Row 11 -----------------------------------
+  Element = Encounter.extension
+  Profile Name = Encounter.reasonCancelled
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/encounter-reasonCancelled}
+  Binding = QICoreCancelReason
+  QDM Mapping = negation rationale
+
+ -- Row 12 -----------------------------------
+  Element = Encounter.status
+  Must Support = Y
+
+ -- Row 13 -----------------------------------
+  Element = Encounter.class
+  Must Support = Y
+
+ -- Row 14 -----------------------------------
+  Element = Encounter.type
+  Must Support = Y
+  Binding = QICoreEncounterType
+  QDM Mapping = primary code
+
+ -- Row 15 -----------------------------------
+  Element = Encounter.patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 16 -----------------------------------
+  Element = Encounter.incomingReferral
+  Type = Reference(ReferralRequest){http://hl7.org/fhir/StructureDefinition/qicore-referralrequest}
+
+ -- Row 17 -----------------------------------
+  Element = Encounter.participant
+
+ -- Row 18 -----------------------------------
+  Element = Encounter.participant.individual
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
+
+ -- Row 19 -----------------------------------
+  Element = !Encounter.appointment
+
+ -- Row 20 -----------------------------------
+  Element = Encounter.length
+  Must Support = Y
+  QDM Mapping = length of stay
+
+ -- Row 21 -----------------------------------
+  Element = Encounter.period
+  Must Support = Y
+
+ -- Row 22 -----------------------------------
+  Element = Encounter.reason
+  Must Support = Y
+  Binding = QICoreEncounterReason
+  QDM Mapping = reason
+
+ -- Row 23 -----------------------------------
+  Element = Encounter.priority
+  Binding = QICorePriority
+
+ -- Row 24 -----------------------------------
+  Element = Encounter.hospitalization.origin
+  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+
+ -- Row 25 -----------------------------------
+  Element = Encounter.hospitalization.admitSource
+  Must Support = Y
+
+ -- Row 26 -----------------------------------
+  Element = !Encounter.hospitalization.dietPreference
+  Binding = !QICoreEncounterDiet
+
+ -- Row 27 -----------------------------------
+  Element = Encounter.hospitalization.destination
+  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+
+ -- Row 28 -----------------------------------
+  Element = Encounter.hospitalization.dischargeDisposition
+  Must Support = Y
+  QDM Mapping = discharge status
+
+ -- Row 29 -----------------------------------
+  Element = Encounter.hospitalization.dischargeDiagnosis
+  Must Support = Y
+
+ -- Row 30 -----------------------------------
+  Element = Encounter.hospitalization.reAdmission
+  Must Support = Y
+
+ -- Row 31 -----------------------------------
+  Element = Encounter.location
+
+ -- Row 32 -----------------------------------
+  Element = Encounter.location.location
+  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+
+ -- Row 33 -----------------------------------
+  Element = Encounter.location.period
+  QDM Mapping = start datetime, stop datetime
+
+ -- Row 34 -----------------------------------
+  Element = Encounter.serviceProvider
+  Must Support = Y
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+
+ -- Row 35 -----------------------------------
+  Element = Encounter.partOf
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+
+=== Sheet Search =====================================

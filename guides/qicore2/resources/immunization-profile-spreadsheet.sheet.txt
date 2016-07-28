@@ -1,0 +1,117 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICoreVaccineCodeCVX
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-cvx
+  Definition = This identifies the CVX code system
+  Description = This value set binds to the CDC  Vaccines administered (CVX) 2.16.840.1.113883.12.292 code system.
+  Conformance = preferred
+  Oid = 2.16.840.1.113883.3.88.12.80.22
+
+ -- Row 2 -----------------------------------
+  Binding Name = DAFBodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-bodysite
+  Definition = This identifies the body site at which the substance was administered
+  Conformance = preferred
+  Oid = 2.16.840.1.113883.3.88.12.3221.8.9
+
+=== Sheet QICore-Immunization =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Immunization
+  Profile Name = QICore-Immunization
+  Type = Resource
+  QDM Mapping = Medication, administered
+
+ -- Row 2 -----------------------------------
+  Element = Immunization.status
+  Must Support = Y
+  QDM Mapping = start datetime
+
+ -- Row 3 -----------------------------------
+  Element = Immunization.date
+  Must Support = Y
+
+ -- Row 4 -----------------------------------
+  Element = Immunization.vaccineCode
+  Must Support = Y
+  Binding = QICoreVaccineCodeCVX
+  QDM Mapping = primary code
+
+ -- Row 5 -----------------------------------
+  Element = Immunization.patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 6 -----------------------------------
+  Element = Immunization.wasNotGiven
+  Must Support = Y
+  QDM Mapping = negation rationale
+
+ -- Row 7 -----------------------------------
+  Element = Immunization.performer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+
+ -- Row 8 -----------------------------------
+  Element = Immunization.requester
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+
+ -- Row 9 -----------------------------------
+  Element = Immunization.encounter
+  Must Support = Y
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+
+ -- Row 10 -----------------------------------
+  Element = Immunization.manufacturer
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+
+ -- Row 11 -----------------------------------
+  Element = Immunization.location
+  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+
+ -- Row 12 -----------------------------------
+  Element = Immunization.explanation
+
+ -- Row 13 -----------------------------------
+  Element = Immunization.explanation.reason
+  Must Support = Y
+  QDM Mapping = reason
+
+ -- Row 14 -----------------------------------
+  Element = Immunization.explanation.reasonNotGiven
+  Must Support = Y
+  QDM Mapping = negation rationale
+
+ -- Row 15 -----------------------------------
+  Element = Immunization.reaction
+
+ -- Row 16 -----------------------------------
+  Element = Immunization.reaction.detail
+  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation}
+
+ -- Row 17 -----------------------------------
+  Element = Immunization.vaccinationProtocol
+  QDM Mapping = frequency
+
+ -- Row 18 -----------------------------------
+  Element = Immunization.vaccinationProtocol.authority
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+
+ -- Row 19 -----------------------------------
+  Element = Immunization.doseQuantity
+  Must Support = Y
+  QDM Mapping = dose
+
+ -- Row 20 -----------------------------------
+  Element = Immunization.site
+  Binding = DAFBodySite
+
+ -- Row 21 -----------------------------------
+  Element = Immunization.route
+  Must Support = Y
+  QDM Mapping = route
+
+=== Sheet Search =====================================

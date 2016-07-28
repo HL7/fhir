@@ -1,0 +1,109 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICoreMedicationCodes
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-medication-codes
+  Definition = The set of RxNorm codes to represent medications
+  Conformance = preferred
+
+=== Sheet QICore-MedicationAdministration =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicationAdministration
+  Profile Name = QICore-MedicationAdministration
+  Type = Resource
+  QDM Mapping = Medication, Administered
+
+ -- Row 2 -----------------------------------
+  Element = MedicationAdministration.dosage
+
+ -- Row 3 -----------------------------------
+  Element = !MedicationAdministration.dosage.extension
+  Profile Name = MedicationAdministration.dosage.approachBodySite
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-approachBodySite}
+
+ -- Row 4 -----------------------------------
+  Element = !MedicationAdministration.dosage.extension
+  Profile Name = MedicationAdministration.dosage.targetBodySite
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-targetBodySite}
+
+ -- Row 5 -----------------------------------
+  Element = !MedicationAdministration.dosage.extension
+  Profile Name = MedicationAdministration.infuseOver
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-infuseOver}
+
+ -- Row 6 -----------------------------------
+  Element = !MedicationAdministration.dosage.extension
+  Profile Name = MedicationAdministration.attestationType
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/medicationadministration-attestationType}
+
+ -- Row 7 -----------------------------------
+  Element = MedicationAdministration.status
+  Must Support = Y
+
+ -- Row 8 -----------------------------------
+  Element = MedicationAdministration.patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 9 -----------------------------------
+  Element = MedicationAdministration.performer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
+
+ -- Row 10 -----------------------------------
+  Element = MedicationAdministration.encounter
+  Must Support = Y
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+
+ -- Row 11 -----------------------------------
+  Element = MedicationAdministration.prescription
+  Type = Reference(MedicationOrder){http://hl7.org/fhir/StructureDefinition/qicore-medicationorder}
+
+ -- Row 12 -----------------------------------
+  Element = MedicationAdministration.wasNotGiven
+  Must Support = Y
+  QDM Mapping = negation rationale
+
+ -- Row 13 -----------------------------------
+  Element = MedicationAdministration.reasonNotGiven
+  Must Support = Y
+  QDM Mapping = negation rationale
+
+ -- Row 14 -----------------------------------
+  Element = MedicationAdministration.effectiveTime[x]
+  Must Support = Y
+  QDM Mapping = start and stop datetime
+
+ -- Row 15 -----------------------------------
+  Element = MedicationAdministration.medication[x]
+  Must Support = Y
+  Type = CodeableConcept | Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
+  Binding = QICoreMedicationCodes
+  QDM Mapping = primary code
+
+ -- Row 16 -----------------------------------
+  Element = MedicationAdministration.device
+  Type = Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device}
+
+ -- Row 17 -----------------------------------
+  Element = MedicationAdministration.dosage.route
+  Must Support = Y
+  QDM Mapping = route
+
+ -- Row 18 -----------------------------------
+  Element = MedicationAdministration.dosage.dose
+  Must Support = Y
+  QDM Mapping = dose
+
+ -- Row 19 -----------------------------------
+  Element = MedicationAdministration.reasonGiven
+  Must Support = Y
+  QDM Mapping = reason
+
+=== Sheet Search =====================================

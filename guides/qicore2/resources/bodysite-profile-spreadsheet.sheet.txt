@@ -1,0 +1,41 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = !QICorePrecoordinatedBodySite
+  Binding = value set
+  Reference = valueset-bodysite-precoordinated
+  Definition = Precoordinated body sites such as \'left ear\'
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = !QICoreBodySiteModifier
+  Binding = value set
+  Reference = valueset-bodysite-relative-location
+  Definition = Concepts modifying the anatomic location
+  Conformance = preferred
+
+=== Sheet QICore-BodySite-Inv =====================================
+
+=== Sheet QICore-BodySite =====================================
+
+ -- Row 1 -----------------------------------
+  Element = BodySite
+  Profile Name = QICore-BodySite
+  Type = Resource
+  QDM Mapping = Device.anatomical location site or Device.anatomical approach site or Procedure.anatomical approach site or Procedure.approach site
+
+ -- Row 2 -----------------------------------
+  Element = BodySite.patient
+  Must Support = Y
+
+ -- Row 3 -----------------------------------
+  Element = BodySite.code
+  Must Support = Y
+
+ -- Row 4 -----------------------------------
+  Element = BodySite.modifier
+  Must Support = Y
+  Binding = !QICoreBodySiteModifier
+
+=== Sheet Search =====================================

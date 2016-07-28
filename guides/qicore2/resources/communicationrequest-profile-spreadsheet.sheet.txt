@@ -1,0 +1,95 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICoreCommunicationReasonRejected
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/qicore-communication-reason-not-performed
+  Definition = Reason communication request was not performed
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = QICoreCommunicationMedium
+  Binding = value set
+  Reference = valueset-communication-medium
+  Definition = The type of channel used for the communication, for example, telephone, fax, email.
+  Conformance = example
+
+=== Sheet QICore-CommunicationRequest =====================================
+
+ -- Row 1 -----------------------------------
+  Element = CommunicationRequest
+  Profile Name = QICore-CommunicationRequest
+  Type = Resource
+  QDM Mapping = \"Intervention, Order\" (when Communication.status=\"requested\"); \"Intervention, Recommended\" (when Communication.status=\"proposed\")
+
+ -- Row 2 -----------------------------------
+  Element = !CommunicationRequest.extension
+  Profile Name = CommunicationRequest.orderedBy
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/communicationrequest-orderedBy}
+
+ -- Row 3 -----------------------------------
+  Element = !CommunicationRequest.extension
+  Profile Name = CommunicationRequest.authorizedBy
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/communicationrequest-authorizedBy}
+
+ -- Row 4 -----------------------------------
+  Element = CommunicationRequest.extension
+  Profile Name = CommunicationRequest.reasonRejected
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/communicationrequest-reasonRejected}
+  Binding = QICoreCommunicationReasonRejected
+  QDM Mapping = negation rationale (when CommunicationRequest.status is rejected or failed)
+
+ -- Row 5 -----------------------------------
+  Element = CommunicationRequest.category
+  Must Support = Y
+  QDM Mapping = primary code
+
+ -- Row 6 -----------------------------------
+  Element = CommunicationRequest.sender
+  Must Support = Y
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} |  Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} |Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+
+ -- Row 7 -----------------------------------
+  Element = CommunicationRequest.recipient
+  Must Support = Y
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} |  Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} |Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+
+ -- Row 8 -----------------------------------
+  Element = CommunicationRequest.medium
+  Binding = QICoreCommunicationMedium
+
+ -- Row 9 -----------------------------------
+  Element = CommunicationRequest.requester
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} |Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} |Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
+
+ -- Row 10 -----------------------------------
+  Element = CommunicationRequest.status
+  Must Support = Y
+  QDM Mapping = negation rationale (when CommunicationRequest.status is rejected or failed)
+
+ -- Row 11 -----------------------------------
+  Element = CommunicationRequest.encounter
+  Must Support = Y
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+
+ -- Row 12 -----------------------------------
+  Element = CommunicationRequest.requestedOn
+  Must Support = Y
+  QDM Mapping = start datetime, stop datetime
+
+ -- Row 13 -----------------------------------
+  Element = CommunicationRequest.subject
+  Must Support = Y
+
+ -- Row 14 -----------------------------------
+  Element = CommunicationRequest.reason
+  QDM Mapping = reason
+
+ -- Row 15 -----------------------------------
+  Element = CommunicationRequest.scheduled[x]
+  QDM Mapping = start datetime, stop datetime
+
+=== Sheet Search =====================================

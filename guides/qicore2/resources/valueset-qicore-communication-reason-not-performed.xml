@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="qicore-communication-reason-not-performed"/>
+  <url value="http://hl7.org/fhir/qicore/ValueSet/qicore-communication-reason-not-performed"/>
+  <name value="Communication reason not performed codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+    </telecom>
+  </contact>
+  <description value="Reason communication was not performed. A set of codes specifying the motivation, cause, or rationale of not performing a communication such as being rejected or refused. This value set is provided as a suggestive example."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
+  <compose>
+    <include>  
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <!-- Not to be done (e.g. Not needed, refused, rejected, etc.) -->
+        <value value="410521004"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="qicore-condition-criticality"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://hl7.org/fhir/qicore/ValueSet/qicore-condition-criticality"/>
+  <name value="QICore Condition Criticality Codes"/>
+  <status value="draft"/>
+  <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+    </telecom>
+  </contact>
+  <description value="Value Set for QICore Condition Criticality (Example)"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/qicore-condition-criticality"/>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/qicore-observation-verification-method"/>
+  <name value="QICore Observation Verification Method"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Code for method by which the observation result was validated, e.g., human review, sliding average."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="1"/>
+    <display value="Human review"/>
+    <definition value="The observation was reviewed and verified by a person"/>
+  </concept>
+  <concept>
+    <code value="2"/>
+    <display value="Sliding average"/>
+    <definition value="The observation was verified against a sliding average"/>
+  </concept>
+</CodeSystem>

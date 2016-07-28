@@ -1,0 +1,97 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = !QICoreGoalCategory
+  Binding = value set
+  Reference = valueset-goal-category
+  Definition = SHOULD contain a code from SNOMED CT
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = QICoreReasonRejected
+  Binding = value set
+  Reference = valueset-goal-reason-rejected
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = QICoreObservationName
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/uslab-obs-codes
+  Definition = LOINC codes
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = QICoreObservationCodedResult
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/uslab-obs-codedresults
+  Definition = SNOMED CT for coded results
+  Conformance = preferred
+
+=== Sheet QICore-Goal =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Goal
+  Profile Name = QICore-Goal
+  Type = Resource
+  QDM Mapping = Care Goal
+
+ -- Row 2 -----------------------------------
+  Element = Goal.extension
+  Profile Name = Goal.target
+  Card. = 0..*
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/goal-target}
+  QDM Mapping = target outcome
+
+ -- Row 3 -----------------------------------
+  Element = Goal.extension.extension
+  Profile Name = Goal.target.measure
+  Card. = 1..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/goal-target#measure}
+  Binding = QICoreObservationName
+
+ -- Row 4 -----------------------------------
+  Element = Goal.extension.extension
+  Profile Name = Goal.target.detail
+  Card. = 1..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/goal-target#detail}
+  Binding = QICoreObservationCodedResult
+
+ -- Row 5 -----------------------------------
+  Element = Goal.extension
+  Profile Name = Goal.reasonRejected
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/goal-reasonRejected}
+  Binding = QICoreReasonRejected
+  QDM Mapping = negation rationale
+
+ -- Row 6 -----------------------------------
+  Element = Goal.targetDate
+  Must Support = Y
+
+ -- Row 7 -----------------------------------
+  Element = Goal.category
+  Must Support = Y
+  QDM Mapping = primary code
+
+ -- Row 8 -----------------------------------
+  Element = Goal.subject
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Group) | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+
+ -- Row 9 -----------------------------------
+  Element = Goal.status
+  Must Support = Y
+
+ -- Row 10 -----------------------------------
+  Element = Goal.statusDate
+  Must Support = Y
+
+ -- Row 11 -----------------------------------
+  Element = Goal.addresses
+  Must Support = Y
+  Type = Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition}| Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation}| Reference(MedicationStatement){http://hl7.org/fhir/StructureDefinition/qicore-medicationstatement}| Reference(NutritionOrder)| Reference(ProcedureRequest){http://hl7.org/fhir/StructureDefinition/qicore-procedurerequest}| Reference(RiskAssessment)
+  QDM Mapping = related to
+
+=== Sheet Search =====================================

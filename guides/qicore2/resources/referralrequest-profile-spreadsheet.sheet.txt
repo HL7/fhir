@@ -1,0 +1,100 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICoreRefusalReason
+  Binding = value set
+  Reference = valueset-referralrequest-reason-rejected
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = !QICorePractitionerSpecialty
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/practitioner-specialty
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = QICorePriority
+  Binding = value set
+  Reference = valueset-priority
+  Definition = The priority of the referral (e.g., Urgent, Normal, etc.)
+  Description = The priority of the referral (e.g., Urgent, Normal, etc.)
+  Conformance = preferred
+
+=== Sheet QICore-ReferralRequest =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ReferralRequest
+  Profile Name = QICore-ReferralRequest
+  Type = Resource
+  QDM Mapping = \"Encounter, Order\"; \"Encounter, Recommended\"
+
+ -- Row 2 -----------------------------------
+  Element = ReferralRequest.extension
+  Profile Name = ReferralRequest.refusalReason
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/referralrequest-reasonRefused}
+  Binding = QICoreRefusalReason
+  QDM Mapping = negation rationale (when ReferralRequest.status=\"refused\")
+
+ -- Row 3 -----------------------------------
+  Element = ReferralRequest.status
+  Must Support = Y
+
+ -- Row 4 -----------------------------------
+  Element = ReferralRequest.type
+  Must Support = Y
+  QDM Mapping = primary code
+
+ -- Row 5 -----------------------------------
+  Element = ReferralRequest.specialty
+  Must Support = Y
+  Binding = !QICorePractitionerSpecialty
+  QDM Mapping = primary code
+
+ -- Row 6 -----------------------------------
+  Element = ReferralRequest.priority
+  Must Support = Y
+  Binding = QICorePriority
+
+ -- Row 7 -----------------------------------
+  Element = ReferralRequest.patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 8 -----------------------------------
+  Element = ReferralRequest.requester
+  Must Support = Y
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 9 -----------------------------------
+  Element = ReferralRequest.recipient
+  Must Support = Y
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+  QDM Mapping = facility location
+
+ -- Row 10 -----------------------------------
+  Element = ReferralRequest.encounter
+  Must Support = Y
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+
+ -- Row 11 -----------------------------------
+  Element = ReferralRequest.dateSent
+  Must Support = Y
+  QDM Mapping = start datetime
+
+ -- Row 12 -----------------------------------
+  Element = ReferralRequest.reason
+  Must Support = Y
+  QDM Mapping = reason
+
+ -- Row 13 -----------------------------------
+  Element = ReferralRequest.serviceRequested
+  Must Support = Y
+  QDM Mapping = primary code
+
+ -- Row 14 -----------------------------------
+  Element = ReferralRequest.fulfillmentTime
+  Must Support = Y
+
+=== Sheet Search =====================================

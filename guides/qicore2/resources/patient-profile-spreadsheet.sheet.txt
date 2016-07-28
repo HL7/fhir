@@ -1,0 +1,402 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICorePatientImportance
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-PatientImportance
+  Definition = Importance of the patient in order to inform record handling
+  Description = The importance of the patient
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = QICorePatientVerification
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-VerificationMethod
+  Definition = Verification method used to validate data field
+  Description = The verification method to attest for the value of the attached field
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = QICoreRace
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-race
+  Definition = Race of the patient
+  Description = The race of the patient
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = QICoreEthnicity
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-ethnicity
+  Definition = Ethnicity of the patient
+  Description = The ethnicity of the patient
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = !QICoreMaritalStatus
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-MaritalStatus
+  Definition = Marital status of the patient
+  Description = The marital status of the patient
+  Conformance = required
+
+ -- Row 6 -----------------------------------
+  Binding Name = QICoreAddressState
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/usps-state
+  Definition = The state or region designation in an address
+  Description = The state or region designation in an address
+  Conformance = preferred
+
+ -- Row 7 -----------------------------------
+  Binding Name = !QICoreAddressCountry
+  Binding = reference
+  Reference = http://www.iso.org/iso/country_codes.htm
+  Definition = ISO 3166 Country Codes
+  Conformance = preferred
+
+ -- Row 8 -----------------------------------
+  Binding Name = !QICorePatientContactRelationship
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v2-0131
+  Definition = The relationship of the patient to the patient contact
+  Description = The relationship of the patient to the patient contact
+  Conformance = required
+
+ -- Row 9 -----------------------------------
+  Binding Name = QICorePatientMilitaryService
+  Binding = value set
+  Reference = valueset-patient-military-service
+  Definition = The military service of the patient
+  Description = The military service and veteran status of the patient
+  Conformance = example
+
+ -- Row 10 -----------------------------------
+  Binding Name = QICorePatientDisability
+  Binding = value set
+  Reference = valueset-patient-disability
+  Definition = The disabilities of the patient
+  Description = Codes representing the functioning and disability of the patient
+  Conformance = preferred
+
+ -- Row 11 -----------------------------------
+  Binding Name = QICoreProblemCode
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-problem
+  Definition = The code for the condition
+  Description = Value set for encoding a condition (problem)
+  Conformance = preferred
+
+ -- Row 12 -----------------------------------
+  Binding Name = DAFReligion
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation
+  Definition = Religious affiliation of the patient.
+  Description = Religious affiliation of the patient.
+  Conformance = extensible
+  Uri = http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation
+  Oid = 2.16.840.1.113883.5.1076
+
+=== Sheet QICore-Patient =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Patient
+  Profile Name = patient-qicore
+  Type = Resource
+  QDM Mapping = Patient Characteristic
+
+ -- Row 2 -----------------------------------
+  Element = Patient.extension
+  Profile Name = race
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-race}
+  Binding = QICoreRace
+  QDM Mapping = Race
+
+ -- Row 3 -----------------------------------
+  Element = Patient.extension
+  Profile Name = ethnicity
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-ethnicity}
+  Binding = QICoreEthnicity
+  QDM Mapping = Ethnicity
+
+ -- Row 4 -----------------------------------
+  Element = Patient.extension
+  Profile Name = religion
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-religion}
+  Binding = DAFReligion
+  QIDAM Mapping = From DAF
+
+ -- Row 5 -----------------------------------
+  Element = !Patient.extension
+  Profile Name = mothersMaidenName
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName}
+
+ -- Row 6 -----------------------------------
+  Element = Patient.extension
+  Profile Name = birthPlace
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/birthPlace}
+  QIDAM Mapping = From DAF
+
+ -- Row 7 -----------------------------------
+  Element = Patient.extension
+  Profile Name = disability
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-disability}
+  Binding = QICorePatientDisability
+
+ -- Row 8 -----------------------------------
+  Element = !Patient.extension
+  Profile Name = importance
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-importance}
+  Binding = QICorePatientImportance
+  Comments = Do as standard extension on Patient?
+
+ -- Row 9 -----------------------------------
+  Element = Patient.extension
+  Profile Name = nationality
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-nationality}
+  QIDAM Mapping = Not QIDAM, but recognized as important for infectious disease decision support (e.g., flag patient from Liberia for ebola screening)
+
+ -- Row 10 -----------------------------------
+  Element = Patient.extension.extension
+  Profile Name = nationality.code
+  Card. = 1..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-nationality#code}
+  Binding = USCountry
+  QIDAM Mapping = (see nationality)
+
+ -- Row 11 -----------------------------------
+  Element = Patient.extension.extension
+  Profile Name = nationality.period
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-nationality#period}
+  QIDAM Mapping = (see nationality)
+
+ -- Row 12 -----------------------------------
+  Element = !Patient.extension
+  Profile Name = citizenship
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-citizenship}
+
+ -- Row 13 -----------------------------------
+  Element = !Patient.extension.extension
+  Profile Name = citizenship.code
+  Card. = 1..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-citizenship#code}
+  Binding = USCountry
+
+ -- Row 14 -----------------------------------
+  Element = !Patient.extension.extension
+  Profile Name = citizenship.period
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-citizenship#period}
+
+ -- Row 15 -----------------------------------
+  Element = Patient.extension
+  Profile Name = cadavericDonor
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-cadavericDonor}
+  Comments = Do as standard extension on Patient?
+  QIDAM Mapping = Not in QIDAM, but recognized as important for CDS; e.g. a CDS system could flag the provider to initiate organ transplantation procedures.
+
+ -- Row 16 -----------------------------------
+  Element = !Patient.extension
+  Profile Name = !congregation
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-congregation}
+  Comments = Do as standard extension on Patient?
+
+ -- Row 17 -----------------------------------
+  Element = Patient.extension
+  Profile Name = militaryService
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/qicore-patient-militaryService}
+  Binding = QICorePatientMilitaryService
+  QIDAM Mapping = Not in QIDAM, but recognized as important, e.g., veterans may be at increased risk for conditions such as traumatic brain injury, agent orange exposure.
+
+ -- Row 18 -----------------------------------
+  Element = !Patient.extension
+  Profile Name = !adoptionInfo
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-adoptionInfo}
+
+ -- Row 19 -----------------------------------
+  Element = !Patient.extension
+  Profile Name = causeOfDeath
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-causeOfDeath}
+
+ -- Row 20 -----------------------------------
+  Element = Patient.extension
+  Profile Name = clinicalTrial
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial}
+  QDM Mapping = Clinical Trial Participant
+
+ -- Row 21 -----------------------------------
+  Element = Patient.extension.extension
+  Profile Name = NCT
+  Card. = 1..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial#NCT}
+  QDM Mapping = primary code
+
+ -- Row 22 -----------------------------------
+  Element = Patient.extension.extension
+  Profile Name = period
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial#period}
+  QDM Mapping = start and stop datetime
+
+ -- Row 23 -----------------------------------
+  Element = Patient.extension.extension
+  Profile Name = reason
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial#reason}
+  Binding = QICoreProblemCode
+  QDM Mapping = reason
+
+ -- Row 24 -----------------------------------
+  Element = Patient.telecom
+  Card. = !0..*
+
+ -- Row 25 -----------------------------------
+  Element = Patient.telecom.extension
+  Profile Name = telecom.preferred
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/iso21090-preferred}
+  QIDAM Mapping = Not in QIDAM, but CDS could need this for notifications in population health contexts, for example.
+
+ -- Row 26 -----------------------------------
+  Element = !Patient.telecom.use
+  Card. = 0..1
+  Type = !code
+  Binding = DAFTelecomUse
+
+ -- Row 27 -----------------------------------
+  Element = Patient.gender
+  Card. = !0..1
+  Must Support = Y
+  Type = !code
+  QDM Mapping = Sex
+
+ -- Row 28 -----------------------------------
+  Element = Patient.birthDate
+  Card. = !0..1
+  Must Support = Y
+  QDM Mapping = Birth Date
+
+ -- Row 29 -----------------------------------
+  Element = !Patient.birthDate.extension
+  Profile Name = birthDate.verification
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/iso21090-verification}
+  Binding = QICorePatientVerification
+  Comments = Make general extension
+
+ -- Row 30 -----------------------------------
+  Element = Patient.address
+  Card. = !0..*
+  Must Support = Y
+
+ -- Row 31 -----------------------------------
+  Element = Patient.address.extension
+  Profile Name = address.preferred
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/iso21090-preferred}
+  Comments = Make general extension
+  QIDAM Mapping = Not in QIDAM, but CDS could need this for notifications in population health contexts, for example.
+
+ -- Row 32 -----------------------------------
+  Element = Patient.address.state
+  Binding = QICoreAddressState
+
+ -- Row 33 -----------------------------------
+  Element = Patient.address.country
+  Binding = USCountry
+
+ -- Row 34 -----------------------------------
+  Element = Patient.communication
+  Card. = !0..*
+  Must Support = Y
+
+ -- Row 35 -----------------------------------
+  Element = !Patient.communication.extension
+  Profile Name = communication.mode
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-communicationMode}
+  Comments = HL7 Comm. Mode. TBD
+
+ -- Row 36 -----------------------------------
+  Element = Patient.animal
+  Card. = 0..0
+  Type = !=Animal
+
+ -- Row 37 -----------------------------------
+  Element = !Patient.maritalStatus
+  Binding = !QICoreMaritalStatus
+
+ -- Row 38 -----------------------------------
+  Element = Patient.contact
+
+ -- Row 39 -----------------------------------
+  Element = Patient.contact.address
+
+ -- Row 40 -----------------------------------
+  Element = Patient.contact.address.state
+  Binding = QICoreAddressState
+
+ -- Row 41 -----------------------------------
+  Element = Patient.contact.address.country
+  Binding = USCountry
+
+ -- Row 42 -----------------------------------
+  Element = !Patient.contact.relationship
+  Card. = !0..*
+  Type = !CodeableConcept
+  Binding = !QICorePatientContactRelationship
+
+ -- Row 43 -----------------------------------
+  Element = Patient.contact.organization
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+
+ -- Row 44 -----------------------------------
+  Element = Patient.extension
+  Profile Name = birthTime
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-birthTime}
+  QDM Mapping = Birth Date
+
+ -- Row 45 -----------------------------------
+  Element = Patient.deceased[x]
+  Must Support = Y
+  QDM Mapping = Expired
+
+ -- Row 46 -----------------------------------
+  Element = Patient.generalPractitioner
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+
+ -- Row 47 -----------------------------------
+  Element = Patient.managingOrganization
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+
+ -- Row 48 -----------------------------------
+  Element = Patient.link
+
+ -- Row 49 -----------------------------------
+  Element = Patient.link.other
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 50 -----------------------------------
+  Element = Patient.active
+  Must Support = Y

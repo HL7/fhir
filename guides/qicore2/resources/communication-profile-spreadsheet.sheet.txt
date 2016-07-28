@@ -1,0 +1,87 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICoreCommunicationMedium
+  Binding = value set
+  Reference = valueset-communication-medium
+  Definition = The type of channel used for the communication, for example, telephone, fax, email.
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = QICoreCommunicationReasonNotPerformed
+  Binding = value set
+  Reference = valueset-communication-reason-not-performed
+  Definition = Reason communication was not performed
+  Conformance = example
+
+=== Sheet QICore-Communication =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Communication
+  Profile Name = QICore-Communication
+  Type = Resource
+  QDM Mapping = \"Communication: From Patient to Provider\" and \"Communication: From Provider to Patient\" and \"Communication: From Provider to Provider\"; \"Intervention, Performed\" (when Communication.status=\"completed\")
+
+ -- Row 2 -----------------------------------
+  Element = Communication.extension
+  Profile Name = Communication.reasonNotPerformed
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/communication-reasonNotPerformed}
+  Binding = QICoreCommunicationReasonNotPerformed
+  QDM Mapping = negation rationale (when Communication.status=\"rejected\")
+
+ -- Row 3 -----------------------------------
+  Element = !Communication.extension
+  Profile Name = Communication.result
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/communication-result}
+
+ -- Row 4 -----------------------------------
+  Element = Communication.category
+  Must Support = Y
+  QDM Mapping = primary code
+
+ -- Row 5 -----------------------------------
+  Element = Communication.sender
+  Must Support = Y
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} |  Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+
+ -- Row 6 -----------------------------------
+  Element = Communication.recipient
+  Must Support = Y
+  Type = Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} |  Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson} | Reference(Group)
+
+ -- Row 7 -----------------------------------
+  Element = Communication.medium
+  Binding = QICoreCommunicationMedium
+
+ -- Row 8 -----------------------------------
+  Element = Communication.status
+  Must Support = Y
+  QDM Mapping = status
+
+ -- Row 9 -----------------------------------
+  Element = Communication.encounter
+  Must Support = Y
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+
+ -- Row 10 -----------------------------------
+  Element = Communication.sent
+  Must Support = Y
+  QDM Mapping = start datetime
+
+ -- Row 11 -----------------------------------
+  Element = Communication.received
+  Must Support = Y
+  QDM Mapping = stop datetime
+
+ -- Row 12 -----------------------------------
+  Element = Communication.subject
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 13 -----------------------------------
+  Element = Communication.reason
+  QDM Mapping = reason
+
+=== Sheet Search =====================================

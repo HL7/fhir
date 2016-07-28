@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="qicore-diagnosticrequest-reason-rejected"/>
+  <url value="http://hl7.org/fhir/qicore/ValueSet/qicore-diagnosticrequest-reason-rejected"/>
+  <name value="Reasons for rejecting a diagnostic request"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+    </telecom>
+  </contact>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system for reasons of rejecting a diagnostic request. This value set is provided as a suggestive example."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+		<!-- procedure discontinued -->
+        <value value="416406003"/>
+      </filter>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+		<!-- procedure not indicated -->
+        <value value="428119001"/>
+      </filter>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+		<!-- procedure not offered -->
+        <value value="416064006"/>
+      </filter>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+		<!-- procedure not wanted -->
+        <value value="416432009"/>
+      </filter>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+		<!-- procedure refused -->
+        <value value="183944003"/>
+      </filter>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+		<!-- Sample Admin findings -->
+        <value value="281260000"/>
+      </filter>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+		<!-- Pre-starting action status (Not to be done codes) -->
+        <value value="410521004"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

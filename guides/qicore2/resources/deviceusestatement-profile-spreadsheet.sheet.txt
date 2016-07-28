@@ -1,0 +1,63 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICoreBodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/body-site
+  Definition = Precoordinated body sites such as \'left ear\'
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = QICoreClinicalFinding
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/clinical-findings
+  Conformance = preferred
+
+=== Sheet QICore-DeviceUseStatement =====================================
+
+ -- Row 1 -----------------------------------
+  Element = DeviceUseStatement
+  Profile Name = QICore-DeviceUseStatement
+  Type = Resource
+  QDM Mapping = Device, Applied
+
+ -- Row 2 -----------------------------------
+  Element = DeviceUseStatement.bodySite[x]
+  Must Support = Y
+  Type = CodeableConcept | Reference(BodySite){http://hl7.org/fhir/StructureDefinition/qicore-bodysite}
+  Binding = QICoreBodySite
+  QDM Mapping = anatomical location site
+
+ -- Row 3 -----------------------------------
+  Element = DeviceUseStatement.whenUsed
+  Must Support = Y
+  QDM Mapping = start datetime, removal datetime
+
+ -- Row 4 -----------------------------------
+  Element = DeviceUseStatement.device
+  Must Support = Y
+  Type = Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device}
+  QDM Mapping = Device.type
+
+ -- Row 5 -----------------------------------
+  Element = DeviceUseStatement.recordedOn
+  Must Support = Y
+
+ -- Row 6 -----------------------------------
+  Element = DeviceUseStatement.subject
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 7 -----------------------------------
+  Element = DeviceUseStatement.indication
+  Must Support = Y
+  Binding = QICoreClinicalFinding
+  QDM Mapping = reason
+
+ -- Row 8 -----------------------------------
+  Element = DeviceUseStatement.timing[x]
+  Must Support = Y
+  QDM Mapping = start datetime, removal datetime
+
+=== Sheet Search =====================================

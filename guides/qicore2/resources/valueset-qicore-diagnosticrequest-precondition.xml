@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="qicore-diagnosticrequest-precondition"/>
+  <url value="http://hl7.org/fhir/qicore/ValueSet/qicore-diagnosticrequest-precondition"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <name value="QICore Diagnostic Request Precondition"/>
+  <status value="draft"/>
+  <publisher value="Health Level Seven, Inc. - CQI WG"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/special/committees/CQI"/>
+    </telecom>
+  </contact>
+  <description value="The condition, state, or problem that the patient is in or has prior to a therapy or procedure. This captures temporal (temporary circumstances) that have bearing on the data that it qualifies but will not necessarily modify its meaning. Things like &#39;after activity&#39;, &#39;at rest&#39;, or &#39;post-op&#39;. "/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/qicore-diagnosticrequest-precondition"/>
+    </include>
+  </compose>
+</ValueSet>

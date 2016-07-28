@@ -1,0 +1,92 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICoreConditionSeverity
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-severity
+  Definition = Valueset to identify the severity of the problem
+  Description = Value set to identify the severity of the problem
+  Conformance = preferred
+  Uri = http://hl7.org/fhir/ValueSet/condition-severity
+
+ -- Row 2 -----------------------------------
+  Binding Name = QICoreProblemCode
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-problem
+  Definition = The code for the condition
+  Description = Value set for encoding a condition (problem)
+  Conformance = preferred
+
+=== Sheet QICore-FamilyMemberHistory =====================================
+
+ -- Row 1 -----------------------------------
+  Element = FamilyMemberHistory
+  Profile Name = QICore-FamilyMemberHistory
+  Type = Resource
+  QDM Mapping = Diagnosis, Family History
+
+ -- Row 2 -----------------------------------
+  Element = FamilyMemberHistory.condition
+
+ -- Row 3 -----------------------------------
+  Element = FamilyMemberHistory.condition.extension
+  Profile Name = FamilyMemberHistory.condition.abatement
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/familymemberhistory-abatement}
+  QDM Mapping = stop datetime
+
+ -- Row 4 -----------------------------------
+  Element = !FamilyMemberHistory.condition.extension
+  Profile Name = FamilyMemberHistory.condition.didNotHave
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/familymemberhistory-didNotHave}
+  QDM Mapping = negation rationale
+
+ -- Row 5 -----------------------------------
+  Element = FamilyMemberHistory.condition.extension
+  Profile Name = FamilyMemberHistory.condition.severity
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/familymemberhistory-severity}
+  Binding = QICoreConditionSeverity
+  QDM Mapping = severity
+
+ -- Row 6 -----------------------------------
+  Element = FamilyMemberHistory.condition.onset[x]
+  QDM Mapping = start datetime
+
+ -- Row 7 -----------------------------------
+  Element = FamilyMemberHistory.condition.outcome
+  QDM Mapping = status
+
+ -- Row 8 -----------------------------------
+  Element = FamilyMemberHistory.patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 9 -----------------------------------
+  Element = FamilyMemberHistory.date
+  Must Support = Y
+
+ -- Row 10 -----------------------------------
+  Element = !FamilyMemberHistory.status
+
+ -- Row 11 -----------------------------------
+  Element = FamilyMemberHistory.age[x]
+  Must Support = Y
+
+ -- Row 12 -----------------------------------
+  Element = FamilyMemberHistory.deceased[x]
+  Must Support = Y
+
+ -- Row 13 -----------------------------------
+  Element = FamilyMemberHistory.relationship
+  Must Support = Y
+
+ -- Row 14 -----------------------------------
+  Element = FamilyMemberHistory.condition.code
+  Must Support = Y
+  Binding = QICoreProblemCode
+  QDM Mapping = primary code
+
+=== Sheet Search =====================================

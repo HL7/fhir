@@ -1,0 +1,9 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+	<a name="scope_and_usage"></a>
+	<h2>Scope and Usage</h2>
+	<p>The profiles in this implementation guide will be used to meet QICore project objectives.</p>
+</div>
+
+</div>

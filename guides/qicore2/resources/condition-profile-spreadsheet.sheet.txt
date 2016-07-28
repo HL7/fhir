@@ -1,0 +1,192 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICoreProblemCode
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-problem
+  Definition = The code for the condition
+  Description = Value set for encoding a condition (problem)
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = QICoreConditionCriticality
+  Binding = value set
+  Reference = valueset-condition-criticality
+  Definition = Indicates the potential impact of the condition
+  Description = Value set indicating the potential impact of the condition
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = !QICoreConditionStage
+  Binding = value set
+  Reference = valueset-condition-stage
+  Definition = A period or phase in the course of a disease
+  Description = Value set indicating the period or phase in the course of a disease
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = !QICoreConditionEvidence
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/observation-codes
+  Definition = Observations pertaining to the problem, condition, or diagnosis
+  Description = Observations pertaining to the problem, condition, or diagnosis
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = !QICoreProblemSeverity
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-severity
+  Definition = Valueset to identify the severity of the problem
+  Description = Value set to identify the severity of the problem
+  Conformance = preferred
+  Uri = http://hl7.org/fhir/ValueSet/condition-severity
+
+ -- Row 6 -----------------------------------
+  Binding Name = !QICorePrecoordinatedBodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/qicore-bodysite-precoordinated
+  Definition = Precoordinated body sites such as \'left ear\'
+  Conformance = preferred
+
+=== Sheet QICore-Condition =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Condition
+  Profile Name = QICore-Condition
+  Type = Resource
+  QDM Mapping = Diagnosis, Active, Inactive or Resolved
+
+ -- Row 2 -----------------------------------
+  Element = !Condition.extension
+  Profile Name = conditionState
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/condition-conditionState}
+
+ -- Row 3 -----------------------------------
+  Element = !Condition.extension
+  Profile Name = contributionToDeath
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/condition-contributionToDeath}
+
+ -- Row 4 -----------------------------------
+  Element = Condition.extension
+  Profile Name = criticality
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/condition-criticality}
+  Binding = QICoreConditionCriticality
+  QIDAM Mapping = ManifestedSymptom.criticality
+
+ -- Row 5 -----------------------------------
+  Element = Condition.patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 6 -----------------------------------
+  Element = Condition.encounter
+  Must Support = Y
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+
+ -- Row 7 -----------------------------------
+  Element = Condition.asserter
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+
+ -- Row 8 -----------------------------------
+  Element = Condition.dateRecorded
+  Must Support = Y
+
+ -- Row 9 -----------------------------------
+  Element = Condition.code
+  Must Support = Y
+  Binding = QICoreProblemCode
+  QDM Mapping = primary code
+
+ -- Row 10 -----------------------------------
+  Element = Condition.category
+  Must Support = Y
+
+ -- Row 11 -----------------------------------
+  Element = Condition.clinicalStatus
+  Must Support = Y
+
+ -- Row 12 -----------------------------------
+  Element = Condition.severity
+  Must Support = Y
+  Binding = !QICoreProblemSeverity
+  QDM Mapping = severity
+
+ -- Row 13 -----------------------------------
+  Element = Condition.onset[x]
+  Must Support = Y
+  QDM Mapping = start datetime
+
+ -- Row 14 -----------------------------------
+  Element = Condition.abatement[x]
+  Must Support = Y
+  QDM Mapping = stop datetime
+
+ -- Row 15 -----------------------------------
+  Element = Condition.stage
+  Must Support = Y
+
+ -- Row 16 -----------------------------------
+  Element = Condition.stage.summary
+  Must Support = Y
+  Binding = !QICoreConditionStage
+
+ -- Row 17 -----------------------------------
+  Element = !Condition.stage.assessment
+
+ -- Row 18 -----------------------------------
+  Element = !Condition.evidence
+
+ -- Row 19 -----------------------------------
+  Element = !Condition.evidence.code
+  Binding = !QICoreConditionEvidence
+
+ -- Row 20 -----------------------------------
+  Element = !Condition.evidence.detail
+
+ -- Row 21 -----------------------------------
+  Element = Condition.bodySite
+  Must Support = Y
+  Type = CodeableConcept
+  QDM Mapping = anatomical location site and laterality
+
+ -- Row 22 -----------------------------------
+  Element = Condition.extension
+  Profile Name = bodySiteInstance
+  Must Support = Y
+  Type = Reference(BodySite) {http://hl7.org/fhir/StructureDefinition/qicore-bodysite}
+
+ -- Row 23 -----------------------------------
+  Element = !Condition.extension
+  Profile Name = dueTo
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/condition-dueTo}
+
+ -- Row 24 -----------------------------------
+  Element = !Condition.extension.extension
+  Profile Name = dueTo.code
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/condition-dueTo#code}
+
+ -- Row 25 -----------------------------------
+  Element = !Condition.extension.extension
+  Profile Name = dueTo.detail
+  Type = Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition} | Reference(Procedure){http://hl7.org/fhir/StructureDefinition/qicore-procedure} | Reference(MedicationAdministration){http://hl7.org/fhir/StructureDefinition/qicore-medicationadministration} |  Reference(MedicationStatement){http://hl7.org/fhir/StructureDefinition/qicore-medicationstatement} |  Reference(Immunization){http://hl7.org/fhir/StructureDefinition/qicore-immunization}
+
+ -- Row 26 -----------------------------------
+  Element = !Condition.extension
+  Profile Name = occurredFollowing
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/condition-occurredFollowing}
+
+ -- Row 27 -----------------------------------
+  Element = !Condition.extension.extension
+  Profile Name = occurredFollowing.code
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/condition-occurredFollowing#code}
+
+ -- Row 28 -----------------------------------
+  Element = !Condition.extension.extension
+  Profile Name = occurredFollowing.detail
+  Type = Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition} | Reference(Procedure){http://hl7.org/fhir/StructureDefinition/qicore-procedure} | Reference(MedicationAdministration){http://hl7.org/fhir/StructureDefinition/qicore-medicationadministration} |  Reference(MedicationStatement){http://hl7.org/fhir/StructureDefinition/qicore-medicationstatement} |  Reference(Immunization){http://hl7.org/fhir/StructureDefinition/qicore-immunization}
+
+=== Sheet Search =====================================

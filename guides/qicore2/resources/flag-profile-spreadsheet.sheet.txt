@@ -1,0 +1,46 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICoreFlagCategory
+  Binding = value set
+  Reference = valueset-flag-category
+  Definition = The type of alert or flag
+  Conformance = example
+
+=== Sheet QICore-Flag =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Flag
+  Profile Name = QICore-Flag
+  Type = Resource
+  QDM Mapping = Device, Intolerance
+
+ -- Row 2 -----------------------------------
+  Element = Flag.category
+  Must Support = Y
+  Binding = QICoreFlagCategory
+
+ -- Row 3 -----------------------------------
+  Element = Flag.status
+  Must Support = Y
+  QDM Mapping = negation rationale (Flag.status=inactive, entered-in-error)
+
+ -- Row 4 -----------------------------------
+  Element = Flag.period
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = Flag.subject
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location} | Reference(Group) | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+
+ -- Row 6 -----------------------------------
+  Element = !Flag.author
+
+ -- Row 7 -----------------------------------
+  Element = Flag.code
+  Must Support = Y
+  QDM Mapping = primary code
+
+=== Sheet Search =====================================

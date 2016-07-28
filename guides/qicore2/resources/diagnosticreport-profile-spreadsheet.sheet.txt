@@ -1,0 +1,106 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = !QICoreAdjunctDiagnosis
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/uslab-clinical-findings
+  Definition = SNOMED CT findings codes provided as adjunct diagnosis to the report
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = !QICoreDiagnosticServicesSection
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/diagnostic-service-sections
+  Definition = HL7 v2 Value Set of codes for diagnostic service sections
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = QICoreObservationName
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/uslab-obs-codes
+  Definition = LOINC codes that describe Diagnostic Reports
+  Conformance = preferred
+
+=== Sheet QICore-DiagnosticReport =====================================
+
+ -- Row 1 -----------------------------------
+  Element = DiagnosticReport
+  Profile Name = QICore-DiagnosticReport
+  Type = Resource
+  QDM Mapping = DiagnosticReport, Performed
+
+ -- Row 2 -----------------------------------
+  Element = DiagnosticReport.extension
+  Profile Name = DiagnosticReport.locationPerformed
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/diagnosticReport-locationPerformed}
+  Short Label = Location Performed
+  Definition = Facility location where this report was prepared
+  QDM Mapping = facility location
+
+ -- Row 3 -----------------------------------
+  Element = DiagnosticReport.extension.valueReference
+  Profile Name = DiagnosticReport.locationPerformed.valueReference
+  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+
+ -- Row 4 -----------------------------------
+  Element = DiagnosticReport.code
+  Must Support = Y
+  Binding = QICoreObservationName
+  QDM Mapping = primary code
+
+ -- Row 5 -----------------------------------
+  Element = DiagnosticReport.status
+  Must Support = Y
+  QDM Mapping = status
+
+ -- Row 6 -----------------------------------
+  Element = DiagnosticReport.subject
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} |Reference(Group) |Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device} |Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+
+ -- Row 7 -----------------------------------
+  Element = DiagnosticReport.performer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+
+ -- Row 8 -----------------------------------
+  Element = DiagnosticReport.encounter
+  Must Support = Y
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+
+ -- Row 9 -----------------------------------
+  Element = DiagnosticReport.request
+  Type = Reference(DiagnosticOrder){http://hl7.org/fhir/StructureDefinition/qicore-diagnosticorder} | Reference(ProcedureRequest){http://hl7.org/fhir/StructureDefinition/qicore-procedurerequest} | Reference(ReferralRequest){http://hl7.org/fhir/StructureDefinition/qicore-referralrequest}
+  QDM Mapping = reason (DiagnosticReport.request.clinicalNotes)
+
+ -- Row 10 -----------------------------------
+  Element = !DiagnosticReport.category
+
+ -- Row 11 -----------------------------------
+  Element = DiagnosticReport.effective[x]
+  Must Support = Y
+  QDM Mapping = start datetime, stop datetime
+
+ -- Row 12 -----------------------------------
+  Element = DiagnosticReport.specimen
+  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/qicore-specimen}
+
+ -- Row 13 -----------------------------------
+  Element = DiagnosticReport.result
+  Must Support = Y
+  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation}
+  QDM Mapping = result; method (DiagnosticReport.result.Observation.method)
+
+ -- Row 14 -----------------------------------
+  Element = DiagnosticReport.imagingStudy
+  Must Support = Y
+  Type = Reference(ImagingStudy){http://hl7.org/fhir/StructureDefinition/qicore-imagingstudy} | Reference(ImagingObjectSelection)
+  QDM Mapping = radiation dosage (DiagnosticReport.imagingStudy.radiationDose); radiation duration (DiagnosticReport.imagingStudy.radiationDuration)
+
+ -- Row 15 -----------------------------------
+  Element = DiagnosticReport.codedDiagnosis
+  Must Support = Y
+  Binding = !QICoreAdjunctDiagnosis
+
+=== Sheet Search =====================================

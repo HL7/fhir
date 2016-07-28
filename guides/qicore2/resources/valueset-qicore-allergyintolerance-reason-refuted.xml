@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="qicore-allergyintolerance-reason-refuted"/>
+  <url value="http://hl7.org/fhir/qicore/ValueSet/qicore-allergyintolerance-reason-refuted"/>
+  <name value="Reasons for refuting allergy or intolerance codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+    </telecom>
+  </contact>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system for reasons of refuting an allergy or intolerance. This value set is provided as a suggestive example."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+		<!-- Absence finding -->
+        <value value="272519000"/>
+      </filter>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+		<!-- Not present -->
+        <value value="410516002"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,38 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet QICore-Device-Inv =====================================
+
+=== Sheet QICore-Device =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Device
+  Profile Name = QICore-Device
+  Type = Resource
+  QDM Mapping = Device, Applied or Order or Recommended
+
+ -- Row 2 -----------------------------------
+  Element = Device.type
+  Must Support = Y
+  QDM Mapping = primary code
+
+ -- Row 3 -----------------------------------
+  Element = Device.owner
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+
+ -- Row 4 -----------------------------------
+  Element = Device.location
+  Must Support = Y
+  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+  QDM Mapping = anatomical location site
+
+ -- Row 5 -----------------------------------
+  Element = Device.patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 6 -----------------------------------
+  Element = Device.status
+  Must Support = Y
+
+=== Sheet Search =====================================

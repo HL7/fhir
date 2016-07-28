@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="qicore-observation-delta"/>
+  <url value="http://hl7.org/fhir/qicore/ValueSet/qicore-observation-delta"/>
+  <version value="0.1.0"/>
+  <name value="QICore Observation Delta Value Set Definition"/>
+  <status value="draft"/>
+  <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+    </telecom>
+  </contact>
+  <date value="2015-02-09"/>
+  <description value="Code indicating how the current observation compares to previous observations - e.g., no change, rising trend, decreasing trend, etc..."/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v2/0078"/>
+      <concept>
+        <code value="B"/>
+        <display value="Better-use when direction not relevant"/>
+      </concept>
+      <concept>
+        <code value="D"/>
+        <display value="Significant change down"/>
+      </concept>
+      <concept>
+        <code value="U"/>
+        <display value="Significant change up"/>
+      </concept>
+      <concept>
+        <code value="W"/>
+        <display value="Worse-use when direction not relevant"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

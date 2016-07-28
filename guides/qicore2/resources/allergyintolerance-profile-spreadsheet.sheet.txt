@@ -1,0 +1,131 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = !QICoreAllergyIntoleranceStatus
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/allergy-intolerance-status
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = !QICoreManifestation
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-manifestation-ccda-codes
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = QICoreReasonRefuted
+  Binding = value set
+  Reference = valueset-allergyintolerance-reason-refuted
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = DAFManifestation
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-manifestation-ccda-codes
+  Definition = Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = DAFSubstance
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-substance
+  Conformance = preferred
+
+=== Sheet QICore-AllergyIntolerance-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = AllergyIntolerance
+  English = extension: reasonRefuted is only permitted if status is refuted
+  XPath = not(f:status/@value != \'refuted\' and f:extension/@url=\'http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted\')
+  Expression = status = \'refuted\' or extension.where(url=\'http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted\').empty()
+  Severity = error
+
+=== Sheet QICore-AllergyIntolerance =====================================
+
+ -- Row 1 -----------------------------------
+  Element = AllergyIntolerance
+  Profile Name = QICore-AllergyIntolerance
+  Type = Resource
+  QDM Mapping = Medication, Allergy
+
+ -- Row 2 -----------------------------------
+  Element = AllergyIntolerance.extension
+  Profile Name = AllergyIntolerance.resolutionAge
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/allergyintolerance-resolutionAge}
+  QDM Mapping = stop datetime
+
+ -- Row 3 -----------------------------------
+  Element = AllergyIntolerance.extension
+  Profile Name = AllergyIntolerance.reasonRefuted
+  Card. = 0..1
+  Inv. = 1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted}
+  Binding = QICoreReasonRefuted
+  QDM Mapping = negation rationale (when status=\"refuted\")
+
+ -- Row 4 -----------------------------------
+  Element = AllergyIntolerance.recordedDate
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = AllergyIntolerance.recorder
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 6 -----------------------------------
+  Element = AllergyIntolerance.patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 7 -----------------------------------
+  Element = AllergyIntolerance.substance
+  Must Support = Y
+  Type = !CodeableConcept
+  Binding = DAFSubstance
+  QDM Mapping = primary code
+
+ -- Row 8 -----------------------------------
+  Element = AllergyIntolerance.status
+  Must Support = Y
+  Binding = !DAFAllergyIntoleranceStatus
+  Comments = DAFAllergyIntoleranceStatus binding same as used in base resource AllergyIntoleranceStatus(Required) with same valueset so do not need to specify bindin
+  QDM Mapping = negation rationale (when status=\"refuted\")
+
+ -- Row 9 -----------------------------------
+  Element = AllergyIntolerance.criticality
+  Must Support = Y
+
+ -- Row 10 -----------------------------------
+  Element = AllergyIntolerance.type
+  Must Support = Y
+
+ -- Row 11 -----------------------------------
+  Element = AllergyIntolerance.category
+  Must Support = Y
+
+ -- Row 12 -----------------------------------
+  Element = AllergyIntolerance.reaction
+
+ -- Row 13 -----------------------------------
+  Element = AllergyIntolerance.reaction.manifestation
+  Must Support = Y
+  Type = !CodeableConcept
+  Binding = DAFManifestation
+  QDM Mapping = reaction
+
+ -- Row 14 -----------------------------------
+  Element = AllergyIntolerance.reaction.onset
+  Must Support = Y
+  QDM Mapping = start datetime
+
+ -- Row 15 -----------------------------------
+  Element = AllergyIntolerance.reaction.extension
+  Profile Name = AllergyIntolerance.reaction.duration
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/allergyintolerance-duration}
+  QDM Mapping = stop datetime
+
+=== Sheet Search =====================================

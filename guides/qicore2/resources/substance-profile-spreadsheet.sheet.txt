@@ -1,0 +1,36 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet QICore-Substance =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Substance
+  Profile Name = QICore-Substance
+  Type = DomainResource
+  QDM Mapping = Substance
+
+ -- Row 2 -----------------------------------
+  Element = Substance.code
+  Must Support = Y
+  QDM Mapping = \"primary code\" for \"Medication, Allergy\" or \"Medication, Adverse Effects\"
+
+ -- Row 3 -----------------------------------
+  Element = Substance.instance
+
+ -- Row 4 -----------------------------------
+  Element = Substance.instance.quantity
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = Substance.ingredient
+
+ -- Row 6 -----------------------------------
+  Element = Substance.ingredient.substance
+  Must Support = Y
+  Type = Reference(Substance){http://hl7.org/fhir/StructureDefinition/qicore-substance}
+
+ -- Row 7 -----------------------------------
+  Element = Substance.ingredient.quantity
+  Must Support = Y
+
+=== Sheet Search =====================================

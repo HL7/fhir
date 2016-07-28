@@ -1,0 +1,56 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICorevaccineCodeCVX
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-cvx
+  Definition = This identifies the CVX code system
+  Description = This value set binds to the CDC  Vaccines administered (CVX) 2.16.840.1.113883.12.292 code system.
+  Conformance = preferred
+  Oid = 2.16.840.1.113883.3.88.12.80.22
+
+=== Sheet QICore-ImmunizationRec =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ImmunizationRecommendation
+  Profile Name = QICore-ImmunizationRecommendation
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = ImmunizationRecommendation.patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 3 -----------------------------------
+  Element = ImmunizationRecommendation.recommendation
+
+ -- Row 4 -----------------------------------
+  Element = ImmunizationRecommendation.recommendation.date
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = ImmunizationRecommendation.recommendation.vaccineCode
+  Must Support = Y
+  Binding = QICorevaccineCodeCVX
+
+ -- Row 6 -----------------------------------
+  Element = ImmunizationRecommendation.recommendation.doseNumber
+  Must Support = Y
+
+ -- Row 7 -----------------------------------
+  Element = ImmunizationRecommendation.recommendation.protocol
+
+ -- Row 8 -----------------------------------
+  Element = ImmunizationRecommendation.recommendation.protocol.authority
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+
+ -- Row 9 -----------------------------------
+  Element = ImmunizationRecommendation.recommendation.supportingImmunization
+  Type = Reference(Immunization){http://hl7.org/fhir/StructureDefinition/qicore-immunization}
+
+ -- Row 10 -----------------------------------
+  Element = ImmunizationRecommendation.recommendation.supportingPatientInformation
+  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation} | Reference(AllergyIntolerance){http://hl7.org/fhir/StructureDefinition/qicore-allergyintolerance}
+
+=== Sheet Search =====================================

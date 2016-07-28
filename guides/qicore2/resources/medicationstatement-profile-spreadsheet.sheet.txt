@@ -1,0 +1,93 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICoreMedicationCodes
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-medication-codes
+  Definition = The set of RxNorm codes to represent medications
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = DAFBodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-bodysite
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = DAFRoute
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-medication-route
+  Conformance = preferred
+
+=== Sheet QICore-MedicationStatement =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicationStatement
+  Profile Name = QICore-MedicationStatement
+  Type = Resource
+  QDM Mapping = Medication, Active
+
+ -- Row 2 -----------------------------------
+  Element = MedicationStatement.patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 3 -----------------------------------
+  Element = MedicationStatement.informationSource
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
+
+ -- Row 4 -----------------------------------
+  Element = MedicationStatement.dateAsserted
+  Must Support = Y
+
+ -- Row 5 -----------------------------------
+  Element = MedicationStatement.status
+  Must Support = Y
+
+ -- Row 6 -----------------------------------
+  Element = MedicationStatement.wasNotTaken
+  Must Support = Y
+  QDM Mapping = negation rationale
+
+ -- Row 7 -----------------------------------
+  Element = MedicationStatement.reasonForUse[x]
+  Type = CodeableConcept | Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition}
+
+ -- Row 8 -----------------------------------
+  Element = MedicationStatement.effective[x]
+  Must Support = Y
+  QDM Mapping = start and stop datetime
+
+ -- Row 9 -----------------------------------
+  Element = MedicationStatement.medication[x]
+  Must Support = Y
+  Type = CodeableConcept | Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
+  Binding = QICoreMedicationCodes
+  QDM Mapping = primary code
+
+ -- Row 10 -----------------------------------
+  Element = MedicationStatement.dosage
+
+ -- Row 11 -----------------------------------
+  Element = MedicationStatement.dosage.timing
+  Must Support = Y
+  QDM Mapping = frequency
+
+ -- Row 12 -----------------------------------
+  Element = MedicationStatement.dosage.site[x]
+  Binding = DAFBodySite
+
+ -- Row 13 -----------------------------------
+  Element = MedicationStatement.dosage.route
+  Must Support = Y
+  Binding = DAFRoute
+  QDM Mapping = route
+
+ -- Row 14 -----------------------------------
+  Element = MedicationStatement.dosage.dose
+  Must Support = Y
+  QDM Mapping = dose
+
+=== Sheet Search =====================================

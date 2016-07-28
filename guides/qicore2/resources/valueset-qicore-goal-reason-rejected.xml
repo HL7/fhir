@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="qicore-goal-reason-rejected"/>
+  <url value="http://hl7.org/fhir/qicore/ValueSet/qicore-goal-reason-rejected"/>
+  <name value="Reasons for rejecting goal codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+    </telecom>
+  </contact>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the goal process, in particular the process and reasons for rejecting a goal. This value set is provided as a suggestive example."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/ActReason"/>
+	  <!--    todo: this is a starting list. needs more reason codes -->
+	  <!-- _SchedulingActReason -->
+      <concept>
+        <code value="BLK"/> <!-- Unexpected Block (of Schedule) -->
+      </concept>
+      <concept>
+        <code value="DEC"/> <!-- Patient Deceased -->
+      </concept>
+      <concept>
+        <code value="FIN"/> <!-- No Financial Backing -->
+      </concept>
+      <concept>
+        <code value="MED"/> <!-- Medical Status Altered -->
+      </concept>
+	  <!-- _ControlActNullificationReasonCode -->
+      <concept>
+        <code value="ALTD"/> <!-- altered decision -->
+      </concept>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+		<!-- Pre-starting action status / Not to be done codes -->
+        <value value="410521004"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

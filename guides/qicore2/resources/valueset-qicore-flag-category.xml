@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="qicore-flag-category"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://hl7.org/fhir/qicore/ValueSet/qicore-flag-category"/>
+  <name value="Flag Category Codes"/>
+  <status value="draft"/>
+  <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+    </telecom>
+  </contact>
+  <description value="Value Set for Flag Category (Example). This value set defines category codes for Patient Record Flags. Patient record flags is a mechanism in which an alert can be assigned to patients who have certain high risk clinical needs or behavior problems. Flags can be configured to appear during the patient look-up process."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/flag-category"/>
+    </include>
+  </compose>
+</ValueSet>

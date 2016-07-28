@@ -1,0 +1,184 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICoreMedicationDoseType
+  Binding = value set
+  Reference = valueset-medication-dose-type
+  Definition = Medication dose types (e.g., loading, maintenance, etc.)
+  Description = Medication dose types (e.g., loading, maintenance, etc.)
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = QICoreMedicationCodes
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-medication-codes
+  Definition = The set of RxNorm codes to represent medications
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = DAFBodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-bodysite
+  Conformance = preferred
+
+=== Sheet QICore-MedicationDispense =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicationDispense
+  Profile Name = QICore-MedicationDispense
+  Type = Resource
+  QDM Mapping = Medication, Dispensed
+
+ -- Row 2 -----------------------------------
+  Element = MedicationDispense.extension
+  Profile Name = MedicationDispense.validityPeriod
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/medicationdispense-validityPeriod}
+  QIDAM Mapping = Dispense.validityPeriod
+
+ -- Row 3 -----------------------------------
+  Element = MedicationDispense.dosageInstruction
+
+ -- Row 4 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.extension
+  Profile Name = MedicationDispense.dosageInstruction.doseType
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-doseType}
+  Binding = QICoreMedicationDoseType
+  QIDAM Mapping = Dosage.doseType
+
+ -- Row 5 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.extension
+  Profile Name = MedicationDispense.dosageInstruction.infuseOver
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-infuseOver}
+  QIDAM Mapping = Dosage.infuseOver
+
+ -- Row 6 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.extension
+  Profile Name = MedicationDispense.dosageInstruction.rateIncrement
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateIncrement}
+  QIDAM Mapping = Dosage.rateIncrement
+
+ -- Row 7 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.extension
+  Profile Name = MedicationDispense.dosageInstruction.rateIncrementInterval
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateIncrementInterval}
+  QIDAM Mapping = Dosage.rateIncrementInterval
+
+ -- Row 8 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.extension
+  Profile Name = MedicationDispense.dosageInstruction.rateGoal
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateGoal}
+  QIDAM Mapping = Dosage.rateGoal
+
+ -- Row 9 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.extension
+  Profile Name = MedicationDispense.dosageInstruction.minDosePerPeriod
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-minDosePerPeriod}
+  QIDAM Mapping = Dosage.minDosePerPeriod
+
+ -- Row 10 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.extension
+  Profile Name = MedicationDispense.dosageInstruction.maxDeliveryRate
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-maxDeliveryRate}
+  QIDAM Mapping = Dosage.maxDeliveryRate
+
+ -- Row 11 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.extension
+  Profile Name = MedicationDispense.dosageInstruction.maxDeliveryVolume
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-maxDeliveryVolume}
+  QIDAM Mapping = Dosage.maxDeliveryVolume
+
+ -- Row 12 -----------------------------------
+  Element = !MedicationDispense.dosageInstruction.extension
+  Profile Name = MedicationDispense.dosageInstruction.specialDosing
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-specialDosing}
+
+ -- Row 13 -----------------------------------
+  Element = MedicationDispense.extension
+  Profile Name = MedicationDispense.refillsRemaining
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-refillsRemaining}
+  QDM Mapping = refills
+
+ -- Row 14 -----------------------------------
+  Element = MedicationDispense.status
+  Must Support = Y
+
+ -- Row 15 -----------------------------------
+  Element = MedicationDispense.patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 16 -----------------------------------
+  Element = MedicationDispense.dispenser
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+
+ -- Row 17 -----------------------------------
+  Element = MedicationDispense.authorizingPrescription
+  Type = Reference(MedicationOrder){http://hl7.org/fhir/StructureDefinition/qicore-medicationorder}
+
+ -- Row 18 -----------------------------------
+  Element = MedicationDispense.quantity
+  Must Support = Y
+
+ -- Row 19 -----------------------------------
+  Element = MedicationDispense.daysSupply
+  Must Support = Y
+
+ -- Row 20 -----------------------------------
+  Element = MedicationDispense.medication[x]
+  Must Support = Y
+  Binding = QICoreMedicationCodes
+  QDM Mapping = primary code
+
+ -- Row 21 -----------------------------------
+  Element = MedicationDispense.whenHandedOver
+  Must Support = Y
+  QDM Mapping = stop datetime
+
+ -- Row 22 -----------------------------------
+  Element = MedicationDispense.destination
+  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+
+ -- Row 23 -----------------------------------
+  Element = MedicationDispense.receiver
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+
+ -- Row 24 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.timing
+  Must Support = Y
+  QDM Mapping = frequency
+
+ -- Row 25 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.route
+  Must Support = Y
+  QDM Mapping = route
+
+ -- Row 26 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.dose[x]
+  Must Support = Y
+  QDM Mapping = dose
+
+ -- Row 27 -----------------------------------
+  Element = MedicationDispense.dosageInstruction.site[x]
+  Binding = DAFBodySite
+
+ -- Row 28 -----------------------------------
+  Element = MedicationDispense.substitution
+
+ -- Row 29 -----------------------------------
+  Element = MedicationDispense.substitution.responsibleParty
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+
+=== Sheet Search =====================================

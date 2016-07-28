@@ -1,0 +1,186 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICoreMedicationDoseType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/qicore-medication-dose-type
+  Definition = Medication dose types (e.g., loading, maintenance, etc.)
+  Description = Medication dose types (e.g., loading, maintenance, etc.)
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = !QICoreActReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
+  Definition = Reason for why the medication is being/was taken
+  Description = A set of codes specifying the motivation, cause, or rationale of an Act.
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = QICoreMedicationCodes
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-medication-codes
+  Definition = The set of RxNorm codes to represent medications
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = QICoreProblemCode
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-problem
+  Definition = The reason code for the presecription
+  Description = Value set for encoding a condition (problem)
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = DAFBodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-bodysite
+  Conformance = preferred
+
+=== Sheet QICore-MedicationOrder =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicationOrder
+  Profile Name = QICore-MedicationOrder
+  Type = Resource
+  Definition = Profile of medication prescription, indicating which elements must be supported in rule and measure interpreters.
+  QDM Mapping = Medication, Order
+
+ -- Row 2 -----------------------------------
+  Element = MedicationOrder.dosageInstruction
+  Must Support = Y
+
+ -- Row 3 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.extension
+  Profile Name = MedicationOrder.dosageInstruction.doseType
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-doseType}
+  Binding = QICoreMedicationDoseType
+  QIDAM Mapping = Dosage.doseType
+
+ -- Row 4 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.extension
+  Profile Name = MedicationOrder.dosageInstruction.infuseOver
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-infuseOver}
+  QIDAM Mapping = Dosage.infuseOver
+
+ -- Row 5 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.extension
+  Profile Name = MedicationOrder.dosageInstruction.rateIncrement
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateIncrement}
+  QIDAM Mapping = Dosage.rateIncrement
+
+ -- Row 6 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.extension
+  Profile Name = MedicationOrder.dosageInstruction.rateIncrementInterval
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateIncrementInterval}
+  QIDAM Mapping = Dosage.rateIncrementInterval
+
+ -- Row 7 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.extension
+  Profile Name = MedicationOrder.dosageInstruction.rateGoal
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateGoal}
+  QIDAM Mapping = Dosage.rateGoal
+
+ -- Row 8 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.extension
+  Profile Name = MedicationOrder.dosageInstruction.minDosePerPeriod
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-minDosePerPeriod}
+  QIDAM Mapping = Dosage.minDosePerPeriod
+
+ -- Row 9 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.extension
+  Profile Name = MedicationOrder.dosageInstruction.maxDeliveryRate
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-maxDeliveryRate}
+  QIDAM Mapping = Dosage.maxDeliveryRate
+
+ -- Row 10 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.extension
+  Profile Name = MedicationOrder.dosageInstruction.maxDeliveryVolume
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-maxDeliveryVolume}
+  QIDAM Mapping = Dosage.maxDeliveryVolume
+
+ -- Row 11 -----------------------------------
+  Element = !MedicationOrder.dosageInstruction.extension
+  Profile Name = MedicationOrder.dosageInstruction.specialDosing
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-specialDosing}
+
+ -- Row 12 -----------------------------------
+  Element = !MedicationOrder.extension
+  Profile Name = MedicationOrder.isDischargeMedication
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/medicationorder-isDischargeMedication}
+
+ -- Row 13 -----------------------------------
+  Element = MedicationOrder.dateWritten
+  Must Support = Y
+  QDM Mapping = active datetime
+
+ -- Row 14 -----------------------------------
+  Element = MedicationOrder.status
+  Must Support = Y
+
+ -- Row 15 -----------------------------------
+  Element = MedicationOrder.patient
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+
+ -- Row 16 -----------------------------------
+  Element = MedicationOrder.prescriber
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+
+ -- Row 17 -----------------------------------
+  Element = MedicationOrder.encounter
+  Must Support = Y
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+
+ -- Row 18 -----------------------------------
+  Element = MedicationOrder.medication[x]
+  Must Support = Y
+  Type = CodeableConcept | Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
+  Binding = QICoreMedicationCodes
+  QDM Mapping = primary code
+
+ -- Row 19 -----------------------------------
+  Element = !MedicationOrder.dosageInstruction.scheduled[x]
+  QDM Mapping = frequency
+
+ -- Row 20 -----------------------------------
+  Element = !MedicationOrder.dosageInstruction.route
+  QDM Mapping = route
+
+ -- Row 21 -----------------------------------
+  Element = !MedicationOrder.dosageInstruction.method
+  QDM Mapping = method
+
+ -- Row 22 -----------------------------------
+  Element = !MedicationOrder.dosageInstruction.dose[x]
+  QDM Mapping = dose
+
+ -- Row 23 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.site[x]
+  Binding = DAFBodySite
+
+ -- Row 24 -----------------------------------
+  Element = MedicationOrder.reasonCode
+  Binding = QICoreProblemCode
+  QDM Mapping = reason
+
+ -- Row 25 -----------------------------------
+  Element = MedicationOrder.dispenseRequest
+  Must Support = Y
+
+ -- Row 26 -----------------------------------
+  Element = !MedicationOrder.dispenseRequest.numberOfRepeatsAllowed
+  QDM Mapping = refils
+
+=== Sheet Search =====================================

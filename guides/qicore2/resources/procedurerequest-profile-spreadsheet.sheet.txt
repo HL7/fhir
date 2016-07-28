@@ -1,0 +1,194 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = QICoreReasonRefused
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/procedure-not-performed-reason
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = !QICoreBodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/body-site
+  Definition = Precoordinated body sites such as \'left ear\'
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = QICoreProcedureType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-procedure-type
+  Definition = Codes describing the Procedure Type
+  Description = This value set identifies a set of procedure types.
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = QICoreAppropriatenessScore
+  Binding = code list
+  Reference = #appropriateness-score
+  Definition = The RAND scoring for appropriateness of the procedure.
+
+=== Sheet appropriateness-score =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = extremely-inappropriate
+  Definition = The procedure is extremely inappropriate
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = inappropriate
+  Definition = The procedure is inappropriate
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = probably-inappropriate
+  Definition = The procedure is probably inappropriate
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = uncertain-inappropriate
+  Definition = The appropriateness of the procedure is uncertain, leaning towards inappropriate
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = uncertain
+  Definition = The appropriateness of the procedure is uncertain
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = uncertain-appropriate
+  Definition = The appropriateness of the procedure is uncertain, leaning towards appropriate
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = probably-appropriate
+  Definition = The procedure is probably appropriate
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = appropriate
+  Definition = The procedure is appropriate
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = extremely-appropriate
+  Definition = The procedure is extremely appropriate
+
+=== Sheet QICore-ProcedureRequest =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ProcedureRequest
+  Profile Name = QICore-ProcedureRequest
+  Type = Resource
+  QDM Mapping = \"Intervention, Order\" (when ProcedureRequest.status=\"requested\"); \"Intervention, Recommended\" (when ProcedureRequest.status=\"proposed\"); \"Procedure, Order\"; \"Procedure, Recommended\" (when ProcedureRequest.status=\"proposed\")
+
+ -- Row 2 -----------------------------------
+  Element = !ProcedureRequest.extension
+  Profile Name = ProcedureRequest.method
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/procedurerequest-method}
+  QDM Mapping = method
+
+ -- Row 3 -----------------------------------
+  Element = !ProcedureRequest.extension
+  Profile Name = ProcedureRequest.originationMode
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/procedurerequest-originationMode}
+
+ -- Row 4 -----------------------------------
+  Element = !ProcedureRequest.extension
+  Profile Name = ProcedureRequest.priority
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/procedurerequest-priority}
+
+ -- Row 5 -----------------------------------
+  Element = ProcedureRequest.extension
+  Profile Name = ProcedureRequest.reasonRefused
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused}
+  Binding = QICoreReasonRefused
+  QDM Mapping = negation rationale (when ProcedureRequest.status=\"rejected\")
+
+ -- Row 6 -----------------------------------
+  Element = ProcedureRequest.extension
+  Profile Name = ProcedureRequest.approachBodySite
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/procedurerequest-approachBodySite}
+  QIDAM Mapping = Not in QIDAM, but should have been included because the procedure request might include a requested approach, for example, to distinguish between urethral and supra-pubic urinary catheterization.
+  QDM Mapping = anatomical approach site
+
+ -- Row 7 -----------------------------------
+  Element = !ProcedureRequest.extension
+  Profile Name = ProcedureRequest.authorizedBy
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/procedurerequest-authorizedBy}
+
+ -- Row 8 -----------------------------------
+  Element = ProcedureRequest.extension
+  Profile Name = ProcedureRequest.appropriatenessScore
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/qicore-procedurerequest-appropriatenessScore}
+  Binding = QICoreAppropriatenessScore
+  QIDAM Mapping = Not in QIDAM, but added because of a persuasive ballot comment (May 2015).
+
+ -- Row 9 -----------------------------------
+  Element = ProcedureRequest.subject
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}|Reference(Group)
+
+ -- Row 10 -----------------------------------
+  Element = ProcedureRequest.code
+  Must Support = Y
+  Binding = QICoreProcedureType
+  QDM Mapping = primary code
+
+ -- Row 11 -----------------------------------
+  Element = ProcedureRequest.bodySite
+  Card. = !0..*
+  Must Support = Y
+  Type = !CodeableConcept
+  Binding = !QICoreBodySite
+  QDM Mapping = anatomical location site
+
+ -- Row 12 -----------------------------------
+  Element = !ProcedureRequest.bodySite.site[x]
+  Type = CodeableConcept| Reference(BodySite){http://hl7.org/fhir/StructureDefinition/qicore-bodysite}
+
+ -- Row 13 -----------------------------------
+  Element = ProcedureRequest.reason[x]
+  Must Support = Y
+  QDM Mapping = reason
+
+ -- Row 14 -----------------------------------
+  Element = ProcedureRequest.scheduled[x]
+  Must Support = Y
+  QDM Mapping = start datetime, stop datetime
+
+ -- Row 15 -----------------------------------
+  Element = ProcedureRequest.encounter
+  Must Support = Y
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+
+ -- Row 16 -----------------------------------
+  Element = ProcedureRequest.performer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} |Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
+
+ -- Row 17 -----------------------------------
+  Element = ProcedureRequest.status
+  Must Support = Y
+  QDM Mapping = negation rationale (when ProcedureRequest.status=\"rejected\")
+
+ -- Row 18 -----------------------------------
+  Element = ProcedureRequest.asNeeded[x]
+  Must Support = Y
+
+ -- Row 19 -----------------------------------
+  Element = ProcedureRequest.orderedOn
+  Must Support = Y
+  QDM Mapping = start datetime, stop datetime
+
+ -- Row 20 -----------------------------------
+  Element = ProcedureRequest.orderer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} |Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson} | Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device}
+
+=== Sheet Search =====================================

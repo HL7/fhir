@@ -1,0 +1,133 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = AdverseEventSeverity
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-severity
+  Definition = A subjective assessment of the severity of the adverse event as evaluated by the clinician.
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = AdverseEventCauseCertainty
+  Binding = value set
+  Reference = valueset-condition-certainty
+  Definition = The degree of confidence that this condition is correct
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = AdverseEventCategory
+  Binding = value set
+  Reference = valueset-adverseevent-category
+  Definition = The categories associated with the event or unsafe condition.
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = AdverseEventType
+  Binding = value set
+  Reference = valueset-adverseevent-type
+  Definition = The type of adverse event: an incident, near-miss, or unsafe condition
+  Conformance = preferred
+
+=== Sheet QICore-AdverseEvent =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Basic
+  Profile Name = QICore-AdverseEvent
+  Type = DomainResource
+  Short Label = An incident, near miss, unsafe condition, or untoward occurrence during treatment.
+  Definition = An adverse event is an untoward occurrence during treatment that should be reported, for example, to a clinical study sponsor or safety oversight organization.  AEs include reportable serious medical errors such as those defined by National Quality Forum (see http://www.qualityforum.org/Topics/ SREs/List_of_SREs.aspx), and Patient Safety Healthcare Events as defined by AHRQ.  Some AEs can involve conditions such as \"recurring headaches\" but others do not, such as accidental falls, surgical errors, sexual abuse of patient, and sudden death. An adverse event can also be an unsafe condition that increases the probability of a patient safety event, and near-misses. An adverse event can be caused by exposure to some agent (e.g., a medication, immunization, food, or environmental agent). An adverse reaction can range from a mild reaction, such as a harmless rash to a severe and life-threatening condition. They can occur immediately or develop over time. For example, a patient may develop a rash after taking a particular medication.
+  QDM Mapping = Diagnostic Study, Adverse Event or Device, Adverse Event or Laboratory Test, Adverse Event or Medication, Adverse Effects or Procedure, Adverse Event or Substance, Adverse Event
+
+ -- Row 2 -----------------------------------
+  Element = Basic.extension
+  Profile Name = type
+  Must Support = Y
+  Type = Extension{#type}
+  Binding = AdverseEventType
+  Short Label = incident | near miss | unsafe condition
+
+ -- Row 3 -----------------------------------
+  Element = Basic.extension
+  Profile Name = discoveryDateTime
+  Type = Extension{#discoveryDateTime}
+
+ -- Row 4 -----------------------------------
+  Element = Basic.extension
+  Profile Name = location
+  Type = Extension{#location}
+
+ -- Row 5 -----------------------------------
+  Element = Basic.extension
+  Profile Name = category
+  Type = Extension{#category}
+  Binding = AdverseEventCategory
+
+ -- Row 6 -----------------------------------
+  Element = Basic.extension
+  Profile Name = cause
+  Type = Extension{#cause}
+
+ -- Row 7 -----------------------------------
+  Element = Basic.extension.extension
+  Profile Name = item
+  Must Support = Y
+  Type = Extension{#cause#item}
+  QDM Mapping = primary code
+  To Do = Make URL correct once tooling supports it
+
+ -- Row 8 -----------------------------------
+  Element = Basic.extension.extension
+  Profile Name = certainty
+  Type = Extension{#cause#certainty}
+  Binding = AdverseEventCauseCertainty
+  Short Label = unlikely | likely | confirmed
+  To Do = Make URL correct once tooling supports it
+
+ -- Row 9 -----------------------------------
+  Element = Basic.extension
+  Profile Name = reaction
+  Type = Extension{#reaction}
+
+ -- Row 10 -----------------------------------
+  Element = Basic.extension
+  Profile Name = period
+  Must Support = Y
+  Type = Extension{#period}
+  QDM Mapping = start and stop datetime
+
+ -- Row 11 -----------------------------------
+  Element = Basic.extension
+  Profile Name = clinicalStudy
+  Type = Extension{#clinicalStudy}
+
+ -- Row 12 -----------------------------------
+  Element = Basic.extension
+  Profile Name = severity
+  Type = Extension{#severity}
+  Binding = AdverseEventSeverity
+
+ -- Row 13 -----------------------------------
+  Element = Basic.modifierExtension
+  Profile Name = didNotOccur
+  Must Support = Y
+  Type = Extension{#didNotOccur}
+  QDM Mapping = negation rationale
+
+ -- Row 14 -----------------------------------
+  Element = Basic.code
+  Type = CodeableConcept
+  Value = { \"coding\" : [{ \"system\" : \"http://hl7.org/fhir/basic-resource-type\", \"code\" : \"advevent\" }]}
+
+ -- Row 15 -----------------------------------
+  Element = Basic.subject
+  Must Support = Y
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Short Label = The person experiencing the adverse event
+  Definition = The person who has the adverse event
+
+ -- Row 16 -----------------------------------
+  Element = Basic.author
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} |Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson} |Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+
+=== Sheet Search =====================================

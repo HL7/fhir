@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/qicore-condition-criticality"/>
+  <name value="QICore Condition Criticality Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Value Set for QICore Condition Criticality (Example)"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="unspecified"/>
+    <display value="Not Specified"/>
+    <definition value="The criticality of the condition is not specified"/>
+  </concept>
+  <concept>
+    <code value="self-resolving"/>
+    <display value="Expected to Self-Resolve"/>
+    <definition value="The condition is expected to resolve on its own"/>
+  </concept>
+  <concept>
+    <code value="controllable"/>
+    <display value="Controllable"/>
+    <definition value="The condition is considered to be controllable"/>
+  </concept>
+  <concept>
+    <code value="functional-loss"/>
+    <display value="Potential loss of function or capacity"/>
+    <definition value="The condition may result in partial or full loss of function or capacity"/>
+  </concept>
+  <concept>
+    <code value="life-threatening"/>
+    <display value="Life Threatening"/>
+    <definition value="The condition is considered to be life-threatening"/>
+  </concept>
+  <concept>
+    <code value="requires-hospitalization"/>
+    <display value="Requires Hospitalization"/>
+    <definition value="The condition requires hospitalization"/>
+  </concept>
+</CodeSystem>

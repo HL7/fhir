@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="qicore-patient-disability"/>
+  <url value="http://hl7.org/fhir/qicore/ValueSet/qicore-patient-disability"/>
+  <name value="Disability Value Set"/>
+  <status value="active"/>
+  <publisher value="Health Level Seven, Inc. - CQI WG"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/special/committees/CQI"/>
+    </telecom>
+  </contact>
+  <description value="Disability is broadly defined as a physical or mental condition that limits a person&#39;s movements, senses, or activities. This includes  items such as handicap, impairment, invalidism, functional dependency, and incompetence."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="105719004"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

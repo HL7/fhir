@@ -1,0 +1,154 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = !QICoreProviderClassification
+  Binding = value set
+  Reference = valueset-practitioner-classification
+  Definition = Codes for provider classification
+  Description = Codes for provider classification
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = !QICoreAdministrativeAffiliation
+  Binding = value set
+  Reference = valueset-practitioner-administrative-affiliation
+  Definition = Codes for provider administrative affiliation
+  Description = Codes for provider\'s administrative affiliation
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = !QICorePracticeAffiliation
+  Binding = value set
+  Reference = valueset-practitioner-practice-affiliation
+  Definition = Codes for provider practice affiliations
+  Description = Codes for provider\'s practice affiliation
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = !QICoreCredentialStatus
+  Binding = value set
+  Reference = valueset-practitioner-credential-status
+  Definition = Codes for Status of the provider certificate/license
+  Description = Codes for Status of the provider certificate/license
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = !QICoreQualificationSubType
+  Binding = value set
+  Reference = valueset-practitioner-qualification-subtype
+  Definition = Codes for qualification sub-types
+  Description = Codes for qualification sub-types
+  Conformance = preferred
+
+=== Sheet QICore-Practitioner =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Practitioner
+  Profile Name = QICore-Practitioner
+  Type = Resource
+  QDM Mapping = Provider Characteristic
+
+ -- Row 2 -----------------------------------
+  Element = Practitioner.extension
+  Profile Name = Practitioner.classification
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/practitioner-classification}
+  Binding = !QICoreProviderClassification
+  QIDAM Mapping = Not in QIDAM, but recognized as important. While there is practitionerRole, that may refer more to something like “attending” vs. “consultant” physician, whereas the classification would be useful for classifying the practitioner to things like “Physician”, “Resident”, “Pharmacist”, “Nurse”, “PA”.  This could then determine whether the practitioner should receive a particular CDS.
+
+ -- Row 3 -----------------------------------
+  Element = !Practitioner.extension
+  Profile Name = Practitioner.administrativeAffiliation
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/practitioner-administrativeAffiliation}
+  Binding = QICoreAdministrativeAffiliation
+
+ -- Row 4 -----------------------------------
+  Element = !Practitioner.extension
+  Profile Name = Practitioner.practiceAffiliation
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/practitioner-practiceAffiliation}
+  Binding = QICorePracticeAffiliation
+
+ -- Row 5 -----------------------------------
+  Element = !Practitioner.identifier
+  Card. = 0..*
+
+ -- Row 6 -----------------------------------
+  Element = !Practitioner.identifier.extension
+  Profile Name = Practitioner.identifier.identifierVerified
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/iso21090-verification}
+
+ -- Row 7 -----------------------------------
+  Element = !Practitioner.specialty
+  Card. = 0..*
+
+ -- Row 8 -----------------------------------
+  Element = !Practitioner.specialty.extension
+  Profile Name = Practitioner.specialty.primaryInd
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/practitioner-primaryInd}
+
+ -- Row 9 -----------------------------------
+  Element = !Practitioner.qualification
+  Card. = 0..*
+
+ -- Row 10 -----------------------------------
+  Element = !Practitioner.qualification.extension
+  Profile Name = Practitioner.qualification.credentialStatus
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/practitioner-credentialStatus}
+  Binding = QICoreCredentialStatus
+
+ -- Row 11 -----------------------------------
+  Element = !Practitioner.qualification.extension
+  Profile Name = Practitioner.qualification.subType
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/practitioner-subType}
+  Binding = QICoreQualificationSubType
+
+ -- Row 12 -----------------------------------
+  Element = Practitioner.role
+
+ -- Row 13 -----------------------------------
+  Element = Practitioner.role.organization
+  Must Support = Y
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+
+ -- Row 14 -----------------------------------
+  Element = Practitioner.role.period
+  Must Support = Y
+
+ -- Row 15 -----------------------------------
+  Element = Practitioner.role.code
+  Must Support = Y
+
+ -- Row 16 -----------------------------------
+  Element = Practitioner.role.specialty
+  Must Support = Y
+
+ -- Row 17 -----------------------------------
+  Element = Practitioner.role.specialty.extension
+  Profile Name = Practitioner.role.specialty.primaryInd
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/practitioner-primaryInd}
+  QIDAM Mapping = Not in QIDAM, but recognized as important. The primary specialty could drive the order sets or order preferences that are provided as default in an order entry system.  Also, a population health management system may want to manage patients with heart failure who are managed by a provider whose primary specialty is cardiology.
+
+ -- Row 18 -----------------------------------
+  Element = Practitioner.role.location
+  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+
+ -- Row 19 -----------------------------------
+  Element = Practitioner.gender
+  Must Support = Y
+
+ -- Row 20 -----------------------------------
+  Element = Practitioner.qualification
+
+ -- Row 21 -----------------------------------
+  Element = Practitioner.qualification.issuer
+  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+
+=== Sheet Search =====================================

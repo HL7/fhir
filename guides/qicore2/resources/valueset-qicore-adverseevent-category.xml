@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="qicore-adverseevent-category"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://hl7.org/fhir/qicore/ValueSet/qicore-adverseevent-category"/>
+  <name value="QICore Adverse Event Category Codes"/>
+  <status value="draft"/>
+  <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+    </telecom>
+  </contact>
+  <description value="Value Set for QICore Adverse Event Category (Preferred)"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/qicore-adverseevent-category"/>
+    </include>
+  </compose>
+</ValueSet>
