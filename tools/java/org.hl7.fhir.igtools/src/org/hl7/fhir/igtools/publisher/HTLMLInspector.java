@@ -118,15 +118,18 @@ public class HTLMLInspector {
   private void loadFile(String s, List<ValidationMessage> messages) {
     File f = new File(s);
     XhtmlNode x = null;
+    boolean htmlName = f.getName().endsWith(".html") || f.getName().endsWith(".xhtml");
     try {
       x = new XhtmlParser().parse(new FileInputStream(f), null);
     } catch (FHIRFormatError | IOException e) {
       x = null;
-      messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, s, e.getMessage(), IssueSeverity.ERROR));
+      if (htmlName || !(e.getMessage().startsWith("Unable to Parse HTML - does not start with tag.") || e.getMessage().startsWith("Malformed XHTML")))
+    	messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, s, e.getMessage(), IssueSeverity.ERROR));
+    	
     }
     LoadedFile lf = new LoadedFile(f.lastModified(), x, iteration);
     cache.put(s, lf);
-    if (x != null) {
+    if (x != null && (htmlName || (x.getFirstElement()!=null && x.getFirstElement().equals("html")))) {
       checkHtmlStructure(s, x, messages);
       listTargets(x, lf.getTargets());
     }
@@ -134,7 +137,7 @@ public class HTLMLInspector {
 
   private void checkHtmlStructure(String s, XhtmlNode x, List<ValidationMessage> messages) {
     if (x.getNodeType() == NodeType.Document)
-      x = x.getChildNodes().get(0);
+      x = x.getFirstElement();
     if (!"html".equals(x.getName()))
       messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, s, "Root node must be 'html', but is "+x.getName(), IssueSeverity.ERROR));
     // todo: check secure?
@@ -157,8 +160,8 @@ public class HTLMLInspector {
 
   private void checkResolveLink(String s, String path, String ref, List<ValidationMessage> messages) {
     boolean resolved = false;
-    if (!resolved)
-      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, s+"#"+path, "The link '"+ref+" cannot be resolved", IssueSeverity.ERROR));
+//    if (!resolved)
+//      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, s+"#"+path, "The link '"+ref+" cannot be resolved", IssueSeverity.ERROR));
   }
 
 

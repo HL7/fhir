@@ -646,7 +646,7 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
           } else 
             throw new FHIRFormatError("unrecognised element type <!"+peekChar()+descLoc());
         } else
-          focus.addDocType(readToCommentEnd());
+          focus.addDocType(readToDocTypeEnd());
         skipWhiteSpaceAndComments(focus);
       } else if (peekChar() == '?') {
         String r = readToTagEnd();
@@ -720,6 +720,24 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
       skipWhiteSpace();
     } else if (mustBeWellFormed)
       throw new FHIRFormatError("Unexpected termination of html source"+descLoc());
+    return s.toString();
+  }
+
+  private String readToDocTypeEnd() throws IOException, FHIRFormatError 
+  {
+    StringBuilder s = new StringBuilder();
+      
+    boolean done = false;
+    while (!done) {
+      char c = peekChar();
+      if (c == '>') {
+        done = true;
+        readChar();
+      } else if (c != '\0')
+        s.append(readChar());
+      else if (mustBeWellFormed)
+        throw new FHIRFormatError("Unexpected termination of html source"+descLoc());
+    }
     return s.toString();
   }
 
