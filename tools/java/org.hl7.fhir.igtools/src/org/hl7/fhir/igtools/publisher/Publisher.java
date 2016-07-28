@@ -1643,7 +1643,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         log("Exception generating page "+dst+": "+e.getMessage());
       } 
     } else if (f.getProcessMode() == FetchedFile.PROCESS_XSLT) {
-      String dst = tempDir + f.getPath().substring(pagesDir.length());
+      String dst = tempDir + f.getPath().substring(prePagesDir.length());
       try {
         if (f.isFolder()) {
           f.getOutputNames().add(dst);
@@ -1873,6 +1873,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
   private void genWrapperBase(FetchedResource r, String template, Set<String> outputTracker, Map<String, String> vars) throws FileNotFoundException, IOException {
     if (template != null) {
+      File f= new File(configFile);
       template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), template));
       template = template.replace("{{[title]}}", r.getTitle());
       template = template.replace("{{[type]}}", r.getElement().fhirType());

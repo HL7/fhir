@@ -208,7 +208,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Any)
-  Short Label = Request fulfilled by this request
+  Short Label = Request fulfilled by this task
   Definition = Identifies a plan, proposal or order that this task has been created in fulfillment of
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[moodCode=INT]
 
@@ -217,7 +217,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Label = Composite request this is part of
+  Short Label = Requisition or grouper id
   Definition = An identifier that links together multiple tasks and other requests that were created in the same context
   Requirements = Billing and/or reporting can be linked to whether multiple requests were created as a single unit.
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=INT].id

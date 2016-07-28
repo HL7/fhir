@@ -221,6 +221,16 @@ summarizes the list of workflow-relevant resources:</p>
   </tbody>
 </table>
 
+<p>
+Note that requests, events and definitions don't exist in a 1:1:1 relationship.  Some requests and events have obvious pairings.  For example, a 
+<a href="supplyrequest.html">SupplyRequest</a> will generally always pair with a <a href="supplydelivery.html">SupplyDelivery</a>.  The same goes for
+<a href="enrollmentrequest.html">EnrollmentRequest</a>/<a href="enrollmentresponse.html">EnrollmentResponse</a>, etc.  On the other hand, for other resources
+there isn't a strict pairing.  A <a href="referralrequest.html">ReferralRequest</a> might be responded to by an <a href="encounter.html">Encounter</a>,
+<a href="diagnosticreport.html">DiagnosticReport</a>, <a href="procedure.html">Procedure</a>, <a href="riskassessment.html">RiskAssessment</a>, etc.  Similarly,
+a <a href="procedure.html">Procedure</a> might be triggered by a <a href="diagnosticrequest.html">DiagnosticRequest</a>, <a href="procedurerequest.html">ProcedureRequest</a>,
+or <a href="referralrequest.html">ReferralRequest</a>.  The set of common linkages should be asserted in their respective resources.  The specific types of responses
+for a given request will be governed by the Request.code, any workflow definitions/protocols referenced and local convention.
+</p>
 
 <a name="relationships"> </a>
 <h4>Workflow Resource Relationships</h4>
@@ -332,11 +342,6 @@ The list of patterns discussed here is as follows:
     <tr>
       <td>
         <a href="#optiond">Option D: POST of request to placer/intermediary system, receiver uses subscription</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#option">Option x: </a>
       </td>
     </tr>
     <tr>
