@@ -11,9 +11,9 @@
 <div class="col-9">
 
 <h3>Knowledge Artifact Representation</h3>
-<p>For the purposes of the Clinical Reasoning module, a Knowledge Artifact is a structured, computable, and shareable representation of clinical knowledge. A comprehensive definition of clinical knowledge is of course beyond the scope of this module, but we effectively mean any knowledge relevant to improving patient care. For example, "Patients with diabetes should have regular comprehensive foot examinations to identify risk factors predictive of ulcers and amputations" is a statement of clinical knowledge. A knowledge artifact would then be some representation that can be used to integrate that knowledge into existing healthcare delivery systems.</p>
+<p>For the purposes of the Clinical Reasoning module, a Knowledge Artifact is a structured, computable, and shareable representation of clinical knowledge. A comprehensive definition of clinical knowledge is beyond the scope of this module, but we effectively mean any knowledge relevant to improving patient care. For example, "Patients with diabetes should have regular comprehensive foot examinations to identify risk factors predictive of ulcers and amputations" is a statement of clinical knowledge. A knowledge artifact would then be some representation that can be used to integrate that knowledge into existing healthcare delivery systems.</p>
 
-<p>There are any number of ways to accomplish this integration of clinical knowledge, ranging from direct implementation within an existing EHR system all the way up to the use of high-level representation and reasoning systems that can adapt clinical workflow to provide cognitive support to clinicians. Within this module, we aim to provide a representation that is both flexible enough to represent a broad range of knowledge artifacts, but simple and specific enough to enable automated integration of the content.</p>
+<p>There are any number of ways to accomplish this integration of clinical knowledge, ranging from direct implementation within an existing EHR system to the use of high-level representation and reasoning systems that can adapt clinical workflow to provide cognitive support to clinicians. Within this module, we aim to provide a representation that is both flexible enough to represent a broad range of knowledge artifacts, but simple and specific enough to enable automated integration of the content.</p>
 
 <a name="knowledge-artifact-components"/>
 <h4>Knowledge Artifact Components</h4>
@@ -308,6 +308,8 @@
 <h4>Event-Condition-Action (ECA) Rule</h4>
 
 <p>An Event-Condition-Action (ECA) rule is an artifact with the general syntax "on event, if condition is true, then do action." The event triggers the invocation of the rule; the condition is a logical test that, if satisfied or evaluates "true", causes an action; while the action describes a set of activities to be performed. These actions may in turn cause further events to occur, which may in turn cause other ECA rules to fire.</p>
+
+<p>Note that the "activity" to be performed may be to document a patient-specific assessment performed by a clinical decision support service (e.g. patient has a 37% chance of a heart attack in the next 5 years), not just recommendations/recommended actions. In this case, the action would be to "create" a RiskAssessment.</p>
 
 <p>The <a href="[%fhir-path%]/plandefinition.html">PlanDefinition</a> resource can be used to represent an ECA rule using the actionDefinition element. A single, top-level actionDefinition represents the overall rule, with the triggerDefinition element used to specify the triggering event(s), the condition element used to specify the applicable condition for the rule, and the actionDefinition itself describing the action to be performed.</p>
 

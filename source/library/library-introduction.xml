@@ -11,7 +11,7 @@
 
 <p>The actual content of the library is represented using the Attachment data type, and may either be referenced with a url, or the content may be embedded as a base-64 encoded string. Either way, the contentType element of the attachment is used to indicate the representation of the library content.</p>
 
-<p>Note that because the library content may be embedded as well as retrievable from an external repository via the attachment URL, the possibility exists for the embedded content to be different from the content on the repository. With proper versioning and governance, this should never occur, but to minimize the potential impact of this possibility, implementers SHALL give precedence to the embedded content of a library when it is present.</p>
+<p>Note that because the library content may be embedded as well as be retrievable from an external repository via the attachment URL, the possibility exists for the embedded content to be different from the content on the repository. With proper versioning and governance, this should never occur, but to minimize the potential impact of this possibility, implementers SHALL give precedence to the embedded content of a library when it is present.</p>
 
 </div>
 

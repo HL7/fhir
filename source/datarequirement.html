@@ -16,12 +16,36 @@
 
 <p>The DataRequirement structure defines a general data requirement for a knowledge asset such as a decision support rule or quality measure.</p>
 
-<p>A DataRequirement differs from a parameter in that it specifies the data to be returned in terms of the type of data, and specific filters on code-valued and/or date-valued attributes. Data requirements are not named because they are referenced by type within the evaluation context.</p>
+<p>A DataRequirement differs from a parameter in that it specifies the data to be provided in terms of the type of data, and specific filters on code-valued and/or date-valued attributes. Data requirements are not named because they are referenced by type within the evaluation context.</p>
 
 <p>Data requirements are used by knowledge modules to communicate the set of required data to a consumer in a way that is computable (as opposed to a set of named parameters which must be integrated by hand based on the meaning of the parameter as communicated through the documentation).</p>
 
 <p>DataRequirements are typically used to communicate patient-dependent information such as MedicationStatements and Encounters, whereas Parameters are typically used to communicate patient-independent information such as configuration values</p>
 
+<p>For example, consider the following CQL expression:</p>
+
+<pre><code>define "Total Colectomy Procedures":
+  [Procedure: "Total Colectomy Value Set"] P
+    where P.performedPeriod during "Measurement Period"
+</code></pre>
+
+<p>The criteria is looking for procedures matching the "Total Colectomy Value Set" that were performed during the "Measurement Period". In this case, "Measurement Period" is a parameter, referenced by name, whereas the reference to Procedure uses the name of the resource type, and so constitutes a data requirement of the criteria:</p>
+
+<pre><code>&lt;dataRequirement&gt;
+	&lt;type value=&quot;Procedure&quot;/&gt;
+	&lt;codeFilter&gt;
+		&lt;path value=&quot;code&quot;/&gt;
+		&lt;valueSetString value=&quot;Total Colectomy Value Set&quot;/&gt;
+	&lt;/codeFilter&gt;
+	&lt;dateFilter&gt;
+		&lt;path value=&quot;performedPeriod&quot;/&gt;
+		&lt;valuePeriod&gt;
+			&lt;start value=&quot;2016-01-01&quot;/&gt;
+			&lt;end value=&quot;2016-12-31&quot;/&gt;
+		&lt;/valuePeriod&gt;
+	&lt;/dateFilter&gt;
+&lt;/dataRequirement&gt;
+</code></pre>
 
 <a name="definition"></a>
 <h2 style="margin-bottom: 1px">
@@ -29,7 +53,6 @@ Content
 </h2>
 
 [%dt DataRequirement 1%]
-
 
 <div class="use">
 <p><b>Constraints</b></p>

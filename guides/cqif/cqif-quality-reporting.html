@@ -59,17 +59,17 @@ Quality Measure Format (HQMF)</a>.
 		<tr><th>eMeasure</th><th>Cardinality</th><th>Element</th><th>Notes</th></tr>
 	</thead>
 	<tbody>
-		<tr><td>Title</td><td>0..1</td><td>moduleMetadata.title</td><td></td></tr>
-		<tr><td>Identifier</td><td>0..1</td><td>moduleMetadata.identifier</td><td>identifier type code as http://hl7.org/fhir/cqi/ecqm/MeasureArtifact/Identifier/cms</td></tr>
-		<tr><td>Version Number</td><td>0..1</td><td>moduleMetadata.version</td><td></td></tr>
-		<tr><td>NQF Number</td><td>0..1</td><td>moduleMetadata.identifier</td><td>identifier type code as http://hl7.org/fhir/cqi/ecqm/MeasureArtifact/Identifier/nqf</td></tr>
-		<tr><td>GUID</td><td>0..1</td><td>moduleMetadata.identifier</td><td>identifier type code as http://hl7.org/fhir/cqi/ecqm/MeasureArtifact/Identifier/guid</td></tr>
-		<tr><td>Measure Steward</td><td>0..1</td><td>moduleMetadata.publisher</td><td></td></tr>
-		<tr><td>Measure Developer</td><td>0..1</td><td>moduleMetadata.contributor</td><td>type.code of author</td></tr>
-		<tr><td>Endorser</td><td>0..1</td><td>moduleMetadata.contributor</td><td>type.code of endorser</td></tr>
-		<tr><td>Description</td><td>0..1</td><td>moduleMetadata.description</td><td></td></tr>
-		<tr><td>Copyright</td><td>0..1</td><td>moduleMetadata.copyright</td><td></td></tr>
-		<tr><td>Reference</td><td>0..*</td><td>moduleMetadata.relatedResource</td><td>type.code of citation</td></tr>
+		<tr><td>Title</td><td>0..1</td><td>Measure.title</td><td></td></tr>
+		<tr><td>Identifier</td><td>0..1</td><td>Measure.identifier</td><td>identifier type code as http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms</td></tr>
+		<tr><td>Version Number</td><td>0..1</td><td>Measure.version</td><td></td></tr>
+		<tr><td>NQF Number</td><td>0..1</td><td>Measure.identifier</td><td>identifier type code as http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/nqf</td></tr>
+		<tr><td>GUID</td><td>0..1</td><td>Measure.identifier</td><td>identifier type code as http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/guid</td></tr>
+		<tr><td>Measure Steward</td><td>0..1</td><td>Measure.publisher</td><td></td></tr>
+		<tr><td>Measure Developer</td><td>0..1</td><td>Measure.contributor</td><td>type.code of author</td></tr>
+		<tr><td>Endorser</td><td>0..1</td><td>Measure.contributor</td><td>type.code of endorser</td></tr>
+		<tr><td>Description</td><td>0..1</td><td>Measure.description</td><td></td></tr>
+		<tr><td>Copyright</td><td>0..1</td><td>Measure.copyright</td><td></td></tr>
+		<tr><td>Reference</td><td>0..*</td><td>Mesaure.relatedResource</td><td>type.code of citation</td></tr>
 		<tr><td>Disclaimer</td><td>0..1</td><td>disclaimer</td><td>String (containing Markdown)</td></tr>
 		<tr><td>Measure Scoring</td><td>0..1</td><td>scoring</td><td>Code, e.g. proportion, CV</td></tr>
 		<tr><td>Measure Type</td><td>0..1</td><td>type</td><td>Code, e.g. process, outcome</td></tr>
@@ -79,7 +79,7 @@ Quality Measure Format (HQMF)</a>.
 		<tr><td>Clinical Recommendation Statement</td><td>0..1</td><td>clinicalRecommendationStatement</td><td>String (containing Markdown)</td></tr>
 		<tr><td>Improvement Notation</td><td>0..1</td><td>improvementNotation</td><td>String, e.g. Higher score indicates better quality</td></tr>
 		<tr><td>Definition</td><td>0..1</td><td>definition</td><td>String (containing Markdown)</td></tr>
-		<tr><td>Guidance</td><td>0..1guidance</td><td>String (containing Markdown)</td></tr>
+		<tr><td>Guidance</td><td>0..1</td><td>guidance</td><td>String (containing Markdown)</td></tr>
 		<tr><td>Measure Set</td><td>0..1</td><td>set</td><td>String, e.g. Preventive Care and Screening</td></tr>
 	</tbody>
 </table>
@@ -89,7 +89,7 @@ Quality Measure Format (HQMF)</a>.
 
 <p>As with other knowledge artifacts, logic is included by referencing a <a href="[%fhir-path%]library.html">Library</a> resource. Although the base resource allows for the measure to reference any number of libraries, for simplicity of managing sharing, this implementation guide requires that a measure reference only one Library, the <i>primary measure library</i>, and that this library contain all the named expressions required to define the measure structure.</p>
 
-<p>Note that this restriction does not preclude sharing of logic between measures, it only requires that that sharing be explicitly done as dependencies within the referenced libraries, rather than allowing a measure.</p>
+<p>Note that this restriction does not preclude sharing of logic between measures, it only requires that that sharing be explicitly done as dependencies within the referenced libraries, rather than allowing a measure to reference multiple libraries directly.</p>
 
 <a name="specifying-population-criteria"/>
 <h5>Specifying Population Criteria</h5>
@@ -128,7 +128,7 @@ Quality Measure Format (HQMF)</a>.
 <a name="Data Criteria"/>
 <h5>Data Criteria</h5>
 
-<p>The data criteria for the primary library defines the patient data of interest in the measure as a set of <a href="[%fhir-path%]datarequirement">DataRequirements</a>. Each data requirement identifies specific types of data along with constraints that the data must meet. For example, one data requirement for CMS 146 identifies FHIR Condition resources that represent confirmed diagnoses of acute pharyngitis. Other data requirements for this measure include Encounters, DiagnosticReports and other FHIR resources representing specific data that is used to calculate the measure.</p>
+<p>The data criteria for the primary library defines the patient data of interest in the measure as a set of <a href="[%fhir-path%]datarequirement.html">DataRequirements</a>. Each data requirement identifies specific types of data along with constraints that the data must meet. For example, one data requirement for CMS 146 identifies FHIR Condition resources that represent confirmed diagnoses of acute pharyngitis. Other data requirements for this measure include Encounters, DiagnosticReports and other FHIR resources representing specific data that is used to calculate the measure.</p>
 
 <p>Specifying the data criteria in this way enables the following use cases:</p>
 
@@ -157,8 +157,7 @@ Quality Measure Format (HQMF)</a>.
 </li>
 </ul>
 
-<p>The effect of invoking the $evaluate-measure operation is to calculate the quality measure according to the supplied parameters and to return a <a href="[%fhir-path%]measurereport.html">MeasureReport</a> resource through which the results will be made available. As described below in Section 5, measure calculation may not be instantaneous and the MeasureReport resource provides a mechanism to handle long running calculations.
-</p>
+<p>The effect of invoking the $evaluate-measure operation is to calculate the quality measure according to the supplied parameters and to return a <a href="[%fhir-path%]measurereport.html">MeasureReport</a> resource through which the results will be made available. Note that because measure calculation may not be instantaneous, the MeasureReport resource provides a mechanism to handle long running calculations.</p>
 
 <a name="operation-parameters"/>
 <h5>Parameters</h5>
@@ -194,7 +193,7 @@ GET [base]/Basic/CMS146/$evaluate-measure?patient=124&amp;periodStart=2014-01&am
 <a name="measure-report"/>
 <h4>Measure Report</h4>
 
-<p>When eCQMs are represented with the Health Quality Measure Format (HQMF), a single HQMF document represnts both the measure itself and the request. Meanwhile, the responses are represented as Quality Reporting Document Architecture (QRDA) documents. QRDA documents come in three flavors: Category I for individual patient reports, Category II for patient list reports, and Category III for population reports.</p>
+<p>When eCQMs are represented with the Health Quality Measure Format (HQMF), a single HQMF document represents both the measure itself and the request. Meanwhile, the responses are represented as Quality Reporting Document Architecture (QRDA) documents. QRDA documents come in three flavors: Category I for individual patient reports, Category II for patient list reports, and Category III for population reports.</p>
 
 <p>When eCQMs are represented with FHIR resources, the measure is represented as a <a href="[%fhir-path%]measure.html">Measure</a> resource, and the request is an HTTP GET conforming to the OperationDefinition described above. Meanwhile, the responses are represented as <a href="[%fhir-path%]measurereport.html">MeasureReport</a> resources. Like QRDA, the MeasureReport allows for Category I (individual), Category II (patient-list), and Category III (population) reports.</p>
 
@@ -249,11 +248,11 @@ GET [base]/Basic/CMS146/$evaluate-measure?patient=124&amp;periodStart=2014-01&am
 	</li>
 	<li>
 		<a name="bibitem-qdm"/>
-		<a href="http://www.healthit.gov/sites/default/files/qdm_4_1_2.pdf">Quality Data Model, Version 4.1.2</a>
+		<a href="https://ecqi.healthit.gov/system/files/qdm_4_2.pdf">Quality Data Model, Version 4.2</a>
 	</li>
 	<li>
 		<a name="bibitem-qrda"/>
-		<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=35">HL7 Implementation Guide for CDA Release 2: Quality Reporting Document Architecture - Category I DSTU Release 2 (US Realm)</a>
+		<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=35">HL7 CDA R2 Implementation Guide: Quality Reporting Document Architecture - Category I (QRDA I) DSTU Release 3 (US Realm)</a>
 	</li>
 </ol>
 
