@@ -1,8 +1,20 @@
+Nest Steps:
+
+Narratives
+QA
+Invarients
+Conformance
+Examples
+
+
+
 narrative notes 
+
+use of "A" or 'a' or "One" in formal summary
 
 for references use valueset-blah.html
 
-use "value set"  no "(code set)" 
+use "value set"  no "(Code set)" 
 
 for binding use: 
 
@@ -13,6 +25,13 @@ which has an [extensible](http://hl7-fhir.github.io/terminologies.html#extensibl
 required
 
 which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
+
+fixed:
+
+example
+One category in `Observation.category` which must have:
+    -   a fixed `Observation.category.coding.system`=“http://hl7.org/fhir/observation-category”
+    -   a fixed `Observation.category.coding.code`=“laboratory”
 
 do a global find  for http://hl7.org/fhir/DSTU2/
 and replace with   http://hl7-fhir.github.io/
