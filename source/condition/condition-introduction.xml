@@ -37,7 +37,7 @@ Such signs and symptoms that are typically captured using the <a href="observati
 although in some cases a persistent symptom, e.g. fever, headache may be captured as a condition before a definitive diagnosis can be discerned by a clinician.
 </p>
 <p>
-The condition resource also specifically excludes <a href="allergyintolerance.html">AllergyIntoelrance</a> as those are handled with their own resource.
+The condition resource also specifically excludes <a href="allergyintolerance.html">AllergyIntolerance</a> as those are handled with their own resource.
 </p>
 
 <blockquote class="dstu-note">
