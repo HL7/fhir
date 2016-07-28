@@ -17,4 +17,4 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Profile specific implementation guidance:**
 
-* Additional elements from [DAF Observation -Smoking StatusProfile](daf-smoking.html) may be present.
+* Additional elements from [DAF Observation -Smoking StatusProfile](observation-daf-smokingstatus.html) may be present.
