@@ -125,7 +125,9 @@
       <example value="true"/>
       <name value="QICore AdverseEvent"/>
       <description value="Example of QICore AdverseEvent"/>
-      <sourceUri value="basic-adverseevent-example.xml"/>
+      <sourceReference>
+		  <reference value="Basic/basic-adverseevent-example"/>
+      </sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-adverseevent"/>
       </exampleFor>
@@ -134,7 +136,9 @@
       <example value="true"/>
       <name value="QICore AllergyIntolerance"/>
       <description value="Example of QICore AllergyIntolerance"/>
-      <sourceUri value="allergyintolerance-example-qicore.xml"/>
+      <sourceReference>
+		  <reference value="AllergyIntolerance/allergyintolerance-example-qicore"/>
+      </sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-allergyintolerance"/>
       </exampleFor>
@@ -143,7 +147,9 @@
       <example value="true"/>
       <name value="QICore AllergyIntolerance Refuted"/>
       <description value="Example of QICore AllergyIntolerance Refuted"/>
-      <sourceUri value="allergyintolerance-example-refuted.xml"/>
+      <sourceReference>
+		  <reference value="AllergyIntolerance/allergyintolerance-example-refuted"/>
+	  </sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-allergyintolerance"/>
       </exampleFor>
@@ -152,7 +158,9 @@
       <example value="true"/>
       <name value="QICore Communication"/>
       <description value="Example of QICore Communication"/>
-      <sourceUri value="communication-example-qicore.xml"/>
+      <sourceReference>
+		  <reference value="Communication/communication-example-qicore"/>
+      </sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-communication"/>
       </exampleFor>
@@ -161,7 +169,9 @@
       <example value="true"/>
       <name value="QICore CommunicationRequest"/>
       <description value="Example of QICore CommunicationRequest"/>
-      <sourceUri value="communicationrequest-example-qicore.xml"/>
+      <sourceReference>
+		  <reference value="CommunicationRequest/communicationrequest-example-qicore"/>
+      </sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-communicationrequest"/>
       </exampleFor>
@@ -170,7 +180,7 @@
       <example value="true"/>
       <name value="QICore Condition"/>
       <description value="Example of QICore Condition"/>
-      <sourceUri value="condition-example-qicore.xml"/>
+      <sourceReference><reference value="Condition/condition-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-condition"/>
       </exampleFor>
@@ -179,25 +189,25 @@
       <example value="true"/>
       <name value="QICore DeviceUseRequest"/>
       <description value="Example of QICore DeviceUseRequest"/>
-      <sourceUri value="deviceuserequest-example-qicore.xml"/>
+      <sourceReference><reference value="DeviceUseRequest/deviceuserequest-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-deviceuserequest"/>
       </exampleFor>
     </resource>
     <resource>
       <example value="true"/>
-      <name value="QICore DiagnosticOrder"/>
-      <description value="Example of QICore DiagnosticOrder"/>
-      <sourceUri value="diagnosticorder-example-qicore.xml"/>
+      <name value="QICore DiagnosticRequest"/>
+      <description value="Example of QICore DiagnosticRequest"/>
+      <sourceReference><reference value="DiagnosticRequest/diagnosticrequest-example-qicore"/></sourceReference>
       <exampleFor>
-        <reference value="StructureDefinition/qicore-diagnosticorder"/>
+        <reference value="StructureDefinition/qicore-diagnosticrequest"/>
       </exampleFor>
     </resource>
     <resource>
       <example value="true"/>
       <name value="QICore DiagnosticReport"/>
       <description value="Example of QICore DiagnosticReport"/>
-      <sourceUri value="diagnosticreport-example-qicore.xml"/>
+      <sourceReference><reference value="DiagnosticReport/diagnosticreport-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-diagnosticreport"/>
       </exampleFor>
@@ -206,7 +216,7 @@
       <example value="true"/>
       <name value="QICore Encounter"/>
       <description value="Example of QICore Encounter"/>
-      <sourceUri value="encounter-example-qicore.xml"/>
+      <sourceReference><reference value="Encounter/encounter-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-encounter"/>
       </exampleFor>
@@ -215,7 +225,7 @@
       <example value="true"/>
       <name value="QICore FamilyMemberHistory"/>
       <description value="Example of QICore FamilyMemberHistory with condition did-not-have"/>
-      <sourceUri value="familymemberhistory-example-qicore.xml"/>
+      <sourceReference><reference value="FamilyMemberHistory/familymemberhistory-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-familymemberhistory"/>
       </exampleFor>
@@ -224,7 +234,7 @@
       <example value="true"/>
       <name value="QICore Flag"/>
       <description value="Example of QICore Flag"/>
-      <sourceUri value="flag-example-qicore.xml"/>
+      <sourceReference><reference value="Flag/flag-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-flag"/>
       </exampleFor>
@@ -233,7 +243,7 @@
       <example value="true"/>
       <name value="QICore Goal"/>
       <description value="Example of QICoreGoal"/>
-      <sourceUri value="goal-example-qicore.xml"/>
+      <sourceReference><reference value="Goal/goal-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-goal"/>
       </exampleFor>
@@ -242,7 +252,7 @@
       <example value="true"/>
       <name value="QICore ImagingStudy"/>
       <description value="Example of QICore ImagingStudy"/>
-      <sourceUri value="imagingstudy-example-qicore.xml"/>
+      <sourceReference><reference value="ImagingStudy/imagingstudy-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-imagingstudy"/>
       </exampleFor>
@@ -251,7 +261,7 @@
       <example value="true"/>
       <name value="QICore MedicationDispense"/>
       <description value="Example of QICore MedicationDispense"/>
-      <sourceUri value="medicationdispense-example-qicore.xml"/>
+      <sourceReference><reference value="MedicationDispense/medicationdispense-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-medicationdispense"/>
       </exampleFor>
@@ -260,7 +270,7 @@
       <example value="true"/>
       <name value="QICore MedicationOrder"/>
       <description value="Example of QICore MedicationOrder"/>
-      <sourceUri value="medicationorder-example-qicore.xml"/>
+      <sourceReference><reference value="MedicationOrder/medicationorder-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-medicationorder"/>
       </exampleFor>
@@ -269,7 +279,7 @@
       <example value="true"/>
       <name value="QICore MedicationStatement"/>
       <description value="Example of QICore MedicationStatement"/>
-      <sourceUri value="medicationstatement-example-qicore.xml"/>
+      <sourceReference><reference value="MedicationStatement/medicationstatement-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-medicationstatement"/>
       </exampleFor>
@@ -278,7 +288,7 @@
       <example value="true"/>
       <name value="QICore Observation"/>
       <description value="Example of QICore Observation"/>
-      <sourceUri value="observation-example-qicore.xml"/>
+      <sourceReference><reference value="Observation/observation-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-observation"/>
       </exampleFor>
@@ -287,7 +297,7 @@
       <example value="true"/>
       <name value="QICore Organization"/>
       <description value="Example of QICore Organization"/>
-      <sourceUri value="organization-example-qicore.xml"/>
+      <sourceReference><reference value="Organization/organization-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-organization"/>
       </exampleFor>
@@ -296,7 +306,7 @@
       <example value="true"/>
       <name value="QICore Patient"/>
       <description value="Example of QICore Patient"/>
-      <sourceUri value="patient-example-qicore.xml"/>
+      <sourceReference><reference value="Patient/patient-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-patient"/>
       </exampleFor>
@@ -305,7 +315,7 @@
       <example value="true"/>
       <name value="QICore Practitioner"/>
       <description value="Example of QICore Practitioner"/>
-      <sourceUri value="practitioner-example-qicore.xml"/>
+      <sourceReference><reference value="Practitioner/practitioner-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-practitioner"/>
       </exampleFor>
@@ -314,7 +324,7 @@
       <example value="true"/>
       <name value="QICore Procedure"/>
       <description value="Example of QICore Procedure"/>
-      <sourceUri value="procedure-example-qicore.xml"/>
+      <sourceReference><reference value="Procedure/procedure-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-procedure"/>
       </exampleFor>
@@ -323,7 +333,7 @@
       <example value="true"/>
       <name value="QICore ProcedureRequest"/>
       <description value="Example of QICore ProcedureRequest"/>
-      <sourceUri value="procedurerequest-example-qicore.xml"/>
+      <sourceReference><reference value="ProcedureRequest/procedurerequest-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-procedurerequest"/>
       </exampleFor>
@@ -332,7 +342,7 @@
       <example value="true"/>
       <name value="QICore ReferralRequest"/>
       <description value="Example of QICore ReferralRequest"/>
-      <sourceUri value="referralrequest-example-qicore.xml"/>
+      <sourceReference><reference value="ReferralRequest/referralrequest-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-referralrequest"/>
       </exampleFor>
@@ -341,7 +351,7 @@
       <example value="true"/>
       <name value="QICore Specimen"/>
       <description value="Example of QICore Specimen"/>
-      <sourceUri value="specimen-example-qicore.xml"/>
+      <sourceReference><reference value="Specimen/specimen-example-qicore"/></sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-specimen"/>
       </exampleFor>
@@ -481,13 +491,13 @@
       </page>
     </page>
     <page>
-      <source value="diagnosticorder-qicore.html"/>
-      <title value="Diagnostic Order"/>
+      <source value="diagnosticrequest-qicore.html"/>
+      <title value="Diagnostic Request"/>
       <kind value="page"/>
       <format value="generated"/>
       <page>
-        <source value="qicore-diagnosticorder.html"/>
-        <title value="Diagnostic Order Details"/>
+        <source value="qicore-diagnosticrequest.html"/>
+        <title value="Diagnostic Request Details"/>
         <kind value="resource"/>
         <format value="generated"/>
       </page>
