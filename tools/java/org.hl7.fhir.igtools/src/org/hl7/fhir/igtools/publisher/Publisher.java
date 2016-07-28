@@ -1239,9 +1239,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private void cleanOutput(String folder) throws IOException {
     for (File f : new File(folder).listFiles()) {
       if (!isValidFile(f.getAbsolutePath())) {
-        if (f.isDirectory()) 
-          Utilities.clearDirectory(f.getAbsolutePath());
-        f.delete();
+        if (!f.isDirectory()) {
+          f.delete();
+        }
       }
     }
   }
