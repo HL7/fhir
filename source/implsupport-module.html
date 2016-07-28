@@ -21,43 +21,122 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="intro"> </a>
 <h3>Introduction</h3>
 <p>
-In this section: scope, what outcome modules seeks providem why would you look at it's content
-
-from the master document: 
-Reference implementations and servers
-Mapping
-IG related tooling (forge, publishing)
-
-Editor: James Agnew
+This section provides information which will be useful for FHIR implementors,
+including information about available libraries, tools, and other similar
+resources, as well as where to seek help.
 </p>
 
 <a name="index"> </a>
 <h3>Index</h3>
 <p>
-In this section: links to key content pages in the module
+	In addition to the content below, a number of implementation
+	resources can be found on the 
+	<a href="./downloads.html">Downloads Page</a>.
 </p>
 
 <a name="secpriv"> </a>
 <h3>Security and Privacy</h3>
 <p>
-In this section: description of key security and privacy issues, or references to pages that deal with this. 
-For the security / privcay module itself, this section does not exist. For other modules, the paragraph/section can end with this boilerplate:
 For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
 </p>
 
 <a name="uses"> </a>
 <h3>Common use Cases</h3>
+
+<h4>For Client Developers and Testers: Reference Servers</h4>
 <p>
-In this section: common problems in the space of the module, ways to go about solving them, or references to additional problem based linkes
+	The following reference servers have been created by the FHIR team, and 
+	are provided made available to help implemeters to test their code. While
+	the reference servers are not considered to be a normative part of the FHIR
+	specification, the maintainers make every effort to ensure that they are
+	fully compliant.
+</p>
+<p>
+	Note that there are a large number of servers available for testing that
+	are not listed here. A full list is available on the HL7 wiki
+	<a href="http://wiki.hl7.org/index.php?title=Publicly_Available_FHIR_Servers_for_testing">here</a>.
+</p>
+<table class="grid">
+	<thead>
+		<tr><th>Server Name</th><th>Maintainer</th><th>Link</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>Healthintersections</td><td>Grahame Grieve</td><td><a href="http://fhir3.healthintersections.com.au/"/>http://fhir3.healthintersections.com.au/</a></td></tr>
+		<tr><td>Spark</td><td>Furore Informatica</td><td><a href="http://spark.furore.com/"/>http://spark.furore.com/</a></td></tr>
+		<tr><td>HAPI</td><td>University Health Network / James Agnew</td><td><a href="http://fhirtest.uhn.ca/"/>http://fhirtest.uhn.ca/</a></td></tr>
+		<tr><td>HealthConnex</td><td>HealthConnex / Brian Postlethwaite</td><td><a href="http://sqlonfhir-may.azurewebsites.net/fhir"/>http://sqlonfhir-may.azurewebsites.net/fhir</a></td></tr>
+	</tbody>
+</table>
+
+<h4>For Developers: Reference Implementations (Libraries)</h4>
+<p>
+	The following reference implementations are made available under an open-source
+	license. These libraries may be used by developers to quickly add FHIR capabilities
+	to their applications.
+</p>
+<table class="grid">
+	<thead>
+		<tr><th>Language</th><th>Library</th><th>License</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>.NET / C#</td><td>FHIR .NET API</td><td><a href="https://github.com/ewoutkramer/fhir-net-api"/>https://github.com/ewoutkramer/fhir-net-api</a></td><td></td></tr>
+		<tr><td>Java</td><td>HAPI FHIR</td><td><a href="http://hapifhir.io"/>http://hapifhir.io</a></td><td>Apache 2.0</td></tr>
+		<tr><td>Swift</td><td>Swift FHIR</td><td><a href="https://github.com/smart-on-fhir/Swift-FHIR"/>https://github.com/smart-on-fhir/Swift-FHIR</a></td><td>Apache 2.0</td></tr>
+		<tr><td>JavaScript</td><td>fhir.js</td><td><a href="https://github.com/smart-on-fhir/fhir.js"/>https://github.com/smart-on-fhir/fhir.js</a></td><td>MIT</td></tr>
+		<tr><td>Python</td><td>Client Py</td><td><a href="https://github.com/smart-on-fhir/client-py"/>https://github.com/smart-on-fhir/client-py</a></td><td>Apache 2.0</td></tr>
+		<tr><td>Pascal</td><td>FHIR Pascal</td><td><a href="http://hl7.org/fhir/downloads.html"/>http://hl7.org/fhir/downloads.html</a></td><td></td></tr>
+	</tbody>
+</tbody>
+
+<h4>For Profilers</h4>
+<p>
+	The following tools are available to profilers wishing to create
+	profiles for use in their implementations. See the
+	<a href="./conformance-module.html">conformance module</a> for
+	information on profiling.
+</p>
+<table class="grid">
+	<thead>
+		<tr><th>Tool</th><th>Link</th></tr>
+	</thead>
+	<tbody>
+		<tr><th>Forge</th><th><a href="http://fhir.furore.com/Forge">http://fhir.furore.com/Forge</a></th></tr>
+	</tbody>
+</table>
+
+<a name="help"> </a>
+<h3>Getting Help</h3>
+<p>
+	The following are a few ways that implementers can seek help
+	as they work with FHIR:
+	<ul>
+		<li><a href="http://community.fhir.org/">FHIR Community Forum</a> (maintained by fhir.org)</li>
+		<li><a href="http://chat.fhir.org/">FHIR Chat Channel / Zulip</a> (maintained by fhir.org)</li>
+		<li><a href="http://stackoverflow.com/questions/tagged/hl7_fhir">StackOverflow</a> (General tech community, use the tag <code>hl7_fhir</code>)</li>
+	</ul>
 </p>
 
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>
 <p>
-In this section: what the current overall state is, what work is in train, what the goals over the next 18 months or so are
+The reference servers and reference implementations generally try to keep up to date with 
+recent changes to the FHIR specification. Each server may have multiple endpoints which are
+held to a specific version of the specification, but generally there will also be
+endpoints available for testing which conform to a very recent build.
+</p>
+<p>
+Efforts are now underway to create a curated collection of quality test data which
+can be used by FHIR implementers to help test their applcations. This collection will
+be made available when it is ready.
 </p>
 
 </div>
+
+<h3>Suggestions</h3>
+<p>
+	This page is maintained by 
+	<a href="https://github.com/jamesagnew/">James Agnew</a>
+</p>
 
 [%file newfooter%]
 </body>
