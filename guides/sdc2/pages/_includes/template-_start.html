@@ -2,7 +2,7 @@
 <html>
   <head>
 {% assign basename = page.path | remove: '.html' %}
-    <title>Sdc\{basename} - FHIR v{{site.data.fhir.version}}</title>
+    <title>{{data.fhir.igCode}}\{{title}} - FHIR v{{site.data.fhir.version}}</title>
   
     {% include include-header.html %}  
   
@@ -13,7 +13,7 @@
     <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
       <div class="container">  <!-- container -->	
         <ul class="breadcrumb">
-          <li title="Structured Data Capture"><b>SDC</b></li>
+          {{site.data.pages[page.path].breadcrumb}}
         </ul>	
       </div>  <!-- /container -->
     </div>  <!-- /segment-breadcrumb -->

@@ -20,12 +20,18 @@
 	"resources": {
 		"StructureDefinition/sdc-element": {
 			"defns": "sdc-element-definitions.html",
-			"base": "sdc-element.html"
+			"base": "sdc-element.html",
+			"template-base": "template-profile.html",
+			"template-defn": "template-definitions.html"
 		},
 		"DataElement/dataelement-sdc-profile-example": {
 			"base": "dataelement-sdc-profile-example.html",
-			"template-base": "instance-template-base.html",
-			"template-format": "instance-template-format.html"
+			"template-base": "template-instance-base.html",
+			"template-format": "template-instance-format.html"
+		},
+		"ValueSet/dex-mimetype": {
+			"base": "valueset-dex-mimetype.html",
+			"template-base": "template-valueset.html"
 		}
 	}
 }
