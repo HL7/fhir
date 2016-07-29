@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -110,14 +111,16 @@ public class IgSpreadsheetParser {
   private Sheet sheet;
   private Bundle bundle;
   private Map<String, String> valuesetsToLoad;
+  private Set<String> knownValueSetIds;
   private boolean first;
 
-  public IgSpreadsheetParser(SimpleWorkerContext context, Calendar genDate, String base, Map<String, String> valuesetsToLoad, boolean first, byte[] msSource) throws Exception {
+  public IgSpreadsheetParser(SimpleWorkerContext context, Calendar genDate, String base, Map<String, String> valuesetsToLoad, boolean first, byte[] msSource, Set<String> knownValueSetIds) throws Exception {
     this.context = context;
     this.genDate = genDate;
     this.base = base;
     this.first = first;
     this.valuesetsToLoad = valuesetsToLoad;
+    this.knownValueSetIds = knownValueSetIds;
     valuesetsToLoad.clear();
     loadMappingSpaces(msSource);
   }
@@ -473,8 +476,6 @@ public class IgSpreadsheetParser {
         String ref = sheet.getColumn(row, "Reference");
         String id = ref.startsWith("valueset-") ? ref.substring(9) : ref;
         if (!ref.startsWith("http:") && !ref.startsWith("https:") && !ref.startsWith("ValueSet/")) {
-          if (valuesetsToLoad.containsKey(id))
-            throw new Exception("Duplicate Value Set id "+id);
           valuesetsToLoad.put(id, ref);
           ref = Utilities.pathReverse(base, "ValueSet", id);
         }

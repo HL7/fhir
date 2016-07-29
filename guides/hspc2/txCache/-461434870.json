@@ -1,0 +1,1 @@
+{"resourceType":"ValueSet","compose":{"include":[{"system":"http://snomed.info/sct","concept":[{"code":"55561003","display":"Active (qualifier value)"},{"code":"260385009","display":"Ruled out (qualifier value)"},{"code":"261665006","display":"Unknown (qualifier value)"},{"code":"410605003","display":"Confirmed present (qualifier value)"}]}]}}

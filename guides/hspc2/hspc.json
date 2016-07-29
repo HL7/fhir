@@ -14,6 +14,10 @@
       "name" : "DAF",
       "location" : "http://hl7.org/fhir/daf",
       "source" : "../daf2/output"
+    }, {
+      "name" : "QICore",
+      "location" : "http://hl7.org/fhir/qicore",
+      "source" : "../qicore2/output"
     }
   ],
   "defaults" : {

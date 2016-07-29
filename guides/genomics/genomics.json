@@ -26,7 +26,6 @@
     "http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsHaploid",
     "http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsGlstring",
     "http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleDatabase",
-    "http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleAsignmentDate",
     "http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsMethod"
   ],
 	"resources": {

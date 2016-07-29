@@ -1,0 +1,1 @@
+{"resourceType":"ValueSet","compose":{"include":[{"system":"http://snomed.info/sct","concept":[{"code":"255227004","display":"Recurrent (qualifier value)"},{"code":"278499009","display":"Episodic (qualifier value)"},{"code":"255238004","display":"Continuous (qualifier value)"},{"code":"7087005","display":"Intermittent (qualifier value)"}]}]}}

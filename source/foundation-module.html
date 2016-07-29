@@ -114,7 +114,7 @@ Every implementer works with the content in the foundation module however they u
 <a name="secpriv"> </a>
 <h3>Relationships with other modules</h3>
 <ul>
- <li>All the other modules depend on the foundation module </li>
+ <li>All the other modules depend on the foundation module</li>
  <li>The <a href="ontology-module.html">Ontology module</a> builds on the foundation model by adding the <a href="rdf.html">RDF</a>, and strengthening the definitions by linking to external ontologies</li>
  <li>The <a href="terminology-module.html">Terminology module</a> provides the formal basis for using Concepts defined in Code Systems in the definitions</li>
  <li>The <a href="conformance-module.html">Conformance module</a> provides the basis for extending the foundation for national and local use</li>
@@ -125,6 +125,15 @@ Every implementer works with the content in the foundation module however they u
 <a name="uses"> </a>
 <h3>Common use Cases</h3>
 <p>
+FHIR supports 3 different paradigms for exchange: the <a href="http.html">RESTful API</a>, <a href="documents.html">Documents</a>, and <a href="messaging.html">Messaging</a>. 
+Each these approaches can be used to exchange information, and each has it's own strengths and weaknesses. Most implementers focus on RESTful API, but this 
+specification supports the other options so that implementations can use them for their strengths.
+</p>
+<p>
+push vs pull
+
+Well, REST, messaging, documents, subscriptions, implementation guides, profiles as decision support guides, etc. are all use-cases
+
 Choosing between RESTful API, messages, documents. 
 building services.
 
@@ -133,9 +142,28 @@ building services.
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>
 <p>
-In the road to normative.
-messaging and docments behind
-resources by their maturity model
+Much of the foundation module is well advanced through the maturity model process. Specifically, the following parts of the specification:
+</p>
+<ul>
+ <li><a href="element.html">Element</a> / <a href="resource.html">Resource</a> + <a href="elementdefinition.html">ElementDefinition</a></li>
+ <li>The <a href="xml.html">XML</a>, &amp; <a href="json.html">JSON</a> formats</li>
+ <li>Many of the <a href="datatypes.html">Data Types</a></li>
+ <li>The <a href="http.html">RESTful API</a> + <a href="search.html">Search</a></li>
+ <li><a href="binary.html">Binary</a>, <a href="bundle.html">Bundle</a>, <a href="operationoutcome.html">OperationOutcome</a> &amp; <a href="parameters.html">Parameters</a></li>  
+</ul>
+<p>
+The focus over the next 18 months or so as the 4th release of FHIR is prepared is to focus on stability and move these artefacts to normative 
+status. However some parts of the foundation module are not as well explored, and are not as far advanced with regard to their development.
+Specifically:
+</p>
+<ul>
+  <li><a href="documents.html">Documents</a></li>
+  <li><a href="messaging.html">Messaging</a></li>
+  <li><a href="services.html">Services</a></li>
+</ul>
+<p>
+These are areas that still need further testing with regard to interoperability. HL7 expects to focus on testing these
+things in connectathons over the next 18 months.
 </p>
 
 </div>

@@ -38,6 +38,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import org.apache.commons.codec.Charsets;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.PumpStreamHandler;
 import org.apache.commons.lang3.SystemUtils;
@@ -196,7 +197,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private Set<String> otherFilesRun = new HashSet<String>();
   private Set<String> regenList = new HashSet<String>();
   private StringBuilder filelog;
-  
+  private Set<String> allOutputs = new HashSet<String>();  
 
   private long globalStart;
 
@@ -648,8 +649,14 @@ public class Publisher implements IWorkerContext.ILoggingService {
       throw new Exception(String.format("Error: Output must be a folder (%s)", dir));
   }
 
-  private void checkMakeFile(byte[] bs, String path, Set<String> outputTracker) throws IOException {
+  private boolean checkMakeFile(byte[] bs, String path, Set<String> outputTracker) throws IOException {
     dlog("Check Generate "+path);
+    if (first) {
+      String s = path.toLowerCase();
+      if (allOutputs.contains(s))
+        throw new Error("Error generating build: the file "+path+" is being generated more than once (may differ by case)");
+      allOutputs.add(s);
+    }
     outputTracker.add(path);
     File f = new CSFile(path);
     byte[] existing = null;
@@ -657,7 +664,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
       existing = TextFile.fileToBytes(path);
     if (!Arrays.equals(bs, existing)) {
       TextFile.bytesToFile(bs, path);
+      return true;
     }
+    return false;
   }
 
   private boolean needFile(String s) {
@@ -827,16 +836,17 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private boolean loadSpreadsheets(boolean needToBuild, FetchedFile igf) throws Exception {
+    Set<String> knownValueSetIds = new HashSet<>();
     JsonArray spreadsheets = configuration.getAsJsonArray("spreadsheets");
     if (spreadsheets != null) {
       for (JsonElement be : spreadsheets) {
-        needToBuild = loadSpreadsheet((JsonPrimitive) be, needToBuild, igf);
+        needToBuild = loadSpreadsheet((JsonPrimitive) be, needToBuild, igf, knownValueSetIds);
       }
     }
     return needToBuild;
   }
 
-  private boolean loadSpreadsheet(JsonPrimitive be, boolean needToBuild, FetchedFile igf) throws Exception {
+  private boolean loadSpreadsheet(JsonPrimitive be, boolean needToBuild, FetchedFile igf, Set<String> knownValueSetIds) throws Exception {
     if (be.getAsString().startsWith("!"))
       return false;
     
@@ -846,7 +856,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (changed) {
       f.getValuesetsToLoad().clear();
       dlog("load "+path);
-      f.setBundle(new IgSpreadsheetParser(context, execTime, igpkp.getCanonical(), f.getValuesetsToLoad(), first, context.getBinaries().get("mappingSpaces.details")).parse(f));
+      f.setBundle(new IgSpreadsheetParser(context, execTime, igpkp.getCanonical(), f.getValuesetsToLoad(), first, context.getBinaries().get("mappingSpaces.details"), knownValueSetIds).parse(f));
       for (BundleEntryComponent b : f.getBundle().getEntry()) {
         FetchedResource r = f.addResource();
         r.setResource(b.getResource());
@@ -855,31 +865,37 @@ public class Publisher implements IWorkerContext.ILoggingService {
         r.setTitle(r.getElement().getChildValue("name"));
         igpkp.findConfiguration(f, r);
       }
-    } else 
+    } else {
       f = altMap.get("Spreadsheet/"+be.getAsString());
+    }
+         
     for (String id : f.getValuesetsToLoad().keySet()) {
-      String vr = f.getValuesetsToLoad().get(id);
-      path = Utilities.path(Utilities.getDirectoryForFile(igName), vr);
-      FetchedFile fv = fetcher.fetchFlexible(path);
-      boolean vrchanged = noteFile("sp-ValueSet/"+vr, fv);
-      if (vrchanged) {
-        determineType(fv);
-        checkImplicitResourceIdentity(id, fv);
-      }
-      // ok, now look for an implicit code system with the same name
-      boolean crchanged = false;
-      String cr = vr.replace("valueset-", "codesystem-");
-      path = Utilities.path(Utilities.getDirectoryForFile(igName), vr);
-      if (fetcher.canFetchFlexible(path)) {
-        fv = fetcher.fetchFlexible(path);
-        crchanged = noteFile("sp-CodeSystem/"+vr, fv);
-        if (crchanged) {
+      if (!knownValueSetIds.contains(id)) {
+        String vr = f.getValuesetsToLoad().get(id);
+        path = Utilities.path(Utilities.getDirectoryForFile(igName), vr);
+        FetchedFile fv = fetcher.fetchFlexible(path);
+        boolean vrchanged = noteFile("sp-ValueSet/"+vr, fv);
+        if (vrchanged) {
           determineType(fv);
           checkImplicitResourceIdentity(id, fv);
+        } 
+        knownValueSetIds.add(id);
+        // ok, now look for an implicit code system with the same name
+        boolean crchanged = false;
+        String cr = vr.replace("valueset-", "codesystem-");
+        if (!cr.equals(vr)) {
+          path = Utilities.path(Utilities.getDirectoryForFile(igName), cr);
+          if (fetcher.canFetchFlexible(path)) {
+            fv = fetcher.fetchFlexible(path);
+            crchanged = noteFile("sp-CodeSystem/"+vr, fv);
+            if (crchanged) {
+              determineType(fv);
+              checkImplicitResourceIdentity(id, fv);
+            }
+          }
         }
+        changed = changed || vrchanged || crchanged;
       }
-      
-      changed = changed || vrchanged || crchanged;
     }
     for (FetchedResource r : f.getResources()) 
       bndIds.add(r.getElement().fhirType()+"/"+r.getId());
@@ -1222,6 +1238,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
     else
       throw new Exception("Unable to process "+uri);
 
+    if (res == null)
+      throw new Exception("Unable to find regeneration source for "+uri);
+    
     BaseConformance bc = (BaseConformance) res;
     
     FetchedFile f = new FetchedFile();
@@ -1712,7 +1731,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         StructureDefinition sd = (StructureDefinition) r.getResource();
         String url = sd.getUrl();
         StructureDefinition base = context.fetchResource(StructureDefinition.class, url);
-        if (base == null) {
+        if (base != null) {
           map.put("parent-name", base.getName());
           map.put("parent-link", base.getUserString("path"));
         } else {
@@ -1866,8 +1885,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
           template = template.replace("{{["+n+"]}}", vars.get(n));
       }
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+"."+format+".html");
-      TextFile.stringToFile(template, path, false);
-      outputTracker.add(path);
+      checkMakeFile(template.getBytes(Charsets.UTF_8), path, outputTracker);
     }
   }
 
@@ -1881,8 +1899,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       template = template.replace("{{[name]}}", r.getId()+"-html");
       template = template.replace("{{[uid]}}", r.getElement().fhirType()+"="+r.getId());
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".html");
-      TextFile.stringToFile(template, path, false);
-      outputTracker.add(path);
+      checkMakeFile(template.getBytes(Charsets.UTF_8), path, outputTracker);
     }
   }
 
@@ -1989,12 +2006,12 @@ public class Publisher implements IWorkerContext.ILoggingService {
       fragment("StructureDefinition-"+sd.getId()+"-diff", sdr.diff(igpkp.getDefinitions(sd)), f.getOutputNames());
     if (wantGen(r, "snapshot")) 
       fragment("StructureDefinition-"+sd.getId()+"-snapshot", sdr.snapshot(igpkp.getDefinitions(sd)), f.getOutputNames());
-    if (wantGen(r, "template-xml")) 
-      fragmentError("StructureDefinition-"+sd.getId()+"-template-xml", "yet to be done: Xml template", f.getOutputNames());
-    if (wantGen(r, "template-json")) 
-      fragmentError("StructureDefinition-"+sd.getId()+"-template-json", "yet to be done: Json template", f.getOutputNames());
-    if (wantGen(r, "template-ttl")) 
-      fragmentError("StructureDefinition-"+sd.getId()+"-template-ttl", "yet to be done: Turtle template", f.getOutputNames());
+    if (wantGen(r, "pseudo-xml")) 
+      fragmentError("StructureDefinition-"+sd.getId()+"-pseudo-xml", "yet to be done: Xml template", f.getOutputNames());
+    if (wantGen(r, "pseudo-json")) 
+      fragmentError("StructureDefinition-"+sd.getId()+"-pseudo-json", "yet to be done: Json template", f.getOutputNames());
+    if (wantGen(r, "pseudo-ttl")) 
+      fragmentError("StructureDefinition-"+sd.getId()+"-pseudo-ttl", "yet to be done: Turtle template", f.getOutputNames());
     if (wantGen(r, "uml")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-uml", "yet to be done: UML as SVG", f.getOutputNames());
     if (wantGen(r, "tx")) 
@@ -2035,11 +2052,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void fragment(String name, String content, Set<String> outputTracker) throws IOException {
-    File f = new File(Utilities.path(tempDir, "_includes", name+".xhtml"));
-    outputTracker.add(f.getAbsolutePath());
-    String s = f.exists() ? TextFile.fileToString(f.getAbsolutePath()) : "";
-    if (!f.exists() || !s.equals(content)) { 
-      TextFile.stringToFile(content, Utilities.path(tempDir, "_includes", name+".xhtml"), false);
+    if (checkMakeFile(content.getBytes(Charsets.UTF_8), Utilities.path(tempDir, "_includes", name+".xhtml"), outputTracker)) {
       TextFile.stringToFile(pageWrap(content, name), Utilities.path(qaDir, name+".html"), true);
     }
   }

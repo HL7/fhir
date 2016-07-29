@@ -6365,9 +6365,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s107"><Data ss:Type="String">ObservationStatusBasic</Data></Cell>
     <Cell><Data ss:Type="String">A set of codes that describe the state of the observation</Data></Cell>
-    <Cell><Data ss:Type="String">code list</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">required</Data></Cell>
-    <Cell><Data ss:Type="String">#observationstatusbasic</Data></Cell>
+    <Cell><Data ss:Type="String">http://http://fhir.org/guides/hspc/ValueSet/observationstatusbasic</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
@@ -7326,7 +7326,7 @@
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">{http://hl7.org/fhir/StructureDefinition/qicore-observation}</Data></Cell>
+    <Cell><Data ss:Type="String">{http://hl7.org/fhir/qicore/StructureDefinition/qicore-observation}</Data></Cell>
    </Row>
    <Row ss:Index="4" ss:AutoFitHeight="0" ss:StyleID="s87">
     <Cell ss:StyleID="s107"><Data ss:Type="String">DataOriginationMode</Data></Cell>

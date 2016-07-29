@@ -19,33 +19,7 @@
 	</dependency>
 	<package>
 		<name value="base"/>
-		<!--  value sets -->
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-procedure-type"/>
-			</sourceReference>
-		</resource>
-		
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/us-core-birth-sex"/>
-			</sourceReference>
-		</resource>	
-			
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-product-form"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-race"/>
-			</sourceReference>
-		</resource>
+		<!--  value sets -->		
 		<resource>
 			<example value="false"/>
 			<sourceReference>
@@ -74,12 +48,6 @@
 			<example value="false"/>
 			<sourceReference>
 				<reference value="ValueSet/daf-substance-unii"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-ucum-vitals-common"/>
 			</sourceReference>
 		</resource>
 		<resource>
@@ -122,90 +90,6 @@
 			<example value="false"/>
 			<sourceReference>
 				<reference value="ValueSet/concern-status"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/cvx"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-bodysite"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-cvx"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-encounter-dischargedisposition"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-encounter-reason"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-encounter-type"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-ethnicity"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-list-MedListCode"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-manifestation-ccda-codes"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-medication-codes"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-medication-route"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-observation-ccdasmokingstatus"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-observation-CCDAVitalSignResult"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-problem"/>
 			</sourceReference>
 		</resource>
 		<!--  profiles -->
@@ -630,12 +514,6 @@
 			</exampleFor>
 		</resource>
 		<!--daf-core-core valuesets-->
-		<resource>
-			<example value="false"/>
-			<sourceReference>
-				<reference value="ValueSet/daf-core-substance"/>
-			</sourceReference>
-		</resource>
 		<resource>
 			<example value="false"/>
 			<sourceReference>

@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10524</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>14124</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>740</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -2172,7 +2172,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4475,7 +4474,7 @@
     <Cell><Data ss:Type="String">A set of codes that describe the type of usage for a telecom value.</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">required</Data></Cell>
-    <Cell><Data ss:Type="String">#telecomUse</Data></Cell>
+    <Cell><Data ss:Type="String">#patient-telecom-use</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
@@ -4504,7 +4503,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">A set of codes that describe the manner in which an addressed is used.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">required</Data></Cell>
-    <Cell><Data ss:Type="String">#addressUse</Data></Cell>
+    <Cell><Data ss:Type="String">#patient-address-use</Data></Cell>
     <Cell ss:StyleID="s110"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s162"/>
@@ -4626,12 +4625,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4639,14 +4639,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4656,10 +4656,10 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="telecomUse">
+ <Worksheet ss:Name="patient-telecom-use">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=telecomUse!R1C1:R1C9"
-    ss:Hidden="1"/>
+   <NamedRange ss:Name="_FilterDatabase"
+    ss:RefersTo="='patient-telecom-use'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="50" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s167" ss:DefaultColumnWidth="64.8"
@@ -5906,10 +5906,10 @@
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="addressUse">
+ <Worksheet ss:Name="patient-address-use">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=addressUse!R1C1:R1C9"
-    ss:Hidden="1"/>
+   <NamedRange ss:Name="_FilterDatabase"
+    ss:RefersTo="='patient-address-use'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="48" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s167" ss:DefaultColumnWidth="64.8"

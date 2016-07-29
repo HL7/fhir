@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10524</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>14124</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>708</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3541,7 +3541,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6079,7 +6078,7 @@
     <Cell><Data ss:Type="String">A set of codes that describe what the given telecom value is used for</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">required</Data></Cell>
-    <Cell><Data ss:Type="String">#telecomUse</Data></Cell>
+    <Cell><Data ss:Type="String">#practitioner-telecom-use</Data></Cell>
     <Cell><Data ss:Type="String">A set of codes that describe what the given telecom value is used for</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -6094,7 +6093,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">A set of codes that describe the manner in which an addressed is used.</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">required</Data></Cell>
-    <Cell><Data ss:Type="String">#addressUse</Data></Cell>
+    <Cell><Data ss:Type="String">#practitioner-address-use</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">A set of codes that describe the manner in which an addressed is used.</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -6449,6 +6448,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6468,7 +6468,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>41</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
@@ -6479,10 +6479,10 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="telecomUse">
+ <Worksheet ss:Name="practitioner-telecom-use">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=telecomUse!R1C1:R1C9"
-    ss:Hidden="1"/>
+   <NamedRange ss:Name="_FilterDatabase"
+    ss:RefersTo="='practitioner-telecom-use'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s162" ss:DefaultRowHeight="15">
@@ -7109,10 +7109,10 @@
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="addressUse">
+ <Worksheet ss:Name="practitioner-address-use">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=addressUse!R1C1:R1C9"
-    ss:Hidden="1"/>
+   <NamedRange ss:Name="_FilterDatabase"
+    ss:RefersTo="='practitioner-address-use'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="49" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s162" ss:DefaultRowHeight="15">
@@ -7722,7 +7722,7 @@
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="11" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">{http://hl7.org/fhir/StructureDefinition/qicore-practitioner}</Data></Cell>
+    <Cell><Data ss:Type="String">{http://hl7.org/fhir/qicore/StructureDefinition/qicore-practitioner}</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s163"><Data ss:Type="Number">15053040</Data></Cell>
