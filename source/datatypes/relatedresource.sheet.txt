@@ -14,7 +14,7 @@
   Id = 1
   Code = documentation
   Display = Documentation
-  Definition = Additional documentation for the module. This would include additional instructions on usage as well additional information on clinical context or appropriateness
+  Definition = Additional documentation for the module. This would include additional instructions on usage as well as additional information on clinical context or appropriateness
 
  -- Row 2 -----------------------------------
   Id = 2

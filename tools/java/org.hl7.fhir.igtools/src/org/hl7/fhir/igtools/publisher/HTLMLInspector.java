@@ -16,6 +16,7 @@ import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.publisher.HTLMLInspector.LoadedFile;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
@@ -57,11 +58,13 @@ public class HTLMLInspector {
   }
 
   private String rootFolder;
+  private List<SpecMapManager> specs;
   private Map<String, LoadedFile> cache = new HashMap<String, LoadedFile>();
   private int iteration = 0;
 
-  public HTLMLInspector(String rootFolder) {
+  public HTLMLInspector(String rootFolder, List<SpecMapManager> specs) {
     this.rootFolder = rootFolder;    
+    this.specs = specs;
   }
 
   public List<ValidationMessage> check() {
@@ -151,7 +154,8 @@ public class HTLMLInspector {
   }
 
   private void checkLinks(String s, String path, XhtmlNode x, List<ValidationMessage> messages) {
-    path = path + "/"+ x.getName();
+    if (x.getName() != null)
+      path = path + "/"+ x.getName();
     if ("a".equals(x.getName()) && x.hasAttribute("href"))
       checkResolveLink(s, path, x.getAttribute("href"), messages);
     for (XhtmlNode c : x.getChildNodes())
@@ -159,9 +163,30 @@ public class HTLMLInspector {
   }
 
   private void checkResolveLink(String s, String path, String ref, List<ValidationMessage> messages) {
-    boolean resolved = false;
-//    if (!resolved)
-//      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, s+"#"+path, "The link '"+ref+" cannot be resolved", IssueSeverity.ERROR));
+    boolean resolved = Utilities.existsInList(ref, "http://hl7.org/fhir", "http://hl7.org", "http://www.hl7.org", "http://hl7.org/fhir/search.cfm");
+    if (!resolved){
+      for (SpecMapManager spec : specs) {
+        resolved = resolved || spec.getBase().equals(ref) || (spec.getBase()+"/").equals(ref) || spec.hasTarget(ref); 
+      }
+    }
+    if (!resolved && !(ref.startsWith("http://") || ref.startsWith("https://"))) {
+      String page = ref;
+      String name = null;
+      if (page.contains("#")) {
+        name = page.substring(page.indexOf("#")+1);
+        page = page.substring(0, page.indexOf("#"));
+      }
+      LoadedFile f = cache.get(Utilities.path(rootFolder, page));
+      if (f != null) {
+        if (name == null)
+          resolved = true;
+        else 
+          resolved = f.targets.contains(name);
+      }
+    }
+      
+    if (!resolved)
+      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, s+"#"+path, "The link '"+ref+" cannot be resolved", IssueSeverity.ERROR));
   }
 
 

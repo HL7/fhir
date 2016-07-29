@@ -457,7 +457,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     
     igName = Utilities.path(resourceDirs.get(0), configuration.get("source").getAsString());
 
-    inspector = new HTLMLInspector(outputDir);
+    inspector = new HTLMLInspector(outputDir, specMaps);
     
     log("Publish "+igName);
 
@@ -1290,6 +1290,11 @@ public class Publisher implements IWorkerContext.ILoggingService {
             throw new Exception("URL Mismatch "+u+" vs "+uc);
         }
         map.path(u, igpkp.getLinkFor(f, r));
+      }
+    }
+    for (String s : new File(outputDir).list()) {
+      if (s.endsWith(".html")) {
+        map.target(s);
       }
     }
     File df = File.createTempFile("fhir", "tmp");

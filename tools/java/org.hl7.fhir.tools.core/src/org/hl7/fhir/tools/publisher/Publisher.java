@@ -2491,12 +2491,16 @@ public class Publisher implements URIResolver, SectionNumberer {
     SpecMapManager spm = new SpecMapManager(page.getVersion(), page.getSvnRevision(), page.getGenDate());
         
     for (StructureDefinition sd : page.getWorkerContext().allStructures()) {
-      if (sd.hasUserData("path"))
+      if (sd.hasUserData("path")) {
         spm.path(sd.getUrl(), sd.getUserString("path").replace("\\", "/"));
+        spm.target(sd.getUserString("path").replace("\\", "/"));
+      }
     }
     for (StructureDefinition sd : page.getWorkerContext().getExtensionDefinitions().values()) {
-      if (sd.hasUserData("path"))
+      if (sd.hasUserData("path")) {
         spm.path(sd.getUrl(), sd.getUserString("path").replace("\\", "/"));
+        spm.target(sd.getUserString("path").replace("\\", "/"));
+      }
     }
     for (String s : page.getCodeSystems().keySet()) {
       CodeSystem cs = page.getCodeSystems().get(s);
@@ -2504,19 +2508,28 @@ public class Publisher implements URIResolver, SectionNumberer {
         System.out.println("No code system for "+s);
     }
     for (CodeSystem cs : page.getCodeSystems().values()) {
-      if (cs != null && cs.hasUserData("path"))
+      if (cs != null && cs.hasUserData("path")) {
         spm.path(cs.getUrl(), cs.getUserString("path").replace("\\", "/"));
+        spm.target(cs.getUserString("path").replace("\\", "/"));      
+      }
     }
     for (ValueSet vs : page.getValueSets().values()) {
-      if (vs.hasUserData("path"))
+      if (vs.hasUserData("path")) {
         spm.path(vs.getUrl(), vs.getUserString("path").replace("\\", "/"));
+        spm.target(vs.getUserString("path").replace("\\", "/"));      
+      }
     }
     for (ConceptMap cm : page.getConceptMaps().values()) {
-      if (cm.hasUserData("path"))
+      if (cm.hasUserData("path")) {
         spm.path(cm.getUrl(), cm.getUserString("path").replace("\\", "/"));
+        spm.target(cm.getUserString("path").replace("\\", "/"));      
+      }
     }
     for (String s : page.getDefinitions().getPageTitles().keySet()) {
       spm.page(s, page.getDefinitions().getPageTitles().get(s));      
+    }
+    for (String n : page.getIni().getPropertyNames("pages")) {
+      spm.target(n);      
     }
 
 //    for (String url : page.getDefinitions().getMapTypes().keySet()) {

@@ -3,13 +3,18 @@ package org.hl7.fhir.igtools.publisher;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.utilities.TextFile;
+import org.hl7.fhir.utilities.Utilities;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSyntaxException;
@@ -19,7 +24,9 @@ public class SpecMapManager {
   private JsonObject spec;
   private JsonObject paths;
   private JsonObject pages;
+  private JsonArray targets;
   private String base;
+  private Set<String> targetSet = new HashSet<String>();
 
   public SpecMapManager(String version, String svnRevision, Calendar genDate) {
     spec = new JsonObject();
@@ -30,12 +37,19 @@ public class SpecMapManager {
     spec.add("paths", paths);
     pages = new JsonObject();
     spec.add("pages", pages);
+    targets = new JsonArray();
+    spec.add("targets", targets);
   }
 
   public SpecMapManager(byte[] bytes) throws JsonSyntaxException, IOException {
     spec = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.bytesToString(bytes));
     paths = spec.getAsJsonObject("paths");
     pages = spec.getAsJsonObject("pages");
+    targets = spec.getAsJsonArray("targets");
+    if (targets != null)
+      for (JsonElement e : targets) {
+        targetSet.add(((JsonPrimitive) e).getAsString());
+    }
   }
 
   public void path(String url, String path) {
@@ -94,5 +108,21 @@ public class SpecMapManager {
     this.base = base;
   }
 
+  public void target(String tgt) {
+    targets.add(new JsonPrimitive(tgt));
+  }
   
+  public boolean hasTarget(String tgt) {
+    if (tgt.startsWith(base+"/"))
+      tgt = tgt.substring(base.length()+1);
+    else if (tgt.startsWith(base))
+      tgt = tgt.substring(base.length());
+    if (targetSet.contains(tgt))
+      return true;
+    if (tgt.contains("#"))
+      tgt = tgt.substring(0, tgt.indexOf("#"));
+    if (targetSet.contains(tgt))
+      return true;
+    return false;  
+  }
 }
