@@ -1,18 +1,40 @@
+---
+# jekyll prompt
+---
 <!DOCTYPE HTML>
       
-[%settitle Quality Improvement Core (QICore) Implementation Guide%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-[%file newheader%]
+  <meta charset="UTF-8">
+  <title>Quality Improvement Core (QI-Core) Implementation Guide - FHIR v1.5.0</title>
+
+  {% include header.html %}
+
 </head>
 <body> 
-[%file newnavbar%]
+{% include navbar.html %}
+
+ <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+  <div class="container">  <!-- container -->
+   <ul class="breadcrumb">
+          <!-- daf\daf / page / daf -->
+        <li title="Quality Improvement Core"><b>Quality Improvement Core (QI-Core) Implementation Guide</b></li>
+
+   </ul>
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+
 
 <div class="col-9">
 
 <a name="QICore"> </a> 
 
-<h2>Quality Improvement Core (QICore) Implementation Guide</h2>
+<h2>Quality Improvement Core (QI-Core) Implementation Guide</h2>
 
 <h3>Summary</h3>
 
@@ -20,7 +42,7 @@
  
 <p>QICore FHIR profiles define the Quality Information and Clinical Knowledge (QUICK) logical model. The QUICK model, derived from QICore, provides a uniform way for clinical decision support and quality measures to refer to clinical data. Simultaneously, the QICore profiles provide a physical implementation of QUICK, making data for quality improvement applications accessible via the FHIR interface. However, using FHIR in the physical layer is optional. If the QICore FHIR profiles are not used at the physical layer, the implementer is responsible for mapping their data directly into the QUICK model via their own customized data access layer.</p>
 
-<p>​The QICore model is an initiative of the Clinical Quality Information (CQI) and Clinical Decision Support (CDS) HL7 Work Groups. QICore defines a set of FHIR profiles with extensions and bindings needed to create interoperable, quality-focused applications. QICore classes and attributes are the most relevant to the broader QI community, lying in the intersection of clinical quality measures (CQM) and CDS, thus providing a common foundation for reusability. The expectation is that QICore will grow over time by incorporating other extensions with broad applicability. There may also be further extensions and coordinated  profiles in specific domains beyond QICore, e.g., radiology-specific profiles. When additional classes and attributes are needed for specific quality applications, they can be added through FHIR's extension mechanism. These extensions, however, would not automatically result in shareable artifacts without additional coordinating agreements between interested parties. It is expected that QICore will evolve over time to include some of the extensional content when the community identifies a common need and the additional content has been validated.</p>
+<p>The QICore model is an initiative of the Clinical Quality Information (CQI) and Clinical Decision Support (CDS) HL7 Work Groups. QICore defines a set of FHIR profiles with extensions and bindings needed to create interoperable, quality-focused applications. QICore classes and attributes are the most relevant to the broader QI community, lying in the intersection of clinical quality measures (CQM) and CDS, thus providing a common foundation for reusability. The expectation is that QICore will grow over time by incorporating other extensions with broad applicability. There may also be further extensions and coordinated  profiles in specific domains beyond QICore, e.g., radiology-specific profiles. When additional classes and attributes are needed for specific quality applications, they can be added through FHIR's extension mechanism. These extensions, however, would not automatically result in shareable artifacts without additional coordinating agreements between interested parties. It is expected that QICore will evolve over time to include some of the extensional content when the community identifies a common need and the additional content has been validated.</p>
 
 <h3>Background</h3>
 
@@ -355,6 +377,15 @@
 	</tbody>
 </table>
 </div>
-[%file newfooter%]
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+
+{% include footer.html %}
 </body>
 </html>

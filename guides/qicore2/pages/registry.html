@@ -1,0 +1,59 @@
+---
+# jekyll prompt
+---
+<!DOCTYPE HTML>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quality Improvement Core (QI-Core) Implementation Guide\registry - FHIR v1.5.0</title>
+
+  {% include header.html %}
+
+</head>
+<body>
+{% include navbar.html %}
+
+ <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+  <div class="container">  <!-- container -->
+   <ul class="breadcrumb">
+          <!-- daf\registry / page / registry -->
+        <li title="Quality Improvement Core"><a href="index.html"><b>QI-Core</b></a></li>
+        <li><b>Registry</b></li>
+
+   </ul>
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+  <!-- CONTENT CONTENT -->
+
+
+<div class="col-9">
+
+<h2>Conformance Resource Registry</h2>
+
+<p>
+This table contains a list of all the conformance resources 
+defined as part of the <%ig.title%>:
+</p>
+<%ig.registry ValueSet,ConceptMap,StructureDefinition,Conformance%>
+
+</div>
+
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+{% include footer.html %}
+
+</body>
+</html>

@@ -12,114 +12,6 @@
     <uri value="http://hl7.org/fhir/daf"/>
   </dependency>
   <package>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="allergyintolerance-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="basic-adverseevent-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="bodysite-profile-spreadsheet.xml"/>
-    </extension>
-	<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="claim-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="communication-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="communicationrequest-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="condition-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="coverage-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="device-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="deviceuserequest-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="deviceusestatement-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="diagnosticorder-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="diagnosticreport-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="encounter-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="familymemberhistory-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="flag-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="goal-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="imagingstudy-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="immunization-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="immunizationrecommendation-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="location-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="medication-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="medicationadministration-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="medicationdispense-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="medicationorder-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="medicationstatement-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="observation-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="organization-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="patient-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="practitioner-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="procedure-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="procedurerequest-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="referralrequest-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="relatedperson-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="specimen-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="substance-profile-spreadsheet.xml"/>
-    </extension>
     <name value="base"/>
 	<resource>
       <example value="true"/>
@@ -358,7 +250,7 @@
     </resource>
   </package>
   <page>
-    <source value="qicore.html"/>
+    <source value="index.html"/>
     <title value="Home Page"/>
     <kind value="page"/>
     <page>

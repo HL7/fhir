@@ -8,7 +8,14 @@
 		"qa": "qa",
 		"specification": "http://hl7-fhir.github.io/"
 	},
-	"defaults": {
+    "dependencyList" : [
+		{
+		  "name" : "DAF",
+		  "location" : "http://hl7.org/fhir/daf",
+		  "source" : "../daf2/output"
+		}
+	],
+  	"defaults": {
 		"Any": {
 			"template-format": "instance-template-format.html",
 			"template-base": "instance-template-base.html"
