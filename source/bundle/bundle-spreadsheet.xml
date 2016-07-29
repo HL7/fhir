@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17724</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>7356</WindowHeight>
+  <WindowWidth>15336</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4409,7 +4409,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4491,8 +4490,8 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">message</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry.resource(0)</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry.resource[0]</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry(0).resource</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry[0].resource</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">MessageHeader</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The first resource in the bundle, if the bundle type is &quot;message&quot; - this is a message header, and this parameter provides access to search its contents</Data></Cell>
    </Row>
@@ -4500,8 +4499,8 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">composition</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry.resource(0)</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry.resource[0]</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry(0).resource</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry[0].resource</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Composition</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The first resource in the bundle, if the bundle type is &quot;document&quot; - this is a composition, and this parameter provides access to searches its contents</Data></Cell>
    </Row>
@@ -4784,6 +4783,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

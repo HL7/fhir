@@ -985,7 +985,7 @@ public class SpreadsheetParser {
       if (p.indexOf(")") == p.length()-1)
         p = p.substring(0, p.indexOf("("));
       else
-        p = p.substring(0, p.indexOf("("))+p.substring(p.indexOf(")"+1));
+        p = p.substring(0, p.indexOf("("))+p.substring(p.indexOf(")")+1);
     return p;
   }
 

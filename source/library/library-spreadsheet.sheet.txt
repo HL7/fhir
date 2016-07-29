@@ -349,6 +349,18 @@
   Description = CMS146 Measure Logic
   Filename = library-cms146-example.xml
 
+ -- Row 5 -----------------------------------
+  Name = QUICKModel
+  Identity = library-quick-model-definition
+  Description = QUICK Model Definition
+  Filename = library-quick-model-definition.xml
+
+ -- Row 6 -----------------------------------
+  Name = FHIRModel
+  Identity = library-fhir-model-definition
+  Description = FHIR Model Definition
+  Filename = library-fhir-model-definition.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
