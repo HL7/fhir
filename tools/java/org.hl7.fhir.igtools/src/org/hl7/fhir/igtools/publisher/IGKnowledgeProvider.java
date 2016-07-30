@@ -112,7 +112,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   public void findConfiguration(FetchedFile f, FetchedResource r) {
     JsonObject e = resourceConfig.getAsJsonObject(r.getElement().fhirType()+"/"+r.getId());
     if (e == null)
-      error("no configuration found for "+r.getElement().fhirType()+"/"+r.getId()+" in "+f.getName());
+      hint("no configuration found for "+r.getElement().fhirType()+"/"+r.getId()+" in "+f.getName());
     else 
       r.setConfig(e);
   }
@@ -136,6 +136,13 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     if (!msgs.contains(msg)) {
       msgs.add(msg);
       errors.add(new ValidationMessage(Source.Publisher, IssueType.INVARIANT, msg, IssueSeverity.ERROR));
+    }
+  }
+
+  private void hint(String msg) {
+    if (!msgs.contains(msg)) {
+      msgs.add(msg);
+      errors.add(new ValidationMessage(Source.Publisher, IssueType.INVARIANT, msg, IssueSeverity.INFORMATION));
     }
   }
 
