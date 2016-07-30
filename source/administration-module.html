@@ -2,60 +2,115 @@
 
 <!--
 These elements SHALL always appear in this order. These basic elements shared by all resources come first
-in order to support consistent definitions for schema and UML derived code. 
+in order to support consistent definitions for schema and UML derived code.
 -->
-      
 [%settitle Administration Module%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-[%file newheader%]
+    [%file newheader%]
 </head>
 <body>
-[%file newnavbar%]
+    [%file newnavbar%]
 
-<div class="col-9">
+    <div class="col-9">
 
-<a name="root"> </a>
-<h2>Administration Module</h2>
+        <a name="root"> </a>
+        <h2>Administration Module</h2>
+        <a name="intro"> </a>
+        <h3>Introduction</h3>
+        <p>
+            The Administrative module covers the base data that is then linked into
+            the other modules for clinical content, finance/billing, workflow, etc.<br />
+            This of course is built on the FHIR technology platform modules.
+        </p>
+        <p>
+            Before any clinical data can be recorded, the basic information on the patient
+            must be recorded, and then often the basis of the interaction (such as an encounter)
+        </p>
 
-<a name="intro"> </a>
-<h3>Introduction</h3>
-<p>
-In this section: scope, what outcome modules seeks providem why would you look at it's content
+        <a name="index"> </a>
+        <h3>Index</h3>
+        <p>
+            <b>Patient Registers</b>
+        </p>
+        <ul>
+            <li><a href="patient.html">Patient</a></li>
+            <li><a href="relatedperson.html">RelatedPerson</a></li>
+            <li><a href="person.html">Person</a></li>
+            <li><a href="group.html">Group</a></li>
+        </ul>
 
-From the master doc: Patient/Org/etc + device + related services + registries
+        <p>
+            <b>Clinical Categorization resources</b>
+        </p>
+        <ul>
+            <li><a href="episodeofcare.html">EpisodeOfCare</a></li>
+            <li><a href="encounter.html">Encounter</a></li>
+            <li><a href="account.html">Account</a></li>
+            <li><a href="flag.html">Flag</a></li>
+        </ul>
 
-Editor: Brian Postlethwaite
-</p>
+        <p>
+            <b>Service Provider Directory Resources</b>
+        </p>
+        <ul>
+            <li><a href="organization.html">Organization</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="practitioner.html">Practitioner</a></li>
+            <li><a href="practitionerrole.html">PractitionerRole (draft concept, considering extraction from practitioner)</a></li>
+            <li><a href="healthcareservice.html">HealthcareService</a></li>
+            <li><a href="endpoint.html">Endpoint</a></li>
+        </ul>
 
-<a name="index"> </a>
-<h3>Index</h3>
-<p>
-In this section: links to key content pages in the module
-</p>
+        <p>
+            <b>Other administrative resource</b>
+        </p>
+        <ul>
+            <li><a href="device.html">Device</a></li>
+            <li><a href="devicecomponent.html">DeviceComponent</a></li>
+            <li><a href="devicemetric.html">DeviceMetric</a></li>
+            <li><a href="substance.html">Substance</a></li>
+        </ul>
 
-<a name="secpriv"> </a>
-<h3>Security and Privacy</h3>
-<p>
-In this section: description of key security and privacy issues, or references to pages that deal with this. 
-For the security / privcay module itself, this section does not exist. For other modules, the paragraph/section can end with this boilerplate:
-For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
-</p>
 
-<a name="uses"> </a>
-<h3>Common use Cases</h3>
-<p>
-In this section: common problems in the space of the module, ways to go about solving them, or references to additional problem based linkes
-</p>
+        <a name="secpriv"> </a>
+        <h3>Security and Privacy</h3>
+        <p>
+            Patient privacy is handled with security labels and tags in the Resource <a href="resource.html#Meta">Meta</a> property.
+            This is the standard way that the FHIR specification provides this supporting information
+            to a sub-system that implements it (which is not defined by FHIR).
+        </p>
+        <p>
+            One of the more common use cases is for marking a patient as being a <a href="security-labels.html">celebrity</a>.
+        </p>
+        <p>
+            For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
+        </p>
 
-<a name="roadmap"> </a>
-<h3>Developmental Roadmap</h3>
-<p>
-In this section: what the current overall state is, what work is in train, what the goals over the next 18 months or so are
-</p>
+        <a name="uses"> </a>
+        <h3>Common use Cases</h3>
+        <p>
+            In this section: common problems in the space of the module, ways to go about solving them,
+            or references to additional problem based linkes
+        </p>
 
-</div>
+        <a name="roadmap"> </a>
+        <h3>Developmental Roadmap</h3>
+        <p>
+            The Patient Administration is currently working through resources that support:
+        </p>
+        <ul>
+            <li>Encounters and Scheduling <i>(enhance maturity of encounters and further develop in/outpatient scheduling)</i></li>
+            <li>Service Provider Directory <i>(in co-ordination with the Argonaut Provider Directory group)</i></li>
+            <li>Financial Management interactions <i>(account/coverage, then billable item, which links administration to billing)</i></li>
+        </ul>
+        <p>
+            Many of the administrative resources are part of the core resources that most systems
+            use first and have formed the basis for most people's first experiences with FHIR.<br />
+            However this limitted exposure has still to be proven in all contexts, such as veterinary.
+        </p>
+    </div>
 
-[%file newfooter%]
+    [%file newfooter%]
 </body>
 </html>
