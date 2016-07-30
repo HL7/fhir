@@ -5,6 +5,7 @@ C:\work\org.hl7.fhir\build\guides\genomics\genomics.json
 C:\work\org.hl7.fhir\build\guides\sdc2\sdc.json
 C:\work\org.hl7.fhir\build\guides\qicore2\qicore.json
 C:\work\org.hl7.fhir\build\guides\hspc2\hspc.json
-;C:\work\org.hl7.fhir\build\guides\uslab2\uslab.json
 C:\work\com.healthintersections.fhir\nehta\rcpa\rcpa.json
+;C:\work\org.hl7.fhir\build\guides\uslab2\uslab.json
+
 

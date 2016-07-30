@@ -38509,7 +38509,7 @@ public class JsonParser extends JsonParserBase {
       composeDecimalExtras(prefix+"Decimal", (DecimalType) type, false);
     }
     else
-      throw new Error("Unhandled type");
+      throw new Error("Unhandled type: "+type.getClass().getName());
   }
 
   protected void composeTypeInner(Type type) throws IOException {
