@@ -3,6 +3,7 @@ package org.hl7.fhir.igtools.publisher;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -162,31 +163,46 @@ public class HTLMLInspector {
       checkLinks(s, path, c, messages);
   }
 
-  private void checkResolveLink(String s, String path, String ref, List<ValidationMessage> messages) {
-    boolean resolved = Utilities.existsInList(ref, "http://hl7.org/fhir", "http://hl7.org", "http://www.hl7.org", "http://hl7.org/fhir/search.cfm");
+  private void checkResolveLink(String filename, String path, String ref, List<ValidationMessage> messages) {
+    String tgtList = "";
+    boolean resolved = Utilities.existsInList(ref, "http://hl7.org/fhir", "http://hl7.org", "http://www.hl7.org", "http://hl7.org/fhir/search.cfm") || ref.startsWith("http://gforge.hl7.org/gf/project/fhir/tracker/");
     if (!resolved){
       for (SpecMapManager spec : specs) {
         resolved = resolved || spec.getBase().equals(ref) || (spec.getBase()+"/").equals(ref) || spec.hasTarget(ref); 
       }
     }
-    if (!resolved && !(ref.startsWith("http://") || ref.startsWith("https://"))) {
-      String page = ref;
-      String name = null;
-      if (page.contains("#")) {
-        name = page.substring(page.indexOf("#")+1);
-        page = page.substring(0, page.indexOf("#"));
-      }
-      LoadedFile f = cache.get(Utilities.path(rootFolder, page));
-      if (f != null) {
-        if (name == null)
-          resolved = true;
-        else 
-          resolved = f.targets.contains(name);
+    if (!resolved) {
+      if (ref.startsWith("http://") || ref.startsWith("https://")) {
+        resolved = true;
+        for (SpecMapManager spec : specs) {
+          if (ref.startsWith(spec.getBase()))
+            resolved = false;
+        }
+      } else { 
+        String page = ref;
+        String name = null;
+        if (page.startsWith("#")) {
+          name = page.substring(1);
+          page = filename;
+        } else if (page.contains("#")) {
+          name = page.substring(page.indexOf("#")+1);
+          page = Utilities.path(rootFolder, page.substring(0, page.indexOf("#")).replace("/", File.separator));
+        } else 
+          page = Utilities.path(rootFolder, page.replace("/", File.separator));
+        LoadedFile f = cache.get(page);
+        if (f != null) {
+          if (name == null)
+            resolved = true;
+          else { 
+            resolved = f.targets.contains(name);
+            tgtList = " (valid targets: "+f.targets.toString()+")";
+          }
+        }
       }
     }
       
     if (!resolved)
-      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, s+"#"+path, "The link '"+ref+" cannot be resolved", IssueSeverity.ERROR));
+      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, filename+"#"+path, "The link '"+ref+"' cannot be resolved"+tgtList, IssueSeverity.ERROR));
   }
 
 
