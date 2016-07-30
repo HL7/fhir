@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+[%settitle Extended Operations on the RESTful API%]
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<a name="base"> </a>
+<h2>Defined RESTful API Operations</h2>
+
+<p>
+The <a href="http.html">RESTful API</a> defines a set of common interactions (read, update, search, etc.)
+performed on a repository of typed resources. For further information concerning how operations are 
+defined and invoked, see <a href="operations">Extended Operations on the RESTful API</a>.
+</p>
+<p>
+This is a full list of the operations defined by this specification:
+</p>
+<%operationslist%>
+<p>
+Notes:
+</p>
+<ul>
+ <li>The special operations on the <code>meta</code> element also operate on previous versions of a resource (/_history/).  They are the only operations that can manipulate versions other than the "current" version.</li>
+ <li>Implementation Guides can define additional operations</li>
+</ul>
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>
