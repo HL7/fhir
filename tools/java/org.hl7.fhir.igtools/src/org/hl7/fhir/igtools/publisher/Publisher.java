@@ -189,7 +189,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private List<FetchedFile> changeList = new ArrayList<FetchedFile>();
   private Set<String> bndIds = new HashSet<String>();
   private List<Resource> loaded = new ArrayList<Resource>();
-  private ImplementationGuide ig;
+  private ImplementationGuide sourceIg;
+  private ImplementationGuide pubIg;
   private List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
   private JsonObject configuration;
   private Calendar execTime = Calendar.getInstance();
@@ -228,7 +229,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     generate();
     long endTime = System.nanoTime();
     clean();
-    log(" ... finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errors, fileList, Utilities.path(qaDir, "validation.html")));
+    log(" ... finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(sourceIg.getName(), errors, fileList, Utilities.path(qaDir, "validation.html")));
 
     if (watch) {
       first = false;
@@ -245,7 +246,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
           generate();
           clean();
           endTime = System.nanoTime();
-          log(" ... finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(ig.getName(), errors, fileList, Utilities.path(qaDir, "validation.html")));
+          log(" ... finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(sourceIg.getName(), errors, fileList, Utilities.path(qaDir, "validation.html")));
         }
       }
     } else
@@ -696,18 +697,22 @@ public class Publisher implements IWorkerContext.ILoggingService {
     FetchedFile igf = fetcher.fetch(igName);
     needToBuild = noteFile(IG_NAME, igf) || needToBuild;
     if (needToBuild) {
-      ig = (ImplementationGuide) parse(igf);
+      sourceIg = (ImplementationGuide) parse(igf);
       FetchedResource igr = igf.addResource(); 
-      igr.setElement(new ObjectConverter(context).convert(ig));
-      igr.setResource(ig);
-      igr.setId(ig.getId()).setTitle(ig.getName());
-    } else
-      ig = (ImplementationGuide) altMap.get(IG_NAME).getResources().get(0).getResource();
+      igr.setElement(new ObjectConverter(context).convert(sourceIg));
+      igr.setResource(sourceIg);
+      igr.setId(sourceIg.getId()).setTitle(sourceIg.getName());
+    } else {
+      // special case; the source is updated during the build, so we track it differently
+      altMap.get(IG_NAME).getResources().get(0).setResource(sourceIg);
+    }
 
+    pubIg = sourceIg.copy();
+    
     // load any bundles 
     needToBuild = loadSpreadsheets(needToBuild, igf);
     needToBuild = loadBundles(needToBuild, igf);
-    for (ImplementationGuidePackageComponent pack : ig.getPackage()) {
+    for (ImplementationGuidePackageComponent pack : sourceIg.getPackage()) {
       for (ImplementationGuidePackageResourceComponent res : pack.getResource()) {
         if (!res.hasSourceReference())
           throw new Exception("Missing source reference on "+res.getName());
@@ -830,8 +835,12 @@ public class Publisher implements IWorkerContext.ILoggingService {
       }
     } else 
       f = altMap.get("Bundle/"+be.getAsString());
-    for (FetchedResource r : f.getResources()) 
+    ImplementationGuidePackageComponent pck = pubIg.addPackage().setName(f.getTitle());
+    for (FetchedResource r : f.getResources()) {
       bndIds.add(r.getElement().fhirType()+"/"+r.getId());
+      ImplementationGuidePackageResourceComponent res = pck.addResource();
+      res.setExample(false).setName(r.getId()).setSource(new Reference().setReference(r.getElement().fhirType()+"/"+r.getId()));
+    }
     return changed || needToBuild;
   }
 
@@ -897,10 +906,15 @@ public class Publisher implements IWorkerContext.ILoggingService {
         changed = changed || vrchanged || crchanged;
       }
     }
-    for (FetchedResource r : f.getResources()) 
+    ImplementationGuidePackageComponent pck = pubIg.addPackage().setName(f.getTitle());
+    for (FetchedResource r : f.getResources()) {
       bndIds.add(r.getElement().fhirType()+"/"+r.getId());
+      ImplementationGuidePackageResourceComponent res = pck.addResource();
+      res.setExample(false).setName(r.getTitle()).setSource(new Reference().setReference(r.getElement().fhirType()+"/"+r.getId()));
+    }
     return changed || needToBuild;
   }
+
 
   private void checkImplicitResourceIdentity(String id, FetchedFile fv) throws Exception {
     // check the resource ids:
@@ -1199,6 +1213,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
     for (String rg : regenList) 
       regenerate(rg);
 
+    updateImplementationGuide();
+    
     for (FetchedFile f : changeList) 
       generateOutputs(f);
 
@@ -1225,6 +1241,33 @@ public class Publisher implements IWorkerContext.ILoggingService {
     }
     log("  .. "+Integer.toString(lf)+" "+checkPlural("page", lf)+" invalid xhtml, "+Integer.toString(bl)+" broken "+checkPlural("link", bl));
     errors.addAll(linkmsgs);
+  }
+
+  private void updateImplementationGuide() throws Exception {
+    for (ImplementationGuidePackageComponent pck : pubIg.getPackage()) {
+      for (ImplementationGuidePackageResourceComponent res : pck.getResource()) {
+        FetchedFile f = null;
+        FetchedResource r = null;
+        for (FetchedFile tf : fileList) {
+          for (FetchedResource tr : tf.getResources()) {
+            if (tr.getLocalRef().equals(res.getSourceReference().getReference())) {
+              r = tr;
+              f = tf;
+            }
+          }
+        }
+        if (r != null) {
+          String path = igpkp.getLinkFor(f, r);
+          res.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/implementationguide-page").setValue(new UriType(path));
+          inspector.addLinkToCheck("Implenentation Guide", path);
+        }
+      }
+    }
+    
+    
+    FetchedResource r = altMap.get(IG_NAME).getResources().get(0);
+    r.setResource(pubIg);
+    r.setElement(new ObjectConverter(context).convert(pubIg));
   }
 
   private String checkPlural(String word, int c) {

@@ -515,6 +515,12 @@
 
 === Sheet Profiles =====================================
 
+ -- Row 1 -----------------------------------
+  Name = implementationguide-extensions
+  IG Name = core
+  Filename = implementationguide-extensions.xml
+  Type = spreadsheet
+
 === Sheet Examples =====================================
 
 === Sheet Examples =====================================

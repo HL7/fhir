@@ -18,6 +18,7 @@ public class FetchedFile {
   
   private String path;
   private String name;
+  private String title;
   
   private byte[] source;
   private long hash;
@@ -124,6 +125,12 @@ public class FetchedFile {
   }
   public void setProcessMode(int processMode) {
     this.processMode = processMode;
+  }
+  public String getTitle() {
+    return title == null ? name : title;
+  }
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   

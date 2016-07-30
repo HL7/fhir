@@ -17,12 +17,23 @@ import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.publisher.HTLMLInspector.LoadedFile;
+import org.hl7.fhir.igtools.publisher.HTLMLInspector.StringPair;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 
 public class HTLMLInspector {
+
+  public class StringPair {
+    private String source;
+    private String link;
+    public StringPair(String source, String link) {
+      super();
+      this.source = source;
+      this.link = link;
+    }
+  }
 
   public class LoadedFile {
     private long lastModified;
@@ -62,6 +73,7 @@ public class HTLMLInspector {
   private List<SpecMapManager> specs;
   private Map<String, LoadedFile> cache = new HashMap<String, LoadedFile>();
   private int iteration = 0;
+  private List<StringPair> otherlinks = new ArrayList<StringPair>();
 
   public HTLMLInspector(String rootFolder, List<SpecMapManager> specs) {
     this.rootFolder = rootFolder;    
@@ -90,6 +102,12 @@ public class HTLMLInspector {
       if (lf.getXhtml() != null)
         checkLinks(s, "", lf.getXhtml(), messages);
     }
+
+    // check other links:
+    for (StringPair sp : otherlinks) {
+      checkResolveLink(sp.source, null, sp.link, messages);
+    }
+    
     return messages;
   }
 
@@ -202,7 +220,12 @@ public class HTLMLInspector {
     }
       
     if (!resolved)
-      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, filename+"#"+path, "The link '"+ref+"' cannot be resolved"+tgtList, IssueSeverity.ERROR));
+      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, filename+(path == null ? "" : "#"+path), "The link '"+ref+"' cannot be resolved"+tgtList, IssueSeverity.ERROR));
+  }
+
+  public void addLinkToCheck(String source, String link) {
+    otherlinks.add(new StringPair(source, link));
+    
   }
 
 

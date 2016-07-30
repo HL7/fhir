@@ -73,6 +73,9 @@ public class FetchedResource {
     this.snapshotted = snapshotted;
     
   }
+  public Object getLocalRef() {
+    return element.fhirType()+"/"+id;
+  }
 
   
 }
