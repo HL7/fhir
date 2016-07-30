@@ -20,5 +20,5 @@ The [DAF Condition Category Codes] supports the separate concepts of problems an
   [Invariants]: http://hl7-fhir.github.io/conformance-rules.html#constraints
   [Condition Clinical Status Codes]: http://hl7-fhir.github.io/valueset-condition-clinical.html
   [ConditionVerificationStatus]: http://hl7-fhir.github.io/valueset-condition-ver-status.html
-  [DAF Condition Profile]: http://hl7.org/fhir/daf/daf-condition.html
+  [DAF Condition Profile]: http://hl7.org/fhir/us/daf/daf-condition.html
  [DAF Condition Category Codes]: valueset-daf-condition-category.html

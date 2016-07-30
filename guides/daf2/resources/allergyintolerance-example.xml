@@ -2,7 +2,7 @@
 <AllergyIntolerance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/fhir-all-xsd/allergyintolerance.xsd">
 	<id value="example"/>
 	<meta>
-		<profile value="http://hl7.org/fhir/daf/structureDefinition/daf-core-allergyintolerance">
+		<profile value="http://hl7.org/fhir/us/daf/structureDefinition/daf-core-allergyintolerance">
 		</profile>
 	</meta>
 	<!--

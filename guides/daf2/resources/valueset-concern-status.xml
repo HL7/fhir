@@ -5,7 +5,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.68"/>
   </extension>
-  <url value="http://hl7.org/fhir/daf/ValueSet/daf-concern-status"/>
+  <url value="http://hl7.org/fhir/us/daf/ValueSet/daf-concern-status"/>
   <name value="HITSP Problem Status"/>
   <status value="draft"/>
   <publisher value="HL7 (FHIR Project) / DAF  Project"/>

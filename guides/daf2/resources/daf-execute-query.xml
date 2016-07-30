@@ -2,7 +2,7 @@
 
 <OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="daf-execute-query"/>
-  <url value="http://hl7.org/fhir/daf/OperationDefinition/daf-execute-query"/>
+  <url value="http://hl7.org/fhir/us/daf/OperationDefinition/daf-execute-query"/>
   <name value="Execute Query"/>
   <status value="draft"/>
   <kind value="operation"/>

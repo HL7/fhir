@@ -3602,8 +3602,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s112"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s117" ss:HRef="http://hl7.org/fhir/daf/StructureDefinition/patient"><Data
-      ss:Type="String">http://hl7.org/fhir/daf/StructureDefinition/us-core-</Data></Cell>
+    <Cell ss:StyleID="s117" ss:HRef="http://hl7.org/fhir/us/daf/StructureDefinition/patient"><Data
+      ss:Type="String">http://hl7.org/fhir/us/daf/StructureDefinition/us-core-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"><Data ss:Type="String">introduction</Data></Cell>
@@ -9056,7 +9056,7 @@
     <Cell ss:StyleID="s139"><Data ss:Type="String">valueset-daf-race</Data></Cell>
     <Cell ss:StyleID="s139"><Data ss:Type="String">Race of the Patient</Data></Cell>
     <Cell ss:StyleID="s139"><Data ss:Type="String">2.16.840.1.113883.1.11.14914</Data></Cell>
-    <Cell ss:StyleID="s139"><Data ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-race</Data></Cell>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">http://hl7.org/fhir/us/daf/ValueSet/daf-race</Data></Cell>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s139"/>
@@ -9071,7 +9071,7 @@
     <Cell ss:StyleID="s139"><Data ss:Type="String">valueset-daf-ethnicity</Data></Cell>
     <Cell ss:StyleID="s139"><Data ss:Type="String">Ethnicity of the patient</Data></Cell>
     <Cell ss:StyleID="s139"><Data ss:Type="String">2.16.840.1.114222.4.11.837</Data></Cell>
-    <Cell ss:StyleID="s139"><Data ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-ethnicity</Data></Cell>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">http://hl7.org/fhir/us/daf/ValueSet/daf-ethnicity</Data></Cell>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s139"/>

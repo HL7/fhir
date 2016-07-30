@@ -13,7 +13,7 @@
   [SNOMED CT]: http://hl7.org/fhir/valueset-procedure-code.html
   [CPT-4/HCPC for procedures]: CPT-4/HCPC_for_procedures "wikilink"
   [ProcedureStatus]: http://hl7.org/fhir/valueset-procedure-status.html
-  [DAF Procedure Profile]: http://hl7.org/fhir/daf/daf-Procedure.html
+  [DAF Procedure Profile]: http://hl7.org/fhir/us/daf/daf-Procedure.html
   [ICD-10-PCS codes]: ICD-10-PCS_codes "wikilink"
   [Code on Dental Procedures and Nomenclature (CDT Code)]: CDT_ValueSet "wikilink"
  

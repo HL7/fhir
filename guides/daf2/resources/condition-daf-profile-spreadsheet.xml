@@ -1154,7 +1154,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1185,7 +1185,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference(Encounter){http://hl7.org/fhir/daf/StructureDefinition/daf-encounter}</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference(Encounter){http://hl7.org/fhir/us/daf/StructureDefinition/daf-encounter}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1216,7 +1216,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3546,8 +3546,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s111"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s116" ss:HRef="http://hl7.org/fhir/daf/StructureDefinition/condition"><Data
-      ss:Type="String">http://hl7.org/fhir/daf/StructureDefinition/condition</Data></Cell>
+    <Cell ss:StyleID="s116" ss:HRef="http://hl7.org/fhir/us/daf/StructureDefinition/condition"><Data
+      ss:Type="String">http://hl7.org/fhir/us/daf/StructureDefinition/condition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">introduction</Data></Cell>

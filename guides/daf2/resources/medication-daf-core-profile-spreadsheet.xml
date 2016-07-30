@@ -992,8 +992,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/daf/StructureDefinition/medication"><Data
-      ss:Type="String">http://hl7.org/fhir/daf/StructureDefinition/medication</Data></Cell>
+    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/us/daf/StructureDefinition/medication"><Data
+      ss:Type="String">http://hl7.org/fhir/us/daf/StructureDefinition/medication</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>

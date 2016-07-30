@@ -1116,8 +1116,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/daf/StructureDefinition/list-"><Data
-      ss:Type="String">http://hl7.org/fhir/daf/StructureDefinition/list-</Data></Cell>
+    <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/us/daf/StructureDefinition/list-"><Data
+      ss:Type="String">http://hl7.org/fhir/us/daf/StructureDefinition/list-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s81"><Data ss:Type="String">introduction</Data></Cell>
@@ -1411,7 +1411,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1442,7 +1442,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}|Reference(Device)</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}|Reference(Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1658,7 +1658,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">Reference(AllergyIntolerance){http://hl7.org/fhir/daf/StructureDefinition/daf-allergyintolerance}</Data><NamedCell
+    <Cell ss:StyleID="s115"><Data ss:Type="String">Reference(AllergyIntolerance){http://hl7.org/fhir/us/daf/StructureDefinition/daf-allergyintolerance}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4073,7 +4073,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4104,7 +4104,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}|Reference(Device)</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}|Reference(Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4320,7 +4320,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">Reference(Encounter){http://hl7.org/fhir/daf/StructureDefinition/daf-encounter}</Data><NamedCell
+    <Cell ss:StyleID="s115"><Data ss:Type="String">Reference(Encounter){http://hl7.org/fhir/us/daf/StructureDefinition/daf-encounter}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6735,7 +6735,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6766,7 +6766,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}|Reference(Device)</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}|Reference(Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6982,7 +6982,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">Reference(Immunization){http://hl7.org/fhir/daf/StructureDefinition/daf-immunization}</Data><NamedCell
+    <Cell ss:StyleID="s115"><Data ss:Type="String">Reference(Immunization){http://hl7.org/fhir/us/daf/StructureDefinition/daf-immunization}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -9396,7 +9396,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -9427,7 +9427,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}|Reference(Device)</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}|Reference(Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -9643,7 +9643,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">Reference(MedicationStatement){http://hl7.org/fhir/daf/StructureDefinition/daf-medicationstatement}|Reference(MedicationAdministration){http://hl7.org/fhir/daf/StructureDefinition/daf-medicationadministration}|Reference(MedicationOrder){http://hl7.org/fhir/daf/StructureDefinition/daf-medicationorder}|Reference(MedicationDispense){http://hl7.org/fhir/daf/StructureDefinition/daf-medicationdispense}</Data><NamedCell
+    <Cell ss:StyleID="s115"><Data ss:Type="String">Reference(MedicationStatement){http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationstatement}|Reference(MedicationAdministration){http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationadministration}|Reference(MedicationOrder){http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationorder}|Reference(MedicationDispense){http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationdispense}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -12057,7 +12057,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -12088,7 +12088,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}|Reference(Device)</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}|Reference(Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -12304,7 +12304,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">Reference(Condition){http://hl7.org/fhir/daf/StructureDefinition/daf-condition}</Data><NamedCell
+    <Cell ss:StyleID="s115"><Data ss:Type="String">Reference(Condition){http://hl7.org/fhir/us/daf/StructureDefinition/daf-condition}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -14720,7 +14720,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -14751,7 +14751,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}|Reference(Device)</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}|Reference(Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -14967,7 +14967,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">Reference(DiagnosticReport){http://hl7.org/fhir/daf/StructureDefinition/daf-diagnosticreport}</Data><NamedCell
+    <Cell ss:StyleID="s115"><Data ss:Type="String">Reference(DiagnosticReport){http://hl7.org/fhir/us/daf/StructureDefinition/daf-diagnosticreport}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -17383,7 +17383,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -17414,7 +17414,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}|Reference(Device)</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}|Reference(Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -17630,7 +17630,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">Reference(DiagnosticReport){http://hl7.org/fhir/daf/StructureDefinition/daf-procedure}</Data><NamedCell
+    <Cell ss:StyleID="s115"><Data ss:Type="String">Reference(DiagnosticReport){http://hl7.org/fhir/us/daf/StructureDefinition/daf-procedure}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -20044,7 +20044,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -20075,7 +20075,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}|Reference(Device)</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}|Reference(Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -20291,7 +20291,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}|Reference(AllergyIntolerance){http://hl7.org/fhir/daf/StructureDefinition/daf-allergyintolerance}|Reference(Condition){http://hl7.org/fhir/daf/StructureDefinition/daf-condition}|Reference(Encounter){http://hl7.org/fhir/daf/StructureDefinition/daf-encounter}|Reference(Observation){http://hl7.org/fhir/daf/StructureDefinition/daf-vitalsigns}|Reference(Procedure){http://hl7.org/fhir/daf/StructureDefinition/daf-procedure}|Reference(MedicationStatement){http://hl7.org/fhir/daf/StructureDefinition/daf-medicationstatement}|Reference(MedicationAdministration){http://hl7.org/fhir/daf/StructureDefinition/daf-medicationadministration}|Reference(Immunization){http://hl7.org/fhir/daf/StructureDefinition/daf-immunization}|Reference(DiagnosticReport){http://hl7.org/fhir/daf/StructureDefinition/daf-diagnosticreport}|Reference(DiagnosticRequest){http://hl7.org/fhir/daf/StructureDefinition/daf-diagnosticrequest}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/observation-daf-smokingstatus-dafsmokingstatus}</Data><NamedCell
+    <Cell ss:StyleID="s115"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}|Reference(AllergyIntolerance){http://hl7.org/fhir/us/daf/StructureDefinition/daf-allergyintolerance}|Reference(Condition){http://hl7.org/fhir/us/daf/StructureDefinition/daf-condition}|Reference(Encounter){http://hl7.org/fhir/us/daf/StructureDefinition/daf-encounter}|Reference(Observation){http://hl7.org/fhir/us/daf/StructureDefinition/daf-vitalsigns}|Reference(Procedure){http://hl7.org/fhir/us/daf/StructureDefinition/daf-procedure}|Reference(MedicationStatement){http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationstatement}|Reference(MedicationAdministration){http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationadministration}|Reference(Immunization){http://hl7.org/fhir/us/daf/StructureDefinition/daf-immunization}|Reference(DiagnosticReport){http://hl7.org/fhir/us/daf/StructureDefinition/daf-diagnosticreport}|Reference(DiagnosticRequest){http://hl7.org/fhir/us/daf/StructureDefinition/daf-diagnosticrequest}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/observation-daf-smokingstatus-dafsmokingstatus}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

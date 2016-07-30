@@ -23,8 +23,8 @@ Based upon the 2015 Edition Certification Requirements, the [NDC vaccine codes] 
 
 * Additional elements from [DAF Immunization Profile](daf-Immunization.html) may be present.
 
-  [CVX code set]: http://hl7.org/fhir/daf/valueset-daf-cvx.html
-  [DAF Immunization Profile]: http://hl7.org/fhir/daf/daf-immunization.html
+  [CVX code set]: http://hl7.org/fhir/us/daf/valueset-daf-cvx.html
+  [DAF Immunization Profile]: http://hl7.org/fhir/us/daf/daf-immunization.html
   [NDC vaccine codes]: NDC_vaccine_codes "wikilink"
   [translations]: Implementation_Guide#Definitions "wikilink"
   [NDC to CVX concept map]: NDC_to_CVX_concept_map "wikilink"

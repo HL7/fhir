@@ -20,11 +20,11 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 * Additional elements from [DAF MedicationStatement Profile](daf-MedicationStatement.html) may be present.
 
- [DAF MedicationStatement Profile]: http://hl7.org/fhir/daf/medicationstatement-daf.html
-  [DAF MedicationOrder Profile]: http://hl7.org/fhir/daf/medicationorder-daf.html
+ [DAF MedicationStatement Profile]: http://hl7.org/fhir/us/daf/medicationstatement-daf.html
+  [DAF MedicationOrder Profile]: http://hl7.org/fhir/us/daf/medicationorder-daf.html
   [Medication Clinical Drug (RxNorm)]: valueset-daf-medication-codes.html
-  [MedicationOrderStatus]: http://hl7.org/fhir/daf/valueset-medication-order-status.html
-[MedicationStatementStatus]: http://hl7.org/fhir/daf/valueset-medication-statement-status.html
+  [MedicationOrderStatus]: http://hl7.org/fhir/us/daf/valueset-medication-order-status.html
+[MedicationStatementStatus]: http://hl7.org/fhir/us/daf/valueset-medication-statement-status.html
 [MedicationStatement]:daf-core-medicationstatement.html
  [MedicationOrder]: daf-core-medicationorder.html
  [Medication]:daf-core-medication.html

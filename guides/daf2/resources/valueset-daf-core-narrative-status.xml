@@ -3,7 +3,7 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="daf-core-narrative-status"/>
 
-  <url value="http://hl7.org/fhir/daf/ValueSet/daf-core-narrative-status"/>
+  <url value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-narrative-status"/>
   <name value="Narrative Status"/>
   <status value="draft"/>
   <publisher value="FHIR Project Team"/>

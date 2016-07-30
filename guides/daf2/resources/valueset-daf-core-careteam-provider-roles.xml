@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
   <id value="daf-core-careteam-provider-roles"/>
-  <url value="http://hl7.org/fhir/daf/ValueSet/daf-core-careteam-provider-roles"/>
+  <url value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-careteam-provider-roles"/>
   <name value="CareTeam Provider Roles"/>
   <status value="draft"/>
   <publisher value="FHIR Project Team"/>

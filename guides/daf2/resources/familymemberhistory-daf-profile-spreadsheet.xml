@@ -1009,8 +1009,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/daf/StructureDefinition/familymemberhistory"><Data
-      ss:Type="String">http://hl7.org/fhir/daf/StructureDefinition/familymemberhistory</Data></Cell>
+    <Cell ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/us/daf/StructureDefinition/familymemberhistory"><Data
+      ss:Type="String">http://hl7.org/fhir/us/daf/StructureDefinition/familymemberhistory</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s82"><Data ss:Type="String">introduction</Data></Cell>
@@ -1261,7 +1261,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/daf/StructureDefinition/daf-patient}</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6440,7 +6440,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">Valueset to describe the actual problem experienced by the patient</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-problem</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/us/daf/ValueSet/daf-problem</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">Value set to identify the actual problem</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>

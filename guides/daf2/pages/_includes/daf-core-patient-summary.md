@@ -34,13 +34,13 @@ Additionally your system must return:
 5.  An ethnicitiy code in [US Core Patient Ethnicity] extension which which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to: 
     -  [US Core Ethnicity]
 
-  [Patient.birthDate]: http://hl7.org/fhir/daf/daf-patient-definitions.html#daf-patient.Patient.birthDate
-  [Patient.communication.language]: http://hl7.org/fhir/daf/daf-patient-definitions.html#daf-patient.Patient.communication.language
+  [Patient.birthDate]: http://hl7.org/fhir/us/daf/daf-patient-definitions.html#daf-patient.Patient.birthDate
+  [Patient.communication.language]: http://hl7.org/fhir/us/daf/daf-patient-definitions.html#daf-patient.Patient.communication.language
   [Common Languages]: http://tools.ietf.org/html/bcp47
   [US Core Patient Birth Sex]: Draft_Birth_Sex_Extension "wikilink"
-  [US Core Birth Sex]: http://hl7.org/fhir/daf/us-core-birth-sex.html
+  [US Core Birth Sex]: http://hl7.org/fhir/us/daf/us-core-birth-sex.html
   [US Core Patient Race]: http://hl7.org/fhir/extension-us-core-race.html
-  [US Core Race Category]: http://hl7.org/fhir/daf/valueset-daf-race.html
+  [US Core Race Category]: http://hl7.org/fhir/us/daf/valueset-daf-race.html
   [US Core Race]: http://hl7.org/fhir/v3/Race/index.html
  [US Core Patient Ethnicity]: http://hl7.org/fhir/extension-us-core-ethnicity.html
  [US Core Ethnicity]: http://hl7.org/fhir/v3/Ethnicity/index.html

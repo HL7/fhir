@@ -994,8 +994,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/daf/StructureDefinition/daf-"><Data
-      ss:Type="String">http://hl7.org/fhir/daf/StructureDefinition/daf-</Data></Cell>
+    <Cell ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/us/daf/StructureDefinition/daf-"><Data
+      ss:Type="String">http://hl7.org/fhir/us/daf/StructureDefinition/daf-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s82"><Data ss:Type="String">introduction</Data></Cell>

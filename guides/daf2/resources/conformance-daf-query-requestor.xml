@@ -1743,7 +1743,7 @@
     <resource>
       <type value="Patient"/>
       <profile>
-        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-patient"/>
+        <reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -1897,7 +1897,7 @@
     <resource>
       <type value="AllergyIntolerance"/>
       <profile>
-        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-allergyintolerance"/>
+        <reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-allergyintolerance"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -1999,7 +1999,7 @@
     <resource>
       <type value="DiagnosticRequest"/>
       <profile>
-        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-diagnosticrequest"/>
+        <reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-diagnosticrequest"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2087,7 +2087,7 @@
     <resource>
       <type value="DiagnosticReport"/>
       <profile>
-        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-diagnosticreport"/>
+        <reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-diagnosticreport"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2183,7 +2183,7 @@
     <resource>
       <type value="Encounter"/>
       <profile>
-        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-encounter"/>
+        <reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-encounter"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2268,7 +2268,7 @@
     <resource>
       <type value="FamilyMemberHistory"/>
       <profile>
-        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-familymemberhistory"/>
+        <reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-familymemberhistory"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2335,7 +2335,7 @@
     <resource>
       <type value="Immunization"/>
       <profile>
-        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-immunization"/>
+        <reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-immunization"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2429,7 +2429,7 @@
     <resource>
       <type value="Observation"/>
       <profile>
-        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-resultobscode"/>
+        <reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-resultobscode"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2520,7 +2520,7 @@
     <resource>
       <type value="Medication"/>
       <profile>
-        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-medication"/>
+        <reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-medication"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2590,7 +2590,7 @@
     <resource>
       <type value="MedicationStatement"/>
       <profile>
-        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-medicationstatement"/>
+        <reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationstatement"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2660,7 +2660,7 @@
     <resource>
       <type value="MedicationAdministration"/>
       <profile>
-        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-medicationadministration"/>
+        <reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationadministration"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2750,7 +2750,7 @@
     <resource>
       <type value="Condition"/>
       <profile>
-        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-condition"/>
+        <reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-condition"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2842,7 +2842,7 @@
     <resource>
       <type value="Procedure"/>
       <profile>
-        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-procedure"/>
+        <reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-procedure"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2989,7 +2989,7 @@
     <resource>
       <type value="DAFVitalSigns"/>
       <profile>
-        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-vitalsigns"/>
+        <reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-vitalsigns"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -3072,7 +3072,7 @@
     <resource>
       <type value="List"/>
       <profile>
-        <reference value="http://hl7.org/fhir/daf/StructureDefinition/daf-problemlist"/>
+        <reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-problemlist"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">

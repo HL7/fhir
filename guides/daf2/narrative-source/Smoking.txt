@@ -31,6 +31,6 @@ Additional elements from [DAF Smoking Status Profile] may be present.
 
   [Status]: http://hl7-fhir.github.io/valueset-observation-status.html
   [instant]: http://hl7.org/fhir/datatypes.html#instant
-  [DSTU2 DAF Smoking Status Value Set]: http://hl7.org/fhir/daf/valueset-daf-observation-ccdasmokingstatus.html
-  [DAF Smoking Status Profile]: http://hl7.org/fhir/daf/daf-smokingstatus.html
+  [DSTU2 DAF Smoking Status Value Set]: http://hl7.org/fhir/us/daf/valueset-daf-observation-ccdasmokingstatus.html
+  [DAF Smoking Status Profile]: http://hl7.org/fhir/us/daf/daf-smokingstatus.html
   [`SmokingStatus` `Example`]: SmokingStatus_Example "wikilink" "wikilink"

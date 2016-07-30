@@ -26,7 +26,7 @@
       </xhtml:table>
     </xhtml:div>
   </text>
-  <url value="http://hl7.org/fhir/daf/ValueSet/daf-core-immunization-status"/>
+  <url value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-immunization-status"/>
   <name value="Immunization Status"/>
   <status value="draft"/>
   <publisher value="FHIR Project Team"/>

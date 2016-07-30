@@ -8,7 +8,7 @@
 	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
 		<valueUri value="urn:oid:2.16.840.1.113762.1.4.1010.1"/>
 	</extension>
-	<url value="http://hl7.org/fhir/daf/ValueSet/daf-core-substance"/>
+	<url value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-substance"/>
 	<version value="1.5.0"/>
 	<name value="DAF Substance-Reactant for Intolerance and Negation Codes"/>
 	<status value="draft"/>
@@ -31,9 +31,9 @@
 "/>
 	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
 	<compose>
-		<import value="http://hl7.org/fhir/daf/ValueSet/daf-core-substance-ndfrt"/>
-		<import value="http://hl7.org/fhir/daf/ValueSet/daf-core-substance-rxnorm"/>
-		<import value="http://hl7.org/fhir/daf/ValueSet/daf-core-substance-sct"/>
+		<import value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-substance-ndfrt"/>
+		<import value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-substance-rxnorm"/>
+		<import value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-substance-sct"/>
 		<include>
 			<system value="http://snomed.info/sct"/>
 			<concept>

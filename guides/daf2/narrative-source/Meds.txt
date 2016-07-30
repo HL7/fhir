@@ -18,10 +18,10 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 1.  One date or period in `MedicationStatement.effectiveDateTime` or `MedicationStatment.effectivePeriod`
 
 
-  [DAF MedicationStatement Profile]: http://hl7.org/fhir/daf/medicationstatement-daf.html
-  [DAF MedicationOrder Profile]: http://hl7.org/fhir/daf/medicationorder-daf.html
+  [DAF MedicationStatement Profile]: http://hl7.org/fhir/us/daf/medicationstatement-daf.html
+  [DAF MedicationOrder Profile]: http://hl7.org/fhir/us/daf/medicationorder-daf.html
   [Medication Clinical Drug (RxNorm)]: valueset-daf-medication-codes.html
-  [MedicationOrderStatus]: http://hl7.org/fhir/daf/valueset-medication-order-status.html
+  [MedicationOrderStatus]: http://hl7.org/fhir/us/daf/valueset-medication-order-status.html
   
 
 Additional elements from [DAF MedicationStatement Profile] may be present.
@@ -47,11 +47,11 @@ Additional elements from [DAF MedicationStatement Profile] may be present.
 1.  One practitioner in `MedicationOrder.prescriber`
 
 
- [DAF MedicationStatement Profile]: http://hl7.org/fhir/daf/medicationstatement-daf.html
-  [DAF MedicationOrder Profile]: http://hl7.org/fhir/daf/medicationorder-daf.html
+ [DAF MedicationStatement Profile]: http://hl7.org/fhir/us/daf/medicationstatement-daf.html
+  [DAF MedicationOrder Profile]: http://hl7.org/fhir/us/daf/medicationorder-daf.html
   [Medication Clinical Drug (RxNorm)]: valueset-daf-medication-codes.html
-  [MedicationOrderStatus]: http://hl7.org/fhir/daf/valueset-medication-order-status.html
-[MedicationStatementStatus]: http://hl7.org/fhir/daf/valueset-medication-statement-status.html
+  [MedicationOrderStatus]: http://hl7.org/fhir/us/daf/valueset-medication-order-status.html
+[MedicationStatementStatus]: http://hl7.org/fhir/us/daf/valueset-medication-statement-status.html
  
 
 Additional elements from [DAF MedicationOrder Profile] may be present.
@@ -65,6 +65,6 @@ When using **medicationReference**, the Medication resource must have:
 1.  a drug code in **Medication.code** or a product in **Medication.product**
     -   Medication.code is extensibly bound to [Medication Clinical Drug (RxNorm)]
 
-  [DAF MedicationStatement Profile]: http://hl7.org/fhir/daf/medicationstatement-daf.html
-  [DAF MedicationOrder Profile]: http://hl7.org/fhir/daf/medicationorder-daf.html
+  [DAF MedicationStatement Profile]: http://hl7.org/fhir/us/daf/medicationstatement-daf.html
+  [DAF MedicationOrder Profile]: http://hl7.org/fhir/us/daf/medicationorder-daf.html
   [Medication Clinical Drug (RxNorm)]: valueset-daf-medication-codes.html

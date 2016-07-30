@@ -24,7 +24,7 @@ For this IG we have extended the category code valueset to support the intent of
   [Invariants]: Problem_Invariants "wikilink"
   [Condition Clinical Status Codes]: http://hl7-fhir.github.io/valueset-condition-clinical.html
   [ConditionVerificationStatus]: http://hl7-fhir.github.io/valueset-condition-ver-status.html
-  [DAF Condition Profile]: http://hl7.org/fhir/daf/daf-condition.html
+  [DAF Condition Profile]: http://hl7.org/fhir/us/daf/daf-condition.html
 org/fhir/daf/daf-condition.html
 ml
 r/daf/daf-condition.html
