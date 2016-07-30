@@ -1859,7 +1859,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
    * @throws Exception
    */
   private void saveDirectResourceOutputs(FetchedFile f, FetchedResource r, Map<String, String> vars) throws FileNotFoundException, Exception {
-    genWrapperBase(r, getTemplate(r, "template-base"), f.getOutputNames(), vars);
+    genWrapperBase(f, r, getTemplate(r, "template-base"), f.getOutputNames(), vars);
     
     String template = getTemplate(r, "template-format");
     if (wantGen(r, "xml")) {
@@ -1937,17 +1937,21 @@ public class Publisher implements IWorkerContext.ILoggingService {
     }
   }
 
-  private void genWrapperBase(FetchedResource r, String template, Set<String> outputTracker, Map<String, String> vars) throws FileNotFoundException, IOException {
+  private void genWrapperBase(FetchedFile ff, FetchedResource r, String template, Set<String> outputTracker, Map<String, String> vars) throws FileNotFoundException, IOException {
     if (template != null) {
-      File f= new File(configFile);
-      template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), template));
-      template = template.replace("{{[title]}}", r.getTitle());
-      template = template.replace("{{[type]}}", r.getElement().fhirType());
-      template = template.replace("{{[id]}}", r.getId());
-      template = template.replace("{{[name]}}", r.getId()+"-html");
-      template = template.replace("{{[uid]}}", r.getElement().fhirType()+"="+r.getId());
-      String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".html");
-      checkMakeFile(template.getBytes(Charsets.UTF_8), path, outputTracker);
+      String fn = igpkp.getLinkFor(ff, r);
+      if (!(altMap.containsKey("page/"+Utilities.path(pagesDir, fn))) || altMap.containsKey("page/"+Utilities.path(prePagesDir, fn))) {
+        File f = new File(configFile);
+        template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), template));
+        template = template.replace("{{[title]}}", r.getTitle());
+        template = template.replace("{{[type]}}", r.getElement().fhirType());
+        template = template.replace("{{[id]}}", r.getId());
+        template = template.replace("{{[name]}}", r.getId()+"-html");
+        template = template.replace("{{[uid]}}", r.getElement().fhirType()+"="+r.getId());
+        // r.getElement().fhirType()+"-"+r.getId()+".html"
+        String path = Utilities.path(tempDir, fn);
+        checkMakeFile(template.getBytes(Charsets.UTF_8), path, outputTracker);
+      }
     }
   }
 
