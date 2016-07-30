@@ -221,7 +221,6 @@ signatures.html
 
     <page title="Clinical Summary" filename="clinicalsummary-module.html" icon="clinical.png">
       <page type="resource" resource="AllergyIntolerance"/>
-      <page type="resource" resource="BodySite"/>
       <page type="resource" resource="Condition"/>
       <page type="resource" resource="CarePlan"/>
       <page type="resource" resource="CareTeam"/>
@@ -233,16 +232,18 @@ signatures.html
       <page type="resource" resource="DetectedIssue"/>
       <page type="resource" resource="RiskAssessment"/>
       <page type="resource" resource="FamilyMemberHistory"/>
+      <page type="resource" resource="NutritionRequest"/>
     </page>
 
     <page title="Diagnostics" filename="diagnostics-module.html" icon="diagnostics.jpg">
       <page type="resource" resource="Observation"/>
       <page type="resource" resource="DiagnosticReport"/>
       <page type="resource" resource="DiagnosticRequest"/>
-      <page type="resource" resource="ImagingStudy"/>
-      <page type="resource" resource="ImagingManifest"/>
       <page type="resource" resource="Sequence"/>
       <page type="resource" resource="Specimen"/>
+      <page type="resource" resource="BodySite"/>
+      <page type="resource" resource="ImagingStudy"/>
+      <page type="resource" resource="ImagingManifest"/>
     </page>
 
     <page title="Medications" filename="medications-module.html" icon="medication.png">
@@ -256,7 +257,6 @@ signatures.html
     </page>
 
     <page title="Workflow" filename="workflow-module.html" icon="workflow.png">
-      <page type="resource" resource="NutritionRequest"/>
       <page type="resource" resource="VisionPrescription"/>
       <page type="resource" resource="ProcessRequest"/>
       <page type="resource" resource="ProcessResponse"/>

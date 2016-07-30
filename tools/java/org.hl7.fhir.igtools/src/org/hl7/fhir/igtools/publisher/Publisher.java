@@ -1021,8 +1021,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
     dlog("process type: "+type);
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
-        dlog("process res: "+r.getId());
         if (r.getElement().fhirType().equals(type)) {
+          dlog("process res: "+r.getId());
           if (!r.isValidated()) 
             validate(f, r);
           if (r.getResource() == null)
@@ -1940,7 +1940,10 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private void genWrapperBase(FetchedFile ff, FetchedResource r, String template, Set<String> outputTracker, Map<String, String> vars) throws FileNotFoundException, IOException {
     if (template != null) {
       String fn = igpkp.getLinkFor(ff, r);
-      if (!(altMap.containsKey("page/"+Utilities.path(pagesDir, fn))) || altMap.containsKey("page/"+Utilities.path(prePagesDir, fn))) {
+      boolean existsAsPage = altMap.containsKey("page/"+Utilities.path(pagesDir, fn));
+      if (!existsAsPage && prePagesDir != null)
+        existsAsPage = altMap.containsKey("page/"+Utilities.path(prePagesDir, fn));
+      if (!existsAsPage) {
         File f = new File(configFile);
         template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), template));
         template = template.replace("{{[title]}}", r.getTitle());
