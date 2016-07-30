@@ -346,7 +346,7 @@ public class Turtle {
 
   public String asHtml() throws Exception {
     StringBuilder b = new StringBuilder();
-    b.append("<pre class\"rdf\">\r\n");
+    b.append("<pre class=\"rdf\">\r\n");
     commitPrefixes(b);
     for (Section s : sections) {
       commitSection(b, s);
