@@ -570,10 +570,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, false, false)+s3;
       else if (com[0].equals("linkcodelist"))
         src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, true, false)+s3;
-      else if (com[0].equals("toc1"))
-        src = s1 + generateToc(com[1], 1) + s3;
-      else if (com[0].equals("toc2"))
-        src = s1 + generateToc(com[1], 2) + s3;
+      else if (com[0].equals("toc"))
+        src = s1 + generateToc() + s3;
       else if (com[0].equals("codetoc"))
         src = s1+codetoc(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("resheader")) {
@@ -2311,7 +2309,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return new XhtmlComposer().compose(gen.generate(ig.genToc(gen), "../"));
   }
   
-  private String generateToc(String title, int part) throws Exception {
+  private String generateToc() throws Exception {
     // return breadCrumbManager.makeToc();
     StringBuilder b = new StringBuilder();
     b.append("<ul>\r\n");
@@ -2321,12 +2319,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     Set<String> pages = new HashSet<String>();
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(folders.dstDir, false);
     TableModel model = gen.new TableModel();
-    model.getTitles().add(gen.new Title(null, model.getDocoRef(), "ToC Part "+Integer.toString(part)+" : "+title, "Table of Contents", null, 0));
+    model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Table of Contents", "Table of Contents", null, 0));
     Deque<TocItem> stack = new ArrayDeque<TocItem>();
     
     for (String s : entries) {
       TocEntry t = toc.get(s);
-      if (!t.isIg() && !s.startsWith("?") && ((part == 1 && rootInd(s) < 4) || (part == 2 && rootInd(s) >= 4))) {
+      if (!t.isIg() && !s.startsWith("?")) {
         String nd = s;
         while (nd.endsWith(".0"))
           nd = nd.substring(0, nd.length()-2);
@@ -3774,10 +3772,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genDataTypeUsage(com[1]) + s3;
       else if (com[0].equals("othertabs"))
         src = s1 + genOtherTabs(com[1], tabs) + s3;
-      else if (com[0].equals("toc1"))
-        src = s1 + generateToc(com[1], 1) + s3;
-      else if (com[0].equals("toc2"))
-        src = s1 + generateToc(com[1], 2) + s3;
+      else if (com[0].equals("toc"))
+        src = s1 + generateToc() + s3;
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("header"))
@@ -4201,10 +4197,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+searchFooter(level)+s3;
       } else if (com[0].equals("search-header")) { 
           src = s1+searchHeader(level)+s3;
-      } else if (com[0].equals("toc1")) {
-        src = s1 + generateToc(com[1], 1) + s3;
-      } else if (com[0].equals("toc2")) {
-        src = s1 + generateToc(com[1], 2) + s3;
+      } else if (com[0].equals("toc")) {
+        src = s1 + generateToc() + s3;
       } else if (com[0].equals("igregistries")) {
           src = s1+igRegistryList(com[1], com[2])+s3;        
       } else if (com[0].equals("ig.registry")) {

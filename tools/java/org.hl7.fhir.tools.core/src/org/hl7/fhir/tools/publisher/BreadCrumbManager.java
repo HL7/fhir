@@ -254,7 +254,7 @@ public class BreadCrumbManager {
             b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>\r\n");
         }
         focus = getChild(focus, path[path.length - 1]);
-        b.append("        <li><b>"+focus.resource+"</b></li>");
+        b.append("        <li><b>"+imgLink(prefix, focus)+focus.resource+"</b></li>");
       } else if (map.containsKey(name)) {
         String[] path = map.get(name).split("\\.");
         Page focus = home;
@@ -264,7 +264,7 @@ public class BreadCrumbManager {
             b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>\r\n");
         }
         focus = getChild(focus, path[path.length - 1]);
-        b.append("        <li><b>"+focus.getTitle()+"</b></li>");
+        b.append("        <li><b>"+imgLink(prefix, focus)+focus.getTitle()+"</b></li>");
       } else if (map.containsKey(type)) {
         String[] path = map.get(type).split("\\.");
         Page focus = home;
@@ -272,7 +272,7 @@ public class BreadCrumbManager {
           focus = getChild(focus, path[i]);
           b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
         }
-        b.append("        <li><b>"+Utilities.escapeXml(title)+"</b></li>");
+        b.append("        <li><b>"+imgLink(prefix, focus)+Utilities.escapeXml(title)+"</b></li>");
       } else if (type.equals("example") && name.contains("-") && map.containsKey(name.substring(0, name.indexOf("-")))) {
         String[] path = map.get(name.substring(0, name.indexOf("-"))).split("\\.");
         Page focus = home;

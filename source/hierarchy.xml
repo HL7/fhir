@@ -17,53 +17,55 @@ signatures.html
   <page title="Home" note="(map + search) - focus on useful links" filename="index.html">
     <!-- indexing content, not owned by any particular module  (e.g. owned by the product director) -->
     <page title="Table of Contents" filename="toc.html" icon="index.png">
-      <page title="Profile List" filename="profilelist.html"/>
+      <page title="Documentation Index" filename="documentation.html"/>
       <page title="Resources" filename="resourcelist.html"/>
+      <page title="Profiles" filename="profilelist.html"/>
+      <page title="Extensions" filename="extensibility-registry.html"/>
+      <page title="Operations" filename="operationslist.html"/>
+      <page title="Services" filename="servicelist.html"/>
       <page title="Namespace List" filename="ns.html"/>
     </page>
 
     <!-- foundation - quite a lot of documentation -->
     <page title="Foundation" filename="foundation-module.html" icon="foundation.png">
       <!--			<page title="Ballot Intro" filename="ballot-intro.html"/> -->
-      <page title="Documentation" filename="documentation.html">
-        <page title="Summary" filename="summary.html"/>
-        <page title="Introduction" filename="overview.html">
-          <page title="Developer Introduction" filename="overview-dev.html"/>
-          <page title="Clinical Introduction" filename="overview-clinical.html"/>
-        </page>
-        <page title="Documentation Guidance and Glossary" filename="help.html"/>
-        <page title="License and Legal Terms" filename="license.html"/>
-        <page title="Community and Credits" filename="credits.html"/>
-        <page title="Version History" filename="history.html"/>
-        <page title="Outstanding Issues" filename="todo.html"/>
-        <page title="FHIR Timelines" filename="timelines.html"/>
-        <page title="FluentPath" filename="fluentpath.html"/>
-        <page title="Conformance" filename="conformance-rules.html"/>
-        <page title="Life Cycle" filename="lifecycle.html"/>
-        <page title="References" filename="references.html">
-          <page title="Definitions" filename="references-definitions.html"/>
-        </page>
-        <page title="Narrative" filename="narrative.html">
-          <page title="Narrative Example" filename="narrative-example.html"/>
-          <page title="Definitions" filename="narrative-definitions.html"/>
-        </page>
-        <page title="Extensibility" filename="extensibility.html">
-          <page title="Defining Extensions" filename="defining-extensions.html"/>
-          <page title="Examples" filename="extensibility-examples.html"/>
-          <page title="Detailed Description" filename="extensibility-definitions.html"/>
-          <page title="Registry" filename="extensibility-registry.html"/>
-        </page>
-        <page title="Formats" filename="formats.html">
-          <page title="XML" filename="xml.html"/>
-          <page title="JSON" filename="json.html"/>
-        </page>
-        <page title="Data Types" filename="datatypes.html">
-          <page title="Examples" filename="datatypes-examples.html"/>
-          <page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
-          <page title="Mappings" filename="datatypes-mappings.html"/>
-        </page>
-        <page title="Coming Challenges" filename="change.html"/>
+      <page title="Summary" filename="summary.html"/>
+      <page title="Introduction" filename="overview.html">
+        <page title="Developer Introduction" filename="overview-dev.html"/>
+        <page title="Clinical Introduction" filename="overview-clinical.html"/>
       </page>
+      <page title="Modules" filename="modules.html"/>
+      <page title="Documentation Guidance and Glossary" filename="help.html"/>
+      <page title="License and Legal Terms" filename="license.html"/>
+      <page title="Community and Credits" filename="credits.html"/>
+      <page title="Version History" filename="history.html"/>
+      <page title="Outstanding Issues" filename="todo.html"/>
+      <page title="FHIR Timelines" filename="timelines.html"/>
+      <page title="FluentPath" filename="fluentpath.html"/>
+      <page title="Conformance" filename="conformance-rules.html"/>
+      <page title="Life Cycle" filename="lifecycle.html"/>
+      <page title="References" filename="references.html">
+        <page title="Definitions" filename="references-definitions.html"/>
+      </page>
+      <page title="Narrative" filename="narrative.html">
+        <page title="Narrative Example" filename="narrative-example.html"/>
+        <page title="Definitions" filename="narrative-definitions.html"/>
+      </page>
+      <page title="Extensibility" filename="extensibility.html">
+        <page title="Defining Extensions" filename="defining-extensions.html"/>
+        <page title="Examples" filename="extensibility-examples.html"/>
+        <page title="Detailed Description" filename="extensibility-definitions.html"/>
+      </page>
+      <page title="Formats" filename="formats.html">
+        <page title="XML" filename="xml.html"/>
+        <page title="JSON" filename="json.html"/>
+      </page>
+      <page title="Data Types" filename="datatypes.html">
+        <page title="Examples" filename="datatypes-examples.html"/>
+        <page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
+        <page title="Mappings" filename="datatypes-mappings.html"/>
+      </page>
+      <page title="Coming Challenges" filename="change.html"/>
       <!-- base types -->
       <page title="Element" filename="element.html">
         <page title="Element - Detailed Descriptions" filename="element-definitions.html"/>
@@ -172,7 +174,7 @@ signatures.html
 
     <page title="Implementation Support" filename="implsupport-module.html" icon="implsupport.png">
       <page title="Resource Guide" filename="resourceguide.html"/>
-      <page title="Implementation" filename="implementation.html"/>
+      <page title="Clinical Safety" filename="safety.html"/>
       <page title="Inter-version Compatibility" filename="compatibility.html"/>
       <page title="Testing FHIR" filename="testing.html"/>
       <page title="How FHIR fits into an EHR" filename="ehr-fm.html"/>

@@ -12,76 +12,80 @@
 
 <div class="col-9">
 
-<h1>FHIR Documentation Index</h1>
+<h1>Documentation Index</h1>
 
 <p>
-This page provides an index to the FHIR Documentation. In addition
-to this documentation, there are <a href="implementation.html">implementation
-assistance</a> (which has important information about how to use FHIR
-in practice), and the <a href="resourcelist.html">list of resources</a>.
+This page provides an index to the key commonly used documentation pages for FHIR. 
 </p>
+
 <table width="100%" style="table-layout: fixed">
  <tr>
- <td width="33%">
-<p><b>Administration</b></p>
-<p>Documentation Guidance / Background.</p>
+
+<td style="border-left: 1px solid #eeeeee" width="33%">
+<p><b>Framework</b></p>
 <ul>
-  <li><a href="toc.html">Full Table of Contents</a></li>
-  <li><a href="help.html">Documentation Guidance &amp; Glossary</a></li>
-  <li><a href="license.html">License and Legal Terms</a></li>
-  <li><a href="credits.html">Community &amp; Credits</a></li>
-  <li><a href="history.html">Version History</a></li>
-  <li><a href="todo.html">Outstanding Issues</a></li>
-</ul>
-<hr/>
-<p><b>Overview</b></p>
-<p>Background and Tutorial Information.</p>
-<ul>
-  <li><a href="summary.html">1 page Summary (Glossy)</a></li>
-  <li><a href="overview.html">Overview &amp; Roadmap</a></li>
-  <li><a href="overview-dev.html">Developer's Introduction</a></li>
-  <li><a href="overview-clinical.html">Clinical Introduction</a></li>
-  <li><a href="timelines.html"><b>FHIR Timelines</b></a></li>
-  <li><a href="compatibility.html">Inter-version Compatibility</a></li>
-</ul>
-</td><td style="border-left: 1px solid #eeeeee" width="33%">
-<p><b>Resources</b></p>
-<p>Underlying Definitions for Resources.</p>
-<ul>
-  <li><a href="resource.html"><b>Base Resource</b></a></li>
   <li><a href="conformance-rules.html">Conformance Rules</a></li>
   <li><a href="lifecycle.html">Resource Life Cycles</a></li>
   <li><a href="references.html">References between Resources</a></li>
-  <li><a href="compartmentdefinition.html">Compartments (Patient based access)</a></li>
+  <li><a href="compartmentdefinition.html">Compartments</a></li>
   <li><a href="narrative.html">Narrative</a></li>
-  <li><a href="extensibility.html">Extensibility</a> &amp; <a href="extensibility-registry.html">Extension Registry</a></li>
-  <li><a href="formats.html">Formats:</a>
-    <ul>
-      <li><a href="xml.html">XML</a></li>
-      <li><a href="json.html">JSON</a></li>
-      <li><a href="rdf.html">RDF</a></li>
-    </ul>
-  </li>
-<!--
-  <li><a href="bundle.html">Bundling resources</a></li>
-  <li><a href="binary.html">Transferring binary data</a></li>
-  -->
+  <li><a href="extensibility.html">Extensibility</a></li>
+  <li><a href="formats.html">Formats:</a> <a href="xml.html">XML</a>, <a href="json.html">JSON</a>, &amp; <a href="rdf.html">RDF</a></li>
   <li><a href="datatypes.html">Data Types</a></li>
-  <li>Infrastructure Types:
-    <ul>
-      <li><a href="domainresource.html">DomainResource</a></li>
-      <li><a href="element.html">Element</a></li>
-	  <li><a href="backboneelement.html">BackboneElement</a></li>
-      <li><a href="elementdefinition.html">ElementDefinition</a></li>
-      <li><a href="modulemetadata.html">ModuleMetadata</a></li>
-    </ul>
-  </li>
   <li><a href="fluentpath.html">FluentPath</a></li>
-  <li><a href="ontology.html">Ontology</a></li>
 </ul>
-</td><td width="33%" style="border-left: 1px solid #eeeeee">
+</td>
+
+<td>
+<p><b>Exchanging Resources</b></p>
+<ul>
+  <li><a href="http.html"><b>RESTful API (HTTP)</b></a></li>
+  <li><a href="search.html">Search</a> + <a href="searchparameter-registry.html">Search Param Registry</a></li>
+  <li><a href="operations.html">Operations</a></li>
+  <li><a href="documents.html">Documents</a></li>
+  <li><a href="messaging.html">Messaging</a></li>
+  <li><a href="services.html">Services</a></li>
+</ul>
+</td>
+
+<td style="border-left: 1px solid #eeeeee">
+<p><b>Adopting &amp; Using FHIR</b></p>
+<ul>
+  <li><a href="profiling.html">Profiling FHIR</a></li>
+  <li><a href="downloads.html">Downloads - Schemas, Code, Tools</a></li>
+  <li><a href="validation.html">Validating Resources</a></li>
+  <li><a href="mapping-language.html">Mapping Language</a> (<a href="mapping-tutorial.html">tutorial</a>)</li>
+  <li><a href="testing.html">Testing Implementations</a></li>
+</ul>
+<hr/>
+<div  style="background-color: #ffe6e6">
+<p><b>Safety &amp; Security</b></p>
+<ul>
+  <li><a href="security.html">Security</a> &amp;  <a href="security-labels.html">Security Labels</a></li>
+  <li><a href="safety.html">Clinical Safety</a></li>
+</ul>
+</div>
+</td>
+
+
+</tr>
+
+ <tr>
+<td style="border-left: 1px solid #eeeeee" width="33%">
+<p><b>Base Types</b></p>
+<ul>
+  <li><a href="resource.html">Resource</a></li>
+  <li><a href="domainresource.html">DomainResource</a></li>
+  <li><a href="element.html">Element</a></li>
+  <li><a href="backboneelement.html">BackboneElement</a></li>
+  <li><a href="elementdefinition.html">ElementDefinition</a></li>
+  <li><a href="modulemetadata.html">ModuleMetadata</a></li>
+</ul>
+</td>
+
+
+<td width="33%" style="border-left: 1px solid #eeeeee">
 <p><b>Terminologies</b></p>
-<p>How codes, systems and value sets are used, and registries of known terminology resources</p>
 <ul>
   <li><a href="terminologies.html">Using Codes in Resources</a></li>
   <li><a href="terminologies-systems.html">Code Systems</a></li>
@@ -90,23 +94,20 @@ in practice), and the <a href="resourcelist.html">list of resources</a>.
   <li><a href="identifier-registry.html">Identifier Registry</a></li>
   <li>+ see the <a href="terminology-service.html">Terminology Service</a> API</li>
 </ul>
-<hr/>
-<p><b>Testing FHIR Systems</b></p>
-<p>TestScript resource examples and how tos; testing guidance, best practices and documentation</p>
+</td>
+
+<td style="border-left: 1px solid #eeeeee">
+<p><b>Implementation Advice</b></p>
 <ul>
-  <li><a href="testing.html">Testing FHIR</a></li>
-  <li><a href="testscript.html">TestScript resource definition</a></li>
-</ul>
-</td></tr>
-<tr>
-<td colspan="3" style="border-top: 1px solid #eeeeee" >
-<p>Appendices:</p>
-<ul>
-  <li><a href="comparison.html">Comparison with other HL7 Specifications</a></li>
-  <li><a href="ehr-fm.html">How FHIR fits into an EHR</a></li>
-  <li><a href="change.html">Coming Challenges Driving Change</a></li>
+  <li><a href="resourceguide.html">Guide to Resources</a></li>
+  <li><a href="updates.html">Variations between Submitted data and Retrieved data</a></li>
+  <li><a href="managing.html">Managing Resource Identity</a></li>
+  <li><a href="pushpull.html">Push vs Pull</a></li>
+  <li><a href="integrated-examples.html">Integrated Examples</a></li>
+  <li><a href="usecases.html">Common Use Cases</a></li>
 </ul>
 </td>
+
 </tr>
 </table>
 
