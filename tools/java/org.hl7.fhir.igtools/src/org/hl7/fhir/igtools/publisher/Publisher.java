@@ -1532,6 +1532,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
     JsonObject data = new JsonObject();
     data.addProperty("path", specPath);
     data.addProperty("canonical", igpkp.getCanonical());
+    data.addProperty("igId", sourceIg.getId());
+    data.addProperty("igName", sourceIg.getName());
     data.addProperty("errorCount", getErrorCount());
     data.addProperty("version", Constants.VERSION);
     data.addProperty("revision", Constants.REVISION);
@@ -1723,28 +1725,29 @@ public class Publisher implements IWorkerContext.ILoggingService {
     } else {
       for (FetchedResource r : f.getResources()) {
         try {
-          saveDirectResourceOutputs(f, r, makeVars(r));
+          Map<String, String> vars = makeVars(r);
+          saveDirectResourceOutputs(f, r, vars);
 
           // now, start generating resource type specific stuff 
           if (r.getResource() != null) { // we only do this for conformance resources we've already loaded
             switch (r.getResource().getResourceType()) {
             case CodeSystem:
-              generateOutputsCodeSystem(f, r, (CodeSystem) r.getResource());
+              generateOutputsCodeSystem(f, r, (CodeSystem) r.getResource(), vars);
               break;
             case ValueSet:
-              generateOutputsValueSet(f, r, (ValueSet) r.getResource());
+              generateOutputsValueSet(f, r, (ValueSet) r.getResource(), vars);
               break;
             case ConceptMap:
-              generateOutputsConceptMap(f, r, (ConceptMap) r.getResource());
+              generateOutputsConceptMap(f, r, (ConceptMap) r.getResource(), vars);
               break;
 
             case DataElement:
               break;
             case StructureDefinition:
-              generateOutputsStructureDefinition(f, r, (StructureDefinition) r.getResource());
+              generateOutputsStructureDefinition(f, r, (StructureDefinition) r.getResource(), vars);
               break;
             case StructureMap:
-              generateOutputsStructureMap(f, r, (StructureMap) r.getResource());
+              generateOutputsStructureMap(f, r, (StructureMap) r.getResource(), vars);
               break;
             default:
               // nothing to do...    
@@ -1809,7 +1812,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     return true;
   }
 
-  private String getTemplate(FetchedResource r, String propertyName) {
+  private String getProperty(FetchedResource r, String propertyName) {
     if (r.getConfig() != null && hasString(r.getConfig(), propertyName))
       return getString(r.getConfig(), propertyName);
     JsonObject cfg = configuration.getAsJsonObject("defaults");
@@ -1859,29 +1862,40 @@ public class Publisher implements IWorkerContext.ILoggingService {
    * @throws Exception
    */
   private void saveDirectResourceOutputs(FetchedFile f, FetchedResource r, Map<String, String> vars) throws FileNotFoundException, Exception {
-    genWrapperBase(f, r, getTemplate(r, "template-base"), f.getOutputNames(), vars);
+    genWrapper(f, r, getProperty(r, "template-base"), getProperty(r, "base"), f.getOutputNames(), vars, null, "");
+    genWrapper(null, r, getProperty(r, "template-defns"), getProperty(r, "defns"), f.getOutputNames(), vars, null, "definitions");
+    JsonArray templateNames = configuration.getAsJsonArray("extraTemplates");
+    if (templateNames!=null)
+      for (JsonElement name : templateNames) {
+    	if (!name.isJsonPrimitive())
+    	  throw new Exception("extraTemplates must be an array of simple strings");
+    	String output = getProperty(r, name.getAsString());
+    	if (output == null)
+    	  output = r.getElement().fhirType()+"-"+r.getId()+"-"+name.getAsString()+".html";
+        genWrapper(null, r, getProperty(r, "template-"+name.getAsString()), output, f.getOutputNames(), vars, null, name.getAsString());
+      }
     
-    String template = getTemplate(r, "template-format");
+    String template = getProperty(r, "template-format");
     if (wantGen(r, "xml")) {
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".xml");
       f.getOutputNames().add(path);
       new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).compose(r.getElement(), new FileOutputStream(path), OutputStyle.PRETTY, "??");
       if (tool == GenerationTool.Jekyll)
-        genWrapperFmt(r, template, "xml", f.getOutputNames(), vars);  
+        genWrapper(null, r, template, getProperty(r, "format"), f.getOutputNames(), vars, "xml", "");  
     }
     if (wantGen(r, "json")) {
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".json");
       f.getOutputNames().add(path);
       new org.hl7.fhir.dstu3.elementmodel.JsonParser(context).compose(r.getElement(), new FileOutputStream(path), OutputStyle.PRETTY, "??");
       if (tool == GenerationTool.Jekyll)
-        genWrapperFmt(r, template, "json", f.getOutputNames(), vars);  
+        genWrapper(null, r, template, getProperty(r, "format"), f.getOutputNames(), vars, "json", "");  
     }
     if (wantGen(r, "ttl")) {
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".ttl");
       f.getOutputNames().add(path);
       new org.hl7.fhir.dstu3.elementmodel.TurtleParser(context).compose(r.getElement(), new FileOutputStream(path), OutputStyle.PRETTY, "??");
       if (tool == GenerationTool.Jekyll)
-        genWrapperFmt(r, template, "ttl", f.getOutputNames(), vars);  
+        genWrapper(null, r, template, getProperty(r, "format"), f.getOutputNames(), vars, "ttl", "");
     }
 
     if (wantGen(r, "xml-html")) {
@@ -1889,14 +1903,14 @@ public class Publisher implements IWorkerContext.ILoggingService {
       org.hl7.fhir.dstu3.elementmodel.XmlParser xp = new org.hl7.fhir.dstu3.elementmodel.XmlParser(context);
       xp.setLinkResolver(igpkp);
       xp.compose(r.getElement(), x);
-      fragment(r.getElement().fhirType()+"-"+r.getId()+"-xml-html", x.toString(), f.getOutputNames());
+      fragment(r.getElement().fhirType()+"-"+r.getId()+"-xml-html", x.toString(), f.getOutputNames(), r, vars, "xml");
     }
     if (wantGen(r, "json-html")) {
       JsonXhtmlRenderer j = new JsonXhtmlRenderer();
       org.hl7.fhir.dstu3.elementmodel.JsonParser jp = new org.hl7.fhir.dstu3.elementmodel.JsonParser(context);
       jp.setLinkResolver(igpkp);
       jp.compose(r.getElement(), j);
-      fragment(r.getElement().fhirType()+"-"+r.getId()+"-json-html", j.toString(), f.getOutputNames());
+      fragment(r.getElement().fhirType()+"-"+r.getId()+"-json-html", j.toString(), f.getOutputNames(), r, vars, "json");
     }
 
     if (wantGen(r, "ttl-html")) {
@@ -1904,13 +1918,13 @@ public class Publisher implements IWorkerContext.ILoggingService {
       ttl.setLinkResolver(igpkp);
       Turtle rdf = new Turtle();
       ttl.compose(r.getElement(), rdf, "??");
-      fragment(r.getElement().fhirType()+"-"+r.getId()+"-ttl-html", rdf.asHtml(), f.getOutputNames());
+      fragment(r.getElement().fhirType()+"-"+r.getId()+"-ttl-html", rdf.asHtml(), f.getOutputNames(), r, vars, "ttl");
     }
 
     if (wantGen(r, "html")) {
       XhtmlNode xhtml = getXhtml(r);
       String html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
-      fragment(r.getElement().fhirType()+"-"+r.getId()+"-html", html, f.getOutputNames());
+      fragment(r.getElement().fhirType()+"-"+r.getId()+"-html", html, f.getOutputNames(), r, vars, null);
     }
     //  NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
     //  gen.generate(f.getElement(), false);
@@ -1919,45 +1933,44 @@ public class Publisher implements IWorkerContext.ILoggingService {
     //  fragment(f.getId()+"-gen-html", html);
   }
 
-  private void genWrapperFmt(FetchedResource r, String template, String format, Set<String> outputTracker, Map<String, String> vars) throws FileNotFoundException, IOException {
+  private void genWrapper(FetchedFile ff, FetchedResource r, String template, String outputName, Set<String> outputTracker, Map<String, String> vars, String format, String extension) throws FileNotFoundException, IOException {
     if (template != null) {
-      template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), template));
-      template = template.replace("{{[title]}}", r.getTitle() == null ? "?title?" : r.getTitle());
-      template = template.replace("{{[name]}}", r.getId()+"-"+format+"-html");
-      template = template.replace("{{[id]}}", r.getId());
-      template = template.replace("{{[fmt]}}", format);
-      template = template.replace("{{[type]}}", r.getElement().fhirType());
-      template = template.replace("{{[uid]}}", r.getElement().fhirType()+"="+r.getId());
-      if (vars != null) {
-        for (String n : vars.keySet())
-          template = template.replace("{{["+n+"]}}", vars.get(n));
+      boolean existsAsPage = false;
+      if (ff!=null) {
+	      String fn = igpkp.getLinkFor(ff, r);
+	      existsAsPage = altMap.containsKey("page/"+Utilities.path(pagesDir, fn));
+	      if (!existsAsPage && prePagesDir != null)
+	        existsAsPage = altMap.containsKey("page/"+Utilities.path(prePagesDir, fn));
       }
-      String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+"."+format+".html");
-      checkMakeFile(template.getBytes(Charsets.UTF_8), path, outputTracker);
-    }
-  }
-
-  private void genWrapperBase(FetchedFile ff, FetchedResource r, String template, Set<String> outputTracker, Map<String, String> vars) throws FileNotFoundException, IOException {
-    if (template != null) {
-      String fn = igpkp.getLinkFor(ff, r);
-      boolean existsAsPage = altMap.containsKey("page/"+Utilities.path(pagesDir, fn));
-      if (!existsAsPage && prePagesDir != null)
-        existsAsPage = altMap.containsKey("page/"+Utilities.path(prePagesDir, fn));
       if (!existsAsPage) {
-        File f = new File(configFile);
         template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), template));
-        template = template.replace("{{[title]}}", r.getTitle());
-        template = template.replace("{{[type]}}", r.getElement().fhirType());
-        template = template.replace("{{[id]}}", r.getId());
-        template = template.replace("{{[name]}}", r.getId()+"-html");
-        template = template.replace("{{[uid]}}", r.getElement().fhirType()+"="+r.getId());
-        // r.getElement().fhirType()+"-"+r.getId()+".html"
-        String path = Utilities.path(tempDir, fn);
+        template = doReplacements(template, r, vars, format);
+        
+        if (outputName.contains("{{["))
+        outputName = doReplacements(outputName, r, vars, format);
+        if (outputName == null)
+        outputName = r.getElement().fhirType()+"-"+r.getId()+(extension.equals("")? "":"-"+extension)+(format==null? "": "."+format)+".html";
+        String path = Utilities.path(tempDir, outputName);
         checkMakeFile(template.getBytes(Charsets.UTF_8), path, outputTracker);
       }
     }
   }
 
+  private String doReplacements(String s, FetchedResource r, Map<String, String> vars, String format) {
+    s = s.replace("{{[title]}}", r.getTitle() == null ? "?title?" : r.getTitle());
+    s = s.replace("{{[name]}}", r.getId()+(format==null? "": "-"+format)+"-html");
+    s = s.replace("{{[id]}}", r.getId());
+    if (format!=null)
+	  s = s.replace("{{[fmt]}}", format);
+    s = s.replace("{{[type]}}", r.getElement().fhirType());
+    s = s.replace("{{[uid]}}", r.getElement().fhirType()+"="+r.getId());
+    if (vars != null) {
+      for (String n : vars.keySet())
+        s = s.replace("{{["+n+"]}}", vars.get(n));
+    }
+	return s;
+  }
+  
   /**
    * Generate:
    *   summary
@@ -1967,14 +1980,14 @@ public class Publisher implements IWorkerContext.ILoggingService {
    * @throws org.hl7.fhir.exceptions.FHIRException 
    * @throws Exception 
    */
-  private void generateOutputsCodeSystem(FetchedFile f, FetchedResource fr, CodeSystem cs) throws Exception {
+  private void generateOutputsCodeSystem(FetchedFile f, FetchedResource fr, CodeSystem cs, Map<String, String> vars) throws Exception {
     CodeSystemRenderer csr = new CodeSystemRenderer(context, specPath, cs, igpkp, specMaps);
     if (wantGen(fr, "summary")) 
-      fragment("CodeSystem-"+cs.getId()+"-summary", csr.summary(wantGen(fr, "xml"), wantGen(fr, "json"), wantGen(fr, "ttl")), f.getOutputNames());
+      fragment("CodeSystem-"+cs.getId()+"-summary", csr.summary(wantGen(fr, "xml"), wantGen(fr, "json"), wantGen(fr, "ttl")), f.getOutputNames(), fr, vars, null);
     if (wantGen(fr, "content")) 
-      fragment("CodeSystem-"+cs.getId()+"-content", csr.content(), f.getOutputNames());
+      fragment("CodeSystem-"+cs.getId()+"-content", csr.content(), f.getOutputNames(), fr, vars, null);
     if (wantGen(fr, "xref")) 
-      fragment("CodeSystem-"+cs.getId()+"-xref", csr.xref(), f.getOutputNames());
+      fragment("CodeSystem-"+cs.getId()+"-xref", csr.xref(), f.getOutputNames(), fr, vars, null);
   }
 
   /**
@@ -1988,19 +2001,19 @@ public class Publisher implements IWorkerContext.ILoggingService {
    * @throws org.hl7.fhir.exceptions.FHIRException 
    * @throws Exception 
    */
-  private void generateOutputsValueSet(FetchedFile f, FetchedResource r, ValueSet vs) throws Exception {
+  private void generateOutputsValueSet(FetchedFile f, FetchedResource r, ValueSet vs, Map<String, String> vars) throws Exception {
     ValueSetRenderer vsr = new ValueSetRenderer(context, specPath, vs, igpkp, specMaps);
     if (wantGen(r, "summary")) 
-      fragment("ValueSet-"+vs.getId()+"-summary", vsr.summary(wantGen(r, "xml"), wantGen(r, "json"), wantGen(r, "ttl")), f.getOutputNames());
+      fragment("ValueSet-"+vs.getId()+"-summary", vsr.summary(wantGen(r, "xml"), wantGen(r, "json"), wantGen(r, "ttl")), f.getOutputNames(), r, vars, null);
     if (wantGen(r, "cld")) 
       try {
-        fragment("ValueSet-"+vs.getId()+"-cld", vsr.cld(), f.getOutputNames());
+        fragment("ValueSet-"+vs.getId()+"-cld", vsr.cld(), f.getOutputNames(), r, vars, null);
       } catch (Exception e) {
         fragmentError(vs.getId()+"-cld", e.getMessage(), f.getOutputNames());
       }
 
     if (wantGen(r, "xref")) 
-      fragment("ValueSet-"+vs.getId()+"-xref", vsr.xref(), f.getOutputNames());
+      fragment("ValueSet-"+vs.getId()+"-xref", vsr.xref(), f.getOutputNames(), r, vars, null);
     if (wantGen(r, "expansion")) { 
       ValueSetExpansionOutcome exp = context.expandVS(vs, true, true);
       if (exp.getValueset() != null) {
@@ -2010,7 +2023,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         exp.getValueset().setText(null);
         gen.generate(exp.getValueset(), false);
         String html = new XhtmlComposer().compose(exp.getValueset().getText().getDiv());
-        fragment("ValueSet-"+vs.getId()+"-expansion", html, f.getOutputNames());
+        fragment("ValueSet-"+vs.getId()+"-expansion", html, f.getOutputNames(), r, vars, null);
       } else if (exp.getError() != null) 
         fragmentError("ValueSet-"+vs.getId()+"-expansion", exp.getError(), f.getOutputNames());
       else 
@@ -2030,7 +2043,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
    * @param resource
    * @throws IOException 
    */
-  private void generateOutputsConceptMap(FetchedFile f, FetchedResource r, ConceptMap cm) throws IOException {
+  private void generateOutputsConceptMap(FetchedFile f, FetchedResource r, ConceptMap cm, Map<String, String> vars) throws IOException {
     if (wantGen(r, "summary")) 
       fragmentError("ConceptMap-"+cm.getId()+"-summary", "yet to be done: concept map summary", f.getOutputNames());
     if (wantGen(r, "content")) 
@@ -2039,7 +2052,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       fragmentError("ConceptMap-"+cm.getId()+"-xref", "yet to be done: list of all places where concept map is used", f.getOutputNames());
   }
 
-  private void generateOutputsStructureDefinition(FetchedFile f, FetchedResource r, StructureDefinition sd) throws Exception {
+  private void generateOutputsStructureDefinition(FetchedFile f, FetchedResource r, StructureDefinition sd, Map<String, String> vars) throws Exception {
     // todo : generate shex itself
     if (wantGen(r, "shex")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-shex", "yet to be done: shex as html", f.getOutputNames());
@@ -2054,13 +2067,13 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
     StructureDefinitionRenderer sdr = new StructureDefinitionRenderer(context, specPath+"/", sd, Utilities.path(tempDir), igpkp, specMaps);
     if (wantGen(r, "summary")) 
-      fragment("StructureDefinition-"+sd.getId()+"-summary", sdr.summary(), f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-summary", sdr.summary(), f.getOutputNames(), r, vars, null);
     if (wantGen(r, "header")) 
-      fragment("StructureDefinition-"+sd.getId()+"-header", sdr.header(), f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-header", sdr.header(), f.getOutputNames(), r, vars, null);
     if (wantGen(r, "diff")) 
-      fragment("StructureDefinition-"+sd.getId()+"-diff", sdr.diff(igpkp.getDefinitions(sd)), f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-diff", sdr.diff(igpkp.getDefinitions(sd)), f.getOutputNames(), r, vars, null);
     if (wantGen(r, "snapshot")) 
-      fragment("StructureDefinition-"+sd.getId()+"-snapshot", sdr.snapshot(igpkp.getDefinitions(sd)), f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-snapshot", sdr.snapshot(igpkp.getDefinitions(sd)), f.getOutputNames(), r, vars, null);
     if (wantGen(r, "pseudo-xml")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-pseudo-xml", "yet to be done: Xml template", f.getOutputNames());
     if (wantGen(r, "pseudo-json")) 
@@ -2070,21 +2083,21 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (wantGen(r, "uml")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-uml", "yet to be done: UML as SVG", f.getOutputNames());
     if (wantGen(r, "tx")) 
-      fragment("StructureDefinition-"+sd.getId()+"-tx", sdr.tx(), f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-tx", sdr.tx(), f.getOutputNames(), r, vars, null);
     if (wantGen(r, "inv")) 
-      fragment("StructureDefinition-"+sd.getId()+"-inv", sdr.inv(), f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-inv", sdr.inv(), f.getOutputNames(), r, vars, null);
     if (wantGen(r, "dict")) 
-      fragment("StructureDefinition-"+sd.getId()+"-dict", sdr.dict(), f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-dict", sdr.dict(), f.getOutputNames(), r, vars, null);
     if (wantGen(r, "maps")) 
-      fragment("StructureDefinition-"+sd.getId()+"-maps", sdr.mappings(), f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-maps", sdr.mappings(), f.getOutputNames(), r, vars, null);
     if (wantGen(r, "xref")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-sd-xref", "Yet to be done: xref", f.getOutputNames());
 
     if (wantGen(r, "example-list")) 
-      fragment("StructureDefinition-example-list-"+sd.getId(), sdr.exampleList(fileList), f.getOutputNames());
+      fragment("StructureDefinition-example-list-"+sd.getId(), sdr.exampleList(fileList), f.getOutputNames(), r, vars, null);
   }
 
-  private void generateOutputsStructureMap(FetchedFile f, FetchedResource r, StructureMap resource) {
+  private void generateOutputsStructureMap(FetchedFile f, FetchedResource r, StructureMap resource, Map<String, String> vars) {
     
   }
 
@@ -2107,8 +2120,12 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void fragment(String name, String content, Set<String> outputTracker) throws IOException {
-    if (checkMakeFile(content.getBytes(Charsets.UTF_8), Utilities.path(tempDir, "_includes", name+".xhtml"), outputTracker)) {
-      TextFile.stringToFile(pageWrap(content, name), Utilities.path(qaDir, name+".html"), true);
+    fragment(name, content, outputTracker, null, null, null);
+  }
+  private void fragment(String name, String content, Set<String> outputTracker, FetchedResource r, Map<String, String> vars, String format) throws IOException {
+	String fixedContent = (r==null? content : doReplacements(content, r, vars, format));
+    if (checkMakeFile(fixedContent.getBytes(Charsets.UTF_8), Utilities.path(tempDir, "_includes", name+".xhtml"), outputTracker)) {
+      TextFile.stringToFile(pageWrap(fixedContent, name), Utilities.path(qaDir, name+".html"), true);
     }
   }
 
