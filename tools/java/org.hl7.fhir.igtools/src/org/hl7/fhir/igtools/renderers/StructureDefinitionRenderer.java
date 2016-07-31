@@ -601,14 +601,18 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       b.append(t.getCode());
     } else {
       b.append("<a href=\"");
-//      b.append(prefix);         
-      b.append(igp.getLinkFor("", t.getCode()));
+      String s = igp.getLinkFor("", t.getCode());
+      if (!s.startsWith("http:") && !s.startsWith("https:"))
+        b.append(prefix);         
+      b.append(s);
+      if (!s.contains(".html")) {
  //     b.append(".html#");
  //     String type = t.getCode();
  //     if (type.equals("*"))
  //       b.append("open");
  //     else 
  //       b.append(t.getCode());
+      }
       b.append("\">");
       b.append(t.getCode());
       b.append("</a>");
@@ -619,12 +623,10 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       if (p == null)
         b.append(t.getProfile());
       else {
-        if (p.hasBaseDefinition() )
-          b.append("<a href=\""+p.getUserString("path")+"\" title=\""+t.getProfile()+"\">");
-        else if (p.getKind() == StructureDefinitionKind.COMPLEXTYPE || p.getKind() == StructureDefinitionKind.PRIMITIVETYPE)
-          b.append("<a href=\""+prefix+igp.getLinkFor("", p.getName())+ ".html#" + p.getName()+"\" title=\""+p.getName()+"\">");
-        else // if (p.getKind() == StructureDefinitionType.RESOURCE)
-          b.append("<a href=\""+prefix+p.getName().toLowerCase()+".html\">");
+        String pth = p.getUserString("path");
+        if (!pth.startsWith("http:") && !pth.startsWith("https:"))
+          pth = prefix+pth;
+        b.append("<a href=\""+pth+"\" title=\""+t.getProfile()+"\">");
         b.append(p.getName());
         b.append("</a>");
       }
@@ -695,7 +697,9 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         String pp = (String) vs.getUserData("path");
         if (pp == null) {
           return null;
-        } else 
+        } else if (pp.startsWith("http:") || pp.startsWith("https:"))
+          return def.getDescription()+"<br/>"+conf(def)+ "<a href=\""+pp+"\">"+vs.getName()+"</a>"+confTail(def);
+        else
           return def.getDescription()+"<br/>"+conf(def)+ "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+vs.getName()+"</a>"+confTail(def);
       }
       if (ref.startsWith("http:") || ref.startsWith("https:"))

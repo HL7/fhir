@@ -62,7 +62,7 @@ The DAF FHIR IG contains four sections:
 <h4><span class="sectioncount">D.0.3.1<a name="D.0.3.1"> </a></span> Definitions, Interpretations and Requirements common to all DAF actors <a title="link to here" class="self-link" href="daf.html#D.0.3.1"><img src="target.png"/></a></h4>
 <p>
 This section outlines important definitions used in the DAF FHIR IG including interpretations that need to be used in the context of DAF and conformance requirements common to all DAF actors.
-The conformance verbs used are defined in <a href="{{site.data.fhir.path}}/conformance-rules.html">FHIR Conformance Rules</a>.
+The conformance verbs used are defined in <a href="{{site.data.fhir.path}}conformance-rules.html">FHIR Conformance Rules</a>.
 </p>
 <p>
 In the context of DAF profiles, <i>Supported</i> on any data element SHALL be interpreted as follows:
@@ -71,17 +71,17 @@ In the context of DAF profiles, <i>Supported</i> on any data element SHALL be in
    <li>DAF Requestors SHALL be capable of processing resource instances containing the data elements. In other words DAF Requestors SHOULD be capable of displaying the data elements for human use or storing it for other purposes. </li>
    <li>In situations where information on a particular data element is not present and the <b>reason for absence</b> is unknown, DAF Responders SHALL NOT include the data elements in the resource instance returned as part of the query results.</li>
    <li>When querying DAF Responders, DAF Requestors SHALL interpret missing data elements within resource instances as data not present in the DAF Responder's systems.</li>
-   <li>In situations where information on a particular data element is missing and the DAF Responder knows the precise reason for the absence of data, DAF Responders SHALL send the reason for the missing information using values from the value set where they exist or using the <a href="{{site.data.fhir.path}}/extension-data-absent-reason.html">dataAbsentReason</a> extension.</li>
+   <li>In situations where information on a particular data element is missing and the DAF Responder knows the precise reason for the absence of data, DAF Responders SHALL send the reason for the missing information using values from the value set where they exist or using the <a href="{{site.data.fhir.path}}extension-data-absent-reason.html">dataAbsentReason</a> extension.</li>
    <li>DAF Requestors SHALL be able to process resource instances containing data elements asserting missing information.</li>
    <li>NOTE: DAF Responders who do not have the capability to store or return a data element tagged as Supported in DAF profiles can still claim conformance to the DAF profiles using the DAF conformance resources.</li>
    <li>NOTE: The above definition of Supported is derived from HL7v2 concept &quot;Required by may be empty - RE&quot; described in HL7v2 V28_CH02B_Conformance.doc.</li>
 </ul>
 </p>
 <p>
- <b>Value Set bindings and interpretation:</b> In the context of DAF profiles, value set bindings (required, extensible) for specific data elements follow FHIR <a href="{{site.data.fhir.path}}/terminologies.html#strength">terminology</a> requirements.
+ <b>Value Set bindings and interpretation:</b> In the context of DAF profiles, value set bindings (required, extensible) for specific data elements follow FHIR <a href="{{site.data.fhir.path}}terminologies.html#strength">terminology</a> requirements.
 </p>
 <p>
-<b>FHIR Infrastructure usage: </b>DAF uses <a href="{{site.data.fhir.path}}/http.html">FHIR RESTful API</a> based on HTTP protocol along with <a href="{{site.data.fhir.path}}/datatypes.html">FHIR data types</a>, <a href="{{site.data.fhir.path}}/search.html">FHIR search</a> and both xml and json <a href="{{site.data.fhir.path}}/formats.html">FHIR Resource Formats</a>.
+<b>FHIR Infrastructure usage: </b>DAF uses <a href="{{site.data.fhir.path}}http.html">FHIR RESTful API</a> based on HTTP protocol along with <a href="{{site.data.fhir.path}}datatypes.html">FHIR data types</a>, <a href="{{site.data.fhir.path}}search.html">FHIR search</a> and both xml and json <a href="{{site.data.fhir.path}}formats.html">FHIR Resource Formats</a>.
 </p>
 
 <p>
@@ -136,81 +136,81 @@ In addition to deriving the granular data elements from the MU2 conceptual data 
           <tr>
    <td>Medication allergies</td>
    <td><a href="allergyintolerance-daf.html">DAF-AllergyIntolerance</a></td>
-   <td><a href="{{site.data.fhir.path}}/allergyintolerance.html">AllergyIntolerance</a></td>
+   <td><a href="{{site.data.fhir.path}}allergyintolerance.html">AllergyIntolerance</a></td>
     </tr>
     <tr>
    <td>Laboratory Order(s)</td>
    <td><a href="diagnosticrequest-daf.html">DAF-DiagnosticRequest</a></td>
-   <td><a href="{{site.data.fhir.path}}/diagnosticrequest.html">DiagnosticRequest</a></td>
+   <td><a href="{{site.data.fhir.path}}diagnosticrequest.html">DiagnosticRequest</a></td>
     </tr>
     <tr>
    <td>Laboratory Test(s)</td>
    <td><a href="diagnosticreport-daf.html">DAF-DiagnosticReport</a></td>
-   <td><a href="{{site.data.fhir.path}}/diagnosticreport.html">DiagnosticReport</a></td>
+   <td><a href="{{site.data.fhir.path}}diagnosticreport.html">DiagnosticReport</a></td>
     </tr>
     <tr>
    <td>Encounter Diagnoses</td>
    <td><a href="encounter-daf.html">DAF-Encounter</a></td>
-   <td><a href="{{site.data.fhir.path}}/encounter.html">Encounter</a></td>
+   <td><a href="{{site.data.fhir.path}}encounter.html">Encounter</a></td>
     </tr>
     <tr>
    <td>Family Health History</td>
    <td><a href="familymemberhistory-daf.html">DAF-FamilyMemberHistory</a></td>
-   <td><a href="{{site.data.fhir.path}}/familymemberhistory.html">FamilyMemberHistory</a></td>
+   <td><a href="{{site.data.fhir.path}}familymemberhistory.html">FamilyMemberHistory</a></td>
     </tr>
     <tr>
    <td>Immunizations</td>
    <td><a href="immunization-daf.html">DAF-Immunization</a></td>
-   <td><a href="{{site.data.fhir.path}}/immunization.html">Immunization</a></td>
+   <td><a href="{{site.data.fhir.path}}immunization.html">Immunization</a></td>
     </tr>
     <tr>
    <td>Laboratory Result Value(s)</td>
    <td><a href="observation-daf-results.html">DAF-Results</a></td>
-   <td><a href="{{site.data.fhir.path}}/observation.html">Observation</a></td>
+   <td><a href="{{site.data.fhir.path}}observation.html">Observation</a></td>
     </tr>
     <tr>
    <td>Medications</td>
    <td><a href="daf-medicationusage.html">DAF profiles for medications</a>, <a href="medication-daf.html">DAF-Medication</a>,
    <a href="medicationstatement-daf.html">DAF-MedicationStatement</a>, <a href="medicationadministration-daf.html">DAF-MedicationAdministration</a>,
     <a href="medicationdispense-daf.html">DAF-MedicationDispense</a>, <a href="medicationorder-daf.html">DAF-MedicationOrder</a></td>
-   <td><a href="{{site.data.fhir.path}}/medication.html">Medication</a>, <a href="{{site.data.fhir.path}}/medicationstatement.html">MedicationStatement</a>,
-    <a href="{{site.data.fhir.path}}/medicationadministration.html">MedicationAdministration</a>, <a href="{{site.data.fhir.path}}/medicationdispense.html">MedicationDispense</a>,
-    <a href="{{site.data.fhir.path}}/medicationorder.html">MedicationOrder</a></td>
+   <td><a href="{{site.data.fhir.path}}medication.html">Medication</a>, <a href="{{site.data.fhir.path}}medicationstatement.html">MedicationStatement</a>,
+    <a href="{{site.data.fhir.path}}medicationadministration.html">MedicationAdministration</a>, <a href="{{site.data.fhir.path}}medicationdispense.html">MedicationDispense</a>,
+    <a href="{{site.data.fhir.path}}medicationorder.html">MedicationOrder</a></td>
     </tr>
     <tr>
    <td>Patient name, Sex, Date of Birth, Race, Ethnicity, Preferred Language</td>
    <td><a href="patient-daf.html">DAF-Patient</a></td>
-   <td><a href="{{site.data.fhir.path}}/patient.html">Patient</a></td>
+   <td><a href="{{site.data.fhir.path}}patient.html">Patient</a></td>
     </tr>
     <tr>
    <td>Problems</td>
    <td><a href="condition-daf.html">DAF-Condition (Problem)</a></td>
-   <td><a href="{{site.data.fhir.path}}/condition.html">Condition</a></td>
+   <td><a href="{{site.data.fhir.path}}condition.html">Condition</a></td>
     </tr>
     <tr>
    <td>Procedures</td>
    <td><a href="procedure-daf.html">DAF-Procedure</a></td>
-   <td><a href="{{site.data.fhir.path}}/procedure.html">Procedure</a></td>
+   <td><a href="{{site.data.fhir.path}}procedure.html">Procedure</a></td>
     </tr>
     <tr>
    <td>Smoking status</td>
    <td><a href="observation-daf-smokingstatus.html">DAF-SmokingStatus</a></td>
-   <td><a href="{{site.data.fhir.path}}/observation.html">Observation</a></td>
+   <td><a href="{{site.data.fhir.path}}observation.html">Observation</a></td>
     </tr>
     <tr>
    <td>Vital Signs (Height, weight, BP, BMI) </td>
    <td><a href="observation-daf-vitalsigns.html">DAF-VitalSigns</a></td>
-   <td><a href="{{site.data.fhir.path}}/observation.html">Observation</a></td>
+   <td><a href="{{site.data.fhir.path}}observation.html">Observation</a></td>
     </tr>
     <tr>
    <td>MedicationAllergies list, Problem list, Medication List, Immunizations, Encounters, Laboratory Result Values, Procedure List</td>
    <td><a href="list-daf.html"> DAF List</a> (DAF-AllergyList, DAF-ProblemList, DAF-MedicationList, DAF-ImmunizationList, DAF-EncounterList, DAF-ResultsList, DAF-ProcedureList)</td>
-   <td><a href="{{site.data.fhir.path}}/list.html">List</a></td>
+   <td><a href="{{site.data.fhir.path}}list.html">List</a></td>
     </tr>
     <tr>
    <td/>
    <td><a href="daf-supportingprofiles.html">DAF Supporting Profiles</a>:<a href="daf-organization.html">DAF-Organization</a>, <a href="daf-location.html">DAF-Location</a>, <a href="daf-pract.html">DAF-Practitioner</a>, <a href="daf-substance.html">DAF-Substance</a>,<a href="daf-relatedperson.html">DAF-RelatedPerson</a>,<a href="daf-spec.html">DAF-Specimen</a></td>
-   <td><a href="{{site.data.fhir.path}}/organization.html">Organization</a>, <a href="{{site.data.fhir.path}}/location.html">Location</a>, <a href="{{site.data.fhir.path}}/practitioner.html">Practitioner</a>, <a href="{{site.data.fhir.path}}/substance.html">Substance</a>,<a href="{{site.data.fhir.path}}/relatedperson.html"> RelatedPerson</a>,<a href="{{site.data.fhir.path}}/specimen.html">Specimen</a></td>
+   <td><a href="{{site.data.fhir.path}}organization.html">Organization</a>, <a href="{{site.data.fhir.path}}location.html">Location</a>, <a href="{{site.data.fhir.path}}practitioner.html">Practitioner</a>, <a href="{{site.data.fhir.path}}substance.html">Substance</a>,<a href="{{site.data.fhir.path}}relatedperson.html"> RelatedPerson</a>,<a href="{{site.data.fhir.path}}specimen.html">Specimen</a></td>
     </tr>
   </tbody>
  </table>
@@ -258,14 +258,13 @@ In addition to deriving the granular data elements from the MU2 conceptual data 
   <div class="container">  <!-- container -->
    <div class="inner-wrapper">
     <p>
-        &copy; HL7.org 2011+. FHIR STU3 Candidate (v1.5.0-8413) generated on Tue, May 31, 2016 10:31+1000. <a href="{{site.data.fhir.path}}/qa.html">QA Page</a>
+        &copy; HL7.org 2011+. FHIR STU3 Candidate (v1.5.0-8413) generated on Tue, May 31, 2016 10:31+1000. <a href="{{site.data.fhir.path}}qa.html">QA Page</a>
         <br/>
         <span style="color: #FFFF77">
         Links: <a style="color: #81BEF7" href="http://hl7.org/fhir/search.cfm">Search <img style="text-align: baseline" src="external.png"/></a> |
-               <a style="color: #81BEF7" href="{{site.data.fhir.path}}/history.html">Version History</a> |
-               <a style="color: #81BEF7" href="{{site.data.fhir.path}}/toc.html">Table of Contents</a> |
-               Compare to DSTU2 <img style="text-align: baseline" src="external.png"/></a> |
-               <a style="color: #81BEF7" rel="license" href="{{site.data.fhir.path}}/license.html"><img style="border-style: none;" alt="CC0" src="{{site.data.fhir.path}}/cc0.png"/></a> |
+               <a style="color: #81BEF7" href="{{site.data.fhir.path}}history.html">Version History</a> |
+               <a style="color: #81BEF7" href="{{site.data.fhir.path}}toc.html">Table of Contents</a> |
+               <a style="color: #81BEF7" rel="license" href="{{site.data.fhir.path}}license.html"><img style="border-style: none;" alt="CC0" src="{{site.data.fhir.path}}cc0.png"/></a> |
                <a style="color: #81BEF7" target="_blank" href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemAdd&amp;tracker_id=677">Propose a change <img style="text-align: baseline" src="external.png"/></a>
         </span>
         </p>

@@ -1461,7 +1461,7 @@ public class ProfileUtilities {
 
 
   private String checkPrepend(String corePath, String path) {
-    if (pkp.prependLinks())
+    if (pkp.prependLinks() && !(path.startsWith("http:") || path.startsWith("https:")))
       return corePath+path;
     else 
       return path;

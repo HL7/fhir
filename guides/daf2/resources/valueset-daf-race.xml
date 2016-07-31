@@ -14,7 +14,7 @@
       <p>This value set includes codes from the following code systems:</p>
       <ul>
         <li>Include these codes as defined in 
-          <a href="../v3/Race/cs.html">http://hl7.org/fhir/v3/Race</a>
+          <a href="http://hl7-fhir.github.io/v3/Race/cs.html">http://hl7.org/fhir/v3/Race</a>
           <table>
             <tr>
               <td>
@@ -52,7 +52,7 @@
           </table>
         </li>
         <li>Include these codes as defined in 
-          <a href="../v3/NullFlavor/cs.html">http://hl7.org/fhir/v3/NullFlavor</a>
+          <a href="http://hl7-fhir.github.io/v3/NullFlavor/cs.html">http://hl7.org/fhir/v3/NullFlavor</a>
           <table>
             <tr>
               <td>

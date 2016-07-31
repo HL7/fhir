@@ -39,7 +39,7 @@
  <h3><span class="sectioncount">D.18.0.1</span> Scope and Usage <a title="link to here" class="self-link" href="condition-daf.html#scope_and_usage"><img src="target.png"/></a></h3>
 
 <p>
-This profile sets expectations for use of the <a href="{{site.data.fhir.path}}/condition.html">Condition</a> resource to record conditions,problems,symptoms and findings associated with a patient within the <a href="daf.html">DAF FHIR IG</a>. This profile identifies which core elements, extensions, vocabularies and value sets must be <i>Supported</i> by DAF actors.
+This profile sets expectations for use of the <a href="{{site.data.fhir.path}}condition.html">Condition</a> resource to record conditions,problems,symptoms and findings associated with a patient within the <a href="daf.html">DAF FHIR IG</a>. This profile identifies which core elements, extensions, vocabularies and value sets must be <i>Supported</i> by DAF actors.
 For the definition of <i>Supported</i> please refer to <a href="daf.html">DAF FHIR IG</a>. The data elements identified by the profile are based on ONC 2014 Edition S&amp;CC and DAF use cases.
 The mappings between the ONC 2014 Edition S&amp;CC data elements and DAF data elements are captured in the table below, where the first column identifies the ONC 2014 Edition S&amp;CC data element name,
 the second column maps the ONC 2014 Edition S&amp;CC data elements to DAF data elements which are derived from ONC 2014 Edition S&amp;CC standards and DAF use cases and lastly the third column identifies the mapping to FHIR resources and attributes.
@@ -110,8 +110,8 @@ This profile relies on the following other profiles:
 </p>
 <ul>
   <li><a href="patient-daf.html">DAF-Patient</a> is used by DAF-Condition profile to refer to patients.</li>
-  <li><a href="{{site.data.fhir.path}}/extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types.
-  Specifically the <a href="{{site.data.fhir.path}}/extension-data-absent-reason.html">data-absent-reason</a> extension can be used to code data elements with missing information when appropriate.
+  <li><a href="{{site.data.fhir.path}}extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types.
+  Specifically the <a href="{{site.data.fhir.path}}extension-data-absent-reason.html">data-absent-reason</a> extension can be used to code data elements with missing information when appropriate.
   See <a href="daf.html">DAF FHIR IG</a> for additional guidance.</li>
 </ul>
 </div>
@@ -121,10 +121,10 @@ This profile relies on the following other profiles:
 
 <table class="lines"><tr><td colspan="2"><b>Profiles</b>: </td></tr><tr><td><a href="daf-condition.html">DAF-Condition</a></td><td>Defines constraints and extensions on the condition resource for use in querying and retrieving patient's information related to problems which includes conditions, findings, symptoms etc.</td></tr></table><a name="search"> </a>
 <h3><span class="sectioncount">D.18.0.5</span> Search Parameters <a title="link to here" class="self-link" href="condition-daf.html#search"><img src="target.png"/></a></h3>
-<p>Search parameters defined by this package. See <a href="{{site.data.fhir.path}}/search.html">Searching</a> for more information about searching in REST, messaging, and services.</p>
+<p>Search parameters defined by this package. See <a href="{{site.data.fhir.path}}search.html">Searching</a> for more information about searching in REST, messaging, and services.</p>
 <table class="list">
 <tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td><td><b>Source</b></td></tr>
-<tr><td>age</td><td><a href="{{site.data.fhir.path}}/search.html#number">number</a></td><td>Search based on Condition onsetAge</td><td/><td><a href="condition-daf-Condition-age.xml.html">XML</a> / <a href="condition-daf-Condition-age.json.html">JSON</a></td></tr>
+<tr><td>age</td><td><a href="{{site.data.fhir.path}}search.html#number">number</a></td><td>Search based on Condition onsetAge</td><td/><td><a href="condition-daf-Condition-age.xml.html">XML</a> / <a href="condition-daf-Condition-age.json.html">JSON</a></td></tr>
 </table>
 
  <a name="search_parameters"> </a>

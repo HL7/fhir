@@ -34,12 +34,36 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.instance.model.api.IBaseXhtml;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode.Location;
 
 @ca.uhn.fhir.model.api.annotation.DatatypeDef(name="xhtml")
 public class XhtmlNode implements IBaseXhtml {
+  private static final long serialVersionUID = -4362547161441436492L;
+
+
+  public static class Location {
+    private int line;
+    private int column;
+    public Location(int line, int column) {
+      super();
+      this.line = line;
+      this.column = column;
+    }
+    public int getLine() {
+      return line;
+    }
+    public int getColumn() {
+      return column;
+    }
+    @Override
+    public String toString() {
+      return "Line "+Integer.toString(line)+", column "+Integer.toString(column);
+    }
+  }
 
   public static final String NBSP = Character.toString((char)0xa0);
   
+  private Location location;
   private NodeType nodeType;
   private String name;
   private Map<String, String> attributes = new HashMap<String, String>();
@@ -390,6 +414,16 @@ public List<String> getFormatCommentsPre() {
  */
 public List<String> getFormatCommentsPost() {
 	throw new UnsupportedOperationException();
+}
+
+
+public Location getLocation() {
+  return location;
+}
+
+
+public void setLocation(Location location) {
+  this.location = location;
 }
 
 }

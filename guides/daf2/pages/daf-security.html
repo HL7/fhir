@@ -38,17 +38,17 @@
   DAF transactions often make use of patient-specific information which could be exploited by malicious actors  resulting in  exposure of patient data.  For this reason, all DAF transactions must be secured appropriately with access to limited authorized individuals, data protected in transit, and appropriate audit measures taken.
 </p>
 <p>
-Implementers should be aware of the <a href="{{site.data.fhir.path}}/security.html">security considerations</a> associated with FHIR transactions,
+Implementers should be aware of the <a href="{{site.data.fhir.path}}security.html">security considerations</a> associated with FHIR transactions,
 particularly those related to:
 </p>
 <ul>
-  <li><a href="{{site.data.fhir.path}}/security.html#http">Communications</a></li>
-  <li><a href="{{site.data.fhir.path}}/security.html#authentication">Authentication</a></li>
-  <li><a href="{{site.data.fhir.path}}/security.html#authorization/access control">Authorization/Access Control</a></li>
-  <li><a href="{{site.data.fhir.path}}/security.html#audit logging">Audit Logging</a></li>
-  <li><a href="{{site.data.fhir.path}}/security.html#digital signatures">Digital Signatures</a></li>
-  <li><a href="{{site.data.fhir.path}}/security-labels.html">Security Labels</a></li>
-  <li><a href="{{site.data.fhir.path}}/security.html#narrative">Narrative</a></li>
+  <li><a href="{{site.data.fhir.path}}security.html#http">Communications</a></li>
+  <li><a href="{{site.data.fhir.path}}security.html#authentication">Authentication</a></li>
+  <li><a href="{{site.data.fhir.path}}security.html#authorization/access control">Authorization/Access Control</a></li>
+  <li><a href="{{site.data.fhir.path}}security.html#audit logging">Audit Logging</a></li>
+  <li><a href="{{site.data.fhir.path}}security.html#digital signatures">Digital Signatures</a></li>
+  <li><a href="{{site.data.fhir.path}}security-labels.html">Security Labels</a></li>
+  <li><a href="{{site.data.fhir.path}}security.html#narrative">Narrative</a></li>
 </ul>
 <p>
 For the purposes of DAF, security conformance requirements are as follows:
@@ -56,7 +56,7 @@ For the purposes of DAF, security conformance requirements are as follows:
 <ul>
   <li>Systems SHALL establish a risk  analysis and management regime that conforms with HIPAA security regulatory requirements. In addition US Federal systems SHOULD conform with the risk management and mitigation requirements defined in NIST 800 series documents.  This SHOULD include security category assignment in accordance with NIST 800-60 vol. 2 Appendix D.14. The coordination of risk management and the related security and privacy controls – policies, administrative practices, and technical controls – SHALL be defined in the Business Associate Agreements.</li>
   <li>Systems SHALL reference a single time source to establish a common time base for security auditing, as well as clinical data records,  among computing systems. The selected time service SHOULD be documented in the Business Associate Agreements.</li>
-  <li>Systems SHALL use the <a href="{{site.data.fhir.path}}/auditevent.html">AuditEvent</a> resource to capture audit logs of the various transactions. Systems SHOULD capture as many AuditEvent resource data elements as appropriate based on local policies. The following events SHOULD trigger an audit event:</li>
+  <li>Systems SHALL use the <a href="{{site.data.fhir.path}}auditevent.html">AuditEvent</a> resource to capture audit logs of the various transactions. Systems SHOULD capture as many AuditEvent resource data elements as appropriate based on local policies. The following events SHOULD trigger an audit event:</li>
   <ul>
  <li>Every successful and unsuccessful Resource Request (GET, READ, vREAD etc.)and corresponding Response.</li>
  <li>Every Authentication and Authorization request</li>
@@ -67,12 +67,12 @@ For the purposes of DAF, security conformance requirements are as follows:
 <ul>
   <li>Systems SHALL use TLS version 1.0 or higher for all transmissions not taking place over a secure network connection.<br/>
   (Using TLS even within a secured network environment is still encouraged to provide defense in depth.) US Federal systems SHOULD conform with FIPS PUB 140-2.</li>
-  <li>Systems SHALL conform to <a href="{{site.data.fhir.path}}/security.html#http">FHIR Communications</a> requirements.</li>
+  <li>Systems SHALL conform to <a href="{{site.data.fhir.path}}security.html#http">FHIR Communications</a> requirements.</li>
   <li>For Authentication and Authorization, Systems SHALL use the <a href="http://fhir-docs.smarthealthit.org/argonaut-dev/authorization/backend-services/">Smart On FHIR <img style="text-align: baseline" src="external.png"/></a> OAuth2 profiles. NOTE: The Smart On FHIR specifications include the required OAuth2 scopes for enabling security decisions.</li>
-  <li>Systems SHOULD implement requirements from <a href="{{site.data.fhir.path}}/security-labels.html">FHIR Security Labels</a> to provide information on the type and sensitivity of data.</li>
+  <li>Systems SHOULD implement requirements from <a href="{{site.data.fhir.path}}security-labels.html">FHIR Security Labels</a> to provide information on the type and sensitivity of data.</li>
   <li>Systems SHALL implement consent requirements per their state, local, and institutional policies. The Business Associate Agreements SHOULD document systems mutual consent requirements. DAF actors SHALL ensure that any necessary consent records exist and are reviewed prior to each exchange of patient-identifiable healthcare information. This verification should be logged in the same manner as other transactions, as discussed above under <a href="#general">General Security Considerations</a>.</li>
-  <li>Systems SHOULD track the provenance meta data of a resource using<a href="{{site.data.fhir.path}}/provenance.html">FHIR Provenance</a> resource and associated requirements.</li>
-  <li>Systems SHOULD implement the <a href="{{site.data.fhir.path}}/security.html#digital signatures">FHIR Digital Signatures</a> and provide feedback on it's appropriateness for DAF transactions.</li>
+  <li>Systems SHOULD track the provenance meta data of a resource using<a href="{{site.data.fhir.path}}provenance.html">FHIR Provenance</a> resource and associated requirements.</li>
+  <li>Systems SHOULD implement the <a href="{{site.data.fhir.path}}security.html#digital signatures">FHIR Digital Signatures</a> and provide feedback on it's appropriateness for DAF transactions.</li>
   <li>Systems MAY protect the confidentiality of data at rest via encryption and associated access controls. The policies and methods used are outside the scope of this specification.</li>
 </ul>
 
@@ -88,14 +88,13 @@ For the purposes of DAF, security conformance requirements are as follows:
   <div class="container">  <!-- container -->
    <div class="inner-wrapper">
     <p>
-        &copy; HL7.org 2011+. FHIR STU3 Candidate (v1.5.0-8413) generated on Tue, May 31, 2016 10:31+1000. <a href="{{site.data.fhir.path}}/qa.html">QA Page</a>
+        &copy; HL7.org 2011+. FHIR STU3 Candidate (v1.5.0-8413) generated on Tue, May 31, 2016 10:31+1000. <a href="{{site.data.fhir.path}}qa.html">QA Page</a>
         <br/>
         <span style="color: #FFFF77">
         Links: <a style="color: #81BEF7" href="http://hl7.org/fhir/search.cfm">Search <img style="text-align: baseline" src="external.png"/></a> |
-               <a style="color: #81BEF7" href="{{site.data.fhir.path}}/history.html">Version History</a> |
-               <a style="color: #81BEF7" href="{{site.data.fhir.path}}/toc.html">Table of Contents</a> |
-               Compare to DSTU2 <img style="text-align: baseline" src="external.png"/></a> |
-               <a style="color: #81BEF7" rel="license" href="{{site.data.fhir.path}}/license.html"><img style="border-style: none;" alt="CC0" src="{{site.data.fhir.path}}/cc0.png"/></a> |
+               <a style="color: #81BEF7" href="{{site.data.fhir.path}}history.html">Version History</a> |
+               <a style="color: #81BEF7" href="{{site.data.fhir.path}}toc.html">Table of Contents</a> |
+               <a style="color: #81BEF7" rel="license" href="{{site.data.fhir.path}}license.html"><img style="border-style: none;" alt="CC0" src="{{site.data.fhir.path}}cc0.png"/></a> |
                <a style="color: #81BEF7" target="_blank" href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemAdd&amp;tracker_id=677">Propose a change <img style="text-align: baseline" src="external.png"/></a>
         </span>
         </p>

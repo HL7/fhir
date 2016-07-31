@@ -42,6 +42,7 @@ import java.util.Set;
 
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode.Location;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -105,6 +106,11 @@ public class XhtmlParser {
   	public String getNs() {
   		return ns;
   	}
+
+    @Override
+    public String toString() {
+      return ns+"::"+name;
+    }
   	
   }
 
@@ -410,6 +416,7 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
   private int line = 1;
   private int col = 0;
   private char lastChar;
+  private Location lastLoc;
   
   public XhtmlDocument parse(String source, String entryName) throws FHIRFormatError, IOException  {
     rdr = new StringReader(source);
@@ -428,11 +435,14 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
     if (peekChar() != '<')
       throw new FHIRFormatError("Unable to Parse HTML - does not start with tag. Found "+peekChar()+descLoc());
     readChar();
+    markLocation();
     QName n = new QName(readName().toLowerCase());
     if ((entryName != null) && !n.getName().equals(entryName))
       throw new FHIRFormatError("Unable to Parse HTML - starts with '"+n+"' not '"+entryName+"'"+descLoc());
     XhtmlNode root = result.addTag(n.getName());
+    root.setLocation(markLocation());
     parseAttributes(root);
+    markLocation();
     NSMap nsm = checkNamespaces(n, root, null, true);
     if (readChar() == '/') {
       if (peekChar() != '>')
@@ -446,6 +456,12 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
     return result;
   }
   
+  private Location markLocation() {
+    Location res = lastLoc;
+    lastLoc = new Location(line, col);
+    return res;
+  }
+
   private NSMap checkNamespaces(QName n, XhtmlNode node, NSMap nsm, boolean root) {
   	// what we do here is strip out any stated namespace attributes, putting them in the namesapce map
   	// then we figure out what the namespace of this element is, and state it explicitly if it's not the default
@@ -486,7 +502,7 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
     {
       lastText = t;
       // System.out.println(t);
-      node.addText(t);
+      node.addText(t).setLocation(markLocation());
       s.setLength(0);
     }
   }
@@ -503,9 +519,9 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
         	String sc = readToCommentEnd();
         	if (sc.startsWith("DOCTYPE"))
             throw new FHIRFormatError("Malformed XHTML: Found a DocType declaration, and these are not allowed (XXE security vulnerability protection)");
-          node.addComment(sc);
+          node.addComment(sc).setLocation(markLocation());
         } else if (peekChar() == '?')
-          node.addComment(readToTagEnd());
+          node.addComment(readToTagEnd()).setLocation(markLocation());
         else if (peekChar() == '/') {
           readChar();
           QName n = new QName(readToTagEnd());
@@ -559,12 +575,15 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
 
   private void parseElement(XhtmlNode parent, List<XhtmlNode> parents, NSMap nsm) throws IOException, FHIRFormatError 
   {
+    markLocation();
     QName name = new QName(readName());
     XhtmlNode node = parent.addTag(name.getName());
+    node.setLocation(markLocation());
     List<XhtmlNode> newParents = new ArrayList<XhtmlNode>();
     newParents.addAll(parents);
     newParents.add(parent);
     parseAttributes(node);
+    markLocation();
     nsm = checkNamespaces(name, node, nsm, false);
     if (readChar() == '/') {
       if (peekChar() != '>')

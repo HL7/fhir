@@ -39,7 +39,7 @@
  <h3><span class="sectioncount">D.17.0.1</span> Scope and Usage <a title="link to here" class="self-link" href="patient-daf.html#scope_and_usage"><img src="target.png"/></a></h3>
 
 <p>
-This profile sets expectations for use of the <a href="{{site.data.fhir.path}}/patient.html">Patient</a> resource within the
+This profile sets expectations for use of the <a href="{{site.data.fhir.path}}patient.html">Patient</a> resource within the
 <a href="daf.html">DAF FHIR IG</a>. This profile identifies which core data elements, extensions, vocabularies and value sets must be <i>Supported</i> by DAF actors.
 For the definition of <i>Supported</i> please refer to <a href="daf.html">DAF FHIR IG</a>. The data elements identified by the profile are based on ONC 2014 Edition S&amp;CC and DAF use cases.
 The mappings between the ONC 2014 Edition S&amp;CC data elements and DAF data elements are captured in the table below, where the first column identifies the ONC 2014 Edition S&amp;CC data element name,
@@ -156,10 +156,10 @@ The DAF-Patient profile mapping to Meaningful Use data elements and FHIR Resourc
 This profile relies on the following other profiles:
 </p>
 <ul>
-  <li><a href="{{site.data.fhir.path}}/us-core.html">US Core</a> which defines common properties related to Patient such as race and ethnicity.</li>
-  <li><a href="{{site.data.fhir.path}}/patient-extensions.html">Patient Extensions</a> defines other extensions such as birthPlace, patient-mothers-maiden-name which are used by the profile</li>
-  <li><a href="{{site.data.fhir.path}}/extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types.
-  Specifically the <a href="{{site.data.fhir.path}}/extension-data-absent-reason.html">data-absent-reason</a> extension can be used to code data elements with missing information when appropriate.
+  <li><a href="{{site.data.fhir.path}}us-core.html">US Core</a> which defines common properties related to Patient such as race and ethnicity.</li>
+  <li><a href="{{site.data.fhir.path}}patient-extensions.html">Patient Extensions</a> defines other extensions such as birthPlace, patient-mothers-maiden-name which are used by the profile</li>
+  <li><a href="{{site.data.fhir.path}}extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types.
+  Specifically the <a href="{{site.data.fhir.path}}extension-data-absent-reason.html">data-absent-reason</a> extension can be used to code data elements with missing information when appropriate.
   See <a href="daf.html">DAF FHIR IG</a> for additional guidance.</li>
 </ul>
 </div>
@@ -200,7 +200,7 @@ Implementers need to be mindful of the following during their implementation
  <p><b>Patient Identifiers:</b> Patient Identifiers are represented as part of the Patient.identifier data element. Identifiers must be scoped using a URI data type represented within the Patient.identifier.system element. If systems are using OID's to scope their patient identifiers, then OID's can be converted to URI's per RFC-3001. However, systems are encouraged to adopt parallel URIs and map to allow the benefits of human readability and resolvability.
  Since DAF profiles deal with queries of Patient data, identifiers play a critical role in identifying the right resources to be queried and returned.</p>
 
- <p><b>Representing Patient Names:</b> Patient Names are represented using the <a href="{{site.data.fhir.path}}/datatypes-definitions.html#HumanName">HumanName</a> datatype. Per the FHIR specification, the first name is represented using the first occurrence of the element HumanName.given element. Middle names and other parts of the name can be represented using subsequent occurrences of the HumanName.given element. </p>
+ <p><b>Representing Patient Names:</b> Patient Names are represented using the <a href="{{site.data.fhir.path}}datatypes-definitions.html#HumanName">HumanName</a> datatype. Per the FHIR specification, the first name is represented using the first occurrence of the element HumanName.given element. Middle names and other parts of the name can be represented using subsequent occurrences of the HumanName.given element. </p>
 
  <p><b>Specifying multiple race codes: </b> Many systems may capture race codes at a very granular level which can be rolled up to higher level race codes such as &quot;Asian&quot;, &quot;White&quot; etc. In cases where these systems intend to include these granular race codes in addition to the higher level race codes permitted by the value set they can do so by using the coding element which can be repeated as many times as needed within the race element.</p>
 

@@ -21,6 +21,7 @@ import org.hl7.fhir.igtools.publisher.HTLMLInspector.StringPair;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode.Location;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 
 public class HTLMLInspector {
@@ -105,7 +106,7 @@ public class HTLMLInspector {
 
     // check other links:
     for (StringPair sp : otherlinks) {
-      checkResolveLink(sp.source, null, sp.link, messages);
+      checkResolveLink(sp.source, null, null, sp.link, messages);
     }
     
     return messages;
@@ -168,6 +169,8 @@ public class HTLMLInspector {
   private void listTargets(XhtmlNode x, Set<String> targets) {
     if ("a".equals(x.getName()) && x.hasAttribute("name"))
       targets.add(x.getAttribute("name"));
+    if (x.hasAttribute("id"))
+      targets.add(x.getAttribute("id"));
     for (XhtmlNode c : x.getChildNodes())
       listTargets(c, targets);
   }
@@ -176,12 +179,12 @@ public class HTLMLInspector {
     if (x.getName() != null)
       path = path + "/"+ x.getName();
     if ("a".equals(x.getName()) && x.hasAttribute("href"))
-      checkResolveLink(s, path, x.getAttribute("href"), messages);
+      checkResolveLink(s, x.getLocation(), path, x.getAttribute("href"), messages);
     for (XhtmlNode c : x.getChildNodes())
       checkLinks(s, path, c, messages);
   }
 
-  private void checkResolveLink(String filename, String path, String ref, List<ValidationMessage> messages) {
+  private void checkResolveLink(String filename, Location loc, String path, String ref, List<ValidationMessage> messages) {
     String tgtList = "";
     boolean resolved = Utilities.existsInList(ref, "http://hl7.org/fhir", "http://hl7.org", "http://www.hl7.org", "http://hl7.org/fhir/search.cfm") || ref.startsWith("http://gforge.hl7.org/gf/project/fhir/tracker/");
     if (!resolved){
@@ -207,11 +210,9 @@ public class HTLMLInspector {
           page = Utilities.path(rootFolder, page.substring(0, page.indexOf("#")).replace("/", File.separator));
         } else 
           page = Utilities.path(rootFolder, page.replace("/", File.separator));
-        if (name !=null && name.equals(""))
-          name = null;
         LoadedFile f = cache.get(page);
         if (f != null) {
-          if (name == null)
+          if (Utilities.noString(name))
             resolved = true;
           else { 
             resolved = f.targets.contains(name);
@@ -222,12 +223,16 @@ public class HTLMLInspector {
     }
       
     if (!resolved)
-      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, filename+(path == null ? "" : "#"+path), "The link '"+ref+"' cannot be resolved"+tgtList, IssueSeverity.ERROR));
+      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, filename+(path == null ? "" : "#"+path+(loc == null ? "" : " at "+loc.toString())), "The link '"+ref+"' cannot be resolved"+tgtList, IssueSeverity.ERROR));
   }
 
   public void addLinkToCheck(String source, String link) {
     otherlinks.add(new StringPair(source, link));
     
+  }
+
+  public int total() {
+    return cache.size();
   }
 
 

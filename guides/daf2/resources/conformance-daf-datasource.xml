@@ -59,7 +59,7 @@
         <a href="patient-daf.html">DAF-Patient</a> resource profile. In addition to the DAFPatient, the DAF Responder SHALL support at least one additional resource profile from the list of 
         <a href="daf.html">DAF profiles</a>. 
 	  The DAF Responder SHALL implement REST behavior according to the 
-        <a href="../http.html">FHIR</a> specification.
+        <a href="http://hl7-fhir.github.io/http.html">FHIR</a> specification.
 	  The DAF Responder SHALL support both json and xml resource formats for all DAF interactions. The DAF Responder SHALL identify the DAF profile(s) supported as part of the FHIR BaseResource.Meta.profile attribute for each instance.
       </p>
       
@@ -84,19 +84,19 @@
             <th>Resource(Profile Name)</th>
             
             <th>
-              <a href="../type-restful-interaction.html">Search</a>
+              <a href="http://hl7-fhir.github.io/type-restful-interaction.html">Search</a>
             </th>
             
             <th>
-              <a href="../type-restful-interaction.html">Read</a>
+              <a href="http://hl7-fhir.github.io/type-restful-interaction.html">Read</a>
             </th>
             
             <th>
-              <a href="../type-restful-interaction.html">Read Version</a>
+              <a href="http://hl7-fhir.github.io/type-restful-interaction.html">Read Version</a>
             </th>
             
             <th>
-              <a href="../type-restful-interaction.html">Instance History</a>
+              <a href="http://hl7-fhir.github.io/type-restful-interaction.html">Instance History</a>
             </th>
           
           </tr>
@@ -705,54 +705,54 @@
       <ul>
 	     
         <li>
-          <a href="../search.html#id">_id</a>
+          <a href="http://hl7-fhir.github.io/search.html#id">_id</a>
         </li>
 		 
         <li>
-          <a href="../search.html#lastUpdated">_lastUpdated</a>
+          <a href="http://hl7-fhir.github.io/search.html#lastUpdated">_lastUpdated</a>
         </li>
 		 
         <li>
-          <a href="../search.html#profile">_profile</a>
+          <a href="http://hl7-fhir.github.io/search.html#profile">_profile</a>
         </li>
 		 
         <li>
-          <a href="../search.html#security">_security</a>
+          <a href="http://hl7-fhir.github.io/search.html#security">_security</a>
         </li>
 		 
         <li>
-          <a href="../search.html#tag">_tag</a>
+          <a href="http://hl7-fhir.github.io/search.html#tag">_tag</a>
         </li>
 		 
         <li>
-          <a href="../search.html#text">_text</a>
+          <a href="http://hl7-fhir.github.io/search.html#text">_text</a>
         </li>
 		 
         <li>
-          <a href="../search.html#count">_count</a>
+          <a href="http://hl7-fhir.github.io/search.html#count">_count</a>
         </li>
 		 
         <li>
-          <a href="../search.html#include">_include</a>
+          <a href="http://hl7-fhir.github.io/search.html#include">_include</a>
         </li>
 		 
         <li>
-          <a href="../search.html#summary">_summary</a>
+          <a href="http://hl7-fhir.github.io/search.html#summary">_summary</a>
         </li>
 		 
         <li>
-          <a href="../search.html#contained">_contained</a>
+          <a href="http://hl7-fhir.github.io/search.html#contained">_contained</a>
         </li>
 		 
         <li>
-          <a href="../search.html#containedType">_containedType</a>
+          <a href="http://hl7-fhir.github.io/search.html#containedType">_containedType</a>
         </li>
 	  
       </ul>
 	 
 	
       <p>DAF Responders SHALL support the following search contexts defined within the 
-        <a href="../search.html#Introduction">FHIR</a>specification.
+        <a href="http://hl7-fhir.github.io/search.html#Introduction">FHIR</a>specification.
       </p> 
 	
       <ul>
@@ -764,8 +764,8 @@
       </ul>
 	
       <p>DAF Responders SHALL support 
-        <a href="../search.html#Modifiers">Modifiers</a> as applicable to the data types of the search parameters. DAF Responders SHALL also support 
-        <a href="../search.html#Composite Search Parameters">Composite Search Parameters</a> as defined in the FHIR specification.
+        <a href="http://hl7-fhir.github.io/search.html#Modifiers">Modifiers</a> as applicable to the data types of the search parameters. DAF Responders SHALL also support 
+        <a href="http://hl7-fhir.github.io/search.html#Composite Search Parameters">Composite Search Parameters</a> as defined in the FHIR specification.
       </p>
 	  
       <table class="grid">
@@ -793,84 +793,84 @@
               <ul>
 					
                 <li>
-                  <a href="../patient.html#search">name</a> - Search based on given name or family name or text name (
-                  <a href="../search.html#string">string</a>)
+                  <a href="http://hl7-fhir.github.io/patient.html#search">name</a> - Search based on given name or family name or text name (
+                  <a href="http://hl7-fhir.github.io/search.html#string">string</a>)
                 </li>
 					
                 <li>
-                  <a href="../patient.html#search">family</a> - Search based on family name (
-                  <a href="../search.html#string">string</a>)
+                  <a href="http://hl7-fhir.github.io/patient.html#search">family</a> - Search based on family name (
+                  <a href="http://hl7-fhir.github.io/search.html#string">string</a>)
                 </li>
 					
                 <li>
-                  <a href="../patient.html#search">given</a> - Search based on given name (
-                  <a href="../search.html#string">string</a>)
+                  <a href="http://hl7-fhir.github.io/patient.html#search">given</a> - Search based on given name (
+                  <a href="http://hl7-fhir.github.io/search.html#string">string</a>)
                 </li>
 					
                 <li>
-                  <a href="../patient.html#search">identifier</a> - Search based on patient identifier (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/patient.html#search">identifier</a> - Search based on patient identifier (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
                 
                 <li>
-                  <a href="../patient.html#search">gender</a> - Search based on gender  (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/patient.html#search">gender</a> - Search based on gender  (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
                 
                 <li>
-                  <a href="../patient.html#search">birthdate</a> - Search based on birthDate (
-                  <a href="../search.html#date">date</a>)
+                  <a href="http://hl7-fhir.github.io/patient.html#search">birthdate</a> - Search based on birthDate (
+                  <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
 					<!--
                 <li>
-                  <a href="../patient.html#search">language</a> - Search based on preferred language (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/patient.html#search">language</a> - Search based on preferred language (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../patient.html#search">telecom</a> - Search based on telecom (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/patient.html#search">telecom</a> - Search based on telecom (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 
 					
                 <li>
-                  <a href="../patient-extensions.html#search">address-city</a> - Search based on City (
-                  <a href="../search.html#string">string</a>)
+                  <a href="http://hl7-fhir.github.io/patient-extensions.html#search">address-city</a> - Search based on City (
+                  <a href="http://hl7-fhir.github.io/search.html#string">string</a>)
                 </li>
 					
                 <li>
-                  <a href="../patient-extensions.html#search">address-postalCode</a> - Search based on postal code (
-                  <a href="../search.html#string">string</a>)
+                  <a href="http://hl7-fhir.github.io/patient-extensions.html#search">address-postalCode</a> - Search based on postal code (
+                  <a href="http://hl7-fhir.github.io/search.html#string">string</a>)
                 </li>
 					
                 <li>
-                  <a href="../patient-extensions.html#search">address-state</a> - Search based on state (
-                  <a href="../search.html#string">string</a>)
+                  <a href="http://hl7-fhir.github.io/patient-extensions.html#search">address-state</a> - Search based on state (
+                  <a href="http://hl7-fhir.github.io/search.html#string">string</a>)
                 </li>
 					
                 <li>
-                  <a href="../patient-extensions.html#search">mothersMaidenName</a> - Search based on Patient mother&#39;s Maiden Name (
-                  <a href="../search.html#string">string</a>)
+                  <a href="http://hl7-fhir.github.io/patient-extensions.html#search">mothersMaidenName</a> - Search based on Patient mother&#39;s Maiden Name (
+                  <a href="http://hl7-fhir.github.io/search.html#string">string</a>)
                 </li>
 					
                 <li>
-                  <a href="../patient-extensions.html#search">age</a> - Search based on Patient&#39;s age (
-                  <a href="../search.html#number">number</a>)
+                  <a href="http://hl7-fhir.github.io/patient-extensions.html#search">age</a> - Search based on Patient&#39;s age (
+                  <a href="http://hl7-fhir.github.io/search.html#number">number</a>)
                 </li>
 					
                 <li>
-                  <a href="../us-core.html#search">race</a> - Search based on patient&#39;s race (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/us-core.html#search">race</a> - Search based on patient&#39;s race (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../us-core.html#search">ethnicity</a> - Search based on patient&#39;s ethnicity (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/us-core.html#search">ethnicity</a> - Search based on patient&#39;s ethnicity (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 				-->
 				<li>
-				  <a href="../patient-operations.html#everything">$everything</a> - Return the entire patient record for a single patient.
+				  <a href="http://hl7-fhir.github.io/patient-operations.html#everything">$everything</a> - Return the entire patient record for a single patient.
 				</li>
 				
               </ul>
@@ -888,45 +888,45 @@
               <ul>
 					
                 <li>
-                  <a href="../allergyintolerance.html#search">identifier</a> - Search AllergyIntolerances by identifiers(
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/allergyintolerance.html#search">identifier</a> - Search AllergyIntolerances by identifiers(
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../allergyintolerance.html#search">patient</a> - Search allergies for a patient(
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/allergyintolerance.html#search">patient</a> - Search allergies for a patient(
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
 					
                 <li>
-                  <a href="../allergyintolerance.html#search">category</a> - Search based on category(
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/allergyintolerance.html#search">category</a> - Search based on category(
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../allergyintolerance.html#search">status</a> - Search based on allergy status(
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/allergyintolerance.html#search">status</a> - Search based on allergy status(
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../allergyintolerance.html#search">substance</a> - Search based on allergy substance(
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/allergyintolerance.html#search">substance</a> - Search based on allergy substance(
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../allergyintolerance.html#search">manifestation</a> - Search based on allergy reaction(
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/allergyintolerance.html#search">manifestation</a> - Search based on allergy reaction(
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../allergyintolerance.html#search">severity</a> - Search based on allergy severity(
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/allergyintolerance.html#search">severity</a> - Search based on allergy severity(
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../allergyintolerance.html#search">onset</a> - Search based on when allergies manifested(
-                  <a href="../search.html#date">date</a>)
+                  <a href="http://hl7-fhir.github.io/allergyintolerance.html#search">onset</a> - Search based on when allergies manifested(
+                  <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
 					
                 <li>Include parameter - AllergyIntolerance.patient</li>
@@ -946,39 +946,39 @@
               <ul>
 					
                 <li>
-                  <a href="../diagnosticrequest.html#search">identifier</a> - Search for DiagnosticRequest by identifiers (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/diagnosticrequest.html#search">identifier</a> - Search for DiagnosticRequest by identifiers (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../diagnosticrequest.html#search">patient</a> - Search for DiagnosticRequests for a patient (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/diagnosticrequest.html#search">patient</a> - Search for DiagnosticRequests for a patient (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
 					
                 <li>
-                  <a href="../diagnosticrequest.html#search">orderer</a> - Search based on ordering provider (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/diagnosticrequest.html#search">orderer</a> - Search based on ordering provider (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - orderer.identifier</li>
 				
                 <li>
-                  <a href="../diagnosticrequest.html#search">code</a> - Search based on type of the test ordered (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/diagnosticrequest.html#search">code</a> - Search based on type of the test ordered (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../diagnosticrequest.html#search">encounter</a> - Search based on encounter resulting in the order (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/diagnosticrequest.html#search">encounter</a> - Search based on encounter resulting in the order (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - encounter.identifier</li>
 					
                 <li>
-                  <a href="../diagnosticrequest.html#search">item-date</a> - Search based on order date (
-                  <a href="../search.html#date">date</a>)
+                  <a href="http://hl7-fhir.github.io/diagnosticrequest.html#search">item-date</a> - Search based on order date (
+                  <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
 					
                 <li>Include parameter - DiagnosticRequest.subject</li>
@@ -1003,39 +1003,39 @@
               <ul>
 					
                 <li>
-                  <a href="../diagnosticreport.html#search">identifier</a> - Search for DiagnosticReport by identifiers (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/diagnosticreport.html#search">identifier</a> - Search for DiagnosticReport by identifiers (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../diagnosticreport.html#search">patient</a> - Search for DiagnosticReport for a patient (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/diagnosticreport.html#search">patient</a> - Search for DiagnosticReport for a patient (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
 					
                 <li>
-                  <a href="../diagnosticreport.html#search">date</a> - Search based on DiagnosticReport date (
-                  <a href="../search.html#date">date</a>)
+                  <a href="http://hl7-fhir.github.io/diagnosticreport.html#search">date</a> - Search based on DiagnosticReport date (
+                  <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
 					
                 <li>
-                  <a href="../diagnosticreport.html#search">encounter</a> - Search based on encounter resulting in the diagnostic report (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/diagnosticreport.html#search">encounter</a> - Search based on encounter resulting in the diagnostic report (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - encounter.identifier</li>
 					
                 <li>
-                  <a href="../diagnosticreport.html#search">performer</a> - Search based on diagnostic report performer (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/diagnosticreport.html#search">performer</a> - Search based on diagnostic report performer (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - performer.identifier</li>
 					
                 <li>
-                  <a href="../diagnosticreport.html#search">result</a> - Search based on results included in the diagnostic report (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/diagnosticreport.html#search">result</a> - Search based on results included in the diagnostic report (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - result.code</li>
@@ -1063,37 +1063,37 @@
               <ul>
 					
                 <li>
-                  <a href="../encounter.html#search">identifier</a> - Search for Encounter by identifiers (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/encounter.html#search">identifier</a> - Search for Encounter by identifiers (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../encounter.html#search">patient</a> - Search for Encounter for a patient (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/encounter.html#search">patient</a> - Search for Encounter for a patient (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
 					
                 <li>
-                  <a href="../encounter.html#search">location</a> - Search based on Encounter location (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/encounter.html#search">location</a> - Search based on Encounter location (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - location.identifier</li>
 					
                 <li>
-                  <a href="../encounter.html#search">type</a> - Search based on type of the Encounter (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/encounter.html#search">type</a> - Search based on type of the Encounter (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../encounter.html#search">date</a> - Search based on encounter start and end date (
-                  <a href="../search.html#date">date</a>)
+                  <a href="http://hl7-fhir.github.io/encounter.html#search">date</a> - Search based on encounter start and end date (
+                  <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
 					
                 <li>
-                  <a href="../encounter.html#search">location-period</a> - Search based on time period during which the patient was at the location (
-                  <a href="../search.html#date">date</a>)
+                  <a href="http://hl7-fhir.github.io/encounter.html#search">location-period</a> - Search based on time period during which the patient was at the location (
+                  <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
 					
                 <li>Include parameter - Encounter.patient</li>
@@ -1101,7 +1101,7 @@
                 <li>Include parameter - Encounter.location</li>
 				
 				<li>
-				  <a href="../encounter-operations.html#everything">$everything</a> - Return all the data recorded as part of the encounter.
+				  <a href="http://hl7-fhir.github.io/encounter-operations.html#everything">$everything</a> - Return all the data recorded as part of the encounter.
 				</li>
 				
               </ul>
@@ -1119,25 +1119,25 @@
               <ul>
 					
                 <li>
-                  <a href="../familymemberhistory.html#search">identifier</a> - Search for FamilyMemberHistory by identifiers (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/familymemberhistory.html#search">identifier</a> - Search for FamilyMemberHistory by identifiers (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../familymemberhistory.html#search">patient</a> - Search for FamilyMemberHistory for a patient (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/familymemberhistory.html#search">patient</a> - Search for FamilyMemberHistory for a patient (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
 					
                 <li>
-                  <a href="../familymemberhistory.html#search">relationship</a> - Search based on FamilyMemberHistory Relationship type (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/familymemberhistory.html#search">relationship</a> - Search based on FamilyMemberHistory Relationship type (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../familymemberhistory.html#search">code</a> - Search based on the clinical condition of the related person (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/familymemberhistory.html#search">code</a> - Search based on the clinical condition of the related person (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>Include parameter - FamilyMemberHistory.patient</li>
@@ -1157,40 +1157,40 @@
               <ul>
 					
                 <li>
-                  <a href="../immunization.html#search">identifier</a> - Search for Immunization by identifiers (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/immunization.html#search">identifier</a> - Search for Immunization by identifiers (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../immunization.html#search">patient</a> - Search for Immunization for a patient (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/immunization.html#search">patient</a> - Search for Immunization for a patient (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
 					
                 <li>
-                  <a href="../immunization.html#search">date</a> - Search based on Immunization date (
-                  <a href="../search.html#date">date</a>)
+                  <a href="http://hl7-fhir.github.io/immunization.html#search">date</a> - Search based on Immunization date (
+                  <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
 					
                 <li>
-                  <a href="../immunization.html#search">vaccine-code</a> - Search based on vaccine product administered (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/immunization.html#search">vaccine-code</a> - Search based on vaccine product administered (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../immunization.html#search">notgiven</a> - Search based on whether immunization was notgiven (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/immunization.html#search">notgiven</a> - Search based on whether immunization was notgiven (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../immunization.html#search">lot-number</a> - Search based on vaccine lot number (
-                  <a href="../search.html#string">string</a>)
+                  <a href="http://hl7-fhir.github.io/immunization.html#search">lot-number</a> - Search based on vaccine lot number (
+                  <a href="http://hl7-fhir.github.io/search.html#string">string</a>)
                 </li>
 					
                 <li>
-                  <a href="../immunization.html#search">requester</a> - Search based on ordering provider (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/immunization.html#search">requester</a> - Search based on ordering provider (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - requester.identifier</li>
@@ -1220,45 +1220,45 @@
               <ul>
 					
                 <li>
-                  <a href="../observation.html#search">identifier</a> - Search for test by identifiers (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">identifier</a> - Search for test by identifiers (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">patient</a> - Search for test for a patient (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">patient</a> - Search for test for a patient (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
 					
                 <li>
-                  <a href="../observation.html#search">code</a> - Search based on test code (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">code</a> - Search based on test code (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">value-concept</a> - Search for a test with a specific value which is a code (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">value-concept</a> - Search for a test with a specific value which is a code (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">value-quantity</a> - Search for a test with a value which is a quantity (
-                  <a href="../search.html#quantity">quantity</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">value-quantity</a> - Search for a test with a value which is a quantity (
+                  <a href="http://hl7-fhir.github.io/search.html#quantity">quantity</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">code-value[x]</a> - Search for a test with a test name and value (
-                  <a href="../search.html#composite">composite</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">code-value[x]</a> - Search for a test with a test name and value (
+                  <a href="http://hl7-fhir.github.io/search.html#composite">composite</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">date</a> - Search based on test obtained date (
-                  <a href="../search.html#date">date</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">date</a> - Search based on test obtained date (
+                  <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">encounter</a> - Search based on encounter resulting in the result (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">encounter</a> - Search based on encounter resulting in the result (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - encounter.identifier</li>
@@ -1286,18 +1286,18 @@
               <ul>
 					
                 <li>
-                  <a href="../medication.html#search">code</a> - Search by drug code (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/medication.html#search">code</a> - Search by drug code (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../medication.html#search">form</a> - Search by drug form (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/medication.html#search">form</a> - Search by drug form (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../medication.html#search">ingredient</a> - Search by drug ingredient (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/medication.html#search">ingredient</a> - Search by drug ingredient (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Include parameter - Medication.manufacturer</li>
@@ -1317,25 +1317,25 @@
               <ul>
 					
                 <li>
-                  <a href="../medicationstatement.html#search">identifier</a> - Search by identifiers (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/medicationstatement.html#search">identifier</a> - Search by identifiers (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../medicationstatement.html#search">patient</a> - Search for medications for a patient (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/medicationstatement.html#search">patient</a> - Search for medications for a patient (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
 					
                 <li>
-                  <a href="../medicationstatement.html#search">effectivedate</a> - Search for medications by date of administration (
-                  <a href="../search.html#date">date</a>)
+                  <a href="http://hl7-fhir.github.io/medicationstatement.html#search">effectivedate</a> - Search for medications by date of administration (
+                  <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
 					
                 <li>
-                  <a href="../medicationstatement.html#search">medication</a> - Search by medication (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/medicationstatement.html#search">medication</a> - Search by medication (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - medication.code</li>
@@ -1359,40 +1359,40 @@
               <ul>
 					
                 <li>
-                  <a href="../medicationadministration.html#search">identifier</a> - Search by identifiers (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/medicationadministration.html#search">identifier</a> - Search by identifiers (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../medicationadministration.html#search">patient</a> - Search for medications for a patient (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/medicationadministration.html#search">patient</a> - Search for medications for a patient (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
 					
                 <li>
-                  <a href="../medicationadministration.html#search">effectivetime</a> - Search for medications by date of administration (
-                  <a href="../search.html#date">date</a>)
+                  <a href="http://hl7-fhir.github.io/medicationadministration.html#search">effectivetime</a> - Search for medications by date of administration (
+                  <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
 					
                 <li>
-                  <a href="../medicationadministration.html#search">encounter</a> - Search for medications by encounter (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/medicationadministration.html#search">encounter</a> - Search for medications by encounter (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - encounter.identifier</li>
 					
                 <li>
-                  <a href="../medicationadministration.html#search">practitioner</a> - Search based on practitioner (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/medicationadministration.html#search">practitioner</a> - Search based on practitioner (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - practitioner.identifier</li>
 
 					
                 <li>
-                  <a href="../medicationadministration.html#search">prescription</a> - Search based on prescription (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/medicationadministration.html#search">prescription</a> - Search based on prescription (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - prescription.identifier</li>
@@ -1420,25 +1420,25 @@
               <ul>
 					
                 <li>
-                  <a href="../medicationdispense.html#search">identifier</a> - Search by identifiers (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/medicationdispense.html#search">identifier</a> - Search by identifiers (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../medicationdispense.html#search">patient</a> - Search for medications for a patient (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/medicationdispense.html#search">patient</a> - Search for medications for a patient (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
 					
                 <li>
-                  <a href="../medicationdispense.html#search">code</a> - Search for medications by based on code (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/medicationdispense.html#search">code</a> - Search for medications by based on code (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../medicationdispense.html#search">medication</a> - Search for medications dispensed by medication (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/medicationdispense.html#search">medication</a> - Search for medications dispensed by medication (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 						
                 <li>Include parameter - MedicationDispense.patient</li>
@@ -1460,25 +1460,25 @@
               <ul>
 					
                 <li>
-                  <a href="../medicationorder.html#search">identifier</a> - Search by identifiers (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/medicationorder.html#search">identifier</a> - Search by identifiers (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../medicationorder.html#search">patient</a> - Search for medication orders for a patient (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/medicationorder.html#search">patient</a> - Search for medication orders for a patient (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
 					
                 <li>
-                  <a href="../medicationorder.html#search">code</a> - Search for medication orders by based on code (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/medicationorder.html#search">code</a> - Search for medication orders by based on code (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../medicationorder.html#search">medication</a> - Search for medication orders by medication (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/medicationorder.html#search">medication</a> - Search for medication orders by medication (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 						
                 <li>Include parameter - MedicationOrder.patient</li>
@@ -1505,38 +1505,38 @@
               <ul>
 					
                 <li>
-                  <a href="../condition.html#search">identifier</a> - Search for Condition by identifiers (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/condition.html#search">identifier</a> - Search for Condition by identifiers (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../condition.html#search">code</a> - Search by Condition code (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/condition.html#search">code</a> - Search by Condition code (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../condition.html#search">encounter</a> - Search by encounter (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/condition.html#search">encounter</a> - Search by encounter (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - encounter.identifier</li>
 		
 					
                 <li>
-                  <a href="../condition.html#search">onset</a> - Search by onset Age of the condition (
-                  <a href="../search.html#date">date</a>)
+                  <a href="http://hl7-fhir.github.io/condition.html#search">onset</a> - Search by onset Age of the condition (
+                  <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
 					
                 <li>
-                  <a href="../condition.html#search">patient</a> - Search for conditions for a patient (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/condition.html#search">patient</a> - Search for conditions for a patient (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
 					
                 <li>
-                  <a href="../condition.html#search">severity</a> - Search for conditions by severity (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/condition.html#search">severity</a> - Search for conditions by severity (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>Include parameter - Condition.subject</li>
@@ -1560,30 +1560,30 @@
               <ul>
 					
                 <li>
-                  <a href="../procedure.html#search">identifier</a> - Search for Procedure by identifiers (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/procedure.html#search">identifier</a> - Search for Procedure by identifiers (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../procedure.html#search">code</a> - Search by Procedure type (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/procedure.html#search">code</a> - Search by Procedure type (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../procedure.html#search">date</a> - Search by date when procedure was performed (
-                  <a href="../search.html#date">date</a>)
+                  <a href="http://hl7-fhir.github.io/procedure.html#search">date</a> - Search by date when procedure was performed (
+                  <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
 					
                 <li>
-                  <a href="../procedure.html#search">patient</a> - Search for conditions for a patient (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/procedure.html#search">patient</a> - Search for conditions for a patient (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
 					
                 <li>
-                  <a href="../procedure.html#search">encounter</a> - Search by encounter (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/procedure.html#search">encounter</a> - Search by encounter (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - encounter.identifier</li>
@@ -1609,23 +1609,23 @@
               <ul>
 					
                 <li>
-                  <a href="../observation.html#search">identifier</a> - Search for SmokingStatus observation by identifiers (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">identifier</a> - Search for SmokingStatus observation by identifiers (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">date</a> - Search by period that applies to the smoking status (
-                  <a href="../search.html#date">date</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">date</a> - Search by period that applies to the smoking status (
+                  <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">value-concept</a> - Search by a specific value which is a Code (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">value-concept</a> - Search by a specific value which is a Code (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">patient</a> - Search for conditions for a patient (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">patient</a> - Search for conditions for a patient (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
@@ -1649,33 +1649,33 @@
               <ul>
 					
                 <li>
-                  <a href="../observation.html#search">identifier</a> - Search for Vital Signs by identifiers (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">identifier</a> - Search for Vital Signs by identifiers (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">date</a> - Search by measurement date (
-                  <a href="../search.html#date">date</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">date</a> - Search by measurement date (
+                  <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">value-quantity</a> - Search for Vital Signs with a value which is a quantity (
-                  <a href="../search.html#quantity">quantity</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">value-quantity</a> - Search for Vital Signs with a value which is a quantity (
+                  <a href="http://hl7-fhir.github.io/search.html#quantity">quantity</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">code</a> - Search based on Vital Signs code (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">code</a> - Search based on Vital Signs code (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">code-value[x]</a> - Search for a Vital Signs with a code and value (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">code-value[x]</a> - Search for a Vital Signs with a code and value (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../observation.html#search">patient</a> - Search for Vital Signs for a patient (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/observation.html#search">patient</a> - Search for Vital Signs for a patient (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
@@ -1701,28 +1701,28 @@
               <ul>
 					
                 <li>
-                  <a href="../list.html#search">identifier</a> - Search for List by identifiers (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/list.html#search">identifier</a> - Search for List by identifiers (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../list.html#search">code</a> - Search by type of list (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/list.html#search">code</a> - Search by type of list (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../list.html#search">date</a> - Search by list preparation date (
-                  <a href="../search.html#date">date</a>)
+                  <a href="http://hl7-fhir.github.io/list.html#search">date</a> - Search by list preparation date (
+                  <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
 					
                 <li>
-                  <a href="../list.html#search">empty-reason</a> - Search by empty reason code (
-                  <a href="../search.html#token">token</a>)
+                  <a href="http://hl7-fhir.github.io/list.html#search">empty-reason</a> - Search by empty reason code (
+                  <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../list.html#search">patient</a> - Search for list by patient (
-                  <a href="../search.html#reference">reference</a>)
+                  <a href="http://hl7-fhir.github.io/list.html#search">patient</a> - Search for list by patient (
+                  <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>

@@ -347,9 +347,9 @@ public class XmlXHtmlRenderer implements IXMLWriter {
       writePretty();
     }
     if (levels.inComment())
-      b.append("&lt;!-- "+comment+" -- &gt;");
+      b.append("&lt;!-- "+Utilities.escapeXml(comment)+" -- &gt;");
     else
-      b.append("&lt;!-- "+comment+" --&gt;");
+      b.append("&lt;!-- "+Utilities.escapeXml(comment)+" --&gt;");
     if (doPretty && !isPretty())
       writePretty();
   }

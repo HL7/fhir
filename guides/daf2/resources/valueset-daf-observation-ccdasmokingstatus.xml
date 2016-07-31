@@ -69,7 +69,7 @@
           </table>
         </li>
         <li>Include these codes as defined in 
-          <a href="../codesystem-data-absent-reason.html">http://hl7.org/fhir/data-absent-reason</a>
+          <a href="http://hl7-fhir.github.io/codesystem-data-absent-reason.html">http://hl7.org/fhir/data-absent-reason</a>
           <table>
             <tr>
               <td>
