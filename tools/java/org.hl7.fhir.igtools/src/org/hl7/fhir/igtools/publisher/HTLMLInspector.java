@@ -207,6 +207,8 @@ public class HTLMLInspector {
           page = Utilities.path(rootFolder, page.substring(0, page.indexOf("#")).replace("/", File.separator));
         } else 
           page = Utilities.path(rootFolder, page.replace("/", File.separator));
+        if (name !=null && name.equals(""))
+          name = null;
         LoadedFile f = cache.get(page);
         if (f != null) {
           if (name == null)

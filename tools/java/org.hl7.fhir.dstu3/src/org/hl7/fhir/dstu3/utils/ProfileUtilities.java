@@ -1402,7 +1402,7 @@ public class ProfileUtilities {
             c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getProfile(), null)));
         } else if (t.hasProfile() && t.getProfile().startsWith("#"))
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+t.getProfile().substring(1).toLowerCase()+".html", t.getProfile(), null)));
-        else
+        else if (t.hasProfile())
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+t.getProfile(), t.getProfile(), null)));
         if (!allReference) {
           c.getPieces().add(gen.new Piece(null, ")", null));
