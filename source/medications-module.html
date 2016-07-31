@@ -25,7 +25,7 @@ This module is concerned with resources and functionality in 2 main domains:
 </p>
 
 <ul>
-	<li>The ordering, supply, administration and recording of medications</li>
+	<li>The ordering, dispensing, administration of medications and recording statements of medication use.</li>
 	<li>Recording of Immunizations given (or not given), and recommendations for an individual patient at a point in time.</li>
 </ul>
 
@@ -34,7 +34,7 @@ This module is concerned with resources and functionality in 2 main domains:
 
 
 <table class="grid">
-	<tr><td>Resource</td><td>Purpose</td></tr>
+
 	<tr><td colspan="2"><strong>Medications</strong></td></tr>
 	<tr>
 		<td valign="top"><a href="medicationorder.html">MedicationOrder</a></td>
@@ -57,11 +57,21 @@ This module is concerned with resources and functionality in 2 main domains:
 		<td>A record of a patient actually consuming a medicine, or if it has otherwise been administered to them</td></tr>
 	<tr>
 		<td><a href="medicationstatement.html">MedicationStatement</a></td>
-		<td>This is a record of a medication being taken
-		by a patient or that a medication has been given to a patient, where the record is the result of a report from the
-		patient or another clinician. A medication statement is not a part of the prescribe->dispense->administer sequence,
-		but is a report that such a sequence (or at least a part of it) did take place, resulting in a belief that the patient
-		has received a particular medication. It is commonly used in constructing a patients 'Current Medications' list.</td></tr>
+		<td>
+
+
+			This is a record indicating that a patient may be taking a medication now, has taken the medication in the past,
+			or will be taking the medication in the future.
+			The source for this information can be the patient, significant other (such as a family member or spouse),
+			or a clinician.  A common scenario where this information is captured is during the history taking
+			process during a patient visit or stay.
+			A medication statement is not a part of the prescribe->dispense->administer sequence,
+			but is a report that such a sequence (or at least a part of it) did take place,
+			resulting in a belief that the patient has received a particular medication.
+			It may be used to construct a patients 'Current Medications' list.
+
+
+		</td></tr>
 	<tr>
 		<td><a href="medication.html">Medication</a></td>
 		<td>The medication resource represents an actual medication that can be given to a patient, and referenced by the
@@ -89,9 +99,12 @@ This module is concerned with resources and functionality in 2 main domains:
 <a name="uses"> </a>
 <h3>Common Use Cases</h3>
 <ul>
-	<li>Placing a medication Order (aka Prescription). The MedicationOrder resource itself is a record of what is to be
-		given to the patient - not an actual instruction to do so. This is actioned using the common
-		<a href="workflow-module.html">workflow functionality</a> .
+	<li>Placing a medication Order (aka Prescription). The MedicationOrder resource represents the details of
+		what medication the prescriber intends the patient to receive and other details such as the dose, timing and route.
+		However, while it represents that order, the actual workflow around the supply (dispensing) and administration
+		of that medication is
+		managed by the common <a href="workflow-module.html">workflow functionality</a>, resulting in the creation
+		of the other medication resources (MedicationDispense, MedicationAdministration) as it executes.
 	</li>
 	<li>Listing a patients current medications. This is represented using the <a href="list.html">List</a> resource, which allows an author
 		to construct a 'curated' list. This has features beyond a simple collection of resources - such as the ability
@@ -150,8 +163,12 @@ In this section: common problems in the space of the module, ways to go about so
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>
 <p>
-In this section: what the current overall state is, what work is in train, what the goals over the next 18 months or so are
+	The Pharmacy workgroup has plans to improve all existing resources e.g. adding in features that support detailing
+	our conditional orders in a structured way; evaluating requirements for supporting drug formularies.
+
 </p>
+	<p>Drug formulary work may involve updates to the Medication Resource.</p>
+
 </div>
 
 [%file newfooter%]
