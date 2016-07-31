@@ -1,0 +1,42 @@
+to    
+Mandatory Data Elements
+-----------------------
+
+The following data-elements are mandatory (i.e data MUST be present).
+These are presented below in simple human-readable explanations along
+with sample data to demonstrate the requirements.
+
+Each Practitioner must have:
+
+1.  A name
+1.  An identifier (NPI preferred). Anyone providing care may request
+    an NPI.
+1.  An associated role and organization
+1.  A list of qualifications
+
+**Formal Summary of the Mandatory Requirements**
+
+1.  At least one (non-local) identifier in `Practitioner.identifier`
+    (NPI, taxID, etc)
+    -   NPI preferred
+    -   Tax id is allowed
+    -   Local id is allowed in addition to 'authoritative' identifier
+
+1.  A `Practitioner.name`
+1.  At least one practitioner role in `Practitioner.practitionerRole`
+    which must include a
+    -   `Practitioner.practitionerRole.organization`
+    -   `Practitioner.practitionerRole.role` (NUCC - Classification)
+    -   `Practitioner.practitionerRole.speciality` (NUCC -
+        Specialization)
+    -   `Practitioner.practitionerRole.telecom`
+    -   `Practitioner.practitionerRole.Endpoint.Reference???`
+    -   `Practitioner.practitionerRole.location`
+
+**[`Practitioner` `Resource` `Example`]**  
+**[`Location` `Resource` `Example`]**
+
+  [`Practitioner` `Resource` `Example`]: Practitioner_Resource_Example
+    "wikilink"
+  [`Location` `Resource` `Example`]: Location_Resource_Example
+    "wikilink"
