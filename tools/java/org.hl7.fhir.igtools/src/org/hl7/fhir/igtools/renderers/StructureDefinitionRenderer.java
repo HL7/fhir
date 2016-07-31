@@ -241,7 +241,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     StructureDefinition ed = context.fetchResource(StructureDefinition.class, url);
     if (ed == null)
       return "<li>unable to summarise profile "+url+" (no profile found)</li>";
-    return "<li><a href=\""+prefix+ed.getUserString("path")+"\">"+url+"</a></li>\r\n";    
+    return "<li><a href=\""+ed.getUserString("path")+"\">"+url+"</a></li>\r\n";    
   }
 
   private String describeReference(ElementDefinitionBindingComponent binding) {
@@ -624,8 +624,6 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         b.append(t.getProfile());
       else {
         String pth = p.getUserString("path");
-        if (!pth.startsWith("http:") && !pth.startsWith("https:"))
-          pth = prefix+pth;
         b.append("<a href=\""+pth+"\" title=\""+t.getProfile()+"\">");
         b.append(p.getName());
         b.append("</a>");

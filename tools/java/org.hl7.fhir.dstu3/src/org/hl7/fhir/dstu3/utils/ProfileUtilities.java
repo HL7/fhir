@@ -1424,7 +1424,10 @@ public class ProfileUtilities {
         ref = pkp.getLinkForProfile(profile, t.getProfile());
         if (ref != null) {
           String[] parts = ref.split("\\|");
-          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+parts[0], parts[1], t.getCode())));
+          if (parts[0].startsWith("http:") || parts[0].startsWith("https:"))
+            c.addPiece(checkForNoChange(t, gen.new Piece(parts[0], parts[1], t.getCode())));
+          else
+            c.addPiece(checkForNoChange(t, gen.new Piece(corePath+parts[0], parts[1], t.getCode())));
         } else
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+ref, t.getCode(), null)));
       } else if (pkp.hasLinkFor(t.getCode())) {
