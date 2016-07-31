@@ -1,4 +1,4 @@
-This profile sets minimum expectations for use of the Location resource for recording, searching for and fetching a Location associated with a paitent, provider or organizatino within the DAF FHIR IG. It identifies which core elements, extensions, vocabularies and value sets must be Supported by clients and servers. For the definition of Supported please refer to DAF FHIR IG.
+This profile sets minimum expectations for use of the Location resource for recording, searching for and fetching a Location associated with a patient, provider or organizatino within the DAF FHIR IG. It identifies which core elements, extensions, vocabularies and value sets must be Supported by clients and servers. For the definition of Supported please refer to DAF FHIR IG.
 
 
 ##### Mandatory Data Elements and Terminology
