@@ -17,8 +17,6 @@
     -   `Practitioner.practitionerRole.Endpoint.Reference???`
     -   `Practitioner.practitionerRole.location`
 
-**[`Practitioner` `Resource` `Example`]**  
-**[`Location` `Resource` `Example`]**
 
 [NUCC - Classification]: todo.html
 [NUCC - Specialization]: todo.html
