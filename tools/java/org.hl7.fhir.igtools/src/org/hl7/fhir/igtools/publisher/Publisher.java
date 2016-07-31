@@ -1045,7 +1045,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
             r.setElement(new ObjectConverter(context).convert(bc));
           igpkp.checkForPath(f, r, bc);
           try {
-            context.seeResource(bc.getUrl(), bc);
+            if (!(bc instanceof StructureDefinition))
+              context.seeResource(bc.getUrl(), bc);
           } catch (Exception e) {
             throw new Exception("Exception loading "+bc.getUrl()+": "+e.getMessage(), e);
           }
@@ -1082,13 +1083,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void generateSnapshots() throws Exception {
-    /**
-    if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
-      assert(errors.size() == 0);
-    }
-
-     * 
-     */
+    dlog("Generate Snapshots");
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         if (r.getResource() instanceof StructureDefinition && !r.isSnapshotted()) {
@@ -1111,6 +1106,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     StructureDefinition base = fetchSnapshotted(sd.getBaseDefinition());
     if (sd.getKind() != StructureDefinitionKind.LOGICAL) {
       if (!sd.hasSnapshot()) { 
+        dlog("Generate Snapshot for "+sd.getUrl());
         List<String> errors = new ArrayList<String>();
         utils.sortDifferential(base, sd, "profile "+sd.getUrl(), errors);
         for (String s : errors)
@@ -1126,6 +1122,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         changed = true;
       }
     } else { //sd.getKind() == StructureDefinitionKind.LOGICAL 
+      dlog("Generate Snapshot for Logical Model "+sd.getUrl());
       if (base != null && !sd.hasSnapshot()) {
         utils.populateLogicalSnapshot(sd);
         changed = true;
@@ -1134,6 +1131,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (changed || (!r.getElement().hasChild("snapshot") && sd.hasSnapshot()))
       r.setElement(new ObjectConverter(context).convert(sd));
     r.setSnapshotted(true);
+    context.seeResource(sd.getUrl(), sd);
   }
 
   private StructureDefinition fetchSnapshotted(String url) throws Exception {

@@ -169,12 +169,12 @@
 			"base": "daf-medicationstatement.html"
 		},
 		"StructureDefinition/daf-core-medicationstatement": {
-			"defns": "daf-medicationstatement-definitions.html",
-			"base": "daf-medicationstatement.html"
+			"defns": "daf-core-medicationstatement-definitions.html",
+			"base": "daf-core-medicationstatement.html"
 		},
 		"StructureDefinition/daf-core-operationdefinition": {
-			"defns": "daf-operationdefinition-definitions.html",
-			"base": "daf-operationdefinition.html"
+			"defns": "daf-core-operationdefinition-definitions.html",
+			"base": "daf-core-operationdefinition.html"
 		},
 		"StructureDefinition/daf-organization": {
 			"defns": "daf-organization-definitions.html",

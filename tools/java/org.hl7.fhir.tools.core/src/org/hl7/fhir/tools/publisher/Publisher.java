@@ -2531,6 +2531,20 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (String n : page.getIni().getPropertyNames("pages")) {
       spm.target(n);      
     }
+    for (ResourceDefn rd : page.getDefinitions().getResources().values()) {
+      spm.target(rd.getName().toLowerCase()+".html");
+      spm.target(rd.getName().toLowerCase()+"-definitions.html");
+      spm.target(rd.getName().toLowerCase()+"-mappings.html");
+      spm.target(rd.getName().toLowerCase()+"-examples.html");
+      spm.target(rd.getName().toLowerCase()+"-profiles.html");
+      if (!rd.getOperations().isEmpty())
+        spm.target(rd.getName().toLowerCase()+"-operations.html");
+      for (Example ex : rd.getExamples()) {
+        ImplementationGuideDefn ig = ex.getIg() == null ? null : page.getDefinitions().getIgs().get(ex.getIg());
+        String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode() + "/";
+        spm.target(prefix+ex.getTitle()+".html");
+      }
+    }
 
 //    for (String url : page.getDefinitions().getMapTypes().keySet()) {
 //      spm.map(url, page.getDefinitions().getMapTypes().get(url).getPreamble());

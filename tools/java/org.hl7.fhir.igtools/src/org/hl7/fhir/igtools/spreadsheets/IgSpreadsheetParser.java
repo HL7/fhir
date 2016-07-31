@@ -312,7 +312,6 @@ public class IgSpreadsheetParser {
     sd.setPublisher(metadata("author.name"));
     if (hasMetadata("author.reference"))
       sd.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, metadata("author.reference")));
-    //  <code> opt Zero+ Coding assist with indexing and finding</code>
     if (hasMetadata("date"))
       sd.setDateElement(Factory.newDateTime(metadata("date").substring(0, 10)));
     else

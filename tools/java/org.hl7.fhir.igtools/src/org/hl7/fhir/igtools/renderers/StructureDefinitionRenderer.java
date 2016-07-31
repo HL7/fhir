@@ -6,8 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
@@ -417,14 +419,36 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         } else {
           String title = ec.getPath() + " (<a href=\""+(extDefn.hasUserData("path") ? extDefn.getUserData("path") : "extension-"+extDefn.getId().toLowerCase()+".html")+
               "\">"+(ec.getType().get(0).getProfile().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
-          b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
+          b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a>");
+          if (name.endsWith("[x]")) {
+            Set<String> tl = new HashSet<String>();
+            for (TypeRefComponent tr : ec.getType()) {
+              String tc = tr.getCode();
+              if (!tl.contains(tc)) {
+                tl.add(tc);
+                b.append("<a name=\""+name.replace("[x]", Utilities.capitalize(tc))+"\"> </a>");
+              }
+            }
+          }
+          b.append("<b>"+title+"</b></td></tr>\r\n");
           ElementDefinition valueDefn = getExtensionValueDefinition(extDefn);
           generateElementInner(b, extDefn, extDefn.getSnapshot().getElement().get(0), valueDefn == null ? 2 : 3, valueDefn);
         }
       } else {
         String name = sd.getId()+"."+ makePathLink(ec);
         String title = ec.getPath() + (!ec.hasName() ? "" : "(" +ec.getName() +")");
-        b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
+        b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a>");
+        if (name.endsWith("[x]")) {
+          Set<String> tl = new HashSet<String>();
+          for (TypeRefComponent tr : ec.getType()) {
+            String tc = tr.getCode();
+            if (!tl.contains(tc)) {
+              tl.add(tc);
+              b.append("<a name=\""+name.replace("[x]", Utilities.capitalize(tc))+"\"> </a>");
+            }
+          }
+        }
+        b.append("<b>"+title+"</b></td></tr>\r\n");
         generateElementInner(b, sd, ec, 1, null);
         if (ec.hasSlicing())
           generateSlicing(sd, ec.getSlicing());

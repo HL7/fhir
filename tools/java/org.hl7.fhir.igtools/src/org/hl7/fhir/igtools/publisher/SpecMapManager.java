@@ -109,7 +109,10 @@ public class SpecMapManager {
   }
 
   public void target(String tgt) {
-    targets.add(new JsonPrimitive(tgt));
+    if (!targetSet.contains(tgt)) {
+      targetSet.add(tgt);
+      targets.add(new JsonPrimitive(tgt));
+    }
   }
   
   public boolean hasTarget(String tgt) {

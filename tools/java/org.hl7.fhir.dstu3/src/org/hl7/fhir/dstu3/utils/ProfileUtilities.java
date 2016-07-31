@@ -357,6 +357,7 @@ public class ProfileUtilities {
                 generateSnapshot(sdb, sd, sd.getUrl(), sd.getName());
               }
               template = sd.getSnapshot().getElement().get(0).copy().setPath(currentBase.getPath());
+              template.setName(null);
               // temporary work around
               if (!diffMatches.get(0).getType().get(0).getCode().equals("Extension")) {
                 template.setMin(currentBase.getMin());
