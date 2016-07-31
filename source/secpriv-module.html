@@ -2,9 +2,8 @@
 
 <!--
 These elements SHALL always appear in this order. These basic elements shared by all resources come first
-in order to support consistent definitions for schema and UML derived code. 
+in order to support consistent definitions for schema and UML derived code.
 -->
-      
 [%settitle Security and Privacy Module%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -15,44 +14,199 @@ in order to support consistent definitions for schema and UML derived code.
 
 <div class="col-9">
 
-<a name="root"> </a>
+<a id="root"> </a>
 <h2>Security and Privacy Module</h2>
 
-<a name="intro"> </a>
+<a id="intro"> </a>
 <h3>Introduction</h3>
 <p>
-In this section: scope, what outcome modules seeks providem why would you look at it's content
-
-From the master doc: Security information + Security testing + Consent
-
-Editor: Josh Mandel
+The Security and Privacy Module describes how to protect a FHIR server (through
+access control and authorization), how to document what permissions a user has
+granted (consent), and how to keep records about what events have been
+performed (audit logging and provenance). FHIR does not mandate a single
+technical approach to security and privacy; rather, the specification provides
+a set of building blocks that can be applied to create secure, private systems.
 </p>
 
-<a name="index"> </a>
+<p>
+Editor: Josh Mandel with John Moehrke
+</p>
+
+<a id="index"> </a>
 <h3>Index</h3>
 <p>
-In this section: links to key content pages in the module
+The Security and Privacy module includes the following materials:
 </p>
 
-<a name="secpriv"> </a>
-<h3>Security and Privacy</h3>
+<h4>
+FHIR Implementation Guidance and Principles:
+</h4>
+
+<ul>
+<li>
+  <a href="security.html">Security</a>
+</li>
+<li>
+  <a href="security-labels.html">Security Labels</a>
+</li>
+</ul>
+
+<h4>
+FHIR Resources:
+</h4>
+
+<ul>
+<li>
+  <a href="consent">Consent</a>
+</li>
+<li>
+  <a href="provenance.html">Provenance</a>
+</li>
+<li>
+  <a href="auditevent.html">Audit Event</a>
+</li>
+</ul>
+
+<h4>
+FHIR Datatypes:
+</h4>
+
+<ul>
+<li>
+  <a href="datatypes#signature">Signature</a>
+</li>
+</ul>
+
+<a id="security"></a>
+<h3>Security</h3>
 <p>
-In this section: description of key security and privacy issues, or references to pages that deal with this. 
-For the security / privcay module itself, this section does not exist. For other modules, the paragraph/section can end with this boilerplate:
-For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
+Security in FHIR includes the set of considerations required to ensure that
+data can be discovered, accessed, or altered only in accordance with
+expectations and policies. FHIR includes implementation guidance to ensure
+that:
 </p>
 
-<a name="uses"> </a>
-<h3>Common use Cases</h3>
+<ul>
+<li>
+All communications can be encrypted to prevent unauthorized access
+</li>
+<li>
+No information leaks when errors occur
+</li>
+<li>
+No active script content can be injected into narrative resources
+</li>
+<li>
+Full audit trails can be constructed and used to detect anomalous access patterns
+</li>
+<li>
+  For general considerations and principles, see <a href="security.html">Security</a>.
+</li>
+</ul>
+
+<a id="privacy"></a>
+<h3>Privacy</h3>
 <p>
-In this section: common problems in the space of the module, ways to go about solving them, or references to additional problem based linkes
+
+Privacy in FHIR includes the set of considerations required to ensure that
+individual data are treated according to an individual's preferences. FHIR
+includes implementation guidance to ensure that:
+
 </p>
 
-<a name="roadmap"> </a>
+<ul>
+<li>
+  Individual preferences can be communicated through standards-based protocols
+  (e.g., OAuth, User-Managed Access) or using an explicit FHIR representation
+  (<a href="consent">Consent</a>) </li>
+<li>
+  Resources can be tagged to indicate the sensitivity or confidentiality of the data they represent (<a href="security-labels.html">Security Labels</a>)
+</li>
+<li>
+  Data access records and audit logs can be shared with individuals, e.g. for accounting of disclosures (<a href="auditevent.html">Audit Event</a>)
+</li>
+</ul>
+
+<a id="uses"> </a>
+<h3>Common Use Cases</h3>
+
+<h4>
+Authorization and Access Control
+</h4>
+
+<p>
+
+<em>Use case:</em> A FHIR server should ensure that API access is allowed for
+authorized requests, and denied for unauthorized requests.
+
+</p>
+
+<p>
+
+<em>Approach:</em> Authorization details can vary according to local policy,
+and according to the access scenario (e.g. sharing data among
+institution-internal subsystems vs. sharing data with trusted partners vs.
+sharing data with third-party user-facing apps). In general, FHIR enables a
+separation of concerns between the FHIR REST API and standards-based
+authorization protocols like OAuth. For the use case of user-facing third-party
+app authorization, we recommend the OAuth-based SMART protocol (ref) as an
+externally-reviewed authorization mechanism with a real-world deployment base —
+but we note that community efforts are underway to explore a variety of
+approaches to authorization. For details, see <a href="security.html#binding">Security: Binding</a>.
+
+</p>
+
+<h4>
+Audit Logging
+</h4>
+
+<p>
+
+<em>Use case:</em> "A FHIR server should keep a complete, tamper-proof log of
+all API access and other security- and privacy-relevant events".
+
+</p>
+
+<p>
+
+<em>Approach:</em> Approach: FHIR provides an AuditEvent resource suitable for
+use by FHIR clients and servers to record when a security or privacy relevant
+event has occurred. This form of audit logging records as much detail as
+reasonable at the time the event happened. For details, see
+<a href="security.html#audit">Security: Audit</a> + add reference to ATNA for
+conseptual background (GG).
+
+</p>
+
+<a id="roadmap"> </a>
 <h3>Developmental Roadmap</h3>
+
 <p>
-In this section: what the current overall state is, what work is in train, what the goals over the next 18 months or so are
+In the STU3 release, FHIR includes building blocks and principles for creating
+secure, privacy-oriented health IT systems; FHIR does not mandate a single
+technical approach to security and privacy.
 </p>
+
+<p>
+ In future releases, we are anticipate including:
+</p>
+
+<ul>
+<li>
+More specific implementation guidance for particular Authorization scenarios
+(for example, we may incorporate the SMART on FHIR authorization specification
+for user-authorized apps).
+</li>
+<li>
+More details about how to use digital Signatures for data integrity and
+non-repudiation, including an approach that supports some level of manipulation
+of resources (e.g. separating the entries in a bundle, or conversion between
+XML and JSON during processing)
+</li>
+<li>
+More detailed Consent management, including support for specific consent use cases.
+</li>
+</ul>
 
 </div>
 
