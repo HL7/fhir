@@ -1,0 +1,49 @@
+---
+---
+{% include fragment-pagebegin.html %}
+<div class="col-9">
+  <ul class="nav nav-tabs">
+    <li>
+      <a href="{{[id]}}.html">Content</a>
+    </li>
+    <li>
+      <a href="{{[id]}}-definitions.html">Detailed Descriptions</a>
+    </li>
+    <li>
+      <a href="{{[id]}}-mappings.html">Mappings</a>
+    </li>
+		<li class="active">
+      <a href="#">Examples</a>
+		</li>
+    <li>
+      <a href="{{[id]}}.profile.xml.html">XML</a>
+    </li>
+    <li>
+      <a href="{{[id]}}.profile.json.html">JSON</a>
+    </li>
+  </ul>
+  <h4>
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.8<a name="{{site.data.pages[page.path].label}}.8"> </a>
+    </span> StructureDefinition: {{[title]}} - Examples <a title="link to here" class="self-link" href="{{[id]}}-examples.html#{{site.data.pages[page.path].label}}.8">
+      <img src="target.png"/>
+    </a>
+  </h4>
+{% if site.data.pages[page.path].examples %}
+  <p>Examples for the {{id}} Profile.</p>
+  <table style="grid">
+    <tbody>
+      {% for example in site.data.pages[page.path].examples %}
+        <tr>
+          <td>
+            <a href="{{example.url}}">{{example.title}}</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p><b>No examples are currently available for the {{id}} Profile.</b></p>
+{% endif %}
+</div>
+{% assign includetabscripts = 'true' %}
+{% include fragment-pageend.html %}

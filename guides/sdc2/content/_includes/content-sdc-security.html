@@ -17,6 +17,9 @@ particularly those related to:
   <li><a href="{{site.data.fhir.path}}security.html#signatures">Digital Signatures</a></li>
   <li><a href="{{site.data.fhir.path}}security-labels.html">Security Labels</a></li>
 </ul>
+
+<a name="general"> </a>
+<h3>General Security Considerations</h3>
 <p>
 For the purposes of SDC, security conformance rules are as follows:
 </p>
@@ -39,7 +42,7 @@ For the purposes of SDC, security conformance rules are as follows:
   <a href="{{site.data.fhir.path}}provenance.html">Provenance</a> resource to record such signatures.</li>
 </ul>
 
-<a href="integrity"> </a>
+<a name="integrity"> </a>
 <h3>Transaction Integrity</h3>
 <p>
 In some cases, the recipient of a completed <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a> may require that the response
@@ -48,13 +51,12 @@ as part of a single unit of work.  (Audit is typically managed by the server and
 clinical information.)  This can be accomplished by mechanisms outside the scope of this implementation guide by using
 FHIR <a href="{{site.data.fhir.path}}messaging.html">messages</a> or FHIR <a href="{{site.data.fhir.path}}documents.html">documents</a>.  However, within the scope of
 this implementation guide, this is accomplished in pseudo-RESTful fashion using the 
-<a href="
-{{site.data.fhir.path}}http.html#transaction">Transaction</a>
+<a href="{{site.data.fhir.path}}http.html#transaction">Transaction</a>
 mechanism.  Regardless of means, the Provenance and/or AuditEvent event point to the QuestionnaireResponse by full version-specific URL using the
 <code>Provenance.entity.reference</code> and <code>AuditEvent.object.reference</code> elements.
 </p>
 
-<a href="consent"> </a>
+<a name="consent"> </a>
 <h4>Consent</h4>
 <p>
 The SDC workflow envisions the sharing of patient-identifiable healthcare information from 
@@ -68,7 +70,7 @@ each exchange of patient-identifiable healthcare information.  This verification
 as discussed above under <a href="#general">General Security Considerations.</a>
 </p>
 
-<a href="workflow"> </a>
+<a name="workflow"> </a>
 <h4>Security Workflow</h4>
 <p>
 When communicating RESTfully, <a href="auditevent.html">AuditEvent</a> and <a href="provenance.html">Provenance</a> resources are typically

@@ -36,4 +36,38 @@
       </exampleFor>
     </resource>
   </package>
+	<page>
+		<source value="sdc.html"/>
+		<title value="SDC Home Page"/>
+		<kind value="page"/>
+		<page>
+			<source value="sdc-intro.html"/>
+			<title value="Introduction"/>
+			<kind value="page"/>
+		</page>
+		<page>
+			<source value="sdc-security.html"/>
+			<title value="Security Details"/>
+			<kind value="page"/>
+		</page>
+		<page>
+			<source value="dataelement-sdc.html"/>
+			<title value="Data Element"/>
+			<kind value="page"/>
+			<format value="generated"/>
+			<page>
+				<source value="sdc-element.html"/>
+				<title value="Data Element Details"/>
+				<kind value="resource"/>
+				<format value="generated"/>
+        <page>
+          <source value="dataelement-sdc-profile-example.html"/>
+          <title value="C-CDA-Gender"/>
+          <kind value="example"/>
+          <type value="DataElement"/>
+          <format value="generated"/>
+        </page>
+			</page>
+		</page>
+	</page>
 </ImplementationGuide>

@@ -9,6 +9,7 @@
 		"specification": "http://hl7-fhir.github.io/"
 	},
 	"canonicalBase": "http://hl7.org/fhir/sdc",
+	"extraTemplates": ["mappings", "examples", "profile-xml", "profile-json"],
 	"source": "sdc.xml",
   "pre-process": {
     "folder": "content",
@@ -19,19 +20,28 @@
 	],
 	"resources": {
 		"StructureDefinition/sdc-element": {
-			"defns": "sdc-element-definitions.html",
-			"base": "sdc-element.html",
 			"template-base": "template-profile.html",
-			"template-defn": "template-definitions.html"
+			"template-defns": "template-definitions.html",
+			"template-mappings": "template-mappings.html",
+			"template-examples": "template-examples.html",
+			"template-profile-xml": "template-profile-xml.html",
+			"template-profile-json": "template-profile-json.html",
+			"base": "{{[id]}}.html",
+			"defns": "{{[id]}}-definitions.html",
+			"mappings": "{{[id]}}-mappings.html",
+			"examples": "{{[id]}}-examples.html",
+			"profile-xml": "{{[id]}}.profile.xml.html",
+			"profile-json": "{{[id]}}.profile.json.html"
 		},
 		"DataElement/dataelement-sdc-profile-example": {
-			"base": "dataelement-sdc-profile-example.html",
 			"template-base": "template-instance-base.html",
-			"template-format": "template-instance-format.html"
+			"template-format": "template-instance-format.html",
+			"base": "{{[id]}}.html",
+			"format": "{{[id]}}.{{[fmt]}}.html"
 		},
 		"ValueSet/dex-mimetype": {
-			"base": "valueset-dex-mimetype.html",
-			"template-base": "template-valueset.html"
+			"template-base": "template-valueset.html",
+			"base": "valueset-{{[id]}}.html"
 		}
-	}
+	}	
 }

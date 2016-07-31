@@ -6,5 +6,5 @@
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
 	</xsl:template>
-	<xsl:template match="@xsi:schemaLocation"/>
+	<xsl:template match="@xsi:schemaLocation|extension[@url='http://hl7.org/fhir/tools-profile-spreadsheet']"/>
 </xsl:stylesheet>

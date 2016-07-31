@@ -1,9 +1,12 @@
-{% include template-_start.html %}
+{% include fragment-pagebegin.html %}
 <div class="col-9">
-  <a name="root"> </a> 
-  <h2><span class="sectioncount">B.{{page.id}}</span> {{page.title}} <a title="link to here" class="self-link" href="{{page.path}}#root"><img src="target.png"/></a></h2>
-
-  {% include content-{{basename}}.html %}
-
+  <h2>
+		<span class="sectioncount">{{site.data.pages[page.path].label}}<a name="{{site.data.pages[page.path].label}}"> </a>
+		</span> {{[title]}} <a title="link to here" class="self-link" href="{{[page.path]}}#{{site.data.pages[page.path].label}}">
+		  {{site.data.pages[page.path].title}}
+			<img src="target.png"/>
+		</a>
+  </h2>
+  {% include content-{{page.path}} %}
 </div>
-{% include template-_end.html %}
+{% include fragment-pageend.html %}

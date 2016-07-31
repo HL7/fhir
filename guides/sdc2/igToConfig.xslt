@@ -14,8 +14,17 @@
 	},
 	"defaults": {
 		"Any": {
-			"template-format": "instance-template-format.html",
-			"template-base": "instance-template-base.html"
+		  "base": "{{[id]}}.html",
+			"template-base": "template-instance-base.html",
+			"template-format": "template-instance-format.html"
+		}
+		"ValueSet": {
+		  "base": "valueset-{{[id]}}.html",
+			"template-base": "template-valueset.html"
+		}
+		"StructureDefinition": {
+		  "base": "{{[id]}}.html",
+			"template-base": "template-profile.html"
 		}
 	},
 	"canonicalBase": "</xsl:text>
