@@ -5,7 +5,7 @@
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">TODO</div>
 	</text>
-	<url value="http://hl7.org/fhir/sdc/DataElement/dataelement-sdc-profile-example"/>
+	<url value="http://hl7.org/fhir/us/sdc/DataElement/dataelement-sdc-profile-example"/>
 	<identifier>
 		<system value="http://nlm.nih.gov/some_other_text/data_element_identifier"/>
 		<value value="DE42AHRQ"/>

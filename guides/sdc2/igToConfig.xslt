@@ -17,19 +17,32 @@
 		  "base": "{{[id]}}.html",
 			"template-base": "template-instance-base.html",
 			"template-format": "template-instance-format.html"
-		}
+		},
+		"ImplementationGuide": {
+			"template-base": "",
+			"template-format": ""
+		},
+		"StructureDefinition": {
+			"template-base": "template-profile.html",
+			"template-defns": "template-definitions.html",
+			"template-mappings": "template-mappings.html",
+			"template-examples": "template-examples.html",
+			"template-profile-xml": "template-profile-xml.html",
+			"template-profile-json": "template-profile-json.html",
+			"base": "{{[id]}}.html",
+			"defns": "{{[id]}}-definitions.html",
+			"profile-xml": "{{[id]}}.profile.xml.html",
+			"profile-json": "{{[id]}}.profile.json.html"
+		},
 		"ValueSet": {
 		  "base": "valueset-{{[id]}}.html",
 			"template-base": "template-valueset.html"
-		}
-		"StructureDefinition": {
-		  "base": "{{[id]}}.html",
-			"template-base": "template-profile.html"
 		}
 	},
 	"canonicalBase": "</xsl:text>
     <xsl:value-of select="url/@value"/>
     <xsl:text>",
+	"extraTemplates": ["mappings", "examples", "profile-xml", "profile-json"],
 	"source": "</xsl:text>
 	  <xsl:value-of select="id/@value"/>
 	  <xsl:text>.xml",
@@ -49,12 +62,14 @@
       <xsl:variable name="type" select="substring-before(sourceReference/reference/@value, '/')"/>
       <xsl:variable name="id" select="substring-after(sourceReference/reference/@value, '/')"/>
       <xsl:if test="position()!=1 and position()!=last()">,</xsl:if>
-      <xsl:value-of select="concat('&#xa;    &quot;', sourceReference/reference/@value, '&quot;:{&#xa;      &quot;base&quot;: &quot;', $id, '&quot;')"/>
-      <xsl:if test="$type='StructureDefinition' and not(example/@value='true')">
-        <xsl:value-of select="concat(',&#xa;      &quot;defns&quot;: &quot;', $id, '-definitions.html&quot;')"/>
-      </xsl:if>
-      <xsl:text>
-    }</xsl:text>
+      <xsl:value-of select="concat('&#xa;    &quot;', sourceReference/reference/@value, '&quot;:{&#xa;      &quot;base&quot;: &quot;')"/>
+      <xsl:choose>
+        <xsl:when test="$type='ValueSet'">valueset-</xsl:when>
+        <xsl:when test="$type='StructureDefinition'">
+          <xsl:if test="exists(/ImplementationGuide/page[kind/@value='Resource' and source/@value=concat('extension-', $id, '.html')])">extension-</xsl:if>
+        </xsl:when>
+      </xsl:choose>
+      <xsl:text>{{[id]}}.html"&#xa;    }</xsl:text>
 	  </xsl:for-each>
 	  <xsl:text>
 	}

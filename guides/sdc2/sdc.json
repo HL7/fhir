@@ -8,7 +8,34 @@
 		"qa": "qa",
 		"specification": "http://hl7-fhir.github.io/"
 	},
-	"canonicalBase": "http://hl7.org/fhir/sdc",
+	"defaults": {
+		"Any": {
+		  "base": "{{[id]}}.html",
+			"template-base": "template-instance-base.html",
+			"template-format": "template-instance-format.html"
+		},
+		"ImplementationGuide": {
+			"template-base": "",
+			"template-format": ""
+		},
+		"StructureDefinition": {
+			"template-base": "template-profile.html",
+			"template-defns": "template-definitions.html",
+			"template-mappings": "template-mappings.html",
+			"template-examples": "template-examples.html",
+			"template-profile-xml": "template-profile-xml.html",
+			"template-profile-json": "template-profile-json.html",
+			"base": "{{[id]}}.html",
+			"defns": "{{[id]}}-definitions.html",
+			"profile-xml": "{{[id]}}.profile.xml.html",
+			"profile-json": "{{[id]}}.profile.json.html"
+		},
+		"ValueSet": {
+		  "base": "valueset-{{[id]}}.html",
+			"template-base": "template-valueset.html"
+		}
+	},
+	"canonicalBase": "http://hl7.org/fhir/us/sdc",
 	"extraTemplates": ["mappings", "examples", "profile-xml", "profile-json"],
 	"source": "sdc.xml",
   "pre-process": {
@@ -19,29 +46,8 @@
     "dataelement-sdc-profile-spreadsheet.xml"
 	],
 	"resources": {
-		"StructureDefinition/sdc-element": {
-			"template-base": "template-profile.html",
-			"template-defns": "template-definitions.html",
-			"template-mappings": "template-mappings.html",
-			"template-examples": "template-examples.html",
-			"template-profile-xml": "template-profile-xml.html",
-			"template-profile-json": "template-profile-json.html",
-			"base": "{{[id]}}.html",
-			"defns": "{{[id]}}-definitions.html",
-			"mappings": "{{[id]}}-mappings.html",
-			"examples": "{{[id]}}-examples.html",
-			"profile-xml": "{{[id]}}.profile.xml.html",
-			"profile-json": "{{[id]}}.profile.json.html"
-		},
-		"DataElement/dataelement-sdc-profile-example": {
-			"template-base": "template-instance-base.html",
-			"template-format": "template-instance-format.html",
-			"base": "{{[id]}}.html",
-			"format": "{{[id]}}.{{[fmt]}}.html"
-		},
-		"ValueSet/dex-mimetype": {
-			"template-base": "template-valueset.html",
-			"base": "valueset-{{[id]}}.html"
-		}
-	}	
+    "DataElement/dataelement-sdc-profile-example":{
+      "base": "{{[id]}}.html"
+    }
+	}
 }

@@ -1,13 +1,16 @@
 ---
-# jekyll header
 ---
-{% include template-_start.html %}
-
-<h2>{{[title]}}</h2>
-<p>
-<a href="{{[type]}}-{{[id]}}.{{[fmt]}}">Raw form</a>
-</p>
-
-{% include {{[type]}}-{{[name]}}.xhtml %}
-
-{% include template-_end.html %}
+{% include fragment-pagebegin.html %}
+<div class="col-9">
+  <h2>
+    <span class="sectioncount">{{site.data.pages[page.path].label}}<a name="{{site.data.pages[page.path].label}}"> </a>
+    </span> {{[title]}} - {{[fmt]}} <a title="link to here" class="self-link" href="{{[id]}}.{{[fmt]}}.html#{{site.data.pages[page.path].label}}">
+      <img src="target.png"/>
+    </a>
+  </h2>
+  <p>
+    <a href="{{[type]}}-{{[id]}}.{{[fmt]}}">Raw {{[fmt]}}</a>
+  </p>
+  {% include {{[type]}}-{{[name]}}.xhtml %}
+</div>
+{% include fragment-pageend.html %}

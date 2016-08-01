@@ -5,7 +5,14 @@
     <xsl:variable name="breadcrumb" select="concat('&lt;li&gt;&lt;a href=''', page/source/@value, '''&gt;&lt;b&gt;', page/title/@value, '&lt;/b&gt;&lt;/a&gt;&lt;/li&gt;')"/>
     <xsl:text>{</xsl:text>
     <xsl:text>&#xa;  &quot;toc.html&quot;: {&#xa;    &quot;title&quot;: &quot;Table of Contents&quot;,&#xa;    &quot;label&quot;: &quot;#&quot;,</xsl:text>
-    <xsl:value-of select="concat('&#xa;    &quot;breadcrumb&quot;: &quot;', $breadcrumb, '&quot;&#xa;  }')"/>
+    <xsl:value-of select="concat('&#xa;    &quot;breadcrumb&quot;: &quot;', $breadcrumb, '&quot;,&#xa;    &quot;examples&quot;: [')"/>
+    <xsl:for-each select="//page[kind/@value='example']">
+      <xsl:sort select="title/@value"/>
+      <xsl:if test="position()!=1">,</xsl:if>
+      <xsl:value-of select="concat('&#xa;      {&#xa;        &quot;url&quot;: &quot;', source/@value, '&quot;,&#xa;        &quot;title&quot;: &quot;', title/@value, '&quot;&#xa;      }')"/>
+      <xsl:text></xsl:text>
+    </xsl:for-each>
+    <xsl:text>&#xa;    ]&#xa;  }</xsl:text>
     <xsl:apply-templates select="page"/>
     <xsl:text>&#xa;}</xsl:text>
 	</xsl:template>
@@ -85,7 +92,7 @@
     <xsl:value-of select="concat('&#xa;    &quot;title&quot;: &quot;', title/@value, $description, '&quot;,')"/>
     <xsl:value-of select="concat('&#xa;    &quot;label&quot;: &quot;', $newLevel, '&quot;,')"/>
     <xsl:value-of select="concat('&#xa;    &quot;breadcrumb&quot;: &quot;', $localBreadCrumb, '&quot;')"/>
-    <xsl:if test="$suffix='' and page[kind/@value='example']">
+    <xsl:if test="page[kind/@value='example' and $suffix='-examples']">
       <xsl:text>,&#xa;    &quot;examples&quot;: [</xsl:text>
       <xsl:for-each select="page[kind/@value='example']">
         <xsl:if test="position()!=1">,</xsl:if>

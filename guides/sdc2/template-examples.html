@@ -23,13 +23,13 @@
     </li>
   </ul>
   <h4>
-    <span class="sectioncount">{{site.data.pages[page.path].label}}.8<a name="{{site.data.pages[page.path].label}}.8"> </a>
-    </span> StructureDefinition: {{[title]}} - Examples <a title="link to here" class="self-link" href="{{[id]}}-examples.html#{{site.data.pages[page.path].label}}.8">
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.6<a name="{{site.data.pages[page.path].label}}.6"> </a>
+    </span> StructureDefinition: {{[title]}} - Examples <a title="link to here" class="self-link" href="{{[id]}}-examples.html#{{site.data.pages[page.path].label}}.6">
       <img src="target.png"/>
     </a>
   </h4>
-{% if site.data.pages[page.path].examples %}
-  <p>Examples for the {{id}} Profile.</p>
+{% if site.data.pages[page.path].examples.size > 0 %}
+  <p>Examples for the {{[id]}} Profile.</p>
   <table style="grid">
     <tbody>
       {% for example in site.data.pages[page.path].examples %}

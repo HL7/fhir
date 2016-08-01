@@ -5,7 +5,7 @@
     <xsl:apply-templates select="page"/>
 	</xsl:template>
 	<xsl:template match="page">
-    <xsl:if test="kind/@value='page'">
+    <xsl:if test="kind/@value=('page', 'list')">
       <xsl:result-document method="text" encoding="UTF-8" href="{source/@value}">
         <xsl:text>---&#xa;---&#xa;{% include template-page.html %}</xsl:text>
       </xsl:result-document>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/fhir-single.xsd">
 	<id value="dex-mimetype"/>
-	<url value="http://hl7.org/fhir/sdc/ValueSet/dex-mimetype"/>
+	<url value="http://hl7.org/fhir/us/sdc/ValueSet/dex-mimetype"/>
 	<name value="DEX mapping language mime types"/>
 	<status value="draft"/>
 	<publisher value="Office of the National Coordinator for Health IT"/>

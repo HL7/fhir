@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/implementationguide.xsd">
   <id value="sdc"/>
-  <url value="http://hl7.org/fhir/sdc"/>
+  <url value="http://hl7.org/fhir/us/sdc"/>
   <name value="Structured Data Capture"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -67,6 +67,21 @@
           <type value="DataElement"/>
           <format value="generated"/>
         </page>
+			</page>
+		</page>
+		<page>
+			<source value="registry.html"/>
+			<title value="List of Artifacts"/>
+			<kind value="list"/>
+			<type value="Conformance"/>
+			<type value="StructureDefinition"/>
+			<type value="ValueSet"/>
+			<type value="ConceptMap"/>
+			<page>
+				<source value="valueset-dex-mimetype.html"/>
+				<title value="DEX Mimetype"/>
+				<kind value="resource"/>
+				<format value="generated"/>
 			</page>
 		</page>
 	</page>
