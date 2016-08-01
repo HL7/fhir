@@ -7,7 +7,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       
       <h2>DAF Core Responder</h2>
-      
+<!--      
       <p>(Requirements Definition)</p>
       
       <p>Published: 2016-08-01 (draft)</p>
@@ -171,7 +171,7 @@
 		  
           <tr>
             <th>Other Requirements TBD from Argonaut IGs</th>
-            <!--  
+            <!-!-  
             <th>
               <a href="diagnosticrequest-daf.html">DAF-DiagnosticRequest</a>
             </th>
@@ -680,7 +680,7 @@
               <a title="Allows review of changes to DAF List over time" href="#DAFListSearch">SHOULD</a>
             
             </td>
-          -->
+          -!->
           </tr>
         
         </tbody>
@@ -716,7 +716,7 @@
         <li>
           <a href="http://hl7-fhir.github.io/search.html#profile">_profile</a>
         </li>
-        <!--
+        <!-!-
         <li>
           <a href="http://hl7-fhir.github.io/search.html#security">_security</a>
         </li>
@@ -748,7 +748,7 @@
         <li>
           <a href="http://hl7-fhir.github.io/search.html#containedType">_containedType</a>
         </li>
-	  -->
+	  -!->
       </ul>
 	 
 	
@@ -759,8 +759,8 @@
       <ul>
 		
         <li>Search context by specifying a particular resource type</li>
-		<!--  
-        <li>Search context which specifies a compartment</li> -->
+		<!-!-  
+        <li>Search context which specifies a compartment</li> -!->
 	
       </ul>
 	
@@ -823,7 +823,7 @@
                   <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
                 
-					<!--
+					<!-!-
                 <li>
                   <a href="http://hl7-fhir.github.io/patient.html#search">language</a> - Search based on preferred language (
                   <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
@@ -873,7 +873,7 @@
 				
 				<li>
 				  <a href="http://hl7-fhir.github.io/patient-operations.html#everything">$everything</a> - Return the entire patient record for a single patient.
-				</li> -->
+				</li> -!->
 				
               </ul>
 			
@@ -888,18 +888,18 @@
             <td>
 				
               <ul>
-					<!--
+					<!-!-
                 <li>
                   <a href="http://hl7-fhir.github.io/allergyintolerance.html#search">identifier</a> - Search AllergyIntolerances by identifiers(
                   <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
-                </li> -->
+                </li> -!->
 					
                 <li>
                   <a href="http://hl7-fhir.github.io/allergyintolerance.html#search">patient</a> - Search allergies for a patient(<a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
-					<!-- 
+					<!-!- 
                 <li>
                   <a href="http://hl7-fhir.github.io/allergyintolerance.html#search">category</a> - Search based on category(
                   <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
@@ -931,13 +931,13 @@
                 </li>
 					
                 <li>Include parameter - AllergyIntolerance.patient</li>
-				-->
+				-!->
               </ul>  
 			
             </td>
 		  
           </tr>
-		  <!--
+		  <!-!-
           <tr>
 		    
             <td id="DAFDiagnosticRequestSearch">DAF-DiagnosticRequest</td>
@@ -1736,7 +1736,7 @@
 			
             </td>
 		  
-          </tr> -->
+          </tr> -!->
 		  
 		
         </tbody>
@@ -1746,7 +1746,7 @@
       <br/>
       
       <br/>
-    
+    -->
     </div>
   </text>
   <name value="DAF Responder"/>

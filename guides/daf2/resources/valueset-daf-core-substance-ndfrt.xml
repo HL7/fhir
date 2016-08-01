@@ -6,10 +6,11 @@
     <lastUpdated value="2016-05-25T16:59:08.250+10:00"/>
   </meta>
 
-  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
-    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.18"/>
-  </extension>
   <url value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-substance-ndfrt"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.3.88.12.80.18"/>
+  </identifier>
   <name value="DAF Core Substance ND-FRT codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>

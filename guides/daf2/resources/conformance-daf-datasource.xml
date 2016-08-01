@@ -7,7 +7,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       
       <h2>DAF Responder</h2>
-      
+      <!--
       <p>(Requirements Definition)</p>
       
       <p>Published: 2015-04-02</p>
@@ -821,7 +821,7 @@
                   <a href="http://hl7-fhir.github.io/patient.html#search">birthdate</a> - Search based on birthDate (
                   <a href="http://hl7-fhir.github.io/search.html#date">date</a>)
                 </li>
-					<!--
+					<!-!-
                 <li>
                   <a href="http://hl7-fhir.github.io/patient.html#search">language</a> - Search based on preferred language (
                   <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
@@ -868,7 +868,7 @@
                   <a href="http://hl7-fhir.github.io/us-core.html#search">ethnicity</a> - Search based on patient&#39;s ethnicity (
                   <a href="http://hl7-fhir.github.io/search.html#token">token</a>)
                 </li>
-				-->
+				-!->
 				<li>
 				  <a href="http://hl7-fhir.github.io/patient-operations.html#everything">$everything</a> - Return the entire patient record for a single patient.
 				</li>
@@ -1745,7 +1745,7 @@
       <br/>
       
       <br/>
-    
+    -->
     </div>
   </text>
   <name value="DAF Responder"/>

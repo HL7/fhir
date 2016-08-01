@@ -322,6 +322,7 @@ public class IgSpreadsheetParser {
     else
       sd.setStatus(ConformanceResourceStatus.DRAFT);
 
+    new ProfileUtilities(context, null, null).setIds(sd, sd.getName());
     return sd;
   }
 

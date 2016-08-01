@@ -229,7 +229,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     generate();
     long endTime = System.nanoTime();
     clean();
-    log(" ... finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(sourceIg.getName(), errors, fileList, Utilities.path(qaDir, "validation.html")));
+    log(" ... finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(sourceIg.getName(), errors, fileList, Utilities.path(outputDir, "qa.html")));
 
     if (watch) {
       first = false;
@@ -246,7 +246,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
           generate();
           clean();
           endTime = System.nanoTime();
-          log(" ... finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(sourceIg.getName(), errors, fileList, Utilities.path(qaDir, "validation.html")));
+          log(" ... finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(sourceIg.getName(), errors, fileList, Utilities.path(outputDir, "qa.html")));
         }
       }
     } else
@@ -2183,20 +2183,17 @@ public class Publisher implements IWorkerContext.ILoggingService {
         System.out.println("");
         System.out.println("To use this publisher, run with the commands");
         System.out.println("");
-        System.out.println("-ig [source] -out [folder] -spec [path] -tx [url] -watch");
+        System.out.println("-ig [source] -tx [url] -watch");
         System.out.println("");
         System.out.println("-ig: a path or a url where the implementation guide control file is found");
         System.out.println("  see Wiki for Documentation");
-        System.out.println("-out: a local folder where the output from the IG publisher will be generated");
-        System.out.println("-spec: the location of the FHIR specification relative to the guide");
-        System.out.println("  (can be an absolute URL, or relative if the guide will be published with FHIR)");
         System.out.println("-tx: (optional) Address to use for terminology server ");
         System.out.println("  (default is http://fhir3.healthintersections.com.au)");
         System.out.println("-watch (optional): if this is present, the publisher will not terminate;");
         System.out.println("  instead, it will stay running, an watch for changes to the IG or its ");
         System.out.println("  contents and re-run when it sees changes ");
         System.out.println("");
-        System.out.println("The most important output from the publisher is validation.html");
+        System.out.println("The most important output from the publisher is qa.html");
         System.out.println("");
         System.out.println("For additional information, see http://wiki.hl7.org/index.php?title=Proposed_new_FHIR_IG_build_Process");
       } else 
@@ -2277,7 +2274,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   public String getQAFile() {
-    return Utilities.path(qaDir, "validation.html");
+    return Utilities.path(outputDir, "qa.html");
   }
 
   @Override
