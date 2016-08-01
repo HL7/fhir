@@ -38,6 +38,23 @@ in order to support consistent definitions for schema and UML derived code.
             [%res-item Person%]
             [%res-item Group%]
         </table>
+        <div>
+            <img src="administration-module-person.png" alt="Image showing the relationship between resources representing people" width="584px" />
+        </div>
+        <p>
+            <blockquote>
+                <em>Note:</em> <a href="patient.html#links">Patient linking</a> should also be considered when evaluating
+                searches with references to other resources. e.g. Searching for conditions for a patient.<br />
+                At present the specification does not define if the links should be also followed to include
+                conditions that reference the linked patients too. We are currently seeking feedback on this.
+            </blockquote>
+            <blockquote>
+                <em>Note:</em> The Person resource may be used as a centralized register of people that may
+                eventually be involved in healthcare, and could be used as the central coe demographics register.<br/>
+                However the fields/values in Person are duplicated in the other resources, and in many cases the
+                Person resource will be hosted on external systems.
+            </blockquote>
+        </p>
 
         <table class="bare">
             [%res-category Clinical Categorization Resources|Most clinical actitivies occur grouped in some way. Long term care is typically covered by an EpisodeOfCare, where short term care by encounters. Account associates the tracking of transactions back to a Patient (or other resource). Flag is just used to highlight a warning or other notification about a patient (or other resource)%]
