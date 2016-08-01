@@ -1,13 +1,47 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<p>These examples illustrate the use of the Library resource to share quality measurement and improvement logic as a FHIR resource.</p>
+<p>These examples illustrate the use of the Library resource to share quality measurement and improvement logic as a FHIR resource. Note that the actual content of each library (the Clinical Quality Language (CQL) source, or the XML for the information model definition, etc.) should be contained in the <code>content</code> element as an <code>Attachment</code>. For illustration purposes, the content of each library is included in its raw form, and linked here.</p>
 
-<p>The first example is the Chlamydia Screening Common library developed as the running example in the Author's Guide of the Clinical Quality Language specification.</p>
-
-<p>The next two examples are derived from the Exclusive Breastfeeding Measure and are referenced by the <a href="PlanDefinition.html">PlanDefinition</a> and <a href="Measure.html">Measure</a> examples, respectively.</p>
-
-<p>The next example is the logic library for the CMS146 Measure example.</p>
-
-<p>The following two examples illustrate the use of the Library resource as an information model definition to carry the QUICK and FHIR model info files for use by CQL translators.</p>
+<table>
+	<thead>
+		<tr>
+			<th>Example</th>
+			<th>Description</th>
+			<th>Content</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Chlamydia Screening Common Library</td>
+			<td>Common Chlamydia Screening library developed as the running example in the Author's Guide of the Clinical Quality Language specification.</td>
+			<td><a href="library-example-content.cql">CQL Source</a></td>
+		</tr>
+		<tr>
+			<td>Exclusive Breastfeeding Intervention Logic</td>
+			<td>Clinical Decision Support rules derived from CMS9v4 - Exclusive Breastfeeding measure</td>
+			<td><a href="library-exclusive-breastfeeding-cds-logic-content.cql">CQL Source</a></td>
+		</tr>
+		<tr>
+			<td>Exclusive Breastfeeding Measure Logic</td>
+			<td>Quality Measurement logic used to express the CMS9v4 measure.</td>
+			<td><a href="library-exclusive-breastfeeding-cqm-logic-content.cql">CQL Source</a></td>
+		</tr>
+		<tr>
+			<td>CMS 146 Measure Logic</td>
+			<td>Measure logic for CMS 146 used as the running example for Quality Reporting guidance in the Clinical Reasoning module.</td>
+			<td><a href="library-cms146-example-content.cql">CQL Source</a></td>
+		</tr>
+		<tr>
+			<td>QUICK Model Definition</td>
+			<td>The QUICK model information file used by the CQL-to-ELM translator to validate CQL written against the QUICK data model.</td>
+			<td><a href="library-quick-model-definition-content.xml">XML Information Model</a></td>
+		</tr>
+		<tr>
+			<td>FHIR Model Definition</td>
+			<td>The FHIR model information file used by the CQL-to-ELM translator to validate CQL written against the FHIR data model.</td>
+			<td><a href="library-fhir-model-definition-content.xml">XML Information Model</a></td>
+		</tr>
+	</tbody>
+</table>
 
 </div>

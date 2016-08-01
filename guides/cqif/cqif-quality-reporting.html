@@ -92,7 +92,7 @@ Quality Measure Format (HQMF)</a>.
 <p>Note that this restriction does not preclude sharing of logic between measures, it only requires that that sharing be explicitly done as dependencies within the referenced libraries, rather than allowing a measure to reference multiple libraries directly.</p>
 
 <a name="specifying-population-criteria"/>
-<h5>Specifying Population Criteria</h5>
+<h6>Specifying Population Criteria</h6>
 
 <p>A measure can specify various types of populations, depending on the type of measure scoring being used. The following table shows which population criteria types are required (R), optional (O), or not permitted (NP) for proportion, ratio, and continuous variable measures. This table is adapted from Table 1 from the <a href="#bibitem-hqmf">HQMF DSTU Release 2</a> specification, and Table 2.1 from the <a href="#bibitem-qdmhqmf1">QDM-based HQMF IG</a>.</p>
 
@@ -108,40 +108,74 @@ Quality Measure Format (HQMF)</a>.
 	</tbody>
 </table>
 
-<a name="multiple-populations"/>
-<h5>Measures with Multiple Populations</h5>
+<p>The Measure resource then identifies specific named expressions within the referenced primary measure library that define the criteria for each population. For example, the following fragment illustrates the population criteria definitions for the CMS146 measure example:</p>
 
-<p>For quality measures that contain multiple populations, the criteria are specified once for each group. The group element contains an identifier that is used to uniquely identify the group within the measure, as well as within the quality reporting results.</p>
+<pre><code>  &lt;group&gt;
+		&lt;identifier&gt;&lt;value value=&quot;CMS146-group-1&quot;/&gt;&lt;/identifier&gt;
+		&lt;population&gt;
+			&lt;type value=&quot;initial-population&quot;/&gt;
+			&lt;identifier&gt;&lt;value value=&quot;initial-population-identifier&quot;/&gt;&lt;/identifier&gt;
+			&lt;criteria value=&quot;CMS146.InInitialPopulation&quot;/&gt;
+		&lt;/population&gt;
+		&lt;population&gt;
+			&lt;type value=&quot;numerator&quot;/&gt;
+			&lt;identifier&gt;&lt;value value=&quot;numerator-identifier&quot;/&gt;&lt;/identifier&gt;
+			&lt;criteria value=&quot;CMS146.InNumerator&quot;/&gt;
+		&lt;/population&gt;
+		&lt;population&gt;
+			&lt;type value=&quot;denominator&quot;/&gt;
+			&lt;identifier&gt;&lt;value value=&quot;denominator-identifier&quot;/&gt;&lt;/identifier&gt;
+			&lt;criteria value=&quot;CMS146.InDenominator&quot;/&gt;
+		&lt;/population&gt;
+		&lt;population&gt;
+			&lt;type value=&quot;denominator-exclusion&quot;/&gt;
+			&lt;identifier&gt;&lt;value value=&quot;denominator-exclusions-identifier&quot;/&gt;&lt;/identifier&gt;
+			&lt;criteria value=&quot;CMS146.InDenominatorExclusions&quot;/&gt;
+		&lt;/population&gt;
+  &lt;/group&gt;
+</code></pre>
+
+<a name="multiple-populations"/>
+<h6>Measures with Multiple Populations</h6>
+
+<p>For quality measures that contain multiple populations, the criteria are specified once for each group. The <code>group</code> element contains an identifier that is used to uniquely identify the group within the measure, as well as within the quality reporting results.</p>
 
 <a name="continuous-variable-measures"/>
-<h5>Continuous Variable Measures</h5>
+<h6>Continuous Variable Measures</h6>
 
 <p>Continuous variable measures may include a measure observation section. This section defines variables (for example, time from check-in to time of antibiotic administration) used to score particular aspects of performance. Measure observations are not population criteria in that they do not determine whether or not a patient is to be counted in a measure. Rather, measure observations are data elements to be collected on patients meeting the population criteria within a continuous variable measure.</p>
 
 <a name="stratification-and-supplemental-data"/>
 <h5>Stratification and Supplemental Data</h5>
 
-<p>Stratifiers and supplemental data are specified using the stratifier and supplementalData elements of the Measure resource. Stratification criteria are specified either as a reference to a CQL named expression within a Library (e.g. CMS146.AgesUpToNine), or as FHIR resource paths (e.g. Patient.gender). When the stratification criteria is an expression, the stratification will yield as many result groups as the expression returns. For example, if the expression returns a boolean, then there would be two stratification groups: true and false. When the stratification criteria is a FHIR resource path, there will be as many stratification groups as possible values for the resource path. For example, specifying Patient.gender will yield four stratification groups since FHIR has four gender codes: male, female, other, and unknown.</p>
+<p>Stratifiers and supplemental data are specified using the <code>stratifier</code> and <code>supplementalData</code> elements of the <a href="[%fhir-path%]measure.html">Measure</a> resource. Stratification criteria are specified either as a reference to a CQL named expression within a Library (e.g. <code>CMS146.AgesUpToNine</code>), or as FHIR resource paths (e.g. <code>Patient.gender</code>). When the stratification criteria is an expression, the stratification will yield as many result groups as the expression returns. For example, if the expression returns a boolean, then there would be two stratification groups: true and false. When the stratification criteria is a FHIR resource path, there will be as many stratification groups as possible values for the resource path. For example, specifying Patient.gender will yield four stratification groups since FHIR has four gender codes: male, female, other, and unknown.</p>
 
 <p>Supplemental data elements are also specified using FHIR resource paths, and the number of resulting groups for supplemental data is determined in the same way.</p>
 
 <a name="Data Criteria"/>
-<h5>Data Criteria</h5>
+<h6>Data Criteria</h6>
 
-<p>The data criteria for the primary library defines the patient data of interest in the measure as a set of <a href="[%fhir-path%]datarequirement.html">DataRequirements</a>. Each data requirement identifies specific types of data along with constraints that the data must meet. For example, one data requirement for CMS 146 identifies FHIR Condition resources that represent confirmed diagnoses of acute pharyngitis. Other data requirements for this measure include Encounters, DiagnosticReports and other FHIR resources representing specific data that is used to calculate the measure.</p>
+<p>The data criteria for the primary library defines the patient data of interest in the measure as a set of <a href="[%fhir-path%]datarequirement.html">DataRequirement</a> elements. Each data requirement identifies specific types of data along with constraints that the data must meet. For example, one data requirement for CMS 146 identifies FHIR Condition resources that represent confirmed diagnoses of acute pharyngitis. Other data requirements for this measure include Encounters, DiagnosticReports and other FHIR resources representing specific data that is used to calculate the measure.</p>
 
 <p>Specifying the data criteria in this way enables the following use cases:</p>
 
 <ul>
 	<li>Determining the set of data used by a particular eCQM.</li>
 	<li>Limited "scoop-and-filter" for creation of population reports.</li>
-	<li>Limited backwards compatbility with existing implementations of previouis eCQM IGs.</li>
+	<li>Limited backwards compatbility with existing implementations of previous eCQM IGs.</li>
+</ul>
+
+<p>Data criteria can be specified statically, or they can be <i>inferred</i> from the expressions referenced by the measure. The <code>$dataRequirements</code> operation can be invoked to retrieve the aggregate data requirements for the measure. This approach has two advantages:</p>
+
+<ul>
+	<li>When the data requirements for the expression contain dynamic criteria (such as date ranges relative to today), the results returned are based on the evaluation request time.</li>
+	<li>When the expressions involve multiple libraries, rather than having to retrieve and deal with the requirements for each library, the $dataRequirements operation can aggregate the requirements and return them as a single <code>module-definition</code> library.</li>
 </ul>
 
 <a name="invoking-measures"/>
 <h4>Invoking Measures</h4>
 
-<p>The Health Quality Measure Format (HQMF) defines the electronic representation of an eMeasure but does not define a mechanism for invoking an eMeasure. FHIR defines both the representation of resources and a general mechanism for interacting with them via the OperationDefinition resource. Prior sections of this specification described the MeasureArtifact representation of an eMeasure, this section describes the evaluateMeasure operation that is used to invoke an eMeasure and obtain the results.</p>
+<p>The Health Quality Measure Format (HQMF) defines the electronic representation of an eMeasure but does not define a mechanism for invoking an eMeasure. FHIR defines both the representation of resources and a general mechanism for interacting with them via the OperationDefinition resource. Prior sections of this specification described the Measure representation of an eMeasure, this section describes the evaluateMeasure operation that is used to invoke an eMeasure and obtain the results.</p>
 
 <a name="operation-definition"/>
 <h5>Operation Definition</h5>
@@ -165,20 +199,19 @@ Quality Measure Format (HQMF)</a>.
 <a name="operation-examples"/>
 <h5>Examples</h5>
 
-<p>
-GET [base]/Basic/$evaluate-measure?measure=CMS146&amp;periodStart=2014&amp;periodEnd=2014
-GET [base]/Basic/CMS146/$evaluate-measure?periodStart=2014&amp;periodEnd=2014
-</p>
+<pre><code>GET [base]/Measure/$evaluate-measure?measure=CMS146&amp;periodStart=2014&amp;periodEnd=2014</code></pre>
+
+<pre><code>GET [base]/Measure/CMS146/$evaluate-measure?periodStart=2014&amp;periodEnd=2014</code></pre>
 
 <p>
 The above examples show how to obtain the results of evaluating the eMeasure with identifier "CMS146" for all patients over a measurement period that consists of all of 2014. Some items of note:
 </p>
 
 <ul>
-<li>the first variant evaluates the operation on [base]/Basic which is the type of resource and specifies the eMeasure to evaluate using a parameter </li>
-<li>the second variant evaluates the operation on [base]/Basic/CMS146 which is the Measure instance that represents that measure so there's no need to also include a reference to the eMeasure in the operation parameters</li>
-<li>the HTTP GET method is used since the evaluate-measure operation is idempotent</li>
-<li>[base] is used as a shortcut for the base URI of the FHIR server</li> 
+<li>the first variant evaluates the operation on <code>[base]/Measure</code> which is the type of resource and specifies the eMeasure to evaluate using a parameter </li>
+<li>the second variant evaluates the operation on <code>[base]/Measure/CMS146</code> which is the Measure instance that represents that measure so there's no need to also include a reference to the eMeasure in the operation parameters</li>
+<li>the <code>HTTP GET</code> method is used since the <code>$evaluate-measure</code> operation is idempotent</li>
+<li><code>[base]</code> is used as a shortcut for the base URI of the FHIR server</li> 
 <li>the type of the resource is Basic in the URI since FHIR does not allow use of alternate paths for profiles of resources </li>
 <li>the period start and end values are both specified to a granularity of a year, the description of the parameters above explains why this results in a measure period that spans the entire year</li>
 </ul>
@@ -186,16 +219,14 @@ The above examples show how to obtain the results of evaluating the eMeasure wit
 <p>
 The next example demonstrates how to obtain the results of evaluating the eMeasure with identifier "CMS146" for the patient with identifier "124" over a measurement period that consists of the first three months of 2014.</p>
 
-<p>
-GET [base]/Basic/CMS146/$evaluate-measure?patient=124&amp;periodStart=2014-01&amp;periodEnd=2014-03
-</p>
+<pre><code>GET [base]/Basic/CMS146/$evaluate-measure?patient=124&amp;periodStart=2014-01&amp;periodEnd=2014-03</code></pre>
 
 <a name="measure-report"/>
 <h4>Measure Report</h4>
 
 <p>When eCQMs are represented with the Health Quality Measure Format (HQMF), a single HQMF document represents both the measure itself and the request. Meanwhile, the responses are represented as Quality Reporting Document Architecture (QRDA) documents. QRDA documents come in three flavors: Category I for individual patient reports, Category II for patient list reports, and Category III for population reports.</p>
 
-<p>When eCQMs are represented with FHIR resources, the measure is represented as a <a href="[%fhir-path%]measure.html">Measure</a> resource, and the request is an HTTP GET conforming to the OperationDefinition described above. Meanwhile, the responses are represented as <a href="[%fhir-path%]measurereport.html">MeasureReport</a> resources. Like QRDA, the MeasureReport allows for Category I (individual), Category II (patient-list), and Category III (population) reports.</p>
+<p>When eCQMs are represented with FHIR resources, the measure is represented as a <a href="[%fhir-path%]measure.html">Measure</a> resource, and the request is an <code>HTTP GET</code> conforming to the OperationDefinition described above. Meanwhile, the responses are represented as <a href="[%fhir-path%]measurereport.html">MeasureReport</a> resources. Like QRDA, the MeasureReport allows for Category I (individual), Category II (patient-list), and Category III (population) reports.</p>
 
 <a name="reporting-population-data"/>
 <h5>Reporting Population Data</h5>
@@ -212,6 +243,8 @@ GET [base]/Basic/CMS146/$evaluate-measure?patient=124&amp;periodStart=2014-01&am
 <p>When using a MeasureReport resource to represent the results of an individual calculation, the MeasureReport SHALL have a type-code of "individual" and SHALL have a reference to a patient that is the subject of the report. In addition, the result SHOULD include a reference to a Bundle containing the patient-specific resources that were used to calculate the result.</p>
 
 <img alt="Individual Measure Report" src="cqif-measure-report-individual.png"/>
+
+<p>See the MeasureReport examples for a detailed illustration of how the data elements involved in the calculation of the measure are communicated through the <code>evaluatedResources</code> element.</p>
 
 <a name="reporting-patient-list-data"/>
 <h5>Patient-List Reports</h5>
