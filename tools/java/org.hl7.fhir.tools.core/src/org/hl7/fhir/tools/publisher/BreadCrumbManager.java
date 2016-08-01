@@ -265,7 +265,7 @@ public class BreadCrumbManager {
         }
         focus = getChild(focus, path[path.length - 1]);
         b.append("        <li><b>"+imgLink(prefix, focus)+focus.getTitle()+"</b></li>");
-      } else if (map.containsKey(type)) {
+      } else if (map.containsKey(type) && !type.equals("resource")) {
         String[] path = map.get(type).split("\\.");
         Page focus = home;
         for (int i = 0; i < path.length - 1; i++) {

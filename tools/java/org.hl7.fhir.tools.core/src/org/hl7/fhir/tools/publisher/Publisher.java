@@ -5048,11 +5048,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       ResourceDefn r = page.getDefinitions().getResourceByName(rn);
       for (SearchParameterDefn sp : r.getSearchParams().values()) {
         if (!sp.isWorks() && !sp.getCode().equals("_id") && !Utilities.noString(sp.getXPath())) {
-          //          page.log(
-          //              "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the path (" + sp.getXPath() + ")",
-          //              LogMessageType.Warning);
-          page.getValidationErrors().add(
-              new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, rn + "." + sp.getCode(), "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the path (" + sp.getXPath() + ")", IssueSeverity.INFORMATION/*WARNING*/));
+          page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, rn + "." + sp.getCode(), 
+              "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the expression (" + sp.getExpression() + ")", IssueSeverity.INFORMATION/*WARNING*/));
         }
       }
     }

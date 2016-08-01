@@ -30,11 +30,10 @@ signatures.html
     <page title="Foundation" filename="foundation-module.html" icon="foundation.png">
       <!--			<page title="Ballot Intro" filename="ballot-intro.html"/> -->
       <page title="Summary" filename="summary.html"/>
-      <page title="Introduction" filename="overview.html">
-        <page title="Developer Introduction" filename="overview-dev.html"/>
-        <page title="Clinical Introduction" filename="overview-clinical.html"/>
-      </page>
-      <page title="Modules" filename="modules.html"/>
+      <page title="Introduction" filename="overview.html"/>
+      <page title="Developer Introduction" filename="overview-dev.html"/>
+      <page title="Clinical Introduction" filename="overview-clinical.html"/>
+      <page title="Getting Started" filename="modules.html"/>
       <page title="Documentation Guidance and Glossary" filename="help.html"/>
       <page title="License and Legal Terms" filename="license.html"/>
       <page title="Community and Credits" filename="credits.html"/>
@@ -44,6 +43,7 @@ signatures.html
       <page title="FluentPath" filename="fluentpath.html"/>
       <page title="Conformance" filename="conformance-rules.html"/>
       <page title="Life Cycle" filename="lifecycle.html"/>
+      <page title="Resource Guide" filename="resourceguide.html"/>
       <page title="References" filename="references.html">
         <page title="Definitions" filename="references-definitions.html"/>
       </page>
@@ -173,7 +173,6 @@ signatures.html
     </page>
 
     <page title="Implementation Support" filename="implsupport-module.html" icon="implsupport.png">
-      <page title="Resource Guide" filename="resourceguide.html"/>
       <page title="Clinical Safety" filename="safety.html"/>
       <page title="Inter-version Compatibility" filename="compatibility.html"/>
       <page title="Testing FHIR" filename="testing.html"/>
