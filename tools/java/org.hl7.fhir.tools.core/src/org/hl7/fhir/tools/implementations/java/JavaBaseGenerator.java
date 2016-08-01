@@ -149,6 +149,7 @@ public class JavaBaseGenerator extends OutputStreamWriter {
     cc = cc.replace("{", "_").replace("}", "_");
     cc = cc.replace("<", "_").replace(">", "_");
     cc = cc.replace(".", "_").replace("/", "_");
+    cc = cc.replace(":", "_");
     if (Utilities.isInteger(cc.substring(0, 1)))
       cc = "_"+cc;
     cc = cc.toUpperCase();
