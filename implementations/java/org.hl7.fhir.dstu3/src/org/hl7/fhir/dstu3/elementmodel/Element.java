@@ -255,6 +255,11 @@ public class Element extends Base {
 		return type != null ? property.isPrimitive(type) : property.isPrimitive(property.getType(name));
 	}
 	
+  @Override
+  public boolean isResource() {
+    return property.isResource();
+  }
+  
 
 	@Override
 	public boolean hasPrimitiveValue() {

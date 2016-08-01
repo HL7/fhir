@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.SearchParameter;
 
 /*
@@ -59,6 +60,8 @@ public class SearchParameterDefn {
   private Set<String> targets = new HashSet<String>();
   private Set<String> manualTargets = new HashSet<String>();
   private SearchParameter resource;
+  private ExpressionNode expressionNode;
+  private boolean XPathDone;
   
   // operational tracking
   private String xPath;
@@ -184,6 +187,22 @@ public class SearchParameterDefn {
 
   public void setResource(SearchParameter resource) {
     this.resource = resource;
+  }
+
+  public ExpressionNode getExpressionNode() {
+    return expressionNode;
+  }
+
+  public void setExpressionNode(ExpressionNode expressionNode) {
+    this.expressionNode = expressionNode;
+  }
+
+  public boolean isXPathDone() {
+    return XPathDone;
+  }
+
+  public void setXPathDone(boolean xPathDone) {
+    XPathDone = xPathDone;
   }
   
   

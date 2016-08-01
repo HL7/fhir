@@ -1,10 +1,14 @@
 package org.hl7.fhir.dstu3.elementmodel;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import org.hl7.fhir.dstu3.exceptions.DefinitionException;
+import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
+import org.hl7.fhir.exceptions.FHIRException;
 
 public class Manager {
 
@@ -25,7 +29,7 @@ public class Manager {
     }
   }
 
-  public static Element parse(IWorkerContext context, InputStream source, FhirFormat inputFormat) throws Exception {
+  public static Element parse(IWorkerContext context, InputStream source, FhirFormat inputFormat) throws FHIRFormatError, DefinitionException, IOException, FHIRException {
     return makeParser(context, inputFormat).parse(source);
   }
 

@@ -1,5 +1,6 @@
 package org.hl7.fhir.dstu3.elementmodel;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashSet;
@@ -7,6 +8,8 @@ import java.util.List;
 import java.util.Set;
 
 import org.hl7.fhir.dstu3.elementmodel.Element.SpecialElement;
+import org.hl7.fhir.dstu3.exceptions.DefinitionException;
+import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
@@ -36,7 +39,7 @@ public class TurtleParser extends ParserBase {
     super(context);
   }
   @Override
-  public Element parse(InputStream input) throws Exception {
+  public Element parse(InputStream input) throws IOException, FHIRFormatError, DefinitionException {
     Turtle src = new Turtle();
     if (policy == ValidationPolicy.EVERYTHING) {
       try {
@@ -52,7 +55,7 @@ public class TurtleParser extends ParserBase {
     } 
   }
   
-  private Element parse(Turtle src) throws Exception {
+  private Element parse(Turtle src) throws FHIRFormatError, DefinitionException {
     // we actually ignore the stated URL here
     for (TTLComplex cmp : src.getObjects().values()) {
       for (String p : cmp.getPredicates().keySet()) {
@@ -67,11 +70,11 @@ public class TurtleParser extends ParserBase {
       logError(-1, -1, "(document)", IssueType.INVALID, msg, IssueSeverity.FATAL);
       return null;
     } else {
-      throw new Exception(msg);
+      throw new FHIRFormatError(msg);
     } 
   }
   
-  private Element parse(Turtle src, TTLComplex cmp) throws Exception {
+  private Element parse(Turtle src, TTLComplex cmp) throws FHIRFormatError, DefinitionException {
     TTLObject type = cmp.getPredicates().get("http://www.w3.org/2000/01/rdf-schema#type");
     if (type == null) {
       logError(cmp.getLine(), cmp.getCol(), "(document)", IssueType.INVALID, "Unknown resource type (missing rdfs:type)", IssueSeverity.FATAL);
@@ -107,7 +110,7 @@ public class TurtleParser extends ParserBase {
     return result;  
   }
   
-  private void parseChildren(Turtle src, String path, TTLComplex object, Element context, boolean primitive) throws Exception {
+  private void parseChildren(Turtle src, String path, TTLComplex object, Element context, boolean primitive) throws FHIRFormatError, DefinitionException {
 
     List<Property> properties = context.getProperty().getChildProperties(context.getName(), null);
     Set<String> processed = new HashSet<String>();
@@ -138,7 +141,7 @@ public class TurtleParser extends ParserBase {
     }
   }
   
-  private void parseChild(Turtle src, TTLComplex object, Element context, Set<String> processed, Property property, String path, String name) throws Exception {
+  private void parseChild(Turtle src, TTLComplex object, Element context, Set<String> processed, Property property, String path, String name) throws FHIRFormatError, DefinitionException {
     processed.add(name);
     String npath = path+"/"+property.getName();
     TTLObject e = object.getPredicates().get(FHIR_URI_BASE + name);
@@ -153,7 +156,8 @@ public class TurtleParser extends ParserBase {
       parseChildInstance(src, npath, object, context, property, name, e);
     }
   }
-  private void parseChildInstance(Turtle src, String npath, TTLComplex object, Element context, Property property, String name, TTLObject e) throws Exception {
+
+  private void parseChildInstance(Turtle src, String npath, TTLComplex object, Element context, Property property, String name, TTLObject e) throws FHIRFormatError, DefinitionException {
     if (property.isResource())
       parseResource(src, npath, object, context, property, name, e);
     else  if (e instanceof TTLComplex) {
@@ -183,7 +187,8 @@ public class TurtleParser extends ParserBase {
   private String tail(String name) {
     return name.substring(name.lastIndexOf(".")+1);
   }
-  private void parseResource(Turtle src, String npath, TTLComplex object, Element context, Property property, String name, TTLObject e) throws Exception {
+
+  private void parseResource(Turtle src, String npath, TTLComplex object, Element context, Property property, String name, TTLObject e) throws FHIRFormatError, DefinitionException {
     TTLComplex obj;
     if (e instanceof TTLComplex) 
       obj = (TTLComplex) e;
@@ -195,7 +200,7 @@ public class TurtleParser extends ParserBase {
         return;
       }
     } else
-      throw new Exception("Wrong type for resource");
+      throw new FHIRFormatError("Wrong type for resource");
       
     TTLObject type = obj.getPredicates().get("http://www.w3.org/2000/01/rdf-schema#type");
     if (type == null) {
@@ -338,6 +343,7 @@ public class TurtleParser extends ParserBase {
 	  }
 	  return b.toString();
   }
+
   private void composeElement(Section section, Complex ctxt, Element element, Element parent) {
     String en = "Extension".equals(element.getType())?
             (element.getProperty().getDefinition().getIsModifier()? "modifierExtension" : "extension") : getFormalName(element);

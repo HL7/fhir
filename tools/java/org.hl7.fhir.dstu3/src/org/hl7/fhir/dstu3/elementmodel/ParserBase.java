@@ -1,5 +1,6 @@
 package org.hl7.fhir.dstu3.elementmodel;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 
 public abstract class ParserBase {
@@ -55,7 +57,7 @@ public abstract class ParserBase {
     this.errors = errors;
   }
 
-  public abstract Element parse(InputStream stream) throws Exception;
+  public abstract Element parse(InputStream stream) throws IOException, FHIRFormatError, DefinitionException, FHIRException;
 
   public abstract void compose(Element e, OutputStream destination, OutputStyle style, String base)  throws Exception;
 

@@ -242,7 +242,7 @@ public class CodeListToValueSetParser {
       ConceptMapGroupComponent grp = getGroup(cm, url, "http://hl7.org/fhir/v2/"+tbl);
       SourceElementComponent src = getSource(grp, code);
       TargetElementComponent tgt = src.addTarget();
-      tgt.setCode(cd);
+      tgt.setCode(cd.trim());
       tgt.setComments(comm);
 
       if (rel.equals("="))
@@ -338,7 +338,7 @@ public class CodeListToValueSetParser {
       ConceptMapGroupComponent grp = getGroup(cm, url, "http://hl7.org/fhir/v3/"+tbl);
       SourceElementComponent src = getSource(grp, code);
       TargetElementComponent tgt = src.addTarget();
-      tgt.setCode(cd);
+      tgt.setCode(cd.trim());
       tgt.setComments(comm);
 
       if (rel == null || rel.equals("="))

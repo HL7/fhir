@@ -626,6 +626,10 @@ private Map<String, Object> userData;
   	else
   		return v1.equals(v2);
 	}
+
+  public boolean isResource() {
+    return false;
+  }
 	
 
 }

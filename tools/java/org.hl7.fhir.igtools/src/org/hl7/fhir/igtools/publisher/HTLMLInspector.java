@@ -2,6 +2,7 @@ package org.hl7.fhir.igtools.publisher;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -10,21 +11,60 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.igtools.publisher.HTLMLInspector.HtmlChangeListenerContext;
+import org.hl7.fhir.igtools.publisher.HTLMLInspector.HtmlSanitizerObserver;
 import org.hl7.fhir.igtools.publisher.HTLMLInspector.LoadedFile;
 import org.hl7.fhir.igtools.publisher.HTLMLInspector.StringPair;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode.Location;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 
+import org.owasp.html.Handler;
+import org.owasp.html.HtmlChangeListener;
+import org.owasp.html.HtmlPolicyBuilder;
+import org.owasp.html.HtmlSanitizer;
+import org.owasp.html.HtmlStreamEventReceiver;
+import org.owasp.html.HtmlStreamRenderer;
+import org.owasp.html.PolicyFactory;
+import org.owasp.html.Sanitizers;
+
 public class HTLMLInspector {
+
+  public class HtmlChangeListenerContext {
+
+    private List<ValidationMessage> messages;
+    private String source;
+
+    public HtmlChangeListenerContext(List<ValidationMessage> messages, String source) {
+      this.messages = messages;
+      this.source = source;
+    }
+
+  }
+
+  public class HtmlSanitizerObserver implements HtmlChangeListener<HtmlChangeListenerContext> {
+
+    @Override
+    public void discardedAttributes(HtmlChangeListenerContext ctxt, String elementName, String... attributeNames) {
+      ctxt.messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, ctxt.source, "the element "+elementName+" attributes failed security testing", IssueSeverity.ERROR));
+    }
+
+    @Override
+    public void discardedTag(HtmlChangeListenerContext ctxt, String elementName) {
+      ctxt.messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, ctxt.source, "the element "+elementName+" failed security testing", IssueSeverity.ERROR));
+    }
+
+  }
 
   public class StringPair {
     private String source;
@@ -67,7 +107,6 @@ public class HTLMLInspector {
     public Set<String> getTargets() {
       return targets;
     }
-
   }
 
   private String rootFolder;
@@ -147,8 +186,7 @@ public class HTLMLInspector {
     } catch (FHIRFormatError | IOException e) {
       x = null;
       if (htmlName || !(e.getMessage().startsWith("Unable to Parse HTML - does not start with tag.") || e.getMessage().startsWith("Malformed XHTML")))
-    	messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, s, e.getMessage(), IssueSeverity.ERROR));
-    	
+    	messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, s, e.getMessage(), IssueSeverity.ERROR));    	
     }
     LoadedFile lf = new LoadedFile(f.lastModified(), x, iteration);
     cache.put(s, lf);
@@ -156,6 +194,27 @@ public class HTLMLInspector {
       checkHtmlStructure(s, x, messages);
       listTargets(x, lf.getTargets());
     }
+    
+    // ok, now check for XSS safety:
+    // this is presently disabled; it's not clear whether oWasp is worth trying out for the purpose we are seeking (XSS safety)
+    
+//    
+//    HtmlPolicyBuilder pp = new HtmlPolicyBuilder();
+//    pp
+//      .allowStandardUrlProtocols().allowAttributes("title").globally() 
+//      .allowElements("html", "head", "meta", "title", "body", "span", "link", "nav", "button")
+//      .allowAttributes("xmlns", "xml:lang", "lang", "charset", "name", "content", "id", "class", "href", "rel", "sizes", "no-external", "target", "data-target", "data-toggle", "type", "colspan").globally();
+//    
+//    PolicyFactory policy = Sanitizers.FORMATTING.and(Sanitizers.LINKS).and(Sanitizers.BLOCKS).and(Sanitizers.IMAGES).and(Sanitizers.STYLES).and(Sanitizers.TABLES).and(pp.toFactory());
+//    
+//    String source;
+//    try {
+//      source = TextFile.fileToString(s);
+//      HtmlChangeListenerContext ctxt = new HtmlChangeListenerContext(messages, s);
+//      String sanitized = policy.sanitize(source, new HtmlSanitizerObserver(), ctxt);
+//    } catch (IOException e) {
+//      messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, s, "failed security testing: "+e.getMessage(), IssueSeverity.ERROR));
+//    } 
   }
 
   private void checkHtmlStructure(String s, XhtmlNode x, List<ValidationMessage> messages) {

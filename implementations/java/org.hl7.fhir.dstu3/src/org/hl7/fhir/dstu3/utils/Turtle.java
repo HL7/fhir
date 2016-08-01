@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.Map;
 
+import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.utils.Turtle.TTLComplex;
 import org.hl7.fhir.dstu3.utils.Turtle.TTLObject;
 import org.hl7.fhir.utilities.Utilities;
@@ -618,9 +619,9 @@ public class Turtle {
 			return uri;
 		}
 
-		public void setUri(String uri) throws Exception {
+    public void setUri(String uri) throws FHIRFormatError {
 			if (!uri.matches(IRI_URL))
-				throw new Exception("Illegal URI "+uri);
+        throw new FHIRFormatError("Illegal URI "+uri);
 			this.uri = uri;
 		}
 
@@ -705,7 +706,7 @@ public class Turtle {
 		private int cursor, line, col, startLine, startCol;
 		private String token;
 
-		public Lexer(String source) throws Exception {
+    public Lexer(String source) throws FHIRFormatError {
 			this.source = source;
 			cursor = 0;
 			line = 1;
@@ -743,7 +744,7 @@ public class Turtle {
 			return c;
 		}
 
-    private void readNext(boolean postColon) throws Exception {    
+    private void readNext(boolean postColon) throws FHIRFormatError {    
 			token = null;
 			type = null;
 			skipWhitespace();
@@ -834,7 +835,7 @@ public class Turtle {
 			}
 		}
 
-		private String unescape(String s, boolean isUri) throws Exception {
+    private String unescape(String s, boolean isUri) throws FHIRFormatError {
 			StringBuilder b = new StringBuilder();
 			int i = 0;
 			while (i < s.length()) {
@@ -876,12 +877,12 @@ public class Turtle {
 							uc = Integer.parseInt(s.substring(i, i+8), 16);
 						}
 						if (uc < (isUri ? 33 : 32) || (isUri && (uc == 0x3C || uc == 0x3E)))
-							throw new Exception("Illegal unicode character");
+              throw new FHIRFormatError("Illegal unicode character");
 						b.append((char) uc);
 						i = i + l;
 						break;
 					default:
-						throw new Exception("Unknown character escape \\"+s.charAt(i));
+            throw new FHIRFormatError("Unknown character escape \\"+s.charAt(i));
 					}
 				} else {
 					b.append(ch);
@@ -895,7 +896,7 @@ public class Turtle {
 			return type == null;
 		}
 
-    public String next(LexerTokenType type, boolean postColon) throws Exception {
+    public String next(LexerTokenType type, boolean postColon) throws FHIRFormatError {
 			if (type != null && this.type != type)
 				throw error("Unexpected type. Found "+this.type.toString()+" looking for a "+type.toString());
 			String res = token;
@@ -911,7 +912,7 @@ public class Turtle {
 			return type;
 		}
 
-		public void token(String token) throws Exception {
+    public void token(String token) throws FHIRFormatError {
 			if (!token.equals(this.token))
 				throw error("Unexpected word "+this.token+" looking for "+token);
       next(LexerTokenType.TOKEN, token.equals(":"));
@@ -923,13 +924,13 @@ public class Turtle {
       next(LexerTokenType.WORD, false);
 		}
 
-		public String word() throws Exception {
+    public String word() throws FHIRFormatError {
 			String t = token;
       next(LexerTokenType.WORD, false);
 			return t;
 		}
 
-		public String uri() throws Exception {
+    public String uri() throws FHIRFormatError {
 			if (this.type != LexerTokenType.URI)
 				throw error("Unexpected type. Found "+this.type.toString()+" looking for a URI");
 			String t = token;
@@ -937,7 +938,7 @@ public class Turtle {
 			return t;
 		}
 
-		public String literal() throws Exception {
+    public String literal() throws FHIRFormatError {
 			if (this.type != LexerTokenType.LITERAL)
 				throw error("Unexpected type. Found "+this.type.toString()+" looking for a Literal");
 			String t = token;
@@ -949,8 +950,8 @@ public class Turtle {
 			return this.type == type && this.token.equals(token);
 		}
 
-		public Exception error(String message) {
-			return new Exception("Syntax Error parsing Turtle on line "+Integer.toString(line)+" col "+Integer.toString(col)+": "+message);
+    public FHIRFormatError error(String message) {
+      return new FHIRFormatError("Syntax Error parsing Turtle on line "+Integer.toString(line)+" col "+Integer.toString(col)+": "+message);
 		}
 
 	}
@@ -990,13 +991,13 @@ public class Turtle {
 	//		}
 	//	}
 
-	public void parse(String source) throws Exception {
+  public void parse(String source) throws FHIRFormatError {
 		prefixes.clear();
 		prefixes.put("_", "urn:uuid:4425b440-2c33-4488-b9fc-cf9456139995#");
 		parse(new Lexer(source));
 	}
 
-	private void parse(Lexer lexer) throws Exception {
+  private void parse(Lexer lexer) throws FHIRFormatError {
 		boolean doPrefixes = true;
 		while (!lexer.done()) {
       if (doPrefixes && (lexer.peek(LexerTokenType.TOKEN, "@") || lexer.peek(LexerTokenType.WORD, "PREFIX") || lexer.peek(LexerTokenType.WORD, "BASE"))) {
@@ -1008,14 +1009,14 @@ public class Turtle {
           if (p.equals("base"))
             base = true;
           else if (!p.equals("prefix"))
-            throw new Exception("Unexpected token "+p);  
+            throw new FHIRFormatError("Unexpected token "+p);  
 				} else {
 					sparqlStyle = true;
           String p = lexer.word();
           if (p.equals("BASE"))
             base = true;
           else if (!p.equals("PREFIX"))
-            throw new Exception("Unexpected token "+p);  
+            throw new FHIRFormatError("Unexpected token "+p);  
         }
         String prefix = null; 
         if (!base) {
@@ -1030,7 +1031,7 @@ public class Turtle {
         else if (this.base == null)
           this.base = url;
         else
-          throw new Exception("Duplicate @base");  
+          throw new FHIRFormatError("Duplicate @base");  
 			} else if (lexer.peekType() == LexerTokenType.URI) {
 				doPrefixes = false;
 				TTLURL uri = new TTLURL(lexer.startLine, lexer.startCol);
@@ -1043,7 +1044,7 @@ public class Turtle {
 				TTLURL uri = new TTLURL(lexer.startLine, lexer.startCol);
 				String pfx = lexer.word();
 				if (!prefixes.containsKey(pfx))
-					throw new Exception("Unknown prefix "+pfx);
+          throw new FHIRFormatError("Unknown prefix "+pfx);
 				lexer.token(":");
 				uri.setUri(prefixes.get(pfx)+lexer.word());
 				TTLComplex complex = parseComplex(lexer);
@@ -1054,7 +1055,7 @@ public class Turtle {
 				TTLURL uri = new TTLURL(lexer.startLine, lexer.startCol);
 				lexer.token(":");
 				if (!prefixes.containsKey(null))
-					throw new Exception("Unknown prefix ''");
+          throw new FHIRFormatError("Unknown prefix ''");
 				uri.setUri(prefixes.get(null)+lexer.word());
 				TTLComplex complex = parseComplex(lexer);
 				objects.put(uri, complex);
@@ -1078,13 +1079,13 @@ public class Turtle {
 		}
 	}
 
-  private TTLURL anonymousId() throws Exception {
+  private TTLURL anonymousId() throws FHIRFormatError {
     TTLURL url = new TTLURL(-1, -1);
     url.setUri("urn:uuid:"+UUID.randomUUID().toString().toLowerCase());
     return url;
   }
 
-	private TTLComplex parseComplex(Lexer lexer) throws Exception {
+  private TTLComplex parseComplex(Lexer lexer) throws FHIRFormatError {
 		TTLComplex result = new TTLComplex(lexer.startLine, lexer.startCol);
 
 		boolean done = lexer.peek(LexerTokenType.TOKEN, "]");
@@ -1097,7 +1098,7 @@ public class Turtle {
 				if (lexer.type == LexerTokenType.TOKEN && lexer.token.equals(":")) {
 					lexer.token(":");
 					if (!prefixes.containsKey(t))
-						throw new Exception("unknown prefix "+t);
+            throw new FHIRFormatError("unknown prefix "+t);
 					uri = prefixes.get(t)+lexer.word();
 				} else if (t.equals("a"))
 					uri = prefixes.get("rdfs")+"type";
@@ -1140,7 +1141,7 @@ public class Turtle {
 						lexer.token("@");
             String lang = lexer.word();
             if (!lang.matches(LANG_REGEX)) {
-              throw new Exception("Invalid Language tag "+lang);
+              throw new FHIRFormatError("Invalid Language tag "+lang);
             }
 					}
           result.addPredicate(uri, u);
@@ -1158,14 +1159,14 @@ public class Turtle {
             result.addPredicate(uri, u);					
 					} else {
 						if (!prefixes.containsKey(pfx))
-							throw new Exception("Unknown prefix "+(pfx == null ? "''" : pfx));						
+              throw new FHIRFormatError("Unknown prefix "+(pfx == null ? "''" : pfx));						
 						TTLURL u = new TTLURL(sl, sc);
 						lexer.token(":");
 						u.setUri(prefixes.get(pfx)+lexer.word());
             result.addPredicate(uri, u);
 					} 
 				} else if (!lexer.peek(LexerTokenType.TOKEN, ";") && (!inlist || !lexer.peek(LexerTokenType.TOKEN, ")"))) {
-					throw new Exception("unexpected token "+lexer.token);
+          throw new FHIRFormatError("unexpected token "+lexer.token);
 				}
 
 				if (inlist)

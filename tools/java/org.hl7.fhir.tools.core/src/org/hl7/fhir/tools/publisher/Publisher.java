@@ -196,6 +196,7 @@ import org.hl7.fhir.dstu3.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.FluentPathEngine;
+import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.LogicalModelUtilities;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ProfileComparer;
@@ -213,6 +214,7 @@ import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.ProfileValidator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
+import org.hl7.fhir.dstu3.validation.XmlValidator;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.rdf.RDFValidator;
@@ -226,11 +228,13 @@ import org.hl7.fhir.tools.implementations.csharp.CSharpGenerator;
 import org.hl7.fhir.tools.implementations.delphi.DelphiGenerator;
 import org.hl7.fhir.tools.implementations.java.JavaGenerator;
 import org.hl7.fhir.tools.implementations.javascript.JavaScriptGenerator;
+import org.hl7.fhir.tools.publisher.ExampleInspector.EValidationFailed;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CloseProtectedZipInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.IniFile;
+import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.SchemaInputSource;
 import org.hl7.fhir.utilities.TextFile;
@@ -280,16 +284,6 @@ import org.json.JSONTokener;
  *
  */
 public class Publisher implements URIResolver, SectionNumberer {
-
-  private static final boolean VALIDATE_BY_PROFILE = false;
-
-  public class EValidationFailed extends Exception {
-    private static final long serialVersionUID = 1L;
-    public EValidationFailed(String string) {
-      super(string);
-    }
-
-  }
 
   public class DocumentHolder {
 
@@ -429,9 +423,6 @@ public class Publisher implements URIResolver, SectionNumberer {
   private List<FHIRPathUsage> fpUsages = new ArrayList<FHIRPathUsage>();
 
   private boolean genRDF;
-  int errorCount = 0;
-  int warningCount = 0;
-  int informationCount = 0;
 
 
   public static void main(String[] args) throws Exception {
@@ -657,7 +648,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           e.printStackTrace();
         }
       }
-      if (!buildFlags.get("all")) {
+      if (buildFlags.containsKey("all") && !buildFlags.get("all")) {
         page.log("This was a Partial Build", LogMessageType.Process);
         CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
         for (String n : buildFlags.keySet())
@@ -1590,7 +1581,8 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
     if (checkFile("translations", page.getFolders().rootDir + "implementations" + File.separator, "translations.xml", errors, null)) {
       // schema check
-      checkBySchema(page.getFolders().rootDir + "implementations" + File.separator + "translations.xml", new String[] {page.getFolders().rootDir + "implementations" + File.separator + "translations.xsd"});
+      XmlValidator xv = new XmlValidator(page.getValidationErrors(), page.getFolders().rootDir + "implementations", Utilities.path(page.getFolders().rootDir, "tools", "schematron"), new String[] {"translations.xsd"});
+      xv.checkBySchema(Utilities.path(page.getFolders().rootDir, "implementations", "translations.xml"), true);
       Utilities.copyFile(page.getFolders().rootDir + "implementations" + File.separator + "translations.xml", page.getFolders().dstDir + "translations.xml");
       page.getTranslations().setLang("en");
       page.getTranslations().load(page.getFolders().rootDir + "implementations" + File.separator + "translations.xml");
@@ -4983,135 +4975,16 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
   }
 
-  public static class MyErrorHandler implements ErrorHandler {
-
-    private boolean trackErrors;
-    private List<String> errors = new ArrayList<String>();
-    private Publisher pub;
-    private List<ValidationMessage> list;
-    private String path;
-
-    public MyErrorHandler(boolean trackErrors, Publisher pub, List<ValidationMessage> list, String path) {
-      this.trackErrors = trackErrors;
-      this.pub = pub;
-      this.list = list;
-      this.path = path;
-    }
-
-    @Override
-    public void error(SAXParseException arg0) throws SAXException {
-      if (trackErrors) {
-        list.add(new ValidationMessage(Source.InstanceValidator, IssueType.STRUCTURE, arg0.getLineNumber(), arg0.getColumnNumber(), path == null ? arg0.getSystemId() : path, arg0.getMessage(), IssueSeverity.ERROR));
-        pub.logError("error: " + arg0.toString(), LogMessageType.Error);
-        errors.add(arg0.toString());
-      }
-
-    }
-
-    @Override
-    public void fatalError(SAXParseException arg0) throws SAXException {
-      list.add(new ValidationMessage(Source.InstanceValidator, IssueType.STRUCTURE, arg0.getLineNumber(), arg0.getColumnNumber(), path == null ? arg0.getSystemId() : path, arg0.getMessage(), IssueSeverity.FATAL));
-      pub.logError("fatal error: " + arg0.toString(), LogMessageType.Error);
-    }
-
-    @Override
-    public void warning(SAXParseException arg0) throws SAXException {
-      list.add(new ValidationMessage(Source.InstanceValidator, IssueType.STRUCTURE, arg0.getLineNumber(), arg0.getColumnNumber(), path == null ? arg0.getSystemId() : path, arg0.getMessage(), IssueSeverity.WARNING));
-      // System.out.println("warning: " + arg0.toString());
-
-    }
-
-    public List<String> getErrors() {
-      return errors;
-    }
-
-    public String getPath() {
-      return path;
-    }
-
-    public void setPath(String path) {
-      this.path = path;
-    }
-
-
-  }
-
-  public static class MyResourceResolver implements LSResourceResolver {
-
-    private String dir;
-
-    public MyResourceResolver(String dir) {
-      this.dir = dir;
-    }
-
-    @Override
-    public LSInput resolveResource(final String type, final String namespaceURI, final String publicId, String systemId, final String baseURI) {
-      // System.out.println(type+", "+namespaceURI+", "+publicId+", "+systemId+", "+baseURI);
-      try {
-        if (!new CSFile(dir + systemId).exists())
-          return null;
-        return new SchemaInputSource(new CSFileInputStream(new CSFile(dir + systemId)), publicId, systemId, namespaceURI);
-      } catch (Exception e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-        return null;
-      }
-    }
-  }
-
-  static final String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
-  static final String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";
-  static final String JAXP_SCHEMA_SOURCE = "http://java.sun.com/xml/jaxp/properties/schemaSource";
-
-
-  private void checkBySchema(String fileToCheck, String[] schemaSource) throws Exception {
-    StreamSource[] sources = new StreamSource[schemaSource.length];
-    int i = 0;
-    for (String s : schemaSource) {
-      sources[i] = new StreamSource(new CSFileInputStream(s));
-      i++;
-    }
-    SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-    schemaFactory.setErrorHandler(new MyErrorHandler(false, this, page.getValidationErrors(), null));
-    schemaFactory.setResourceResolver(new MyResourceResolver(page.getFolders().dstDir));
-    Schema schema = schemaFactory.newSchema(sources);
-
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(true);
-    factory.setValidating(false);
-    factory.setSchema(schema);
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    MyErrorHandler err = new MyErrorHandler(true, this, page.getValidationErrors(), fileToCheck);
-    builder.setErrorHandler(err);
-    builder.parse(new CSFileInputStream(new CSFile(fileToCheck)));
-    if (err.getErrors().size() > 0)
-      throw new Exception("File " + fileToCheck + " failed schema validation");
-  }
-
-
   private void validationProcess() throws Exception {
-    validateXml();
-    miscValidation();
-  }
-
-  private void validateXml() throws Exception {
     if (buildFlags.get("all") && isGenerate)
       produceCoverageWarnings();
-    page.clean();
-    page.log("Validating XML", LogMessageType.Process);
-    page.log(".. Loading schemas", LogMessageType.Process);
-    StreamSource[] sources = new StreamSource[1];
-    sources[0] = new StreamSource(new CSFileInputStream(page.getFolders().dstDir + "fhir-all.xsd"));
-    SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-    schemaFactory.setErrorHandler(new MyErrorHandler(false, this, page.getValidationErrors(), null));
-    schemaFactory.setResourceResolver(new MyResourceResolver(page.getFolders().dstDir));
-    Schema schema = schemaFactory.newSchema(sources);
-    InstanceValidator validator = new InstanceValidator(page.getWorkerContext());
-    validator.setSuppressLoincSnomedMessages(true);
-    validator.setResourceIdRule(IdStatus.REQUIRED);
-    validator.setBestPracticeWarningLevel(BestPracticeWarningLevel.Warning);
-    page.log(".... done", LogMessageType.Process);
 
+    page.clean();
+    page.log("Validating Examples", LogMessageType.Process);
+    ExampleInspector ei = new ExampleInspector(page.getWorkerContext(), page, page.getFolders().dstDir, Utilities.path(page.getFolders().rootDir, "tools", "schematron"), page.getValidationErrors(), page.getDefinitions().getResources());
+    page.log(".. Loading", LogMessageType.Process);
+    ei.prepare();
+    
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResources().get(rname);
       if (wantBuild(rname)) {
@@ -5120,19 +4993,15 @@ public class Publisher implements URIResolver, SectionNumberer {
           ImplementationGuideDefn ig = e.getIg() == null ? null : page.getDefinitions().getIgs().get(e.getIg());
           if (ig != null)
             n = ig.getCode()+File.separator+n;
-          logError(" ...validate " + n, LogMessageType.Process);
-          validateXmlFile(schema, n, validator, null);
-          validateJsonFile(n, validator, null);
-          validateTurtleFile(n, validator, null);
+          ei.validate(n);
         }
-        // todo-profile: how this works has to change (to use profile tag)
+
         for (Profile e : r.getConformancePackages()) {
           for (Example en : e.getExamples()) {
             ImplementationGuideDefn ig = en.getIg() == null ? null : page.getDefinitions().getIgs().get(en.getIg());
             String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
             String n = prefix+Utilities.changeFileExt(en.getTitle(), "");
-            page.log(" ...validate " + n+" ("+e.getTitle()+")", LogMessageType.Process);
-            validateXmlFile(schema, n, validator, e.getProfiles().get(0).getResource()); // validates the example against it's base definitions
+            ei.validate(n, e.getProfiles().get(0).getResource());
           }
         }
       }
@@ -5142,59 +5011,33 @@ public class Publisher implements URIResolver, SectionNumberer {
       String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
       for (Example ex : ig.getExamples()) {
         String n = ex.getTitle();
-        logError(" ...validate " + prefix+n, LogMessageType.Process);
-        validateXmlFile(schema, prefix+n, validator, null);
+        ei.validate(prefix+n);
       }
       for (Profile pck : ig.getProfiles()) {
         for (Example en : pck.getExamples()) {
-          page.log(" ...validate " + prefix+en.getTitle()+" ("+pck.getTitle()+")", LogMessageType.Process);
-          validateXmlFile(schema, prefix+Utilities.changeFileExt(en.getTitle(), ""), validator, pck.getProfiles().get(0).getResource()); // validates the example against it's base definitions
+          ei.validate(prefix+Utilities.changeFileExt(en.getTitle(), ""), pck.getProfiles().get(0).getResource());
         }
       }
     }
 
     if (buildFlags.get("all")) {
-      // todo-profile: how this works has to change (to use profile tag)
-//      for (String n : page.getDefinitions().getProfiles().keySet()) {
-//        page.log(" ...profile " + n, LogMessageType.Process);
-//        validateXmlFile(schema, n + ".profile", validator, null);
-//      }
-
-      logError(" ...validate " + "profiles-resources", LogMessageType.Process);
-      validateXmlFile(schema, "profiles-resources", validator, null);
-
-      logError(" ...validate " + "profiles-types", LogMessageType.Process);
-      validateXmlFile(schema, "profiles-types", validator, null);
-
-      logError(" ...validate " + "profiles-others", LogMessageType.Process);
-      validateXmlFile(schema, "profiles-others", validator, null);
-
-      logError(" ...validate " + "search-parameters", LogMessageType.Process);
-      validateXmlFile(schema, "search-parameters", validator, null);
-
-      logError(" ...validate " + "extension-definitions", LogMessageType.Process);
-      validateXmlFile(schema, "extension-definitions", validator, null);
-
-      logError(" ...validate " + "valuesets", LogMessageType.Process);
-      validateXmlFile(schema, "valuesets", validator, null);
-
-      logError(" ...validate " + "dataelements", LogMessageType.Process);
-      validateXmlFile(schema, "dataelements", validator, null);
-
-      logError(" ...validate " + "conceptmaps", LogMessageType.Process);
-      validateXmlFile(schema, "conceptmaps", validator, null);
-
-      logError(" ...validate " + "v2-tables", LogMessageType.Process);
-      validateXmlFile(schema, "v2-tables", validator, null);
-      logError(" ...validate " + "v3-codesystems", LogMessageType.Process);
-      validateXmlFile(schema, "v3-codesystems", validator, null);
+      ei.validate("profiles-resources");
+      ei.validate("profiles-types");
+      ei.validate("profiles-others");
+      ei.validate("search-parameters");
+      ei.validate("extension-definitions");
+      ei.validate("valuesets");
+      ei.validate("dataelements");
+      ei.validate("conceptmaps");
+      ei.validate("v2-tables");
+      ei.validate("v3-codesystems");
     }
+    
     page.saveSnomed();
     page.getWorkerContext().saveCache();
 
-    logError("Summary: Errors="+Integer.toString(errorCount)+", Warnings="+Integer.toString(warningCount)+", Hints="+Integer.toString(informationCount), LogMessageType.Error);
-    if (errorCount > 0)
-      throw new EValidationFailed("Resource Examples failed instance validation");
+    ei.summarise();
+    miscValidation();
   }
 
   private void miscValidation() throws Exception {
@@ -5210,62 +5053,6 @@ public class Publisher implements URIResolver, SectionNumberer {
           //              LogMessageType.Warning);
           page.getValidationErrors().add(
               new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, rn + "." + sp.getCode(), "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the path (" + sp.getXPath() + ")", IssueSeverity.INFORMATION/*WARNING*/));
-        }
-      }
-    }
-  }
-
-  private void listCollections1(List<String> list) {
-    list.add("profiles-types");
-    list.add("profiles-resources");
-    list.add("profiles-others");
-    list.add("extension-definitions");
-  }
-  private void listCollections2(List<String> list) {
-    list.add("search-parameters");
-    list.add("v2-tables");
-    list.add("v3-codesystems");
-    list.add("conceptmaps");
-  }
-
-  private void listCollections3(List<String> list) {
-    list.add("valuesets");
-  }
-
-  private void listExamples(List<String> list) {
-    for (String rname : page.getDefinitions().sortedResourceNames()) {
-      ResourceDefn r = page.getDefinitions().getResources().get(rname);
-      if (wantBuild(rname)) {
-        for (Example e : r.getExamples()) {
-          String n = e.getTitle();
-          ImplementationGuideDefn ig = e.getIg() == null ? null : page.getDefinitions().getIgs().get(e.getIg());
-          if (ig != null)
-            n = ig.getCode()+File.separator+n;
-          list.add(n);
-        }
-        // todo-profile: how this works has to change (to use profile tag)
-        for (Profile e : r.getConformancePackages()) {
-          for (Example en : e.getExamples()) {
-            ImplementationGuideDefn ig = en.getIg() == null ? null : page.getDefinitions().getIgs().get(en.getIg());
-            String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
-            String n = prefix+Utilities.changeFileExt(en.getTitle(), "");
-            list.add(n);
-          }
-        }
-      }
-    }
-
-    for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs()) {
-      String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
-      for (Example ex : ig.getExamples()) {
-        String n = ex.getTitle();
-        logError(" ...validate " + prefix+n, LogMessageType.Process);
-        list.add(prefix+n);
-      }
-      for (Profile pck : ig.getProfiles()) {
-        for (Example en : pck.getExamples()) {
-          page.log(" ...validate " + prefix+en.getTitle()+" ("+pck.getTitle()+")", LogMessageType.Process);
-          list.add(prefix+Utilities.changeFileExt(en.getTitle(), ""));
         }
       }
     }
@@ -5292,223 +5079,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
   }
 
-  private void validateXmlFile(Schema schema, String n, InstanceValidator validator, StructureDefinition profile) throws Exception {
-    char sc = File.separatorChar;
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(true);
-    factory.setValidating(false);
-    factory.setSchema(schema);
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    MyErrorHandler err = new MyErrorHandler(true, this, page.getValidationErrors(), n);
-    builder.setErrorHandler(err);
-    Document doc = builder.parse(new CSFileInputStream(new CSFile(page.getFolders().dstDir + n + ".xml")));
-    Element root = doc.getDocumentElement();
-    errorCount = errorCount + err.getErrors().size();
 
-    String sch = "fhir-invariants.sch";
-
-    validateBySchematron(n, sch);
-    if (profile != null && new File(Utilities.path(page.getFolders().dstDir, profile.getId()+".sch")).exists()) {
-      validateBySchematron(n, profile.getId()+".sch");
-    }
-
-    // now, finally, we validate the resource ourselves.
-    // the build tool validation focuses on codes and identifiers
-    List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
-    validator.validate(issues, root);
-//    System.out.println("  -x- "+validator.reportTimes());
-    if (profile != null && VALIDATE_BY_PROFILE) {
-      validator.validate(issues, root, profile);
-      System.out.println("  -- "+validator.reportTimes());
-    }
-    for (ValidationMessage m : issues) {
-      if (!m.getLevel().equals(IssueSeverity.INFORMATION) && !m.getLevel().equals(IssueSeverity.WARNING)) {
-        m.setMessage(n+":: "+m.getLocation()+": "+m.getMessage());
-        page.getValidationErrors().add(m);
-      }
-      if (m.getLevel() == IssueSeverity.WARNING)
-        warningCount++;
-      else if (m.getLevel() == IssueSeverity.INFORMATION)
-        informationCount++;
-      else
-        errorCount++;
-    }
-  }
-
-  private void validateJsonFile(String n, InstanceValidator validator, StructureDefinition profile) throws Exception {
-    List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
-
-//    String source = TextFile.fileToString(Utilities.path(page.getFolders().dstDir, "fhir.schema.json"));
-//    JSONObject rawSchema = new JSONObject(new JSONTokener(source));
-//    try {
-//  org.everit.json.schema.Schema schema = SchemaLoader.load(rawSchema);
-//      schema.validate(new FileInputStream(Utilities.path(page.getFolders().dstDir, n+".json")));
-//    } catch (Exception e) {
-//      issues.add(new ValidationMessage(Source.Schema, IssueType.INVALID, "#", e.getMessage(), IssueSeverity.ERROR));
-//    }
-
-    validator.validate(issues, new FileInputStream(Utilities.path(page.getFolders().dstDir, n+".json")), FhirFormat.JSON);
-    if (profile != null)
-      validator.validate(issues, new FileInputStream(Utilities.path(page.getFolders().dstDir, n+".json")), FhirFormat.JSON, profile);
-    
-    for (ValidationMessage m : issues) {
-      if (!m.getLevel().equals(IssueSeverity.INFORMATION) && !m.getLevel().equals(IssueSeverity.WARNING))
-        logError("  " + m.summary(), typeforSeverity(m.getLevel()));
-
-      if (m.getLevel() == IssueSeverity.WARNING)
-        warningCount++;
-      else if (m.getLevel() == IssueSeverity.INFORMATION)
-        informationCount++;
-      else
-        errorCount++;
-    }
-  }
-
-  private void validateTurtleFile(String n, InstanceValidator validator, StructureDefinition profile) throws Exception {
-    // instance validator
-    File f = new File(Utilities.path(page.getFolders().dstDir, n + ".ttl"));
-    if (!f.exists())
-      return;
-
-//  first, ShEx validation
-    ShExValidator shexval = new ShExValidator();
-    shexval.validate(Utilities.path(page.getFolders().dstDir, n + ".ttl"), Utilities.path(page.getFolders().dstDir, "fhir.shex"));
-    
-    List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
-    validator.validate(issues, new FileInputStream(f), FhirFormat.TURTLE);
-    
-//    
- 
-//    
-//    com.google.gson.JsonParser parser = new com.google.gson.JsonParser();
-//    JsonObject obj = parser.parse(TextFile.fileToString()).getAsJsonObject();
-//
-//    // the build tool validation focuses on codes and identifiers
-//    List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
-//    validator.validate(issues, obj);
-////    System.out.println("  -j- "+validator.reportTimes());
-//    // if (profile != null)
-//    // validator.validateInstanceByProfile(issues, root, profile);
-//    for (ValidationMessage m : issues) {
-//      if (!m.getLevel().equals(IssueSeverity.INFORMATION) && !m.getLevel().equals(IssueSeverity.WARNING))
-//        logError("  " + m.summary(), typeforSeverity(m.getLevel()));
-//
-//      if (m.getLevel() == IssueSeverity.WARNING)
-//        warningCount++;
-//      else if (m.getLevel() == IssueSeverity.INFORMATION)
-//        informationCount++;
-//      else
-//        errorCount++;
-//    }
-  }
-
-  private void validateBySchematron(String n, String sch) throws IOException, ParserConfigurationException, SAXException, FileNotFoundException {
-    DocumentBuilderFactory factory;
-    DocumentBuilder builder;
-    Document doc;
-    File tmpTransform = Utilities.createTempFile("tmp", ".xslt");
-    File tmpOutput = Utilities.createTempFile("tmp", ".xml");
-    try {
-      Utilities.saxonTransform(Utilities.path(page.getFolders().rootDir, "tools", "schematron"), Utilities.path(page.getFolders().dstDir, sch),
-          Utilities.path(page.getFolders().rootDir, "tools", "schematron", "iso_svrl_for_xslt2.xsl"), tmpTransform.getAbsolutePath(), null);
-      Utilities.saxonTransform(Utilities.path(page.getFolders().rootDir, "tools", "schematron"), Utilities.path(page.getFolders().dstDir, n + ".xml"),
-          tmpTransform.getAbsolutePath(), tmpOutput.getAbsolutePath(), null);
-    } catch (Throwable t) {
-      //      throw new Exception("Error validating " + page.getFolders().dstDir + n + ".xml with schematrons", t);
-    }
-
-    factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(true);
-    builder = factory.newDocumentBuilder();
-    doc = builder.parse(new CSFileInputStream(tmpOutput.getAbsolutePath()));
-    NodeList nl = doc.getDocumentElement().getElementsByTagNameNS("http://purl.oclc.org/dsdl/svrl", "failed-assert");
-    if (nl.getLength() > 0) {
-      logError("Schematron Validation Failed for " + n + ".xml:", LogMessageType.Error);
-      for (int i = 0; i < nl.getLength(); i++) {
-        Element e = (Element) nl.item(i);
-        logError("  @" + e.getAttribute("location") + ": " + e.getTextContent(), LogMessageType.Error);
-        page.getValidationErrors().add(new ValidationMessage(Source.InstanceValidator, IssueType.STRUCTURE, -1, -1, n+":"+e.getAttribute("location"), e.getTextContent(), IssueSeverity.ERROR));
-        errorCount++;
-      }
-    }
-  }
-
-  StringBuilder vallog = new StringBuilder();
-
-  private void logError(String string, LogMessageType typeforSeverity) {
-    page.log(string, typeforSeverity);
-    vallog.append(string+"\r\n");
-    try {
-      TextFile.stringToFileNoPrefix(vallog.toString(), "validation.log");
-    } catch (Exception e) {
-    }
-  }
-
-  private LogMessageType typeforSeverity(IssueSeverity level) {
-    switch (level) {
-    case ERROR:
-      return LogMessageType.Error;
-    case FATAL:
-      return LogMessageType.Error;
-    case INFORMATION:
-      return LogMessageType.Hint;
-    case WARNING:
-      return LogMessageType.Warning;
-    default:
-      return LogMessageType.Error;
-    }
-  }
-
-  private void testSearchParameters(String filename) throws Exception {
-    // load the xml
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(true);
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    Document xml = builder.parse(new CSFileInputStream(new CSFile(filename)));
-
-    if (xml.getDocumentElement().getNodeName().equals("Bundle")) {
-      // iterating the entries running xpaths takes too long. What we're going to do
-      // is list all the resources, and then evaluate all the paths...
-      Set<String> names = new HashSet<String>();
-      Element child = XMLUtil.getFirstChild(xml.getDocumentElement());
-      while (child != null) {
-        if (child.getNodeName().equals("entry")) {
-          Element grandchild = XMLUtil.getFirstChild(child);
-          while (grandchild != null) {
-            if (grandchild.getNodeName().equals("resource"))
-              names.add(XMLUtil.getFirstChild(grandchild).getNodeName());
-            grandchild = XMLUtil.getNextSibling(grandchild);
-          }
-        }
-        child = XMLUtil.getNextSibling(child);
-      }
-      for (String name : names)
-        testSearchParameters(xml.getDocumentElement(), name, true);
-    } else {
-      testSearchParameters(xml.getDocumentElement(), xml.getDocumentElement().getNodeName(), false);
-    }
-  }
-
-  private void testSearchParameters(Element e, String name, boolean inBundle) throws Exception {
-    ResourceDefn r = page.getDefinitions().getResourceByName(name);
-    for (SearchParameterDefn sp : r.getSearchParams().values()) {
-      if (sp.getXPath() != null) {
-        try {
-          NamespaceContext context = new NamespaceContextMap("f", "http://hl7.org/fhir", "h", "http://www.w3.org/1999/xhtml");
-          XPathFactory factory = XPathFactory.newInstance();
-          XPath xpath = factory.newXPath();
-          xpath.setNamespaceContext(context);
-          XPathExpression expression;
-          expression = inBundle ? xpath.compile("/f:Bundle/f:entry/f:resource/"+sp.getXPath()) : xpath.compile("/"+sp.getXPath());
-          NodeList resultNodes = (NodeList) expression.evaluate(e, XPathConstants.NODESET);
-          if (resultNodes.getLength() > 0)
-            sp.setWorks(true);
-        } catch (Exception e1) {
-          page.log("Xpath \"" + sp.getXPath() + "\" execution failed: " + e1.getMessage(), LogMessageType.Error);
-        }
-      }
-    }
-  }
 
   private void compareXml(String t, String n, String fn1, String fn2) throws Exception {
     char sc = File.separatorChar;

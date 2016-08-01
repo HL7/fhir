@@ -53,7 +53,7 @@ public class JsonParser extends ParserBase {
 	}
 
 	@Override
-	public Element parse(InputStream stream) throws Exception {
+	public Element parse(InputStream stream) throws IOException, FHIRFormatError, DefinitionException {
 		// if we're parsing at this point, then we're going to use the custom parser
 		map = new HashMap<JsonElement, LocationData>();
 		String source = TextFile.streamToString(stream);
@@ -74,12 +74,12 @@ public class JsonParser extends ParserBase {
 		} 
 	}
 
-	public Element parse(JsonObject object, Map<JsonElement, LocationData> map) throws Exception {
+	public Element parse(JsonObject object, Map<JsonElement, LocationData> map) throws FHIRFormatError, DefinitionException {
 		this.map = map;
 		return parse(object);
 	}
 
-	public Element parse(JsonObject object) throws Exception {
+  public Element parse(JsonObject object) throws FHIRFormatError, DefinitionException {
 		JsonElement rt = object.get("resourceType");
 		if (rt == null) {
 			logError(line(object), col(object), "$", IssueType.INVALID, "Unable to find resourceType property", IssueSeverity.FATAL);

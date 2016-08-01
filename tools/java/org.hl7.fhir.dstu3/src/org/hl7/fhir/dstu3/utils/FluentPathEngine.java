@@ -1662,7 +1662,7 @@ public class FluentPathEngine {
 	private List<Base> execute(ExecutionContext context, Base item, ExpressionNode exp, boolean atEntry) throws FHIRException {
     List<Base> result = new ArrayList<Base>(); 
     if (atEntry && Character.isUpperCase(exp.getName().charAt(0))) {// special case for start up
-      if (item instanceof Resource && ((Resource) item).getResourceType().toString().equals(exp.getName()))  
+      if (item.isResource() && item.fhirType().equals(exp.getName()))  
         result.add(item);
     } else
       getChildrenByName(item, exp.getName(), result);
