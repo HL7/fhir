@@ -1932,7 +1932,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void genWrapper(FetchedFile ff, FetchedResource r, String template, String outputName, Set<String> outputTracker, Map<String, String> vars, String format, String extension) throws FileNotFoundException, IOException {
-    if (template != null) {
+    if (template != null && !template.isEmpty()) {
       boolean existsAsPage = false;
       if (ff != null) {
         String fn = igpkp.getLinkFor(ff, r);

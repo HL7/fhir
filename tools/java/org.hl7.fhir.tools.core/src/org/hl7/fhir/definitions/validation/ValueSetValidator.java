@@ -87,6 +87,7 @@ public class ValueSetValidator extends BaseValidator {
     codeSystems.add("http://www.whocc.no/atc");
     codeSystems.add("urn:ietf:bcp:47");
     codeSystems.add("urn:ietf:bcp:13");
+    codeSystems.add("urn:ietf:rfc:3986");
     codeSystems.add("urn:iso:std:iso:11073:10101");
     codeSystems.add("http://www.genenames.org");
     codeSystems.add("http://www.ensembl.org");
