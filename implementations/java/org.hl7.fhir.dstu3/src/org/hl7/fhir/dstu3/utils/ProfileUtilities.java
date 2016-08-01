@@ -356,6 +356,7 @@ public class ProfileUtilities {
                 generateSnapshot(sdb, sd, sd.getUrl(), sd.getName());
               }
               template = sd.getSnapshot().getElement().get(0).copy().setPath(currentBase.getPath());
+              template.setName(null);
               // temporary work around
               if (!diffMatches.get(0).getType().get(0).getCode().equals("Extension")) {
                 template.setMin(currentBase.getMin());
@@ -1401,7 +1402,7 @@ public class ProfileUtilities {
             c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getProfile(), null)));
         } else if (t.hasProfile() && t.getProfile().startsWith("#"))
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+t.getProfile().substring(1).toLowerCase()+".html", t.getProfile(), null)));
-        else
+        else if (t.hasProfile())
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+t.getProfile(), t.getProfile(), null)));
         if (!allReference) {
           c.getPieces().add(gen.new Piece(null, ")", null));
@@ -1423,6 +1424,9 @@ public class ProfileUtilities {
         ref = pkp.getLinkForProfile(profile, t.getProfile());
         if (ref != null) {
           String[] parts = ref.split("\\|");
+          if (parts[0].startsWith("http:") || parts[0].startsWith("https:"))
+            c.addPiece(checkForNoChange(t, gen.new Piece(parts[0], parts[1], t.getCode())));
+          else
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+parts[0], parts[1], t.getCode())));
         } else
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+ref, t.getCode(), null)));
@@ -1460,7 +1464,7 @@ public class ProfileUtilities {
 
 
   private String checkPrepend(String corePath, String path) {
-    if (pkp.prependLinks())
+    if (pkp.prependLinks() && !(path.startsWith("http:") || path.startsWith("https:")))
       return corePath+path;
     else 
       return path;

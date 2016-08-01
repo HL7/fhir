@@ -372,7 +372,7 @@ public class Element extends Base {
 
   @Override
   public String toString() {
-    return fhirType() + "["+(children == null || hasValue() ? value : Integer.toString(children.size())+" children")+"]";
+    return name+"="+fhirType() + "["+(children == null || hasValue() ? value : Integer.toString(children.size())+" children")+"]";
   }
 
 //  @Override

@@ -120,7 +120,7 @@ public class Turtle {
       if (link == null)
         return predicate;
       else
-        return "<a href=\""+link+"\">"+predicate+"</a>";
+        return "<a href=\""+link+"\">"+Utilities.escapeXml(predicate)+"</a>";
     }
 		
     public List<Triple> getObjects() {
@@ -346,7 +346,7 @@ public class Turtle {
 
   public String asHtml() throws Exception {
     StringBuilder b = new StringBuilder();
-    b.append("<pre class\"rdf\">\r\n");
+    b.append("<pre class=\"rdf\">\r\n");
     commitPrefixes(b);
     for (Section s : sections) {
       commitSection(b, s);
@@ -444,7 +444,7 @@ public class Turtle {
     b.append("# - "+section.name+" "+Utilities.padLeft("", '-', 75-section.name.length())+"\r\n");
     b.append("\r\n");
     for (Subject sbj : section.subjects) {
-      b.append(sbj.id);
+      b.append(Utilities.escapeXml(sbj.id));
       b.append(" ");
       int i = 0;
 
