@@ -19,7 +19,6 @@ import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.publisher.HTLMLInspector.HtmlChangeListenerContext;
-import org.hl7.fhir.igtools.publisher.HTLMLInspector.HtmlSanitizerObserver;
 import org.hl7.fhir.igtools.publisher.HTLMLInspector.LoadedFile;
 import org.hl7.fhir.igtools.publisher.HTLMLInspector.StringPair;
 import org.hl7.fhir.utilities.TextFile;
@@ -29,14 +28,14 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode.Location;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 
-import org.owasp.html.Handler;
-import org.owasp.html.HtmlChangeListener;
-import org.owasp.html.HtmlPolicyBuilder;
-import org.owasp.html.HtmlSanitizer;
-import org.owasp.html.HtmlStreamEventReceiver;
-import org.owasp.html.HtmlStreamRenderer;
-import org.owasp.html.PolicyFactory;
-import org.owasp.html.Sanitizers;
+//import org.owasp.html.Handler;
+//import org.owasp.html.HtmlChangeListener;
+//import org.owasp.html.HtmlPolicyBuilder;
+//import org.owasp.html.HtmlSanitizer;
+//import org.owasp.html.HtmlStreamEventReceiver;
+//import org.owasp.html.HtmlStreamRenderer;
+//import org.owasp.html.PolicyFactory;
+//import org.owasp.html.Sanitizers;
 
 public class HTLMLInspector {
 
@@ -52,19 +51,18 @@ public class HTLMLInspector {
 
   }
 
-  public class HtmlSanitizerObserver implements HtmlChangeListener<HtmlChangeListenerContext> {
-
-    @Override
-    public void discardedAttributes(HtmlChangeListenerContext ctxt, String elementName, String... attributeNames) {
-      ctxt.messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, ctxt.source, "the element "+elementName+" attributes failed security testing", IssueSeverity.ERROR));
-    }
-
-    @Override
-    public void discardedTag(HtmlChangeListenerContext ctxt, String elementName) {
-      ctxt.messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, ctxt.source, "the element "+elementName+" failed security testing", IssueSeverity.ERROR));
-    }
-
-  }
+//  public class HtmlSanitizerObserver implements HtmlChangeListener<HtmlChangeListenerContext> {
+//
+//    @Override
+//    public void discardedAttributes(HtmlChangeListenerContext ctxt, String elementName, String... attributeNames) {
+//      ctxt.messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, ctxt.source, "the element "+elementName+" attributes failed security testing", IssueSeverity.ERROR));
+//    }
+//
+//    @Override
+//    public void discardedTag(HtmlChangeListenerContext ctxt, String elementName) {
+//      ctxt.messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, ctxt.source, "the element "+elementName+" failed security testing", IssueSeverity.ERROR));
+//    }
+//  }
 
   public class StringPair {
     private String source;
