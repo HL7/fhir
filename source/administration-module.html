@@ -30,47 +30,63 @@ in order to support consistent definitions for schema and UML derived code.
 
         <a name="index"> </a>
         <h3>Index</h3>
-        <p>
-            <b>Patient Registers</b>
-        </p>
-        <ul>
-            <li><a href="patient.html">Patient</a></li>
-            <li><a href="relatedperson.html">RelatedPerson</a></li>
-            <li><a href="person.html">Person</a></li>
-            <li><a href="group.html">Group</a></li>
-        </ul>
+        <table class="bare">
+            [%res-category Patient Registers|Track people involved in receiving healthcare, the basics nearly everything else references back to%]
+            <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+            [%res-item Patient%]
+            [%res-item RelatedPerson%]
+            [%res-item Person%]
+            [%res-item Group%]
+        </table>
 
+        <table class="bare">
+            [%res-category Clinical Categorization Resources|Most clinical actitivies occur grouped in some way. Long term care is typically covered by an EpisodeOfCare, where short term care by encounters. Account associates the tracking of transactions back to a Patient (or other resource). Flag is just used to highlight a warning or other notification about a patient (or other resource)%]
+            <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+            [%res-item EpisodeOfCare%]
+            [%res-item Encounter%]
+            [%res-item Account%]
+            [%res-item Flag%]
+        </table>
+        <div>
+            <img src="administration-module-interactions.png" alt="Image showing the administration interactions" width="600px" />
+        </div>
         <p>
-            <b>Clinical Categorization resources</b>
+            <blockquote>
+                <em>Note:</em> The Billable Item resource does not exist at the moment, but is proposed to be the link between the
+                encounters and the billing/climing systems.
+            </blockquote>
         </p>
-        <ul>
-            <li><a href="episodeofcare.html">EpisodeOfCare</a></li>
-            <li><a href="encounter.html">Encounter</a></li>
-            <li><a href="account.html">Account</a></li>
-            <li><a href="flag.html">Flag</a></li>
-        </ul>
 
+        <table class="bare">
+            [%res-category Service Provider Directory Resources|Service Directory resources are usually stored in the administration section of applications, and may even be synchronized from external systems. %]
+            <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+            [%res-item Organization%]
+            [%res-item Location%]
+            [%res-item Practitioner%]
+            [%res-item HealthcareService%]
+            [%res-item Endpoint%]
+            [%res-item PractitionerRole%]
+        </table>
+        <div>
+            <img src="administration-module-prov-dir.png" alt="Image showing the provider directory resources" width="513px" />
+        </div>
         <p>
-            <b>Service Provider Directory Resources</b>
+            <blockquote>
+                <em>Note:</em> The PractitionerRole resource is a draft concept to experiment with the
+                extraction from within the practitioner resource. It will be the subject of a Provider Directory Connectathon,
+                and the Baltimore WGM Connectathon in September 2016<br />
+                If this is approved, then the Role component in Practitioner would likely be removed.
+            </blockquote>
         </p>
-        <ul>
-            <li><a href="organization.html">Organization</a></li>
-            <li><a href="location.html">Location</a></li>
-            <li><a href="practitioner.html">Practitioner</a></li>
-            <li><a href="practitionerrole.html">PractitionerRole (draft concept, considering extraction from practitioner)</a></li>
-            <li><a href="healthcareservice.html">HealthcareService</a></li>
-            <li><a href="endpoint.html">Endpoint</a></li>
-        </ul>
 
-        <p>
-            <b>Other administrative resource</b>
-        </p>
-        <ul>
-            <li><a href="device.html">Device</a></li>
-            <li><a href="devicecomponent.html">DeviceComponent</a></li>
-            <li><a href="devicemetric.html">DeviceMetric</a></li>
-            <li><a href="substance.html">Substance</a></li>
-        </ul>
+        <table class="bare">
+            [%res-category Devices and Substances|Other assets are often registered in the administration system, and maintained as master files. %]
+            <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+            [%res-item Device%]
+            [%res-item DeviceComponent%]
+            [%res-item DeviceMetric%]
+            [%res-item Substance%]
+        </table>
 
 
         <a name="secpriv"> </a>
