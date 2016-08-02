@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
       
-[%settitle Clinical Quality Improvement Framework (CQIF) Implementation Guide%]
+[%settitle Clinical Quality Framework (CQF) Implementation Guide%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -17,76 +17,76 @@
 <a name="service-modules"></a>
 <h4>Decision Support Service Modules</h4>
 
-<p>The <a href="[%fhir-path%]decisionsupportservicemodule.html">DecisionSupportServiceModule</a> resource provides a mechanism for describing the functionality made available by a particular service. For example, a service may provide an immunization forecasting module, or drug-drug interaction checking. From the perspective of the consumer, how this functionality is performed is irrelevant, the only aspect of interest is a description of what the module does, and the inputs and outputs it requires.</p>
+<p>The <a href="[%fhir-path%]decisionsupportservicemodule.html">DecisionSupportServiceModule</a> resource provides a mechanism for describing the functionality made available by a particular service. For example, a service may provide an immunization forecasting module, or drug-drug interaction checking. From the perspective of the consumer, how this functionality is performed is irrelevant, the only aspect of interest is a description of what the service module does, and the inputs and outputs it requires.</p>
 
 <p>As such, this resource uses the same metadata elements to define the common information relevant to all knowledge artifacts, and then defines the input and output parameters as well as any data requirements for the service module in the same way that parameters and data requirements are defined for expression logic in general.</p>
 
 <p>As an example, the functionality defined by the <a href="[%fhir-path%]gao/gao.html">Guideline Appropriate Ordering IG</a> can be expressed as a DecisionSupportServiceModule: <a href="[%fhir-path%]decisionsupportservicemodule-example.html">Decision Support Service Module Example</a>.</p>
 
-<pre><code>	&lt;DecisionSupportServiceModule&gt;
-	  &lt;id value=&quot;example&quot;/&gt;
-	  &lt;text&gt;
-		&lt;status value=&quot;generated&quot; /&gt;
-		&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;Guideline Appropriate Ordering Module&lt;/div&gt;
-	  &lt;/text&gt;
-	  
-		&lt;identifier&gt;
-		  &lt;use value=&quot;official&quot;/&gt;
-		  &lt;value value=&quot;guildeline-appropriate-ordering&quot;/&gt;
-		&lt;/identifier&gt;
-		&lt;version value=&quot;1.0.0&quot;/&gt;
-		&lt;title value=&quot;Guideline Appropriate Ordering Module&quot;/&gt;
-		&lt;status value=&quot;draft&quot;/&gt;
-		&lt;description value=&quot;Guideline appropriate ordering is used to assess appropriateness of an order given a patient, a proposed order, and a set of clinical indications.&quot;/&gt;
-		&lt;publicationDate value=&quot;2015-07-22&quot;/&gt;
-		&lt;topic&gt;
-			&lt;text value=&quot;Guideline Appropriate Ordering&quot;/&gt;
-		&lt;/topic&gt;
-		&lt;topic&gt;
-			&lt;text value=&quot;Appropriate Use Criteria&quot;/&gt;
-		&lt;/topic&gt;
-	  
-		&lt;!-- Patient Parameter --&gt;
-		&lt;parameter&gt;
-			&lt;name value=&quot;patient&quot;/&gt;
-			&lt;use value=&quot;in&quot;/&gt;
-			&lt;type value=&quot;Patient&quot;/&gt;
-			&lt;profile&gt;
-				&lt;reference value=&quot;http://hl7.org/fhir/StructureDefinition/gao-patient&quot;/&gt;
-			&lt;/profile&gt;
-		&lt;/parameter&gt;
-	
-		&lt;!-- Order Parameter --&gt;
-		&lt;parameter&gt;
-			&lt;name value=&quot;order&quot;/&gt;
-			&lt;use value=&quot;in&quot;/&gt;
-			&lt;type value=&quot;Order&quot;/&gt;
-			&lt;profile&gt;
-				&lt;reference value=&quot;http://hl7.org/fhir/StructureDefinition/gao-order&quot;/&gt;
-			&lt;/profile&gt;
-		&lt;/parameter&gt;
-		
-		&lt;!-- Order Output --&gt;
-		&lt;parameter&gt;
-			&lt;name value=&quot;order&quot;/&gt;
-			&lt;use value=&quot;out&quot;/&gt;
-			&lt;type value=&quot;Order&quot;/&gt;
-			&lt;profile&gt;
-				&lt;reference value=&quot;http://hl7.org/fhir/StructureDefinition/gao-order&quot;/&gt;
-			&lt;/profile&gt;
-		&lt;/parameter&gt;
-		
-		&lt;!-- Result --&gt;
-		&lt;parameter&gt;
-			&lt;name value=&quot;result&quot;/&gt;
-			&lt;use value=&quot;out&quot;/&gt;
-			&lt;type value=&quot;Basic&quot;/&gt;
-			&lt;profile&gt;
-				&lt;reference value=&quot;http://hl7.org/fhir/StructureDefinition/gao-result&quot;/&gt;
-			&lt;/profile&gt;
-		&lt;/parameter&gt;
-		
-	&lt;/DecisionSupportServiceModule&gt;
+<pre><code>&lt;DecisionSupportServiceModule&gt;
+  &lt;id value=&quot;example&quot;/&gt;
+  &lt;text&gt;
+  &lt;status value=&quot;generated&quot; /&gt;
+  &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;Guideline Appropriate Ordering Module&lt;/div&gt;
+  &lt;/text&gt;
+    
+  &lt;identifier&gt;
+    &lt;use value=&quot;official&quot;/&gt;
+    &lt;value value=&quot;guildeline-appropriate-ordering&quot;/&gt;
+  &lt;/identifier&gt;
+  &lt;version value=&quot;1.0.0&quot;/&gt;
+  &lt;title value=&quot;Guideline Appropriate Ordering Module&quot;/&gt;
+  &lt;status value=&quot;draft&quot;/&gt;
+  &lt;description value=&quot;Guideline appropriate ordering is used to assess appropriateness of an order given a patient, a proposed order, and a set of clinical indications.&quot;/&gt;
+  &lt;publicationDate value=&quot;2015-07-22&quot;/&gt;
+  &lt;topic&gt;
+    &lt;text value=&quot;Guideline Appropriate Ordering&quot;/&gt;
+  &lt;/topic&gt;
+  &lt;topic&gt;
+    &lt;text value=&quot;Appropriate Use Criteria&quot;/&gt;
+  &lt;/topic&gt;
+    
+  &lt;!-- Patient Parameter --&gt;
+  &lt;parameter&gt;
+    &lt;name value=&quot;patient&quot;/&gt;
+    &lt;use value=&quot;in&quot;/&gt;
+    &lt;type value=&quot;Patient&quot;/&gt;
+    &lt;profile&gt;
+      &lt;reference value=&quot;http://hl7.org/fhir/StructureDefinition/gao-patient&quot;/&gt;
+    &lt;/profile&gt;
+  &lt;/parameter&gt;
+
+  &lt;!-- Order Parameter --&gt;
+  &lt;parameter&gt;
+    &lt;name value=&quot;order&quot;/&gt;
+    &lt;use value=&quot;in&quot;/&gt;
+    &lt;type value=&quot;Order&quot;/&gt;
+    &lt;profile&gt;
+      &lt;reference value=&quot;http://hl7.org/fhir/StructureDefinition/gao-order&quot;/&gt;
+    &lt;/profile&gt;
+  &lt;/parameter&gt;
+  
+  &lt;!-- Order Output --&gt;
+  &lt;parameter&gt;
+    &lt;name value=&quot;order&quot;/&gt;
+    &lt;use value=&quot;out&quot;/&gt;
+    &lt;type value=&quot;Order&quot;/&gt;
+    &lt;profile&gt;
+      &lt;reference value=&quot;http://hl7.org/fhir/StructureDefinition/gao-order&quot;/&gt;
+    &lt;/profile&gt;
+  &lt;/parameter&gt;
+  
+  &lt;!-- Result --&gt;
+  &lt;parameter&gt;
+    &lt;name value=&quot;result&quot;/&gt;
+    &lt;use value=&quot;out&quot;/&gt;
+    &lt;type value=&quot;Basic&quot;/&gt;
+    &lt;profile&gt;
+      &lt;reference value=&quot;http://hl7.org/fhir/StructureDefinition/gao-result&quot;/&gt;
+    &lt;/profile&gt;
+  &lt;/parameter&gt;
+    
+&lt;/DecisionSupportServiceModule&gt;
 </code></pre>
 
 <a name="guidance-request"/>
@@ -98,173 +98,175 @@
 
 <p>The $evaluate operation provides a complete example of a request and response using the Guideline Appropriate Ordering decision support service module: <a href="[%fhir-path%]decisionsupportservicemodule-operations.html#4.10.8.1.1">$evaluate operation example</a>:</p>
 
-<pre><code>	POST [base]/DecisionSupportServiceModule/example/$evaluate
-	
-	&lt;Parameters&gt;
-		&lt;id value=&quot;evaluate-operation-request-example&quot;/&gt;
-		&lt;!--  This example demonstrates the $evaluate operation against a DecisionSupportServiceModule resource. --&gt;
-		&lt;parameter&gt;
-			&lt;name value=&quot;requestId&quot;/&gt;
-			&lt;valueString value=&quot;guidanceRequest1&quot;/&gt;
-		&lt;/parameter&gt;
-		&lt;parameter&gt;
-			&lt;name value=&quot;setting&quot;/&gt;
-			&lt;valueCoding&gt;
-				&lt;system value=&quot;http://hl7.org/fhir/encounter-class&quot;/&gt;
-				&lt;code value=&quot;inpatient&quot;/&gt;
-			&lt;/valueCoding&gt;
-		&lt;/parameter&gt;
-		&lt;parameter&gt;
-			&lt;name value=&quot;patient&quot;/&gt;
-			&lt;resource&gt;
-				&lt;Patient&gt;
-					&lt;id value=&quot;example&quot;/&gt;
-					&lt;meta&gt;
-						&lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/qicore-patient&quot;/&gt;
-						&lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/gao-patient&quot;/&gt;
-					&lt;/meta&gt;
-					... &lt;!-- Excluded for brevity --&gt;
-				&lt;/Patient&gt;
-			&lt;/resource&gt;
-		&lt;/parameter&gt;
-		&lt;parameter&gt;
-			&lt;name value=&quot;order&quot;/&gt;
-			&lt;resource&gt;
-				&lt;Order&gt;
-					&lt;id value=&quot;order1&quot;/&gt;
-					&lt;meta&gt;
-						&lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/gao-order&quot;/&gt;
-					&lt;/meta&gt;
-					&lt;contained&gt;
-						&lt;DiagnosticRequest&gt;
-							&lt;id value=&quot;DiagnosticRequest1&quot;/&gt;
-							&lt;meta&gt;
-								&lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/gao-diagnosticrequest&quot;/&gt;
-							&lt;/meta&gt;
-							&lt;subject&gt;
-								&lt;reference value=&quot;Patient/example&quot;/&gt;
-							&lt;/subject&gt;
-							&lt;item&gt;
-								&lt;code&gt;
-									&lt;coding&gt;
-										&lt;system value=&quot;http://www.ama-assn.org/go/cpt&quot;/&gt;
-										&lt;code value=&quot;70450&quot;/&gt;
-										&lt;display value=&quot;CT, head, wo iv contrast&quot;/&gt;
-									&lt;/coding&gt;
-								&lt;/code&gt;
-							&lt;/item&gt;
-						&lt;/DiagnosticRequest&gt;
-					&lt;/contained&gt;
-					&lt;date value=&quot;2012-12-28T09:03:04+11:00&quot;/&gt;
-					&lt;subject&gt;
-						&lt;reference value=&quot;Patient/example&quot;/&gt;
-					&lt;/subject&gt;
-					&lt;source&gt;
-						&lt;reference value=&quot;Practitioner/example&quot;/&gt;
-					&lt;/source&gt;
-					&lt;reasonCodeableConcept&gt;
-						&lt;coding&gt;
-							&lt;system value=&quot;http://hl7.org/fhir/sid/icd-9&quot;/&gt;
-							&lt;code value=&quot;70450&quot;/&gt;
-							&lt;display value=&quot;Headache, Chronic, no new features&quot;/&gt;
-						&lt;/coding&gt;
-					&lt;/reasonCodeableConcept&gt;
-					&lt;detail&gt;
-						&lt;reference value=&quot;#DiagnosticRequest1&quot;/&gt;
-					&lt;/detail&gt;
-				&lt;/Order&gt;
-			&lt;/resource&gt;
-		&lt;/parameter&gt;
-	&lt;/Parameters&gt;
+<pre><code>POST [base]/DecisionSupportServiceModule/example/$evaluate
+  
+&lt;Parameters&gt;
+  &lt;id value=&quot;evaluate-operation-request-example&quot;/&gt;
+  &lt;!--  This example demonstrates the $evaluate operation against a DecisionSupportServiceModule resource. --&gt;
+  &lt;parameter&gt;
+    &lt;name value=&quot;requestId&quot;/&gt;
+    &lt;valueString value=&quot;guidanceRequest1&quot;/&gt;
+  &lt;/parameter&gt;
+  &lt;parameter&gt;
+    &lt;name value=&quot;setting&quot;/&gt;
+    &lt;valueCoding&gt;
+      &lt;system value=&quot;http://hl7.org/fhir/encounter-class&quot;/&gt;
+      &lt;code value=&quot;inpatient&quot;/&gt;
+    &lt;/valueCoding&gt;
+  &lt;/parameter&gt;
+  &lt;parameter&gt;
+    &lt;name value=&quot;patient&quot;/&gt;
+    &lt;resource&gt;
+      &lt;Patient&gt;
+        &lt;id value=&quot;example&quot;/&gt;
+        &lt;meta&gt;
+          &lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/qicore-patient&quot;/&gt;
+          &lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/gao-patient&quot;/&gt;
+        &lt;/meta&gt;
+        ... &lt;!-- Excluded for brevity --&gt;
+      &lt;/Patient&gt;
+    &lt;/resource&gt;
+  &lt;/parameter&gt;
+  &lt;parameter&gt;
+    &lt;name value=&quot;order&quot;/&gt;
+    &lt;resource&gt;
+      &lt;Order&gt;
+        &lt;id value=&quot;order1&quot;/&gt;
+        &lt;meta&gt;
+          &lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/gao-order&quot;/&gt;
+        &lt;/meta&gt;
+        &lt;contained&gt;
+          &lt;DiagnosticRequest&gt;
+            &lt;id value=&quot;DiagnosticRequest1&quot;/&gt;
+            &lt;meta&gt;
+              &lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/gao-diagnosticrequest&quot;/&gt;
+            &lt;/meta&gt;
+            &lt;subject&gt;
+              &lt;reference value=&quot;Patient/example&quot;/&gt;
+            &lt;/subject&gt;
+            &lt;item&gt;
+              &lt;code&gt;
+                &lt;coding&gt;
+                  &lt;system value=&quot;http://www.ama-assn.org/go/cpt&quot;/&gt;
+                  &lt;code value=&quot;70450&quot;/&gt;
+                  &lt;display value=&quot;CT, head, wo iv contrast&quot;/&gt;
+                &lt;/coding&gt;
+              &lt;/code&gt;
+            &lt;/item&gt;
+          &lt;/DiagnosticRequest&gt;
+        &lt;/contained&gt;
+        &lt;date value=&quot;2012-12-28T09:03:04+11:00&quot;/&gt;
+        &lt;subject&gt;
+          &lt;reference value=&quot;Patient/example&quot;/&gt;
+        &lt;/subject&gt;
+        &lt;source&gt;
+          &lt;reference value=&quot;Practitioner/example&quot;/&gt;
+        &lt;/source&gt;
+        &lt;reasonCodeableConcept&gt;
+          &lt;coding&gt;
+            &lt;system value=&quot;http://hl7.org/fhir/sid/icd-9&quot;/&gt;
+            &lt;code value=&quot;70450&quot;/&gt;
+            &lt;display value=&quot;Headache, Chronic, no new features&quot;/&gt;
+          &lt;/coding&gt;
+        &lt;/reasonCodeableConcept&gt;
+        &lt;detail&gt;
+          &lt;reference value=&quot;#DiagnosticRequest1&quot;/&gt;
+        &lt;/detail&gt;
+      &lt;/Order&gt;
+    &lt;/resource&gt;
+  &lt;/parameter&gt;
+&lt;/Parameters&gt;
 </code></pre>
 
 <p>The above example uses the profiles defined in the <a href="[%fhir-path%]gao/gao.html">Guideline Appropriate Ordering IG</a>. In this specific case, the request includes the patient information, and the order being assessed including the indication and the procedure.</p>
 
 <p>If the appropriateness tests succeeds, the response provides an appropriateness score based on a specific guideline:</p>
 
-<pre><code>	&lt;GuidanceResponse&gt;
-		&lt;!-- This example demonstrates the response to an $evaluate operation using the GuidanceResponse resource. --&gt;
-		&lt;contained&gt;
-			&lt;Parameters &gt;
-				&lt;id value=&quot;outputParameters1&quot;/&gt;
-				&lt;parameter&gt;
-					&lt;name value=&quot;order&quot;/&gt;
-					&lt;valueReference&gt;
-						&lt;reference value=&quot;#order1&quot;/&gt;
-					&lt;/valueReference&gt;
-				&lt;/parameter&gt;
-				&lt;parameter&gt;
-					&lt;name value=&quot;result&quot;/&gt;
-					&lt;resource&gt;
-						&lt;!-- GAO Result, profile of Basic --&gt;
-						&lt;Basic&gt;
-							&lt;id value=&quot;result1&quot;/&gt;
-							&lt;meta&gt;
-								&lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-gao-result&quot;/&gt;
-							&lt;/meta&gt;
-							&lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-score&quot;&gt;
-								&lt;valueDecimal value=&quot;7&quot;/&gt;
-							&lt;/extension&gt;
-							&lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-item&quot;&gt;
-								&lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-item#code&quot;&gt;
-									&lt;valueCodeableConcept&gt;
-										&lt;coding&gt;
-											&lt;system value=&quot;http://www.ama-assn.org/go/cpt&quot;/&gt;
-											&lt;code value=&quot;70450&quot;/&gt;
-											&lt;display value=&quot;CT, head, wo iv contrast&quot;/&gt;
-										&lt;/coding&gt;  
-									&lt;/valueCodeableConcept&gt;
-								&lt;/extension&gt;
-							&lt;/extension&gt;
-							&lt;!-- Appropriate Use Criteria Identifier --&gt;
-							&lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-guideline&quot;&gt;
-								&lt;valueUri value=&quot;http://someguidelineprovider.org/radiology-appropriateness-guidelines.html&quot;/&gt;
-							&lt;/extension&gt;
-							&lt;!-- Certified HealthCare Information Technology Identifier --&gt;
-							&lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-device&quot;&gt;
-								&lt;valueReference&gt;
-									&lt;reference value=&quot;#device1&quot;/&gt;
-								&lt;/valueReference&gt;
-							&lt;/extension&gt;
-							&lt;!-- Provider NPI --&gt;
-							&lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-practitioner&quot;&gt;
-								&lt;valueIdentifier&gt;
-									&lt;value value=&quot;exampleNPI&quot;/&gt;
-								&lt;/valueIdentifier&gt;
-							&lt;/extension&gt;
-							&lt;identifier&gt;
-								&lt;value value=&quot;result1&quot;/&gt;
-							&lt;/identifier&gt;
-							&lt;code&gt;
-								&lt;coding&gt;
-									&lt;code value=&quot;within&quot;/&gt;
-									&lt;display value=&quot;Order is within identified guidelines&quot;/&gt;
-								&lt;/coding&gt;
-							&lt;/code&gt;
-							&lt;subject&gt;
-								&lt;reference value=&quot;#order1&quot;/&gt;
-							&lt;/subject&gt;
-						&lt;/Basic&gt;
-					&lt;/resource&gt;
-				&lt;/parameter&gt;
-			&lt;/Parameters&gt;
-		&lt;/contained&gt;
-		&lt;requestId value=&quot;guidanceRequest1&quot;/&gt;
-		&lt;module&gt;
-			&lt;reference value=&quot;DecisionSupportServiceModule/example&quot;/&gt;
-		&lt;/module&gt;
-		&lt;status value=&quot;success&quot;/&gt;
-		&lt;outputParameters&gt;
-			&lt;reference value=&quot;#outputParameters1&quot;/&gt;
-		&lt;/outputParameters&gt;
-	&lt;/GuidanceResponse&gt;
+<pre><code>&lt;GuidanceResponse&gt;
+  &lt;!-- This example demonstrates the response to an $evaluate operation using the GuidanceResponse resource. --&gt;
+  &lt;contained&gt;
+    &lt;Parameters &gt;
+      &lt;id value=&quot;outputParameters1&quot;/&gt;
+      &lt;parameter&gt;
+        &lt;name value=&quot;order&quot;/&gt;
+        &lt;valueReference&gt;
+          &lt;reference value=&quot;#order1&quot;/&gt;
+        &lt;/valueReference&gt;
+      &lt;/parameter&gt;
+      &lt;parameter&gt;
+        &lt;name value=&quot;result&quot;/&gt;
+        &lt;resource&gt;
+          &lt;!-- GAO Result, profile of Basic --&gt;
+          &lt;Basic&gt;
+            &lt;id value=&quot;result1&quot;/&gt;
+            &lt;meta&gt;
+              &lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-gao-result&quot;/&gt;
+            &lt;/meta&gt;
+            &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-score&quot;&gt;
+              &lt;valueDecimal value=&quot;7&quot;/&gt;
+            &lt;/extension&gt;
+            &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-item&quot;&gt;
+              &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-item#code&quot;&gt;
+                &lt;valueCodeableConcept&gt;
+                  &lt;coding&gt;
+                    &lt;system value=&quot;http://www.ama-assn.org/go/cpt&quot;/&gt;
+                    &lt;code value=&quot;70450&quot;/&gt;
+                    &lt;display value=&quot;CT, head, wo iv contrast&quot;/&gt;
+                  &lt;/coding&gt;  
+                &lt;/valueCodeableConcept&gt;
+              &lt;/extension&gt;
+            &lt;/extension&gt;
+            &lt;!-- Appropriate Use Criteria Identifier --&gt;
+            &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-guideline&quot;&gt;
+              &lt;valueUri value=&quot;http://someguidelineprovider.org/radiology-appropriateness-guidelines.html&quot;/&gt;
+            &lt;/extension&gt;
+            &lt;!-- Certified HealthCare Information Technology Identifier --&gt;
+            &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-device&quot;&gt;
+              &lt;valueReference&gt;
+                &lt;reference value=&quot;#device1&quot;/&gt;
+              &lt;/valueReference&gt;
+            &lt;/extension&gt;
+            &lt;!-- Provider NPI --&gt;
+            &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-practitioner&quot;&gt;
+              &lt;valueIdentifier&gt;
+                &lt;value value=&quot;exampleNPI&quot;/&gt;
+              &lt;/valueIdentifier&gt;
+            &lt;/extension&gt;
+            &lt;identifier&gt;
+              &lt;value value=&quot;result1&quot;/&gt;
+            &lt;/identifier&gt;
+            &lt;code&gt;
+              &lt;coding&gt;
+                &lt;code value=&quot;within&quot;/&gt;
+                &lt;display value=&quot;Order is within identified guidelines&quot;/&gt;
+              &lt;/coding&gt;
+            &lt;/code&gt;
+            &lt;subject&gt;
+              &lt;reference value=&quot;#order1&quot;/&gt;
+            &lt;/subject&gt;
+          &lt;/Basic&gt;
+        &lt;/resource&gt;
+      &lt;/parameter&gt;
+    &lt;/Parameters&gt;
+  &lt;/contained&gt;
+  &lt;requestId value=&quot;guidanceRequest1&quot;/&gt;
+  &lt;module&gt;
+    &lt;reference value=&quot;DecisionSupportServiceModule/example&quot;/&gt;
+  &lt;/module&gt;
+  &lt;status value=&quot;success&quot;/&gt;
+  &lt;outputParameters&gt;
+    &lt;reference value=&quot;#outputParameters1&quot;/&gt;
+  &lt;/outputParameters&gt;
+&lt;/GuidanceResponse&gt;
 </code></pre>
 
 <p>Note that this example is incomplete and reproduced here for illustration purposes only. Refer to the Guideline Appropriate Ordering Implementation Guide for a more complete description of GAO.</p>
 
+<a name="simple-evaluation"/>
 <h4>Simple Evaluation Request/Response</h4>
-<p>In the simplest case, an application requests guidance from a decision support service as part of a particular trigger, usually a specific point in a clinical workflow. For example, on the placement of an order for a specific imaging study, the application performs an $evaluate on the Guideline Appropriate Ordering module. The decision support service processes the request and determines whether the order is appropriate given the patient information and indication for the requested procedure. The result is returned as a GuidanceResponse resource with a status of success, and the calling application examines the appropriateness score and determines the appropriate action to take, either proceed with placing the order, or prompt the user that the requested procedure is not appropriate based on the guidelines returned in the response.</p>
+<p>In the simplest case, an application requests guidance from a decision support service as part of a particular trigger, usually a specific point in a clinical workflow. For example, on the placement of an order for a specific imaging study, the application performs an $evaluate on the Guideline Appropriate Ordering service module. The decision support service processes the request and determines whether the order is appropriate given the patient information and indication for the requested procedure. The result is returned as a GuidanceResponse resource with a status of success, and the calling application examines the appropriateness score and determines the appropriate action to take, either proceed with placing the order, or prompt the user that the requested procedure is not appropriate based on the guidelines returned in the response.</p>
 
+<a name="conversational-evaluation"/>
 <h4>Conversational Request/Response</h4>
 <p>In some cases, the decision support service may determine that additional information is required in order to continue processing, or that additional information may result in a more accurate or more appropriate result. In these cases, the GuidanceResponse will be returned with a status of data-requested or data-required, to indicate the particular scenario. In these cases, the GuidanceResponse will contain additional information, usually stated in the form of additional DataRequirement specifications, to let the calling application know what data is needed. The calling application then repeats the request, providing the additional requested information, and the service continues processing.</p>
 

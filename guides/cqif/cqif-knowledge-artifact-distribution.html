@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
       
-[%settitle Clinical Quality Improvement Framework (CQIF) Implementation Guide%]
+[%settitle Clinical Quality Framework (CQF) Implementation Guide%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -10,53 +10,54 @@
 
 <div class="col-9">
 
+<a name="knowledge-artifact-distribution"/>
 <h3>Knowledge Artifact Distribution</h3>
 
 <p>One of the primary goals of the Clinical Quality Framework is to enable the sharing and distribution of computable clinical knowledge artifacts:</p>
 
 <img alt="Knowledge Artifact Sharing" src="cqif-knowledge-artifact-distribution.png"/>
 
-<p>The distribution use case involves enabling knowledge artifacts to be distributed as resources via a FHIR server. The search and read interactions defined by the FHIR infrastructure can be used for this purpose. The Library, ActivityDefinition, PlanDefinition, Questionnaire, and Measure resources can all be used to represent knowledge artifacts, and so define several search parameters specifically to enable searching based on the various attributes of a knowledge module.</p>
+<p>The distribution use case involves enabling knowledge artifacts to be distributed as resources via a FHIR server. The search and read interactions defined by the FHIR infrastructure can be used for this purpose. The <a href="[%fhir-path%]/library.html">Library</a>, <a href="[%fhir-path%]/activitydefinition.html">ActivityDefinition</a>, <a href="[%fhir-path%]/plandefinition.html">PlanDefinition</a>, <a href="[%fhir-path%]/questionnaire.html">Questionnaire</a>, and <a href="[%fhir-path%]/plandefinition.html">Measure<a/> resources can all be used to represent knowledge artifacts, and so define several search parameters specifically to enable searching based on the various attributes of a knowledge artifact. A FHIR service that supports at least searching and retrieval of these resources is then a basic Knowledge Artifact Repository. More advanced knowledge management capabilities such as change management, semantic indexing, and dependency tracking can all be provided on top of this basic infrastructure.</p>
 
 <p>In particular, the <code>coverage</code> and <code>topic</code> elements are intended to provide both semantic and topical indexing functionality for use in knowledge repositories. For example, the following fragment illustrates the use of the coverage attribute to indicate semantic usage context for an example suicide risk order set:</p>
 
-<pre><code>	&lt;coverage&gt;
-		&lt;patientAgeGroup&gt;
-			&lt;coding&gt;
-				&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
-				&lt;code value=&quot;133936004&quot;/&gt;
-				&lt;display value=&quot;Adult&quot;/&gt;
-			&lt;/coding&gt;
-		&lt;/patientAgeGroup&gt;
-		&lt;clinicalFocus&gt;
-			&lt;coding&gt;
-				&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
-				&lt;code value=&quot;87512008&quot;/&gt;
-				&lt;display value=&quot;Mild major depression&quot;/&gt;
-			&lt;/coding&gt;
-		&lt;/clinicalFocus&gt;
-		&lt;clinicalFocus&gt;
-			&lt;coding&gt;
-				&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
-				&lt;code value=&quot;394687007&quot;/&gt;
-				&lt;display value=&quot;Low suicide risk&quot;/&gt;
-			&lt;/coding&gt;
-		&lt;/clinicalFocus&gt;
-		&lt;targetUser&gt;
-			&lt;coding&gt;
-				&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
-				&lt;code value=&quot;309343006&quot;/&gt;
-				&lt;display value=&quot;Physician&quot;/&gt;
-			&lt;/coding&gt;
-		&lt;/targetUser&gt;
-		&lt;clinicalVenue&gt;
-			&lt;coding&gt;
-				&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
-				&lt;code value=&quot;440655000&quot;/&gt;
-				&lt;display value=&quot;Outpatient environment&quot;/&gt;
-			&lt;/coding&gt;
-		&lt;/clinicalVenue&gt;
-	&lt;/coverage&gt;
+<pre><code>  &lt;coverage&gt;
+    &lt;patientAgeGroup&gt;
+      &lt;coding&gt;
+        &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+        &lt;code value=&quot;133936004&quot;/&gt;
+        &lt;display value=&quot;Adult&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/patientAgeGroup&gt;
+    &lt;clinicalFocus&gt;
+      &lt;coding&gt;
+        &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+        &lt;code value=&quot;87512008&quot;/&gt;
+        &lt;display value=&quot;Mild major depression&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/clinicalFocus&gt;
+    &lt;clinicalFocus&gt;
+      &lt;coding&gt;
+        &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+        &lt;code value=&quot;394687007&quot;/&gt;
+        &lt;display value=&quot;Low suicide risk&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/clinicalFocus&gt;
+    &lt;targetUser&gt;
+      &lt;coding&gt;
+        &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+        &lt;code value=&quot;309343006&quot;/&gt;
+        &lt;display value=&quot;Physician&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/targetUser&gt;
+    &lt;clinicalVenue&gt;
+      &lt;coding&gt;
+        &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+        &lt;code value=&quot;440655000&quot;/&gt;
+        &lt;display value=&quot;Outpatient environment&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/clinicalVenue&gt;
+  &lt;/coverage&gt;
 </code></pre>
 
 <p>The <code>coverage</code> element can contain any number of characteristics that define the particular context of use for the artifact. Note that within a single coverage element, the intended semantics are that <i>all</i> the characteristics that are present apply. Because each artifact may have any number of <code>coverage</code> elements, combinations of coverage elements convey the intended semantics that <i>any</i> of the coverages apply.</p>
@@ -78,11 +79,11 @@
 	<tbody>
 		<tr><td>Maximum Results</td><td>_count global search parameter</td></tr>
 		<tr><td>Minimum Score</td><td>KnowledgeArtifact.minScore search parameter</td></tr>
-		<tr><td>Knowledge Module Trait</td><td>Knowledge search parameters (identifier, topic, title, description, version)</td></tr>
-		<tr><td>Knowledge Module Status</td><td>KnowledgeArtifact.status search parameter</td></tr>
+		<tr><td>Knowledge Artifact Trait</td><td>Knowledge search parameters (identifier, topic, title, description, version)</td></tr>
+		<tr><td>Knowledge Artifact Status</td><td>KnowledgeArtifact.status search parameter</td></tr>
 		<tr><td>Evaluation Result Semantics</td><td>Not Implemented</td></tr>
 		<tr><td>Data Requirements</td><td>Not Implemented</td></tr>
-		<tr><td>Relationships to specific Knowledge Modules</td><td>Not Implemented</td></tr>
+		<tr><td>Relationships to specific Knowledge Artifacts</td><td>Not Implemented</td></tr>
 	</tbody>
 </table>
 

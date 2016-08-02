@@ -4,69 +4,69 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Exclusive Breastfeeding Measure</div>
   </text>
-	  <identifier>
-		<use value="official"/>
-		<value value="exclusive-breastfeeding-measure"/>
-	  </identifier>
-	  <version value="1.0.0"/>
-	  <title value="Exclusive Breastfeeding Measure"/>
-	  <status value="active"/>
-	  <description value="Exclusive breastfeeding measure of outcomes for exclusive breastmilk feeding of newborns."/>
-	  <publicationDate value="2015-03-08"/>
-	  <topic>
-		<text value="Exclusive Breastfeeding"/>
-	  </topic>
+    <identifier>
+    <use value="official"/>
+    <value value="exclusive-breastfeeding-measure"/>
+    </identifier>
+    <version value="1.0.0"/>
+    <title value="Exclusive Breastfeeding Measure"/>
+    <status value="active"/>
+    <description value="Exclusive breastfeeding measure of outcomes for exclusive breastmilk feeding of newborns."/>
+    <publicationDate value="2015-03-08"/>
+    <topic>
+    <text value="Exclusive Breastfeeding"/>
+    </topic>
   <library>
     <reference value="Library/library-exclusive-breastfeeding-cqm-logic"/>
   </library>
   <type value="outcome"/>
   <group>
-	  <identifier>
-		  <value value="Population Group 1"/>
-	  </identifier>
-	  <population>
-		  <type value="initial-population"/>
-		  <identifier><value value="initial-population-1-identifier"/></identifier>
-		  <criteria value="InitialPopulation1"/>
-	  </population>
-	  <population>
-		  <type value="denominator"/>
-		  <identifier><value value="denominator-1-identifier"/></identifier>
-		  <criteria value="Denominator1"/>
-	  </population>
-	  <population>
-		  <type value="denominator-exclusion"/>
-		  <identifier><value value="denominator-exclusions-1-identifier"/></identifier>
-		  <criteria value="DenominatorExclusions1"/>
-	  </population>
-	  <population>
-		  <type value="numerator"/>
-		  <identifier><value value="numerator-1-identifier"/></identifier>
-		  <criteria value="Numerator1"/>
-	  </population>
+    <identifier>
+      <value value="Population Group 1"/>
+    </identifier>
+    <population>
+      <type value="initial-population"/>
+      <identifier><value value="initial-population-1-identifier"/></identifier>
+      <criteria value="InitialPopulation1"/>
+    </population>
+    <population>
+      <type value="denominator"/>
+      <identifier><value value="denominator-1-identifier"/></identifier>
+      <criteria value="Denominator1"/>
+    </population>
+    <population>
+      <type value="denominator-exclusion"/>
+      <identifier><value value="denominator-exclusions-1-identifier"/></identifier>
+      <criteria value="DenominatorExclusions1"/>
+    </population>
+    <population>
+      <type value="numerator"/>
+      <identifier><value value="numerator-1-identifier"/></identifier>
+      <criteria value="Numerator1"/>
+    </population>
   </group>
   <group>
-	  <identifier><value value="Population Group 2"/></identifier>
-	  <population>
-		  <type value="initial-population"/>
-		  <identifier><value value="initial-population-2-identifier"/></identifier>
-		  <criteria value="InitialPopulation2"/>
-	  </population>
-	  <population>
-		  <type value="denominator"/>
-		  <identifier><value value="denominator-2-identifier"/></identifier>
-		  <criteria value="Denominator2"/>
-	  </population>
-	  <population>
-		  <type value="denominator-exclusion"/>
-		  <identifier><value value="denominator-exclusions-2-identifier"/></identifier>
-		  <criteria value="DenominatorExclusions2"/>
-	  </population>
-	  <population>
-		  <type value="numerator"/>
-		  <identifier><value value="numerator-2-identifier"/></identifier>
-		  <criteria value="Numerator2"/>
-	  </population>
+    <identifier><value value="Population Group 2"/></identifier>
+    <population>
+      <type value="initial-population"/>
+      <identifier><value value="initial-population-2-identifier"/></identifier>
+      <criteria value="InitialPopulation2"/>
+    </population>
+    <population>
+      <type value="denominator"/>
+      <identifier><value value="denominator-2-identifier"/></identifier>
+      <criteria value="Denominator2"/>
+    </population>
+    <population>
+      <type value="denominator-exclusion"/>
+      <identifier><value value="denominator-exclusions-2-identifier"/></identifier>
+      <criteria value="DenominatorExclusions2"/>
+    </population>
+    <population>
+      <type value="numerator"/>
+      <identifier><value value="numerator-2-identifier"/></identifier>
+      <criteria value="Numerator2"/>
+    </population>
   </group>
 </Measure>
 

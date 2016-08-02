@@ -1,55 +1,55 @@
 <PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
-	<id value="exclusive-breastfeeding-intervention-02"/>
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">Exclusive Breastfeeding Intervention-02</div>
-	</text>
-	<identifier>
-		<use value="official"/>
-		<value value="exclusive-breastfeeding-intervention-02"/>
-	</identifier>
-	<version value="1.0.0"/>
-	<title value="Exclusive Breastfeeding Intervention-02"/>
-	<status value="active"/>
-	<description value="Exclusive breastfeeding intervention intended to improve outcomes for exclusive breastmilk feeding of newborns by notifying the provider to sign the breastmilk feeding readiness assessment order, if necessary."/>
-	<publicationDate value="2015-03-08"/>
-	<topic>
-		<text value="Exclusive Breastfeeding"/>
-	</topic>
-	<library>
-		<reference value="Library/library-exclusive-breastfeeding-cds-logic"/>
-	</library>
-	<actionDefinition>
-		<title value="Mother should be administered a breastfeeding readiness assessment."/>
-		<triggerDefinition>
-			<type value="named-event"/>
-			<eventName value="Admission"/>
-		</triggerDefinition>
-		<triggerDefinition>
-			<type value="named-event"/>
-			<eventName value="Birth"/>
-		</triggerDefinition>
-		<triggerDefinition>
-			<type value="named-event"/>
-			<eventName value="Infant Transfer to Recovery"/>
-		</triggerDefinition>
-		<triggerDefinition>
-			<type value="named-event"/>
-			<eventName value="Transfer to Post-Partum"/>
-		</triggerDefinition>
-		<condition>
-			<expression value="Should Notify Provider to Sign Assessment Order"/>
-		</condition>
-		<actionDefinition>
-			<title value="Notify the provider to sign the order."/>
-			<textEquivalent value="A Breastfeeding Readiness Assessment is recommended, please authorize or reject the order."/>
-			<type>
-				<code value="create"/>
-			</type>
-			<dynamicValue>
-				<path value="/"/>
-				<expression value="Communication Request to Provider"/>
-			</dynamicValue>
-		</actionDefinition>
-	</actionDefinition>
+  <id value="exclusive-breastfeeding-intervention-02"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Exclusive Breastfeeding Intervention-02</div>
+  </text>
+  <identifier>
+    <use value="official"/>
+    <value value="exclusive-breastfeeding-intervention-02"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <title value="Exclusive Breastfeeding Intervention-02"/>
+  <status value="active"/>
+  <description value="Exclusive breastfeeding intervention intended to improve outcomes for exclusive breastmilk feeding of newborns by notifying the provider to sign the breastmilk feeding readiness assessment order, if necessary."/>
+  <publicationDate value="2015-03-08"/>
+  <topic>
+    <text value="Exclusive Breastfeeding"/>
+  </topic>
+  <library>
+    <reference value="Library/library-exclusive-breastfeeding-cds-logic"/>
+  </library>
+  <actionDefinition>
+    <title value="Mother should be administered a breastfeeding readiness assessment."/>
+    <triggerDefinition>
+      <type value="named-event"/>
+      <eventName value="Admission"/>
+    </triggerDefinition>
+    <triggerDefinition>
+      <type value="named-event"/>
+      <eventName value="Birth"/>
+    </triggerDefinition>
+    <triggerDefinition>
+      <type value="named-event"/>
+      <eventName value="Infant Transfer to Recovery"/>
+    </triggerDefinition>
+    <triggerDefinition>
+      <type value="named-event"/>
+      <eventName value="Transfer to Post-Partum"/>
+    </triggerDefinition>
+    <condition>
+      <expression value="Should Notify Provider to Sign Assessment Order"/>
+    </condition>
+    <actionDefinition>
+      <title value="Notify the provider to sign the order."/>
+      <textEquivalent value="A Breastfeeding Readiness Assessment is recommended, please authorize or reject the order."/>
+      <type>
+        <code value="create"/>
+      </type>
+      <dynamicValue>
+        <path value="/"/>
+        <expression value="Communication Request to Provider"/>
+      </dynamicValue>
+    </actionDefinition>
+  </actionDefinition>
 </PlanDefinition>

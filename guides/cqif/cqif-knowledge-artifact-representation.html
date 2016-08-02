@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
       
-[%settitle Clinical Quality Improvement Framework (CQIF) Implementation Guide%]
+[%settitle Clinical Quality Framework (CQF) Implementation Guide%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -10,6 +10,7 @@
 
 <div class="col-9">
 
+<a name="knowledge-artifact-representation"/>
 <h3>Knowledge Artifact Representation</h3>
 <p>For the purposes of the Clinical Reasoning module, a Knowledge Artifact is a structured, computable, and shareable representation of clinical knowledge. A comprehensive definition of clinical knowledge is beyond the scope of this module, but we effectively mean any knowledge relevant to improving patient care. For example, "Patients with diabetes should have regular comprehensive foot examinations to identify risk factors predictive of ulcers and amputations" is a statement of clinical knowledge. A knowledge artifact would then be some representation that can be used to integrate that knowledge into existing healthcare delivery systems.</p>
 
@@ -40,14 +41,14 @@
 
 <p>The following fragment shows the use of the logical identifier and version elements:</p>
 
-<pre><code>	&lt;identifier&gt;
-		&lt;use value=&quot;official&quot;/&gt;
-		&lt;value value=&quot;mmi:low-suicide-risk-order-set&quot;/&gt;
-	&lt;/identifier&gt;
-	&lt;version value=&quot;1.0.0&quot;/&gt;
+<pre><code>&lt;identifier&gt;
+  &lt;use value=&quot;official&quot;/&gt;
+  &lt;value value=&quot;mmi:low-suicide-risk-order-set&quot;/&gt;
+&lt;/identifier&gt;
+&lt;version value=&quot;1.0.0&quot;/&gt;
 </code></pre>
 
-<p>When using the <code>identifier</code> element to provide the Entity Identifier for a module consistent with the Decision Support Service (DSS) specification, the following mappings apply:</p>
+<p>When using the <code>identifier</code> element to provide the Entity Identifier for a service module consistent with the Decision Support Service (DSS) specification, the following mappings apply:</p>
 
 <table class="list">
 	<thead>
@@ -95,16 +96,16 @@
 
 <p>General documentation elements, including description, purpose, and usage, provide immediately available documentation for the use of the artifact as part of the artifact. Additional documentation can be provided using the <code>relatedResource</code> element to link to detailed information, supporting evidence, and to additional required artifacts as appropriate.</p>
 
-<pre><code>	&lt;title value=&quot;Appropriate Testing for Children with Pharyngitis&quot;/&gt;
-	&lt;status value=&quot;active&quot;/&gt;
-	&lt;experimental value=&quot;true&quot;/&gt;
-	&lt;description value=&quot;Percentage of children 2-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode.&quot;/&gt;
-	&lt;topic&gt;
-		&lt;coding&gt;
-			&lt;system value=&quot;http://hl7.org/fhir/c80-doc-typecodes&quot; /&gt;
-			&lt;code value=&quot;57024-2&quot; /&gt;
-		&lt;/coding&gt;
-	&lt;/topic&gt;
+<pre><code>&lt;title value=&quot;Appropriate Testing for Children with Pharyngitis&quot;/&gt;
+&lt;status value=&quot;active&quot;/&gt;
+&lt;experimental value=&quot;true&quot;/&gt;
+&lt;description value=&quot;Percentage of children 2-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode.&quot;/&gt;
+&lt;topic&gt;
+  &lt;coding&gt;
+    &lt;system value=&quot;http://hl7.org/fhir/c80-doc-typecodes&quot; /&gt;
+    &lt;code value=&quot;57024-2&quot; /&gt;
+  &lt;/coding&gt;
+&lt;/topic&gt;
 </code></pre>
 
 <p>For information on the <code>coverage</code> and <code>topic</code> elements, refer to the <a href="cqif-knowledge-artifact-distribution.html">Knowledge Artifact Distribution</a> section.</p>
@@ -151,41 +152,41 @@
 
 <p>The following fragment shows a simple referral creation action from the suicide risk example order set:</p>
 
-<pre><code>	&lt;actionDefinition&gt;
-		&lt;!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now --&gt;
-		&lt;textEquivalent value=&quot;Refer to outpatient mental health program for evaluation and treatment of mental health conditions now&quot;/&gt;
-		&lt;activityDefinition&gt;
-			&lt;reference value=&quot;#referralToMentalHealthCare&quot;/&gt;
-		&lt;/activityDefinition&gt;
-		&lt;dynamicValue&gt;
-			&lt;path value=&quot;timing.event&quot;/&gt;
-			&lt;expression value=&quot;Now()&quot;/&gt;
-		&lt;/dynamicValue&gt;
-		&lt;dynamicValue&gt;
-			&lt;path value=&quot;specialty&quot;/&gt;
-			&lt;expression value=&quot;Code &apos;261QM0850X&apos; from &amp;quot;urn:oid:2.16.840.1.113883.11.19462&amp;quot;&quot;/&gt;
-		&lt;/dynamicValue&gt;
-		&lt;dynamicValue&gt;
-			&lt;path value=&quot;fulfillmentTime&quot;/&gt;
-			&lt;expression value=&quot;ReferralRequestFulfillmentTime&quot;/&gt;
-		&lt;/dynamicValue&gt;
-		&lt;dynamicValue&gt;
-			&lt;path value=&quot;patient&quot;/&gt;
-			&lt;expression value=&quot;Patient&quot;/&gt;
-		&lt;/dynamicValue&gt;
-		&lt;dynamicValue&gt;
-			&lt;path value=&quot;requester&quot;/&gt;
-			&lt;expression value=&quot;Practitioner&quot;/&gt;
-		&lt;/dynamicValue&gt;
-		&lt;dynamicValue&gt;
-			&lt;path value=&quot;reason&quot;/&gt;
-			&lt;expression value=&quot;RiskAssessmentScore&quot;/&gt;
-		&lt;/dynamicValue&gt;
-		&lt;dynamicValue&gt;
-			&lt;path value=&quot;supportingInformation&quot;/&gt;
-			&lt;expression value=&quot;RiskAssessment&quot;/&gt;
-		&lt;/dynamicValue&gt;
-	&lt;/actionDefinition&gt;
+<pre><code>&lt;actionDefinition&gt;
+  &lt;!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now --&gt;
+  &lt;textEquivalent value=&quot;Refer to outpatient mental health program for evaluation and treatment of mental health conditions now&quot;/&gt;
+  &lt;activityDefinition&gt;
+    &lt;reference value=&quot;#referralToMentalHealthCare&quot;/&gt;
+  &lt;/activityDefinition&gt;
+  &lt;dynamicValue&gt;
+    &lt;path value=&quot;timing.event&quot;/&gt;
+    &lt;expression value=&quot;Now()&quot;/&gt;
+  &lt;/dynamicValue&gt;
+  &lt;dynamicValue&gt;
+    &lt;path value=&quot;specialty&quot;/&gt;
+    &lt;expression value=&quot;Code &apos;261QM0850X&apos; from &amp;quot;urn:oid:2.16.840.1.113883.11.19462&amp;quot;&quot;/&gt;
+  &lt;/dynamicValue&gt;
+  &lt;dynamicValue&gt;
+    &lt;path value=&quot;fulfillmentTime&quot;/&gt;
+    &lt;expression value=&quot;ReferralRequestFulfillmentTime&quot;/&gt;
+  &lt;/dynamicValue&gt;
+  &lt;dynamicValue&gt;
+    &lt;path value=&quot;patient&quot;/&gt;
+    &lt;expression value=&quot;Patient&quot;/&gt;
+  &lt;/dynamicValue&gt;
+  &lt;dynamicValue&gt;
+    &lt;path value=&quot;requester&quot;/&gt;
+    &lt;expression value=&quot;Practitioner&quot;/&gt;
+  &lt;/dynamicValue&gt;
+  &lt;dynamicValue&gt;
+   &lt;path value=&quot;reason&quot;/&gt;
+    &lt;expression value=&quot;RiskAssessmentScore&quot;/&gt;
+  &lt;/dynamicValue&gt;
+  &lt;dynamicValue&gt;
+    &lt;path value=&quot;supportingInformation&quot;/&gt;
+    &lt;expression value=&quot;RiskAssessment&quot;/&gt;
+  &lt;/dynamicValue&gt;
+&lt;/actionDefinition&gt;
 </code></pre>
 
 <a name="action-type"/>
@@ -219,10 +220,10 @@
 
 <p>As an example, the following fragment illustrates the use of a named event as part of an ECA rule definition:</p>
 
-<pre><code>	&lt;triggerDefinition&gt;
-		&lt;type value=&quot;named-event&quot;/&gt;
-		&lt;eventName value=&quot;Admission&quot;/&gt;
-	&lt;/triggerDefinition&gt;
+<pre><code>&lt;triggerDefinition&gt;
+  &lt;type value=&quot;named-event&quot;/&gt;
+  &lt;eventName value=&quot;Admission&quot;/&gt;
+&lt;/triggerDefinition&gt;
 </code></pre>
 
 <a name="expression-logic"/>
@@ -232,9 +233,9 @@
 
 <p>For example, the following fragment shows the condition element of an action definition used in an ECA rule. The condition references the named expression "NoScreening":</p>
 
-<pre><code>	&lt;condition&gt;
-		&lt;expression value=&quot;NoScreening&quot;/&gt;
-	&lt;/condition&gt;
+<pre><code>&lt;condition&gt;
+  &lt;expression value=&quot;NoScreening&quot;/&gt;
+&lt;/condition&gt;
 </code></pre>
 
 <a name="knowledge-artifact-resources"/>
@@ -248,7 +249,7 @@
 	</thead>
 	<tbody>
 		<tr><td><a href="#library">Library</a></td><td>A general purpose container for clinical knowledge defined in non-FHIR structures. For example, a sharable package of clinical logic expressed in Clinical Quality Language.</td><td>Expressions that define the criteria that must be met to determine whether or not a patient has diabetes.</td></tr>
-		<tr><td><a href="#event-condition-action-rule">Event-Condition-Action (ECA) Rule</a></td><td>A decision support rule of the form [on Event] if Condition then Action, defining actions that shoud be taken whenever some condition is met in response to a particular event.</td><td>On admission of a patient, if the patient has diabetes and has not had a recent foot examination, place an unsigned order for a comprehensive foot exam.</td></tr>
+		<tr><td><a href="#event-condition-action-rule">Event-Condition-Action (ECA) Rule</a></td><td>A decision support rule of the form <code>[on Event] if Condition then Action</code>, defining actions that shoud be taken whenever some condition is met in response to a particular event.</td><td>On admission of a patient, if the patient has diabetes and has not had a recent foot examination, place an unsigned order for a comprehensive foot exam.</td></tr>
 		<tr><td><a href="#order-set">Order Set</a></td><td>A pre-defined and approved group of orders related to a particular clinical condition (e.g., hypertension treatment and monitoring) or stage of care (e.g., hospital admission to Coronary Care Unit). Order sets are used within electronic health record systems as a checklist for physicians when treating a patient with a specific condition. An order set is a structured collection of orders presented to the physician in a computerized physician order entry system (CPOE).</td><td>The specific orders to be placed when a patient presents with diabetes.</td></tr>
 		<tr><td><a href="#protocol">Protocol</a></td><td>A pre-defined procedural method written to standardize a set of activities. Protocols can be used within laboratory settings to standardize handling of specimens or the steps involved in a specific test, to describe the methodology for effective treatment of a particular condition, or the steps to be taken in a particular research trial.</td><td>The specific tasks that should be performed to provide effective treatment for a new diagnosis of diabetes.</td></tr>
 		<tr><td><a href="#documentation-template">Documentation Template</a></td><td>A structured form for recording information on a patient into a set of predefined data slots.</td><td>A form describing the information that should be gathered during a comprehensive diabetic foot exam.</td></tr>
@@ -264,43 +265,43 @@
 <p>For example, the following fragment shows a Library that contains the CQL logic for Chlamydia Screening decision support:</p>
 
 <a name="defining-a-cql-library">
-<pre><code>	&lt;Library&gt;
-		&lt;id value=&quot;example&quot;/&gt;
-		&lt;identifier&gt;
-			&lt;use value=&quot;official&quot;/&gt;
-			&lt;value value=&quot;ChalmydiaScreening_Common&quot;/&gt;
-		&lt;/identifier&gt;
-		&lt;version value=&quot;2.0.0&quot;/&gt;
-		&lt;title value=&quot;Chlamydia Screening Common Library&quot;/&gt;
-		&lt;type&gt;
-		&lt;coding&gt;
-			&lt;code value=&quot;logic-library&quot;/&gt;
-		&lt;/coding&gt;
-		&lt;/type&gt;
-		&lt;status value=&quot;draft&quot;/&gt;
-		&lt;description value=&quot;Common Logic for adherence to Chlamydia Screening guidelines&quot;/&gt;
-		&lt;publicationDate value=&quot;2015-07-22&quot;/&gt;
-		&lt;topic&gt;
-			&lt;text value=&quot;Chlamydia Screening&quot;/&gt;
-		&lt;/topic&gt;
-		&lt;relatedResource&gt;
-			&lt;type value=&quot;depends-on&quot;/&gt;
-			&lt;resource&gt;
-				&lt;reference value=&quot;Library/library-quick-model-definition&quot;/&gt;
-			&lt;/resource&gt;
-		&lt;/relatedResource&gt;
-		&lt;dataRequirement&gt;
-			&lt;type value=&quot;Condition&quot;/&gt;
-			&lt;codeFilter&gt;
-				&lt;path value=&quot;code&quot;/&gt;
-				&lt;valueSetString value=&quot;Other Female Reproductive Conditions&quot;/&gt;
-			&lt;/codeFilter&gt;
-		&lt;/dataRequirement&gt;
-		&lt;content&gt;
-			&lt;contentType value=&quot;text/cql&quot;/&gt;
-			&lt;url value=&quot;http://cqlrepository.org/ChlamydiaScreening_Common.cql&quot;/&gt;
-		&lt;/content&gt;
-	&lt;/Library&gt;
+<pre><code>&lt;Library&gt;
+  &lt;id value=&quot;example&quot;/&gt;
+  &lt;identifier&gt;
+    &lt;use value=&quot;official&quot;/&gt;
+    &lt;value value=&quot;ChalmydiaScreening_Common&quot;/&gt;
+  &lt;/identifier&gt;
+  &lt;version value=&quot;2.0.0&quot;/&gt;
+  &lt;title value=&quot;Chlamydia Screening Common Library&quot;/&gt;
+  &lt;type&gt;
+  &lt;coding&gt;
+    &lt;code value=&quot;logic-library&quot;/&gt;
+  &lt;/coding&gt;
+  &lt;/type&gt;
+  &lt;status value=&quot;draft&quot;/&gt;
+  &lt;description value=&quot;Common Logic for adherence to Chlamydia Screening guidelines&quot;/&gt;
+  &lt;publicationDate value=&quot;2015-07-22&quot;/&gt;
+  &lt;topic&gt;
+    &lt;text value=&quot;Chlamydia Screening&quot;/&gt;
+  &lt;/topic&gt;
+  &lt;relatedResource&gt;
+    &lt;type value=&quot;depends-on&quot;/&gt;
+    &lt;resource&gt;
+      &lt;reference value=&quot;Library/library-quick-model-definition&quot;/&gt;
+    &lt;/resource&gt;
+  &lt;/relatedResource&gt;
+  &lt;dataRequirement&gt;
+    &lt;type value=&quot;Condition&quot;/&gt;
+    &lt;codeFilter&gt;
+      &lt;path value=&quot;code&quot;/&gt;
+      &lt;valueSetString value=&quot;Other Female Reproductive Conditions&quot;/&gt;
+    &lt;/codeFilter&gt;
+  &lt;/dataRequirement&gt;
+  &lt;content&gt;
+    &lt;contentType value=&quot;text/cql&quot;/&gt;
+    &lt;url value=&quot;http://cqlrepository.org/ChlamydiaScreening_Common.cql&quot;/&gt;
+  &lt;/content&gt;
+&lt;/Library&gt;
 </code></pre>
 </a>
 
@@ -315,34 +316,34 @@
 
 <p>For example, the following fragment illustrates a simple use of PlanDefinition to expose a Chlamydia Screening ECA rule:</p>
 
-<pre><code>	&lt;PlanDefinition&gt;
-		&lt;id value=&quot;chlamydia-screening-intervention&quot;/&gt;
-		&lt;identifier&gt;
-			&lt;use value=&quot;official&quot;/&gt;
-			&lt;value value=&quot;ChlamydiaScreening_CDS_UsingCommon&quot;/&gt;
-		&lt;/identifier&gt;
-		&lt;version value=&quot;2.0.0&quot;/&gt;
-		&lt;title value=&quot;Chalmydia Screening CDS Example Using Common&quot;/&gt;
-		&lt;status value=&quot;draft&quot;/&gt;
-		&lt;description value=&quot;Chlamydia Screening CDS Example Using Common&quot;/&gt;
-		&lt;publicationDate value=&quot;2015-07-22&quot;/&gt;
-		&lt;topic&gt;
-			&lt;text value=&quot;Chlamydia Screeening&quot;/&gt;
-		&lt;/topic&gt;
-		&lt;library&gt;
-			&lt;reference value=&quot;Library/ChlamydiaScreening_CDS_UsingCommon&quot;/&gt;
-		&lt;/library&gt;
-		&lt;actionDefinition&gt;
-			&lt;title value=&quot;Patient has not had chlamydia screening within the recommended timeframe...&quot;/&gt;
-			&lt;condition&gt;
-				&lt;expression value=&quot;NoScreening&quot;/&gt;
-			&lt;/condition&gt;
-			&lt;dynamicValue&gt;
-				&lt;path value=&quot;~&quot;/&gt;
-				&lt;expression value=&quot;ChlamydiaScreeningRequest&quot;/&gt;
-			&lt;/dynamicValue&gt;
-		&lt;/actionDefinition&gt;
-	&lt;/PlanDefinition&gt;
+<pre><code>  &lt;PlanDefinition&gt;
+    &lt;id value=&quot;chlamydia-screening-intervention&quot;/&gt;
+    &lt;identifier&gt;
+      &lt;use value=&quot;official&quot;/&gt;
+      &lt;value value=&quot;ChlamydiaScreening_CDS_UsingCommon&quot;/&gt;
+    &lt;/identifier&gt;
+    &lt;version value=&quot;2.0.0&quot;/&gt;
+    &lt;title value=&quot;Chalmydia Screening CDS Example Using Common&quot;/&gt;
+    &lt;status value=&quot;draft&quot;/&gt;
+    &lt;description value=&quot;Chlamydia Screening CDS Example Using Common&quot;/&gt;
+    &lt;publicationDate value=&quot;2015-07-22&quot;/&gt;
+    &lt;topic&gt;
+      &lt;text value=&quot;Chlamydia Screeening&quot;/&gt;
+    &lt;/topic&gt;
+    &lt;library&gt;
+      &lt;reference value=&quot;Library/ChlamydiaScreening_CDS_UsingCommon&quot;/&gt;
+    &lt;/library&gt;
+    &lt;actionDefinition&gt;
+      &lt;title value=&quot;Patient has not had chlamydia screening within the recommended timeframe...&quot;/&gt;
+      &lt;condition&gt;
+        &lt;expression value=&quot;NoScreening&quot;/&gt;
+      &lt;/condition&gt;
+      &lt;dynamicValue&gt;
+        &lt;path value=&quot;~&quot;/&gt;
+        &lt;expression value=&quot;ChlamydiaScreeningRequest&quot;/&gt;
+      &lt;/dynamicValue&gt;
+    &lt;/actionDefinition&gt;
+  &lt;/PlanDefinition&gt;
 </code></pre>
 
 <a name="order-set"/>
@@ -350,123 +351,123 @@
 
 <p>An order set is a pre-defined and approved group of orders related to a particular clinical condition (e.g., hypertension treatment and monitoring) or stage of care (e.g., hospital admission to Coronary Care Unit). An order set is typically used as a checklist for clinicians when managing a patient with a specific condition. It is a structured collection of orders relevant to that condition and presented to the clinician in a computerized provider order entry system (CPOE).</p>
 
-<p>The PlanDefinition resource can represent an Order Set using action definitions to define the orderable items in the order set. The items in an order set are typically organized hierarchically, as a set of sections, sub-sections, etc., with the actions themselves at the very bottom of the structure. In the PlanDefinition resource, each section, and sub-section, as well as the individual items are all represented as action definitions. Each group and/or subgroup may have behavior indicators associated with it, e.g., the number of actions that can/should/must be selected from the group of actions.</p>
+<p>The <a href="[%fhir-path%]/plandefinition.html">PlanDefinition</a> resource can represent an Order Set using action definitions to define the orderable items in the order set. The items in an order set are typically organized hierarchically, as a set of sections, sub-sections, etc., with the actions themselves at the very bottom of the structure. In the PlanDefinition resource, each section, and sub-section, as well as the individual items are all represented as action definitions. Each group and/or subgroup may have behavior indicators associated with it, e.g., the number of actions that can/should/must be selected from the group of actions.</p>
 
 <p>For example, the following fragment illustrates the items in a suicide risk order set:</p>
 
-<pre><code>	&lt;!-- Suicide Risk Assessment and Outpatient Management --&gt;
-	&lt;actionDefinition&gt;
-		&lt;title value=&quot;Suicide Risk Assessment and Outpatient Management&quot;/&gt;
-		&lt;!-- Consults and Referrals --&gt;
-		&lt;actionDefinition&gt;
-			&lt;title value=&quot;Consults and Referrals&quot;/&gt;
-			&lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
-			&lt;selectionBehavior value=&quot;any&quot;/&gt;
-			&lt;actionDefinition&gt;
-				&lt;!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now --&gt;
-				&lt;textEquivalent value=&quot;Refer to outpatient mental health program for evaluation and treatment of mental health conditions now&quot;/&gt;
-				&lt;activityDefinition&gt;
-					&lt;reference value=&quot;#referralToMentalHealthCare&quot;/&gt;
-				&lt;/activityDefinition&gt;
-				&lt;dynamicValue&gt;...&lt;/dynamicValue&gt;
-			&lt;/actionDefinition&gt;
-		&lt;/actionDefinition&gt;
-		&lt;!-- Medications --&gt;
-		&lt;actionDefinition&gt;
-			&lt;title value=&quot;Medications&quot;/&gt;
-			&lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
-			&lt;selectionBehavior value=&quot;at-most-one&quot;/&gt;
-			&lt;actionDefinition&gt;
-				&lt;!-- First-Line Antidepressants --&gt;
-				&lt;title value=&quot;First-Line Antidepressants&quot;/&gt;
-				&lt;documentation&gt;
-					&lt;type value=&quot;justification&quot;/&gt;
-					&lt;document&gt;
-						&lt;contentType value=&quot;text/html&quot;/&gt;
-						&lt;url value=&quot;http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf&quot;/&gt;
-						&lt;title value=&quot;Practice Guideline for the Treatment of Patients with Major Depressive Disorder&quot;/&gt;
-					&lt;/document&gt;
-				&lt;/documentation&gt;
-				&lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
-				&lt;selectionBehavior value=&quot;at-most-one&quot;/&gt;
-				&lt;actionDefinition&gt;
-					&lt;!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
-					&lt;title value=&quot;Selective Serotonin Reuptake Inhibitors (Choose a mazimum of one or document reasons for exception)&quot;/&gt;
-					&lt;documentation&gt;
-						&lt;type value=&quot;justification&quot;/&gt;
-						&lt;document&gt;
-							&lt;contentType value=&quot;text/html&quot;/&gt;
-							&lt;url value=&quot;http://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6daeb45c-451d-b135-bf8f-2d6dff4b6b01&quot;/&gt;
-							&lt;title value=&quot;National Library of Medicine. DailyMed website. CITALOPRAM- citalopram hydrobromide tablet, film coated.&quot;/&gt;
-						&lt;/document&gt;
-					&lt;/documentation&gt;
-					&lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
-					&lt;selectionBehavior value=&quot;at-most-one&quot;/&gt;
-					&lt;actionDefinition&gt;
-						&lt;!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) --&gt;
-						&lt;textEquivalent value=&quot;citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills)&quot;/&gt;
-						&lt;activityDefinition&gt;
-							&lt;reference value=&quot;#citalopramPrescription&quot;/&gt;
-						&lt;/activityDefinition&gt;
-						&lt;dynamicValue&gt;...&lt;/dynamicValue&gt;
-					&lt;/actionDefinition&gt;
-					&lt;actionDefinition&gt;
-						&lt;!-- escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
-						&lt;textEquivalent value=&quot;escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
-						&lt;!-- Follows pattern established above --&gt;
-					&lt;/actionDefinition&gt;
-					&lt;actionDefinition&gt;
-						&lt;!-- fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills) --&gt;
-						&lt;textEquivalent value=&quot;fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
-						&lt;!-- Follows pattern established above --&gt;
-					&lt;/actionDefinition&gt;
-					&lt;actionDefinition&gt;
-						&lt;!-- paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
-						&lt;textEquivalent value=&quot;paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
-						&lt;!-- Follows pattern established above --&gt;
-					&lt;/actionDefinition&gt;
-					&lt;actionDefinition&gt;
-						&lt;!-- sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
-						&lt;textEquivalent value=&quot;sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
-						&lt;!-- Follows pattern established above --&gt;
-					&lt;/actionDefinition&gt;
-				&lt;/actionDefinition&gt;
-				&lt;actionDefinition&gt;
-					&lt;!-- Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
-					&lt;textEquivalent value=&quot;Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception)&quot;/&gt;
-					&lt;!-- Follows pattern established above --&gt;
-				&lt;/actionDefinition&gt;
-				&lt;actionDefinition&gt;
-					&lt;!-- Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception) --&gt;
-					&lt;textEquivalent value=&quot;Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception)&quot;/&gt;
-					&lt;!-- Follows pattern established above --&gt;
-				&lt;/actionDefinition&gt;
-				&lt;actionDefinition&gt;
-					&lt;!-- Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception) --&gt;
-					&lt;textEquivalent value=&quot;Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception)&quot;/&gt;
-					&lt;!-- Follows pattern established above --&gt;
-				&lt;/actionDefinition&gt;
-			&lt;/actionDefinition&gt;
-		&lt;/actionDefinition&gt;
-	&lt;/actionDefinition&gt;
+<pre><code>  &lt;!-- Suicide Risk Assessment and Outpatient Management --&gt;
+  &lt;actionDefinition&gt;
+    &lt;title value=&quot;Suicide Risk Assessment and Outpatient Management&quot;/&gt;
+    &lt;!-- Consults and Referrals --&gt;
+    &lt;actionDefinition&gt;
+      &lt;title value=&quot;Consults and Referrals&quot;/&gt;
+      &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
+      &lt;selectionBehavior value=&quot;any&quot;/&gt;
+      &lt;actionDefinition&gt;
+        &lt;!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now --&gt;
+        &lt;textEquivalent value=&quot;Refer to outpatient mental health program for evaluation and treatment of mental health conditions now&quot;/&gt;
+        &lt;activityDefinition&gt;
+          &lt;reference value=&quot;#referralToMentalHealthCare&quot;/&gt;
+        &lt;/activityDefinition&gt;
+        &lt;dynamicValue&gt;...&lt;/dynamicValue&gt;
+      &lt;/actionDefinition&gt;
+    &lt;/actionDefinition&gt;
+    &lt;!-- Medications --&gt;
+    &lt;actionDefinition&gt;
+      &lt;title value=&quot;Medications&quot;/&gt;
+      &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
+      &lt;selectionBehavior value=&quot;at-most-one&quot;/&gt;
+      &lt;actionDefinition&gt;
+        &lt;!-- First-Line Antidepressants --&gt;
+        &lt;title value=&quot;First-Line Antidepressants&quot;/&gt;
+        &lt;documentation&gt;
+          &lt;type value=&quot;justification&quot;/&gt;
+          &lt;document&gt;
+            &lt;contentType value=&quot;text/html&quot;/&gt;
+            &lt;url value=&quot;http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf&quot;/&gt;
+            &lt;title value=&quot;Practice Guideline for the Treatment of Patients with Major Depressive Disorder&quot;/&gt;
+          &lt;/document&gt;
+        &lt;/documentation&gt;
+        &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
+        &lt;selectionBehavior value=&quot;at-most-one&quot;/&gt;
+        &lt;actionDefinition&gt;
+          &lt;!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
+          &lt;title value=&quot;Selective Serotonin Reuptake Inhibitors (Choose a mazimum of one or document reasons for exception)&quot;/&gt;
+          &lt;documentation&gt;
+            &lt;type value=&quot;justification&quot;/&gt;
+            &lt;document&gt;
+              &lt;contentType value=&quot;text/html&quot;/&gt;
+              &lt;url value=&quot;http://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6daeb45c-451d-b135-bf8f-2d6dff4b6b01&quot;/&gt;
+              &lt;title value=&quot;National Library of Medicine. DailyMed website. CITALOPRAM- citalopram hydrobromide tablet, film coated.&quot;/&gt;
+            &lt;/document&gt;
+          &lt;/documentation&gt;
+          &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
+          &lt;selectionBehavior value=&quot;at-most-one&quot;/&gt;
+          &lt;actionDefinition&gt;
+            &lt;!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) --&gt;
+            &lt;textEquivalent value=&quot;citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills)&quot;/&gt;
+            &lt;activityDefinition&gt;
+              &lt;reference value=&quot;#citalopramPrescription&quot;/&gt;
+            &lt;/activityDefinition&gt;
+            &lt;dynamicValue&gt;...&lt;/dynamicValue&gt;
+          &lt;/actionDefinition&gt;
+          &lt;actionDefinition&gt;
+            &lt;!-- escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
+            &lt;textEquivalent value=&quot;escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
+            &lt;!-- Follows pattern established above --&gt;
+          &lt;/actionDefinition&gt;
+          &lt;actionDefinition&gt;
+            &lt;!-- fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills) --&gt;
+            &lt;textEquivalent value=&quot;fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
+            &lt;!-- Follows pattern established above --&gt;
+          &lt;/actionDefinition&gt;
+          &lt;actionDefinition&gt;
+            &lt;!-- paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
+            &lt;textEquivalent value=&quot;paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
+            &lt;!-- Follows pattern established above --&gt;
+          &lt;/actionDefinition&gt;
+          &lt;actionDefinition&gt;
+            &lt;!-- sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
+            &lt;textEquivalent value=&quot;sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
+            &lt;!-- Follows pattern established above --&gt;
+          &lt;/actionDefinition&gt;
+        &lt;/actionDefinition&gt;
+        &lt;actionDefinition&gt;
+          &lt;!-- Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
+          &lt;textEquivalent value=&quot;Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception)&quot;/&gt;
+          &lt;!-- Follows pattern established above --&gt;
+        &lt;/actionDefinition&gt;
+        &lt;actionDefinition&gt;
+          &lt;!-- Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception) --&gt;
+          &lt;textEquivalent value=&quot;Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception)&quot;/&gt;
+          &lt;!-- Follows pattern established above --&gt;
+        &lt;/actionDefinition&gt;
+        &lt;actionDefinition&gt;
+          &lt;!-- Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception) --&gt;
+          &lt;textEquivalent value=&quot;Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception)&quot;/&gt;
+          &lt;!-- Follows pattern established above --&gt;
+        &lt;/actionDefinition&gt;
+      &lt;/actionDefinition&gt;
+    &lt;/actionDefinition&gt;
+  &lt;/actionDefinition&gt;
 </code></pre>
 
 <p>In this example, the order set structure consists of:</p>
 
-<pre><code>	&lt;!-- Suicide Risk Assessment and Outpatient Management --&gt;
-		&lt;!-- Consults and Referrals --&gt;
-				&lt;!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now --&gt;
-		&lt;!-- Medications --&gt;
-				&lt;!-- First-Line Antidepressants --&gt;
-					&lt;!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
-						&lt;!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) --&gt;
-						&lt;!-- escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
-						&lt;!-- fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills) --&gt;
-						&lt;!-- paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
-						&lt;!-- sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
-					&lt;!-- Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
-					&lt;!-- Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception) --&gt;
-					&lt;!-- Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception) --&gt;
+<pre><code>  &lt;!-- Suicide Risk Assessment and Outpatient Management --&gt;
+    &lt;!-- Consults and Referrals --&gt;
+        &lt;!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now --&gt;
+    &lt;!-- Medications --&gt;
+        &lt;!-- First-Line Antidepressants --&gt;
+          &lt;!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
+            &lt;!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) --&gt;
+            &lt;!-- escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
+            &lt;!-- fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills) --&gt;
+            &lt;!-- paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
+            &lt;!-- sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
+          &lt;!-- Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
+          &lt;!-- Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception) --&gt;
+          &lt;!-- Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception) --&gt;
 </code></pre>
 
 <p>Each group defines the selection and grouping behavior for the items in the group, as well as providing links to supporting documentation for the particular items in the order set.</p>
@@ -476,30 +477,30 @@
 
 <p>A protocol is a pre-defined procedural method written to standardize a set of activities. Protocols can be used within laboratory settings to standardize handling of specimens or the steps involved in a specific test; to describe the methodology for effective treatment of a particular condition, or to define the steps to be taken in a particular research trial.</p>
 
-<p>The PlanDefinition resource can be used to represent a Protocol, using the action definitions to define the steps of the protocol and the relationships between them. Triggering events for each action, as well as applicable conditions can all be specified using the appropriate action definition elements within the PlanDefinition.</p>
+<p>The <a href="[%fhir-path%]/plandefinition.html">PlanDefinition</a> resource can be used to represent a Protocol, using the action definitions to define the steps of the protocol and the relationships between them. Triggering events for each action, as well as applicable conditions can all be specified using the appropriate action definition elements within the PlanDefinition.</p>
 
 <p>As a simple example, the following fragment shows a portion of a BMI Assessment protocol:</p>
 
-<pre><code>	&lt;actionDefinition&gt;
-		&lt;!--step label--&gt;
-		&lt;label value=&quot;Measure BMI&quot;/&gt;
-		&lt;title value=&quot;Measure, Weight, Height, Waist, Circumference; Calculate BMI&quot;/&gt;
-		&lt;!--description of activity--&gt;
-		&lt;description value=&quot;Weight must be measured so that the BMI can be calculated. Most charts are based on weights obtained with the patient wearing undergarments and no shoes. BMI can be manually calculated (kg/[height in meters]2), but is more easily obtained from a nomogram. Waist circumference is important because evidence suggests that abdominal fat is a particularly strong determinant of cardiovascular risk in those with a BMI of 25 to 34.9 kg/m2. Increased waist circumference can also be a marker of increased risk even in persons of normal weight. The technique for measuring waist circumference is described in the text. A nutrition assessment will also help to assess the diet and physical activity habits of overweight patients&quot;/&gt;
+<pre><code>  &lt;actionDefinition&gt;
+    &lt;!--step label--&gt;
+    &lt;label value=&quot;Measure BMI&quot;/&gt;
+    &lt;title value=&quot;Measure, Weight, Height, Waist, Circumference; Calculate BMI&quot;/&gt;
+    &lt;!--description of activity--&gt;
+    &lt;description value=&quot;Weight must be measured so that the BMI can be calculated. Most charts are based on weights obtained with the patient wearing undergarments and no shoes. BMI can be manually calculated (kg/[height in meters]2), but is more easily obtained from a nomogram. Waist circumference is important because evidence suggests that abdominal fat is a particularly strong determinant of cardiovascular risk in those with a BMI of 25 to 34.9 kg/m2. Increased waist circumference can also be a marker of increased risk even in persons of normal weight. The technique for measuring waist circumference is described in the text. A nutrition assessment will also help to assess the diet and physical activity habits of overweight patients&quot;/&gt;
 
-		&lt;!--Rules prior to execution--&gt;
-		&lt;condition&gt;
-			&lt;description value=&quot;The practitioner must seek to determine whether the patient has ever been overweight. While a technical definition is provided, a simple question such as 'Have you ever been overweight?' will accomplish the same goal. Questions directed towards weight history, dietary habits, physical activities, and medications may provide useful information about the origins of obesity in particular patients.
-			
+    &lt;!--Rules prior to execution--&gt;
+    &lt;condition&gt;
+      &lt;description value=&quot;The practitioner must seek to determine whether the patient has ever been overweight. While a technical definition is provided, a simple question such as 'Have you ever been overweight?' will accomplish the same goal. Questions directed towards weight history, dietary habits, physical activities, and medications may provide useful information about the origins of obesity in particular patients.
+      
 For those who have not been overweight, a 2 year interval is appropriate for the reassessment of BMI. While this time span is not evidence-based, it is believed to be a reasonable compromise between the need to identify weight gain at an early stage and the need to limit the time, effort, and cost of repeated measurements.&quot;/&gt;
-			&lt;expression value=&quot;Observation of Obesity or BMI Measured in Past 2 Years&quot;/&gt;
-			&lt;!-- CQL: exists ([Observation: Obesity]) or not exists ([Observation: BMI] O where O.effectiveDateTime 2 years or less before Today()) --&gt;
-		&lt;/condition&gt;
-		&lt;!--	Activities that occur within timepoint--&gt;
-		&lt;activityDefinition&gt;
-			&lt;reference value=&quot;#procedure&quot;/&gt;
-		&lt;/activityDefinition&gt;
-	&lt;/actionDefinition&gt;
+      &lt;expression value=&quot;Observation of Obesity or BMI Measured in Past 2 Years&quot;/&gt;
+      &lt;!-- CQL: exists ([Observation: Obesity]) or not exists ([Observation: BMI] O where O.effectiveDateTime 2 years or less before Today()) --&gt;
+    &lt;/condition&gt;
+    &lt;!--  Activities that occur within timepoint--&gt;
+    &lt;activityDefinition&gt;
+      &lt;reference value=&quot;#procedure&quot;/&gt;
+    &lt;/activityDefinition&gt;
+  &lt;/actionDefinition&gt;
 </code></pre>
 
 <a name="documentation-template"/>
@@ -507,7 +508,7 @@ For those who have not been overweight, a 2 year interval is appropriate for the
 
 <p>A documentation template is a structured form for recording information on a patient into a set of pre-defined data slots. These templates are used to guide structured data entry within an EHR or other clinical information system. Some types of clinical documents that can be represented via the documentation template artifacts are encounter summaries, procedure notes, patient-reported outcomes, and flowsheets.</p>
 
-<p>The Questionnaire resource provides a basis for representing the structure of a documentation template. Using the expression extensions, the resource can be extended to provide dynamic behavior such as calculating values, showing/hiding contents based on answers to questions, and other interactive functionality.</p>
+<p>The <a href="[%fhir-path%]/questionnaire.html">Questionnaire</a> resource provides a basis for representing the structure of a documentation template. Using the expression extensions, the resource can be extended to provide dynamic behavior such as calculating values, showing/hiding contents based on answers to questions, and other interactive functionality.</p>
 
 <p>Documentation Templates often include not only a description of the data to be collected, but the behavior of the template during evaluation. For example, whether or not to display a particular question or group of questions based on answers to previously asked questions, or calculating the value of an answer based on other answers. The Questionnaire resource by itself does not provide this functionality, so this guide introduces a <a href="cqif-questionnaire.html">CQIF-Questionnaire</a> profile of the <a href="../questionnaire.html">Questionnaire</a> resource to allow this behavior to be modeled.</p>
 
@@ -515,22 +516,22 @@ For those who have not been overweight, a 2 year interval is appropriate for the
 
 <p>The following fragment taken from that example illustrates the use of the cqlExpression extension to calculate the TotalScore answer for a PHQ-9 Depression Assessment instrument:</p>
 
-<pre><code>  &lt;item&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqif-basic-cqlExpression&quot;&gt;
-      &lt;valueString value=&quot;CalculateTotalScore&quot;/&gt;
-    &lt;/extension&gt;
-    &lt;linkId value=&quot;TotalScore&quot;/&gt;
-    &lt;concept&gt;
-      &lt;system value=&quot;http://loinc.org&quot;/&gt;
-      &lt;code value=&quot;44261-6&quot;/&gt;
-    &lt;/concept&gt;
-    &lt;text value=&quot;Total score&quot;/&gt;
-    &lt;type value=&quot;choice&quot;/&gt;
-    &lt;required value=&quot;true&quot;/&gt;
-    &lt;options&gt;
-      &lt;reference value=&quot;ValueSet/LOINCDepressionAnswersList&quot;/&gt;
-    &lt;/options&gt;
-  &lt;/item&gt;
+<pre><code>&lt;item&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqif-basic-cqlExpression&quot;&gt;
+    &lt;valueString value=&quot;CalculateTotalScore&quot;/&gt;
+  &lt;/extension&gt;
+  &lt;linkId value=&quot;TotalScore&quot;/&gt;
+  &lt;concept&gt;
+    &lt;system value=&quot;http://loinc.org&quot;/&gt;
+    &lt;code value=&quot;44261-6&quot;/&gt;
+  &lt;/concept&gt;
+  &lt;text value=&quot;Total score&quot;/&gt;
+  &lt;type value=&quot;choice&quot;/&gt;
+  &lt;required value=&quot;true&quot;/&gt;
+  &lt;options&gt;
+    &lt;reference value=&quot;ValueSet/LOINCDepressionAnswersList&quot;/&gt;
+  &lt;/options&gt;
+&lt;/item&gt;
 </code></pre>
 
 </div>

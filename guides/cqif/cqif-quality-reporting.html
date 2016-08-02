@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
       
-[%settitle Clinical Quality Improvement Framework (CQIF) Implementation Guide%]
+[%settitle Clinical Quality Framework (CQF) Implementation Guide%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -10,10 +10,11 @@
 
 <div class="col-9">
 
+<a name="quality-reporting"/>
 <h3>Quality Reporting</h3>
 
 <p>
-The <a href="#bibitem-cql">Clinical Quality Language (CQL)</a> standard aims to unify the expression of logic for
+The <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">Clinical Quality Language (CQL)</a> standard aims to unify the expression of logic for
 electronic Clinical Quality Measures (eCQM) and Clinical Decision Support (CDS). This
 document defines an approach to using CQL with Fast Health Interoperability Resources (FHIR)
 DSTU2 for defining eCQMs.
@@ -21,12 +22,12 @@ DSTU2 for defining eCQMs.
 
 <p>
 This Implementation Guide (IG) specifies how the Clinical Quality Language
-(CQL) is used in conjunction with the <a href="#bibitem-qicore">Quality Improvement Core (QICore)</a>
+(CQL) is used in conjunction with the <a href="[%fhir-path%]qicore/qicore.html">Quality Improvement Core (QICore)</a>
 FHIR profiles to define and invoke clinical quality measures.
 </p>
 
 <p>
-This approach supercedes previous approaches to representing eCQMs using the <a href="#bibitem-hqmf">Health
+This approach supercedes previous approaches to representing eCQMs using the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">Health
 Quality Measure Format (HQMF)</a>.
 </p>
 
@@ -52,7 +53,7 @@ Quality Measure Format (HQMF)</a>.
 <a name="measure-metadata"/>
 <h5>Measure Metadata</h5>
 
-<p>The following table provides a requirements mapping from the content of an eMeasure to the elements defined in the Measure resource:</p>
+<p>The following table provides a requirements mapping from the content of an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">eMeasure</a> to the elements defined in the <a href="[%fhir-path%]/measure.html">Measure</a> resource:</p>
 
 <table class="grid">
 	<thead>
@@ -94,7 +95,7 @@ Quality Measure Format (HQMF)</a>.
 <a name="specifying-population-criteria"/>
 <h6>Specifying Population Criteria</h6>
 
-<p>A measure can specify various types of populations, depending on the type of measure scoring being used. The following table shows which population criteria types are required (R), optional (O), or not permitted (NP) for proportion, ratio, and continuous variable measures. This table is adapted from Table 1 from the <a href="#bibitem-hqmf">HQMF DSTU Release 2</a> specification, and Table 2.1 from the <a href="#bibitem-qdmhqmf1">QDM-based HQMF IG</a>.</p>
+<p>A measure can specify various types of populations, depending on the type of measure scoring being used. The following table shows which population criteria types are required (R), optional (O), or not permitted (NP) for proportion, ratio, and continuous variable measures. This table is adapted from Table 1 from the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">HQMF DSTU Release 2</a> specification, and Table 2.1 from the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=346">QDM-based HQMF IG</a>.</p>
 
 <table class="grid">
 	<thead>
@@ -110,29 +111,29 @@ Quality Measure Format (HQMF)</a>.
 
 <p>The Measure resource then identifies specific named expressions within the referenced primary measure library that define the criteria for each population. For example, the following fragment illustrates the population criteria definitions for the CMS146 measure example:</p>
 
-<pre><code>  &lt;group&gt;
-		&lt;identifier&gt;&lt;value value=&quot;CMS146-group-1&quot;/&gt;&lt;/identifier&gt;
-		&lt;population&gt;
-			&lt;type value=&quot;initial-population&quot;/&gt;
-			&lt;identifier&gt;&lt;value value=&quot;initial-population-identifier&quot;/&gt;&lt;/identifier&gt;
-			&lt;criteria value=&quot;CMS146.InInitialPopulation&quot;/&gt;
-		&lt;/population&gt;
-		&lt;population&gt;
-			&lt;type value=&quot;numerator&quot;/&gt;
-			&lt;identifier&gt;&lt;value value=&quot;numerator-identifier&quot;/&gt;&lt;/identifier&gt;
-			&lt;criteria value=&quot;CMS146.InNumerator&quot;/&gt;
-		&lt;/population&gt;
-		&lt;population&gt;
-			&lt;type value=&quot;denominator&quot;/&gt;
-			&lt;identifier&gt;&lt;value value=&quot;denominator-identifier&quot;/&gt;&lt;/identifier&gt;
-			&lt;criteria value=&quot;CMS146.InDenominator&quot;/&gt;
-		&lt;/population&gt;
-		&lt;population&gt;
-			&lt;type value=&quot;denominator-exclusion&quot;/&gt;
-			&lt;identifier&gt;&lt;value value=&quot;denominator-exclusions-identifier&quot;/&gt;&lt;/identifier&gt;
-			&lt;criteria value=&quot;CMS146.InDenominatorExclusions&quot;/&gt;
-		&lt;/population&gt;
-  &lt;/group&gt;
+<pre><code>&lt;group&gt;
+  &lt;identifier&gt;&lt;value value=&quot;CMS146-group-1&quot;/&gt;&lt;/identifier&gt;
+  &lt;population&gt;
+    &lt;type value=&quot;initial-population&quot;/&gt;
+    &lt;identifier&gt;&lt;value value=&quot;initial-population-identifier&quot;/&gt;&lt;/identifier&gt;
+    &lt;criteria value=&quot;CMS146.InInitialPopulation&quot;/&gt;
+  &lt;/population&gt;
+  &lt;population&gt;
+    &lt;type value=&quot;numerator&quot;/&gt;
+    &lt;identifier&gt;&lt;value value=&quot;numerator-identifier&quot;/&gt;&lt;/identifier&gt;
+    &lt;criteria value=&quot;CMS146.InNumerator&quot;/&gt;
+  &lt;/population&gt;
+  &lt;population&gt;
+    &lt;type value=&quot;denominator&quot;/&gt;
+    &lt;identifier&gt;&lt;value value=&quot;denominator-identifier&quot;/&gt;&lt;/identifier&gt;
+    &lt;criteria value=&quot;CMS146.InDenominator&quot;/&gt;
+  &lt;/population&gt;
+  &lt;population&gt;
+    &lt;type value=&quot;denominator-exclusion&quot;/&gt;
+    &lt;identifier&gt;&lt;value value=&quot;denominator-exclusions-identifier&quot;/&gt;&lt;/identifier&gt;
+    &lt;criteria value=&quot;CMS146.InDenominatorExclusions&quot;/&gt;
+  &lt;/population&gt;
+&lt;/group&gt;
 </code></pre>
 
 <a name="multiple-populations"/>
@@ -175,12 +176,12 @@ Quality Measure Format (HQMF)</a>.
 <a name="invoking-measures"/>
 <h4>Invoking Measures</h4>
 
-<p>The Health Quality Measure Format (HQMF) defines the electronic representation of an eMeasure but does not define a mechanism for invoking an eMeasure. FHIR defines both the representation of resources and a general mechanism for interacting with them via the OperationDefinition resource. Prior sections of this specification described the Measure representation of an eMeasure, this section describes the evaluateMeasure operation that is used to invoke an eMeasure and obtain the results.</p>
+<p>The Health Quality Measure Format (HQMF) defines the electronic representation of an eMeasure but does not define a mechanism for invoking an eMeasure. FHIR defines both the representation of resources and a general mechanism for interacting with them via the <a href="[%fhir-path]/operationdefinition.html">OperationDefinition</a> resource. Prior sections of this specification described the Measure representation of an eMeasure, this section describes the evaluateMeasure operation that is used to invoke an eMeasure and obtain the results.</p>
 
 <a name="operation-definition"/>
 <h5>Operation Definition</h5>
 
-<p>FHIR defines a standard set of common interactions that include read, update, delete and search. In addition, FHIR defines a standard set of extended operations that can be performed on resources, resource types and system wide. The standard operations include profile validation, concept translation and value set expansion. FHIR also supports custom operations via the FHIR OperationDefinition resource. This resource offers a means to create a formal definition of a custom operation that can be performed on a FHIR server. For the purposes of measure evaluation we define a new custom operation with a code of <a href="[%fhir-path%]operation-measure-evaluate-measure.html">$evaluate-measure</a>.</p>
+<p>FHIR defines a standard set of common interactions that include read, update, delete and search. In addition, FHIR defines a standard set of extended operations that can be performed on resources, resource types and system wide. The standard operations include profile validation, concept translation and value set expansion. FHIR also supports custom operations via the FHIR <a href="[%fhir-path]/operationdefinition.html">OperationDefinition</a> resource. This resource offers a means to create a formal definition of a custom operation that can be performed on a FHIR server. For the purposes of measure evaluation we define a new custom operation with a code of <a href="[%fhir-path%]operation-measure-evaluate-measure.html">$evaluate-measure</a>.</p>
 
 <p>The $evaluate-measure operation has the following properties:</p>
 
@@ -226,7 +227,7 @@ The next example demonstrates how to obtain the results of evaluating the eMeasu
 
 <p>When eCQMs are represented with the Health Quality Measure Format (HQMF), a single HQMF document represents both the measure itself and the request. Meanwhile, the responses are represented as Quality Reporting Document Architecture (QRDA) documents. QRDA documents come in three flavors: Category I for individual patient reports, Category II for patient list reports, and Category III for population reports.</p>
 
-<p>When eCQMs are represented with FHIR resources, the measure is represented as a <a href="[%fhir-path%]measure.html">Measure</a> resource, and the request is an <code>HTTP GET</code> conforming to the OperationDefinition described above. Meanwhile, the responses are represented as <a href="[%fhir-path%]measurereport.html">MeasureReport</a> resources. Like QRDA, the MeasureReport allows for Category I (individual), Category II (patient-list), and Category III (population) reports.</p>
+<p>When eCQMs are represented with FHIR resources, the measure is represented as a <a href="[%fhir-path%]measure.html">Measure</a> resource, and the request is an <code>HTTP GET</code> conforming to the <a href="[%fhir-path]/operationdefinition.html">OperationDefinition</a> described above. Meanwhile, the responses are represented as <a href="[%fhir-path%]measurereport.html">MeasureReport</a> resources. Like QRDA, the MeasureReport allows for Category I (individual), Category II (patient-list), and Category III (population) reports.</p>
 
 <a name="reporting-population-data"/>
 <h5>Reporting Population Data</h5>

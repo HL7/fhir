@@ -9,73 +9,73 @@
       (strep) test for the episode.
     </div>
   </text>
-	  <identifier>
-		<use value="official" />
-		<system value="http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms" />
-		<value value="146" />
-	  </identifier>
-	  <identifier>
-		<use value="official" />
-		<system value="http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/nqf" />
-		<value value="0002" />
-	  </identifier>
-	  <version value="1.0.0"/>
-	  <title value="Appropriate Testing for Children with Pharyngitis"/>
-	<status value="active"/>
-	<experimental value="true"/>
-	<description value="Percentage of children 2-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode."/>
-	<topic>
-		<coding>
-		  <system value="http://hl7.org/fhir/c80-doc-typecodes" />
-		  <code value="57024-2" />
-		</coding>
-	</topic>
+    <identifier>
+    <use value="official" />
+    <system value="http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms" />
+    <value value="146" />
+    </identifier>
+    <identifier>
+    <use value="official" />
+    <system value="http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/nqf" />
+    <value value="0002" />
+    </identifier>
+    <version value="1.0.0"/>
+    <title value="Appropriate Testing for Children with Pharyngitis"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <description value="Percentage of children 2-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode."/>
+  <topic>
+    <coding>
+      <system value="http://hl7.org/fhir/c80-doc-typecodes" />
+      <code value="57024-2" />
+    </coding>
+  </topic>
   <library>
-	  <reference value="Library/library-cms146-example"/>
+    <reference value="Library/library-cms146-example"/>
   </library>
   <scoring value="proportion"/>
   <type value="process"/>
   <group>
-		<identifier><value value="CMS146-group-1"/></identifier>
-		<population>
-			<type value="initial-population"/>
-			<identifier><value value="initial-population-identifier"/></identifier>
-			<criteria value="CMS146.InInitialPopulation"/>
-		</population>
-		<population>
-			<type value="numerator"/>
-			<identifier><value value="numerator-identifier"/></identifier>
-			<criteria value="CMS146.InNumerator"/>
-		</population>
-		<population>
-			<type value="denominator"/>
-			<identifier><value value="denominator-identifier"/></identifier>
-			<criteria value="CMS146.InDenominator"/>
-		</population>
-		<population>
-			<type value="denominator-exclusion"/>
-			<identifier><value value="denominator-exclusions-identifier"/></identifier>
-			<criteria value="CMS146.InDenominatorExclusions"/>
-		</population>
-		<stratifier>
-			<identifier><value value="stratifier-ages-up-to-9"/></identifier>
-			<criteria value="CMS146.AgesUpToNine"/>
-		</stratifier>
-		<stratifier>
-			<identifier><value value="stratifier-ages-10-plus"/></identifier>
-			<criteria value="CMS146.AgesTenPlus"/>
-		</stratifier>
-		<stratifier>
-			<identifier><value value="stratifier-ages-up-to-9"/></identifier>
-			<path value="Patient.gender"/>
-		</stratifier>
+    <identifier><value value="CMS146-group-1"/></identifier>
+    <population>
+      <type value="initial-population"/>
+      <identifier><value value="initial-population-identifier"/></identifier>
+      <criteria value="CMS146.InInitialPopulation"/>
+    </population>
+    <population>
+      <type value="numerator"/>
+      <identifier><value value="numerator-identifier"/></identifier>
+      <criteria value="CMS146.InNumerator"/>
+    </population>
+    <population>
+      <type value="denominator"/>
+      <identifier><value value="denominator-identifier"/></identifier>
+      <criteria value="CMS146.InDenominator"/>
+    </population>
+    <population>
+      <type value="denominator-exclusion"/>
+      <identifier><value value="denominator-exclusions-identifier"/></identifier>
+      <criteria value="CMS146.InDenominatorExclusions"/>
+    </population>
+    <stratifier>
+      <identifier><value value="stratifier-ages-up-to-9"/></identifier>
+      <criteria value="CMS146.AgesUpToNine"/>
+    </stratifier>
+    <stratifier>
+      <identifier><value value="stratifier-ages-10-plus"/></identifier>
+      <criteria value="CMS146.AgesTenPlus"/>
+    </stratifier>
+    <stratifier>
+      <identifier><value value="stratifier-ages-up-to-9"/></identifier>
+      <path value="Patient.gender"/>
+    </stratifier>
   </group>
   <supplementalData>
-		<identifier><value value="supplemental-data-gender"/></identifier>
-		<path value="Patient.gender"/>
-	</supplementalData>
+    <identifier><value value="supplemental-data-gender"/></identifier>
+    <path value="Patient.gender"/>
+  </supplementalData>
   <supplementalData>
-		<identifier><value value="supplemental-data-deceased"/></identifier>
-		<path value="deceasedBoolean"/>
-	</supplementalData>
+    <identifier><value value="supplemental-data-deceased"/></identifier>
+    <path value="deceasedBoolean"/>
+  </supplementalData>
 </Measure>

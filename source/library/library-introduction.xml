@@ -4,12 +4,12 @@
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
 <p>
-<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Improvement Framework Implementation Guide</a>.</i>
+<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Framework (CQF) Implementation Guide</a>.</i>
 </p>
 
 <p>The Library resource is a general purpose container for clinical knowledge that is defined using a non-FHIR representation. For example, a shareable library of clinical logic, written in Clinical Quality Language (CQL), or the XML Schema for an information model. In addition to representing the metadata of the library, the resource has elements for tracking dependencies, as well as for representing the parameters and data requirements for any expression functionality provided by the library.</p>
 
-<p>The actual content of the library is represented using the Attachment data type, and may either be referenced with a url, or the content may be embedded as a base-64 encoded string. Either way, the contentType element of the attachment is used to indicate the representation of the library content.</p>
+<p>The actual content of the library is represented using the Attachment data type, and may either be referenced with a url, or the content may be embedded as a base-64 encoded string. Either way, the <code>contentType</code> element of the attachment is used to indicate the representation of the library content.</p>
 
 <p>Note that because the library content may be embedded as well as be retrievable from an external repository via the attachment URL, the possibility exists for the embedded content to be different from the content on the repository. With proper versioning and governance, this should never occur, but to minimize the potential impact of this possibility, implementers SHALL give precedence to the embedded content of a library when it is present.</p>
 
@@ -17,7 +17,7 @@
 
 <div>
 <h2>Boundaries and Relationships</h2>
-<p>The Library resource is definitional in nature, meaning it is intended to represent shareable knowledge independent of any particular patient. This is in contrast to the DocumentReference resource, which captures non-FHIR content related to a specific patient, and the Media and Binary resources which capture multimedia content and raw binary content, respectively.</p>
+<p>The Library resource is definitional in nature, meaning it is intended to represent shareable knowledge independent of any particular patient. This is in contrast to the <a href="documentreference.html">DocumentReference</a> resource, which captures non-FHIR content related to a specific patient, and the <a href="media.html">Media</a> and <a href="binary.html">Binary</a> resources which capture multimedia content and raw binary content, respectively.</p>
 </div>
 
 <!-- (optional):

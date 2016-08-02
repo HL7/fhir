@@ -4,20 +4,20 @@
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
 <p>
-<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Improvement Framework Implementation Guide</a>.</i>
+<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Framework (CQF) Implementation Guide</a>.</i>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>
 
 <p>The Measure resource represents a structured computable definition of a clinical quality measure. A quality measure is a quantitative tool to assess the performance of an individual or organization with respect to a specified process or outcome via the measurement of actions, processes, or outcomes of clinical care. Quality measures are often derived from clinical quidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.</p>
 
-<p>Note that the Measure itself does not contain any logic; rather a Library resource is referenced that contains the logic required by the measure, and the various expression elements, such as poulation criteria, reference named expressions within that library (or libraries). In addition, if the Measure references multiple libraries, then any expression references within the resource must be qualified with the name of the library that contains the referenced expression.</p>
+<p>Note that the Measure itself does not contain any logic; rather a <a href="library.html">Library</a> resource is referenced that contains the logic required by the measure, and the various expression elements, such as poulation criteria, reference named expressions within that library (or libraries). In addition, if the Measure references multiple libraries, then any expression references within the resource must be qualified with the name of the library that contains the referenced expression.</p>
 </div>
 
 <div>
 <h2>Boundaries and Relationships</h2>
-<p>The Measure resource describes a specific quality measure, providing the structure of the measure in terms of the calculation elements (the <i>populations</i> involved). The Group resource is also capable of describing a population, however, the complexity involved in specifying the criteria in the general case requires the use of a high-level query language such as Clinical Quality Language. As such, the Measure resource defines only the top-level populations and references CQL expressions for the actual criteria.</p>
+<p>The Measure resource describes a specific quality measure, providing the structure of the measure in terms of the calculation elements (the <i>populations</i> involved). The <a href="group.html">Group</a> resource is also capable of describing a population, however, the complexity involved in specifying the criteria in the general case requires the use of a high-level query language such as Clinical Quality Language (CQL). As such, the Measure resource defines only the top-level populations and references CQL expressions for the actual criteria.</p>
 
-<p>A Measure is also similar to an Observation resource, with the exception that the Measure is purely definitional, it contains no actual measurements, only a description of how to calculate a particular measurement.</p>
+<p>A Measure is also similar to an <a href="observation.html">Observation</a> resource, with the exception that the Measure is purely definitional, it contains no actual measurements, only a description of how to calculate a particular measurement.</p>
 </div>
 
 <!-- (optional):

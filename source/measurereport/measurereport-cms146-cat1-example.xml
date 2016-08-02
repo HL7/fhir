@@ -23,11 +23,11 @@
     </Organization>
   </contained>
   <measure>
-	  <reference value="Measure/CMS146"/>
+    <reference value="Measure/CMS146"/>
   </measure>
   <type value="individual"/>
   <patient>
-	  <reference value="Patient/123"/>
+    <reference value="Patient/123"/>
   </patient>
   <period>
       <start value="2014-01-01" />
@@ -35,220 +35,220 @@
   </period>
   <status value="complete"/>
   <reportingOrganization>
-	  <reference value="#reporter"/>
+    <reference value="#reporter"/>
   </reportingOrganization>
   <group>
-		<identifier><value value="CMS146-group-1"/></identifier>
-		<population>
-			<type value="initial-population"/>
-			<count value="1"/>
-		</population>
-		<population>
-			<type value="numerator"/>
-			<count value="1"/>
-		</population>
-		<population>
-			<type value="denominator"/>
-			<count value="1"/>
-		</population>
-		<population>
-			<type value="denominator-exclusion"/>
-			<count value="0"/>
-		</population>
-		<stratifier>
-			<identifier><value value="stratifier-ages-up-to-9"/></identifier>
-			<group>
-				<value value="true"/>
-				<population>
-					<type value="initial-population"/>
-					<count value="1"/>
-				</population>
-				<population>
-					<type value="numerator"/>
-					<count value="1"/>
-				</population>
-				<population>
-					<type value="denominator"/>
-					<count value="1"/>
-				</population>
-				<population>
-					<type value="denominator-exclusion"/>
-					<count value="0"/>
-				</population>
-			</group>
-			<group>
-				<value value="false"/>
-				<population>
-					<type value="initial-population"/>
-					<count value="0"/>
-				</population>
-				<population>
-					<type value="numerator"/>
-					<count value="0"/>
-				</population>
-				<population>
-					<type value="denominator"/>
-					<count value="0"/>
-				</population>
-				<population>
-					<type value="denominator-exclusion"/>
-					<count value="0"/>
-				</population>
-			</group>
-		</stratifier>
-		<stratifier>
-			<identifier><value value="stratifier-ages-10-plus"/></identifier>
-			<group>
-				<value value="true"/>
-				<population>
-					<type value="initial-population"/>
-					<count value="0"/>
-				</population>
-				<population>
-					<type value="numerator"/>
-					<count value="0"/>
-				</population>
-				<population>
-					<type value="denominator"/>
-					<count value="0"/>
-				</population>
-				<population>
-					<type value="denominator-exclusion"/>
-					<count value="0"/>
-				</population>
-			</group>
-			<group>
-				<value value="false"/>
-				<population>
-					<type value="initial-population"/>
-					<count value="1"/>
-				</population>
-				<population>
-					<type value="numerator"/>
-					<count value="1"/>
-				</population>
-				<population>
-					<type value="denominator"/>
-					<count value="1"/>
-				</population>
-				<population>
-					<type value="denominator-exclusion"/>
-					<count value="0"/>
-				</population>
-			</group>
-		</stratifier>
-		<stratifier>
-			<identifier><value value="stratifier-gender"/></identifier>
-			<group>
-				<value value="male"/>
-				<population>
-					<type value="initial-population"/>
-					<count value="1"/>
-				</population>
-				<population>
-					<type value="numerator"/>
-					<count value="1"/>
-				</population>
-				<population>
-					<type value="denominator"/>
-					<count value="1"/>
-				</population>
-				<population>
-					<type value="denominator-exclusion"/>
-					<count value="0"/>
-				</population>
-			</group>
-			<group>
-				<value value="female"/>
-				<population>
-					<type value="initial-population"/>
-					<count value="0"/>
-				</population>
-				<population>
-					<type value="numerator"/>
-					<count value="0"/>
-				</population>
-				<population>
-					<type value="denominator"/>
-					<count value="0"/>
-				</population>
-				<population>
-					<type value="denominator-exclusion"/>
-					<count value="0"/>
-				</population>
-			</group>
-			<group>
-				<value value="other"/>
-				<population>
-					<type value="initial-population"/>
-					<count value="0"/>
-				</population>
-				<population>
-					<type value="numerator"/>
-					<count value="0"/>
-				</population>
-				<population>
-					<type value="denominator"/>
-					<count value="0"/>
-				</population>
-				<population>
-					<type value="denominator-exclusion"/>
-					<count value="0"/>
-				</population>
-			</group>
-			<group>
-				<value value="unknown"/>
-				<population>
-					<type value="initial-population"/>
-					<count value="0"/>
-				</population>
-				<population>
-					<type value="numerator"/>
-					<count value="0"/>
-				</population>
-				<population>
-					<type value="denominator"/>
-					<count value="0"/>
-				</population>
-				<population>
-					<type value="denominator-exclusion"/>
-					<count value="0"/>
-				</population>
-			</group>
-		</stratifier>
-		<supplementalData>
-			<identifier><value value="supplemental-data-gender"/></identifier>
-			<group>
-				<value value="male"/>
-				<count value="1"/>
-			</group>
-			<group>
-				<value value="female"/>
-				<count value="0"/>
-			</group>
-			<group>
-				<value value="other"/>
-				<count value="0"/>
-			</group>
-			<group>
-				<value value="unknown"/>
-				<count value="0"/>
-			</group>
-		</supplementalData>
-		<supplementalData>
-			<identifier><value value="supplemental-data-deceased"/></identifier>
-			<group>
-				<value value="true"/>
-				<count value="0"/>
-			</group>
-			<group>
-				<value value="false"/>
-				<count value="1"/>
-			</group>
-		</supplementalData>
+    <identifier><value value="CMS146-group-1"/></identifier>
+    <population>
+      <type value="initial-population"/>
+      <count value="1"/>
+    </population>
+    <population>
+      <type value="numerator"/>
+      <count value="1"/>
+    </population>
+    <population>
+      <type value="denominator"/>
+      <count value="1"/>
+    </population>
+    <population>
+      <type value="denominator-exclusion"/>
+      <count value="0"/>
+    </population>
+    <stratifier>
+      <identifier><value value="stratifier-ages-up-to-9"/></identifier>
+      <group>
+        <value value="true"/>
+        <population>
+          <type value="initial-population"/>
+          <count value="1"/>
+        </population>
+        <population>
+          <type value="numerator"/>
+          <count value="1"/>
+        </population>
+        <population>
+          <type value="denominator"/>
+          <count value="1"/>
+        </population>
+        <population>
+          <type value="denominator-exclusion"/>
+          <count value="0"/>
+        </population>
+      </group>
+      <group>
+        <value value="false"/>
+        <population>
+          <type value="initial-population"/>
+          <count value="0"/>
+        </population>
+        <population>
+          <type value="numerator"/>
+          <count value="0"/>
+        </population>
+        <population>
+          <type value="denominator"/>
+          <count value="0"/>
+        </population>
+        <population>
+          <type value="denominator-exclusion"/>
+          <count value="0"/>
+        </population>
+      </group>
+    </stratifier>
+    <stratifier>
+      <identifier><value value="stratifier-ages-10-plus"/></identifier>
+      <group>
+        <value value="true"/>
+        <population>
+          <type value="initial-population"/>
+          <count value="0"/>
+        </population>
+        <population>
+          <type value="numerator"/>
+          <count value="0"/>
+        </population>
+        <population>
+          <type value="denominator"/>
+          <count value="0"/>
+        </population>
+        <population>
+          <type value="denominator-exclusion"/>
+          <count value="0"/>
+        </population>
+      </group>
+      <group>
+        <value value="false"/>
+        <population>
+          <type value="initial-population"/>
+          <count value="1"/>
+        </population>
+        <population>
+          <type value="numerator"/>
+          <count value="1"/>
+        </population>
+        <population>
+          <type value="denominator"/>
+          <count value="1"/>
+        </population>
+        <population>
+          <type value="denominator-exclusion"/>
+          <count value="0"/>
+        </population>
+      </group>
+    </stratifier>
+    <stratifier>
+      <identifier><value value="stratifier-gender"/></identifier>
+      <group>
+        <value value="male"/>
+        <population>
+          <type value="initial-population"/>
+          <count value="1"/>
+        </population>
+        <population>
+          <type value="numerator"/>
+          <count value="1"/>
+        </population>
+        <population>
+          <type value="denominator"/>
+          <count value="1"/>
+        </population>
+        <population>
+          <type value="denominator-exclusion"/>
+          <count value="0"/>
+        </population>
+      </group>
+      <group>
+        <value value="female"/>
+        <population>
+          <type value="initial-population"/>
+          <count value="0"/>
+        </population>
+        <population>
+          <type value="numerator"/>
+          <count value="0"/>
+        </population>
+        <population>
+          <type value="denominator"/>
+          <count value="0"/>
+        </population>
+        <population>
+          <type value="denominator-exclusion"/>
+          <count value="0"/>
+        </population>
+      </group>
+      <group>
+        <value value="other"/>
+        <population>
+          <type value="initial-population"/>
+          <count value="0"/>
+        </population>
+        <population>
+          <type value="numerator"/>
+          <count value="0"/>
+        </population>
+        <population>
+          <type value="denominator"/>
+          <count value="0"/>
+        </population>
+        <population>
+          <type value="denominator-exclusion"/>
+          <count value="0"/>
+        </population>
+      </group>
+      <group>
+        <value value="unknown"/>
+        <population>
+          <type value="initial-population"/>
+          <count value="0"/>
+        </population>
+        <population>
+          <type value="numerator"/>
+          <count value="0"/>
+        </population>
+        <population>
+          <type value="denominator"/>
+          <count value="0"/>
+        </population>
+        <population>
+          <type value="denominator-exclusion"/>
+          <count value="0"/>
+        </population>
+      </group>
+    </stratifier>
+    <supplementalData>
+      <identifier><value value="supplemental-data-gender"/></identifier>
+      <group>
+        <value value="male"/>
+        <count value="1"/>
+      </group>
+      <group>
+        <value value="female"/>
+        <count value="0"/>
+      </group>
+      <group>
+        <value value="other"/>
+        <count value="0"/>
+      </group>
+      <group>
+        <value value="unknown"/>
+        <count value="0"/>
+      </group>
+    </supplementalData>
+    <supplementalData>
+      <identifier><value value="supplemental-data-deceased"/></identifier>
+      <group>
+        <value value="true"/>
+        <count value="0"/>
+      </group>
+      <group>
+        <value value="false"/>
+        <count value="1"/>
+      </group>
+    </supplementalData>
   </group>
   <evaluatedResources>
-	  <!-- Bundle #456 contains the resources that were evaluated for Patient #123 as part of calculating this measure -->
-	  <reference value="Bundle/456"/>
+    <!-- Bundle #456 contains the resources that were evaluated for Patient #123 as part of calculating this measure -->
+    <reference value="Bundle/456"/>
   </evaluatedResources>
 </MeasureReport>

@@ -6,62 +6,62 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Guideline Appropriate Ordering Module</div>
   </text>
   
-	<identifier>
-	  <use value="official"/>
-	  <value value="guildeline-appropriate-ordering"/>
-	</identifier>
-	<version value="1.0.0"/>
-	<title value="Guideline Appropriate Ordering Module"/>
-	<status value="draft"/>
-	<description value="Guideline appropriate ordering is used to assess appropriateness of an order given a patient, a proposed order, and a set of clinical indications."/>
-	<publicationDate value="2015-07-22"/>
-	<topic>
-		<text value="Guideline Appropriate Ordering"/>
-	</topic>
-	<topic>
-		<text value="Appropriate Use Criteria"/>
-	</topic>
+  <identifier>
+    <use value="official"/>
+    <value value="guildeline-appropriate-ordering"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <title value="Guideline Appropriate Ordering Module"/>
+  <status value="draft"/>
+  <description value="Guideline appropriate ordering is used to assess appropriateness of an order given a patient, a proposed order, and a set of clinical indications."/>
+  <publicationDate value="2015-07-22"/>
+  <topic>
+    <text value="Guideline Appropriate Ordering"/>
+  </topic>
+  <topic>
+    <text value="Appropriate Use Criteria"/>
+  </topic>
   
-	<!-- Patient Parameter -->
-	<parameter>
-		<name value="patient"/>
-		<use value="in"/>
-		<type value="Patient"/>
-		<profile>
-			<reference value="http://hl7.org/fhir/StructureDefinition/gao-patient"/>
-		</profile>
-		<!--mustSupport value="gender"/-->
-		<!--mustSupport value="birthDate"/-->
-	</parameter>
+  <!-- Patient Parameter -->
+  <parameter>
+    <name value="patient"/>
+    <use value="in"/>
+    <type value="Patient"/>
+    <profile>
+      <reference value="http://hl7.org/fhir/StructureDefinition/gao-patient"/>
+    </profile>
+    <!--mustSupport value="gender"/-->
+    <!--mustSupport value="birthDate"/-->
+  </parameter>
 
-	<!-- Order Parameter -->
-	<parameter>
-		<name value="order"/>
-		<use value="in"/>
-		<type value="Order"/>
-		<profile>
-			<reference value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
-		</profile>
-	</parameter>
-	
-	<!-- Order Output -->
-	<parameter>
-		<name value="order"/>
-		<use value="out"/>
-		<type value="Order"/>
-		<profile>
-			<reference value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
-		</profile>
-	</parameter>
-	
-	<!-- Result -->
-	<parameter>
-		<name value="result"/>
-		<use value="out"/>
-		<type value="Basic"/>
-		<profile>
-			<reference value="http://hl7.org/fhir/StructureDefinition/gao-result"/>
-		</profile>
-	</parameter>
-	
+  <!-- Order Parameter -->
+  <parameter>
+    <name value="order"/>
+    <use value="in"/>
+    <type value="Order"/>
+    <profile>
+      <reference value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
+    </profile>
+  </parameter>
+
+  <!-- Order Output -->
+  <parameter>
+    <name value="order"/>
+    <use value="out"/>
+    <type value="Order"/>
+    <profile>
+      <reference value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
+    </profile>
+  </parameter>
+
+  <!-- Result -->
+  <parameter>
+    <name value="result"/>
+    <use value="out"/>
+    <type value="Basic"/>
+    <profile>
+      <reference value="http://hl7.org/fhir/StructureDefinition/gao-result"/>
+    </profile>
+  </parameter>
+
 </DecisionSupportServiceModule>

@@ -6,23 +6,23 @@
     <div xmlns="http://www.w3.org/1999/xhtml">FHIR Model Definition</div>
   </text>
   
-	<identifier>
-	  <use value="official"/>
-	  <value value="FHIR"/>
-	</identifier>
-	<version value="1.5.0"/>
-	<title value="FHIR Model Definition"/>
-	<type>
-		<coding>
-			<code value="model-definition"/>
-		</coding>
-	</type>
-	<status value="draft"/>
-	<description value="Model definition for the FHIR Model"/>
-	<publicationDate value="2016-07-08"/>
-	<topic>
-		<text value="FHIR"/>
-	</topic>
+  <identifier>
+    <use value="official"/>
+    <value value="FHIR"/>
+  </identifier>
+  <version value="1.5.0"/>
+  <title value="FHIR Model Definition"/>
+  <type>
+    <coding>
+      <code value="model-definition"/>
+    </coding>
+  </type>
+  <status value="draft"/>
+  <description value="Model definition for the FHIR Model"/>
+  <publicationDate value="2016-07-08"/>
+  <topic>
+    <text value="FHIR"/>
+  </topic>
   
   <content>
     <contentType value="application/xml"/>

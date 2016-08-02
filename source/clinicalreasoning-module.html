@@ -28,6 +28,7 @@ in order to support consistent definitions for schema and UML derived code.
 
 <p>Clinical Reasoning involves the ability to represent and encode clinical knowledge in a very broad sense so that it can be integrated into clinical systems. This encoding may be as simple as controlling whether or not a particular section of an order set appears based on the specific conditions that are present for the patient in content in a CPOE system, or it may be as complex as representing the care pathway for patients with multiple conditions.</p>
 
+<a name="scope"/>
 <h4>Scope</h4>
 <p>The Clinical Reasoning module focuses on enabling two primary use cases:</p>
 
@@ -61,12 +62,13 @@ in order to support consistent definitions for schema and UML derived code.
 	</tbody>
 </table>
 
+<a name="audience"/>
 <h6>Audience</h6>
 <p>From the perspective of a Knowledge Author, this module describes an approach to representing knowledge artifacts within FHIR.</p>
 
 <p>From the perspective of a Knowledge Content Provider, this module defines search functionality for using a FHIR server as a knowledge artifact repository.</p>
 
-<p>From the perspective of a Knowledge Evaluation Service Provider, this module defines operations and profiles in support of evaluating quality measures, and defining a service for guidance request and response, consistent with the approach taken by the current Decision Support Service specification.</p>
+<p>From the perspective of a Knowledge Evaluation Service Provider, this module defines operations and profiles in support of evaluating quality measures, and defining a service for guidance request and response, consistent with the approach taken by the current <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=12">Decision Support Service</a> specification.</p>
 
 <p>And finally, from the perspective of a Knowledge Evaluation Service Consumer, this module defines the expected available operations and behavior of a knowledge evaluation service.</p>
 
@@ -152,7 +154,7 @@ in order to support consistent definitions for schema and UML derived code.
 		<tr><td><a href="cqif/cqif-knowledge-artifact-representation.html#order-set">Defining an Order Set</a></td><td>Using the PlanDefinition resource to represent an order set.</td></tr>
 		<tr><td><a href="cqif/cqif-knowledge-artifact-representation.html#protocol">Defining a Protocol</a></td><td>Using the PlanDefinition resource to represent a protocol.</td></tr>
 		<tr><td><a href="cqif/cqif-knowledge-artifact-representation.html#documentation-template">Defining a Questionnaire with dynamic content</a></td><td>Using the Questionnaire resource and expression extensions to add dynamic functionality to a FHIR Questionnaire.</td></tr>
-		<tr><td><a href="cqif/cqif-cds-on-fhir.html#service-modules">Defining a Service Module</a></td><td>Using the DecisionSupportServiceModule resource to define a guidance module.</td></tr>
+		<tr><td><a href="cqif/cqif-cds-on-fhir.html#service-modules">Defining a Service Module</a></td><td>Using the DecisionSupportServiceModule resource to define a decision support service module.</td></tr>
 		<tr><td><a href="cqif/cqif-cds-on-fhir.html#guidance-request">Obtaining guidance from a Decision Support Service</a></td><td>Using the $evaluate operation to request and process guidance from a decision support service.</td></tr>
 		<tr><td><a href="cqif/cqif-quality-reporting.html#representing-quality-measures">Defining a Measure</a></td><td>Using the Measure resource to represent a clinical quality measure.</td></tr>
 		<tr><td><a href="cqif/cqif-quality-reporting.html#invoking-measures">Evaluating a Measure</a></td><td>Using the $evaluate-measure operation to request calculation of a clinical quality measure.</td></tr>
@@ -177,8 +179,8 @@ in order to support consistent definitions for schema and UML derived code.
 	<li>FHIR-Based Clinical Decision Support Service</li>
 	<li>FHIR-Based Quality Measure Evaluation and Reporting</li>
 	<li>FHIR-Based Order Set Catalog/Ordering Services</li>
-	<li>The use of FHIR operations as the protocol for defining artifact evaluation requests and responses. In particular, the ability to bundle multiple requests into a single operation, as well as the use of a generic FHIR operation for any module evaluation, versus defining an evaluation specific to a given knowledge module.</li>
-	<li>The use of FHIR interactions in general as a mechanism for enabling knowledge module repository and distribution functionality.</li>
+	<li>The use of FHIR operations as the protocol for defining artifact evaluation requests and responses. In particular, the ability to bundle multiple requests into a single operation, as well as the use of a generic FHIR operation for any service module evaluation, versus defining an evaluation specific to a given knowledge artifact.</li>
+	<li>The use of FHIR interactions in general as a mechanism for enabling knowledge artifact repository and distribution functionality.</li>
 </ul>
 
 <a name="background"/>
@@ -198,7 +200,7 @@ in order to support consistent definitions for schema and UML derived code.
 
 <p>The first component has resulted in the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=391">Clinical Quality Common Metadata Conceptual Model</a>, an informative document harmonizing metadata requirements between Quality Measurement and Decision Support artifacts.</p>
 
-<p>The second component has resulted in the QUICK <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378">Conceptual</a> and Logical Models, a harmonization of the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=338">Virtual Medical Record (vMR)</a> used in Decision Support and the <a href="https://ecqi.healthit.gov/qdm">Quality Data Model (QDM)</a> used in Quality Measurement, and realized in FHIR as the QICore profiles.</p>
+<p>The second component has resulted in the QUICK <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378">Conceptual and Logical</a> Models, a harmonization of the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=338">Virtual Medical Record (vMR)</a> used in Decision Support and the <a href="https://ecqi.healthit.gov/qdm">Quality Data Model (QDM)</a> used in Quality Measurement, and realized in FHIR as the QICore profiles.</p>
 
 <p>And finally, the third component has resulted in the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">Clinical Quality Language Specification</a>, a harmonization of the expressive capabilities of the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=337">Clinical Decision Support Knowledge Artifact Specification (CDS KAS)</a> (produced by the <a href="http://healthedecisions.org">Health eDecisions</a> (HeD) S&amp;I Framework Initiative), and the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">Health Quality Measures Format (HQMF)</a>.</p>
 

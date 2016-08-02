@@ -4,7 +4,7 @@
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
 <p>
-<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Improvement Framework Implementation Guide</a>.</i>
+<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Framework (CQF) Implementation Guide</a>.</i>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>
 
@@ -19,7 +19,7 @@ The resource is based on the HL7 CDA R2 Implementation Guide: Quality Reporting 
 
 <div>
 <h2>Boundaries and Relationships</h2>
-<p>Although the MeasureReport is conceptually an Observation event, there is enough specific information required to support the quality reporting use case to warrant a separate resource.</p>
+<p>Although the MeasureReport is conceptually an <a href="observation">Observation</a>, there is enough specific information required to support the quality reporting use case to warrant a separate resource.</p>
 
 <p>The resource is differentiated from a general purpose query result because it communicates specific information related to quality measurement evaluation that would be difficult to convey generally without imposing some other structure on top of the general results.</p>
 </div>
