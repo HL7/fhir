@@ -318,7 +318,9 @@
 <a name="asynchronous-evaluation"/>
 <h4>Asynchronous Evaluation</h4>
 
-<p>To enable asynchronous request/response, the GuidanceResponse supports a status of <code>in-progress</code>. For this result, the HTTP response SHOULD include the Retry After after with an appropriate indication for the expected wait time. In this case, the client is expected to reissue the request with the same <code>requestId</code>. To reduce bandwidth requirements, when reissuing a request the client need not send the input information. If the request is complete, a GuidanceResponse with an appropriate completion status (<code>success</code>, <code>failure</code>, or one of the data statuses) will be returned. If the request is still pending, a GuidanceResponse with a status of <code>in-progress</code> is returned.</p>
+<p>To enable asynchronous request/response, the GuidanceResponse supports a status of <code>in-progress</code>. For this result, the HTTP response SHOULD include the <code>Retry After</code> header with an appropriate indication for the expected wait time.</p>
+
+<p>In this case, the client is expected to reissue the request with the same <code>requestId</code>. To reduce bandwidth requirements, when reissuing a request the client need not send the input information. If the request is complete, a GuidanceResponse with an appropriate completion status (<code>success</code>, <code>failure</code>, or one of the data statuses) will be returned. If the request is still pending, a GuidanceResponse with a status of <code>in-progress</code> is returned.</p>
 
 <a name="conversational-evaluation"/>
 <h4>Conversational Request/Response</h4>
@@ -341,6 +343,7 @@
 
 <p>The response to posting a batch Bundle containing $evaluate requests is a batch Bundle containing the GuidanceResponse resource results of each $evaluate, as though each request had been submitted independently. Note that this does not imply that the requests must be performed serially, the service is free to implement the requests in any order, including parallelizing the requests.</p>
 
+<a name="service-integration"/>
 <h4>Service Integration</h4>
 
 <p>In addition to the direct integration, the $evaluate operation can be used as a component within a larger infrastructure. For example:</p>
