@@ -2958,8 +2958,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       s = new FileOutputStream(page.getFolders().dstDir + prefix+filename+".canonical.json");
       new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(s, ed);
       s.close();
-      cloneToXhtml(prefix+filename, ed.getName(), false, "summary-instance", "Extension");
-      jsonToXhtml(prefix+filename, ed.getName(), resource2Json(ed), "extension", "Extension");
+      cloneToXhtml(prefix+filename, ed.getName(), false, "summary-instance", ed.getUrl());
+      jsonToXhtml(prefix+filename, ed.getName(), resource2Json(ed), "extension", ed.getUrl());
 
       ByteArrayOutputStream bytes = new ByteArrayOutputStream();
       XmlSpecGenerator gen = new XmlSpecGenerator(bytes, filename+"-definitions.html", null /*"http://hl7.org/fhir/"*/, page, page.genlevel(ig.isCore() ? 0 : 1));

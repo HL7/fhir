@@ -101,6 +101,7 @@ signatures.html
       <page title="RESTful API" filename="http.html">
         <page title="Search" filename="search.html"/>
         <page title="_filter Parameter" filename="search_filter.html"/>
+        <page title="Search Parameter Registry" filename="searchparameter-registry.html"/>
       </page>
       <page title="Operations" filename="operations.html">
         <page title="Example" filename="op-example-request.html"/>
@@ -118,29 +119,29 @@ signatures.html
     </page>
 
     <page title="Terminology" filename="terminology-module.html" icon="terminology.png">
-      <page title="Using Codes" filename="terminologies.html">
-        <page title="Systems" filename="terminologies-systems.html">
-          <page title="SNOMED CT" filename="snomedct.html"/>
-          <page title="RxNorm" filename="rxnorm.html"/>
-          <page title="LOINC" filename="loinc.html"/>
-          <page title="UCUM" filename="ucum.html"/>
-          <page title="NCI Metothesuaras" filename="ncimeta.html"/>
-          <page title="NDFRT" filename="ndfrt.html"/>
-          <page title="UNII" filename="unii.html"/>
-          <page title="CVX" filename="cvx.html"/>
-          <page title="CPT" filename="cpt.html"/>
-          <page title="NDC" filename="ndc.html"/>
-          <pages type="codesystem" filename="template-codesystem.html"/>
-          <pages type="v2-table" filename="template-v2.html"/>
-        </page>
-        <page title="Value Sets" filename="terminologies-valuesets.html">
-          <pages type="valueset" filename="template-valueset.html"/>
-          <pages type="v3-vocab" filename="template-v3.html"/>
-        </page>
-        <page title="Concept Maps" filename="terminologies-conceptmaps.html"/>
-        <page title="identifier Registry" filename="identifier-registry.html"/>
-        <page title="TerminologyService" filename="terminology-service.html"/>
+      <page title="Using Codes" filename="terminologies.html"/>
+      <page title="Code Systems" filename="terminologies-systems.html">
+        <page title="SNOMED CT" filename="snomedct.html"/>
+        <page title="RxNorm" filename="rxnorm.html"/>
+        <page title="LOINC" filename="loinc.html"/>
+        <page title="UCUM" filename="ucum.html"/>
+        <page title="NCI Metothesuaras" filename="ncimeta.html"/>
+        <page title="NDFRT" filename="ndfrt.html"/>
+        <page title="UNII" filename="unii.html"/>
+        <page title="CVX" filename="cvx.html"/>
+        <page title="CPT" filename="cpt.html"/>
+        <page title="NDC" filename="ndc.html"/>
+        <pages type="codesystem" filename="template-codesystem.html"/>
+        <pages type="v2-table" filename="template-v2.html"/>
+        <page title="Code Systems" filename="terminologies-v3.html"/>
       </page>
+      <page title="Value Sets" filename="terminologies-valuesets.html">
+        <pages type="valueset" filename="template-valueset.html"/>
+        <pages type="v3-vocab" filename="template-v3.html"/>
+      </page>
+      <page title="Concept Maps" filename="terminologies-conceptmaps.html"/>
+      <page title="identifier Registry" filename="identifier-registry.html"/>
+      <page title="TerminologyService" filename="terminology-service.html"/>
       <page type="resource" resource="ValueSet"/>
       <page type="resource" resource="ExpansionProfile"/>
       <page type="resource" resource="NamingSystem"/>
@@ -256,6 +257,10 @@ signatures.html
     </page>
 
     <page title="Workflow" filename="workflow-module.html" icon="workflow.png">
+      <page title="Workflow Description" filename="workflow.html"/>
+      <page title="Definition Pattern" filename="definition.html"/>
+      <page title="Request Pattern" filename="request.html"/>
+      <page title="Event Pattern" filename="event.html"/>
       <page type="resource" resource="VisionPrescription"/>
       <page type="resource" resource="ProcessRequest"/>
       <page type="resource" resource="ProcessResponse"/>

@@ -6229,7 +6229,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(filename, genlevel(level)) + s3;
       else if (com[0].equals("breadcrumblist")) {
-        String crumbTitle = (workingTitle == null ? Utilities.escapeXml(ed.getName()) : workingTitle);
+        String crumbTitle = ed.getUrl();
         src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(filename, "extension:"+ed.getName(), genlevel(level), crumbTitle) : ig.makeList(filename, "extension:"+ed.getName(), genlevel(level), crumbTitle))+ s3;      
       } else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
@@ -6551,6 +6551,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     workerContext.setDefinitions(definitions);
     workerContext.initTS(Utilities.path(folders.rootDir, "vscache"), tsServer);
     vsValidator = new ValueSetValidator(workerContext, definitions.getVsFixups(), definitions.getStyleExemptions());
+    breadCrumbManager.setContext(workerContext);
+    
   }
 
   public void setVersion(String version) {

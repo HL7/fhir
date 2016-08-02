@@ -9,8 +9,12 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.Translations;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -25,6 +29,7 @@ public class BreadCrumbManager {
   
   private Translations translations;
   private Definitions definitions;
+  private IWorkerContext context;
 
   public BreadCrumbManager(Translations translations) {
     super();
@@ -400,7 +405,7 @@ public class BreadCrumbManager {
               b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
           }
           b.append("        <li><b>Profile</b></li>");
-        } else if (type.startsWith("profile-instance:resource")) {
+        } else if (type.startsWith("profile-instance:resource")) { // TODO: profile-questionnaire:
           String t = type.substring(type.lastIndexOf(":")+1);
           if (t==null)
             throw new Exception("Unable to read type "+type);
@@ -431,7 +436,7 @@ public class BreadCrumbManager {
             b.append("        <li><a href=\""+prefix+Utilities.fileTitle(name)+".html\">"+Utilities.escapeXml(title)+"</a></li>");
             b.append("        <li><b>Profile Instance</b></li>");
           }
-        } else if (type.startsWith("profile-instance")) {
+        } else if (type.startsWith("profile-instance") || type.startsWith("profile-questionnaire") ) {
           String[] path = map.get("profilelist.html").split("\\.");
           Page focus = home;
           for (int i = 0; i < path.length; i++) {
@@ -470,13 +475,82 @@ public class BreadCrumbManager {
           b.append("        <li><a href=\""+prefix+"terminologies.html\">Terminologies</a></li>");
           b.append("        <li><a href=\""+prefix+"terminologies-systems.html\">Systems</a></li>");
           b.append("        <li><b>SID: "+type.substring(4)+"</b></li>");
+        } else if ((name.startsWith("extension-") || name.startsWith("cqif\\extension-")) && name.endsWith(".html")) {
+          String url = title;
+          StructureDefinition ext = context.fetchResource(StructureDefinition.class, url);
+          if (ext == null || ext.getContextType() == ExtensionContext.EXTENSION || !ext.hasContext()) {
+            b.append("        <li>??? "+Utilities.escapeXml(name)+" / "+Utilities.escapeXml(type)+"</li>\r\n");
+            System.out.println("no breadcrumb: name = "+name+", type = "+type+", prefix = "+prefix+", title = '"+title+"'");
+          } else {
+            String[] path;
+            String ttl;
+            String fn;
+            if (ext.getContextType() == ExtensionContext.DATATYPE) {
+              path = map.get("datatypes.html").split("\\.");
+              ttl = "Data Types";
+              fn = "datatypes";
+            } else {
+              String rn = ext.getContext().get(0).asStringValue();
+              if (rn.contains("."))
+                rn = rn.substring(0, rn.indexOf("."));
+              ttl = rn;
+              if (ttl.equals("*"))
+                ttl = "Resource";
+              fn = ttl.toLowerCase();
+              String m = map.get(fn);
+              if (m == null)
+                path = new String[] { "??" };
+              else
+                path = m.split("\\.");
+            }
+            Page focus = home;
+            for (int i = 0; i < path.length; i++) {
+              focus = getChild(focus, path[i]);
+              if (focus.getFilename() != null)
+                b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>\r\n");
+            }
+            b.append("        <li><a href=\""+fn+".html\">"+ttl+"</a></li>");
+            b.append("        <li><b>Extension</b></li>");
+          }          
+        } else if (type.equals("logical-model")){
+          String m = map.get(head(name).toLowerCase()+".html");
+          if (m != null) {
+            String[] path = m.split("\\.");
+            Page focus = home;
+            for (int i = 0; i < path.length; i++) {
+              focus = getChild(focus, path[i]);
+              if (focus.type == PageType.resource)
+                b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+imgLink(prefix, focus)+focus.getReference()+"</a></li>");
+              else
+                b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+imgLink(prefix, focus)+focus.getTitle()+"</a></li>");
+            }
+          } else
+            System.out.println("no breadcrumb: name = "+name+", type = "+type+", prefix = "+prefix+", title = '"+title+"'");
+          b.append("        <li><b>Logical Model</b></li>");
+        } else if (name.startsWith("codesystem-")) {
+          b.append("                  <li><a href=\"terminology-module.html\"><img src=\"terminology.png\"/> Terminology</a></li>\r\n");
+          b.append("                  <li><a href=\"terminology-systems.html\">Code Systems</a></li>\r\n");
+          b.append("                  <li><b>Code System</b></li>\r\n");
+        } else if (type.startsWith("search-parameter:") || type.equals("searchparam-instance")){
+          b.append("                  <li><a href=\"foundation-module.html\"><img src=\"foundation.png\"/> Foundation</a></li>\r\n");
+          b.append("                  <li><a href=\"http.html\">RESTful API</a></li>\r\n");
+          b.append("                  <li><a href=\"search.html\">Search</a></li>\r\n");
+          b.append("                  <li><b>Search Parameter</b></li>\r\n");
         } else {
           b.append("        <li>??? "+Utilities.escapeXml(name)+" / "+Utilities.escapeXml(type)+"</li>\r\n");
+          System.out.println("no breadcrumb: name = "+name+", type = "+type+", prefix = "+prefix+", title = '"+title+"'");
         }
       }
     }
     b.append("        <!-- "+Utilities.escapeXml(name)+" / "+Utilities.escapeXml(type)+" / "+Utilities.escapeXml(title)+"-->\r\n");
     return b.toString();
+  }
+
+  private String head(String name) {
+    if (name.contains("."))
+      return name.substring(0, name.indexOf("."));
+    else
+      return name;
   }
 
   private String imgLink(String prefix, Page focus) {
@@ -644,6 +718,15 @@ public class BreadCrumbManager {
   public boolean knowsResource(String n) {
     return map.containsKey(n.toLowerCase());
   }
+
+  public IWorkerContext getContext() {
+    return context;
+  }
+
+  public void setContext(IWorkerContext context) {
+    this.context = context;
+  }
+  
   
 }
 
