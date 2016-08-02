@@ -1,4 +1,4 @@
-Laboratory results are grouped and summarized using the DiagnosticReport resource which reference [Observation] resource(s).  Each Observation resource represents an individual laboratory test and result value, a “nested” panel (such as a microbial susceptibility panel) which references other observations, or rarely a laboratory test with component result values.  This profile sets minimum expectations for the DiagnosticReport resource to record, search and fetch laboratory results associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
+Laboratory results are grouped and summarized using the [DiagnosticReport] resource which reference [Observation] resource(s).  Each Observation resource represents an individual laboratory test and result value, a “nested” panel (such as a microbial susceptibility panel) which references other observations, or rarely a laboratory test with component result values.  This profile sets minimum expectations for the DiagnosticReport resource to record, search and fetch laboratory results associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
 
 ##### Mandatory Data Elements and Terminology
@@ -26,4 +26,5 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 * Additional elements from [DAF DiagnosticReport Profile](daf-DiagnosticReport.html) may be present.
 
-[Observation]: daf-core-resultobs.html
+[Observation]:  http://hl7-fhir.github.io/observation.html
+[DiagnosticReport]:  http://hl7-fhir.github.io/diagnosticreport.html

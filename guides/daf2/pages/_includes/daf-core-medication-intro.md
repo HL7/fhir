@@ -1,4 +1,4 @@
-When referring to medications, The [MedicationStatement] and [MedicationOrder] resources can either use a code or refer to a Medication resource.  This profile sets minimum expectations for the Medication resource to record search and fetch medications associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
+When referring to medications, The [MedicationStatement] and [MedicationOrder] resources can either use a code or refer to a [Medication] resource.  This profile sets minimum expectations for the Medication resource to record search and fetch medications associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
 
 ##### Mandatory Data Elements and Terminology
@@ -13,7 +13,9 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Profile specific implementation guidance:**
  
-* Additional elements from [DAF Medication Profile](daf-Medication.html) may be present.
+* Additional elements from [DAF Medication Profile] may be present.
 
-[MedicationStatement]:daf-core-medicationstatement.html
- [MedicationOrder]: daf-core-medicationorder.html
+[MedicationStatement]: http://hl7-fhir.github.io/medicationstatement.html
+ [MedicationOrder]: http://hl7-fhir.github.io/medicationorder.html
+ [Medication]: http://hl7-fhir.github.io/medication.html
+ [DAF Medication Profile]: daf-Medication.html

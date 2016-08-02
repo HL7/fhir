@@ -1,4 +1,4 @@
-This profile sets minimum expectations for the Organization resource to searching for and fetching a Organization associated with a patient or provider. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
+This profile sets minimum expectations for the [Organization] resource to searching for and fetching a Organization associated with a patient or provider. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
 
 ##### Mandatory Data Elements and Terminology
@@ -17,4 +17,7 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Profile specific implementation guidance:**
 
-* Additional elements from [DAF Organization Profile](daf-Organization.html) may be present.
+* Additional elements from [DAF Organization Profile] may be present.
+
+[DAF Organization Profile]: daf-Organization.html
+[Organization]: http://hl7-fhir.github.io/organization.html

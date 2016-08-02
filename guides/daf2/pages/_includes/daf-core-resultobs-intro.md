@@ -1,4 +1,4 @@
-Laboratory results are grouped and summarized using the [DiagnosticReport] resource which reference Observation resources.  Each Observation resource represents an individual laboratory test and result value, a “nested” panel (such as a microbial susceptibility panel) which references other observations, or rarely a laboratory test with component result values. This profile sets minimum expectations for the Observation resource resource to record, search and fetch laboratory test results associated with a patient.  It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile. The data elements identified by the profile are based on ONC 2015 Edition Common Clinical Data Set (CCDS).
+Laboratory results are grouped and summarized using the [DiagnosticReport] resource which reference [Observation] resources.  Each Observation resource represents an individual laboratory test and result value, a “nested” panel (such as a microbial susceptibility panel) which references other observations, or rarely a laboratory test with component result values. This profile sets minimum expectations for the Observation resource resource to record, search and fetch laboratory test results associated with a patient.  It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile. The data elements identified by the profile are based on ONC 2015 Edition Common Clinical Data Set (CCDS).
 
 
 ##### Mandatory Data Elements and Terminology
@@ -32,4 +32,5 @@ Each Observation *should* have:
   [Observation Value Absent Reason]: http://hl7-fhir.github.io/valueset-observation-valueabsentreason.html
   [UCUM]: http://unitsofmeasure.org
   [LOINC]: http://loinc.org
-[DiagnosticReport]:daf-core-diagnosticreport.html
+[Observation]:  http://hl7-fhir.github.io/observation.html
+[DiagnosticReport]:  http://hl7-fhir.github.io/diagnosticreport.html

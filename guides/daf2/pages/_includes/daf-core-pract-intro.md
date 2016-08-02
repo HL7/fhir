@@ -1,4 +1,4 @@
-This profile sets minimum expectations for the Practitioner resource to record [content] associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile. 
+This profile sets minimum expectations for the [Practitioner] resource to record [content] associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile. 
 
 
 ##### Mandatory Data Elements and Terminology
@@ -15,4 +15,7 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Profile specific implementation guidance:**
  
-* Additional elements from [DAF Practitioner Profile](daf-Practitioner.html) may be present.
+* Additional elements from [DAF Practitioner Profile] may be present.
+
+[Practitioner]: http://hl7-fhir.github.io/Practitioner.html
+[DAF Patient Profile]: daf-Practioner.html

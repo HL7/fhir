@@ -1,4 +1,4 @@
-This profile sets minimum expectations for the Location resource for recording, searching for and fetching a Location associated with a patient, provider or organizatino. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
+This profile sets minimum expectations for the [Location] resource for recording, searching for and fetching a Location associated with a patient, provider or organizatino. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
 
 ##### Mandatory Data Elements and Terminology
@@ -18,3 +18,5 @@ Each Location must have:
 **Profile specific implementation guidance:**
 
 * Additional elements from [DAF Location Profile](daf-Location.html) may be present.
+
+[Location]:  http://hl7-fhir.github.io/location.html

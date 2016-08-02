@@ -1,4 +1,4 @@
-This profile sets minimum expectations for the Patient resource to record, search and fetch basic demographics and other administrative information about an individual patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
+This profile sets minimum expectations for the [Patient] resource to record, search and fetch basic demographics and other administrative information about an individual patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
 
 ##### Mandatory Data Elements and Terminology
@@ -38,4 +38,7 @@ In the context of DAF-core profiles, Supported on any data element SHALL be inte
   1. Clients SHALL be able to process resource instances containing data elements asserting missing information.
   1. NOTE: Servers or Clients who do not have the capability to store or return a data element listed as "Must Support" in the DAF-Core profiles can still claim conformance to the DAF profiles using the DAF conformance resources.
 
-* Additional elements from [DAF Patient Profile](daf-Patient.html) may be present.
+* Additional elements from [DAF Patient Profile] may be present.
+
+[Patient]: http://hl7-fhir.github.io/patient.html
+[DAF Patient Profile]: daf-Patient.html

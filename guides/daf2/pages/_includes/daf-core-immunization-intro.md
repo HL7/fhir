@@ -1,4 +1,4 @@
-This profile sets minimum expectations for the Immunization resource to record, fetch and search immunization history associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
+his profile sets minimum expectations for the [Immunization] resource to record, fetch and search immunization history associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
 
 ##### Mandatory Data Elements and Terminology
@@ -28,3 +28,5 @@ Based upon the 2015 Edition Certification Requirements, the [NDC vaccine codes] 
   [NDC vaccine codes]: NDC_vaccine_codes "wikilink"
   [translations]: Implementation_Guide#Definitions "wikilink"
   [NDC to CVX concept map]: NDC_to_CVX_concept_map "wikilink"
+
+[Immunization]:  http://hl7-fhir.github.io/goal.html
