@@ -4,7 +4,7 @@
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
 <p>
-<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Framework (CQF) Implementation Guide</a>.</i>
+<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="clinicalreasoning-module.html">Clinical Reasoning</a> module.</i>
 </p>
 
 <p>A plan definition is a pre-defined group of actions to be taken in particular circumstances, often including conditions, options, and other decision points. The resource is flexible enough to be used to represent a variety of clinical decision support and quality improvement assets, including order sets, protocols, and decision support rules.</p>
@@ -32,7 +32,7 @@ This draft resource has been published for Workflow group discussion purposes. I
 
 <p>Each ActivityDefinition is used to construct a specific resource, based on the definition of the activity and combined with contextual information for the particular patient that the plan definition is being applied to.</p>
 
-<p>As with the ActivityDefinition, a PlanDefinition may provide information about how to transform the activity to a specific intent resource, either by specifying a StructureMap that can be used to perform the transformation completely, or by specifying values for specific elements of the resulting resource using dynamicValue elements in the action.</p>
+<p>As with the ActivityDefinition, a PlanDefinition may provide information about how to transform the activity to a specific intent resource, either by specifying a <a href="structuremap.html">StructureMap</a> that can be used to perform the transformation completely, or by specifying values for specific elements of the resulting resource using <code>dynamicValue</code> elements in the action.</p>
 
 <p>Note that these mechanisms are provided on both the ActivityDefinition and the PlanDefinition to allow both reusable transformation descriptions, as well as customization of those descriptions within specific contexts. As such, the transform descriptions specified on the PlanDefinition <i>override</i> transform descriptions defined on the ActivityDefinition.</p>
 

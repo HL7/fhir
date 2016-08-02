@@ -4,7 +4,7 @@
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
 <p>
-<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Framework (CQF) Implementation Guide</a>.</i>
+<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="clinicalreasoning-module.html">Clinical Reasoning</a> module.</i>
 </p>
 
 <p>The DecisionSupportServiceModule defines a module of clinical decision support functionality made available by a decision support service. For example, a service may provide immunization modules, drug-drug interaction checking, or appropriate use assessment.</p>
