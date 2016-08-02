@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
       
-[%settitle Clinical Quality Framework (CQF) Implementation Guide%]
+[%settitle Clinical Reasoning%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -46,38 +46,38 @@
 
 <p>For example, the following fragment illustrates the use of CQL to define a dynamicValue as part of an activity definition:</p>
 
-<pre><code>	&lt;dynamicValue&gt;
-		&lt;path value=&quot;timing.event&quot;/&gt;
-		&lt;language value=&quot;text/cql&quot;/&gt;
-		&lt;expression value=&quot;Now()&quot;/&gt;
-	&lt;/dynamicValue&gt;
+<pre><code>&lt;dynamicValue&gt;
+  &lt;path value=&quot;timing.event&quot;/&gt;
+  &lt;language value=&quot;text/cql&quot;/&gt;
+  &lt;expression value=&quot;Now()&quot;/&gt;
+&lt;/dynamicValue&gt;
 </code></pre>
 
 <p>Note that when extensions are used, each language defines a specific extension, so the content type is implied. For example:</p>
 
 <a name="dynamic-value-for-a-resource-element">
-<pre><code>	&lt;event&gt;
-		&lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqif-basic-cqlExpression&quot;&gt;
-			&lt;valueString value=&quot;Now()&quot;/&gt;
-		&lt;/extension&gt;
-	&lt;/event&gt;
+<pre><code>&lt;event&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqif-basic-cqlExpression&quot;&gt;
+    &lt;valueString value=&quot;Now()&quot;/&gt;
+  &lt;/extension&gt;
+&lt;/event&gt;
 </code></pre>
 </a>
 
 <h5>Expression</h5>
 <p>The <i>expression</i> element specifes the formal representation of the expression logic in the identified expression language. The expression may be inline, as in the above examples, or it may be a reference to a named expression defined in a logic library. For example, the following fragment illustrates the use of a named expression to define a dynamicValue as part of an activity definition:</p>
 
-<pre><code>	&lt;dynamicValue&gt;
-		&lt;path value=&quot;reasonCode&quot;/&gt;
-		&lt;expression value=&quot;RiskAssessmentScore&quot;/&gt;
-	&lt;/dynamicValue&gt;
+<pre><code>&lt;dynamicValue&gt;
+  &lt;path value=&quot;reasonCode&quot;/&gt;
+  &lt;expression value=&quot;RiskAssessmentScore&quot;/&gt;
+&lt;/dynamicValue&gt;
 </code></pre>
 
 <p>The example specifies that the <code>reasonCode</code> element should be set to the result of evaluating the <code>RiskAssessmentScore</code> expression. This expression is expected to be present in a Library referenced by the containing resource:</p>
 
-<pre><code>	&lt;library&gt;
-		&lt;reference value=&quot;Library/mmi-suiciderisk-orderset-logic&quot;/&gt;
-	&lt;/library&gt;
+<pre><code>&lt;library&gt;
+  &lt;reference value=&quot;Library/mmi-suiciderisk-orderset-logic&quot;/&gt;
+&lt;/library&gt;
 </code></pre>
 
 <p>If the containing resource has a <code>library</code> element (such as ActivityDefinition and PlanDefinition), and only specifies a single library, the expression is evaluated as though it is in scope in that library. However, if the resource references multiple libraries, the referenced expression must be qualified with the name of the library in order to ensure unambiguous resolution.</p>

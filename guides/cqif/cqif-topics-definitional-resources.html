@@ -67,20 +67,20 @@
 
 <a name="medication-activity-definition">
 <pre><code>&lt;ActivityDefinition&gt;
-	&lt;id value=&quot;citalopramPrescription&quot;/&gt;
-	&lt;status value=&quot;draft&quot;/&gt;
-	&lt;category value=&quot;drug&quot;/&gt;
-	&lt;productReference&gt;
-		&lt;reference value=&quot;#citalopramMedication&quot;/&gt;
-	&lt;/productReference&gt;
-	&lt;dynamicValue&gt;
-		&lt;path value=&quot;dispenseRequest.numberOfRepeatsAllowed&quot;/&gt;
-		&lt;expression value=&quot;3&quot;/&gt;
-	&lt;/dynamicValue&gt;
-	&lt;dynamicValue&gt;
-		&lt;path value=&quot;dispenseRequest.quantity&quot;/&gt;
-		&lt;expression value=&quot;30 &apos;{tbl}&apos;&quot;/&gt;
-	&lt;/dynamicValue&gt;
+  &lt;id value=&quot;citalopramPrescription&quot;/&gt;
+  &lt;status value=&quot;draft&quot;/&gt;
+  &lt;category value=&quot;drug&quot;/&gt;
+  &lt;productReference&gt;
+    &lt;reference value=&quot;#citalopramMedication&quot;/&gt;
+  &lt;/productReference&gt;
+  &lt;dynamicValue&gt;
+    &lt;path value=&quot;dispenseRequest.numberOfRepeatsAllowed&quot;/&gt;
+    &lt;expression value=&quot;3&quot;/&gt;
+  &lt;/dynamicValue&gt;
+  &lt;dynamicValue&gt;
+    &lt;path value=&quot;dispenseRequest.quantity&quot;/&gt;
+    &lt;expression value=&quot;30 &apos;{tbl}&apos;&quot;/&gt;
+  &lt;/dynamicValue&gt;
 &lt;/ActivityDefinition&gt;
 </code></pre>
 </a>

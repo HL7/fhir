@@ -11,7 +11,7 @@
 <div class="col-9">
 
 <a name="knowledge-artifact-representation"/>
-<h3>Knowledge Artifact Representation</h3>
+<h3>Representing Knowledge Artifacts</h3>
 <p>For the purposes of the Clinical Reasoning module, a Knowledge Artifact is a structured, computable, and shareable representation of clinical knowledge. A comprehensive definition of clinical knowledge is beyond the scope of this module, but we effectively mean any knowledge relevant to improving patient care. For example, "Patients with diabetes should have regular comprehensive foot examinations to identify risk factors predictive of ulcers and amputations" is a statement of clinical knowledge. A knowledge artifact would then be some representation that can be used to integrate that knowledge into existing healthcare delivery systems.</p>
 
 <p>There are any number of ways to accomplish this integration of clinical knowledge, ranging from direct implementation within an existing EHR system to the use of high-level representation and reasoning systems that can adapt clinical workflow to provide cognitive support to clinicians. Within this module, we aim to provide a representation that is both flexible enough to represent a broad range of knowledge artifacts, but simple and specific enough to enable automated integration of the content.</p>
@@ -316,34 +316,34 @@
 
 <p>For example, the following fragment illustrates a simple use of PlanDefinition to expose a Chlamydia Screening ECA rule:</p>
 
-<pre><code>  &lt;PlanDefinition&gt;
-    &lt;id value=&quot;chlamydia-screening-intervention&quot;/&gt;
-    &lt;identifier&gt;
-      &lt;use value=&quot;official&quot;/&gt;
-      &lt;value value=&quot;ChlamydiaScreening_CDS_UsingCommon&quot;/&gt;
-    &lt;/identifier&gt;
-    &lt;version value=&quot;2.0.0&quot;/&gt;
-    &lt;title value=&quot;Chalmydia Screening CDS Example Using Common&quot;/&gt;
-    &lt;status value=&quot;draft&quot;/&gt;
-    &lt;description value=&quot;Chlamydia Screening CDS Example Using Common&quot;/&gt;
-    &lt;publicationDate value=&quot;2015-07-22&quot;/&gt;
-    &lt;topic&gt;
-      &lt;text value=&quot;Chlamydia Screeening&quot;/&gt;
-    &lt;/topic&gt;
-    &lt;library&gt;
-      &lt;reference value=&quot;Library/ChlamydiaScreening_CDS_UsingCommon&quot;/&gt;
-    &lt;/library&gt;
-    &lt;actionDefinition&gt;
-      &lt;title value=&quot;Patient has not had chlamydia screening within the recommended timeframe...&quot;/&gt;
-      &lt;condition&gt;
-        &lt;expression value=&quot;NoScreening&quot;/&gt;
-      &lt;/condition&gt;
-      &lt;dynamicValue&gt;
-        &lt;path value=&quot;~&quot;/&gt;
-        &lt;expression value=&quot;ChlamydiaScreeningRequest&quot;/&gt;
-      &lt;/dynamicValue&gt;
-    &lt;/actionDefinition&gt;
-  &lt;/PlanDefinition&gt;
+<pre><code>&lt;PlanDefinition&gt;
+  &lt;id value=&quot;chlamydia-screening-intervention&quot;/&gt;
+  &lt;identifier&gt;
+    &lt;use value=&quot;official&quot;/&gt;
+    &lt;value value=&quot;ChlamydiaScreening_CDS_UsingCommon&quot;/&gt;
+  &lt;/identifier&gt;
+  &lt;version value=&quot;2.0.0&quot;/&gt;
+  &lt;title value=&quot;Chalmydia Screening CDS Example Using Common&quot;/&gt;
+  &lt;status value=&quot;draft&quot;/&gt;
+  &lt;description value=&quot;Chlamydia Screening CDS Example Using Common&quot;/&gt;
+  &lt;publicationDate value=&quot;2015-07-22&quot;/&gt;
+  &lt;topic&gt;
+    &lt;text value=&quot;Chlamydia Screeening&quot;/&gt;
+  &lt;/topic&gt;
+  &lt;library&gt;
+    &lt;reference value=&quot;Library/ChlamydiaScreening_CDS_UsingCommon&quot;/&gt;
+  &lt;/library&gt;
+  &lt;actionDefinition&gt;
+    &lt;title value=&quot;Patient has not had chlamydia screening within the recommended timeframe...&quot;/&gt;
+    &lt;condition&gt;
+      &lt;expression value=&quot;NoScreening&quot;/&gt;
+    &lt;/condition&gt;
+    &lt;dynamicValue&gt;
+      &lt;path value=&quot;~&quot;/&gt;
+      &lt;expression value=&quot;ChlamydiaScreeningRequest&quot;/&gt;
+    &lt;/dynamicValue&gt;
+  &lt;/actionDefinition&gt;
+&lt;/PlanDefinition&gt;
 </code></pre>
 
 <a name="order-set"/>
@@ -355,119 +355,119 @@
 
 <p>For example, the following fragment illustrates the items in a suicide risk order set:</p>
 
-<pre><code>  &lt;!-- Suicide Risk Assessment and Outpatient Management --&gt;
+<pre><code>&lt;!-- Suicide Risk Assessment and Outpatient Management --&gt;
+&lt;actionDefinition&gt;
+  &lt;title value=&quot;Suicide Risk Assessment and Outpatient Management&quot;/&gt;
+  &lt;!-- Consults and Referrals --&gt;
   &lt;actionDefinition&gt;
-    &lt;title value=&quot;Suicide Risk Assessment and Outpatient Management&quot;/&gt;
-    &lt;!-- Consults and Referrals --&gt;
+    &lt;title value=&quot;Consults and Referrals&quot;/&gt;
+    &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
+    &lt;selectionBehavior value=&quot;any&quot;/&gt;
     &lt;actionDefinition&gt;
-      &lt;title value=&quot;Consults and Referrals&quot;/&gt;
-      &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
-      &lt;selectionBehavior value=&quot;any&quot;/&gt;
-      &lt;actionDefinition&gt;
-        &lt;!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now --&gt;
-        &lt;textEquivalent value=&quot;Refer to outpatient mental health program for evaluation and treatment of mental health conditions now&quot;/&gt;
-        &lt;activityDefinition&gt;
-          &lt;reference value=&quot;#referralToMentalHealthCare&quot;/&gt;
-        &lt;/activityDefinition&gt;
-        &lt;dynamicValue&gt;...&lt;/dynamicValue&gt;
-      &lt;/actionDefinition&gt;
+      &lt;!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now --&gt;
+      &lt;textEquivalent value=&quot;Refer to outpatient mental health program for evaluation and treatment of mental health conditions now&quot;/&gt;
+      &lt;activityDefinition&gt;
+        &lt;reference value=&quot;#referralToMentalHealthCare&quot;/&gt;
+      &lt;/activityDefinition&gt;
+      &lt;dynamicValue&gt;...&lt;/dynamicValue&gt;
     &lt;/actionDefinition&gt;
-    &lt;!-- Medications --&gt;
+  &lt;/actionDefinition&gt;
+  &lt;!-- Medications --&gt;
+  &lt;actionDefinition&gt;
+    &lt;title value=&quot;Medications&quot;/&gt;
+    &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
+    &lt;selectionBehavior value=&quot;at-most-one&quot;/&gt;
     &lt;actionDefinition&gt;
-      &lt;title value=&quot;Medications&quot;/&gt;
+      &lt;!-- First-Line Antidepressants --&gt;
+      &lt;title value=&quot;First-Line Antidepressants&quot;/&gt;
+      &lt;documentation&gt;
+        &lt;type value=&quot;justification&quot;/&gt;
+        &lt;document&gt;
+          &lt;contentType value=&quot;text/html&quot;/&gt;
+          &lt;url value=&quot;http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf&quot;/&gt;
+          &lt;title value=&quot;Practice Guideline for the Treatment of Patients with Major Depressive Disorder&quot;/&gt;
+        &lt;/document&gt;
+      &lt;/documentation&gt;
       &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
       &lt;selectionBehavior value=&quot;at-most-one&quot;/&gt;
       &lt;actionDefinition&gt;
-        &lt;!-- First-Line Antidepressants --&gt;
-        &lt;title value=&quot;First-Line Antidepressants&quot;/&gt;
+        &lt;!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
+        &lt;title value=&quot;Selective Serotonin Reuptake Inhibitors (Choose a mazimum of one or document reasons for exception)&quot;/&gt;
         &lt;documentation&gt;
           &lt;type value=&quot;justification&quot;/&gt;
           &lt;document&gt;
             &lt;contentType value=&quot;text/html&quot;/&gt;
-            &lt;url value=&quot;http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf&quot;/&gt;
-            &lt;title value=&quot;Practice Guideline for the Treatment of Patients with Major Depressive Disorder&quot;/&gt;
+            &lt;url value=&quot;http://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6daeb45c-451d-b135-bf8f-2d6dff4b6b01&quot;/&gt;
+            &lt;title value=&quot;National Library of Medicine. DailyMed website. CITALOPRAM- citalopram hydrobromide tablet, film coated.&quot;/&gt;
           &lt;/document&gt;
         &lt;/documentation&gt;
         &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
         &lt;selectionBehavior value=&quot;at-most-one&quot;/&gt;
         &lt;actionDefinition&gt;
-          &lt;!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
-          &lt;title value=&quot;Selective Serotonin Reuptake Inhibitors (Choose a mazimum of one or document reasons for exception)&quot;/&gt;
-          &lt;documentation&gt;
-            &lt;type value=&quot;justification&quot;/&gt;
-            &lt;document&gt;
-              &lt;contentType value=&quot;text/html&quot;/&gt;
-              &lt;url value=&quot;http://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6daeb45c-451d-b135-bf8f-2d6dff4b6b01&quot;/&gt;
-              &lt;title value=&quot;National Library of Medicine. DailyMed website. CITALOPRAM- citalopram hydrobromide tablet, film coated.&quot;/&gt;
-            &lt;/document&gt;
-          &lt;/documentation&gt;
-          &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
-          &lt;selectionBehavior value=&quot;at-most-one&quot;/&gt;
-          &lt;actionDefinition&gt;
-            &lt;!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) --&gt;
-            &lt;textEquivalent value=&quot;citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills)&quot;/&gt;
-            &lt;activityDefinition&gt;
-              &lt;reference value=&quot;#citalopramPrescription&quot;/&gt;
-            &lt;/activityDefinition&gt;
-            &lt;dynamicValue&gt;...&lt;/dynamicValue&gt;
-          &lt;/actionDefinition&gt;
-          &lt;actionDefinition&gt;
-            &lt;!-- escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
-            &lt;textEquivalent value=&quot;escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
-            &lt;!-- Follows pattern established above --&gt;
-          &lt;/actionDefinition&gt;
-          &lt;actionDefinition&gt;
-            &lt;!-- fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills) --&gt;
-            &lt;textEquivalent value=&quot;fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
-            &lt;!-- Follows pattern established above --&gt;
-          &lt;/actionDefinition&gt;
-          &lt;actionDefinition&gt;
-            &lt;!-- paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
-            &lt;textEquivalent value=&quot;paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
-            &lt;!-- Follows pattern established above --&gt;
-          &lt;/actionDefinition&gt;
-          &lt;actionDefinition&gt;
-            &lt;!-- sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
-            &lt;textEquivalent value=&quot;sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
-            &lt;!-- Follows pattern established above --&gt;
-          &lt;/actionDefinition&gt;
+          &lt;!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) --&gt;
+          &lt;textEquivalent value=&quot;citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills)&quot;/&gt;
+          &lt;activityDefinition&gt;
+            &lt;reference value=&quot;#citalopramPrescription&quot;/&gt;
+          &lt;/activityDefinition&gt;
+          &lt;dynamicValue&gt;...&lt;/dynamicValue&gt;
         &lt;/actionDefinition&gt;
         &lt;actionDefinition&gt;
-          &lt;!-- Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
-          &lt;textEquivalent value=&quot;Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception)&quot;/&gt;
+          &lt;!-- escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
+          &lt;textEquivalent value=&quot;escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
           &lt;!-- Follows pattern established above --&gt;
         &lt;/actionDefinition&gt;
         &lt;actionDefinition&gt;
-          &lt;!-- Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception) --&gt;
-          &lt;textEquivalent value=&quot;Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception)&quot;/&gt;
+          &lt;!-- fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills) --&gt;
+          &lt;textEquivalent value=&quot;fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
           &lt;!-- Follows pattern established above --&gt;
         &lt;/actionDefinition&gt;
         &lt;actionDefinition&gt;
-          &lt;!-- Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception) --&gt;
-          &lt;textEquivalent value=&quot;Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception)&quot;/&gt;
+          &lt;!-- paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
+          &lt;textEquivalent value=&quot;paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
+          &lt;!-- Follows pattern established above --&gt;
+        &lt;/actionDefinition&gt;
+        &lt;actionDefinition&gt;
+          &lt;!-- sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
+          &lt;textEquivalent value=&quot;sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
           &lt;!-- Follows pattern established above --&gt;
         &lt;/actionDefinition&gt;
       &lt;/actionDefinition&gt;
+      &lt;actionDefinition&gt;
+        &lt;!-- Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
+        &lt;textEquivalent value=&quot;Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception)&quot;/&gt;
+        &lt;!-- Follows pattern established above --&gt;
+      &lt;/actionDefinition&gt;
+      &lt;actionDefinition&gt;
+        &lt;!-- Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception) --&gt;
+        &lt;textEquivalent value=&quot;Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception)&quot;/&gt;
+        &lt;!-- Follows pattern established above --&gt;
+      &lt;/actionDefinition&gt;
+      &lt;actionDefinition&gt;
+        &lt;!-- Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception) --&gt;
+        &lt;textEquivalent value=&quot;Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception)&quot;/&gt;
+        &lt;!-- Follows pattern established above --&gt;
+      &lt;/actionDefinition&gt;
     &lt;/actionDefinition&gt;
   &lt;/actionDefinition&gt;
+&lt;/actionDefinition&gt;
 </code></pre>
 
 <p>In this example, the order set structure consists of:</p>
 
-<pre><code>  &lt;!-- Suicide Risk Assessment and Outpatient Management --&gt;
-    &lt;!-- Consults and Referrals --&gt;
-        &lt;!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now --&gt;
-    &lt;!-- Medications --&gt;
-        &lt;!-- First-Line Antidepressants --&gt;
-          &lt;!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
-            &lt;!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) --&gt;
-            &lt;!-- escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
-            &lt;!-- fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills) --&gt;
-            &lt;!-- paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
-            &lt;!-- sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
-          &lt;!-- Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
-          &lt;!-- Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception) --&gt;
-          &lt;!-- Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception) --&gt;
+<pre><code>&lt;!-- Suicide Risk Assessment and Outpatient Management --&gt;
+  &lt;!-- Consults and Referrals --&gt;
+      &lt;!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now --&gt;
+  &lt;!-- Medications --&gt;
+      &lt;!-- First-Line Antidepressants --&gt;
+        &lt;!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
+          &lt;!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) --&gt;
+          &lt;!-- escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
+          &lt;!-- fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills) --&gt;
+          &lt;!-- paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
+          &lt;!-- sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
+        &lt;!-- Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
+        &lt;!-- Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception) --&gt;
+        &lt;!-- Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception) --&gt;
 </code></pre>
 
 <p>Each group defines the selection and grouping behavior for the items in the group, as well as providing links to supporting documentation for the particular items in the order set.</p>
@@ -481,26 +481,26 @@
 
 <p>As a simple example, the following fragment shows a portion of a BMI Assessment protocol:</p>
 
-<pre><code>  &lt;actionDefinition&gt;
-    &lt;!--step label--&gt;
-    &lt;label value=&quot;Measure BMI&quot;/&gt;
-    &lt;title value=&quot;Measure, Weight, Height, Waist, Circumference; Calculate BMI&quot;/&gt;
-    &lt;!--description of activity--&gt;
-    &lt;description value=&quot;Weight must be measured so that the BMI can be calculated. Most charts are based on weights obtained with the patient wearing undergarments and no shoes. BMI can be manually calculated (kg/[height in meters]2), but is more easily obtained from a nomogram. Waist circumference is important because evidence suggests that abdominal fat is a particularly strong determinant of cardiovascular risk in those with a BMI of 25 to 34.9 kg/m2. Increased waist circumference can also be a marker of increased risk even in persons of normal weight. The technique for measuring waist circumference is described in the text. A nutrition assessment will also help to assess the diet and physical activity habits of overweight patients&quot;/&gt;
+<pre><code>&lt;actionDefinition&gt;
+  &lt;!--step label--&gt;
+  &lt;label value=&quot;Measure BMI&quot;/&gt;
+  &lt;title value=&quot;Measure, Weight, Height, Waist, Circumference; Calculate BMI&quot;/&gt;
+  &lt;!--description of activity--&gt;
+  &lt;description value=&quot;Weight must be measured so that the BMI can be calculated. Most charts are based on weights obtained with the patient wearing undergarments and no shoes. BMI can be manually calculated (kg/[height in meters]2), but is more easily obtained from a nomogram. Waist circumference is important because evidence suggests that abdominal fat is a particularly strong determinant of cardiovascular risk in those with a BMI of 25 to 34.9 kg/m2. Increased waist circumference can also be a marker of increased risk even in persons of normal weight. The technique for measuring waist circumference is described in the text. A nutrition assessment will also help to assess the diet and physical activity habits of overweight patients&quot;/&gt;
 
-    &lt;!--Rules prior to execution--&gt;
-    &lt;condition&gt;
-      &lt;description value=&quot;The practitioner must seek to determine whether the patient has ever been overweight. While a technical definition is provided, a simple question such as 'Have you ever been overweight?' will accomplish the same goal. Questions directed towards weight history, dietary habits, physical activities, and medications may provide useful information about the origins of obesity in particular patients.
+  &lt;!--Rules prior to execution--&gt;
+  &lt;condition&gt;
+    &lt;description value=&quot;The practitioner must seek to determine whether the patient has ever been overweight. While a technical definition is provided, a simple question such as 'Have you ever been overweight?' will accomplish the same goal. Questions directed towards weight history, dietary habits, physical activities, and medications may provide useful information about the origins of obesity in particular patients.
       
 For those who have not been overweight, a 2 year interval is appropriate for the reassessment of BMI. While this time span is not evidence-based, it is believed to be a reasonable compromise between the need to identify weight gain at an early stage and the need to limit the time, effort, and cost of repeated measurements.&quot;/&gt;
-      &lt;expression value=&quot;Observation of Obesity or BMI Measured in Past 2 Years&quot;/&gt;
-      &lt;!-- CQL: exists ([Observation: Obesity]) or not exists ([Observation: BMI] O where O.effectiveDateTime 2 years or less before Today()) --&gt;
-    &lt;/condition&gt;
-    &lt;!--  Activities that occur within timepoint--&gt;
-    &lt;activityDefinition&gt;
-      &lt;reference value=&quot;#procedure&quot;/&gt;
-    &lt;/activityDefinition&gt;
-  &lt;/actionDefinition&gt;
+    &lt;expression value=&quot;Observation of Obesity or BMI Measured in Past 2 Years&quot;/&gt;
+    &lt;!-- CQL: exists ([Observation: Obesity]) or not exists ([Observation: BMI] O where O.effectiveDateTime 2 years or less before Today()) --&gt;
+  &lt;/condition&gt;
+  &lt;!--  Activities that occur within timepoint--&gt;
+  &lt;activityDefinition&gt;
+    &lt;reference value=&quot;#procedure&quot;/&gt;
+  &lt;/activityDefinition&gt;
+&lt;/actionDefinition&gt;
 </code></pre>
 
 <a name="documentation-template"/>

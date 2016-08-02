@@ -178,6 +178,7 @@
 		<source value="cqif-cds-on-fhir.html"/>
 		<title value="Clinical Decision Support"/>
 		<kind value="page"/>
+<!--
 		<page>
 			<source value="cqif-integrating-decision-support.html"/>
 			<title value="Integrating Decision Support in a Clinical Workflow"/>
@@ -193,6 +194,7 @@
 			<title value="Using an Order Set in a Clinical Workflow"/>
 			<kind value="page"/>
 		</page>
+-->
     </page>
     <page>
 		<source value="cqif-quality-reporting.html"/>
