@@ -270,13 +270,76 @@
 
 <p>Note that this example is incomplete and reproduced here for illustration purposes only. Refer to the Guideline Appropriate Ordering Implementation Guide for a more complete description of GAO.</p>
 
+<a name="evaluation-context"/>
+<h4>Evaluation Context</h4>
+
+<p>There are three types of data that can be provided as part of a decision support service module evaluation request:</p>
+
+<ul>
+	<li><b>Context</b> - Context information such as the patient and encounter in context.</li>
+	<li><b>Parameters</b> - Service Module specific parameters.</li>
+	<li><b>Data Requirements</b> - Service Module specific data, described using the DataRequirement structure.</li>
+</ul>
+
+<p>In the same way that parameters and data requirements are both supported for expressions in general (see the <a href="cqif-topics-using-expressions.html#parameters">Parameters</a> and <a href="cqif-topics-using-expressions.html#data-requirements">Data Requirements</a> topics in the Using Expressions section), decision support service modules can describe data inputs as input parameters, or as data requirements.</p>
+
+<a name="evaluation-context-contextual-information"/>
+<h5>Contextual Information</h5>
+
+<p>Contextual information for every decision support service module is defined by the parameters on the base <a href="[%fhir-path%]decisionsupportservicemodule-operations.html#evaluate">$evaluate</a> operation. This contextual information includes the patient, the encounter, and workflow information.</p>
+
+<p>The client provides this information using the normal mechanism for passing parameters using the <a href="[%fhir-path%]parameters.html">Parameters</a> resource.</p>
+
+<p>Note that contextual information is defined as completely optional on the base $evaluate operation definition. However, specific service modules may override this behavior by redefining a contextual parameter, providing constraints on its use. This approach may only be used to apply cardinality and profile constraints. The type of a parameter may not be changed.</p>
+
+<a name="evaluation-context-parameters"/>
+<h5>Parameters</h5>
+
+<p>Input parameters allow the service module to declare specific data, usually patient-independent, such as configuration parameters. For example, a Diabetes Control service module may expose an A1C threshold as a parameter to allow for institutional and practitioner variance.</p>
+
+<p>The client provides this information in the same way as the contextual parameters (i.e. additional parameter elements in the Parameters resource for the request), but these parameters are provided in addition to the ones defined by the $evaluate operation definition. This means that the set of parameters provided to the request may vary based on the service module being invoked.</p>
+
+<a name="evaluation-context-data-requirements"/>
+<h5>Data Requirements</h5>
+
+<p>Data requirements, on the other hand, allow the service module to declare input requirements in terms of the type of data involved, as well as constraints on that data. For example, a service module may declare that it requires A1C Observations for the past year in order to perform a successful evaluation.</p>
+
+<p>Both options are provided to support a broad variety of service modules. However, note that declaring specific input parameters requires that a client build implementation logic specific to each service module. The data requirements approach allows for a generic data retrieval mechanism, independent of the specific service module being invoked.</p>
+
+<a name="Evaluation Results"/>
+<h4>Evaluation Results</h4>
+
+<p>Similar to the mechanism for any FHIR operation, evaluation results may be provided by defining specific output parameters on the service module. This is the approach taken by the GAO example provided above, where the results of the evaluation are provided as output parameters. However, as with the input parameters, defining specific output parameters on the service module requires that consumers build implementation logic specific to each service module.</p>
+
+<p>In addition to results as output parameters, the GuidanceResponse resource allows <i>actions</i> to be described that indicate what actions should be performed. The <code>action</code> element of the GuidanceResponse mirrors the structure of the <code>actionDefinition</code> elements in a <a href="[%fhir-path%]plandefinition.html">PlanDefinition</a>, providing the ability to describe actions that should be performed in terms of creating, updating, or deleting a resource, or invoking a specific event.</p>
+
+<p>Again, both options are provided to support a broad variety of service modules and implementation approaches.</p>
+
+<a name="asynchronous-evaluation"/>
+<h4>Asynchronous Evaluation</h4>
+
+<p>To enable asynchronous request/response, the GuidanceResponse supports a status of <code>in-progress</code>. For this result, the HTTP response SHOULD include the Retry After after with an appropriate indication for the expected wait time. In this case, the client is expected to reissue the request with the same <code>requestId</code>. To reduce bandwidth requirements, when reissuing a request the client need not send the input information. If the request is complete, a GuidanceResponse with an appropriate completion status (<code>success</code>, <code>failure</code>, or one of the data statuses) will be returned. If the request is still pending, a GuidanceResponse with a status of <code>in-progress</code> is returned.</p>
+
 <a name="conversational-evaluation"/>
 <h4>Conversational Request/Response</h4>
 <p>In some cases, the decision support service may determine that additional information is required in order to continue processing, or that additional information may result in a more accurate or more appropriate result:</p>
 
-<img alt="Synchoronous, Direct Guidance Conversation" src="cqif-integrating-decision-support-conversation.png"/>
+<img alt="Synchronous, Direct Guidance Conversation" src="cqif-integrating-decision-support-conversation.png"/>
 
 <p>In these cases, the GuidanceResponse will be returned with a status of <code>data-requested</code> or <code>data-required</code>, to indicate the particular scenario. In these cases, the GuidanceResponse will contain additional information, stated in the form of additional DataRequirement specifications, to let the calling application know what data is needed. The calling application then repeats the request, providing the additional requested information, and the service continues processing.</p>
+
+<p>The <code>data-requested</code> status is used to indicate that although the request was processed successfully and a result is provided, a more accurate or relevant result may be obtained by sending the additional requested information.</p>
+
+<p>The <code>data-required</code> status is used to indicate that the request cannot be completed successfully without the additional required information.</p>
+
+<p>Both these statuses may be used to coordinate conversational request/response.</p>
+
+<a name="bundling-multiple-requests"/>
+<h4>Bundling Multiple Requests</h4>
+
+<p>To support the ability to issue multiple requests, use a <a href="[%fhir-path%]bundle.html">Bundle</a> of type <code>batch</code>. In this case, the input data is provided as resource entries in the bundle, with the operations specified as request entries.</p>
+
+<p>The response to posting a batch Bundle containing $evaluate requests is a batch Bundle containing the GuidanceResponse resource results of each $evaluate, as though each request had been submitted independently. Note that this does not imply that the requests must be performed serially, the service is free to implement the requests in any order, including parallelizing the requests.</p>
 
 <h4>Service Integration</h4>
 
