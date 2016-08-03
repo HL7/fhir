@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+	<id value="daf-core-extension-codes"/>
+	<url value="http://hl7.org/fhir/us/daf/CodeSystem/daf-core-extension-codes"/>
+	<name value="DAFCoreExtensionCodes"/>
+	<status value="draft"/>
+	<publisher value="HL7 (FHIR Project)"/>
+	<description value="Set of codes that are needed for implementation of the DAF-Core profiles. These codes are used as extensions to the FHIR and DAF value sets.&#xa;"/>
+	<caseSensitive value="true"/>
+	<valueSet value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-extension-codes"/>
+	<content value="complete"/>
+	<concept>
+		<code value="problem"/>
+		<display value="Problem"/>
+		<definition value="The patients problems as identified by the provider(s). Items on the provider’s problem list"/>
+	</concept>
+	<concept>
+		<code value="health-concern"/>
+		<display value="Health Concern"/>
+		<definition value="Additional health concerns from other stakeholders which are outside the provider’s problem list."/>
+	</concept>
+	<concept>
+		<code value="careteam"/>
+		<display value="Care Team"/>
+		<definition value="Careplan for identifying all the people and /or organizations who plan to participate in the coordination of delivery of care."/>
+	</concept>
+	<concept>
+		<code value="assess-plan"/>
+		<display value="Assessment and Plan of Treatment"/>
+		<definition value="The clinical conclusions and assumptions that guide the patient&apos;s treatment and the clinical activities formulated for a patient."/>
+	</concept>
+</CodeSystem>
