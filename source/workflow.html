@@ -111,7 +111,7 @@ summarizes the list of workflow-relevant resources:</p>
       <td>
         <ul>
           <li><a href="referralrequest.html">ReferralRequest</a></li>
-          <li><a href="task.html">Task</a></li>
+          <li><a href="task.html">Task</a><sup><a href="#listnotes">&#8225;</a></sup></li>
           <li><a href="supplyrequest.html">SupplyRequest</a></li>
           <li><a href="visionprescription.html">VisionPrescription</a></li>
         </ul>
@@ -132,11 +132,11 @@ summarizes the list of workflow-relevant resources:</p>
           <li><a href="composition.html">Composition</a></li>
           <li><a href="condition (aka problem).html">Condition (aka Problem)</a></li>
           <li><a href="consent.html">Consent</a></li>
-          <li><a href="contract.html">Contract</a></li>
         </ul>
       </td>
       <td>
         <ul>
+          <li><a href="contract.html">Contract</a></li>
           <li><a href="coverage.html">Coverage</a></li>
           <li><a href="deviceusestatement.html">DeviceUseStatement</a></li>
           <li><a href="diagnosticreport.html">DiagnosticReport</a></li>
@@ -157,11 +157,11 @@ summarizes the list of workflow-relevant resources:</p>
           <li><a href="medicationadministration.html">MedicationAdministration</a></li>
           <li><a href="medicationdispense.html">MedicationDispense</a></li>
           <li><a href="medicationstatement.html">MedicationStatement</a></li>
+          <li><a href="observation.html">Observation</a></li>
         </ul>
       </td>
       <td>
         <ul>
-          <li><a href="observation.html">Observation</a></li>
           <li><a href="paymentnotice.html">PaymentNotice</a></li>
           <li><a href="paymentreconciliation.html">PaymentReconciliation</a></li>
           <li><a href="procedure.html">Procedure</a></li>
@@ -169,6 +169,7 @@ summarizes the list of workflow-relevant resources:</p>
           <li><a href="questionnaireresponse.html">QuestionnaireResponse</a></li>
           <li><a href="riskassessment.html">RiskAssessment</a></li>
           <li><a href="supplydelivery.html">SupplyDelivery</a></li>
+          <li><a href="task.html">SupplyDelivery</a><sup><a href="#listnotes">&#8225;</a></sup></li>
         </ul>
       </td>
     </tr>
@@ -208,15 +209,19 @@ summarizes the list of workflow-relevant resources:</p>
 <table>
   <tbody>
     <tr>
-      <td>*</td>
+      <td><sup>*</sup></td>
       <td>The <a href="appointment.html">Appointment</a> and <a href="appointmentresponse.html">AppointmentResponse</a> resources do not follow the same sort of 
       request/response pattern as the other resources.  Their design is based on iCal conventions, so their model won't reflect the same alignment as most other resources.
       They are included here for completeness.</td>
     </tr>
     <tr>
-      <td>&#8224;</td>
+      <td><sup>&#8224;</sup></td>
       <td><a href="processrequest.html">ProcessRequest</a> and <a href="processresponse.html">ProcessResponse</a> are candidates for retirement with their function subsumed by 
       <a href="task.html">Task</a></td>
+    </tr>
+    <tr>
+      <td><sup>&#8225;</sup></td>
+      <td>The <a href="task.html">Task</a> resource takes on characteristics of both "requests" and "events" and thus shares characteristics from both patterns</td>
     </tr>
   </tbody>
 </table>
