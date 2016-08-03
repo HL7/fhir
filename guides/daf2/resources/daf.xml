@@ -513,6 +513,19 @@
 				<reference value="StructureDefinition/daf-core-allergyintolerance"/>
 			</exampleFor>
 		</resource>
+		
+			<resource>
+			<example value="true"/>
+			<name value="Patient Example"/>
+			<sourceReference>
+				<reference value="Patient/example"/>
+			</sourceReference>
+			<exampleFor>
+				<reference value="StructureDefinition/daf-core-patient"/>
+			</exampleFor>
+		</resource>	
+		
+		
 		<!--daf-core-core valuesets-->
 		<resource>
 			<example value="false"/>

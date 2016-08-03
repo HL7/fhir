@@ -36,7 +36,7 @@ Additionally your system must return:
 
   [Patient.birthDate]: http://hl7.org/fhir/us/daf/daf-patient-definitions.html#daf-patient.Patient.birthDate
   [Patient.communication.language]: http://hl7.org/fhir/us/daf/daf-patient-definitions.html#daf-patient.Patient.communication.language
-  [Common Languages]: http://tools.ietf.org/html/bcp47
+  [Common Languages]: http://hl7-fhir.github.io/valueset-languages.html
   [US Core Patient Birth Sex]: daf-birth-sex.html
   [US Core Birth Sex]: valueset-daf-birth-sex.html
   [US Core Patient Race]: http://hl7.org/fhir/extension-us-core-race.html
