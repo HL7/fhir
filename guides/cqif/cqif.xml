@@ -145,10 +145,11 @@
   <binary value="cqif-measure-report-population.png"/>
   <binary value="cqif-measure-report-patient-list.png"/>
   <binary value="cqif-measure-report-individual.png"/>
+  <!--
   <page>
     <source value="cqif.html"/>
     <title value="Home Page"/>
-    <kind value="page"/>
+    <kind value="page"/>-->
     <page>
       <source value="cqif-toc.html"/>
       <title value="Table of Contents"/>
@@ -394,5 +395,5 @@
       <type value="ValueSet"/>
       <type value="ConceptMap"/>
     </page>
-  </page>
+  <!--</page>-->
 </ImplementationGuide>
