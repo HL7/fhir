@@ -229,7 +229,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     generate();
     long endTime = System.nanoTime();
     clean();
-    log(" ... finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(sourceIg.getName(), errors, fileList, Utilities.path(outputDir, "qa.html")));
+    log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(sourceIg.getName(), errors, fileList, Utilities.path(outputDir, "qa.html")));
 
     if (watch) {
       first = false;
@@ -246,7 +246,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
           generate();
           clean();
           endTime = System.nanoTime();
-          log(" ... finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(sourceIg.getName(), errors, fileList, Utilities.path(outputDir, "qa.html")));
+          log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(context).generate(sourceIg.getName(), errors, fileList, Utilities.path(outputDir, "qa.html")));
         }
       }
     } else
@@ -1235,9 +1235,12 @@ public class Publisher implements IWorkerContext.ILoggingService {
           bl++;
         else
           lf++;
+      } else if (m.getLevel() == IssueSeverity.FATAL) {
+        throw new Exception(m.getMessage());
       }
     }
-    log("  ... "+Integer.toString(inspector.total())+" html "+checkPlural("file", inspector.total())+", "+Integer.toString(lf)+" "+checkPlural("page", lf)+" invalid xhtml, "+Integer.toString(bl)+" broken "+checkPlural("link", bl));
+    log("  ... "+Integer.toString(inspector.total())+" html "+checkPlural("file", inspector.total())+", "+Integer.toString(lf)+" "+checkPlural("page", lf)+" invalid xhtml ("+Integer.toString((lf*100)/inspector.total())+"%)");
+    log("  ... "+Integer.toString(inspector.links())+" "+checkPlural("link", inspector.links())+", "+Integer.toString(bl)+" broken "+checkPlural("link", lf)+" ("+Integer.toString((bl*100)/inspector.links())+"%)");
     errors.addAll(linkmsgs);
   }
 

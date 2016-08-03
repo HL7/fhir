@@ -536,6 +536,8 @@ public class BreadCrumbManager {
           b.append("                  <li><a href=\"http.html\">RESTful API</a></li>\r\n");
           b.append("                  <li><a href=\"search.html\">Search</a></li>\r\n");
           b.append("                  <li><b>Search Parameter</b></li>\r\n");
+        } else if (name.equals("qa.html")){
+          b.append("                  <li><b>QA Page</b></li>\r\n");
         } else {
           b.append("        <li>??? "+Utilities.escapeXml(name)+" / "+Utilities.escapeXml(type)+"</li>\r\n");
           System.out.println("no breadcrumb: name = "+name+", type = "+type+", prefix = "+prefix+", title = '"+title+"'");

@@ -155,6 +155,7 @@ public class ExampleInspector {
  
   private Element validateLogical(String f, StructureDefinition profile, FhirFormat fmt) throws Exception {
     Element e = Manager.parse(context, new CSFileInputStream(f), fmt);
+    new DefinitionsUsageTracker(definitions).updateUsage(e);
     validator.validate(errorsInt, e);
     if (profile != null) {
       validator.validate(errorsInt, e, profile);

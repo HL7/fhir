@@ -3831,6 +3831,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     String canonical = "http://hl7.org/fhir/";
     
     org.hl7.fhir.dstu3.elementmodel.Element ex = Manager.parse(page.getWorkerContext(), new CSFileInputStream(page.getFolders().dstDir + prefix+n + ".xml"), FhirFormat.XML);
+    new DefinitionsUsageTracker(page.getDefinitions()).updateUsage(ex);
     Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(page.getFolders().dstDir + prefix+n + ".json"), FhirFormat.JSON, OutputStyle.PRETTY, canonical); 
     Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(page.getFolders().dstDir + prefix+n + ".jsonld"), FhirFormat.JSONLD, OutputStyle.PRETTY, canonical); 
 //    Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(Utilities.changeFileExt(destName, ".canonical.json")), FhirFormat.JSON, OutputStyle.CANONICAL); 
@@ -4976,8 +4977,6 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void validationProcess() throws Exception {
-    if (buildFlags.get("all") && isGenerate)
-      produceCoverageWarnings();
 
     page.clean();
     page.log("Validating Examples", LogMessageType.Process);
@@ -5032,6 +5031,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       ei.validate("v2-tables");
       ei.validate("v3-codesystems");
     }
+    
+    if (buildFlags.get("all") && isGenerate)
+      produceCoverageWarnings();
     
     page.saveSnomed();
     page.getWorkerContext().saveCache();

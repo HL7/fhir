@@ -112,6 +112,7 @@ public class HTLMLInspector {
   private Map<String, LoadedFile> cache = new HashMap<String, LoadedFile>();
   private int iteration = 0;
   private List<StringPair> otherlinks = new ArrayList<StringPair>();
+  private int links;
 
   public HTLMLInspector(String rootFolder, List<SpecMapManager> specs) {
     this.rootFolder = rootFolder;    
@@ -134,6 +135,7 @@ public class HTLMLInspector {
       loadFile(s, messages);
 
 
+    links = 0;
     // check links
     for (String s : cache.keySet()) {
       LoadedFile lf = cache.get(s);
@@ -237,14 +239,30 @@ public class HTLMLInspector {
       path = path + "/"+ x.getName();
     if ("a".equals(x.getName()) && x.hasAttribute("href"))
       checkResolveLink(s, x.getLocation(), path, x.getAttribute("href"), messages);
+    if ("link".equals(x.getName()))
+      checkLinkElement(s, x.getLocation(), path, x.getAttribute("href"), messages);
+    if ("script".equals(x.getName()))
+      checkScriptElement(s, x.getLocation(), path, x, messages);
     for (XhtmlNode c : x.getChildNodes())
       checkLinks(s, path, c, messages);
   }
 
+  private void checkScriptElement(String filename, Location loc, String path, XhtmlNode x, List<ValidationMessage> messages) {
+    String src = x.getAttribute("src");
+    if (!Utilities.noString(src) && Utilities.isAbsoluteUrl(src))
+      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, filename+(loc == null ? "" : " at "+loc.toString()), "The <script> src '"+src+"' is llegal", IssueSeverity.FATAL));    
+  }
+
+  private void checkLinkElement(String filename, Location loc, String path, String href, List<ValidationMessage> messages) {
+    if (Utilities.isAbsoluteUrl(href))
+      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, filename+(loc == null ? "" : " at "+loc.toString()), "The <link> href '"+href+"' is llegal", IssueSeverity.FATAL));    
+  }
+
   private void checkResolveLink(String filename, Location loc, String path, String ref, List<ValidationMessage> messages) {
+    links++;
     String tgtList = "";
     boolean resolved = Utilities.existsInList(ref, "http://hl7.org/fhir", "http://hl7.org", "http://www.hl7.org", "http://hl7.org/fhir/search.cfm") || ref.startsWith("http://gforge.hl7.org/gf/project/fhir/tracker/");
-    if (!resolved){
+    if (!resolved && specs != null){
       for (SpecMapManager spec : specs) {
         resolved = resolved || spec.getBase().equals(ref) || (spec.getBase()+"/").equals(ref) || spec.hasTarget(ref); 
       }
@@ -252,9 +270,11 @@ public class HTLMLInspector {
     if (!resolved) {
       if (ref.startsWith("http://") || ref.startsWith("https://")) {
         resolved = true;
-        for (SpecMapManager spec : specs) {
-          if (ref.startsWith(spec.getBase()))
-            resolved = false;
+        if (specs != null) {
+          for (SpecMapManager spec : specs) {
+            if (ref.startsWith(spec.getBase()))
+              resolved = false;
+          }
         }
       } else { 
         String page = ref;
@@ -292,5 +312,31 @@ public class HTLMLInspector {
     return cache.size();
   }
 
+  public int links() {
+    return links;
+  }
+
+  public static void main(String[] args) throws Exception {
+    HTLMLInspector inspector = new HTLMLInspector(args[0], null);
+    List<ValidationMessage> linkmsgs = inspector.check();
+    int bl = 0;
+    int lf = 0;
+    for (ValidationMessage m : linkmsgs) {
+      if (m.getLevel() == IssueSeverity.ERROR) {
+        if (m.getType() == IssueType.NOTFOUND)
+          bl++;
+        else
+          lf++;
+      } else if (m.getLevel() == IssueSeverity.FATAL) {
+        throw new Exception(m.getMessage());
+      }
+    }
+    System.out.println("  ... "+Integer.toString(inspector.total())+" html "+checkPlural("file", inspector.total())+", "+Integer.toString(lf)+" "+checkPlural("page", lf)+" invalid xhtml ("+Integer.toString((lf*100)/inspector.total())+"%)");
+    System.out.println("  ... "+Integer.toString(inspector.links())+" "+checkPlural("link", inspector.links())+", "+Integer.toString(bl)+" broken "+checkPlural("link", lf)+" ("+Integer.toString((bl*100)/inspector.links())+"%)");
+  }
+
+  private static String checkPlural(String word, int c) {
+    return c == 1 ? word : Utilities.pluralizeMe(word);
+  }
 
 }
