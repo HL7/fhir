@@ -1,4 +1,4 @@
-This profile sets minimum expectations for the Procedure resource to record, search and fetch procedures associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
+This profile sets minimum expectations for the [Procedure] resource to record, search and fetch procedures associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
 
 ##### Mandatory Data Elements and Terminology
@@ -28,3 +28,5 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
   [DAF Procedure Profile]: http://hl7.org/fhir/us/daf/daf-Procedure.html
   [ICD-10-PCS codes]: ICD-10-PCS_codes "wikilink"
   [Code on Dental Procedures and Nomenclature (CDT Code)]: CDT_ValueSet "wikilink"
+  [Procedure]: http://hl7-fhir.github.io/procedure.html
+  [DAF Procedure Profile]: daf-Procedure.html

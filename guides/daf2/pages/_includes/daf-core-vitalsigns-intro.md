@@ -1,4 +1,4 @@
-This profile sets minimum expectations for the Observation resource to record, search and fetch vital signs associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
+This profile sets minimum expectations for the [Observation] resource to record, search and fetch vital signs associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
 
 ##### Mandatory Data Elements and Terminology
@@ -40,4 +40,8 @@ Body mass index | 39156-5 | kg/m2 ||[Vital  Body Mass Example](todo.html)
 
 * Alternate codes may be provided in addition to the standard LOINC and UCUM codes defined here. An example of [using multiple codes] is provided. Other profiles may make rules about which vital sign must be present or must be present as part of a panel.
 
-* Additional elements from [DAF Observation Profile](daf-Observation.html) may be present.
+* Additional elements from [DAF Vital Signs Profile]may be present.
+
+[Observaton]: http://hl7-fhir.github.io/observation.html
+ [DAF Vital Signs Profile](observation-daf-vitalsigns.html)
+

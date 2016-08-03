@@ -1,5 +1,5 @@
 
-This profile sets minimum expectations for the Observation resource to record, search and fetch smoking status data associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
+This profile sets minimum expectations for the [Observation] resource to record, search and fetch smoking status data associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
 
 ##### Mandatory Data Elements and Terminology
@@ -18,3 +18,6 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 **Profile specific implementation guidance:**
 
 * Additional elements from [DAF Observation -Smoking StatusProfile](observation-daf-smokingstatus.html) may be present.
+
+[Observation]: http://hl7-fhir.github.io/observation.html
+[DAF Observation -Smoking StatusProfile]: observation-daf-smokingstatus.html
