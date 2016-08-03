@@ -99,7 +99,7 @@ This is due to the when it is recorded and the purpose for which it is recorded:
 		<li>To relate the encounter of a mother and her baby for a maternity encounter,
 		for administrative and billing purposes: use the <a href="encounter-definitions.html#Encounter.partOf">encounter.partof</a> property</li>
 		<li>To collect information about the patient's relatives that might be relevant
-		to the patient's medical condition: use the <a href="familmemberhistory.html">FamilMemberHistory</a> resource</li>
+		to the patient's medical condition: use the <a href="familymemberhistory.html">FamilyMemberHistory</a> resource</li>
 	</ul>
 <p>
 During a maternity encounter, the Patient and Encounter resources for the mother will be present.

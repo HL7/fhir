@@ -4543,19 +4543,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     String n = lm.getId();
 
     Map<String, String> examples = new HashMap<String, String>();
-    if (n.contains("colorectal")) {
-      LogicalModelUtilities lmu = new LogicalModelUtilities(page.getWorkerContext());
-      for (int i = 0; i <= 10; i++) {
-        Bundle bnd = lmu.generateExample(lm.getDefinition(), i);
-        if (bnd != null) {
-          examples.put(n+"-example-"+Integer.toString(i), "Example "+Integer.toString(i));
-          new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, ig.getPrefix(), n+"-example-"+Integer.toString(i)+".xml")), bnd);
-          cloneToXhtml(ig.getPrefix()+n+"-example-"+Integer.toString(i), "Logical Model Example for "+lm.getDefinition().getName(), true, "logical-model", lm.getDefinition().getName(), ig);
-          new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, ig.getPrefix(), n+"-example-"+Integer.toString(i)+".json")), bnd);
-          jsonToXhtml(ig.getPrefix()+n+"-example-"+Integer.toString(i), "Logical Model "+lm.getDefinition().getName(), new JsonParser().setOutputStyle(OutputStyle.PRETTY).composeString(lm.getDefinition()), "logical-model", lm.getDefinition().getName(), ig);
-        }
-      } 
-    }
     
     File tmp = Utilities.createTempFile("tmp", ".tmp");
 
@@ -4567,7 +4554,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     tgen.close();
     String tx = TextFile.fileToString(tmp.getAbsolutePath());
 
-    DictHTMLGenerator dgen = new DictHTMLGenerator(new FileOutputStream(tmp), page, "../");
+    DictHTMLGenerator dgen = new DictHTMLGenerator(new FileOutputStream(tmp), page, "");
     if (lm.hasResource())
       dgen.generate(lm.getResource().getRoot());
     else
@@ -4584,7 +4571,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     String mappingsList = mgen.getMappingsList();
 
     SvgGenerator svg = new SvgGenerator(page, "../");
-    String fn = ig.getPrefix()+File.separator+n;
+    String fn = ig.getPrefix()+n;
     if (lm.hasResource())
       svg.generate(lm.getResource(), page.getFolders().dstDir + fn+".svg", "2");
     else
@@ -4817,7 +4804,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     // String prefix = "";
     // if
-    // (!page.getSectionTrackerCache().containsKey("compartment-"+c.getName()))
+    // (!page.getSectionTrackerCache().containsKey("compartmentdefinition-"+c.getName()))
     // {
     // prefix = page.getNavigation().getIndexPrefixForFile(logicalName+".html");
     // if (Utilities.noString(prefix))

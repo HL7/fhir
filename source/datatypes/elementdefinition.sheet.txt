@@ -719,7 +719,7 @@
   Card. = 0..1
   Type = string
   Short Label = FluentPath expression of constraint
-  Definition = A [FluentPath](fluentpath.html) expression of constraint that can be executed to see if this constraint is met
+  Definition = A [FluentPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met
   Requirements = Used by validation tooling tests of the validity of the resource
 
  -- Row 45 -----------------------------------

@@ -13,7 +13,7 @@
   </dependency>
   <dependency>
     <type value="reference"/>
-    <uri value="http://hl7.org/fhir/daf"/>
+    <uri value="http://hl7.org/fhir/us/daf"/>
   </dependency>
   <package>
     <name value="base"/>

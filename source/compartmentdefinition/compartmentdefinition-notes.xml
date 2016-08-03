@@ -46,7 +46,7 @@ and direct searches with parameters. Consider this search:
   GET [base]/Patient/[id]/Communication
 </pre>
 <p>
-Because the definition of the <a href="compartment-patient.html">patient compartment</a> for 
+Because the definition of the <a href="compartmentdefinition-patient.html">patient compartment</a> for 
 <a href="communication.html">Communication </a> says that a Communication resource is in the 
 patient compartment if the subject, sender, or recipient is the patient, the compartment
 search is actually the same as the union of these 3 searches:

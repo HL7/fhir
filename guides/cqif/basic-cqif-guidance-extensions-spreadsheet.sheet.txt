@@ -4,11 +4,11 @@
  -- Row 1 -----------------------------------
   Binding Name = TriggerType
   Binding = code list
-  Reference = #cqif-trigger-type
+  Reference = #trigger-type
   Definition = The type of trigger
   Conformance = required
 
-=== Sheet cqif-trigger-type =====================================
+=== Sheet trigger-type =====================================
 
  -- Row 1 -----------------------------------
   Id = 1

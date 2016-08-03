@@ -7031,7 +7031,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">#audit-event-action</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">DICOM Audit Event Action</Data></Cell>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s62" ss:HRef="http://hl7-fhir.github.io/valueset-dicom-dcim.html"><Data
+    <Cell ss:StyleID="s62" ss:HRef="http://hl7-fhir.github.io/codesystem-dicom-dcim.html"><Data
       ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.</Data></Cell>
@@ -7047,7 +7047,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">#audit-event-outcome</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">DICOM Audit Event Outcome</Data></Cell>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s62" ss:HRef="http://hl7-fhir.github.io/valueset-dicom-dcim.html"><Data
+    <Cell ss:StyleID="s62" ss:HRef="http://hl7-fhir.github.io/codesystem-dicom-dcim.html"><Data
       ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.</Data></Cell>
@@ -7063,7 +7063,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">#network-type</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">DICOM Audit Event Network Type</Data></Cell>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s62" ss:HRef="http://hl7-fhir.github.io/valueset-dicom-dcim.html"><Data
+    <Cell ss:StyleID="s62" ss:HRef="http://hl7-fhir.github.io/codesystem-dicom-dcim.html"><Data
       ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.</Data></Cell>
@@ -7079,7 +7079,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">#object-type</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">DICOM Audit Event Entity Type</Data></Cell>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s62" ss:HRef="http://hl7-fhir.github.io/valueset-dicom-dcim.html"><Data
+    <Cell ss:StyleID="s62" ss:HRef="http://hl7-fhir.github.io/codesystem-dicom-dcim.html"><Data
       ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.</Data></Cell>
@@ -7095,7 +7095,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">#object-role</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">DICOM Audit Event Entity Role</Data></Cell>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s62" ss:HRef="http://hl7-fhir.github.io/valueset-dicom-dcim.html"><Data
+    <Cell ss:StyleID="s62" ss:HRef="http://hl7-fhir.github.io/codesystem-dicom-dcim.html"><Data
       ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.</Data></Cell>
@@ -7111,7 +7111,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">#object-lifecycle</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">DICOM Audit Event Entity Lifecycle</Data></Cell>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s62" ss:HRef="http://hl7-fhir.github.io/valueset-dicom-dcim.html"><Data
+    <Cell ss:StyleID="s62" ss:HRef="http://hl7-fhir.github.io/codesystem-dicom-dcim.html"><Data
       ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.</Data></Cell>

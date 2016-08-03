@@ -63,7 +63,7 @@ public class SimpleFetcher implements IFetchFile {
     if (!f.exists())
       f = new File(path+".json");
     if (!f.exists())
-      throw new Exception("Unable to find file "+path+".xml/json");
+      throw new Exception("Unable to find file "+path+".xml or "+path+".json");
     FetchedFile ff = new FetchedFile();
     ff.setPath(path);
     ff.setName(fileTitle(path));

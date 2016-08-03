@@ -86,7 +86,6 @@ This approach is preferred over referencing the full null flavor specification. 
       <li><a href="extension-iso21090-adxp-direction.html">address-part-direction</a> - The direction of a street.  E.g. "NW" in Main Street NW</li>
       <li><a href="extension-iso21090-adxp-careOf.html">address-part-careOf</a> - The name of a person to take receipt at the specified address who is responsible for ensuring final deliver</li>
       <li><a href="extension-iso21090-adxp-censusTract.html">address-part-censusTract</a> - A geographic region delineated for demographic purposes</li>
-      <li><a href="extension-iso21090-adxp-county.html">address-part-county</a> - A sub-unit of a state or province</li>
       <li><a href="extension-iso21090-adxp-delimiter.html">address-part-delimiter</a> - A separator such as a carrage return, dash, comma, etc.</li>
       <li><a href="extension-iso21090-adxp-precinct.html">address-part-precinct</a> - A subsection of a municipality</li>
     </ul>

@@ -2561,7 +2561,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">FluentPath expression of constraint</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A [FluentPath](fluentpath.html) expression of constraint that can be executed to see if this constraint is met</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A [FluentPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Used by validation tooling tests of the validity of the resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

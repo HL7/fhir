@@ -409,7 +409,7 @@ public class ImplementationGuideDefn {
   }
 
   public String getPrefix() {
-    if (isCore())
+    if (isCore() || Utilities.noString(code))
       return "";
     else
       return code+"/";

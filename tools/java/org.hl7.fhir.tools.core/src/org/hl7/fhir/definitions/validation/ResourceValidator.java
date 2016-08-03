@@ -521,7 +521,7 @@ public class ResourceValidator extends BaseValidator {
 //      suppressedwarning(errors, IssueType.REQUIRED, path, !Utilities.noString(e.getMapping(ElementDefn.RIM_MAPPING)), "RIM Mapping is required");
 
     if (e.getName().equals("comment")) {
-      hint(errors, IssueType.STRUCTURE, path, false, "MnM must have confirmed this should not be an Annotation");
+      hint(errors, IssueType.STRUCTURE, path, isOkComment(path), "MnM must have confirmed this should not be an Annotation");
       hint(errors, IssueType.STRUCTURE, path, e.typeCode().equals("string"), "The type of 'comment' must be 'string'");
       hint(errors, IssueType.STRUCTURE, path, e.getMinCardinality() == 0, "The min cardinality of 'comment' must be 0");
       hint(errors, IssueType.STRUCTURE, path, e.getMaxCardinality() == 1, "The max cardinality of 'comment' must be 1");
@@ -615,6 +615,10 @@ public class ResourceValidator extends BaseValidator {
 		return vsWarnings;
 	}
 
+	// MnM controls this list
+  private boolean isOkComment(String path) {
+    return Utilities.existsInList(path, "Appointment.comment", "AppointmentResponse.comment", "HealthcareService.comment", "Schedule.comment", "Slot.comment");
+  }
 
   private boolean isValidToken(String name, boolean root) {
     if (Utilities.noString(name))

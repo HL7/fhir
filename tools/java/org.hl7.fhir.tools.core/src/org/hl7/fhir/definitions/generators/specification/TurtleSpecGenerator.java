@@ -266,7 +266,7 @@ public class TurtleSpecGenerator extends OutputStreamWriter {
     if (t.isXhtml())
       write("fhir:value \"[escaped xhtml]\"^^xsd:string");
     else if (t.getName().startsWith("@"))
-      write("<a href=\"ttl-"+t.getName().substring(1)+"\"><span style=\"color: DarkViolet\">See "+t.getName().substring(1)+"</span></a>");     
+      write("<a href=\"#ttl-"+t.getName().substring(1)+"\"><span style=\"color: DarkViolet\">See "+t.getName().substring(1)+"</span></a>");     
     else if (definitions.getConstraints().containsKey(t.getName())) {
       ProfiledType pt = definitions.getConstraints().get(t.getName());
       write("<a href=\"" + (dtRoot + definitions.getSrcFile(pt.getBaseType())

@@ -72,7 +72,7 @@ This list shows a number of examples, with links to real examples for each:
 </pre>
  </li>
 
- <li>Constraint on a resource (example: <a href="daf/daf-patient.html">DAF Patient</a> - <a href="daf/daf-patient.profile.xml.html">XML</a>, <a href="daf/daf-patient.profile.json.html">JSON</a>): <br/>
+ <li>Constraint on a resource (example: <a href="http://hl7.org/fhir/daf/daf-patient.html">DAF Patient</a> - <a href="http://hl7.org/fhir/daf/daf-patient.profile.xml.html">XML</a>, <a href="http://hl7.org/fhir/daf/daf-patient.profile.json.html">JSON</a>): <br/>
 <pre class="json">
 {
   "resourceType": "StructureDefinition",
@@ -145,6 +145,16 @@ mapping:
 
 [%mappings-table%]
 
+<a name="logical"> </a>
+<h3>Logical Models</h3>
+<p>
+StructureDefinitions are used to define the basic structures of FHIR: data types, resources, extensions, and profiles.
+The same definition structure can also be used to define any arbitrary structures that are a directed acyclic graph
+with typed nodes, where the primitive types are those defined by the FHIR specification.
+</p>
+<p>
+This can be useful when 
+</p>
 <!--
 <h2>Profiled FHIR</h2>
 <p>

@@ -84,15 +84,11 @@ case specific requirements. Two special kinds of resources are used to describe 
 
 <h3>The Specification</h3>
 <p>
-Broadly, the FHIR specification is broken up into 3 parts:
+Broadly, the FHIR specification is broken up into a <a href="modules.html">set of modules</a>:
 </p>
-<ul>
- <li>General <a href="documentation.html">documentation</a> that describes how <a href="resource.html">resources are defined</a>,
-   and gives background material including definitions of <a href="datatypes.html">data types</a>, <a href="terminologies.html">codes</a>, and the <a href="xml.html">XML</a> and <a href="json.html">JSON formats</a></li>
- <li><a href="implementation.html">Implementation</a> - how to use resources using <a href="http.html">REST</a>, <a href="messaging.html">Messaging</a>, as <a href="documents.html">clinical documents</a>, or in a <a href="services.html">service based architecture</a></li>
- <li>The <a href="resourcelist.html">resource list</a> - a list of all the resources defined by FHIR. You can also get lists
-     for <a href="clinical.html">clinical</a>, <a href="administration.html">administrative</a> and <a href="infrastructure.html">infrastructural</a> resources</li>
-</ul>
+[%file modules-list%]
+
+
 <p>
 Resources have a wide range of uses, from pure clinical content such as <a href="careplan.html">care plans</a> and <a href="diagnosticreport.html">diagnostic reports</a> through to pure infrastructure
 such as <a href="messageheader.html">Message Header</a> and <a href="conformance.html">conformance</a> statements. They all share common technical characteristics (see below for a more formal definition),

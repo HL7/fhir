@@ -1106,7 +1106,7 @@ public class SpreadsheetParser {
         cd.getValueSet().setUserData("committee", committee);
         if (ig != null) {
           cd.getValueSet().setUserDataINN(ToolResourceUtilities.NAME_RES_IG, ig);
-          cd.getValueSet().setUserData("path", ig.getCode()+"/valueset-"+cd.getValueSet().getId()+".html");
+          cd.getValueSet().setUserData("path", "valueset-"+cd.getValueSet().getId()+".html");
         } else
           cd.getValueSet().setUserData("path", "valueset-"+cd.getValueSet().getId()+".html");
         if (!ref.startsWith("#"))

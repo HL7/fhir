@@ -44,7 +44,7 @@ The condition resource also specifically excludes <a href="allergyintolerance.ht
 <p>
 <b>STU Note:</b> The Condition resource data type <code>Condition.category</code> has a <code>CodeableConcept</code> element with a list of four category codes:  
 <code>complaint | symptom | finding | diagnosis</code> that are not associated with a specific terminology.  This is a <a href="terminologies.html#preferred">preferred</a> 
-binding vs. a <a href="terminologies.html#required">required</a> binding.  In <a href="gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=10091">GFORGE # 10091</a>, 
+binding vs. a <a href="terminologies.html#required">required</a> binding.  In <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=10091">GFORGE # 10091</a>, 
 the conformance requirements for code vs. CodeableConcept (4a) note that a CodeableConcept should use a standard terminology such as SNOMED CT.  The Patient Care WG has 
 recommended that <code>Condition.category</code> be changed to a Code data element type with the use of the four code terms: <code>complaint | symptom | finding | diagnosis</code> with a required binding.
 </p>

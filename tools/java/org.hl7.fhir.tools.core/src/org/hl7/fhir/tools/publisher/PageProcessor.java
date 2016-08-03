@@ -1715,28 +1715,26 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String s : names) {
       Profile ap = definitions.getPackMap().get(s);
       ImplementationGuideDefn ig = definitions.getIgs().get(ap.getCategory());
-      if (ig == null || ig.isCore()) {
+      b.append("  <tr>\r\n");
+      b.append("    <td><a href=\"").append(ig.getPrefix()+ap.getId()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
+      b.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
+      b.append(" </tr>\r\n");
+    }
+    for (String n : definitions.sortedResourceNames()) {
+      ResourceDefn r = definitions.getResourceByName(n);
+      if (!r.getConformancePackages().isEmpty()) {
         b.append("  <tr>\r\n");
-        b.append("    <td><a href=\"").append(ap.getId()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
-        b.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
-        b.append(" </tr>\r\n");
+        b.append("    <td colspan=\"2\"><b>"+r.getName()+"</b></td>\r\n");
+        b.append("  </tr>\r\n");
+        for (Profile p : r.getConformancePackages()) {
+          ImplementationGuideDefn ig = definitions.getIgs().get(p.getCategory());
+          b.append("  <tr>\r\n");
+          b.append("    <td><a href=\""+ig.getPrefix()+p.getId()+".html\">"+Utilities.escapeXml(p.getTitle())+"</a></td>\r\n");
+          b.append("    <td>"+Utilities.escapeXml(p.getDescription())+"</td>\r\n");
+          b.append(" </tr>\r\n");
+        }
       }
     }
-// todo-profiles - do we want to list these here?    
-//    for (String n : definitions.sortedResourceNames()) {
-//      ResourceDefn r = definitions.getResourceByName(n);
-//      if (!r.getProfiles().isEmpty()) {
-//        b.append("  <tr>\r\n");
-//        b.append("    <td colspan=\"2\"><b>"+r.getName()+"</b></td>\r\n");
-//        b.append("  </tr>\r\n");
-//        for (RegisteredProfile p : r.getProfiles()) {
-//          b.append("  <tr>\r\n");
-//          b.append("    <td><a href=\""+p.getDestFilenameNoExt()+".html\">"+Utilities.escapeXml(p.getName())+"</a></td>\r\n");
-//          b.append("    <td>"+Utilities.escapeXml(p.getProfile().getSource().getDescription())+"</td>\r\n");
-//          b.append(" </tr>\r\n");
-//        }
-//      }
-//    }
     b.append("</table>\r\n");
    
     return b.toString();
@@ -2728,9 +2726,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private void generateConstraints(String path, ElementDefn e, Map<String, String> invs, boolean base, String prefix) {  
     for (Invariant inv : e.getInvariants().values()) {
       if (base)
-        invs.put(inv.getId(), "<li><b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (<a href=\""+prefix+"fluentpath.html\">expression</a>: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>)</li>");
+        invs.put(inv.getId(), "<li><b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (<a href=\"http://hl7.org/fluentpath\">expression</a>: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>)</li>");
       else
-        invs.put(inv.getId(), "<li><b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b>: On "+path+": "+Utilities.escapeXml(inv.getEnglish())+" (<a href=\""+prefix+"fluentpath.html\">expression</a> on "+presentPath(path)+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>)</li>");
+        invs.put(inv.getId(), "<li><b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b>: On "+path+": "+Utilities.escapeXml(inv.getEnglish())+" (<a href=\"http://hl7.org/fluentpath\">expression</a> on "+presentPath(path)+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>)</li>");
     }
     for (ElementDefn c : e.getElements()) {
       generateConstraints(path + "." + c.getName(), c, invs, false, prefix);
@@ -2738,7 +2736,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private void generateConstraints(String path, ProfiledType pt, Map<String, String> invs, boolean base, String prefix) {  
-    invs.put("sqty-1", "<li><b title=\"Formal Invariant Identifier\">sqty-1</b>: "+Utilities.escapeXml(pt.getInvariant().getEnglish())+" (<a href=\""+prefix+"fluentpath.html\">expression</a>: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(pt.getInvariant().getExpression())+"</span>)</li>");
+    invs.put("sqty-1", "<li><b title=\"Formal Invariant Identifier\">sqty-1</b>: "+Utilities.escapeXml(pt.getInvariant().getEnglish())+" (<a href=\"http://hl7.org/fluentpath\">expression</a>: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(pt.getInvariant().getExpression())+"</span>)</li>");
   }
 
   private String presentPath(String path) {
@@ -4749,7 +4747,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           first = false;
         else
           b.append(", ");
-        b.append("<a href=\"compartment-"+name+".html\">"+definitions.getCompartmentByName(name).getTitle()+"</a>");
+        b.append("<a href=\"compartmentdefinition-"+name.toLowerCase()+".html\">"+definitions.getCompartmentByName(name).getTitle()+"</a>");
       }
     }
     return b.toString();
@@ -7193,6 +7191,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     processW5(b, items, "workflow", types);
     processW5(b, items, "infrastructure", types);
     processW5(b, items, "conformance", types);
+    processW5(b, items, "financial", types);
     
     b.append("</table>\r\n");
     
@@ -7546,7 +7545,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private void checkForModifiers(StringBuilder b, String path, ElementDefn e) {
     if (e.isModifier()) {
-      b.append(" <li><a href=\""+definitions.getSrcFile(path.substring(0, path.indexOf(".")))+"#-definitions.html"+path+"\">"+path+"</a></li>\r\n");
+      b.append(" <li><a href=\""+definitions.getSrcFile(path.substring(0, path.indexOf(".")))+"-definitions.html#"+path+"\">"+path+"</a></li>\r\n");
     }
     for (ElementDefn c : e.getElements())
       checkForModifiers(b, path+"."+c.getName(), c);

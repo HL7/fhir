@@ -418,7 +418,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     return res;  
   }
 
-  private void initialize(boolean clearCache) throws Exception {
+  public void initialize(boolean clearCache) throws Exception {
     first = true;
     log("Load Configuration");
 

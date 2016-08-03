@@ -72,6 +72,8 @@ public class EPubManager implements FileNotifier {
   }
 
   public void registerExternal(String filename) {
+    if (filename.startsWith("\\"))
+      throw new Error("wrong path?");
 //    if (filename.startsWith(page.getFolders().dstDir))
 //      filename = filename.substring(page.getFolders().dstDir.length());
 //    externals.add(filename);
@@ -87,7 +89,9 @@ public class EPubManager implements FileNotifier {
   
   public void registerFile(String filename, String title, String type, boolean include) {
     if (filename.startsWith(page.getFolders().dstDir))
-      filename = filename.substring(page.getFolders().dstDir.length());
+      filename = filename.substring(page.getFolders().dstDir.length()+1);
+    if (filename.startsWith("\\"))
+      throw new Error("wrong path?");
     if (type == null)
       type = BIN_TYPE;
     if (getEntryForFile(filename) != null)
@@ -257,8 +261,8 @@ public class EPubManager implements FileNotifier {
         if (!e.checked)
           check(e);
         if (e.bytes == null)
-          throw new Exception("no content in "+e.filename);
-        if (e.include) 
+          System.out.println("no content in "+e.filename);
+        else if (e.include) 
           zip.addBytes("OEBPS/"+e.filename, e.bytes, false);
         e.bytes = null;        
       } else if (e.include) {
@@ -401,7 +405,7 @@ public class EPubManager implements FileNotifier {
         if (e == null) {
           if (href.startsWith("v2/") || href.startsWith("v3/")) // we can't check those links
             return;
-          if (target.endsWith(".zip") || target.endsWith(".ttl"))
+          if (target.endsWith(".zip") || target.endsWith(".ttl") || target.endsWith(".jar"))
             return;
           reportError(base, "Broken Link (2) in "+base+": '"+href+"' not found at \""+target+"\"("+node.allText()+")");
           return;
@@ -428,7 +432,7 @@ public class EPubManager implements FileNotifier {
     for (Entry e : entries) {
       if (e.filename.equalsIgnoreCase(target)) {
         if (!e.filename.equals(target))
-          throw new Error("Case Error: found "+e.filename+" looking for "+target);
+          System.out.println("Case Error: found "+e.filename+" looking for "+target);
         return e;
       }
     }
@@ -453,14 +457,18 @@ public class EPubManager implements FileNotifier {
       base = base.substring(0, base.lastIndexOf(File.separator));
     else
       base = "";
-    while (path.startsWith("../")) {
-      path = path.substring(3);
-      if (Utilities.noString(base)) 
-        throw new Exception("error in path - ../ out of zone in link "+mPath+" in base "+mBase);
-      else if (!base.contains(File.separator))
-        base = null;
-      else
-        base = base.substring(0, base.lastIndexOf(File.separator));
+    while (path.startsWith("../") || path.startsWith("./")) {
+      if (path.startsWith("./"))
+        path = path.substring(2);
+      else {
+        path = path.substring(3);
+        if (Utilities.noString(base)) 
+          System.out.println("error in path - ../ out of zone in link "+mPath+" in base "+mBase);
+        else if (!base.contains(File.separator))
+          base = null;
+        else
+          base = base.substring(0, base.lastIndexOf(File.separator));
+      }
     }
     return Utilities.noString(base) ? path.replace('/', File.separatorChar) : base+File.separator+path.replace('/', File.separatorChar);
   }

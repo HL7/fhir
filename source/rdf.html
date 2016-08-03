@@ -66,14 +66,14 @@ Turtle Template
 [ a fhir:Observation; fhir:nodeRole fhir:treeRoot;
   # from Resource: id; meta; implicitRules; and language
   # from DomainResource: text; contained; extension; and modifierExtension
-  fhir:Obervation.identifier [ <a href="">Identifier</a> ]; # 0..* Unique Id for this particular observation
+  fhir:Obervation.identifier [ <a href="#">Identifier</a> ]; # 0..* Unique Id for this particular observation
   fhir:Obervation.status [ fhir:value "&lt;code&gt;" ]; # R!  registered | preliminary | final | amended +
-  fhir:Obervation.code [ <a href="">CodeableConcept</a> ]; # 1..1 R!  Type of observation (code / type)
-  fhir:Obervation.subject [ fhir:reference [ <a href="">Patient</a>|<a href="">Group</a>|<a href="">Device</a>|<a href="">Location</a> ] ]; # 0..1 Who and/or what this is about
-  fhir:Obervation.encounter [ fhir:reference [ <a href="">Encounter</a> ] ]; # 0..1 Healthcare event during which this observation is made
+  fhir:Obervation.code [ <a href="#">CodeableConcept</a> ]; # 1..1 R!  Type of observation (code / type)
+  fhir:Obervation.subject [ fhir:reference [ <a href="#">Patient</a>|<a href="#">Group</a>|<a href="#">Device</a>|<a href="#">Location</a> ] ]; # 0..1 Who and/or what this is about
+  fhir:Obervation.encounter [ fhir:reference [ <a href="#">Encounter</a> ] ]; # 0..1 Healthcare event during which this observation is made
   # effective[x]: 0..1 Clinically relevant time/time-period for observation. One of these 2:
     fhir:Obervation.effectiveDateTime [ fhir:value "&lt;dateTime&gt;" ];
-    fhir:Obervation.effectivePeriod [ <a href="">Period</a> ];
+    fhir:Obervation.effectivePeriod [ <a href="#">Period</a> ];
 ]
 
 </pre>
