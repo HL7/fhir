@@ -312,7 +312,7 @@
 
 <p>Note that the "activity" to be performed may be to document a patient-specific assessment performed by a clinical decision support service (e.g. patient has a 37% chance of a heart attack in the next 5 years), not just recommendations/recommended actions. In this case, the action would be to "create" a RiskAssessment.</p>
 
-<p>The <a href="[%fhir-path%]/plandefinition.html">PlanDefinition</a> resource can be used to represent an ECA rule using the actionDefinition element. A single, top-level actionDefinition represents the overall rule, with the triggerDefinition element used to specify the triggering event(s), the condition element used to specify the applicable condition for the rule, and the actionDefinition itself describing the action to be performed.</p>
+<p>The <a href="[%fhir-path%]plandefinition.html">PlanDefinition</a> resource can be used to represent an ECA rule using the actionDefinition element. A single, top-level actionDefinition represents the overall rule, with the triggerDefinition element used to specify the triggering event(s), the condition element used to specify the applicable condition for the rule, and the actionDefinition itself describing the action to be performed.</p>
 
 <p>For example, the following fragment illustrates a simple use of PlanDefinition to expose a Chlamydia Screening ECA rule:</p>
 
@@ -351,7 +351,7 @@
 
 <p>An order set is a pre-defined and approved group of orders related to a particular clinical condition (e.g., hypertension treatment and monitoring) or stage of care (e.g., hospital admission to Coronary Care Unit). An order set is typically used as a checklist for clinicians when managing a patient with a specific condition. It is a structured collection of orders relevant to that condition and presented to the clinician in a computerized provider order entry system (CPOE).</p>
 
-<p>The <a href="[%fhir-path%]/plandefinition.html">PlanDefinition</a> resource can represent an Order Set using action definitions to define the orderable items in the order set. The items in an order set are typically organized hierarchically, as a set of sections, sub-sections, etc., with the actions themselves at the very bottom of the structure. In the PlanDefinition resource, each section, and sub-section, as well as the individual items are all represented as action definitions. Each group and/or subgroup may have behavior indicators associated with it, e.g., the number of actions that can/should/must be selected from the group of actions.</p>
+<p>The <a href="[%fhir-path%]plandefinition.html">PlanDefinition</a> resource can represent an Order Set using action definitions to define the orderable items in the order set. The items in an order set are typically organized hierarchically, as a set of sections, sub-sections, etc., with the actions themselves at the very bottom of the structure. In the PlanDefinition resource, each section, and sub-section, as well as the individual items are all represented as action definitions. Each group and/or subgroup may have behavior indicators associated with it, e.g., the number of actions that can/should/must be selected from the group of actions.</p>
 
 <p>For example, the following fragment illustrates the items in a suicide risk order set:</p>
 
@@ -477,7 +477,7 @@
 
 <p>A protocol is a pre-defined procedural method written to standardize a set of activities. Protocols can be used within laboratory settings to standardize handling of specimens or the steps involved in a specific test; to describe the methodology for effective treatment of a particular condition, or to define the steps to be taken in a particular research trial.</p>
 
-<p>The <a href="[%fhir-path%]/plandefinition.html">PlanDefinition</a> resource can be used to represent a Protocol, using the action definitions to define the steps of the protocol and the relationships between them. Triggering events for each action, as well as applicable conditions can all be specified using the appropriate action definition elements within the PlanDefinition.</p>
+<p>The <a href="[%fhir-path%]plandefinition.html">PlanDefinition</a> resource can be used to represent a Protocol, using the action definitions to define the steps of the protocol and the relationships between them. Triggering events for each action, as well as applicable conditions can all be specified using the appropriate action definition elements within the PlanDefinition.</p>
 
 <p>As a simple example, the following fragment shows a portion of a BMI Assessment protocol:</p>
 
@@ -508,7 +508,7 @@ For those who have not been overweight, a 2 year interval is appropriate for the
 
 <p>A documentation template is a structured form for recording information on a patient into a set of pre-defined data slots. These templates are used to guide structured data entry within an EHR or other clinical information system. Some types of clinical documents that can be represented via the documentation template artifacts are encounter summaries, procedure notes, patient-reported outcomes, and flowsheets.</p>
 
-<p>The <a href="[%fhir-path%]/questionnaire.html">Questionnaire</a> resource provides a basis for representing the structure of a documentation template. Using the expression extensions, the resource can be extended to provide dynamic behavior such as calculating values, showing/hiding contents based on answers to questions, and other interactive functionality.</p>
+<p>The <a href="[%fhir-path%]questionnaire.html">Questionnaire</a> resource provides a basis for representing the structure of a documentation template. Using the expression extensions, the resource can be extended to provide dynamic behavior such as calculating values, showing/hiding contents based on answers to questions, and other interactive functionality.</p>
 
 <p>Documentation Templates often include not only a description of the data to be collected, but the behavior of the template during evaluation. For example, whether or not to display a particular question or group of questions based on answers to previously asked questions, or calculating the value of an answer based on other answers. The Questionnaire resource by itself does not provide this functionality, so this guide introduces a <a href="cqif-questionnaire.html">CQIF-Questionnaire</a> profile of the <a href="../questionnaire.html">Questionnaire</a> resource to allow this behavior to be modeled.</p>
 
