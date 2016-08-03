@@ -35,7 +35,7 @@ sophisticated behavior.  This includes:
   <li><a href="element-extensions.html">Element extensions</a> which can describe additional constraints on allowed answers for questionnaires such as string length and date and numeric ranges</li>
 </ul>
 <p>
-Additional profiles such as the <a href="sdc/questionnaire-sdc.html">Structured Data Capture Questionnaire profile</a> may provide additional capabilities for defining
+Additional profiles such as the <a href="http://hl7.org/fhir/us/sdc/questionnaire-sdc.html">Structured Data Capture Questionnaire profile</a> may provide additional capabilities for defining
 more sophisticated questionnaires and forms.
 </p>
 </div>

@@ -73,7 +73,7 @@ https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40
 </pre>
 <p>
 For further details on DICOM WADO-URI capabilities including additional rendering parameters, 
-see <a ref="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3.18.html">DICOM PS 3.18</a>.
+see <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3.18.html">DICOM PS 3.18</a>.
 </p>
 <h4>WADO-RS</h4>
 <p>

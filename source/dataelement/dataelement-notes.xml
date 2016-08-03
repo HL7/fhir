@@ -38,7 +38,7 @@ on the code or by specifying the "primary mapping" ISO 11179 extension.
 It is possible to create instances that are "conforming", or even "strictly conforming" to the 11179 specification. However, doing
 so will require the use of extensions to convey certain properties that are not part of the core resource and data types.  An initial
 starter <a href="dataelement-11179.html">ISO 11179 profile</a> is included in the FHIR specification.  It defines extensions that are relevant to the 
-<a href="sdc/dataelement-sdc.html">SDC DataElement</a> profile.  If there is sufficient interest, the existing starter set may be
+<a href="http://hl7.org/fhir/us/sdc/dataelement-sdc.html">SDC DataElement</a> profile.  If there is sufficient interest, the existing starter set may be
 enhanced to contain a complete set of extensions and a full 11179 in a future release of the specification.
 </p>
 	<h3>Data Elements vs. Codes</h3>

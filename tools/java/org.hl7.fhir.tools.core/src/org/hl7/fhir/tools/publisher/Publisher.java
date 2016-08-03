@@ -125,6 +125,7 @@ import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
+import org.hl7.fhir.dstu3.formats.RdfParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.Bundle;
@@ -3537,6 +3538,12 @@ public class Publisher implements URIResolver, SectionNumberer {
     new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(s, opd);
     s.close();
     jsonToXhtml(dir+"operation-" + name, "Operation Definition", resource2Json(opd), "resource-instance:OperationDefinition", "Operation definition");
+
+    s = new FileOutputStream(page.getFolders().dstDir + dir+"operation-" + name + ".ttl");
+    new RdfParser().setOutputStyle(OutputStyle.PRETTY).compose(s, opd);
+    s.close();
+    ttlToXhtml(dir+"operation-" + name, "Operation Definition", resource2Json(opd), "resource-instance:OperationDefinition", "Operation definition");
+    
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + dir+"operation-" + name + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + "operation-" + name + ".xml"));
     if (buildFlags.get("all"))
       addToResourceFeed(opd, resourceBundle, name);
@@ -3578,6 +3585,18 @@ public class Publisher implements URIResolver, SectionNumberer {
     html = page.processPageIncludes(n + ".shex.html", html, pageType, null, null, null, crumbTitle, igd);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".shex.html");
     page.getEpub().registerExternal(n + ".shex.html");
+  }
+
+  private void ttlToXhtml(String n, String description, String ttl, String pageType, String crumbTitle) throws Exception {
+    ttlToXhtml(n, description, ttl, pageType, crumbTitle, null);
+  }
+  
+  private void ttlToXhtml(String n, String description, String ttl, String pageType, String crumbTitle, ImplementationGuideDefn igd) throws Exception {
+    ttl = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(description) + "</p>\r\n<pre class=\"turtle\">\r\n" + Utilities.escapeXml(ttl)+ "\r\n</pre>\r\n</div>\r\n";
+    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-ttl.html").replace("<%example%>", ttl);
+    html = page.processPageIncludes(n + ".ttl.html", html, pageType, null, null, null, crumbTitle, igd);
+    TextFile.stringToFile(html, page.getFolders().dstDir + n + ".ttl.html");
+    page.getEpub().registerExternal(n + ".ttl.html");
   }
 
   private void jsonToXhtml(String n, String description, String json, String pageType, String crumbTitle) throws Exception {
