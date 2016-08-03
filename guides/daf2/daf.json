@@ -448,8 +448,8 @@
 			"base": "valueset-daf-problem.html",
 			"template-base": null
 		},
-		"ValueSet/us-core-birth-sex": {
-			"base": "valueset-us-core-birth-sex",
+		"ValueSet/daf-birth-sex": {
+			"base": "valueset-daf-birth-sex.html",
 			"template-base": null
 		},
 		"ValueSet/daf-research-data-models": {

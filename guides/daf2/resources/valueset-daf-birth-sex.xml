@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<id value="daf-birth-sex"/>
+	<meta>
+		<lastUpdated value="2016-03-25T16:34:24.987-04:00"/>
+		<profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+	</meta>
+	<url value="http://hl7.org/fhir/us/daf/ValueSet/daf-birth-sex"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.2.5759999"/>
+	</identifier>
+	<version value="1.3.0"/>
+	<name value="Birth Sex Value Set"/>
+	<status value="active"/>
+	<experimental value="true"/>
+	<!-- TBD -->
+	<publisher value="US Realm Steering Committee"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<date value="2016-03-25T16:34:24-04:00"/>
+	<description value="ONC required Birth Sex Codes"/>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+			<concept>
+				<code value="F"/>
+				<display value="Female"/>
+			</concept>
+			<concept>
+				<code value="M"/>
+				<display value="Male"/>
+			</concept>
+		</include>
+		<include>
+			<system value="http://hl7.org/fhir/v3/NullFlavor"/>
+			<concept>
+				<code value="UNK"/>
+				<display value="Unknown"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
