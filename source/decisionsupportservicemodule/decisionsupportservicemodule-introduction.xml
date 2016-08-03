@@ -29,9 +29,11 @@
 
 <div>
 <h2>Boundaries and Relationships</h2>
-<p>
-The DecisionSupportServiceModule is similar in structure to the DecisionSupportRule, and supports an identical $evaluate operation. The difference between the two is that the DecisionSupportRule is designed to enable the sharing of the rule definition, as opposed to the DecisionSupportServiceModule, which only supports evaluation of the module; the internal functionality is opaque.
-</p>
+<p>The DecisionSupportServiceModule is similar in structure and purpose to <a href="operationdefinition.html">OperationDefinition</a>. However, DecisionSupportServiceModule also represents more information about <i>what</i> service is being described than an operation definition supports. This information is critical to the effective use of the resource as part of a decision support service repository, as it enables searching and selection of functionality based on this additional information.</p>
+
+<p>In addition, the way the $evaluate operation of the DecisionSupportServiceModule resource is defined enables all decision support services to share a common set of parameters without having to redeclare them for every module, while still supporting service-specific paramters on each module.</p>
+
+<p><em>Ballot Note:</em> Because of the overlap with OperationDefinition, this resource is being considered for decomposition into a ServiceDefinition resource that would support a more general description of service functionality, and a possible profile or modification of OperationDefinition to support the requirements for decision support use of an operation.</p>
 </div>
 
 <!-- (optional):
