@@ -1,0 +1,197 @@
+---
+id: {{[id]}}
+title: {{[title]}}
+tcode: {{[type]}}
+---
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta charset="UTF-8"/>
+  <title>Profile: {{page.title}} - FHIR v1.5.0</title>
+
+  {% include header.html %}
+
+</head>
+<body>
+{% include navbar.html %}
+
+ <div id="segment-breadcrumb" class="segmnt">  <!-- segment-breadcrumb -->
+  <div class="container">  <!-- container -->
+   <ul class="breadcrumb">
+        <li title="QICore"><a href="index.html"><b>QICore</b></a></li>
+        <li><b>{{page.title}} Details</b></li>
+
+   </ul>
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+  <!-- CONTENT CONTENT -->
+
+<div class="col-9">
+
+<ul class="nav nav-tabs"><li class="active"><a href="#">Content</a></li><li><a href="{{page.id}}-definitions.html">Detailed Descriptions</a></li><li><a href="{{page.id}}-mappings.html">Mappings</a></li><li><a href="StructureDefinition-{{page.id}}.xml.html">XML</a></li><li><a href="StructureDefinition-{{page.id}}.json.html">JSON</a></li></ul>
+
+<h3><span class="sectioncount">D.4.1<a name="D.4.1"> </a></span> StructureDefinition: {{page.id}} <a title="link to here" class="self-link" href="{{page.id}}.html#D.4.1"><img src="target.png"/></a></h3>
+
+
+<!-- introductiontext here-->
+<a name="introduction"> </a>
+
+<!-- introductiontext here-->
+
+
+<a name="profile"> </a>
+<h4><span class="sectioncount">D.4.1.1</span>
+Formal Views of Profile Content
+ <a title="link to here" class="self-link" href="{{page.id}}.html#profile"><img src="target.png"/></a>
+</h4>
+<!-- uri -->
+{%include StructureDefinition-{{page.id}}-header.xhtml%}
+<!-- uri -->
+<p>
+<a href="{{site.data.fhir.path}}profiling.html#representation">Description of Profiles, Differentials, Snapshots, and how the XML and JSON presentations work</a>.
+</p>
+
+<div id="tabs">
+ <ul>
+  <li><a href="#tabs-summ">Text Summary</a></li>
+  <li><a href="#tabs-diff">Differential Table</a></li>
+  <li><a href="#tabs-snap">Snapshot Table</a></li>
+  <li><a href="#tabs-xml">XML Template</a></li>
+  <li><a href="#tabs-json">JSON Template</a></li>
+  <li><a href="#tabs-all">All</a></li>
+ </ul>
+
+ <div id="tabs-summ">
+  <div id="tbl-summ">
+   <p>This structure is derived from <a href="{{site.data.structuredefinitions[page.id].basepath}}">{{site.data.structuredefinitions[page.id].basename}}</a> </p>
+   <div id="tbl-diff-inner">
+     <a name="summary"> </a>
+     {%include StructureDefinition-{{page.id}}-summary.xhtml%} 
+   </div>
+  </div>
+ </div>
+
+ <div id="tabs-diff">
+  <div id="tbl-diff">
+   <p>This structure is derived from <a href="{{site.data.structuredefinitions[page.id].basepath}}">{{site.data.structuredefinitions[page.id].basename}}</a> </p>
+   <div id="tbl-diff-inner">
+   {%include StructureDefinition-{{page.id}}-diff.xhtml%}
+   </div>
+  </div>
+ </div>
+
+ <div id="tabs-snap">
+  <div id="tbl-snap">
+   <div id="tbl-snap-inner">
+   {%include StructureDefinition-{{page.id}}-snapshot.xhtml%}
+   </div>
+  </div>
+ </div>
+
+ <div id="tabs-xml">
+  <div id="xml">
+   <div id="xml-inner">
+   {%include StructureDefinition-{{page.id}}-pseudo-xml.xhtml%}
+   </div>
+  </div>
+ </div>
+
+ <div id="tabs-json">
+  <div id="json">
+   <div id="json-inner">
+   {%include StructureDefinition-{{page.id}}-pseudo-json.xhtml%}
+   </div>
+  </div>
+ </div>
+
+ <div id="tabs-all">
+  <div id="tbl-summ">
+   <p>This structure is derived from <a href="{{site.data.fhir.path}}{{page.id}}.html">{{page.tcode}}</a>.</p>
+   <div id="tbl-diff-inner">
+     <a name="summary"> </a>
+     {%include StructureDefinition-{{page.id}}-summary.xhtml%}
+   </div>
+  </div>
+
+ <div id="all-tbl-diff">
+   <p><b>Differential View</b></p>
+   <p>This structure is derived from <a href="{{site.data.fhir.path}}{{page.id}}.html">{{page.tcode}}</a>.</p>
+   <div id="all-tbl-diff-inner">
+   {%include StructureDefinition-{{page.id}}-diff.xhtml%}
+   </div>
+  </div>
+  <div id="all-tbl-snap">
+   <p><b>Snapshot View</b></p>
+   <div id="all-tbl-snap-inner">
+   {%include StructureDefinition-{{page.id}}-snapshot.xhtml%}
+   </div>
+  </div>
+  <div id="all-xml">
+   <p><b>XML Template</b></p>
+   <div id="all-xml-inner">
+   {%include StructureDefinition-{{page.id}}-pseudo-xml.xhtml%}
+   </div>
+  </div>
+  <div id="all-json">
+   <p><b>JSON Template</b></p>
+   <div id="all-json-inner">
+   {%include StructureDefinition-{{page.id}}-pseudo-json.xhtml%}
+   </div>
+  </div>
+ </div>
+</div>
+
+<p>&nbsp;</p>
+
+<a name="tx"> </a>
+<h4><span class="sectioncount">D.4.1.2</span> Terminology Bindings <a title="link to here" class="self-link" href="{{page.id}}.html#tx"><img src="target.png"/></a></h4>
+   {%include StructureDefinition-{{page.id}}-tx.xhtml%}
+
+<h4><span class="sectioncount">D.4.1.3<a name="D.4.1.3"> </a></span> Constraints <a title="link to here" class="self-link" href="{{page.id}}.html#D.4.1.3"><img src="target.png"/></a></h4>
+   {%include StructureDefinition-{{page.id}}-inv.xhtml%}
+
+.
+
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+<script src="jquery.js"> </script>
+<script src="jquery-ui.min.js"> </script>
+<script>
+try {
+  var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
+}
+catch(exception){
+}
+
+if (!currentTabIndex)
+  currentTabIndex = '0';
+
+$( '#tabs' ).tabs({
+         active: currentTabIndex,
+         activate: function( event, ui ) {
+             var active = $('.selector').tabs('option', 'active');
+             currentTabIndex = ui.newTab.index();
+             document.activeElement.blur();
+             try {
+               sessionStorage.setItem('fhir-resource-tab-index', currentTabIndex);
+             }
+             catch(exception){
+             }
+         }
+     });
+</script>
+
+{% include footer.html %}
+</body>
+</html>

@@ -19,7 +19,10 @@
 		"Any": {
 			"template-format": "instance-template-format.html",
 			"template-base": "instance-template-base.html"
-		}
+		},
+    "StructureDefinition" : {
+			"template-base": "instance-template-sd.html"
+    }
 	},
 	"canonicalBase": "http://hl7.org/fhir/qicore",
 	"source": "qicore.xml",
