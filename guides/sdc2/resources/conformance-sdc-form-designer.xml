@@ -9,7 +9,7 @@
 			<p>Published: 2014-07-06 (draft)</p>
 			<p>Published by: <b>U.S. Office of the National Coordinator (ONC)</b>
 			</p>
-			<p>This profile defines the expected capabilities of the <i>SDC Form Designer</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining forms (<a href="../questionnaire.html">Questionnaire</a> resource instances) that include references to <a href="../dataelement.html">DataElement</a> resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms.</p>
+			<p>This profile defines the expected capabilities of the <i>SDC Form Designer</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining forms (<a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a> resource instances) that include references to <a href="{{site.data.fhir.path}}dataelement.html">DataElement</a> resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms.</p>
 			<h2>General</h2>
 			<table>
 				<tbody>
@@ -24,7 +24,7 @@
 				</tbody>
 			</table>
 			<h2>REST  behavior</h2>
-			<p>The <a href="../questionnaire.html">Questionnaire</a> resource is used to create and maintain SDC-compliant forms.  The <a href="../dataelement.html">DataElement</a> resource is used to look-up existing data elements that can be referenced in forms.  Optionally, <a href="../dataelement.html">DataElement</a>s can also be created and maintained in conjunction with form editing.  This is an optional feature as not all environments will provide support for data element definitions from form authors.  The <a href="../valueset.html">ValueSet</a> resource is used to capture allowed values for questions that are to be answered from a pre-defined list of values.  For some forms, some or all of the referenced value sets will be handled as 'contained' resources, meaning the value set exists only in the context of the <a href="../questionnaire.html">Questionnaire</a> and cannot be referenced or maintained without also updating the form.  However, systems should support value set re-use across questionnaires.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing <a href="../questionnaire.html">Questionnaire</a>.)</p>
+			<p>The <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a> resource is used to create and maintain SDC-compliant forms.  The <a href="{{site.data.fhir.path}}dataelement.html">DataElement</a> resource is used to look-up existing data elements that can be referenced in forms.  Optionally, <a href="{{site.data.fhir.path}}dataelement.html">DataElement</a>s can also be created and maintained in conjunction with form editing.  This is an optional feature as not all environments will provide support for data element definitions from form authors.  The <a href="{{site.data.fhir.path}}valueset.html">ValueSet</a> resource is used to capture allowed values for questions that are to be answered from a pre-defined list of values.  For some forms, some or all of the referenced value sets will be handled as 'contained' resources, meaning the value set exists only in the context of the <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a> and cannot be referenced or maintained without also updating the form.  However, systems should support value set re-use across questionnaires.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>.)</p>
 			<p>
 				<b>Security:</b>
 			</p>
@@ -125,7 +125,7 @@
 			<br/>
 			<br/>
 			<h3>
-				<a href="../questionnaire.html">Questionnaire</a>
+				<a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>
 			</h3>
 			<h4>Interactions</h4>
 			<table class="list">
@@ -222,7 +222,7 @@
 			<br/>
 			<br/>
 			<h3>
-				<a href="../valueset.html">ValueSet</a>
+				<a href="{{site.data.fhir.path}}valueset.html">ValueSet</a>
 			</h3>
 			<h4>Interactions</h4>
 			<table class="list">
@@ -319,7 +319,7 @@
 			<br/>
 			<br/>
 			<h3>
-				<a href="../dataelement.html">DataElement</a>
+				<a href="{{site.data.fhir.path}}dataelement.html">DataElement</a>
 			</h3>
 			<h4>Interactions</h4>
 			<table class="list">

@@ -1,0 +1,30 @@
+<!-- Comment out any sections that don't apply and remove the 'include' -->
+<div class="col-9">
+  <a name="profiles"> </a>
+  <h3>Profiles</h3>
+  {% include table-profiles.xhtml %}
+
+  <a name="extensions"> </a>
+  <h3>Extensions</h3>
+  <!-- include table-extensions.xhtml -->
+
+  <a name="valuesets"> </a>
+  <h3>Value Sets</h3>
+  {% include table-valuesets.xhtml %}
+
+{% if site.data.pages['toc.html'].examples.size > 0 %}
+  <a name="examples"> </a>
+  <h3>Examples</h3>
+  <table style="grid">
+    <tbody>
+      {% for example in site.data.pages['toc.html'].examples %}
+        <tr>
+          <td>
+            <a href="{{example.url}}">{{example.title}}</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endif %}
+</div>

@@ -1,0 +1,201 @@
+<div class="col-9">
+  <h2>Structured Data Capture Questionnaire Design</h2>
+  <div>
+    <a name="scope"/>
+    <h3>Scope and Usage</h3>
+    <p>
+      This profile sets expectations for use of the <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a> resource within the 
+      <a href="sdc.html">Structured Data Capture</a> implementation guide.  This includes
+      identifying which core elements and extensions must be supported.
+    </p>
+    <p>
+      For the purposes of this profile, <i>Supported</i> means that clients SHALL be capable of processing the element/extension and use the information to control the display
+      and information capture associated with the <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>.  It means that servers SHALL be capable of persisting those elements and returning them in response
+      to requests.
+    </p>
+  </div>
+  <div>
+    <a name="boundaries"/>
+    <h3>Boundaries and Relationships</h3>
+    <p>
+    This profile relies on the use of a number of other profiles, some required, others available for use &quot;when necessary&quot;:
+    </p>
+    <ul>
+      <li>
+        <a href="{{site.data.fhir.path}}questionnaire-extensions.html">questionnaire-extensions</a> which defines a number of less common properties for questionnaire, group and question, several of which are mandated for this profile.</li>
+      <li>
+        <a href="{{site.data.fhir.path}}element-extensions.html">element-extensions</a> which defines extensions describing constraints on the values for data elements.  There are used here to constrain the allowed values for questions.</li>
+      <li>
+        <a href="{{site.data.fhir.path}}iso-21090.html">iso-21090</a> provides extensions for strings allowing the conveying of language and translation extensions which may be relevant in some environment</li>
+      <li>
+        <a href="{{site.data.fhir.path}}rendering-extensions.html">rendering-extensions</a> which defines properties to give fine-grained control over how questions, labels and other strings are rendered</li>
+    </ul>
+  </div>
+  <a name="content"> </a>
+  <h3>Content</h3>
+  <table class="lines">
+    <tr>
+      <td colspan="2">
+        <b>Profiles</b>: </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="sdc-questionnaire.html">SDC-Questionnaire</a>
+      </td>
+      <td>Defines how Questionnaire is used to reflect form definitions to be used within the ONC's Structured Data Capture standard.</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <b>Extensions</b>: </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="extension-sdc-questionnaire-endpoint.html">sdc-questionnaire-endpoint</a>
+      </td>
+      <td>
+        <b>Where to send answers</b> : <p>The base URL for the server to which questionnaire response associated with this questionnaire should be submitted.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="extension-sdc-questionnaire-optionaldisplay.html">sdc-questionnaire-optionalDisplay</a>
+      </td>
+      <td>
+        <b>Can suppress from display to user</b> : <p>If set to true, it means that the system displaying the form (or the individual encoding the form for data capture) can choose to omit the item from display to the user.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="extension-sdc-questionnaire-provenancesignaturerequred.html">sdc-questionnaire-provenanceSignatureRequred</a>
+      </td>
+      <td>
+        <b>Is associated Provenance needed?</b> : <p>If true, indicates that QuestionnaireResponse instances created against this questionnaire must have an associated Provenance record.</p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <b>Examples</b>: </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="questionnaire-sdc-profile-example.html">SDC - Combination</a>
+      </td>
+      <td>
+        <p>Set of several examples - medication, AHRQ and NCI forms</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="questionnaire-sdc-profile-example-cap.html">SDC-Pathology</a>
+      </td>
+      <td>
+        <p>Cancer pathology questionnaire with flow-control extensions</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="questionnaire-sdc-profile-example-loinc.html">SDC-LOINC AHRQ</a>
+      </td>
+      <td>
+        <p>LOINC perspective on the AHRQ form found in the SDC - Combination set of questionnaires</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="questionnaire-sdc-profile-example-ussg-fht.html">SDC-LOINC USSG Family History</a>
+      </td>
+      <td>
+        <p>LOINC US Surgeon General family history including data elements &amp; value sets.  Note: This example isn't strictly valid against SDC as data elements do not have definitions and don't include mappings to SDC-approved specificaitons for auto-population</p>
+      </td>
+    </tr>
+  </table>
+  <a name="language"/>
+  <h3>Language and translations</h3>
+  <p>
+    In some environments, it may be necessary for a questionnaire to support multiple languages.  The rendering tool would select the appropriate
+    language based on a configuration setting, or perhaps would display all available languages and the user would read the one they are familiar with.
+    Systems MAY choose to provide support for identifying language and translations.  If they do, they MAY do so using the generic language and
+    translation extensions FHIR defines based on the ISO21090 data type specification:
+  </p>
+  <ul>
+    <li>
+      <a href="http://www.hl7.org/fhir/extension-iso21090-st-language.html">iso21090-st-language</a> allows the language of a particular (or any other data type)
+       to be identified</li>
+    <li>
+      <a href="http://hl7.org/Profile/extension-iso21090-st-translation">iso21090-st-translation</a> allows additional repetitions in alternate languages to be communicated.  
+      (The language for each translation would be communicated using the above #language extension)</li>
+  </ul>
+  <p>
+    These extensions can be used on absolutely any string element on <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>, 
+    <a href="{{site.data.fhir.path}}valueset.html">ValueSet</a>, one of 
+    the data types or any other resource.  The base string should be the primary language of the questionnaire.  It is what will be rendered by systems that do
+    not support the translation extension or by systems whose language preference is other than one of the languages provided.
+  </p>
+  <p>
+    The ISO 19763 specification permits declaring language on questionnaire titles, descriptions, display names for codes and many other strings.  It also supports
+    capturing multiple variants of these strings with distinct languages.  These capabilities can be mirrored using the above extensions.
+  </p>
+  <p>
+    An alternative is to define an extension to the <b>Questionnaire</b> providing a pointer to an externally maintained set of extensions.  This approach allows
+    the translations to be maintained independently of the resource which has both positive and negative impacts, particularly with respect to resource signature.
+  </p>
+  <p>
+    <b>Open Issue:</b> Should this profile define such an extension and/or a resource for managing such translations?
+  </p>
+  <h3>Example List</h3>
+  <table class="list">
+    <tbody>
+      <tr>
+        <td>
+          <a href="questionnaire-sdc-profile-example.html">SDC - Combination</a>
+        </td>
+        <td>
+          <a href="questionnaire-sdc-profile-example.xml.html">XML</a>
+        </td>
+        <td>
+          <a href="questionnaire-sdc-profile-example.json.html">JSON</a>
+        </td>
+        <td>Set of several examples - medication, AHRQ and NCI forms</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="questionnaire-sdc-profile-example-cap.html">SDC-Pathology</a>
+        </td>
+        <td>
+          <a href="questionnaire-sdc-profile-example-cap.xml.html">XML</a>
+        </td>
+        <td>
+          <a href="questionnaire-sdc-profile-example-cap.json.html">JSON</a>
+        </td>
+        <td>Cancer pathology questionnaire with flow-control extensions</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="questionnaire-sdc-profile-example-loinc.html">SDC-LOINC AHRQ</a>
+        </td>
+        <td>
+          <a href="questionnaire-sdc-profile-example-loinc.xml.html">XML</a>
+        </td>
+        <td>
+          <a href="questionnaire-sdc-profile-example-loinc.json.html">JSON</a>
+        </td>
+        <td>LOINC perspective on the AHRQ form found in the SDC - Combination set of questionnaires</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="questionnaire-sdc-profile-example-ussg-fht.html">SDC-LOINC USSG Family History</a>
+        </td>
+        <td>
+          <a href="questionnaire-sdc-profile-example-ussg-fht.xml.html">XML</a>
+        </td>
+        <td>
+          <a href="questionnaire-sdc-profile-example-ussg-fht.json.html">JSON</a>
+        </td>
+        <td>LOINC US Surgeon General family history including data elements &amp; value sets.  Note: This example isn't strictly valid against SDC as data elements do not have definitions and don't include mappings to SDC-approved specificaitons for auto-population</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    Usage note: every effort has been made to ensure that the examples are correct and useful, but they are not a normative part of the specification.
+  </p>
+</div>

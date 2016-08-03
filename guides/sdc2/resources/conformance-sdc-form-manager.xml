@@ -24,7 +24,7 @@
 				</tbody>
 			</table>
 			<h2>REST  behavior</h2>
-			<p>The primary focus of the repository is the definition of <a href="../questionnaires.html">Questionnaires</a>.  However, <a href="../valueset.html">ValueSet</a>s must also be supported to allow definition of coded data elements.  Some data elements will choose to maintain value sets as 'contained' resources, meaning the value set exists only in the context of the data element and cannot be referenced or maintained without also updating the data element.  However, systems should support value set re-use across data elements.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing <a href="../questionnaire.html">Questionnaire</a>.)</p>
+			<p>The primary focus of the repository is the definition of <a href="{{site.data.fhir.path}}questionnaires.html">Questionnaires</a>.  However, <a href="{{site.data.fhir.path}}valueset.html">ValueSet</a>s must also be supported to allow definition of coded data elements.  Some data elements will choose to maintain value sets as 'contained' resources, meaning the value set exists only in the context of the data element and cannot be referenced or maintained without also updating the data element.  However, systems should support value set re-use across data elements.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>.)</p>
 			<p>
 				<b>Security:</b>
 			</p>
@@ -103,7 +103,7 @@
 			<br/>
 			<br/>
 			<h3>
-				<a href="../questionnaire.html">Questionnaire</a>
+				<a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>
 			</h3>
 			<h4>Interactions</h4>
 			<table class="list">
@@ -262,7 +262,7 @@
 			<br/>
 			<br/>
 			<h3>
-				<a href="../valueset.html">ValueSet</a>
+				<a href="{{site.data.fhir.path}}valueset.html">ValueSet</a>
 			</h3>
 			<h4>Interactions</h4>
 			<table class="list">

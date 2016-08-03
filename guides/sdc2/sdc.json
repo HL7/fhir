@@ -10,9 +10,10 @@
 	},
 	"defaults": {
 		"Any": {
-		  "base": "{{[id]}}.html",
 			"template-base": "template-instance-base.html",
-			"template-format": "template-instance-format.html"
+			"template-format": "template-instance-format.html",
+		  "base": "{{[id]}}.html",
+		  "format": "{{[id]}}.{{[fmt]}}.html"
 		},
 		"ImplementationGuide": {
 			"template-base": "",
@@ -27,12 +28,14 @@
 			"template-profile-json": "template-profile-json.html",
 			"base": "{{[id]}}.html",
 			"defns": "{{[id]}}-definitions.html",
+			"mappings": "{{[id]}}-mappings.html",
+			"examples": "{{[id]}}-examples.html",
 			"profile-xml": "{{[id]}}.profile.xml.html",
 			"profile-json": "{{[id]}}.profile.json.html"
 		},
 		"ValueSet": {
-		  "base": "valueset-{{[id]}}.html",
-			"template-base": "template-valueset.html"
+			"template-base": "template-valueset.html",
+		  "base": "valueset-{{[id]}}.html"
 		}
 	},
 	"canonicalBase": "http://hl7.org/fhir/us/sdc",
@@ -43,11 +46,53 @@
     "transform": "correct_content.xslt"
   },
   "spreadsheets": [
-    "dataelement-sdc-profile-spreadsheet.xml"
+    "dataelement-sdc-profile-spreadsheet.xml",
+    "questionnaire-sdc-profile-spreadsheet.xml",
+    "questionnaireresponse-sdc-profile-spreadsheet.xml",
+    "valueset-sdc-profile-spreadsheet.xml"
 	],
 	"resources": {
+    "Conformance/conformance-sdc-form-designer":{
+    },
+    "Conformance/conformance-sdc-form-filler":{
+    },
+    "Conformance/conformance-sdc-form-manager":{
+    },
+    "Conformance/conformance-sdc-form-receiver":{
+    },
+    "Conformance/conformance-sdc-form-archiver":{
+    },
+    "ValueSet/dex-mimetype":{
+    },
+    "StructureDefinition/sdc-element":{
+    },
     "DataElement/dataelement-sdc-profile-example":{
-      "base": "{{[id]}}.html"
+    },
+    "StructureDefinition/sdc-questionnaire-endpoint":{
+    },
+    "StructureDefinition/sdc-questionnaire-optionalDisplay":{
+    },
+    "StructureDefinition/sdc-questionnaire-provenanceSignatureRequired":{
+    },
+    "StructureDefinition/sdc-questionnaire":{
+    },
+    "Questionnaire/questionnaire-sdc-profile-example":{
+    },
+    "Questionnaire/questionnaire-sdc-profile-example-cap":{
+    },
+    "Questionnaire/questionnaire-sdc-profile-example-loinc":{
+    },
+    "Questionnaire/questionnaire-sdc-profile-example-ussg-fht":{
+    },
+    "StructureDefinition/sdc-response":{
+    },
+    "QuestionnaireResponse/questionnaireresponse-sdc-profile-example":{
+    },
+    "QuestionnaireResponse/questionnaireresponse-sdc-example-ussg-fht-answers":{
+    },
+    "StructureDefinition/sdc-valueset":{
+    },
+    "ValueSet/valueset-sdc-profile-example":{
     }
 	}
 }

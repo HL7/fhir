@@ -2,7 +2,7 @@
 
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/valueset.xsd">
 	<id value="valueset-sdc-profile-example"/>
-	<url value="http://hl7.org/fhir/sdc/ValueSet/valueset-sdc-profile-example"/>
+	<url value="http://hl7.org/fhir/us/sdc/ValueSet/valueset-sdc-profile-example"/>
 	<name value="AHRQ Medication Q1"/>
 	<status value="active"/>
 	<date value="2014"/>
