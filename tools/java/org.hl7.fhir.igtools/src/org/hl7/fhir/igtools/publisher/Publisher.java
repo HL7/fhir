@@ -1117,6 +1117,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (sd.getKind() != StructureDefinitionKind.LOGICAL) {
       if (!sd.hasSnapshot()) { 
         dlog("Generate Snapshot for "+sd.getUrl());
+        if (base == null)
+          throw new Exception("base is null ("+sd.getBaseDefinition()+")");
         List<String> errors = new ArrayList<String>();
         utils.sortDifferential(base, sd, "profile "+sd.getUrl(), errors);
         for (String s : errors)
@@ -2237,6 +2239,11 @@ public class Publisher implements IWorkerContext.ILoggingService {
   @Override
   public void logDebugMessage(String msg) {
     filelog.append(msg+"\r\n");
+    try {
+      TextFile.stringToFile(filelog.toString(), Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher-tmp.log"));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   public static String buildReport(String ig, String log, String qafile) throws FileNotFoundException, IOException {
