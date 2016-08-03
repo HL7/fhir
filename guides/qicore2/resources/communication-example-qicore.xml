@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
-<Communication   xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/communication.xsd">
+<Communication   xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/communication.xsd">
   <id value="communication-example-qicore"/>
   <text>
     <status value="generated" />
@@ -23,6 +23,7 @@
 		<system value="urn:oid:1.3.4.5.6.7"/>
 		<value value="2345678901"/>
   </identifier>
+  <status value="suspended"/>
    <category>
       <coding>
         <system value="http://acme.org/messagetypes"/>
@@ -30,6 +31,10 @@
       </coding>
       <text value="Alert"/>
    </category>
+  <subject>
+    <reference value="Patient/1"/>
+  </subject>
+  <sent value="2014-12-12T18:01:10-08:00"/>
    <sender>
      <reference value="Device/f001"/>
    </sender>
@@ -45,9 +50,4 @@
       <reference value="Observation/643666aa12f"/>
     </contentReference>
   </payload>
-  <status value="suspended"/>
-  <sent value="2014-12-12T18:01:10-08:00"/>
-  <subject>
-    <reference value="Patient/1"/>
-  </subject>
 </Communication>

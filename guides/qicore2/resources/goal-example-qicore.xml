@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Goal xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/goal.xsd">
+<Goal xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/goal.xsd">
 	<id value="goal-example-qicore"/>
 	<text>
 		<status value="additional"></status>
@@ -54,7 +54,9 @@
       <display value="weight loss"/>
     </coding>
   </category>
-	<description value="Target weight is 160 to 180 lbs."/>
+  <description>
+	  <text value="Target weight is 160 to 180 lbs."/>
+  </description>
 	<status value="rejected"/>
 	<addresses>
 		<reference value="Condition/12345"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
-<DeviceUseRequest xmlns="http://hl7.org/fhir">
+<DeviceUseRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/deviceuserequest.xsd">
   <id value="deviceuserequest-example-qicore"/>
   <text>
     <status value="generated" />
@@ -17,11 +17,16 @@
     </valueCodeableConcept>
   </extension>
 
-  <status value="rejected"/>
+  <status value="cancelled"/>
+  <stage>
+	  <coding>
+		  <code value="proposal"/>
+	  </coding>
+  </stage>
 
-  <device>
+  <deviceReference>
     <reference value="Device/example"/>
-  </device>
+  </deviceReference>
 
   <subject>
     <reference value="Patient/example"/>

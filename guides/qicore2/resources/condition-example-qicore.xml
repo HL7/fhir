@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
-<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
+<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/condition.xsd">
   <id value="condition-example-qicore"/>
   <text>
    <status value="generated"/>
@@ -15,17 +15,7 @@
      </coding>
    </valueCodeableConcept>
  </extension>
-  <patient>
-    <reference value="Patient/example"/>
-  </patient>
-  <code>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="39065001"/>
-      <display value="Burn of ear"/>
-    </coding>
-    <text value="Burnt Ear"/>
-  </code>
+  <verificationStatus value="confirmed"/>
  <category>
    <coding>
     <system value="http://hl7.org/fhir/condition-category"/>
@@ -39,7 +29,6 @@
     <display value="Diagnosis"/>
    </coding>
  </category>
-  <verificationStatus value="confirmed"/>
  <severity>
    <coding>
     <system value="http://snomed.info/sct"/>
@@ -47,7 +36,14 @@
     <display value="Severe"/>
    </coding>
  </severity>
- <onsetDateTime value="2012-05-24"/>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="39065001"/>
+      <display value="Burn of ear"/>
+    </coding>
+    <text value="Burnt Ear"/>
+  </code>
  <bodySite>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -56,4 +52,8 @@
     </coding>
     <text value="Left Ear"/>
  </bodySite>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+ <onsetDateTime value="2012-05-24"/>
 </Condition>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/procedure.xsd">
   <id value="procedure-example-qicore"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/procedure-approachBodySite">
     <valueReference>
@@ -28,13 +28,13 @@
         <display value="Appendix structure"/>
       </coding>
   </bodySite>
-  <reasonCodeableConcept>
+  <reasonCode>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="163220003"/>
       <display value="On examination - abdominal pain - right iliac"/>
     </coding>
-  </reasonCodeableConcept>
+  </reasonCode>
   <performer>
     <actor>
       <reference value="Practitioner/example"/>

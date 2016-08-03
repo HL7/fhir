@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd">
+<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/medication.xsd">
   <id value="medication-example-qicore"/>
-  <name value="Salmeterol/fluticason"/>
   <code>
     <coding>
       <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
       <code value="896239"/>
       <display value="60 ACTUAT Fluticasone propionate 0.115 MG/ACTUAT / salmeterol 0.021 MG/ACTUAT Metered Dose Inhaler"/>
     </coding>
+    <text value="Salmeterol/fluticason"/>
   </code>
   <isBrand value="false"/>
   <!--Seretide;Advair;Adoair;Foxaire;Viani-->
-  <kind value="product"/>
+  <!--kind value="product"/-->
   <product>
     <extension url="http://hl7.org/fhir/StructureDefinition/medication-usualRoute" >
       <valueCodeableConcept>
