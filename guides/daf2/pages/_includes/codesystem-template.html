@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta charset="UTF-8"/>
+  <title>Daf CodeSystem {{page.id}} - FHIR v1.5.0</title>
+
+  {% include header.html %}
+
+</head>
+<body>
+{% include navbar.html %}
+
+ <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+  <div class="container">  <!-- container -->
+   <ul class="breadcrumb">
+        <li title="Data Access Framework"><a href="daf.html"><b>DAF</b></a></li>
+        <li><a href="registry.html"><b>Registry</b></a></li>
+        <li><b>CodeSystems: {{page.title}}</b></li>
+
+   </ul>
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+  <!-- CONTENT CONTENT -->
+
+<div class="col-9">
+
+<a name="vs"> </a>
+<h1><span class="sectioncount">D.??</span> Code System http://hl7.org/fhir/us/daf/CodeSystem/daf-{{page.id}} <a title="link to here" class="self-link" href="codesystem-daf-{{page.id}}.html#vs"><img src="target.png"/></a></h1>
+<p>
+This is a code system defined by the DAF project.
+</p>
+
+<p><b>Summary</b></p>
+
+{%include CodeSystem-daf-{{page.id}}-summary.xhtml%}
+
+{%include CodeSystem-daf-{{page.id}}-xref.xhtml%}
+
+<a name="definition"> </a>
+<h2><span class="sectioncount">D.??.1</span> Content  <a title="link to here" class="self-link" href="codesystem-daf-{{page.id}}.html#definition"><img src="target.png"/></a></h2>
+
+{%include CodeSystem-daf-{{page.id}}-content.xhtml%}
+
+
+
+<hr/>
+
+<p>
+Explanation of the columns that may appear on this page:
+</p>
+<table class="grid">
+ <tr><td>Level</td><td>A few code lists that FHIR defines are hierarchical - each code is assigned a level.
+ In this scheme, some codes are under other codes, and imply that the code they are under also applies</td></tr>
+ <tr><td>Source</td><td>The source of the definition of the code (when the value set draws in codes defined elsewhere)</td></tr>
+ <tr><td>Code</td><td>The code (used as the code in the resource instance)</td></tr>
+ <tr><td>Display</td><td>The display (used in the <i>display</i> element of a <a href="{{site.data.fhir.path}}datatypes.html#Coding">Coding</a>). If there is no display, implementers should not simply display the code, but map the concept into their application</td></tr>
+ <tr><td>Definition</td><td>An explanation of the meaning of the concept</td></tr>
+ <tr><td>Comments</td><td>Additional notes about how to use the code</td></tr>
+</table>
+
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+
+{% include footer.html %}
+</body>
+</html>
