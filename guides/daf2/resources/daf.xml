@@ -423,7 +423,7 @@
 		<resource>
 			<example value="false"/>
 			<sourceReference>
-				<reference value="StructureDefinition/us-core-birth-sex"/>
+				<reference value="StructureDefinition/daf-birth-sex"/>
 			</sourceReference>
 		</resource>
 				<resource>
