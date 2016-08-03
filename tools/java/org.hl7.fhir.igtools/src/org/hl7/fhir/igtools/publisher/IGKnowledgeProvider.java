@@ -26,6 +26,7 @@ import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Utilities;
 
 import com.google.gson.JsonElement;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
@@ -37,6 +38,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   private String pathToSpec;
   private String canonical;
   private List<ValidationMessage> errors;
+  private JsonObject defaultConfig;
   private JsonObject resourceConfig;
   
   public IGKnowledgeProvider(IWorkerContext context, String pathToSpec, JsonObject igs, List<ValidationMessage> errors) throws Exception {
@@ -54,6 +56,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     if (e == null)
       throw new Exception("You must define a canonicalBase in the json file");
     canonical = e.getAsString();
+    defaultConfig = igs.getAsJsonObject("defaults");
     resourceConfig = igs.getAsJsonObject("resources");
     if (resourceConfig == null)
       throw new Exception("You must provide a list of resources in the json file");
@@ -76,9 +79,9 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
           throw new Exception("Unexpected type in resource list - must be an object");
         JsonObject o = (JsonObject) pp.getValue();
         JsonElement p = o.get("base");
-        if (p == null)
-          throw new Exception("You must provide a base on each path in the json file");
-        if (!(p instanceof JsonPrimitive) && !((JsonPrimitive) p).isString())
+//        if (p == null)
+//          throw new Exception("You must provide a base on each path in the json file");
+        if (p != null && !(p instanceof JsonPrimitive) && !((JsonPrimitive) p).isString())
           throw new Exception("Unexpected type in paths - base must be a string");
         p = o.get("defns");
         if (p != null && !(p instanceof JsonPrimitive) && !((JsonPrimitive) p).isString())
@@ -88,6 +91,62 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
           throw new Exception("Unexpected type in paths - source must be a string");
       }
     }
+  }
+  
+  private boolean hasBoolean(JsonObject obj, String code) {
+    JsonElement e = obj.get(code);
+    return e != null && e instanceof JsonPrimitive && ((JsonPrimitive) e).isBoolean();
+  }
+
+  private boolean getBoolean(JsonObject obj, String code) {
+    JsonElement e = obj.get(code);
+    return e != null && e instanceof JsonPrimitive && ((JsonPrimitive) e).getAsBoolean();
+  }
+
+  private boolean hasString(JsonObject obj, String code) {
+    JsonElement e = obj.get(code);
+    return e != null && (e instanceof JsonPrimitive && ((JsonPrimitive) e).isString()) || e instanceof JsonNull;
+  }
+
+  private String getString(JsonObject obj, String code) {
+    JsonElement e = obj.get(code);
+    if (e instanceof JsonNull)
+      return null;
+    else 
+      return ((JsonPrimitive) e).getAsString();
+  }
+
+  public boolean wantGen(FetchedResource r, String code) {
+    if (r.getConfig() != null && hasBoolean(r.getConfig(), code))
+      return getBoolean(r.getConfig(), code);
+    JsonObject cfg = null;
+    if (defaultConfig != null) {
+      cfg = defaultConfig.getAsJsonObject(r.getElement().fhirType());
+	  if (cfg != null && hasBoolean(cfg, code))
+	    return getBoolean(cfg, code);
+      cfg = defaultConfig.getAsJsonObject("Any");
+      if (cfg != null && hasBoolean(cfg, code))
+        return getBoolean(cfg, code);
+    }
+    return true;
+  }
+
+  public String getProperty(FetchedResource r, String propertyName) {
+    if (r.getConfig() != null && hasString(r.getConfig(), propertyName))
+      return getString(r.getConfig(), propertyName);
+    if (defaultConfig != null) {
+      JsonObject cfg = defaultConfig.getAsJsonObject(r.getElement().fhirType());
+  	  if (cfg != null && hasString(cfg, propertyName))
+  	    return getString(cfg, propertyName);
+      cfg = defaultConfig.getAsJsonObject("Any");
+      if (cfg != null && hasString(cfg, propertyName))
+        return getString(cfg, propertyName);
+    }
+    return null;
+  }
+
+  public String getDefinitionsName(FetchedResource r) {
+	return getProperty(r, "defns");
   }
 
   public void loadSpecPaths(SpecMapManager paths) throws Exception {
@@ -126,8 +185,9 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
       findConfiguration(f, r);
     JsonObject e = r.getConfig();
     bc.setUserData("config", e);
-    if (e != null) 
-      bc.setUserData("path", e.get("base").getAsString());
+    String base = getProperty(r,  "base");
+    if (base != null) 
+      bc.setUserData("path", base);
     else
       bc.setUserData("path", r.getElement().fhirType()+"/"+r.getId()+".html");
   }
@@ -160,19 +220,6 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
 
   private String specPath(String path) {
     return Utilities.pathReverse(pathToSpec, path);
-  }
-
-  public String getDefinitions(StructureDefinition sd) {
-    JsonObject e = (JsonObject) sd.getUserData("config");
-    if (e == null)
-      error("No Paths for Resource: "+sd.getUrl());
-    else {
-      JsonElement p = e.get("defns");
-      if (p == null)
-        error("No Definition Path for Resource: "+sd.getUrl());
-      return p.getAsString();
-    }
-    return "??";
   }
 
   // ---- overrides ---------------------------------------------------------------------------
@@ -316,13 +363,9 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   }
 
   public String getLinkFor(FetchedFile f, FetchedResource r) {
-    if (r.getConfig() != null) {
-      JsonElement e = r.getConfig().get("base");
-      if (e != null)
-        return e.getAsString();
-    }
+	String base = getProperty(r, "base");
+	if (base!=null)
+	  return base;
     return r.getElement().fhirType()+"-"+r.getId()+".html";
   }
-
-
 }

@@ -187,6 +187,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private Map<String, FetchedFile> altMap = new HashMap<String, FetchedFile>();
   private List<FetchedFile> fileList = new ArrayList<FetchedFile>();
   private List<FetchedFile> changeList = new ArrayList<FetchedFile>();
+  private List<String> fileNames = new ArrayList<String>();
   private Set<String> bndIds = new HashSet<String>();
   private List<Resource> loaded = new ArrayList<Resource>();
   private ImplementationGuide sourceIg;
@@ -747,7 +748,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       changed = true;
       altMap.put("pre-page/"+dir.getPath(), dir);
       dir.setProcessMode(FetchedFile.PROCESS_XSLT);
-      changeList.add(dir);
+      addFile(dir);
     }
     for (String link : dir.getFiles()) {
       FetchedFile f = fetcher.fetch(link);
@@ -763,7 +764,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     FetchedFile existing = altMap.get("pre-page/"+file.getPath());
     if (existing == null || existing.getTime() != file.getTime() || existing.getHash() != file.getHash()) {
       file.setProcessMode(FetchedFile.PROCESS_XSLT);
-      changeList.add(file);
+      addFile(file);
       altMap.put("pre-page/"+file.getPath(), file);
       return true;
     } else {
@@ -784,7 +785,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       changed = true;
       altMap.put("page/"+dir.getPath(), dir);
       dir.setProcessMode(FetchedFile.PROCESS_NONE);
-      changeList.add(dir);
+      addFile(dir);
     }
     for (String link : dir.getFiles()) {
       FetchedFile f = fetcher.fetch(link);
@@ -800,7 +801,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     FetchedFile existing = altMap.get("page/"+file.getPath());
     if (existing == null || existing.getTime() != file.getTime() || existing.getHash() != file.getHash()) {
       file.setProcessMode(FetchedFile.PROCESS_NONE);
-      changeList.add(file);
+      addFile(file);
       altMap.put("page/"+file.getPath(), file);
       return true;
     } else {
@@ -954,7 +955,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (existing == null || existing.getTime() != file.getTime() || existing.getHash() != file.getHash()) {
       fileList.add(file);
       fileMap.put(key, file);
-      changeList.add(file);
+      addFile(file);
       return true;
     } else {
       fileList.add(existing); // this one is already parsed
@@ -967,7 +968,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (existing == null || existing.getTime() != file.getTime() || existing.getHash() != file.getHash()) {
       fileList.add(file);
       altMap.put(key, file);
-      changeList.add(file);
+      addFile(file);
       return true;
     } else {
       fileList.add(existing); // this one is already parsed
@@ -975,6 +976,15 @@ public class Publisher implements IWorkerContext.ILoggingService {
     }
   }
 
+  private void addFile(FetchedFile file) {
+  	if (fileNames.contains(file.getName())) {
+  		dlog("Found multiple definitions for file: " + file.getName()+ ".  Using first definition only.");
+  	} else {
+  	  fileNames.add(file.getName());
+  	  changeList.add(file);
+  	}
+  }
+  
   private void determineType(FetchedFile file) throws Exception {
     if (file.getResources().isEmpty()) {
       file.getErrors().clear();
@@ -1258,9 +1268,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
           }
         }
         if (r != null) {
-          String path = igpkp.getLinkFor(f, r);
+          String path = doReplacements(igpkp.getLinkFor(f, r), r, null, null);
           res.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/implementationguide-page").setValue(new UriType(path));
-          inspector.addLinkToCheck("Implenentation Guide", path);
+          inspector.addLinkToCheck("Implementation Guide", path);
         }
       }
     }
@@ -1624,7 +1634,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void genEntryItem(StringBuilder list, StringBuilder table, FetchedFile f, FetchedResource r, String name) throws Exception {
-    String ref = igpkp.getLinkFor(f, r);
+    String ref = doReplacements(igpkp.getLinkFor(f, r), r, null, null);
     String desc = r.getTitle();
     if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
       name = ((BaseConformance) r.getResource()).getName();
@@ -1699,7 +1709,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void generateOutputs(FetchedFile f) throws TransformerException {
-    //    log(" * "+f.getName());
+  //      log(" * "+f.getName());
 
     if (f.getProcessMode() == FetchedFile.PROCESS_NONE) {
       String dst = tempDir + f.getPath().substring(pagesDir.length());
@@ -1797,62 +1807,6 @@ public class Publisher implements IWorkerContext.ILoggingService {
       return null;
   }
 
-  private boolean wantGen(FetchedResource r, String code) {
-    if (r.getConfig() != null && hasBoolean(r.getConfig(), code))
-      return getBoolean(r.getConfig(), code);
-    JsonObject cfg = configuration.getAsJsonObject("defaults");
-    if (cfg != null)
-      cfg = cfg.getAsJsonObject(r.getElement().fhirType());
-    if (cfg != null && hasBoolean(cfg, code))
-      return getBoolean(cfg, code);
-    cfg = configuration.getAsJsonObject("defaults");
-    if (cfg != null)
-      cfg = cfg.getAsJsonObject("Any");
-    if (cfg != null && hasBoolean(cfg, code))
-      return getBoolean(cfg, code);
-    return true;
-  }
-
-  private String getProperty(FetchedResource r, String propertyName) {
-    if (r.getConfig() != null && hasString(r.getConfig(), propertyName))
-      return getString(r.getConfig(), propertyName);
-    JsonObject cfg = configuration.getAsJsonObject("defaults");
-    if (cfg != null)
-      cfg = cfg.getAsJsonObject(r.getElement().fhirType());
-    if (cfg != null && hasString(cfg, propertyName))
-      return getString(cfg, propertyName);
-    cfg = configuration.getAsJsonObject("defaults");
-    if (cfg != null)
-      cfg = cfg.getAsJsonObject("Any");
-    if (cfg != null && hasString(cfg, propertyName))
-      return getString(cfg, propertyName);
-    return null;
-  }
-
-
-  private boolean hasBoolean(JsonObject obj, String code) {
-    JsonElement e = obj.get(code);
-    return e != null && e instanceof JsonPrimitive && ((JsonPrimitive) e).isBoolean();
-  }
-
-  private boolean getBoolean(JsonObject obj, String code) {
-    JsonElement e = obj.get(code);
-    return e != null && e instanceof JsonPrimitive && ((JsonPrimitive) e).getAsBoolean();
-  }
-
-  private boolean hasString(JsonObject obj, String code) {
-    JsonElement e = obj.get(code);
-    return e != null && (e instanceof JsonPrimitive && ((JsonPrimitive) e).isString()) || e instanceof JsonNull;
-  }
-
-  private String getString(JsonObject obj, String code) {
-    JsonElement e = obj.get(code);
-    if (e instanceof JsonNull)
-      return null;
-    else 
-      return ((JsonPrimitive) e).getAsString();
-  }
-
   /**
    * saves the resource as XML, JSON, Turtle, 
    * then all 3 of those as html with embedded links to the definitions
@@ -1863,50 +1817,50 @@ public class Publisher implements IWorkerContext.ILoggingService {
    * @throws Exception
    */
   private void saveDirectResourceOutputs(FetchedFile f, FetchedResource r, Map<String, String> vars) throws FileNotFoundException, Exception {
-    genWrapper(f, r, getProperty(r, "template-base"), getProperty(r, "base"), f.getOutputNames(), vars, null, "");
-    genWrapper(null, r, getProperty(r, "template-defns"), getProperty(r, "defns"), f.getOutputNames(), vars, null, "definitions");
+    genWrapper(f, r, igpkp.getProperty(r, "template-base"), igpkp.getProperty(r, "base"), f.getOutputNames(), vars, null, "");
+    genWrapper(null, r, igpkp.getProperty(r, "template-defns"), igpkp.getProperty(r, "defns"), f.getOutputNames(), vars, null, "definitions");
     JsonArray templateNames = configuration.getAsJsonArray("extraTemplates");
     if (templateNames!=null)
       for (JsonElement name : templateNames) {
         if (!name.isJsonPrimitive())
           throw new Exception("extraTemplates must be an array of simple strings");
-        String output = getProperty(r, name.getAsString());
+        String output = igpkp.getProperty(r, name.getAsString());
         if (output == null)
           output = r.getElement().fhirType()+"-"+r.getId()+"-"+name.getAsString()+".html";
-        genWrapper(null, r, getProperty(r, "template-"+name.getAsString()), output, f.getOutputNames(), vars, null, name.getAsString());
+        genWrapper(null, r, igpkp.getProperty(r, "template-"+name.getAsString()), output, f.getOutputNames(), vars, null, name.getAsString());
       }
 
-    String template = getProperty(r, "template-format");
-    if (wantGen(r, "xml")) {
+    String template = igpkp.getProperty(r, "template-format");
+    if (igpkp.wantGen(r, "xml")) {
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".xml");
       f.getOutputNames().add(path);
       new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).compose(r.getElement(), new FileOutputStream(path), OutputStyle.PRETTY, "?1?");
       if (tool == GenerationTool.Jekyll)
-        genWrapper(null, r, template, getProperty(r, "format"), f.getOutputNames(), vars, "xml", "");  
+        genWrapper(null, r, template, igpkp.getProperty(r, "format"), f.getOutputNames(), vars, "xml", "");  
     }
-    if (wantGen(r, "json")) {
+    if (igpkp.wantGen(r, "json")) {
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".json");
       f.getOutputNames().add(path);
       new org.hl7.fhir.dstu3.elementmodel.JsonParser(context).compose(r.getElement(), new FileOutputStream(path), OutputStyle.PRETTY, "?2?");
       if (tool == GenerationTool.Jekyll)
-        genWrapper(null, r, template, getProperty(r, "format"), f.getOutputNames(), vars, "json", "");  
+        genWrapper(null, r, template, igpkp.getProperty(r, "format"), f.getOutputNames(), vars, "json", "");  
     }
-    if (wantGen(r, "ttl")) {
+    if (igpkp.wantGen(r, "ttl")) {
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".ttl");
       f.getOutputNames().add(path);
       new org.hl7.fhir.dstu3.elementmodel.TurtleParser(context).compose(r.getElement(), new FileOutputStream(path), OutputStyle.PRETTY, "?3?");
       if (tool == GenerationTool.Jekyll)
-        genWrapper(null, r, template, getProperty(r, "format"), f.getOutputNames(), vars, "ttl", "");
+        genWrapper(null, r, template, igpkp.getProperty(r, "format"), f.getOutputNames(), vars, "ttl", "");
     }
 
-    if (wantGen(r, "xml-html")) {
+    if (igpkp.wantGen(r, "xml-html")) {
       XmlXHtmlRenderer x = new XmlXHtmlRenderer();
       org.hl7.fhir.dstu3.elementmodel.XmlParser xp = new org.hl7.fhir.dstu3.elementmodel.XmlParser(context);
       xp.setLinkResolver(igpkp);
       xp.compose(r.getElement(), x);
       fragment(r.getElement().fhirType()+"-"+r.getId()+"-xml-html", x.toString(), f.getOutputNames(), r, vars, "xml");
     }
-    if (wantGen(r, "json-html")) {
+    if (igpkp.wantGen(r, "json-html")) {
       JsonXhtmlRenderer j = new JsonXhtmlRenderer();
       org.hl7.fhir.dstu3.elementmodel.JsonParser jp = new org.hl7.fhir.dstu3.elementmodel.JsonParser(context);
       jp.setLinkResolver(igpkp);
@@ -1914,7 +1868,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       fragment(r.getElement().fhirType()+"-"+r.getId()+"-json-html", j.toString(), f.getOutputNames(), r, vars, "json");
     }
 
-    if (wantGen(r, "ttl-html")) {
+    if (igpkp.wantGen(r, "ttl-html")) {
       org.hl7.fhir.dstu3.elementmodel.TurtleParser ttl = new org.hl7.fhir.dstu3.elementmodel.TurtleParser(context);
       ttl.setLinkResolver(igpkp);
       Turtle rdf = new Turtle();
@@ -1922,7 +1876,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       fragment(r.getElement().fhirType()+"-"+r.getId()+"-ttl-html", rdf.asHtml(), f.getOutputNames(), r, vars, "ttl");
     }
 
-    if (wantGen(r, "html")) {
+    if (igpkp.wantGen(r, "html")) {
       XhtmlNode xhtml = getXhtml(r);
       String html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
       fragment(r.getElement().fhirType()+"-"+r.getId()+"-html", html, f.getOutputNames(), r, vars, null);
@@ -1983,11 +1937,11 @@ public class Publisher implements IWorkerContext.ILoggingService {
    */
   private void generateOutputsCodeSystem(FetchedFile f, FetchedResource fr, CodeSystem cs, Map<String, String> vars) throws Exception {
     CodeSystemRenderer csr = new CodeSystemRenderer(context, specPath, cs, igpkp, specMaps);
-    if (wantGen(fr, "summary")) 
-      fragment("CodeSystem-"+cs.getId()+"-summary", csr.summary(wantGen(fr, "xml"), wantGen(fr, "json"), wantGen(fr, "ttl")), f.getOutputNames(), fr, vars, null);
-    if (wantGen(fr, "content")) 
+    if (igpkp.wantGen(fr, "summary")) 
+      fragment("CodeSystem-"+cs.getId()+"-summary", csr.summary(igpkp.wantGen(fr, "xml"), igpkp.wantGen(fr, "json"), igpkp.wantGen(fr, "ttl")), f.getOutputNames(), fr, vars, null);
+    if (igpkp.wantGen(fr, "content")) 
       fragment("CodeSystem-"+cs.getId()+"-content", csr.content(), f.getOutputNames(), fr, vars, null);
-    if (wantGen(fr, "xref")) 
+    if (igpkp.wantGen(fr, "xref")) 
       fragment("CodeSystem-"+cs.getId()+"-xref", csr.xref(), f.getOutputNames(), fr, vars, null);
   }
 
@@ -2004,18 +1958,18 @@ public class Publisher implements IWorkerContext.ILoggingService {
    */
   private void generateOutputsValueSet(FetchedFile f, FetchedResource r, ValueSet vs, Map<String, String> vars) throws Exception {
     ValueSetRenderer vsr = new ValueSetRenderer(context, specPath, vs, igpkp, specMaps);
-    if (wantGen(r, "summary")) 
-      fragment("ValueSet-"+vs.getId()+"-summary", vsr.summary(wantGen(r, "xml"), wantGen(r, "json"), wantGen(r, "ttl")), f.getOutputNames(), r, vars, null);
-    if (wantGen(r, "cld")) 
+    if (igpkp.wantGen(r, "summary")) 
+      fragment("ValueSet-"+vs.getId()+"-summary", vsr.summary(igpkp.wantGen(r, "xml"), igpkp.wantGen(r, "json"), igpkp.wantGen(r, "ttl")), f.getOutputNames(), r, vars, null);
+    if (igpkp.wantGen(r, "cld")) 
       try {
         fragment("ValueSet-"+vs.getId()+"-cld", vsr.cld(), f.getOutputNames(), r, vars, null);
       } catch (Exception e) {
         fragmentError(vs.getId()+"-cld", e.getMessage(), f.getOutputNames());
       }
 
-    if (wantGen(r, "xref")) 
+    if (igpkp.wantGen(r, "xref")) 
       fragment("ValueSet-"+vs.getId()+"-xref", vsr.xref(), f.getOutputNames(), r, vars, null);
-    if (wantGen(r, "expansion")) { 
+    if (igpkp.wantGen(r, "expansion")) { 
       ValueSetExpansionOutcome exp = context.expandVS(vs, true, true);
       if (exp.getValueset() != null) {
         NarrativeGenerator gen = new NarrativeGenerator("", null, context);
@@ -2045,56 +1999,56 @@ public class Publisher implements IWorkerContext.ILoggingService {
    * @throws IOException 
    */
   private void generateOutputsConceptMap(FetchedFile f, FetchedResource r, ConceptMap cm, Map<String, String> vars) throws IOException {
-    if (wantGen(r, "summary")) 
+    if (igpkp.wantGen(r, "summary")) 
       fragmentError("ConceptMap-"+cm.getId()+"-summary", "yet to be done: concept map summary", f.getOutputNames());
-    if (wantGen(r, "content")) 
+    if (igpkp.wantGen(r, "content")) 
       fragmentError("ConceptMap-"+cm.getId()+"-content", "yet to be done: table presentation of the concept map", f.getOutputNames());
-    if (wantGen(r, "xref")) 
+    if (igpkp.wantGen(r, "xref")) 
       fragmentError("ConceptMap-"+cm.getId()+"-xref", "yet to be done: list of all places where concept map is used", f.getOutputNames());
   }
 
   private void generateOutputsStructureDefinition(FetchedFile f, FetchedResource r, StructureDefinition sd, Map<String, String> vars) throws Exception {
     // todo : generate shex itself
-    if (wantGen(r, "shex")) 
+    if (igpkp.wantGen(r, "shex")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-shex", "yet to be done: shex as html", f.getOutputNames());
 
     // todo : generate schematron itself
-    if (wantGen(r, "sch")) 
+    if (igpkp.wantGen(r, "sch")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-sch", "yet to be done: schematron as html", f.getOutputNames());
 
     // todo : generate json schema itself
-    if (wantGen(r, "json-schema")) 
+    if (igpkp.wantGen(r, "json-schema")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-json-schema", "yet to be done: json schema as html", f.getOutputNames());
 
     StructureDefinitionRenderer sdr = new StructureDefinitionRenderer(context, checkAppendSlash(specPath), sd, Utilities.path(tempDir), igpkp, specMaps);
-    if (wantGen(r, "summary")) 
+    if (igpkp.wantGen(r, "summary")) 
       fragment("StructureDefinition-"+sd.getId()+"-summary", sdr.summary(), f.getOutputNames(), r, vars, null);
-    if (wantGen(r, "header")) 
+    if (igpkp.wantGen(r, "header")) 
       fragment("StructureDefinition-"+sd.getId()+"-header", sdr.header(), f.getOutputNames(), r, vars, null);
-    if (wantGen(r, "diff")) 
-      fragment("StructureDefinition-"+sd.getId()+"-diff", sdr.diff(igpkp.getDefinitions(sd)), f.getOutputNames(), r, vars, null);
-    if (wantGen(r, "snapshot")) 
-      fragment("StructureDefinition-"+sd.getId()+"-snapshot", sdr.snapshot(igpkp.getDefinitions(sd)), f.getOutputNames(), r, vars, null);
-    if (wantGen(r, "pseudo-xml")) 
+    if (igpkp.wantGen(r, "diff")) 
+      fragment("StructureDefinition-"+sd.getId()+"-diff", sdr.diff(igpkp.getDefinitionsName(r)), f.getOutputNames(), r, vars, null);
+    if (igpkp.wantGen(r, "snapshot")) 
+      fragment("StructureDefinition-"+sd.getId()+"-snapshot", sdr.snapshot(igpkp.getDefinitionsName(r)), f.getOutputNames(), r, vars, null);
+    if (igpkp.wantGen(r, "pseudo-xml")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-pseudo-xml", "yet to be done: Xml template", f.getOutputNames());
-    if (wantGen(r, "pseudo-json")) 
+    if (igpkp.wantGen(r, "pseudo-json")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-pseudo-json", "yet to be done: Json template", f.getOutputNames());
-    if (wantGen(r, "pseudo-ttl")) 
+    if (igpkp.wantGen(r, "pseudo-ttl")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-pseudo-ttl", "yet to be done: Turtle template", f.getOutputNames());
-    if (wantGen(r, "uml")) 
+    if (igpkp.wantGen(r, "uml")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-uml", "yet to be done: UML as SVG", f.getOutputNames());
-    if (wantGen(r, "tx")) 
+    if (igpkp.wantGen(r, "tx")) 
       fragment("StructureDefinition-"+sd.getId()+"-tx", sdr.tx(), f.getOutputNames(), r, vars, null);
-    if (wantGen(r, "inv")) 
+    if (igpkp.wantGen(r, "inv")) 
       fragment("StructureDefinition-"+sd.getId()+"-inv", sdr.inv(), f.getOutputNames(), r, vars, null);
-    if (wantGen(r, "dict")) 
+    if (igpkp.wantGen(r, "dict")) 
       fragment("StructureDefinition-"+sd.getId()+"-dict", sdr.dict(), f.getOutputNames(), r, vars, null);
-    if (wantGen(r, "maps")) 
+    if (igpkp.wantGen(r, "maps")) 
       fragment("StructureDefinition-"+sd.getId()+"-maps", sdr.mappings(), f.getOutputNames(), r, vars, null);
-    if (wantGen(r, "xref")) 
+    if (igpkp.wantGen(r, "xref")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-sd-xref", "Yet to be done: xref", f.getOutputNames());
 
-    if (wantGen(r, "example-list")) 
+    if (igpkp.wantGen(r, "example-list")) 
       fragment("StructureDefinition-example-list-"+sd.getId(), sdr.exampleList(fileList), f.getOutputNames(), r, vars, null);
   }
 

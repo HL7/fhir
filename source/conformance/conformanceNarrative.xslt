@@ -2,7 +2,8 @@
 <xsl:stylesheet version="2.0" xpath-default-namespace="http://hl7.org/fhir" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/1999/xhtml" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:fn="http://hl7.org/fhir/xslt-functions" exclude-result-prefixes="xs xhtml fn">
   <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
 <!--  <xsl:variable name="fhirpath" select="'[%fhir-path%]'"/>  TODO: Put this back once validation doesn't choke on it -->
-  <xsl:variable name="fhirpath" select="'../'"/>
+  <xsl:variable name="fhirpath" select="'{{site.data.fhir.path}}'"/>
+<!--  <xsl:variable name="fhirpath" select="'../'"/>-->
   <xsl:template match="@*|node()">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
