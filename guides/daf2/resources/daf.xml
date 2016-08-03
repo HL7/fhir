@@ -551,6 +551,14 @@
 				<reference value="ValueSet/daf-core-substance-unii"/>
 			</sourceReference>
 		</resource>
+		
+			<!--daf-core codesystems-->
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="CodeSystem/daf-core-extension-codes"/>
+			</sourceReference>
+		</resource>
     
 		<!-- Operations -->
 		<resource>
