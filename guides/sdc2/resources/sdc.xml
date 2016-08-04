@@ -73,22 +73,22 @@
 				<reference value="Conformance/conformance-sdc-form-archiver"/>
 			</sourceReference>
 		</resource>
-    <resource>
+<!--    <resource>
       <example value="false"/>
       <name value="DEX mapping language mime types"/>
       <description value="The list of mime types that identify mapping languages supported by DEX."/>
       <sourceReference>
         <reference value="ValueSet/dex-mimetype"/>
       </sourceReference>
-    </resource>
-    <resource>
+    </resource>-->
+<!--    <resource>
       <example value="false"/>
       <name value="SDCDataElement"/>
       <description value="Represents expectations for use of data elements by SDC conformant systems using data elements to support population of questionnaires."/>
       <sourceReference>
         <reference value="StructureDefinition/sdc-element"/>
       </sourceReference>
-    </resource>
+    </resource>-->
 		<resource>
 			<example value="true"/>
 			<name value="C-CDA-Gender"/>
@@ -124,14 +124,14 @@
         <reference value="StructureDefinition/sdc-questionnaire-provenanceSignatureRequired"/>
       </sourceReference>
     </resource>
-    <resource>
+<!--    <resource>
       <example value="false"/>
       <name value="SDC Questionnaire"/>
       <description value="Sets minimum expectations for questionnaire support for SDC-conformant systems, including a number of extensions around display and behavior."/>
       <sourceReference>
         <reference value="StructureDefinition/sdc-questionnaire"/>
       </sourceReference>
-    </resource>
+    </resource>-->
 		<resource>
 			<example value="true"/>
 			<name value="SDC - Combination"/>
@@ -176,14 +176,14 @@
 				<reference value="StructureDefinition/sdc-questionnaire"/>
 			</exampleFor>
 		</resource>
-		<resource>
+<!--		<resource>
       <example value="false"/>
       <name value="SDC Questionnaire Response"/>
       <description value="Sets expectations for supported capabilities for questionnaire responses for SDC-conformant systems."/>
       <sourceReference>
         <reference value="StructureDefinition/sdc-response"/>
       </sourceReference>
-    </resource>
+    </resource>-->
 		<resource>
 			<example value="true"/>
 			<name value="SDC - Response to Diagnosis NCI Standard Template"/>
@@ -206,14 +206,14 @@
 				<reference value="StructureDefinition/sdc-response"/>
 			</exampleFor>
 		</resource>
-		<resource>
+<!--		<resource>
       <example value="false"/>
       <name value="SDC Data Element Valueset"/>
       <description value="Sets expectations for SDC-conformant systems around value set support for representing permitted question answers."/>
       <sourceReference>
         <reference value="StructureDefinition/sdc-valueset"/>
       </sourceReference>
-    </resource>
+    </resource>-->
 		<resource>
 			<example value="true"/>
 			<name value="SDC-ValueSet AHRQ_Medication_Q1"/>
@@ -344,7 +344,7 @@
           <format value="generated"/>
         </page>
         <page>
-          <source value="questionnaireresponse-sdc-profile-example-ussg-fht-answers.html"/>
+          <source value="questionnaireresponse-sdc-example-ussg-fht-answers.html"/>
           <title value="SDC-LOINC USSG Familiy History Response"/>
           <kind value="example"/>
           <type value="QuestionnaireResponse"/>
@@ -380,7 +380,7 @@
 			<type value="ValueSet"/>
 			<type value="ConceptMap"/>
 			<page>
-				<source value="ValueSet-dex-mimetype.html"/>
+				<source value="valueset-dex-mimetype.html"/>
 				<title value="DEX Mimetype"/>
 				<kind value="resource"/>
 				<format value="generated"/>

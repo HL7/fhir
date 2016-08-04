@@ -21,9 +21,9 @@
 		},
 		"StructureDefinition": {
 			"template-base": "template-profile.html",
-			"template-defns": "template-definitions.html",
-			"template-mappings": "template-mappings.html",
-			"template-examples": "template-examples.html",
+			"template-defns": "template-profile-definitions.html",
+			"template-mappings": "template-profile-mappings.html",
+			"template-examples": "template-profile-examples.html",
 			"template-profile-xml": "template-profile-xml.html",
 			"template-profile-json": "template-profile-json.html",
 			"base": "{{[id]}}.html",
@@ -35,7 +35,9 @@
 		},
 		"ValueSet": {
 			"template-base": "template-valueset.html",
-		  "base": "valueset-{{[id]}}.html"
+			"template-format": "template-valueset-format.html",
+		  "base": "valueset-{{[id]}}.html",
+		  "format": "valueset-{{[id]}}.{{[fmt]}}.html"
 		}
 	},
 	"canonicalBase": "http://hl7.org/fhir/us/sdc",
@@ -62,19 +64,49 @@
     },
     "Conformance/conformance-sdc-form-archiver":{
     },
-    "ValueSet/dex-mimetype":{
-    },
-    "StructureDefinition/sdc-element":{
-    },
     "DataElement/dataelement-sdc-profile-example":{
     },
     "StructureDefinition/sdc-questionnaire-endpoint":{
+      "template-base": "template-ext.html",
+      "template-defns": "template-ext-definitions.html",
+      "template-mappings": "template-ext-mappings.html",
+      "template-examples": "",
+      "template-profile-xml": "template-ext-xml.html",
+      "template-profile-json": "template-ext-json.html",
+      "base": "extension-{{[id]}}.html",
+      "defns": "extension-{{[id]}}-definitions.html",
+      "mappings": "extension-{{[id]}}-mappings.html",
+      "examples": "extension-{{[id]}}-examples.html",
+      "profile-xml": "extension-{{[id]}}.profile.xml.html",
+      "profile-json": "extension-{{[id]}}.profile.json.html"
     },
     "StructureDefinition/sdc-questionnaire-optionalDisplay":{
+      "template-base": "template-ext.html",
+      "template-defns": "template-ext-definitions.html",
+      "template-mappings": "template-ext-mappings.html",
+      "template-examples": "",
+      "template-profile-xml": "template-ext-xml.html",
+      "template-profile-json": "template-ext-json.html",
+      "base": "extension-{{[id]}}.html",
+      "defns": "extension-{{[id]}}-definitions.html",
+      "mappings": "extension-{{[id]}}-mappings.html",
+      "examples": "extension-{{[id]}}-examples.html",
+      "profile-xml": "extension-{{[id]}}.profile.xml.html",
+      "profile-json": "extension-{{[id]}}.profile.json.html"
     },
     "StructureDefinition/sdc-questionnaire-provenanceSignatureRequired":{
-    },
-    "StructureDefinition/sdc-questionnaire":{
+      "template-base": "template-ext.html",
+      "template-defns": "template-ext-definitions.html",
+      "template-mappings": "template-ext-mappings.html",
+      "template-examples": "",
+      "template-profile-xml": "template-ext-xml.html",
+      "template-profile-json": "template-ext-json.html",
+      "base": "extension-{{[id]}}.html",
+      "defns": "extension-{{[id]}}-definitions.html",
+      "mappings": "extension-{{[id]}}-mappings.html",
+      "examples": "extension-{{[id]}}-examples.html",
+      "profile-xml": "extension-{{[id]}}.profile.xml.html",
+      "profile-json": "extension-{{[id]}}.profile.json.html"
     },
     "Questionnaire/questionnaire-sdc-profile-example":{
     },
@@ -84,15 +116,12 @@
     },
     "Questionnaire/questionnaire-sdc-profile-example-ussg-fht":{
     },
-    "StructureDefinition/sdc-response":{
-    },
     "QuestionnaireResponse/questionnaireresponse-sdc-profile-example":{
     },
     "QuestionnaireResponse/questionnaireresponse-sdc-example-ussg-fht-answers":{
     },
-    "StructureDefinition/sdc-valueset":{
-    },
     "ValueSet/valueset-sdc-profile-example":{
+      "base": "{{[id]}}.html"
     }
 	}
 }

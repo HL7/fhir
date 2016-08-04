@@ -92,6 +92,9 @@
     <xsl:value-of select="concat('&#xa;    &quot;title&quot;: &quot;', title/@value, $description, '&quot;,')"/>
     <xsl:value-of select="concat('&#xa;    &quot;label&quot;: &quot;', $newLevel, '&quot;,')"/>
     <xsl:value-of select="concat('&#xa;    &quot;breadcrumb&quot;: &quot;', $localBreadCrumb, '&quot;')"/>
+    <xsl:if test="kind/@value='resource' and starts-with(source/@value, 'extension-')">
+      <xsl:text>,&#xa;    "extension": "true"</xsl:text>
+    </xsl:if>
     <xsl:if test="page[kind/@value='example' and $suffix='-examples']">
       <xsl:text>,&#xa;    &quot;examples&quot;: [</xsl:text>
       <xsl:for-each select="page[kind/@value='example']">

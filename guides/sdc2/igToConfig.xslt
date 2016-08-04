@@ -25,9 +25,9 @@
 		},
 		"StructureDefinition": {
 			"template-base": "template-profile.html",
-			"template-defns": "template-definitions.html",
-			"template-mappings": "template-mappings.html",
-			"template-examples": "template-examples.html",
+			"template-defns": "template-profile-definitions.html",
+			"template-mappings": "template-profile-mappings.html",
+			"template-examples": "template-profile-examples.html",
 			"template-profile-xml": "template-profile-xml.html",
 			"template-profile-json": "template-profile-json.html",
 			"base": "{{[id]}}.html",
@@ -39,7 +39,9 @@
 		},
 		"ValueSet": {
 			"template-base": "template-valueset.html",
-		  "base": "valueset-{{[id]}}.html"
+			"template-format": "template-valueset-format.html",
+		  "base": "valueset-{{[id]}}.html",
+		  "format": "valueset-{{[id]}}.{{[fmt]}}.html"
 		}
 	},
 	"canonicalBase": "</xsl:text>
@@ -66,6 +68,34 @@
       <xsl:variable name="id" select="substring-after(sourceReference/reference/@value, '/')"/>
       <xsl:if test="position()!=1">,</xsl:if>
       <xsl:value-of select="concat('&#xa;    &quot;', sourceReference/reference/@value, '&quot;:{&#xa;')"/>
+      <xsl:if test="example/@value='true'">
+        <xsl:choose>
+          <xsl:when test="$type='ValueSet'">
+            <xsl:text>      "base": "{{[id]}}.html"&#xa;</xsl:text>
+          </xsl:when>
+          <xsl:when test="$type='StructureDefinition'">
+            <xsl:text>      "template-defns": "",&#xa;</xsl:text>
+            <xsl:text>      "template-mappings": "",&#xa;</xsl:text>
+            <xsl:text>      "template-examples": "",&#xa;</xsl:text>
+            <xsl:text>      "template-profile-xml": "",&#xa;</xsl:text>
+            <xsl:text>      "template-profile-json": ""&#xa;</xsl:text>
+          </xsl:when>
+        </xsl:choose>
+      </xsl:if>
+      <xsl:if test="not(example/@value='true') and exists(ancestor::ImplementationGuide//page[source/@value=concat('extension-', $id, '.html')]) and $type='StructureDefinition'">
+        <xsl:text>      "template-base": "template-ext.html",&#xa;</xsl:text>
+        <xsl:text>      "template-defns": "template-ext-definitions.html",&#xa;</xsl:text>
+        <xsl:text>      "template-mappings": "template-ext-mappings.html",&#xa;</xsl:text>
+        <xsl:text>      "template-examples": "",&#xa;</xsl:text>
+        <xsl:text>      "template-profile-xml": "template-ext-xml.html",&#xa;</xsl:text>
+        <xsl:text>      "template-profile-json": "template-ext-json.html",&#xa;</xsl:text>
+        <xsl:text>      "base": "extension-{{[id]}}.html",&#xa;</xsl:text>
+        <xsl:text>      "defns": "extension-{{[id]}}-definitions.html",&#xa;</xsl:text>
+        <xsl:text>      "mappings": "extension-{{[id]}}-mappings.html",&#xa;</xsl:text>
+        <xsl:text>      "examples": "extension-{{[id]}}-examples.html",&#xa;</xsl:text>
+        <xsl:text>      "profile-xml": "extension-{{[id]}}.profile.xml.html",&#xa;</xsl:text>
+        <xsl:text>      "profile-json": "extension-{{[id]}}.profile.json.html"&#xa;</xsl:text>
+      </xsl:if>
 <!--      <xsl:value-of select="concat('&#xa;    &quot;', sourceReference/reference/@value, '&quot;:{&#xa;      &quot;base&quot;: &quot;')"/>
       <xsl:choose>
         <xsl:when test="$type='ValueSet'">valueset-</xsl:when>
