@@ -977,12 +977,12 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void addFile(FetchedFile file) {
-  	if (fileNames.contains(file.getName())) {
-  		dlog("Found multiple definitions for file: " + file.getName()+ ".  Using first definition only.");
-  	} else {
-  	  fileNames.add(file.getName());
+//  	if (fileNames.contains(file.getPath())) {
+//  		dlog("Found multiple definitions for file: " + file.getName()+ ".  Using first definition only.");
+//  	} else {
+  	  fileNames.add(file.getPath());
   	  changeList.add(file);
-  	}
+//  	}
   }
   
   private void determineType(FetchedFile file) throws Exception {
