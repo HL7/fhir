@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project name="org.hl7.fhir.tools" default="Publisher" xmlns:ivy="antlib:org.apache.ivy.ant">
+<project name="org.hl7.fhir.tools" default="LocalPublisher" xmlns:ivy="antlib:org.apache.ivy.ant">
   <property name="guidename" value="sdc"/>
   <property name="dir.output" value="output"/>
   <property name="dir.pages" value="pages"/>
@@ -32,39 +32,49 @@
     </path>
     <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path"/>
   </target>
-  <target name="fetch-imports" unless="offline" depends="install-ivy" description="--> resolve dependencies, compile and run the project">
-    <mkdir dir="${dir.tools}"/>
+  <target name="dirsetup" description="--> create directories">
     <mkdir dir="${dir.imports}"/>
-    <ivy:resolve transitive="false" file="ivy.xml"/>
-    <ivy:retrieve type="jar,bundle" sync="true" pattern="${dir.imports}/[artifact]-[revision].[ext]"/>
-<!--    <get src="http://hl7-fhir.github.io/org.hl7.fhir.igpublisher.jar" dest="${dir.tools}"/>-->
-  </target>
-  <target name="Publisher" depends="fetch-imports"  description="--> Generate setup files, then run IG build">
-    <xslt in="${dir.resources}/${guidename}.xml" out="${guidename}.json" style="${dir.xslt}/igToConfig.xslt" classpathref="saxon.path">
-      <factory name="${saxon.classname}"/>
-    </xslt>
-    <xslt in="${dir.resources}/${guidename}.xml" out="${dir.pages}/_data/pages.json" style="${dir.xslt}/igToData.xslt" classpathref="saxon.path">
-      <factory name="${saxon.classname}"/>
-    </xslt>
-    <xslt in="${dir.resources}/${guidename}.xml" out="${dir.pages}/_includes/content-toc.html" style="${dir.xslt}/igToTOC.xslt" classpathref="saxon.path">
-      <factory name="${saxon.classname}"/>
-    </xslt>
-    <xslt in="${dir.resources}/${guidename}.xml" out="${dir.pages}/empty.txt" style="${dir.xslt}/igToPages.xslt" classpathref="saxon.path">
-      <factory name="${saxon.classname}"/>
-    </xslt>
     <mkdir dir="${dir.temp}"/>
     <mkdir dir="${dir.qa}"/>
     <mkdir dir="${dir.output}"/>
-    <java jar="${dir.tools}/org.hl7.fhir.igpublisher.jar" fork="true" failonerror="true" maxmemory="1024m">
-      <arg line="-ig ${basedir}/${guidename}.json"/>
-    </java>
+    <mkdir dir="${dir.tools}"/>
   </target>
-  <target name="JekyllSetup" description="--> Installs Jekyll">
+  <target name="fetch-imports" unless="offline" depends="install-ivy, dirsetup" description="--> resolve dependencies, compile and run the project">
+    <ivy:resolve transitive="false" file="ivy.xml"/>
+    <ivy:retrieve type="jar,bundle" sync="true" pattern="${dir.imports}/[artifact]-[revision].[ext]"/>
+  </target>
+  <target name="LocalSetup" depends="dirsetup" description="--> grabs publisher">
+    <copy file="../../publish/org.hl7.fhir.igpublisher.jar" todir="${dir.tools}"/>
+  </target>
+  <target name="TravisSetup" depends="dirsetup" description="--> Installs Jekyll, grabs publisher">
+    <get src="http://hl7-fhir.github.io/org.hl7.fhir.igpublisher.jar" dest="${dir.tools}"/>
     <exec executable="gem">
       <arg line="install jekyll"/>
     </exec>
   </target>
-  <target name="TravisPublisher" depends="JekyllSetup, Publisher"  description="--> Target to use when building on Travis"/>
+  <target name="Publisher" depends="fetch-imports"  description="--> Generate setup files, then run IG build">
+    <xslt in="${guidename}.xml" out="${dir.resources}/${guidename}.xml" style="${dir.xslt}/correctContent.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+    <xslt in="${guidename}.xml" out="${guidename}.json" style="${dir.xslt}/igToConfig.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+    <xslt in="${guidename}.xml" out="${dir.pages}/_data/pages.json" style="${dir.xslt}/igToData.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+    <xslt in="${guidename}.xml" out="${dir.pages}/_includes/content-toc.html" style="${dir.xslt}/igToTOC.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+    <xslt in="${guidename}.xml" out="${dir.pages}/empty.txt" style="${dir.xslt}/igToPages.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+    <delete file="${dir.pages}/empty.txt"/>
+    <java jar="${dir.tools}/org.hl7.fhir.igpublisher.jar" fork="true" failonerror="true" maxmemory="1024m">
+      <arg line="-ig ${basedir}/${guidename}.json"/>
+    </java>
+  </target>
+  <target name="LocalPublisher" depends="LocalSetup, Publisher"  description="--> Target to use when building Locally"/>
+  <target name="TravisPublisher" depends="TravisSetup, Publisher"  description="--> Target to use when building on Travis"/>
   <target name="clean">
     <delete dir="temp"/>
     <delete dir="qa"/>

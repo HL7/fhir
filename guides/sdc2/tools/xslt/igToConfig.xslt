@@ -53,7 +53,7 @@
 	  <xsl:text>.xml",
   "pre-process": {
     "folder": "content",
-    "transform": "tools/correctContent.xslt"
+    "transform": "tools/xslt/correctContent.xslt"
   },
   "spreadsheets": [</xsl:text>
     <xsl:for-each select="package/extension[@url='http://hl7.org/fhir/tools-profile-spreadsheet']/valueUri/@value">
