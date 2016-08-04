@@ -8,13 +8,14 @@
 		"qa": "qa",
 		"specification": "http://hl7-fhir.github.io/"
 	},
-  "dependencyList" : [
-    {
-      "name" : "DAF",
-      "location" : "http://hl7.org/fhir/daf",
-      "source" : "../daf2/output"
-    }
-  ],
+	// Commenting out for now as I can't get the daf IG publish to finish
+	//"dependencyList" : [
+  //  {
+  //    "name" : "DAF",
+  //    "location" : "http://hl7.org/fhir/current/daf",
+  //    "source" : "../daf2/output"
+  //  }
+  //],
 	"defaults": {
 		"Any": {
 			"template-format": "instance-template-format.html",

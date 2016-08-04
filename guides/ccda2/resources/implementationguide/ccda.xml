@@ -281,8 +281,8 @@
           </exampleFor> -->
     </resource>
 
-    <!-- CDA logical models
-    <resource>
+    <!-- CDA logical models -->
+    <!--<resource>
       <name value="V3 Data type ANY (DataValue)"/>
       <sourceReference>
         <reference value="StructureDefinition/ANY"/>
@@ -384,12 +384,13 @@
         <reference value="StructureDefinition/REAL"/>
       </sourceReference>
     </resource>
-    <resource>
+    <!-\- Publishing tool doesn't like this name - think it's the _-\->
+    <!-\-<resource>
       <name value="V3 Data type RTO_PQ_PQ (Ratio)"/>
       <sourceReference>
         <reference value="StructureDefinition/RTO_PQ_PQ"/>
       </sourceReference>
-    </resource>
+    </resource>-\->
     <resource>
       <name value="V3 Data type PQ (PhysicalQuantity)"/>
       <sourceReference>
@@ -414,48 +415,48 @@
         <reference value="StructureDefinition/TS"/>
       </sourceReference>
     </resource>
-    <resource>
+    <!-\-<resource>
       <name value="V3 Data type IVL_TS (Interval)"/>
       <sourceReference>
         <reference value="StructureDefinition/IVL_TS"/>
       </sourceReference>
-    </resource>
-    <resource>
+    </resource>-\->
+    <!-\-<resource>
       <name value="V3 Data type IVL_PQ (Interval)"/>
       <sourceReference>
         <reference value="StructureDefinition/IVL_PQ"/>
       </sourceReference>
-    </resource>
-    <resource>
+    </resource>-\->
+    <!-\-<resource>
       <name value="V3 Data type IVL_INT (Interval)"/>
       <sourceReference>
         <reference value="StructureDefinition/IVL_INT"/>
       </sourceReference>
-    </resource>
-    <resource>
+    </resource>-\->
+    <!-\-<resource>
       <name value="V3 Data type PIVL_TS (PeriodicIntervalOfTime)"/>
       <sourceReference>
         <reference value="StructureDefinition/PIVL_TS"/>
       </sourceReference>
-    </resource>
-    <resource>
+    </resource>-\->
+    <!-\-<resource>
       <name value="V3 Data type EIVL_TS (EventRelatedPeriodicInterval)"/>
       <sourceReference>
         <reference value="StructureDefinition/EIVL_TS"/>
       </sourceReference>
-    </resource>
-    <resource>
+    </resource>-\->
+    <!-\-<resource>
       <name value="V3 Data type SXCM_TS (GeneralTimingSpecification)"/>
       <sourceReference>
         <reference value="StructureDefinition/SXCM_TS"/>
       </sourceReference>
-    </resource>
-    <resource>
+    </resource>-\->
+    <!-\-<resource>
       <name value="V3 Data type SXPR_TS (A set-component that is itself made up of set-components that are evaluated as one value)"/>
       <sourceReference>
         <reference value="StructureDefinition/SXPR_TS"/>
       </sourceReference>
-    </resource>
+    </resource>-\->
     <resource>
       <name value="Base Type for all classes in the CDA structure"/>
       <sourceReference>
@@ -467,8 +468,8 @@
       <sourceReference>
         <reference value="StructureDefinition/ClinicalDocument"/>
       </sourceReference>
-    </resource>
-    -->
+    </resource>-->
+    
     
   </package>
   <!--
