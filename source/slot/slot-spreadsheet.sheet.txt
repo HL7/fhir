@@ -74,6 +74,7 @@
   Type = DomainResource
   Short Label = A slot of time on a schedule that may be available for booking appointments
   Definition = A slot of time on a schedule that may be available for booking appointments.
+  RIM Mapping = n/a
   iCal Mapping = (refer to the Availability resource for the header mapping details)
   w5 = workflow.scheduling
 
@@ -83,7 +84,6 @@
   Summary = Y
   Type = Identifier
   Short Label = External Ids for this item
-  RIM Mapping = .id
   w5 = id
 
  -- Row 3 -----------------------------------
