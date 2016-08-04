@@ -387,7 +387,7 @@ public class ProfileUtilities {
           baseCursor++;
           diffCursor = differential.getElement().indexOf(diffMatches.get(0))+1;
           if (differential.getElement().size() > diffCursor && outcome.getPath().contains(".") && isDataType(outcome.getType())) {  // don't want to do this for the root, since that's base, and we're already processing it
-            if (pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".") && !baseWalksInto(base.getElement(), baseCursor, diffMatches.get(0).getPath()+".")) {
+            if (pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".") && !baseWalksInto(base.getElement(), baseCursor)) {
               if (outcome.getType().size() > 1)
                 throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
               StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
@@ -558,7 +558,7 @@ public class ProfileUtilities {
             // --- LM Added this
             diffCursor = differential.getElement().indexOf(diffItem)+1;
             if (differential.getElement().size() > diffCursor && outcome.getPath().contains(".") && isDataType(outcome.getType())) {  // don't want to do this for the root, since that's base, and we're already processing it
-              if (pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".") && !baseWalksInto(base.getElement(), baseCursor, diffMatches.get(0).getPath()+".")) {
+              if (pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".") && !baseWalksInto(base.getElement(), baseCursor)) {
                 if (outcome.getType().size() > 1)
                   throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
                 StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
@@ -581,11 +581,12 @@ public class ProfileUtilities {
   }
 
 
-  private boolean baseWalksInto(List<ElementDefinition> elements, int cursor, String cpath) {
+  private boolean baseWalksInto(List<ElementDefinition> elements, int cursor) {
     if (cursor >= elements.size())
       return false;
     String path = elements.get(cursor).getPath();
-    return path.startsWith(cpath);
+    String prevPath = elements.get(cursor - 1).getPath();
+    return path.startsWith(prevPath + ".");
   }
 
 
