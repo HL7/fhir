@@ -16,7 +16,7 @@
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement. TODO: Permission to Use and Distribute the Health Care Provider Taxonomy Code Set"/>
   <compose>
     <include>
-      <system value="http://www.nucc.org"/>
+      <system value="http://nucc.org/provider-taxonomy"/>
     </include>
     <include>
       <system value="http://snomed.info/sct"/>
