@@ -47,6 +47,8 @@ public class ValueSetRenderer extends BaseRenderer {
       b.append(" <tr><td>Source Resource</td><td>");
       boolean first = true;
       String filename = igkp.getProperty(r, "format");
+      if (filename == null)
+        filename = "ValueSet-"+r.getId()+".{{[fmt]}}.html";
       if (xml) {
         first = false;
         b.append("<a href=\""+igkp.doReplacements(filename,  r,  null, "xml")+"\">XML</a>");

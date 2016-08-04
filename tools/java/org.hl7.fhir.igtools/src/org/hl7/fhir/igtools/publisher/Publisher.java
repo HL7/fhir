@@ -1749,6 +1749,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     } else {
       for (FetchedResource r : f.getResources()) {
         try {
+          log("Produce "+r.getElement().fhirType()+"/"+r.getId());
           Map<String, String> vars = makeVars(r);
           saveDirectResourceOutputs(f, r, vars);
 
