@@ -16,6 +16,7 @@ import org.hl7.fhir.dstu3.utils.EOperationOutcome;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.igtools.publisher.FetchedResource;
 import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.utilities.Utilities;
@@ -30,7 +31,7 @@ public class ValueSetRenderer extends BaseRenderer {
     this.vs = vs;
   }
 
-  public String summary(boolean xml, boolean json, boolean ttl) throws Exception {
+  public String summary(IGKnowledgeProvider igkp, FetchedResource r, boolean xml, boolean json, boolean ttl) throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">\r\n");
     b.append(" <tbody><tr><td>Defining URL:</td><td>"+Utilities.escapeXml(vs.getUrl())+"</td></tr>\r\n");
@@ -45,17 +46,18 @@ public class ValueSetRenderer extends BaseRenderer {
     if (xml || json || ttl) {
       b.append(" <tr><td>Source Resource</td><td>");
       boolean first = true;
+      String filename = igkp.getProperty(r, "format");
       if (xml) {
         first = false;
-        b.append("<a href=\"ValueSet-"+vs.getId()+".xml.html\">XML</a>");
+        b.append("<a href=\""+igkp.doReplacements(filename,  r,  null, "xml")+"\">XML</a>");
       }
       if (json) {
         if (first) first = false; else b.append(" / ");
-        b.append("<a href=\"ValueSet-"+vs.getId()+".json.html\">JSON</a>");
+        b.append("<a href=\""+igkp.doReplacements(filename,  r,  null, "json")+"\">JSON</a>");
       }
       if (ttl) {
         if (first) first = false; else b.append(" / ");
-        b.append("<a href=\"ValueSet-"+vs.getId()+".ttl.html\">Turtle</a>");
+        b.append("<a href=\""+igkp.doReplacements(filename,  r,  null, "ttl")+"\">Turtle</a>");
       }
       b.append("</td></tr>\r\n");
     }
@@ -102,7 +104,12 @@ public class ValueSetRenderer extends BaseRenderer {
         }
       }
     }
+    List<String> distinctUrls = new ArrayList<String>();
     for (String url : sdurls) {
+      if (!distinctUrls.contains(url))
+        distinctUrls.add(url);
+    }
+    for (String url : distinctUrls) {
       StructureDefinition sd = context.fetchResource(StructureDefinition.class, url);
       for (ElementDefinition ed : sd.getSnapshot().getElement()) {
         if (ed.hasBinding() && ed.getBinding().hasValueSet()) {

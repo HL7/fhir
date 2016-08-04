@@ -69,6 +69,7 @@ import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceType;
+import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
@@ -104,6 +105,7 @@ import org.hl7.fhir.utilities.ZipGenerator;
 import org.hl7.fhir.utilities.ZipURIResolver;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Piece;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -558,7 +560,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
           String u = ((BaseConformance) r).getUrl();
           String p = igm.getPath(u);
           if (p == null)
-            throw new Exception("Internal error in IG "+name+" map: No idnetity found for "+u);
+            throw new Exception("Internal error in IG "+name+" map: No identity found for "+u);
           r.setUserData("path", location+"/"+p);
           context.seeResource(u, r);
         }
@@ -1270,7 +1272,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
           }
         }
         if (r != null) {
-          String path = doReplacements(igpkp.getLinkFor(f, r), r, null, null);
+          String path = igpkp.doReplacements(igpkp.getLinkFor(f, r), r, null, null);
           res.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/implementationguide-page").setValue(new UriType(path));
           inspector.addLinkToCheck("Implementation Guide", path);
         }
@@ -1520,7 +1522,6 @@ public class Publisher implements IWorkerContext.ILoggingService {
           item.addProperty("url", sd.getUrl());
           item.addProperty("name", sd.getName());
           item.addProperty("path", sd.getUserString("path"));
-          item.addProperty("basename", sd.getUserString("path"));
           item.addProperty("kind", sd.getKind().toCode());
           item.addProperty("type", sd.getType());
           item.addProperty("base", sd.getBaseDefinition());
@@ -1533,6 +1534,16 @@ public class Publisher implements IWorkerContext.ILoggingService {
           item.addProperty("date", sd.getDate().toString());
           item.addProperty("publisher", sd.getPublisher());
           item.addProperty("copyright", sd.getCopyright());
+          item.addProperty("description", sd.getDescription());
+          if (sd.getContextType() != null)
+            item.addProperty("contextType", sd.getContextType().getDisplay());
+          if (!sd.getContext().isEmpty()) {
+            JsonArray contexts = new JsonArray();
+            item.add("contexts", contexts);
+            for (StringType context : sd.getContext()) {
+              contexts.add(new JsonPrimitive(context.asStringValue()));
+            }
+          }
         }
       }
     }
@@ -1636,7 +1647,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void genEntryItem(StringBuilder list, StringBuilder table, FetchedFile f, FetchedResource r, String name) throws Exception {
-    String ref = doReplacements(igpkp.getLinkFor(f, r), r, null, null);
+    String ref = igpkp.doReplacements(igpkp.getLinkFor(f, r), r, null, null);
     String desc = r.getTitle();
     if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
       name = ((BaseConformance) r.getResource()).getName();
@@ -1901,31 +1912,16 @@ public class Publisher implements IWorkerContext.ILoggingService {
       }
       if (!existsAsPage) {
         template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), template));
-        template = doReplacements(template, r, vars, format);
+        template = igpkp.doReplacements(template, r, vars, format);
 
         if (outputName == null)
           outputName = r.getElement().fhirType()+"-"+r.getId()+(extension.equals("")? "":"-"+extension)+(format==null? "": "."+format)+".html";
         if (outputName.contains("{{["))
-          outputName = doReplacements(outputName, r, vars, format);
+          outputName = igpkp.doReplacements(outputName, r, vars, format);
         String path = Utilities.path(tempDir, outputName);
         checkMakeFile(template.getBytes(Charsets.UTF_8), path, outputTracker);
       }
     }
-  }
-
-  private String doReplacements(String s, FetchedResource r, Map<String, String> vars, String format) {
-    s = s.replace("{{[title]}}", r.getTitle() == null ? "?title?" : r.getTitle());
-    s = s.replace("{{[name]}}", r.getId()+(format==null? "": "-"+format)+"-html");
-    s = s.replace("{{[id]}}", r.getId());
-    if (format!=null)
-      s = s.replace("{{[fmt]}}", format);
-    s = s.replace("{{[type]}}", r.getElement().fhirType());
-    s = s.replace("{{[uid]}}", r.getElement().fhirType()+"="+r.getId());
-    if (vars != null) {
-      for (String n : vars.keySet())
-        s = s.replace("{{["+n+"]}}", vars.get(n));
-    }
-    return s;
   }
 
   /**
@@ -1961,7 +1957,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private void generateOutputsValueSet(FetchedFile f, FetchedResource r, ValueSet vs, Map<String, String> vars) throws Exception {
     ValueSetRenderer vsr = new ValueSetRenderer(context, specPath, vs, igpkp, specMaps);
     if (igpkp.wantGen(r, "summary")) 
-      fragment("ValueSet-"+vs.getId()+"-summary", vsr.summary(igpkp.wantGen(r, "xml"), igpkp.wantGen(r, "json"), igpkp.wantGen(r, "ttl")), f.getOutputNames(), r, vars, null);
+      fragment("ValueSet-"+vs.getId()+"-summary", vsr.summary(igpkp, r, igpkp.wantGen(r, "xml"), igpkp.wantGen(r, "json"), igpkp.wantGen(r, "ttl")), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "cld")) 
       try {
         fragment("ValueSet-"+vs.getId()+"-cld", vsr.cld(), f.getOutputNames(), r, vars, null);
@@ -2084,7 +2080,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     fragment(name, content, outputTracker, null, null, null);
   }
   private void fragment(String name, String content, Set<String> outputTracker, FetchedResource r, Map<String, String> vars, String format) throws IOException {
-    String fixedContent = (r==null? content : doReplacements(content, r, vars, format));
+    String fixedContent = (r==null? content : igpkp.doReplacements(content, r, vars, format));
     if (checkMakeFile(fixedContent.getBytes(Charsets.UTF_8), Utilities.path(tempDir, "_includes", name+".xhtml"), outputTracker)) {
       TextFile.stringToFile(pageWrap(fixedContent, name), Utilities.path(qaDir, name+".html"), true);
     }

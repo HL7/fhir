@@ -2,6 +2,7 @@ package org.hl7.fhir.igtools.publisher;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -116,6 +117,21 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
       return ((JsonPrimitive) e).getAsString();
   }
 
+  public String doReplacements(String s, FetchedResource r, Map<String, String> vars, String format) {
+    s = s.replace("{{[title]}}", r.getTitle() == null ? "?title?" : r.getTitle());
+    s = s.replace("{{[name]}}", r.getId()+(format==null? "": "-"+format)+"-html");
+    s = s.replace("{{[id]}}", r.getId());
+    if (format!=null)
+      s = s.replace("{{[fmt]}}", format);
+    s = s.replace("{{[type]}}", r.getElement().fhirType());
+    s = s.replace("{{[uid]}}", r.getElement().fhirType()+"="+r.getId());
+    if (vars != null) {
+      for (String n : vars.keySet())
+        s = s.replace("{{["+n+"]}}", vars.get(n));
+    }
+    return s;
+  }
+
   public boolean wantGen(FetchedResource r, String code) {
     if (r.getConfig() != null && hasBoolean(r.getConfig(), code))
       return getBoolean(r.getConfig(), code);
@@ -187,7 +203,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     bc.setUserData("config", e);
     String base = getProperty(r,  "base");
     if (base != null) 
-      bc.setUserData("path", base);
+      bc.setUserData("path", doReplacements(base, r, null, null));
     else
       bc.setUserData("path", r.getElement().fhirType()+"/"+r.getId()+".html");
   }

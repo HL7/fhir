@@ -59,7 +59,7 @@ import org.hl7.fhir.utilities.Utilities;
 /*
  * This is a stand alone implementation of worker context for use inside a tool.
  * It loads from the validation package (validation-min.xml.zip), and has a 
- * very light cient to connect to an open unauthenticated terminology service
+ * very light client to connect to an open unauthenticated terminology service
  */
 
 public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerContext, ProfileKnowledgeProvider {
