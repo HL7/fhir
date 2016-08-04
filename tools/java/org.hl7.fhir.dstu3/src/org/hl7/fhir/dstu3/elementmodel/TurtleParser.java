@@ -278,10 +278,12 @@ public class TurtleParser extends ParserBase {
     Section section = ttl.section("resource");
     Subject subject;
     String id = e.getChildValue("id");
-    if (base != null && id != null)
-      subject = section.triple("<" + base + e.getType() + ((base.endsWith("/") || base.endsWith("#"))? "" : "/") + id + ">", "a", "fhir:" + e.getType());
-    else
+    if (base == null || id == null)
       subject = section.triple("", "a", "fhir:" + e.getType());
+    else if (base.endsWith("#"))
+      subject = section.triple("<" + base + e.getType() + "-" + id + ">", "a", "fhir:" + e.getType());
+    else
+      subject = section.triple("<" + Utilities.pathReverse(base, e.getType(), id) + ">", "a", "fhir:" + e.getType());
     subject.linkedPredicate("fhir:nodeRole", "fhir:treeRoot", linkResolver == null ? null : linkResolver.resolvePage("rdf.html#tree-root"));
 
     for (Element child : e.getChildren()) {
