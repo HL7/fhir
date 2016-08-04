@@ -424,6 +424,18 @@
 			"base": "valueset-daf-core-narrative-status.html",
 			"template-base": null
 		},
+		
+		"ValueSet/daf-careteam-status": {
+			"base": "valueset-daf-careteam-status.html",
+			"template-base": null
+		},		
+		
+				"CodeSystem/daf-careteam-status": {
+			"base": "CodeSystem-daf-careteam-status.html",
+			"template-base": null
+		},		
+
+		
 		"AllergyIntolerance/example": {
 			"base": "allergyintolerance-example.html",
 			"template-base": null
