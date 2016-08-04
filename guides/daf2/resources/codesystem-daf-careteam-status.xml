@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+	<id value="daf-careteam-status"/>
+	<url value="http://hl7.org/fhir/us/daf/CodeSystem/daf-careteam-status"/>
+	<name value="DAFCareTeamStatus"/>
+	<status value="draft"/>
+	<publisher value="HL7 (FHIR Project)"/>
+	<description value="Indicates whether the team is current , represents future intentions or is now a historical record."/>
+	<caseSensitive value="true"/>
+	<valueSet value="http://hl7.org/fhir/us/daf/ValueSet/daf-careteam-status"/>
+	<content value="complete"/>
+	<concept>
+		<code value="draft"/>
+		<display value="Pending"/>
+		<definition value="The care team is in development or awaiting formation"/>
+	</concept>
+	<concept>
+		<code value="active"/>
+		<display value="Active"/>
+		<definition value="The care team is current and actively involved in patient care."/>
+	</concept>
+	<concept>
+		<code value="completed"/>
+		<display value="Completed"/>
+		<definition value="The care team is no longer current and actively involved in patient care."/>
+	</concept>
+	<concept>
+		<code value="cancelled"/>
+		<display value="Cancelled"/>
+		<definition value="The care team has been dispanded (though it may have been replaced by a new care team)."/>
+	</concept>
+</CodeSystem>

@@ -559,6 +559,13 @@
 				<reference value="CodeSystem/daf-core-extension-codes"/>
 			</sourceReference>
 		</resource>
+		
+		<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="CodeSystem/daf-careteam-status"/>
+			</sourceReference>
+		</resource>		
     
 		<!-- Operations -->
 		<resource>
