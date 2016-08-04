@@ -2816,7 +2816,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append(makeHeaderTab("RelatedResource", "relatedresource.html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("Examples", "relatedresource-examples.html", mode==null || "examples".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", "relatedresource-definitions.html", mode==null || "definitions".equals(mode)));
-    b.append(makeHeaderTab("Mappings", "related-mappings.html", mode==null || "mappings".equals(mode)));
+    b.append(makeHeaderTab("Mappings", "relatedresource-mappings.html", mode==null || "mappings".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
   }
@@ -5318,7 +5318,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       StringBuilder s = new StringBuilder();
       s.append("<p>Example List:</p>\r\n<table class=\"list\">\r\n");
       for (Example e: resource.getExamples()) {
-        if (e.isRegistered())
+        if (e.isRegistered() && Utilities.noString(e.getIg()))
           produceExampleListEntry(s, e, null, null);
       }
       for (Profile p : resource.getConformancePackages()) {
@@ -6812,6 +6812,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           url = "datatypes.html#"+linkText;
         } else if (definitions.getPageTitles().containsKey(linkText)) {
           url = definitions.getPageTitles().get(linkText);
+        } else if (definitions.getLogicalModel(linkText) != null) {
+          url = definitions.getLogicalModel(linkText).getId();
         } else {
 		      getValidationErrors().add(
               new ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, -1, -1, location, "Unresolved logical URL '"+linkText+"'", IssueSeverity.WARNING));

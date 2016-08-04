@@ -739,7 +739,10 @@ public class SvgGenerator extends BaseGenerator {
         xml.attribute("class", "diagram-class-title-link");
         xml.enter("tspan");
         xml.text(" (");
-        xml.attribute("xlink:href", prefix+e.typeCode().toLowerCase()+".html");
+        if ("Logical".equals(e.typeCode()))
+          xml.attribute("xlink:href", prefix+"structuredefinition.html#logical");
+        else
+          xml.attribute("xlink:href", prefix+e.typeCode().toLowerCase()+".html");
         xml.attribute("class", "diagram-class-reference");
         xml.element("a", e.typeCode());
         xml.text(")");

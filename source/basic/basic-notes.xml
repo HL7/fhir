@@ -93,7 +93,7 @@ There are several good practices to follow when making use of the Basic resource
   Profile can also be used to define additional search criteria appropriate for the resource.</li>
   
   <li>When defining a profile on Basic, include mappings to the w5 categories to allow systems to easily manage 
-  <a href="auditevent">AuditEvent</a> and <a href="provenance.html">Provenance</a> uses as well as other potential
+  <a href="auditevent.html">AuditEvent</a> and <a href="provenance.html">Provenance</a> uses as well as other potential
   higher-level abstractions of the data.</li>
   
   <li>As well, profiles should consider how best to handle common notions such as "Entered in error" status and alignment

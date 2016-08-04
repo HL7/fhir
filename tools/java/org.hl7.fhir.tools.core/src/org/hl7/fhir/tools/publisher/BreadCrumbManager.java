@@ -527,15 +527,15 @@ public class BreadCrumbManager {
           } else
             System.out.println("no breadcrumb: name = "+name+", type = "+type+", prefix = "+prefix+", title = '"+title+"'");
           b.append("        <li><b>Logical Model</b></li>");
-        } else if (name.startsWith("codesystem-")) {
-          b.append("                  <li><a href=\"terminology-module.html\"><img src=\"terminology.png\"/> Terminology</a></li>\r\n");
-          b.append("                  <li><a href=\"terminology-systems.html\">Code Systems</a></li>\r\n");
-          b.append("                  <li><b>Code System</b></li>\r\n");
         } else if (type.startsWith("search-parameter:") || type.equals("searchparam-instance")){
           b.append("                  <li><a href=\"foundation-module.html\"><img src=\"foundation.png\"/> Foundation</a></li>\r\n");
           b.append("                  <li><a href=\"http.html\">RESTful API</a></li>\r\n");
           b.append("                  <li><a href=\"search.html\">Search</a></li>\r\n");
           b.append("                  <li><b>Search Parameter</b></li>\r\n");
+        } else if (name.startsWith("codesystem-")) {
+          b.append("                  <li><a href=\"terminology-module.html\"><img src=\"terminology.png\"/> Terminology</a></li>\r\n");
+          b.append("                  <li><a href=\"terminologies-systems.html\">Code Systems</a></li>\r\n");
+          b.append("                  <li><b>Code System</b></li>\r\n");
         } else if (name.equals("qa.html")){
           b.append("                  <li><b>QA Page</b></li>\r\n");
         } else {

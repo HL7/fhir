@@ -61,6 +61,8 @@ public class TableGenerator extends BaseGenerator {
       row.setIcon("icon_resource.png", HierarchicalTableGenerator.TEXT_ICON_RESOURCE);
       if (Utilities.noString(e.typeCode()))
         row.getCells().add(gen.new Cell(null, null, "n/a", null, null)); 
+      else if ("Logical".equals(e.typeCode()))
+        row.getCells().add(gen.new Cell(null, prefix+"structuredefinition.html#logical", e.typeCode(), null, null)); 
       else
         row.getCells().add(gen.new Cell(null, prefix+e.typeCode().toLowerCase()+".html", e.typeCode(), null, null)); 
       // todo: base elements

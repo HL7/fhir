@@ -639,7 +639,7 @@
   Name = reserve.owner
   Use = in
   Documentation = The entity who is to be assigned ownership of this task.
-  Type = Reference(Device | Organization | Patient | Practitioner | RelatedPerson )
+  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson )
   Min = 1
   Max = 1
 
@@ -654,7 +654,7 @@
   Name = start.owner
   Use = in
   Documentation = The entity who is to be assigned ownership of this task.  If no entity is provided, the ownership of the task remains unchanged.
-  Type = Reference(Device | Organization | Patient | Practitioner | RelatedPerson )
+  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson )
   Min = 0
   Max = 1
 

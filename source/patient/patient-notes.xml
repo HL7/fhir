@@ -198,7 +198,7 @@ likely to least likely. If there are not patient matches, the MPI SHALL return
 an empty search set with no error, but may include an <a href="operationoutcome.html">operation outcome</a> with 
 further advice. All patient records SHALL have a score from 0 to 1, where
 1 is the most certain match, along with an <a href="extensibility.html">extension</a>
-<a href="extension-patient-mpi-match.html">"patient-mpi-match"</a> that indicates the MPI's position on the match quality:
+<a href="extension-match-grade.html">"match-grade"</a> that indicates the MPI's position on the match quality:
 </p>
 <pre>
   &lt;entry&gt; 

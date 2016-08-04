@@ -3,8 +3,10 @@
 
  -- Row 1 -----------------------------------
   Binding Name = Tags
-  Binding = unbound
+  Binding = value set
+  Reference = valueset-common-tags
   Definition = Codes that represent various types of tags, commonly workflow-related; e.g. \"Needs review by Dr. Jones\"
+  Conformance = example
 
 === Sheet Invariants =====================================
 
