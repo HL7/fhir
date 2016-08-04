@@ -393,7 +393,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
   @Override
   public boolean doesCompile() {
-    return false; // ToolProvider.getSystemJavaCompiler() != null;
+    return true; // ToolProvider.getSystemJavaCompiler() != null;
   }
 
   public boolean c(String name) {
