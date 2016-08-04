@@ -36,7 +36,7 @@ import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.TabDelimitedSpreadSheet;
-import org.hl7.fhir.tools.publisher.EPubManager;
+import org.hl7.fhir.tools.publisher.HTMLLinkChecker;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;

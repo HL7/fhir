@@ -73,7 +73,7 @@ consent has been rejected, and consent approved.
 	  <li>Opt-in with restrictions: Default is that no patient health information is made available, but the patient may allow a subset of select data to be included.</li>
 	  </ol>
 	  <p>
-	  A common exception is to explicitly exclude or explicitly include <a href="consent-example-notTIme.html">a period of time</a>.
+	  A common exception is to explicitly exclude or explicitly include <a href="consent-example-notTime.html">a period of time</a>.
 	  </p>
  <h3>Canada Realm sample Use-Cases</h3>
 	  <p>

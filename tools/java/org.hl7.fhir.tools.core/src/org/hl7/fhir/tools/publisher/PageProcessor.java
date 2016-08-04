@@ -247,7 +247,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String publicationNotice = "";
   private BindingNameRegistry registry;
   private String oid; // technical identifier associated with the page being built
-  private EPubManager epub;
+  private HTMLLinkChecker epub;
   private String baseURL = "http://hl7.org/fhir/DSTU2/";
   private final String tsServer; // terminology to use
   private BuildWorkerContext workerContext;
@@ -1883,7 +1883,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String compName(String name) {
     String n = name.split("\\-")[1];
-    return definitions.getCompartmentByName(n).getName();
+    return definitions.getCompartmentByName(n).getName().toLowerCase();
   }
 
   private String compDesc(String name) {
@@ -3222,6 +3222,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String lmHeader(String n, String title, String mode, boolean hasXMlJson) throws Exception {
     StringBuilder b = new StringBuilder();
+    n = n.toLowerCase();
 
     b.append("<ul class=\"nav nav-tabs\">");
     
@@ -6560,7 +6561,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public void setFolders(FolderManager folders) throws Exception {
     this.folders = folders;
-    epub = new EPubManager(this, validationErrors, baseURL);
+    epub = new HTMLLinkChecker(this, validationErrors, baseURL);
   }
 
   public void setIni(IniFile ini) {
@@ -6570,7 +6571,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
 
-  public EPubManager getEpub() {
+  public HTMLLinkChecker getEpub() {
     return epub;
   }
 
@@ -6812,8 +6813,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           url = "datatypes.html#"+linkText;
         } else if (definitions.getPageTitles().containsKey(linkText)) {
           url = definitions.getPageTitles().get(linkText);
-        } else if (definitions.getLogicalModel(linkText) != null) {
-          url = definitions.getLogicalModel(linkText).getId();
+        } else if (definitions.getLogicalModel(linkText.toLowerCase()) != null) {
+          url = definitions.getLogicalModel(linkText.toLowerCase()).getId()+".html";
         } else {
 		      getValidationErrors().add(
               new ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, -1, -1, location, "Unresolved logical URL '"+linkText+"'", IssueSeverity.WARNING));

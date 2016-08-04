@@ -539,8 +539,7 @@ public class BreadCrumbManager {
         } else if (name.equals("qa.html")){
           b.append("                  <li><b>QA Page</b></li>\r\n");
         } else {
-          b.append("        <li>??? "+Utilities.escapeXml(name)+" / "+Utilities.escapeXml(type)+"</li>\r\n");
-          System.out.println("no breadcrumb: name = "+name+", type = "+type+", prefix = "+prefix+", title = '"+title+"'");
+          throw new Exception("no breadcrumb: name = "+name+", type = "+type+", prefix = "+prefix+", title = '"+title+"'");
         }
       }
     }

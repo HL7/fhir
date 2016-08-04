@@ -1102,13 +1102,15 @@ public class SpreadsheetParser {
         valuesets.add(cd.getValueSet());
         cd.getValueSet().setId(igSuffix(ig)+ref.substring(1));
         cd.getValueSet().setUrl("http://hl7.org/fhir/ValueSet/"+igSuffix(ig)+ref.substring(1));
-        cd.getValueSet().setUserData("filename", "valueset-"+ref.substring(1));
+        cd.getValueSet().setUserData("filename", "valueset-"+cd.getValueSet().getId());
         cd.getValueSet().setUserData("committee", committee);
         if (ig != null) {
           cd.getValueSet().setUserDataINN(ToolResourceUtilities.NAME_RES_IG, ig);
           cd.getValueSet().setUserData("path", "valueset-"+cd.getValueSet().getId()+".html");
         } else
           cd.getValueSet().setUserData("path", "valueset-"+cd.getValueSet().getId()+".html");
+        if (!cd.getValueSet().getUserData("path").equals(cd.getValueSet().getUserData("filename")+".html"))
+          throw new Exception("Mis-identified value set");
         if (!ref.startsWith("#"))
           throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' must started with '#'");
         Sheet cs = xls.getSheets().get(ref.substring(1));
