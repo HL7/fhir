@@ -2,6 +2,10 @@
 
 <Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/basic.xsd">
   <id value="basic-adverseevent-example"/>  
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Generated narrative...</div>
+  </text>
   <extension url="http://hl7.org/fhir/qicore/StructureDefinition/adverseevent-cause">
     <extension url="http://hl7.org/fhir/qicore/StructureDefinition/adverseevent-cause#item">
       <valueReference>

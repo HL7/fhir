@@ -2,10 +2,10 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="qicore-diagnosticrequest-precondition"/>
-  <url value="http://hl7.org/fhir/qicore/ValueSet/qicore-diagnosticrequest-precondition"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
+  <url value="http://hl7.org/fhir/qicore/ValueSet/qicore-diagnosticrequest-precondition"/>
   <name value="QICore Diagnostic Request Precondition"/>
   <status value="draft"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>

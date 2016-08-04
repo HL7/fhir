@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Specimen xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/specimen.xsd" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id value="specimen-example-qicore"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Generated narrative...</div>
+  </text>
 	<type>
 		<coding>
 			<system value="http://snomed.info/sct"/>
