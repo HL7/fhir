@@ -213,7 +213,7 @@
   Type = Reference(Practitioner | Organization | Patient | Device | RelatedPerson)
   Short Label = Requested perfomer
   Definition = The desired perfomer for doing the diagnostic testing.
-  Comments = Use the standard [XXX extension]() for listing alternative  alternative performers and/or roles and/or preference.
+  Comments = Use an [extension] (extensibility.html) or listing alternative alternative performers and/or roles and/or preference.
   RIM Mapping = .participation[AUT or PFM]
   Committee Notes = [#10296]
   w5 = who.actor

@@ -1723,7 +1723,7 @@
     <Cell ss:StyleID="s93"><Data ss:Type="String">The desired perfomer for doing the diagnostic testing.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">Use the standard [XXX extension]() for listing alternative  alternative performers and/or roles and/or preference.</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Use an [extension] (extensibility.html) or listing alternative alternative performers and/or roles and/or preference.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">.participation[AUT or PFM]</Data><NamedCell
