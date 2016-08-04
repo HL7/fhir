@@ -17,9 +17,11 @@ single service and the list of locations it is available. Both are acceptable op
 <div>
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
-<p>
-The PractitionerRole BackboneElement on the Practitioner is to be deprecated if this resource is accepted.
+<blockquote class="dstu-note">
+<p><a name="dstu"> </a>
+<b>DSTU Note:</b>   The Role BackboneElement on the Practitioner is to be deprecated if this resource is accepted.
 </p>
+</blockquote>
 <p>
 	The Qualifications are not a part of the PractitionerRole, as they may be appropriate for the role,
     however they are a property of the Practitioner, not the role they may perform for an Organization.
