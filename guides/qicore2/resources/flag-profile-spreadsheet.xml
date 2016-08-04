@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9090</WindowHeight>
-  <WindowWidth>19275</WindowWidth>
+  <WindowHeight>8715</WindowHeight>
+  <WindowWidth>21570</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>5</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1260,7 +1260,7 @@
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location} | Reference(Group) | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/qicore/StructureDefinition/qicore-patient} | Reference(Location){http://hl7.org/fhir/qicore/StructureDefinition/qicore-location} | Reference(Group) | Reference(Organization){http://hl7.org/fhir/qicore/StructureDefinition/qicore-organization} | Reference(Practitioner){http://hl7.org/fhir/qicore/StructureDefinition/qicore-practitioner}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2780,6 +2780,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2800,8 +2801,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>5</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4214,7 +4214,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

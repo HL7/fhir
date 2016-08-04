@@ -3,6 +3,7 @@
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
  xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -12,16 +13,19 @@
   <LastSaved>2015-03-16T18:33:14Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
+ <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <WorkbookGuid dt:dt="string">67e28d76-8d37-4d2b-8bd9-d3eb70dcb915</WorkbookGuid>
+ </CustomDocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9090</WindowHeight>
-  <WindowWidth>19275</WindowWidth>
+  <WindowHeight>8715</WindowHeight>
+  <WindowWidth>21570</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
-  <FirstVisibleSheet>3</FirstVisibleSheet>
+  <ActiveSheet>2</ActiveSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -922,6 +926,13 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
    <Interior/>
   </Style>
+  <Style ss:ID="s170" ss:Parent="s62">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
   <Style ss:ID="s171">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
@@ -952,7 +963,7 @@
    </Borders>
    <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s176">
+  <Style ss:ID="s176" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
   </Style>
@@ -1759,7 +1770,7 @@
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/qicore/StructureDefinition/qicore-patient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1789,7 +1800,7 @@
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/qicore/StructureDefinition/qicore-practitioner}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1818,7 +1829,7 @@
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Encounter){http://hl7.org/fhir/qicore/StructureDefinition/qicore-encounter}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1848,7 +1859,7 @@
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">CodeableConcept | Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">CodeableConcept | Reference(Medication){http://hl7.org/fhir/qicore/StructureDefinition/qicore-medication}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3414,12 +3425,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3435,8 +3447,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>28</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>15</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6061,7 +6072,8 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Medication dose types (e.g., loading, maintenance, etc.)</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/qicore-medication-dose-type</Data></Cell>
+    <Cell ss:StyleID="s170" ss:HRef="http://hl7.org/fhir/qicore/ValueSet/qicore-medication-dose-type"><Data
+      ss:Type="String">http://hl7.org/fhir/qicore/ValueSet/qicore-medication-dose-type</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Medication dose types (e.g., loading, maintenance, etc.)</Data></Cell>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"/>
@@ -6091,7 +6103,8 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">The set of RxNorm codes to represent medications</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/daf-medication-codes</Data></Cell>
+    <Cell ss:StyleID="s176" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-core-medication-codes"><Data
+      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-core-medication-codes</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
@@ -6106,7 +6119,8 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">The reason code for the presecription</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/daf-problem</Data></Cell>
+    <Cell ss:StyleID="s170" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-core-problem"><Data
+      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-core-problem</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Value set for encoding a condition (problem)</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
@@ -6121,7 +6135,8 @@
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/daf-bodysite</Data></Cell>
+    <Cell ss:StyleID="s170" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-core-bodysite"><Data
+      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-core-bodysite</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
@@ -6445,7 +6460,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6465,8 +6479,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

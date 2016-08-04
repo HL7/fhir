@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9090</WindowHeight>
-  <WindowWidth>19275</WindowWidth>
+  <WindowHeight>8715</WindowHeight>
+  <WindowWidth>21570</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1014,6 +1014,16 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s185" ss:Parent="s62">
+   <Borders/>
+  </Style>
+  <Style ss:ID="s186" ss:Parent="s62">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -1358,7 +1368,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition}</Data><NamedCell
+    <Cell ss:StyleID="s110"><Data ss:Type="String">Reference(Condition){http://hl7.org/fhir/qicore/StructureDefinition/qicore-condition}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1449,7 +1459,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition}</Data><NamedCell
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Condition){http://hl7.org/fhir/qicore/StructureDefinition/qicore-condition}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1715,7 +1725,7 @@
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}</Data><NamedCell
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/qicore/StructureDefinition/qicore-patient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1743,7 +1753,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6" ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(ReferralRequest){http://hl7.org/fhir/StructureDefinition/qicore-referralrequest} </Data><NamedCell
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(ReferralRequest){http://hl7.org/fhir/qicore/StructureDefinition/qicore-referralrequest} </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1796,7 +1806,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6" ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson} </Data><NamedCell
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/qicore/StructureDefinition/qicore-practitioner} | Reference(RelatedPerson){http://hl7.org/fhir/qicore/StructureDefinition/qicore-relatedperson} </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1962,7 +1972,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6" ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}</Data><NamedCell
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Location){http://hl7.org/fhir/qicore/StructureDefinition/qicore-location}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2046,7 +2056,7 @@
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}</Data><NamedCell
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Location){http://hl7.org/fhir/qicore/StructureDefinition/qicore-location}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2186,7 +2196,7 @@
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}</Data><NamedCell
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Location){http://hl7.org/fhir/qicore/StructureDefinition/qicore-location}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2242,7 +2252,7 @@
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} </Data><NamedCell
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/qicore/StructureDefinition/qicore-organization} </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2270,7 +2280,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6" ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}</Data><NamedCell
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Encounter){http://hl7.org/fhir/qicore/StructureDefinition/qicore-encounter}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3655,10 +3665,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>3</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3672,7 +3683,6 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
@@ -6302,7 +6312,8 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">Encounter Reason Value Set to describe reason for encounter</Data></Cell>
     <Cell ss:StyleID="s145"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s145"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s167"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/daf-encounter-reason</Data></Cell>
+    <Cell ss:StyleID="s185" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-core-encounter-reason"><Data
+      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-core-encounter-reason</Data></Cell>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s145"/>
@@ -6332,7 +6343,8 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">Encounter Type Value set to describe the type of encounter</Data></Cell>
     <Cell ss:StyleID="s148"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s148"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/daf-encounter-type</Data></Cell>
+    <Cell ss:StyleID="s186" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-core-encounter-type"><Data
+      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-core-encounter-type</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"/>
@@ -6700,7 +6712,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6720,7 +6731,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>

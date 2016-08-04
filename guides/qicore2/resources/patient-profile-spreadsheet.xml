@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9090</WindowHeight>
-  <WindowWidth>19275</WindowWidth>
+  <WindowHeight>8715</WindowHeight>
+  <WindowWidth>21570</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>694</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1922,7 +1922,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8" ss:StyleID="s96"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/qicore-patient-militaryService}</Data><NamedCell
+    <Cell ss:Index="8" ss:StyleID="s96"><Data ss:Type="String">Extension{http://hl7.org/fhir/qicore/StructureDefinition/qicore-patient-militaryService}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">QICorePatientMilitaryService</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2490,7 +2490,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/qicore/StructureDefinition/qicore-organization}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16" ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2574,7 +2574,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/qicore/StructureDefinition/qicore-organization} | Reference(Practitioner){http://hl7.org/fhir/qicore/StructureDefinition/qicore-practitioner}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2603,7 +2603,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} </Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/qicore/StructureDefinition/qicore-organization} </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2660,7 +2660,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/qicore/StructureDefinition/qicore-patient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3154,7 +3154,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5438,7 +5437,7 @@
     <Cell ss:StyleID="s150"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/ValueSet/daf-race"><Data
-      ss:Type="String">http://hl7.org/fhir/ValueSet/daf-race</Data></Cell>
+      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-core-race</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">The race of the patient</Data></Cell>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s166"/>
@@ -5453,7 +5452,7 @@
     <Cell ss:StyleID="s137"><Data ss:Type="String">Ethnicity of the patient</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/daf-ethnicity</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-core-ethnicity</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">The ethnicity of the patient</Data></Cell>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
@@ -5558,7 +5557,7 @@
     <Cell ss:StyleID="s180"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s181" ss:HRef="http://hl7.org/fhir/ValueSet/daf-problem"><Data
-      ss:Type="String">http://hl7.org/fhir/ValueSet/daf-problem</Data></Cell>
+      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-core-problem</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">Value set for encoding a condition (problem)</Data></Cell>
     <Cell ss:StyleID="s180"/>
     <Cell ss:StyleID="s180"/>
@@ -5598,6 +5597,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
