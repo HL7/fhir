@@ -1,0 +1,6 @@
+<ivy-module version="2.0">
+    <info organisation="org.hl7.fhir.us.sdc" module="tools"/>
+    <dependencies>
+      <dependency org="net.sf.saxon" name="Saxon-HE" rev="9.5.1-5"/>
+    </dependencies>
+</ivy-module>

@@ -1,0 +1,4 @@
+language: java
+jdk: oraclejdk8
+rvm: 2.2
+install: ant TravisPublisher
