@@ -253,7 +253,7 @@
 			"base": "daf-data-models.html"
 		},
 		"StructureDefinition/daf-query-formats": {
-			"defns": "daf-research-query-formats-definitions.html",
+			"defns": "daf-research-query-formats-definitions.htmrl",
 			"base": "daf-research-query-formats.html"
 		},
 		"ValueSet/daf-procedure-type": {
@@ -427,12 +427,14 @@
 		
 		"ValueSet/daf-careteam-status": {
 			"base": "valueset-daf-careteam-status.html",
-			"template-base": null
+			"template-base": null,
+      "template-format" : null
 		},		
 		
 				"CodeSystem/daf-careteam-status": {
 			"base": "CodeSystem-daf-careteam-status.html",
-			"template-base": null
+			"template-base": null,
+      "template-format" : null
 		},		
 
 		
