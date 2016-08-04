@@ -2375,7 +2375,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (ref == null) 
         p.addTag("code").addText(vs.getExpansion().getContains().get(0).getSystem());
       else
-        p.addTag("a").setAttribute("href", ref).addTag("code").addText(vs.getExpansion().getContains().get(0).getSystem());
+        p.addTag("a").setAttribute("href", prefix+ref).addTag("code").addText(vs.getExpansion().getContains().get(0).getSystem());
     }
     XhtmlNode t = x.addTag("table").setAttribute("class", "codes");
     XhtmlNode tr = t.addTag("tr");

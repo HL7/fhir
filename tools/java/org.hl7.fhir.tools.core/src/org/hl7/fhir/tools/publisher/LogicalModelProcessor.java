@@ -77,6 +77,7 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
 
   private String lmHeader(String n, String title, String mode, boolean hasXMlJson) throws Exception {
     StringBuilder b = new StringBuilder();
+    n = n.toLowerCase();
 
     b.append("<ul class=\"nav nav-tabs\">");
     

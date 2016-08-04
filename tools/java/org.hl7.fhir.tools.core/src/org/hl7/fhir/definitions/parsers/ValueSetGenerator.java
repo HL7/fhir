@@ -144,6 +144,8 @@ public class ValueSetGenerator {
     vs.setUserData("path", "valueset-"+vs.getId()+".html");
     
     CodeSystem cs = new CodeSystem();
+    cs.setUserData("filename", vs.getUserString("filename").replace("valueset-", "codesystem-"));
+    cs.setUserData("path", vs.getUserString("path").replace("valueset-", "codesystem-"));
     CodeSystemConvertor.populate(cs, vs);
     cs.setUrl("http://hl7.org/fhir/abstract-types");
     cs.setVersion(version);
@@ -162,6 +164,9 @@ public class ValueSetGenerator {
     compose.addInclude().setSystem("http://hl7.org/fhir/resource-types");
     if (doAbstract)
       compose.addInclude().setSystem("http://hl7.org/fhir/abstract-types");
+    vs.setUserData("filename", "valueset-"+vs.getId());
+    vs.setUserData("committee", "fhir");
+    vs.setUserData("path", "valueset-"+vs.getId()+".html");
   }
 
   private void genMessageEvents(ValueSet vs) {
@@ -172,6 +177,8 @@ public class ValueSetGenerator {
     
     CodeSystem cs = new CodeSystem();
     CodeSystemConvertor.populate(cs, vs);
+    cs.setUserData("filename", vs.getUserString("filename").replace("valueset-", "codesystem-"));
+    cs.setUserData("path", vs.getUserString("path").replace("valueset-", "codesystem-"));
     cs.setUrl("http://hl7.org/fhir/message-events");
     cs.setVersion(version);
     cs.setCaseSensitive(true);

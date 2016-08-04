@@ -88,7 +88,7 @@ consent has been rejected, and consent approved.
 		<li>Withhold or withdraw <a href="consent-example-notThis.html">consent for disclosure of a specific record</a> (e.g. Lab Order/Result) </li>
 		<li>Withhold or withdraw <a href="consent-example-notOrg.html">consent for disclosure to a specific provider organization</a> </li>
 		<li>Withhold or withdraw <a href="consent-example-notThem.html">consent for disclosure to a specific provider agent</a> (an individual within an organization) </li>
-		<li>Withhold or withdraw <a href="consent-example-notAutor.html">consent for disclosure of records that were authored by a specific organization</a> (or service delivery location). </li>
+		<li>Withhold or withdraw <a href="consent-example-notAuthor.html">consent for disclosure of records that were authored by a specific organization</a> (or service delivery location). </li>
 		<li>Combinations of the above </li>
 	  </ol>
  <h3>Non Treatment Use-Cases</h3>

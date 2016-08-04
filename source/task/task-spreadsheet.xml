@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7356</WindowHeight>
-  <WindowWidth>15336</WindowWidth>
+  <WindowHeight>12396</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>670</TabRatio>
@@ -5023,7 +5023,7 @@
     <Cell><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Reference(Device|Organization|Patient|Practitioner|RelatedPerson )</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">Reference(Device|Organization|Patient|Practitioner|RelatedPerson)</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s133"><Data ss:Type="String">The entity who is to be assigned ownership of this task.</Data></Cell>
@@ -5045,7 +5045,7 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Reference(Device|Organization|Patient|Practitioner|RelatedPerson )</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">Reference(Device|Organization|Patient|Practitioner|RelatedPerson)</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s133"><Data ss:Type="String">The entity who is to be assigned ownership of this task.  If no entity is provided, the ownership of the task remains unchanged.</Data></Cell>
@@ -5586,8 +5586,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

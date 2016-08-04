@@ -579,6 +579,8 @@ public class SourceParser {
     CodeSystem cs = (CodeSystem) xml.parse(new CSFileInputStream(srcDir+ini.getStringProperty("codesystems", n).replace('\\', File.separatorChar)));
     if (!cs.hasId())  
       cs.setId(FormatUtilities.makeId(n));
+    cs.setUserData("path", "codesystem-"+cs.getId()+".html");
+    cs.setUserData("filename", "codesystem-"+cs.getId());
     definitions.getCodeSystems().put(cs.getUrl(), cs);
   }
 
@@ -589,6 +591,8 @@ public class SourceParser {
     new CodeSystemConvertor(definitions.getCodeSystems()).convert(xml, vs, srcDir+ini.getStringProperty("valuesets", n).replace('\\', File.separatorChar));
     vs.setId(FormatUtilities.makeId(n));
     vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
+    vs.setUserData("path", "valueset-"+vs.getId()+".html");
+    vs.setUserData("filename", "valueset-"+vs.getId());
     definitions.getExtraValuesets().put(n, vs);
   }
 

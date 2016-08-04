@@ -2,10 +2,10 @@
 <!DOCTYPE HTML>
 
  
-[%settitle Version 2 Table http://hl7.org/fhir/v2/{id}%]
-[%setlevel 2%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+[%settitle Version 2 Table http://hl7.org/fhir/v2/{id}%]
+[%setlevel 2%]
 [%file newheader%]
 </head>
 <body>
@@ -13,33 +13,33 @@
 
 <div class="col-9">
 
-<%txheader l2%>
+[%txheader l2%]
 
 <a name="table"> </a>
-<h1>HL7 Version 2 Table <%id%></h1>
+<h1>HL7 Version 2 Table [%id%]</h1>
 <p>
-This is a table defined as part of <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a><%v2xref l2%>
+This is a table defined as part of <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>[%v2xref l2%]
 </p>
-<p><b>Summary</b></p>
+<p><b>Summary</b></p>s
 <table class="grid">
- <tr><td>Name:</td><td><%vsname%></td></tr>
- <tr><td>Definition:</td><td><%vsdef%></td></tr>
- <tr><td>Code System URL:</td><td><code><%csurl%></code></td></tr>
- <tr><td>Value Set URL:</td><td><code><%vsurl%></code></td></tr>
+ <tr><td>Name:</td><td>[%vsname%]</td></tr>
+ <tr><td>Definition:</td><td>[%vsdef%]</td></tr>
+ <tr><td>Code System URL:</td><td><code>[%csurl%]</code></td></tr>
+ <tr><td>Value Set URL:</td><td><code>[%vsurl%]</code></td></tr>
  <tr><td>OID:</td><td>??</td></tr>
-<%txsummary%>
- <tr><td>CodeSystem Resource</td><td><a href="v2-<%txname%>.cs.xml.html">XML</a> / <a href="v2-<%txname%>.cs.json.html">JSON</a></td></tr>
- <tr><td>ValueSet Resource</td><td><a href="v2-<%txname%>.vs.xml.html">XML</a> / <a href="v2-<%txname%>.vs.json.html">JSON</a></td></tr>
+[%txsummary%]
+ <tr><td>CodeSystem Resource</td><td><a href="v2-[%txname%].cs.xml.html">XML</a> / <a href="v2-[%txname%].cs.json.html">JSON</a></td></tr>
+ <tr><td>ValueSet Resource</td><td><a href="v2-[%txname%].vs.xml.html">XML</a> / <a href="v2-[%txname%].vs.json.html">JSON</a></td></tr>
 </table>
 
-<%conceptmaplistv2 l2%>
+[%conceptmaplistv2 l2%]
 
-<%vsusage%>
+[%vsusage%]
 
 <a name="definition"> </a>
 <h2>Code System Content</h2>
 
-<%v2Table%>
+[%v2Table%]
 
 </div>
 

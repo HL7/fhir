@@ -804,7 +804,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
           String sf = page.processPageIncludes(id + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + "index.html", vs, null, "V2 Table", null);
           sf = sects.addSectionNumbers("v2" + File.separator + id + File.separator +  "index.html", "template-v2", sf, iid, 2, null, null);
           TextFile.stringToFile(sf, page.getFolders().dstDir + "v2" + File.separator + id + File.separator + "index.html");
-          page.getEpub().registerExternal("v2" + File.separator + id + File.separator + "index.html");
+          page.getHTMLChecker().registerExternal("v2" + File.separator + id + File.separator + "index.html");
         } else {
           Utilities.createDirectory(page.getFolders().dstDir + "v2" + File.separator + id);
           Utilities.clearDirectory(page.getFolders().dstDir + "v2" + File.separator + id);
@@ -819,7 +819,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
               String sf = page.processPageIncludes(id + "|" + ver + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + ver + File.separator + "index.html", vs, null, "V2 Table", null);
               sf = sects.addSectionNumbers("v2" + File.separator + id + "/" + ver + File.separator +  "index.html", "template-v2", sf, iid + "." + Integer.toString(i), 3, null, null);
               TextFile.stringToFile(sf, page.getFolders().dstDir + "v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
-              page.getEpub().registerExternal("v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
+              page.getHTMLChecker().registerExternal("v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
             }
           }
         }
@@ -831,7 +831,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
         String sf = page.processPageIncludes(id + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + "index.html", vs, null, "V2 Table", null);
         sf = sects.addSectionNumbers("v2" + File.separator + id + File.separator +  "index.html", "template-v2", sf, iid, 2, null, null);
         TextFile.stringToFile(sf, page.getFolders().dstDir + "v2" + File.separator + id + File.separator + "index.html");
-        page.getEpub().registerExternal("v2" + File.separator + id + File.separator + "index.html");        
+        page.getHTMLChecker().registerExternal("v2" + File.separator + id + File.separator + "index.html");        
       }
       e = XMLUtil.getNextSibling(e);
     }

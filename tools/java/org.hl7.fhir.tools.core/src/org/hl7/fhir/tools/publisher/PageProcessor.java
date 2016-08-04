@@ -247,7 +247,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String publicationNotice = "";
   private BindingNameRegistry registry;
   private String oid; // technical identifier associated with the page being built
-  private HTMLLinkChecker epub;
+  private HTMLLinkChecker htmlchecker;
   private String baseURL = "http://hl7.org/fhir/DSTU2/";
   private final String tsServer; // terminology to use
   private BuildWorkerContext workerContext;
@@ -501,7 +501,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (com.length == 4 && com[0].equals("edt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
-        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), umlForDt(com[1], com[3]), umlForDt(com[1], com[3]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]), ttlForDt(com[1], file))+s3;
+        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), umlForDt(com[1], com[3]), umlForDt(com[1], com[3]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]), ttlForDt(com[1], com[2]))+s3;
       } else if (com.length == 3 && com[0].equals("dt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
@@ -2046,7 +2046,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     String html = ("<%setlevel "+Integer.toString(level)+"%>"+TextFile.fileToString(folders.srcDir + "template-example-xml.html")).replace("<%example%>", b.toString());
     html = processPageIncludes(n+".xml.html", html, pageType, null, null, null, crumbTitle, ig);
     TextFile.stringToFile(html, dst);
-    epub.registerExternal(dst);
+    htmlchecker.registerExternal(dst);
   }
 
   public void jsonToXhtml(String src, String dst, String name, String description, int level, String json, String pageType, String crumbTitle, ImplementationGuideDefn ig) throws Exception {
@@ -2057,7 +2057,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     String html = ("<%setlevel "+Integer.toString(level)+"%>"+TextFile.fileToString(folders.srcDir + "template-example-json.html")).replace("<%example%>", json);
     html = processPageIncludes(n+".json.html", html, pageType, null, null, null, crumbTitle, ig);
     TextFile.stringToFile(html, dst);
-    epub.registerExternal(dst);
+    htmlchecker.registerExternal(dst);
   }
 
   
@@ -2382,8 +2382,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         if (inc.getSystem().equals(cs.getUrl())) 
           uses = true;
       }
-      if (uses)
-        b.append(" <li><a href=\"").append(prefix+vs.getUserString("path")).append("\">").append(vs.getName()).append("</a> (").append(Utilities.escapeXml(vs.getDescription())).append(")</li>\r\n");
+      if (uses) {
+        if (!vs.hasUserData("path"))
+          b.append(" <li><a href=\"").append(prefix+"valueset-"+vs.getId()).append("\">").append(vs.getName()).append("</a> (").append(Utilities.escapeXml(vs.getDescription())).append(")</li>\r\n");
+        else
+          b.append(" <li><a href=\"").append(prefix+vs.getUserString("path")).append("\">").append(vs.getName()).append("</a> (").append(Utilities.escapeXml(vs.getDescription())).append(")</li>\r\n");
+      }
     }
     if (b.length() == 0)
       return "<p>\r\nThis Code system is not currently used\r\n</p>\r\n";
@@ -2494,7 +2498,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (ElementDefinition ed : exd.getSnapshot().getElement()) {
       if (ed.hasBinding()) {
         if (isValueSetMatch(ed.getBinding().getValueSet(), vs))
-          b.append(" <li><a href=\"").append(path).append("\">Extension ")
+          b.append(" <li><a href=\"").append(prefix).append(path).append("\">Extension ")
           .append(exd.getUrl()).append(": ").append(Utilities.escapeXml(exd.getName())).append("</a> (").append(getBindingTypeDesc(ed.getBinding(), prefix)).append(")</li>\r\n");
       }
     }
@@ -5254,8 +5258,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       Profile ap = (Profile) cs.getUserData("profile");
       if (ap == null)
         b.append("    <td></td>\r\n");
-      else
-        b.append("    <td>for <a href=\""+ap.getId()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
+      else {
+        ImplementationGuideDefn ig = definitions.getIgs().get(ap.getCategory());
+        b.append("    <td>for <a href=\""+ig.getPrefix()+ ap.getId()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
+      }
       b.append(" </tr>\r\n");
     }
     if (count == 0)
@@ -6561,7 +6567,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public void setFolders(FolderManager folders) throws Exception {
     this.folders = folders;
-    epub = new HTMLLinkChecker(this, validationErrors, baseURL);
+    htmlchecker = new HTMLLinkChecker(this, validationErrors, baseURL);
   }
 
   public void setIni(IniFile ini) {
@@ -6571,8 +6577,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
 
-  public HTMLLinkChecker getEpub() {
-    return epub;
+  public HTMLLinkChecker getHTMLChecker() {
+    return htmlchecker;
   }
 
   public Calendar getGenDate() {
@@ -7410,7 +7416,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     svgs.clear();
     translations = null;
     registry = null;
-    epub = null;
+    htmlchecker = null;
     searchTypeUsage = null;
     vsValidator = null;
     System.gc();

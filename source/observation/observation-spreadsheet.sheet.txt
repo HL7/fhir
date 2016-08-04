@@ -869,7 +869,7 @@
  -- Row 9 -----------------------------------
   Name = Device Metric Observation
   IG Name = core
-  Filename = observation-device-metric.xml
+  Filename = observation-devicemetricobservation.xml
   Type = spreadsheet
 
  -- Row 10 -----------------------------------
@@ -1122,7 +1122,7 @@
  -- Row 5 -----------------------------------
   Name = stats.params
   Use = in
-  Documentation = average|max|min|count  The statistical operations to be performed on the relevant operations.   These codes are defined [here]()
+  Documentation = average|max|min|count  The statistical operations to be performed on the relevant operations.   These codes are defined [here](todo.html)
   Type = code
   Min = 1
   Max = 4

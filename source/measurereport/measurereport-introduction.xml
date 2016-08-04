@@ -19,7 +19,7 @@ The resource is based on the HL7 CDA R2 Implementation Guide: Quality Reporting 
 
 <div>
 <h2>Boundaries and Relationships</h2>
-<p>Although the MeasureReport is conceptually an <a href="observation">Observation</a>, there is enough specific information required to support the quality reporting use case to warrant a separate resource.</p>
+<p>Although the MeasureReport is conceptually an <a href="observation.html">Observation</a>, there is enough specific information required to support the quality reporting use case to warrant a separate resource.</p>
 
 <p>The resource is differentiated from a general purpose query result because it communicates specific information related to quality measurement evaluation that would be difficult to convey generally without imposing some other structure on top of the general results.</p>
 </div>
