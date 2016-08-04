@@ -38,9 +38,9 @@
   <parameter>
     <name value="order"/>
     <use value="in"/>
-    <type value="Order"/>
+    <type value="Task"/>
     <profile>
-      <reference value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
+      <reference value="http://hl7.org/fhir/StructureDefinition/gao-task"/>
     </profile>
   </parameter>
 
@@ -48,9 +48,9 @@
   <parameter>
     <name value="order"/>
     <use value="out"/>
-    <type value="Order"/>
+    <type value="Task"/>
     <profile>
-      <reference value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
+      <reference value="http://hl7.org/fhir/StructureDefinition/gao-task"/>
     </profile>
   </parameter>
 
