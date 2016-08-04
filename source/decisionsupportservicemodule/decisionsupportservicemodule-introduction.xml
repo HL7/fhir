@@ -23,7 +23,7 @@
 
 <p>Triggers are used to advertise when the module should be invoked. On encountering a specific trigger, a clinical application can invoke the modules associated with the trigger using the <a href="decisionsupportservicemodule-operations.html#evaluate">$evaluate</a> operation. Any data required by the module can be sent as part of the request, and any suggested <i>actions</i> and other output data are returned via the <a href="guidanceresponse.html">GuidanceResponse</a> resource.</p>
 
-<p>For a more detailed discussion of the evaluation process, refer to the <a href="cqif/cqif-integrating-decision-support.html">Integrating Decision Support in a Clinical Workflow</a> topic in the CQIF IG.</p>
+<p>For a more detailed discussion of the evaluation process, refer to the <a href="cqif/cqif-cds-on-fhir.html">Clinical Decision Support</a> topic in the Clinical Reasoning module.</p>
 
 </div>
 

@@ -269,7 +269,7 @@
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
-  Name = !Assessment
+  Name = Assessment
   Identity = example
   Description = Assessment Example
   Filename = decisionsupportservicemodule-example.xml

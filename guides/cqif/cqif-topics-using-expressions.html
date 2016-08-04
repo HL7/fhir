@@ -112,7 +112,7 @@
 
 <p>In the scenario that an evaluation service is not colocated with the clinical information, the service has no general way of knowing whether or not a request has fulfilled the stated data requirements for a expression. As such, this is a critical aspect of implementation. The service assumes the stated data requirements will be provided as part of a request, and requesters shall provide at least the data specified by the data requirements when requesting evaluation for an expression.</p>
 
-<p>Within CQL, data requirements can be inferred based on the <i>retrieve</i> expressions used. This process is described in detail in the Clinical Quality Language Specification, but in general, the set of data requirements is represented by elements of the <a href="datarequirement.html">DataRequirement</a> type. This type is similar to a parameter definition, with the following differences:</p>
+<p>Within CQL, data requirements can be inferred based on the <i>retrieve</i> expressions used. This process is described in detail in the Clinical Quality Language Specification, but in general, the set of data requirements is represented by elements of the <a href="[%fhir-path%]datarequirement.html">DataRequirement</a> type. This type is similar to a parameter definition, with the following differences:</p>
 
 <ul>
 	<li>No name element - Because patient-dependent information is accessed in CQL through the use of a <i>retrieve</i> expression, there is no need to specify a name in order to access the information.</li>
@@ -123,7 +123,7 @@
 
 <a name="fluentpath"/>
 <h4>FluentPath</h4>
-<p><a href="fluentpath.html">FluentPath</a> is a lightweight path-based navigation language intended to provide simple but flexible access to graph-structured data. It is defined as a general purpose specification available <a href="fluentpath.html">here</a>.</p>
+<p><!--a href="fluentpath.html"-->FluentPath<!--/a--> is a lightweight path-based navigation language intended to provide simple but flexible access to graph-structured data. It is defined as a general purpose specification available <!--a href="fluentpath.html"-->here<!--/a-->.</p>
 
 <a name="clinical-quality-language"/>
 <h4>Clinical Quality Language</h4>
