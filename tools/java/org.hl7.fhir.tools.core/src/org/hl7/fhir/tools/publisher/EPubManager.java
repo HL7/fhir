@@ -36,7 +36,7 @@ public class EPubManager implements FileNotifier {
   public static final String EOT_TYPE = "application/vnd.ms-fontobject";
   public static final String BIN_TYPE = "application/octet-stream";
   public static final String SVG_TYPE = "application/avg";
-  public static final boolean WANT_EPUB = true;
+  public static final boolean WANT_EPUB = false;
 
   private class Entry {
     private String filename;
