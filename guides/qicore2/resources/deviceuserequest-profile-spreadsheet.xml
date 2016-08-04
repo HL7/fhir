@@ -835,6 +835,13 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
    <Interior/>
   </Style>
+  <Style ss:ID="s156" ss:Parent="s62">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
   <Style ss:ID="s157">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Borders/>
@@ -923,13 +930,6 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior/>
-  </Style>
-  <Style ss:ID="s170" ss:Parent="s62">
-   <Alignment ss:Vertical="Bottom"/>
-   <Borders/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
@@ -5568,8 +5568,8 @@
     <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s135"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s170" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-core-problem"><Data
-      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-core-problem</Data></Cell>
+    <Cell ss:StyleID="s156" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-problem"><Data
+      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-problem</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">Value set for encoding a condition (problem)</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>

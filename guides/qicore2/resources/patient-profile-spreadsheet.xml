@@ -1207,6 +1207,13 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s195" ss:Parent="s62">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -5436,8 +5443,8 @@
     <Cell ss:StyleID="s137"><Data ss:Type="String">Race of the patient</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/ValueSet/daf-race"><Data
-      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-core-race</Data></Cell>
+    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-race"><Data
+      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-race</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">The race of the patient</Data></Cell>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s166"/>
@@ -5452,7 +5459,8 @@
     <Cell ss:StyleID="s137"><Data ss:Type="String">Ethnicity of the patient</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-core-ethnicity</Data></Cell>
+    <Cell ss:StyleID="s195" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-ethnicity"><Data
+      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-ethnicity</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">The ethnicity of the patient</Data></Cell>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
@@ -5556,8 +5564,8 @@
     <Cell ss:StyleID="s179"><Data ss:Type="String">The code for the condition</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s181" ss:HRef="http://hl7.org/fhir/ValueSet/daf-problem"><Data
-      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-core-problem</Data></Cell>
+    <Cell ss:StyleID="s181" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-problem"><Data
+      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-problem</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">Value set for encoding a condition (problem)</Data></Cell>
     <Cell ss:StyleID="s180"/>
     <Cell ss:StyleID="s180"/>
@@ -5617,7 +5625,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>

@@ -874,26 +874,26 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s168">
+  <Style ss:ID="s168" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s169">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s169">
+  <Style ss:ID="s170">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s170">
+  <Style ss:ID="s171">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s171" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Interior/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
@@ -4578,8 +4578,8 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Codes describing the Procedure Type</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s171" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-core-procedure-type"><Data
-      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-core-procedure-type</Data></Cell>
+    <Cell ss:StyleID="s168" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-procedure-type"><Data
+      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-procedure-type</Data></Cell>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
@@ -4589,34 +4589,34 @@
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s151"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90" ss:StyleID="s168">
+   <Row ss:AutoFitHeight="0" ss:Height="90" ss:StyleID="s169">
     <Cell><Data ss:Type="String">!QICoreProcedureNotPerformedReason</Data></Cell>
     <Cell><Data ss:Type="String">Situation codes describing the reason that a procedure which might otherwise be expected, or was started, was either not performed or not completed</Data></Cell>
-    <Cell ss:StyleID="s169"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s169"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">preferred</Data></Cell>
     <Cell><Data ss:Type="String">valueset-qicore-procedure-not-performed-reason</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30.5625" ss:StyleID="s169">
+   <Row ss:AutoFitHeight="0" ss:Height="30.5625" ss:StyleID="s170">
     <Cell ss:StyleID="s116"><Data ss:Type="String">!QICoreBodySite</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Precoordinated body sites such as 'left ear'</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s168"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/body-site</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/body-site</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s168">
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s169">
     <Cell ss:StyleID="s113"><Data ss:Type="String">!QICorePractitionerRole</Data></Cell>
     <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s169"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s169"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s169"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/practitioner-role</Data></Cell>
-    <Cell ss:StyleID="s169"/>
-    <Cell ss:StyleID="s169"/>
-    <Cell ss:StyleID="s169"/>
-    <Cell ss:StyleID="s169"/>
-    <Cell ss:StyleID="s169"/>
-    <Cell ss:StyleID="s169"/>
-    <Cell ss:StyleID="s169"/>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/practitioner-role</Data></Cell>
     <Cell ss:StyleID="s170"/>
+    <Cell ss:StyleID="s170"/>
+    <Cell ss:StyleID="s170"/>
+    <Cell ss:StyleID="s170"/>
+    <Cell ss:StyleID="s170"/>
+    <Cell ss:StyleID="s170"/>
+    <Cell ss:StyleID="s170"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"/>
