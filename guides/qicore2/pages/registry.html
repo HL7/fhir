@@ -39,9 +39,22 @@
 
 <p>
 This table contains a list of all the conformance resources 
-defined as part of the <%ig.title%>:
+defined as part of the Quality Improvement Core (QI-Core) Implementation Guide:
 </p>
-<%ig.registry ValueSet,ConceptMap,StructureDefinition,Conformance%>
+
+<table class="grid">
+	<thead>
+		<tr>
+			<th>Resource</th><th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% include table-profiles.xhtml %}
+		{% include table-extensions.xhtml %}
+		{% include table-codesystems.xhtml %}
+		{% include table-valuesets.xhtml %}
+	</tbody>
+</table>
 
 </div>
 
