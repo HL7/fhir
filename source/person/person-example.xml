@@ -68,6 +68,11 @@
     <value value="(03) 5555 6473"/>
     <use value="work"/>
   </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="Jim@example.org"/>
+    <use value="home"/>
+  </telecom>
 
   <!-- use FHIR code system for male / female -->
   <gender value="male" />

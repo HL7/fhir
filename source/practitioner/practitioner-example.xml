@@ -21,6 +21,13 @@
     <given value="Adam"/>
     <prefix value="Dr"/>
   </name>
+  <address>
+    <use value="home"/>
+    <line value="534 Erewhon St"/>
+    <city value="PleasantVille"/>
+    <state value="Vic"/>
+    <postalCode value="3999"/>
+  </address>
  <role>
   <organization>
     <reference value="Organization/f001"/>
