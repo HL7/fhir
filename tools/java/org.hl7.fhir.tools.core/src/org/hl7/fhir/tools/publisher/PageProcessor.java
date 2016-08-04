@@ -4652,6 +4652,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+produceExampleList(resource)+s3;
       else if (com[0].equals("name"))
         src = s1+name+s3;
+      else if (com[0].equals("cname"))
+        src = s1+resource.getName()+s3;
       else if (com[0].equals("search"))
         src = s1+getSearch(resource)+s3;
       else if (com[0].equals("asearch"))
