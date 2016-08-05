@@ -8,7 +8,7 @@
     -   a fixed `DiagnosticReport.category.coding.system`= "http://hl7.org/fhir/DiagnosticReport-category”
     -   a fixed `DiagnosticReport.category.coding.code`= "LAB"
 1.  One code in `DiagnosticReport.code` which has an [extensible](http://hl7-fhir.github.io/terminologies.html#extensible) binding to:
-    -   [US Laboratory Observation Profile Observation Name Codes]
+    -   [LOINC Diagnostic Report Codes]
     -   Other additional codes are allowed - e.g. system specific codes. All codes *SHALL* have an system value
 1.  One or more `DiagnosticReport.result`
     -   `DiagnosticReport.result.reference` reference the [Observation] resources that are part of this report.
@@ -18,4 +18,4 @@
 
 [DiagnosticReportStatus]: http://hl7-fhir.github.io/valueset-diagnostic-report-status.html
 [Observation]: http://hl7-fhir.github.io/observation.html
-[US Laboratory Observation Profile Observation Name Codes]:/uslab-obs-codes.html
+[LOINC Diagnostic Report Codes]: http://hl7-fhir.github.io/valueset-report-codes.html
