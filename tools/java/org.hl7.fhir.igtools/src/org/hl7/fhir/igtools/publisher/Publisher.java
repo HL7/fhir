@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.LoggingMXBean;
 import java.util.zip.ZipEntry;
@@ -61,6 +62,7 @@ import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.ExpansionProfile;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
@@ -494,6 +496,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     context.setExpandCodesLimit(1000);
     log("Connect to Terminology Server at "+txServer);
     Utilities.createDirectory(vsCache);
+    context.setExpansionProfile(makeExpProfile());
     context.initTS(vsCache, txServer);
     context.connectToTSServer(txServer);
     if (clearCache) {
@@ -531,6 +534,14 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (regenlist != null)
       for (JsonElement regen : regenlist)
         regenList.add(((JsonPrimitive) regen).getAsString());
+  }
+
+  private ExpansionProfile makeExpProfile() {
+    ExpansionProfile ep  = new ExpansionProfile();
+    ep.setId("dc8fd4bc-091a-424a-8a3b-6198ef146891"); // change this to blow the cache
+    ep.setUrl("http://hl7.org/fhir/ExpansionProfile/"+ep.getId());
+    // all defaults....
+    return ep;
   }
 
   private void loadIg(JsonObject dep) throws Exception {
@@ -1749,7 +1760,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     } else {
       for (FetchedResource r : f.getResources()) {
         try {
-          log("Produce "+r.getElement().fhirType()+"/"+r.getId());
+          dlog("Produce outputs for "+r.getElement().fhirType()+"/"+r.getId());
           Map<String, String> vars = makeVars(r);
           saveDirectResourceOutputs(f, r, vars);
 
@@ -2011,11 +2022,20 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (igpkp.wantGen(r, "shex")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-shex", "yet to be done: shex as html", f.getOutputNames());
 
-    // todo : generate schematron itself
+    if (igpkp.wantGen(r, ".sch")) {
+      String path = Utilities.path(tempDir, r.getId()+".sch");
+      f.getOutputNames().add(path);
+      new ProfileUtilities(context, errors, igpkp).generateSchematrons(new FileOutputStream(path), sd);
+    }    
     if (igpkp.wantGen(r, "sch")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-sch", "yet to be done: schematron as html", f.getOutputNames());
 
-    // todo : generate json schema itself
+    // todo : generate json schema itself. JSON Schema generator 
+//    if (igpkp.wantGen(r, ".schema.json")) {
+//      String path = Utilities.path(tempDir, r.getId()+".sch");
+//      f.getOutputNames().add(path);
+//      new ProfileUtilities(context, errors, igpkp).generateSchematrons(new FileOutputStream(path), sd);
+//    }    
     if (igpkp.wantGen(r, "json-schema")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-json-schema", "yet to be done: json schema as html", f.getOutputNames());
 

@@ -146,6 +146,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
           return loadFromCache(vs.copy(), cacheFn);
       }
       if (cacheOk && vs.hasUrl()) {
+        if (expProfile == null)
+          throw new Exception("No ExpansionProfile provided");
         ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs, expProfile.setExcludeNested(!heirarchical));
         if (vse.getValueset() != null) {
           if (cache != null) {

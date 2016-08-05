@@ -10,6 +10,7 @@
 		"temp": "temp",
 		"output": "output",
 		"qa": "qa",
+    "txCache" : "txCache",
 		"specification": "http://hl7-fhir.github.io/"
 	},
 	"defaults": {
