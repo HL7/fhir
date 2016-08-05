@@ -9,5 +9,5 @@
     -  CarePlan.participant.role is bound to the [CareTeam Provider Role
 Value Set] value set.
 
- [CareTeamStatus]: valueset-daf-core-careteam-status
+ [CareTeamStatus]: valueset-daf-careteam-status.html
  [CareTeam Provider Role Value Set]: valueset-daf-core-careteam-provider-roles.html
