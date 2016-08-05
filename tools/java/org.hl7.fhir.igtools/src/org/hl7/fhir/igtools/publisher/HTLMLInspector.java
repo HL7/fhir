@@ -116,7 +116,7 @@ public class HTLMLInspector {
   private List<String> manual = new ArrayList<String>(); // pages that will be provided manually when published, so allowed to be broken links
 
   public HTLMLInspector(String rootFolder, List<SpecMapManager> specs) {
-    this.rootFolder = rootFolder;    
+    this.rootFolder = rootFolder.replace("/", File.separator);
     this.specs = specs;
   }
 

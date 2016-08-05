@@ -1,2 +1,2 @@
-java -jar tools/org.hl7.fhir.igpublisher.jar
+java -jar temp/org.hl7.fhir.igpublisher.jar
 pause

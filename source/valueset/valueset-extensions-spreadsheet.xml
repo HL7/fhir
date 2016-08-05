@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13524</WindowHeight>
-  <WindowWidth>30720</WindowWidth>
+  <WindowHeight>5628</WindowHeight>
+  <WindowWidth>11844</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>4</ActiveSheet>
@@ -4298,7 +4298,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R35C24"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="37" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="38" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s84" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:Width="227.39999999999998"/>
    <Column ss:StyleID="s84" ss:Width="51"/>
@@ -5589,6 +5589,17 @@
     <Cell ss:Index="14"><Data ss:Type="String">Extra warning about the correct use of the value set</Data></Cell>
     <Cell><Data ss:Type="String">An extra warning about the correct use of the value set </Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">system</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">ValueSet.compose.include.system</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Reference(CodeSystem)</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Code system resource</Data></Cell>
+    <Cell><Data ss:Type="String">Allows a direct reference to the code system for FHIR query</Data></Cell>
+    <Cell><Data ss:Type="String">Also allows contained code systems to be officially &quot;referenced&quot;</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -5606,9 +5617,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>26</TopRowBottomPane>
+   <TopRowBottomPane>28</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>12</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5616,7 +5627,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -5624,7 +5634,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>30</ActiveRow>
+     <ActiveRow>37</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
