@@ -51,8 +51,11 @@
 	},
 	"canonicalBase": "</xsl:text>
     <xsl:value-of select="url/@value"/>
-    <xsl:text>",
-	"extraTemplates": ["mappings", "examples", "profile-xml", "profile-json"],
+    <xsl:text>",&#xa;	</xsl:text>
+    <xsl:for-each select="extension[@url='http://hl7.org/fhir/tools-ig-publish-dependencies']">
+      <xsl:value-of select="concat('&quot;dependencyList&quot;: ', valueString/@value, ',&#xa;  ')"/>
+    </xsl:for-each>
+    <xsl:text>"extraTemplates": ["mappings", "examples", "profile-xml", "profile-json"],
 	"source": "</xsl:text>
 	  <xsl:value-of select="id/@value"/>
 	  <xsl:text>.xml",

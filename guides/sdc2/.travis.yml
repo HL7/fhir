@@ -1,5 +1,5 @@
 language: ruby
 jdk: oraclejdk8
 rvm: 2.2
-install: gem install jekyll
-install: ant -buildfile framework/build.xml travis-publish-ig
+before_install: gem install jekyll
+script: ant -buildfile framework/build.xml travis-publish-ig -Dguidename=sdc -Dspec=http://hl7-fhir.github.io/

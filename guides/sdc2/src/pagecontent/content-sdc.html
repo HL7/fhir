@@ -15,7 +15,7 @@ Support pre-population and auto-population of EHR data into forms/questionnaires
 </ul>
 <p>
 A third component - defining standards for the sharing of common data element definitions between registries to enable broader and more consistent data element use is addressed in a
-<a href="{{site.data.fhir.path}}sdcde/sdcde.html">second companion implementation guide</a>.
+<a href="{{site.data.fhir.sdcde}}/sdcde.html">second companion implementation guide</a>.
 </p>
 <p>
 This implementation guide is prepared as a U.S. Realm Specification on behalf of the 
@@ -142,7 +142,7 @@ automatically.  Finally, the form filler submits the form to one or more target 
 <p>
 The pre-population process (done by the Form Manager) and the auto-population process (done by the Form Filler itself) can be done by
 a variety of means.  If using data elements referenced directly within the questionnaire or mapped via <a href="{{site.data.fhir.path}}conceptmap.html">ConceptMap</a>,
-those may need to be retrieved from a <a href="{{site.data.fhir.path}}sdcde/conformance-sdc-de-registry.html"> Data Element Registry</a> in order to look
+those may need to be retrieved from a <a href="{{site.data.fhir.sdcde}}/conformance-sdc-de-registry.html"> Data Element Registry</a> in order to look
 up what mappings the data element has to other resources.
 </p>
 
@@ -164,8 +164,8 @@ must adhere to the requirements defined by at least one of these statements.  So
 </ul>
 <p>
 In addition to the above, there's another relevant role:<br/>
-When looking up data elements, the <i>SDC Form Designer</i> will communicate use of the <a href="{{site.data.fhir.path}}sdcde/conformance-sdc-de-registry.html">SDC Data Element Registry</a>,
-which is defined in the <a href="{{site.data.fhir.path}}sdcde/sdcde.html">SDC Data Element Exchange</a> implementation guide.
+When looking up data elements, the <i>SDC Form Designer</i> will communicate use of the <a href="{{site.data.fhir.sdcde}}/conformance-sdc-de-registry.html">SDC Data Element Registry</a>,
+which is defined in the <a href="{{site.data.fhir.sdcde}}/sdcde.html">SDC Data Element Exchange</a> implementation guide.
 </p>
 <p>
 A summary of how these roles interact can be seen in Figure 2 and Figure 3 below:
