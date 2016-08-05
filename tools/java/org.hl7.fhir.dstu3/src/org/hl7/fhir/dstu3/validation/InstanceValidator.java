@@ -124,6 +124,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private long loadTime = 0;
   private long fpeTime = 0;
 
+  private boolean noBindingMsgSuppressed;
+
 
   public InstanceValidator(IWorkerContext theContext) {
     super();
@@ -948,7 +950,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "The value provided ('"+value+"') is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code is recommended to come from this value set)");
         }
       }
-    } else
+    } else if (!noBindingMsgSuppressed)
       hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, !type.equals("code"), "Binding has no source, so can't be checked");
   }
 
@@ -2646,4 +2648,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     fpeTime = 0;
     return s;
   }
+
+  public boolean isNoBindingMsgSuppressed() {
+    return noBindingMsgSuppressed;
+  }
+
+  public void setNoBindingMsgSuppressed(boolean noBindingMsgSuppressed) {
+    this.noBindingMsgSuppressed = noBindingMsgSuppressed;
+  }
+  
+  
 }

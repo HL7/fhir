@@ -62,6 +62,9 @@ public interface IResourceValidator {
   BestPracticeWarningLevel getBasePracticeWarningLevel();
   void setBestPracticeWarningLevel(BestPracticeWarningLevel value);
   
+  boolean isNoBindingMsgSuppressed();
+  void setNoBindingMsgSuppressed(boolean noBindingMsgSuppressed);
+  
   /** 
    * Validate suite
    *

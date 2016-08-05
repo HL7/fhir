@@ -2038,6 +2038,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
 
   private void inject(DomainResource r, XhtmlNode x, NarrativeStatus status) {
+    if (!x.hasAttribute("xmlns"))
+      x.setAttribute("xmlns", "http://www.w3.org/1999/xhtml");
     if (!r.hasText() || !r.getText().hasDiv() || r.getText().getDiv().getChildNodes().isEmpty()) {
       r.setText(new Narrative());
       r.getText().setDiv(x);
@@ -2058,6 +2060,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
 
   private void inject(Element er, XhtmlNode x, NarrativeStatus status) {
+    if (!x.hasAttribute("xmlns"))
+      x.setAttribute("xmlns", "http://www.w3.org/1999/xhtml");
     Element txt = XMLUtil.getNamedChild(er, "text");
     if (txt == null) {
       txt = er.getOwnerDocument().createElementNS(FormatUtilities.FHIR_NS, "text");
@@ -2091,6 +2095,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   private void inject(org.hl7.fhir.dstu3.elementmodel.Element er, XhtmlNode x, NarrativeStatus status) throws DefinitionException, IOException {
+    if (!x.hasAttribute("xmlns"))
+      x.setAttribute("xmlns", "http://www.w3.org/1999/xhtml");
     org.hl7.fhir.dstu3.elementmodel.Element txt = er.getNamedChild("text");
     if (txt == null) {
       txt = new org.hl7.fhir.dstu3.elementmodel.Element("text", er.getProperty().getChild(null, "text"));
