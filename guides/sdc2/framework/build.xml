@@ -45,6 +45,7 @@
     <delete dir="${dir.pages}"/>
     <delete dir="${dir.qa}"/>
     <delete dir="${dir.temp}"/>
+    <delete file="${dir.alltemp}/${guidename}.json"/>
     <mkdir dir="${dir.alltemp}"/>
     <mkdir dir="${dir.imports}"/>
     <mkdir dir="${dir.ivy}"/>
