@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Composition xmlns="http://hl7.org/fhir">
+    <id value = "composition-diagnostic-imaging-example"/>
     <meta>
         <versionId value="1"/>    
         <lastUpdated value="2016-06-15T08:16:14Z"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/ccda-referral-note-composition"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/ccda-ccd-composition"/>
     </meta>
     <text>
         <status value="generated"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
-            <p>Referral Note document for Henry Jones</p>
+            <p>History and Physical document for Henry Jones</p>
             <p>Managed by Community Health and Hospitals</p>
         </div>
     </text>
@@ -31,18 +32,18 @@
         <valueUri value="http://hl7.org/fhir/StructureDefinition/ccda-consent"/>
     </extension>
     <identifier>
-        <system value="http://hl7.org/fhir/StructureDefinition/ccda-referral-note-composition"/>
+        <system value="http://hl7.org/fhir/StructureDefinition/ccda-history-and-physical-composition"/>
         <value value="1"/>
     </identifier>
-    <date value="2016-03-22T09:10:14Z"/>
+    <date value="2016-02-28T09:10:14Z"/>
     <type>
         <coding>
             <system value="http://loinc.org"/>
-            <code value="57133-1"/>
-            <display value="Referral Note"/>
+            <code value="34117-2"/>
+            <display value="History and Physical Note"/>
         </coding>
     </type>
-    <title value="Referral Note"/>
+    <title value="History and Physical"/>
     <status value="preliminary"/>
     <confidentiality value="N"/>
     <!--  Patient Resource -->
@@ -63,7 +64,7 @@
             <display value="Adam Everyman, MD"/>
         </party>
     </attester>
-    <!--  Observation Resource -->
+    <!--  Organization Resource -->
     <custodian>
         <reference value="http://fhirtest.uhn.ca/baseDstu3/Organization/117471"/>
         <display value="Community Health and Hospitals"/>
@@ -134,40 +135,10 @@
                 <display value="Sorted by Event Date"/>
             </coding>
         </orderedBy>
-        <!--  Allergies and Intolerance Section Resource-->
+        <!--  Allergies and Intolerances Section Resource -->
         <entry>
             <reference value="http://fhirtest.uhn.ca/baseDstu3/AllergyIntolerance/117632"/>
         </entry>
-    </section>
-    <!--  Advance Directives Section Narrative -->
-    <section>
-        <title value="Advance Directives Section"/>
-        <code>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="42348-3"/>
-                <display value="Advance directives"/>
-            </coding>
-        </code>
-        <text>
-            <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <table>
-                    <tr>
-                        <td>
-                            <b>Name</b>
-                        </td>
-                        <td>
-                            <b>Applies Period</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Resuscitation</td>
-                        <td>2015/01/01 - 2016/12/31</td>
-                    </tr>
-                </table>
-            </div>
-        </text>
     </section>
     <!--  Assessment Section Narrative -->
     <section>
@@ -208,6 +179,40 @@
                 <p>Azotemia, acute renal failure with volume loss secondary tom#1.</p>
                 <p>Hyperkalemia secondary to #3 and on ACE and K+ supplement.</p>
                 <p>Other chronic diagnoses as noted above, currently stable.</p>
+            </div>
+        </text>
+    </section>
+    <!--  Chief Complaint and Reason for Visit Section Narrative -->
+    <section>
+        <title value="Chief Complaint and Reason for Visit Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="46239-0"/>
+                <display value="Chief complaint and reason for visit"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <p>Cramping, bloating, and constipation.</p>
+            </div>
+        </text>
+    </section>
+    <!--  Chief Complaint Section Narrative -->
+    <section>
+        <title value="Chief Complaint Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="10154-3"/>
+                <display value="Chief complaint"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <p>Dark Stools</p>
             </div>
         </text>
     </section>
@@ -254,6 +259,23 @@
             <reference value="http://fhirtest.uhn.ca/baseDstu3/FamilyMemberHistory/117652"/>
         </entry>
     </section>
+    <!--  General Status Section Narrative -->
+    <section>
+        <title value=" General Status Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="10210-3"/>
+                <display value="Physical findings of General status"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <p>Alert and in good spirits, no acute distress.</p>
+            </div>
+        </text>
+    </section>
     <!--  History of Past Illness Section Narrative -->
     <section>
         <title value="History of Past Illness Section"/>
@@ -267,9 +289,38 @@
         <text>
             <status value="generated"/>
             <div xmlns="http://www.w3.org/1999/xhtml">
-                <p>See History of Present Illness</p>
+                <table>
+                    <tr>
+                        <td>
+                            <b>Problem Name</b>
+                        </td>
+                        <td>
+                            <b>Type</b>
+                        </td>
+                        <td>
+                            <b>Onset Date</b>
+                        </td>
+                        <td>
+                            <b>Abatement Date</b>
+                        </td>
+                        <td>
+                            <b>Status</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Fever</td>
+                        <td>Condition</td>
+                        <td>2016-04-01</td>
+                        <td>2016-04-14</td>
+                        <td>Complete</td>
+                    </tr>
+                </table>
             </div>
         </text>
+        <!--  History of Past Illness Section Condition Resource-->
+        <entry>
+            <reference value="http://fhirtest.uhn.ca/baseDstu3/Condition/117648"/>
+        </entry>
     </section>
     <!--  History of Present Illness Section Narrative -->
     <section>
@@ -296,168 +347,7 @@
             </div>
         </text>
     </section>
-    <!--  Social History Section Narrative -->
-    <section>
-        <title value="Social History Section"/>
-        <code>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="29762-2"/>
-                <display value="Social history"/>
-            </coding>
-        </code>
-        <text>
-            <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <table>
-                    <tr>
-                        <td>
-                            <b>Social History Element</b>
-                        </td>
-                        <td>
-                            <b>Description</b>
-                        </td>
-                        <td>
-                            <b>Effective Dates</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Smoking</td>
-                        <td>1 pack tobacco per day</td>
-                        <td>2005/05/01 - 2010/02/28</td>
-                    </tr>
-                </table>
-            </div>
-        </text>
-        <!--  Social History Section Observation Resource -->
-        <entry>
-            <reference value="http://fhirtest.uhn.ca/baseDstu3/Observation/117688"/>
-        </entry>
-    </section>
-    <!--  General Status Section Narrative -->
-    <section>
-        <title value=" General Status Section"/>
-        <code>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="10210-3"/>
-                <display value="Physical findings of General status"/>
-            </coding>
-        </code>
-        <text>
-            <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <p>Alert and in good spirits, no acute distress.</p>
-            </div>
-        </text>
-    </section>
-    <!--  Functional Status Section Narrative -->
-    <section>
-        <title value="Functional Status Section"/>
-        <code>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="47420-5"/>
-                <display value="Functional status"/>
-            </coding>
-        </code>
-        <text>
-            <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <table>
-                    <tr>
-                        <td>
-                            <b>Functional or Cognitive Finding</b>
-                        </td>
-                        <td>
-                            <b>Observation</b>
-                        </td>
-                        <td>
-                            <b>Observation Date</b>
-                        </td>
-                        <td>
-                            <b>Condition Status</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Ambulation (Dependent to Independent</td>
-                        <td>Independently able</td>
-                        <td>2010/03/11</td>
-                        <td>Active</td>
-                    </tr>
-                    <tr>
-                        <td>Finding of Functional Performance and Activity</td>
-                        <td>Dyspnea</td>
-                        <td>2008/02/16</td>
-                        <td>Active</td>
-                    </tr>
-                    <tr>
-                        <td>Cognitive Function Finding</td>
-                        <td>Memory Impairment</td>
-                        <td>2014/04/29</td>
-                        <td>Active</td>
-                    </tr>
-                </table>
-            </div>
-        </text>
-    </section>
-    <!--  Mental Status Section Narrative -->
-    <section>
-        <title value="Mental Status Section"/>
-        <code>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="10190-7"/>
-                <display value="Mental status"/>
-            </coding>
-        </code>
-        <text>
-            <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <table border="1" width="100%">
-                    <thead>
-                        <tr>
-                            <td>
-                                <b>Mental Status Findings</b>
-                            </td>
-                            <td>
-                                <b>Effective Dates</b>
-                            </td>
-                            <td>
-                                <b>Condition Status</b>
-                            </td>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>Mental Function</td>
-                        <td>July 31, 2013</td>
-                        <td>Impaired</td>
-                    </tr>
-                    <tr>
-                        <td>Cognitive Abilities</td>
-                        <td>July 31, 2013</td>
-                        <td>Judgement, Intact</td>
-                    </tr>
-                    <tr>
-                        <td>Cognitive Function</td>
-                        <td>July 31, 2013</td>
-                        <td>Aggressive Behavior</td>
-                    </tr>
-                    <tr>
-                        <td>Cognitive Function</td>
-                        <td>July 31, 2013</td>
-                        <td>Difficulty understanding own emotions</td>
-                    </tr>
-                    <tr>
-                        <td>Cognitive Function</td>
-                        <td>July 31, 2013</td>
-                        <td>Difficulty communicating Thoughts </td>
-                    </tr>
-                </table>
-            </div>
-        </text>
-    </section>
-    <!--  Immunization Section Narrative -->
+    <!--  Immunizations Section Narrative -->
     <section>
         <title value="Immunizations Section"/>
         <code>
@@ -495,100 +385,20 @@
             <reference value="http://fhirtest.uhn.ca/baseDstu3/Immunization/117678"/>
         </entry>
     </section>
-    <!--  Nutrition Section Narrative -->
+    <!--  Instructions Section Narrative -->
     <section>
-        <title value=" Nutrition Section"/>
+        <title value="Instructions Section"/>
         <code>
             <coding>
                 <system value="http://loinc.org"/>
-                <code value="61144-2"/>
-                <display value="Diet and nutrition"/>
+                <code value="69730-0"/>
+                <display value=" Instructions"/>
             </coding>
         </code>
         <text>
             <status value="generated"/>
             <div xmlns="http://www.w3.org/1999/xhtml">
-                <table>
-                    <tr>
-                        <td>
-                            <b>Date</b>
-                        </td>
-                        <td>
-                            <b>Nutritional Status</b>
-                        </td>
-                        <td>
-                            <b>Diet</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2005/12/29</td>
-                        <td>Well nourished</td>
-                        <td>Low sodium diet, excessive carbohydrate</td>
-                    </tr>
-                    <tr>
-                        <td>2010/05/26</td>
-                        <td>Slight dehydration</td>
-                        <td>High protein, low fibre</td>
-                    </tr>
-                </table>
-            </div>
-        </text>
-    </section>
-    <!--  Reason for Referral Section Narrative -->
-    <section>
-        <title value="Reason for Referral Section"/>
-        <code>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="42349-1"/>
-                <display value="Reason for Referral"/>
-            </coding>
-        </code>
-        <text>
-            <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <p>Colonoscopy</p>
-            </div>
-        </text>
-    </section>
-    <!--  Physical Exam Section Narrative -->
-    <section>
-        <title value="Physical Exam Section"/>
-        <code>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="29545-1"/>
-                <display value="Physical findings"/>
-            </coding>
-        </code>
-        <text>
-            <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <p>HEENT: All normal to examination.</p>
-                <p>>HEART: RRR, no murmur.</p>
-                <p>THORAX &amp; LUNGS: Clear without rhonchi or wheeze.</p>
-                <p>ABDOMEN: Marked distension and tenderness, slightly obese, pos bowelsounds.</p>
-                <p>BACK: Normal to inspection and palpation, without tenderness; no presacral edema.</p>
-                <p>EXTREMITIES: Doughy edema bilaterally, chronic stasis changes, no asymmetrical swelling.</p>
-            </div>
-        </text>
-    </section>
-    <!--  Review of Systems Section Narrative -->
-    <section>
-        <title value="Review of Systems Section"/>
-        <code>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="10187-3"/>
-                <display value="Review of systems"/>
-            </coding>
-        </code>
-        <text>
-            <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <p>Patient denies recent history of fever or malaise. Positive for weakness and
-                    shortness of breath. Several episodes of abdominal tenderness. No recent headaches. 
-                    Positive for osteoarthritis in hips, knees and hands. </p>
+                <p>Patient may have low grade fever, mild joint pain and injection area tenderness.</p>
             </div>
         </text>
     </section>
@@ -642,37 +452,25 @@
             <reference value="http://fhirtest.uhn.ca/baseDstu3/Medication/117679"/>
         </entry>
     </section>
-    <!--  Medical Equipment Section Narrative -->
+    <!--  Physical Exam Section Narrative -->
     <section>
-        <title value="Medical Equipment Section"/>
+        <title value="Physical Exam Section"/>
         <code>
             <coding>
                 <system value="http://loinc.org"/>
-                <code value="46264-8"/>
-                <display value="Medical equipment"/>
+                <code value="29545-1"/>
+                <display value="Physical findings"/>
             </coding>
         </code>
         <text>
             <status value="generated"/>
             <div xmlns="http://www.w3.org/1999/xhtml">
-                <table>
-                    <tr>
-                        <td>
-                            <b>Supply/Device</b>
-                        </td>
-                        <td>
-                            <b>Date Supplied</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Automatic Implantable cardioverter/defbrillator</td>
-                        <td>2008/11/16</td>
-                    </tr>
-                    <tr>
-                        <td>Wheelchair</td>
-                        <td>1999/12/01</td>
-                    </tr>
-                </table>
+                <p>HEENT: All normal to examination.</p>
+                <p>>HEART: RRR, no murmur.</p>
+                <p>THORAX &amp; LUNGS: Clear without rhonchi or wheeze.</p>
+                <p>ABDOMEN: Marked distension and tenderness, slightly obese, pos bowelsounds.</p>
+                <p>BACK: Normal to inspection and palpation, without tenderness; no presacral edema.</p>
+                <p>EXTREMITIES: Doughy edema bilaterally, chronic stasis changes, no asymmetrical swelling.</p>
             </div>
         </text>
     </section>
@@ -807,6 +605,23 @@
             <reference value="http://fhirtest.uhn.ca/baseDstu3/Procedure/117687"/>
         </entry>
     </section>
+    <!--  Reason for Visit Section Narrative -->
+    <section>
+        <title value="Reason for Visit Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="29299-5"/>
+                <display value="Reason for visit"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <p>Tenderness of lower abdomen</p>
+            </div>
+        </text>
+    </section>
     <!--  Results Section Narrative -->
     <section>
         <title value="Results Section"/>
@@ -844,9 +659,66 @@
                 </table>
             </div>
         </text>
-        <!--  Results Section Observation Resource -->
+        <!--  Result Section Observation Resource -->
         <entry>
             <reference value="http://fhirtest.uhn.ca/baseDstu3/Observation/117685"/>
+        </entry>
+    </section>
+    <!--  Review of Systems Section Narrative -->
+    <section>
+        <title value="Review of Systems Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="10187-3"/>
+                <display value="Review of systems"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <p>Patient denies recent history of fever or malaise. Positive for weakness and
+                   shortness of breath. Several episodes of abdominal tenderness. No recent headaches. 
+                   Positive for osteoarthritis in hips, knees and hands. </p>
+            </div>
+        </text>
+    </section>
+    <!--  Social History Section Narrative -->
+    <section>
+        <title value="Social History Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="29762-2"/>
+                <display value="Social history"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Social History Element</b>
+                        </td>
+                        <td>
+                            <b>Description</b>
+                        </td>
+                        <td>
+                            <b>Effective Dates</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Smoking</td>
+                        <td>1 pack tobacco per day</td>
+                        <td>2005/05/01 - 2010/02/28</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+        <!--  Social History Section Observation Resource -->
+        <entry>
+            <reference value="http://fhirtest.uhn.ca/baseDstu3/Observation/117688"/>
         </entry>
     </section>
     <!--  Vital Signs Section Narrative -->

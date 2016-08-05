@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Composition xmlns="http://hl7.org/fhir">
+    <id value = "composition-operative-note-example"/>
     <meta>
         <versionId value="1"/>    
         <lastUpdated value="2016-06-15T08:16:14Z"/>
