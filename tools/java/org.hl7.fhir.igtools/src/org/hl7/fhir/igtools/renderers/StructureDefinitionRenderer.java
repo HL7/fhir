@@ -448,6 +448,11 @@ public class StructureDefinitionRenderer extends BaseRenderer {
             }
           }
         }
+        if (ec.hasBase() && ec.getBase().getPath().endsWith("[x]") && !ec.getPath().endsWith("[x]")) {
+          String bt = tail(ec.getBase().getPath());
+          String th = nottail(name);
+          b.append("<a name=\""+th+"."+bt+"\"> </a>");
+        }
         b.append("<b>"+title+"</b></td></tr>\r\n");
         generateElementInner(b, sd, ec, 1, null);
         if (ec.hasSlicing())
@@ -559,9 +564,23 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         b.append("  <tr><td>"+name+"</td><td>"+value+"</td></tr>\r\n");
   }
 
-  private String tail(String path) {
+  private String head(String path) {
     if (path.contains("."))
       return path.substring(0, path.indexOf("."));
+    else
+      return path;
+  }
+
+  private String tail(String path) {
+    if (path.contains("."))
+      return path.substring(path.lastIndexOf(".")+1);
+    else
+      return path;
+  }
+
+  private String nottail(String path) {
+    if (path.contains("."))
+      return path.substring(0, path.lastIndexOf("."));
     else
       return path;
   }
