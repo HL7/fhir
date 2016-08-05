@@ -1044,6 +1044,18 @@ public class IgSpreadsheetParser {
       row++;
     }
     ex.getDifferential().getElementFirstRep().getType().clear();
+    if (ex.getDifferential().getElementFirstRep().hasRequirements()) {
+      ex.setRequirements(ex.getDifferential().getElementFirstRep().getRequirements());
+      ex.getDifferential().getElementFirstRep().setRequirements(null);
+    }
+    if (ex.getDifferential().getElementFirstRep().hasLabel()) {
+      ex.setDisplay(ex.getDifferential().getElementFirstRep().getLabel());
+      ex.getDifferential().getElementFirstRep().setLabel(null);
+    }
+    if (ex.getDifferential().getElementFirstRep().hasCode()) {
+      ex.getCode().addAll(ex.getDifferential().getElementFirstRep().getCode());
+      ex.getDifferential().getElementFirstRep().getCode().clear();
+    }
     
     StructureDefinition base = this.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Extension");
     List<String> errors = new ArrayList<String>();

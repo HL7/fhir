@@ -2357,10 +2357,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         }
         if (!ok) {
           ok = fpe.evaluateToBoolean(resource, element, n);
+          if (!Utilities.noString(msg))
+            msg = " ("+msg+")";
           if (inv.getSeverity() == ConstraintSeverity.ERROR)
-            rule(errors, IssueType.INVARIANT, element.line(), element.col(), path, ok, inv.getHuman()+" ("+msg+") ["+inv.getExpression()+"]");
+            rule(errors, IssueType.INVARIANT, element.line(), element.col(), path, ok, inv.getHuman()+msg+" ["+inv.getExpression()+"]");
           else if (inv.getSeverity() == ConstraintSeverity.WARNING)
-            warning(errors, IssueType.INVARIANT, element.line(), element.line(), path, ok, inv.getHuman()+" ("+msg+") ["+inv.getExpression()+"]");
+            warning(errors, IssueType.INVARIANT, element.line(), element.line(), path, ok, inv.getHuman()+msg+" ["+inv.getExpression()+"]");
         }
       }
     }

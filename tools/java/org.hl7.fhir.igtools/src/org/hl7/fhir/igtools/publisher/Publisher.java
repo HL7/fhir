@@ -1022,7 +1022,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       FetchedResource r = file.addResource();
       String id = e.getChildValue("id");
       if (Utilities.noString(id))
-        throw new Exception("Resource has no id in "+file.getName());
+        throw new Exception("Resource has no id in "+file.getPath());
       r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
       Element m = e.getNamedChild("meta");
       if (m != null) {
@@ -1228,7 +1228,11 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void validate(FetchedFile file, FetchedResource r) throws Exception {
-    validator.validate(file.getErrors(), r.getElement());
+    List<ValidationMessage> errs = new ArrayList<ValidationMessage>();
+    validator.validate(errs, r.getElement());
+    for (ValidationMessage vm : errs) {
+      file.getErrors().add(vm.setLocation(r.getElement().fhirType()+"/"+r.getId()+": "+vm.getLocation()));
+    }
     r.setValidated(true);
     if (r.getConfig() == null)
       igpkp.findConfiguration(file, r);
