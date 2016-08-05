@@ -24,7 +24,6 @@ public class DefinitionsUsageTracker {
     if (rd != null) {
       usage(ex, rd.getRoot());
     }
-    
   }
 
   private void usage(Element instance, ElementDefn definition) {

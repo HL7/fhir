@@ -25,8 +25,10 @@ public class SpecMapManager {
   private JsonObject paths;
   private JsonObject pages;
   private JsonArray targets;
+  private JsonArray images;
   private String base;
   private Set<String> targetSet = new HashSet<String>();
+  private Set<String> imageSet = new HashSet<String>();
 
   public SpecMapManager(String version, String svnRevision, Calendar genDate) {
     spec = new JsonObject();
@@ -39,6 +41,8 @@ public class SpecMapManager {
     spec.add("pages", pages);
     targets = new JsonArray();
     spec.add("targets", targets);
+    images = new JsonArray();
+    spec.add("images", images);
   }
 
   public SpecMapManager(byte[] bytes) throws JsonSyntaxException, IOException {
@@ -46,9 +50,14 @@ public class SpecMapManager {
     paths = spec.getAsJsonObject("paths");
     pages = spec.getAsJsonObject("pages");
     targets = spec.getAsJsonArray("targets");
+    images = spec.getAsJsonArray("images");
     if (targets != null)
       for (JsonElement e : targets) {
         targetSet.add(((JsonPrimitive) e).getAsString());
+    }
+    if (images != null)
+      for (JsonElement e : images) {
+        imageSet.add(((JsonPrimitive) e).getAsString());
     }
   }
 
@@ -115,11 +124,20 @@ public class SpecMapManager {
     }
   }
   
+  public void image(String tgt) {
+    if (!imageSet.contains(tgt)) {
+      imageSet.add(tgt);
+      images.add(new JsonPrimitive(tgt));
+    }
+  }
+  
   public boolean hasTarget(String tgt) {
     if (tgt.startsWith(base+"/"))
       tgt = tgt.substring(base.length()+1);
     else if (tgt.startsWith(base))
       tgt = tgt.substring(base.length());
+    else
+      return false;
     if (targetSet.contains(tgt))
       return true;
     if (Utilities.existsInList(tgt, "qa.html", "toc.html"))
@@ -130,4 +148,17 @@ public class SpecMapManager {
       return true;
     return false;  
   }
+
+  public boolean hasImage(String tgt) {
+    if (tgt.startsWith(base+"/"))
+      tgt = tgt.substring(base.length()+1);
+    else if (tgt.startsWith(base))
+      tgt = tgt.substring(base.length());
+    else
+      return false;
+    if (imageSet.contains(tgt))
+      return true;
+    return false;  
+  }
+
 }

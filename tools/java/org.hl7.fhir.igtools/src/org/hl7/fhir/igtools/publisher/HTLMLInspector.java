@@ -113,6 +113,7 @@ public class HTLMLInspector {
   private int iteration = 0;
   private List<StringPair> otherlinks = new ArrayList<StringPair>();
   private int links;
+  private List<String> manual = new ArrayList<String>(); // pages that will be provided manually when published, so allowed to be broken links
 
   public HTLMLInspector(String rootFolder, List<SpecMapManager> specs) {
     this.rootFolder = rootFolder;    
@@ -239,6 +240,8 @@ public class HTLMLInspector {
       path = path + "/"+ x.getName();
     if ("a".equals(x.getName()) && x.hasAttribute("href"))
       checkResolveLink(s, x.getLocation(), path, x.getAttribute("href"), messages);
+    if ("img".equals(x.getName()) && x.hasAttribute("src"))
+      checkResolveImageLink(s, x.getLocation(), path, x.getAttribute("src"), messages);
     if ("link".equals(x.getName()))
       checkLinkElement(s, x.getLocation(), path, x.getAttribute("href"), messages);
     if ("script".equals(x.getName()))
@@ -262,6 +265,8 @@ public class HTLMLInspector {
     links++;
     String tgtList = "";
     boolean resolved = Utilities.existsInList(ref, "http://hl7.org/fhir", "http://hl7.org", "http://www.hl7.org", "http://hl7.org/fhir/search.cfm") || ref.startsWith("http://gforge.hl7.org/gf/project/fhir/tracker/");
+    if (!resolved)
+      resolved = manual.contains(ref);
     if (!resolved && specs != null){
       for (SpecMapManager spec : specs) {
         resolved = resolved || spec.getBase().equals(ref) || (spec.getBase()+"/").equals(ref) || spec.hasTarget(ref); 
@@ -303,6 +308,37 @@ public class HTLMLInspector {
       messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, filename+(path == null ? "" : "#"+path+(loc == null ? "" : " at "+loc.toString())), "The link '"+ref+"' cannot be resolved"+tgtList, IssueSeverity.ERROR));
   }
 
+  private void checkResolveImageLink(String filename, Location loc, String path, String ref, List<ValidationMessage> messages) {
+    links++;
+    String tgtList = "";
+    boolean resolved = Utilities.existsInList(ref);
+    if (!resolved)
+      resolved = manual.contains(ref);
+    if (!resolved && specs != null){
+      for (SpecMapManager spec : specs) {
+        resolved = resolved || spec.hasImage(ref); 
+      }
+    }
+    if (!resolved) {
+      if (ref.startsWith("http://") || ref.startsWith("https://")) {
+        resolved = true;
+        if (specs != null) {
+          for (SpecMapManager spec : specs) {
+            if (ref.startsWith(spec.getBase()))
+              resolved = false;
+          }
+        }
+      } else if (!ref.contains("#")) { 
+        String page = Utilities.path(rootFolder, ref.replace("/", File.separator));
+        LoadedFile f = cache.get(page);
+        resolved = f != null;
+      }
+    }
+      
+    if (!resolved)
+      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, filename+(path == null ? "" : "#"+path+(loc == null ? "" : " at "+loc.toString())), "The image source '"+ref+"' cannot be resolved"+tgtList, IssueSeverity.ERROR));
+  }
+
   public void addLinkToCheck(String source, String link) {
     otherlinks.add(new StringPair(source, link));
     
@@ -337,6 +373,14 @@ public class HTLMLInspector {
 
   private static String checkPlural(String word, int c) {
     return c == 1 ? word : Utilities.pluralizeMe(word);
+  }
+
+  public List<String> getManual() {
+    return manual;
+  }
+
+  public void setManual(List<String> manual) {
+    this.manual = manual;
   }
 
 }

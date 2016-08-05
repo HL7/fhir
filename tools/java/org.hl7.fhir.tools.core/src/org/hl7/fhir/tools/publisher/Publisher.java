@@ -2556,7 +2556,22 @@ public class Publisher implements URIResolver, SectionNumberer {
 //    for (String url : page.getDefinitions().getMapTypes().keySet()) {
 //      spm.map(url, page.getDefinitions().getMapTypes().get(url).getPreamble());
 //    }
+    scanForImages(spm, page.getFolders().dstDir, page.getFolders().dstDir);
+    
     spm.save(page.getFolders().dstDir + "spec.internals");
+  }
+
+  private void scanForImages(SpecMapManager spm, String base, String folder) {
+    for (File f : new File(folder).listFiles()) {
+      if (f.isDirectory()) {
+        scanForImages(spm, base, f.getAbsolutePath());
+      } else {
+        String ext = f.getName().substring(f.getName().lastIndexOf("."));
+        if (Utilities.existsInList(ext, ".png", ".jpg"))
+          spm.image(f.getAbsolutePath().substring(base.length()).replace(File.separator, "/"));
+      }
+    }
+    
   }
 
   private void checkStructureDefinitions(Bundle bnd) {

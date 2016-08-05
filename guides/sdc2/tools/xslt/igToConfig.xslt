@@ -11,6 +11,7 @@
 		"output": "output",
 		"qa": "qa",
     "txCache" : "txCache",
+    "history" : "history.html",
 		"specification": "http://hl7-fhir.github.io/"
 	},
 	"defaults": {

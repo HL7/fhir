@@ -217,6 +217,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
   private byte[] xslt;
 
+  private String historyPage;
+
   public void execute(boolean clearCache) throws Exception {
     globalStart = System.nanoTime();
     initialize(clearCache);
@@ -450,7 +452,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (vsCache == null)
       vsCache = Utilities.path(System.getProperty("user.home"), "fhircache");
     else
-      vsCache = Utilities.path(root, vsCache); 
+      vsCache = Utilities.path(root, vsCache);
+      
     specPath = str(paths, "specification");
     if (configuration.has("pre-process")) {
       JsonObject pp = configuration.getAsJsonObject("pre-process");
@@ -464,6 +467,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
     igName = Utilities.path(resourceDirs.get(0), configuration.get("source").getAsString());
 
     inspector = new HTLMLInspector(outputDir, specMaps);
+    historyPage = ostr(paths, "history");
+    if (historyPage != null)
+      inspector.getManual().add(historyPage);
 
     log("Publish "+igName);
 
