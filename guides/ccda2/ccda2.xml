@@ -223,6 +223,16 @@
     </resource>
     <resource>
       <example value="true"/>
+      <name value="Example Diagnostic Imaging Report"/>
+      <description value="Example Diagnostic Imaging Report"/>
+      <acronym value="diagnostic-imaging-example"/>
+      <sourceUri value="Example/diagnostic-imaging-example.xml"/>
+      <!-- <exampleFor>
+            <reference value="http://hl7.org/fhir/StructureDefinition/ccda-diagnostic-imaging-example-composition"/>
+          </exampleFor> -->
+    </resource>
+    <resource>
+      <example value="true"/>
       <name value="Example Discharge Summary"/>
       <description value="Example Discharge Summary"/>
       <acronym value="discharge-summary-example"/>
