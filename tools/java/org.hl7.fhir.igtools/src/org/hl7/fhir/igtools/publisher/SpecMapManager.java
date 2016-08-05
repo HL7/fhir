@@ -27,6 +27,7 @@ public class SpecMapManager {
   private JsonArray targets;
   private JsonArray images;
   private String base;
+  private String name;
   private Set<String> targetSet = new HashSet<String>();
   private Set<String> imageSet = new HashSet<String>();
 
@@ -159,6 +160,14 @@ public class SpecMapManager {
     if (imageSet.contains(tgt))
       return true;
     return false;  
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
 }

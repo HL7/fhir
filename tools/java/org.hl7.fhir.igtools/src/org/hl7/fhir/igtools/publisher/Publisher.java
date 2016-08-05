@@ -559,7 +559,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
       source = location;
     log("Load "+name+" ("+location+") from "+source);
     Map<String, byte[]> files = fetchDefinitions(source);
-    SpecMapManager igm = new SpecMapManager(files.get("spec.internals")); 
+    SpecMapManager igm = new SpecMapManager(files.get("spec.internals"));
+    igm.setName(name);
     igm.setBase(location);
     specMaps.add(igm);
     if (!Constants.VERSION.equals(igm.getVersion()))
@@ -1588,6 +1589,10 @@ public class Publisher implements IWorkerContext.ILoggingService {
     data.addProperty("processedFiles", changeList.size());
     data.addProperty("genDate", genTime());
 
+    for (SpecMapManager sm : specMaps) {
+      if (sm.getName() != null)
+        data.addProperty(sm.getName(), sm.getBase());
+    }
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     String json = gson.toJson(data);
     TextFile.stringToFile(json, Utilities.path(tempDir, "_data", "fhir.json"));
