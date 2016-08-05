@@ -7,4 +7,7 @@
     </xsl:copy>
 	</xsl:template>
 	<xsl:template match="@xsi:schemaLocation|f:extension[@url='http://hl7.org/fhir/tools-profile-spreadsheet']"/>
+	<xsl:template match="fakematch">
+    <!-- This is here to avoid a warning when processing non-namespaced files -->
+	</xsl:template>
 </xsl:stylesheet>

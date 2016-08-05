@@ -1,4 +1,5 @@
-language: java
+language: ruby
 jdk: oraclejdk8
 rvm: 2.2
-install: ant TravisPublisher
+install: gem install jekyll
+install: ant -buildfile framework/build.xml travis-publish-ig

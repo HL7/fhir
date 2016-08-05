@@ -1,2 +1,2 @@
-call ant clean
+call ant -buildfile framework/build.xml clean
 pause
