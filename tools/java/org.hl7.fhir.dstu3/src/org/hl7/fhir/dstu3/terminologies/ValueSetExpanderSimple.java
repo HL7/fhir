@@ -308,6 +308,8 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     if (vs == null)
       throw new TerminologyServiceException("Unable to find imported value set "+value);
     ValueSetExpansionOutcome vso = factory.getExpander().expand(vs, profile);
+    if (vso.getError() != null)
+      throw new TerminologyServiceException("Unable to expand imported value set: "+vso.getError());
     if (vso.getService() != null)
       throw new TerminologyServiceException("Unable to expand imported value set "+value);
     if (vs.hasVersion())
