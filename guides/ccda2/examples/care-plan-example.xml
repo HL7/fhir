@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Composition xmlns="http://hl7.org/fhir">
+    <meta>
+        <versionId value="1"/>    
+        <lastUpdated value="2016-06-15T08:16:14Z"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/ccda-care-plan-composition"/>
+    </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>Care Plan document for Henry Jones</p>
+            <p>Managed by Community Health and Hospitals</p>
+        </div>
+    </text>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-data-enterer-extension" >
+        <valueUri value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-informant-extension" >
+        <valueUri value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-information-recipient-extension" >
+        <valueUri value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-participant-extension" >
+        <valueUri value="http://fhirtest.uhn.ca/baseDstu3/RelatedPerson/117466"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-performer-extension" >
+        <valueUri value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-authorization-extension" >
+        <valueUri value="http://hl7.org/fhir/StructureDefinition/ccda-consent"/>
+    </extension>
+    <identifier>
+        <system value="http://hl7.org/fhir/StructureDefinition/ccda-care-plan-composition"/>
+        <value value="1"/>
+    </identifier>
+    <date value="2016-03-22T09:10:14Z"/>
+    <type>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="52521-2"/>
+            <display value="Overall Plan of Care/Advance Care Directives"/>
+        </coding>
+    </type>
+    <title value="Care Plan"/>
+    <status value="preliminary"/>
+    <confidentiality value="N"/>
+    <!--  Patient Resource  -->
+    <subject>
+        <reference value="http://fhirtest.uhn.ca/baseDstu3/Patient/117467"/>
+        <display value="Henry Jones"/>
+    </subject>
+    <!--  Practitioner Resource  -->
+    <author>
+        <reference value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
+        <display value="Adam Everyman, MD"/>
+    </author> 
+    <attester>
+        <mode value="legal"/>
+        <time value="2012-01-04T09:10:14Z"/>
+        <party>
+            <reference value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
+            <display value="Adam Everyman, MD"/>
+        </party>
+    </attester>
+    <!--  Organization Resource  -->
+    <custodian>
+        <reference value="http://fhirtest.uhn.ca/baseDstu3/Organization/117471"/>
+        <display value="Community Health and Hospitals"/>
+    </custodian>
+    <event>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="73761001"/>
+                <display value="Colonoscopy"/>
+            </coding>
+        </code>
+        <period>
+            <start value="2015-11-18"/>
+            <end value="2015-12-12"/>
+        </period>
+    </event>
+    <!--  Encounter Resource  -->
+    <encounter>
+        <reference value="http://fhirtest.uhn.ca/baseDstu3/Encounter/117630"/>
+    </encounter>
+    <!--  Health Concerns Section Narrative -->
+    <section>
+        <title value="Health Concerns Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="75310-3"/>
+                <display value="Health concerns document"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Concern</b>
+                        </td>
+                        <td>
+                            <b>Status</b>
+                        </td>
+                        <td>
+                            <b>Date</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Current every day smoker</td>
+                        <td>Active</td>
+                        <td>Concern from June 16, 2015</td>
+                    </tr>
+                    <tr>
+                        <td>Respiratory insufficiency</td>
+                        <td>Completed</td>
+                        <td>Concern from June 13, 2015</td>
+                    </tr>
+                    <tr>
+                        <td>Pneumonia</td>
+                        <td>Completed</td>
+                        <td>June 16, 2015</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+        <mode value="snapshot"/>
+        <orderedBy>
+            <coding>
+                <system value="http://hl7.org/fhir/list-order"/>
+                <code value="event-date"/>
+                <display value="Sorted by Event Date"/>
+            </coding>
+        </orderedBy>
+     </section>
+    <!--  Goals Section Narrative -->
+    <section>
+        <title value="Goals Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="61146-7"/>
+                <display value="Goals"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Goal</b>
+                        </td>
+                        <td>
+                            <b>Value</b>
+                        </td>
+                        <td>
+                            <b>Date</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pulse oximetry</td>
+                        <td>92%</td>
+                        <td>September 2, 2015</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <!--  Interventions Section Narrative  -->
+    <section>
+        <title value="Interventions Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="62387-6"/>
+                <display value="Interventions provided"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Planned Intervention</b>
+                        </td>
+                        <td>
+                            <b>Status</b>
+                        </td>
+                        <td>
+                            <b>Date</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Elevate head of bed</td>
+                        <td>active</td>
+                        <td>September 2, 2015</td>
+                    </tr>
+                    <tr>
+                        <td>Oxygen administration by nasal cannula</td>
+                        <td>active</td>
+                        <td>September 1, 2015</td>
+                    </tr>
+                    <tr>
+                        <td>pulse oximetry monitoring</td>
+                        <td>active</td>
+                        <td>September 3, 2015</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <!--  Health Status Evaluations and Outcomes Section Narrative  -->
+    <section>
+        <title value="Health Status Evaluations and Outcomes Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="11383-7"/>
+                <display value="Patient problem outcome"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Item</b>
+                        </td>
+                        <td>
+                            <b>Outcome</b>
+                        </td>
+                        <td>
+                            <b>Date</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pulse oximetry</td>
+                        <td>95%</td>
+                        <td>August 6, 2015</td>
+                    </tr>
+                </table>  
+            </div>
+        </text>
+    </section>
+</Composition>

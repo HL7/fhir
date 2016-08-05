@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Composition xmlns="http://hl7.org/fhir">
+    <id value="diagnostic-imaging-example"/>
+    <meta>
+        <versionId value="1"/>    
+        <lastUpdated value="2016-06-15T08:16:14Z"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/ccda-diagnostic-imaging-composition"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-data-enterer-extension" >
+        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/b5114334-3c2c-4729-9962-8e5d2f271f"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-informant-extension" >
+        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/b5114334-3c2c-4729-9962-8e5d2f271f"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-information-recipient-extension" >
+        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/b5114334-3c2c-4729-9962-8e5d2f271f"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-participant-extension" >
+        <valueUri value="http://fhir3.healthintersections.com.au/open/RelatedPerson/232816e5-67c1-40b1-8a1c-c9dfa0206d"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-performer-extension" >
+        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/b5114334-3c2c-4729-9962-8e5d2f271f"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-authorization-extension" >
+        <valueUri value="http://hl7.org/fhir/StructureDefinition/ccda-consent"/>
+    </extension>
+    <identifier>
+        <system value="http://hl7.org/fhir/StructureDefinition/ccda-diagnostic-imaging-composition"/>
+        <value value="1"/>
+    </identifier>
+    <date value="2016-03-22T09:10:14Z"/>
+    <type>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="18748-4"/>
+            <display value="Diagnostic Imaging Report"/>
+        </coding>
+    </type>
+    <title value="Diagnostic Imaging Report"/>
+    <status value="preliminary"/>
+    <confidentiality value="N"/>
+    <!--  Patient Resource -->
+    <subject>
+        <reference value="http://fhir3.healthintersections.com.au/open/Patient/8908f220-db68-42b3-87e2-f91d297ee2"/>
+        <display value="Henry Jones"/>
+    </subject>
+    <!--  Practitioner Resource -->
+    <author>
+        <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/b5114334-3c2c-4729-9962-8e5d2f271f"/>
+        <display value="Adam Everyman, MD"/>
+    </author> 
+    <attester>
+        <mode value="legal"/>
+        <time value="2012-01-04T09:10:14Z"/>
+        <party>
+            <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/b5114334-3c2c-4729-9962-8e5d2f271f"/>
+            <display value="Adam Everyman, MD"/>
+        </party>
+    </attester>
+    <!--  Organization Resource -->
+    <custodian>
+        <reference value="http://fhir3.healthintersections.com.au/open/Organization/6115d319-643c-45bc-b2fb-17a7fb9cbc"/>
+        <display value="Community Health and Hospitals"/>
+    </custodian>
+    <event>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="73761001"/>
+                <display value="Colonoscopy"/>
+            </coding>
+        </code>
+        <period>
+            <start value="2015-11-18"/>
+            <end value="2015-12-12"/>
+        </period>
+    </event>
+    <!--  Encounter Resource -->
+    <encounter>
+        <reference value="http://fhir3.healthintersections.com.au/open/Encounter/0cf51eae-ec9a-459e-ad5e-0c63b302d6"/>
+    </encounter>
+    <!--  Findings Section Narrative -->
+    <section>
+        <title value="Findings Section"/>
+          <code>
+            <coding>
+                <system value="urn:oid:1.2.840.10008.2.16.4"/>
+                <code value="121070"/>
+                <display value="Findings"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <p>The cardiomediastinum is within normal limits. The trachea is midline. 
+                    The previously described opacity at the medial right lung base has cleared. 
+                    There are no new infiltrates. There is a new round density at the left hilus, 
+                    superiorly (diameter about 45mm). A CT scan is recommended for further evaluation. 
+                    The pleural spaces are clear. The visualized musculoskeletal structures and the
+                    upper abdomen are stable and unremarkable.</p>
+            </div>
+        </text>
+     </section>
+    <!--  DICOM Object Catalog Section Narrative -->
+    <section>
+        <title value="DICOM Object Catalog Section"/>
+        <code>
+            <coding>
+                <system value="urn:oid:1.2.840.10008.2.16.4"/>
+                <code value="121181"/>
+                <display value="DICOM Object Catalog"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <p>Computed Radiography Image Storage</p>
+            </div>
+        </text>
+    </section>
+    <!--  Indications for Procedure Section Narrative -->
+    <section>
+        <title value="Indications for Procedure Section"/>
+        <code>
+            <coding>
+                <system value="urn:oid:1.2.840.10008.2.16.4"/>
+                <code value="121109"/>
+                <display value="Indications for Procedure"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <p>Suspected lung tumor</p>
+            </div>
+        </text>
+    </section>
+</Composition>
