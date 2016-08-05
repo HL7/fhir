@@ -5,8 +5,4 @@
         -  [Medication Clinical Drug (RxNorm)] value set
     -  or a list of ingredients in `Medication.product`
 
-
-  [DAF MedicationStatement Profile]: http://hl7.org/fhir/us/daf/medicationstatement-daf.html
-  [DAF MedicationOrder Profile]: http://hl7.org/fhir/us/daf/medicationorder-daf.html
-  [`MedicationOrder` `Example`]: MedicationOrder_Example "wikilink"
-  [Medication Clinical Drug (RxNorm)]: http://hl7.org/fhir/us/daf/valueset-daf-medication-codes.html
+  [Medication Clinical Drug (RxNorm)]: valueset-daf-medication-codes.html
