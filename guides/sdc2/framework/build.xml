@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project name="org.hl7.fhir.tools" basedir=".." default="local-publish-ig" xmlns:ivy="antlib:org.apache.ivy.ant">
-  <property name="guidename" value="sdc"/>
+  <property name="guidename" value="???"/>
+  <property name="spec" value="http://hl7-fhir.github.io/"/>
   <!-- Where the main FHIR build publish folder is -->
   <property name="dir.publish" value="../../publish"/>
   <!-- Project-specific inputs -->
@@ -98,6 +99,7 @@
     </xslt>
     <xslt in="${dir.src}/${guidename}.xml" out="${dir.alltemp}/${guidename}.json" style="${dir.xslt}/igToConfig.xslt" classpathref="saxon.path">
       <factory name="${saxon.classname}"/>
+      <param name="spec" expression="${spec}"/>
     </xslt>
     <xslt in="${dir.src}/${guidename}.xml" out="${dir.pagedata}/pages.json" style="${dir.xslt}/igToData.xslt" classpathref="saxon.path">
       <factory name="${saxon.classname}"/>
