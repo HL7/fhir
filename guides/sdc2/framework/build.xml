@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project name="org.hl7.fhir.tools" basedir=".." default="local-publish-ig" xmlns:ivy="antlib:org.apache.ivy.ant">
-  <property name="guidename" value="???"/>
+  <property name="guidename" value="sdc"/>
   <property name="spec" value="http://hl7-fhir.github.io/"/>
   <!-- Where the main FHIR build publish folder is -->
   <property name="dir.publish" value="../../publish"/>
@@ -54,9 +54,11 @@
     <mkdir dir="${dir.pagedata}"/>
     <mkdir dir="${dir.pageincludes}"/>
     <mkdir dir="${dir.qa}"/>
+    <mkdir dir="${dir.resources}"/>
     <mkdir dir="${dir.temp}"/>
     <mkdir dir="${dir.txcache}"/>
     <mkdir dir="${dir.output}"/>
+    <echo message="${dir.temp}"/>
   </target>
   <target name="download-ivy" depends="dir-setup" unless="offline" description="--> download ivy">
     <get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar" dest="${ivy.jar.file}" usetimestamp="true"/>
@@ -83,11 +85,11 @@
     </xslt>
     <copy todir="${dir.resources}">
       <fileset dir="${dir.src.resources}"/>
+      <file file="${basedir}/${dir.framework.assets}/js/jquery.js"/>
     </copy>
     <copy todir="${dir.pages}">
       <fileset dir="${dir.src.images}"/>
-      <file name="${dir.framework.assets}/js/jquery.js"/>
-      <file name="${dir.src}/index.html"/>
+      <file file="${dir.src}/index.html"/>
     </copy>
     <copy todir="${dir.pageassets}">
       <fileset dir="${dir.framework.assets}" includes="**/*.*"/>

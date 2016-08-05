@@ -73,17 +73,17 @@ as discussed above under <a href="#general">General Security Considerations.</a>
 <a name="workflow"> </a>
 <h4>Security Workflow</h4>
 <p>
-When communicating RESTfully, <a href="auditevent.html">AuditEvent</a> and <a href="provenance.html">Provenance</a> resources are typically
-submitted separately from the resource versions they're manipulating.  This is for a couple of reasons:
+When communicating RESTfully, <a href="{{site.data.fhir.path}}auditevent.html">AuditEvent</a> and <a href="{{site.data.fhir.path}}provenance.html">Provenance</a> resources are 
+typically submitted separately from the resource versions they're manipulating.  This is for a couple of reasons:
 </p>
 <ul>
   <li>In a pure REST environment, resources are manipulated individually</li>
   <li>The server that stores the created/updated resource may not be the one that stores the audit or the provenance (making the use of 
-  <a href="http.html#transaction">transaction</a> impossible</li>
+  <a href="{{site.data.fhir.path}}http.html#transaction">transaction</a> impossible</li>
 </ul>
 <p>
 In environments where the submission of audit and/or provenance information must be performed as part of a single unit of work, this should
-be done using <a href="http.html#transaction">transaction</a>.  Provenance information can be retrieved along with a QuestionnaireResponse using
+be done using <a href="{{site.data.fhir.path}}http.html#transaction">transaction</a>.  Provenance information can be retrieved along with a QuestionnaireResponse using
 the _revinclude query parameter.
 </p>
 

@@ -308,12 +308,6 @@
 				<format value="generated"/>
 			</page>
 			<page>
-				<source value="extension-sdc-questionnaire-specialGroup.html"/>
-				<title value="Extension: header | footer"/>
-				<kind value="resource"/>
-				<format value="generated"/>
-			</page>
-			<page>
 				<source value="extension-sdc-questionnaire-optionalDisplay.html"/>
 				<title value="Extension: Can suppress from display to user"/>
 				<kind value="resource"/>

@@ -6,7 +6,7 @@
 	</questionnaire>
 	<status value="in-progress"/>
 	<subject>
-		<reference value="Patient/proband"/>
+		<reference value="http://hl7.org/fhir/Patient/proband"/>
 	</subject>
 	<authored value="2008-01-17"/>
 	<item>
