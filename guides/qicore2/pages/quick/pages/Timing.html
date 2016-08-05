@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE HTML>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+  <head>
+    <title>Timing</title>
+    <meta http-equiv='X-UA-Compatible' content='IE=9' />
+    <link rel='icon' type='image/ico' href='../resources/favicon.ico' />
+    <link rel='stylesheet' type='text/css' href='../stylesheet.css' title='Style' />
+    <link rel='stylesheet' type='text/css' href='../font-awesome/css/font-awesome.min.css' />
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li>
+          <a href='../overview-summary.html'>Overview</a>
+        </li>
+        <li class='navBarCell1Rev'>Class</li>
+        <li>
+          <a href='../index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QUICK</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='../index.html?pages/Timing.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='Timing.html'>NO FRAMES</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+    <div class='header'>
+      <h2 title='Class Timing' class='title'>Timing</h2>
+    </div>
+    <div class='contentContainer'>
+      <div class='description'>
+        <ul class='blockList'>
+          <li class='blockList' style='font-size:115%;'>A timing schedule that specifies an event that may occur multiple times
+            <p />Base StructureDefinition for Timing Type
+          </li>
+        </ul>
+      </div>
+      <div class='summary'>
+        <ul class='blockList'>
+          <li class='blockList'>
+            <ul class='blockList'>
+              <li class='blockList'>
+<!-- =========== FIELD SUMMARY =========== -->
+                <a name='field_summary'><!--   --></a>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='code'>code</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Concept</code>
+                    <blockquote>
+                      <div class='block'>A code for the timing pattern. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing.
+<p>Binding: <a title="Code for a known / defined timing pattern." href="http://hl7.org/fhir/STU3/valueset-timing-abbreviation.html">TimingAbbreviation</a> (Preferred)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='event'>event</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;DateTime></code>
+                    <blockquote>
+                      <div class='block'>Identifies specific times when the event occurs.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='repeat'>repeat</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code><a href='Timing.Repeat.html'>Repeat</a></code>
+                    <blockquote>
+                      <div class='block'>A set of rules that describe when the event should occur.</div>
+                    </blockquote>
+                  </td>
+                </tr></table>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav">
+<span class="legalCopy"><small><font size="-1">
+        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 05, 2016 9:03AM.
+        </font>
+</small></span>
+</div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+  </body>
+</html>

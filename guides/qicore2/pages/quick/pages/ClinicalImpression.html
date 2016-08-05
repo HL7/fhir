@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE HTML>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+  <head>
+    <title>ClinicalImpression</title>
+    <meta http-equiv='X-UA-Compatible' content='IE=9' />
+    <link rel='icon' type='image/ico' href='../resources/favicon.ico' />
+    <link rel='stylesheet' type='text/css' href='../stylesheet.css' title='Style' />
+    <link rel='stylesheet' type='text/css' href='../font-awesome/css/font-awesome.min.css' />
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li>
+          <a href='../overview-summary.html'>Overview</a>
+        </li>
+        <li class='navBarCell1Rev'>Class</li>
+        <li>
+          <a href='../index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QUICK</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='../index.html?pages/ClinicalImpression.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='ClinicalImpression.html'>NO FRAMES</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+    <div class='header'>
+      <h2 title='Class ClinicalImpression' class='title'>ClinicalImpression</h2>
+    </div>
+    <div class='contentContainer'>
+      <div class='description'>
+        <ul class='blockList'>
+          <li class='blockList' style='font-size:115%;'>A clinical assessment performed when planning treatments and management strategies for a patient
+            <p />Base StructureDefinition for ClinicalImpression Resource
+          </li>
+        </ul>
+      </div>
+      <div class='summary'>
+        <ul class='blockList'>
+          <li class='blockList'>
+            <ul class='blockList'>
+              <li class='blockList'>
+<!-- =========== FIELD SUMMARY =========== -->
+                <a name='field_summary'><!--   --></a>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='action'>action</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='ReferralRequest.html'>ReferralRequest</a> | <a href='ProcedureRequest.html'>ProcedureRequest</a> | <a href='Procedure.html'>Procedure</a> | <a href='MedicationOrder.html'>MedicationOrder</a> | <a href='DiagnosticRequest.html'>DiagnosticRequest</a> | <a href='NutritionRequest.html'>NutritionRequest</a> | <a href='SupplyRequest.html'>SupplyRequest</a> | <a href='Appointment.html'>Appointment</a>></code>
+                    <blockquote>
+                      <div class='block'>Actions taken during assessment.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='assessor'>assessor</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code><a href='Practitioner.html'>Practitioner</a></code>
+                    <blockquote>
+                      <div class='block'>The clinician performing the assessment.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='code'>code</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Concept</code>
+                    <blockquote>
+                      <div class='block'>Categorizes the type of clinical impression performed.
+<p> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='context'>context</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code><a href='Encounter.html'>Encounter</a> | <a href='EpisodeOfCare.html'>EpisodeOfCare</a></code>
+                    <blockquote>
+                      <div class='block'>The encounter or episode of care this impression was created as part of.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='date'>date</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>DateTime</code>
+                    <blockquote>
+                      <div class='block'>Indicates when the documentation of the assessment was complete.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='description'>description</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>String</code>
+                    <blockquote>
+                      <div class='block'>A summary of the context and/or cause of the assessment - why / where was it peformed, and what patient events/status prompted it.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='effective_x_'>effective[x]</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>DateTime | interval&lt;DateTime&gt;</code>
+                    <blockquote>
+                      <div class='block'>The point in time or period over which the subject was assessed.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='finding'>finding</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='ClinicalImpression.Finding.html'>Finding</a>></code>
+                    <blockquote>
+                      <div class='block'>Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='identifier'>identifier</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='Identifier.html'>Identifier</a>></code>
+                    <blockquote>
+                      <div class='block'>A unique identifier assigned to the clinical impression that remains consistent regardless of what server the impression is stored on.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='investigations'>investigations</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='ClinicalImpression.Investigations.html'>Investigations</a>></code>
+                    <blockquote>
+                      <div class='block'>One or more sets of investigations (signs, symptions, etc.). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='note'>note</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='Annotation.html'>Annotation</a>></code>
+                    <blockquote>
+                      <div class='block'>Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='plan'>plan</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='CarePlan.html'>CarePlan</a> | <a href='Appointment.html'>Appointment</a> | <a href='CommunicationRequest.html'>CommunicationRequest</a> | <a href='DeviceUseRequest.html'>DeviceUseRequest</a> | <a href='DiagnosticRequest.html'>DiagnosticRequest</a> | <a href='MedicationOrder.html'>MedicationOrder</a> | <a href='NutritionRequest.html'>NutritionRequest</a> | <a href='ProcedureRequest.html'>ProcedureRequest</a> | <a href='ProcessRequest.html'>ProcessRequest</a> | <a href='ReferralRequest.html'>ReferralRequest</a> | <a href='SupplyRequest.html'>SupplyRequest</a> | <a href='VisionPrescription.html'>VisionPrescription</a>></code>
+                    <blockquote>
+                      <div class='block'>Plan of action after assessment.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='previous'>previous</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code><a href='ClinicalImpression.html'>ClinicalImpression</a></code>
+                    <blockquote>
+                      <div class='block'>A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='problem'>problem</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='Condition.html'>Condition</a> | <a href='AllergyIntolerance.html'>AllergyIntolerance</a>></code>
+                    <blockquote>
+                      <div class='block'>This a list of the relevant problems/conditions for a patient.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='prognosisCodeableConcept'>prognosisCodeableConcept</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;Concept></code>
+                    <blockquote>
+                      <div class='block'>Estimate of likely outcome.
+<p>Binding: <a title="Prognosis or outlook findings" href="http://hl7.org/fhir/STU3/valueset-clinicalimpression-prognosis.html">Clinical Impression Prognosis</a> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='prognosisReference'>prognosisReference</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='RiskAssessment.html'>RiskAssessment</a>></code>
+                    <blockquote>
+                      <div class='block'>RiskAssessment expressing likely outcome.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='protocol'>protocol</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;Uri></code>
+                    <blockquote>
+                      <div class='block'>Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
+                    <strong>
+                      <a name='status'>status</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>1..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>code</code>
+                    <blockquote>
+                      <div class='block'>Identifies the workflow status of the assessment.
+<p>Binding: <a title="The workflow state of a clinical impression." href="http://hl7.org/fhir/STU3/valueset-clinical-impression-status.html">ClinicalImpressionStatus</a> (Required)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='subject'>subject</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>1..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code><a href='Patient.html'>Patient</a> | <a href='Group.html'>Group</a></code>
+                    <blockquote>
+                      <div class='block'>The patient or group of individuals assessed as part of this record.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='summary'>summary</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>String</code>
+                    <blockquote>
+                      <div class='block'>A text summary of the investigations and the diagnosis.</div>
+                    </blockquote>
+                  </td>
+                </tr></table>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav">
+<span class="legalCopy"><small><font size="-1">
+        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 05, 2016 9:03AM.
+        </font>
+</small></span>
+</div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+  </body>
+</html>
