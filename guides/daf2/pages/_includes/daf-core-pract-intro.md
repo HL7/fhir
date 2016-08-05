@@ -15,7 +15,6 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Profile specific implementation guidance:**
  
-* Additional elements from [DAF Practitioner Profile] may be present.
+* none
 
 [Practitioner]: http://hl7-fhir.github.io/Practitioner.html
-[DAF Patient Profile]: daf-Practioner.html

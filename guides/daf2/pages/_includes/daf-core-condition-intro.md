@@ -17,7 +17,6 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 **Profile specific implementation guidance:**
 
 * The DAF Condition Category Codes support the separate concepts of problems and health concerns so API consumers can separate health concerns and problems. However this is not mandatory for 2015 certification
-* Additional elements from [DAF Condition Profile] may be present.
 
 [Condition]: http://hl7-fhir.github.io/condition.html
- [DAF Condition Profile]: daf-Condition.html
+

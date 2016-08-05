@@ -24,7 +24,6 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
    -  providing both a local system codes and a LOINC code that it map to
    -  providing a more specific category codes such as “CH” (chemistry) in addition to the "LAB"  category code.
 
-* Additional elements from [DAF DiagnosticReport Profile](daf-DiagnosticReport.html) may be present.
 
 [Observation]:  http://hl7-fhir.github.io/observation.html
 [DiagnosticReport]:  http://hl7-fhir.github.io/diagnosticreport.html

@@ -15,7 +15,7 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
     -   a relative or friend or guardian
     -   an organization
 1.  a participant role for each careteam members
-1.  a status code of “active”
+1.  a status code
 
 **Profile specific implementation guidance:**
 

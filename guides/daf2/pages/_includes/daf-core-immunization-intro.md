@@ -21,10 +21,8 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 * **NDC codes as a translational data element**: 
 Based upon the 2015 Edition Certification Requirements, the [NDC vaccine codes] SHOULD be supported as   [translations] to the CVX vaccine codes. A [NDC to CVX concept map] is provided and the translation is illustrated in the example below.
 
-* Additional elements from [DAF Immunization Profile](daf-Immunization.html) may be present.
 
   [CVX code set]: http://hl7.org/fhir/us/daf/valueset-daf-cvx.html
-  [DAF Immunization Profile]: http://hl7.org/fhir/us/daf/daf-immunization.html
   [NDC vaccine codes]: NDC_vaccine_codes "wikilink"
   [translations]: Implementation_Guide#Definitions "wikilink"
   [NDC to CVX concept map]: NDC_to_CVX_concept_map "wikilink"

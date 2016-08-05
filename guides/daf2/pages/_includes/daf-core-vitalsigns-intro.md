@@ -40,8 +40,6 @@ Body mass index | 39156-5 | kg/m2 ||[Vital  Body Mass Example](todo.html)
 
 * Alternate codes may be provided in addition to the standard LOINC and UCUM codes defined here. An example of [using multiple codes] is provided. Other profiles may make rules about which vital sign must be present or must be present as part of a panel.
 
-* Additional elements from [DAF Vital Signs Profile]may be present.
 
-[Observaton]: http://hl7-fhir.github.io/observation.html
- [DAF Vital Signs Profile](observation-daf-vitalsigns.html)
+[Observation]: http://hl7-fhir.github.io/observation.html
 

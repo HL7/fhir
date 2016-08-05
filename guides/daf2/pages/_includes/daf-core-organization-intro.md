@@ -17,7 +17,6 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Profile specific implementation guidance:**
 
-* Additional elements from [DAF Organization Profile] may be present.
+* none
 
-[DAF Organization Profile]: daf-Organization.html
 [Organization]: http://hl7-fhir.github.io/organization.html

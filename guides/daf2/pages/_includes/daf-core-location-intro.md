@@ -16,7 +16,7 @@ Each Location must have:
 1. A managing Organization
 
 **Profile specific implementation guidance:**
-
-* Additional elements from [DAF Location Profile](daf-Location.html) may be present.
+ 
+ * none
 
 [Location]:  http://hl7-fhir.github.io/location.html

@@ -13,9 +13,8 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Profile specific implementation guidance:**
  
-* Additional elements from [DAF Medication Profile] may be present.
+* none
 
 [MedicationStatement]: http://hl7-fhir.github.io/medicationstatement.html
  [MedicationOrder]: http://hl7-fhir.github.io/medicationorder.html
  [Medication]: http://hl7-fhir.github.io/medication.html
- [DAF Medication Profile]: daf-Medication.html

@@ -15,4 +15,4 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 **Profile specific implementation guidance:**
 
 * 
-* Additional elements from [DAF [Type] Profile](daf-[type].html) may be present.
+
