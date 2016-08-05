@@ -124,6 +124,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private long loadTime = 0;
   private long fpeTime = 0;
 
+  private boolean noBindingMsgSuppressed;
+
 
   public InstanceValidator(IWorkerContext theContext) {
     super();
@@ -434,11 +436,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                   if (!vr.isOk()) {
                     bindingsOk = false;
                     if (binding.getStrength() == BindingStrength.REQUIRED)
-                      rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl()+", and a code from this value set is required");
+                        rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl()+", and a code from this value set is required)");
                     else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
-                      warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code");
+                        warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code)");
                     else if (binding.getStrength() == BindingStrength.PREFERRED)
-                      hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is recommended to come from this value set");
+                        hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is recommended to come from this value set)");
                   }
                 }
 
@@ -466,7 +468,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           }
         } else if (binding.hasValueSet()) {
           hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Binding by URI reference cannot be checked");
-        } else {
+        } else if (!noBindingMsgSuppressed) {
           hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Binding for path " + path + " has no source, so can't be checked");
         }
       }
@@ -521,11 +523,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                   txTime = txTime + (System.nanoTime() - t);
                   if (!vr.isOk()) {
                     if (binding.getStrength() == BindingStrength.REQUIRED)
-                      rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided is not in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is required from this value set");
+                        rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided is not in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is required from this value set)");
                     else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
-                      warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided is not in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code");
+                        warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided is not in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code)");
                     else if (binding.getStrength() == BindingStrength.PREFERRED)
-                      hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "The value provided is not in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is recommended to come from this value set");
+                        hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "The value provided is not in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is recommended to come from this value set)");
                   }
                 } catch (Exception e) {
                   warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Error "+e.getMessage()+" validating CodeableConcept");
@@ -533,7 +535,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               }
             } else if (binding.hasValueSet()) {
               hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Binding by URI reference cannot be checked");
-            } else if (!inCodeableConcept) {
+              } else if (!inCodeableConcept && !noBindingMsgSuppressed) {
               hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Binding for path " + path + " has no source, so can't be checked");
             }
           }
@@ -944,14 +946,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         txTime = txTime + (System.nanoTime() - t);
         if (vr != null && !vr.isOk()) {
           if (binding.getStrength() == BindingStrength.REQUIRED)
-            rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided ('"+value+"') is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code is required from this value set");
+            rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided ('"+value+"') is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code is required from this value set)");
           else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
-            warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided ('"+value+"') is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code should come from this value set unless it has no suitable code");
+            warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided ('"+value+"') is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code should come from this value set unless it has no suitable code)");
           else if (binding.getStrength() == BindingStrength.PREFERRED)
-            hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "The value provided ('"+value+"') is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code is recommended to come from this value set");
+            hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "The value provided ('"+value+"') is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code is recommended to come from this value set)");
         }
       }
-    } else
+    } else if (!noBindingMsgSuppressed)
       hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, !type.equals("code"), "Binding has no source, so can't be checked");
   }
 
@@ -2649,4 +2651,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     fpeTime = 0;
     return s;
   }
+
+  public boolean isNoBindingMsgSuppressed() {
+    return noBindingMsgSuppressed;
+  }
+
+  public void setNoBindingMsgSuppressed(boolean noBindingMsgSuppressed) {
+    this.noBindingMsgSuppressed = noBindingMsgSuppressed;
+  }
+  
+  
 }

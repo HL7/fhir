@@ -2029,7 +2029,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (igpkp.wantGen(r, "shex")) 
       fragmentError("StructureDefinition-"+sd.getId()+"-shex", "yet to be done: shex as html", f.getOutputNames());
 
-    if (igpkp.wantGen(r, ".sch")) {
+    if (sd.getKind() != StructureDefinitionKind.LOGICAL &&  igpkp.wantGen(r, ".sch")) {
       String path = Utilities.path(tempDir, r.getId()+".sch");
       f.getOutputNames().add(path);
       new ProfileUtilities(context, errors, igpkp).generateSchematrons(new FileOutputStream(path), sd);

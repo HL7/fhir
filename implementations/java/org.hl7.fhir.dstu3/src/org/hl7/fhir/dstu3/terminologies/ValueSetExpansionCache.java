@@ -62,7 +62,7 @@ public class ValueSetExpansionCache implements ValueSetExpanderFactory {
 	  	ValueSetExpansionOutcome vso = vse.expand(source, profile);
 	  	if (vso.getError() != null) {
 	  	  // well, we'll see if the designated server can expand it, and if it can, we'll cache it locally
-	  		vso = context.expandVS(source, false, !profile.getExcludeNested());
+	  		vso = context.expandVS(source, false, profile == null || !profile.getExcludeNested());
 	  		if (cacheFolder != null) {
 	  		FileOutputStream s = new FileOutputStream(Utilities.path(cacheFolder, makeFile(source.getUrl())));
 	  		context.newXmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, vso.getValueset());

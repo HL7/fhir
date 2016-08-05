@@ -34,12 +34,17 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.hl7.fhir.dstu3.elementmodel.Element;
+import org.hl7.fhir.dstu3.elementmodel.Manager;
+import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.utils.IWorkerContext;
+import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 
 public class ResourceTest {
 
@@ -79,6 +84,15 @@ public class ResourceTest {
     out.close();
     return rf;
     
+  }
+
+  public Element testEM() throws Exception {
+    if (TestingUtilities.context == null)
+      TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip");
+  	Element resource = Manager.parse(TestingUtilities.context, new FileInputStream(source), isJson() ? FhirFormat.JSON : FhirFormat.XML);
+  	Manager.compose(TestingUtilities.context, resource, new FileOutputStream(source.getAbsoluteFile()+".out.json"), FhirFormat.JSON, OutputStyle.PRETTY, null);
+  	Manager.compose(TestingUtilities.context, resource, new FileOutputStream(source.getAbsoluteFile()+".out.json"), FhirFormat.XML, OutputStyle.PRETTY, null);
+  	return resource;
   }
 
   public boolean isJson() {

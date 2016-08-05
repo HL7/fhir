@@ -465,7 +465,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           }
         } else if (binding.hasValueSet()) {
           hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Binding by URI reference cannot be checked");
-        } else {
+        } else if (!noBindingMsgSuppressed) {
           hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Binding for path " + path + " has no source, so can't be checked");
         }
       }
@@ -532,7 +532,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                 }
               } else if (binding.hasValueSet()) {
                 hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Binding by URI reference cannot be checked");
-              } else if (!inCodeableConcept) {
+              } else if (!inCodeableConcept && !noBindingMsgSuppressed) {
                 hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Binding for path " + path + " has no source, so can't be checked");
               }
             }
