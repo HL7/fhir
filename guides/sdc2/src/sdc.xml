@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/fhir-single.xsd">
 	<id value="sdc"/>
-<!--	<extension url="http://hl7.org/fhir/tools-ig-publish-dependencies">
-    <valueString value="[&#xa;    {&#xa;      &quot;name&quot; : &quot;sdcde&quot;,&#xa;      &quot;location&quot; : &quot;http://hl7.org/fhir/us/sdcde&quot;,&#xa;      &quot;source&quot; : &quot;../../sdcde2/website&quot;&#xa;    }&#xa;  ]"/>
-	</extension>-->
 	<url value="http://hl7.org/fhir/us/sdc"/>
 	<name value="Structured Data Capture"/>
 	<status value="draft"/>
@@ -22,6 +19,10 @@
 			<code value="US"/>
 		</coding>
 	</useContext>
+	<dependency>
+		<type value="reference"/>
+		<uri value="http://hl7.org/fhir/us/sdcde"/>
+	</dependency>
 	<package>
 		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
 			<valueUri value="dataelement-sdc-profile-spreadsheet.xml"/>

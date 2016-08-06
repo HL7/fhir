@@ -52,8 +52,10 @@
 	"canonicalBase": "</xsl:text>
     <xsl:value-of select="url/@value"/>
     <xsl:text>",&#xa;	</xsl:text>
-    <xsl:for-each select="extension[@url='http://hl7.org/fhir/tools-ig-publish-dependencies']">
-      <xsl:value-of select="concat('&quot;dependencyList&quot;: ', valueString/@value, ',&#xa;  ')"/>
+    <xsl:for-each select="dependency[type/@value='reference']/uri/@value">
+      <xsl:variable name="code" select="tokenize(., '/')[last()]"/>
+      <xsl:value-of select="concat('&quot;dependencyList&quot;: [&#xa;    {&#xa;      &quot;name&quot; : &quot;', $code, '&quot;,&#xa;      &quot;location&quot; : &quot;', ., 
+        '&quot;,&#xa;      &quot;source&quot; : &quot;../../', $code, '2/website&quot;&#xa;    }&#xa;  ],&#xa;  ')"/>
     </xsl:for-each>
     <xsl:text>"extraTemplates": ["mappings", "examples", "profile-xml", "profile-json"],
 	"source": "</xsl:text>
@@ -93,6 +95,7 @@
         <xsl:text>      "template-examples": "",&#xa;</xsl:text>
         <xsl:text>      "template-profile-xml": "../framework/templates/template-ext-xml.html",&#xa;</xsl:text>
         <xsl:text>      "template-profile-json": "../framework/templates/template-ext-json.html",&#xa;</xsl:text>
+        <xsl:text>      "template-format": "",&#xa;</xsl:text>
         <xsl:text>      "base": "extension-{{[id]}}.html",&#xa;</xsl:text>
         <xsl:text>      "defns": "extension-{{[id]}}-definitions.html",&#xa;</xsl:text>
         <xsl:text>      "mappings": "extension-{{[id]}}-mappings.html",&#xa;</xsl:text>
