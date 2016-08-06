@@ -1,0 +1,38 @@
+<!-- Comment out any sections that don't apply and remove the 'include' -->
+<div>
+  <a name="profiles"> </a>
+  <h3>
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.1</span> Profiles <a title="link to here" class="self-link" href="{{page.path}}#profiles">
+      <img src="target.png"/>
+    </a>
+  </h3>
+  {% include table-profiles.xhtml %}
+
+  <a name="valuesets"> </a>
+  <h3>
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.2</span> Value Sets <a title="link to here" class="self-link" href="{{page.path}}#valuesets">
+      <img src="target.png"/>
+    </a>
+  </h3>
+  {% include table-valuesets.xhtml %}
+
+{% if site.data.pages['toc.html'].examples.size &gt; 0 %}
+  <a name="examples"> </a>
+  <h3>
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.3</span> Examples <a title="link to here" class="self-link" href="{{page.path}}#examples">
+      <img src="target.png"/>
+    </a>
+  </h3>
+  <table style="grid">
+    <tbody>
+      {% for example in site.data.pages['toc.html'].examples %}
+        <tr>
+        <td>
+          <a href="{{example.url}}">{{example.title}}</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endif %}
+</div>
