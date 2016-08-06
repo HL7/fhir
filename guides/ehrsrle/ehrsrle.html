@@ -26,9 +26,9 @@
     Health Record System Functional Model Release 2 which covers the logging of record lifecycle events. This implementation guide consists of three parts:
   </p>
   <ul>
-    <li>A <a href="ehrsrle-provenance.html">Profile</a> on the <a href="{{site.data.fhir.path}}provenance.html">Provenance</a> resource describing the
+    <li>A <a href="ehrsrle-provenance.html">Profile</a> on the <a href="../provenance.html">Provenance</a> resource describing the
       information that should be retained for events involving the creation or updating of electronic health records</li>
-    <li>A <a href="ehrsrle-auditevent.html">Profile</a> on the <a href="{{site.data.fhir.path}}auditevent.html">AuditEvent</a> resource describing the
+    <li>A <a href="ehrsrle-auditevent.html">Profile</a> on the <a href="../auditevent.html">AuditEvent</a> resource describing the
       information that should be retained for events involving the access or any other manipulation of electronic health records</li>
     <li>A <a href="conformance-ehrs-rle.html">Conformance Statement</a> which describes the operations an EHR system claiming conformance
       to this implementation guide must support.</li>
@@ -86,8 +86,8 @@
     <p style="margin-left:13.5pt;">
       EHR, PHR and other Systems, designed to follow ISO/HL7 10781 and ISO 21089 record management methodology and incorporate FHIR resources natively, will create 
       Record Entries with one or more FHIR resource instances. These FHIR resources will be bound to an
-       <a href="{{site.data.fhir.path}}auditevent.html" shape="rect">AuditEvent</a>resource instance and, in the case where content is new or updated, a 
-       <a href="{{site.data.fhir.path}}provenance.html" shape="rect">Provenance</a>resource instance in the Record Entry.
+       <a href="../auditevent.html" shape="rect">AuditEvent</a>resource instance and, in the case where content is new or updated, a 
+       <a href="../provenance.html" shape="rect">Provenance</a>resource instance in the Record Entry.
      </p>
     <a name="rles"> </a>
     <h3>Record Lifecycle Events (RLEs)</h3>
