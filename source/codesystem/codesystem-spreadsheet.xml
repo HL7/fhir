@@ -4700,7 +4700,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">CodeSystem</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Within a code system definition, all the codes SHALL be unique</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">(concept.code | descendents().concept.code).isDistinct()</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">(concept.code | descendants().concept.code).isDistinct()</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">count(distinct-values(descendant::f:concept/f:code/@value))=count(descendant::f:concept)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

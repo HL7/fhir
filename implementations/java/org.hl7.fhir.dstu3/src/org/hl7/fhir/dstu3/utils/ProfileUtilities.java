@@ -1343,8 +1343,6 @@ public class ProfileUtilities {
       
     }
     if (allReference) {
-      c.getPieces().add(gen.new Piece(corePath+"references.html", "Reference", null));
-      c.getPieces().add(gen.new Piece(null, "(", null));
       if (aggs.size() > 0) {
         boolean allSame = true;
         for (TypeRefComponent t : types) {

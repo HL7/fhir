@@ -47,7 +47,7 @@ Content-Type: application/fhir+xml
          with an is-a relationship with 91723000: Anatomical structure)&quot;/&gt;
         &lt;status value=&quot;draft&quot;/&gt;
         &lt;compose&gt;
-          &lt;include&gt;&lt;!--   all the descendents of clinical finding, not include itself   --&gt;
+          &lt;include&gt;&lt;!--   all the descendants of clinical finding, not include itself   --&gt;
             &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
             &lt;filter&gt;&lt;!--   todo: work this over. what this means is any concepts where they have is-a with 91723000.
                how should this be done?   --&gt;

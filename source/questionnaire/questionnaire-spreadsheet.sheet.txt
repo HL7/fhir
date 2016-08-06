@@ -171,7 +171,7 @@
   Context = Questionnaire
   English = The link ids for groups and questions must be unique within the questionnaire
   XPath = count(descendant::f:linkId/@value)=count(distinct-values(descendant::f:linkId/@value))
-  Expression = descendents().linkId.isDistinct()
+  Expression = descendants().linkId.isDistinct()
 
  -- Row 3 -----------------------------------
   Id = 3

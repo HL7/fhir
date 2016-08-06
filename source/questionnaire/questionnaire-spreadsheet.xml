@@ -4234,7 +4234,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Questionnaire</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">The link ids for groups and questions must be unique within the questionnaire</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">descendents().linkId.isDistinct()</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">descendants().linkId.isDistinct()</Data></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">count(descendant::f:linkId/@value)=count(distinct-values(descendant::f:linkId/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">

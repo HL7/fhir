@@ -112,8 +112,7 @@ public class ZipGenerator {
     }
   }
 
-	public void addFiles(String actualDir, String statedDir, String ext, String noExt) throws FileNotFoundException, IOException
-			 {
+	public void addFiles(String actualDir, String statedDir, String ext, String noExt) throws FileNotFoundException, IOException {
 		byte data[] = new byte[BUFFER];
 		statedDir.replace("\\", "/");
 		File f = new CSFile(actualDir);
@@ -134,6 +133,34 @@ public class ZipGenerator {
 			}
 		}
 	}
+
+  public void addFilesFiltered(String actualDir, String statedDir, String ext, String[] noExt) throws FileNotFoundException, IOException {
+    byte data[] = new byte[BUFFER];
+    statedDir.replace("\\", "/");
+    File f = new CSFile(actualDir);
+
+    String files[] = f.list();
+    for (int i = 0; i < files.length; i++) {
+      if ( new CSFile(actualDir + files[i]).isFile() && ((ext == null || files[i].endsWith(ext)))) {
+        boolean ok = true;
+        for (String n : noExt) {
+          ok = ok && !files[i].endsWith(n);
+        }
+        if (ok) {
+          FileInputStream fi = new FileInputStream(actualDir + files[i]);
+          BufferedInputStream origin = new BufferedInputStream(fi, BUFFER);
+          ZipEntry entry = new ZipEntry(statedDir + files[i]);
+          names.add(statedDir + files[i]);
+          out.putNextEntry(entry);
+          int count;
+          while ((count = origin.read(data, 0, BUFFER)) != -1) {
+            out.write(data, 0, count);
+          }
+          origin.close();
+        }
+      }
+    }
+  }
 
 	public void addFileSource(String path, String cnt, boolean omitIfExists) throws IOException  {
 		File tmp = Utilities.createTempFile("tmp", ".tmp");

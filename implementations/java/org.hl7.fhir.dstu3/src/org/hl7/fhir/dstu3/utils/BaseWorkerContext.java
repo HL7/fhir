@@ -155,9 +155,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
             newJsonParser().compose(new FileOutputStream(cacheFn), vse.getValueset());
             s.close();
           }
-          return vse;
-        }
       }
+        return vse;
+      } else {
       ValueSetExpansionOutcome res = expandOnServer(vs, cacheFn);
       if (cacheFn != null) {
         if (res.getValueset() != null) {
@@ -169,6 +169,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         }
       }
       return res;
+      }
     } catch (Exception e) {
       return new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage());
     }
