@@ -2464,6 +2464,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("dataelements.xml", page.getFolders().dstDir + "dataelements.xml", false);
       zip.addFileName("version.info", page.getFolders().dstDir + "version.info", false);
       zip.addFileName("mappingSpaces.details", page.getFolders().srcDir + "mappingSpaces.xml", false);
+      zip.addFileName("redirect.asp.template", page.getFolders().srcDir + "redirect.asp", false);
+      zip.addFileName("redirect.cgi.template", page.getFolders().srcDir + "redirect.cgi", false);
+      zip.addFileName("redirect.php.template", page.getFolders().srcDir + "redirect.php", false);
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "publish", ""), "", ".png", null);
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "publish", ""), "", ".gif", null);
       zip.close();
@@ -2559,6 +2562,10 @@ public class Publisher implements URIResolver, SectionNumberer {
     scanForImages(spm, page.getFolders().dstDir, page.getFolders().dstDir);
     scanForPages(spm, page.getFolders().dstDir, page.getFolders().dstDir);
     
+    for (String url : page.getDefinitions().getRedirectList().keySet()) {
+      spm.target(url);
+    }
+
     spm.save(page.getFolders().dstDir + "spec.internals");
   }
 
@@ -2566,6 +2573,15 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (File f : new File(folder).listFiles()) {
       if (f.isDirectory()) {
         scanForPages(spm, base, f.getAbsolutePath());
+      } else if (f.getName().equals("redirect.asp")) {
+        String s = folder.substring(0, folder.length()-1);
+        if (s.length() > base.length()) {
+          s = s.substring(base.length()).replace(File.separator, "/");
+          if (!Utilities.noString(s)) {
+            spm.target(s);
+            spm.target(s+"/");
+          }
+        }
       } else {
         String ext = f.getName().substring(f.getName().lastIndexOf("."));
         if (Utilities.existsInList(ext, ".html", ".zip", ".jar"))
