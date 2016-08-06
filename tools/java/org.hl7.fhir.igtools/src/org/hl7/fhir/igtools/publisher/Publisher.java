@@ -231,7 +231,12 @@ public class Publisher implements IWorkerContext.ILoggingService {
     log("Generating Narratives");
     generateNarratives();
     log("Validating Resources");
-    validate();
+    try {
+    	validate();
+	} catch (Exception ex){
+		log(ex.toString());
+		throw(ex);
+	}
     log("Generating Outputs in "+outputDir);
     generate();
     long endTime = System.nanoTime();
@@ -1225,10 +1230,12 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
   private void validate() throws Exception {
     for (FetchedFile f : fileList) {
+	  log(" .. "+f.getName());
       if (first)
         dlog(" .. "+f.getName());
       for (FetchedResource r : f.getResources()) {
         if (!r.isValidated()) {
+		  log("     validating "+r.getTitle());
           validate(f, r);
         }
       }
