@@ -67,6 +67,24 @@
         <xsl:with-param name="suffix" select="'.profile.json'"/>
         <xsl:with-param name="description" select="' - Profile JSON'"/>
       </xsl:call-template>
+      <xsl:call-template name="showPage">
+        <xsl:with-param name="newLevel" select="$newLevel"/>
+        <xsl:with-param name="localBreadCrumb" select="$localBreadCrumb"/>
+        <xsl:with-param name="suffix" select="'.xml'"/>
+        <xsl:with-param name="description" select="' - XML representation'"/>
+      </xsl:call-template>
+      <xsl:call-template name="showPage">
+        <xsl:with-param name="newLevel" select="$newLevel"/>
+        <xsl:with-param name="localBreadCrumb" select="$localBreadCrumb"/>
+        <xsl:with-param name="suffix" select="'.json'"/>
+        <xsl:with-param name="description" select="' - JSON representation'"/>
+      </xsl:call-template>
+      <xsl:call-template name="showPage">
+        <xsl:with-param name="newLevel" select="$newLevel"/>
+        <xsl:with-param name="localBreadCrumb" select="$localBreadCrumb"/>
+        <xsl:with-param name="suffix" select="'.ttl'"/>
+        <xsl:with-param name="description" select="' - TTL representation'"/>
+      </xsl:call-template>
     </xsl:if>
     <xsl:apply-templates select="page">
       <xsl:with-param name="level" select="$newLevel"/>

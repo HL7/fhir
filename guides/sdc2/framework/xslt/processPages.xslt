@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:f="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xsi xs f">
+<!--
+  - This process turns XHTML into simple HTML, ensures anchors defining names have end tags and creates section labels and links on all sections
+  -->
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xpath-default-namespace="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xsi xs">
   <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
   <xsl:template match="@*|node()">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
   </xsl:template>
-  <xsl:template match="@xsi:schemaLocation|f:extension[@url=('http://hl7.org/fhir/tools-profile-spreadsheet', 'http://hl7.org/fhir/tools-ig-publish-dependencies')]"/>
-  <xsl:template match="h1|h2|h3|h4|h5">
+  <xsl:template match="@xsi:schemaLocation"/>
+  <xsl:template priority="10" match="/div">
+    <div class="col-9">
+      <xsl:apply-templates select="@*|node()"/>
+    </div>
+  </xsl:template>
+  <xsl:template priority="5" match="*">
+    <xsl:element name="{local-name(.)}">
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:element>
+  </xsl:template>
+  <xsl:template match="a[@name]">
+    <a>
+      <xsl:apply-templates select="@*|node()"/>
+      <xsl:text>&#x20;</xsl:text>
+    </a>
+  </xsl:template>
+  <xsl:template priority="10" match="h1|h2|h3|h4|h5">
     <xsl:variable name="hierarchy" as="xs:string">
       <xsl:apply-templates mode="findHierarchy" select="."/>
     </xsl:variable>
@@ -24,18 +43,19 @@
     <xsl:if test="not(preceding-sibling::*[1][self::a[@name]])">
       <a name="{$hierarchy}">&#x20;</a>
     </xsl:if>
-    <xsl:copy>
+    <xsl:element name="{local-name(.)}">
       <xsl:apply-templates select="@*"/>
       <span class="sectioncount">
-        <xsl:value-of select="concat('{{site.data.pages[page.path].label}}.', $hierarchy)"/>
+        <xsl:value-of select="concat('{{site.data.pages[page.path].label}}.0.', $hierarchy)"/>
       </span>
       <xsl:text> </xsl:text>
       <xsl:apply-templates select="node()"/>
       <xsl:text> </xsl:text>
-      <a title="link to here" class="self-link" href="sdc.html#toc">
+      <a title="link to here" class="self-link">
+        <xsl:attribute name="href" select="concat('{{page.path}}#', $link)"/>
         <img src="target.png"/>
       </a>
-    </xsl:copy>
+    </xsl:element>
   </xsl:template>
   <xsl:template mode="findHierarchy" match="h1|h2|h3|h4|h5" as="xs:string">
     <xsl:param name="hierarchyString" as="xs:string" select="''"/>

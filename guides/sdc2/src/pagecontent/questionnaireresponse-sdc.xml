@@ -1,5 +1,4 @@
-<div class="col-9">
-  <h2>Structured Data Capture Data Capture</h2>
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
   <div>
     <a name="scope"/>
     <h3>Scope and Usage</h3>
@@ -10,8 +9,8 @@
     </p>
     <p>
       For the purposes of this profile, <i>Supported</i> means that clients SHALL be capable of processing the element/extension and use the information to control the display
-      and information capture associated with the <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a> resource.  It means that servers SHALL be capable of persisting those elements and returning them in response
-      to requests.
+      and information capture associated with the <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a> resource.  It means that servers SHALL be 
+      capable of persisting those elements and returning them in response to requests.
     </p>
   </div>
   <div>

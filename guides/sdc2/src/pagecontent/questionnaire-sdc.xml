@@ -1,5 +1,4 @@
-<div class="col-9">
-  <h2>Structured Data Capture Questionnaire Design</h2>
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
   <div>
     <a name="scope"/>
     <h3>Scope and Usage</h3>
@@ -10,8 +9,8 @@
     </p>
     <p>
       For the purposes of this profile, <i>Supported</i> means that clients SHALL be capable of processing the element/extension and use the information to control the display
-      and information capture associated with the <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>.  It means that servers SHALL be capable of persisting those elements and returning them in response
-      to requests.
+      and information capture associated with the <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>.  It means that servers SHALL be capable of persisting 
+      those elements and returning them in response to requests.
     </p>
   </div>
   <div>
@@ -22,13 +21,17 @@
     </p>
     <ul>
       <li>
-        <a href="{{site.data.fhir.path}}questionnaire-extensions.html">questionnaire-extensions</a> which defines a number of less common properties for questionnaire, group and question, several of which are mandated for this profile.</li>
+        <a href="{{site.data.fhir.path}}questionnaire-extensions.html">questionnaire-extensions</a> which defines a number of less common properties for questionnaire, group and 
+        question, several of which are mandated for this profile.</li>
       <li>
-        <a href="{{site.data.fhir.path}}element-extensions.html">element-extensions</a> which defines extensions describing constraints on the values for data elements.  There are used here to constrain the allowed values for questions.</li>
+        <a href="{{site.data.fhir.path}}element-extensions.html">element-extensions</a> which defines extensions describing constraints on the values for data elements.  There 
+        are used here to constrain the allowed values for questions.</li>
       <li>
-        <a href="{{site.data.fhir.path}}iso-21090.html">iso-21090</a> provides extensions for strings allowing the conveying of language and translation extensions which may be relevant in some environment</li>
+        <a href="{{site.data.fhir.path}}iso-21090.html">iso-21090</a> provides extensions for strings allowing the conveying of language and translation extensions which may be 
+        relevant in some environment</li>
       <li>
-        <a href="{{site.data.fhir.path}}rendering-extensions.html">rendering-extensions</a> which defines properties to give fine-grained control over how questions, labels and other strings are rendered</li>
+        <a href="{{site.data.fhir.path}}rendering-extensions.html">rendering-extensions</a> which defines properties to give fine-grained control over how questions, labels and 
+        other strings are rendered</li>
     </ul>
   </div>
   <a name="content"> </a>
@@ -61,7 +64,8 @@
         <a href="extension-sdc-questionnaire-optionalDisplay.html">sdc-questionnaire-optionalDisplay</a>
       </td>
       <td>
-        <b>Can suppress from display to user</b> : <p>If set to true, it means that the system displaying the form (or the individual encoding the form for data capture) can choose to omit the item from display to the user.</p>
+        <b>Can suppress from display to user</b> : <p>If set to true, it means that the system displaying the form (or the individual encoding the form for data capture) can 
+        choose to omit the item from display to the user.</p>
       </td>
     </tr>
     <tr>
@@ -69,7 +73,8 @@
         <a href="extension-sdc-questionnaire-provenanceSignatureRequired.html">sdc-questionnaire-provenanceSignatureRequired</a>
       </td>
       <td>
-        <b>Is associated Provenance needed?</b> : <p>If true, indicates that QuestionnaireResponse instances created against this questionnaire must have an associated Provenance record.</p>
+        <b>Is associated Provenance needed?</b> : <p>If true, indicates that QuestionnaireResponse instances created against this questionnaire must have an associated Provenance 
+        record.</p>
       </td>
     </tr>
     <tr>
@@ -105,7 +110,8 @@
         <a href="questionnaire-sdc-profile-example-ussg-fht.html">SDC-LOINC USSG Family History</a>
       </td>
       <td>
-        <p>LOINC US Surgeon General family history including data elements &amp; value sets.  Note: This example isn't strictly valid against SDC as data elements do not have definitions and don't include mappings to SDC-approved specificaitons for auto-population</p>
+        <p>LOINC US Surgeon General family history including data elements &amp; value sets.  Note: This example isn't strictly valid against SDC as data elements do not have 
+        definitions and don't include mappings to SDC-approved specificaitons for auto-population</p>
       </td>
     </tr>
   </table>
@@ -191,7 +197,8 @@
         <td>
           <a href="questionnaire-sdc-profile-example-ussg-fht.json.html">JSON</a>
         </td>
-        <td>LOINC US Surgeon General family history including data elements &amp; value sets.  Note: This example isn't strictly valid against SDC as data elements do not have definitions and don't include mappings to SDC-approved specificaitons for auto-population</td>
+        <td>LOINC US Surgeon General family history including data elements &amp; value sets.  Note: This example isn't strictly valid against SDC as data elements do not have 
+          definitions and don't include mappings to SDC-approved specificaitons for auto-population</td>
       </tr>
     </tbody>
   </table>
