@@ -2563,7 +2563,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     scanForPages(spm, page.getFolders().dstDir, page.getFolders().dstDir);
     
     for (String url : page.getDefinitions().getRedirectList().keySet()) {
-      spm.target(url);
+      spm.target(url.substring(20)); // http://hl7.org/fhir/ = 20 chars
     }
 
     spm.save(page.getFolders().dstDir + "spec.internals");
