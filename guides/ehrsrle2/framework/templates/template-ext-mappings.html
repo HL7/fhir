@@ -1,0 +1,33 @@
+---
+---
+{% include fragment-pagebegin.html %}
+<div class="col-9">
+  <ul class="nav nav-tabs">
+    <li>
+      <a href="extension-{{[id]}}.html">Content</a>
+    </li>
+    <li>
+      <a href="extension-{{[id]}}-definitions.html">Detailed Descriptions</a>
+    </li>
+    <li class="active">
+      <a href="#">Mappings</a>
+    </li>
+    <li>
+      <a href="extension-{{[id]}}.profile.xml.html">XML</a>
+    </li>
+    <li>
+      <a href="extension-{{[id]}}.profile.json.html">JSON</a>
+    </li>
+  </ul>
+  <a name="root"> </a>
+  <h4>
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.7</span> Extension: {{[title]}} - Mappings 
+    <a title="link to here" class="self-link" href="extension-{{[id]}}-mappings.html#root">
+      <img src="target.png"/>
+    </a>
+  </h4>
+  <p>Mappings for the {{id}} Extension</p>
+  {%include StructureDefinition-{{[id]}}-maps.xhtml%}
+</div>
+{% assign includetabscripts = 'true' %}
+{% include fragment-pageend.html %}

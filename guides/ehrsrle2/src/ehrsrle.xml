@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/fhir-single.xsd">
+	<id value="ehrsrle"/>
+	<url value="http://hl7.org/fhir/uv/ehrsrle"/>
+	<name value="EHRS Functional model - Record Lifecycle Events"/>
+	<status value="draft"/>
+	<experimental value="false"/>
+	<publisher value="HL7 EHR-FM"/>
+	<package>
+		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+			<valueUri value="auditevent-profile-ehrs-rle-spreadsheet.xml"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+			<valueUri value="provenance-profile-ehrs-rle-spreadsheet.xml"/>
+		</extension>
+		<name value="base"/>
+		<resource>
+			<example value="true"/>
+			<name value="EHRS FM Record Lifecycle Event"/>
+			<description value="System which records information about EHR events"/>
+			<sourceReference>
+        <reference value="Conformance/conformance-ehrs-rle"/>
+			</sourceReference>
+		</resource>
+	</package>
+	<page>
+		<source value="ehrsrle.html"/>
+		<title value="Home Page"/>
+		<kind value="page"/>
+		<page>
+			<source value="conformance-ehrs-rle.html"/>
+			<title value="System which records information about EHR events"/>
+			<kind value="resource"/>
+			<format value="generated"/>
+		</page>
+		<page>
+			<source value="ehrsrle-auditevent.html"/>
+			<title value="AuditEvent Profile"/>
+			<kind value="resource"/>
+			<format value="generated"/>
+		</page>
+		<page>
+			<source value="ehrsrle-provenance.html"/>
+			<title value="Provenance Profile"/>
+			<kind value="resource"/>
+			<format value="generated"/>
+		</page>
+		<page>
+			<source value="registry.html"/>
+			<title value="Registry"/>
+			<kind value="list"/>
+			<type value="Conformance"/>
+			<type value="StructureDefinition"/>
+			<type value="ValueSet"/>
+			<type value="ConceptMap"/>
+		</page>
+	</page>
+</ImplementationGuide>
