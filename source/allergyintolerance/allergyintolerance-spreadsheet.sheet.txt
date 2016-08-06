@@ -171,6 +171,13 @@
   Display = Environment
   Definition = Substances that are encountered in the environment.
 
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = biologic
+  Display = Biologic
+  Definition = A preparation that is synthesized from living organisms or their products, especially a human or animal protein, such as a hormone or antitoxin, that is used as a diagnostic, preventive, or therapeutic agent. Also called biological drug.  Examples of biological products include: vaccines; blood and blood products for transfusion and/or manufacturing into other products; allergenic extracts, which are used for both diagnosis and treatment (for example, allergy shots); human cells and tissues used for transplantation (for example, tendons, ligaments and bone); gene therapies; cellular therapies; tests to screen potential blood donors for infectious agents such as HIV.
+  Parent = medication
+
 === Sheet reaction-event-certainty =====================================
 
  -- Row 1 -----------------------------------
@@ -273,7 +280,7 @@
   Summary = Y
   Type = code
   Binding = AllergyIntoleranceCategory
-  Short Label = food | medication | environment
+  Short Label = food | medication | biologic | environment
   Definition = Category of the identified substance
   Comments = This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the substance where coding systems are used, and is effectively redundant in that situation.
   v2 Mapping = AL1-2

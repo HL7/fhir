@@ -33,7 +33,7 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Context = AllergyIntolerance
+  Context = substanceExposureRisk
   English = If the substanceExposureRisk extension element is present, the AllergyIntolerance.code element must be omitted.
   XPath = exists(f:substanceExposureRisk) and not(exists(f:code))
   Expression = substanceExposureRisk.exists() and code.empty()
