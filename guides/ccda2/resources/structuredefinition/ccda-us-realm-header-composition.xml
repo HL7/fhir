@@ -170,7 +170,7 @@
             <binding>
                 <strength value="required" />
                 <valueSetReference>
-                    <reference value="http://hl7.org/fhir/ValueSet/2.16.840.1.113883.1.11.16926" />
+                    <reference value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.16926" />
                     <display value="HL7 BasicConfidentialityKind" />
                 </valueSetReference>
             </binding>
@@ -201,7 +201,7 @@
                 <profile value="http://hl7.org/fhir/StructureDefinition/daf-pract" />
             </type>
         </element>
-        <element id="6865-00002">
+        <element id="6865-00002-1">
             <path value="Composition.attester" />
             <slicing>
                 <discriminator value="Composition.attester.mode" />

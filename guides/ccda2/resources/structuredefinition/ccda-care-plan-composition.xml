@@ -1,8 +1,10 @@
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
     <id value="ccda-care-plan-composition" />
-    <url value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-care-plan-composition" />
+    <url value="http://hl7.org/fhir/StructureDefinition/ccda-care-plan-composition" />
     <name value="C-CDA on FHIR Care Plan" />
     <status value="draft" />
+    <publisher value="Lantana Consulting Group" />
     <contact>
         <name value="Sarah Gaunt" />
         <telecom>
@@ -16,22 +18,21 @@
             <use value="work" />
         </telecom>
     </contact>
-    <description value="CARE PLAN FRAMEWORK. Care Plan (including Home Health Plan of Care (HHPoC)) is a consensus-driven dynamic plan that represents a patient’s and Care Team Members’ prioritized concerns, goals, and planned interventions. It serves as a blueprint shared by all Care Team Members (including the patient, their caregivers and providers), to guide the patient’s care. A Care Plan integrates multiple interventions proposed by multiple providers and disciplines for multiple conditions.&#xA;&#xA;A Care Plan represents one or more Plan(s) of Care and serves to reconcile and resolve conflicts between the various Plans of Care developed for a specific patient by different providers. While both a plan of care and a care plan include the patient’s life goals and require Care Team Members (including patients) to prioritize goals and interventions, the reconciliation process becomes more complex as the number of plans of care increases. The Care Plan also serves to enable longitudinal coordination of care.&#xA;&#xA;The Care Plan represents an instance of this dynamic Care Plan at a point in time. The composition itself is NOT dynamic.&#xA;&#xA;Key differentiators between a Care Plan profile and CCD  profile (another “snapshot in time” document):&#xA;&#xA;•  Requires relationships between various acts:&#xA;&#xA;        o  Health Concerns&#xA;&#xA;        o  Problems&#xA;&#xA;        o  Interventions&#xA;&#xA;        o  Goals&#xA;&#xA;        o  Outcomes&#xA;&#xA;•  Provides the ability to identify patient and provider priorities with each act&#xA;&#xA;•  Provides a header participant to indicate occurrences of Care Plan review" />
-    <fhirVersion value="1.5.0" />
+    <description value="CARE PLAN FRAMEWORK: Care Plan (including Home Health Plan of Care (HHPoC)) is a consensus-driven dynamic plan that represents a patient’s and Care Team Members’ prioritized concerns, goals, and planned interventions. It serves as a blueprint shared by all Care Team Members (including the patient, their caregivers and providers), to guide the patient’s care. A Care Plan integrates multiple interventions proposed by multiple providers and disciplines for multiple conditions.&#xA;&#xA;A Care Plan represents one or more Plan(s) of Care and serves to reconcile and resolve conflicts between the various Plans of Care developed for a specific patient by different providers. While both a plan of care and a care plan include the patient’s life goals and require Care Team Members (including patients) to prioritize goals and interventions, the reconciliation process becomes more complex as the number of plans of care increases. The Care Plan also serves to enable longitudinal coordination of care.&#xA;&#xA;The Care Plan represents an instance of this dynamic Care Plan at a point in time. The composition itself is NOT dynamic.&#xA;&#xA;Key differentiators between a Care Plan profile and CCD  profile (another “snapshot in time” document):&#xA;&#xA;•  Requires relationships between various acts:&#xA;&#xA;        o  Health Concerns&#xA;&#xA;        o  Problems&#xA;&#xA;        o  Interventions&#xA;&#xA;        o  Goals&#xA;&#xA;        o  Outcomes&#xA;&#xA;•  Provides the ability to identify patient and provider priorities with each act&#xA;&#xA;•  Provides a header participant to indicate occurrences of Care Plan review" />
     <kind value="resource" />
     <abstract value="false" />
     <type value="Composition" />
-    <baseDefinition value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-us-realm-header-composition" />
-    <derivation value="constraint"/>
+    <baseDefinition value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-us-realm-header-composition"/>
+    <derivation value="constraint" />
     <differential>
-        <element>
+        <element id="7083-00001">
             <path value="Composition" />
         </element>
-        <element>
+        <element id="108456">
             <path value="Composition.type" />
             <label value="Overall Plan of Care/Advance Care Directives" />
-            <short value="type" />
-            <definition value="SHALL contain exactly one [1..1] type=&quot;52521-2&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:2219-1498)." />
+            <short value="Overall Plan of Care/Advance Care Directives" />
+            <definition value="SHALL contain exactly one [1..1] type=&quot;52521-2&quot; (CodeSystem: LOINC http://loinc.org STATIC) (CONF:2219-1498)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -39,29 +40,30 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="52521-2" />
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="7083-00002">
             <path value="Composition.section" />
             <slicing>
                 <discriminator value="Composition.section.code" />
                 <rules value="open" />
             </slicing>
+            <definition value="SHOULD contain zero or one [0..1] section (CONF:2219-1414) such that it" />
         </element>
-        <element>
+        <element id="108351">
             <path value="Composition.section" />
             <name value="section_slice_pos2" />
             <label value="Health Concerns Section" />
-            <short value="section" />
+            <short value="Health Concerns Section" />
             <definition value="SHALL contain exactly one [1..1] section (CONF:2219-1393) such that it" />
             <comments value="Health Concerns Section" />
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="108378">
             <path value="Composition.section.title" />
             <name value="section_slice_pos2" />
             <short value="title" />
@@ -69,12 +71,12 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="108379">
             <path value="Composition.section.code" />
             <name value="section_slice_pos2" />
             <label value="Health concerns document" />
-            <short value="code" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;75310-3&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1421)." />
+            <short value="Health concerns document" />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;75310-3&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1421)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -82,12 +84,12 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="75310-3" />
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="108380">
             <path value="Composition.section.text" />
             <name value="section_slice_pos2" />
             <short value="text" />
@@ -95,31 +97,31 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="108352">
             <path value="Composition.section" />
             <name value="section_slice_pos3" />
             <label value="Goals Section" />
-            <short value="section" />
-            <definition value="SHALL contain exactly one [1..1] section (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1394) such that it" />
+            <short value="Goals Section" />
+            <definition value="SHALL contain exactly one [1..1] section (CodeSystem: LOINC http://loinc.org) (CONF:2219-1394) such that it" />
             <comments value="Goals Section" />
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="108381">
             <path value="Composition.section.title" />
             <name value="section_slice_pos3" />
             <label value="Hospital course" />
-            <short value="title" />
+            <short value="Hospital course" />
             <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1423)." />
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="108382">
             <path value="Composition.section.code" />
             <name value="section_slice_pos3" />
             <label value="Goals" />
-            <short value="code" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;61146-7&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1424)." />
+            <short value="Goals" />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;61146-7&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1424)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -127,12 +129,12 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="61146-7" />
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="108383">
             <path value="Composition.section.text" />
             <name value="section_slice_pos3" />
             <short value="text" />
@@ -140,17 +142,17 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="108353">
             <path value="Composition.section" />
             <name value="section_slice_pos4" />
             <label value="Interventions Section" />
-            <short value="section" />
+            <short value="Interventions Section" />
             <definition value="SHOULD contain zero or one [0..1] section (CONF:2219-1395) such that it" />
             <comments value="Interventions Section" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="108384">
             <path value="Composition.section.title" />
             <name value="section_slice_pos4" />
             <short value="title" />
@@ -158,12 +160,12 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="108385">
             <path value="Composition.section.code" />
             <name value="section_slice_pos4" />
             <label value="Interventions provided" />
-            <short value="code" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;62387-6&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1427)." />
+            <short value="Interventions provided" />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;62387-6&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1427)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -171,12 +173,12 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="62387-6" />
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="108386">
             <path value="Composition.section.text" />
             <name value="section_slice_pos4" />
             <short value="text" />
@@ -184,17 +186,17 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="108372">
             <path value="Composition.section" />
             <name value="section_slice_pos5" />
             <label value="Health Status Evaluations and Outcomes Section" />
-            <short value="section" />
+            <short value="Health Status Evaluations and Outcomes Section" />
             <definition value="SHOULD contain zero or one [0..1] section (CONF:2219-1414) such that it" />
             <comments value="Health Status Evaluations and Outcomes Section" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="108441">
             <path value="Composition.section.title" />
             <name value="section_slice_pos5" />
             <short value="title" />
@@ -202,12 +204,12 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="108442">
             <path value="Composition.section.code" />
             <name value="section_slice_pos5" />
             <label value="Patient problem outcome" />
-            <short value="code" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;11383-7&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1484)." />
+            <short value="Patient problem outcome" />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;11383-7&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1484)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -215,12 +217,12 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="11383-7" />
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="108443">
             <path value="Composition.section.text" />
             <name value="section_slice_pos5" />
             <short value="text" />

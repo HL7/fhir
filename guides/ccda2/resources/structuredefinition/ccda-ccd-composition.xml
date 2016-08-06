@@ -32,7 +32,7 @@
             <path value="Composition.type" />
             <label value="Summary of episode note" />
             <short value="Summary of episode note" />
-            <definition value="SHALL contain exactly one [1..1] type=&quot;34133-9&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1072)." />
+            <definition value="SHALL contain exactly one [1..1] type=&quot;34133-9&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1072)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -40,7 +40,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="34133-9" />
                 </coding>
             </fixedCodeableConcept>
@@ -123,7 +123,7 @@
             <name value="section_slice_pos3" />
             <label value="Allergies and adverse reactions" />
             <short value="Allergies and adverse reactions" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;48765-2&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1066)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;48765-2&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1066)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -131,7 +131,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="48765-2" />
                 </coding>
             </fixedCodeableConcept>
@@ -179,7 +179,7 @@
             <name value="section_slice_pos4" />
             <label value="History of medication use" />
             <short value="History of medication use" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;10160-0&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1074)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;10160-0&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1074)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -187,7 +187,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="10160-0" />
                 </coding>
             </fixedCodeableConcept>
@@ -235,7 +235,7 @@
             <name value="section_slice_pos5" />
             <label value="Problem list" />
             <short value="Problem list" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;11450-4&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1070)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;11450-4&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1070)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -243,7 +243,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="11450-4" />
                 </coding>
             </fixedCodeableConcept>
@@ -291,7 +291,7 @@
             <name value="section_slice_pos6" />
             <label value="History of procedures" />
             <short value="History of procedures" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;47519-4&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1077)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;47519-4&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1077)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -299,7 +299,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="47519-4" />
                 </coding>
             </fixedCodeableConcept>
@@ -347,7 +347,7 @@
             <name value="section_slice_pos7" />
             <label value="Relevant diagnostic tests and laboratory data" />
             <short value="Relevant diagnostic tests and laboratory data" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;30954-2&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1080)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;30954-2&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1080)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -355,7 +355,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="30954-2" />
                 </coding>
             </fixedCodeableConcept>
@@ -403,7 +403,7 @@
             <name value="section_slice_pos8" />
             <label value="Advance directives" />
             <short value="Advance directives" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;42348-3&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1083)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;42348-3&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1083)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -411,7 +411,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="42348-3" />
                 </coding>
             </fixedCodeableConcept>
@@ -447,7 +447,7 @@
             <name value="section_slice_pos9" />
             <label value="Encounters" />
             <short value="Encounters" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;46240-8&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1086)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;46240-8&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1086)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -455,7 +455,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="46240-8" />
                 </coding>
             </fixedCodeableConcept>
@@ -491,7 +491,7 @@
             <name value="section_slice_pos10" />
             <label value="History of family member diseases" />
             <short value="History of family member diseases" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;10157-6&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1089)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;10157-6&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1089)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -499,7 +499,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="10157-6" />
                 </coding>
             </fixedCodeableConcept>
@@ -547,7 +547,7 @@
             <name value="section_slice_pos11" />
             <label value="Functional status assessment" />
             <short value="Functional status assessment" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;47420-5&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1092)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;47420-5&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1092)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -555,7 +555,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="47420-5" />
                 </coding>
             </fixedCodeableConcept>
@@ -591,7 +591,7 @@
             <name value="section_slice_pos12" />
             <label value="History of immunization" />
             <short value="History of immunization" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;11369-6&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1095)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;11369-6&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1095)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -599,7 +599,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="11369-6" />
                 </coding>
             </fixedCodeableConcept>
@@ -647,7 +647,7 @@
             <name value="section_slice_pos13" />
             <label value="Diet and nutrition" />
             <short value="Diet and nutrition" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;61144-2&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1101)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;61144-2&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1101)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -655,7 +655,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="61144-2" />
                 </coding>
             </fixedCodeableConcept>
@@ -691,7 +691,7 @@
             <name value="section_slice_pos14" />
             <label value="Mental status" />
             <short value="Mental status" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;10190-7&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1104)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;10190-7&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1104)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -699,7 +699,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="10190-7" />
                 </coding>
             </fixedCodeableConcept>
@@ -735,7 +735,7 @@
             <name value="section_slice_pos15" />
             <label value="Vital signs" />
             <short value="Vital signs" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;8716-3&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1107)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;8716-3&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1107)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -743,7 +743,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="8716-3" />
                 </coding>
             </fixedCodeableConcept>
@@ -791,7 +791,7 @@
             <name value="section_slice_pos16" />
             <label value="Social history" />
             <short value="Social history" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;29762-2&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1111)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;29762-2&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1111)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -799,7 +799,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="29762-2" />
                 </coding>
             </fixedCodeableConcept>
@@ -847,7 +847,7 @@
             <name value="section_slice_pos17" />
             <label value="Plan of treatment" />
             <short value="Plan of treatment" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;18776-5&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1114)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;18776-5&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1114)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -855,7 +855,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="18776-5" />
                 </coding>
             </fixedCodeableConcept>
@@ -891,7 +891,7 @@
             <name value="section_slice_pos18" />
             <label value="Payers" />
             <short value="Payers" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;48768-6&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1117)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;48768-6&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1117)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -899,7 +899,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="48768-6" />
                 </coding>
             </fixedCodeableConcept>
@@ -935,7 +935,7 @@
             <name value="section_slice_pos19" />
             <label value="Medical equipment" />
             <short value="Medical equipment" />
-            <definition value="SHALL contain exactly one [1..1] code=&quot;46264-8&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1098)." />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;46264-8&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-1098)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -943,7 +943,7 @@
             </type>
             <fixedCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1" />
+                    <system value="http://loinc.org" />
                     <code value="46264-8" />
                 </coding>
             </fixedCodeableConcept>
