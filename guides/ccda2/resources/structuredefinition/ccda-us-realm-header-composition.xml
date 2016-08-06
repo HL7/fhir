@@ -1,4 +1,5 @@
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/composition.xsd" xmlns="http://hl7.org/fhir">
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
     <id value="ccda-us-realm-header-composition" />
     <url value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-us-realm-header-composition" />
     <name value="C-CDA on FHIR US Realm Header" />
@@ -16,31 +17,32 @@
             <use value="work" />
         </telecom>
     </contact>
+    <description value="This profile defines constraints that represent common administrative and demographic concepts for US Realm clinical documents. Further specification, such as type, are provided in document profiles that conform to this profile." />
     <kind value="resource" />
     <abstract value="false" />
     <type value="Composition" />
     <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition" />
-    <derivation value="constraint"/>
+    <derivation value="constraint" />
     <differential>
-        <element>
+        <element id="6865-00001">
             <path value="Composition" />
         </element>
-        <element>
+        <element id="101451">
             <path value="Composition.language" />
             <short value="language" />
             <definition value="SHALL contain exactly one [1..1] language (CONF:2219-146)." />
             <min value="1" />
             <max value="1" />
         </element>
-
-        <element>
+        <element id="6865-00002">
             <path value="Composition.extension" />
             <slicing>
-        	<discriminator value="url"/>
+                <discriminator value="Composition.url" />
                 <rules value="open" />
             </slicing>
+            <definition value="MAY contain zero or more [0..*] C-CDA on FHIR Authorization (identifier: http://hl7.org/fhir/ccda/StructureDefinition/ccda-authorization-extension) (CONF:2219-2012)." />
         </element>
-        <element>
+        <element id="109450">
             <path value="Composition.extension" />
             <name value="extension_slice_pos2" />
             <label value="dataEnterer" />
@@ -53,12 +55,12 @@
                 <profile value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-data-enterer-extension" />
             </type>
         </element>
-        <element>
+        <element id="111022">
             <path value="Composition.extension" />
             <name value="extension_slice_pos3" />
             <label value="informant" />
             <short value="informant" />
-            <definition value="MAY contain zero or more [0..*] C-CDA on FHIR Informant (identifier: http://hl7.org/fhir/StructureDefinition/ccda-informant-extension) (CONF:2219-1849)." />
+            <definition value="MAY contain zero or more [0..*] C-CDA on FHIR Informant (identifier: http://hl7.org/fhir/ccda/StructureDefinition/ccda-informant-extension) (CONF:2219-1849)." />
             <min value="0" />
             <max value="*" />
             <type>
@@ -66,12 +68,12 @@
                 <profile value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-informant-extension" />
             </type>
         </element>
-        <element>
+        <element id="111031">
             <path value="Composition.extension" />
             <name value="extension_slice_pos4" />
             <label value="informationRecipient" />
             <short value="informationRecipient" />
-            <definition value="MAY contain zero or more [0..*] C-CDA on FHIR Information Recipient (identifier: http://hl7.org/fhir/StructureDefinition/ccda-information-recipient-extension) (CONF:2219-1856)." />
+            <definition value="MAY contain zero or more [0..*] C-CDA on FHIR Information Recipient (identifier: http://hl7.org/fhir/ccda/StructureDefinition/ccda-information-recipient-extension) (CONF:2219-1856)." />
             <min value="0" />
             <max value="*" />
             <type>
@@ -79,12 +81,12 @@
                 <profile value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-information-recipient-extension" />
             </type>
         </element>
-        <element>
+        <element id="111036">
             <path value="Composition.extension" />
             <name value="extension_slice_pos5" />
             <label value="participant" />
             <short value="participant" />
-            <definition value="MAY contain zero or more [0..*] C-CDA on FHIR Participant (identifier: http://hl7.org/fhir/StructureDefinition/ccda-participant-extension) (CONF:2219-1861)." />
+            <definition value="MAY contain zero or more [0..*] C-CDA on FHIR Participant (identifier: http://hl7.org/fhir/ccda/StructureDefinition/ccda-participant-extension) (CONF:2219-1861)." />
             <min value="0" />
             <max value="*" />
             <type>
@@ -92,12 +94,12 @@
                 <profile value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-participant-extension" />
             </type>
         </element>
-        <element>
+        <element id="111046">
             <path value="Composition.extension" />
             <name value="extension_slice_pos6" />
             <label value="performer" />
             <short value="performer" />
-            <definition value="SHOULD contain zero or more [0..*] C-CDA on FHIR Performer (identifier: http://hl7.org/fhir/StructureDefinition/ccda-performer-extension) (CONF:2219-1869)." />
+            <definition value="SHOULD contain zero or more [0..*] C-CDA on FHIR Performer (identifier: http://hl7.org/fhir/ccda/StructureDefinition/ccda-performer-extension) (CONF:2219-1869)." />
             <min value="0" />
             <max value="*" />
             <type>
@@ -105,12 +107,12 @@
                 <profile value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-performer-extension" />
             </type>
         </element>
-        <element>
+        <element id="111189">
             <path value="Composition.extension" />
             <name value="extension_slice_pos7" />
-            <label value="performer" />
-            <short value="performer" />
-            <definition value="MAY contain zero or more [0..*] C-CDA on FHIR Authorization (identifier: http://hl7.org/fhir/StructureDefinition/ccda-authorization-extension) (CONF:2219-2012)." />
+            <label value="authorization" />
+            <short value="authorization" />
+            <definition value="MAY contain zero or more [0..*] C-CDA on FHIR Authorization (identifier: http://hl7.org/fhir/ccda/StructureDefinition/ccda-authorization-extension) (CONF:2219-2012)." />
             <min value="0" />
             <max value="*" />
             <type>
@@ -118,14 +120,14 @@
                 <profile value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-authorization-extension" />
             </type>
         </element>
-        <element>
+        <element id="101452">
             <path value="Composition.identifier" />
             <short value="identifier" />
             <definition value="SHALL contain exactly one [1..1] identifier (CONF:2219-147)." />
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="101453">
             <path value="Composition.date" />
             <short value="date" />
             <definition value="SHALL contain exactly one [1..1] date (CONF:2219-148)." />
@@ -133,7 +135,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="101454">
             <path value="Composition.type" />
             <label value="Document Type" />
             <short value="Document Type" />
@@ -141,7 +143,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="101455">
             <path value="Composition.title" />
             <label value="Document Title" />
             <short value="Document Title" />
@@ -149,14 +151,14 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="101463">
             <path value="Composition.status" />
             <short value="status" />
-            <definition value="SHALL contain exactly one [1..1] status" />
+            <definition value="SHALL contain exactly one [1..1] status (CONF:2219-1048)." />
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="101456">
             <path value="Composition.confidentiality" />
             <short value="confidentiality" />
             <definition value="SHALL contain exactly one [1..1] confidentiality, which SHALL be selected from ValueSet HL7 BasicConfidentialityKind urn:oid:2.16.840.1.113883.1.11.16926 STATIC (CONF:2219-151)." />
@@ -168,12 +170,12 @@
             <binding>
                 <strength value="required" />
                 <valueSetReference>
-                	<reference value="http://hl7.org/fhir/ValueSet/2.16.840.1.113883.1.11.16926" />
+                    <reference value="http://hl7.org/fhir/ValueSet/2.16.840.1.113883.1.11.16926" />
                     <display value="HL7 BasicConfidentialityKind" />
                 </valueSetReference>
             </binding>
         </element>
-        <element>
+        <element id="101457">
             <path value="Composition.subject" />
             <label value="recordTarget" />
             <short value="recordTarget" />
@@ -186,7 +188,7 @@
                 <profile value="http://hl7.org/fhir/StructureDefinition/daf-patient" />
             </type>
         </element>
-        <element>
+        <element id="101458">
             <path value="Composition.author" />
             <label value="author" />
             <short value="author" />
@@ -199,39 +201,40 @@
                 <profile value="http://hl7.org/fhir/StructureDefinition/daf-pract" />
             </type>
         </element>
-        <element>
+        <element id="6865-00002">
             <path value="Composition.attester" />
             <slicing>
                 <discriminator value="Composition.attester.mode" />
                 <rules value="open" />
             </slicing>
+            <definition value="MAY contain zero or more [0..*] attester (CONF:2219-2083) such that it" />
         </element>
-        <element>
+        <element id="111259">
             <path value="Composition.attester" />
             <name value="attester_slice_pos16" />
             <label value="legalAuthenticator" />
             <short value="legalAuthenticator" />
-            <definition value="SHOULD contain zero or one [0..1] attester (CONF:2219-1837) such that it" />
+            <definition value="SHOULD contain zero or more [0..*] attester (CONF:2219-2082) such that it" />
             <min value="0" />
-            <max value="1" />
+            <max value="*" />
         </element>
-        <element>
+        <element id="111261">
             <path value="Composition.attester.mode" />
             <name value="attester_slice_pos16" />
             <short value="mode" />
-            <definition value="SHALL contain exactly one [1..1] mode=&quot;legal&quot; (CodeSystem: FHIR CompositionAttestationMode http://hl7.org/fhir/composition-attestation-mode) (CONF:2219-1838)." />
+            <definition value="SHALL contain at least one [1..*] mode=&quot;legal&quot; (CodeSystem: FHIR CompositionAttestationMode http://hl7.org/fhir/composition-attestation-mode) (CONF:2219-2084)." />
             <min value="1" />
-            <max value="1" />
+            <max value="*" />
             <type>
                 <code value="code" />
             </type>
-            <fixedCode value="legal" />
+            <fixedString value="legal" />
         </element>
-        <element>
+        <element id="111262">
             <path value="Composition.attester.party" />
             <name value="attester_slice_pos16" />
             <short value="party" />
-            <definition value="SHALL contain zero or one [0..1] U.S. DAF Practitioner Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-pract) (CONF:2219-1839)." />
+            <definition value="MAY contain zero or one [0..1] U.S. DAF Practitioner Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-pract) (CONF:2219-2085)." />
             <min value="0" />
             <max value="1" />
             <type>
@@ -239,27 +242,36 @@
                 <profile value="http://hl7.org/fhir/StructureDefinition/daf-pract" />
             </type>
         </element>
-        <element>
+        <element id="111260">
             <path value="Composition.attester" />
             <name value="attester_slice_pos17" />
             <label value="authenticator" />
             <short value="authenticator" />
-            <definition value="MAY contain zero or more [0..*] attester (CONF:2219-1840) such that it" />
+            <definition value="MAY contain zero or more [0..*] attester (CONF:2219-2083) such that it" />
             <min value="0" />
             <max value="*" />
         </element>
-        <element>
+        <element id="111263">
             <path value="Composition.attester.mode" />
             <name value="attester_slice_pos17" />
             <short value="mode" />
-            <definition value="SHALL contain at least one [1..*] mode, which SHOULD be selected from ValueSet FHIR CompositionAttestationMode http://hl7.org/fhir/ValueSet/composition-attestation-mode DYNAMIC (CONF:2219-1841)." />
+            <definition value="SHALL contain at least one [1..*] mode (CONF:2219-2086)." />
             <min value="1" />
             <max value="*" />
+        </element>
+        <element id="111264">
+            <path value="Composition.attester.party" />
+            <name value="attester_slice_pos17" />
+            <short value="party" />
+            <definition value="MAY contain zero or one [0..1] U.S. DAF Practitioner Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-pract) (CONF:2219-2087)." />
+            <min value="0" />
+            <max value="1" />
             <type>
-                <code value="code" />
+                <code value="Reference" />
+                <profile value="http://hl7.org/fhir/StructureDefinition/daf-pract" />
             </type>
         </element>
-        <element>
+        <element id="101459">
             <path value="Composition.custodian" />
             <label value="custodian" />
             <short value="custodian" />
@@ -272,29 +284,29 @@
                 <profile value="http://hl7.org/fhir/StructureDefinition/daf-organization" />
             </type>
         </element>
-        <element>
+        <element id="101449">
             <path value="Composition.event" />
             <label value="serviceEvent" />
             <short value="serviceEvent" />
-            <definition value="SHALL contain least one [1..*] event (CONF:2219-676)." />
+            <definition value="SHALL contain at least one [1..*] event (CONF:2219-676)." />
             <min value="1" />
             <max value="*" />
         </element>
-        <element>
+        <element id="101450">
             <path value="Composition.event.period" />
             <short value="period" />
-            <definition value="This event SHALL contain exactly one [1..1] period (CONF:2219-677)." />
+            <definition value="Such events SHALL contain exactly one [1..1] period (CONF:2219-677)." />
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="101460">
             <path value="Composition.event.period.start" />
             <short value="start" />
             <definition value="This period SHALL contain exactly one [1..1] start (CONF:2219-678)." />
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="101461">
             <path value="Composition.encounter" />
             <label value="encompassingEncounter" />
             <short value="encompassingEncounter" />

@@ -3,13 +3,15 @@
 title:  CCDA Index page
 ---
 <!DOCTYPE HTML>
-<!-- [%settitle Guideline Appropriate Ordering Implementation Guide%] -->
+<!-- [%settitle C-CDA on FHIR Implementation Guide%] -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-[%file newheader%]
+<!--[%file newheader%]-->
+{% include header.html %}
   </head>
   <body>
-[%file newnavbar%]
+<!--[%file newnavbar%]-->
+{% include navbar.html %}
     <div class="col-9">
       <a name="CCDA"> </a>
       <h2>C-CDA on FHIR Implementation Guide (IG)</h2>
@@ -164,6 +166,9 @@ title:  CCDA Index page
 		</tr>
 		</table>
   </div>
-  [%file newfooter%]
+<!--  [%file newfooter%]-->
+    <!-- For some reason, having this footer here screws up whole page - will try to figure out later -->
+<!--      {% include footer.html %}-->
   </body>
+
 </html>

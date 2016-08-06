@@ -1,4 +1,5 @@
-<StructureDefinition  xmlns="http://hl7.org/fhir">
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
     <id value="ccda-ccd-composition" />
     <url value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-ccd-composition" />
     <name value="C-CDA on FHIR Continuity of Care Document" />
@@ -18,17 +19,16 @@
         </telecom>
     </contact>
     <description value="This profile was originally based on the Continuity of Care Document (CCD) Release 1.1 which itself was derived from HITSP C32 and CCD Release 1.0.&#xA;&#xA;The Continuity of Care (CCD) profile represents a core data set of the most relevant administrative, demographic, and clinical information facts about a patient's healthcare, covering one or more healthcare encounters. It provides a means for one healthcare practitioner, system, or setting to aggregate all of the pertinent data about a patient and forward it to another to support the continuity of care.  &#xA;&#xA;The primary use case for the CCD is to provide a snapshot in time containing the germane clinical, demographic, and administrative data for a specific patient. The key characteristic of a CCD is that the ServiceEvent is constrained to &quot;PCPR&quot;. This means it does not function to report new ServiceEvents associated with performing care. It reports on care that has already been provided. The CCD provides a historical tally of the care over a range of time and is not a record of new services delivered.&#xA;&#xA;More specific use cases, such as a Discharge Summary, Transfer Summary, Referral Note, Consultation Note, or Progress Note, are available as alternative profiles." />
-    <fhirVersion value="1.5.0" />
     <kind value="resource" />
     <abstract value="false" />
     <type value="Composition" />
     <baseDefinition value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-us-realm-header-composition"/>
-    <derivation value="constraint"/>
+    <derivation value="constraint" />
     <differential>
-        <element>
+        <element id="6915-00001">
             <path value="Composition" />
         </element>
-        <element>
+        <element id="103840">
             <path value="Composition.type" />
             <label value="Summary of episode note" />
             <short value="Summary of episode note" />
@@ -45,7 +45,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="104101">
             <path value="Composition.event" />
             <label value="serviceEvent" />
             <short value="serviceEvent" />
@@ -54,7 +54,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="104103">
             <path value="Composition.event.code" />
             <short value="code" />
             <definition value="This event MAY contain zero or more [0..*] code=&quot;PCPR&quot; Care Provision (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:2219-1227)." />
@@ -71,35 +71,36 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="104102">
             <path value="Composition.event.period" />
             <short value="period" />
             <definition value="This event SHALL contain exactly one [1..1] period (CONF:2219-1226)." />
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="104104">
             <path value="Composition.event.period.start" />
             <short value="start" />
             <definition value="This period SHALL contain exactly one [1..1] start (CONF:2219-1228)." />
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="104105">
             <path value="Composition.event.period.end" />
             <short value="end" />
             <definition value="This period SHALL contain exactly one [1..1] end (CONF:2219-1229)." />
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="6915-00002">
             <path value="Composition.section" />
             <slicing>
                 <discriminator value="Composition.section.code" />
                 <rules value="open" />
             </slicing>
+            <definition value="MAY contain zero or one [0..1] section (CONF:2219-1065) such that it" />
         </element>
-        <element>
+        <element id="103817">
             <path value="Composition.section" />
             <name value="section_slice_pos3" />
             <label value="Allergies and Intolerances Section" />
@@ -109,7 +110,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103835">
             <path value="Composition.section.title" />
             <name value="section_slice_pos3" />
             <short value="title" />
@@ -117,7 +118,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103834">
             <path value="Composition.section.code" />
             <name value="section_slice_pos3" />
             <label value="Allergies and adverse reactions" />
@@ -135,7 +136,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103836">
             <path value="Composition.section.text" />
             <name value="section_slice_pos3" />
             <short value="text" />
@@ -143,7 +144,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111442">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos3" />
             <short value="entry" />
@@ -155,7 +156,7 @@
                 <profile value="http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance" />
             </type>
         </element>
-        <element>
+        <element id="103819">
             <path value="Composition.section" />
             <name value="section_slice_pos4" />
             <label value="Medications Section" />
@@ -165,7 +166,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103841">
             <path value="Composition.section.title" />
             <name value="section_slice_pos4" />
             <short value="title" />
@@ -173,7 +174,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103842">
             <path value="Composition.section.code" />
             <name value="section_slice_pos4" />
             <label value="History of medication use" />
@@ -191,7 +192,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103843">
             <path value="Composition.section.text" />
             <name value="section_slice_pos4" />
             <short value="text" />
@@ -199,7 +200,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111602">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos4" />
             <short value="entry" />
@@ -211,7 +212,7 @@
                 <profile value="http://hl7.org/fhir/StructureDefinition/daf-medicationstatement" />
             </type>
         </element>
-        <element>
+        <element id="103818">
             <path value="Composition.section" />
             <name value="section_slice_pos5" />
             <label value="Problem Section" />
@@ -221,7 +222,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103837">
             <path value="Composition.section.title" />
             <name value="section_slice_pos5" />
             <short value="title" />
@@ -229,7 +230,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103838">
             <path value="Composition.section.code" />
             <name value="section_slice_pos5" />
             <label value="Problem list" />
@@ -247,7 +248,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103839">
             <path value="Composition.section.text" />
             <name value="section_slice_pos5" />
             <short value="text" />
@@ -255,7 +256,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111469">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos5" />
             <short value="entry" />
@@ -267,7 +268,7 @@
                 <profile value="http://hl7.org/fhir/StructureDefinition/daf-condition" />
             </type>
         </element>
-        <element>
+        <element id="103820">
             <path value="Composition.section" />
             <name value="section_slice_pos6" />
             <label value="Procedures Section" />
@@ -277,7 +278,7 @@
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103844">
             <path value="Composition.section.title" />
             <name value="section_slice_pos6" />
             <short value="title" />
@@ -285,7 +286,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103845">
             <path value="Composition.section.code" />
             <name value="section_slice_pos6" />
             <label value="History of procedures" />
@@ -303,7 +304,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103846">
             <path value="Composition.section.text" />
             <name value="section_slice_pos6" />
             <short value="text" />
@@ -311,7 +312,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111625">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos6" />
             <short value="entry" />
@@ -323,7 +324,7 @@
                 <profile value="http://hl7.org/fhir/StructureDefinition/daf-procedure" />
             </type>
         </element>
-        <element>
+        <element id="103821">
             <path value="Composition.section" />
             <name value="section_slice_pos7" />
             <label value="Results Section" />
@@ -333,7 +334,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103847">
             <path value="Composition.section.title" />
             <name value="section_slice_pos7" />
             <short value="title" />
@@ -341,7 +342,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103848">
             <path value="Composition.section.code" />
             <name value="section_slice_pos7" />
             <label value="Relevant diagnostic tests and laboratory data" />
@@ -359,7 +360,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103849">
             <path value="Composition.section.text" />
             <name value="section_slice_pos7" />
             <short value="text" />
@@ -367,7 +368,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111492">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos7" />
             <short value="entry" />
@@ -379,7 +380,7 @@
                 <profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs" />
             </type>
         </element>
-        <element>
+        <element id="103822">
             <path value="Composition.section" />
             <name value="section_slice_pos8" />
             <label value="Advance Directives Section" />
@@ -389,7 +390,7 @@
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103850">
             <path value="Composition.section.title" />
             <name value="section_slice_pos8" />
             <short value="title" />
@@ -397,7 +398,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103851">
             <path value="Composition.section.code" />
             <name value="section_slice_pos8" />
             <label value="Advance directives" />
@@ -415,7 +416,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103852">
             <path value="Composition.section.text" />
             <name value="section_slice_pos8" />
             <short value="text" />
@@ -423,7 +424,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103823">
             <path value="Composition.section" />
             <name value="section_slice_pos9" />
             <label value="Encounters Section" />
@@ -433,7 +434,7 @@
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103853">
             <path value="Composition.section.title" />
             <name value="section_slice_pos9" />
             <short value="title" />
@@ -441,7 +442,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103854">
             <path value="Composition.section.code" />
             <name value="section_slice_pos9" />
             <label value="Encounters" />
@@ -459,7 +460,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103855">
             <path value="Composition.section.text" />
             <name value="section_slice_pos9" />
             <short value="text" />
@@ -467,7 +468,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103824">
             <path value="Composition.section" />
             <name value="section_slice_pos10" />
             <label value="Family History Section" />
@@ -477,7 +478,7 @@
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103856">
             <path value="Composition.section.title" />
             <name value="section_slice_pos10" />
             <short value="title" />
@@ -485,7 +486,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103857">
             <path value="Composition.section.code" />
             <name value="section_slice_pos10" />
             <label value="History of family member diseases" />
@@ -503,7 +504,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103858">
             <path value="Composition.section.text" />
             <name value="section_slice_pos10" />
             <short value="text" />
@@ -511,7 +512,19 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="112086">
+            <path value="Composition.section.entry" />
+            <name value="section_slice_pos10" />
+            <short value="entry" />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF FamilyMemberHistory Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-familyMemberHistory) (CONF:2219-2253)." />
+            <min value="0" />
+            <max value="*" />
+            <type>
+                <code value="Reference" />
+                <profile value="http://hl7.org/fhir/StructureDefinition/daf-familyMemberHistory" />
+            </type>
+        </element>
+        <element id="103825">
             <path value="Composition.section" />
             <name value="section_slice_pos11" />
             <label value="Functional Status Section" />
@@ -521,7 +534,7 @@
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103859">
             <path value="Composition.section.title" />
             <name value="section_slice_pos11" />
             <short value="title" />
@@ -529,7 +542,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103860">
             <path value="Composition.section.code" />
             <name value="section_slice_pos11" />
             <label value="Functional status assessment" />
@@ -547,7 +560,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103861">
             <path value="Composition.section.text" />
             <name value="section_slice_pos11" />
             <short value="text" />
@@ -555,7 +568,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103826">
             <path value="Composition.section" />
             <name value="section_slice_pos12" />
             <label value="Immunizations Section" />
@@ -565,7 +578,7 @@
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103862">
             <path value="Composition.section.title" />
             <name value="section_slice_pos12" />
             <short value="title" />
@@ -573,7 +586,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103863">
             <path value="Composition.section.code" />
             <name value="section_slice_pos12" />
             <label value="History of immunization" />
@@ -591,7 +604,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103864">
             <path value="Composition.section.text" />
             <name value="section_slice_pos12" />
             <short value="text" />
@@ -599,7 +612,19 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="112085">
+            <path value="Composition.section.entry" />
+            <name value="section_slice_pos12" />
+            <short value="entry" />
+            <definition value="SHOULD contain zero or more [0..*] U.S. DAF Immunization Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-immunization) (CONF:2219-2252)." />
+            <min value="0" />
+            <max value="*" />
+            <type>
+                <code value="Reference" />
+                <profile value="http://hl7.org/fhir/StructureDefinition/daf-immunization" />
+            </type>
+        </element>
+        <element id="103828">
             <path value="Composition.section" />
             <name value="section_slice_pos13" />
             <label value="Nutrition Section" />
@@ -609,7 +634,7 @@
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103868">
             <path value="Composition.section.title" />
             <name value="section_slice_pos13" />
             <short value="title" />
@@ -617,7 +642,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103869">
             <path value="Composition.section.code" />
             <name value="section_slice_pos13" />
             <label value="Diet and nutrition" />
@@ -635,7 +660,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103870">
             <path value="Composition.section.text" />
             <name value="section_slice_pos13" />
             <short value="text" />
@@ -643,7 +668,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103829">
             <path value="Composition.section" />
             <name value="section_slice_pos14" />
             <label value="Mental Status Section" />
@@ -653,7 +678,7 @@
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103871">
             <path value="Composition.section.title" />
             <name value="section_slice_pos14" />
             <short value="title" />
@@ -661,7 +686,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103872">
             <path value="Composition.section.code" />
             <name value="section_slice_pos14" />
             <label value="Mental status" />
@@ -679,7 +704,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103873">
             <path value="Composition.section.text" />
             <name value="section_slice_pos14" />
             <short value="text" />
@@ -687,7 +712,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103830">
             <path value="Composition.section" />
             <name value="section_slice_pos15" />
             <label value="Vital Signs Section" />
@@ -697,7 +722,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103874">
             <path value="Composition.section.title" />
             <name value="section_slice_pos15" />
             <short value="title" />
@@ -705,7 +730,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103875">
             <path value="Composition.section.code" />
             <name value="section_slice_pos15" />
             <label value="Vital signs" />
@@ -723,7 +748,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103876">
             <path value="Composition.section.text" />
             <name value="section_slice_pos15" />
             <short value="text" />
@@ -731,11 +756,11 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111573">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos15" />
             <short value="entry" />
-            <definition value="SHOULD contain zero or more [0..*] U.S.DAF Vital Signs Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-vitalsigns) (CONF:2219-2154)." />
+            <definition value="SHOULD contain zero or more [0..*] U.S.DAF VitalSigns Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-vitalsigns) (CONF:2219-2154)." />
             <min value="0" />
             <max value="*" />
             <type>
@@ -743,7 +768,7 @@
                 <profile value="http://hl7.org/fhir/StructureDefinition/daf-vitalsigns" />
             </type>
         </element>
-        <element>
+        <element id="103831">
             <path value="Composition.section" />
             <name value="section_slice_pos16" />
             <label value="Social History Section" />
@@ -753,7 +778,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103878">
             <path value="Composition.section.title" />
             <name value="section_slice_pos16" />
             <short value="title" />
@@ -761,7 +786,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103879">
             <path value="Composition.section.code" />
             <name value="section_slice_pos16" />
             <label value="Social history" />
@@ -779,7 +804,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103880">
             <path value="Composition.section.text" />
             <name value="section_slice_pos16" />
             <short value="text" />
@@ -787,19 +812,19 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="112587">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos16" />
             <short value="entry" />
-            <definition value="SHOULD contain zero or more [0..*] C-CDA on FHIR Observation (identifier: http://hl7.org/fhir/StructureDefinition/ccda-observation) (CONF:2219-2182)." />
+            <definition value="SHOULD contain zero or more [0..*] U.S. DAF SmokingStatus Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-smokingstatus) (CONF:2219-2433)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-observation" />
+                <profile value="http://hl7.org/fhir/StructureDefinition/daf-smokingstatus" />
             </type>
         </element>
-        <element>
+        <element id="103832">
             <path value="Composition.section" />
             <name value="section_slice_pos17" />
             <label value="Plan of Treatment Section" />
@@ -809,7 +834,7 @@
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103881">
             <path value="Composition.section.title" />
             <name value="section_slice_pos17" />
             <short value="title" />
@@ -817,7 +842,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103882">
             <path value="Composition.section.code" />
             <name value="section_slice_pos17" />
             <label value="Plan of treatment" />
@@ -835,7 +860,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103883">
             <path value="Composition.section.text" />
             <name value="section_slice_pos17" />
             <short value="text" />
@@ -843,7 +868,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103833">
             <path value="Composition.section" />
             <name value="section_slice_pos18" />
             <label value="Payers Section" />
@@ -853,7 +878,7 @@
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103884">
             <path value="Composition.section.title" />
             <name value="section_slice_pos18" />
             <short value="title" />
@@ -861,7 +886,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103885">
             <path value="Composition.section.code" />
             <name value="section_slice_pos18" />
             <label value="Payers" />
@@ -879,7 +904,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103886">
             <path value="Composition.section.text" />
             <name value="section_slice_pos18" />
             <short value="text" />
@@ -887,7 +912,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103827">
             <path value="Composition.section" />
             <name value="section_slice_pos19" />
             <label value="Medical Equipment Section" />
@@ -897,7 +922,7 @@
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103865">
             <path value="Composition.section.title" />
             <name value="section_slice_pos19" />
             <short value="title" />
@@ -905,7 +930,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="103866">
             <path value="Composition.section.code" />
             <name value="section_slice_pos19" />
             <label value="Medical equipment" />
@@ -923,7 +948,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="103867">
             <path value="Composition.section.text" />
             <name value="section_slice_pos19" />
             <short value="text" />

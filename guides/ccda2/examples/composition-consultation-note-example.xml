@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Composition xmlns="http://hl7.org/fhir">
-    <id value = "composition-consultation-note-example"/>
+<id value="composition-consultation-note-example"/>
     <meta>
         <versionId value="1"/>    
         <lastUpdated value="2016-06-15T08:16:14Z"/>
@@ -13,22 +13,22 @@
             <p>Managed by Community Health and Hospitals</p>
         </div>
     </text>
-    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-data-enterer-extension" >
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-data-enterer-extension">
         <valueUri value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-informant-extension" >
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-informant-extension">
         <valueUri value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-information-recipient-extension" >
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-information-recipient-extension">
         <valueUri value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-participant-extension" >
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-participant-extension">
         <valueUri value="http://fhirtest.uhn.ca/baseDstu3/RelatedPerson/117466"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-performer-extension" >
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-performer-extension">
         <valueUri value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-authorization-extension" >
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-authorization-extension">
         <valueUri value="http://hl7.org/fhir/StructureDefinition/ccda-consent"/>
     </extension>
     <identifier>
@@ -628,7 +628,7 @@
             <status value="generated"/>
             <div xmlns="http://www.w3.org/1999/xhtml">
                 <p>HEENT: All normal to examination.</p>
-                <p>>HEART: RRR, no murmur.</p>
+                <p>&gt;HEART: RRR, no murmur.</p>
                 <p>THORAX &amp; LUNGS: Clear without rhonchi or wheeze.</p>
                 <p>ABDOMEN: Marked distension and tenderness, slightly obese, pos bowelsounds.</p>
                 <p>BACK: Normal to inspection and palpation, without tenderness; no presacral edema.</p>
@@ -922,4 +922,3 @@
         </entry>
     </section>
 </Composition>
-
