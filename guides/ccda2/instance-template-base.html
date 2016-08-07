@@ -1,8 +1,28 @@
 ---
 # jekyll header
 ---
+
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<!-- instance template base -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>C-CDA on FHIR</title>
+  
+
 {% include header.html %}
 
+</head>
+<body>
+
+{% include navbar.html %}
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+  <!-- CONTENT CONTENT -->
+  
 <h2>{{[title]}}</h2>
 
 <p>
@@ -11,4 +31,14 @@ Formats: <a href="{{[type]}}-{{[id]}}.xml.html">XML</a>, <a href="{{[type]}}-{{[
 
 {% include {{[type]}}-{{[name]}}.xhtml %}
 
-{% include footer.html %}
+
+ </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+    {% include footer.html %}
+
+</body>
+</html>

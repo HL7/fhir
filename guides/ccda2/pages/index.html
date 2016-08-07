@@ -12,9 +12,24 @@ title:  CCDA Index page
   <body>
 <!--[%file newnavbar%]-->
 {% include navbar.html %}
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <!-- daf\daf / page / daf -->
+          <li title="C-CDA on FHIR"><b>C-CDA on FHIR Implementation Guide</b></li>
+          
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+    
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
     <div class="col-9">
       <a name="CCDA"> </a>
       <h2>C-CDA on FHIR Implementation Guide (IG)</h2>
+      <h3>Summary</h3>
       <p><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=408">C-CDA</a> is one of the most widely implemented implementation guides for CDA and covers a significant scope of clinical care. Its target of the 'common/essential' elements of healthcare is closely aligned with FHIR's focus on the '80%'. There is significant interest in industry and government in the ability to interoperate between CDA and FHIR and C-CDA is a logical starting point. Implementers and regulators have both expressed an interest in the ability to map between FHIR and C-CDA.</p>
 
 	  <p>This Implementation Guide defines a series of FHIR profiles on the Composition resource to represent the various document types in C-CDA. This release does not directly map every C-CDA template to FHIR profiles, rather tries to accomplish the C-CDA use case using Composition resource profiles created under this project (the equivalent of Level 2 CDA documents), and linking to the profiles created under the Data Access Framework (DAF) project for any coded entries that would normally be included in C-CDA sections. The hope is that this results in a simpler, more streamlined standard that reuses existing work and focuses on the 80% that implementers actually need in production systems (the hope is that DAF represents that 80% needed for coded entries).</p>

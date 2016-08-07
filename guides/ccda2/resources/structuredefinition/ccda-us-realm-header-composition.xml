@@ -4,6 +4,7 @@
     <url value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-us-realm-header-composition" />
     <name value="C-CDA on FHIR US Realm Header" />
     <status value="draft" />
+    <publisher value="Lantana Consulting Group" />
     <contact>
         <name value="Rick Geimer" />
         <telecom>
