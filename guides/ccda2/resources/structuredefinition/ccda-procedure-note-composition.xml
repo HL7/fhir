@@ -471,7 +471,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-      <!-- Commenting out for now to get the IG publisher working -->
+      <!-- Commenting out, instead, moved daf-procedure as a second type in the following entry (i.e. a simple choice vs. a slice) -->
         <!--<element id="112590">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos11" />
@@ -488,12 +488,16 @@
             <path value="Composition.section.entry" />
             <name value="section_slice_pos11" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF MedicationStatement Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationstatement) (CONF:2219-2437)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF MedicationStatement Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationstatement)  or U.S. DAF Procedure Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-procedure) (CONF:2219-2437)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Reference" />
                 <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationstatement" />
+            </type>
+            <type>
+                <code value="Reference" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-procedure" />
             </type>
         </element>
         <element id="108690">
