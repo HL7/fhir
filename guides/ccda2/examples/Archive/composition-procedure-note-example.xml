@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Composition xmlns="http://hl7.org/fhir">
     <id value="procedure-note-example"/>
-    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-data-enterer-extension" >
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-data-enterer-extension" >
         <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/d2c66c52-5a31-4158-b5a5-a6534c0f9c/_history/1"/>
     </extension>
-    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-informant-extension" >
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-informant-extension" >
         <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/d2c66c52-5a31-4158-b5a5-a6534c0f9c/_history/1"/>
     </extension>
-    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-information-recipient-extension" >
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-information-recipient-extension" >
         <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/d2c66c52-5a31-4158-b5a5-a6534c0f9c/_history/1"/>
     </extension>
-    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-participant-extension" >
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-participant-extension" >
         <valueUri value="http://fhir3.healthintersections.com.au/open/RelatedPerson/ab019e53-9c1d-4158-b2fd-1a022acdb1/_history/1"/>
     </extension>
-    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-performer-extension" >
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-performer-extension" >
         <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/d2c66c52-5a31-4158-b5a5-a6534c0f9c/_history/1"/>
     </extension>
-    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-authorization-extension" >
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-authorization-extension" >
         <valueUri value="http://hl7.org/fhir/StructureDefinition/ccda-consent"/>
     </extension>
     <identifier>

@@ -13,26 +13,26 @@
       <p>Managed by Community Health and Hospitals</p>
     </div>
   </text>
-  <extension url="http://hl7.org/fhir/StructureDefinition/ccda-data-enterer-extension">
+  <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-data-enterer-extension">
     <valueUri value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/ccda-informant-extension">
+  <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-informant-extension">
     <valueUri value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/ccda-information-recipient-extension">
+  <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-information-recipient-extension">
     <valueUri value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/ccda-participant-extension">
+  <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-participant-extension">
     <valueUri value="http://fhirtest.uhn.ca/baseDstu3/RelatedPerson/117466"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/ccda-performer-extension">
+  <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-performer-extension">
     <valueUri value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/ccda-authorization-extension">
-    <valueUri value="http://hl7.org/fhir/StructureDefinition/ccda-consent"/>
+  <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-authorization-extension">
+    <valueUri value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-consent"/>
   </extension>
   <identifier>
-    <system value="http://hl7.org/fhir/StructureDefinition/ccda-referral-note-composition"/>
+    <system value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-referral-note-composition"/>
     <value value="1"/>
   </identifier>
   <date value="2016-03-22T09:10:14Z"/>
