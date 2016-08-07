@@ -1,5 +1,5 @@
-<StructureDefinition
-  xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../../publish/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
   <id value="ccda-informant-extension" />
   <url value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-informant-extension" />
   <name value="C-CDA on FHIR Informant" />
@@ -37,13 +37,21 @@
       <definition value="SHALL contain exactly one [1..1] @url=&quot;http://hl7.org/fhir/ccda/StructureDefinition/ccda-informant-extension&quot; (CONF:2219-1852)." />
       <min value="1" />
       <max value="1" />
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-informant-extension"/>
     </element>
     <element id="111028">
       <path value="Extension.valueReference" />
       <short value="valueReference" />
-      <definition value="SHALL contain exactly one [1..1] U.S. DAF Practitioner Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-pract) (CONF:2219-1853)." />
+      <definition value="SHALL contain exactly one [1..1] U.S. DAF Practitioner Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract) (CONF:2219-1853)." />
       <min value="1" />
       <max value="1" />
+      <type>
+        <code value="Reference"/>
+        <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract"/>
+      </type>
     </element>
   </differential>
 </StructureDefinition>

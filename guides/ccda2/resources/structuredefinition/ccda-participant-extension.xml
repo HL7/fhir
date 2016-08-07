@@ -37,13 +37,21 @@
       <definition value="SHALL contain exactly one [1..1] @url=&quot;http://hl7.org/fhir/ccda/StructureDefinition/ccda-participant-extension&quot; (CONF:2219-1859)." />
       <min value="1" />
       <max value="1" />
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-participant-extension"/>
     </element>
     <element id="111035">
       <path value="Extension.valueReference" />
       <short value="valueReference" />
-      <definition value="SHALL contain exactly one [1..1] U.S. DAF RelatedPerson Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-relatedperson) (CONF:2219-1860)." />
+      <definition value="SHALL contain exactly one [1..1] U.S. DAF RelatedPerson Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-relatedperson) (CONF:2219-1860)." />
       <min value="1" />
       <max value="1" />
+      <type>
+        <code value="Reference"/>
+        <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-relatedperson"/>
+      </type>
     </element>
   </differential>
 </StructureDefinition>

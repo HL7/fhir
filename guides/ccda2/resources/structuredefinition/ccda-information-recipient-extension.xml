@@ -37,13 +37,21 @@
       <definition value="SHALL contain exactly one [1..1] @url=&quot;http://hl7.org/fhir/ccda/StructureDefinition/ccda-information-recipient-extension&quot; (CONF:2219-1854)." />
       <min value="1" />
       <max value="1" />
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-information-recipient-extension"/>
     </element>
     <element id="111030">
       <path value="Extension.valueReference" />
       <short value="valueReference" />
-      <definition value="SHALL contain exactly one [1..1] U.S. DAF Practitioner Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-pract) (CONF:2219-1855)." />
+      <definition value="SHALL contain exactly one [1..1] U.S. DAF Practitioner Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract) (CONF:2219-1855)." />
       <min value="1" />
       <max value="1" />
+      <type>
+        <code value="Reference"/>
+        <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract"/>
+      </type>
     </element>
   </differential>
 </StructureDefinition>

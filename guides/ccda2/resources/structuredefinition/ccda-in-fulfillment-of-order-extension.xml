@@ -37,13 +37,21 @@
       <definition value="SHALL contain exactly one [1..1] @url=&quot;http://hl7.org/fhir/ccda/StructureDefinition/ccda-in-fulfillment-of-order-extension&quot; (CONF:2219-1864)." />
       <min value="1" />
       <max value="1" />
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-in-fulfillment-of-order-extension"/>
     </element>
     <element id="111040">
       <path value="Extension.valueReference" />
       <short value="valueReference" />
-      <definition value="SHALL contain exactly one [1..1] U.S. DAF DiagnosticOrder Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-diagnosticOrder) (CONF:2219-1865)." />
+      <definition value="SHALL contain exactly one [1..1] U.S. DAF DiagnosticRequest Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-diagnosticRequest) (CONF:2219-1865)." />
       <min value="1" />
       <max value="1" />
+      <type>
+        <code value="Reference"/>
+        <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-diagnosticRequest"/>
+      </type>
     </element>
   </differential>
 </StructureDefinition>
