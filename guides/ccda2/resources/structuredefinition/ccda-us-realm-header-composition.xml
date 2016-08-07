@@ -179,26 +179,26 @@
             <path value="Composition.subject" />
             <label value="recordTarget" />
             <short value="recordTarget" />
-            <definition value="SHALL contain exactly one [1..1] U.S. DAF Patient Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-patient) (CONF:2219-152)." />
+            <definition value="SHALL contain exactly one [1..1] U.S. DAF Patient Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient) (CONF:2219-152)." />
             <comments value="U.S. DAF Patient" />
             <min value="1" />
             <max value="1" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/StructureDefinition/daf-patient" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-patient" />
             </type>
         </element>
         <element id="101458">
             <path value="Composition.author" />
             <label value="author" />
             <short value="author" />
-            <definition value="SHALL contain at least one [1..*] U.S. DAF Practitioner Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-pract) (CONF:2219-153)." />
+            <definition value="SHALL contain at least one [1..*] U.S. DAF Practitioner Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract) (CONF:2219-153)." />
             <comments value="U.S. DAF Practitioner" />
             <min value="1" />
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/StructureDefinition/daf-pract" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract" />
             </type>
         </element>
         <element id="6865-00002-1">
@@ -234,12 +234,12 @@
             <path value="Composition.attester.party" />
             <name value="attester_slice_pos16" />
             <short value="party" />
-            <definition value="MAY contain zero or one [0..1] U.S. DAF Practitioner Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-pract) (CONF:2219-2085)." />
+            <definition value="MAY contain zero or one [0..1] U.S. DAF Practitioner Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract) (CONF:2219-2085)." />
             <min value="0" />
             <max value="1" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/StructureDefinition/daf-pract" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract" />
             </type>
         </element>
         <element id="111260">
@@ -263,25 +263,25 @@
             <path value="Composition.attester.party" />
             <name value="attester_slice_pos17" />
             <short value="party" />
-            <definition value="MAY contain zero or one [0..1] U.S. DAF Practitioner Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-pract) (CONF:2219-2087)." />
+            <definition value="MAY contain zero or one [0..1] U.S. DAF Practitioner Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract) (CONF:2219-2087)." />
             <min value="0" />
             <max value="1" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/StructureDefinition/daf-pract" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract" />
             </type>
         </element>
         <element id="101459">
             <path value="Composition.custodian" />
             <label value="custodian" />
             <short value="custodian" />
-            <definition value="SHALL contain exactly one [1..1] U.S. DAF Organization Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-organization) (CONF:2219-154)." />
+            <definition value="SHALL contain exactly one [1..1] U.S. DAF Organization Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-organization) (CONF:2219-154)." />
             <comments value="U.S. DAF Organization" />
             <min value="1" />
             <max value="1" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/StructureDefinition/daf-organization" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-organization" />
             </type>
         </element>
         <element id="101449">
@@ -310,13 +310,13 @@
             <path value="Composition.encounter" />
             <label value="encompassingEncounter" />
             <short value="encompassingEncounter" />
-            <definition value="MAY contain zero or one [0..1] U.S. DAF Encounter Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-encounter) (CONF:2219-679)." />
+            <definition value="MAY contain zero or one [0..1] U.S. DAF Encounter Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-encounter) (CONF:2219-679)." />
             <comments value="U.S. DAF Encounter" />
             <min value="0" />
             <max value="1" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/StructureDefinition/daf-encounter" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-encounter" />
             </type>
         </element>
     </differential>
