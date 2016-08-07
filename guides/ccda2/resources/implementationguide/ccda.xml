@@ -202,23 +202,19 @@
       <description value="Example CCD"/>
       <acronym value="ccd-example"/>
       <sourceReference>
-        <reference value="Composition/ccd-example"/>
+        <reference value="Composition/composition-ccd-example"/>
       </sourceReference>
-      <!-- <exampleFor>
-            <reference value="http://hl7.org/fhir/StructureDefinition/ccda-ccd-composition"/>
-          </exampleFor> -->
     </resource>
+    
+    <!--
     <resource>
       <example value="true"/>
       <name value="Example Care Plan"/>
       <description value="Example Care Plan"/>
       <acronym value="care-plan-example"/>
       <sourceReference>
-        <reference value="Composition/care-plan-example"/>
+        <reference value="../examples/composition-care-plan-example.xml"/>
       </sourceReference>
-      <!-- <exampleFor>
-            <reference value="http://hl7.org/fhir/StructureDefinition/ccda-care-plan-composition"/>
-          </exampleFor> -->
     </resource>
     <resource>
       <example value="true"/>
@@ -228,9 +224,9 @@
       <sourceReference>
         <reference value="Composition/consultation-note-example"/>
       </sourceReference>
-      <!-- <exampleFor>
+       <exampleFor>
             <reference value="http://hl7.org/fhir/StructureDefinition/ccda-consultation-note-composition"/>
-          </exampleFor> -->
+          </exampleFor> 
     </resource>
     <resource>
       <example value="true"/>
@@ -240,9 +236,9 @@
       <sourceReference>
         <reference value="Composition/discharge-summary-example"/>
       </sourceReference>
-      <!-- <exampleFor>
+       <exampleFor>
             <reference value="http://hl7.org/fhir/StructureDefinition/ccda-discharge-summary-composition"/>
-          </exampleFor> -->
+          </exampleFor> 
     </resource>
     <resource>
       <example value="true"/>
@@ -252,9 +248,9 @@
       <sourceReference>
         <reference value="Composition/history-and-physical-example"/>
       </sourceReference>
-      <!-- <exampleFor>
+       <exampleFor>
             <reference value="http://hl7.org/fhir/StructureDefinition/ccda-history-and-physical-composition"/>
-          </exampleFor> -->
+          </exampleFor> 
     </resource>
     <resource>
       <example value="true"/>
@@ -264,9 +260,9 @@
       <sourceReference>
         <reference value="Composition/operative-note-example"/>
       </sourceReference>
-      <!-- <exampleFor>
+       <exampleFor>
             <reference value="http://hl7.org/fhir/StructureDefinition/ccda-operative-note-composition"/>
-          </exampleFor> -->
+          </exampleFor> 
     </resource>
     <resource>
       <example value="true"/>
@@ -276,11 +272,11 @@
       <sourceReference>
         <reference value="Composition/procedure-note-example"/>
       </sourceReference>
-      <!-- <exampleFor>
+       <exampleFor>
             <reference value="http://hl7.org/fhir/StructureDefinition/ccda-procedure-note-composition"/>
-          </exampleFor> -->
+          </exampleFor> 
     </resource>
-
+    -->
     <!-- CDA logical models -->
     <!--<resource>
       <name value="V3 Data type ANY (DataValue)"/>

@@ -1,7 +1,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="ccda-care-plan-composition" />
-    <url value="http://hl7.org/fhir/StructureDefinition/ccda-care-plan-composition" />
+    <url value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-care-plan-composition" />
     <name value="C-CDA on FHIR Care Plan" />
     <status value="draft" />
     <publisher value="Lantana Consulting Group" />

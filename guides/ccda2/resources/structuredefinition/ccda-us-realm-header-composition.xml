@@ -37,7 +37,7 @@
         <element id="6865-00002">
             <path value="Composition.extension" />
             <slicing>
-                <discriminator value="Composition.url" />
+                <discriminator value="url" />
                 <rules value="open" />
             </slicing>
             <definition value="MAY contain zero or more [0..*] C-CDA on FHIR Authorization (identifier: http://hl7.org/fhir/ccda/StructureDefinition/ccda-authorization-extension) (CONF:2219-2012)." />
