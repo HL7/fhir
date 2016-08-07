@@ -31,10 +31,11 @@ public class SpecMapManager {
   private Set<String> targetSet = new HashSet<String>();
   private Set<String> imageSet = new HashSet<String>();
 
-  public SpecMapManager(String version, String svnRevision, Calendar genDate) {
+  public SpecMapManager(String version, String svnRevision, Calendar genDate, String webUrl) {
     spec = new JsonObject();
     spec.addProperty("version", version);
     spec.addProperty("build", svnRevision);
+    spec.addProperty("webUrl", webUrl);
     spec.addProperty("date", new SimpleDateFormat("yyyy-MM-dd").format(genDate.getTime()));
     paths = new JsonObject();
     spec.add("paths", paths);
@@ -74,6 +75,17 @@ public class SpecMapManager {
 
   public String getVersion() throws Exception {
     return str(spec, "version");
+  }
+
+  /**
+   * The official location of the IG, when built (= canonical URL in the build file)
+   * 
+   * @param url
+   * @return
+   * @throws Exception
+   */
+  public String getWebUrl(String url) throws Exception {
+    return str(spec, "webUrl");
   }
 
   public String getPath(String url) throws Exception {

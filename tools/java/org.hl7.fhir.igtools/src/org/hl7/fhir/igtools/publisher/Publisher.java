@@ -1379,7 +1379,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void generateZips() throws Exception {
-    SpecMapManager map = new SpecMapManager(Constants.VERSION, Constants.REVISION, execTime);
+    SpecMapManager map = new SpecMapManager(Constants.VERSION, Constants.REVISION, execTime, igpkp.getCanonical());
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         String u = igpkp.getCanonical()+r.getUrlTail();

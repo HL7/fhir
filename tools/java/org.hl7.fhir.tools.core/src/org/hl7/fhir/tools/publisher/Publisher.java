@@ -285,7 +285,8 @@ import org.json.JSONTokener;
  *
  */
 public class Publisher implements URIResolver, SectionNumberer {
-
+  public static final String CANONICAL_BASE = "http://hl7-fhir.github.io/";
+  
   public class DocumentHolder {
 
     public XhtmlDocument doc;
@@ -2130,8 +2131,10 @@ public class Publisher implements URIResolver, SectionNumberer {
     searchParamsFeed.setMeta(new Meta().setLastUpdated(resourceBundle.getMeta().getLastUpdated()));
     for (ResourceDefn rd : page.getDefinitions().getBaseResources().values())
       addSearchParams(searchParamsFeed, rd);
-    for (ResourceDefn rd : page.getDefinitions().getResources().values())
+    for (String n : page.getDefinitions().sortedResourceNames()) {
+      ResourceDefn rd = page.getDefinitions().getResources().get(n);
       addSearchParams(searchParamsFeed, rd);
+    }
     for (Profile cp : page.getDefinitions().getPackList()) {
       addSearchParams(searchParamsFeed, cp);
     }
@@ -2495,7 +2498,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void produceSpecMap() throws IOException {
-    SpecMapManager spm = new SpecMapManager(page.getVersion(), page.getSvnRevision(), page.getGenDate());
+    SpecMapManager spm = new SpecMapManager(page.getVersion(), page.getSvnRevision(), page.getGenDate(), CANONICAL_BASE);
         
     for (StructureDefinition sd : page.getWorkerContext().allStructures()) {
       if (sd.hasUserData("path")) {
