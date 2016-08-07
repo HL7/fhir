@@ -1,0 +1,8 @@
+<li>Flattened Metadata into each resource to improve usability</li>
+<li>OrderSet, Protocol, and DecisionSupportRule replaced by PlanDefinition</li>
+<li>Library resource generalized to support any non-FHIR-formatted knowledge artifact</li>
+<li>Generalized expression extensions to support dynamic values throughout FHIR</li>
+<li>Simplified parameter representation in $evaluate requests</li>
+<li>Added $dataRequirements operation to support inferring data requirements for all artifacts</li>
+<li>Improved support for asynchronous $evaluate operations</li>
+<li>Added support for multiple $evaluate invocations</li>
