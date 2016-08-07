@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 25, 2016 11:14-0400 for FHIR v1.5.0
+// Generated on Sun, Aug 7, 2016 16:27+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -264,7 +264,7 @@ public class DiagnosticRequest extends DomainResource {
      * Whether the request is a proposal, plan, an original order or a reflex order.
      */
     @Child(name = "stage", type = {CodeableConcept.class}, order=6, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="proposal | plan | orig. order | encoded +", formalDefinition="Whether the request is a proposal, plan, an original order or a reflex order." )
+    @Description(shortDefinition="proposal | plan | original-order | reflex-order", formalDefinition="Whether the request is a proposal, plan, an original order or a reflex order." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/diagnostic-request-stage")
     protected CodeableConcept stage;
 

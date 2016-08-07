@@ -486,11 +486,13 @@ public class Publisher implements IWorkerContext.ILoggingService {
     dlog("Pages: "+pagesDir);
     checkDir(pagesDir);
     dlog("Temp: "+tempDir);
+    Utilities.clearDirectory(tempDir);
     forceDir(tempDir);
     forceDir(Utilities.path(tempDir, "_includes"));
     forceDir(Utilities.path(tempDir, "_data"));
     dlog("Output: "+outputDir);
     forceDir(outputDir);
+    Utilities.clearDirectory(outputDir);
     dlog("Temp: "+qaDir);
     forceDir(qaDir);
 
@@ -637,7 +639,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
                 jekyllGem = Utilities.path(s, "jekyll");
                 if (!(new File(jekyllGem).exists()))
                   throw new Error("Found Ruby, but unable to find Jekyll Gem");
-                log("Use Ruby at "+rubyExe);
+                dlog("Use Ruby at "+rubyExe);
                 return;
               }
         }
@@ -1103,23 +1105,25 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void generateAdditionalExamples() throws Exception {
-    ProfileUtilities utils = new ProfileUtilities(context, null, null);
-    for (FetchedFile f : changeList) {
-      List<StructureDefinition> list = new ArrayList<StructureDefinition>();
-      for (FetchedResource r : f.getResources()) {
-        if (r.getResource() instanceof StructureDefinition) {
-          list.add((StructureDefinition) r.getResource());
+    if ("true".equals(ostr(configuration, "gen-examples"))) {
+      ProfileUtilities utils = new ProfileUtilities(context, null, null);
+      for (FetchedFile f : changeList) {
+        List<StructureDefinition> list = new ArrayList<StructureDefinition>();
+        for (FetchedResource r : f.getResources()) {
+          if (r.getResource() instanceof StructureDefinition) {
+            list.add((StructureDefinition) r.getResource());
+          }
         }
-      }
-      for (StructureDefinition sd : list) {
-        for (Element e : utils.generateExamples(sd, false)) {
-          FetchedResource nr = new FetchedResource();
-          nr.setElement(e);
-          nr.setId(e.getChildValue("id"));
-          nr.setTitle("Generated Example");
-          nr.getProfiles().add(sd.getUrl());
-          f.getResources().add(nr);
-          igpkp.findConfiguration(f, nr);
+        for (StructureDefinition sd : list) {
+          for (Element e : utils.generateExamples(sd, false)) {
+            FetchedResource nr = new FetchedResource();
+            nr.setElement(e);
+            nr.setId(e.getChildValue("id"));
+            nr.setTitle("Generated Example");
+            nr.getProfiles().add(sd.getUrl());
+            f.getResources().add(nr);
+            igpkp.findConfiguration(f, nr);
+          }
         }
       }
     }
@@ -1230,12 +1234,12 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
   private void validate() throws Exception {
     for (FetchedFile f : fileList) {
-	  log(" .. "+f.getName());
+      dlog(" .. validate "+f.getName());
       if (first)
         dlog(" .. "+f.getName());
       for (FetchedResource r : f.getResources()) {
         if (!r.isValidated()) {
-		  log("     validating "+r.getTitle());
+          dlog("     validating "+r.getTitle());
           validate(f, r);
         }
       }
@@ -1265,7 +1269,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     updateImplementationGuide();
 
     for (FetchedFile f : changeList)
-      generateOutputs(f);
+      generateOutputs(f, false);
 
     if (!changeList.isEmpty())
       generateSummaryOutputs();
@@ -1347,7 +1351,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     r.setElement(new ObjectConverter(context).convert(bc));
     igpkp.findConfiguration(f, r);
     bc.setUserData("config", r.getConfig());
-    generateOutputs(f);
+    generateOutputs(f, true);
   }
 
   private void cleanOutput(String folder) throws IOException {
@@ -1762,7 +1766,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       logger.logMessage(s);
   }
 
-  private void generateOutputs(FetchedFile f) throws TransformerException {
+  private void generateOutputs(FetchedFile f, boolean regen) throws TransformerException {
   //      log(" * "+f.getName());
 
     if (f.getProcessMode() == FetchedFile.PROCESS_NONE) {
@@ -1810,7 +1814,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
             case DataElement:
               break;
             case StructureDefinition:
-              generateOutputsStructureDefinition(f, r, (StructureDefinition) r.getResource(), vars);
+              generateOutputsStructureDefinition(f, r, (StructureDefinition) r.getResource(), vars, regen);
               break;
             case StructureMap:
               generateOutputsStructureMap(f, r, (StructureMap) r.getResource(), vars);
@@ -2047,18 +2051,10 @@ public class Publisher implements IWorkerContext.ILoggingService {
       fragmentError("ConceptMap-"+cm.getId()+"-xref", "yet to be done: list of all places where concept map is used", f.getOutputNames());
   }
 
-  private void generateOutputsStructureDefinition(FetchedFile f, FetchedResource r, StructureDefinition sd, Map<String, String> vars) throws Exception {
+  private void generateOutputsStructureDefinition(FetchedFile f, FetchedResource r, StructureDefinition sd, Map<String, String> vars, boolean regen) throws Exception {
     // todo : generate shex itself
     if (igpkp.wantGen(r, "shex"))
       fragmentError("StructureDefinition-"+sd.getId()+"-shex", "yet to be done: shex as html", f.getOutputNames());
-
-    if (sd.getKind() != StructureDefinitionKind.LOGICAL &&  igpkp.wantGen(r, ".sch")) {
-      String path = Utilities.path(tempDir, r.getId()+".sch");
-      f.getOutputNames().add(path);
-      new ProfileUtilities(context, errors, igpkp).generateSchematrons(new FileOutputStream(path), sd);
-    }
-    if (igpkp.wantGen(r, "sch"))
-      fragmentError("StructureDefinition-"+sd.getId()+"-sch", "yet to be done: schematron as html", f.getOutputNames());
 
     // todo : generate json schema itself. JSON Schema generator
 //    if (igpkp.wantGen(r, ".schema.json")) {
@@ -2099,6 +2095,14 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
     if (igpkp.wantGen(r, "example-list"))
       fragment("StructureDefinition-example-list-"+sd.getId(), sdr.exampleList(fileList), f.getOutputNames(), r, vars, null);
+
+    if (!regen && sd.getKind() != StructureDefinitionKind.LOGICAL &&  igpkp.wantGen(r, ".sch")) {
+      String path = Utilities.path(tempDir, r.getId()+".sch");
+      f.getOutputNames().add(path);
+      new ProfileUtilities(context, errors, igpkp).generateSchematrons(new FileOutputStream(path), sd);
+    }
+    if (igpkp.wantGen(r, "sch"))
+      fragmentError("StructureDefinition-"+sd.getId()+"-sch", "yet to be done: schematron as html", f.getOutputNames());
   }
 
   private String checkAppendSlash(String s) {

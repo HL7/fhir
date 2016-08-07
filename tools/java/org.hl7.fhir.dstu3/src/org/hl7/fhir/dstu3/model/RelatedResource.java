@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 25, 2016 11:14-0400 for FHIR v1.5.0
+// Generated on Sun, Aug 7, 2016 16:27+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -49,7 +49,7 @@ public class RelatedResource extends Type implements ICompositeType {
 
     public enum RelatedResourceType {
         /**
-         * Additional documentation for the module. This would include additional instructions on usage as well additional information on clinical context or appropriateness
+         * Additional documentation for the module. This would include additional instructions on usage as well as additional information on clinical context or appropriateness
          */
         DOCUMENTATION, 
         /**
@@ -136,7 +136,7 @@ public class RelatedResource extends Type implements ICompositeType {
         }
         public String getDefinition() {
           switch (this) {
-            case DOCUMENTATION: return "Additional documentation for the module. This would include additional instructions on usage as well additional information on clinical context or appropriateness";
+            case DOCUMENTATION: return "Additional documentation for the module. This would include additional instructions on usage as well as additional information on clinical context or appropriateness";
             case JUSTIFICATION: return "A summary of the justification for the artifact including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the module available to the consumer of interventions or results produced by the artifact";
             case CITATION: return "Bibliographic citation for papers, references, or other relevant material for the module. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this module";
             case PREDECESSOR: return "The previous version of the module";

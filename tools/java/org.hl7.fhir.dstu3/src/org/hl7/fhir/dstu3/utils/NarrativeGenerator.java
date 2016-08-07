@@ -369,6 +369,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (type == null || type.equals("Resource") || type.equals("BackboneElement") || type.equals("Element"))
         return null;
 
+      if (element.hasElementProperty())
+        return null;
       ByteArrayOutputStream xml = new ByteArrayOutputStream();
       try {
         new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).compose(element, xml, OutputStyle.PRETTY, null);
@@ -1069,6 +1071,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (ew == null)
       return;
 
+    
     Base e = ew.getBase();
 
     if (e instanceof StringType)

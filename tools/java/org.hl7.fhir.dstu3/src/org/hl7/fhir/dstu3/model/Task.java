@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Jul 25, 2016 11:14-0400 for FHIR v1.5.0
+// Generated on Sun, Aug 7, 2016 16:27+1000 for FHIR v1.5.0
 
 import java.util.*;
 
@@ -1288,7 +1288,7 @@ public class Task extends DomainResource {
      * Identifies a plan, proposal or order that this task has been created in fulfillment of.
      */
     @Child(name = "basedOn", type = {Reference.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Request fulfilled by this request", formalDefinition="Identifies a plan, proposal or order that this task has been created in fulfillment of." )
+    @Description(shortDefinition="Request fulfilled by this task", formalDefinition="Identifies a plan, proposal or order that this task has been created in fulfillment of." )
     protected List<Reference> basedOn;
     /**
      * The actual objects that are the target of the reference (Identifies a plan, proposal or order that this task has been created in fulfillment of.)
@@ -1300,7 +1300,7 @@ public class Task extends DomainResource {
      * An identifier that links together multiple tasks and other requests that were created in the same context.
      */
     @Child(name = "requisition", type = {Identifier.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Composite request this is part of", formalDefinition="An identifier that links together multiple tasks and other requests that were created in the same context." )
+    @Description(shortDefinition="Requisition or grouper id", formalDefinition="An identifier that links together multiple tasks and other requests that were created in the same context." )
     protected Identifier requisition;
 
     /**

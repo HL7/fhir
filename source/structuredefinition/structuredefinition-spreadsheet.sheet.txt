@@ -132,7 +132,7 @@
   Id = 5
   Context = StructureDefinition
   English = If the structure defines an extension then the structure must have context information
-  XPath = not(f:type/@value = \'extension\') or (f:derivation/@value = \'constraint\') or (exists(f:context) and exists(f:contextType))
+  XPath = not(f:type/@value = \'extension\') or (f:derivation/@value = \'specialization\') or (exists(f:context) and exists(f:contextType))
   Expression = type != \'Extension\' or derivation = \'specialization\' or (context.exists() and contextType.exists())
 
  -- Row 6 -----------------------------------

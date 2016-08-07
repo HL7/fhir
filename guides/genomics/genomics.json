@@ -30,8 +30,8 @@
   ],
 	"resources": {
 		"StructureDefinition/Sequence": {
-			"defns": "http://hl7-fhir.github.io/sequence-definitions.html",
-			"base": "http://hl7-fhir.github.io/sequence.html"
+			"defns": "sequence-definitions.html",
+			"base": "sequence.html"
 		}
 	}
 }
