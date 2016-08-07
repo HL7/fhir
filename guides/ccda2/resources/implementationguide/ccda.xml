@@ -203,18 +203,24 @@
       <acronym value="ccd-example"/>
       <sourceReference>
         <reference value="Composition/composition-ccd-example"/>
-      </sourceReference>
+      </sourceReference>   
+      <exampleFor>
+            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-ccd-composition"/>
+          </exampleFor> 
     </resource>
     
-    <!--
+
     <resource>
       <example value="true"/>
       <name value="Example Care Plan"/>
       <description value="Example Care Plan"/>
       <acronym value="care-plan-example"/>
       <sourceReference>
-        <reference value="../examples/composition-care-plan-example.xml"/>
-      </sourceReference>
+        <reference value="Composition/composition-care-plan-example"/>
+      </sourceReference>       
+      <exampleFor>
+            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-care-plan-composition"/>
+          </exampleFor> 
     </resource>
     <resource>
       <example value="true"/>
@@ -222,10 +228,10 @@
       <description value="Example Consultation Note"/>
       <acronym value="consultation-note-example"/>
       <sourceReference>
-        <reference value="Composition/consultation-note-example"/>
+        <reference value="Composition/composition-consultation-note-example"/>
       </sourceReference>
        <exampleFor>
-            <reference value="http://hl7.org/fhir/StructureDefinition/ccda-consultation-note-composition"/>
+            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-consultation-note-composition"/>
           </exampleFor> 
     </resource>
     <resource>
@@ -234,10 +240,10 @@
       <description value="Example Discharge Summary"/>
       <acronym value="discharge-summary-example"/>
       <sourceReference>
-        <reference value="Composition/discharge-summary-example"/>
+        <reference value="Composition/composition-discharge-summary-example"/>
       </sourceReference>
        <exampleFor>
-            <reference value="http://hl7.org/fhir/StructureDefinition/ccda-discharge-summary-composition"/>
+            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-discharge-summary-composition"/>
           </exampleFor> 
     </resource>
     <resource>
@@ -246,10 +252,10 @@
       <description value="Example History and Physical"/>
       <acronym value="history-and-physical-example"/>
       <sourceReference>
-        <reference value="Composition/history-and-physical-example"/>
+        <reference value="Composition/composition-history-and-physical-example"/>
       </sourceReference>
        <exampleFor>
-            <reference value="http://hl7.org/fhir/StructureDefinition/ccda-history-and-physical-composition"/>
+            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-history-and-physical-composition"/>
           </exampleFor> 
     </resource>
     <resource>
@@ -258,10 +264,10 @@
       <description value="Example Operative Note"/>
       <acronym value="operative-note-example"/>
       <sourceReference>
-        <reference value="Composition/operative-note-example"/>
+        <reference value="Composition/composition-operative-note-example"/>
       </sourceReference>
        <exampleFor>
-            <reference value="http://hl7.org/fhir/StructureDefinition/ccda-operative-note-composition"/>
+            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-operative-note-composition"/>
           </exampleFor> 
     </resource>
     <resource>
@@ -270,13 +276,13 @@
       <description value="Example Procedure Note"/>
       <acronym value="procedure-note-example"/>
       <sourceReference>
-        <reference value="Composition/procedure-note-example"/>
+        <reference value="Composition/composition-procedure-note-example"/>
       </sourceReference>
        <exampleFor>
-            <reference value="http://hl7.org/fhir/StructureDefinition/ccda-procedure-note-composition"/>
+            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-procedure-note-composition"/>
           </exampleFor> 
     </resource>
-    -->
+  
     <!-- CDA logical models -->
     <!--<resource>
       <name value="V3 Data type ANY (DataValue)"/>
