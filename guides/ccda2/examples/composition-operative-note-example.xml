@@ -157,9 +157,10 @@
       </div>
     </text>
     <!--  Anesthesia Section Procedure Resource -->
-    <entry>
+    <!-- SG: Commenting out for now as I've had to remove from the profile -->
+    <!--<entry>
       <reference value="http://fhirtest.uhn.ca/baseDstu3/Procedure/117687"/>
-    </entry>
+    </entry>-->
     <!--  Anesthesia Section Medication Resource -->
     <entry>
       <reference value="http://fhirtest.uhn.ca/baseDstu3/Medication/117679"/>

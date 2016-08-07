@@ -1,4 +1,5 @@
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/composition.xsd" xmlns="http://hl7.org/fhir">
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
     <id value="ccda-referral-note-composition" />
     <url value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-referral-note-composition" />
     <name value="C-CDA on FHIR Referral Note" />
@@ -18,17 +19,16 @@
         </telecom>
     </contact>
     <description value="A Referral Note communicates pertinent information from a provider who is requesting services of another provider of clinical or non-clinical services. The information in this document includes the reason for the referral and additional information that would augment decision making and care delivery.&#xA;&#xA;Examples of referral situations are when a patient is referred from a family physician to a cardiologist for cardiac evaluation or when patient is sent by a cardiologist to an emergency department for angina or when a patient is referred by a nurse practitioner to an audiologist for hearing screening or when a patient is referred by a hospitalist to social services." />
-    <fhirVersion value="1.5.0" />
     <kind value="resource" />
     <abstract value="false" />
     <type value="Composition" />
-    <baseDefinition value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-us-realm-header-composition" />
-    <derivation value="constraint"/>
+  <baseDefinition value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-us-realm-header-composition" />
+    <derivation value="constraint" />
     <differential>
-        <element>
+        <element id="7055-00001">
             <path value="Composition" />
         </element>
-        <element>
+        <element id="107701">
             <path value="Composition.type" />
             <short value="type" />
             <definition value="SHALL contain exactly one [1..1] type, which SHALL be selected from ValueSet ReferralDocumentType urn:oid:2.16.840.1.113883.1.11.20.2.3 DYNAMIC (CONF:2219-1365)." />
@@ -40,28 +40,29 @@
             <binding>
                 <strength value="required" />
                 <valueSetReference>
-                    <reference value="http://hl7.org/fhir/ValueSet/2.16.840.1.113883.1.11.20.2.3" />
+                  <reference value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.4.1" />
                     <display value="ReferralDocumentType" />
                 </valueSetReference>
             </binding>
         </element>
-        <element>
+        <element id="7055-00002">
             <path value="Composition.section" />
             <slicing>
                 <discriminator value="Composition.section.code" />
                 <rules value="open" />
             </slicing>
+            <definition value="MAY contain zero or one [0..1] section (CONF:2219-2057) such that it" />
         </element>
-        <element>
+        <element id="107700">
             <path value="Composition.section" />
             <name value="section_slice_pos2" />
             <label value="Allergies and Intolerances Section" />
-            <short value="section" />
+            <short value="Allergies and Intolerances Section" />
             <definition value="SHALL contain exactly one [1..1] section (CONF:2219-1364) such that it" />
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111256">
             <path value="Composition.section.title" />
             <name value="section_slice_pos2" />
             <short value="title" />
@@ -69,7 +70,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111257">
             <path value="Composition.section.code" />
             <name value="section_slice_pos2" />
             <short value="code" />
@@ -86,7 +87,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111258">
             <path value="Composition.section.text" />
             <name value="section_slice_pos2" />
             <short value="text" />
@@ -94,24 +95,28 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="112076">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos2" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF AllergyIntolerance Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance) (CONF:2219-2244)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF AllergyIntolerance Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-allergyintolerance) (CONF:2219-2244)." />
             <min value="0" />
             <max value="*" />
+            <type>
+                <code value="Reference" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-allergyintolerance" />
+            </type>
         </element>
-        <element>
+        <element id="107705">
             <path value="Composition.section" />
             <name value="section_slice_pos3" />
             <label value="Medications Section" />
-            <short value="section" />
+            <short value="Medications Section" />
             <definition value="SHALL contain exactly one [1..1] section (CONF:2219-1369) such that it" />
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="107708">
             <path value="Composition.section.title" />
             <name value="section_slice_pos3" />
             <short value="title" />
@@ -119,7 +124,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="107709">
             <path value="Composition.section.code" />
             <name value="section_slice_pos3" />
             <short value="code" />
@@ -136,7 +141,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="107710">
             <path value="Composition.section.text" />
             <name value="section_slice_pos3" />
             <short value="text" />
@@ -144,24 +149,28 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="112077">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos3" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF MedicationStatement Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-medicationstatement) (CONF:2219-2245)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF MedicationStatement Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationstatement) (CONF:2219-2245)." />
             <min value="0" />
             <max value="*" />
+            <type>
+                <code value="Reference" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationstatement" />
+            </type>
         </element>
-        <element>
+        <element id="107706">
             <path value="Composition.section" />
             <name value="section_slice_pos4" />
             <label value="Reason for Referral Section" />
-            <short value="section" />
+            <short value="Reason for Referral Section" />
             <definition value="SHALL contain exactly one [1..1] section (CONF:2219-1370) such that it" />
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="107711">
             <path value="Composition.section.title" />
             <name value="section_slice_pos4" />
             <short value="title" />
@@ -169,7 +178,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="107712">
             <path value="Composition.section.code" />
             <name value="section_slice_pos4" />
             <short value="code" />
@@ -186,7 +195,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="107713">
             <path value="Composition.section.text" />
             <name value="section_slice_pos4" />
             <short value="text" />
@@ -194,16 +203,16 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="107707">
             <path value="Composition.section" />
             <name value="section_slice_pos5" />
             <label value="Problem Section " />
-            <short value="section" />
+            <short value="Problem Section " />
             <definition value="SHALL contain exactly one [1..1] section (CONF:2219-1371) such that it" />
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="107714">
             <path value="Composition.section.title" />
             <name value="section_slice_pos5" />
             <short value="title" />
@@ -211,7 +220,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="107715">
             <path value="Composition.section.code" />
             <name value="section_slice_pos5" />
             <short value="code" />
@@ -228,7 +237,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="107716">
             <path value="Composition.section.text" />
             <name value="section_slice_pos5" />
             <short value="text" />
@@ -236,24 +245,28 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="112078">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos5" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF Condition Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-condition) (CONF:2219-2246)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Condition Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-condition) (CONF:2219-2246)." />
             <min value="0" />
             <max value="*" />
+            <type>
+                <code value="Reference" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-condition" />
+            </type>
         </element>
-        <element>
+        <element id="107717">
             <path value="Composition.section" />
             <name value="section_slice_pos6" />
             <label value="Assessment and Plan Section " />
-            <short value="section" />
+            <short value="Assessment and Plan Section " />
             <definition value="MAY contain zero or one [0..1] section (CONF:2219-1381) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="107720">
             <path value="Composition.section.title" />
             <name value="section_slice_pos6" />
             <short value="title" />
@@ -261,7 +274,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="107721">
             <path value="Composition.section.code" />
             <name value="section_slice_pos6" />
             <short value="code" />
@@ -278,7 +291,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="107722">
             <path value="Composition.section.text" />
             <name value="section_slice_pos6" />
             <short value="text" />
@@ -286,16 +299,16 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="107718">
             <path value="Composition.section" />
             <name value="section_slice_pos7" />
             <label value="Plan of Treatment Section" />
-            <short value="section" />
+            <short value="Plan of Treatment Section" />
             <definition value="SHOULD contain zero or one [0..1] section (CONF:2219-1382) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="107723">
             <path value="Composition.section.title" />
             <name value="section_slice_pos7" />
             <short value="title" />
@@ -303,7 +316,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="107724">
             <path value="Composition.section.code" />
             <name value="section_slice_pos7" />
             <short value="code" />
@@ -320,7 +333,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="107725">
             <path value="Composition.section.text" />
             <name value="section_slice_pos7" />
             <short value="text" />
@@ -328,16 +341,16 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111192">
             <path value="Composition.section" />
             <name value="section_slice_pos8" />
             <label value="Functional Status Section" />
-            <short value="section" />
+            <short value="Functional Status Section" />
             <definition value="SHOULD contain zero or one [0..1] section (CONF:2219-2015) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111196">
             <path value="Composition.section.title" />
             <name value="section_slice_pos8" />
             <short value="title" />
@@ -345,7 +358,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111197">
             <path value="Composition.section.code" />
             <name value="section_slice_pos8" />
             <short value="code" />
@@ -362,7 +375,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111198">
             <path value="Composition.section.text" />
             <name value="section_slice_pos8" />
             <short value="text" />
@@ -370,16 +383,16 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111193">
             <path value="Composition.section" />
             <name value="section_slice_pos9" />
             <label value="Results Section" />
-            <short value="section" />
+            <short value="Results Section" />
             <definition value="SHOULD contain zero or one [0..1] section (CONF:2219-2016) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111199">
             <path value="Composition.section.title" />
             <name value="section_slice_pos9" />
             <short value="title" />
@@ -387,7 +400,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111200">
             <path value="Composition.section.code" />
             <name value="section_slice_pos9" />
             <short value="code" />
@@ -404,7 +417,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111201">
             <path value="Composition.section.text" />
             <name value="section_slice_pos9" />
             <short value="text" />
@@ -412,24 +425,28 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="112079">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos9" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF Results Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-resultobs) (CONF:2219-2247)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Results Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-resultobs) (CONF:2219-2247)." />
             <min value="0" />
             <max value="*" />
+            <type>
+                <code value="Reference" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-resultobs" />
+            </type>
         </element>
-        <element>
+        <element id="111194">
             <path value="Composition.section" />
             <name value="section_slice_pos10" />
             <label value="Nutrition Section" />
-            <short value="section" />
+            <short value="Nutrition Section" />
             <definition value="SHOULD contain zero or one [0..1] section (CONF:2219-2017) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111202">
             <path value="Composition.section.title" />
             <name value="section_slice_pos10" />
             <short value="title" />
@@ -437,7 +454,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111203">
             <path value="Composition.section.code" />
             <name value="section_slice_pos10" />
             <short value="code" />
@@ -454,7 +471,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111204">
             <path value="Composition.section.text" />
             <name value="section_slice_pos10" />
             <short value="text" />
@@ -462,16 +479,16 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111195">
             <path value="Composition.section" />
             <name value="section_slice_pos11" />
             <label value="Mental Status Section" />
-            <short value="section" />
+            <short value="Mental Status Section" />
             <definition value="SHOULD contain zero or one [0..1] section (CONF:2219-2018) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111205">
             <path value="Composition.section.title" />
             <name value="section_slice_pos11" />
             <short value="title" />
@@ -479,7 +496,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111206">
             <path value="Composition.section.code" />
             <name value="section_slice_pos11" />
             <short value="code" />
@@ -496,7 +513,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111207">
             <path value="Composition.section.text" />
             <name value="section_slice_pos11" />
             <short value="text" />
@@ -504,16 +521,16 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="107719">
             <path value="Composition.section" />
             <name value="section_slice_pos12" />
             <label value="Assessment Section" />
-            <short value="section" />
+            <short value="Assessment Section" />
             <definition value="MAY contain zero or one [0..1] section (CONF:2219-1383) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="107726">
             <path value="Composition.section.title" />
             <name value="section_slice_pos12" />
             <short value="title" />
@@ -521,7 +538,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="107727">
             <path value="Composition.section.code" />
             <name value="section_slice_pos12" />
             <short value="code" />
@@ -538,7 +555,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="107728">
             <path value="Composition.section.text" />
             <name value="section_slice_pos12" />
             <short value="text" />
@@ -546,16 +563,16 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111208">
             <path value="Composition.section" />
             <name value="section_slice_pos13" />
             <label value="Advance Directives Section" />
-            <short value="section" />
+            <short value="Advance Directives Section" />
             <definition value="MAY contain zero or one [0..1] section (CONF:2219-2031) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111213">
             <path value="Composition.section.title" />
             <name value="section_slice_pos13" />
             <short value="title" />
@@ -563,7 +580,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111214">
             <path value="Composition.section.code" />
             <name value="section_slice_pos13" />
             <short value="code" />
@@ -580,7 +597,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111215">
             <path value="Composition.section.text" />
             <name value="section_slice_pos13" />
             <short value="text" />
@@ -588,16 +605,16 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111209">
             <path value="Composition.section" />
             <name value="section_slice_pos14" />
             <label value="History of Present Illness Section" />
-            <short value="section" />
+            <short value="History of Present Illness Section" />
             <definition value="MAY contain zero or one [0..1] section (CONF:2219-2032) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111216">
             <path value="Composition.section.title" />
             <name value="section_slice_pos14" />
             <short value="title" />
@@ -605,7 +622,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111217">
             <path value="Composition.section.code" />
             <name value="section_slice_pos14" />
             <short value="code" />
@@ -622,7 +639,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111218">
             <path value="Composition.section.text" />
             <name value="section_slice_pos14" />
             <short value="text" />
@@ -630,16 +647,16 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111210">
             <path value="Composition.section" />
             <name value="section_slice_pos15" />
             <label value="History of Past Illness Section" />
-            <short value="section" />
+            <short value="History of Past Illness Section" />
             <definition value="MAY contain zero or one [0..1] section (CONF:2219-2033) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111219">
             <path value="Composition.section.title" />
             <name value="section_slice_pos15" />
             <short value="title" />
@@ -647,7 +664,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111220">
             <path value="Composition.section.code" />
             <name value="section_slice_pos15" />
             <short value="code" />
@@ -664,7 +681,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111221">
             <path value="Composition.section.text" />
             <name value="section_slice_pos15" />
             <short value="text" />
@@ -672,16 +689,16 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111211">
             <path value="Composition.section" />
             <name value="section_slice_pos16" />
             <label value="General Status Section" />
-            <short value="section" />
+            <short value="General Status Section" />
             <definition value="MAY contain zero or one [0..1] section (CONF:2219-2034) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111222">
             <path value="Composition.section.title" />
             <name value="section_slice_pos16" />
             <short value="title" />
@@ -689,7 +706,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111223">
             <path value="Composition.section.code" />
             <name value="section_slice_pos16" />
             <short value="code" />
@@ -706,7 +723,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111224">
             <path value="Composition.section.text" />
             <name value="section_slice_pos16" />
             <short value="text" />
@@ -714,16 +731,16 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111212">
             <path value="Composition.section" />
             <name value="section_slice_pos17" />
             <label value="Family History Section" />
-            <short value="section" />
+            <short value="Family History Section" />
             <definition value="MAY contain zero or one [0..1] section (CONF:2219-2035) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111225">
             <path value="Composition.section.title" />
             <name value="section_slice_pos17" />
             <short value="title" />
@@ -731,7 +748,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111226">
             <path value="Composition.section.code" />
             <name value="section_slice_pos17" />
             <short value="code" />
@@ -748,7 +765,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111227">
             <path value="Composition.section.text" />
             <name value="section_slice_pos17" />
             <short value="text" />
@@ -756,24 +773,28 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="112080">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos17" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF FamilyMemberHistory Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-familyMemberHistory) (CONF:2219-2248)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF FamilyMemberHistory Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-familyMemberHistory) (CONF:2219-2248)." />
             <min value="0" />
             <max value="*" />
+            <type>
+                <code value="Reference" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-familyMemberHistory" />
+            </type>
         </element>
-        <element>
+        <element id="111228">
             <path value="Composition.section" />
             <name value="section_slice_pos18" />
             <label value="Immunizations Section" />
-            <short value="section" />
+            <short value="Immunizations Section" />
             <definition value="MAY contain zero or one [0..1] section (CONF:2219-2051) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111235">
             <path value="Composition.section.title" />
             <name value="section_slice_pos18" />
             <short value="title" />
@@ -781,7 +802,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111249">
             <path value="Composition.section.code" />
             <name value="section_slice_pos18" />
             <short value="code" />
@@ -798,7 +819,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111236">
             <path value="Composition.section.text" />
             <name value="section_slice_pos18" />
             <short value="text" />
@@ -806,24 +827,28 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="112081">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos18" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF Immunization Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-immunization) (CONF:2219-2249)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Immunization Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-immunization) (CONF:2219-2249)." />
             <min value="0" />
             <max value="*" />
+            <type>
+                <code value="Reference" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-immunization" />
+            </type>
         </element>
-        <element>
+        <element id="111229">
             <path value="Composition.section" />
             <name value="section_slice_pos19" />
             <label value="Vital Signs Section" />
-            <short value="section" />
+            <short value="Vital Signs Section" />
             <definition value="MAY contain zero or one [0..1] section (CONF:2219-2052) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111237">
             <path value="Composition.section.title" />
             <name value="section_slice_pos19" />
             <short value="title" />
@@ -831,7 +856,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111250">
             <path value="Composition.section.code" />
             <name value="section_slice_pos19" />
             <short value="code" />
@@ -848,7 +873,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111238">
             <path value="Composition.section.text" />
             <name value="section_slice_pos19" />
             <short value="text" />
@@ -856,24 +881,28 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="112082">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos19" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S.DAF Vital Signs Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-vitalsigns) (CONF:2219-2250)." />
+            <definition value="MAY contain zero or more [0..*] U.S.DAF VitalSigns Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-vitalsigns) (CONF:2219-2250)." />
             <min value="0" />
             <max value="*" />
+            <type>
+                <code value="Reference" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-vitalsigns" />
+            </type>
         </element>
-        <element>
+        <element id="111230">
             <path value="Composition.section" />
             <name value="section_slice_pos20" />
             <label value="Social History Section" />
-            <short value="section" />
+            <short value="Social History Section" />
             <definition value="MAY contain zero or one [0..1] section (CONF:2219-2053) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111239">
             <path value="Composition.section.title" />
             <name value="section_slice_pos20" />
             <short value="title" />
@@ -881,7 +910,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111251">
             <path value="Composition.section.code" />
             <name value="section_slice_pos20" />
             <short value="code" />
@@ -898,7 +927,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111240">
             <path value="Composition.section.text" />
             <name value="section_slice_pos20" />
             <short value="text" />
@@ -906,16 +935,28 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="112606">
+            <path value="Composition.section.entry" />
+            <name value="section_slice_pos20" />
+            <short value="entry" />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF SmokingStatus Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-smokingstatus) (CONF:2219-2452)." />
+            <min value="0" />
+            <max value="*" />
+            <type>
+                <code value="Reference" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-smokingstatus" />
+            </type>
+        </element>
+        <element id="111231">
             <path value="Composition.section" />
             <name value="section_slice_pos21" />
             <label value="Review of Systems Section" />
-            <short value="section" />
+            <short value="Review of Systems Section" />
             <definition value="MAY contain zero or one [0..1] section (CONF:2219-2054) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111241">
             <path value="Composition.section.title" />
             <name value="section_slice_pos21" />
             <short value="title" />
@@ -923,7 +964,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111252">
             <path value="Composition.section.code" />
             <name value="section_slice_pos21" />
             <short value="code" />
@@ -940,7 +981,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111242">
             <path value="Composition.section.text" />
             <name value="section_slice_pos21" />
             <short value="text" />
@@ -948,16 +989,16 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111232">
             <path value="Composition.section" />
             <name value="section_slice_pos22" />
             <label value="Procedures Section" />
-            <short value="section" />
+            <short value="Procedures Section" />
             <definition value="MAY contain zero or one [0..1] section (CONF:2219-2055) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111243">
             <path value="Composition.section.title" />
             <name value="section_slice_pos22" />
             <short value="title" />
@@ -965,7 +1006,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111253">
             <path value="Composition.section.code" />
             <name value="section_slice_pos22" />
             <short value="code" />
@@ -982,7 +1023,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111244">
             <path value="Composition.section.text" />
             <name value="section_slice_pos22" />
             <short value="text" />
@@ -990,24 +1031,28 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="112083">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos22" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF Procedure Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-procedure) (CONF:2219-2251)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Procedure Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-procedure) (CONF:2219-2251)." />
             <min value="0" />
             <max value="*" />
+            <type>
+                <code value="Reference" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-procedure" />
+            </type>
         </element>
-        <element>
+        <element id="111233">
             <path value="Composition.section" />
             <name value="section_slice_pos23" />
             <label value="Physical Exam Section" />
-            <short value="section" />
+            <short value="Physical Exam Section" />
             <definition value="MAY contain zero or one [0..1] section (CONF:2219-2056) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111245">
             <path value="Composition.section.title" />
             <name value="section_slice_pos23" />
             <short value="title" />
@@ -1015,7 +1060,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111254">
             <path value="Composition.section.code" />
             <name value="section_slice_pos23" />
             <short value="code" />
@@ -1032,7 +1077,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111246">
             <path value="Composition.section.text" />
             <name value="section_slice_pos23" />
             <short value="text" />
@@ -1040,16 +1085,16 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111234">
             <path value="Composition.section" />
             <name value="section_slice_pos24" />
             <label value="Medical Equipment Section" />
-            <short value="section" />
+            <short value="Medical Equipment Section" />
             <definition value="MAY contain zero or one [0..1] section (CONF:2219-2057) such that it" />
             <min value="0" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111247">
             <path value="Composition.section.title" />
             <name value="section_slice_pos24" />
             <short value="title" />
@@ -1057,7 +1102,7 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <element>
+        <element id="111255">
             <path value="Composition.section.code" />
             <name value="section_slice_pos24" />
             <short value="code" />
@@ -1074,7 +1119,7 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element>
+        <element id="111248">
             <path value="Composition.section.text" />
             <name value="section_slice_pos24" />
             <short value="text" />

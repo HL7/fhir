@@ -31,7 +31,7 @@
   <baseDefinition value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-us-realm-header-composition" />
   <derivation value="constraint"/>
   <differential>
-    <element>
+    <element id="ts1">
       <path value="Composition" />
       <short value="A set of resources composed into a single coherent clinical statement with clinical attestation" />
       <definition value="A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained." />
@@ -44,7 +44,7 @@
         <max value="*" />
       </base>
     </element>
-    <element>
+    <element id="ts3">
       <path value="Composition.identifier.type" />
       <short value="Description of identifier" />
       <definition value="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose." />
@@ -69,7 +69,7 @@
         </valueSetReference>
       </binding>
     </element>
-    <element>
+    <element id="ts4">
       <path value="Composition.identifier.type.coding" />
       <short value="Code defined by a terminology system" />
       <definition value="A reference to a code defined by a terminology system." />
@@ -87,7 +87,7 @@
       </type>
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts2">
       <path value="Composition.identifier.type.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -105,7 +105,7 @@
       </type>
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts6">
       <path value="Composition.identifier.type.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -123,7 +123,7 @@
       </type>
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts7">
       <path value="Composition.type" />
       <label value="Transfer Summary" />
       <short value="Kind of composition (LOINC if possible)" />
@@ -149,7 +149,7 @@
         </valueSetReference>
       </binding>
     </element>
-    <element>
+    <element id="ts8">
       <path value="Composition.type.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -170,7 +170,7 @@
         <valueSetUri value="http://search.loinc.org/search.zul?query=transfer+summary+note" />
       </binding>
     </element>
-    <element>
+    <element id="ts9">
       <path value="Composition.encounter" />
       <short value="Context of the Composition" />
       <definition value="The encounter in a Transfer Summary contains the representation of providers who are wholly or partially responsible for the safety and well-being of a subject of care." />
@@ -188,7 +188,7 @@
       </type>
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts10">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -210,7 +210,7 @@
     </element>
 	<!-- Advance Directives Section -->
 	<!-- No DAF Advance Directive Entry Definition -->
-    <element>
+    <element id="ts11">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -231,7 +231,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts12">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -252,7 +252,7 @@
       </type>
       <exampleString value="Advance Directives Section" />
     </element>
-    <element>
+    <element id="ts13">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -271,7 +271,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts14">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -289,7 +289,7 @@
       <fixedCode value="42348-3" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts15">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -307,7 +307,7 @@
       <exampleString value="Advance directives" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts16">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -324,7 +324,7 @@
       </type>
     </element>
 	<!--
-	<element>
+	<element id="ts17">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
 		<definition value="SHOULD contain zero or more [0..*] U.S. Advance Dierctive Observation or Advance Directive Organizer" />
@@ -338,7 +338,7 @@
 	-->
 	
 	<!-- Allergies and Intolerances Section -->
-    <element>
+    <element id="ts18">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -359,7 +359,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts19">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -380,7 +380,7 @@
       </type>
       <exampleString value="Allergies and Intolerances Section" />
     </element>
-    <element>
+    <element id="ts20">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -399,7 +399,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts21">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -417,7 +417,7 @@
       <fixedCode value="48765-2" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts22">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -435,7 +435,7 @@
       <exampleString value="Allergies &amp;or adverse reactions" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts23">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -451,21 +451,21 @@
         <code value="Narrative" />
       </type>
     </element>
-	<element>
+	<element id="ts24">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
-		<definition value="SHOULD contain zero or more [0..*] U.S. DAF AllergyIntolerance Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance)." />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF AllergyIntolerance Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-allergyintolerance)." />
 		<min value="1" />
 		<max value="*" />
 		<type>
 			<code value="Reference" />
-			<profile value="http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance" />
+			<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-allergyintolerance" />
 		</type>
 	</element>	
 	
 	<!-- Physical Exam Section -->
 	<!-- No DAF Longitudinal Wound Care Observation Entry -->
-    <element>
+    <element id="ts25">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -486,7 +486,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts26">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -507,7 +507,7 @@
       </type>
       <exampleString value="Physical Exam Section" />
     </element>
-    <element>
+    <element id="ts27">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -526,7 +526,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts28">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -544,7 +544,7 @@
       <fixedCode value="29545-1" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts29">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -562,7 +562,7 @@
       <exampleString value="Physical findings" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts30">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -579,7 +579,7 @@
       </type>
     </element>
 	<!--
-	<element>
+	<element id="ts31">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
 		<definition value="SHOULD contain zero or more [0..*] U.S. Longitudinal Wound Care Observation" />
@@ -593,7 +593,7 @@
 	-->
 	
 	<!-- Encounters Section -->
-    <element>
+    <element id="ts32">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -614,7 +614,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts33">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -635,7 +635,7 @@
       </type>
       <exampleString value="Encounters Section" />
     </element>
-    <element>
+    <element id="ts34">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -654,7 +654,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts35">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -672,7 +672,7 @@
       <fixedCode value="46240-8" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts36">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -690,7 +690,7 @@
       <exampleString value="History of hospitalizations+History of outpatient visits" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts37">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -706,20 +706,20 @@
         <code value="Narrative" />
       </type>
     </element>
-	<element>
+	<element id="ts38">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
-		<definition value="SHOULD contain zero or more [0..*] U.S. DAF Encounter Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-encounter)." />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF Encounter Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-encounter)." />
 		<min value="1" />
 		<max value="*" />
 		<type>
 			<code value="Reference" />
-			<profile value="http://hl7.org/fhir/StructureDefinition/daf-encounter" />
+			<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-encounter" />
 		</type>
 	</element>
 	
 	<!-- Family History Section -->
-    <element>
+    <element id="ts39">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -740,7 +740,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts40">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -761,7 +761,7 @@
       </type>
       <exampleString value="Family History Section" />
     </element>
-    <element>
+    <element id="ts41">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -780,7 +780,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts42">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -798,7 +798,7 @@
       <fixedCode value="10157-6" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts43">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -816,7 +816,7 @@
       <exampleString value="History of family member diseases" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts44">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -832,21 +832,21 @@
         <code value="Narrative" />
       </type>
     </element>
-	<element>
+	<element id="ts45">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
-		<definition value="SHOULD contain zero or more [0..*] U.S. DAF FamilyMemberHistory Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-familymemberhistory)." />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF FamilyMemberHistory Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-familymemberhistory)." />
 		<min value="1" />
 		<max value="*" />
 		<type>
 			<code value="Reference" />
-			<profile value="http://hl7.org/fhir/StructureDefinition/daf-familymemberhistory" />
+			<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-familymemberhistory" />
 		</type>
 	</element>
 	
 	<!-- Functional Status Section -->
 	<!-- No DAF Functional Status Organizer or Functional Status Observation Entry -->
-    <element>
+    <element id="ts46">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -867,7 +867,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts47">
       <path value="Composition.section.title" />
       <label value="Functional Status Section" />
       <short value="Label for section (e.g. for ToC)" />
@@ -889,7 +889,7 @@
       </type>
       <exampleString value="Functional Status Section" />
     </element>
-    <element>
+    <element id="ts48">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -908,7 +908,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts49">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -926,7 +926,7 @@
       <fixedCode value="47420-5" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts50">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -944,7 +944,7 @@
       <exampleString value="Functional status assessment note" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts51">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -961,7 +961,7 @@
       </type>
     </element>
 	<!--
-	<element>
+	<element id="ts52">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
 		<definition value="SHOULD contain zero or more [0..*] U.S. Functional Status Observation or Functional Status Organizer" />
@@ -976,7 +976,7 @@
 	
 	<!-- Discharge Diagnosis Section -->
 	<!-- No DAF Hospital Discharge Diagnosis Entry -->
-    <element>
+    <element id="ts53">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -997,7 +997,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts54">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -1018,7 +1018,7 @@
       </type>
       <exampleString value="Discharge Diagnosis Section" />
     </element>
-    <element>
+    <element id="ts55">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -1037,7 +1037,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts56">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -1055,7 +1055,7 @@
       <fixedCode value="11535-2" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts57">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -1073,7 +1073,7 @@
       <exampleString value="Hospital discharge Dx" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts58">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -1090,7 +1090,7 @@
       </type>
     </element>
 	<!--
-	<element>
+	<element id="ts59">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
 		<definition value="SHOULD contain zero or more [0..*] U.S. Hospital Discharge Diagnosis" />
@@ -1104,7 +1104,7 @@
 	-->
 	
 	<!-- Immunizations Section -->
-    <element>
+    <element id="ts60">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -1125,7 +1125,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts61">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -1146,7 +1146,7 @@
       </type>
       <exampleString value="Immunizations Section" />
     </element>
-    <element>
+    <element id="ts62">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -1165,7 +1165,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts63">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -1183,7 +1183,7 @@
       <fixedCode value="11369-6" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts64">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -1201,7 +1201,7 @@
       <exampleString value="History of immunization" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts65">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -1217,21 +1217,21 @@
         <code value="Narrative" />
       </type>
     </element>
-	<element>
+	<element id="ts66">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
-		<definition value="SHOULD contain zero or more [0..*] U.S. DAF Immunization (identifier: http://hl7.org/fhir/StructureDefinition/daf-immunization)." />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF Immunization (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-immunization)." />
 		<min value="1" />
 		<max value="*" />
 		<type>
 			<code value="Reference" />
-			<profile value="http://hl7.org/fhir/StructureDefinition/daf-immunization" />
+			<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-immunization" />
 		</type>
 	</element>
 	
 	<!-- Medical Equipment Section -->
 	<!-- No DAF Non-Medicinal Supply Entry, but there is a DAF Procedure Entry  -->
-    <element>
+    <element id="ts67">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -1252,7 +1252,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts68">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -1273,7 +1273,7 @@
       </type>
       <exampleString value="Medical Equipment Section" />
     </element>
-    <element>
+    <element id="ts69">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -1292,7 +1292,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts70">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -1310,7 +1310,7 @@
       <fixedCode value="46264-8" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts71">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -1328,7 +1328,7 @@
       <exampleString value="History of medical device use" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts72">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -1345,7 +1345,7 @@
       </type>
     </element>
 	<!--
-	<element>
+	<element id="ts73">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
 		<definition value="SHOULD contain zero or more [0..*] U.S. Non-Medicinal Supply Activity or Procedure Activity Procedure" />
@@ -1359,7 +1359,7 @@
 	-->
 	
 	<!-- Medications Section -->
-    <element>
+    <element id="ts74">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -1380,7 +1380,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts75">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -1401,7 +1401,7 @@
       </type>
       <exampleString value="Medications Section" />
     </element>
-    <element>
+    <element id="ts76">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -1420,7 +1420,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts77">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -1438,7 +1438,7 @@
       <fixedCode value="10160-0" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts78">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -1456,7 +1456,7 @@
       <exampleString value="History of medication use" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts79">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -1472,21 +1472,21 @@
         <code value="Narrative" />
       </type>
     </element>
-	<element>
+	<element id="ts80">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
-		<definition value="SHOULD contain zero or more [0..*] U.S. DAF MedicationStatement Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-medicationstatement)." />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF MedicationStatement Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationstatement)." />
 		<min value="0" />
 		<max value="*" />
 		<type>
 			<code value="Reference" />
-			<profile value="http://hl7.org/fhir/StructureDefinition/daf-medicationstatement" />
+			<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationstatement" />
 		</type>
 	</element>
 	
 	<!-- Payers Section -->
 	<!-- No DAF Coverage Activity Entry -->
-    <element>
+    <element id="ts81">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -1507,7 +1507,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts82">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -1528,7 +1528,7 @@
       </type>
       <exampleString value="Payers Section" />
     </element>
-    <element>
+    <element id="ts83">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -1547,7 +1547,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts84">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -1565,7 +1565,7 @@
       <fixedCode value="48768-6" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts85">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -1583,7 +1583,7 @@
       <exampleString value="Payment sources" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts86">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -1600,7 +1600,7 @@
       </type>
     </element>
 	<!--
-	<element>
+	<element id="ts87">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
 		<definition value="SHOULD contain zero or more [0..*] U.S. Non-Medicinal Supply Activity or Procedure Activity Procedure" />
@@ -1615,7 +1615,7 @@
 	
 	<!-- Plan of Treatment Section -->
 	<!-- Multiple Plan of Treatment entry types, not sure which support this section -->
-    <element>
+    <element id="ts88">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -1636,7 +1636,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts89">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -1657,7 +1657,7 @@
       </type>
       <exampleString value="Plan of Treatment Section" />
     </element>
-    <element>
+    <element id="ts90">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -1676,7 +1676,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts91">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -1694,7 +1694,7 @@
       <fixedCode value="18776-5" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts92">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -1712,7 +1712,7 @@
       <exampleString value="Plan of treatment" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts93">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -1730,7 +1730,7 @@
     </element>
     
 	<!-- Problem Section --> 
-	<element>
+	<element id="ts94">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -1751,7 +1751,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts95">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -1772,7 +1772,7 @@
       </type>
       <exampleString value="Problem Section" />
     </element>
-    <element>
+    <element id="ts95a">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -1791,7 +1791,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts96">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -1809,7 +1809,7 @@
       <fixedCode value="11450-4" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts97">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -1827,7 +1827,7 @@
       <exampleString value="Problem list" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts98">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -1843,20 +1843,20 @@
         <code value="Narrative" />
       </type>
     </element>
-	<element>
+	<element id="ts99">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
-		<definition value="MAY contain zero or more [0..*] U.S. DAF Condition Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-condition)." />
+		<definition value="MAY contain zero or more [0..*] U.S. DAF Condition Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-condition)." />
 		<min value="0" />
 		<max value="*" />
 		<type>
 			<code value="Reference" />
-			<profile value="http://hl7.org/fhir/StructureDefinition/daf-condition" />
+			<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-condition" />
 		</type>
 	</element>
 	
 	<!-- Procedures Section -->
-    <element>
+    <element id="ts100">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -1877,7 +1877,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts101">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -1898,7 +1898,7 @@
       </type>
       <exampleString value="Procedures Section" />
     </element>
-    <element>
+    <element id="ts102">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -1917,7 +1917,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts103">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -1935,7 +1935,7 @@
       <fixedCode value="47519-4" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts104">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -1953,7 +1953,7 @@
       <exampleString value="History of procedures" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts105">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -1969,20 +1969,20 @@
         <code value="Narrative" />
       </type>
     </element>
-	<element>
+	<element id="ts106">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
-		<definition value="SHOULD contain zero or more [0..*] U.S. DAF Procedure Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-procedure)." />
+		<definition value="SHOULD contain zero or more [0..*] U.S. DAF Procedure Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-procedure)." />
 		<min value="0" />
 		<max value="*" />
 		<type>
 			<code value="Reference" />
-			<profile value="http://hl7.org/fhir/StructureDefinition/daf-procedure" />
+			<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-procedure" />
 		</type>
 	</element>
 	
 	<!-- Results Section -->
-    <element>
+    <element id="ts107">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -2003,7 +2003,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts108">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -2024,7 +2024,7 @@
       </type>
       <exampleString value="Results Section" />
     </element>
-    <element>
+    <element id="ts109">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -2043,7 +2043,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts110">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -2061,7 +2061,7 @@
       <fixedCode value="30954-2" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts111">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -2079,7 +2079,7 @@
       <exampleString value="Relevant diagnostic tests &amp;or laboratory data" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts112">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -2095,20 +2095,20 @@
         <code value="Narrative" />
       </type>
     </element>
-	<element>
+	<element id="ts113">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
-		<definition value="MAY contain zero or more [0..*] U.S. DAF Results Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-resultobs." />
+		<definition value="MAY contain zero or more [0..*] U.S. DAF Results Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-resultobs." />
 		<min value="0" />
 		<max value="*" />
 		<type>
 			<code value="Reference" />
-			<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs" />
+			<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-resultobs" />
 		</type>
 	</element>
 	
 	<!-- Social History Section -->
-    <element>
+    <element id="ts114">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -2129,7 +2129,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts115">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -2150,7 +2150,7 @@
       </type>
       <exampleString value="Social History Section" />
     </element>
-    <element>
+    <element id="ts116">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -2169,7 +2169,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts117">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -2187,7 +2187,7 @@
       <fixedCode value="29762-2" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts118">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -2205,7 +2205,7 @@
       <exampleString value="Social history" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts119">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -2223,7 +2223,7 @@
     </element>
 	
 	<!-- Vital Signs Extension -->
-    <element>
+    <element id="ts120">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -2244,7 +2244,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts121">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -2265,7 +2265,7 @@
       </type>
       <exampleString value="Vital Signs Section" />
     </element>
-    <element>
+    <element id="ts122">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -2284,7 +2284,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts123">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -2302,7 +2302,7 @@
       <fixedCode value="8716-3" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts124">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -2320,7 +2320,7 @@
       <exampleString value="Vital signs" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts125">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -2336,21 +2336,21 @@
         <code value="Narrative" />
       </type>
     </element>
-	<element>
+	<element id="ts126">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
-		<definition value="SHOULD contain zero or more [0..*] U.S.DAF Vital Signs Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-vitalsigns)." />
+		<definition value="SHOULD contain zero or more [0..*] U.S.DAF Vital Signs Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-vitalsigns)." />
 		<min value="0" />
 		<max value="*" />
 		<type>
 			<code value="Reference" />
-			<profile value="http://hl7.org/fhir/StructureDefinition/daf-vitalsigns" />
+			<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-vitalsigns" />
 		</type>
 	</element>
 	
 	<!-- Mental Status Section -->
 	<!-- No DAF Assessment Scale Observation, Mental Status Observation, or Mental Status Organizer Entry -->
-    <element>
+    <element id="ts127">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -2371,7 +2371,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts128">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -2392,7 +2392,7 @@
       </type>
       <exampleString value="Mental Status Section" />
     </element>
-    <element>
+    <element id="ts129">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -2411,7 +2411,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts130">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -2429,7 +2429,7 @@
       <fixedCode value="10190-7" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts131">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -2447,7 +2447,7 @@
       <exampleString value="Mental status" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts132">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -2466,7 +2466,7 @@
 	
 	<!-- General Status Section -->
 	<!-- No entries for General Status -->
-    <element>
+    <element id="ts133">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -2487,7 +2487,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts134">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -2508,7 +2508,7 @@
       </type>
       <exampleString value="General Status Section" />
     </element>
-    <element>
+    <element id="ts135">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -2527,7 +2527,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts136">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -2545,7 +2545,7 @@
       <fixedCode value="10210-3" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts137">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -2563,7 +2563,7 @@
       <exampleString value="Physical findings of General status" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts138">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -2582,7 +2582,7 @@
     
 	<!-- Review of Systems Section -->
 	<!-- No entries for Review of Systems -->
-	<element>
+	<element id="ts139">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -2603,7 +2603,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts140">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -2624,7 +2624,7 @@
       </type>
       <exampleString value="Review of Systems Section" />
     </element>
-    <element>
+    <element id="ts141">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -2643,7 +2643,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts142">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -2661,7 +2661,7 @@
       <fixedCode value="10187-3" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts143">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -2679,7 +2679,7 @@
       <exampleString value="Review of systems" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts144">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -2698,7 +2698,7 @@
     
 	<!-- Nutrition Section -->
 	<!-- No DAF Nutrional Status Observation Entry -->
-	<element>
+	<element id="ts145">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -2719,7 +2719,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts146">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -2740,7 +2740,7 @@
       </type>
       <exampleString value="Nutrition Section" />
     </element>
-    <element>
+    <element id="ts147">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -2759,7 +2759,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts148">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -2777,7 +2777,7 @@
       <fixedCode value="61144-2" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts149">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -2795,7 +2795,7 @@
       <exampleString value="Diet and nutrition" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts150">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -2812,7 +2812,7 @@
       </type>
     </element>
 	<!--
-	<element>
+	<element id="ts151">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
 		<definition value="SHOULD contain zero or more [0..*] U.S. Nutrional Status Observation" />
@@ -2827,7 +2827,7 @@
 	
 	<!-- Reason for Referral Section -->
 	<!-- No DAF Patient Referral Act -->
-    <element>
+    <element id="ts152">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -2848,7 +2848,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts153">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -2869,7 +2869,7 @@
       </type>
       <exampleString value="Reason for Referral Section" />
     </element>
-    <element>
+    <element id="ts154">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -2888,7 +2888,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts155">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -2906,7 +2906,7 @@
       <fixedCode value="42349-1" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts156">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -2924,7 +2924,7 @@
       <exampleString value="Reason for referral" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts157">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -2941,7 +2941,7 @@
       </type>
     </element>
 	<!--
-	<element>
+	<element id="ts158">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
 		<definition value="SHOULD contain zero or more [0..*] U.S. Patient Referral Act" />
@@ -2955,7 +2955,7 @@
 	-->	
 	
 	<!-- History of Past Illness Section -->
-    <element>
+    <element id="ts159">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -2976,7 +2976,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts160">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -2997,7 +2997,7 @@
       </type>
       <exampleString value="History of Past Illness Section" />
     </element>
-    <element>
+    <element id="ts161">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -3016,7 +3016,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts162">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -3034,7 +3034,7 @@
       <fixedCode value="11348-0" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts163">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -3052,7 +3052,7 @@
       <exampleString value="History of past illness" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts164">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -3068,21 +3068,21 @@
         <code value="Narrative" />
       </type>
     </element>
-	<element>
+	<element id="ts165">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
-		<definition value="MAY contain zero or more [0..*] U.S. DAF Condition Profile (identifier: http://hl7.org/fhir/StructureDefinition/daf-condition)." />
+		<definition value="MAY contain zero or more [0..*] U.S. DAF Condition Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-condition)." />
 		<min value="0" />
 		<max value="*" />
 		<type>
 			<code value="Reference" />
-			<profile value="http://hl7.org/fhir/StructureDefinition/daf-condition" />
+			<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-condition" />
 		</type>
 	</element>
 
 	<!-- History of Present Illness Section -->
 	<!-- No entries for History of Present Illness -->
-    <element>
+    <element id="ts166">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -3103,7 +3103,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts167">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -3124,7 +3124,7 @@
       </type>
       <exampleString value="History of Present Illness Section" />
     </element>
-    <element>
+    <element id="ts168">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -3143,7 +3143,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts169">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -3161,7 +3161,7 @@
       <fixedCode value="10164-2" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts170">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -3179,7 +3179,7 @@
       <exampleString value="History of present illness" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts171">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -3198,7 +3198,7 @@
 
 	<!-- Assessment and Plan Section -->
 	<!-- No DAF Planned Act Entry -->
-    <element>
+    <element id="ts172">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -3219,7 +3219,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts173">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -3240,7 +3240,7 @@
       </type>
       <exampleString value="Assessment and Plan Section" />
     </element>
-    <element>
+    <element id="ts174">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -3259,7 +3259,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts175">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -3277,7 +3277,7 @@
       <fixedCode value="51847-2" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts176">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -3295,7 +3295,7 @@
       <exampleString value="Evaluation+Plan note" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts177">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -3314,7 +3314,7 @@
 	
 	<!-- Assessment Section -->
 	<!-- No entries for Assessment Section -->
-    <element>
+    <element id="ts178">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -3335,7 +3335,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts179">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -3356,7 +3356,7 @@
       </type>
       <exampleString value="Assessment Section" />
     </element>
-    <element>
+    <element id="ts180">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -3375,7 +3375,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts181">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -3393,7 +3393,7 @@
       <fixedCode value="51848-0" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts182">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -3411,7 +3411,7 @@
       <exampleString value="Evaluation note" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts183">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -3430,7 +3430,7 @@
 
 	<!-- Admission Medications Section -->
 	<!-- No DAF Admission Medication Entry -->
-    <element>
+    <element id="ts184">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -3451,7 +3451,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts185">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -3472,7 +3472,7 @@
       </type>
       <exampleString value="Admission Medications Section" />
     </element>
-    <element>
+    <element id="ts186">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -3491,7 +3491,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts187">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -3509,7 +3509,7 @@
       <fixedCode value="42346-7" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts188">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -3527,7 +3527,7 @@
       <exampleString value="Medications on admission" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts189">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -3544,7 +3544,7 @@
       </type>
     </element>
 	<!--
-	<element>
+	<element id="ts190">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
 		<definition value="SHOULD contain zero or more [0..*] U.S. Admission Medication" />
@@ -3559,7 +3559,7 @@
 	
 	<!-- Admission Diagnosis Section -->
 	<!-- No DAF Hospital Admission Diagnosis Entry -->
-    <element>
+    <element id="ts191">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -3580,7 +3580,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts192">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -3601,7 +3601,7 @@
       </type>
       <exampleString value="Admission Diagnosis Section" />
     </element>
-    <element>
+    <element id="ts193">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -3620,7 +3620,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts194">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -3638,7 +3638,7 @@
       <fixedCode value="46241-6" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts195">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -3656,7 +3656,7 @@
       <exampleString value="Hospital admission Dx" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts196">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -3673,7 +3673,7 @@
       </type>
     </element>
 	<!--
-	<element>
+	<element id="ts197">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
 		<definition value="SHOULD contain zero or more [0..*] U.S. Hospital Admission Diagnosis" />
@@ -3688,7 +3688,7 @@
 	
 	<!-- Course of Care Section -->
 	<!-- No entries for Course of Care -->
-    <element>
+    <element id="ts198">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -3709,7 +3709,7 @@
         <code value="BackboneElement" />
       </type>
     </element>
-    <element>
+    <element id="ts199">
       <path value="Composition.section.title" />
       <short value="Label for section (e.g. for ToC)" />
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents." />
@@ -3730,7 +3730,7 @@
       </type>
       <exampleString value="Course of Care Section" />
     </element>
-    <element>
+    <element id="ts200">
       <path value="Composition.section.code.coding.system" />
       <short value="Identity of the terminology system" />
       <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
@@ -3749,7 +3749,7 @@
       <fixedUri value="http://loinc.org" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts201">
       <path value="Composition.section.code.coding.code" />
       <short value="Symbol in syntax defined by the system" />
       <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
@@ -3767,7 +3767,7 @@
       <fixedCode value="8648-8" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts202">
       <path value="Composition.section.code.coding.display" />
       <short value="Representation defined by the system" />
       <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
@@ -3785,7 +3785,7 @@
       <exampleString value="Hospital course" />
       <isSummary value="true" />
     </element>
-    <element>
+    <element id="ts203">
       <path value="Composition.section.text" />
       <short value="Text summary of the section, for human interpretation" />
       <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative." />
@@ -3803,7 +3803,7 @@
     </element>
 	
 	<!-- Related Persons -->
-    <element>
+    <element id="ts204">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Section" />
       </extension>
@@ -3824,15 +3824,15 @@
         <code value="BackboneElement" />
       </type>
     </element>
-	<element>
+	<element id="ts205">
 		<path value="Composition.section.entry" />
 		<short value="entry" />
-		<definition value="MAY contain zero or more [0..*] U.S. DAF Related Person (identifier: http://hl7.org/fhir/StructureDefinition/daf-relatedperson)." />
+		<definition value="MAY contain zero or more [0..*] U.S. DAF Related Person (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-relatedperson)." />
 		<min value="0" />
 		<max value="*" />
 		<type>
 			<code value="Reference" />
-			<profile value="http://hl7.org/fhir/StructureDefinition/daf-relatedperson" />
+			<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-relatedperson" />
 		</type>
 	</element>
   </differential>
