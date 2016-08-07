@@ -19,10 +19,10 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 **Profile specific implementation guidance:**
 
 * **NDC codes as a translational data element**: 
-Based upon the 2015 Edition Certification Requirements, the [NDC vaccine codes] SHOULD be supported as translations to the CVX vaccine codes. A [NDC to CVX concept map] is provided and the translation is illustrated in the example below.
+Based upon the 2015 Edition Certification Requirements, [CVX vaccine codes]. are required and the [NDC vaccine codes] SHOULD be supported as translations to them.  A NDC to [CVX crosswalk table] is also provided by the CDC.
 
 
-  [CVX code set]: http://hl7.org/fhir/us/daf/valueset-daf-cvx.html
-  [NDC vaccine codes]: valueset-daf-ndc.html
-  [NDC to CVX concept map]: conceptmap-ndc-cvx.html
+  [CVX vaccine codes]: http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx
+  [NDC vaccine codes]: http://www2a.cdc.gov/vaccines/iis/iisstandards/ndc_crosswalk.asp
+  [CVX crosswalk table]: http://www2a.cdc.gov/vaccines/iis/iisstandards/ndc_crosswalk.asp
 [Immunization]:  http://hl7-fhir.github.io/immunization.html

@@ -3,15 +3,13 @@
 1.  One status in `Immunization.status` which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
 -  [Immunization Status] value set.
 1.  One dateTime in `Immunization.date`
-1.  One vaccine code in `Immunization.vaccineCode` which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
--  [CVX code set].
+1.  One vaccine code in `Immunization.vaccineCode` which has:
+-   a [required](http://hl7-fhir.github.io/terminologies.html#required) binding to the [CVX] value set
+-   SHOULD have a translation to the to the [NDC] value set
 1.  One patient in `Immunization.patient`
 1.  One boolean value in `Immunization.wasNotGiven`
 1.  One boolean value in `Immunization.reported`
 
   [Immunization Status]: valueset-daf-core-immunization-status.html
-  [CVX code set]: http://hl7.org/fhir/us/daf/valueset-daf-cvx.html
-  [DAF Immunization Profile]: http://hl7.org/fhir/us/daf/daf-immunization.html
-  [NDC vaccine codes]: NDC_vaccine_codes "wikilink"
-  [translations]: Implementation_Guide#Definitions "wikilink"
-  [NDC to CVX concept map]: NDC_to_CVX_concept_map "wikilink"
+  [CVX]: http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx
+  [NDC]: http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx
