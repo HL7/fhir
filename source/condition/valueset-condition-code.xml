@@ -23,5 +23,12 @@
         <value value="404684003"/>
       </filter>
     </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="160245001"/>
+        <display value="No current problems or disability"/>
+      </concept>
+    </include>
   </compose>
 </ValueSet>

@@ -8,12 +8,38 @@ SNOMED CT is used for the condition, and especially if expressions are allowed.
 </p>
 <p>
 The Condition.code may also include such concepts as "history of X" and "good health", where it is useful or appropriate to make such assertions. 
-It can also be used to capture "risk of" and "fear of" in addition to physical conditions.
+It can also be used to capture "risk of" and "fear of", in addition to physical conditions, as well as "no known problems" or "negated" conditions (e.g., "no X" or "no history of X" - see the following section for "No Known Problems" and Negated Conditions).
 </p>
 <p>
 When the Condition.code specifies additional properties of the condition, the other properties are not given 
 a value - instead, the value must be understood from the Condition.code. 
 </p>
+
+<h3>"No Known Problems" and Negated Conditions</h3>
+
+  <p>
+    <b>Conditions/Problems Not Reviewed, Not Asked</b>
+  </p>
+  <p>When a sending system does not have any information about conditions/problems being reviewed or the statement is about conditions/problems not yet being asked, then the <a href="list.html">List</a> resource should be used to indicate the List.emptyReason.code="notasked".
+  </p>
+ 
+<p>  
+<b>Conditions/Problems Reviewed, None Identified</b>
+</p>
+
+  <p>Systems may use the List.emptyReason when a statement is about the full scope of the list (i.e. the patient has no conditions/problems of any type).  However, it may be preferred to use a code for "no known problems" (e.g., SNOMED CT: 160245001 |No current problems or disability (situation)|), so that all condition/problem data will be available and queryable from Condition resource instances.
+  </p>
+  <p>Also note that care should be used when adding new Condition resources to a list to ensure that any negation statements that are voided by the addition of a new record are removed from the list.  E.g. If the list contains a "no known problems" record and you add a "diabetes" condition record, then be sure that you remove the "no known problems" record.
+  </p>
+
+<blockquote class="dstu-note">
+<a name="dstu"> </a>
+<p>
+<b>STU Note:</b>There are two primary ways of reporting "no known problems" in the current specification: using the CodeableConcept,
+as described above, or using the <a href="list.html">List</a> resource with emptyReason. During the STU period, <a href="http://gforge.hl7.org/gf/project/fhir/tracker/">feedback</a> is sought regarding the preferred approach.
+</p>
+</blockquote>
+
 <h3>Use of Condition.evidence</h3>
 
 <p>
