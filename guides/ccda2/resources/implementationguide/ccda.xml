@@ -130,10 +130,26 @@
     </resource>
     <resource>
       <example value="false"/>
+      <name value="C-CDA on FHIR Operative Note"/>
+      <acronym value="ccda-operative-note-composition"/>
+      <sourceReference>
+        <reference value="StructureDefinition/ccda-operative-note-composition"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <example value="false"/>
       <name value="C-CDA on FHIR Procedure Note"/>
       <acronym value="ccda-procedure-note-composition"/>
       <sourceReference>
         <reference value="StructureDefinition/ccda-procedure-note-composition"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <example value="false"/>
+      <name value="C-CDA on FHIR Progress Note"/>
+      <acronym value="ccda-progress-note-composition"/>
+      <sourceReference>
+        <reference value="StructureDefinition/ccda-progress-note-composition"/>
       </sourceReference>
     </resource>
     <resource>
@@ -269,6 +285,18 @@
        <exampleFor>
             <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-operative-note-composition"/>
           </exampleFor> 
+    </resource>
+    <resource>
+      <example value="true"/>
+      <name value="Example Progress Note"/>
+      <description value="Example Progress Note"/>
+      <acronym value="progress-note-example"/>
+      <sourceReference>
+        <reference value="Composition/progress-note-example"/>
+      </sourceReference>
+       <exampleFor>
+            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-progress-note-composition"/>
+          </exampleFor>
     </resource>
     <resource>
       <example value="true"/>
