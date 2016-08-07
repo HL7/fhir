@@ -42,18 +42,16 @@ The condition resource also specifically excludes <a href="allergyintolerance.ht
 
 <blockquote class="dstu-note">
 <p>
-<b>STU Note:</b> The Condition resource data type <code>Condition.category</code> has a <code>CodeableConcept</code> element with a list of four category codes:  
-<code>complaint | symptom | finding | diagnosis</code> that are not associated with a specific terminology.  This is a <a href="terminologies.html#preferred">preferred</a> 
-binding vs. a <a href="terminologies.html#required">required</a> binding.  In <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=10091">GFORGE # 10091</a>, 
-the conformance requirements for code vs. CodeableConcept (4a) note that a CodeableConcept should use a standard terminology such as SNOMED CT.  The Patient Care WG has 
-recommended that <code>Condition.category</code> be changed to a Code data element type with the use of the four code terms: <code>complaint | symptom | finding | diagnosis</code> with a required binding.
+<b>STU Note:</b> The <code>Condition.category</code> element is a <code>CodeableConcept</code> data type with a <a href="terminologies.html#preferred">preferred</a> (not <a href="terminologies.html#required">required</a>) binding to four category codes:  
+<code>complaint | symptom | finding | diagnosis</code> from the FHIR-defined condition-category code system and value set.  In <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=10091">GFORGE # 10091</a>, 
+the conformance requirements for code vs. CodeableConcept (4a) note that a CodeableConcept should use a standard terminology such as SNOMED CT.  The Patient Care WG has recommended that <code>Condition.category</code> be changed to a <code>code</code> data type with a <a href="terminologies.html#required">required</a> binding to the condition-category value set (containing the four codes: <code>complaint | symptom | finding | diagnosis</code> as noted above).
 </p>
 <p>
-Questions:
+<a href="http://gforge.hl7.org/gf/project/fhir/tracker/">Feedback</a> is sought particularly on these questions:
 </p>
 <ol>
- <li>Is <code>CodeableConcept</code> needed for Condition.category?  If so, what are the discrete values that could be used from SNOMED CT for this constrained value set?  How would this impact searching by category?</li> 
- <li>If Condition.category is changed to a <code>code</code> type data element, is the use of the current four terms adequate for condition classification, or are additional terms needed?  If so, what would these be?  Note the recommendation to make this a required, not a preferred binding.  Please comment on the impact of high level categories vs. more granular categories.</li>   
+ <li>Is <code>CodeableConcept</code> needed for Condition.category?  If so, what are the concepts that could be used from SNOMED CT for this constrained value set?  How would this impact searching by category?</li> 
+ <li>If Condition.category is changed to a <code>code</code> data type, is the use of the current four codes adequate for condition classification, or are additional codes needed?  If so, what would these be?  Note the recommendation to make this a <b>required</b>, not a preferred binding.  Please comment on the impact of high level categories vs. more granular categories.</li>   
 </ol>
 </blockquote>
 
