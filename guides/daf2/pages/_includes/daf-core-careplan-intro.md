@@ -8,11 +8,10 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Each CarePlan must have:**
 
-
-1.  a patient
-1.  a category code of “assess-plan”
-1.  a status
 1.  a narrative summary of the patient assessment and plan of treatment
+1.  a patient
+1.  a status
+1.  a category code of “assess-plan”
 
 
 **Profile specific implementation guidance:**
