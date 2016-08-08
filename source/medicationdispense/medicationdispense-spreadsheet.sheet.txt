@@ -552,13 +552,13 @@
  -- Row 11 -----------------------------------
   Name = whenhandedover
   Type = date
-  Description = Returns dispensed handed over on this date
+  Description = Returns dispenses handed over on this date
   Path = MedicationDispense.whenHandedOver
 
  -- Row 12 -----------------------------------
   Name = whenprepared
   Type = date
-  Description = Returns dispense prepared on this date
+  Description = Returns dispenses prepared on this date
   Path = MedicationDispense.whenPrepared
 
  -- Row 13 -----------------------------------

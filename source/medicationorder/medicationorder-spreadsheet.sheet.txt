@@ -34,7 +34,7 @@
   Binding Name = MedicationOrderStatus
   Binding = code list
   Reference = #medication-order-status
-  Definition = A code specifying the state of the prescribing event. Describes the lifecycle of the prescription.
+  Definition = A coded concept specifying the state of the prescribing event. Describes the lifecycle of the prescription.
   Conformance = required
   v3 = ActStatus
 
