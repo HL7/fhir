@@ -54,6 +54,14 @@ and organization of the questions.  All data must be explicitly captured as a qu
 only on the meaning of the answer, not what question was asked (assuming a question was even asked at all).  Additional information such as normal
 ranges, interpretation, date, etc. may also be captured.
 </p>
+<p>
+<b>PLANNED CHANGE:</b>
+</p>
+<p>
+<b>QuestionnaireResponse</b> is one of the <a href="workflow.html#event">Event</a> resources in the FHIR <a href="workflow.html">Workflow</a> specification.  As such, it
+is expected to be adjusted to align with the <a href="event.html">event</a> workflow pattern.  Any concerns about performing such alignment are welcome as ballot
+comments and/or tracker items.
+</p>
 </div>
 
 <!--<div>

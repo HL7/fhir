@@ -11129,6 +11129,11 @@
     <display value="No Known Allergies"/>
     <display value="NKA - No known allergies"/>
   </concept>
+  <concept id="160245001" display="No current problems or disability">
+    <display value="No current problems or disability"/>
+    <display value="No current problems or disability (situation)"/>
+    <display value="No current problems or disability (context-dependent category)"/>
+  </concept>
   <concept id="16042001" display="Beefmaster cattle breed (organism)">
     <display value="Beefmaster cattle breed (organism)"/>
     <display value="Beefmaster cattle"/>
