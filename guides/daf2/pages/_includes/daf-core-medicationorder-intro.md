@@ -1,6 +1,15 @@
 Both the [MedicationOrder] and [MedicationStatement] resources can be used to record a patient's medication.   For more information about the context for their usages, refer to the medication domains's [boundaries section].  This profile sets minimum expectations for the MedicationOrder resource to record, search and fetch medications associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
+**Example Usage Scenarios:**
 
+The following are example usage scenarios for the DAF-MedicationOrder
+profile:
+
+-   Query for medications that have been prescribed to a particular
+    patient
+-   Query for all patients who have been prescribed a particular medication
+-   Query for all patients who were prescribed a particular medication within a particular time period
+    
 ##### Mandatory Data Elements and Terminology
 
 

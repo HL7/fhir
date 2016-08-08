@@ -1,5 +1,12 @@
 This profile sets minimum expectations for the [Observation] resource to record, search and fetch vital signs associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
+**Example Usage Scenarios:**
+
+The following are example usage scenarios for the DAF-VitalSigns
+profile:
+
+-   Query for vital signs of a particular patient
+-   Query for patients with a particular type of vital sign measurement
 
 ##### Mandatory Data Elements and Terminology
 

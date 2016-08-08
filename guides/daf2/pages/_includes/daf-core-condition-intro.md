@@ -1,5 +1,13 @@
 This profile sets minimum expectations for the [Condition] resource to record, search and fetch a  list of problems and health concerns associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
+**Example Usage Scenarios:**
+
+The following are example usage scenarios for the DAF-Condition profile:
+
+-   Query for a Patient’s problems
+-   Query for all patients who have had a specific condition,problem or
+    finding
+
 
 ##### Mandatory Data Elements and Terminology
 

@@ -1,5 +1,14 @@
 Laboratory results are grouped and summarized using the [DiagnosticReport] resource which reference [Observation] resources.  Each Observation resource represents an individual laboratory test and result value, a “nested” panel (such as a microbial susceptibility panel) which references other observations, or rarely a laboratory test with component result values. This profile sets minimum expectations for the Observation resource resource to record, search and fetch laboratory test results associated with a patient.  It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
+**Example Usage Scenarios:**
+
+The following are example usage scenarios for the DAF-Results profile:
+
+-   Query for lab results belonging to a Patient
+-   Query for all patients who have had a specific lab result available
+-   Query for all patients with a lab test (e.g HbA1c) beyond the
+    acceptable reference range
+    
 ##### Mandatory Data Elements and Terminology
 
 

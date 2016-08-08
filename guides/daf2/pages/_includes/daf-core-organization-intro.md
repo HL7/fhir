@@ -1,5 +1,12 @@
 This profile sets minimum expectations for the [Organization] resource to searching for and fetching a Organization associated with a patient or provider. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
+**Example Usage Scenarios:**
+
+The following are example usage scenarios for the DAF-Organization profile:
+
+-   Query for an address or telephone number by organization name
+-   Query for an organization by name or address
+
 
 ##### Mandatory Data Elements and Terminology
 

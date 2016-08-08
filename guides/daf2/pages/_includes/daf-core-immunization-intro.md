@@ -1,5 +1,12 @@
 his profile sets minimum expectations for the [Immunization] resource to record, fetch and search immunization history associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
+**Example Usage Scenarios:**
+
+The following are example usage scenarios for the DAF-Core Immunization
+profile:
+
+-   Query for immunizations belonging to a Patient
+-   Query for all patients who have had a specific vaccine administered
 
 ##### Mandatory Data Elements and Terminology
 

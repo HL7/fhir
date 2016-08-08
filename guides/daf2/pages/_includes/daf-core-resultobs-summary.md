@@ -13,7 +13,8 @@
     -   Each Observation.valueQuantity must have:
         -   One numeric value in `Observation.valueQuantity.value`
         -   a fixed `Observation.valueQuantity.system`=“http://unitsofmeasure.org”
-        -   a [UCUM units] code in `Observation.valueQuantity.code` 
+        -   a UCUM units code in `Observation.valueQuantity.code` which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
+				-    [ObservationStatus] value set.
     -   Each Observation.valueCodeableConcept must have either:
         1.  a code in `Observation.valueCodeableConcept.coding.code` and code system in `Observation.valueCodeableConcept.coding.sytem` which has an [preferred](http://hl7-fhir.github.io/terminologies.html#preferred) binding to:
             -   [Observation Value Codes (SNOMED-CT)] 

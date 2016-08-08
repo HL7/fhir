@@ -1,5 +1,12 @@
 When referring to medications, The [MedicationStatement] and [MedicationOrder] resources can either use a code or refer to a [Medication] resource.  This profile sets minimum expectations for the Medication resource to record search and fetch medications associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
+**Example Usage Scenarios:**
+
+Queries on Medication resource are expected to be within the context of
+a MedicationStatement,  MedicationOrder resource query. The following are
+example usage scenarios for the DAF-Medication profile:
+
+-   Query for Medications with a particular code
 
 ##### Mandatory Data Elements and Terminology
 

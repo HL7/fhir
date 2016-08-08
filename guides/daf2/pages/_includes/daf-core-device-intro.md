@@ -1,5 +1,12 @@
 This profile sets minimum expectations for the [Device] resource to record, search and fetch UDI information associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile.
 
+**Example Usage Scenarios:**
+
+The following are example usage scenarios for the DAF-Device profile:
+
+-   Query for a Patient's Devices 
+-   Query for all Patients with a particular kind of Device
+-   Query for a Patient with a particular Device UDI
 
 ##### Mandatory Data Elements and Terminology
 

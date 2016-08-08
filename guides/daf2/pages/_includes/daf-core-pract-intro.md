@@ -1,5 +1,13 @@
 This profile sets minimum expectations for the [Practitioner] resource to record [content] associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile. 
 
+**Example Usage Scenarios:**
+
+The following are example usage scenarios for the DAF-Practitioner profile:
+
+-   Query for an practitioner by name or specialty
+-   Query for a practitioner within a city or state
+-   Query for a practitiioner by orgnaizational relationships
+
 
 ##### Mandatory Data Elements and Terminology
 
