@@ -257,6 +257,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 					<code value="54127-6H"/>
 					<display value="US Surgeon General family health portrait [USSG-FHT]"/>
 				</concept>
+				<subjectType value="Patient"/>
 				<item>
 					<linkId value="0"/>
 					<type value="group"/>

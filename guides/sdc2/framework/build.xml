@@ -97,6 +97,7 @@
     <copy todir="${dir.pageincludes}">
       <fileset dir="${dir.framework.includes}"/>
     </copy>
+    <copy todir="${dir.pagedata}" file="${dir.src}/refs.json"/>
     <xslt basedir="${dir.src.pagecontent}" destdir="${dir.pageincludes}" includes="*.xml" style="${dir.xslt}/processPages.xslt" classpathref="saxon.path">
       <factory name="${saxon.classname}"/>
       <mapper type="glob" from="*.xml" to="content-*.html"/>
@@ -118,6 +119,7 @@
   </target>
   <target name="publish-ig" depends="publisher-setup"  description="--> Run the IG build">
     <java jar="${dir.alltemp}/org.hl7.fhir.igpublisher.jar" fork="true" failonerror="true" maxmemory="1024m">
+      <jvmarg line="-Dfile.encoding=UTF-8"/>
       <arg line="-ig ${basedir}/${dir.alltemp}/${guidename}.json"/>
     </java>
   </target>

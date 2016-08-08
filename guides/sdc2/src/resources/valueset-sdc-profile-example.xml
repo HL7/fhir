@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/valueset.xsd">
-	<id value="sdc-profile-example"/>
-	<url value="http://hl7.org/fhir/us/sdc/ValueSet/sdc-profile-example"/>
-	<name value="AHRQ Medication Q1"/>
-	<status value="active"/>
-	<date value="2014"/>
-	<description value="The answer list for question 1 on the AHRQ &#39;Medication or Other Substance&#39; form"/>
-	<copyright value="This material contains content from LOINC® (&gt;a href=&quot;http://loinc.org&quot;&lt;http://loinc.org&gt;/a&lt;). The LOINC table, LOINC codes, and LOINC panels and forms file are copyright © 1995-2014, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and available at no cost under the license at http://loinc.org/terms-of-use"/>
-	<compose>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
+  <id value="sdc-profile-example"/>
+  <url value="http://hl7.org/fhir/us/sdc/ValueSet/sdc-profile-example"/>
+  <name value="AHRQ Medication Q1"/>
+  <status value="active"/>
+  <date value="2014"/>
+  <description value="The answer list for question 1 on the AHRQ &#39;Medication or Other Substance&#39; form"/>
+  <copyright value="This material contains content from LOINC® (&gt;a href=&quot;http://loinc.org&quot;&lt;http://loinc.org&gt;/a&lt;). The LOINC table, LOINC codes, and LOINC panels and forms file are copyright © 1995-2014, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <compose>
     <include>
       <system value="http://loinc.org"/>
       <concept>
@@ -51,6 +50,6 @@
         <code value="LA20343-2"/>
         <display value="Other substance: PLEASE SPECIFY"/>
       </concept>
-      </include>
-	</compose>
+    </include>
+  </compose>
 </ValueSet>

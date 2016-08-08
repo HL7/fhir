@@ -19,16 +19,15 @@
 			<code value="US"/>
 		</coding>
 	</useContext>
-	<dependency>
-		<type value="reference"/>
-		<uri value="http://hl7.org/fhir/us/sdc"/>
-	</dependency>
 	<package>
 		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
 			<valueUri value="dataelement-sdc-de-profile-spreadsheet.xml"/>
 		</extension>
 		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
 			<valueUri value="valueset-sdc-de-profile-spreadsheet.xml"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+			<valueUri value="codesystem-sdc-de-profile-spreadsheet.xml"/>
 		</extension>
 		<name value="base"/>
 		<resource>
@@ -108,6 +107,18 @@
 			<page>
 				<source value="sdcde-valueset.html"/>
 				<title value="Value Set Details"/>
+				<kind value="resource"/>
+				<format value="generated"/>
+			</page>
+		</page>
+		<page>
+			<source value="codesystem-sdc-de.html"/>
+			<title value="Code System"/>
+			<kind value="page"/>
+			<format value="generated"/>
+			<page>
+				<source value="sdcde-codesystem.html"/>
+				<title value="Code System Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>
 			</page>

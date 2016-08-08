@@ -12,7 +12,7 @@
   </ul>
   <p>
     A third component - defining standards for the sharing of common data element definitions between registries to enable broader and more consistent data element use is 
-    addressed in a <a href="{{site.data.fhir.sdcde}}/sdcde.html">second companion implementation guide</a>.
+    addressed in a <a href="{{site.data.refs.sdcde}}/sdcde.html">second companion implementation guide</a>.
   </p>
   <p>
     This implementation guide is prepared as a U.S. Realm Specification on behalf of the 
@@ -145,7 +145,7 @@
   <p>
     The pre-population process (done by the Form Manager) and the auto-population process (done by the Form Filler itself) can be done by
     a variety of means.  If using data elements referenced directly within the questionnaire or mapped via <a href="{{site.data.fhir.path}}conceptmap.html">ConceptMap</a>,
-    those may need to be retrieved from a <a href="{{site.data.fhir.sdcde}}/conformance-sdc-de-registry.html"> Data Element Registry</a> in order to look
+    those may need to be retrieved from a <a href="{{site.data.refs.sdcde}}/conformance-sdc-de-registry.html"> Data Element Registry</a> in order to look
     up what mappings the data element has to other resources.
   </p>
   <h3>SDC Specification</h3>
@@ -170,8 +170,8 @@
   </ul>
   <p>
     In addition to the above, there's another relevant role:<br/>
-    When looking up data elements, the <i>SDC Form Designer</i> will communicate use of the <a href="{{site.data.fhir.sdcde}}/conformance-sdc-de-registry.html">SDC Data Element 
-    Registry</a>, which is defined in the <a href="{{site.data.fhir.sdcde}}/sdcde.html">SDC Data Element Exchange</a> implementation guide.
+    When looking up data elements, the <i>SDC Form Designer</i> will communicate use of the <a href="{{site.data.refs.sdcde}}/conformance-sdc-de-registry.html">SDC Data Element 
+    Registry</a>, which is defined in the <a href="{{site.data.refs.sdcde}}/sdcde.html">SDC Data Element Exchange</a> implementation guide.
   </p>
   <p>
     A summary of how these roles interact can be seen in Figure 2 and Figure 3 below:
@@ -237,6 +237,15 @@
         <td>
           <a href="valueset-sdc.html">SDC Value Set Profile</a>
         </td>
+        <td>Used to define collections of allowed values for data elements and for questions in questionnaires</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="{{site.data.fhir.path}}codesystem.html">CodeSystem</a>
+        </td>
+        <td>
+          <a href="codesystem-sdc.html">SDC Code System Profile</a>
+        </td>
         <td>Used to define allowed values for data elements and for questions in questionnaires</td>
       </tr>
     </tbody>
@@ -260,29 +269,64 @@
   <a name="population"> </a>
   <h4>Pre-population service</h4>
   <p>
-    The <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a> resource defines a custom operation called 
-    <a href="{{site.data.fhir.path}}questionnaire-operations.html#populate">populate</a>.
-    This operation supports generating a "blank" <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a> instance based on a specified
-    <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>.  It also allows for the returned questionnaire to be partially or even fully completed based
-    on data passed in to the operation or data already available to the server on which the operation is invoked.
+    The <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a> resource defines a set of custom operations to support generation of completed questionnaires,
+    possibly automatically filling in some of the answers using existing system information.  This could be information passed to the system on which the operation is 
+    invoked (as a CDA document, FHIR bundle or other recognized source) or using data the system already has locally.  The three operations are as follows:
   </p>
+  <table>
+    <tbody>
+      <tr>
+        <th>Operation</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>
+          <a href="{{site.data.fhir.path}}questionnaire-operations.html#populate">populate</a>
+        </td>
+        <td>
+          This operation supports generating a <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a> instance based on a specified
+          <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>.  If matching data is available for any of the questions and the server supports 
+          the pre-population capability, the answers for those questions will be filled in in the QuestionnaireResponse instance.
+          answers will 
+        </td>
+        <td>
+          <a href="{{site.data.fhir.path}}questionnaire-operations.html#populatehtml">populatehtml</a>
+        </td>
+        <td>
+          This operation produces an HTML web page as a <a href="{{site.data.fhir.path}}binary.html">Binary</a> instance.  The HTML page provides an interactive rendering
+          of the form, using html-based controls to capture user inputs and scripting languages to support form validation and submission to the server that
+          generated the form and/or the recipient(s) designated by the <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>.  If matching data is available 
+          for any of the questions and the server supports the pre-population capability, the form will initially render with the answers for those questions filled in.
+        </td>
+        <td>
+          <a href="{{site.data.fhir.path}}questionnaire-operations.html#populatelink">populatelink</a>
+        </td>
+        <td>
+          This operation returns a URL leading to an web page with an interactive rendering of the form that allows a user navigating to the link with a browser to
+          complete and submit a response to the questionnaire.  The response will be transmitted to the server generating the link, hosting the form and/or as
+          designated as part of the <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a> itself.  If matching data is available 
+          for any of the questions and the server supports the pre-population capability, the form will initially render with the answers for those questions filled in.
+        </td>
+      </tr>
+    </tbody>
+  </table>
   <p>
-    For SDC purposes, server systems claiming to support roles that require support for the <code>populate</code> operation 
-    (<a href="conformance-sdc-form-manager.html">SDC Form Manager</a>) SHALL, at minimum:
+    For SDC purposes, server systems claiming to support roles that require support for the <code>populate</code>, <code>populatehtml</code> or <code>populatelink</code>
+    operations (<a href="conformance-sdc-form-manager.html">SDC Form Manager</a>) SHALL, at minimum:
   </p>
   <ul>
     <li>Handle the input parameters <code>identifier</code>, <code>questionnaire</code>, <code>questionnaireRef</code>, <code>subject</code> and <code>content</code>
     </li>
     <li>Support <code>content</code> parameters consisting of a <a href="{{site.data.fhir.path}}http.html#binary">Binary</a> resource containing a C-CDA* document</li>
-    <li>Populate the returned <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a> instance for all questions referencing
-  <a href="{{site.data.fhir.path}}dataelement.html">DataElements</a> that are mapped to C-CDA content</li>
+    <li>Populate the returned <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a> instance or rendered form for all questions referencing
+      <a href="{{site.data.fhir.path}}dataelement.html">DataElements</a> that are mapped to C-CDA content</li>
   </ul>
   <p>
-    Similarly, client systems claiming to support the <code>populate</code> operation (<a href="conformance-sdc-form-filler.html">SDC Form Filler</a>)
-    SHALL, at a minimum:
+    Similarly, client systems claiming to support the <code>populate</code>, <code>populatehtml</code> and/or <code>populatelink</code> operations
+    (<a href="conformance-sdc-form-filler.html">SDC Form Filler</a>) SHALL, at a minimum:
   </p>
   <ul>
-    <li>Be capable of invoking the operation on a selected questionnaire both directly (<code>Questionnaire/[identifier]/$populate</code>)
+    <li>Be capable of invoking the operation(s) on a selected questionnaire both directly (<code>Questionnaire/[identifier]/$populate</code>)
       as well as indirectly either by <code>identifier</code> or <code>questionnaire</code>
     </li>
     <li>Support passing a single C-CDA* document as a <a href="{{site.data.fhir.path}}http.html#binary">Binary</a> resource using the <code>content</code> parameter</li>
@@ -293,10 +337,10 @@
     <a href="http://www.hl7.org/documentcenter/public/wg/ca/CDAR2_IG_CDP1_R1_D1_2015MAY%20V10%200%205-11-2015%20clean.pdf">Clinical Documents for Payers - SET 1</a> (CPD1)
     and 
     <a href="http://www.ihe.net/Technical_Framework/upload/IHE_QRPH_Suppl_PRPH_Ca_Rev2-1_2011-09-02.pdf"> Physician Reporting to a Public Health Repository</a>
-    specifications.
+    specifications.  Passing a <a href="{{site.data.fhir.path}}bundle.html">Bundle</a> of FHIR resources is also an option that has been used by at least some implementers.
   </p>
   <p>
-    Systems supporting the <code>populate</code> operation are encouraged to support using the 
+    Systems supporting one or more of the populate operations are encouraged to support using the 
     <a href="{{site.data.fhir.path}}extension-questionnaire-dereference.html">deReference</a> extension to trace the linkage from Questionniare question to DataElement to 
     support mapping.  As well, systems may also choose to support the use of the <a href="{{site.data.fhir.path}}extension-questionnaire-demap.html">deMap</a> extension to 
     support maintaining of question &lt;-&gt; data element links outside the questionnaire itself.  If using this approach, the 
@@ -305,7 +349,12 @@
     <code>ConceptMap.element.code</code> and <code>ConceptMap.element.map.code</code> will correspond to the question linkId and the data element
     local id, respectively.  Support for alternative mechanisms including ConceptMaps directly from Questionnaire questions to data sources, Questionnaire
     extensions providing mappings direct to data sources or use of Questionnaire.group.question.concept are all acceptable mechanisms for executing <code>populate</code>
-    functionality.
+    functionality.  More formal conversion between existing data sources and Questionnaires can be represented using 
+    <a href="{{site.data.fhir.path}}structuremap.html">StructureMap</a> which allows the definition of fully computable mappings between a given source structure and 
+    target structure where either (or even both) structures can be a <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponses</a>.  The
+    <a href="{{site.data.fhir.path}}extension-questionnaire-sourcestructuremap.html">questionnaire-sourceStructureMap</a> extension allows a Questionnaire to point to a
+    StructureMap that can be used to populate it.  The source structure mapped from could be a FHIR structure, but could also be any other data structure, including CDA
+    documents.
   </p>
   <p>
     <b>IMPORTANT:</b>
@@ -314,7 +363,8 @@
     Not all <a href="{{site.data.fhir.path}}dataelement.html">DataElements</a> will be appropriate or safe to reference in a Questionnaire.  It is important that the definition
     associated with the data element fully reflects the context of the question in the questionnaire.  For example, "gender" would not be a safe data element
     because it would not be clear whether the gender was that of the patient or a fetus of the patient.  It must be clear from the data element definition
-    exactly what piece of information should be extracted from a source system, C-CDA document or other data source.</p>
+    exactly what piece of information should be extracted from a source system, C-CDA document or other data source.
+  </p>
   <p>
     Mapping to C-CDA, where applicable, should be constrained and specific (e.g. for particular demographic sections) rather than making it open and generic.  These mappings 
     should be per ONC's recommendations. Mapping to C-CDA is one of many options, not the only one.
@@ -324,7 +374,7 @@
   <p>
     While this implementation guide and the underlying FHIR are licensed as public domain, this guide mandates the use of terminologies including LOINC, SNOMED CT and
     RxNorm which have more restrictive licensing requirements.  Implementers should make themselves familiar with licensing and any other constraints of terminologies,
-    questionnaires, data elements and other components used as part of their implementation process.  In some cases, licensing requirements may limit what systems
-    data captured using this implementation guide may be shared with.
+    questionnaires, data elements and other components used as part of their implementation process.  In some cases, licensing requirements may limit the systems
+    that data captured using this implementation guide may be shared with.
   </p>
 </div>

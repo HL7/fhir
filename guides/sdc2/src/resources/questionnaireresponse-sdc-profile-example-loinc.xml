@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<QuestionnaireResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaireresponse.xsd">
+<QuestionnaireResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
 	<id value="questionnaireresponse-sdc-profile-example-loinc"/>
 	<questionnaire>
 		<reference value="Questionnaire/questionnaire-sdc-profile-example-loinc"/>
@@ -39,9 +39,9 @@
 				<text value="What type of medication/substance was involved?"/>
 				<answer>
 					<valueCoding>
-            <system value="http://loinc.org"/>
-            <code value="LA20271-5"/>
-            <display value="Medications"/>
+						<system value="http://loinc.org"/>
+						<code value="LA20271-5"/>
+						<display value="Medications"/>
 					</valueCoding>
 				</answer>
 				<item>
@@ -49,9 +49,9 @@
 					<text value="What type of medication?"/>
 					<answer>
 						<valueCoding>
-              <system value="http://loinc.org/vs/LL2655-0"/>
-              <code value="LA20278-0"/>
-              <display value="Prescription or over-the-counter (including herbal supplements)"/>
+							<system value="http://loinc.org/vs/LL2655-0"/>
+							<code value="LA20278-0"/>
+							<display value="Prescription or over-the-counter (including herbal supplements)"/>
 						</valueCoding>
 					</answer>
 				</item>
@@ -61,9 +61,9 @@
 				<text value="Which of the following best characterizes the event?"/>
 				<answer>
 					<valueCoding>
-            <system value="http://loinc.org"/>
-            <code value="LA20275-6"/>
-            <display value="Incorrect action (process failure or error) (e.g., such as administering overdose or incorrect medication)"/>
+						<system value="http://loinc.org"/>
+						<code value="LA20275-6"/>
+						<display value="Incorrect action (process failure or error) (e.g., such as administering overdose or incorrect medication)"/>
 					</valueCoding>
 				</answer>
 			</item>
@@ -72,9 +72,9 @@
 				<text value="What was the incorrect action?"/>
 				<answer>
 					<valueCoding>
-            <system value="http://loinc.org"/>
-            <code value="LA20276-4"/>
-            <display value="Incorrect patient"/>
+						<system value="http://loinc.org"/>
+						<code value="LA20276-4"/>
+						<display value="Incorrect patient"/>
 					</valueCoding>
 				</answer>
 			</item>
@@ -83,9 +83,9 @@
 				<text value="At what stage in the process did the event originate, regardless of the stage at which it was discovered?"/>
 				<answer>
 					<valueCoding>
-            <system value="http://loinc.org/vs/LL2669-1"/>
-            <code value="LA20296-2"/>
-            <display value="Administering"/>
+						<system value="http://loinc.org/vs/LL2669-1"/>
+						<code value="LA20296-2"/>
+						<display value="Administering"/>
 					</valueCoding>
 				</answer>
 			</item>
@@ -111,9 +111,9 @@
 				<text value="Was this medication/substance prescribed for this patient?"/>
 				<answer>
 					<valueCoding>
-            <system value="http://loinc.org/vs/LL2828-3"/>
-            <code value="LA32-8"/>
-            <display value="No"/>
+						<system value="http://loinc.org/vs/LL2828-3"/>
+						<code value="LA32-8"/>
+						<display value="No"/>
 					</valueCoding>
 				</answer>
 			</item>
@@ -122,9 +122,9 @@
 				<text value="Was this medication/substance given to this patient?"/>
 				<answer>
 					<valueCoding>
-            <system value="http://loinc.org/vs/LL2828-3"/>
-            <code value="LA33-6"/>
-            <display value="Yes"/>
+						<system value="http://loinc.org/vs/LL2828-3"/>
+						<code value="LA33-6"/>
+						<display value="Yes"/>
 						<!--required-->
 					</valueCoding>
 				</answer>
