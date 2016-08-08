@@ -1045,7 +1045,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
             r.getProfiles().add(p.getValue());
         }
         igpkp.findConfiguration(file, r);
-        String ver = ostr(r.getConfig(), "version");
+        String ver = r.getConfig() == null ? null : ostr(r.getConfig(), "version");
         if (ver != null) {
           if ("1.0.2".equals(ver)) {
             file.getErrors().clear();

@@ -291,8 +291,10 @@ public class HTLMLInspector {
         } else if (page.contains("#")) {
           name = page.substring(page.indexOf("#")+1);
           page = Utilities.path(rootFolder, page.substring(0, page.indexOf("#")).replace("/", File.separator));
-        } else 
-          page = Utilities.path(Utilities.getDirectoryForFile(filename), page.replace("/", File.separator));
+        } else {
+          String folder = Utilities.getDirectoryForFile(filename);
+          page = Utilities.path(folder == null ? rootFolder : folder, page.replace("/", File.separator));
+        }
         LoadedFile f = cache.get(page);
         if (f != null) {
           if (Utilities.noString(name))
