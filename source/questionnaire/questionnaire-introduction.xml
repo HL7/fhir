@@ -49,6 +49,14 @@ arbitrary questions.  In theory, a <b>Questionnaire</b> could be expressed as a 
 <a href="dataelement.html">DataElement</a> resources.  However, the former would disregard the "wholeness" associated with a questionnaire where questions 
 must generally be maintained as a single structure.  The latter would focus on rendering of the data elements rather than organizing the capture of information.
 </p>
+<p>
+<b>PLANNED CHANGE:</b>
+</p>
+<p>
+<b>Questionnaire</b> is one of the <a href="workflow.html#definition">Definition</a> resources in the FHIR <a href="workflow.html">Workflow</a> specification.  As such, it
+is expected to be adjusted to align with the <a href="definition.html">Definition</a> workflow pattern.  Any concerns about performing such alignment are welcome as ballot
+comments and/or tracker items.
+</p>
 </div>
 
 <div>

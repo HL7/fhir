@@ -191,6 +191,14 @@
   Expression = $parent.type=\'integer\' or $parent.type=\'decimal\'
   Severity = error
 
+ -- Row 13 -----------------------------------
+  Id = 17
+  Context = allowedProfile
+  English = Allowed profile can only be specified for items of type \'reference\'
+  XPath = parent::*/f:type/@value=\'reference\'
+  Expression = $parent.type=\'reference\'
+  Severity = error
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
