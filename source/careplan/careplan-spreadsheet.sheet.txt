@@ -305,6 +305,7 @@
  -- Row 13 -----------------------------------
   Element = CarePlan.relatedPlan
   Card. = 0..*
+  UML = 0;300
   Short Label = Plans related to this one
   Definition = Identifies CarePlans with some sort of formal relationship to the current plan.
   Comments = Relationships are uni-directional with the \"newer\" plan pointing to the older one.
@@ -327,7 +328,7 @@
 
  -- Row 16 -----------------------------------
   Element = CarePlan.careTeam
-  Card. = 0..1
+  Card. = 0..*
   Type = Reference(CareTeam)
   Short Label = Who\'s involved in plan?
   Definition = Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.
