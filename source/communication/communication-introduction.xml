@@ -56,6 +56,14 @@ The phone calls involving the Patient should be handled using <a href="encounter
 to represent the information transferred, but are not ideal to represent the call itself.  
 A better mechanism for handling such calls will be explored in a future release.
 </p>
+<p>
+<b>PLANNED CHANGE:</b>
+</p>
+<p>
+<b>Communication</b> is one of the <a href="workflow.html#event">Event</a> resources in the FHIR <a href="workflow.html">Workflow</a> specification.  As such, it
+is expected to be adjusted to align with the <a href="event.html">Event</a> workflow pattern which will involve adding a number of additional data elements and potentially
+renaming a few elements.  Any concerns about performing such alignment are welcome as ballot comments and/or tracker items.
+</p>
 </div>
 
 <!-- (optional):

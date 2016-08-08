@@ -22,8 +22,8 @@ impression that this impression follows on from.
  <p>An impression is a clinical summation of information and/or an opinion formed, which is the outcome of the clinical assessment process.  The ClinicalImpression may lead to a statement of a Condition about a patient.</p>
   
   <p>In FHIR, an assessment is typically an instrument or tool used to collect information about a patient.</p>
-<blockquote class="dstu-note">
 <a name="dstu"> </a>
+<blockquote class="dstu-note">
 <p>
 <b>DSTU Note:</b> Unlike many other resources, there is little prior art with regard to exchanging records of 
 clinical assessments. For this reason, this resource should be regarded as particularly 
@@ -64,6 +64,14 @@ during the assessment process.
 <p>
 An important background to understanding this resource is <a href="http://wiki.hl7.org/index.php?title=Clinical_Assessment">the FHIR wiki page for clinical assessment</a>. In particular,
 the storyboards there drove the design of the resource, and will be the basis for all examples created.
+</p>
+<p>
+<b>PLANNED CHANGE:</b>
+</p>
+<p>
+<b>Communication</b> is one of the <a href="workflow.html#event">Event</a> resources in the FHIR <a href="workflow.html">Workflow</a> specification.  As such, it
+is expected to be adjusted to align with the <a href="event.html">Event</a> workflow pattern which will involve adding a number of additional data elements and potentially
+renaming a few elements.  Any concerns about performing such alignment are welcome as ballot comments and/or tracker items.
 </p>
 </div>
 

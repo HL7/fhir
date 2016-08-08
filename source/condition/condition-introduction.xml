@@ -55,6 +55,14 @@ the conformance requirements for code vs. CodeableConcept (4a) note that a Codea
 </ol>
 </blockquote>
 
+<p>
+<b>PLANNED CHANGE:</b>
+</p>
+<p>
+<b>Communication</b> is one of the <a href="workflow.html#event">Event</a> resources in the FHIR <a href="workflow.html">Workflow</a> specification.  As such, it
+is expected to be adjusted to align with the <a href="event.html">Event</a> workflow pattern which will involve adding a number of additional data elements and potentially
+renaming a few elements.  Any concerns about performing such alignment are welcome as ballot comments and/or tracker items.
+</p>
 </div>
 
 </div>
