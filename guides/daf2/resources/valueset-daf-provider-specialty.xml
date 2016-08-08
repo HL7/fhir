@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+	<id value="daf-provider-specialty"/>
+	<url value="http://hl7.org/fhir/us/daf/ValueSet/daf-provider-specialty"/>
+	<name value="DAF Provider Speciality (NUCC)"/>
+	<status value="draft"/>
+	<publisher value="FHIR Project Team"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<date value="2016-08-10"/>
+	<description value="Provider speciality roles codes which are composed of the NUCC Health Care Provider Taxonomy Code Set for providers"/>
+	<copyright value="TODO: Permission to Use and Distribute the Health Care Provider Taxonomy Code Set"/>
+	<compose>
+		<include>
+			<system value="http://nucc.org/provider-taxonomy"/>
+		</include>
+	</compose>
+</ValueSet>

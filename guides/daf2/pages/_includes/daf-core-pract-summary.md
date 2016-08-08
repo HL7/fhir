@@ -11,12 +11,12 @@
     -   `Practitioner.practitionerRole.organization`
     -   `Practitioner.practitionerRole.role` which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
         - [NUCC - Classification]
-    -   `Practitioner.practitionerRole.speciality` which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
+    -   `Practitioner.practitionerRole.specialty` which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
         - [NUCC - Specialization]
     -   `Practitioner.practitionerRole.telecom`
     -   `Practitioner.practitionerRole.endpoint`
     -   `Practitioner.practitionerRole.location`
 
 
-[NUCC - Classification]: http://www.nucc.org/index.php/code-sets-mainmenu-41/provider-taxonomy-mainmenu-40/csv-mainmenu-57
-[NUCC - Specialization]: http://www.nucc.org/index.php/code-sets-mainmenu-41/provider-taxonomy-mainmenu-40/csv-mainmenu-57
+[NUCC - Classification]: valueset-daf-provider-role.html
+[NUCC - Specialization]: valueset-daf-provider-specialty.html

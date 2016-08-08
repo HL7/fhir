@@ -552,7 +552,21 @@
 				<reference value="ValueSet/daf-core-substance-unii"/>
 			</sourceReference>
 		</resource>
+	<!--	
+				<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/daf-provider-role"/>
+			</sourceReference>
+		</resource>
 		
+				<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/daf-provider-specialty"/>
+			</sourceReference>
+		</resource>
+		-->
 			<!--daf-core codesystems-->
 		<resource>
 			<example value="false"/>

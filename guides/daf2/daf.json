@@ -427,13 +427,19 @@
 		},
 		"ValueSet/daf-careteam-status": {
 			"base": "valueset-daf-careteam-status.html",
-			"template-base": null,
-			"template-format": null
+			"template-base": null
 		},
 		"ValueSet/daf-procedure-icd10pcs": {
 			"base": "valueset-daf-procedure-icd10pcs.html",
-			"template-base": null,
-			"template-format": null
+			"template-base": null
+		},
+		"ValueSet/daf-provider-role": {
+			"base": "valueset-daf-provider-role.html",
+			"template-base": null
+		},
+		"ValueSet/daf-provider-specialty": {
+			"base": "valueset-daf-provider-specialty.html",
+			"template-base": null
 		},
 		"CodeSystem/daf-careteam-status": {
 			"base": "CodeSystem-daf-careteam-status.html",
