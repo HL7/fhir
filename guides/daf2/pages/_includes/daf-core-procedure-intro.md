@@ -16,14 +16,14 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 **Profile specific implementation guidance:**
 
 
- - Based upon the 2015 Edition Certification Requirements, [ICD-10-PCS codes] MAY be supported as translations to either SNOMED-CT or CPT-4/HCPC. If choosing to primarily to dental procedures, the [Code on Dental Procedures and Nomenclature (CDT Code)] may be used.
+ - Based upon the 2015 Edition Certification Requirements, either SNOMED-CT or CPT-4/HCPC procedure codes are requied and  [ICD-10-PCS codes] MAY be supported as translations to them. If choosing to primarily to dental procedures, the [Code on Dental Procedures and Nomenclature (CDT Code)] may be used.
 
 
 
 
   [SNOMED CT]: http://hl7.org/fhir/valueset-procedure-code.html
-  [CPT-4/HCPC for procedures]: CPT-4/HCPC_for_procedures "wikilink"
-  [ProcedureStatus]: http://hl7.org/fhir/valueset-procedure-status.html
-  [ICD-10-PCS codes]: ICD-10-PCS_codes "wikilink"
-  [Code on Dental Procedures and Nomenclature (CDT Code)]: CDT_ValueSet "wikilink"
+  [CPT-4/HCPC for procedures]: http://hl7.org/fhir/valueset-procedure-code.html
+  [ICD-10-PCS codes]: http://www.icd10data.com/icd10pcs
+  [Code on Dental Procedures and Nomenclature (CDT Code)]: http://www.ada.org/en/publications/cdt/
+  [ProcedureStatus]: http://hl7-fhir.github.io/valueset-procedure-status.html
   [Procedure]: http://hl7-fhir.github.io/procedure.html
