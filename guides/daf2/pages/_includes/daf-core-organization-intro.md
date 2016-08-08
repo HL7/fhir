@@ -19,7 +19,7 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 * none
 
- **Note to Balloters  the following elements are being considered for inclusion into this profile:**
+ **Note to Balloters:  the following elements are being considered for inclusion into this profile:**
 
 1.  An Organization type
 

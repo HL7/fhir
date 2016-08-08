@@ -21,7 +21,7 @@ Each Location must have:
 
 [Location]:  http://hl7-fhir.github.io/location.html
 
- **Note to Balloters  the following elements are being considered for inclusion into this profile:**
+ **Note to Balloters:  the following elements are being considered for inclusion into this profile:**
 
 1.  A Location type
 1. A  Location identifier

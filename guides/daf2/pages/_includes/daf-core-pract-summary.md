@@ -14,9 +14,9 @@
     -   `Practitioner.practitionerRole.speciality` which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
         - [NUCC - Specialization]
     -   `Practitioner.practitionerRole.telecom`
-    -   `Practitioner.practitionerRole.Endpoint.Reference???`
+    -   `Practitioner.practitionerRole.endpoint`
     -   `Practitioner.practitionerRole.location`
 
 
-[NUCC - Classification]: todo.html
-[NUCC - Specialization]: todo.html
+[NUCC - Classification]: http://www.nucc.org/index.php/code-sets-mainmenu-41/provider-taxonomy-mainmenu-40/csv-mainmenu-57
+[NUCC - Specialization]: http://www.nucc.org/index.php/code-sets-mainmenu-41/provider-taxonomy-mainmenu-40/csv-mainmenu-57
