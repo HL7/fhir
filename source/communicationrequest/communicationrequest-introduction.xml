@@ -23,11 +23,20 @@ This resource is a record of a request for a communication to be performed. A co
 <h2>Boundaries and Relationships</h2>
 <p>
 This resource is a record of a request. It does not represent the actual flow of communication.
-
+</p>
+<p>
 The use of <b>CommunicationRequest</b> excludes requests for referrals which are covered by the <a href="referralrequest.html">ReferralRequest</a> resource.
 It also excludes requests for therapy or counseling which would be handled by the <a href="procedurerequest.html">ProcedureRequest</a> resource.
 The performance of a <b>CommunicationRequest</b> may result in a <a href="communication.html">Communication</a> resource.
-
+</p>
+<p>
+<b>PLANNED CHANGE:</b>
+</p>
+<p>
+<b>CommunicationRequest</b> is one of the <a href="workflow.html#request">Request</a> resources in the FHIR <a href="workflow.html">Workflow</a> specification.  As such, it
+is expected to be adjusted to align with the <a href="request.html">Request</a> workflow pattern which will involve adding a number of additional data elements and potentially
+renaming a few elements.  At present, the workgroup plans to incorporate all elements with the exception of supportingInfo and relevantHistory, which will be handled as
+extensions.  Any concerns about performing such alignment are welcome as ballot comments and/or tracker items.
 </p>
 </div>
 

@@ -80,6 +80,15 @@ An <a href="immunizationrecommendation.html">ImmunizationRecommendation</a> can 
 type of Care Plan dealing only with immunization events.  Where such information could appear in either
 resource, the immunization-specific resource is preferred.
 </p>
+<p>
+<b>PLANNED CHANGE:</b>
+</p>
+<p>
+<b>CarePlan</b> is one of the <a href="workflow.html#request">Request</a> resources in the FHIR <a href="workflow.html">Workflow</a> specification.  As such, it
+is expected to be adjusted to align with the <a href="request.html">Request</a> workflow pattern which will involve adding a number of additional data elements and potentially
+renaming a few elements.  Note that the resource name will remain CarePlan, not CarePlanRequest or something similar.
+Any concerns about performing such alignment are welcome as ballot comments and/or tracker items.
+</p>
 </div>
 
 </div>

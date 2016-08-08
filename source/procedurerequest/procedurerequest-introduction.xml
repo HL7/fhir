@@ -61,6 +61,14 @@ there's a specific intent to change the mind-set of the patient.  A request to m
 a CommunicationRequest.  Invocation of a process that will involve verification of the patient's comprehension or an attempt to
 change the patient's mental state would be a ProcedureRequest.
 </p>
+<p>
+<b>PLANNED CHANGE:</b>
+</p>
+<p>
+<b>ProcedureRequest</b> is one of the <a href="workflow.html#request">Request</a> resources in the FHIR <a href="workflow.html">Workflow</a> specification.  As such, it
+is expected to be adjusted to align with the <a href="request.html">Request</a> workflow pattern which will involve adding a number of additional data elements and potentially
+renaming a few elements.  Any concerns about performing such alignment are welcome as ballot comments and/or tracker items.
+</p>
 </div>
 
 </div>
