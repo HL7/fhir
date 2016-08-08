@@ -7,10 +7,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>nbashyam</LastAuthor>
+  <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-09-07T09:02:23Z</LastSaved>
-  <Version>16.00</Version>
+  <LastSaved>2016-08-08T08:21:25Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -64,8 +64,8 @@
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>8</ActiveSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -940,6 +940,9 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s166">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids"
@@ -1267,7 +1270,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">DAFObsStatus</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1283,7 +1287,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3605,13 +3609,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3626,8 +3629,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8966,7 +8969,7 @@
    <Column ss:StyleID="s130" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Column ss:StyleID="s130" ss:Width="51"/>
    <Column ss:StyleID="s130" ss:Width="67.5"/>
-   <Column ss:StyleID="s130" ss:Width="146.25"/>
+   <Column ss:StyleID="s130" ss:Width="233.25"/>
    <Column ss:StyleID="s130" ss:Width="172.5"/>
    <Column ss:StyleID="s130" ss:AutoFitWidth="0" ss:Width="97.5"/>
    <Column ss:StyleID="s130" ss:AutoFitWidth="0" ss:Width="88.5"/>
@@ -9044,11 +9047,11 @@
     <Cell ss:StyleID="s134"><Data ss:Type="String">Value Set: Smoking Status 2.16.840.1.113883.11.20.9.38 STATIC 2012-07-01  Code System(s):  SNOMED CT 2.16.840.1.113883.6.96 </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">DAFObsStatus</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/observation-status</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
@@ -9462,6 +9465,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -9481,7 +9485,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -6,22 +6,6 @@
     <lastUpdated value="2016-05-25T16:59:08.250+10:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <h2>DAFProcedureType</h2>
-      <p>This example value set defines a set of codes that can be used to indicate the type     of procedure: a specific code indicating type of procedure performed, from CPT, SNOMED CT, ICD10-PCS.</p>
-      <p>
-        <b>Copyright Statement:</b> CPT copyright 2014 American Medical Association. All rights reserved. This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement
-      </p>
-      <p>This value set includes codes from the following code systems:</p>
-      <ul>
-        <li>Include all codes defined in http://www.ama-assn.org/go/cpt</li>
-        <li>Include codes from http://snomed.info/sct where concept  is-a  71388002</li>
-        <li>Include all codes defined in http://www.icd10data.com/icd10pcs</li>
-      </ul>
-    </div>
-  </text>
   <url value="http://hl7.org/fhir/us/daf/ValueSet/daf-procedure-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -39,7 +23,7 @@
     </telecom>
   </contact>
   <date value="2016-05-25T16:59:08+10:00"/>
-  <description value="This example value set defines a set of codes that can be used to indicate the type     of procedure: a specific code indicating type of procedure performed, from CPT, SNOMED CT, ICD10-PCS."/>
+  <description value="This example value set defines a set of codes that can be used to indicate the type of procedure: a specific code indicating type of procedure performed, from CPT or SNOMED CT."/>
   <copyright value="CPT copyright 2014 American Medical Association. All rights reserved. This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
   <compose>
     <include>
@@ -53,8 +37,10 @@
         <value value="71388002"/>
       </filter>
     </include>
+    <!--
     <include>
       <system value="http://www.icd10data.com/icd10pcs"/>
     </include>
+-->
   </compose>
 </ValueSet>

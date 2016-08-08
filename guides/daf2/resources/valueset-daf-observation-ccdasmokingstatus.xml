@@ -1,147 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="daf-observation-ccdasmokingstatus"/>
-  <meta>
-    <lastUpdated value="2016-05-25T16:59:08.250+10:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
-  </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <h2>Smoking Status</h2>
-      <p>This value set indicates the current smoking status of a patient. The vocabulary selected for this value set is the best approximation of the statuses in Meaningful Use (MU) Stage 2. The smoking status value set includes a special code to communicate if the smoking status is unknown</p>
-      <p>
-        <b>Copyright Statement:</b> This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement
-      </p>
-      <p>This value set includes codes from the following code systems:</p>
-      <ul>
-        <li>Include these codes as defined in http://snomed.info/sct
-          <table>
-            <tr>
-              <td>
-                <b>Code</b>
-              </td>
-              <td>
-                <b>Display</b>
-              </td>
-            </tr>
-            <tr>
-              <td>449868002</td>
-              <td>Smokes tobacco daily (finding)</td>
-              <td/>
-            </tr>
-            <tr>
-              <td>428041000124106</td>
-              <td>Occasional tobacco smoker (finding)</td>
-              <td/>
-            </tr>
-            <tr>
-              <td>8517006</td>
-              <td>Ex-smoker (finding)</td>
-              <td/>
-            </tr>
-            <tr>
-              <td>266919005</td>
-              <td>Never smoked tobacco (finding)</td>
-              <td/>
-            </tr>
-            <tr>
-              <td>77176002</td>
-              <td>Smoker (finding)</td>
-              <td/>
-            </tr>
-            <tr>
-              <td>266927001</td>
-              <td>Tobacco smoking consumption unknown</td>
-              <td/>
-            </tr>
-            <tr>
-              <td>428071000124103</td>
-              <td>Heavy tobacco smoker (finding)</td>
-              <td/>
-            </tr>
-            <tr>
-              <td>428061000124105</td>
-              <td>Light tobacco smoker (finding)</td>
-              <td/>
-            </tr>
-          </table>
-        </li>
-        <li>Include these codes as defined in 
-          <a href="http://hl7-fhir.github.io/codesystem-data-absent-reason.html">http://hl7.org/fhir/data-absent-reason</a>
-          <table>
-            <tr>
-              <td>
-                <b>Code</b>
-              </td>
-              <td>
-                <b>Display</b>
-              </td>
-            </tr>
-            <tr>
-              <td>unknown</td>
-              <td>Unknown</td>
-              <td>The value is not known.</td>
-            </tr>
-            <tr>
-              <td>not-asked</td>
-              <td>Not Asked</td>
-              <td>The workflow didn&#39;t lead to this value being known.</td>
-            </tr>
-          </table>
-        </li>
-      </ul>
-    </div>
-  </text>
-  <url value="http://hl7.org/fhir/us/daf/ValueSet/daf-observation-ccdasmokingstatus"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.2.602"/>
-  </identifier>
-  <version value="1.5.0"/>
-  <name value="Smoking Status"/>
-  <status value="active"/>
-  <experimental value="true"/>
-  <publisher value="FHIR OO CDA Template team"/>
-  <contact>
-    <telecom>
-      <system value="other"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <date value="2016-05-25T16:59:08+10:00"/>
-  <description value="This value set indicates the current smoking status of a patient. The vocabulary selected for this value set is the best approximation of the statuses in Meaningful Use (MU) Stage 2. The smoking status value set includes a special code to communicate if the smoking status is unknown"/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
-  <compose>
-    <include>
-      <system value="http://snomed.info/sct"/>
-      <version value="http://snomed.info/sct/US1000124/version/20140901"/>
-      <concept>
-        <code value="449868002"/>
-      </concept>
-      <concept>
-        <code value="428041000124106"/>
-      </concept>
-      <concept>
-        <code value="8517006"/>
-      </concept>
-      <concept>
-        <code value="266919005"/>
-      </concept>
-      <concept>
-        <code value="77176002"/>
-      </concept>
-      <concept>
-        <code value="266927001"/>
-      </concept>
-      <concept>
-        <code value="428071000124103"/>
-      </concept>
-      <concept>
-        <code value="428061000124105"/>
-      </concept>
-    </include>
+	<id value="daf-observation-ccdasmokingstatus"/>
+	<meta>
+		<lastUpdated value="2016-05-25T16:59:08.250+10:00"/>
+		<profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+	</meta>
+	<url value="http://hl7.org/fhir/us/daf/ValueSet/daf-observation-ccdasmokingstatus"/>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.2.602"/>
+	</identifier>
+	<version value="1.5.0"/>
+	<name value="Smoking Status"/>
+	<status value="active"/>
+	<experimental value="true"/>
+	<publisher value="FHIR OO CDA Template team"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<date value="2016-08-10"/>
+	<description value="This value set indicates the current smoking status of a patient."/>
+	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
+			<concept>
+				<code value="449868002"/>
+				<display value="Current every day smoker"/>
+			</concept>
+			<concept>
+				<code value="428041000124106"/>
+				<display value="Current some day smoker"/>
+			</concept>
+			<concept>
+				<code value="8517006"/>
+				<display value="Former smoker"/>
+			</concept>
+			<concept>
+				<code value="266919005"/>
+				<display value="Never smoker"/>
+			</concept>
+			<concept>
+				<code value="77176002"/>
+				<display value="Smoker, current status unknown"/>
+			</concept>
+			<concept>
+				<code value="266927001"/>
+				<display value="Unknown if ever smoked"/>
+			</concept>
+			<concept>
+				<code value="428071000124103"/>
+				<display value="Current Heavy tobacco smoker"/>
+			</concept>
+			<concept>
+				<code value="428061000124105"/>
+				<display value="Current Light tobacco smoker"/>
+			</concept>
+		</include>
+		<!--
     <include>
       <system value="http://hl7.org/fhir/data-absent-reason"/>
       <concept>
@@ -151,5 +70,6 @@
         <code value="not-asked"/>
       </concept>
     </include>
-  </compose>
+-->
+	</compose>
 </ValueSet>
