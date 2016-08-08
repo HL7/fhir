@@ -3,6 +3,7 @@ package org.hl7.fhir.convertors;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -205,7 +206,7 @@ public class ArgonautConverter extends ConverterBase {
 		return names;
 	}
 
-	private void convert(String sourceFolder, String filename, Coding clss) {
+	private void convert(String sourceFolder, String filename, Coding clss) throws IOException {
 		if (new File(Utilities.path(sourceFolder, filename)).length() == 0)
 			return;
 

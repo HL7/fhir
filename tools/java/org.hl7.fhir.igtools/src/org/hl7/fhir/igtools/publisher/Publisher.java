@@ -43,6 +43,7 @@ import org.apache.commons.codec.Charsets;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.PumpStreamHandler;
 import org.apache.commons.lang3.SystemUtils;
+import org.hl7.fhir.convertors.VersionConvertor;
 import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
@@ -152,7 +153,7 @@ import com.google.gson.JsonPrimitive;
  */
 
 public class Publisher implements IWorkerContext.ILoggingService {
-
+  
   public static final boolean USE_COMMONS_EXEC = true;
 
   public enum GenerationTool {
@@ -626,7 +627,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     return currentDirectory;
   }
 
-  private void findRubyExe() {
+  private void findRubyExe() throws IOException {
     if (!USE_COMMONS_EXEC) {
       if (SystemUtils.IS_OS_WINDOWS) {
         String[] paths = System.getenv("path").split(File.pathSeparator);
@@ -1019,6 +1020,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       file.getErrors().clear();
       Element e = null;
       FetchedResource r = null;
+
       try {
         if (file.getContentType().contains("json"))
           e = loadFromJson(file);
@@ -1031,21 +1033,37 @@ public class Publisher implements IWorkerContext.ILoggingService {
       }
       try {
 
-		  r = file.addResource();
-		  String id = e.getChildValue("id");
-		  if (Utilities.noString(id))
-			throw new Exception("Resource has no id in "+file.getPath());
-		  r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
-		  Element m = e.getNamedChild("meta");
-		  if (m != null) {
-			List<Element> profiles = m.getChildrenByName("profile");
-			for (Element p : profiles)
-			  r.getProfiles().add(p.getValue());
-		  }
-		  igpkp.findConfiguration(file, r);
-  	  } catch ( Exception ex ) {
-		  throw new Exception("Unable to determine type for  "+file.getName()+": " +ex.getMessage(), ex);
-	  }
+        r = file.addResource();
+        String id = e.getChildValue("id");
+        if (Utilities.noString(id))
+          throw new Exception("Resource has no id in "+file.getPath());
+        r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
+        Element m = e.getNamedChild("meta");
+        if (m != null) {
+          List<Element> profiles = m.getChildrenByName("profile");
+          for (Element p : profiles)
+            r.getProfiles().add(p.getValue());
+        }
+        igpkp.findConfiguration(file, r);
+        String ver = ostr(r.getConfig(), "version");
+        if (ver != null) {
+          if ("1.0.2".equals(ver)) {
+            file.getErrors().clear();
+            org.hl7.fhir.dstu2.model.Resource res2 = null;
+            if (file.getContentType().contains("json"))
+              res2 = new org.hl7.fhir.dstu2.formats.JsonParser().parse(file.getSource());
+            else if (file.getContentType().contains("xml"))
+              res2 = new org.hl7.fhir.dstu2.formats.XmlParser().parse(file.getSource());
+            org.hl7.fhir.dstu3.model.Resource res = new VersionConvertor(null).convertResource(res2);
+            e = new ObjectConverter(context).convert(res);
+            r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
+            r.setResource(res);
+          } else
+            throw new Exception("Unknown version "+ver);
+        }
+      } catch ( Exception ex ) {
+        throw new Exception("Unable to determine type for  "+file.getName()+": " +ex.getMessage(), ex);
+      }
     }
   }
 
@@ -2283,7 +2301,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     filelog.append(msg+"\r\n");
   }
 
-  public String getQAFile() {
+  public String getQAFile() throws IOException {
     return Utilities.path(outputDir, "qa.html");
   }
 

@@ -59,8 +59,9 @@ public class IGPublisherFrame extends javax.swing.JFrame {
   
   /**
    * Creates new form IGPublisherFrame
+   * @throws IOException 
    */
-  public IGPublisherFrame() {
+  public IGPublisherFrame() throws IOException {
     ini = new IniFile(Utilities.path(System.getProperty("user.home"), "fhir-ig.ini"));
     initComponents();
   }

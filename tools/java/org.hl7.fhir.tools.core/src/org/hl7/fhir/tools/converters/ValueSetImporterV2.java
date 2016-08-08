@@ -102,7 +102,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
   private String date;
   private IniFile ini;
   
-  public ValueSetImporterV2(PageProcessor page, List<ValidationMessage> errors) {
+  public ValueSetImporterV2(PageProcessor page, List<ValidationMessage> errors) throws IOException {
     super();
     this.page = page;
     this.errors = errors;

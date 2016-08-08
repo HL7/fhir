@@ -469,7 +469,7 @@ public class Utilities {
   }
 
 
-  public static String path(String... args) {
+  public static String path(String... args) throws IOException {
     StringBuilder s = new StringBuilder();
     boolean d = false;
     for(String arg: args) {
@@ -481,7 +481,14 @@ public class Utilities {
       a = a.replace("\\", File.separator);
       if (s.length() > 0 && a.startsWith(File.separator))
         a = a.substring(File.separator.length());
-        
+      
+      while (a.startsWith(".."+File.separator)) {
+        String p = s.toString().substring(0, s.length()-1);
+        if (!p.contains(File.separator))
+          throw new IOException("illegal path underrun "+args);
+        s = new StringBuilder(p.substring(0,  p.lastIndexOf(File.separator))+File.separator);
+        a = a.substring(3);
+      }
       if ("..".equals(a)) {
         int i = s.substring(0, s.length()-1).lastIndexOf(File.separator);
         s = new StringBuilder(s.substring(0, i+1));

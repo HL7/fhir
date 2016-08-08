@@ -623,17 +623,22 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
   }
 
   private void updateButton() {
-    if (getCurrentTable() == null) {
-      btnAdd.setText("Initialize");
-      txtCode.setEnabled(false);
-      txtSystem.setEnabled(false);
-    } else {
-      if (Utilities.noString(txtCode.getText()))
+    try {
+      if (getCurrentTable() == null) {
         btnAdd.setText("Initialize");
-      else
-        btnAdd.setText("Add");
-      txtCode.setEnabled(true);
-      txtSystem.setEnabled(true);
+        txtCode.setEnabled(false);
+        txtSystem.setEnabled(false);
+      } else {
+        if (Utilities.noString(txtCode.getText()))
+          btnAdd.setText("Initialize");
+        else
+          btnAdd.setText("Add");
+        txtCode.setEnabled(true);
+        txtSystem.setEnabled(true);
+      }
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
     }
   }
 
@@ -733,7 +738,7 @@ public class ClosureTestingFrame extends javax.swing.JFrame {
       return "<html><body>Not initialised<br/></body></html>";    
   }
 
-  private JsonObject getCurrentTable() {
+  private JsonObject getCurrentTable() throws IOException {
     File file = new File(Utilities.path(cache, "closure-"+Integer.toString(cbxServer.getSelectedIndex())+"-"+txtName.getText()+".json"));
     if (!file.exists())
       return null;

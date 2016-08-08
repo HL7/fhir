@@ -107,6 +107,7 @@ public class HTLMLInspector {
     }
   }
 
+  private boolean strict;
   private String rootFolder;
   private List<SpecMapManager> specs;
   private Map<String, LoadedFile> cache = new HashMap<String, LoadedFile>();
@@ -120,7 +121,7 @@ public class HTLMLInspector {
     this.specs = specs;
   }
 
-  public List<ValidationMessage> check() {
+  public List<ValidationMessage> check() throws IOException {
     iteration ++;
 
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
@@ -183,7 +184,7 @@ public class HTLMLInspector {
     XhtmlNode x = null;
     boolean htmlName = f.getName().endsWith(".html") || f.getName().endsWith(".xhtml");
     try {
-      x = new XhtmlParser().parse(new FileInputStream(f), null);
+      x = new XhtmlParser().setMustBeWellFormed(strict).parse(new FileInputStream(f), null);
     } catch (FHIRFormatError | IOException e) {
       x = null;
       if (htmlName || !(e.getMessage().startsWith("Unable to Parse HTML - does not start with tag.") || e.getMessage().startsWith("Malformed XHTML")))
@@ -235,7 +236,7 @@ public class HTLMLInspector {
       listTargets(c, targets);
   }
 
-  private void checkLinks(String s, String path, XhtmlNode x, List<ValidationMessage> messages) {
+  private void checkLinks(String s, String path, XhtmlNode x, List<ValidationMessage> messages) throws IOException {
     if (x.getName() != null)
       path = path + "/"+ x.getName();
     if ("a".equals(x.getName()) && x.hasAttribute("href"))
@@ -257,11 +258,11 @@ public class HTLMLInspector {
   }
 
   private void checkLinkElement(String filename, Location loc, String path, String href, List<ValidationMessage> messages) {
-    if (Utilities.isAbsoluteUrl(href))
+    if (Utilities.isAbsoluteUrl(href) && !href.startsWith("http://hl7.org/"))
       messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, filename+(loc == null ? "" : " at "+loc.toString()), "The <link> href '"+href+"' is llegal", IssueSeverity.FATAL));    
   }
 
-  private void checkResolveLink(String filename, Location loc, String path, String ref, List<ValidationMessage> messages) {
+  private void checkResolveLink(String filename, Location loc, String path, String ref, List<ValidationMessage> messages) throws IOException {
     links++;
     String tgtList = "";
     boolean resolved = Utilities.existsInList(ref, "qa.html", "http://hl7.org/fhir", "http://hl7.org", "http://www.hl7.org", "http://hl7.org/fhir/search.cfm") || ref.startsWith("http://gforge.hl7.org/gf/project/fhir/tracker/");
@@ -291,7 +292,7 @@ public class HTLMLInspector {
           name = page.substring(page.indexOf("#")+1);
           page = Utilities.path(rootFolder, page.substring(0, page.indexOf("#")).replace("/", File.separator));
         } else 
-          page = Utilities.path(rootFolder, page.replace("/", File.separator));
+          page = Utilities.path(Utilities.getDirectoryForFile(filename), page.replace("/", File.separator));
         LoadedFile f = cache.get(page);
         if (f != null) {
           if (Utilities.noString(name))
@@ -308,7 +309,7 @@ public class HTLMLInspector {
       messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, filename+(path == null ? "" : "#"+path+(loc == null ? "" : " at "+loc.toString())), "The link '"+ref+"' cannot be resolved"+tgtList, IssueSeverity.ERROR));
   }
 
-  private void checkResolveImageLink(String filename, Location loc, String path, String ref, List<ValidationMessage> messages) {
+  private void checkResolveImageLink(String filename, Location loc, String path, String ref, List<ValidationMessage> messages) throws IOException {
     links++;
     String tgtList = "";
     boolean resolved = Utilities.existsInList(ref);
@@ -329,7 +330,7 @@ public class HTLMLInspector {
           }
         }
       } else if (!ref.contains("#")) { 
-        String page = Utilities.path(rootFolder, ref.replace("/", File.separator));
+        String page = Utilities.path(Utilities.getDirectoryForFile(filename), ref.replace("/", File.separator));
         LoadedFile f = cache.get(page);
         resolved = f != null;
       }
@@ -354,21 +355,26 @@ public class HTLMLInspector {
 
   public static void main(String[] args) throws Exception {
     HTLMLInspector inspector = new HTLMLInspector(args[0], null);
+    inspector.setStrict(false);
     List<ValidationMessage> linkmsgs = inspector.check();
     int bl = 0;
     int lf = 0;
     for (ValidationMessage m : linkmsgs) {
-      if (m.getLevel() == IssueSeverity.ERROR) {
+      if ((m.getLevel() == IssueSeverity.ERROR) || (m.getLevel() == IssueSeverity.FATAL)) {
         if (m.getType() == IssueType.NOTFOUND)
           bl++;
         else
           lf++;
-      } else if (m.getLevel() == IssueSeverity.FATAL) {
-        throw new Exception(m.getMessage());
-      }
+      } 
     }
-    System.out.println("  ... "+Integer.toString(inspector.total())+" html "+checkPlural("file", inspector.total())+", "+Integer.toString(lf)+" "+checkPlural("page", lf)+" invalid xhtml ("+Integer.toString((lf*100)/inspector.total())+"%)");
-    System.out.println("  ... "+Integer.toString(inspector.links())+" "+checkPlural("link", inspector.links())+", "+Integer.toString(bl)+" broken "+checkPlural("link", lf)+" ("+Integer.toString((bl*100)/inspector.links())+"%)");
+    System.out.println("  ... "+Integer.toString(inspector.total())+" html "+checkPlural("file", inspector.total())+", "+Integer.toString(lf)+" "+checkPlural("page", lf)+" invalid xhtml ("+(inspector.total() == 0 ? "" : Integer.toString((lf*100)/inspector.total())+"%)"));
+    System.out.println("  ... "+Integer.toString(inspector.links())+" "+checkPlural("link", inspector.links())+", "+Integer.toString(bl)+" broken "+checkPlural("link", lf)+" ("+(inspector.links() == 0 ? "" : Integer.toString((bl*100)/inspector.links())+"%)"));
+    
+    System.out.println("");
+    
+    for (ValidationMessage m : linkmsgs) 
+      if ((m.getLevel() == IssueSeverity.ERROR) || (m.getLevel() == IssueSeverity.FATAL)) 
+        System.out.println(m.summary());
   }
 
   private static String checkPlural(String word, int c) {
@@ -381,6 +387,14 @@ public class HTLMLInspector {
 
   public void setManual(List<String> manual) {
     this.manual = manual;
+  }
+
+  public boolean isStrict() {
+    return strict;
+  }
+
+  public void setStrict(boolean strict) {
+    this.strict = strict;
   }
 
 }

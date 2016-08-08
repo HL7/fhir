@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
@@ -50,7 +51,7 @@ public class ResourceOrderUpdater {
     }
   }
 
-  private static void processFolder(String path, String resource) {
+  private static void processFolder(String path, String resource) throws IOException {
     System.out.println("process "+path);
     File folder = new File(path);
     for (String filename : folder.list()) {

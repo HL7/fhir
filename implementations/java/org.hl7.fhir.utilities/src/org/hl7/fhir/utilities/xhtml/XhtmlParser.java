@@ -264,8 +264,9 @@ public enum ParserSecurityPolicy {
     return mustBeWellFormed;
   }
 
-  public void setMustBeWellFormed(boolean mustBeWellFormed) {
+  public XhtmlParser setMustBeWellFormed(boolean mustBeWellFormed) {
     this.mustBeWellFormed = mustBeWellFormed;
+    return this;
   }
   
 

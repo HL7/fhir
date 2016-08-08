@@ -3,6 +3,8 @@ package org.hl7.fhir.rdf;
 import org.apache.jena.riot.RDFDataMgr;
 import org.hl7.fhir.utilities.Utilities;
 
+import java.io.IOException;
+
 import org.apache.jena.rdf.model.Model;
 
 public class RDFTests {
@@ -35,7 +37,7 @@ public class RDFTests {
 
   }
   
-	private void load(String path) {
+	private void load(String path) throws IOException {
     Model rim = RDFDataMgr.loadModel(Utilities.path(path, "rim.ttl")) ;
     Model fhir = RDFDataMgr.loadModel(Utilities.path(path, "fhir.ttl")) ;
     model = rim.union(fhir);

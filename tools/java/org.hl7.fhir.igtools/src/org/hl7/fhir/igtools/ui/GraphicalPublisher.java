@@ -1,6 +1,7 @@
 package org.hl7.fhir.igtools.ui;
 
 import java.awt.EventQueue;
+import java.io.IOException;
 
 public class GraphicalPublisher {
 
@@ -24,15 +25,17 @@ public class GraphicalPublisher {
 
   /**
    * Create the application.
+   * @throws IOException 
    */
-  public GraphicalPublisher() {
+  public GraphicalPublisher() throws IOException {
     initialize();
   }
 
   /**
    * Initialize the contents of the frame.
+   * @throws IOException 
    */
-  private void initialize() {
+  private void initialize() throws IOException {
     frame = new IGPublisherFrame();
   }
 

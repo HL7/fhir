@@ -402,7 +402,7 @@ public class SourceParser {
   }
 
 
-  private void loadDictionaries() {
+  private void loadDictionaries() throws IOException {
     String[] dicts = ini.getPropertyNames("dictionaries");
     if (dicts != null) {
       for (String dict : dicts) {
@@ -434,7 +434,7 @@ public class SourceParser {
     }
   }
 
-  private boolean isRuledOutLocally(String code) {
+  private boolean isRuledOutLocally(String code) throws IOException {
     String inifile = Utilities.path(rootDir, "local.ini");
     if (!new File(inifile).exists())
       return false;
@@ -443,7 +443,7 @@ public class SourceParser {
     return ok;
   }
 
-  private boolean isOkLocally(String code) {
+  private boolean isOkLocally(String code) throws IOException {
     if (forPublication)
       return false;
     String inifile = Utilities.path(rootDir, "local.ini");
@@ -462,7 +462,7 @@ public class SourceParser {
     }        
   }
 
-  private void loadW5s() {
+  private void loadW5s() throws IOException {
     if (new File(Utilities.path(srcDir, "w5.ini")).exists()) {
       IniFile w5 = new IniFile(Utilities.path(srcDir, "w5.ini"));
       for (String n : w5.getPropertyNames("names")) {

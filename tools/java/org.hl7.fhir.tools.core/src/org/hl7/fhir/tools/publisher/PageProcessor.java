@@ -7530,7 +7530,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     this.forPublication = forPublication;
   }
 
-  public void loadUcum() throws UcumException {
+  public void loadUcum() throws UcumException, IOException {
     workerContext.loadUcum(Utilities.path(folders.srcDir, "ucum-essence.xml"));    
   }
 
