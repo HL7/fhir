@@ -441,6 +441,20 @@
 			"base": "valueset-daf-provider-specialty.html",
 			"template-base": null
 		},
+		
+		"ValueSet/daf-ucum": {
+			"base": "valueset-daf-ucum.html",
+			"template-base": null
+		},		
+		
+		
+		"ValueSet/daf-observation-value-codes": {
+			"base": "valueset-daf-observation-value-codes.html",
+			"template-base": null
+		},		
+		
+		
+		
 		"CodeSystem/daf-careteam-status": {
 			"base": "CodeSystem-daf-careteam-status.html",
 			"template-base": null,

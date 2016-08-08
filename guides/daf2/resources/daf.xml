@@ -552,7 +552,23 @@
 				<reference value="ValueSet/daf-core-substance-unii"/>
 			</sourceReference>
 		</resource>
-	<!--	
+				<!--		
+<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/daf-observation-value-codes"/>
+			</sourceReference>
+		</resource>		
+		
+
+				<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/daf-ucum"/>
+			</sourceReference>
+		</resource>
+		
+
 				<resource>
 			<example value="false"/>
 			<sourceReference>

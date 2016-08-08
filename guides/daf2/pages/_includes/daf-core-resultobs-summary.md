@@ -13,10 +13,10 @@
     -   Each Observation.valueQuantity must have:
         -   One numeric value in `Observation.valueQuantity.value`
         -   a fixed `Observation.valueQuantity.system`=“http://unitsofmeasure.org”
-        -   a [UCUM] unit code in `Observation.valueQuantity.code` 
+        -   a [UCUM units] code in `Observation.valueQuantity.code` 
     -   Each Observation.valueCodeableConcept must have either:
         1.  a code in `Observation.valueCodeableConcept.coding.code` and code system in `Observation.valueCodeableConcept.coding.sytem` which has an [preferred](http://hl7-fhir.github.io/terminologies.html#preferred) binding to:
-            -   [SNOMED CT] 
+            -   [Observation Value Codes (SNOMED-CT)] 
 
         1.  OR text in `Observation.valueCodeableConcept.text`
     -   Observation.DataAbsentReason is bound to [Observation Value Absent Reason] Value set
@@ -28,9 +28,9 @@ Each Observation *SHOULD* have:
 1.  A date and time in `effectiveDateTime` or `effectivePeriod`
 1.  A reference range if applicable in `Observation.referenceRange`
 
-  [SNOMED CT]: http://snomed.info/sct
+  [Observation Value Codes (SNOMED-CT)]: valueset-daf-observation-value-codes.html
   [Observation Value Absent Reason]: http://hl7-fhir.github.io/valueset-observation-valueabsentreason.html
-  [UCUM]: http://unitsofmeasure.org
+  [UCUM units]: valueset-daf-ucum.html
   [LOINC]: http://loinc.org
   [LOINC Observation Codes]: http://hl7-fhir.github.io/valueset-observation-codes.html
   [ObservationStatus]: http://hl7-fhir.github.io/valueset-observation-status.html

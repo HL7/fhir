@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<id value="daf-observation-value-codes"/>
+	<url value="http://hl7.org/fhir/us/daf/ValueSet/daf-observation-value-codes"/>
+	<version value="1.5.0"/>
+	<name value="Observation Value Codes (SNOMED-CT)"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<publisher value="FHIR Project"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+		<telecom>
+			<system value="email"/>
+			<value value="fhir@lists.hl7.org"/>
+		</telecom>
+	</contact>
+	<date value="2016-08-10"/>
+	<description value="[Snomed-CT](http://www.ihtsdo.org/) concept codes for coded results"/>
+	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+	<extensible value="true"/>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
+		</include>
+	</compose>
+</ValueSet>
