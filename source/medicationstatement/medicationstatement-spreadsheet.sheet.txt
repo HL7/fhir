@@ -5,7 +5,7 @@
   Binding Name = MedicationStatementStatus
   Binding = code list
   Reference = #medication-statement-status
-  Definition = A set of codes indicating the current status of a MedicationStatement.
+  Definition = A coded concept indicating the current status of a MedicationStatement.
   Conformance = required
   v3 = ActStatus
 
@@ -40,34 +40,34 @@
  -- Row 6 -----------------------------------
   Binding Name = MedicationAdministrationNegationReason
   Binding = unbound
-  Definition = A set of codes indicating the reason why the MedicationAdministration is negated.
+  Definition = A coded concept indicating the reason why the MedicationStatement is negated.
 
  -- Row 7 -----------------------------------
   Binding Name = MedicationReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/condition-code
-  Definition = Codes identifying why the medication is being taken.
+  Definition = A coded concept identifying why the medication is being taken.
   Conformance = example
 
  -- Row 8 -----------------------------------
   Binding Name = MedicationCode
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/medication-codes
-  Definition = Codes identifying the substance or product being taken.
+  Definition = A coded concept identifying the substance or product being taken.
   Conformance = example
 
  -- Row 9 -----------------------------------
   Binding Name = AdditionalInstructions
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/additional-instructions-codes
-  Definition = Codes identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\".
+  Definition = A coded concept identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\".
   Conformance = example
 
  -- Row 10 -----------------------------------
   Binding Name = MedicationStatementCategory
   Binding = code list
   Reference = #medication-statement-category
-  Definition = Codes identifying where the medication included in the is expected to be consumed or administered
+  Definition = A coded concept identifying where the medication included in the is expected to be consumed or administered
   Conformance = example
 
 === Sheet medication-statement-status =====================================
@@ -417,13 +417,13 @@
  -- Row 2 -----------------------------------
   Name = medication
   Type = reference
-  Description = Return administrations of this medication reference
+  Description = Return statements of this medication reference
   Path = MedicationStatement.medicationReference
 
  -- Row 3 -----------------------------------
   Name = code
   Type = token
-  Description = Return administrations of this medication code
+  Description = Return statements of this medication code
   Path = MedicationStatement.medicationCodeableConcept
 
  -- Row 4 -----------------------------------

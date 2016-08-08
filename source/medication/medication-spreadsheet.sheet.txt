@@ -5,21 +5,21 @@
   Binding Name = MedicationForm
   Binding = value set
   Reference = valueset-medication-form-codes
-  Definition = The form of a medication
+  Definition = A coded concept defining the form of a medication
   Conformance = example
 
  -- Row 2 -----------------------------------
   Binding Name = MedicationFormalRepresentation
   Binding = value set
   Reference = valueset-medication-codes
-  Definition = A code that defines the type of a medication
+  Definition = A coded concept that defines the type of a medication
   Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = MedicationContainer
   Binding = value set
   Reference = valueset-medication-package-form-codes
-  Definition = Kind of container a medication package is packaged in
+  Definition = A coded concept defining the kind of container a medication package is packaged in
   Conformance = example
 
 === Sheet Invariants =====================================
@@ -32,7 +32,7 @@
   Type = DomainResource
   Short Label = Definition of a Medication
   Definition = This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.
-  SCRIPT 10.6 Mapping = NewRx/MedicationPrescribed\n-or-\nRxFill/MedicationDispensed\n-or-\nRxHistoryResponse/MedicationDispensed\n-or-\nRxHistoryResponse/MedicationPrescribed
+  SCRIPT 10.6 Mapping = NewRx/MedicationPrescribed\r-or-\rRxFill/MedicationDispensed\r-or-\rRxHistoryResponse/MedicationDispensed\r-or-\rRxHistoryResponse/MedicationPrescribed
   RIM Mapping = ManufacturedProduct[classCode=ADMM]
   w5 = clinical.medication
 
@@ -45,7 +45,7 @@
   Short Label = Codes that identify this medication
   Definition = A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.
   Comments = Depending on the context of use, the code that was actually selected by the user (prescriber, dispenser, etc.) should be marked as \"primary\". Other codes can only be literal translations to alternative code systems, or codes at a lower level of granularity (e.g. a generic code for a vendor-specific primary one).
-  SCRIPT 10.6 Mapping = coding.code = //element(*,MedicationType)/DrugCoded/ProductCode\n\ncoding.system = //element(*,MedicationType)/DrugCoded/ProductCodeQualifier\n\ncoding.display = //element(*,MedicationType)/DrugDescription
+  SCRIPT 10.6 Mapping = coding.code = //element(*,MedicationType)/DrugCoded/ProductCode\r\rcoding.system = //element(*,MedicationType)/DrugCoded/ProductCodeQualifier\r\rcoding.display = //element(*,MedicationType)/DrugDescription
   v2 Mapping = RXO-1.1-Requested Give Code.code / RXE-2.1-Give Code.code / RXD-2.1-Dispense/Give Code.code / RXG-4.1-Give Code.code /RXA-5.1-Administered Code.code / RXC-2.1 Component Code
   RIM Mapping = .code
   w5 = class
@@ -90,7 +90,7 @@
   Short Label = powder | tablets | carton +
   Definition = Describes the form of the item.  Powder; tablets; carton
   Comments = When Medication is referenced from MedicationOrder, this is the ordered form.  When Medication is referenced within MedicationDispense, this is the dispensed form.  When Medication is referenced within MedicationAdministration, this is administered form.
-  SCRIPT 10.6 Mapping = coding.code =  //element(*,DrugCodedType)/FormCode\n\ncoding.system = //element(*,DrugCodedType)/FormSourceCode
+  SCRIPT 10.6 Mapping = coding.code =  //element(*,DrugCodedType)/FormCode\r\rcoding.system = //element(*,DrugCodedType)/FormSourceCode
   v2 Mapping = RXO-5-Requested Dosage Form / RXE-6-Give Dosage Form / RXD-6-Actual Dosage Form / RXG-8-Give Dosage Form / RXA-8-Administered Dosage Form
   RIM Mapping = .formCode
 
@@ -109,7 +109,7 @@
   Type = CodeableConcept|Reference(Substance|Medication)
   Short Label = The product contained
   Definition = The actual ingredient - either a substance (simple ingredient) or another medication
-  SCRIPT 10.6 Mapping = coding.code = //element(*,MedicationType)/DrugCoded/ProductCode\n\ncoding.system = //element(*,MedicationType)/DrugCoded/ProductCodeQualifier\n\ncoding.display = //element(*,MedicationType)/DrugDescription
+  SCRIPT 10.6 Mapping = coding.code = //element(*,MedicationType)/DrugCoded/ProductCode\r\rcoding.system = //element(*,MedicationType)/DrugCoded/ProductCodeQualifier\r\rcoding.display = //element(*,MedicationType)/DrugDescription
   v2 Mapping = RXC-2-Component Code  if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code
   RIM Mapping = .player
 

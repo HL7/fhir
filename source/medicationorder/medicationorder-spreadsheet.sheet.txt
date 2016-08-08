@@ -49,21 +49,21 @@
   Binding Name = OrderReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/condition-code
-  Definition = Codes indicating why the medication was ordered.
+  Definition = A coded concept indicating why the medication was ordered.
   Conformance = example
 
  -- Row 8 -----------------------------------
   Binding Name = MedicationCode
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/medication-codes
-  Definition = Codes identifying substance or product that can be ordered.
+  Definition = A coded concept identifying substance or product that can be ordered.
   Conformance = example
 
  -- Row 9 -----------------------------------
   Binding Name = AdditionalInstructions
   Binding = value set
   Reference = valueset-additional-instructions-codes
-  Definition = Codes identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\".
+  Definition = A coded concept identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\".
   Conformance = example
 
  -- Row 10 -----------------------------------
@@ -80,7 +80,7 @@
   Binding Name = MedicationOrderCategory
   Binding = code list
   Reference = #medication-order-category
-  Definition = Codes identifying where the medication ordered is expected to be consumed or administered
+  Definition = A coded concept identifying where the medication ordered is expected to be consumed or administered
   Conformance = example
 
 === Sheet medication-order-status =====================================
@@ -596,13 +596,13 @@
  -- Row 4 -----------------------------------
   Name = medication
   Type = reference
-  Description = Return administrations of this medication reference
+  Description = Return prescriptions of this medication reference
   Path = MedicationOrder.medicationReference
 
  -- Row 5 -----------------------------------
   Name = code
   Type = token
-  Description = Return administrations of this medication code
+  Description = Return prescriptions of this medication code
   Path = MedicationOrder.medicationCodeableConcept
 
  -- Row 6 -----------------------------------
@@ -620,6 +620,7 @@
  -- Row 8 -----------------------------------
   Name = prescriber
   Type = reference
+  Description = Returns prescriptions prescribed by this prescriber
   Path = MedicationOrder.prescriber
 
 === Sheet Profiles =====================================

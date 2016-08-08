@@ -13,7 +13,7 @@
   Binding Name = MedicationDispenseStatus
   Binding = code list
   Reference = #medication-dispense-status
-  Definition = A code specifying the state of the dispense event.
+  Definition = A coded concept specifying the state of the dispense event.
   Description = Describes the lifecycle of the dispense.
   Conformance = required
   v3 = ActStatus
@@ -66,14 +66,14 @@
   Binding Name = AdditionalInstructions
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/additional-instructions-codes
-  Definition = Codes identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\"
+  Definition = A coded concept identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\"
   Conformance = example
 
  -- Row 10 -----------------------------------
   Binding Name = MedicationCode
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/medication-codes
-  Definition = Codes identifying which substance or product can be dispensed
+  Definition = A coded concept identifying which substance or product can be dispensed
   Conformance = example
 
  -- Row 11 -----------------------------------
@@ -251,7 +251,7 @@
   Card. = 0..1
   Summary = y
   Type = dateTime
-  Short Label = Dispense processing time
+  Short Label = When product was packaged and reviewed
   Definition = The time when the dispensed product was packaged and reviewed.
   v2 Mapping = RXD-3-Date/Time Dispensed
   RIM Mapping = .effectiveTime[xmi:type=IVL_TS].low
@@ -492,7 +492,7 @@
  -- Row 2 -----------------------------------
   Name = dispenser
   Type = reference
-  Description = Return all dispenses performed by a specific individual
+  Description = Return dispenses performed by a specific individual
   Path = MedicationDispense.dispenser
 
  -- Row 3 -----------------------------------
@@ -528,36 +528,37 @@
  -- Row 8 -----------------------------------
   Name = responsibleparty
   Type = reference
-  Description = Return all dispenses with the specified responsible party
+  Description = Return dispenses with the specified responsible party
   Path = MedicationDispense.substitution.responsibleParty
 
  -- Row 9 -----------------------------------
   Name = status
   Type = token
-  Description = Status of the dispense
+  Description = Return dispenses with a specified dispense status
   Path = MedicationDispense.status
 
  -- Row 10 -----------------------------------
   Name = type
   Type = token
-  Description = Return all dispenses of a specific type
+  Description = Return dispenses of a specific type
   Path = MedicationDispense.type
 
  -- Row 11 -----------------------------------
   Name = whenhandedover
   Type = date
-  Description = Date when medication handed over to patient (outpatient setting), or supplied to ward or clinic (inpatient setting)
+  Description = Returns dispensed handed over on this date
   Path = MedicationDispense.whenHandedOver
 
  -- Row 12 -----------------------------------
   Name = whenprepared
   Type = date
-  Description = Date when medication prepared
+  Description = Returns dispense prepared on this date
   Path = MedicationDispense.whenPrepared
 
  -- Row 13 -----------------------------------
   Name = receiver
   Type = reference
+  Description = The identity of a receiver to list dispenses for
   Path = MedicationDispense.receiver
 
 === Sheet Profiles =====================================
