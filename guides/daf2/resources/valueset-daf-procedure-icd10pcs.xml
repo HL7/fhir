@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="daf-procedure-icd10pcs"/>
+  <meta>
+    <lastUpdated value="2016-05-25T16:59:08.250+10:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://hl7.org/fhir/us/daf/ValueSet/daf-procedure-icd10pcs"/>
+  <version value="1.5.0"/>
+  <name value="DAF Procedure Type ICD-10-PCS Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <date value="2016-08-10"/>
+  <description value="This value set defines a set of codes from ICD10-PCS that can be used to indicate a type of procedure performed"/>
+  <copyright value="The International Classification of Diseases, Tenth Revision, Procedure Coding System (ICD-10-PCS) was developed for the Centers for Medicare and Medicaid Services (CMS).  CMS is the U.S. governmental agency responsible for overseeing all changes and modifications to the ICD-10-PCS."/>
+  <compose>
+  <!--
+    <include>
+      <system value="http://www.ama-assn.org/go/cpt"/>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="71388002"/>
+      </filter>
+    </include>
+    -->
+    <include>
+      <system value="http://www.icd10data.com/icd10pcs"/>
+    </include>
+  </compose>
+</ValueSet>
