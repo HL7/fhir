@@ -3,6 +3,6 @@
 1.  Either:
     -  One drug code in `Medication.code` which has an [extensible](http://hl7-fhir.github.io/terminologies.html#extensible) binding to:
         -  [Medication Clinical Drug (RxNorm)] value set
-    -  or a list of ingredients in `Medication.product`
+   
 
   [Medication Clinical Drug (RxNorm)]: valueset-daf-medication-codes.html

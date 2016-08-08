@@ -8,7 +8,7 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Each Medication must have:**
 
-1.  A medication code or a list of ingredients that comprise the medication
+1.  A medication code
 
 
 **Profile specific implementation guidance:**
