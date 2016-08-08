@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="org.hl7.fhir.tools" default="local-publish-ig">
+  <property name="guidename" value="???"/>
+  <property name="spec" value="http://hl7-fhir.github.io/"/>
+  <!-- Where the main FHIR build publish folder is -->
+  <property name="dir.publish" value="../../publish"/>
+  <!-- Working area -->
+  <property name="dir.pages" value="pages"/>
+  <property name="dir.pageassets" value="${dir.pages}/assets"/>
+  <property name="dir.pagedata" value="${dir.pages}/_data"/>
+  <property name="dir.pageincludes" value="${dir.pages}/_includes"/>
+  <property name="dir.qa" value="qa"/>
+  <property name="dir.temp" value="temp"/>
+  <property name="dir.txcache" value="txcache"/>
+  <!-- Where the generated site goes -->
+  <property name="dir.output" value="output"/>
+  <!-- -->
+  <target name="dir-setup" description="--> create directories">
+    <delete dir="${dir.pages}"/>
+    <delete dir="${dir.qa}"/>
+    <delete dir="${dir.temp}"/>
+    <mkdir dir="${dir.pages}"/>
+    <mkdir dir="${dir.pageassets}"/>
+    <mkdir dir="${dir.pagedata}"/>
+    <mkdir dir="${dir.pageincludes}"/>
+    <mkdir dir="${dir.qa}"/>
+    <mkdir dir="${dir.temp}"/>
+    <mkdir dir="${dir.txcache}"/>
+    <mkdir dir="${dir.output}"/>
+  </target>
+  <target name="local-setup" depends="dir-setup" description="--> grabs igpublisher from local build">
+    <copy file="${dir.publish}/org.hl7.fhir.igpublisher.jar" todir="${basedir}"/>
+  </target>
+  <target name="travis-setup" depends="dir-setup" description="--> Installs Jekyll, grabs publisher from CI website">
+    <get src="http://hl7-fhir.github.io/org.hl7.fhir.igpublisher.jar" dest="${basedir}"/>
+  </target>
+  <target name="publish-ig" depends="dir-setup"  description="--> Run the IG build">
+    <java jar="${basedir}/org.hl7.fhir.igpublisher.jar" fork="true" failonerror="true" maxmemory="1024m">
+      <jvmarg line="-Dfile.encoding=UTF-8"/>
+      <arg line="-ig ${basedir}/${guidename}.json"/>
+    </java>
+  </target>
+  <target name="local-publish-ig" depends="local-setup, publish-ig"  description="--> Target to use when building Locally"/>
+  <target name="travis-publish-ig" depends="travis-setup, publish-ig"  description="--> Target to use when building on Travis"/>
+</project>

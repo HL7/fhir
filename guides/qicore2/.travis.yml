@@ -1,0 +1,5 @@
+language: ruby
+jdk: oraclejdk8
+rvm: 2.2
+before_install: gem install jekyll
+script: ant -buildfile build.xml travis-publish-ig -Dguidename=qicore -Dspec=http://hl7-fhir.github.io/
