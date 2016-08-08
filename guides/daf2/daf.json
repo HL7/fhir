@@ -6,7 +6,7 @@
 		"temp": "temp",
 		"output": "output",
 		"qa": "qa",
-    "txCache" : "txCache",
+		"txCache": "txCache",
 		"specification": "http://hl7-fhir.github.io/"
 	},
 	"defaults": {
@@ -425,20 +425,21 @@
 			"base": "valueset-daf-core-narrative-status.html",
 			"template-base": null
 		},
-		
 		"ValueSet/daf-careteam-status": {
 			"base": "valueset-daf-careteam-status.html",
 			"template-base": null,
-      "template-format" : null
-		},		
-		
-				"CodeSystem/daf-careteam-status": {
+			"template-format": null
+		},
+		"ValueSet/daf-procedure-icd10pcs": {
+			"base": "valueset-daf-procedure-icd10pcs.html",
+			"template-base": null,
+			"template-format": null
+		},
+		"CodeSystem/daf-careteam-status": {
 			"base": "CodeSystem-daf-careteam-status.html",
 			"template-base": null,
-      "template-format" : null
-		},		
-
-		
+			"template-format": null
+		},
 		"AllergyIntolerance/example": {
 			"base": "allergyintolerance-example.html",
 			"template-base": null
