@@ -552,6 +552,19 @@
 				<reference value="ValueSet/daf-core-substance-unii"/>
 			</sourceReference>
 		</resource>
+		
+		
+	<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/daf-ndc-vaccine-codes"/>
+			</sourceReference>
+		</resource>		
+	
+		
+		
+		
+		
 				<!--		
 <resource>
 			<example value="false"/>

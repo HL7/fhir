@@ -2,28 +2,14 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="daf-cvx"/>
-  <meta>
-    <lastUpdated value="2016-05-25T16:59:08.250+10:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
-  </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <h2>Vaccine Administered Value Set</h2>
-      <p>This identifies the vaccine substance administered - CVX codes</p>
-      <p>This value set includes codes from the following code systems:</p>
-      <ul>
-        <li>Include all codes defined in http://hl7.org/fhir/sid/cvx</li>
-      </ul>
-    </div>
-  </text>
+
   <url value="http://hl7.org/fhir/us/daf/ValueSet/daf-cvx"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.3.88.12.80.22"/>
   </identifier>
   <version value="1.5.0"/>
-  <name value="Vaccine Administered Value Set"/>
+  <name value="Vaccine Administered Value Set (CVX)"/>
   <status value="active"/>
   <experimental value="true"/>
   <publisher value="HL7 FHIR"/>
@@ -33,7 +19,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <date value="2016-05-25T16:59:08+10:00"/>
+  <date value="2016-08-10"/>
   <description value="This identifies the vaccine substance administered - CVX codes"/>
   <compose>
     <include>

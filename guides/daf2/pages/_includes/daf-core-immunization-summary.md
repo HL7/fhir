@@ -11,5 +11,5 @@
 1.  One boolean value in `Immunization.reported`
 
   [Immunization Status]: valueset-daf-core-immunization-status.html
-  [CVX]: http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx
-  [NDC]: http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx
+  [CVX]: valueset-daf-cvx.html
+  [NDC]: valueset-daf-ndc-vaccine-codes.html

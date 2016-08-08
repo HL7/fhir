@@ -21,7 +21,6 @@
   <WindowTopX>8505</WindowTopX>
   <WindowTopY>-15</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
-  <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1882,7 +1881,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1897,8 +1896,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>28</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>10</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7316,9 +7314,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s94"><Data ss:Type="String">VaccineTypeCVX</Data></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">The CVX (vaccine administered) code system</Data></Cell>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">valueset-daf-cvx</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">This value set binds to the CDC  Vaccines administered (CVX) 2.16.840.1.113883.12.292 code system.</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">2.16.840.1.113883.3.88.12.80.22</Data></Cell>
     <Cell ss:StyleID="s136"/>
@@ -7766,7 +7764,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

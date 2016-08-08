@@ -453,6 +453,12 @@
 			"template-base": null
 		},		
 		
+				
+		"ValueSet/daf-ndc-vaccine-codes": {
+			"base": "valueset-daf-ndc-vaccine-codes.html",
+			"template-base": null
+		},		
+
 		
 		
 		"CodeSystem/daf-careteam-status": {
