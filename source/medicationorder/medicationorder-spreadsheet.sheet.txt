@@ -290,6 +290,7 @@
   Short Label = Type of medication usage
   Definition = Indicates where type of medication order and where the medication is expected to be consumed or administered
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Directions\n\nor \n\nMessage/Body/NewRx/MedicationPrescribed/StructuredSIG
+  RIM Mapping = not mapped
 
  -- Row 13 -----------------------------------
   Element = MedicationOrder.dosageInstruction
@@ -572,6 +573,7 @@
   Binding = MedicationOrderActionReason
   Short Label = Reason the action was taken
   Definition = The reason why the action was taken
+  RIM Mapping = not mapped
 
 === Sheet Search =====================================
 

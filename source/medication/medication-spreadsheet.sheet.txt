@@ -138,6 +138,7 @@
   Definition = The assigned lot number of a batch of the specified product.
   SCRIPT 10.6 Mapping = no mapping
   v2 Mapping = RXA-15 Substance Lot Number / RXG-19 Substance Lot Number
+  RIM Mapping = Not Mapped
 
  -- Row 12 -----------------------------------
   Element = Medication.product.batch.expirationDate

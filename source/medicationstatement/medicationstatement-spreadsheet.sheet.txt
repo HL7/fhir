@@ -294,6 +294,7 @@
   Short Label = Condition that supports why the medication is being/was taken
   Definition = Condition that supports why the medication is being/was taken.
   Comments = This is a reference to a condition that is the reason why the medication is being/was taken.  If only a code exists, use reasonForUseCode.
+  RIM Mapping = not mapped
 
  -- Row 14 -----------------------------------
   Element = MedicationStatement.note
@@ -310,6 +311,7 @@
   Binding = MedicationStatementCategory
   Short Label = Type of medication usage
   Definition = Indicates where type of medication statement and where the medication is expected to be consumed or administered
+  RIM Mapping = not mapped
 
  -- Row 16 -----------------------------------
   Element = MedicationStatement.dosage
