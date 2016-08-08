@@ -19,7 +19,7 @@
 	</dependency>
 	<package>
 		<name value="base"/>
-		<!--  value sets -->		
+		<!--  value sets -->
 		<resource>
 			<example value="false"/>
 			<sourceReference>
@@ -92,7 +92,6 @@
 				<reference value="ValueSet/concern-status"/>
 			</sourceReference>
 		</resource>
-		
 		<!--  profiles -->
 		<resource>
 			<example value="false"/>
@@ -118,14 +117,13 @@
 				<reference value="StructureDefinition/daf-core-careplan"/>
 			</sourceReference>
 		</resource>
-		
-				<resource>
+		<resource>
 			<example value="false"/>
 			<sourceReference>
 				<reference value="StructureDefinition/daf-core-careteam"/>
 			</sourceReference>
 		</resource>
-<!--
+		<!--
 		<resource>
 			<example value="false"/>
 			<sourceReference>
@@ -427,7 +425,7 @@
 				<reference value="StructureDefinition/daf-birth-sex"/>
 			</sourceReference>
 		</resource>
-				<resource>
+		<resource>
 			<example value="false"/>
 			<sourceReference>
 				<reference value="StructureDefinition/daf-core-vitalsigns"/>
@@ -514,8 +512,7 @@
 				<reference value="StructureDefinition/daf-core-allergyintolerance"/>
 			</exampleFor>
 		</resource>
-		
-			<resource>
+		<resource>
 			<example value="true"/>
 			<name value="Patient Example"/>
 			<sourceReference>
@@ -524,9 +521,7 @@
 			<exampleFor>
 				<reference value="StructureDefinition/daf-core-patient"/>
 			</exampleFor>
-		</resource>	
-		
-		
+		</resource>
 		<!--daf-core-core valuesets-->
 		<resource>
 			<example value="false"/>
@@ -552,8 +547,7 @@
 				<reference value="ValueSet/daf-core-substance-unii"/>
 			</sourceReference>
 		</resource>
-		
-		
+<!--		
 	<resource>
 			<example value="false"/>
 			<sourceReference>
@@ -561,11 +555,6 @@
 			</sourceReference>
 		</resource>		
 	
-		
-		
-		
-		
-				<!--		
 <resource>
 			<example value="false"/>
 			<sourceReference>
@@ -596,14 +585,13 @@
 			</sourceReference>
 		</resource>
 		-->
-			<!--daf-core codesystems-->
+		<!--daf-core codesystems-->
 		<resource>
 			<example value="false"/>
 			<sourceReference>
 				<reference value="CodeSystem/daf-core-extension-codes"/>
 			</sourceReference>
 		</resource>
-		   
 		<!-- Operations -->
 		<resource>
 			<example value="false"/>
