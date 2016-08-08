@@ -10,9 +10,7 @@
 1.  One practitioner in `MedicationOrder.prescriber`
 
 
- [DAF MedicationStatement Profile]: http://hl7.org/fhir/us/daf/medicationstatement-daf.html
-  [DAF MedicationOrder Profile]: http://hl7.org/fhir/us/daf/medicationorder-daf.html
   [Medication Clinical Drug (RxNorm)]: valueset-daf-medication-codes.html
-  [MedicationOrderStatus]: http://hl7.org/fhir/us/daf/valueset-medication-order-status.html
-[MedicationStatementStatus]: http://hl7.org/fhir/us/daf/valueset-medication-statement-status.html
+  [MedicationOrderStatus]: http://hl7-fhir.github.io/valueset-medication-order-status.html
+[MedicationStatementStatus]: http://hl7-fhir.github.io/valueset-medication-statement-status.html
  
