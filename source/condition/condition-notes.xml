@@ -33,7 +33,7 @@ a value - instead, the value must be understood from the Condition.code.
   </p>
 
 <blockquote class="dstu-note">
-<a name="dstu"> </a>
+<a name="dstu-1"> </a>
 <p>
 <b>STU Note:</b>There are two primary ways of reporting "no known problems" in the current specification: using the CodeableConcept,
 as described above, or using the <a href="list.html">List</a> resource with emptyReason. During the STU period, <a href="http://gforge.hl7.org/gf/project/fhir/tracker/">feedback</a> is sought regarding the preferred approach.

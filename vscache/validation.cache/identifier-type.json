@@ -2,6 +2,17 @@
   "url": "http://hl7.org/fhir/ValueSet/identifier-type",
   "outcomes": [
     {
+      "hash": "#|http://hl7.org/fhir/identifier-type|null|PLAC|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "PLAC",
+        "definition": null,
+        "display": "Placer Identifier"
+      }
+    },
+    {
       "hash": "#|http://hl7.org/fhir/identifier-type|null|SB|null",
       "severity": null,
       "message": null,

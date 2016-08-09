@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 
-
 [%settitle Outstanding Issues%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -46,31 +45,37 @@ from implementers:
 </p>
 <a name="todo"> </a>
 <ul>
-<!--  <li><a href="allergyintolerance.html#dstu">AllergyIntolerance</a>: how to report 'no known allergies' of various flavors</li>
-  <li><a href="appointment.html#dstu">Appointment</a>: suitability of Appointment.priority values</li>
-  <li><a href="bodysite.html#dstu">BodySite</a>: suitability of this as a resource?</li>
-  <li><a href="careplan.html#dstu">CarePlan</a>: 2 questions about usage</li>
-  <li><a href="clinicalimpression.html#dstu">ClinicalImpression</a>: general usage questions</li>
-  <li><a href="composition.html#dstu">Composition</a>: question about title being mandatory, and about signatures</li>
-  <li><a href="conformance-rules.html#dstu">Invariants</a>: is there a replaceement for XPath?</li>
-  <li><a href="dataelement.html#dstu">DataElement</a>: question about relationship between DataElement and other resources</li>
-  <li><a href="datatypes.html#dstu">Markdown</a>: which markdown flavor can we settle on, if any?</li>
-  <li><a href="diagnosticreport.html#dstu">DiagnosticReport</a>: relationship with Observation</li>
-  <li><a href="http.html#dstu">RESTful API</a>: question about using the PATCH operation</li>
-  <li><a href="http.html#dstu-2">RESTful API</a>: what should we do about side-effects and transactions?</li>
-  <li><a href="http.html#dstu-3">RESTful API</a>: Transaction integrity and introspection</li>
-  <li><a href="managing.html#dstu">Resource Identification</a>: identifier policy rules?</li>
-  <li><a href="messaging.html#dstu">Messaging</a>: what additional events should be defined?</li>
-  <li><a href="operations.html#dstu">Operations</a>: should it be possible to execute operations asynchronously?</li>
-  <li><a href="patient.html#dstu">Patient</a>: what effect linking/merging/unlinking should have on other functionality such as the GET operation?</li>
-  <li><a href="patient.html#dstu-2">Patient</a>: Comment on MPI search query sought</li>
-  <li><a href="profiling.html#dstu">Profiling</a>: Note about need for feedback about use of profiles</li>
-  <li><a href="references.html#dstu">References</a>: Should inside out containment be allowed?</li>
-  <li><a href="riskassessment.html#dstu">RiskAssessment</a>: General usage questions</li>
-  <li><a href="search.html#dstu">Search</a>: how much should text search be standardised?</li>
-  <li><a href="search.html#dstu-2">Search</a>: Should additional rules about how _include works be made?</li>
-  <li><a href="security.html#dstu">Security</a>: Using signatures with RESTful interfaces is a poorly understood area</li>
-  <li><a href="subscription.html">Subscription</a>: Use with messaging is still to be clarified</li> -->
+  <li><a href="allergyintolerance.html#dstu">AllergyIntolerance</a>: How should "No Known Allergies" be represented?</li>
+  <li><a href="appointment.html#dstu">Appointment</a>: Values for Appointment.priority: how interoperable are they</li>
+  <li><a href="bodysite.html#dstu">BodySite</a>: Should it be an independent resource or a datatype?</li>
+  <li><a href="careplan.html#dstu">CarePlan</a>: Combination concepts of "Care Plan" and "Care Team", and patient being optional</li>
+  <li><a href="clinicalimpression.html#dstu">ClinicalImpression</a>: General Questions about use</li>
+  <li><a href="composition.html#dstu">Composition</a>: Is title different to type? and open questions about document signatures</li>
+  <li><a href="condition.html#dstu">Condition</a>: Questions about Condition.category</li>
+  <li><a href="condition.html#dstu-1">Condition</a>: How should "No Known Problems" be represented?</li>
+  <li><a href="dataelement.html#dstu">DataElement</a>: Should constraints be common across Questionnaire, DataElement, and StructureDefinition?</li>
+  <li><a href="diagnosticreport.html#dstu">DiagnosticReport</a>: Relationship between DiagnosticReport and Composition?</li>
+  <li><a href="extensibility.html#dstu">Extensibility</a>: Do we need to support modifier extensions on extensions?</li>
+  <li><a href="managing.html#dstu">Managing Resource Identity</a>: Mandating Identification practices for cross-system interoperability?</li>
+  <li><a href="datatypes.html#dstu">Markdown</a>: Should we support CommonMark></li>
+  <li><a href="messaging.html#dstu">Messaging</a>: What additional events should be defined?</li>
+  <li><a href="operations.html#dstu">Operations</a>: Do we need a way to execute operations asynchronously?</li>
+  <li><a href="patient.html#dstu">Patient</a>: Should linking/merging affect the RESTful API?</li>
+  <li><a href="patient.html#dstu-2">Patient</a>: Comment sought on MPI matching</li>
+  <li><a href="practitionerrole.html#dstu">PractitionerRole</a>: Practitioner.role to be removed?</li>
+  <li><a href="profiling.html#dstu">Profiling Resources</a>: Need feedback on using system profiles</li>
+  <li><a href="references.html#dstu">References between Resources</a>: Do we need to allow contained resources that reference the container?</li>
+  <li><a href="http.html#dstu">RESTful API</a>: Do we need to support PATCH?</li>
+  <li><a href="http.html#dstu-2">RESTful API</a>: Consquence of side effects in batches and transactions?</li>
+  <li><a href="http.html#dstu-3">RESTful API</a>: Should servers maintain ids when processing transactions?</li>
+  <li><a href="http.html#dstu-4">RESTful API</a>: What are the documentation requirements around transaction integrity?</li>
+  <li><a href="riskassessment.html#dstu">RiskAssessment</a>: several open issues</li>
+  <li><a href="search.html#dstu">Search</a>: Feedback required on _has parameter</li>
+  <li><a href="search.html#dstu2">Search</a>: does text search need to be standardized?</li>
+  <li><a href="search.html#dstu4">Search</a>: Do we need additional rules about _include?</li>
+  <li><a href="security.html#dstu">Security</a>: Feedback about signatures on RESTful interfaces sought</li>
+  <li><a href="subscription.html#dstu">Subscription</a>: messaging details still to be resolved</li>
+  <li><a href="workflow.html#issues">Workflow</a>: several implementation questions</li>
 </ul>
 
 

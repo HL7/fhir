@@ -40,6 +40,7 @@ although in some cases a persistent symptom, e.g. fever, headache may be capture
 The condition resource also specifically excludes <a href="allergyintolerance.html">AllergyIntolerance</a> as those are handled with their own resource.
 </p>
 
+<a name="dstu"> </a>
 <blockquote class="dstu-note">
 <p>
 <b>STU Note:</b> The <code>Condition.category</code> element is a <code>CodeableConcept</code> data type with a <a href="terminologies.html#preferred">preferred</a> (not <a href="terminologies.html#required">required</a>) binding to four category codes:  

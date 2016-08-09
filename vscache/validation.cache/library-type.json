@@ -11,6 +11,17 @@
         "definition": null,
         "display": "Logic Library"
       }
+    },
+    {
+      "hash": "#|null|null|model-definition|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "model-definition",
+        "definition": null,
+        "display": "Model Definition"
+      }
     }
   ]
 }
