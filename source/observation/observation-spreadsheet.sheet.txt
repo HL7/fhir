@@ -1014,31 +1014,31 @@
 
  -- Row 21 -----------------------------------
   Name = Genetics 1
-  Identity = example-observation-genetics-1
+  Identity = example-genetics-1
   Description = Genetics example 1
   Filename = observation-example-genetics-1.xml
 
  -- Row 22 -----------------------------------
   Name = Genetics 2
-  Identity = example-observation-genetics-2
+  Identity = example-genetics-2
   Description = Genetics example 2
   Filename = observation-example-genetics-2.xml
 
  -- Row 23 -----------------------------------
   Name = Genetics 3
-  Identity = example-observation-genetics-3
+  Identity = example-genetics-3
   Description = Genetics example 3
   Filename = observation-example-genetics-3.xml
 
  -- Row 24 -----------------------------------
   Name = Genetics 4
-  Identity = example-observation-genetics-4
+  Identity = example-genetics-4
   Description = Genetics example 4
   Filename = observation-example-genetics-4.xml
 
  -- Row 25 -----------------------------------
   Name = Genetics 5
-  Identity = example-observation-genetics-5
+  Identity = example-genetics-5
   Description = Genetics example 5
   Filename = observation-example-genetics-5.xml
 

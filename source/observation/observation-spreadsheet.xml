@@ -6966,35 +6966,35 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Genetics 1</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Genetics example 1</Data></Cell>
-    <Cell><Data ss:Type="String">example-observation-genetics-1</Data></Cell>
+    <Cell><Data ss:Type="String">example-genetics-1</Data></Cell>
     <Cell><Data ss:Type="String">observation-example-genetics-1.xml</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Genetics 2</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Genetics example 2</Data></Cell>
-    <Cell><Data ss:Type="String">example-observation-genetics-2</Data></Cell>
+    <Cell><Data ss:Type="String">example-genetics-2</Data></Cell>
     <Cell><Data ss:Type="String">observation-example-genetics-2.xml</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Genetics 3</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Genetics example 3</Data></Cell>
-    <Cell><Data ss:Type="String">example-observation-genetics-3</Data></Cell>
+    <Cell><Data ss:Type="String">example-genetics-3</Data></Cell>
     <Cell><Data ss:Type="String">observation-example-genetics-3.xml</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Genetics 4</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Genetics example 4</Data></Cell>
-    <Cell><Data ss:Type="String">example-observation-genetics-4</Data></Cell>
+    <Cell><Data ss:Type="String">example-genetics-4</Data></Cell>
     <Cell><Data ss:Type="String">observation-example-genetics-4.xml</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Genetics 5</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Genetics example 5</Data></Cell>
-    <Cell><Data ss:Type="String">example-observation-genetics-5</Data></Cell>
+    <Cell><Data ss:Type="String">example-genetics-5</Data></Cell>
     <Cell><Data ss:Type="String">observation-example-genetics-5.xml</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>

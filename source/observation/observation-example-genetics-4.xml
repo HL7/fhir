@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Observation xmlns="http://hl7.org/fhir">
-  <id value="example-observation-genetics-4"/>
+  <id value="example-genetics-4"/>
   <status value="final"/>
   <code>
     <text value="Allele ABC"/>
@@ -29,21 +29,21 @@
   <related>
     <type value="has-member"/>
     <target>
-      <reference value="Observation/example-observation-genetics-1"/>
+      <reference value="Observation/example-genetics-1"/>
       <display value="Variant-1"/>
     </target>
   </related>
   <related>
     <type value="has-member"/>
     <target>
-      <reference value="Observation/example-observation-genetics-2"/>
+      <reference value="Observation/example-genetics-2"/>
       <display value="Variant-2"/>
     </target>
   </related>
   <related>
     <type value="has-member"/>
     <target>
-      <reference value="Observation/example-observation-genetics-3"/>
+      <reference value="Observation/example-genetics-3"/>
       <display value="Variant-3"/>
     </target>
   </related>

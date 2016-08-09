@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
       
-[%settitle Ballot Welcome%]
+[%settitle FHIR STU3 Ballot Welcome%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -10,99 +10,48 @@
 
 <div class="col-9">
 
-<h2>DSTU 2 Ballot Welcome</h2>
-<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">None</a></td></tr></table>
-<p>
-NOTE: Because FHIR is not officially going to ballot as part of this release, this page has not been updated from the DSTU2 publication.
-</p>
+<h2>STU 3 Ballot Welcome</h2>
 
 <p>
-Hello and welcome to the second FHIR DSTU ballot!
+Hello and welcome to the third FHIR DSTU ballot!
 </p>
 <p>
-This specification represents a series of significant changes and enhancements from the first FHIR Draft Standard for Trial Use
-specification HL7 published in January, 2014.  It includes a number of new resources including support for claims and scheduling
-as well as publish/subscribe and operations.  It also includes changes resulting from over 1500 change proposals submitted by
-implementers and other readers of the specification.  A complete list of changes can be found <a href="history.html">here</a>.
+This specification represents a series of significant changes and enhancements from the second FHIR Draft Standard for Trial Use
+specification HL7 published in October, 2016.  It also includes changes resulting from committee meetings, connectathons, 1000's of  
+change proposals, and collaborations with other standards organizations.  A semi-complete list of changes can be found
+<a href="history.html">here</a>.
 </p>
 <p>
-While FHIR is not yet "normative", this specification is the product of many thousands of hours of development,
-including several ballot cycles, multiple QA cycles, 8 Connectathons, and production of a number of references and proof of concept 
-implementations.  Subsets of FHIR have been implemented or are currently being implemented on all continents other than Antarctica.
-Therefore we hope that you find the specification already close to an implementable state.
+FHIR is presently a "Specification for Trial Use" (STU) ballot. FHIR is no longer a "Draft" specification.
+Indeed, there are many implementations in production all across the world, or in preparation for production 
+adoption. There are still some parts of the specification in an early stage of development, while other parts 
+are quite mature and stable. In fact, as of this version, most DSTU 2 patient resources are still valid STU 3 
+Patient resources, though this is not a requirement - yet. We anticipate that some content will become 
+normative on the next ballot after this one. For full details concerning the maturity process in the FHIR 
+specification, see the <a href="resource.html#maturity">FHIR maturity Model</a>.
 </p>
 <p>
 The FHIR specification is presented as a series of interlinked HTML pages.  They can either be reviewed online or can be
-<a href="fhir-spec.zip">downloaded</a> for exploration on your own device.  (70MB zip, 550MB unzipped).
- You can review whichever links are of interest in any 
-order you wish.  However, to ensure a base level understanding of the specification we recommend that you click on the 
-<a href="documentation.html">Documentation</a> link and read through at least the following:
-</p>
-<p>
-For context:
-</p>
-<ul>
-  <li>Overview/<a href="summary.html">1 page Summary (Glossy)</a></li>
-  <li>Overview/<a href="overview-dev.html">Developer's Introduction</a></li>
-  <li>Overview/<a href="overview-clinical.html">Clinical Introduction</a></li>
-  <li>Overview/<a href="overview.html">Overview &amp; Roadmap</a></li>
-  <li>Overview/<a href="timelines.html">FHIR Timelines</a></li>
-</ul>
-<p>
-To see scope:
-</p>
-<ul>
-  <li>Click on the <a href="resourcelist.html">Resources</a> link at the top to get a sense of what resources exist and maybe drill into a couple of them to see what 
-  they look like before coming back to the Documentation tab for more context</li>
-</ul>
-<p>
-To understand base approach:
-</p>
-<ul>
-  <li>Resources/<a href="resource.html">Base Resource</a></li>
-  <li>Resources/<a href="domainresource.html">DomainResource</a></li>
-  <li>Resources/<a href="narrative.html">Narrative</a></li>
-  <li>Resources/<a href="formats.html">Formats: XML, JSON</a></li>
-  <li>Resources/<a href="extensibility.html">Extensibility</a></li>
-</ul>
-<p>
-To understand key infrastructure:
-</p>
-<ul>
-  <li>Resources/<a href="datatypes.html">Data Types</a></li>
-  <li>Terminologies/<a href="terminologies.html">Using Codes in Resources</a></li>
-</ul>
-<p>
-For context for this ballot:
-</p>
-<ul>
-  <li>Administration/<a href="todo.html">Outstanding Issues</a></li>
-</ul>
-<p>
-Feel free to drill down into any other sections of interest.  If you want to ensure a complete review of the whole spec, the 
-Documentation/Administration/<a href="toc.html">Table of Contents</a> may be a useful guide.
+<a href="fhir-spec.zip">downloaded</a> for exploration on your own device.  (175MB zip, ~1GB unzipped). The scope of
+the FHIR Ballot is any page where the URL starts with http://hl7.org/fhir/2016Sep. 
 </p>
 <p>
 A few notes to consider:
 </p>
 <ul>
-  <li><a name="draft"> </a>A few artifacts (generally resources) have been flagged as "draft".  This means that the work group authoring the content and/or
-  the FHIR Management Group feels that the content is not yet sufficiently robust or complete for production use.  Implementers may
-  choose to implement these artifacts anyway, but should proceed with caution, and may find that more adaptation or extension will be
-  required than for a typical resource.  It is expected that "draft" resources will progress to DSTU as part of the next release.
-  (Implementers may also want to check the <a href="http://hl7-fhir.github.io/">Continuous Integration Build</a> for more up-to-date
-  versions of these resources.)</li>
-  <li>Not all of the outstanding issues will be resolved prior to the DSTU ballot passing.  Some may be left open to allow feedback 
+  <li>Pay close attention to the FMM level of the artifacts (as described above)</li>
+  <li>Not all of the existing outstanding issues will be resolved prior to the DSTU ballot passing.  Some may be left open to allow feedback 
   from the early adopter community.</li>
   <li>This specification is complete enough to be implementable in a variety of healthcare scenarios, including supporting the "Common 
   Meaningful Use Data Set" and other content from the Consolidated CDA implementation guide.  However, the set 
   of resources is not complete.  Resources may evolve and new ones will be introduced over time.  Refer to <a href="timelines.html">FHIR 
-  Timelines</a> for additional guidance on expectations around the evolution of the FHIR specification.</li>
+  Timelines</a> for additional guidance on expectations around the evolution of the FHIR specification, or the road maps on the module pages.</li>
 </ul>
-<h3>Balloting</h3>
+
+<h3>Balloting Rules</h3>
 <p>
-HL7 ballot rules require that participants sign up prior to opening of the ballot.  If you did not sign up in advance, please still
-submit comments using the <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemAdd&amp;tracker_id=677">Propose a Change</a>
+HL7 ballot rules require that participants sign up prior to opening of the ballot.  If you did not sign up in advance, you
+can still submit comments using the <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemAdd&amp;tracker_id=677">Propose a Change</a>
 link at the bottom of each page of the specification.  Feedback from balloters will be given priority, but all suggestions will be
 considered as much as time allows.  (And be sure to <a href="http://wiki.hl7.org/index.php?title=FHIR_email_list_subscription_instructions">sign up</a> 
 to the FHIR list-server and/or follow the <a href="https://twitter.com/hashtag/fhir">#FHIR</a> hash-tag so you don't miss the chance to 
@@ -136,11 +85,58 @@ the co-chairs of the FHIR Management Group: <a href="mailto:lloyd@lmckenzie.com"
 <p>
 Thanks for taking the time to review the FHIR specification.  We appreciate any feedback you can provide.
 </p>
-<p/>
-<p>
-The HL7 FHIR Management Group (FMG)
-</p>
 
+<h3>Balloting Roadmap</h3>
+
+<p>
+You can review which ever parts of the specification that are of interest in any order you wish.  However, if you are 
+not familiar with the FHIR specification, you may wish to follow this roadmap, by clicking on the <a href="documentation.html">Documentation</a> 
+link and read through at least the following:
+</p>
+<p>
+For context:
+</p>
+<ul>
+  <li><a href="summary.html">1 page Summary (Glossy)</a></li>
+  <li><a href="overview-dev.html">Developer's Introduction</a></li>
+  <li><a href="overview-clinical.html">Clinical Introduction</a></li>
+  <li><a href="overview.html">Overview &amp; Roadmap</a></li>
+  <li><a href="timelines.html">FHIR Timelines</a></li>
+</ul>
+<p>
+To see scope:
+</p>
+<ul>
+  <li>Click on the <a href="resourcelist.html">Resources</a> link at the top to get a sense of what resources exist and maybe drill into a couple of them to see what 
+  they look like before coming back to the Documentation tab for more context</li>
+</ul>
+<p>
+To understand base approach:
+</p>
+<ul>
+  <li><a href="resource.html">Base Resource</a></li>
+  <li><a href="domainresource.html">DomainResource</a></li>
+  <li><a href="narrative.html">Narrative</a></li>
+  <li><a href="formats.html">Formats: XML, JSON</a></li>
+  <li><a href="extensibility.html">Extensibility</a></li>
+</ul>
+<p>
+To understand key infrastructure:
+</p>
+<ul>
+  <li><a href="datatypes.html">Data Types</a></li>
+  <li><a href="terminologies.html">Using Codes in Resources</a></li>
+</ul>
+<p>
+For context for this ballot:
+</p>
+<ul>
+  <li><a href="todo.html">Outstanding Issues</a></li>
+</ul>
+<p>
+Feel free to drill down into any other sections of interest.  If you want to ensure a complete review of the whole spec, the 
+<a href="toc.html">Table of Contents</a> may be a useful guide.
+</p>
 
 </div>
 

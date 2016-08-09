@@ -272,8 +272,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     this.tsServer = tsServer;
   }
 
-//  public final static String DEF_TS_SERVER = "http://fhir3.healthintersections.com.au/open";
-  public final static String DEF_TS_SERVER = "http://local.healthintersections.com.au:960/open";
+  public final static String DEF_TS_SERVER = "http://fhir3.healthintersections.com.au/open";
+//  public final static String DEF_TS_SERVER = "http://local.healthintersections.com.au:960/open";
   
   public final static String WEB_PUB_NAME = "DSTU2";
   public final static String CI_PUB_NAME = "Current Build";
@@ -7739,10 +7739,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   @Override
   public ResourceWithReference resolve(String url) {
     String[] parts = url.split("\\/");
+    
     if (parts.length == 2 && definitions.hasResource(parts[0]) && parts[1].matches(FormatUtilities.ID_REGEX)) {
-      return new ResourceWithReference(parts[0].toLowerCase()+"-"+parts[1].toLowerCase()+".html", null);
+      Example ex = null;
+      try {
+        ex = findExample(parts[0], parts[1]);
+      } catch (Exception e) {
+      }
+      if (ex != null)
+        return new ResourceWithReference(parts[0].toLowerCase()+"-"+parts[1].toLowerCase()+".html", null);
     }
-    System.out.println("Reference to undefined resource: \""+url+"\"");
+//    System.out.println("Reference to undefined resource: \""+url+"\"");
     return new ResourceWithReference("todo.html", null);
   }
 

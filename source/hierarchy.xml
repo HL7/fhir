@@ -24,6 +24,7 @@ signatures.html
       <page title="Operations" filename="operationslist.html"/>
       <page title="Services" filename="servicelist.html"/>
       <page title="Namespace List" filename="ns.html"/>
+      <page title="Ballot Introduction" filename="ballot-intro.html"/>
     </page>
 
     <!-- foundation - quite a lot of documentation -->

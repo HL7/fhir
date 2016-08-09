@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Observation xmlns="http://hl7.org/fhir">
-  <id value="example-observation-genetics-3"/>
+  <id value="example-genetics-3"/>
   <status value="final"/>
   <code>
     <text value="Further analysis"/>
@@ -19,7 +19,7 @@
   <related>
     <type value="derived-from"/>
     <target>
-      <reference value="Observation/example-observation-genetics-1"/>
+      <reference value="Observation/example-genetics-1"/>
       <display value="ObservationForGenetics profile example 1"/>
     </target>
   </related>
