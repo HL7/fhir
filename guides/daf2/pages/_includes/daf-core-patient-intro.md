@@ -25,7 +25,7 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 1. a patient name
 1. a gender
 
-**2015 Edition Certification Requirements ([Must Support](#must_support)).**
+**2015 Edition Certification Requirements ([Must Support]).**
 
 In addition, based upon the 2015 Edition Certification Requirements, the following data-elements must be supported.
  
@@ -43,3 +43,4 @@ In addition, based upon the 2015 Edition Certification Requirements, the followi
 * none
 
 [Patient]: http://hl7-fhir.github.io/patient.html
+[Must Support]: daf-core.html#mustsupport 
