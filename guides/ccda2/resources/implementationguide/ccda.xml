@@ -221,7 +221,7 @@
         <reference value="Composition/ccda-ccd-composition-example"/>
       </sourceReference>   
       <exampleFor>
-            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-ccd-composition"/>
+            <reference value="StructureDefinition/ccda-ccd-composition"/>
           </exampleFor> 
     </resource>
     
@@ -235,7 +235,7 @@
         <reference value="Composition/ccda-care-plan-composition-example"/>
       </sourceReference>       
       <exampleFor>
-            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-care-plan-composition"/>
+            <reference value="StructureDefinition/ccda-care-plan-composition"/>
           </exampleFor> 
     </resource>
     <resource>
@@ -247,7 +247,7 @@
         <reference value="Composition/ccda-consultation-note-composition-example"/>
       </sourceReference>
        <exampleFor>
-            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-consultation-note-composition"/>
+            <reference value="StructureDefinition/ccda-consultation-note-composition"/>
           </exampleFor> 
     </resource>
     <resource>
@@ -259,7 +259,7 @@
         <reference value="Composition/ccda-diagnostic-imaging-composition-example"/>
       </sourceReference>
       <exampleFor>
-        <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-diagnostic-imaging-composition"/>
+        <reference value="StructureDefinition/ccda-diagnostic-imaging-composition"/>
       </exampleFor> 
     </resource>
     <resource>
@@ -271,7 +271,7 @@
         <reference value="Composition/ccda-discharge-summary-composition-example"/>
       </sourceReference>
        <exampleFor>
-            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-discharge-summary-composition"/>
+            <reference value="StructureDefinition/ccda-discharge-summary-composition"/>
           </exampleFor> 
     </resource>
     <resource>
@@ -283,7 +283,7 @@
         <reference value="Composition/ccda-history-and-physical-composition-example"/>
       </sourceReference>
        <exampleFor>
-            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-history-and-physical-composition"/>
+            <reference value="StructureDefinition/ccda-history-and-physical-composition"/>
           </exampleFor> 
     </resource>
     <resource>
@@ -295,7 +295,7 @@
         <reference value="Composition/ccda-operative-note-composition-example"/>
       </sourceReference>
        <exampleFor>
-            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-operative-note-composition"/>
+            <reference value="StructureDefinition/ccda-operative-note-composition"/>
           </exampleFor> 
     </resource>
     <resource>
@@ -307,7 +307,7 @@
         <reference value="Composition/ccda-progress-note-composition-example"/>
       </sourceReference>
        <exampleFor>
-            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-progress-note-composition"/>
+            <reference value="StructureDefinition/ccda-progress-note-composition"/>
           </exampleFor>
     </resource>
     <resource>
@@ -319,7 +319,7 @@
         <reference value="Composition/ccda-procedure-note-composition-example"/>
       </sourceReference>
        <exampleFor>
-            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-procedure-note-composition"/>
+            <reference value="StructureDefinition/ccda-procedure-note-composition"/>
           </exampleFor> 
     </resource>
     <resource>
@@ -331,7 +331,7 @@
         <reference value="Composition/ccda-referral-note-composition-example"/>
       </sourceReference>
       <exampleFor>
-        <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-referral-note-composition"/>
+        <reference value="StructureDefinition/ccda-referral-note-composition"/>
       </exampleFor> 
     </resource>
   
