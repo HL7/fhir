@@ -67,6 +67,8 @@ import org.hl7.fhir.dstu3.utils.BaseWorkerContext;
 import org.hl7.fhir.dstu3.utils.INarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
+import org.hl7.fhir.dstu3.utils.NarrativeGenerator.IReferenceResolver;
+import org.hl7.fhir.dstu3.utils.NarrativeGenerator.ResourceWithReference;
 import org.hl7.fhir.dstu3.utils.client.EFhirClientException;
 import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
 import org.hl7.fhir.dstu3.validation.IResourceValidator;
@@ -1055,6 +1057,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   public boolean hasCache() {
     return true;
   }
+
 
 
 }

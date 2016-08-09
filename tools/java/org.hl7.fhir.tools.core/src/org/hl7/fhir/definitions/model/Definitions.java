@@ -738,4 +738,8 @@ public class Definitions {
     return false;
   }
 
+  public ConstraintStructure findProfile(String id) {
+    return profileIds.get(id);
+  }
+
 }

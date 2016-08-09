@@ -21,7 +21,8 @@
 
  -- Row 4 -----------------------------------
   Binding Name = CommunicationReason
-  Binding = unbound
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
   Definition = Codes for describing reasons for the occurrence of a communication.
   Conformance = example
 

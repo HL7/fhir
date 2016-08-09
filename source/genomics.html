@@ -1,0 +1,1469 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Messaging using FHIR Resources%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+  <h2>Genomics Implementation Guidance</h2>
+<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg cg%]">[%wgt cg%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: 1</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
+
+  <p><b>Table of Contents</b></p>
+
+    <ol>
+      <li><a href="#background">Background</a></li>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#sequence">Sequence Resource</a></li>
+      <li><a href="#observation-genetics">Observation-genetics Profile</a></li>
+      <li><a href="#diagnosticreport-genetics">DiagnosticReport-genetics Profile</a></li>
+      <li><a href="#diagnosticrequest-genetics">DiagnosticRequest-genetics Profile</a></li>
+      <li><a href="#hla">HLA genotyping results Profile</a></li>
+      <li><a href="#resource_vs_profiles">Relationship among Sequence resource and genetics profiles</a></li>
+      <li><a href="#dam">HL7 Domain Analysis Model Use Cases</a></li>
+      <li><a href="#other_examples">Other Genomics Use Cases</a></li>
+      <li><a href="#apps">Clinical Genomics Apps</a></li>
+      <li><a href="#history">Appendix 1: From DSTU2 Genomics to STU3</a></li>
+    </ol>
+
+<a name="background"> </a>
+  <h2>Background</h2>
+  <p>
+    Rapid advances in sequencing technologies, clinical genetics tests for whole
+    genome and exome sequencing are allowing sophisticated genetics testing to
+    be used by providers and patients in clinical decisions. Results from such
+    tests are used to identify distinct genetic variants that may contribute to
+    syndromes, conditions and/or predictive responses to treatments. The
+    implementation of precision medicine will depend upon having such data to
+    diagnose patients, choose medications, and predict the course of disease and
+    care, but will require standards and effective user interfaces.
+   </p>
+  <p>
+    A current technical challenge exists in interoperability, or allowing the
+    ability to access and share clinical and genetics data. This
+    interoperability includes collection, coding, and retrieval to scale. An
+    individual's genetic data set is large, complex and requires curation.
+    Unfortunately, incompatible systems and nomenclatures are already in use.
+    A standards based ontology that could be adopted to integrate both genetic
+    data and clinical information systems will be crucial to accelerating the
+    integration of precision medicine and to make sense of genetic testing
+    results in a complete clinical context.</p>
+  <p>One approach for collecting, coding, and retrieving genetics data comes
+    from the <a href="http://genomicsandhealth.org">Global Alliance for Genomics and Health</a>
+    (<abbr title="Global Alliance for Genomics and Health">GA4GH</abbr>). The
+    GA4GH organization has built and is refining an API and data
+    model for the exchange of full sequence genomic information across multiple
+    research organizations and platforms. The GA4GH focuses on the needs of
+    researchers.
+  </p>
+  <p>
+    A second approach is evolving from <a href="http://hl7.org">Health Level 7</a> (<abbr title="Health Level 7">HL7</abbr>) through its standards family called <a href="http://hl7.org/fhir/">Fast Healthcare Interoperability Resources</a> (<abbr title="Fast Healthcare Interoperability Resources">FHIR</abbr>). FHIR focuses on clinical needs and systems and has principally focused on standardizing traditional clinical data of the sort in EMR systems using very modern web technology-based ideas. FHIR is attractive because it is relatively easy to implement because it is comprised of a set of modular components called resources, which can be easily and incrementally assembled into working systems. The clinical requirements for genetics data is, relative to genomics research needs, utilitarian and reductive because it is about distilling and extracting particular genetics data produced by ever more sophisticated testing for use at the point-of-care. This has made FHIR a very functional framework to initiate an interoperable clinical genetics data standardization to which multiple stakeholders have contributed to this guide.
+  </p>
+  <p>
+    Starting in 2014, the HL7 Clinical Genomics Working Group (CGWG) has been drafting the FHIR framework for clinical genetics testing for general adoption. This effort reached its first major milestone on September 23, 2015, when HL7 released its second FHIR Draft Standard for Trial Use (DSTU2). DSTU2 introduced a Standard genetics profile that applies to the FHIR Observation resource. The profile was created according to the FHIR Clinical Genomics Project Scope Statement that authorized its community development. Using this profile, Observation payloads can return genetic testing results in a standardized manner.
+  </p>
+  <p>
+    Extending Observations rather than creating a new, dedicated FHIR genetics data resource is consistent with the FHIR community mandate because it only adds new resources to an existing resource library when there is a compelling case to do so. We provide the case to add a Sequence resource in this document.
+  </p>
+
+<a name="overview"> </a>
+  <h2>Overview</h2>
+  <p>
+    Given the clinical significance of genetic sequence data and the wealth of information that may be retrieved for an individual's health and with metadata for the betterment of public health, we propose to move beyond FHIR DSTU2 Standard Genetics profile on Observation and allow increased granularity and less ambiguity by creating a new resource to be called <strong>Sequence</strong>. This resource will be used to hold clinically relevant sequence data in a manner that is both efficient and versatile integrating new and as yet undefined types of genomic and other -omics data that will soon be commonly entered into health records for clinical use.   Sequence will be leveraged by other FHIR resources, including Observation.  This is consistent with how all FHIR resources are designed and used.
+  </p>
+  <p>
+    The FHIR Clinical Genomics Working Group (CGWG) began discussing such a dedicated resource in 2014. The September 2014 Informative Ballot (“HL7 Clinical Genomics, Domain Analysis Model: Clinical Sequencing Release 1”) provided guiding use cases, which initially informed development of the initial Standard Genetics profile that is found in FHIR DSTU2. The same use cases also led to a second Project Scope Statement in May 2015 (approved by HL7 DESD/OO/FMG) to develop a Sequence resource (“Develop FHIR sequence resource for Clinical Genomics”). A preliminary effort to address these issues has been explored and published in context of the <a href="http://smarthealthit.org/an-app-platform-for-healthcare/about/">Substitutable Medical Applications and Reusable Technologies</a> (<abbr title="Substitutable Medical Applications and Reusable Technologies">SMART</abbr>) Platforms Project and described in an article (“<a href="http://jamia.oxfordjournals.org/content/early/2015/07/21/jamia.ocv045.long">SMART on FHIR Genomics: Facilitating standardized clinico-genomic apps</a>”).
+  </p>
+  <p>
+    Sequence is designed to hold genetic sequences in blocks relevant to actionable clinical decision-making. Extensions to Sequence address complex cases and can associate it with repositories for retrieving a patient’s full sequence data, such as those defined by GA4GH. Other changes include a suite of genetics profiles for other FHIR resources. In addition, the Observation-genetics profile adds new references so that an Observation can report genetics test results to be integrated into the EHR. There are also new genetics-extension profiles for DiagnosticReport, DiagnosticRequest and FamilyMemberHistory, respectively, to extend them to report genetics results. We have given all of these FHIR genetics profiles the suffix “-genetics” (e.g. “DiagnosticReport-genetics profile”). New profiles on top of DiagnosticReport have been created for reporting HLA genotyping results.
+  </p>
+  <p>
+    On the following pages, we elaborate upon the rationale for the proposed design, introducing in some detail the following resource and profiles:
+    <ul>
+      <li>A Sequence resource</li>
+      <li>An Observation-genetics profile on Observation</li>
+      <li>A DiagnosticReport-genetics profile on DiagnosticReport</li>
+      <li>A FamilyMemberHistory-genetics profile on FamilyMemberHistory</li>
+      <li>A DiagnosticRequest-genetics profile on DiagnosticRequest</li>
+      <li>An HLA-genotyping-results profile on DiagnosticReport</li>
+    </ul>
+  </p>
+  <p>
+    With these resource and profiles, FHIR can support a large set of clinical use cases (see <a href="#dam">Section 9</a>, <a href="#other_examples">10</a> , and <a href="#apps">11</a>) and is thus positioned to address all emergent -omics use cases, including Next-Generation Sequencing (<abbr title="Next-Generation Sequencing">NGS</abbr>). 
+    These tools are simple to implement, will optimize payload sizes, and help developers avoid redundant retrieval of data.  <a href="#history">Appendix 1</a> of this document shows how DSTU 2.0 can be mapped to the new additions to the resource.
+  </p>
+
+<a name="sequence"> </a>
+  <h2>Sequence Resource</h2>
+
+  <h3>Structure Diagram</h3>
+
+[%resource-table Sequence%]
+  
+  <h3>Description</h3>
+  <p>
+    The <a href="sequence.html">Sequence resource</a> is designed for next-generation sequencing data.  Patients' observed sequences should be represented by recording reference sequence id/string and detected variants.
+  </p>
+
+<p>
+  Sequence.referenceSeq: Four optional ways are provided to represent reference sequence in Sequence resource:
+  <ol>
+    <li>Sequence.referenceSeq.referenceSeqId: Reference sequence id in public database;</li>
+    <li>Sequence.referenceSeq.referenceSeqString: Reference sequence string; </li>
+    <li>Sequence.referenceSeq.referenceSeqPointer: Reference to observed sequence stored in another sequence entity;  </li>
+    <li>Sequence.referenceSeq.genomeBuild, Sequence.reference.chromosome: The combination of genome build and chromosome. </li>
+  </ol>
+</p>
+<p>
+The window selects a range from the reference sequence (or genome) that is used to define building block of a current sequence (e.g. Sequence resource instance 1).
+</p>
+<p>
+Sequence.quality: Quality scores for bases in the sequence. Is is intended to be compliant with emerging regulatory needs needs (eg: those found at <a href="https://precision.fda.gov">PrecisionFDA</a>).
+</p>
+<p>
+Sequence.variant: This complex element is used for encoding sequence. When the information of reference sequence and variants are provided the observed sequence will be derived.
+</p>
+
+<h4>Internal Pointers</h4>
+<p>
+Sequence.patient: This element points to a Patient identifier to show that this sequence is related to the same patient.
+</p>
+<p>
+Sequence.specimen: A pointer to specimen identifier, if needed.
+</p>
+<p>
+Sequence.device: A pointer to Device identifier which is used for describing sequencing method (such as chip id,  chip manufacturer etc.)
+</p>
+<p>
+Sequence.pointer: A pointer to a Sequence instance for the next sequence block to build a sequence graph.
+</p>
+
+<h4>External Pointers</h4>
+<p>
+Sequence.repository: This complex element is used to provide a clarifying structure, a base URL, and/or relevant IDs when referring to an external repository.
+</p>
+<p>
+GA4GH Repository Example. If the Sequence resource refers to a GA4GH repository for read info, references to a GA4GH full sequence dataset should conform to GA4GH data models and accessed via the GA4GH API. The URL of a GA4GH repository, ids of a GA4GH variant and read group are contained in the Sequence resource. The URL of a GA4GH repository is an api_base of a GA4GH server that could be called for sequence data. The GA4GH variant set is a collection of call sets and the GA4GH call set is a collection of variant calls, typically for one sample. A variant call represents a determination of genotype with respect to that variant.
+</p>
+<p>
+  VariantSet definition: A VariantSet is a collection of variants and variant calls intended to be analyzed together.
+</p>
+<p>
+  CallSet definition: A CallSet is a collection of calls that were generated by the same analysis of the same sample.
+</p>
+<p>
+  A read group is a collection of reads produced by a sequencer. A read group set typically models reads corresponding to one sample, sequenced one way, and aligned one way. The API reference of <a href="https://cloud.google.com/genomics/">Google Genomics</a> is a GA4GH repository built by Google and provides details of the data models, such as the resource representations.
+</p>
+
+<h3>Usage Examples</h3>
+<p>
+We provide an <a href="sequence-example.html">example</a> on how to use the Sequence resource.
+</p>
+
+[%example Sequence/example%]
+
+<p>
+Source: <a href="sequence-example.xml.html">XML</a>, <a href="sequence-example.json.html">JSON</a>, <a href="sequence-example.ttl.html">Turtle</a>.
+</p>
+
+<img src="genomics-image15.jpg" alt="Sequence Graph" style="width:624px;height:468px;"/>
+<p>The diagram above describes 4 optional ways provided in the Sequence resource to encode sequencing data.</p>
+
+<img src="genomics-image34.jpg" alt="" style="width:624px;height:468px"/>
+
+<a name="observation-genetics"> </a>
+<h2>Observation-genetics Profile</h2>
+
+<h3>Structure Diagram</h3>
+
+[%profile-diff observationforgenetics%]
+
+<h3>Description</h3>
+
+<p>
+The <a href="observationforgenetics.html">Observation-genetics profile</a> is used to describe a sequence variant.
+</p>
+<p>
+  Some of the attributes of the profile follow:
+  <ul>
+    <li>The observation-geneticsSequence extension will refer to the Sequence resource for sequence information related to this variant.</li>
+    <li>The observation-geneticsInterpretation extension will refer to an Observation instance which contains clinical interpretations for the variant described.</li>
+    <li>The code, effective[x], issued, performer, method, specimen elements can be used to describe how the genetic observation (variant and sequence data) is obtained.</li>
+    <li>Other extensions are used to describe attributes of this variant such as Genomics Source Class, Amino Acid Change Type, etc.</li>
+    <li>The Observation.result element is used to show whether this variant is detected in this Patient.</li>
+  </ul>
+</p>
+<p>
+  Additional Observations instance will be created for variant’s further analysis. For example, Observation.component element will be used for knowledge-based interpretations of the sequence variant. Here are some examples for the component.code.
+</p>
+<br/>
+<div dir="ltr">
+    <table>
+        <colgroup>
+            <col width="96"/>
+            <col width="192"/>
+            <col width="282"/>
+        </colgroup>
+        <tbody>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        LOINC Code
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        LOINC Element Name
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Comments
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        51963-7
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Medication Assessed
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        A coded medication accessed in a pharmacogenetic test (recommend RxNorm).
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        51967-8
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Genetic disease assessed
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        A coded disease that is associated with the region of DNA covered by the genetic test (recommend SNOMED).
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        53037-8
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Genetic Disease Sequence Variant Interpretation
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Interpretation of the pathogenicity of the DNA Sequence Variant in the context of the assessed genetic disease.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        53040-2
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Drug Metabolism Sequence Variant Interpretation
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Predicted phenotype for drug efficacy. A sequence variant interpretation value known to allow (responsive) or prevent (resistant) the
+                        drug to perform.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        51961-1
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Drug Efficacy Sequence Variant Interpretation
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Predicted phenotype for ability of drug to bind to intended site in order to deliver intended effect. A Sequence Variant interpretation
+                        value known to allow (responsive) or prevent (resistant) the drug to perform.
+                    </p>
+                    <br/>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<p>
+  In the meantime, the related element in this Observation instance will point to Observaiton-genetics profile to show these clinical interpretations are further analysis for the variant.
+</p>
+
+<h3>Usage Examples</h3>
+
+<h4>An Observation-genetics instance and its two related Observation instances for interpretations</h4>
+<p>
+  An <a href="observation-example-genetics-1.html">example</a> of an Observation-genetics instance which records a variant detected in the patient.
+</p>
+
+[%example Observation/example-observation-genetics-1%]
+
+<p>
+Source: <a href="observation-example-genetics-1.xml.html">XML</a>, <a href="observation-example-genetics-1.json.html">JSON</a>, <a href="observation-example-genetics-1.ttl.html">Turtle</a>.
+</p>
+
+<p>
+  An <a href="observation-example-genetics-2.html">example</a> of an Observation instance which records knowledge-based clinical interpretations for the variant represented in A.
+</p>
+
+[%example Observation/example-observation-genetics-2%]
+
+<p>
+Source: <a href="observation-example-genetics-2.xml.html">XML</a>, <a href="observation-example-genetics-2.json.html">JSON</a>, <a href="observation-example-genetics-2.ttl.html">Turtle</a>.
+</p>
+
+<p>
+  An <a href="observation-example-genetics-3.html">example</a> of an Observation instance which records PCR validation test for the variant in A.
+</p>
+
+[%example Observation/example-observation-genetics-3%]
+
+<p>
+Source: <a href="observation-example-genetics-3.xml.html">XML</a>, <a href="observation-example-genetics-3.json.html">JSON</a>, <a href="observation-example-genetics-3.ttl.html">Turtle</a>.
+</p>
+
+<a name="diagnosticreport-genetics"> </a>
+<h2>DiagnosticReport-genetics Profile</h2>
+
+<h3>Structure Diagram</h3>
+
+[%profile-diff reportforgenetics%]
+
+<p>
+This <a href="reportforgenetics.html">DiagnosticReport-genetics</a> is built on top of DiagnosticReport. The new profile is used to describe a genetics test report. The result element in DiagnosticReport will refer to the Observation resource that can lead to a bundle of genetic observations. And the element of code, effective[x], issued, performer, request, specimen are be used to describe the details of the genetic test. Extensions about AssessedCondition and FamilyMemberHistory are added. Overall, this profile extends the DiagnosticReport resource to enable reporting of structured genetic test results. In addition, it denotes condition context for genetic testing, which may influence reported variants and interpretations for large genomic testing panels.
+</p>
+<p>
+<ul>
+  <li>The DiagnosticReport-genetics profile contains two extensions referring to other resources/profiles and one complex extension.</li>
+  <li>AssessedCondition is used to denote condition context for genetic testing, which may influence reported variants and interpretation for large genomic testing panels. It refers to the Condition resource.</li>
+  <li>FamilyMemberHistory are significant health events and conditions for one or more persons related to the patient. It refers to the FamilyMemberHistory-Genetic profile.</li>
+  <li>Analysis provides knowledge-based interpretation of overall results of tests performed on patients. </li>
+</ul>
+    Examples for analysis.code:
+    <br/>
+    <br/>
+    <div dir="ltr">
+        <table>
+            <colgroup>
+                <col width="96"/>
+                <col width="186"/>
+                <col width="294"/>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td>
+                        <p dir="ltr">
+                            LOINC Code
+                        </p>
+                    </td>
+                    <td>
+                        <p dir="ltr">
+                            LOINC Element Name
+                        </p>
+                    </td>
+                    <td>
+                        <p dir="ltr">
+                            Comments
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p dir="ltr">
+                            51968-6
+                        </p>
+                    </td>
+                    <td>
+                        <p dir="ltr">
+                            Genetic Disease Analysis Overall Interpretation
+                        </p>
+                    </td>
+                    <td>
+                        <p dir="ltr">
+                            Interpretation of all identified DNA Sequence variants along with any known clinical information for the benefit of aiding clinicians
+                            in understanding the results overall in either the context of diagnosis or increased risk of disease.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p dir="ltr">
+                            51964-5
+                        </p>
+                    </td>
+                    <td>
+                        <p dir="ltr">
+                            Drug Efficacy Analysis Overall Interpretation
+                        </p>
+                    </td>
+                    <td>
+                        <p dir="ltr">
+                            Overall predicted phenotype for drug efficacy for all DNA Sequence Variants identified in a single case.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p dir="ltr">
+                            51971-0
+                        </p>
+                    </td>
+                    <td>
+                        <p dir="ltr">
+                            Drug metabolism analysis overall interpretation
+                        </p>
+                    </td>
+                    <td>
+                        <p dir="ltr">
+                            Overall predicted phenotype for drug metabolism for all DNA Sequence Variants identified in a single case.
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br/>
+</p>
+
+<h3>Usage Examples</h3>
+<p>
+An <a href="diagnosticreport-genetics-example-2-familyhistory.html">example</a> of a genetic test report for a patient with FamilyHistory.
+</p>
+
+[%example DiagnosticReport/dg2%]
+
+<p>
+Source: <a href="diagnosticreport-genetics-example-2-familyhistory.xml.html">XML</a>, <a href="diagnosticreport-genetics-example-2-familyhistory.json.html">JSON</a>, <a href="diagnosticreport-genetics-example-2-familyhistory.ttl.html">Turtle</a>.
+</p>
+
+<p>
+  An <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.html">example</a> of a comprehensive bone marrow report.
+</p>
+
+
+[%example DiagnosticReport/report%]
+
+<p>
+Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.html">XML</a>, <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.json.html">JSON</a>, <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.ttl.html">Turtle</a>.
+</p>
+
+
+
+<a name="diagnosticrequest-genetics"> </a>
+<h2>DiagnosticRequest-genetics profile</h2>
+
+<h3>Structure Diagram</h3>
+<p>
+  A complex extension is added on top of the DiagnosticRequest resource. Here is the structure of the extension:
+</p>
+
+[%profile-diff orderforgenetics%]
+
+<h3>Description</h3>
+<p>
+  To describe an order requested sequence variants detection. User must set up the code for the request and they can also refer to the corresponding sequence instance for that variant.
+</p>
+
+<h3>Usage Example</h3>
+<h4>An order for genetics test</h4>
+<p>
+  <a href="diagnosticrequest-genetics-example-1.html">Here</a> is a diagnostic request for testing 185delAG variant. The mother of the patient received results from a mutation panel (eg. MyRisk from Myriad) and she has a BRCA1 185delAG mutation. The clinician the would like to request to test the patient only for an 185delAG mutation. In this case, the diagnostic request for the patient will specify the sequence variant - 185delAG.
+</p>
+
+<a name="hla"> </a>
+<h2>HLA genotyping results Profile</h2>
+<p>
+  Human leukocyte antigen (HLA) genotyping is fundamental for research and clinical practice in immunogenetics and histocompatibility. Pointers to external locations refer to registered methods, raw NGS reads, and reference standards can be conveyed in this profile. Information about allele assignment including ambiguous results and the allele database used for assignments is stored in extensions.
+</p>
+<p>
+  The structure of the <a href="hlaresult.html">HLA typing report</a> in this profile attempts to follow the principles outlined in the Minimum Information for ReportIng Next-generation sequence Genotyping (MIRING). These principles were identified through a series of meetings with international group of stakeholders in the  application of Next Generation Sequencing (NGS) technology for genotyping the HLA and KIR loci as well as other immune-related loci (http://igdawg.org/ngs.html). MIRING describes eight principles, described in detail in <a href="http://www.ncbi.nlm.nih.gov/pubmed/26319908">Human Immunology. 2015 Dec; 76(12):954-962</a>. These include detailed metadata about:
+  <ol>
+    <li>MIRING Annotation</li>
+    <li>Reference Context</li>
+    <li>Full Genotype</li>
+    <li>Consensus Sequence</li>
+    <li>Novel Polymorphisms</li>
+    <li>Platform Documentation</li> 
+    <li>Read Processing Documentation</li>
+    <li>Primary Data</li>
+  </ol>
+  (see the publication above for details about each)
+</p>
+<p>
+  These principles were implemented in a technical specification by extending an existing XML based format for exchanging histocompatibility and immunogenetic genotyping data called Histoimmunogenetics Markup Language (HML) to include results from NGS methodologies  (https://bioinformatics.bethematchclinical.org/hla-resources/hml/). The resulting schema may be found in https://schemas.nmdp.org/. The National Marrow Donor Program (NMDP)/Be The Match uses this format for reporting HLA genotyping from potential donors and for patients needing stem cell transplants.
+</p>
+<p>
+  Both MIRING and HML were used to inform mapping data elements to FHIR resources such as Patient, Specimen, Sequence, ObservationforGenetics Profile, and DiagnosticReport  where possible. Several additional data elements were needed specifically for this use case, resulting in the development of a specific profile for reporting HLA genotyping results (Diagnostic Report Profile for HLA Genotyping Results).
+  <ul>
+    <li>Minimum information for reporting next generation sequence genotyping (MIRING): Guidelines for reporting HLA and KIR genotyping via next generation sequencing (see <a href="http://www.ncbi.nlm.nih.gov/pubmed/26407912">here</a>)</li>
+    <li>Histoimmunogenetics Markup Language 1.0: Reporting Next Generation Sequencing-based HLA and KIR Genotyping (see <a href="http://www.ncbi.nlm.nih.gov/pubmed/26319908">here</a>)</li>
+  </ul>
+</p>
+
+<h3>Structure Diagram of HLA genotyping results Profile</h3>
+
+[%extension-diff hla-genotyping-resultsHaploid%]
+
+<p>
+  Both hla-genotyping-resultsGlstring and hla-genotyping-resultsHaploid are complex extensions.
+</p>
+<p>
+  The development of these extensions were informed from the allele-assignment structure found in HML. While allele assignment for individual loci can be reported in an Observation, here they are used to summarize the assignments at a report level. Two methods may be used for reporting HLA allele-assignments: Haploid and GL String.
+</p>
+<p>
+  Structure of hla-genotyping-resultsHaploid:
+</p>
+
+[%extension-diff hla-genotyping-resultsHaploid%]
+
+<p>
+  Haploid reporting is a method that is used to report an individual allele, or a list of possible alleles if the results are ambiguous, using NMDP Multiple Allele Codes (MAC) which is a shorthand for describing allele ambiguity (https://bioinformatics.bethematchclinical.org/hla-resources/allele-codes/). MACs are widely used for reporting HLA typing results because they are able to report long allele lists in a small amount of space, but the system has a number of shortcomings (<a href="http://www.ncbi.nlm.nih.gov/pubmed/23849068">Tissue Antigens. 2013 Aug;82(2):106-12</a>). When reporting data using haploid, typical use is one or two haploid elements for a particular locus, but possibly more if multiple loci are covered (ex: two HLA-DRB1 haploids + one HLA-DRB3 haploid).
+</p>
+<p>
+  Within Haploid, Method indicates whether the general methodology is DNA based typing (e.g., Sequence Specific Primers (SSP), Sequence Specific Oligonucleotide Probes (SSOP), or Sequence Based Typing (SBT)), or SER which indicates serology based methods.
+</p>
+<p>
+  Example of using two hla-genotyping-resultsHaploid extensions to report a HLA-A genotype of HLA-A*01:AB and HLA-A*02:MN which expands to HLA-A*01:01/HLA-A*01:02 and HLA-A:02:01/HLA-A:02:02/HLA-A:02:03
+</p>
+
+<pre class="xml">
+  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsHaploid&quot; &gt;
+    &lt;extension url=”locus”&gt;
+        &lt;valueCodeableConcept&gt;
+            &lt;coding&gt;
+                &lt;system value=&quot;http://www.genenames.org&quot;/&gt;
+                &lt;code value=&quot;4931&quot;/&gt;
+                &lt;display value=&quot;HLA-A&quot;/&gt;
+            &lt;/coding&gt;
+            &lt;text value=&quot;HLA-A&quot;/&gt;
+        &lt;/valueCodeableConcept&gt;
+    &lt;/extension&gt;
+    &lt;extension url=”type”&gt;
+        &lt;valueCodeableConcept&gt;
+             &lt;coding&gt;
+                &lt;system value=&quot;https://bioinformatics.bethematchclinical.org/hla-resources/allele-codes/&quot;/&gt;
+                &lt;code value=&quot;AB&quot;/&gt;
+                &lt;display value=&quot;01/02&quot;/&gt;
+            &lt;/coding&gt;
+            &lt;text value=&quot;HLA-A*01:AB&quot;/&gt;
+        &lt;/valueCodeableConcept&gt;
+    &lt;/extension&gt;
+    &lt;extension url=”method”&gt;
+        &lt;valueCodeableConcept&gt;
+            &lt;text value=”DNA”/&gt;
+        &lt;/valueCodeableConcept&gt;
+    &lt;/extension&gt;
+  &lt;/extension&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsHaploid&quot; &gt;
+    &lt;extension url=”locus”&gt;
+        &lt;valueCodeableConcept&gt;
+            &lt;coding&gt;
+                &lt;system value=&quot;http://www.genenames.org&quot;/&gt;
+                &lt;code value=&quot;4931&quot;/&gt;
+                &lt;display value=&quot;HLA-A&quot;/&gt;
+            &lt;/coding&gt;
+            &lt;text value=&quot;HLA-A&quot;/&gt;
+        &lt;/valueCodeableConcept&gt;
+    &lt;/extension&gt;
+    &lt;extension url=”type”&gt;
+        &lt;valueCodeableConcept&gt;
+             &lt;coding&gt;
+                &lt;system value=&quot;https://bioinformatics.bethematchclinical.org/hla-resources/allele-codes/&quot;/&gt;
+                &lt;code value=&quot;AB&quot;/&gt;
+                &lt;display value=&quot;01/02/03&quot;/&gt;
+            &lt;/coding&gt;
+            &lt;text value=&quot;HLA-A*02:MN&quot;/&gt;
+        &lt;/valueCodeableConcept&gt;
+    &lt;/extension&gt;
+    &lt;extension url=”method”&gt;
+        &lt;valueCodeableConcept&gt;
+            &lt;text value=”DNA”/&gt;
+        &lt;/valueCodeableConcept&gt;
+    &lt;/extension&gt;
+  &lt;/extension&gt;
+</pre>
+
+<p>
+  Because of limitations with MAC, another method called GL Strings was developed that encodes the results in a text string with hierarchical set of operators to describe the relationships between alleles, lists of possible alleles, phased alleles, genotypes, lists of possible genotypes, and multilocus unphased genotypes, without losing typing information or increasing typing ambiguity. (<a href="http://www.ncbi.nlm.nih.gov/pubmed/23849068">Tissue Antigens. 2013 Aug;82(2):106-12</a>).
+</p>
+<p>
+  The structure of HLA-genotyping-resultsGlstring:
+</p>
+
+[%extension-diff hla-genotyping-resultsGlstring%]
+
+<p>
+  While the string format is easily parsed into separate components to be rendered for user viewing, GL Strings by themselves are potentially quite long and difficult to read. It often advantageous to point to a URI which may return the GL String on demand to avoid manual data entry. This is available through the URI element in this extension.
+</p>
+<p>
+  Example of using the hla-genotyping-resultsGlstring to report a GL String in both text and URI formats
+</p>
+
+<pre class="xml">
+  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsGlstring&quot;&gt;
+    &lt;extension url=”text”&gt;
+        &lt;valueString value=&quot;HLA-A*01:01:01:01/HLA-A*01:02+HLA-A*02:01:02/HLA-A*02:02:02/HLA-A*02:03:01&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;extension url=”uri”&gt;
+        &lt;valueUri value=&quot;https://gl.nmdp.org/imgt-hla/3.23.0/genotype/1h&quot;/&gt;
+    &lt;/extension&gt;
+  &lt;/extension&gt;
+</pre>
+
+<p>
+  Whether reporting in Haploid or GL String formats, it is important to identify the version of the IMGT/HLA allele database, as new HLA alleles are constantly being discovered and allele assignment is based on the known alleles at the time, and so results may need to be reinterpreted later. This is done through the Allele Database element.
+</p>
+<p>
+  Structure of hla-genotyping-resultsAlleleDatabase
+</p>
+
+[%extension-diff hla-genotyping-resultsAlleleDatabase%]
+
+<p>
+  Example of using hla-genotyping-resultsAlleleDatabase to report using the IMGT/HLA database, version 3.23
+</p>
+
+<pre class="xml">
+  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleDatabase&quot;&gt;
+    &lt;valueCodeableConcept&gt;
+        &lt;coding&gt;
+            &lt;system value=&quot;http://www.ebi.ac.uk/ipd/imgt/hla/&quot;/&gt;
+            &lt;version value=&quot;3.23&quot;/&gt;
+        &lt;/coding&gt;
+        &lt;text value=&quot;IMGT/HLA 3.23&quot;/&gt;
+    &lt;/valueCodeableConcept&gt;
+  &lt;/extension&gt;
+</pre>
+
+<p>
+  Overall methodology may be reported using hla-genotyping-resultsMethod. Here a codeable concept may be used to refer to method entered into a public registry, such as the NCBI Genetic Test Registry, or a local private registry.
+</p>
+<p>
+  Structure of hla-genotyping-resultsMethod
+</p>
+
+[%extension-diff hla-genotyping-resultsMethod%]
+
+<p>
+  Example of hla-genotyping-resultsMethod to report a lab test registered in the NCBI Genetic Test Registry
+</p>
+
+<pre class="xml">
+  &lt;extension  uri=&quot;http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsMethod&quot;&gt;
+    &lt;valueCodeableConcept&gt;
+          &lt;coding&gt;
+              &lt;system value=&quot;http://www.ncbi.nlm.nih.gov/gtr/&quot;/&gt;
+              &lt;code value=&quot;GTR000000000.0&quot;/&gt;
+          &lt;/coding&gt;
+          &lt;text value=”NGS based HLA-A genotyping”
+    &lt;/valueCodeableConcept&gt;
+  &lt;/extension&gt;
+</pre>
+
+<h3>Usage Example</h3>
+
+<p>
+  Example of a HLA genotyping report
+  <ul>
+    <li>that was requested in a Diagnostic Request,</li>
+    <li>with results for HLA-A, HLA-B, HLA-C loci, </li>
+    <li>by Sequence Based Typing (SBT) of exons 2 and 3,</li>
+    <li>using Next Generation Sequencing technologies,</li>
+    <li>allele assignment based on  the IMGT/HLA database version 3.23,</li>
+    <li>reported as a multilocus unphased genotype using GL Strings,</li>
+    <li>and with genotyping results for individual loci available in separate Observations</li>
+  </ul>
+</p>
+
+<pre class="xml">
+  &lt;DiagnosticReport&gt;
+    &lt;text&gt;
+      &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        &lt;h4&gt;HLA-A, -B, -C Genotyping Report for Marry Chalmers (MRN: 12345) &lt;/h4&gt;
+        &lt;pre&gt;
+        Gene      Allele 1                  Allele 2
+        HLA-A     HLA-A*01:01:01:01         HLA-A*01:02
+        HLA-B     HLA-B*15:01:01:01         HLA-B*57:01:01
+        HLA-C     HLA-C*01:02:01            HLA-C*03:04:01:01
+        &lt;/pre&gt;
+        &lt;p&gt;Allele assignments based on IMGT/HLA 3.23&lt;/p&gt;
+        &lt;p&gt;Issued: 2015-05-26T15:30:10+01:00&lt;/p&gt;
+        &lt;p&gt;Method: Next-Generation Sequencing of exons 2 and 3 of HLA Class I genes&lt;/p&gt;
+        &lt;p&gt;Lab: ACME labs, Inc&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/text&gt;
+    &lt;code&gt;
+        &lt;coding&gt;
+            &lt;system value=&quot;http://loinc.org&quot;/&gt;
+            &lt;code value=&quot;53767-0&quot;/&gt;
+            &lt;display value=&quot;HLA-A+​B+​C SBT [Interpretation] by High resolution&quot;/&gt;
+        &lt;/coding&gt;
+    &lt;/code&gt;
+    &lt;category&gt;
+        &lt;coding&gt;
+            &lt;system value=&quot;http://hl7.org/fhir/ValueSet/diagnostic-service-sections&quot;/&gt;
+            &lt;code value=&quot;GE&quot;/&gt;
+            &lt;display value=&quot;Genetics&quot;/&gt;
+        &lt;/coding&gt;
+    &lt;/category&gt;
+    &lt;subject&gt;
+        &lt;reference value=&quot;Patient/123&quot;/&gt;
+        &lt;display value=&quot;Mary Chalmers&quot;/&gt;
+    &lt;/subject&gt;
+    &lt;specimen&gt;
+        &lt;reference value=&quot;Specimen/456&quot;/&gt;
+        &lt;display value=&quot;buccal swab&quot;/&gt;
+    &lt;/specimen&gt;
+    &lt;request&gt;
+        &lt;reference value=”DiagnosticRequest/789”/&gt;
+        &lt;display value=”Order for HLA-A,-B,-C genotyping”/&gt;
+    &lt;/request&gt;
+    &lt;effectiveDateTime value=&quot;2015-05-26T15:30:10+01:00&quot;/&gt;
+    &lt;issued value=&quot;2014-05-16T10:28:00+01:00&quot;/&gt;
+    &lt;extension xmlns=&quot;http://hl7.org/fhir&quot;
+         url=&quot;http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleAsignmentDate&quot;&gt;
+        &lt;valueDate value=&quot;2014-05-16T10:28:00+01:00&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;extension xmlns=&quot;http://hl7.org/fhir&quot;
+         url=&quot;http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleDatabase&quot;&gt;
+        &lt;valueCodeableConcept&gt;
+            &lt;coding&gt;
+                &lt;system value=&quot;http://www.ebi.ac.uk/ipd/imgt/hla/&quot;/&gt;
+                &lt;version value=&quot;3.23&quot;/&gt;
+            &lt;/coding&gt;
+            &lt;text value=&quot;IMGT/HLA 3.23&quot;/&gt;
+        &lt;/valueCodeableConcept&gt;
+    &lt;/extension&gt;
+    &lt;extension xmlns=&quot;http://hl7.org/fhir&quot;
+        url=&quot;http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsGlstring&quot; &gt;
+        &lt;extension url=&quot;text&quot;&gt;
+            &lt;valueString value=&quot;HLA-A*01:01:01:01+HLA-A*01:02^HLA-B*15:01:01:01+HLA-B*57:01:01^HLA-C*01:02:01+HLA-C*03:04:01:01&quot;/&gt;
+        &lt;/extension&gt;
+        &lt;extension url=&quot;uri&quot;&gt;
+            &lt;valueUri value=&quot;https://gl.nmdp.org/imgt-hla/3.23.0/multilocus-unphased-genotype/i&quot; /&gt;
+        &lt;/extension&gt;
+    &lt;/extension&gt;
+    &lt;extension  xmlns=&quot;http://hl7.org/fhir&quot;
+        url=&quot;http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsMethod&quot;&gt;
+        &lt;valueCodeableConcept&gt;
+            &lt;coding&gt;
+                &lt;system value=&quot;http://www.ncbi.nlm.nih.gov/gtr/&quot;/&gt;
+                &lt;code value=&quot;GTR000000000.0&quot;/&gt;
+            &lt;/coding&gt;
+            &lt;text value=&quot;Next Generation Sequencing of exons 2 and 3 of HLA Class I genes&quot;/&gt;
+        &lt;/valueCodeableConcept&gt;
+    &lt;/extension&gt;
+    &lt;result&gt;
+        &lt;reference value=&quot;Observation/111&quot;/&gt;
+        &lt;display value=&quot;Genotype Observation for for HLA-A&quot;/&gt;
+    &lt;/result&gt;
+    &lt;result&gt;
+        &lt;reference value=&quot;Observation/222&quot;/&gt;
+        &lt;display value=&quot;Genotype Observation for for HLA-B&quot;/&gt;
+    &lt;/result&gt;
+    &lt;result&gt;
+        &lt;reference value=&quot;Observation/333&quot;/&gt;
+        &lt;display value=&quot;Genotype Observation for for HLA-C&quot;/&gt;
+    &lt;/result&gt;
+  &lt;/DiagnosticReport&gt;
+</pre>
+
+<p>
+  In the above example, three Observations are referenced, each containing the details surrounding the genotyping of each gene/locus. Those observations would further refer to other observations (using Observation.related) that point to phased exon sequences which are the basis for individual allele assignment. This strategy is illustrated in the following figure for one gene, and sequencing two exons for each allele. Note that references from DiagnosticReport and Observation back to Patient/Donor and Specimen are not shown for clarity, although we would include them in the resource instances.
+</p>
+
+<img src="genomics-image25.png" alt="Phasing" style="width:624px;height:396px;"/>
+
+<a name="resource_vs_profiles"> </a>
+<h2>Relationship among Sequence resource and genetics profiles</h2>
+
+<img alt="" src="genomics-image00.png" style="width: 624.00px; height: 428.00px;"/>
+
+<h3>Pointers to Sequence resource</h3>
+
+<p>
+  Sequence resource is used to transmit and represent sequencing data. In FHIR Genomics, there are several genetics profiles containing internal pointers to Sequence resource for genetic data reporting. Here is the summary:
+</p>
+<p>
+  Sequence.pointer: A bundle of Sequence instances can be connected by Sequence.pointer to build sequence graph described in Section 3. Sequence.pointer will point to the next sequence block.
+</p>
+<p>
+  Sequence extension in Observation-genetics profile: Observation-genetics profile is used to report a genetic variant found in patients. Sequence extension contains a pointer to Sequence identifier which has related sequencing read info. It will provide reference/observed allele information and quality scores for each based/sequence block.
+</p>
+
+<h3>Pointer to Observation resource (based on genetics profile)</h3>
+
+<p>
+  Observation-genetics based Observation resource is used for interpretative genetic data.  Sequence resource and genetics profiles will use internal pointers to Observation-genetics-profile based Observation instance for variant report.
+</p>
+<p>
+  Sequence.observation: A pointer to genetics Observation instance which is used for interpretations of this sequence block. Interpretations are generally about genetic variant found is this sequence block.
+</p>
+<p>
+  DiagnosticReport.result: A pointer to Observation instance. This element is used for reporting genetic result.
+</p>
+<p>
+  Item extension in DiagnosticRequest-genetics profile: It is used to describe the genetic test order.
+</p>
+<p>
+  FamilyMemberHistory:  A pointer to genetics Observation instance to report genetic test results of family member
+</p>
+
+<h3>Observation vs. Sequence</h3>
+
+<p>
+  Sequence is used for raw sequencing data while genetic-profile-based Observation resource is used for reporting interpretative genetic information (eg. DNA/amino acid variant detected in the patient). Although both Sequence and Observation-genetics profiles contain variant info, they are used differently: Sequence.variant is used for encoding the sequence block; the Observation-genetics profile is mainly used for a variants test result or interpretations of raw data in Sequence resource.
+</p>
+
+<h3>Usage example</h3>
+
+<img alt="" src="genomics-image09.png" style="width: 624.00px; height: 457.33px;"/>
+
+<p>
+  This use case depicts the whole story of FHIR in the clinical genomics setting: an order is requested, then test results are reported. A Sequence instance and two Observation instances for further interpretation are also created.
+</p>
+
+<a name="dam"> </a>
+<h2>HL7 Domain Analysis Use Cases</h2>
+
+<p>
+  Simulated use of the proposed Sequence resource and profiles on other FHIR resources are shown for many of the examples in Section 5 – Use Case Scenarios in the <a href="https://www.hl7.org/documentcenter/public_temp_649E1787-1C23-BA17-0CA4C354EB3E41D5/wg/clingenomics/docs/V3DAM_CG_CLINSEQ_R1_O1_2013JAN.pdf">HL7 Domain Analysis Model (DAM): Clinical Genomics, Release 1, September 2014 Informative Ballot</a>.
+</p>
+
+<p>
+  We show use of the FHIR design we are proposing for these cases:
+  <ol>
+    <li>Specimen Identification
+      <ol>
+        <li>Get references to all variants obtained from germline analysis.</li>
+        <li>Explore antibacterial drug resistance over time (non-patient DNA)</li>
+      </ol>
+    </li>
+    <li>Clinical Sequencing – Germline Testing</li>
+    <li>Cancer Profiling</li>
+    <li>Decision Making Tools – Family History and Drug Dosage Calculators
+      <ol>
+        <li>Today clinicians translate (i.e. manually re-enter) genetic data into tools for decision making. This includes family history tools and drug dosage calculators. In the future, this data will automatically be incorporated into clinical decision making tools.</li>
+        <li>Get pharmacogenomic reporting and disease risk or diagnosis associated with variant</li>
+      </ol>
+    </li>
+    <li>Public Health</li>
+    <li>Clinical and Research Data Warehouses</li>
+  </ol>
+</p>
+
+<h3>Specimen Identification</h3>
+
+<ul>
+  <li>Germline testing for biomarkers/mutations (usually inherited)</li>
+  <li>Tumor testing for biomarkers/mutations (somatic / tumor specific)</li>
+  <li>Pediatric Testing</li>
+  <li>Infectious Disease Testing</li>
+</ul>
+
+<h4>Get references to all variants obtained from germline analysis</h4>
+
+<pre class="http">
+GET   /Observation?
+    _profile=http://hl7.org/fhir/StructureDefinition/observationforgenetics&amp;
+    GenomicSourceClass=http://hl7.org/fhir/LOINC-48002-0-answerlist|LA6683-2
+</pre>
+
+<br />
+
+<img alt="" src="genomics-image30.png" style="width: 624.00px; height: 362.67px;"/>
+
+<p>
+  *Return a bundle of genetics-profile-based Observation instances
+</p>
+
+<h3>Clinical Sequencing – Germline Testing</h3>
+
+<p>
+  For a chart review, get references to all DNA sequences related to mutations with an interpretation “Unknown Significance”
+</p>
+
+<pre class="http">
+GET /Observation?
+    subject=123&amp;
+    component-code-value-[x]= http://loinc.org|53037-8$LA6682-4
+</pre>
+
+<p>
+  53037-8: LOINC code for “Genetic disease sequence variant interpretation”
+</p>
+<p>
+  LA6682-4: LOINC answer code for “Unknown Significance”.
+</p>
+
+<img alt="" src="genomics-image04.png" style="width: 624.00px; height: 461.33px;"/>
+
+<h3>Cancer Profiling</h3>
+
+<p>
+  The goal of this profile methodology is to get references from all variants obtained from somatic analysis. Changes in the population of cells with particular mutations will change overtime as well as in conjunction with events such as therapy. For instance, targeted chemotherapy may kill a specific population of cancer cells with specific mutations and other cancer cell populations may survive and continue to divide. Therefore, clearly annotating these specimens as somatic variants and capturing annotations related to a time relevant to a treatment timeline may be critical for analysis.
+</p>
+
+<pre class="http">
+GET /Observation?
+    _profile=http://hl7.org/fhir/StructureDefinition/observationforgenetics&amp;
+    GenomicsSourceClass=http://hl7.org/fhir/LOINC-48002-0-answerlist|LA6684-0&amp;
+    date=2015-07-04&amp;
+    subject=123
+</pre>
+
+<br />
+
+<img alt="" src="genomics-image37.png" style="width: 624.00px; height: 400.00px;"/>
+
+<h3>Decision Making Tools – Family History and Drug Dosage Calculators</h3>
+
+<p>
+  Today clinicians translate (i.e. manually re-enter) genetic data into tools for decision making. This includes family history tools and drug dosage calculators. In the future, this data will automatically be incorporated into clinical decision making tools.
+</p>
+
+<p>
+  Get family history related to one observation:
+</p>
+
+<pre class="http">
+GET /DiagnosticReport?
+    _profile=http://hl7.org/fhir/StructureDefinition/reportforgenetics&amp;
+    subject=123
+</pre>
+
+<br />
+
+<img alt="" src="genomics-image02.png" style="width: 604.00px; height: 309.00px;"/>
+
+<h4>Get pharmacogenomic reporting and disease risk or diagnosis associated with variant</h4>
+
+<pre class="http">
+GET /Observation?
+    _profile=http://hl7.org/fhir/StructureDefinition/observationforgenetics&amp;
+    subject=123&amp;
+    Interpretation.component-code= http://loinc.org|51963-7
+</pre>
+
+<p>
+  51963-7 : LOINC code for “Medication Assessed ”
+</p>
+
+<img alt="" src="genomics-image08.png" style="width: 624.00px; height: 480.00px;"/>
+
+<h3>Public Health</h3>
+
+<p>
+  Today Registrars manually translate clinical data into public health reporting systems. This data is used to monitor and improve public health (e.g. surveillance and clinical research). In the future, this data will be extracted from the EHR in an automated (or semi-automated) fashion.
+</p>
+
+<p>
+  For a breast cancer clinical genomic study, get all genetic-profile-based observations of patients with breast cancer:
+</p>
+
+<pre class="http">
+GET /DiagnosticReport?
+    _profile=http://hl7.org/fhir/StructureDefinition/reportforgenetics&amp;
+    AssessedCondition.code=http://snomed.info/sct|254837009
+</pre>
+
+<br />
+
+<img alt="" src="genomics-image29.png" style="width: 620.00px; height: 444.00px;"/>
+
+<h3>Clinical and Research Data Warehouses</h3>
+
+<p>
+  Health data warehousing should persist data in its standardized formats, while allowing users to export subsets of the data in the warehouse into multiple ‘data marts’, optimized for specific use cases, analysis type or reporting needs.
+</p>
+<p>
+  Get all genetic-profile-based observations of patients with the variant c.181T>G
+</p>
+
+<pre class="http">
+GET /Observation?
+    _profile=http://hl7.org/fhir/StructureDefinition/observationforgenetics&amp;
+    DNAVariantID=http://www.ncbi.nlm.nih.gov/projects/SNP|rs58238560
+</pre>
+
+<br />
+
+<img alt="" src="genomics-image07.png" style="width: 624.00px; height: 364.00px;"/>
+
+<a name="other_examples"> </a>
+<h2>Other Genomics Use Cases</h2>
+
+<p>
+  During the development of the FHIR Genomics design, CGWG participants have commented on the earlier use cases and/or proposed new use cases. In this section, we list describe of these new cases and demonstrate how the proposed design will address them.
+</p>
+
+<h3>Get a patient’s family members genetics report</h3>
+
+<p>
+  This example is proposed by Kevin Hughes. Family history is useful for clinicians to know more about the condition of the patient.
+</p>
+
+<pre class="http">
+Get /FamilyMemberHistory?
+    _profile=http://hl7.org/fhir/StructureDefinition/familymemberhistory-genetic&amp;
+    patient=123
+</pre>
+
+<br />
+
+<img alt="" src="genomics-image22.png" style="width: 624.00px; height: 292.00px;"/>
+
+<h3>Panel</h3>
+
+<p>
+  Search for results from nephrotic syndrome panel
+</p>
+
+<pre class="http">
+Get /DiagnosticReport&amp;
+    _profile=http://hl7.org/fhir/StructureDefinition/reportforgenetics&amp;
+    code=N0336&amp;
+    patient=123
+</pre>
+
+<br />
+
+<img alt="" src="genomics-image13.png" style="width: 485.50px; height: 248.20px;"/>
+
+<h3>Sequence Test Metrics</h3>
+
+<a name="apps"> </a>
+<h2>Clinical Genomic Apps</h2>
+
+<p>
+  The idea for a Sequence resource grew out, in part, the SMART Platforms Project, which explored creating clinical genomic apps to integrated traditional EMR clinical data and genomic data to show data visualization and analysis, including CDS that depended upon both types of data.  Below are a couple of examples.  Several apps have already been designed including Genomics Advisor, SMART Precision Cancer Medicine, and Diabetes Bear EMR.  Below, one of these apps will be described.  To include other apps in this section, please feel free to add a note on it and how it uses FHIR/Genomics calls.
+</p>
+
+<h3>Genomics Advisor</h3>
+
+<p>
+  The SMART on FHIR Genomics Advisor was an app incorporating genomics data to show risk of disease, drug susceptibility, and related conditions based upon genotype. Technically, this app was architected (see below) by combining data from independent data services, a SMART on FHIR clinical server for clinical information and one for a SMART on FHIR Genomics data server for genomic data.  The set of FHIR API calls that are necessary to support this app are shown below:
+</p>
+
+<img alt="" src="genomics-image26.png" style="width: 503.49px; height: 240.48px;"/>
+
+<p>
+  The presentation of the app looks like this:
+</p>
+
+<img alt="" src="genomics-image31.png" style="width: 542.46px; height: 312.63px;"/>
+
+<a name="history"> </a>
+<h2>Appendix 1: From DSTU2 Genomics to STU3</h2>
+
+<p>
+  The table shows how the data elements in the DSTU2 Observation resource as extended by the Standard Genetics Profile would be mapped to the new Sequence resource.
+</p>
+
+<table>
+    <colgroup>
+        <col width="184"/>
+        <col width="213"/>
+        <col width="203"/>
+    </colgroup>
+    <tbody>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    DSTU2 Standard Genetics profile
+                </p>
+                <p dir="ltr">
+                    on Observation
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Observation-genetics profile
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Maps to Sequence (Proposed)
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsGenomeBuild
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Sequence extension
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    referenceSeq.genomicsBuild
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsChromosome
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Sequence extension
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    referenceSeq.chromosome
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsGenomicsStart
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Sequence extension
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    variant.start
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsGenomicsStop
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Sequence extension
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    variant.end
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsReferenceAllele
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Sequence extension
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    variant.referenceAllele
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsObservedAllele
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Sequence extension
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    variant.observedAllele
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsSpecies
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Sequence extension
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    specimen
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsAllelicState
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Allelic State extension
+                </p>
+            </td>
+            <td>
+                <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsAllelicFrequency
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Allelic Frequency extension
+                </p>
+            </td>
+            <td>
+                <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsReadCoverage
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Sequence extension
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    readCoverage
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsCopyNumberEvent
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Copy number event extension
+                </p>
+            </td>
+            <td>
+                <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsTranscriptReferenceSequenceId
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Transcript reference sequence identifier extension
+                </p>
+            </td>
+            <td>
+                <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsProteinReferenceSequenceId
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Protein reference sequence identifier
+                </p>
+            </td>
+            <td>
+                <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsCIGAR
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Sequence extension
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    variant.cigar
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsVariationId
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    DNA variation id extension
+                </p>
+            </td>
+            <td>
+                <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsVariationType
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    DNA sequence variation type extension
+                </p>
+            </td>
+            <td>
+                <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsAminoAcidChange
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Amino acid change extension
+                </p>
+            </td>
+            <td>
+                <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsAminoAcidChangeType
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Amino acid change type extension
+                </p>
+            </td>
+            <td>
+                <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsGene
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Gene extension
+                </p>
+            </td>
+            <td>
+                <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsDNARegionName
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    DNA region name extension
+                </p>
+            </td>
+            <td>
+                <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p dir="ltr">
+                    geneticsGenomicSourceClass
+                </p>
+            </td>
+            <td>
+                <p dir="ltr">
+                    Genomic source class extension
+                </p>
+            </td>
+            <td>
+                <br/>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+</div>
+
+[%file newfooter%]
+
+
+</body>
+</html>
+
+

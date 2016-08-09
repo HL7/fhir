@@ -244,6 +244,7 @@ signatures.html
       <page type="resource" resource="BodySite"/>
       <page type="resource" resource="ImagingStudy"/>
       <page type="resource" resource="ImagingManifest"/>
+      <page title="Genomics Implementer Guidance" filename="genomics.html"/>
     </page>
 
     <page title="Medications" filename="medications-module.html" icon="medication.png">

@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10524</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>14124</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>808</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -5022,7 +5022,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6659,13 +6658,13 @@
     <Cell ss:StyleID="s144"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">Genetics</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Additional Genetics Example</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">genetics-example1</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">patient-genetics-example1.xml</Data></Cell>
     <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s143"/>
@@ -6856,6 +6855,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6875,8 +6875,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

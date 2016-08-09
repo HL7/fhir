@@ -132,8 +132,9 @@
   Summary = Y
   Type = CodeableConcept
   Binding = FlagCode
-  Short Label = Partially deaf, Requires easy open caps, No permanent address, etc.
+  Short Label = Message to display to user
   Definition = The coded value or textual component of the flag to display to the user
+  Comments = If non coded, use CodeableConcept.text.  This element should always be included in the narrative
   RIM Mapping = .value
   w5 = what
 

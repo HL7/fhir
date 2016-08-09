@@ -2,7 +2,7 @@
 
 
       
-[%settitle FHIR Specification Home Page%]
+[%settitle Getting Started with FHIR%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -17,18 +17,71 @@
 [%pub-notice%]
 
 <a name="root"> </a>
-<h2>FHIR Modules</h2>
+<h2>Getting Started with FHIR</h2>
 
 <p>
-The FHIR specification is arranged into a set of modules. This diagram shows the modules that comprise FHIR,
-and provides a general indication of the relationship between the modules. Dependencies are primarily
-between horizontal peers, and downwards to lower layers.
+FHIR is a platform specification that defines a set of capabilities use across the healthcare 
+process, in all jurisdictions, and in lots of different context. While the basics of the 
+FHIR specification are relatively straight-forward (see the Overviews: <a href="overview.html">General</a>, 
+<a href="overview-dev.html">Developers</a>,  and <a href="overview-clinical.html">Clinical</a>), it can still be difficult to know
+where to start when implementing a solution based on FHIR. 
 </p>
+<p>
+This page provides some guidance to help get new implementers started on their path to successful
+implementation. Beyond reading the overviews (previous paragraph), where should an implementer 
+start? Generally, an implementer needs to resolve:
+</p>
+<ul>
+ <li>What information is going to be exchanged</li>
+ <li>How will information be exchanged? (see <a href="foundation-module.html#uses">Foundation Module</a>)</li>
+ <li>How are terminologies being used? (see <a href="terminology-module.html#uses">Terminology Module</a>)</li>
+ <li>How will the information be secured? (see <a href="foundation-module.html#uses">Foundation Module</a>)</li>
+</ul>
+<a name="modules"> </a>
+<h3>Modules</h3>
+<p>
+In order to help implementers find their way around the specification and answer these questions, 
+it is organised into a set of "modules". Each module represents a different functional area of the 
+specification, and contains:
+</p>
+<ul>
+ <li><b>Scope and Index</b>:A description of the content covered by the module, and an index of the important content</li>
+ <li><b>Use cases</b>: guidance for common uses of the module, and how to approach them. This is a key resource for 
+   implementers familiarizing themselves with the FHIR specification</li>
+ <li><b>Security / Privacy</b>: information</li>
+ <li><b>Roadmap</b>: Where the content covered by the module is in terms of overall progress</li>
+</ul>
+
+<p>
+Broadly, the modules are organized into 3 groups:
+</p>
+<ul>
+ <li>Infrastructure (bottom rung, and bottom row of boxes)</li>
+ <li>Content (middle rung, and top row of boxes)</li>
+ <li>Reasoning (top rung)</li>
+</ul>
 
 [%file modules-fragment%]
 
 <p>
-More narrative about the modules
+Dependencies between the modules are mainly downwards, with some horizontal dependencies. 
+Implementers should choose the content modules to engage with based on their 
+requirements, and should only engage with the reasoning module if they need to do 
+clinical decision support, and/or Quality Measures. 
+</p>
+
+<p>
+In addition to the use case based assistance in the modules, these additional documentation pages
+may be useful:
+</p>
+<ul>
+ <li><a href="usecases.html">Common Use Cases</a>: Personal Health Record, Document Sharing (XDS) and Decision Support</li>
+ <li><a href="resourceguide.html">Resource Guide</a>: Further information about the resources and the relationship between them</li>
+</ul>
+
+<p>
+Finally, one important place to look is the <a href="http://www.fhir.org/guides/registry">registry of implementation guides</a>, to see 
+whether similar (or identical) requirements have been met.  
 </p>
 
 </div>

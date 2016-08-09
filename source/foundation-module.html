@@ -123,20 +123,60 @@ Every implementer works with the content in the foundation module however they u
 </ul>
 
 <a name="uses"> </a>
-<h3>Common use Cases</h3>
+<h3>Common use Cases: Exchanging Data</h3>
 <p>
-FHIR supports 3 different paradigms for exchange: the <a href="http.html">RESTful API</a>, <a href="documents.html">Documents</a>, and <a href="messaging.html">Messaging</a>. 
-Each these approaches can be used to exchange information, and each has it's own strengths and weaknesses. Most implementers focus on RESTful API, but this 
-specification supports the other options so that implementations can use them for their strengths.
+FHIR supports 3 different paradigms for exchange: the <a href="http.html">RESTful API</a>, 
+<a href="documents.html">Documents</a>, and <a href="messaging.html">Messaging</a>. Each of 
+these approaches can be used to exchange information, and each has it's own strengths and 
+weaknesses. 
+</p>
+<h4>RESTful API</h4>
+<p>
+Most implementers focus on <a href="http.html">RESTful API</a>. This is a client/server API 
+designed to follow the <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">principles of RESTful design</a> for <b>C</b>reate, <b>R</b>ead, 
+<b>U</b>pdate and <b>D</b>elete operations, along with <a href="search.html"><b>S</b>earch</a> 
+and <a href="operations.html"><b>E</b>xecute (Operations)</a> support.
 </p>
 <p>
-push vs pull
+The RESTful API is a general purpose interface that can be used to <a href="pushpull.html">push and pull</a> data between systems.
+Which is appropriate depends on architecture and deployment considerations.
+</p>
 
-Well, REST, messaging, documents, subscriptions, implementation guides, profiles as decision support guides, etc. are all use-cases
+<h4>Messaging</h4>
+<p>
+In addition to the RESTful API, a <a href="messaging.html">Messaging exchange framework</a>
+is documented, which supports exchange between systems by exchanging content by sending
+routed messages from system to system. This exchange can implemented on the RESTful API, 
+or using some other messaging stack. The messaging paradigm is provided to support 
+implementers who wish to use such a messaging paradigm.
+</p>
+<p>
+Implementers should note that the messaging framework is not provided to fill any functional 
+deficiency in the RESTful API (or vice versa), these frameworks are provided to allow 
+implementers to choose how to exchange content based on their own architectural and 
+deployment considerations.
+</p>
 
-Choosing between RESTful API, messages, documents. 
-building services.
+<h4>Documents</h4>
+<p>
+This specification also defines a <a href="documents.html">Document based exchange 
+framework</a>, where content to be exchanged is wrapped by a <a href="composition.html">Composition</a>
+that provides the context of the content, and that has a fixed presentation for a human reader.
+The document framework is provided to help with computer-assisted human to human communication
+uses - which are not uncommon in healthcare.
+</p>
+<p>
+Typically, exchanging documents is associated with exchanging clinical information across 
+clinical governance borders, while data based exchange using the RESTful API is appropriate
+within where there are well established clinical governance arrangements.
+</p>
 
+<h4>Services / SOA</h4>
+<p>
+In addition, this specification describes the use of FHIR in a <a href="services.html">services framework</a>(e.g. a SOA). 
+Note that any use of any of the above alternatives in production is a 'service' by some or many definitions. 
+The services description provides context regarding the use of FHIR (and particularly the RESTful API) in a 
+wider enterprise architecture. 
 </p>
 
 <a name="roadmap"> </a>
@@ -154,16 +194,9 @@ Much of the foundation module is well advanced through the maturity model proces
 <p>
 The focus over the next 18 months or so as the 4th release of FHIR is prepared is to focus on stability and move these artefacts to normative 
 status. However some parts of the foundation module are not as well explored, and are not as far advanced with regard to their development.
-Specifically:
-</p>
-<ul>
-  <li><a href="documents.html">Documents</a></li>
-  <li><a href="messaging.html">Messaging</a></li>
-  <li><a href="services.html">Services</a></li>
-</ul>
-<p>
-These are areas that still need further testing with regard to interoperability. HL7 expects to focus on testing these
-things in connectathons over the next 18 months.
+Specifically <a href="documents.html">Documents</a>, <a href="messaging.html">Messaging</a> and <a href="services.html">Services</a> are 
+areas that still need further testing with regard to interoperability. HL7 expects to focus on testing these things in connectathons over 
+the next 18 months.
 </p>
 
 </div>

@@ -6154,7 +6154,7 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">An example of a genetics test report with Family member history</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">dg2</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">diagnosticreport-genetics-example-2 with familyhistory.xml</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">diagnosticreport-genetics-example-2-familyhistory.xml</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">Diagnostic Report for Genetics</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">n</Data></Cell>
    </Row>

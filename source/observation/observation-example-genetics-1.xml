@@ -35,12 +35,12 @@
     </coding>
   </code>
   <subject>
-    <reference value="Patient/example-genetics-somatic"/>
+    <reference value="Patient/example"/>
     <display value="Molecular Lab Patient ID: HOSP-23456"/>
   </subject>
   <issued value="2013-04-03T15:30:10+01:00"/>
   <performer>
-    <reference value="Practitioner/example-genetics-somatic"/>
+    <reference value="Practitioner/example"/>
     <display value="Molecular Diagnostics Laboratory"/>
   </performer>
   <valueCodeableConcept>
