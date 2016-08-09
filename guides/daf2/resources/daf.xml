@@ -560,6 +560,7 @@
 				<reference value="ValueSet/daf-core-substance-unii"/>
 			</sourceReference>
 		</resource>
+
 <!--		
 	<resource>
 			<example value="false"/>
@@ -598,14 +599,31 @@
 			</sourceReference>
 		</resource>
 		-->
-		<!--daf-core codesystems-->
+		<!--*******************daf-core codesystemsCODESYSTEM CODESYSTEM*****************************-->
 		<resource>
 			<example value="false"/>
 			<sourceReference>
 				<reference value="CodeSystem/daf-core-extension-codes"/>
 			</sourceReference>
 		</resource>
-		<!-- Operations -->
+	
+				<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="CodeSystem/daf-careteam-status"/>
+			</sourceReference>
+		</resource>	
+		
+				
+			<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/daf-careteam-status"/>
+			</sourceReference>
+		</resource>		
+
+		
+		<!-- **************************Operations OPERATIONS  OPERATIONs  OPERATIONS ************************************-->
 		<resource>
 			<example value="false"/>
 			<sourceReference>

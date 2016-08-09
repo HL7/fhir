@@ -2310,8 +2310,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2404,7 +2404,7 @@
     <Cell ss:StyleID="s125"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s125"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">valueset-daf-careteam-status</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">http://hl7.org/fhir/us/daf/ValueSet/daf-careteam-status</Data></Cell>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s125"/>
@@ -2721,7 +2721,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>12</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>

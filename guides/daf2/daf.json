@@ -454,9 +454,9 @@
 			"template-base": null
 		},
 		"CodeSystem/daf-careteam-status": {
-			"base": "CodeSystem-daf-careteam-status.html",
-			"template-base": null,
-			"template-format": null
+			"base": "codesystem-daf-careteam-status.html",
+			"template-base": null
+		
 		},
 		"AllergyIntolerance/example": {
 			"base": "allergyintolerance-example.html",
