@@ -252,6 +252,18 @@
     </resource>
     <resource>
       <example value="true"/>
+      <name value="Example Diagnostic Imaging Report"/>
+      <description value="Example Diagnostic Imaging Report"/>
+      <acronym value="diagnostic-imaging-example"/>
+      <sourceReference>
+        <reference value="Composition/ccda-diagnostic-imaging-composition-example"/>
+      </sourceReference>
+      <exampleFor>
+        <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-diagnostic-imaging-composition"/>
+      </exampleFor> 
+    </resource>
+    <resource>
+      <example value="true"/>
       <name value="Example Discharge Summary"/>
       <description value="Example Discharge Summary"/>
       <acronym value="discharge-summary-example"/>
@@ -309,6 +321,18 @@
        <exampleFor>
             <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-procedure-note-composition"/>
           </exampleFor> 
+    </resource>
+    <resource>
+      <example value="true"/>
+      <name value="Example Referral Note"/>
+      <description value="Example Referral Note"/>
+      <acronym value="referral-note-example"/>
+      <sourceReference>
+        <reference value="Composition/ccda-referral-note-composition-example"/>
+      </sourceReference>
+      <exampleFor>
+        <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-referral-note-composition"/>
+      </exampleFor> 
     </resource>
   
     <!-- CDA logical models -->
