@@ -7742,7 +7742,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (parts.length == 2 && definitions.hasResource(parts[0]) && parts[1].matches(FormatUtilities.ID_REGEX)) {
       return new ResourceWithReference(parts[0].toLowerCase()+"-"+parts[1].toLowerCase()+".html", null);
     }
-    return null;
+    System.out.println("Reference to undefined resource: \""+url+"\"");
+    return new ResourceWithReference("todo.html", null);
   }
 
 }
