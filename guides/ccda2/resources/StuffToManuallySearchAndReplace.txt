@@ -1,0 +1,7 @@
+<baseDefinition value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-us-realm-header-composition" />
+
+<reference value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.9.31" />
+
+<!-- Might not be needed here but the IG publisher errors without following 2 lines -->
+  <contextType value="resource" />
+  <context value="Composition" />

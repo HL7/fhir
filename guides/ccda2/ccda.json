@@ -23,6 +23,9 @@
 		},
 		"StructureDefinition" : {
 			"template-base": "instance-template-sd.html"
+    },
+    "Example" : {
+			"template-base": "instance-template-example.html"
     }
 	},
 	"canonicalBase": "http://hl7.org/fhir/ccda",

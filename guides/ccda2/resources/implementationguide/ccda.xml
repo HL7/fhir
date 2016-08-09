@@ -218,7 +218,7 @@
       <description value="Example CCD"/>
       <acronym value="ccd-example"/>
       <sourceReference>
-        <reference value="Composition/composition-ccd-example"/>
+        <reference value="Composition/ccda-ccd-example"/>
       </sourceReference>   
       <exampleFor>
             <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-ccd-composition"/>
@@ -232,7 +232,7 @@
       <description value="Example Care Plan"/>
       <acronym value="care-plan-example"/>
       <sourceReference>
-        <reference value="Composition/composition-care-plan-example"/>
+        <reference value="Composition/ccda-care-plan-example"/>
       </sourceReference>       
       <exampleFor>
             <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-care-plan-composition"/>
@@ -244,7 +244,7 @@
       <description value="Example Consultation Note"/>
       <acronym value="consultation-note-example"/>
       <sourceReference>
-        <reference value="Composition/composition-consultation-note-example"/>
+        <reference value="Composition/ccda-consultation-note-example"/>
       </sourceReference>
        <exampleFor>
             <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-consultation-note-composition"/>
@@ -256,7 +256,7 @@
       <description value="Example Discharge Summary"/>
       <acronym value="discharge-summary-example"/>
       <sourceReference>
-        <reference value="Composition/composition-discharge-summary-example"/>
+        <reference value="Composition/ccda-discharge-summary-example"/>
       </sourceReference>
        <exampleFor>
             <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-discharge-summary-composition"/>
@@ -268,7 +268,7 @@
       <description value="Example History and Physical"/>
       <acronym value="history-and-physical-example"/>
       <sourceReference>
-        <reference value="Composition/composition-history-and-physical-example"/>
+        <reference value="Composition/ccda-history-and-physical-example"/>
       </sourceReference>
        <exampleFor>
             <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-history-and-physical-composition"/>
@@ -280,7 +280,7 @@
       <description value="Example Operative Note"/>
       <acronym value="operative-note-example"/>
       <sourceReference>
-        <reference value="Composition/composition-operative-note-example"/>
+        <reference value="Composition/ccda-operative-note-example"/>
       </sourceReference>
        <exampleFor>
             <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-operative-note-composition"/>
@@ -292,7 +292,7 @@
       <description value="Example Progress Note"/>
       <acronym value="progress-note-example"/>
       <sourceReference>
-        <reference value="Composition/progress-note-example"/>
+        <reference value="Composition/ccda-progress-note-example"/>
       </sourceReference>
        <exampleFor>
             <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-progress-note-composition"/>
@@ -304,7 +304,7 @@
       <description value="Example Procedure Note"/>
       <acronym value="procedure-note-example"/>
       <sourceReference>
-        <reference value="Composition/composition-procedure-note-example"/>
+        <reference value="Composition/ccda-procedure-note-example"/>
       </sourceReference>
        <exampleFor>
             <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-procedure-note-composition"/>
