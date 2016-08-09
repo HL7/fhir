@@ -43,7 +43,7 @@ tcode: {{[type]}}
 
 <h3>
   <span class="sectioncount">D.4.1<a name="D.4.1"> </a>
-  </span> StructureDefinition: {{page.id}} <a title="link to here" class="self-link" href="{{page.id}}.html#D.4.1">
+  </span> StructureDefinition: {{page.id}} <a title="link to here" class="self-link" href="StructureDefinition-{{page.id}}.html#D.4.1">
     <img src="target.png"/></a>
 </h3>
 
@@ -57,7 +57,7 @@ tcode: {{[type]}}
 <a name="profile"> </a>
 <h4><span class="sectioncount">D.4.1.1</span>
 Formal Views of Profile Content
- <a title="link to here" class="self-link" href="{{page.id}}.html#profile"><img src="target.png"/></a>
+ <a title="link to here" class="self-link" href="StructureDefinition-{{page.id}}.html#profile"><img src="target.png"/></a>
 </h4>
 <!-- uri -->
 {%include StructureDefinition-{{page.id}}-header.xhtml%}
@@ -100,6 +100,7 @@ Formal Views of Profile Content
 
  <div id="tabs-snap">
   <div id="tbl-snap">
+    <p>This structure is derived from <a href="{{site.data.structuredefinitions[page.id].basepath}}">{{site.data.structuredefinitions[page.id].basename}}</a> </p>
    <div id="tbl-snap-inner">
    {%include StructureDefinition-{{page.id}}-snapshot.xhtml%}
    </div>
@@ -133,7 +134,7 @@ Formal Views of Profile Content
 
  <div id="all-tbl-diff">
    <p><b>Differential View</b></p>
-   <p>This structure is derived from <a href="{{site.data.fhir.path}}{{page.id}}.html">{{page.tcode}}</a>.</p>
+   <p>This structure is derived from <a href="{{site.data.structuredefinitions[page.id].basepath}}">{{site.data.structuredefinitions[page.id].basename}}</a> </p>
    <div id="all-tbl-diff-inner">
    {%include StructureDefinition-{{page.id}}-diff.xhtml%}
    </div>
@@ -162,10 +163,10 @@ Formal Views of Profile Content
 <p>&nbsp;</p>
 
 <a name="tx"> </a>
-<h4><span class="sectioncount">D.4.1.2</span> Terminology Bindings <a title="link to here" class="self-link" href="{{page.id}}.html#tx"><img src="target.png"/></a></h4>
+<h4><span class="sectioncount">D.4.1.2</span> Terminology Bindings <a title="link to here" class="self-link" href="StructureDefinition-{{page.id}}.html#tx"><img src="target.png"/></a></h4>
    {%include StructureDefinition-{{page.id}}-tx.xhtml%}
 
-<h4><span class="sectioncount">D.4.1.3<a name="D.4.1.3"> </a></span> Constraints <a title="link to here" class="self-link" href="{{page.id}}.html#D.4.1.3"><img src="target.png"/></a></h4>
+<h4><span class="sectioncount">D.4.1.3<a name="D.4.1.3"> </a></span> Constraints <a title="link to here" class="self-link" href="StructureDefinition-{{page.id}}.html#D.4.1.3"><img src="target.png"/></a></h4>
    {%include StructureDefinition-{{page.id}}-inv.xhtml%}
 
 .
