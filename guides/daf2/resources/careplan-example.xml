@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CarePlan xmlns="http://hl7.org/fhir">
+	<id value="example"/>
+	<text>
+		<status value="additional"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Example Care and Assessment Example - put the narrative content here</div>
+	</text>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	<status value="active"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/us/daf/CodeSystem/daf-core-extension-codes"/>
+			<code value="assess-plan"/>
+		</coding>
+	</category>
+</CarePlan>
