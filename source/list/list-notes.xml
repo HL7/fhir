@@ -1,5 +1,49 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="query"> </a>
+<h2>Querying Lists vs. the underlying resources</h2>
+<p>
+When a client system is interested in a patient's medications, allergies, problems, 
+family history or other information typically handled via <b>List</b>, they have three options:
+</p>
+<ul>
+  <li>They can query for List instances of the appropriate type; or </li>
+  <li>They can query against the resource endpoint for the resources that make up the list
+    (e.g. <a href="allergyintolerance.html">AllergyIntolerance</a>, <a href="condition.html">Condition</a>
+    <a href="medicationstatement.html">MedicationStatement</a>, etc.), possibly filtering by time, etc.</li>
+  <li>They can query against the resource endpoint, requesting one of the 
+  <a href="http://hl7-fhir.github.io/lifecycle.html#current">Current</a> resource lists</li>
+</ul>
+<p>
+Querying directly against the clinical resource endpoints will provide an un-curated view of information.  
+A server may contain records that were part of various clinical documents, referrals and other submission
+sources that may not necessarily be considered wholly accurate or current, but which must be retained "as is"
+to provide a record of what data was received or seen by a clinician at a particular point in time.  
+</p>
+<p>
+On the 
+other hand, lists are almost always curated.  They will include only those records deemed by the author of
+the list to be both current and accurate.  This can be both an advantage and a disadvantage.  Lists are
+less likely to include irrelevant content, but there's the risk that they won't be completely up-to-date
+(new content may have been added that's more recent than when a given list was last updated.  It's also possible
+that the list author's notion of "current" or "relevant" may differ the perspective of the user performing
+the query.  Also, there's the challenge that multiple lists may exist, with different author and different perspectives
+</p>
+<p>
+The <a href="http://hl7-fhir.github.io/lifecycle.html#current">Current</a> resource lists get around the problem
+of multiple lists and make it clear which list is considered authoritative, but not all systems will necessarily
+support this capability, and there's still the possibility that the list won't be completely up-to-date or will
+exclude information that is of interest to the querying system.
+</p>
+<p>
+There's no right and wrong way to retrieve allergy, medication and other such information.  Sometimes retrieving
+the "current" medication list will provide the best results, sometimes querying the raw records will provide
+better results.  Sometimes providing the contents of the list plus a filtered view of the raw records may give
+the most useful information.  What approach is most appropriate will depend on the needs of the user as well
+as the types of data sources for information in the server and patterns of list maintenance.  Client systems may
+well need to adapt their behavior in different environments if they can't count on consistent server behavior.
+</p>
+
 <a name="order"> </a>
 <h2>List Order</h2>
 <p>
