@@ -1,0 +1,11 @@
+<li>Updated DAF profiles to DAF-core with a minimal set of elements to support meaningful access and STU3</li>
+<li>Added profiles to support the 2015 Edition Common clinical Data Set (CCDS):
+<ul>
+	<li>Assessment and Plan of Treatment (CarePlan)</li>
+	<li>CareTeam (CareTeam)</li>
+	<li>Goals (Goal)</li>
+	<li>Implantable Devices/UDI (Device)</li>
+	<li>DAF Core Birth Sex</li>
+</ul>
+</li>
+<li>Removed profiles no longer used: DAF-AllergyList, DAF-ProblemList, DAF-MedicationList, DAF-ImmunizationList, DAF-EncounterList, DAF-ResultsList, DAF-ProcedureList, DAF-RelatedPerson</li>
