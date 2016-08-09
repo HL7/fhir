@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Composition xmlns="http://hl7.org/fhir">
-  <id value="ccda-progress-note-example"/>
+  <id value="ccda-history-and-physical-composition-example"/>
   <meta>
     <versionId value="1"/>
     <lastUpdated value="2016-06-15T08:16:14Z"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/ccda-progress-note-composition"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/ccda-ccd-composition"/>
   </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Progress Note document for Henry Jones</p>
+      <p>History and Physical document for Henry Jones</p>
       <p>Managed by Community Health and Hospitals</p>
     </div>
   </text>
@@ -32,18 +32,18 @@
     <valueUri value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-consent"/>
   </extension>
   <identifier>
-    <system value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-progress-note-composition"/>
+    <system value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-history-and-physical-composition"/>
     <value value="1"/>
   </identifier>
-  <date value="2016-03-22T09:10:14Z"/>
+  <date value="2016-02-28T09:10:14Z"/>
   <type>
     <coding>
       <system value="http://loinc.org"/>
-      <code value="11506-3"/>
-      <display value="Provider-unspecified Progress note"/>
+      <code value="34117-2"/>
+      <display value="History and Physical Note"/>
     </coding>
   </type>
-  <title value="Progress Note"/>
+  <title value="History and Physical"/>
   <status value="preliminary"/>
   <confidentiality value="N"/>
   <!--  Patient Resource -->
@@ -182,6 +182,23 @@
       </div>
     </text>
   </section>
+  <!--  Chief Complaint and Reason for Visit Section Narrative -->
+  <section>
+    <title value="Chief Complaint and Reason for Visit Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="46239-0"/>
+        <display value="Chief complaint and reason for visit"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Cramping, bloating, and constipation.</p>
+      </div>
+    </text>
+  </section>
   <!--  Chief Complaint Section Narrative -->
   <section>
     <title value="Chief Complaint Section"/>
@@ -199,6 +216,175 @@
       </div>
     </text>
   </section>
+  <!--  Family History Section Narrative -->
+  <section>
+    <title value="Family History Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="10157-6"/>
+        <display value="History of family member diseases"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <table>
+          <tr>
+            <td>
+              <b>Relationship</b>
+            </td>
+            <td>
+              <b>Diagnosis</b>
+            </td>
+            <td>
+              <b>Age at Onset</b>
+            </td>
+          </tr>
+          <tr>
+            <td>Father</td>
+            <td>Myocardial Infarction(cause of Death)</td>
+            <td>57</td>
+          </tr>
+          <tr>
+            <td>Father</td>
+            <td>Diabetes</td>
+            <td>40</td>
+          </tr>
+        </table>
+      </div>
+    </text>
+    <!--  Family History Section Resource -->
+    <entry>
+      <reference value="http://fhirtest.uhn.ca/baseDstu3/FamilyMemberHistory/117652"/>
+    </entry>
+  </section>
+  <!--  General Status Section Narrative -->
+  <section>
+    <title value=" General Status Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="10210-3"/>
+        <display value="Physical findings of General status"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Alert and in good spirits, no acute distress.</p>
+      </div>
+    </text>
+  </section>
+  <!--  History of Past Illness Section Narrative -->
+  <section>
+    <title value="History of Past Illness Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="11348-0"/>
+        <display value="History of past illness"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <table>
+          <tr>
+            <td>
+              <b>Problem Name</b>
+            </td>
+            <td>
+              <b>Type</b>
+            </td>
+            <td>
+              <b>Onset Date</b>
+            </td>
+            <td>
+              <b>Abatement Date</b>
+            </td>
+            <td>
+              <b>Status</b>
+            </td>
+          </tr>
+          <tr>
+            <td>Fever</td>
+            <td>Condition</td>
+            <td>2016-04-01</td>
+            <td>2016-04-14</td>
+            <td>Complete</td>
+          </tr>
+        </table>
+      </div>
+    </text>
+    <!--  History of Past Illness Section Condition Resource-->
+    <entry>
+      <reference value="http://fhirtest.uhn.ca/baseDstu3/Condition/117648"/>
+    </entry>
+  </section>
+  <!--  History of Present Illness Section Narrative -->
+  <section>
+    <title value="History of Present Illness Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="10164-2"/>
+        <display value="History of present illness"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>This patient was only recently discharged for a recurrent GI bleed as described below. </p>
+        <p>He presented to the ER today c/o a dark stool yesterday but a normal brown
+                    stool today. On exam he was hypotensive in the 80?s resolved after .... .... .... </p>
+        <p>Lab at discharge: Glucose 112, BUN 16, creatinine 1.1, electrolytes normal.
+                    H. pylori antibody pending. Admission hematocrit 16%, discharge hematocrit 29%. WBC
+                    7300, platelet count 256,000. Urinalysis normal. Urine culture: No growth. INR 1.1,
+                    PTT 40. </p>
+        <p>He was transfused with 6 units of packed red blood cells with .... .... .... </p>
+        <p>GI evaluation 12 September: Colonoscopy showed single red clot in .... ........ </p>
+      </div>
+    </text>
+  </section>
+  <!--  Immunizations Section Narrative -->
+  <section>
+    <title value="Immunizations Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="11369-6"/>
+        <display value="History of immunization"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <table>
+          <tr>
+            <td>
+              <b>Vaccine</b>
+            </td>
+            <td>
+              <b>Date</b>
+            </td>
+            <td>
+              <b>Status</b>
+            </td>
+          </tr>
+          <tr>
+            <td>Fluvax (Influenza)</td>
+            <td>2016-04-05</td>
+            <td>Completed</td>
+          </tr>
+        </table>
+      </div>
+    </text>
+    <!--  Immunization Section Resource -->
+    <entry>
+      <reference value="http://fhirtest.uhn.ca/baseDstu3/Immunization/117678"/>
+    </entry>
+  </section>
   <!--  Instructions Section Narrative -->
   <section>
     <title value="Instructions Section"/>
@@ -213,166 +399,6 @@
       <status value="generated"/>
       <div xmlns="http://www.w3.org/1999/xhtml">
         <p>Patient may have low grade fever, mild joint pain and injection area tenderness.</p>
-      </div>
-    </text>
-  </section>
-  <!--  Interventions Section Narrative -->
-  <section>
-    <title value="Interventions Section"/>
-    <code>
-      <coding>
-        <system value="http://loinc.org"/>
-        <code value="62387-6"/>
-        <display value="Interventions provided"/>
-      </coding>
-    </code>
-    <text>
-      <status value="generated"/>
-      <div xmlns="http://www.w3.org/1999/xhtml">
-        <table>
-          <tr>
-            <td>
-              <b>Planned Intervention</b>
-            </td>
-            <td>
-              <b>Status</b>
-            </td>
-            <td>
-              <b>Date</b>
-            </td>
-          </tr>
-          <tr>
-            <td>Elevate head of bed</td>
-            <td>active</td>
-            <td>September 2, 2015</td>
-          </tr>
-          <tr>
-            <td>Oxygen administration by nasal cannula</td>
-            <td>active</td>
-            <td>September 1, 2015</td>
-          </tr>
-          <tr>
-            <td>pulse oximetry monitoring</td>
-            <td>active</td>
-            <td>September 3, 2015</td>
-          </tr>
-        </table>
-      </div>
-    </text>
-  </section>
-  <!--  Nutrition Section Narrative -->
-  <section>
-    <title value=" Nutrition Section"/>
-    <code>
-      <coding>
-        <system value="http://loinc.org"/>
-        <code value="61144-2"/>
-        <display value="Diet and nutrition"/>
-      </coding>
-    </code>
-    <text>
-      <status value="generated"/>
-      <div xmlns="http://www.w3.org/1999/xhtml">
-        <table>
-          <tr>
-            <td>
-              <b>Date</b>
-            </td>
-            <td>
-              <b>Nutritional Status</b>
-            </td>
-            <td>
-              <b>Diet</b>
-            </td>
-          </tr>
-          <tr>
-            <td>2005/12/29</td>
-            <td>Well nourished</td>
-            <td>Low sodium diet, excessive carbohydrate</td>
-          </tr>
-          <tr>
-            <td>2010/05/26</td>
-            <td>Slight dehydration</td>
-            <td>High protein, low fibre</td>
-          </tr>
-        </table>
-      </div>
-    </text>
-  </section>
-  <!--  Physical Exam Section Narrative -->
-  <section>
-    <title value="Physical Exam Section"/>
-    <code>
-      <coding>
-        <system value="http://loinc.org"/>
-        <code value="29545-1"/>
-        <display value="Physical findings"/>
-      </coding>
-    </code>
-    <text>
-      <status value="generated"/>
-      <div xmlns="http://www.w3.org/1999/xhtml">
-        <p>HEENT: All normal to examination.</p>
-        <p>&gt;HEART: RRR, no murmur.</p>
-        <p>THORAX &amp; LUNGS: Clear without rhonchi or wheeze.</p>
-        <p>ABDOMEN: Marked distension and tenderness, slightly obese, pos bowelsounds.</p>
-        <p>BACK: Normal to inspection and palpation, without tenderness; no presacral edema.</p>
-        <p>EXTREMITIES: Doughy edema bilaterally, chronic stasis changes, no asymmetrical swelling.</p>
-      </div>
-    </text>
-  </section>
-  <!--  Objective Section Narrative -->
-  <section>
-    <title value="Objective Section"/>
-    <code>
-      <coding>
-        <system value="http://loinc.org"/>
-        <code value="61149-1"/>
-        <display value="Objective"/>
-      </coding>
-    </code>
-    <text>
-      <status value="generated"/>
-      <div xmlns="http://www.w3.org/1999/xhtml">
-        <p>Chest: clear to ausc. No rales, normal breath sounds</p>
-        <p>Heart: RR, PMI in normal location and no heave or evidence ofcardiomegaly,normal heart sounds, no murm or gallop</p>
-      </div>
-    </text>
-  </section>
-  <!--  Subjective Section Narrative -->
-  <section>
-    <title value="Subjective Section"/>
-    <code>
-      <coding>
-        <system value="http://loinc.org"/>
-        <code value="61150-9"/>
-        <display value="Subjective"/>
-      </coding>
-    </code>
-    <text>
-      <status value="generated"/>
-      <div xmlns="http://www.w3.org/1999/xhtml">
-        <p>Complaints of rectal bleeding, fatigue and a change in bowel patterns.</p>
-        <p>Has several days of constipation alternating with diarrhea.</p>
-      </div>
-    </text>
-  </section>
-  <!--  Review of Systems Section Narrative -->
-  <section>
-    <title value="Review of Systems Section"/>
-    <code>
-      <coding>
-        <system value="http://loinc.org"/>
-        <code value="10187-3"/>
-        <display value="Review of systems"/>
-      </coding>
-    </code>
-    <text>
-      <status value="generated"/>
-      <div xmlns="http://www.w3.org/1999/xhtml">
-        <p>Patient denies recent history of fever or malaise. Positive for weakness and
-                    shortness of breath. Several episodes of abdominal tenderness. No recent headaches. 
-                    Positive for osteoarthritis in hips, knees and hands. </p>
       </div>
     </text>
   </section>
@@ -425,6 +451,28 @@
     <entry>
       <reference value="http://fhirtest.uhn.ca/baseDstu3/Medication/117679"/>
     </entry>
+  </section>
+  <!--  Physical Exam Section Narrative -->
+  <section>
+    <title value="Physical Exam Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="29545-1"/>
+        <display value="Physical findings"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>HEENT: All normal to examination.</p>
+        <p>&gt;HEART: RRR, no murmur.</p>
+        <p>THORAX &amp; LUNGS: Clear without rhonchi or wheeze.</p>
+        <p>ABDOMEN: Marked distension and tenderness, slightly obese, pos bowelsounds.</p>
+        <p>BACK: Normal to inspection and palpation, without tenderness; no presacral edema.</p>
+        <p>EXTREMITIES: Doughy edema bilaterally, chronic stasis changes, no asymmetrical swelling.</p>
+      </div>
+    </text>
   </section>
   <!--  Plan of Treatment Section Narrative -->
   <section>
@@ -511,6 +559,69 @@
       <reference value="http://fhirtest.uhn.ca/baseDstu3/Condition/117648"/>
     </entry>
   </section>
+  <!--  Procedures Section Narrative -->
+  <section>
+    <title value="Procedures Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="47519-4"/>
+        <display value="History of procedures"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <table>
+          <tr>
+            <td>
+              <b>Procedure Name</b>
+            </td>
+            <td>
+              <b>Body Site</b>
+            </td>
+            <td>
+              <b>Performer</b>
+            </td>
+            <td>
+              <b>Date Performed</b>
+            </td>
+            <td>
+              <b>Reason</b>
+            </td>
+          </tr>
+          <tr>
+            <td>Appendectomy (Procedure)</td>
+            <td>Abdomen</td>
+            <td>Dr. Adam Everyman</td>
+            <td>20160405</td>
+            <td>Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding</td>
+          </tr>
+        </table>
+      </div>
+    </text>
+    <!--  Procedures Section Resource -->
+    <entry>
+      <reference value="http://fhirtest.uhn.ca/baseDstu3/Procedure/117687"/>
+    </entry>
+  </section>
+  <!--  Reason for Visit Section Narrative -->
+  <section>
+    <title value="Reason for Visit Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="29299-5"/>
+        <display value="Reason for visit"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Tenderness of lower abdomen</p>
+      </div>
+    </text>
+  </section>
   <!--  Results Section Narrative -->
   <section>
     <title value="Results Section"/>
@@ -548,9 +659,66 @@
         </table>
       </div>
     </text>
-    <!-- Results Section Observation Resource -->
+    <!--  Result Section Observation Resource -->
     <entry>
       <reference value="http://fhirtest.uhn.ca/baseDstu3/Observation/117685"/>
+    </entry>
+  </section>
+  <!--  Review of Systems Section Narrative -->
+  <section>
+    <title value="Review of Systems Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="10187-3"/>
+        <display value="Review of systems"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Patient denies recent history of fever or malaise. Positive for weakness and
+                   shortness of breath. Several episodes of abdominal tenderness. No recent headaches. 
+                   Positive for osteoarthritis in hips, knees and hands. </p>
+      </div>
+    </text>
+  </section>
+  <!--  Social History Section Narrative -->
+  <section>
+    <title value="Social History Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="29762-2"/>
+        <display value="Social history"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <table>
+          <tr>
+            <td>
+              <b>Social History Element</b>
+            </td>
+            <td>
+              <b>Description</b>
+            </td>
+            <td>
+              <b>Effective Dates</b>
+            </td>
+          </tr>
+          <tr>
+            <td>Smoking</td>
+            <td>1 pack tobacco per day</td>
+            <td>2005/05/01 - 2010/02/28</td>
+          </tr>
+        </table>
+      </div>
+    </text>
+    <!--  Social History Section Observation Resource -->
+    <entry>
+      <reference value="http://fhirtest.uhn.ca/baseDstu3/Observation/117688"/>
     </entry>
   </section>
   <!--  Vital Signs Section Narrative -->

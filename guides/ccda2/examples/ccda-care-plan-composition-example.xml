@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Composition xmlns="http://hl7.org/fhir">
-  <id value="ccda-care-plan-example"/>
+  <id value="ccda-care-plan-composition-example"/>
   <meta>
     <versionId value="1"/>
     <lastUpdated value="2016-06-15T08:16:14Z"/>
@@ -43,7 +43,7 @@
       <display value="Overall Plan of Care/Advance Care Directives"/>
     </coding>
   </type>
-  <title value="Care Plan"/>
+  <title value="Care Plan Example"/>
   <status value="preliminary"/>
   <confidentiality value="N"/>
   <!--  Patient Resource  -->

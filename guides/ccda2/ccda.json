@@ -1,35 +1,34 @@
 {
-	"tool": "jekyll",
-	"paths": {
-		"resources": ["resources", "examples", "cdalogical"],
-		"pages": "pages",
-		"temp": "temp",
-		"output": "output",
-		"qa": "qa",
-		"specification": "http://hl7-fhir.github.io/"
-	},
-	
-	"dependencyList" : [
-    {
-      "name" : "DAF",
-      "location" : "http://hl7.org/fhir/current/daf",
-      "source" : "../daf2/output"
-    }
-  ],
-	"defaults": {
-		"Any": {
-			"template-format": "instance-template-format.html",
-			"template-base": "instance-template-base.html"
-		},
-		"StructureDefinition" : {
-			"template-base": "instance-template-sd.html"
+  "tool": "jekyll",
+  "paths": {
+    "resources": [
+      "resources",
+      "examples",
+      "cdalogical"
+    ],
+    "pages": "pages",
+    "temp": "temp",
+    "output": "output",
+    "qa": "qa",
+    "specification": "http://hl7-fhir.github.io/"
+  },
+  "dependencyList": [{
+    "name": "DAF",
+    "location": "http://hl7.org/fhir/current/daf",
+    "source": "../daf2/output"
+  }],
+  "defaults": {
+    "Any": {
+      "template-format": "instance-template-format.html",
+      "template-base": "instance-template-base.html"
     },
-    "Example" : {
-			"template-base": "instance-template-example.html"
+    "StructureDefinition": {"template-base": "instance-template-sd.html"},
+    "Composition": {
+      "template-format": "instance-template-format-example.html",
+      "template-base": "instance-template-example.html"
     }
-	},
-	"canonicalBase": "http://hl7.org/fhir/ccda",
-	"source": "implementationguide/ccda.xml",
-	"resources": {
-  }
+  },
+  "canonicalBase": "http://hl7.org/fhir/ccda",
+  "source": "implementationguide/ccda.xml",
+  "resources": {}
 }

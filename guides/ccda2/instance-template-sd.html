@@ -18,9 +18,8 @@ tcode: {{[type]}}
  <div id="segment-breadcrumb" class="segmnt">  <!-- segment-breadcrumb -->
   <div class="container">  <!-- container -->
    <ul class="breadcrumb">
-        <li title="C-CDA on FHIR"><a href="index.html"><b>C-CDA on FHIR</b></a></li>
-        <li><b>{{page.title}} Details</b></li>
-
+     <li title="C-CDA on FHIR"><a href="index.html"><b>C-CDA on FHIR</b></a></li>
+     <li><b>{{page.title}} Details</b></li>
    </ul>
   </div>  <!-- /container -->
  </div>  <!-- /segment-breadcrumb -->
@@ -35,12 +34,18 @@ tcode: {{[type]}}
 
 <ul class="nav nav-tabs">
   <li class="active"><a href="#">Content</a></li>
-  <li><a href="{{page.id}}-definitions.html">Detailed Descriptions</a></li>
-  <li><a href="{{page.id}}-mappings.html">Mappings</a></li>
+  <!-- Commenting out as we don't have this and it just ends up as a broken link -->
+<!--  <li><a href="{{page.id}}-definitions.html">Detailed Descriptions</a></li>-->
+  <!-- Commenting out as we don't have this and it just ends up as a broken link -->
+<!--  <li><a href="{{page.id}}-mappings.html">Mappings</a></li>-->
   <li><a href="StructureDefinition-{{page.id}}.xml.html">XML</a></li>
   <li><a href="StructureDefinition-{{page.id}}.json.html">JSON</a></li></ul>
 
-<h3><span class="sectioncount">D.4.1<a name="D.4.1"> </a></span> StructureDefinition: {{page.id}} <a title="link to here" class="self-link" href="{{page.id}}.html#D.4.1"><img src="target.png"/></a></h3>
+<h3>
+  <span class="sectioncount">D.4.1<a name="D.4.1"> </a>
+  </span> StructureDefinition: {{page.id}} <a title="link to here" class="self-link" href="{{page.id}}.html#D.4.1">
+    <img src="target.png"/></a>
+</h3>
 
 
 <!-- introductiontext here-->
@@ -60,7 +65,9 @@ Formal Views of Profile Content
 <p>
 <a href="{{site.data.fhir.path}}profiling.html#representation">Description of Profiles, Differentials, Snapshots, and how the XML and JSON presentations work</a>.
 </p>
-
+<p>
+  Example for: <a href="Composition-{{page.id}}-example.html">{{page.title}}</a>.
+</p>
 <div id="tabs">
  <ul>
   <li><a href="#tabs-summ">Text Summary</a></li>
@@ -73,7 +80,8 @@ Formal Views of Profile Content
 
  <div id="tabs-summ">
   <div id="tbl-summ">
-   <p>This structure is derived from <a href="{{site.data.structuredefinitions[page.id].basepath}}">{{site.data.structuredefinitions[page.id].basename}}</a> </p>
+<!--   <p>This structure is derived from <a href="{{site.data.structuredefinitions[page.id].basepath}}">{{site.data.structuredefinitions[page.id].basename}}</a> </p>-->
+    <p>This structure is derived from <a href="{{site.data.structuredefinitions[page.id].basepath}}">{{site.data.structuredefinitions[page.id].basename}}</a> </p>
    <div id="tbl-diff-inner">
      <a name="summary"> </a>
      {%include StructureDefinition-{{page.id}}-summary.xhtml%} 
@@ -115,9 +123,9 @@ Formal Views of Profile Content
  </div>
 
  <div id="tabs-all">
-  <div id="tbl-summ">
-   <p>This structure is derived from <a href="{{site.data.fhir.path}}{{page.id}}.html">{{page.tcode}}</a>.</p>
-   <div id="tbl-diff-inner">
+  <div id="tbl-all">
+    <p>This structure is derived from <a href="{{site.data.structuredefinitions[page.id].basepath}}">{{site.data.structuredefinitions[page.id].basename}}</a> </p>
+   <div id="tbl-all-inner">
      <a name="summary"> </a>
      {%include StructureDefinition-{{page.id}}-summary.xhtml%}
    </div>

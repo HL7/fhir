@@ -1,60 +1,62 @@
+---
+# jekyll header
+---
+
+
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <!-- instance template base -->
   <head>
-    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>C-CDA on FHIR</title>
-
-  {% include header.html %}
-
-</head>
+    
+    
+    {% include header.html %}
+    
+  </head>
   <body>
-{% include navbar.html %}
-
- <div id="segment-breadcrumb" class="segment">
+    
+    {% include navbar.html %}
+    <div id="segment-breadcrumb" class="segment">
       <!-- segment-breadcrumb -->
       <div class="container">
         <!-- container -->
         <ul class="breadcrumb">
-
+          
           <li title="C-CDA on FHIR"><a href="index.html"><b>C-CDA on FHIR</b></a></li>
-          <li><b>C-CDA on FHIR {{page.type}} Profile</b></li>
+          <li><a href="index.html"><b>C-CDA on FHIR {{page.type}} Profile</b></a></li>
           <li><b>C-CDA on FHIR {{page.type}} Profile Example</b></li>
-
+          
         </ul>
       </div>
       <!-- /container -->
     </div>
     <!-- /segment-breadcrumb -->
-    <div id="segment-content" class="segment">
-      <!-- segment-content -->
-      <div class="container">
-        <!-- container -->
+    
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
         <div class="row">
           <div class="inner-wrapper">
-            <div class="col-9">
-              <!-- Begin CONTENT -->
-              <h2>C-CDA on FHIR {{page.tcode}} Example: {{page.example}}</h2>
-              <p>
-This is the narrative for the resource. See also the <a href="ccda-{{page.type}}-{{page.example}}-xml.html">XML</a> or <a
-                  href="ccda-{{page.type}}-{{page.example}}-json.html"
-                >JSON</a><!--or <a href="{{page.type}}-example-{{page.example}}-ttl.html">Turtle</a>--> format. This example conforms to the C-CDA on FHIR  {{page.tcode}} profile.
-
-</p>
-
-{% include {{page.type}}-{{page.example}}-html.xhtml %}
-<!--end content-->
-              <p>Usage note: every effort has been made to ensure that the examples are correct and useful, but they are not a normative part of the specification.</p>
-            </div>
-          </div>
-          <!-- /inner-wrapper -->
-        </div>
-        <!-- /row -->
-      </div>
-      <!-- /container -->
-    </div>
-    <!-- /segment-content -->
-
-
-
-{% include footer.html %}
-</body>
+            <!-- CONTENT CONTENT -->
+            
+<!--            <h2>{{page.title}}</h2>-->
+            <h2>C-CDA on FHIR: {{[id]}}</h2>
+             
+            {% include {{[type]}}-{{[name]}}.xhtml %}
+            <p>The above is the narrative for the resource. <br/>
+              Also see the following formats:
+              <a href="{{[type]}}-{{[id]}}.xml.html">XML Example</a> or 
+              <a href="{{[type]}}-{{[id]}}.json.html">JSON Example</a> or 
+              <a href="{{[type]}}-{{[id]}}.ttl.html">Turtle Example</a>.
+            </p>
+            <p>Usage note: every effort has been made to ensure that the examples are correct and useful, but they are not a normative part of the specification.</p>
+            
+          </div>  <!-- /inner-wrapper -->
+        </div>  <!-- /row -->
+      </div>  <!-- /container -->
+      
+    </div>  <!-- /segment-content -->
+    
+    {% include footer.html %}
+    
+  </body>
 </html>

@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Composition xmlns="http://hl7.org/fhir">
+  <id value="ccda-operative-note-composition-example"/>
+  <meta>
+    <versionId value="1"/>
+    <lastUpdated value="2016-06-15T08:16:14Z"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/ccda-operative-note-composition"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Operative Note document for Henry Jones</p>
+      <p>Managed by Community Health and Hospitals</p>
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-data-enterer-extension">
+    <valueUri value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-informant-extension">
+    <valueUri value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-information-recipient-extension">
+    <valueUri value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-participant-extension">
+    <valueUri value="http://fhirtest.uhn.ca/baseDstu3/RelatedPerson/117466"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-performer-extension">
+    <valueUri value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-authorization-extension">
+    <valueUri value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-consent"/>
+  </extension>
+  <identifier>
+    <system value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-operative-note-composition"/>
+    <value value="1"/>
+  </identifier>
+  <date value="2016-03-22T09:10:14Z"/>
+  <type>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="11504-8"/>
+      <display value="Provider-unspecified Operation Note"/>
+    </coding>
+  </type>
+  <title value="Operative Note"/>
+  <status value="preliminary"/>
+  <confidentiality value="N"/>
+  <!--  Patient Resource -->
+  <subject>
+    <reference value="http://fhirtest.uhn.ca/baseDstu3/Patient/117467"/>
+    <display value="Henry Jones"/>
+  </subject>
+  <!--  Practitioner Resource -->
+  <author>
+    <reference value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
+    <display value="Adam Everyman, MD"/>
+  </author>
+  <attester>
+    <mode value="legal"/>
+    <time value="2012-01-04T09:10:14Z"/>
+    <party>
+      <reference value="http://fhirtest.uhn.ca/baseDstu3/Practitioner/117497"/>
+      <display value="Adam Everyman, MD"/>
+    </party>
+  </attester>
+  <!--  Organization Resource -->
+  <custodian>
+    <reference value="http://fhirtest.uhn.ca/baseDstu3/Organization/117471"/>
+    <display value="Community Health and Hospitals"/>
+  </custodian>
+  <event>
+    <code>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="73761001"/>
+        <display value="Colonoscopy"/>
+      </coding>
+    </code>
+    <period>
+      <start value="2015-11-18"/>
+      <end value="2015-12-12"/>
+    </period>
+  </event>
+  <!--  Encounter Resource -->
+  <encounter>
+    <reference value="http://fhirtest.uhn.ca/baseDstu3/Encounter/117630"/>
+  </encounter>
+  <!--  Allergies and Intolerances Section Narrative -->
+  <section>
+    <title value="Allergies and Intolerances Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="48765-2"/>
+        <display value="Allergies and adverse reactions"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <table>
+          <tr>
+            <td>
+              <b>Substance</b>
+            </td>
+            <td>
+              <b>Overall Severity</b>
+            </td>
+            <td>
+              <b>Reaction</b>
+            </td>
+            <td>
+              <b>Reaction Severity</b>
+            </td>
+            <td>
+              <b>Status</b>
+            </td>
+          </tr>
+          <tr>
+            <td>Cashew Nut</td>
+            <td>Severe</td>
+            <td>Anaphylactic reaction</td>
+            <td>Mild</td>
+            <td>Active</td>
+          </tr>
+        </table>
+      </div>
+    </text>
+    <mode value="snapshot"/>
+    <orderedBy>
+      <coding>
+        <system value="http://hl7.org/fhir/list-order"/>
+        <code value="event-date"/>
+        <display value="Sorted by Event Date"/>
+      </coding>
+    </orderedBy>
+    <!--  Allergies and Intolerances Section Resource -->
+    <entry>
+      <reference value="http://fhirtest.uhn.ca/baseDstu3/AllergyIntolerance/117632"/>
+    </entry>
+  </section>
+  <!--  Anesthesia Section Narrative -->
+  <section>
+    <title value="Anesthesia Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="59774-0"/>
+        <display value="Anesthesia"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Conscious sedation with propofol 200 mg IV</p>
+      </div>
+    </text>
+    <!--  Anesthesia Section Procedure Resource -->
+    <!-- SG: Commenting out for now as I've had to remove from the profile -->
+    <!--<entry>
+      <reference value="http://fhirtest.uhn.ca/baseDstu3/Procedure/117687"/>
+    </entry>-->
+    <!--  Anesthesia Section Medication Resource -->
+    <entry>
+      <reference value="http://fhirtest.uhn.ca/baseDstu3/Medication/117679"/>
+    </entry>
+  </section>
+  <!--  Assessment Section Narrative -->
+  <section>
+    <title value=" Assessment Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="51848-0"/>
+        <display value="Assessment (evaluation)"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Obesity.</p>
+        <p>Uncontrolled brittle Type II diabetic.</p>
+        <p>Shortness of breath, mild wheezing.</p>
+        <p>Pressure ulder on left knee.</p>
+      </div>
+    </text>
+  </section>
+  <!--  Assessment and Plan Section Narrative -->
+  <section>
+    <title value="Assessment and Plan Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="51847-2"/>
+        <display value="Assessment (evaluation) and plan"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Recurrent GI bleed of unknown etiology; hypotension perhaps
+                    secondary to this but as likely secondary to polypharmacy</p>
+        <p>Acute on chronic anemia secondary to #1.</p>
+        <p>Azotemia, acute renal failure with volume loss secondary tom#1.</p>
+        <p>Hyperkalemia secondary to #3 and on ACE and K+ supplement.</p>
+        <p>Other chronic diagnoses as noted above, currently stable.</p>
+      </div>
+    </text>
+  </section>
+  <!--  Complications Section Narrative -->
+  <section>
+    <title value="Complications Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="55109-3"/>
+        <display value="Complications"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Asthmatic symptoms while under general anesthesia.</p>
+      </div>
+    </text>
+    <!--  Complications Section Condition Resource -->
+    <entry>
+      <reference value="http://fhirtest.uhn.ca/baseDstu3/Condition/117648"/>
+    </entry>
+  </section>
+  <!--  Preoperative Diagnosis Section Narrative -->
+  <section>
+    <title value="Preoperative Diagnosis Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="10219-4"/>
+        <display value="Preoperative Diagnosis"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Appendicitis</p>
+      </div>
+    </text>
+  </section>
+  <!--  Surgical Procedure Section Narrative -->
+  <section>
+    <title value="Operative Note Surgical Procedure Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="10223-6"/>
+        <display value="Operative Note Surgical Procedure"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Laparoscopic Appendectomy</p>
+      </div>
+    </text>
+  </section>
+  <!--  Planned Procedure Section Narrative -->
+  <section>
+    <title value="Planned Procedure Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="59772-4"/>
+        <display value="Planned procedure"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Colonoscopy</p>
+      </div>
+    </text>
+  </section>
+  <!--  Procedure Indications Section Narrative -->
+  <section>
+    <title value="Procedure Indications Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="59768-2"/>
+        <display value="Procedure indications"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>The procedure is performed for screening in a low risk individual.</p>
+      </div>
+    </text>
+  </section>
+  <!--  Procedure Description Section Narrative -->
+  <section>
+    <title value="Procedure Description Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="29554-3"/>
+        <display value="Procedure description"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>The patient was brought to the operating room, placed in the supine position, and
+                    general anesthesia was induced. A detailed technical narrative of a laparoscopic
+                    appendectomy from initial incision to placement of any dressings follows.  </p>
+      </div>
+    </text>
+  </section>
+  <!--  Procedure Estimated Blood Loss Section Narrative -->
+  <section>
+    <title value="Procedure Estimated Blood Loss Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="59770-8"/>
+        <display value="Procedure Estimated Blood Loss"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Minimal</p>
+      </div>
+    </text>
+  </section>
+  <!--  Procedure Findings Section Narrative -->
+  <section>
+    <title value="Procedure Findings Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="59776-5"/>
+        <display value="Procedure findings"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>A 6 mm sessile polyp was found in the ascending colon and 
+                    removed by snare, no cautery. Bleeding was controlled. 
+                    Moderate diverticulosis and hemorrhoids were incidentally noted.</p>
+      </div>
+    </text>
+    <!--  Procedure Findings Section Condition Resource -->
+    <entry>
+      <reference value="http://fhirtest.uhn.ca/baseDstu3/Condition/117648"/>
+    </entry>
+  </section>
+  <!--  Procedure Specimens Taken Section Narrative -->
+  <section>
+    <title value="Procedure Specimens Taken Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="59773-2"/>
+        <display value="Procedure specimens taken"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Ascending colon polyp</p>
+      </div>
+    </text>
+  </section>
+  <!--  Operative Note Fluids Section Narrative -->
+  <section>
+    <title value="Operative Note Fluids Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="10216-0"/>
+        <display value="Operative Note Fluids"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>250 ML Ringers Lactate</p>
+      </div>
+    </text>
+  </section>
+  <!--  Surgical Drains Section Narrative -->
+  <section>
+    <title value="Surgical Drains Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="11537-8"/>
+        <display value="Surgical Drains"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Penrose drain placed</p>
+      </div>
+    </text>
+  </section>
+  <!--  Procedure Implants Section Narrative -->
+  <section>
+    <title value="Procedure Implants Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="59771-6"/>
+        <display value="Procedure implants"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>No implants were placed.</p>
+      </div>
+    </text>
+  </section>
+  <!--  Procedure Disposition Section Narrative -->
+  <section>
+    <title value="Procedure Disposition Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="59775-7"/>
+        <display value="Procedure disposition"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>The patient was taken to the Endoscopy Recovery Unit in stable condition.</p>
+      </div>
+    </text>
+  </section>
+  <!--  Preoperative Diagnosis Section Narrative -->
+  <section>
+    <title value="Postoperative Diagnosis Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="10218-6"/>
+        <display value="Postoperative Diagnosis"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Appendicitis with periappendiceal abscess</p>
+      </div>
+    </text>
+  </section>
+  <!--  Plan of Treatment Section Narrative -->
+  <section>
+    <title value="Plan of Treatment Section"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="18776-5"/>
+        <display value="Plan of treatment"/>
+      </coding>
+    </code>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <table>
+          <tr>
+            <td>
+              <b>Planned Activity</b>
+            </td>
+            <td>
+              <b>Period</b>
+            </td>
+            <td>
+              <b>Status</b>
+            </td>
+          </tr>
+          <tr>
+            <td>Colonoscopy</td>
+            <td>2010/08/16 - 2010/08/16</td>
+            <td>Completed</td>
+          </tr>
+          <tr>
+            <td>Recommendation to Exercise</td>
+            <td>2015/10/29</td>
+            <td>Ongoing</td>
+          </tr>
+        </table>
+      </div>
+    </text>
+  </section>
+</Composition>
