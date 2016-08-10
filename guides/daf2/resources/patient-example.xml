@@ -26,7 +26,7 @@
 			<text value="Not Hispanic or Latino"/>
 		</valueCodeableConcept>
 	</extension>
-	<extension url="http://hl7.org/fhir/us/daf/StructureDefinition/daf-birth-sex">
+	<extension url="http://hl7.org/fhir/StructureDefinition/usrealm-birthsex">
 		<valueCodeableConcept>
 			<coding>
 				<system value="http://hl7.org/fhir/v3/AdministrativeGender"/>

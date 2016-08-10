@@ -419,12 +419,14 @@
 				<reference value="StructureDefinition/daf-queryresults"/>
 			</sourceReference>
 		</resource>
+		<!--
 		<resource>
 			<example value="false"/>
 			<sourceReference>
 				<reference value="StructureDefinition/daf-birth-sex"/>
 			</sourceReference>
 		</resource>
+-->
 		<resource>
 			<example value="false"/>
 			<sourceReference>
