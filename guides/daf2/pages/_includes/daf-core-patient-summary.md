@@ -39,8 +39,10 @@ Additionally your system must return:
   [Common Languages]: http://hl7-fhir.github.io/valueset-languages.html
   [US Core Patient Birth Sex]: http://hl7-fhir.github.io/extension-us-core-birthsex.html
   [US Core Birth Sex]: http://hl7-fhir.github.io/valueset-usrealm-birthsex.html
-  [US Core Patient Race]: http://hl7-fhir.github.io/v3/Race/vs.html
+  [US Core Patient Race]:  http://hl7-fhir.github.io/extension-us-core-race.html
   [OMB Race Categories]: valueset-daf-race.html
-  [US Core Race]: http://hl7-fhir.github.io/extension-us-core-race.html
+  [US Core Race]: http://hl7-fhir.github.io/v3/Race/vs.html
  [US Core Patient Ethnicity]: http://hl7-fhir.github.io/extension-us-core-ethnicity.html
  [US Core Ethnicity]: http://hl7-fhir.github.io/extension-us-core-ethnicity.html
+ 
+  http://hl7-fhir.github.io/extension-us-core-race.html
