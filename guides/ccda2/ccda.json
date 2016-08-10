@@ -22,7 +22,8 @@
       "template-format": "instance-template-format.html",
       "template-base": "instance-template-base.html"
     },
-    "StructureDefinition": {"template-base": "instance-template-sd.html"},
+    "StructureDefinition": {"template-base": "instance-template-sd.html"}
+    ,
     "Composition": {
       "template-format": "instance-template-format-example.html",
       "template-base": "instance-template-example.html"

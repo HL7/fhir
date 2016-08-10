@@ -214,20 +214,6 @@
     <!-- examples -->
     <resource>
       <example value="true"/>
-      <name value="Example CCD"/>
-      <description value="Example CCD"/>
-      <acronym value="ccd-example"/>
-      <sourceReference>
-        <reference value="Composition/ccda-ccd-composition-example"/>
-      </sourceReference>   
-      <exampleFor>
-            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-ccd-composition"/>
-          </exampleFor> 
-    </resource>
-    
-
-    <resource>
-      <example value="true"/>
       <name value="Example Care Plan"/>
       <description value="Example Care Plan"/>
       <acronym value="care-plan-example"/>
@@ -235,8 +221,20 @@
         <reference value="Composition/ccda-care-plan-composition-example"/>
       </sourceReference>       
       <exampleFor>
-            <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-care-plan-composition"/>
+            <reference value="StructureDefinition/ccda-care-plan-composition"/>
           </exampleFor> 
+    </resource>
+    <resource>
+      <example value="true"/>
+      <name value="Example CCD"/>
+      <description value="Example CCD"/>
+      <acronym value="ccd-example"/>
+      <sourceReference>
+        <reference value="Composition/ccda-ccd-composition-example"/>
+      </sourceReference>   
+      <exampleFor>
+        <reference value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-ccd-composition"/>
+      </exampleFor> 
     </resource>
     <resource>
       <example value="true"/>

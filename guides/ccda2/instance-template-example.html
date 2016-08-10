@@ -8,10 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>C-CDA on FHIR</title>
-    
-    
     {% include header.html %}
-    
   </head>
   <body>
     
@@ -21,11 +18,9 @@
       <div class="container">
         <!-- container -->
         <ul class="breadcrumb">
-          
           <li title="C-CDA on FHIR"><a href="index.html"><b>C-CDA on FHIR</b></a></li>
           <li><a href="index.html"><b>C-CDA on FHIR {{page.type}} Profile</b></a></li>
           <li><b>C-CDA on FHIR {{page.type}} Profile Example</b></li>
-          
         </ul>
       </div>
       <!-- /container -->
@@ -38,16 +33,18 @@
           <div class="inner-wrapper">
             <!-- CONTENT CONTENT -->
             
-<!--            <h2>{{page.title}}</h2>-->
             <h2>C-CDA on FHIR: {{[id]}}</h2>
-             
-            {% include {{[type]}}-{{[name]}}.xhtml %}
-            <p>The above is the narrative for the resource. <br/>
-              Also see the following formats:
+            
+            <p>
+              Formats:
               <a href="{{[type]}}-{{[id]}}.xml.html">XML Example</a> or 
               <a href="{{[type]}}-{{[id]}}.json.html">JSON Example</a> or 
               <a href="{{[type]}}-{{[id]}}.ttl.html">Turtle Example</a>.
             </p>
+            
+            <p>The narrative from the above example:</p> 
+            {% include {{[id]}}.xhtml %}
+            
             <p>Usage note: every effort has been made to ensure that the examples are correct and useful, but they are not a normative part of the specification.</p>
             
           </div>  <!-- /inner-wrapper -->
