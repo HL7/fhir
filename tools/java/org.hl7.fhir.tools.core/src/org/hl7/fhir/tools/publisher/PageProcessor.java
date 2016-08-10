@@ -1640,7 +1640,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("\r\n");
     b.append(" <div id=\"tabs-"+name+"-diff\">\r\n");
     b.append("  <div id=\"diff\">\r\n");
-    b.append("   <p><b>Differences Between DSTU R2 and this version</b></p>\r\b");
+    b.append("   <p><b>Changes since DSTU2</b></p>\r\b");
     b.append("   <div id=\"diff-inner\">\r\n");
     b.append("    "+diff+"\r\n");
     b.append("   </div>\r\n");
@@ -1688,7 +1688,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("  </div>\r\n");
     b.append("  <div id=\"diffa\">\r\n");
     b.append("   <a name=\"diff-"+name+"\"> </a>\r\n");
-    b.append("   <p><b>Differences Between DSTU R2 and this version</b></p>\r\n");
+    b.append("   <p><b>Changes since DSTU2</b></p>\r\n");
     b.append("   <div id=\"diff-inner\">\r\n");
     b.append("     "+diff+"\r\n");
     b.append("   </div>\r\n");

@@ -19,6 +19,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.Base;
+import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
@@ -369,6 +370,27 @@ public class SpecDifferenceEvaluator {
         b.append(s);
     }
     
+    if (rev.hasDefaultValue() || orig.hasDefaultValue()) {
+      if (!rev.hasDefaultValue()) 
+        b.append("Default Value "+describeValue(orig.getDefaultValue())+" removed");
+      else if (!orig.hasDefaultValue())
+        b.append("Default Value "+describeValue(rev.getDefaultValue())+" added");
+      else { 
+        // do not use Base.compare here, because it is subject to type differences
+        String s1 = describeValue(orig.getDefaultValue());
+        String s2 = describeValue(rev.getDefaultValue());
+        if (!s1.equals(s2))
+          b.append("Default Value changed from "+s1+" to "+s2);
+      }
+    }
+
+    if (rev.getIsModifier() != orig.getIsModifier()) {
+      if (rev.getIsModifier())
+        b.append("Now marked as Modifier");
+      else
+        b.append("No longer marked as Modifier");
+    }
+
     if (b.length() > 0) {
       XhtmlNode tr = tbl.addTag("tr").setAttribute("class", "diff-entry");
       XhtmlNode left = tr.addTag("td").setAttribute("class", "diff-left");
@@ -386,6 +408,14 @@ public class SpecDifferenceEvaluator {
     return b.length() > 0;
   }
   
+  @SuppressWarnings("rawtypes")
+  private String describeValue(Type v) {
+    if (v instanceof PrimitiveType) {
+      return "\""+((PrimitiveType) v).asStringValue()+"\"";
+    }
+    return "{complex}";
+  }
+
   private String compareBindings(ElementDefinition rev, ElementDefinition orig) {
     if (!hasBindingToNote(rev)) {
       return "Remove Binding "+describeBinding(orig);
