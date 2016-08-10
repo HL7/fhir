@@ -461,6 +461,7 @@
 				<reference value="Conformance/conformance-daf-query-requestor"/>
 			</sourceReference>
 		</resource>
+		<!--
 		<resource>
 			<example value="true"/>
 			<name value="DAF Responder Core"/>
@@ -474,7 +475,7 @@
 			<sourceReference>
 				<reference value="Conformance/conformance-daf-core-query-requestor"/>
 			</sourceReference>
-		</resource>
+		</resource> -->
 		<resource>
 			<example value="true"/>
 			<name value="DAF-Research Data Source"/>
@@ -706,6 +707,18 @@
 		<page>
 			<source value="conformance-daf-query-requestor.html"/>
 			<title value="DAF Query Requestor"/>
+			<kind value="resource"/>
+			<format value="generated"/>
+		</page>
+		<page>
+			<source value="conformance-daf-datasource.html"/>
+			<title value="Data Source"/>
+			<kind value="resource"/>
+			<format value="generated"/>
+		</page>
+		<page>
+			<source value="conformance-daf-datamart.html"/>
+			<title value="Data Source"/>
 			<kind value="resource"/>
 			<format value="generated"/>
 		</page>
