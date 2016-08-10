@@ -8,6 +8,16 @@
 				<code value="2106-3"/>
 				<display value="White"/>
 			</coding>
+			<text value="White"/>
+		</valueCodeableConcept>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/v3/Race"/>
+				<code value="1002-5"/>
+				<display value="American Indian or Alaska Native"/>
+			</coding>
 			<coding>
 				<system value="http://hl7.org/fhir/v3/Race"/>
 				<code value="1586-7"/>
@@ -26,7 +36,7 @@
 			<text value="Not Hispanic or Latino"/>
 		</valueCodeableConcept>
 	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/usrealm-birthsex">
+	<extension url="http://hl7.org/fhir/StructureDefinition/us-core-birthsex">
 		<valueCodeableConcept>
 			<coding>
 				<system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
