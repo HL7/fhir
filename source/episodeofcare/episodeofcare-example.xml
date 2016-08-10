@@ -67,21 +67,12 @@
     <reference value="Practitioner/14"/>
     <display value="Amanda Assigned" />
   </careManager>
-  <!--<careTeam>
-    <role>
-      <coding>
-        <system value="http://example.org/EpisodeOfCare/Role"/>
-        <code value="AO"/>
-        <display value="Assessment Worker"/>
-      </coding>
-    </role>
-    <period>
-      <start value="2014-09-01"/>
-      <end value="2014-09-16"/>
-    </period>
-    <member>
-      <reference value="Practitioner/13"/>
-      <display value="Henry Seven"/>
-    </member>
-  </careTeam>-->
+  <team>
+    <reference value="CareTeam/example"/>
+    <display value="example care team"/>
+  </team>
+  <account>
+    <reference value="Account/example"/>
+    <display value="example account"/>
+  </account>
 </EpisodeOfCare>

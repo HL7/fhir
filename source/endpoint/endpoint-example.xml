@@ -8,14 +8,20 @@
 			was on leave from 22 Sept - 24 Sept while in respite care
 		</div>
 	</text>
+	<identifier>
+		<system value="http://example.org/enpoint-identifier"/>
+		<value value="epcp12"/>
+	</identifier>
 	<status value="active" />
 	<name value="Health Intersections CarePlan Hub" />
 	<managingOrganization>
 		<reference value="Organization/hl7" />
 	</managingOrganization>
-	<!--<contact>
-    <value value="Grahame" />
-  </contact>-->
+	<contact>
+		<system value="email"/>
+		<value value="endpointmanager@example.org"/>
+		<use value="work"/>
+    </contact>
 	<connectionType>
 		<system value="http://hl7.org/fhir/ValueSet/subscription-channel-type" />
 		<code value="rest-hook" />
@@ -35,4 +41,13 @@
 			<code value="CarePlan" />
 		</coding>
 	</payloadType>
+	<!-- Not a valid bearer token, but is here for demonstration purposes -->
+	<header value="bearer-code BASGS534s4"/>
+
+	<!-- Example public key extracted from http://phpseclib.sourceforge.net/rsa/examples.html -->
+	<publicKey value="-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCqGKukO1De7zhZj6+H0qtjTkVxwTCpvKe4eCZ0
+FPqri0cb2JZfXJ/DgYSF6vUpwmJG8wVQZKjeGcjDOL5UlsuusFncCzWBQ7RKNUSesmQRMSGkVb1/
+3j+skZ6UtW+5u09lHNsj6tQ51s1SPrCBkedbNf0Tp0GbMJDyR4e9T04ZZwIDAQAB
+-----END PUBLIC KEY-----"/>
 </Endpoint>
