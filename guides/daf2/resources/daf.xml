@@ -677,4 +677,16 @@
 			<kind value="toc"/>
 		</page>
 	</page>
+		<page>
+			<source value="conformance-daf-query-responder.html"/>
+			<title value="DAF Query Responder"/>
+			<kind value="resource"/>
+			<format value="generated"/>
+		</page>
+		<page>
+			<source value="conformance-daf-query-requestor.html"/>
+			<title value="DAF Query Requestor"/>
+			<kind value="resource"/>
+			<format value="generated"/>
+		</page>
 </ImplementationGuide>

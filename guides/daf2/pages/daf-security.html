@@ -17,7 +17,7 @@
   <div class="container">  <!-- container -->
    <ul class="breadcrumb">
           <!-- daf\daf-security / page / daf-security -->
-        <li title="Data Access Framework"><a href="daf.html"><b>DAF</b></a></li>
+        <li title="Data Access Framework"><a href="daf-core.html"><b>DAF-core</b></a></li>
         <li><b>Security</b></li>
 
    </ul>
@@ -72,7 +72,7 @@ For the purposes of DAF, security conformance requirements are as follows:
   <li>Systems SHOULD implement requirements from <a href="{{site.data.fhir.path}}security-labels.html">FHIR Security Labels</a> to provide information on the type and sensitivity of data.</li>
   <li>Systems SHALL implement consent requirements per their state, local, and institutional policies. The Business Associate Agreements SHOULD document systems mutual consent requirements. DAF actors SHALL ensure that any necessary consent records exist and are reviewed prior to each exchange of patient-identifiable healthcare information. This verification should be logged in the same manner as other transactions, as discussed above under <a href="#general">General Security Considerations</a>.</li>
   <li>Systems SHOULD track the provenance meta data of a resource using<a href="{{site.data.fhir.path}}provenance.html">FHIR Provenance</a> resource and associated requirements.</li>
-  <li>Systems SHOULD implement the <a href="{{site.data.fhir.path}}security.html#digital signatures">FHIR Digital Signatures</a> and provide feedback on it's appropriateness for DAF transactions.</li>
+  <li>Systems MAY implement the <a href="{{site.data.fhir.path}}security.html#digital signatures">FHIR Digital Signatures</a> and provide feedback on it's appropriateness for DAF transactions.</li>
   <li>Systems MAY protect the confidentiality of data at rest via encryption and associated access controls. The policies and methods used are outside the scope of this specification.</li>
 </ul>
 
