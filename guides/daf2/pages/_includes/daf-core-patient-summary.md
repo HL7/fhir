@@ -37,10 +37,10 @@ Additionally your system must return:
   [Patient.birthDate]: http://hl7.org/fhir/us/daf/daf-patient-definitions.html#daf-patient.Patient.birthDate
   [Patient.communication.language]: http://hl7.org/fhir/us/daf/daf-patient-definitions.html#daf-patient.Patient.communication.language
   [Common Languages]: http://hl7-fhir.github.io/valueset-languages.html
-  [US Core Patient Birth Sex]: daf-birth-sex.html
-  [US Core Birth Sex]: valueset-daf-birth-sex.html
-  [US Core Patient Race]: http://hl7.org/fhir/extension-us-core-race.html
+  [US Core Patient Birth Sex]: http://hl7-fhir.github.io/extension-us-core-birthsex.html
+  [US Core Birth Sex]: http://hl7-fhir.github.io/valueset-usrealm-birthsex.html
+  [US Core Patient Race]: http://hl7-fhir.github.io/v3/Race/vs.html
   [US Core Race Category]: valueset-daf-race.html
-  [US Core Race]: http://hl7.org/fhir/v3/Race/index.html
- [US Core Patient Ethnicity]: http://hl7.org/fhir/extension-us-core-ethnicity.html
- [US Core Ethnicity]: http://hl7.org/fhir/v3/Ethnicity/index.html
+  [US Core Race]: http://hl7-fhir.github.io/extension-us-core-race.html
+ [US Core Patient Ethnicity]: http://hl7-fhir.github.io/extension-us-core-ethnicity.html
+ [US Core Ethnicity]: http://hl7-fhir.github.io/extension-us-core-ethnicity.html

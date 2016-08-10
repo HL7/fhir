@@ -54,6 +54,6 @@ Diastolic blood pressure | 8462-4 | mm[Hg] | Observation.component code for a bl
 
 
 [Observation]: http://hl7-fhir.github.io/observation.html
-[extensible]: (http://hl7-fhir.github.io/terminologies.html#extensible)
+[extensible]: http://hl7-fhir.github.io/terminologies.html#extensible
 
 
