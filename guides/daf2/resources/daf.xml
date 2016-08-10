@@ -504,6 +504,19 @@
 			</sourceReference>
 		</resource>
 		<!--************************EXAMPLES EXAMPLES EXAMPLES **************************************  -->
+		
+		<resource>
+			<example value="true"/>
+			<name value="Condition Example"/>
+			<sourceReference>
+				<reference value="Condition/example"/>
+			</sourceReference>
+			<exampleFor>
+				<reference value="StructureDefinition/daf-core-condition"/>
+			</exampleFor>
+		</resource>	
+		
+		
 		<resource>
 			<example value="true"/>
 			<name value="Care Team Example"/>
@@ -550,6 +563,13 @@
 		
 		
 		<!--daf-core-core valuesets-->
+<resource>
+			<example value="false"/>
+			<sourceReference>
+				<reference value="ValueSet/daf-condition-category"/>
+			</sourceReference>
+		</resource>		
+		
 		<resource>
 			<example value="false"/>
 			<sourceReference>

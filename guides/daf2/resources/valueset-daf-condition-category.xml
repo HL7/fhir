@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+	<id value="daf-condition-category"/>
+	<url value="http://hl7.org/fhir/us/daf/ValueSet/daf-condition-category"/>
+	<name value="DAF Condition Category Codes"/>
+	<status value="draft"/>
+	<publisher value="HL7 (FHIR Project)"/>
+	<date value="2016-08-10"/>
+	<description value="The DAF Condition Category Codes support the separate concepts of problems and health concerns in Condition.category in order for API consumers to be able to separate health concerns and problems. However this is not mandatory for 2015 certification"/>
+	<requirements value="So API consumers can separate health concerns and problems."/>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/condition-category"/>
+		</include>
+		<include>
+			<system value="http://hl7.org/fhir/us/daf/CodeSystem/daf-condition-category"/>
+			<concept>
+				<code value="problem"/>
+				<display value="Problem"/>
+			</concept>
+			<concept>
+				<code value="health-concern"/>
+				<display value="Health Concern"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>

@@ -241,7 +241,6 @@
 			"defns": "daf-procedurelist-definitions.html",
 			"base": "daf-procedurelist.html"
 		},
-
 		"StructureDefinition/daf-research-data-models": {
 			"defns": "daf-research-data-models-definitions.html",
 			"base": "daf-research-data-models.html"
@@ -390,7 +389,6 @@
 			"base": "valueset-daf-problem.html",
 			"template-base": null
 		},
-
 		"ValueSet/daf-research-data-models": {
 			"base": "valueset-daf-research-data-models.html",
 			"template-base": null
@@ -447,10 +445,13 @@
 			"base": "valueset-daf-ndc-vaccine-codes.html",
 			"template-base": null
 		},
+		"ValueSet/daf-condition-category": {
+			"base": "valueset-daf-condition-category.html",
+			"template-base": null
+		},
 		"CodeSystem/daf-careteam-status": {
 			"base": "codesystem-daf-careteam-status.html",
 			"template-base": null
-		
 		},
 		"AllergyIntolerance/example": {
 			"base": "allergyintolerance-example.html",
@@ -464,12 +465,14 @@
 			"base": "careplan-example.html",
 			"template-base": null
 		},
-		
 		"CareTeam/example": {
 			"base": "careteam-example.html",
 			"template-base": null
-		}		
-		
-		
+		},
+				"Condition/example": {
+			"base": "condition-example.html",
+			"template-base": null
+		}
+
 	}
 }
