@@ -432,7 +432,7 @@
 	
 	  <h3>DAF-Research Specific Operations</h3>
 	  
-	  <p>Data Marts SHALL support daf-execute-query operation on the ROOT URL of the system.</p>
+	  <p>Data Marts SHALL support <a href="http://hl7.org/fhir/current/daf/OperationDefinition-daf-execute-query.html">daf-execute-query</a> operation on the ROOT URL of the system.</p>
 	  <p>Data Marts SHALL publish their Conformance statement using the DAF-Conformance profile and identify the specific operations supported.</p>
 	  
     </div>

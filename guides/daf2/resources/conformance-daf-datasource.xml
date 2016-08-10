@@ -328,8 +328,8 @@
 	
 	  <h3>DAF-Research Specific Operations</h3>
 	  
-	  <p>Data Sources SHALL support Patient/$everything operation using the DAF-Core profiles.</p>
-	  <p>Data Sources SHALL support daf-extract-operation on the ROOT URL of the system.</p>
+	  <p>Data Sources SHALL support <a href="http://hl7.org/fhir/OperationDefinition/patient-everything">Patient/$everything</a> operation using the DAF-Core profiles.</p>
+	  <p>Data Sources SHALL support <a href="http://hl7.org/fhir/current/daf/OperationDefinition-daf-extract-operation.html">daf-extract-operation</a> on the ROOT URL of the system.</p>
 	  <p>Data Marts SHALL publish their Conformance statement using the DAF-Conformance profile and identify the specific operations supported.</p>
 	  
     </div>
