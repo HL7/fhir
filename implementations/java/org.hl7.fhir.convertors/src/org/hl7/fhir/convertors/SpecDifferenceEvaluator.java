@@ -156,7 +156,7 @@ public class SpecDifferenceEvaluator {
     else {
       start();
       compare(orig, rev);
-      return  "<p>This table summarises the change in this resource from Release 2 to this version</p>\r\n"+ new XhtmlComposer().setPretty(true).compose(tbl);
+      return new XhtmlComposer().setPretty(true).compose(tbl)+"\r\n<p>See the <a href=\"diff.html\">Full Difference</p> for further information\r\n";
     }
   }
   
