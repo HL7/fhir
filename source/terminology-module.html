@@ -21,25 +21,77 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="intro"> </a>
 <h3>Introduction</h3>
 <p>
-In this section: scope, what outcome modules seeks providem why would you look at it's content
-
-From the master doc: Code System, Value Set, Concept Map, ExpansionProfile, Terminology Server
-
-Editor: Rob Hausam
+The Terminology Module provides an overview and guide to the FHIR resources and operations that comprise the terminology service functionality required for support of the other FHIR modules and individual resources. 
+<!-- From the master doc: Code System, Value Set, Concept Map, ExpansionProfile, Terminology Server
+Editor: Rob Hausam -->
 </p>
 
 <a name="index"> </a>
 <h3>Index</h3>
 <p>
-In this section: links to key content pages in the module
+The Terminology Module covers the following:
 </p>
+<p><b>Resources</b></p>
+<table class="none"><tr>
+ <td><ul>
+  <li><a title="[%resdesc CodeSystem%]" href="codesystem.html">CodeSystem</a></li>
+  <li><a title="[%resdesc ValueSet%]" href="valueset.html">ValueSet</a></li>
+ </ul></td>
+ <td><ul>
+  <li><a title="[%resdesc ConceptMap%]" href="conceptmap.html">ConceptMap</a></li>
+  <li><a title="[%resdesc NamingSystem%]" href="namingsystem.html">NamingSystem</a></li>
+ </ul></td>
+ <td><ul>
+  <li><a title="[%resdesc ExpansionProfile%]" href="expansionprofile.html">ExpansionProfile</a></li>
+ </ul></td>
+</tr></table>
+<p>
+<b>Operations</b>
+</p>
+<table class="none"><tr>
+ <td><ul style="list-style: none;">
+  <li><b>CodeSystem</b></li>
+ </ul>
+ <ul>
+  <li><a href="codesystem-operations.html#lookup">$lookup</a></li>
+  <li><a href="codesystem-operations.html#subsumes">$subsumes</a></li>
+  <li><a href="codesystem-operations.html#infer">$infer</a></li>
+ </ul></td>
+ <td><ul style="list-style: none;">
+  <li><b>ValueSet</b></li>
+ </ul>
+ <ul>
+  <li><a href="valueset-operations.html#lookup">$expand</a></li>
+  <li><a href="valueset-operations.html#validate-code">$validate-code</a></li>
+ </ul></td>
+ <td><ul style="list-style: none;">
+  <li><b>ConceptMap</b></li>
+ </ul>
+ <ul>
+  <li><a href="conceptmap-operations.html#lookup">$translate</a></li>
+  <li><a href="conceptmap-operations.html#lookup">$closure</a></li>
+ </ul></td>
+</tr></table>
+<p>
+<b>Documentation</b>
+</p>
+<table class="none"><tr>
+ <td><ul>
+  <li><a href="terminology-service.html">Terminology Service</a></li>
+  <li><a href="terminologies.html">Using Codes in Resources</a></li>
+  <li><a href="terminologies-systems.html">Code Systems</a></li>
+  <li><a href="terminologies-v3.html">HL7 v3 Namespaces (Code Systems and Value Sets)</a></li>
+  <li><a href="terminologies-v2.html">HL7 Version 2 Table Namespaces</a></li>
+  <li><a href="terminologies-valuesets.html">Value Sets Defined in FHIR</a></li>
+  <li><a href="terminologies-conceptmaps.html">Mappings between Value Sets Defined in FHIR</a></li>
+  <li><a href="identifier-registry.html">Known Identifier Systems</a></li>
+ </ul></td>
+</tr></table>
 
 <a name="secpriv"> </a>
 <h3>Security and Privacy</h3>
 <p>
-In this section: description of key security and privacy issues, or references to pages that deal with this. 
-For the security / privcay module itself, this section does not exist. For other modules, the paragraph/section can end with this boilerplate:
-For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
+For security considerations for terminology services, see the <a href="terminology-service.html#4.6.1">Terminology Service page Security section</a>. For more general considerations, see the <a href="secpriv-module.html">Security and Privacy module</a>.
 </p>
 
 <a name="uses"> </a>
@@ -53,6 +105,8 @@ In this section: common problems in the space of the module, ways to go about so
 <p>
 In this section: what the current overall state is, what work is in train, what the goals over the next 18 months or so are
 </p>
+
+<p>Editor : Rob Hausam</p>
 
 </div>
 
