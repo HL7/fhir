@@ -241,10 +241,7 @@
 			"defns": "daf-procedurelist-definitions.html",
 			"base": "daf-procedurelist.html"
 		},
-		"StructureDefinition/daf-birth-sex": {
-			"defns": "daf-birth-sex-definitions.html",
-			"base": "daf-birth-sex.html"
-		},
+
 		"StructureDefinition/daf-research-data-models": {
 			"defns": "daf-research-data-models-definitions.html",
 			"base": "daf-research-data-models.html"
@@ -393,10 +390,7 @@
 			"base": "valueset-daf-problem.html",
 			"template-base": null
 		},
-		"ValueSet/daf-birth-sex": {
-			"base": "valueset-daf-birth-sex.html",
-			"template-base": null
-		},
+
 		"ValueSet/daf-research-data-models": {
 			"base": "valueset-daf-research-data-models.html",
 			"template-base": null
