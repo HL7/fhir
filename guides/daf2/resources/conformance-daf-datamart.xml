@@ -191,7 +191,7 @@
 		  <tr>
             
             <th>
-              <a href="daf-task.html">DAF-OperationDefinition</a>
+              <a href="daf-operationdefinition.html">DAF-OperationDefinition</a>
             </th>
             
             <td>
@@ -242,7 +242,7 @@
 	  
       <h3>Data Mart Search Parameters</h3>
 	  
-      <p>DAF Marts SHALL support the following common parameters as part of queries related to DAF-Research profiles:</p>
+      <p>Data Marts SHALL support the following common parameters as part of queries related to DAF-Research profiles:</p>
 	  
       <ul>
 	     
@@ -423,7 +423,7 @@
     <mode value="server"/>
     <documentation value="The Data Mart SHALL support the DAF-Task, DAF-Conformance, DAF-OperationDefinition profiles along with the daf-load-operation"/>
     <security>
-      <description value="Data Mart SHALL use appropriate security protocols for data extraction."/>
+      <description value="Data Mart SHALL use appropriate security protocols for data tranlation and loading."/>
     </security>
     <resource>
       <type value="Task"/>

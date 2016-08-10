@@ -12,7 +12,7 @@
 
 Primary Authors: Brett Marquard, Nagesh Bashyam, Eric Haas 
 
-Secondary Authors: Grahame Greene, Lloyd McKenzie
+Secondary Authors: Grahame Grieve, Lloyd McKenzie
 
 [DAF-Core]: daf-core.html
 [DAF-Research IG]: daf-research.html

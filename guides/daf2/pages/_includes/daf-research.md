@@ -7,8 +7,8 @@ The following table will provide a roadmap for the reader.
 
 |Topic of Interest|What it contains|Where can I find it|
 |--------------------|--------------------------|---------------------|
-|DAF-Research IG Background|The artifact provides background on LHS, PCORI and PCORnet activities.|[Background](daf-research-intro.html)|
-|Capabilities and Actors|The artifact defines the various capabilities and actors that make up the DAF-Research IG.|[Capabilities and Actors](daf-research-intro.html)|
+|DAF-Research IG Background|The artifact provides background on LHS, PCORI and PCORnet activities.|[Background](daf-research-intro.html#Background)|
+|Capabilities and Actors|The artifact defines the various capabilities and actors that make up the DAF-Research IG.|[Capabilities and Actors](daf-research-intro.html#DAF-Research IG Capabilities and Actors)|
 |Developer Guidance|The artifact contains data mapping spreadsheets, deployment options, examples that will help implementers of DAF-Research IG.|[Implementation Guidance](daf-research-developer.html)|
 
 # Capabilities, Actors and Conformance Requirements

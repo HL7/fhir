@@ -14,6 +14,23 @@ DAF Actor | Conformance Requirements
 DAF Requestor | [DAF Requestor Conformance]
 DAF Responder | [DAF Responder Conformance]
 
+The following are the actors and conformance requirements for DAF-Research
+IG.
+
+
+DAF Actor | Conformance Requirements
+---|---
+Data Source | [DAF Research Data Source]
+Data Mart | [DAF Research Data Mart]
+Research Query Requester | [DAF Research Query Requester]
+Research Query Responder | [DAF Research Query Responder]
+
 
 [DAF Requestor Conformance]: conformance-daf-query-requestor.html
 [DAF Responder Conformance]: conformance-daf-query-responder.html
+[DAF Research Data Source]: conformance-daf-datasource.html
+[DAF Research Data Mart]: conformance-daf-datamart.html
+[DAF Research Query Requester]: conformance-daf-research-queryrequester.html
+[DAF Research Query Responder]: conformance-daf-research-queryresponder.html
+
+

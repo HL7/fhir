@@ -34,7 +34,7 @@ Examples of Data Sources include EMRs, Claims Data Repositories,  etc.
 Data Mart: A Health IT system that gathers data from one or more Data Sources and enables researchers to access data. A Data Source can also be a Data Mart. 
 Examples of Data Marts include Data Warehouses, Registries etc.
 
-Research Query Composer: A Health IT system that enables Researchers to compose queries and submit queries to one or more Data Marts. 
+Research Query Requester (also known as Research Query Composer): A Health IT system that enables Researchers to compose queries and submit queries to one or more Data Marts. 
 Examples of Research Query Composers include web portals.
 
 Research Query Responder: A Health IT system that provides responses to queries submitted by the Research Query Requester.  

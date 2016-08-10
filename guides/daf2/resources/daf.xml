@@ -700,25 +700,37 @@
 	</page>
 		<page>
 			<source value="conformance-daf-query-responder.html"/>
-			<title value="DAF Query Responder"/>
+			<title value="DAF-Core Query Responder"/>
 			<kind value="resource"/>
 			<format value="generated"/>
 		</page>
 		<page>
 			<source value="conformance-daf-query-requestor.html"/>
-			<title value="DAF Query Requestor"/>
+			<title value="DAF-Core Query Requestor"/>
 			<kind value="resource"/>
 			<format value="generated"/>
 		</page>
 		<page>
 			<source value="conformance-daf-datasource.html"/>
-			<title value="Data Source"/>
+			<title value="DAF-Research Data Source"/>
 			<kind value="resource"/>
 			<format value="generated"/>
 		</page>
 		<page>
 			<source value="conformance-daf-datamart.html"/>
-			<title value="Data Source"/>
+			<title value="DAF-Research Data Mart"/>
+			<kind value="resource"/>
+			<format value="generated"/>
+		</page>
+		<page>
+			<source value="conformance-daf-research-queryrequester.html"/>
+			<title value="DAF-Research Query Requester"/>
+			<kind value="resource"/>
+			<format value="generated"/>
+		</page>
+		<page>
+			<source value="conformance-daf-research-queryresponder.html"/>
+			<title value="DAF-Research Query Responder"/>
 			<kind value="resource"/>
 			<format value="generated"/>
 		</page>
