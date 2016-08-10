@@ -1,13 +1,37 @@
-# DAF-Core Home Page
-
 ## Introduction
 
-DAF-Core IG focuses on defining the minimum mandatory requirements for recording, searching for and fetching patient information.  The data elements, extension and terminology identified by the various profiles in the DAF-Core IG are based on [ONC 2015 Edition Common Clinical Data Set (CCDS)] as well as essential administrative and conformance requirements.  The profiles described in this IG are used by the [DAF] and [DAF-Research] IGs and are intended to be leveraged as a common core by other US Realm implementations as well. 
+DAF-Core IG focuses on defining the minimum mandatory requirements for recording, searching for and fetching patient information.  
+The data elements, extension and terminology identified by the various profiles in the DAF-Core IG are based on [ONC 2015 Edition Common Clinical Data Set (CCDS)] as well as essential administrative and conformance requirements.  
+The profiles described in this IG are used by [DAF-Core], [DAF-Research] IGs and are intended to be leveraged as a common core by other US Realm implementations as well. 
 
+## DAF-Core Actors 
+
+The following actors are part of the DAF-Core IG.
+
+* DAF Requester: A Health IT system that initiates the data access to retrieve patient data. This can be thought of as the client in a client-server interaction.
+* DAF Responder: A Health IT system that responds to the data access request providing patient data. This can be thought of as the server in a client-server interaction.
+
+## Definitions, Interpretations and Requirements common to all DAF actors 
+
+This section outlines important definitions and interpretations used in the DAF-Core IG.
+The conformance verbs used are defined in [FHIR Conformance Rules].
+
+In the context of DAF, Supported on any data element SHALL be interpreted as follows:
+
+* DAF Responders SHALL be capable of including the data element as part of the query results as specified by the DAF conformance resources.
+* DAF Requesters SHALL be capable of processing resource instances containing the data elements. In other words DAF Requesters SHOULD be capable of displaying the data elements for human use or storing it for other purposes.
+* In situations where information on a particular data element is not present and the reason for absence is unknown, DAF Responders SHALL NOT include the data elements in the resource instance returned as part of the query results.
+* When querying DAF Responders, DAF Requesters SHALL interpret missing data elements within resource instances as data not present in the DAF Responder's systems.
+* In situations where information on a particular data element is missing and the DAF Responder knows the precise reason for the absence of data, DAF Responders SHALL send the reason for the missing information using values from the value set where they exist or using the dataAbsentReason extension.
+* DAF Requesters SHALL be able to process resource instances containing data elements asserting missing information.
+
+* NOTE: DAF Responders who do not have the capability to store or return a data element tagged as Supported in DAF-Core profiles can still claim conformance to the DAF-Core profiles per the DAF-Core conformance resources.
+* NOTE: The above definition of Supported is derived from HL7v2 concept "Required by may be empty - RE" described in HL7v2 V28_CH02B_Conformance.doc.
+* NOTE: Readers are advised to understand [FHIR Terminology] requirements, [FHIR RESTful API] based on the [HTTP] protocol, along with [FHIR Data Types], [FHIR Search] and [FHIR Resource] formats before implementing DAF requirements.
 
 ## DAF-Core Profiles
 
-The following table lists the [profiles] and the base FHIR Resources from which they were derived.  Each profile defines the minimum mandatory elements, extensions and terminology requirements that **MUST** be present.  For each profile requirements and quidance are given in a simple narrative summary.  A formal hierarchical table that presents a [logical view] of the content in both a differential and snapshot view is also provided. The necessary terminology and other profile artifacts included the profile [StructureDefinitions] are referenced and examples are provided.  
+The following table lists the [profiles] and the base FHIR Resources from which they were derived. Each profile defines the minimum mandatory elements, extensions and terminology requirements that **MUST** be present. For each profile requirements and guidance are given in a simple narrative summary. A formal hierarchical table that presents a [logical view] of the content in both a differential and snapshot view is also provided along with references to appropriate terminologies and examples.
 
 |DAF-Core Profile|Base Resource|
 |-------------- |---------------|
@@ -31,51 +55,12 @@ The following table lists the [profiles] and the base FHIR Resources from which 
 |[Practitioner](daf-core-pract.html)|Practitioner|
 |[Procedure](daf-core-procedure.html)|Procedure|
 
-
-## Extensions
-
-The following table lists the DAF-Core extensions.  
-	 
-Extension | Used by DAF-core Profile | 
---------------------|---------------|
-[ Allergies-VSD1](allergyintolerance-daf-core.html) | [AllergyIntolerance](daf-core-allergyintolerance.html)|
+## DAF-Core Conformance Requirements
 
 
-##  Terminology (may already have  List of all DAF core value sets: [terminologies](terminologies-daf-core.html-daf-core.html))
-The tables in this this section list all the [Value sets], [CodeSystem],  [ConceptMap] and [NamingSystem] resources that are unique to DAF-Core and not part of the FHIR core standard.  
-
-### ValueSets
-
-The following table lists the DAF-Core value sets.  
-
- ValueSet| Used by DAF-core Profile | 
---------------------|---------------|
-[ Allergies-VSD1](allergyintolerance-daf-core.html) | [AllergyIntolerance](daf-core-allergyintolerance.html)|
 
 
-###  CodesSystems
-
- The following table lists the DAF-Core code systems.  
- 
- CodeSystem| Used by DAF-core Profile | 
---------------------|---------------|
-[ Allergies-VSD1](allergyintolerance-daf-core.html) | [AllergyIntolerance](daf-core-allergyintolerance.html)|
-
-###  ConceptMaps
-
- The following table lists the DAF-Core concept maps.  
- 
- ConceptMaps| Used by DAF-core Profile | 
---------------------|---------------|
-[ Allergies-VSD1](allergyintolerance-daf-core.html) | [AllergyIntolerance](daf-core-allergyintolerance.html)|
-
-###  NamingSystem
-
- The following table lists the DAF-Core naming systems.  
- 
- NamingSystem| Used by DAF-core Profile | 
---------------------|---------------|
-[ Allergies-VSD1](allergyintolerance-daf-core.html) | [AllergyIntolerance](daf-core-allergyintolerance.html)|
+## DAF-Core Security Requirements
 
 
 
@@ -94,6 +79,14 @@ The following table lists the DAF-Core value sets.
 [CodeSystem]: http://hl7-fhir.github.io/codesystem.html
 [ConceptMap]: http://hl7-fhir.github.io/conceptmap.html
 [NamingSystem]: http://hl7-fhir.github.io/namingsystem.html
+[FHIR Conformance Rules]: conformance-rules.html
+[dataAbsentReason]: extension-data-absent-reason.html
+[FHIR Terminology]: terminologies.html
+[FHIR RESTful API]: http.html
+[HTTP]: http.html
+[FHIR Data Types]: datatypes.html
+[FHIR Search]: search.html
+[FHIR Resource]: formats.html
 
 
 
