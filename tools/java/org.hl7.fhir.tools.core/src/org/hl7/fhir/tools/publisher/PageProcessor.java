@@ -30,6 +30,8 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -64,6 +66,7 @@ import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.hl7.fhir.convertors.SpecDifferenceEvaluator;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.BaseGenerator;
 import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
@@ -1022,6 +1025,25 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         diffEngine.getRevision().getResources().put(sd.getName(), sd);
       }
     }
+
+    for (ValueSet vs : getValueSets().values()) {
+      if (vs.getUserData(ToolResourceUtilities.NAME_VS_USE_MARKER) != null) {
+        ValueSet evs = null;
+        if (vs.hasUserData("expansion"))
+          evs = (ValueSet) vs.getUserData("expansion");
+        else {  
+          ValueSetExpansionOutcome vse = getWorkerContext().expandVS(vs, true, false);
+          if (vse.getValueset() != null) {
+            evs = vse.getValueset();
+            vs.setUserData("expansion", evs);
+          }
+        }
+        if (evs != null) {
+          diffEngine.getRevision().getExpansions().put(evs.getUrl(), evs);
+        }
+      }
+    }
+
   }
 
   private Example findExample(String rn, String id) throws Exception {

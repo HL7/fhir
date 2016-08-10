@@ -1,4 +1,4 @@
-package org.hl7.fhir.tools.publisher;
+package org.hl7.fhir.convertors;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,14 +13,20 @@ import java.util.Set;
 
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.convertors.VersionConvertor;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
+import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.dstu3.model.Type;
+import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.IniFile;
@@ -34,7 +40,7 @@ public class SpecDifferenceEvaluator {
 
   public class SpecPackage {
 //    private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
-//    private Map<String, ValueSet> expansions = new HashMap<String, ValueSet>();
+    private Map<String, ValueSet> expansions = new HashMap<String, ValueSet>();
     private Map<String, StructureDefinition> types = new HashMap<String, StructureDefinition>();
     private Map<String, StructureDefinition> resources = new HashMap<String, StructureDefinition>();
 //    private Map<String, StructureDefinition> extensions = new HashMap<String, StructureDefinition>();
@@ -45,7 +51,9 @@ public class SpecDifferenceEvaluator {
     public Map<String, StructureDefinition> getResources() {
       return resources;
     }
-    
+    public Map<String, ValueSet> getExpansions() {
+      return expansions;
+    }
   }
   
   private SpecPackage original = new SpecPackage();
@@ -78,11 +86,12 @@ public class SpecDifferenceEvaluator {
 //    loadVS2(self.original.valuesets, "C:\\work\\org.hl7.fhir.dstu2.original\\build\\publish\\valuesets.xml");
 //    loadVS(self.revision.valuesets, "C:\\work\\org.hl7.fhir.dstu2.original\\build\\publish\\valuesets.xml");
 
-    loadSD2(self.original.types, "C:\\work\\org.hl7.fhir.dstu2.original\\build\\publish\\profiles-types.xml");
+    loadSD2(self.original.types, "C:\\work\\org.hl7.fhir\\build\\source\\release2\\profiles-types.xml");
     loadSD(self.revision.types, "C:\\work\\org.hl7.fhir\\build\\publish\\profiles-types.xml");
-    loadSD2(self.original.resources, "C:\\work\\org.hl7.fhir.dstu2.original\\build\\publish\\profiles-resources.xml");
+    loadSD2(self.original.resources, "C:\\work\\org.hl7.fhir\\build\\source\\release2\\profiles-resources.xml");
     loadSD(self.revision.resources, "C:\\work\\org.hl7.fhir\\build\\publish\\profiles-resources.xml");
-    
+    loadVS2(self.original.expansions, "C:\\work\\org.hl7.fhir\\build\\source\\release2\\expansions.xml");
+    loadVS(self.revision.expansions, "C:\\work\\org.hl7.fhir\\build\\publish\\expansions.xml");
     StringBuilder b = new StringBuilder();
     b.append("<html>\r\n");
     b.append("<head>\r\n");
@@ -111,6 +120,26 @@ public class SpecDifferenceEvaluator {
     for (BundleEntryComponent be : bundle.getEntry()) {
       if (be.getResource() instanceof StructureDefinition) {
         StructureDefinition sd = (StructureDefinition) be.getResource();
+        map.put(sd.getName(), sd);
+      }
+    }
+  }
+
+  private static void loadVS2(Map<String, ValueSet> map, String fn) throws FHIRException, FileNotFoundException, IOException {
+    org.hl7.fhir.dstu2.model.Bundle bundle = (org.hl7.fhir.dstu2.model.Bundle) new org.hl7.fhir.dstu2.formats.XmlParser().parse(new FileInputStream(fn));
+    for (org.hl7.fhir.dstu2.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
+      if (be.getResource() instanceof org.hl7.fhir.dstu2.model.ValueSet) {
+        org.hl7.fhir.dstu2.model.ValueSet sd = (org.hl7.fhir.dstu2.model.ValueSet) be.getResource();
+        map.put(sd.getName(), new VersionConvertor(null).convertValueSet(sd));
+      }
+    }    
+  }
+  
+  private static void loadVS(Map<String, ValueSet> map, String fn) throws FHIRFormatError, FileNotFoundException, IOException {
+    Bundle bundle = (Bundle) new XmlParser().parse(new FileInputStream(fn));
+    for (BundleEntryComponent be : bundle.getEntry()) {
+      if (be.getResource() instanceof ValueSet) {
+        ValueSet sd = (ValueSet) be.getResource();
         map.put(sd.getName(), sd);
       }
     }
@@ -317,12 +346,13 @@ public class SpecDifferenceEvaluator {
   }
 
   private boolean compareElement(ElementDefinition rev, ElementDefinition orig) {
-    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder("\r\n");
     String rn = tail(rev.getPath());
     String on = tail(orig.getPath());
+    
     if (!rn.equals(on) && rev.getPath().contains("."))
       b.append("Renamed from "+on+" to " +rn);
-
+    
     if (rev.getMin() != orig.getMin())
       b.append("Min Cardinality changed from "+Integer.toString(orig.getMin())+" to " +Integer.toString(rev.getMin()));
 
@@ -332,17 +362,113 @@ public class SpecDifferenceEvaluator {
     String types = analyseTypes(rev, orig);
     if (!Utilities.noString(types))
       b.append(types);
+  
+    if (hasBindingToNote(rev) ||  hasBindingToNote(orig)) {
+      String s = compareBindings(rev, orig);
+      if (!Utilities.noString(s))
+        b.append(s);
+    }
     
     if (b.length() > 0) {
       XhtmlNode tr = tbl.addTag("tr").setAttribute("class", "diff-entry");
       XhtmlNode left = tr.addTag("td").setAttribute("class", "diff-left");
       left.addText(rev.getPath());
       XhtmlNode right = tr.addTag("td").setAttribute("class", "diff-right");
-      right.addText(b.toString());
+      boolean first = true;
+      for (String s : b.toString().split("\\r?\\n")) {
+        if (first)
+          first = false;
+        else
+          right.addTag("br");
+        right.addText(s);
+      }
     }
     return b.length() > 0;
   }
   
+  private String compareBindings(ElementDefinition rev, ElementDefinition orig) {
+    if (!hasBindingToNote(rev)) {
+      return "Remove Binding "+describeBinding(orig);
+    } else if (!hasBindingToNote(orig)) {
+      return "Add Binding "+describeBinding(rev);
+    } else {
+      return compareBindings(rev.getBinding(), orig.getBinding());
+    }
+  }
+
+  private String compareBindings(ElementDefinitionBindingComponent rev, ElementDefinitionBindingComponent orig) {
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    if (rev.getStrength() != orig.getStrength())
+      b.append("Change binding strength from "+orig.getStrength().toCode()+" to "+rev.getStrength().toCode());
+    if (!Base.compareDeep(rev.getValueSet(), orig.getValueSet(), false))
+      b.append("Change value set from "+describeReference(orig.getValueSet())+" to "+describeReference(rev.getValueSet()));
+    if (rev.getStrength() == BindingStrength.REQUIRED && orig.getStrength() == BindingStrength.REQUIRED) {
+      ValueSet vrev = getValueSet(rev.getValueSet(), revision.expansions); 
+      ValueSet vorig = getValueSet(rev.getValueSet(), original.expansions);
+      if (vrev != null && vorig != null) {
+        String srev = listCodes(vrev);
+        String sorig = listCodes(vorig);
+        if (!srev.equals(sorig)) {
+          b.append("Change codes from {"+Utilities.escapeXml(sorig)+"} to {"+Utilities.escapeXml(srev)+"}");
+        }
+      }
+    }
+    return b.toString();
+  }
+
+  private String describeBinding(ElementDefinition orig) {
+    return describeReference(orig.getBinding().getValueSet())+" ("+orig.getBinding().getStrength().toCode()+")";
+  }
+
+  private String describeReference(Type ref) {
+    if (ref instanceof UriType) {
+      return ((UriType) ref).asStringValue();
+    } else if (ref instanceof Reference) {
+      return ((Reference) ref).getReference();
+    }
+    return "??";
+  }
+
+  private ValueSet getValueSet(Type ref, Map<String, ValueSet> expansions) {
+    if (ref instanceof UriType) {
+      String url = ((UriType) ref).asStringValue();
+      for (ValueSet ve : expansions.values()) {
+        if (ve.getUrl().equals(url))
+          return ve;
+      }
+    } else if (ref instanceof Reference) {
+      String id = ((Reference) ref).getReference();
+      if (Utilities.isAbsoluteUrl(id)) {
+        for (ValueSet ve : expansions.values()) {
+          if (ve.getUrl().equals(id))
+            return ve;
+        }
+      } else if (id.startsWith("ValueSet/")) {
+        id = id.substring(9);
+        for (ValueSet ve : expansions.values()) {
+          if (ve.getId().equals(id))
+            return ve;
+        }
+      }
+    }
+    return null;
+  }
+
+  private String listCodes(ValueSet vs) {
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder("|");
+    for (ValueSetExpansionContainsComponent ce : vs.getExpansion().getContains()) {
+      if (ce.hasCode())
+        b.append(ce.getCode());
+    }
+    return b.toString();
+  }
+
+  private boolean hasBindingToNote(ElementDefinition ed) {
+    return ed.hasBinding() &&
+        (ed.getBinding().getStrength() == BindingStrength.EXTENSIBLE || ed.getBinding().getStrength() == BindingStrength.REQUIRED) && 
+        ed.getBinding().hasValueSet();
+  }
+
   private String tail(String path) {
     return path.contains(".") ? path.substring(path.lastIndexOf(".")+1) : path;
   }

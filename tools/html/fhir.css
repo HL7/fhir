@@ -633,12 +633,15 @@ tr.diff-title td {
 }
 tr.diff-item td.diff-left {
   font-weight: bold;
+  vertical-align: top;
 }
 tr.diff-new-item td.diff-left {
   font-weight: bold;
+  vertical-align: top;
 }
 tr.diff-del-item td.diff-left {
   font-weight: bold;
+  vertical-align: top;
 }
 tr.diff-new {
   background-color: #f4fff4;

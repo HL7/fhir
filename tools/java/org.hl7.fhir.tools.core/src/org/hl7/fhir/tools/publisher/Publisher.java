@@ -121,6 +121,7 @@ import org.hl7.fhir.definitions.validation.ResourceValidator;
 import org.hl7.fhir.dstu3.elementmodel.Manager;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
+import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
@@ -1986,7 +1987,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void loadR2Definitions() throws FileNotFoundException, FHIRException, IOException {
     loadR2DefinitionBundle(page.getDiffEngine().getOriginal().getTypes(), Utilities.path(page.getFolders().srcDir, "release2", "profiles-types.xml"));
-    loadR2DefinitionBundle(page.getDiffEngine().getOriginal().getResources(), Utilities.path(page.getFolders().srcDir, "release2", "profiles-resources.xml"));    
+    loadR2DefinitionBundle(page.getDiffEngine().getOriginal().getResources(), Utilities.path(page.getFolders().srcDir, "release2", "profiles-resources.xml"));
+    loadValueSetBundle(page.getDiffEngine().getOriginal().getExpansions(), Utilities.path(page.getFolders().srcDir, "release2", "expansions.xml"));
   }
 
   private void loadR2DefinitionBundle(Map<String, StructureDefinition> map, String fn) throws FHIRException, FileNotFoundException, IOException {
@@ -1999,6 +2001,16 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
   }
   
+  private static void loadValueSetBundle(Map<String, ValueSet> map, String fn) throws FHIRException, FileNotFoundException, IOException {
+    org.hl7.fhir.dstu2.model.Bundle bundle = (org.hl7.fhir.dstu2.model.Bundle) new org.hl7.fhir.dstu2.formats.XmlParser().parse(new FileInputStream(fn));
+    for (org.hl7.fhir.dstu2.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
+      if (be.getResource() instanceof org.hl7.fhir.dstu2.model.ValueSet) {
+        org.hl7.fhir.dstu2.model.ValueSet sd = (org.hl7.fhir.dstu2.model.ValueSet) be.getResource();
+        map.put(sd.getName(), new VersionConvertor(null).convertValueSet(sd));
+      }
+    }    
+  }
+
   private void processCDA() {
     CDAGenerator gen = new CDAGenerator();
 //    gen.execute(src, dst);
@@ -2377,11 +2389,20 @@ public class Publisher implements URIResolver, SectionNumberer {
           + "do the expansions or find a terminology server that supports the same version of the value sets");
       for (ValueSet vs : page.getValueSets().values()) {
         if (vs.getUserData(ToolResourceUtilities.NAME_VS_USE_MARKER) != null) {
-          ValueSetExpansionOutcome vse = page.getWorkerContext().expandVS(vs, true, false);
-          if (vse.getValueset() != null) {
+          ValueSet evs = null;
+          if (vs.hasUserData("expansion"))
+            evs = (ValueSet) vs.getUserData("expansion");
+          else {  
+            ValueSetExpansionOutcome vse = page.getWorkerContext().expandVS(vs, true, false);
+            if (vse.getValueset() != null) {
+              evs = vse.getValueset();
+              vs.setUserData("expansion", evs);
+            }
+          }
+          if (evs != null) {
             ValueSet vsc = vs.copy();
             vsc.setText(null);
-            vsc.setExpansion(vse.getValueset().getExpansion());
+            vsc.setExpansion(evs.getExpansion());
             expansionFeed.addEntry().setFullUrl(vsc.getUrl()).setResource(vsc);
           }
         }
