@@ -10,7 +10,9 @@
     -   a fixed `Observation.code.coding.system`=“http://loinc.org”
     -   a LOINC code in `Observation.code.coding.code` which has an [extensible](http://hl7-fhir.github.io/terminologies.html#extensible) binding to:
          -   [Vital Signs] value set.
-
+                
+1.  One patient in `Observation.subject`
+1.  A date and time in `effectiveDateTime` or `effectivePeriod`
 1.  Either one `Observation.valueQuantity` or, if there is no value, one code in `Observation.DataAbsentReason`
     -   Each Observation.valueQuantity must have:
         -   One numeric value in `Observation.valueQuantity.value`
@@ -43,9 +45,6 @@
 1.  When using a panel code to group observations, one or more reference
     to Observations in `Observation.related.target`
     -   a fixed `Observation.related.type`=“has-member”
-
-1.  One patient in `Observation.subject`
-1.  A date and time in `effectiveDateTime` or `effectivePeriod`
 
  [Vital Signs]: valueset-daf-observation-CCDAVitalSignResult.html
   [Vital Signs Units]: http://hl7-fhir.github.io/valueset-ucum-vitals-common.html

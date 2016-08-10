@@ -17,9 +17,10 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 **Each Procedure must have:**
 
 1.  a patient
+1.  a status
 1.  a code that identifies the type of procedure performed on the patient
 1.  when the procedure was performed
-1.  a status
+
 
 **Profile specific implementation guidance:**
 

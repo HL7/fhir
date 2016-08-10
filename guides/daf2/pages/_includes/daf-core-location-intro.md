@@ -23,7 +23,7 @@ Each Location must have:
 
  **Note to Balloters:  the following elements are being considered for inclusion into this profile:**
 
-1.  A Location type
+1. A Location type
 1. A  Location identifier
 1. A  Location reference to endpoint
 

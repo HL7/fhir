@@ -8,8 +8,8 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Each [Type] must have:**
 
-1.  A name
 1.  An identifier (NPI preferred) 
+1.  A name
 1.  An associated role and organization
 1.  A list of qualifications
 

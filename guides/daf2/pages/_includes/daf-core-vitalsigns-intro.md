@@ -15,14 +15,14 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Each Observation must have:**
 
--   a patient
--   a time indicating when the measurement was taken
--   a LOINC code which tells you what is being measured and is taken from the “LOINC Code” column in the table below.
+1.  a status
+1.  a category code of 'vital-signs'
+1.  a LOINC code which tells you what is being measured and is taken from the “LOINC Code” column in the table below.
     -   note: If a more specific code is recorded, the generic code and the translated coded must be sent - e.g. method specific LOINC Codes, SNOMED CT concepts, system specific codes
--   a numeric result value and standard UCUM unit which is taken from the “LOINC Code” column in the table below.
+1.  a patient
+1.  a time indicating when the measurement was taken 
+1.  a numeric result value and standard UCUM unit which is taken from the “LOINC Code” column in the table below.
     -   note: if there is no numeric result then you have to supply a reason
--   a status
--   a category code of 'vital-signs'. 
 
 **Profile specific implementation guidance:**
 

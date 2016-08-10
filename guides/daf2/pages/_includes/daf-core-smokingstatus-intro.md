@@ -23,11 +23,12 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Each Observation must have:**
 
-1.  a patient
-1.  a smoking status code
-1.  a result value code for smoking status
-1.  a date representing when the smoking status was recorded
 1.  a status
+1.  a fixed code for smoking observation
+1.  a patient
+1.  a date representing when the smoking status was recorded
+1.  a result value code for smoking status
+
 
 **Profile specific implementation guidance:**
 

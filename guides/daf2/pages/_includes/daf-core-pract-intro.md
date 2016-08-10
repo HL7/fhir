@@ -16,10 +16,15 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Each Practitioner must have:**
 
-1.  A name
 1.  An identifier (NPI preferred) 
+1.  A name
 1.  An associated role and organization
 1.  A list of qualifications
+
+**Note to Balloters:**
+
+1. Is Practioner.role sufficient or is the new resource PractitionerRole required?
+1. Should all Practitioners require an endpoint reference?
 
 **Profile specific implementation guidance:**
  

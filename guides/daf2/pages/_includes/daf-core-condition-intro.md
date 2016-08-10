@@ -16,11 +16,10 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Each Condition must have:**
 
-1.  a patient
-1.  a code that identifies the problem
 1.  a status of the problem
 1.  a verification status
-
+1.  a code that identifies the problem
+1.  a patient
 
 **Profile specific implementation guidance:**
 
