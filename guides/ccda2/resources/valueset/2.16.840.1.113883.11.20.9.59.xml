@@ -1,0 +1,166 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="2.16.840.1.113883.11.20.9.59" />
+  <url value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.9.59" />
+  <name value="DIRSectionTypeCodes" />
+  <status value="active" />
+  <description value="DIRSectionTypeCodes" />
+  <expansion>
+    <identifier value="2.16.840.1.113883.11.20.9.59" />
+    <timestamp value="2016-08-10T01:31:34.774-04:00"/>
+    <contains>
+      <system value="urn:oid:1.2.840.10008.2.16.4" />
+      <code value="121181" />
+      <display value="DICOM Object Catalog" />
+    </contains>
+    <contains>
+      <system value="urn:oid:1.2.840.10008.2.16.4" />
+      <code value="121060" />
+      <display value="History" />
+    </contains>
+    <contains>
+      <system value="urn:oid:1.2.840.10008.2.16.4" />
+      <code value="121062" />
+      <display value="Request" />
+    </contains>
+    <contains>
+      <system value="urn:oid:1.2.840.10008.2.16.4" />
+      <code value="121064" />
+      <display value="Current Procedure Descriptions" />
+    </contains>
+    <contains>
+      <system value="urn:oid:1.2.840.10008.2.16.4" />
+      <code value="121066" />
+      <display value="Prior Procedure Descriptions" />
+    </contains>
+    <contains>
+      <system value="urn:oid:1.2.840.10008.2.16.4" />
+      <code value="121068" />
+      <display value="Previous Findings" />
+    </contains>
+    <contains>
+      <system value="urn:oid:1.2.840.10008.2.16.4" />
+      <code value="121070" />
+      <display value="Findings (DIR)" />
+    </contains>
+    <contains>
+      <system value="urn:oid:1.2.840.10008.2.16.4" />
+      <code value="121072" />
+      <display value="Impressions" />
+    </contains>
+    <contains>
+      <system value="urn:oid:1.2.840.10008.2.16.4" />
+      <code value="121074" />
+      <display value="Recommendations" />
+    </contains>
+    <contains>
+      <system value="urn:oid:1.2.840.10008.2.16.4" />
+      <code value="121076" />
+      <display value="Conclusions" />
+    </contains>
+    <contains>
+      <system value="urn:oid:1.2.840.10008.2.16.4" />
+      <code value="121078" />
+      <display value="Addendum" />
+    </contains>
+    <contains>
+      <system value="urn:oid:1.2.840.10008.2.16.4" />
+      <code value="121109" />
+      <display value="Indications for Procedure" />
+    </contains>
+    <contains>
+      <system value="urn:oid:1.2.840.10008.2.16.4" />
+      <code value="121110" />
+      <display value="Patient Presentation" />
+    </contains>
+    <contains>
+      <system value="urn:oid:1.2.840.10008.2.16.4" />
+      <code value="121113" />
+      <display value="Complications" />
+    </contains>
+    <contains>
+      <system value="urn:oid:1.2.840.10008.2.16.4" />
+      <code value="121111" />
+      <display value="Summary" />
+    </contains>
+    <contains>
+      <system value="urn:oid:1.2.840.10008.2.16.4" />
+      <code value="121180" />
+      <display value="Key Images" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="11329-0" />
+      <display value="HISTORY GENERAL" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="55115-0" />
+      <display value="REQUESTED IMAGING STUDIES INFORMATION" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="55111-9" />
+      <display value="CURRENT IMAGING PROCEDURE DESCRIPTIONS" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="55114-3" />
+      <display value="PRIOR IMAGING PROCEDURE DESCRIPTIONS" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="18834-2" />
+      <display value="RADIOLOGY COMPARISON STUDY - OBSERVATION" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="18782-3" />
+      <display value="RADIOLOGY STUDY OBSERVATION" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="19005-8" />
+      <display value="RADIOLOGY - IMPRESSION" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="18783-1" />
+      <display value="RADIOLOGY STUDY - RECOMMENDATION" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="55110-1" />
+      <display value="CONCLUSIONS" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="55107-7" />
+      <display value="ADDENDUM" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="18785-6" />
+      <display value="RADIOLOGY REASON FOR STUDY" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="55108-5" />
+      <display value="CLINICAL PRESENTATION" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="55109-3" />
+      <display value="COMPLICATIONS" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="55112-7" />
+      <display value="DOCUMENT SUMMARY" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="55113-5" />
+      <display value="KEY IMAGES" />
+    </contains>
+  </expansion>
+</ValueSet>

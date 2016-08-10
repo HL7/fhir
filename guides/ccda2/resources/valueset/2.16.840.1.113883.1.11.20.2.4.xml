@@ -1,0 +1,176 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="2.16.840.1.113883.1.11.20.2.4" />
+  <url value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.2.4" />
+  <name value="TransferDocumentType" />
+  <status value="active" />
+  <description value="TransferDocumentType" />
+  <expansion>
+    <identifier value="2.16.840.1.113883.1.11.20.2.4" />
+    <timestamp value="2016-08-10T01:31:34.774-04:00"/>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="18761-7" />
+      <display value="Provider-unspecified Transfer summary" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68618-8" />
+      <display value="Adolescent medicine Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68632-9" />
+      <display value="Allergy and immunology Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68647-7" />
+      <display value="Child and adolescent psychiatry Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68660-0" />
+      <display value="Clinical genetics Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="34755-9" />
+      <display value="Critical Care Medicine Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68669-1" />
+      <display value="Developmental-behavioral pediatrics Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="34770-8" />
+      <display value="General medicine Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68680-8" />
+      <display value="Multi-specialty program Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68704-6" />
+      <display value="Neurology with special qualifications in child neurology Transfer summary note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="28651-8" />
+      <display value="Nurse Transfer note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68565-1" />
+      <display value="Obstetrics and Gynecology Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68569-3" />
+      <display value="Occupational therapy Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68887-9" />
+      <display value="Ophthalmology Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68583-4" />
+      <display value="Orthopedic surgery Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68715-2" />
+      <display value="Pain medicine Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68726-9" />
+      <display value="Pediatric cardiology Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68737-6" />
+      <display value="Pediatric endocrinology Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68745-9" />
+      <display value="Pediatric gastroenterology Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68756-6" />
+      <display value="Pediatric hematology-oncology Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68764-0" />
+      <display value="Pediatric infectious diseases Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68772-3" />
+      <display value="Pediatric nephrology Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68777-2" />
+      <display value="Pediatric otolaryngology Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68786-3" />
+      <display value="Pediatric pulmonology Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68793-9" />
+      <display value="Pediatric rheumatology Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68801-0" />
+      <display value="Pediatric surgery Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68863-0" />
+      <display value="Pediatric transplant hepatology Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68811-9" />
+      <display value="Pediatric urology Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68883-8" />
+      <display value="Pediatrics Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="28616-1" />
+      <display value="Physician Transfer note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68596-6" />
+      <display value="Plastic surgery Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68482-9" />
+      <display value="Nurse Hospital Transfer summarization note" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="68884-6" />
+      <display value="Pediatrics Hospital Transfer summarization note" />
+    </contains>
+  </expansion>
+</ValueSet>

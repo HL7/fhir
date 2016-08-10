@@ -31,5 +31,33 @@
   },
   "canonicalBase": "http://hl7.org/fhir/ccda",
   "source": "implementationguide/ccda.xml",
-  "resources": {}
+  "resources": {
+  "StructureDefinition/ccda-transfer-summary-composition": {
+			 "template-base": "instance-template-sd-no-example.html"
+		},
+    "StructureDefinition/ccda-authorization-extension": {
+			 "template-base": "instance-template-sd-no-example.html"
+		},
+		"StructureDefinition/ccda-data-enterer-extension": {
+			 "template-base": "instance-template-sd-no-example.html"
+		},
+		"StructureDefinition/ccda-informant-extension": {
+			 "template-base": "instance-template-sd-no-example.html"
+		},
+		"StructureDefinition/ccda-information-recipient-extension": {
+			 "template-base": "instance-template-sd-no-example.html"
+		},
+		"StructureDefinition/ccda-in-fulfillment-of-order-extension": {
+			 "template-base": "instance-template-sd-no-example.html"
+		},
+		"StructureDefinition/ccda-participant-extension": {
+			 "template-base": "instance-template-sd-no-example.html"
+		},
+		"StructureDefinition/ccda-performer-extension": {
+			 "template-base": "instance-template-sd-no-example.html"
+		},
+		"StructureDefinition/ccda-us-realm-header-composition": {
+			 "template-base": "instance-template-sd-no-example.html"
+		}
+  }
 }

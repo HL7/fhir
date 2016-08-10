@@ -1,0 +1,46 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="2.16.840.1.113883.11.20.4.1" />
+  <url value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.4.1" />
+  <name value="DischargeSummaryDocumentTypeCode" />
+  <status value="active" />
+  <description value="DischargeSummaryDocumentTypeCode" />
+  <expansion>
+    <identifier value="2.16.840.1.113883.11.20.4.1" />
+    <timestamp value="2016-08-10T01:31:34.774-04:00" />
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="18842-5" />
+      <display value="Discharge summary" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="11490-0" />
+      <display value="Physician Discharge summary" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="28655-9" />
+      <display value="Physician attending Discharge summary" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="29761-4" />
+      <display value="Dentist Discharge summary" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="34745-0" />
+      <display value="Nurse Discharge summary" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="34105-7" />
+      <display value="Hospital Discharge summary" />
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <code value="34106-5" />
+      <display value="Physician Hospital Discharge summary" />
+    </contains>
+  </expansion>
+</ValueSet>

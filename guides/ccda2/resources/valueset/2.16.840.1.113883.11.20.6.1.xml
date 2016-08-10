@@ -1,4 +1,4 @@
-<ValueSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/valueset.xsd" xmlns="http://hl7.org/fhir">
+<ValueSet xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.11.20.6.1" />
     <url value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.6.1" />
     <name value="ProcedureNoteDocumentTypeCodes" />

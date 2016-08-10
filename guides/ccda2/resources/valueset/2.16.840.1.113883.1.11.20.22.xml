@@ -1,63 +1,64 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
-    <id value="2.16.840.1.113883.1.11.20.22" />
-    <url value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.22" />
-    <name value="HPDocumentType" />
-    <status value="active" />
-    <description value="LOINC document type codes for History and Physical documents. " />
-    <compose><include>
-        <system value="urn:oid:2.16.840.1.113883.6.1" />
-        <concept>
-            <code value="34117-2" />
-            <display value="History and physical note" />
-        </concept>
-        <concept>
-            <code value="11492-6" />
-            <display value="Provider-unspecified, History and physical note" />
-        </concept>
-        <concept>
-            <code value="28626-0" />
-            <display value="Physician History and physical note" />
-        </concept>
-        <concept>
-            <code value="34774-0" />
-            <display value="Surgery History and physical note" />
-        </concept>
-        <concept>
-            <code value="34115-6" />
-            <display value="Medical student Hospital History and physical note" />
-        </concept>
-        <concept>
-            <code value="34116-4" />
-            <display value="Physician Nursing facility History and physical note" />
-        </concept>
-        <concept>
-            <code value="34095-0" />
-            <display value="Comprehensive history and physical note" />
-        </concept>
-        <concept>
-            <code value="34096-8" />
-            <display value="Nursing facility Comprehensive history and physical note" />
-        </concept>
-        <concept>
-            <code value="51849-8" />
-            <display value="Admission history and physical note" />
-        </concept>
-        <concept>
-            <code value="47039-3" />
-            <display value="Hospital Admission history and physical note" />
-        </concept>
-        <concept>
-            <code value="34763-3" />
-            <display value="General medicine Admission history and physical note" />
-        </concept>
-        <concept>
-            <code value="34094-3" />
-            <display value="Cardiology Hospital Admission history and physical note" />
-        </concept>
-        <concept>
-            <code value="34138-8" />
-            <display value="Targeted history and physical note" />
-        </concept>
-    </include></compose>
+  <id value="2.16.840.1.113883.1.11.20.22" />
+  <url value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.22" />
+  <name value="HPDocumentType" />
+  <status value="active" />
+  <description value="LOINC document type codes for History and Physical documents. " />
+  <compose>
+    <include>
+      <system value="urn:oid:2.16.840.1.113883.6.1" />
+      <concept>
+        <code value="34117-2" />
+        <display value="History and physical note" />
+      </concept>
+      <concept>
+        <code value="11492-6" />
+        <display value="Provider-unspecified, History and physical note" />
+      </concept>
+      <concept>
+        <code value="28626-0" />
+        <display value="Physician History and physical note" />
+      </concept>
+      <concept>
+        <code value="34774-0" />
+        <display value="Surgery History and physical note" />
+      </concept>
+      <concept>
+        <code value="34115-6" />
+        <display value="Medical student Hospital History and physical note" />
+      </concept>
+      <concept>
+        <code value="34116-4" />
+        <display value="Physician Nursing facility History and physical note" />
+      </concept>
+      <concept>
+        <code value="34095-0" />
+        <display value="Comprehensive history and physical note" />
+      </concept>
+      <concept>
+        <code value="34096-8" />
+        <display value="Nursing facility Comprehensive history and physical note" />
+      </concept>
+      <concept>
+        <code value="51849-8" />
+        <display value="Admission history and physical note" />
+      </concept>
+      <concept>
+        <code value="47039-3" />
+        <display value="Hospital Admission history and physical note" />
+      </concept>
+      <concept>
+        <code value="34763-3" />
+        <display value="General medicine Admission history and physical note" />
+      </concept>
+      <concept>
+        <code value="34094-3" />
+        <display value="Cardiology Hospital Admission history and physical note" />
+      </concept>
+      <concept>
+        <code value="34138-8" />
+        <display value="Targeted history and physical note" />
+      </concept>
+    </include>
+  </compose>
 </ValueSet>
