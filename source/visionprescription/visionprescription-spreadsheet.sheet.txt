@@ -242,14 +242,14 @@
   Element = VisionPrescription.dispense.color
   Card. = 0..1
   Type = string
-  Short Label = Lens add
+  Short Label = Color required
   Definition = Special color or pattern.
 
  -- Row 22 -----------------------------------
   Element = VisionPrescription.dispense.brand
   Card. = 0..1
   Type = string
-  Short Label = Lens add
+  Short Label = Brand required
   Definition = Brand recommendations or restrictions.
 
  -- Row 23 -----------------------------------
