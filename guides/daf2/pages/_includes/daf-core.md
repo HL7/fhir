@@ -29,7 +29,7 @@ In the context of DAF, Supported on any data element SHALL be interpreted as fol
 * NOTE: Readers are advised to understand [FHIR Terminology] requirements, [FHIR RESTful API] based on the [HTTP] protocol, along with [FHIR Data Types], [FHIR Search] and [FHIR Resource] formats before implementing DAF requirements.
 
 
-## [DAF Core Profiles](#daf-core-profiles)
+## DAF Core Profiles
 
 The following table lists the [profiles] and the base FHIR Resources from which they were derived. Each profile defines the minimum mandatory elements, extensions and terminology requirements that **MUST** be present. For each profile requirements and guidance are given in a simple narrative summary. A formal hierarchical table that presents a [logical view] of the content in both a differential and snapshot view is also provided along with references to appropriate terminologies and examples.
 
