@@ -1112,7 +1112,7 @@ public class ProfileGenerator {
       ce.setName(e.getProfileName());
     }
 
-    if (!Utilities.noString(inheritedType)) {
+    if (!Utilities.noString(inheritedType) && snapshot != SnapShotMode.None) {
       ElementDefn inh = definitions.getElementDefn(inheritedType);
       buildDefinitionFromElement(path, ce, inh, ap, p);
     }
