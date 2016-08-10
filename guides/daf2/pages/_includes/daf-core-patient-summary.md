@@ -25,7 +25,7 @@ Additionally your system must return:
 2.  One or more languages spoken in `Patient.communication.language` which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
     -    [Common Languages] 
 3.  One or more races codes in [US Core Patient Race] extension which:
-    - Must include at least one code from [US Core Race Category]
+    - Must include at least one code from [OMB Race Categories]
     - May include additional codes from [US Core Race]
  
 4.  An ethnicitiy code in [US Core Patient Ethnicity] extension which which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to: 
@@ -40,7 +40,7 @@ Additionally your system must return:
   [US Core Patient Birth Sex]: http://hl7-fhir.github.io/extension-us-core-birthsex.html
   [US Core Birth Sex]: http://hl7-fhir.github.io/valueset-usrealm-birthsex.html
   [US Core Patient Race]: http://hl7-fhir.github.io/v3/Race/vs.html
-  [US Core Race Category]: valueset-daf-race.html
+  [OMB Race Categories]: valueset-daf-race.html
   [US Core Race]: http://hl7-fhir.github.io/extension-us-core-race.html
  [US Core Patient Ethnicity]: http://hl7-fhir.github.io/extension-us-core-ethnicity.html
  [US Core Ethnicity]: http://hl7-fhir.github.io/extension-us-core-ethnicity.html
