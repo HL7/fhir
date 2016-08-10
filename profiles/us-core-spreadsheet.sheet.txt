@@ -22,6 +22,13 @@
   Definition = A code classifying a person\'s professed religion
   Conformance = required
 
+ -- Row 4 -----------------------------------
+  Binding Name = BirthSex
+  Binding = value set
+  Reference = valueset-usrealm-birthsex
+  Definition = Code for sex assigned at birth
+  Conformance = required
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
