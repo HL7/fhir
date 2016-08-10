@@ -744,7 +744,7 @@
         </li>
 	  </ul>
 	
-      <p>DAF Requestors MAY use the following search contexts defined within the 
+      <p>DAF Requestors SHALL use the following search contexts defined within the 
         <a href="http://hl7-fhir.github.io/search.html#Introduction">FHIR</a> specification.
       </p> 
 	
