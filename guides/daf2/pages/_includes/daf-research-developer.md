@@ -57,21 +57,53 @@ The Task created earlier is Step 1 is executed at some point of time automatical
 
 #### Guidance on the profiles to be used to map FHIR Resources to PCORnet Common Data Model
 
-The PCORnet CDM is a consensus artifact that has been adopted by PCORnet as a model for Data Marts which can then be queried by Researchers. Since this is a different data model than FHIR the following guidance can be used to extract data so that PCORnet CDM can be appropriately populated.
+The PCORnet CDM is a consensus artifact that has been adopted by PCORnet as a model for Data Marts which can then be queried by Researchers. Since this is a different data model than FHIR the following guidance can be used to extract data so that PCORnet CDM can be appropriately populated. 
 However data extraction programs have to be aware that vendors may be supporting just DAF-Core or a subset of DAF-Core for their initial implementation and hence may not have all the PCORnet CDM data elements available.
+
+As one can see there are a few new resources that would be proposed and created for an effective mapping of PCORnet CDM to FHIR and vice versa. These New Resources will be proposed to the appropriate HL7 WGs based on pilot implementations and feedback. Similarly extensions required will be proposed and added to the profiles after pilot implementations are completed. Profiles which are not DAF-Core are annotated accordingly in the table below.
+
 
 |PCORnet CDM Table Name            |Recommended Profile for Data Extraction|
 |----------------------------------|----------------------------------------|
-||[Condition](daf-condition.html)|
-||[DiagnosticReport-Results](daf-core-diagnosticreport.html)|
-||[Medication](daf-core-medication.html)|
-||[MedicationOrder](daf-core-medicationorder.html)|
-||[MedicationStatement](daf-core-medicationstatement.html)|
-||[Observation-Smokingstatus](daf-core-smokingstatus.html)|
-||[Observation-Vitalsigns](daf-core-vitalsigns.html)|
-||[Patient](daf-core-patient.html)|
-||[Procedure](daf-core-procedure.html)|
+|DIAGNOSIS, CONDITION|[Condition](daf-condition.html)*|
+|LAB_RESULT_CM|[DiagnosticReport-Results](daf-core-diagnosticreport.html)|
+|ENCOUNTER|[Encounter](daf-encounter.html)*|
+|Prescribing|[MedicationOrder](daf-core-medicationorder.html)|
+|DISPENSING|[MedicationDispense](daf-medicationdispense.html)*|
+|LAB_RESULT_CM|[Observation](daf-core-resultobs.html)|
+|VITALS|[Observation-Vitalsigns](daf-core-vitalsigns.html)|
+|DEMOGRAPHIC|[Patient](daf-patient.html)*|
+|PROCEDURES|[Procedure](daf-core-procedure.html)|
+|PRO CM|Questionaire Profile - TBD|
+|ENROLLMENT|Potential New Resource - TBD|
+|PCORNET_TRIAL|Potential New Resource - TBD|
+|DEATH|Potential New Resource/Profile - TBD|
+|DEATH_CAUSE|Potential New Resource/Profile - TBD|
+|HARVEST|New Resource - TBD|
 
+* Indicate DAF-Research specific profiles which are created from DAF-Core profiles.
+
+#### Guidance on the profiles to be used to map FHIR Resources to OMOP
+
+Some PCORnet sites are using OMOP model as a source or destination and hence a mapping from FHIR to OMOP would be useful for these sites. The following is a mapping that was developed by the DAF pilot sites and can be a starting point for the implementation of C1 capability. Profiles which are not DAF-Core are annotated accordingly in the table below.
+
+|OMOP Table Name            |Recommended Profile for Data Extraction|
+|----------------------------------|----------------------------------------|
+|Concept,Vocabulary,Domain,Concept_Synonym,Concept_Ancestor|ValueSet **|
+|Concept_Class|Concept **|
+|Concept_Relationship, Relationship|ConceptMap **|
+|Cohort_Definition, Attribute_Definition|Group **|
+|Specimen|Specimen **|
+|Drug_Strength|[Medication](daf-core-medication.html)|
+|Procedure_Occurence|[Procedure](daf-core-procedure.html)|
+|Drug_Exposure|[MedicationOrder](daf-core-medicationorder.html),[MedicationStatement](daf-core-medicationstatement.html),[Immunization](daf-core-immunization.html)|
+|Device_Exposure|[Procedure](daf-core-procedure.html),[Device](daf-core-device.html)|
+|Measurement,Note,Observation|[Observation](daf-core-resultobs.html)|
+|Person|[Patient](daf-patient.html)*|
+|Observation_Period, Visit_Occurence|[Encounter](daf-encounter.html)*|
+|Condition_Occurence|[Condition](daf-condition.html)*|
+
+** Base FHIR Resources without any specific profiles, * DAF Research specific profiles
 
 ### C1: Step 3: Instantiation of a Task for Loading of data at the Data Mart
 
@@ -106,7 +138,11 @@ One of the value propositions of the data extract standardization is the need to
 the extracted data can be directly mapped to a destination model of choice such as the PCORnet CDM. The following is a mapping of FHIR to PCORnet CDM developed by DAF working with PCORnet community and data experts.
 This mapping can be followed to load the appropriate tables within the PCORnet CDM.
 
-[PCORnet CDM to FHIR mapping]()
+[PCORnet CDM to FHIR mapping](https://docs.google.com/spreadsheets/d/1Gw-j7GSlDA0rxJqpSRI6g9ZPRk7LHPnE5-AJuWd1ry0/edit#gid=1928349566)
+
+For systems loading to from OMOP to FHIR the following mapping developed by DAF pilots can be used.
+
+[OMOP to FHIR mapping](https://docs.google.com/spreadsheets/d/11ZmwGxnXViLkTVdX5Vi0FP-Gh4AD2HZEfYOhzZptZfw/edit#gid=0)
 
 Using the above mapping the task to load the data would be executed as follows. 
 
@@ -239,10 +275,12 @@ This Root Task instances created will have the following data
 * Task.reason - Populate with the purposeOfUse values.
 
 The following extensions need to be populated on the Task
+
 * dueDate - Date by which this Task has to be executed
 * queryApprovals - Have to be populated using profile of Basic Resource. This needs to be experimented before being used.
 
 The following are the list of inputs to the daf-execute-query operation which would be populated on the Task.input data element.
+
 * Task.input.name - queryFormat
 * Task.input.type - CodeableConcept 
 * Task.input.valueCodeableConcept - Value which would indicate the queryFormat such as SAS/SQL.
