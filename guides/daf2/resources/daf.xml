@@ -506,6 +506,17 @@
 		<!--************************EXAMPLES EXAMPLES EXAMPLES **************************************  -->
 		<resource>
 			<example value="true"/>
+			<name value="Care Team Example"/>
+			<sourceReference>
+				<reference value="CareTeam/example"/>
+			</sourceReference>
+			<exampleFor>
+				<reference value="StructureDefinition/daf-core-careteam"/>
+			</exampleFor>
+		</resource>	
+		
+				<resource>
+			<example value="true"/>
 			<name value="Care Plan Example"/>
 			<sourceReference>
 				<reference value="CarePlan/example"/>
@@ -513,7 +524,8 @@
 			<exampleFor>
 				<reference value="StructureDefinition/daf-core-careplan"/>
 			</exampleFor>
-		</resource>		
+		</resource>	
+			
 		<resource>
 			<example value="true"/>
 			<name value="Allergy Intolerance Example"/>

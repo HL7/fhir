@@ -463,6 +463,13 @@
 		"CarePlan/example": {
 			"base": "careplan-example.html",
 			"template-base": null
-		}
+		},
+		
+		"CareTeam/example": {
+			"base": "careteam-example.html",
+			"template-base": null
+		}		
+		
+		
 	}
 }
