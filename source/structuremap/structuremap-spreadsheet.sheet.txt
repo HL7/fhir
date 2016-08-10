@@ -636,6 +636,7 @@
   Element = StructureMap.group.rule.target.parameter
   Card. = 0..*
   Summary = y
+  UML = up
   Short Label = Parameters to the transform
 
  -- Row 51 -----------------------------------
@@ -656,7 +657,7 @@
   Element = StructureMap.group.rule.dependent
   Card. = 0..*
   Summary = y
-  UML = right
+  UML = down
   Short Label = Which other rules to apply in the context of this rule
 
  -- Row 54 -----------------------------------

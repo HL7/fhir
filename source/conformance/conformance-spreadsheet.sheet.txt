@@ -812,7 +812,7 @@
   Element = Conformance.rest
   Card. = 0..*
   Summary = Y
-  UML = 230;430
+  UML = 230;460
   Inv. = 1
   Short Label = If the endpoint is a RESTful one
   Definition = A definition of the restful capabilities of the solution, if any
@@ -838,7 +838,7 @@
   Element = Conformance.rest.security
   Card. = 0..1
   Summary = Y
-  UML = 500;330
+  UML = 550;380
   Short Label = Information about security of implementation
   Definition = Information about security implementation from an interface perspective - what a client needs to know
 
@@ -893,7 +893,7 @@
   Element = Conformance.rest.resource
   Card. = 0..*
   Summary = Y
-  UML = 230;560
+  UML = 230;600
   Short Label = Resource served on the REST interface
   Definition = A specification of the restful capabilities of the solution for a specific resource type
   Comments = Max of one repetition per resource type

@@ -483,6 +483,7 @@
  -- Row 9 -----------------------------------
   Element = Sequence.referenceSeq
   Card. = 0..1
+  UML = up
   Short Label = Reference sequence
   Definition = A reference sequence is a sequence that is used to represent an allele or variant.
 
@@ -540,6 +541,7 @@
  -- Row 17 -----------------------------------
   Element = Sequence.referenceSeq.windowEnd
   Card. = 1..1
+  UML = down
   Type = integer
   Short Label = End position (exclusive) of the window on the reference sequence
   Definition = End position (exclusive) of the window on the reference sequence.
@@ -602,6 +604,7 @@
  -- Row 26 -----------------------------------
   Element = Sequence.quality
   Card. = 0..*
+  UML = left
   Short Label = Sequence quality
   Definition = An experimental feature attribute that defines the quality of the feature in a quantitative way, such as a phred quality score ([SO:0001686](http://www.sequenceontology.org/browser/current_svn/term/SO:0001686)).
 
@@ -706,6 +709,7 @@
  -- Row 41 -----------------------------------
   Element = Sequence.repository
   Card. = 0..*
+  UML = right
   Short Label = External repository
   Definition = Configurations of the external repository.
 
@@ -747,6 +751,7 @@
  -- Row 47 -----------------------------------
   Element = Sequence.structureVariant
   Card. = 0..*
+  UML = down
   Definition = Structural variant.
 
  -- Row 48 -----------------------------------
@@ -773,6 +778,7 @@
  -- Row 51 -----------------------------------
   Element = Sequence.structureVariant.outer
   Card. = 0..1
+  UML = left
   Definition = Structural variant outer.
 
  -- Row 52 -----------------------------------
@@ -792,6 +798,7 @@
  -- Row 54 -----------------------------------
   Element = Sequence.structureVariant.inner
   Card. = 0..1
+  UML = right
   Definition = Structural variant inner.
 
  -- Row 55 -----------------------------------

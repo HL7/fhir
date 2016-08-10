@@ -432,7 +432,7 @@
  -- Row 26 -----------------------------------
   Element = MedicationOrder.dispenseRequest
   Card. = 0..1
-  UML = 400;240
+  UML = 250;300
   Short Label = Medication supply authorization
   Definition = Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/ExpirationDate
@@ -483,7 +483,7 @@
  -- Row 31 -----------------------------------
   Element = MedicationOrder.substitution
   Card. = 0..1
-  UML = 0;260
+  UML = -60;260
   Short Label = Any restrictions on medication substitution
   Definition = Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber\'s intent. If nothing is specified substitution may be done.
   SCRIPT 10.6 Mapping = specific values within Message/Body/NewRx/MedicationPrescribed/Substitutions
@@ -522,6 +522,7 @@
  -- Row 35 -----------------------------------
   Element = MedicationOrder.eventHistory
   Card. = 0..*
+  UML = 450;280
   Short Label = A list of events of interest in the lifecycle
   Definition = A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed
   Comments = This is not the same as an audit trail. It is a view of the important things that happened in the past. Typically, there would only be one entry for any given status, and systems may not record all the status events

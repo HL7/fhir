@@ -142,7 +142,6 @@
 
  -- Row 1 -----------------------------------
   Element = Consent
-  UML = 0;0
   Type = DomainResource
   Short Label = A healthcare consumer’s policy choices to permits or denies recipients or roles to perform actions for specific purposes and periods of time
   Definition = A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time
@@ -285,7 +284,7 @@
   Element = Consent.except
   Card. = 0..*
   Summary = Y
-  UML = 300;300
+  UML = right
   Type = =Except
   Short Label = Additional rule -  addition or removal of permissions
   Definition = An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.
@@ -312,6 +311,7 @@
   Element = Consent.except.actor
   Card. = 0..*
   Summary = Y
+  UML = up
   Short Label = Who|what controlled by this exception (or group, by role)
   Definition = Who or what is controlled by this Exception. Use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
   Missing Meaning = There is no specific actor associated with the exception
@@ -386,6 +386,7 @@
   Element = Consent.except.data
   Card. = 0..*
   Summary = Y
+  UML = down
   Short Label = Data controlled by this exception
   Definition = The resources controlled by this exception, if specific resources are referenced
   RIM Mapping = Role

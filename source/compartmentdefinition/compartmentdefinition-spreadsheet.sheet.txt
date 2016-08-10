@@ -188,6 +188,7 @@
   Element = CompartmentDefinition.resource
   Card. = 0..*
   Summary = y
+  UML = 350;260
   Short Label = How resource is related to the compartment
   Definition = Information about how a resource it related to the compartment
 

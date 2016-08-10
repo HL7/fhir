@@ -235,6 +235,7 @@
   Element = ImagingStudy.baseLocation
   Card. = 0..*
   Summary = Y
+  UML = 320;250
   Type = =StudyBaseLocation
   Short Label = Study access service endpoint
   Definition = Methods of accessing  (e.g., retrieving, viewing) the study.
@@ -399,6 +400,7 @@
   Element = ImagingStudy.series.baseLocation
   Card. = 0..*
   Summary = Y
+  UML = 620;270
   Type = =SeriesBaseLocation
   Short Label = Series access endpoint
   Definition = Methods of accessing (e.g. retrieving) the series

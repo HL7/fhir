@@ -126,7 +126,7 @@
  -- Row 10 -----------------------------------
   Element = Medication.product.batch
   Card. = 0..*
-  UML = 280;240
+  UML = 300;240
   Definition = Information about a group of medication produced or packaged from one production run.
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].id
@@ -172,7 +172,7 @@
  -- Row 15 -----------------------------------
   Element = Medication.package.content
   Card. = 0..*
-  UML = 20;240
+  UML = 0;240
   Short Label = What is  in the package
   Definition = A set of components that go to make up the described item.
   SCRIPT 10.6 Mapping = no mapping

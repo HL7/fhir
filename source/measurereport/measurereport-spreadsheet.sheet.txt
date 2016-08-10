@@ -129,6 +129,7 @@
  -- Row 9 -----------------------------------
   Element = MeasureReport.group
   Card. = 0..*
+  UML = down
   Short Label = Measure results for each group
   Definition = The results of the calculation, one for each population group in the measure
 
@@ -177,6 +178,7 @@
  -- Row 16 -----------------------------------
   Element = MeasureReport.group.stratifier
   Card. = 0..*
+  UML = right
   Short Label = Stratification results
   Definition = When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure
 
@@ -190,6 +192,7 @@
  -- Row 18 -----------------------------------
   Element = MeasureReport.group.stratifier.group
   Card. = 0..*
+  UML = down
   Type = =StratifierGroup
   Short Label = Stratum results, one for each unique value in the stratifier
   Definition = This element contains the results for a single stratum within the stratifier. For example, when stratifying on administrative gender, there will be four strata, one for each possible gender value
@@ -204,6 +207,7 @@
  -- Row 20 -----------------------------------
   Element = MeasureReport.group.stratifier.group.population
   Card. = 0..*
+  UML = left
   Type = =StratifierGroupPopulation
   Short Label = Population results in this stratum
   Definition = The populations that make up the stratum, one for each type of population appropriate to the measure
@@ -240,6 +244,7 @@
  -- Row 25 -----------------------------------
   Element = MeasureReport.group.supplementalData
   Card. = 0..*
+  UML = left
   Short Label = Supplemental data elements for the measure
   Definition = Supplemental data elements for the measure provide additional information requested by the measure for each patient involved in the populations
 
@@ -253,6 +258,7 @@
  -- Row 27 -----------------------------------
   Element = MeasureReport.group.supplementalData.group
   Card. = 0..*
+  UML = down
   Type = =SupplementalDataGroup
   Short Label = Supplemental data results, one for each unique supplemental data value
   Definition = This element contains the results for a single value within the supplemental data. For example, when reporting supplemental data for administrative gender, there will be four groups, one for each possible gender value

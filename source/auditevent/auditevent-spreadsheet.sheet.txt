@@ -511,7 +511,7 @@
 
  -- Row 1 -----------------------------------
   Element = AuditEvent
-  UML = 350;200
+  UML = 0;0
   Type = DomainResource
   Short Label = Event record kept for security purposes
   Definition = A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage
@@ -629,7 +629,7 @@
   Element = AuditEvent.agent
   Card. = 1..*
   Aliases = ActiveParticipant
-  UML = 0;150
+  UML = down
   Short Label = Actor involved in the event
   Definition = An actor taking an active role in the event or activity that is logged.
   Requirements = An agent can be a person, an organization, software, device, or other actors that may be ascribed responsibility.
@@ -758,7 +758,7 @@
  -- Row 20 -----------------------------------
   Element = AuditEvent.agent.network
   Card. = 0..1
-  UML = 0;0
+  UML = right
   Short Label = Logical network location for application activity
   Definition = Logical network location for application activity, if the activity has a network location
   RIM Mapping = .player.description.reference
@@ -804,7 +804,7 @@
  -- Row 24 -----------------------------------
   Element = AuditEvent.source
   Card. = 1..1
-  UML = 520;80
+  UML = up
   Short Label = Audit Event Reporter
   Definition = The system that is reporting the event.
   Requirements = The event is reported by one source
@@ -860,7 +860,7 @@
   Element = AuditEvent.entity
   Card. = 0..*
   Aliases = ParticipantObject
-  UML = 340;300
+  UML = right
   Short Label = Data or objects used
   Definition = Specific instances of data or objects that have been accessed
   Requirements = The event may have other entities involved
@@ -1003,7 +1003,7 @@
  -- Row 40 -----------------------------------
   Element = AuditEvent.entity.detail
   Card. = 0..*
-  UML = 540;180
+  UML = down
   Short Label = Additional Information about the entity
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN]
   DICOM Mapping = ParticipantObjectDetail

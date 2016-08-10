@@ -195,7 +195,7 @@
  -- Row 16 -----------------------------------
   Element = ProcessRequest.item
   Card. = 0..*
-  UML = 300;50
+  UML = 420;50
   Type = =Items
   Short Label = Items to re-adjudicate
   Definition = List of top level items to be re-adjudicated, if none specified then the entire submission is re-adjudicated.

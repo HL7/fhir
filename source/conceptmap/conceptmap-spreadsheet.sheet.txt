@@ -107,7 +107,7 @@
   Element = ConceptMap.contact
   Card. = 0..*
   Summary = y
-  UML = 380;20
+  UML = down
   Short Label = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number, etc.
@@ -202,6 +202,7 @@
  -- Row 19 -----------------------------------
   Element = ConceptMap.group
   Card. = 0..*
+  UML = 380;0
   Short Label = Same source and target systems
   Definition = A group of mappings that all have the same source and target system
 
@@ -240,7 +241,7 @@
   Element = ConceptMap.group.element
   Card. = 1..*
   Aliases = code, concept, item
-  UML = 380;120
+  UML = 380;180
   Type = =SourceElement
   Short Label = Mappings for a concept from the source set
   Definition = Mappings for an individual concept in the source to one or more concepts in the target

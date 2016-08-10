@@ -524,6 +524,7 @@
  -- Row 28 -----------------------------------
   Element = Questionnaire.item.option
   Card. = 0..*
+  UML = 100;400
   Inv. = 4,5
   Type = Coding
   Short Label = Permitted answer

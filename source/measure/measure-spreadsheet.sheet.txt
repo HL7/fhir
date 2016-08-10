@@ -419,6 +419,7 @@
  -- Row 34 -----------------------------------
   Element = Measure.group
   Card. = 0..*
+  UML = left
   Short Label = Population criteria group
   Definition = A group of population criteria for the measure
 
@@ -446,6 +447,7 @@
  -- Row 38 -----------------------------------
   Element = Measure.group.population
   Card. = 0..*
+  UML = up
   Short Label = Population criteria
   Definition = A population criteria for the measure
 
@@ -488,6 +490,7 @@
  -- Row 44 -----------------------------------
   Element = Measure.group.stratifier
   Card. = 0..*
+  UML = down
   Short Label = Stratifier criteria for the measure
   Definition = The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library, or a valid FHIR Resource Path
 
@@ -515,6 +518,7 @@
  -- Row 48 -----------------------------------
   Element = Measure.supplementalData
   Card. = 0..*
+  UML = right
   Short Label = Supplemental data
   Definition = The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path
 

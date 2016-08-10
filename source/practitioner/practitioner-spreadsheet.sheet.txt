@@ -253,7 +253,7 @@
  -- Row 21 -----------------------------------
   Element = Practitioner.qualification
   Card. = 0..*
-  UML = 380;180
+  UML = 350;200
   Short Label = Qualifications obtained by training and certification
   v2 Mapping = CER?
   RIM Mapping = .playingEntity.playingRole[classCode=QUAL].code

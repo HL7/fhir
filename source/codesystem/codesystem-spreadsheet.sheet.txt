@@ -233,6 +233,7 @@
   Element = CodeSystem.contact
   Card. = 0..*
   Summary = y
+  UML = 0;400
   Short Label = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number, etc.
@@ -375,6 +376,7 @@
   Element = CodeSystem.filter
   Card. = 0..*
   Summary = Y
+  UML = 200;400
   Short Label = Filter that can be used in a value set
   Definition = A filter that can be used in a value set compose statement when selecting concepts using a filter
 
@@ -416,6 +418,7 @@
   Element = CodeSystem.property
   Card. = 0..*
   Summary = y
+  UML = 400;400
   Type = =Property
   Short Label = Additional information supplied about each concept
   Definition = A property defines an additional slot through which additional information can be provided about a concept
@@ -457,7 +460,7 @@
  -- Row 34 -----------------------------------
   Element = CodeSystem.concept
   Card. = 0..*
-  UML = -190;140
+  UML = right
   Type = =ConceptDefinition
   Short Label = Concepts in the code system
   Definition = Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the hierarchical relationships are
@@ -488,7 +491,7 @@
  -- Row 38 -----------------------------------
   Element = CodeSystem.concept.designation
   Card. = 0..*
-  UML = -190;280
+  UML = up
   Short Label = Additional representations for the concept
   Definition = Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.
   Requirements = Many concept definition systems support multiple representations, in multiple languages, and for multiple purposes
@@ -521,6 +524,7 @@
  -- Row 42 -----------------------------------
   Element = CodeSystem.concept.property
   Card. = 0..*
+  UML = 400;240
   Type = =ConceptProperty
   Short Label = Property value for the concept
   Definition = A property value for this concept

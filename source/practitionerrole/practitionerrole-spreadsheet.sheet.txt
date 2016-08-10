@@ -28,6 +28,7 @@
 
  -- Row 1 -----------------------------------
   Element = PractitionerRole
+  UML = 0;0
   Type = DomainResource
   Short Label = Roles/organizations the practitioner is associated with
   Definition = A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time
@@ -150,6 +151,7 @@
  -- Row 12 -----------------------------------
   Element = PractitionerRole.availableTime
   Card. = 0..*
+  UML = 390;0
   Short Label = Times the Service Site is available
   Definition = A collection of times that the Service Site is available
   Comments = More detailed availability information may be provided in associated Schedule/Slot resources.
@@ -193,6 +195,7 @@
  -- Row 17 -----------------------------------
   Element = PractitionerRole.notAvailable
   Card. = 0..*
+  UML = 390;150
   Short Label = Not available during this time due to provided reason
   Definition = The HealthcareService is not available during this period of time due to the provided reason
   RIM Mapping = ./effectiveTime
