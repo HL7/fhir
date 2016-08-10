@@ -1,6 +1,5 @@
 #### Complete Summary of the Mandatory Requirements
 
-1.  One patient in `Observation.subject`
 1.  One status in `Observation.status` which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
     -    [ObservationStatus] value set.
 1.  One category in `Observation.category` which must have:
@@ -9,6 +8,7 @@
 1.  One code in `Observation.code` which has an [extensible](http://hl7-fhir.github.io/terminologies.html#extensible) binding to:
     -  [LOINC Observation Codes]
     -   Other additional codes are allowed - e.g. system specific codes. All codes SHALL have a code system value
+1.  One patient in `Observation.subject`
 1.  Either one `Observation.value` or one code in `Observation.DataAbsentReason` (unless the Observation.code is a panel code)
     -   Each Observation.valueQuantity must have:
         -   One numeric value in `Observation.valueQuantity.value`

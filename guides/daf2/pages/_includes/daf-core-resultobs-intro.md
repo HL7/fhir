@@ -16,11 +16,12 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Each Observation must have:**
 
-1.   a patient
-1.   a [LOINC] code, if available, which tells you what is being measured
-1.   a result value and, if the result value is a numeric quantity, a standard [UCUM] unit
 1.   a status
 1.   a category code of 'laboratory'
+1.   a [LOINC] code, if available, which tells you what is being measured
+1.   a patient
+1.   a result value and, if the result value is a numeric quantity, a standard [UCUM] unit
+
  
 Each Observation *should* have:
 

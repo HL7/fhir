@@ -15,14 +15,14 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Each DiagnosticReport must have:**
 
-1.   a patient
-1.   a code (preferably a LOINC code) which tells you what is being measured
-1.   at least one result (an Observation reference)
 1.   a status
 1.   a category code of 'LAB'
+1.   a code (preferably a LOINC code) which tells you what is being measured
+1.   a patient
 1.   a time indicating when the measurement was taken
 1.   a time indicating when the measurement was reported
 1.   who issues the report
+1.   at least one result (an Observation reference)
 
 
 **Profile specific implementation guidance:**

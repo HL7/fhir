@@ -17,16 +17,17 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Each MedicationOrder must have:**
 
-1.  a date for when written
 1.  a status
-1.  a patient
-1.  a prescriber
 1.  a medication
+1.  a patient
+1.  a date for when written
+1.  a prescriber
+
 
 
 **Profile specific implementation guidance:**
 
-*  The MedicationStatement and MedicationOrder resources can represent a medication, using either a code or reference to a [Medication] resource.  The server application can choose one way or both methods,  but the client application must support both methods.  More specific guidance is provided in the [Conformance] resource for this profile
+*  The MedicationStatement and MedicationOrder resources can represent a medication, using either a code or reference to a [Medication] resource.  The server application can choose one way or both methods,  but the client application must support both methods.  More specific guidance is provided in the [conformance](conformance.html) resource for this profile
 
 
   [Medication Clinical Drug (RxNorm)]: valueset-daf-medication-codes.html

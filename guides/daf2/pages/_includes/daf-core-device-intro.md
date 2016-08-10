@@ -15,9 +15,9 @@ The following data-elements are mandatory (i.e data MUST be present). These are 
 
 **Each Device must have:**
 
-1.  a patient
 1.  a UDI string (“udicarrier”)
 1.  a code identifying the type of resource
+1.  a patient
 
 **Profile specific implementation guidance:**
 
