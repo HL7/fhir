@@ -1,15 +1,14 @@
 ## Introduction
 
-DAF-Core IG focuses on defining the minimum mandatory requirements for recording, searching for and fetching patient information.  
-The data elements, extension and terminology identified by the various profiles in the DAF-Core IG are based on [ONC 2015 Edition Common Clinical Data Set (CCDS)] as well as essential administrative and conformance requirements.  
-The profiles described in this IG are used by [DAF-Core], [DAF-Research] IGs and are intended to be leveraged as a common core by other US Realm implementations as well. 
+The DAF-Core implementation guide defines the minimum mandatory requirements for recording, searching for, and fetching patient information.  The data elements, extension, and terminology used in the DAF-Core IG are based on [ONC 2015 Edition Common Clinical Data Set (CCDS)] in addition to essential administrative and conformance requirements.  
+The profiles described in this IG are used by [DAF-Core], [DAF-Research] IGs and are intended to be a common core for other US Realm guides.
 
 ## DAF-Core Actors 
 
 The following actors are part of the DAF-Core IG.
 
-* DAF Requestor: A Health IT system that initiates the data access to retrieve patient data. This can be thought of as the client in a client-server interaction.
-* DAF Responder: A Health IT system that responds to the data access request providing patient data. This can be thought of as the server in a client-server interaction.
+* DAF Requestor: An application that initiates a data access request to retrieve patient data. This can be thought of as the client in a client-server interaction.
+* DAF Responder: A product that responds to the data access request providing patient data. This can be thought of as the server in a client-server interaction.
 
 ## Definitions, Interpretations and Requirements common to all DAF actors 
 
@@ -86,14 +85,14 @@ DAF actors must implement applicable security requirements identified in the [DA
 [CodeSystem]: http://hl7-fhir.github.io/codesystem.html
 [ConceptMap]: http://hl7-fhir.github.io/conceptmap.html
 [NamingSystem]: http://hl7-fhir.github.io/namingsystem.html
-[FHIR Conformance Rules]: conformance-rules.html
-[dataAbsentReason]: extension-data-absent-reason.html
-[FHIR Terminology]: terminologies.html
-[FHIR RESTful API]: http.html
-[HTTP]: http.html
-[FHIR Data Types]: datatypes.html
-[FHIR Search]: search.html
-[FHIR Resource]: formats.html
+[FHIR Conformance Rules]: http://hl7-fhir.github.io/conformance-rules.html
+[dataAbsentReason]: http://hl7-fhir.github.io/extension-data-absent-reason.html
+[FHIR Terminology]: http://hl7-fhir.github.io/terminologies.html
+[FHIR RESTful API]: http://hl7-fhir.github.io/http.html
+[HTTP]: http://hl7-fhir.github.io/http.html
+[FHIR Data Types]: http://hl7-fhir.github.io/datatypes.html
+[FHIR Search]: http://hl7-fhir.github.io/search.html
+[FHIR Resource]: http://hl7-fhir.github.io/formats.html
 
 
 
