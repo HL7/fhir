@@ -39,6 +39,7 @@ signatures.html
       <page title="License and Legal Terms" filename="license.html"/>
       <page title="Community and Credits" filename="credits.html"/>
       <page title="Version History" filename="history.html"/>
+      <page title="Differences from DSTU Release 2" filename="diff.html"/>
       <page title="Outstanding Issues" filename="todo.html"/>
       <page title="FHIR Timelines" filename="timelines.html"/>
       <page title="FluentPath" filename="http://hl7.org/fluentpath"/>

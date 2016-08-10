@@ -160,6 +160,36 @@ notes: do not list revision in the version
 -->
 
 	<tr>
+		<td>1.6.0</td>
+		<td>
+      <p><b>FHIR STU3 ballot, (yet to be released)</b><a name="v1.6.0"> </a></p>
+      <p>
+      STU 3 ballot version, and also the basis for the <a href="http://wiki.hl7.org/index.php?title=FHIR_Connectathon_13">Baltimore Sept 2016 Connectathon</a>
+      </p>
+      <p><b>Publication Changes:</b></p>
+      <ul>
+       <li>Move the US Realm implementation guides out of the specification (see <a href="http://www.fhir.org/guides/registry">http://www.fhir.org/guides/registry</a>)</li>
+       <li>Rework the home page, and introduce modules as a way to navigate the specification + add significant new implementer advice (e.g. "<a href="modules.html">Getting Started</a>")</li>  
+       <li>Change the Navigation menu to focus on indexes to the content in the specification</li>
+       <li>Move FluentPath expression language to it's <a href="http://hl7.org/fluentpath">long term home</a></li>
+      </ul>
+      <p><b>Technical Changes:</b></p>
+      <ul>
+        <li>RESTful API
+          <ul>
+           <li>Change the <a href="http.html#mime-type">FHIR mime type</a> to application/fhir+xmljson instead of application/xml|json+fhir (<b>breaking change</b>, for conformance to W3C+IETF rules)</li>
+           <li>Add new uses for the Prefer header (return OperationOutcome, and manage behavior related to unknown / unsupported search parameters</li>
+           <li>Deprecate use of the OPTIONS command to retrieve the conformance statement</li>
+           <li>Add support for conditional references to the transaction interaction</li>
+           <li>Add reverse chaining</li>
+          </ul>
+        </li>
+        <li>Formats: No change to XML + JSON formats. Add <a href="rdf.html">Turtle Format</a>, and related validation tools</li>
+        <li>For Data Types and Resources, there is formal difference analysis from the last formal ballot throughout the specification</li>
+      </ul>
+    </td>
+	</tr>
+	<tr>
 		<td>1.5.0</td>
 		<td>
       <p><b>FHIR Current Build Update, July 8 2016</b><a name="v1.5.0"> </a></p>

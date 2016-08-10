@@ -266,6 +266,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private ValueSetValidator vsValidator;
   boolean forPublication;
   private String resourceCategory;
+  private SpecDifferenceEvaluator diffEngine = new SpecDifferenceEvaluator();
+  private Bundle typeBundle;
+  private Bundle resourceBundle;
 
   public PageProcessor(String tsServer) throws URISyntaxException, UcumException {
     super();
@@ -401,6 +404,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return val; 
   }
 
+  private String diffForDt(String dt, String pn) throws Exception {
+    return diffEngine.getDiffAsHtml(definitions.getElementDefn(dt).getProfile());
+  }
+
  
   private String generateSideBar(String prefix) throws Exception {
     if (prevSidebars.containsKey(prefix))
@@ -509,11 +516,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       if (com.length == 4 && com[0].equals("edt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
-        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), umlForDt(com[1], com[3]), umlForDt(com[1], com[3]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]), ttlForDt(com[1], com[2]))+s3;
+        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), umlForDt(com[1], com[3]), umlForDt(com[1], com[3]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]), ttlForDt(com[1], com[2]), diffForDt(com[1], com[2]))+s3;
       } else if (com.length == 3 && com[0].equals("dt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
-        src = s1+orgDT(com[1], xmlForDt(com[1], file), treeForDt(com[1]), umlForDt(com[1], com[2]), umlForDt(com[1], com[2]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], file), ttlForDt(com[1], file))+s3;
+        src = s1+orgDT(com[1], xmlForDt(com[1], file), treeForDt(com[1]), umlForDt(com[1], com[2]), umlForDt(com[1], com[2]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], file), ttlForDt(com[1], file), diffForDt(com[1], file))+s3;
       } else if (com.length == 2 && com[0].equals("dt.constraints")) 
         src = s1+genConstraints(com[1], genlevel(level))+s3;
       else if (com.length == 2 && com[0].equals("dt.restrictions")) 
@@ -678,6 +685,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         String[] parts = com[1].split("\\/");
         Example e = findExample(parts[0], parts[1]);
         src = s1+genExample(e, genlevel(level))+s3;
+      } else if (com[0].equals("diff-analysis")) { 
+        if ("*".equals(com[1])) {
+          updateDiffEngineDefinitions();
+          src = s1+diffEngine.getDiffAsHtml()+s3;
+        } else {
+          StructureDefinition sd = workerContext.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+com[1]);
+          if (sd == null)
+            throw new Exception("diff-analysis not found: "+com[1]);
+          src = s1+diffEngine.getDiffAsHtml(sd)+s3;          
+        }
       } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("pageheader"))
@@ -990,6 +1007,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private void updateDiffEngineDefinitions() {
+    for (BundleEntryComponent be : typeBundle.getEntry()) {
+      if (be.getResource() instanceof StructureDefinition) {
+        StructureDefinition sd = (StructureDefinition) be.getResource();
+        diffEngine.getRevision().getTypes().put(sd.getName(), sd);
+      }
+    }
+    for (BundleEntryComponent be : resourceBundle.getEntry()) {
+      if (be.getResource() instanceof StructureDefinition) {
+        StructureDefinition sd = (StructureDefinition) be.getResource();
+        diffEngine.getRevision().getResources().put(sd.getName(), sd);
+      }
+    }
   }
 
   private Example findExample(String rn, String id) throws Exception {
@@ -1527,7 +1559,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return " at <a href=\""+cs.getContact().get(0).getTelecom().get(0).getValue()+"\">"+cs.getContact().get(0).getTelecom().get(0).getValue()+"</a>";
   }
 
-  private String orgDT(String name, String xml, String tree, String uml1, String uml2, String ref, String ts, String json, String ttl) {
+  private String orgDT(String name, String xml, String tree, String uml1, String uml2, String ref, String ts, String json, String ttl, String diff) {
     StringBuilder b = new StringBuilder();
     b.append("<div id=\"tabs-").append(name).append("\">\r\n");
     b.append(" <ul>\r\n");
@@ -1536,6 +1568,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("  <li><a href=\"#tabs-"+name+"-xml\">XML</a></li>\r\n");
     b.append("  <li><a href=\"#tabs-"+name+"-json\">JSON</a></li>\r\n");
     b.append("  <li><a href=\"#tabs-"+name+"-ttl\">Turtle</a></li>\r\n");
+    b.append("  <li><a href=\"#tabs-"+name+"-diff\">R2 Diff</a></li>\r\n");
     b.append("  <li><a href=\"#tabs-"+name+"-all\">All</a></li>\r\n");
     b.append(" </ul>\r\n");
     b.append(" <div id=\"tabs-"+name+"-struc\">\r\n");
@@ -1583,6 +1616,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("  </div>\r\n");
     b.append(" </div>\r\n");
     b.append("\r\n");
+    b.append(" <div id=\"tabs-"+name+"-diff\">\r\n");
+    b.append("  <div id=\"diff\">\r\n");
+    b.append("   <p><b>Differences Between DSTU R2 and this version</b></p>\r\b");
+    b.append("   <div id=\"diff-inner\">\r\n");
+    b.append("    "+diff+"\r\n");
+    b.append("   </div>\r\n");
+    b.append("  </div>\r\n");
+    b.append(" </div>\r\n");
+    b.append("\r\n");
     b.append(" <div id=\"tabs-"+name+"-all\">\r\n");
     b.append("  <div id=\"tbla\">\r\n");
     b.append("   <a name=\"tbl-"+name+"\"> </a>\r\n");
@@ -1620,6 +1662,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("   <p><b>Turtle Template</b></p>\r\n");
     b.append("   <div id=\"ttl-inner\">\r\n");
     b.append("     "+ttl+"\r\n");
+    b.append("   </div>\r\n");
+    b.append("  </div>\r\n");
+    b.append("  <div id=\"diffa\">\r\n");
+    b.append("   <a name=\"diff-"+name+"\"> </a>\r\n");
+    b.append("   <p><b>Differences Between DSTU R2 and this version</b></p>\r\n");
+    b.append("   <div id=\"diff-inner\">\r\n");
+    b.append("     "+diff+"\r\n");
     b.append("   </div>\r\n");
     b.append("  </div>\r\n");
     b.append(" </div>\r\n");
@@ -3773,7 +3822,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       if (com.length == 3 && com[0].equals("edt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
-        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), umlForDt(com[1], com[2]), umlForDt(com[1], com[2]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]), ttlForDt(com[1], com[2]))+s3;
+        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), umlForDt(com[1], com[2]), umlForDt(com[1], com[2]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]), ttlForDt(com[1], com[2]), diffForDt(com[1], com[2]))+s3;
       } else if (com.length == 2 && com[0].equals("dt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
@@ -4171,7 +4220,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       if (com.length == 3 && com[0].equals("edt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
-        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), umlForDt(com[1], com[2]), umlForDt(com[1], com[2]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]), ttlForDt(com[1], com[2]))+s3;
+        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), umlForDt(com[1], com[2]), umlForDt(com[1], com[2]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]), ttlForDt(com[1], com[2]), diffForDt(com[1], com[2]))+s3;
       } else if (com.length == 3 && com[0].equals("dt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
@@ -4287,6 +4336,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("setlevel")) {
         level = Integer.parseInt(com[1]);
         src = s1+s3;
+      } else if (com[0].equals("diff-analysis")) { 
+        if ("*".equals(com[1])) {
+          updateDiffEngineDefinitions();
+          src = s1+diffEngine.getDiffAsHtml()+s3;
+        } else {
+          StructureDefinition sd = workerContext.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+com[1]);
+          if (sd == null)
+            throw new Exception("diff-analysis not found: "+com[1]);
+          src = s1+diffEngine.getDiffAsHtml(sd)+s3;          
+        }
       } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("header"))
@@ -4802,6 +4861,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+searchFooter(level)+s3;
       else if (com[0].equals("search-header")) 
         src = s1+searchHeader(level)+s3;
+      else if (com[0].equals("diff-analysis")) 
+        src = s1+diffEngine.getDiffAsHtml(resource.getProfile())+s3;
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -7751,6 +7812,26 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
 //    System.out.println("Reference to undefined resource: \""+url+"\"");
     return new ResourceWithReference("todo.html", null);
+  }
+
+  public SpecDifferenceEvaluator getDiffEngine() {
+    return diffEngine;
+  }
+
+  public Bundle getTypeBundle() {
+    return typeBundle;
+  }
+
+  public void setTypeBundle(Bundle typeBundle) {
+    this.typeBundle = typeBundle;
+  }
+
+  public Bundle getResourceBundle() {
+    return resourceBundle;
+  }
+
+  public void setResourceBundle(Bundle resourceBundle) {
+    this.resourceBundle = resourceBundle;
   }
 
 }

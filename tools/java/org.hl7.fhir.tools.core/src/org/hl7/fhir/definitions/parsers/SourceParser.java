@@ -935,4 +935,13 @@ public class SourceParser {
   public BindingNameRegistry getRegistry() {
     return registry;
   }
+
+
+
+
+  public IniFile getIni() {
+    return ini;
+  }
+  
+  
 }

@@ -49,8 +49,9 @@ public class XhtmlComposer {
     return pretty;
   }
 
-  public void setPretty(boolean pretty) {
+  public XhtmlComposer setPretty(boolean pretty) {
     this.pretty = pretty;
+    return this;
   }
 
   public boolean isXmlOnly() {

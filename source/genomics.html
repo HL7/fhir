@@ -5,6 +5,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+table tr:nth-child(even) {
+  background-color: #eee;
+}
+table tr:nth-child(odd) {
+  background-color: #fff;
+}
+table th {
+  background-color: black;
+  color: white;
+}
+</style>
 </head>
 <body>
 [%file newnavbar%]
@@ -199,125 +218,43 @@ The <a href="observationforgenetics.html">Observation-genetics profile</a> is us
   </ul>
 </p>
 <p>
-  Additional Observations instance will be created for variant’s further analysis. For example, Observation.component element will be used for knowledge-based interpretations of the sequence variant. Here are some examples for the component.code.
+  Additional Observations instance will be created for variant's further analysis. For example, Observation.component element will be used for knowledge-based interpretations of the sequence variant. Here are some examples for the component.code.
 </p>
-<br/>
-<div dir="ltr">
-    <table>
-        <colgroup>
-            <col width="96"/>
-            <col width="192"/>
-            <col width="282"/>
-        </colgroup>
-        <tbody>
+
+<table style="width:100%">
             <tr>
-                <td>
-                    <p dir="ltr">
-                        LOINC Code
-                    </p>
-                </td>
-                <td>
-                    <p dir="ltr">
-                        LOINC Element Name
-                    </p>
-                </td>
-                <td>
-                    <p dir="ltr">
-                        Comments
-                    </p>
-                </td>
+    <th>LOINC Code</th>
+    <th>LOINC Element Name</th>
+    <th>Comments</th>
             </tr>
             <tr>
-                <td>
-                    <p dir="ltr">
-                        51963-7
-                    </p>
-                </td>
-                <td>
-                    <p dir="ltr">
-                        Medication Assessed
-                    </p>
-                </td>
-                <td>
-                    <p dir="ltr">
-                        A coded medication accessed in a pharmacogenetic test (recommend RxNorm).
-                    </p>
-                </td>
+    <td>51963-7</td>
+    <td>Medication Assessed</td>
+    <td>A coded medication accessed in a pharmacogenetic test (recommend RxNorm).</td>
             </tr>
             <tr>
-                <td>
-                    <p dir="ltr">
-                        51967-8
-                    </p>
-                </td>
-                <td>
-                    <p dir="ltr">
-                        Genetic disease assessed
-                    </p>
-                </td>
-                <td>
-                    <p dir="ltr">
-                        A coded disease that is associated with the region of DNA covered by the genetic test (recommend SNOMED).
-                    </p>
-                </td>
+    <td>51967-8</td>
+    <td>Genetic disease assessed</td>
+    <td>A coded disease that is associated with the region of DNA covered by the genetic test (recommend SNOMED).</td>
             </tr>
             <tr>
-                <td>
-                    <p dir="ltr">
-                        53037-8
-                    </p>
-                </td>
-                <td>
-                    <p dir="ltr">
-                        Genetic Disease Sequence Variant Interpretation
-                    </p>
-                </td>
-                <td>
-                    <p dir="ltr">
-                        Interpretation of the pathogenicity of the DNA Sequence Variant in the context of the assessed genetic disease.
-                    </p>
-                </td>
+    <td>53037-8</td>
+    <td>Genetic Disease Sequence Variant Interpretation</td>
+    <td>Interpretation of the pathogenicity of the DNA Sequence Variant in the context of the assessed genetic disease.</td>
+  </tr>
+  <tr>
+    <td>53040-2</td>
+    <td>Drug Metabolism Sequence Variant Interpretation</td>
+    <td>Predicted phenotype for drug efficacy. A sequence variant interpretation value known to allow (responsive) or prevent (resistant) the
+    drug to perform.</td>
+  </tr>
+  <tr>
+    <td>51961-1</td>
+    <td>Drug Efficacy Sequence Variant Interpretation</td>
+    <td>Predicted phenotype for ability of drug to bind to intended site in order to deliver intended effect. A Sequence Variant interpretation
+    value known to allow (responsive) or prevent (resistant) the drug to perform.</td>
             </tr>
-            <tr>
-                <td>
-                    <p dir="ltr">
-                        53040-2
-                    </p>
-                </td>
-                <td>
-                    <p dir="ltr">
-                        Drug Metabolism Sequence Variant Interpretation
-                    </p>
-                </td>
-                <td>
-                    <p dir="ltr">
-                        Predicted phenotype for drug efficacy. A sequence variant interpretation value known to allow (responsive) or prevent (resistant) the
-                        drug to perform.
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p dir="ltr">
-                        51961-1
-                    </p>
-                </td>
-                <td>
-                    <p dir="ltr">
-                        Drug Efficacy Sequence Variant Interpretation
-                    </p>
-                </td>
-                <td>
-                    <p dir="ltr">
-                        Predicted phenotype for ability of drug to bind to intended site in order to deliver intended effect. A Sequence Variant interpretation
-                        value known to allow (responsive) or prevent (resistant) the drug to perform.
-                    </p>
-                    <br/>
-                </td>
-            </tr>
-        </tbody>
     </table>
-</div>
 
 <p>
   In the meantime, the related element in this Observation instance will point to Observaiton-genetics profile to show these clinical interpretations are further analysis for the variant.
@@ -373,91 +310,35 @@ This <a href="reportforgenetics.html">DiagnosticReport-genetics</a> is built on 
   <li>FamilyMemberHistory are significant health events and conditions for one or more persons related to the patient. It refers to the FamilyMemberHistory-Genetic profile.</li>
   <li>Analysis provides knowledge-based interpretation of overall results of tests performed on patients. </li>
 </ul>
-    Examples for analysis.code:
-    <br/>
-    <br/>
-    <div dir="ltr">
-        <table>
-            <colgroup>
-                <col width="96"/>
-                <col width="186"/>
-                <col width="294"/>
-            </colgroup>
-            <tbody>
-                <tr>
-                    <td>
-                        <p dir="ltr">
-                            LOINC Code
                         </p>
-                    </td>
-                    <td>
-                        <p dir="ltr">
-                            LOINC Element Name
+
+<p>
+  Examples for analysis.code:
                         </p>
-                    </td>
-                    <td>
-                        <p dir="ltr">
-                            Comments
-                        </p>
-                    </td>
+
+<table style="width:100%">
+  <tr>
+    <th>LOINC Code</th>
+    <th>LOINC Element Name</th>
+    <th>Comments</th>
                 </tr>
                 <tr>
-                    <td>
-                        <p dir="ltr">
-                            51968-6
-                        </p>
-                    </td>
-                    <td>
-                        <p dir="ltr">
-                            Genetic Disease Analysis Overall Interpretation
-                        </p>
-                    </td>
-                    <td>
-                        <p dir="ltr">
-                            Interpretation of all identified DNA Sequence variants along with any known clinical information for the benefit of aiding clinicians
-                            in understanding the results overall in either the context of diagnosis or increased risk of disease.
-                        </p>
-                    </td>
+    <td>51968-6</td>
+    <td>Genetic Disease Analysis Overall Interpretation</td>
+    <td>Interpretation of all identified DNA Sequence variants along with any known clinical information for the benefit of aiding clinicians
+    in understanding the results overall in either the context of diagnosis or increased risk of disease.</td>
                 </tr>
                 <tr>
-                    <td>
-                        <p dir="ltr">
-                            51964-5
-                        </p>
-                    </td>
-                    <td>
-                        <p dir="ltr">
-                            Drug Efficacy Analysis Overall Interpretation
-                        </p>
-                    </td>
-                    <td>
-                        <p dir="ltr">
-                            Overall predicted phenotype for drug efficacy for all DNA Sequence Variants identified in a single case.
-                        </p>
-                    </td>
+    <td>51964-5</td>
+    <td>Drug Efficacy Analysis Overall Interpretation</td>
+    <td>Overall predicted phenotype for drug efficacy for all DNA Sequence Variants identified in a single case.</td>
                 </tr>
                 <tr>
-                    <td>
-                        <p dir="ltr">
-                            51971-0
-                        </p>
-                    </td>
-                    <td>
-                        <p dir="ltr">
-                            Drug metabolism analysis overall interpretation
-                        </p>
-                    </td>
-                    <td>
-                        <p dir="ltr">
-                            Overall predicted phenotype for drug metabolism for all DNA Sequence Variants identified in a single case.
-                        </p>
-                    </td>
+    <td>51971-0</td>
+    <td>Drug metabolism analysis overall interpretation</td>
+    <td>Overall predicted phenotype for drug metabolism for all DNA Sequence Variants identified in a single case.</td>
                 </tr>
-            </tbody>
         </table>
-    </div>
-    <br/>
-</p>
 
 <h3>Usage Examples</h3>
 <p>
@@ -1094,369 +975,118 @@ Get /DiagnosticReport&amp;
   The table shows how the data elements in the DSTU2 Observation resource as extended by the Standard Genetics Profile would be mapped to the new Sequence resource.
 </p>
 
-<table>
-    <colgroup>
-        <col width="184"/>
-        <col width="213"/>
-        <col width="203"/>
-    </colgroup>
-    <tbody>
+<table style="width:100%">
         <tr>
-            <td>
-                <p dir="ltr">
-                    DSTU2 Standard Genetics profile
-                </p>
-                <p dir="ltr">
-                    on Observation
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Observation-genetics profile
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Maps to Sequence (Proposed)
-                </p>
-            </td>
+    <th>DSTU2 Standard Genetics profile on Observation</th>
+    <th>Observation-genetics profile</th>
+    <th>Maps to Sequence (Proposed)</th>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsGenomeBuild
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Sequence extension
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    referenceSeq.genomicsBuild
-                </p>
-            </td>
+    <td>geneticsGenomeBuild</td>
+    <td>Sequence extension</td>
+    <td>referenceSeq.genomicsBuild</td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsChromosome
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Sequence extension
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    referenceSeq.chromosome
-                </p>
-            </td>
+    <td>geneticsChromosome</td>
+    <td>Sequence extension</td>
+    <td>referenceSeq.chromosome</td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsGenomicsStart
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Sequence extension
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    variant.start
-                </p>
-            </td>
+    <td>geneticsGenomicsStart</td>
+    <td>Sequence extension</td>
+    <td>variant.start</td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsGenomicsStop
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Sequence extension
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    variant.end
-                </p>
-            </td>
+    <td>geneticsGenomicsStop</td>
+    <td>Sequence extension</td>
+    <td>variant.end</td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsReferenceAllele
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Sequence extension
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    variant.referenceAllele
-                </p>
-            </td>
+    <td>geneticsReferenceAllele</td>
+    <td>Sequence extension</td>
+    <td>variant.referenceAllele</td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsObservedAllele
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Sequence extension
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    variant.observedAllele
-                </p>
-            </td>
+    <td>geneticsObservedAllele</td>
+    <td>Sequence extension</td>
+    <td>variant.observedAllele</td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsSpecies
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Sequence extension
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    specimen
-                </p>
-            </td>
+    <td>geneticsSpecies</td>
+    <td>Sequence extension</td>
+    <td>specimen</td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsAllelicState
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Allelic State extension
-                </p>
-            </td>
-            <td>
-                <br/>
-            </td>
+    <td>geneticsAllelicState</td>
+    <td>Allelic State extension</td>
+    <td></td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsAllelicFrequency
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Allelic Frequency extension
-                </p>
-            </td>
-            <td>
-                <br/>
-            </td>
+    <td>geneticsAllelicFrequency</td>
+    <td>Allelic Frequency extension</td>
+    <td></td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsReadCoverage
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Sequence extension
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    readCoverage
-                </p>
-            </td>
+    <td>geneticsReadCoverage</td>
+    <td>Sequence extension</td>
+    <td>readCoverage</td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsCopyNumberEvent
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Copy number event extension
-                </p>
-            </td>
-            <td>
-                <br/>
-            </td>
+    <td>geneticsCopyNumberEvent</td>
+    <td>Copy number event extension</td>
+    <td></td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsTranscriptReferenceSequenceId
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Transcript reference sequence identifier extension
-                </p>
-            </td>
-            <td>
-                <br/>
-            </td>
+    <td>geneticsTranscriptReferenceSequenceId</td>
+    <td>Transcript reference sequence identifier extension</td>
+    <td></td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsProteinReferenceSequenceId
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Protein reference sequence identifier
-                </p>
-            </td>
-            <td>
-                <br/>
-            </td>
+    <td>geneticsProteinReferenceSequenceId</td>
+    <td>Protein reference sequence identifier</td>
+    <td></td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsCIGAR
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Sequence extension
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    variant.cigar
-                </p>
-            </td>
+    <td>geneticsCIGAR</td>
+    <td>Sequence extension</td>
+    <td>variant.cigar</td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsVariationId
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    DNA variation id extension
-                </p>
-            </td>
-            <td>
-                <br/>
-            </td>
+    <td>geneticsVariationId</td>
+    <td>DNA variation id extension</td>
+    <td></td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsVariationType
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    DNA sequence variation type extension
-                </p>
-            </td>
-            <td>
-                <br/>
-            </td>
+    <td>geneticsVariationType</td>
+    <td>DNA sequence variation type extension</td>
+    <td></td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsAminoAcidChange
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Amino acid change extension
-                </p>
-            </td>
-            <td>
-                <br/>
-            </td>
+    <td>geneticsAminoAcidChange</td>
+    <td>Amino acid change extension</td>
+    <td></td>
         </tr>
         <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsAminoAcidChangeType
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Amino acid change type extension
-                </p>
-            </td>
-            <td>
-                <br/>
-            </td>
+    <td>geneticsAminoAcidChangeType</td>
+    <td>Amino acid change type extension</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>geneticsGene</td>
+    <td>Gene extension</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>geneticsDNARegionName</td>
+    <td>DNA region name extension</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>geneticsGenomicSourceClass</td>
+    <td>Genomic source class extension</td>
+    <td></td>
         </tr>
-        <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsGene
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Gene extension
-                </p>
-            </td>
-            <td>
-                <br/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsDNARegionName
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    DNA region name extension
-                </p>
-            </td>
-            <td>
-                <br/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p dir="ltr">
-                    geneticsGenomicSourceClass
-                </p>
-            </td>
-            <td>
-                <p dir="ltr">
-                    Genomic source class extension
-                </p>
-            </td>
-            <td>
-                <br/>
-            </td>
-        </tr>
-    </tbody>
 </table>
-
 
 </div>
 

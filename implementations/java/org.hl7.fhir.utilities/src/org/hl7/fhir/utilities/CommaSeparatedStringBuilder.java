@@ -26,6 +26,9 @@ public class CommaSeparatedStringBuilder {
     
   }
   
+  public int length() {
+    return b.length();
+  }
   @Override
   public String toString() {
     return b.toString();

@@ -527,3 +527,30 @@ code { counter-increment: listing; }
   display: inline-block; 
   min-width: 2.5em; 
 }
+
+
+tr.diff-title td {
+  font-weight: bold;
+  background-color: #eeeeee;
+}
+tr.diff-item td.diff-left {
+  font-weight: bold;
+}
+tr.diff-new-item td.diff-left {
+  font-weight: bold;
+}
+tr.diff-del-item td.diff-left {
+  font-weight: bold;
+}
+tr.diff-new {
+  background-color: #f4fff4;
+}
+tr.diff-new-item {
+  background-color: #f4fff4;
+}
+tr.diff-del {
+  background-color: #fff4f4;
+}
+tr.diff-del-item {
+  background-color: #fff4f4;
+}
