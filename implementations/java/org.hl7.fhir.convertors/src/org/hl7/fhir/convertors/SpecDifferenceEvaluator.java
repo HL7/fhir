@@ -156,7 +156,7 @@ public class SpecDifferenceEvaluator {
     else {
       start();
       compare(orig, rev);
-      return new XhtmlComposer().setPretty(true).compose(tbl)+"\r\n<p>See the <a href=\"diff.html\">Full Difference</p> for further information\r\n";
+      return new XhtmlComposer().setPretty(true).compose(tbl)+"\r\n<p>See the <a href=\"diff.html\">Full Difference</a> for further information</p>\r\n";
     }
   }
   
