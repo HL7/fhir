@@ -31,7 +31,7 @@ func (rc *ResourceController) IndexHandler(c *gin.Context) {
 	defer func() {
 		if r := recover(); r != nil {
 			switch x := r.(type) {
-			case search.Error:
+			case *search.Error:
 				c.JSON(x.HTTPStatus, x.OperationOutcome)
 				return
 			default:

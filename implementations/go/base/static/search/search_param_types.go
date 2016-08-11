@@ -30,6 +30,7 @@ const (
 	ContainedParam     = "_contained"
 	ContainedTypeParam = "_containedType"
 	OffsetParam        = "_offset" // Custom param, not in FHIR spec
+	FormatParam		   = "_format"
 )
 
 var globalSearchParams = map[string]bool{IDParam: true, LastUpdatedParam: true, TagParam: true,
@@ -43,7 +44,7 @@ func isGlobalSearchParam(param string) bool {
 
 var searchResultParams = map[string]bool{SortParam: true, CountParam: true, IncludeParam: true,
 	RevIncludeParam: true, SummaryParam: true, ElementsParam: true, ContainedParam: true,
-	ContainedTypeParam: true, OffsetParam: true}
+	ContainedTypeParam: true, OffsetParam: true, FormatParam: true}
 
 func isSearchResultParam(param string) bool {
 	_, found := searchResultParams[param]
@@ -78,7 +79,7 @@ func (q *Query) Params() []SearchParam {
 			info.Modifier = modifier
 			results = append(results, info.CreateSearchParam(queryParam.Value))
 		} else {
-			// Check if it's a global search parameter. If so, we must not support it yet.
+
 			if isGlobalSearchParam(param) {
 				panic(createUnsupportedSearchError("MSG_PARAM_UNKNOWN", fmt.Sprintf("Parameter \"%s\" not understood", param)))
 			} else {
@@ -100,6 +101,7 @@ func (q *Query) Options() *QueryOptions {
 		}
 
 		switch param {
+
 		case CountParam:
 			count, err := strconv.Atoi(queryParam.Value)
 			if err != nil {
@@ -108,6 +110,7 @@ func (q *Query) Options() *QueryOptions {
 			if count >= 0 {
 				options.Count = count
 			}
+
 		case OffsetParam:
 			offset, err := strconv.Atoi(queryParam.Value)
 			if err != nil {
@@ -116,6 +119,7 @@ func (q *Query) Options() *QueryOptions {
 			if offset >= 0 {
 				options.Offset = offset
 			}
+
 		case SortParam:
 			// The following supports both DSTU2-style sorts and STU3-style sorts
 			keys := strings.Split(queryParam.Value, ",")
@@ -131,6 +135,7 @@ func (q *Query) Options() *QueryOptions {
 			if len(keys) > 1 || strings.HasPrefix(queryParam.Value, "-") {
 				options.IsSTU3Sort = true
 			}
+
 		case IncludeParam:
 			incls := strings.Split(queryParam.Value, ":")
 			if len(incls) < 2 || len(incls) > 3 {
@@ -153,6 +158,7 @@ func (q *Query) Options() *QueryOptions {
 				}
 			}
 			options.Include = append(options.Include, IncludeOption{Resource: incls[0], Parameter: inclParam})
+
 		case RevIncludeParam:
 			incls := strings.Split(queryParam.Value, ":")
 			if len(incls) < 2 || len(incls) > 3 {
@@ -179,6 +185,13 @@ func (q *Query) Options() *QueryOptions {
 				panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
 			}
 			options.RevInclude = append(options.RevInclude, RevIncludeOption{Resource: incls[0], Parameter: revInclParam})
+
+		case FormatParam:
+			if queryParam.Value != "json" && queryParam.Value != "application/json" && queryParam.Value != "application/json+fhir" {
+				// Currently we only support JSON
+				panic(createUnsupportedSearchError("MSG_PARAM_INVALID", "Parameter \"_format\" content is invalid"))
+			}
+			
 		default:
 			panic(createUnsupportedSearchError("MSG_PARAM_UNKNOWN", fmt.Sprintf("Parameter \"%s\" not understood", param)))
 		}
