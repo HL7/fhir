@@ -135,6 +135,22 @@ Additional notes:
 
 <a name="history"> </a>
 <h3>Version History since DSTU #1</h3>
+<a name="pubs"> </a>
+<p>
+Major Milestones:
+</p>
+<table class="grid">
+  <tr>
+    <td><a href="http://hl7.org/fhir/DSTU2/index.html">Oct 24, 2015</a></td>
+    <td>1.0.2</td>
+    <td>DSTU2 (Second Draft Standard for Trial Use)</td>
+  </tr>
+  <tr>
+    <td><a href="http://hl7.org/fhir/DSTU2/index.html">Sept 30, 2014</a></td>
+    <td>0.0.82</td>
+    <td>DSTU1 (First Draft Standard for Trial Use)</td>
+  </tr>
+</table>
 
 <p>
 This table lists substantive changes only.
@@ -162,7 +178,7 @@ notes: do not list revision in the version
 	<tr>
 		<td>1.6.0</td>
 		<td>
-      <p><b>FHIR STU3 ballot, (yet to be released)</b><a name="v1.6.0"> </a></p>
+      <p><b>FHIR STU3 ballot, Aug 11, 2016</b><a name="v1.6.0"> </a></p>
       <p>
       STU 3 ballot version, and also the basis for the <a href="http://wiki.hl7.org/index.php?title=FHIR_Connectathon_13">Baltimore Sept 2016 Connectathon</a>
       </p>
@@ -177,7 +193,7 @@ notes: do not list revision in the version
       <ul>
         <li>RESTful API
           <ul>
-           <li>Change the <a href="http.html#mime-type">FHIR mime type</a> to application/fhir+xmljson instead of application/xml|json+fhir (<b>breaking change</b>, for conformance to W3C+IETF rules)</li>
+           <li>Change the <a href="http.html#mime-type">FHIR mime type</a> to application/fhir+xml|json instead of application/xml|json+fhir (<b>breaking change</b>, for conformance to W3C+IETF rules)</li>
            <li>Add new uses for the Prefer header (return OperationOutcome, and manage behavior related to unknown / unsupported search parameters</li>
            <li>Deprecate use of the OPTIONS command to retrieve the conformance statement</li>
            <li>Add support for conditional references to the transaction interaction</li>
@@ -185,7 +201,7 @@ notes: do not list revision in the version
           </ul>
         </li>
         <li>Formats: No change to XML + JSON formats. Add <a href="rdf.html">Turtle Format</a>, and related validation tools</li>
-        <li>For Data Types and Resources, there is formal difference analysis from DSTU2 throughout the specification</li>
+        <li>For Data Types and Resources, there is <a href="diff.html">formal difference</a> analysis from DSTU2 (also found throughout the specification)</li>
       </ul>
     </td>
 	</tr>
