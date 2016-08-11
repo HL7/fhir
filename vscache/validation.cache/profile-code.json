@@ -1,0 +1,10 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/profile-code",
+  "outcomes": [
+    {
+      "hash": "|http://snomed.info/sct|null|314079002|314079002",
+      "severity": "error",
+      "message": "Unknown Code 314079002 in http://hl7.org/fhir/ValueSet/profile-code"
+    }
+  ]
+}

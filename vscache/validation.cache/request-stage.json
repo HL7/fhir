@@ -1,0 +1,16 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/request-stage",
+  "outcomes": [
+    {
+      "hash": "#|null|null|original-order|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "original-order",
+        "definition": null,
+        "display": "Original Order"
+      }
+    }
+  ]
+}

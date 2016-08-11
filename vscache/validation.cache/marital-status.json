@@ -1,0 +1,27 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/marital-status",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/v3/MaritalStatus|null|M|Married",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "M",
+        "definition": null,
+        "display": "Married"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|36629006|Legally married#|http://hl7.org/fhir/v3/MaritalStatus|null|M|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "M",
+        "definition": null,
+        "display": "Married"
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/detectedissue-category",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/v3/ActCode|null|DRG|Drug Interaction Alert",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DRG",
+        "definition": null,
+        "display": "Drug Interaction Alert"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/ActCode|null|DUPTHPY|Duplicate Therapy Alert",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    }
+  ]
+}

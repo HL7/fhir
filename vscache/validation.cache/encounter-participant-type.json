@@ -1,0 +1,27 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/encounter-participant-type",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/v3/ParticipationType|null|ATND|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ATND",
+        "definition": null,
+        "display": "attender"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/ParticipationType|null|PART|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "PART",
+        "definition": null,
+        "display": "Participation"
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/v3-PurposeOfUse",
+  "outcomes": [
+    {
+      "hash": "|http://snomed.info/sct|null|3457005|Referral",
+      "severity": "error",
+      "message": "Unknown Code 3457005 in http://hl7.org/fhir/ValueSet/v3-PurposeOfUse"
+    }
+  ]
+}
