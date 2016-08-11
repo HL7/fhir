@@ -79,12 +79,12 @@
             <path value="Composition.encounter" />
             <label value="encompassingEncounter" />
             <short value="encompassingEncounter" />
-            <definition value="SHALL contain exactly one [1..1] U.S. DAF Encounter Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-encounter) (CONF:2219-1525)." />
+            <definition value="SHALL contain exactly one [1..1] U.S. DAF Core Encounter Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-encounter) (CONF:2219-1525)." />
             <min value="1" />
             <max value="1" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-encounter" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-encounter" />
             </type>
         </element>
         <element id="7084-00002">
@@ -143,12 +143,12 @@
             <path value="Composition.section.entry" />
             <name value="section_slice_pos4" />
             <short value="entry" />
-            <definition value="SHOULD contain zero or more [0..*] U.S. DAF AllergyIntolerance Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-allergyintolerance) (CONF:2219-2434)." />
+            <definition value="SHOULD contain zero or more [0..*] U.S. DAF Core AllergyIntolerance Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-allergyintolerance) (CONF:2219-2434)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-allergyintolerance" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-allergyintolerance" />
             </type>
         </element>
         <element id="108662">
@@ -199,12 +199,12 @@
             <path value="Composition.section.entry" />
             <name value="section_slice_pos5" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF Condition Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-condition) (CONF:2219-2435)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Core Condition Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition) (CONF:2219-2435)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-condition" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition" />
             </type>
         </element>
         <element id="108666">
@@ -471,33 +471,33 @@
             <min value="1" />
             <max value="1" />
         </element>
-      <!-- Commenting out, instead, moved daf-procedure as a second type in the following entry (i.e. a simple choice vs. a slice) -->
+      <!-- Commenting out, instead, moved daf-core-procedure as a second type in the following entry (i.e. a simple choice vs. a slice) -->
         <!--<element id="112590">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos11" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF Procedure Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-procedure) (CONF:2219-2436)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Core Procedure Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-procedure) (CONF:2219-2436)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-procedure" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-procedure" />
             </type>
         </element>-->
         <element id="112591">
             <path value="Composition.section.entry" />
             <name value="section_slice_pos11" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF MedicationStatement Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationstatement)  or U.S. DAF Procedure Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-procedure) (CONF:2219-2437)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Core MedicationStatement Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-medicationstatement)  or U.S. DAF Core Procedure Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-procedure) (CONF:2219-2437)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationstatement" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-medicationstatement" />
             </type>
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-procedure" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-procedure" />
             </type>
         </element>
         <element id="108690">
@@ -592,12 +592,12 @@
             <path value="Composition.section.entry" />
             <name value="section_slice_pos13" />
             <short value="entry" />
-            <definition value="SHOULD contain zero or more [0..*] U.S. DAF MedicationStatement Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationstatement) (CONF:2219-2438)." />
+            <definition value="SHOULD contain zero or more [0..*] U.S. DAF Core MedicationStatement Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-medicationstatement) (CONF:2219-2438)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationstatement" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-medicationstatement" />
             </type>
         </element>
         <element id="108698">
@@ -648,12 +648,12 @@
             <path value="Composition.section.entry" />
             <name value="section_slice_pos14" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF MedicationAdministration Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationadministration) (CONF:2219-2439)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Core MedicationAdministration Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-medicationadministration) (CONF:2219-2439)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-medicationadministration" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-medicationadministration" />
             </type>
         </element>
         <element id="108702">
@@ -880,12 +880,12 @@
             <path value="Composition.section.entry" />
             <name value="section_slice_pos19" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF Condition Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-condition) (CONF:2219-2440)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Core Condition Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition) (CONF:2219-2440)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-condition" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition" />
             </type>
         </element>
         <element id="108722">
@@ -1112,12 +1112,12 @@
             <path value="Composition.section.entry" />
             <name value="section_slice_pos24" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF FamilyMemberHistory Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-familyMemberHistory) (CONF:2219-2441)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Core FamilyMemberHistory Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-familyMemberHistory) (CONF:2219-2441)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-familyMemberHistory" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-familyMemberHistory" />
             </type>
         </element>
         <element id="108465">
@@ -1168,12 +1168,12 @@
             <path value="Composition.section.entry" />
             <name value="section_slice_pos25" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF Condition Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-condition) (CONF:2219-2442)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Core Condition Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition) (CONF:2219-2442)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-condition" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition" />
             </type>
         </element>
         <element id="108466">
@@ -1312,12 +1312,12 @@
             <path value="Composition.section.entry" />
             <name value="section_slice_pos28" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF Procedure Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-procedure) (CONF:2219-2443)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Core Procedure Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-procedure) (CONF:2219-2443)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-procedure" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-procedure" />
             </type>
         </element>
         <element id="108473">
@@ -1455,12 +1455,12 @@
             <path value="Composition.section.entry" />
             <name value="section_slice_pos31" />
             <short value="entry" />
-            <definition value="MAY contain zero or more [0..*] U.S. DAF SmokingStatus Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-smokingstatus) (CONF:2219-2445)." />
+            <definition value="MAY contain zero or more [0..*] U.S. DAF Core SmokingStatus Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-smokingstatus) (CONF:2219-2445)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-smokingstatus" />
+                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-smokingstatus" />
             </type>
         </element>
     </differential>

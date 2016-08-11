@@ -45,12 +45,12 @@
     <element id="111035">
       <path value="Extension.valueReference" />
       <short value="valueReference" />
-      <definition value="SHALL contain exactly one [1..1] U.S. DAF RelatedPerson Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-relatedperson) (CONF:2219-1860)." />
+      <definition value="SHALL contain exactly one [1..1] U.S. DAF Core RelatedPerson Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-relatedperson) (CONF:2219-1860)." />
       <min value="1" />
       <max value="1" />
       <type>
         <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-relatedperson"/>
+        <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-relatedperson"/>
       </type>
     </element>
   </differential>

@@ -45,12 +45,12 @@
     <element id="109449">
       <path value="Extension.valueReference" />
       <short value="valueReference" />
-      <definition value="SHALL contain exactly one [1..1] U.S. DAF Practitioner Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract) (CONF:2219-1843)." />
+      <definition value="SHALL contain exactly one [1..1] U.S. DAF Core Practitioner Profile (identifier: http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-pract) (CONF:2219-1843)." />
       <min value="1" />
       <max value="1" />
       <type>
         <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-pract"/>
+        <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-pract"/>
       </type>
     </element>
   </differential>
