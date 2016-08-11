@@ -278,8 +278,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     this.tsServer = tsServer;
   }
 
-//  public final static String DEF_TS_SERVER = "http://fhir3.healthintersections.com.au/open";
-  public final static String DEF_TS_SERVER = "http://local.healthintersections.com.au:960/open";
+  public final static String DEF_TS_SERVER = "http://fhir3.healthintersections.com.au/open";
+//  public final static String DEF_TS_SERVER = "http://local.healthintersections.com.au:960/open";
   
   public final static String WEB_PUB_NAME = "DSTU2";
   public final static String CI_PUB_NAME = "Current Build";
@@ -295,7 +295,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           "</p>\r\n";
 
   public static final String CODE_LIMIT_EXPANSION = "10000";
-  public static final String TOO_MANY_CODES_TEXT = "This value set has >1000 codes in it. In order to keep the publication size manageable, only a selection  (1000 codes) of the whole set of codes is shown";
+  public static final String TOO_MANY_CODES_TEXT_NOT_EMPTY = "This value set has >1000 codes in it. In order to keep the publication size manageable, only a selection  (1000 codes) of the whole set of codes is shown";
+  public static final String TOO_MANY_CODES_TEXT_EMPTY = "This value set cannot be expanded because of the way it is defined - it has an infinite number of members";
   private static final String NO_CODESYSTEM_TEXT = "This value set refers to code systems that the FHIR Publication Tooling does not support";
 
   private static final String VS_INC_START = ""; // "<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">";
@@ -4106,7 +4107,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       exp.setCompose(null);
       exp.setText(null); 
       exp.setDescription("Value Set Contents (Expansion) for "+vs.getName()+" at "+Config.DATE_FORMAT().format(new Date()));
-      new NarrativeGenerator("", "", workerContext, this).setTooCostlyNote(TOO_MANY_CODES_TEXT).generate(exp);
+      new NarrativeGenerator("", "", workerContext, this).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(exp);
       return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer().compose(exp.getText().getDiv())+VS_INC_END;
     } catch (Exception e) {
       return "<hr/>\r\n"+VS_INC_START+"<!--2-->"+processExpansionError(e.getMessage())+VS_INC_END;
@@ -4115,7 +4116,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   
   private String processExpansionError(String error) {
     if (error.contains("Too many codes"))
-      return TOO_MANY_CODES_TEXT;
+      return TOO_MANY_CODES_TEXT_NOT_EMPTY;
     if (error.contains("unable to provide support"))
       return NO_CODESYSTEM_TEXT;
     return "This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(error);
@@ -4161,7 +4162,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     vs1.setExpansion(null);
     vs1.setText(null);
     ImplementationGuideDefn ig = (ImplementationGuideDefn) vs.getUserData(ToolResourceUtilities.NAME_RES_IG);
-    new NarrativeGenerator(prefix, "", workerContext, this).setTooCostlyNote(TOO_MANY_CODES_TEXT).generate(vs1, null, false);
+    new NarrativeGenerator(prefix, "", workerContext, this).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(vs1, null, false);
     return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer().compose(vs1.getText().getDiv())+VS_INC_END;
   }
   
@@ -7480,7 +7481,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       exp.setText(null); 
       exp.setDescription("Value Set Contents (Expansion) for "+vs.getName()+" at "+Config.DATE_FORMAT().format(new Date()));
       
-      new NarrativeGenerator(prefix, base, workerContext, this).setTooCostlyNote(TOO_MANY_CODES_TEXT).generate(exp, vs, false);
+      new NarrativeGenerator(prefix, base, workerContext, this).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(exp, vs, false);
       return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer().compose(exp.getText().getDiv())+VS_INC_END;
     } catch (Exception e) {
       e.printStackTrace();

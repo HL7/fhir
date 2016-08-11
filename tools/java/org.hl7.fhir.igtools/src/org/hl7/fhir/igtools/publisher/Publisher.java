@@ -2035,7 +2035,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
       ValueSetExpansionOutcome exp = context.expandVS(vs, true, true);
       if (exp.getValueset() != null) {
         NarrativeGenerator gen = new NarrativeGenerator("", null, context);
-        gen.setTooCostlyNote("This value set has >1000 codes in it. In order to keep the publication size manageable, only a selection (1000 codes) of the whole set of codes is shown");
+        gen.setTooCostlyNoteNotEmpty("This value set has >1000 codes in it. In order to keep the publication size manageable, only a selection (1000 codes) of the whole set of codes is shown");
+        gen.setTooCostlyNoteEmpty("This value set cannot be expanded because of the way it is defined - it has an infinite number of members");
         exp.getValueset().setCompose(null);
         exp.getValueset().setText(null);
         gen.generate(exp.getValueset(), false);

@@ -770,7 +770,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private String prefix;
   private IWorkerContext context;
   private String basePath;
-  private String tooCostlyNote;
+  private String tooCostlyNoteEmpty;
+  private String tooCostlyNoteNotEmpty;
   private IReferenceResolver resolver;
 
   public NarrativeGenerator(String prefix, String basePath, IWorkerContext context) {
@@ -789,13 +790,24 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
 
-  public String getTooCostlyNote() {
-    return tooCostlyNote;
+  public String getTooCostlyNoteEmpty() {
+    return tooCostlyNoteEmpty;
   }
 
 
-  public NarrativeGenerator setTooCostlyNote(String tooCostlyNote) {
-    this.tooCostlyNote = tooCostlyNote;
+  public NarrativeGenerator setTooCostlyNoteEmpty(String tooCostlyNoteEmpty) {
+    this.tooCostlyNoteEmpty = tooCostlyNoteEmpty;
+    return this;
+  }
+
+
+  public String getTooCostlyNoteNotEmpty() {
+    return tooCostlyNoteNotEmpty;
+  }
+
+
+  public NarrativeGenerator setTooCostlyNoteNotEmpty(String tooCostlyNoteNotEmpty) {
+    this.tooCostlyNoteNotEmpty = tooCostlyNoteNotEmpty;
     return this;
   }
 
@@ -2378,7 +2390,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         generateCopyright(x, vs);
     }
     if (ToolingExtensions.hasExtension(vs.getExpansion(), "http://hl7.org/fhir/StructureDefinition/valueset-toocostly"))
-      x.addTag("p").setAttribute("style", "border: maroon 1px solid; background-color: #FFCCCC; font-weight: bold; padding: 8px").addText(tooCostlyNote);
+      x.addTag("p").setAttribute("style", "border: maroon 1px solid; background-color: #FFCCCC; font-weight: bold; padding: 8px").addText(vs.getExpansion().getContains().isEmpty() ? tooCostlyNoteEmpty : tooCostlyNoteNotEmpty );
     else {
       Integer count = countMembership(vs);
       if (count == null)
