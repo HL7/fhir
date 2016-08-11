@@ -11,7 +11,6 @@
 #diagram .box_one .head { width: 25%; }
 #diagram .box_one .content { -webkit-box-flex: 4; -moz-box-flex: 4; box-flex: 4; -webkit-flex: 4 1 10em; -moz-flex: 4 1 10em; -ms-flex: 4 1 10em; flex: 4 1 10em; line-height: 32px; border-left: 1px solid grey; border-top-left-radius: 0; border-bottom-left-radius: 0; }
 #diagram .box_more { border-spacing: 0.75em; border-collapse: separate; }
-@media \0screen\,screen\9 { #diagram .box_more { margin: -0.5em -0.2em 0.25em; } }
 #diagram .box_more .box { display: table-cell; -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; -webkit-flex: 1 1 8em; -moz-flex: 1 1 8em; -ms-flex: 1 1 8em; flex: 1 1 8em; min-height: 9em; }
 #diagram .box_more .box .head { border-bottom: 1px solid grey; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
 
