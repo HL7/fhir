@@ -131,6 +131,7 @@ import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ValidationResult;
+import org.hl7.fhir.dstu3.utils.NarrativeGenerator.IReferenceResolver;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -145,6 +146,12 @@ import org.w3c.dom.Element;
 import com.github.rjeschke.txtmark.Processor;
 
 public class NarrativeGenerator implements INarrativeGenerator {
+
+  public interface IReferenceResolver {
+
+    ResourceWithReference resolve(String url);
+
+  }
 
   public void generate(DomainResource r) throws EOperationOutcome, FHIRException, IOException {
     if (r instanceof ConceptMap) {
@@ -369,6 +376,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (type == null || type.equals("Resource") || type.equals("BackboneElement") || type.equals("Element"))
         return null;
 
+      if (element.hasElementProperty())
+        return null;
       ByteArrayOutputStream xml = new ByteArrayOutputStream();
       try {
         new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).compose(element, xml, OutputStyle.PRETTY, null);
@@ -739,7 +748,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
 
-  public class ResourceWithReference {
+  public static class ResourceWithReference {
 
     private String reference;
     private ResourceWrapper resource;
@@ -762,13 +771,21 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private IWorkerContext context;
   private String basePath;
   private String tooCostlyNote;
-
+  private IReferenceResolver resolver;
 
   public NarrativeGenerator(String prefix, String basePath, IWorkerContext context) {
     super();
     this.prefix = prefix;
     this.context = context;
     this.basePath = basePath;
+  }
+
+  public NarrativeGenerator(String prefix, String basePath, IWorkerContext context, IReferenceResolver resolver) {
+    super();
+    this.prefix = prefix;
+    this.context = context;
+    this.basePath = basePath;
+    this.resolver = resolver;
   }
 
 
@@ -1068,6 +1085,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (ew == null)
       return;
 
+    
     Base e = ew.getBase();
 
     if (e instanceof StringType)
@@ -1144,11 +1162,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
       // what to display: if text is provided, then that. if the reference was resolved, then show the generated narrative
       if (r.hasDisplayElement()) {
         c.addText(r.getDisplay());
-        if (tr != null) {
+        if (tr != null && tr.getResource() != null) {
           c.addText(". Generated Summary: ");
           generateResourceSummary(c, tr.getResource(), true, r.getReference().startsWith("#"));
         }
-      } else if (tr != null) {
+      } else if (tr != null && tr.getResource() != null) {
         generateResourceSummary(c, tr.getResource(), r.getReference().startsWith("#"), r.getReference().startsWith("#"));
       } else {
         c.addText(r.getReference());
@@ -1364,10 +1382,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
 
     Resource ae = context.fetchResource(null, url);
-    if (ae == null)
-      return null;
-    else
+    if (ae != null)
       return new ResourceWithReference(url, new ResourceWrapperDirect(ae));
+    else if (resolver != null) {
+      return resolver.resolve(url);
+    } else
+      return null;
   }
 
   private void renderCodeableConcept(CodeableConcept cc, XhtmlNode x, boolean showCodeDetails) {

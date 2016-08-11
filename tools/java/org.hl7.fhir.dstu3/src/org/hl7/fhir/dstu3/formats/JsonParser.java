@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sun, Aug 7, 2016 16:27+1000 for FHIR v1.5.0
+// Generated on Thu, Aug 11, 2016 07:16+1000 for FHIR v1.6.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -2603,8 +2603,12 @@ public class JsonParser extends JsonParserBase {
         res.getRelatedPlan().add(parseCarePlanCarePlanRelatedPlanComponent(array.get(i).getAsJsonObject(), res));
       }
     };
-    if (json.has("careTeam"))
-      res.setCareTeam(parseReference(json.getAsJsonObject("careTeam")));
+    if (json.has("careTeam")) {
+      JsonArray array = json.getAsJsonArray("careTeam");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCareTeam().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("goal")) {
       JsonArray array = json.getAsJsonArray("goal");
       for (int i = 0; i < array.size(); i++) {
@@ -21452,8 +21456,11 @@ public class JsonParser extends JsonParserBase {
         closeArray();
       };
       if (element.hasCareTeam()) {
-        composeReference("careTeam", element.getCareTeam());
-      }
+        openArray("careTeam");
+        for (Reference e : element.getCareTeam()) 
+          composeReference(null, e);
+        closeArray();
+      };
       if (element.hasGoal()) {
         openArray("goal");
         for (Reference e : element.getGoal()) 

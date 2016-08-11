@@ -23,7 +23,7 @@
   </contact>
   <description value="The Transfer Summary standardizes critical information for exchange of information between providers of care when a patient moves between health care settings." />
   <requirements value="To support documents, and also to capture the EN13606 notion of an attested commit to the patient EHR, and to allow a set of disparate resources at the information/engineering level to be gathered into a clinical statement." />
-  <fhirVersion value="1.5.0" />
+  <fhirVersion value="1.6.0" />
   <kind value="resource" />
   <abstract value="false" />
   <type value="Composition" />

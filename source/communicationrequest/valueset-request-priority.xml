@@ -24,7 +24,6 @@
     <system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.4.642.2.0"/>
 	</identifier>
-	<version value="1.5.0"/>
 	<name value="RequestPriority"/>
 	<status value="draft"/>
 	<experimental value="false"/>

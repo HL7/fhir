@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sun, Aug 7, 2016 16:27+1000 for FHIR v1.5.0
+// Generated on Thu, Aug 11, 2016 07:16+1000 for FHIR v1.6.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1827,8 +1827,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "CarePlan", "support", element.getSupport().get(i), i);
     for (int i = 0; i < element.getRelatedPlan().size(); i++)
       composeCarePlanCarePlanRelatedPlanComponent(t, "CarePlan", "relatedPlan", element.getRelatedPlan().get(i), i);
-    if (element.hasCareTeam())
-      composeReference(t, "CarePlan", "careTeam", element.getCareTeam(), -1);
+    for (int i = 0; i < element.getCareTeam().size(); i++)
+      composeReference(t, "CarePlan", "careTeam", element.getCareTeam().get(i), i);
     for (int i = 0; i < element.getGoal().size(); i++)
       composeReference(t, "CarePlan", "goal", element.getGoal().get(i), i);
     for (int i = 0; i < element.getActivity().size(); i++)

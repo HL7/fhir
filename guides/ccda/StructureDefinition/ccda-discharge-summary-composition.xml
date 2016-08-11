@@ -17,7 +17,7 @@
             <use value="work" />
         </telecom>
     </contact>
-    <fhirVersion value="1.5.0" />
+    <fhirVersion value="1.6.0" />
     <kind value="resource" />
     <abstract value="false" />
     <type value="Composition" />

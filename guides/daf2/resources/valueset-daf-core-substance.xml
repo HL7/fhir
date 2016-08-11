@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113762.1.4.1010.1"/>
 	</identifier>
-	<version value="1.5.0"/>
+	<version value="1.6.0"/>
 	<name value="DAF Substance-Reactant for Intolerance and Negation Codes"/>
 	<status value="draft"/>
 	<experimental value="true"/>

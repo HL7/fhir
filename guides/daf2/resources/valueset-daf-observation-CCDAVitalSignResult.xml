@@ -6,7 +6,7 @@
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.3.88.12.80.62"/>
 	</identifier>
-	<version value="1.5.0"/>
+	<version value="1.6.0"/>
 	<name value="DAF Vital Sign Codes"/>
 	<status value="active"/>
 	<publisher value="FHIR Project"/>

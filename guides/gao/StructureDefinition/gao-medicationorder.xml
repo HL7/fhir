@@ -18,7 +18,7 @@
   <date value="2015-09-22T20:02:49+10:00"></date>
   <description value="Profiles the medication order to ensure that the services ordered can be identified and evaluated for appropraiteness"></description>
   <requirements value="The medication order resource is required to identify the medications ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."></requirements>
-  <fhirVersion value="1.5.0"></fhirVersion>
+  <fhirVersion value="1.6.0"></fhirVersion>
   
   
   

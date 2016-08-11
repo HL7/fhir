@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="ResourceDescription represents the shared characteristics common to both abstract and resource version descriptions. ResourceDescription is an abstract type and, as such, cannot be directly&#xa;&#x9;&#x9;&#x9;&#x9;created. Resource descriptions are Changeable, meaning that they have identity and can be created, updated and deleted."/>
-   <fhirVersion value="1.5.0"/>
+   <fhirVersion value="1.6.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <baseDefinition value="{http://www.omg.org/spec/CTS2/1.1/Core}Changeable"/>

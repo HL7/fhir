@@ -18,7 +18,7 @@
         </telecom>
     </contact>
     <description value="C-CDA on FHIR Participant Extension" />
-    <fhirVersion value="1.5.0" />
+    <fhirVersion value="1.6.0" />
     <kind value="resource" />
     <abstract value="false" />
     <contextType value="resource"/>

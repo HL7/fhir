@@ -18,7 +18,7 @@
         </telecom>
     </contact>
     <description value="A Procedure Note encompasses many types of non-operative procedures including interventional cardiology, gastrointestinal endoscopy, osteopathic manipulation, and many other specialty fields. Procedure Notes are differentiated from Operative Notes because they do not involve incision or excision as the primary act.&#xA;&#xA;The Procedure Note is created immediately following a non-operative procedure. It records the indications for the procedure and, when applicable, postprocedure diagnosis, pertinent events of the procedure, and the patient’s tolerance for the procedure. It should be detailed enough to justify the procedure, describe the course of the procedure, and provide continuity of care." />
-    <fhirVersion value="1.5.0" />
+    <fhirVersion value="1.6.0" />
     <kind value="resource" />
     <abstract value="false" />
     <type value="Composition" />

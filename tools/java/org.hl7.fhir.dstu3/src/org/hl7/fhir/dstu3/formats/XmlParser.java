@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sun, Aug 7, 2016 16:27+1000 for FHIR v1.5.0
+// Generated on Thu, Aug 11, 2016 07:16+1000 for FHIR v1.6.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -2598,7 +2598,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("relatedPlan")) {
         res.getRelatedPlan().add(parseCarePlanCarePlanRelatedPlanComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("careTeam")) {
-        res.setCareTeam(parseReference(xpp));
+        res.getCareTeam().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("goal")) {
         res.getGoal().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("activity")) {
@@ -20003,8 +20003,9 @@ public class XmlParser extends XmlParserBase {
         for (CarePlan.CarePlanRelatedPlanComponent e : element.getRelatedPlan()) 
           composeCarePlanCarePlanRelatedPlanComponent("relatedPlan", e);
       }
-      if (element.hasCareTeam()) {
-        composeReference("careTeam", element.getCareTeam());
+      if (element.hasCareTeam()) { 
+        for (Reference e : element.getCareTeam()) 
+          composeReference("careTeam", e);
       }
       if (element.hasGoal()) { 
         for (Reference e : element.getGoal()) 
