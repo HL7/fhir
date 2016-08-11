@@ -52,6 +52,26 @@ Reasons for using RDF and ontologies with FHIR data include:
 FHIR/RDF was designed to correspond very closely to FHIR/XML and FHIR/JSON in its look and feel, though there are some apparent differences that are necessary to ensure full-fidelity round tripping between all FHIR formats, or to accommodate FHIR's extensibility.  For example, fhir:index is used to retain information about ordering within a FHIR list, and fhir:value is used to indicate the value of an element, while still allowing FHIR extensions to be attached.
 </p>
 
+<a name="using"> </a>
+<h4>Using FHIR/RDF with Other Ontologies</h4>
+<p>
+Ontologies that were designed independently almost always have some impedance mismatch when attempting to use them together, and the FHIR ontology is no exception.  
+Many of the ontologies in the medical and life sciences domain are designed to capture facts about the world for research, such as the fact that the mitral valve is a kind of heart valve.  But FHIR was designed to support the day-to-day operations of healthcare providers exchanging electronic health records (EHRs), and in this context the orientation has historically been different.  When using FHIR/RDF with other ontologies this difference is likely to show up in two main ways:
+</p>
+
+<ul>
+<li>
+<b>Records versus facts.</b>  FHIR is oriented toward recording who did what ("Dr. Jones diagnosed patient x with viral pneumonia") rather than stating absolute medical facts ("patient x has viral pneumonia").  
+</li>
+<li>
+<b>Non-monotonicity.</b>  RDF was designed to be monotonic, whereas FHIR has a few design aspects that are would be non-monotonic if they were interpreted directly in RDF.  (Monotonicity means that new data cannot invalidate previous conclusions; non-monotonicity means that previous conclusions can be invalidated by new data.)  For example, a modifier extension indicates that the surrounding element's meaning may be misunderstood if the modifier extension is not understood.  Another example: an entered-in-error status on a FHIR resource means that the resource was created accidentally, and should be ignored.  
+</li>
+</ul>
+
+<p>
+For both of these reasons, to maintain monotonicity in RDF, FHIR/RDF should not be directly interpreted as stating facts, at least until any potentially non-monotonic elements have been removed or isolated.  This could be done with a pre-processing step.
+</p>
+
 <a name="formats"> </a>
 <h4>FHIR/RDF Data Formats</h4>
 <p>
