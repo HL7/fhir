@@ -21,26 +21,79 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="intro"> </a>
 <h3>Introduction</h3>
 <p>
-In this section: scope, what outcome modules seeks providem why would you look at it's content
+This module describes the RDF representation for FHIR resources (FHIR/RDF) and related assets, including an OWL ontology for FHIR/RDF and a ShEx grammar to validate FHIR/RDF.  These materials were created, and are maintained by, a collaboration between HL7 and W3C.  Editor: David Booth
+</p>
 
-from the master doc: RDF/turtle format, RDF definitions, Ontology mappings
+<a name="motivation"> </a>
+<h4>Motivation for FHIR/RDF</h4>
+<p>
+The purpose of defining an RDF representation of FHIR is not only to enable FHIR to be exchanged in an RDF format such as Turtle, it is also to ground the semantics of FHIR data in RDF, for use with ontologies and other RDF data.  Since FHIR data is losslessly round-trippable between XML, JSON and RDF formats, any FHIR data can be used in conjunction with RDF.  The semantics are the same regardless of source format.
+</p>
 
-Editor: David Booth
+<p>
+Reasons for using RDF and ontologies with FHIR data include:
+</p>
+
+<ul>
+<li><b>Shared semantics.</b>  RDF's use of URIs as universal identifiers facilitates shared semantics across independently authored data.</li>
+<li><b>Inference.</b>  An ontology specifies relationships between concepts, which can be used to perform computer-based inference and formal reasoning over FHIR data.  For example, using inference a query for heart valve surgeries could automatically include results that were documented as mitral valve surgeries, because a mitral valve is a kind of heart valve.  </li>
+<li><b>Data integration.</b>  FHIR/RDF data can be integrated with other data, using RDF as a common semantic and representation layer -- including data that does not originate in an RDF format.  For example, clinical trials data in XML (see https://clinicaltrials.gov/ ) can be translated to RDF and then combined with FHIR/RDF data.</li>
+<li><b>Data validation.</b>  An ontology provides a vocabulary of uniquely identified concepts, which facilitates data validation. </li>
+<li><b>Error detection.</b>  Computer-based reasoning can be used to help detect errors and inconsistencies in data and ontologies, and potential help repair them.</li>
+<li><b>Compliance.</b>  RDF and ontologies can be used to express compliance constraints, for example to control data projected between two privacy contexts or to encode access restrictions for queries.</li>
+<li><b>Modularity.</b>  RDF was designed to support modularity, such that a specialized ontology can be freely composed of a subset of concepts from a larger ontology.</li>
+<li><b>Combining ontologies.</b>  The FHIR ontology can be linked to other ontologies, through bridge ontologies, and used together to support ontology-enabled applications in overlapping domains.</li>
+<li><b>Query.</b>  SPARQL queries can be performed on FHIR/RDF data, without need for a FHIR-specific query language.  SPARQL is a W3C standard query language for RDF data.  It can be used uniformly to query over both FHIR data and other data -- even in the same query.</li>
+</ul>
+
+<a name="design"> </a>
+<h4>Design of FHIR/RDF</h4>
+<p>
+FHIR/RDF was designed to correspond very closely to FHIR/XML and FHIR/JSON in its look and feel, though there are some apparent differences that are necessary to ensure full-fidelity round tripping between all FHIR formats, or to accommodate FHIR's extensibility.  For example, fhir:index is used to retain information about ordering within a FHIR list, and fhir:value is used to indicate the value of an element, while still allowing FHIR extensions to be attached.
+</p>
+
+<a name="formats"> </a>
+<h4>FHIR/RDF Data Formats</h4>
+<p>
+FHIR/RDF examples are provided for all FHIR resources, in both Turtle and JSON-LD.  However, other RDF serializations may be used for FHIR/RDF also.
+</p>
+
+<p>
+TODO: FHIR/RDF mime types
 </p>
 
 <a name="index"> </a>
 <h3>Index</h3>
 <p>
-In this section: links to key content pages in the module
+Link to key content pages in this module:
 </p>
+<ul>
+<li><a href="rdf.html">FHIR/RDF Introduction</a>  See also:
+<a href="http://w3c.github.io/hcls-fhir-rdf/spec/">Additional FHIR/RDF Introductory materials, not yet edited or merged</a></li>
+<li><a href="http://w3c.github.io/hcls-fhir-rdf/spec/">
+  FHIR/RDF formal specification (at W3C)</a></li>
+<li>ShEx Validation Schema for FHIR RDF  (TODO: add link)</li>
+<li><a href="ontology.html">FHIR Ontology</a>  See also: 
+  <a href="http://w3c.github.io/hcls-fhir-rdf/spec/ontology.html">
+Additional FHIR Ontology materials, not yet edited or merged</a></li>
+<li><a href="http://w3c.github.io/hcls-fhir-rdf/spec/ontology.html">
+  Example of AllergyIntolerance inference using FHIR/RDF with SNOMED CT.  (Rough draft)</a> </li>
+</ul>
 
 <a name="secpriv"> </a>
 <h3>Security and Privacy</h3>
 <p>
-In this section: description of key security and privacy issues, or references to pages that deal with this. 
+TODO: In this section: description of key security and privacy issues, or references to pages that deal with this. 
 For the security / privcay module itself, this section does not exist. For other modules, the paragraph/section can end with this boilerplate:
 For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
 </p>
+
+<p>
+See also
+<a href="http://wiki.hl7.org/index.php?title=Security_and_Privacy_Ontology">
+HL7 Security and Privacy Ontology</a>
+</p>
+
 
 <a name="uses"> </a>
 <h3>Common use Cases</h3>
