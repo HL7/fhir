@@ -1,9 +1,0 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<div>
-	<a name="scope_and_usage"></a>
-	<h2>Scope and Usage</h2>
-	<p>This defines a FHIR profile of the HL7 V3 AD data type for CDA itself (the HL7 V3 RIM-based standard). Uses to be evaluated. This is not intended to be part of C-CDA on FHIR but is currently published here until we find a good home for it.</p>
-</div>
-
-</div>

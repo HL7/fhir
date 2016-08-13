@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VocabularyRevision xmlns="urn:hl7-org:v3/mif2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3/mif2
+C:\Users\tedk\Documents\HL7Harm\HL7HarmWrk\vmlwidget-1.2.1\support\xsd\VocabularyRevisionMif.xsd">
+	<editDescription creationDate="2015-07-22" committee="C04" primaryContact="David Burgess, Riki Merrick, Robert Hausam" proposalID="OO_1">
+		<description>
+			<p>Add three codes to the ObservationInterpretation code system to facilitate accurate interpretation of results when contraindicators are known (an example would be the use of the newly recommended code “Expected” on a positive drug test, due to prescription medication for issues such as pain management).  A corresponding new concept subdomain, value set and context binding are also requested.</p>
+		</description>
+	</editDescription>
+	<codeSystemRevision>
+		<selectCodeSystem codeSystemMnemonic="ObservationInterpretation">
+			<addCodesToCodeSystem>
+				<newCode conceptCode="ObservationInterpretationExpectation" conceptName="ObservationInterpretationExpectation">
+					<description>
+						<p>Interpretation of the observed result taking into account additional information (contraindicators) about the patient's situation. Concepts in this category are mutually exclusive, i.e., at most one is allowed. </p>
+					</description>
+						<newCode conceptCode="EXP" conceptName="Expected">
+							<description>
+								<p>This result has been evaluated in light of known contraindicators.  Once those contraindicators have been taken into account the result is determined to be "Expected"  (e.g., presence of drugs in a patient that is taking prescription medication for pain management).</p>
+							</description>
+						</newCode>
+						<newCode conceptCode="UNE" conceptName="Unexpected">
+							<description>
+								<p>This result has been evaluated in light of known contraindicators.  Once those contraindicators have been taken into account the result is determined to be "Unexpected" (e.g., presence of non-prescribed drugs in a patient that is taking prescription medication for pain management).</p>
+							</description>
+						</newCode>
+				</newCode>
+			</addCodesToCodeSystem>
+			<addPropertyToCode propertyId="isSelectable" conceptCode="ObservationInterpretationExpectation">
+				<property>False</property>
+			</addPropertyToCode>
+		</selectCodeSystem>
+	</codeSystemRevision>
+	<vocabularyDomainRevision>
+		<createVocabularyDomain vocabularyDomain="ObservationInterpretationExpectation" restrictsDomain="ObservationInterpretation">
+			<description>
+				<p>Interpretation of the observed result taking into account additional information (contraindicators) about the patient's situation. Concepts in this category are mutually exclusive, i.e., at most one is allowed.</p>
+			</description>
+		</createVocabularyDomain>
+	</vocabularyDomainRevision>
+	<valueSetRevision>
+		<createValueSet setName="ObservationInterpretationExpectation" codeSystemName="ObservationInterpretation">
+			<description>
+				<p>Observation interpretation codes for expected results based on additional information (contraindicators) about the patient's situation.</p>
+			</description>
+			<addCodesToValueSet>
+				<codeAddition conceptCode="ObservationInterpretationExpectation" relationship="hasSubtype" relInclusion="exclusive"></codeAddition>
+			</addCodesToValueSet>
+			<addToVocabularyDomain vocabularyDomain="ObservationInterpretationExpectation" context="R1"></addToVocabularyDomain>
+		</createValueSet>
+	</valueSetRevision>
+	<objectPropertyRevision>
+		<addPropertyToObject objectType="valueSet" propertyName="steward" objectID="ObservationInterpretationExpectation">
+			<propertyValue>Orders and Observations</propertyValue>
+		</addPropertyToObject>
+	</objectPropertyRevision>
+</VocabularyRevision>

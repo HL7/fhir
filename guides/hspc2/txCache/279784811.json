@@ -1,0 +1,1 @@
+{"resourceType":"ValueSet","compose":{"include":[{"system":"http://snomed.info/sct","concept":[{"code":"406465008","display":"food allergen (substance)"},{"code":"406463001","display":"drug allergen (substance)"}]}]}}

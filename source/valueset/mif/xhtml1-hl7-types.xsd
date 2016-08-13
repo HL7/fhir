@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: -->
+<xs:schema xmlns="{$hl7TypesNS}" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:xhtml1-hl7-types">
+	<xs:annotation>
+		<xs:documentation>
+						Created for HL7 use by by Lloyd McKenzie, Dec. 2005 and Paul Biron, Apr. 2009
+
+						(c) 2005-2010 by HL7 International
+
+						Purpose:
+
+							The Simple Types defined here are defined by HL7 and
+							serve to restrict values for certain XHTML attributes
+
+							This schema document is intended to be imported into HL7's
+							modified XHTML 1.0 schema document
+					</xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="MediaType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="text/plain">
+				<xs:annotation>
+					<xs:documentation>Plain Text</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="text/html">
+				<xs:annotation>
+					<xs:documentation>HTML Text</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="application/pdf">
+				<xs:annotation>
+					<xs:documentation>PDF</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="text/xml">
+				<xs:annotation>
+					<xs:documentation>XML Text</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="text/rtf">
+				<xs:annotation>
+					<xs:documentation>RTF Text</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="application/msword">
+				<xs:annotation>
+					<xs:documentation>Microsoft Word</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="audio/mpeg">
+				<xs:annotation>
+					<xs:documentation>MPEG audil layer 3</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="image/png">
+				<xs:annotation>
+					<xs:documentation>PNG image</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="image/gif">
+				<xs:annotation>
+					<xs:documentation>GIF </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="image/jpeg">
+				<xs:annotation>
+					<xs:documentation>JPEG image</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="video/mpeg">
+				<xs:annotation>
+					<xs:documentation>MPEG Video</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ImageType">
+		<xs:annotation>
+			<xs:documentation>
+							Identifies the type of image being represented.  Necessary
+							to allow for proper image scaling.
+						</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="application/postscript">
+				<xs:annotation>
+					<xs:documentation>A post-script image.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="application/pdf">
+				<xs:annotation>
+					<xs:documentation>An Adobe PDF document</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="application/png">
+				<xs:annotation>
+					<xs:documentation>A Portable Network Graphic</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="application/svg+xml">
+				<xs:annotation>
+					<xs:documentation>A scalable vector graphic</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="application/jpeg">
+				<xs:annotation>
+					<xs:documentation>A JPEG image</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="image/gif">
+				<xs:annotation>
+					<xs:documentation>GIF </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MifClassType">
+		<xs:restriction base="xs:NMTOKENS">
+			<xs:enumeration value="inserted"/>
+			<xs:enumeration value="deleted"/>
+			<xs:enumeration value="changed"/>
+			<xs:enumeration value="graphic"/>
+			<xs:enumeration value="glossaryLabel"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ObjectName">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="constructedElement">
+				<xs:annotation>
+					<xs:documentation>Allows insertion of a pre-defined complex structure (e.g. auto-generated table or diagram) to be inserted</xs:documentation>
+					<xs:documentation>Parameters: constructType (required)</xs:documentation>
+					<xs:documentation>Embedded Content: prohibited</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="footnote">
+				<xs:annotation>
+					<xs:documentation>Supporting content that should be referenced within the document, but displayed at the end of the page or document section.</xs:documentation>
+					<xs:documentation>Parameters: N/A</xs:documentation>
+					<xs:documentation>Embedded Content: required</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="externalSpecRef">
+				<xs:annotation>
+					<xs:documentation>A reference to an externally defined specification.</xs:documentation>
+					<xs:documentation>Parameters: spec (required)</xs:documentation>
+					<xs:documentation>Embedded Content: text - represents the text to be rendered within the link</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="figureRef">
+				<xs:annotation>
+					<xs:documentation>Allows referencing an 'img' in the markup associated with this or some other element within the current model or package.</xs:documentation>
+					<xs:documentation>Parameters: hl7Id (required)</xs:documentation>
+					<xs:documentation>Embedded Content: text - represents the text to be rendered within the link</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="tableRef">
+				<xs:annotation>
+					<xs:documentation>Allows referencing an 'table' in the markup associated with this or some other element within the current model or package.</xs:documentation>
+					<xs:documentation>Parameters: hl7Id (required)</xs:documentation>
+					<xs:documentation>Embedded Content: required text - to be rendered within the link</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="divRef">
+				<xs:annotation>
+					<xs:documentation>Allows referencing a 'div' tag within a set of markup.  Must be local to the markup being referenced.  E.g. You can't reference a 'div' in one annotation from another annotation.</xs:documentation>
+					<xs:documentation>Parameters: hl7Id (required)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the div </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="itemName">
+				<xs:annotation>
+					<xs:documentation>Inserts the name of the current element or the name of one of it's ancestors.</xs:documentation>
+					<xs:documentation>Parameters: item (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: prohibited</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="annotationRef">
+				<xs:annotation>
+					<xs:documentation>A reference to an annotation on the current element or one of its parents or to an annotation within an annotation library</xs:documentation>
+					<xs:documentation>Parameters: item (optional), annotationKind (required), annotationId (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the name() of the annotation </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="artifactGroupRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a collection of artifacts of a particular type</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required), {domain, realmNamespace, version, subArtifact, name, id, releaseDate) (required or not permitted based on artifact), group (required), linkToEnd (optional), withinClassName (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the value of param with name "group"</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="packageRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a particular package</xs:documentation>
+					<xs:documentation>Parameters: root (required), {domain, realmNamespace, version, artifact, subArtifact, name, id, releaseDate) (required or not permitted based on type of package)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the package</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="domainAnalysisModelRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific domain analysis model</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'DAM'), {domain, realmNamespace, id} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional  - text - to be rendered within the link; default, if text absent, is the @title of the DAM</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="domainInstanceExampleRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific domain instance example</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'EX'), {domain, realmNamespace, id} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the instance example</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="glossaryRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific glossary</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'GL'), {realmNamespace} (required), {domain, version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the glossary</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="glossaryTermRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific term within a glossary, intended to direct a hyperlink to the term</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'GL'), termName (required), {realmNamespace, domain} (optional, defaults to realmNamespace of containing artifact), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @term (if referenced by term) or @acronym (if referenced by acronym) of the termDefinition</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="definitionNote">
+				<xs:annotation>
+					<xs:documentation>Supporting content that should be referenced within a glossary definition, but displayed at the end of the definition.</xs:documentation>
+					<xs:documentation>Parameters: N/A</xs:documentation>
+					<xs:documentation>Embedded Content: required</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="glossaryTermInclude">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific term within a glossary, but where the intent is to inlude both the term label and term definition in the document at  the location where the object appears (normally as a child of &lt;div/&gt;</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'GL'), termName (required), {realmNamespace, domain} (optional, defaults to realmNamespace of containing artifact), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: prohibited</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="storyboardRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific storyboard model</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'SB'), {domain, realmNamespace, id} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the storyboard</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="freehandDocumentRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific document (e.g. ITS, transport protocol, etc.)</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'DC'), {domain, realmNamespace, name} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the freehandDocument</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="publicationRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific publication (e.g. ballot, normative edition, etc.)</xs:documentation>
+					<xs:documentation>Parameters: root (required, 'BAL' or 'PUB), {realmNamespace, realmNamespace} (required), {domain, version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the package</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="datatypeModelRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a datatype model</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'DT'), {realmNamespace} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional  - text - to be rendered within the link; default, if text absent, is the @title of the datatypeModelLibrary</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="datatypeRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a datatype definition</xs:documentation>
+					<xs:documentation>Parameters: datatypeName (required), isDatatypeQualifier (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: constrained to be other mif:objects with a name of datatypeRef (to convey arguments of the referenced datatype)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="propertyRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific property of a datatype definition</xs:documentation>
+					<xs:documentation>Parameters: {datatypeName, propertyName} (required), propertyParameterType (optional, multiple repetitions allowed), propertyTypeRef (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: constrained to be other mif:objects with a name of datatypeRef (to convey arguments of the referenced datatype)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="propertyParameterTypeRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a datatype definition that is the parameter for a property.  Used when property name alone isn't sufficient to resolve to a unique property.  May only appear inside an object of type propertyRef.</xs:documentation>
+					<xs:documentation>Parameters: datatypeName (required), isDatatypeQualifier (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: constrained to be other mif:objects with a name of datatypeRef (to convey arguments of the referenced datatype)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="propertyTypeRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a datatype definition that is the type for a property.  Used when property name and parameters alone aren't sufficient to resolve to a unique property.  May only appear inside an object of type propertyRef.</xs:documentation>
+					<xs:documentation>Parameters: datatypeName (required), isDatatypeQualifier (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: constrained to be other mif:objects with a name of datatypeRef (to convey arguments of the referenced datatype)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="staticModelRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific static model</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, limited to 'RIM', 'DIM', 'CIM', 'LIM', 'TP', 'RM', 'HD', 'MT'), {domain, realmNamespace, id} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the staticModel</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="subjectAreaRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific subject area in a static model</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, limited to 'RIM', 'DIM', 'CIM', 'LIM', 'TP', 'RM', 'HD', 'MT'), {domain, realmNamespace, id, subjectAreaName} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @name of the subjectAreaPackage</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="classRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific class in a static model</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, limited to 'RIM', 'DIM', 'CIM', 'LIM', 'TP', 'RM', 'HD', 'MT'), {domain, realmNamespace, id, className} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @name of the class</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="stateRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific state for a class in a static model</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, limited to 'RIM', 'DIM', 'CIM', 'LIM', 'TP', 'RM', 'HD', 'MT'), {domain, realmNamespace, id, className, stateName} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @name of the state</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="transitionRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific state transition for a class in a static model</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, limited to 'RIM', 'DIM', 'CIM', 'LIM', 'TP', 'RM', 'HD', 'MT'), {domain, realmNamespace, id, className, startingStatename, stateTransitionName} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional  - text - to be rendered within the link; default, if text absent, is the FQN of className.startingStateName.TransitionName of the transition</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="attributeRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific attribute for a class in a static model</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, limited to 'RIM', 'DIM', 'CIM', 'LIM', 'TP', 'RM', 'HD', 'MT'), {domain, realmNamespace, id, className, attributeName} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @name of the attribute</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="associationEndRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific association end for a class in a static model</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, limited to 'RIM', 'DIM', 'CIM', 'LIM', 'TP', 'RM', 'HD', 'MT'), {domain, realmNamespace, id, className, relationshipName} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @name of the associationEnd</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="triggerEventRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific trigger event</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'TE'), {domain, realmNamespace, id} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @end of the</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="applicationRoleRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific application role</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'AR'), {domain, realmNamespace, id} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @name of the applicationRole</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="interactionRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific interaction</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'IN'), {domain, realmNamespace, id} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the interaction</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="vocabularyModelRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific vocabulary model</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'VO'), {realmNamespace} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the vocabularyModel</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="conceptDomainRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific vocabulary domain</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'VO'), subArtifact (required, fixed to 'VD'), {realmNamespace, name} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @name of the conceptDomain</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="vocabularyCodeSystemRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific code system</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'VO'), subArtifact (required, fixed to 'VC'), {realmNamespace, name} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @name of the codeSystem</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="vocabularyCodeRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific code within a code system</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'VO'), subArtifact (required, fixed to 'VC'), {realmNamespace, name, code} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @code of the code</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="vocabularyValueSetRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific value-set</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'VO'), subArtifact (required, fixed to 'VS'), {realmNamespace, name} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @name of the valueSet</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="testScenarioRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific test scenario</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'TS'), {realmNamespace, id} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the testScenario</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="testCaseRef">
+				<xs:annotation>
+					<xs:documentation>An absolute reference to a specific test case within a scenario</xs:documentation>
+					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'TS'), {realmNamespace, id, testName} (required), {version, releaseDate} (optional)</xs:documentation>
+					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the testCase</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+		<!-- TODO: Enforce allowed parameters and embedded content -->
+	</xs:simpleType>
+	<xs:simpleType name="ParamName">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="constructType">
+				<xs:annotation>
+					<xs:documentation>Indicates what type of construct should be </xs:documentation>
+					<xs:documentation>Value Type: ConstructedElementKind</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="hl7Id">
+				<xs:annotation>
+					<xs:documentation>The hl7Id of the referenced figure, table, div or other markup element.</xs:documentation>
+					<xs:documentation>Value Type: NCName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="item">
+				<xs:annotation>
+					<xs:documentation>Identifies the type of containing element the reference for.  If there are multiple containing elements of the same type, the referenced item will be the nearest one.  If not specified, then the nearest eligible containing element will be used.</xs:documentation>
+					<xs:documentation>Value Type: ParentArtifactKind</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="annotationKind">
+				<xs:annotation>
+					<xs:documentation>Identifies the kind of annotation being referenced.</xs:documentation>
+					<xs:documentation>Value Type: AnnotationKind</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="annotationId">
+				<xs:annotation>
+					<xs:documentation>The identifier/name of the annotation being referenced.</xs:documentation>
+					<xs:documentation>Value Type: BasicId</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="root">
+				<xs:annotation>
+					<xs:documentation>'Root' portion of package reference</xs:documentation>
+					<xs:documentation>Value Type: PackageRootKind</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="subSection">
+				<xs:annotation>
+					<xs:documentation>'SubSection' portion of package reference</xs:documentation>
+					<xs:documentation>Value Type: SubSectionKind</xs:documentation>
+					<xs:documentation>Deprecated: 2010-03-16  Can infer from domain</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="domain">
+				<xs:annotation>
+					<xs:documentation>'Domain' portion of package reference</xs:documentation>
+					<xs:documentation>Value Type: DomainKind</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="realmNamespace">
+				<xs:annotation>
+					<xs:documentation>'RealmNamespace' portion of package reference</xs:documentation>
+					<xs:documentation>Value Type: DefinedContextKind</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="version">
+				<xs:annotation>
+					<xs:documentation>'Version' portion of package reference</xs:documentation>
+					<xs:documentation>Value Type: ShortDescriptiveName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="artifact">
+				<xs:annotation>
+					<xs:documentation>'Artifact' portion of package reference</xs:documentation>
+					<xs:documentation>Value Type: ArtifactKind</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="subArtifact">
+				<xs:annotation>
+					<xs:documentation>'SubArtifact' portion of package reference</xs:documentation>
+					<xs:documentation>Value Type: SubArtifactKind</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="name">
+				<xs:annotation>
+					<xs:documentation>'Name' portion of package reference</xs:documentation>
+					<xs:documentation>Value Type: ShortDescriptiveName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="id">
+				<xs:annotation>
+					<xs:documentation>'Id' portion of package reference</xs:documentation>
+					<xs:documentation>Value Type: SmallNonNegativeInteger</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="releaseDate">
+				<xs:annotation>
+					<xs:documentation>'ReleaseDate' portion of package reference</xs:documentation>
+					<xs:documentation>Value Type: xs:date</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="group">
+				<xs:annotation>
+					<xs:documentation>Identifies the type of artifact group being referenced.  Used in circumstances where there is not a model or other artifact that contains only the specified type of item.  NOTE: This should only be used with the approval of the publications committee.  (They will decide what 'groups' of things will actually be portrayed as groups)</xs:documentation>
+					<xs:documentation>Value Type: ArtifactGroupKind</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="linkToEnd">
+				<xs:annotation>
+					<xs:documentation>If true, indicates that the link should be to the first item following the specified group.  If false, the link is to the begining of the group.</xs:documentation>
+					<xs:documentation>Value Type: xs:boolean</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="withinClassName">
+				<xs:annotation>
+					<xs:documentation>Indicates the name of the class within which to link to the group.  For example, link to the 'attributes' section in class 'A' static model 'B'.  If not specified, the link will be to the nearest ancestor artifact that contains the specified type of group.</xs:documentation>
+					<xs:documentation>Value Type: FormalProperName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="relationshipName">
+				<xs:annotation>
+					<xs:documentation>The name of the relationship being referenced.</xs:documentation>
+					<xs:documentation>Value Type: AssociationName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="attributeName">
+				<xs:annotation>
+					<xs:documentation>The name of the attribute being referenced.</xs:documentation>
+					<xs:documentation>Value Type: FormalPropertyName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="className">
+				<xs:annotation>
+					<xs:documentation>The name of the class being referenced.</xs:documentation>
+					<xs:documentation>Value Type: AllClassName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="datatypeName">
+				<xs:annotation>
+					<xs:documentation>The formal name of a datatype (including a datatype binding definition such as IVL_TS) that is defined in the local datatypeModel.</xs:documentation>
+					<xs:documentation>Value Type: DatatypeName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="isArgumentDatatype">
+				<xs:annotation>
+					<xs:documentation>Indicates the referenced datatype is a parameterized type such as "T" in IVL&lt;T&gt;</xs:documentation>
+					<xs:documentation>Value Type: DatatypeName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="propertyName">
+				<xs:annotation>
+					<xs:documentation>The name of the property being referenced.</xs:documentation>
+					<xs:documentation>Value Type: FormalPropertyName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="stateName">
+				<xs:annotation>
+					<xs:documentation>The name of the state within the 'focal' class.</xs:documentation>
+					<xs:documentation>Value Type: FormalPropertyName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="stateTransitionName">
+				<xs:annotation>
+					<xs:documentation>The name of the state transition within the 'focal' class</xs:documentation>
+					<xs:documentation>Value Type: FormalPropertyName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="subjectAreaName">
+				<xs:annotation>
+					<xs:documentation>The name of the subject area being referenced.</xs:documentation>
+					<xs:documentation>Value Type: BasicFormalName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="termName">
+				<xs:annotation>
+					<xs:documentation>Name of the referenced term.</xs:documentation>
+					<xs:documentation>Value Type: ShortDescriptiveName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="code">
+				<xs:annotation>
+					<xs:documentation>The identifier or mnemonic of the referenced code.</xs:documentation>
+					<xs:documentation>Value Type: ShortDescriptiveName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="testName">
+				<xs:annotation>
+					<xs:documentation>The label of the referenced test case.</xs:documentation>
+					<xs:documentation>Value Type: ShortDescriptiveName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="spec">
+				<xs:annotation>
+					<xs:documentation>The "key" name of the specification being referenced as determined by the publishing committee.</xs:documentation>
+					<xs:documentation>Value Type: ShortDescriptiveName</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ParamValue">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+</xs:schema>
