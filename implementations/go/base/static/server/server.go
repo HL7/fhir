@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-
 	"github.com/intervention-engine/fhir/server"
 )
 

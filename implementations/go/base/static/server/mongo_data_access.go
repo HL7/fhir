@@ -13,12 +13,60 @@ import (
 )
 
 // NewMongoDataAccessLayer returns an implementation of DataAccessLayer that is backed by a Mongo database
-func NewMongoDataAccessLayer(db *mgo.Database) DataAccessLayer {
-	return &mongoDataAccessLayer{Database: db}
+func NewMongoDataAccessLayer(db *mgo.Database, interceptors map[string]InterceptorList) DataAccessLayer {
+	return &mongoDataAccessLayer{
+		Database:     db,
+		Interceptors: interceptors,
+	}
 }
 
 type mongoDataAccessLayer struct {
-	Database *mgo.Database
+	Database     *mgo.Database
+	Interceptors map[string]InterceptorList
+}
+
+// Interceptor executes a function on a specified resource type immediately AFTER
+// the resource is modified in the database. To register an interceptor for ALL resource
+// types use a "*" as the resourceType.
+type Interceptor struct {
+	ResourceType string
+	Handler      InterceptorHandler
+}
+
+// InterceptorHandler is a function that is executed on a single FHIR resource
+type InterceptorHandler func(interface{})
+
+// InterceptorList is a list of interceptors registered for a given HTTP verb
+type InterceptorList []Interceptor
+
+// invokeInterceptors invokes the interceptor list for a particular HTTP verb and resource type.
+// Supported verbs are: POST, PUT, DELETE
+func (dal *mongoDataAccessLayer) invokeInterceptors(httpVerb, resourceType string, resource interface{}) {
+
+	var interceptors InterceptorList
+	if httpVerb == "POST" || httpVerb == "PUT" || httpVerb == "DELETE" {
+		interceptors = dal.Interceptors[httpVerb]
+		for _, interceptor := range interceptors {
+			if interceptor.ResourceType == resourceType || interceptor.ResourceType == "*" {
+				interceptor.Handler(resource)
+			}
+		}
+	}
+}
+
+// hasInterceptorsForVerbAndType checks if any interceptors are registered for a particular HTTP verb AND resource type
+func (dal *mongoDataAccessLayer) hasInterceptorsForVerbAndType(httpVerb, resourceType string) bool {
+
+	if len(dal.Interceptors[httpVerb]) > 0 {
+		interceptors := dal.Interceptors[httpVerb]
+		for _, interceptor := range interceptors {
+			if interceptor.ResourceType == resourceType || interceptor.ResourceType == "*" {
+				// At least 1 interceptor is registered for this verb and resource type
+				return true
+			}
+		}
+	}
+	return false
 }
 
 func (dal *mongoDataAccessLayer) Get(id, resourceType string) (result interface{}, err error) {
@@ -32,7 +80,6 @@ func (dal *mongoDataAccessLayer) Get(id, resourceType string) (result interface{
 	if err = collection.FindId(bsonID.Hex()).One(result); err != nil {
 		return nil, convertMongoErr(err)
 	}
-
 	return
 }
 
@@ -52,7 +99,12 @@ func (dal *mongoDataAccessLayer) PostWithID(id string, resource interface{}) err
 	resourceType := reflect.TypeOf(resource).Elem().Name()
 	collection := dal.Database.C(models.PluralizeLowerResourceName(resourceType))
 	updateLastUpdatedDate(resource)
-	return convertMongoErr(collection.Insert(resource))
+	err = collection.Insert(resource)
+
+	if err == nil {
+		dal.invokeInterceptors("POST", resourceType, resource)
+	}
+	return convertMongoErr(err)
 }
 
 func (dal *mongoDataAccessLayer) Put(id string, resource interface{}) (createdNew bool, err error) {
@@ -65,10 +117,13 @@ func (dal *mongoDataAccessLayer) Put(id string, resource interface{}) (createdNe
 	collection := dal.Database.C(models.PluralizeLowerResourceName(resourceType))
 	reflect.ValueOf(resource).Elem().FieldByName("Id").SetString(bsonID.Hex())
 	updateLastUpdatedDate(resource)
+
 	info, err := collection.UpsertId(bsonID.Hex(), resource)
 	if err == nil {
 		createdNew = (info.Updated == 0)
+		dal.invokeInterceptors("PUT", resourceType, resource)
 	}
+
 	return createdNew, convertMongoErr(err)
 }
 
@@ -97,18 +152,54 @@ func (dal *mongoDataAccessLayer) Delete(id, resourceType string) error {
 	}
 
 	collection := dal.Database.C(models.PluralizeLowerResourceName(resourceType))
-	return convertMongoErr(collection.RemoveId(bsonID.Hex()))
+	err = collection.RemoveId(bsonID.Hex())
+
+	if err == nil && dal.hasInterceptorsForVerbAndType("DELETE", resourceType) {
+		// Although this is a delete operation we need to get the resource first so we can
+		// run any interceptors on the resource before it's deleted.
+		resource, err := dal.Get(id, resourceType)
+		if err == nil {
+			dal.invokeInterceptors("DELETE", resourceType, resource)
+		}
+	}
+	return convertMongoErr(err)
 }
 
 func (dal *mongoDataAccessLayer) ConditionalDelete(query search.Query) (count int, err error) {
+	resourceType := query.Resource
 	searcher := search.NewMongoSearcher(dal.Database)
-	queryObject := searcher.CreateQueryObject(query)
+	collection := dal.Database.C(models.PluralizeLowerResourceName(resourceType))
 
-	collection := dal.Database.C(models.PluralizeLowerResourceName(query.Resource))
+	var queryObject bson.M
+
+	if dal.hasInterceptorsForVerbAndType("DELETE", resourceType) {
+		// get the resources that are about to be deleted
+		var bundle *models.Bundle
+		bundle, err = dal.Search(url.URL{}, query) // the baseURL argument here does not matter
+
+		if err != nil {
+			return count, convertMongoErr(err)
+		}
+		count = int(*bundle.Total)
+		resourceIds := make([]string, count)
+		for i, elem := range bundle.Entry {
+			resourceIds[i] = reflect.ValueOf(elem.Resource).Elem().FieldByName("Id").String()
+			dal.invokeInterceptors("DELETE", resourceType, elem.Resource)
+		}
+
+		queryObject = bson.M{
+			"_id": bson.M{"$in": resourceIds},
+		}
+	} else {
+		queryObject = searcher.CreateQueryObject(query)
+	}
+
+	// do the bulk delete the usual way
 	info, err := collection.RemoveAll(queryObject)
 	if info != nil {
 		count = info.Removed
 	}
+
 	return count, convertMongoErr(err)
 }
 

@@ -11,7 +11,7 @@ const (
 )
 
 func FHIRBind(c *gin.Context, obj interface{}) error {
-	if c.Request.Method == "Get" {
+	if c.Request.Method == "GET" {
 		return c.BindWith(obj, binding.Form)
 	}
 	switch c.ContentType() {
