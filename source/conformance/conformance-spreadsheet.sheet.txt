@@ -491,7 +491,7 @@
   Context = Conformance
   English = The set of documents must be unique by the combination of profile & mode
   XPath = count(f:document[f:mode/@value=\'producer\'])=count(distinct-values(f:document[f:mode/@value=\'producer\']/f:profile/f:reference/@value)) and count(f:document[f:mode/@value=\'consumer\'])=count(distinct-values(f:document[f:mode/@value=\'consumer\']/f:profile/f:reference/@value))
-  Expression = document.select(profile&mode).isDistinct()
+  Expression = document.select(profile.reference&mode).isDistinct()
 
  -- Row 5 -----------------------------------
   Id = 8
