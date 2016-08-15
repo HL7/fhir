@@ -2038,8 +2038,10 @@ public class Publisher implements IWorkerContext.ILoggingService {
           outputName = r.getElement().fhirType()+"-"+r.getId()+(extension.equals("")? "":"-"+extension)+(format==null? "": "."+format)+".html";
         if (outputName.contains("{{["))
           outputName = igpkp.doReplacements(outputName, r, vars, format);
-        String path = Utilities.path(tempDir, outputName);
-        checkMakeFile(template.getBytes(Charsets.UTF_8), path, outputTracker);
+        if (!outputName.contains("#")) {
+          String path = Utilities.path(tempDir, outputName);
+          checkMakeFile(template.getBytes(Charsets.UTF_8), path, outputTracker);
+        }
       }
     }
   }
