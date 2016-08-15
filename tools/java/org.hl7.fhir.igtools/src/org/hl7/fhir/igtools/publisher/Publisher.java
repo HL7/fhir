@@ -1423,6 +1423,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       generateDefinitions(FhirFormat.JSON, df.getAbsolutePath());
     if (generateExampleZip(FhirFormat.TURTLE))
       generateDefinitions(FhirFormat.TURTLE, df.getAbsolutePath());
+    generateValidationPack();
   }
 
   private void generateDefinitions(FhirFormat fmt, String specFile)  throws Exception {
@@ -1444,6 +1445,61 @@ public class Publisher implements IWorkerContext.ILoggingService {
       zip.close();
 
     }
+  }
+
+  private void generateValidationPack()  throws Exception {
+    String sch = makeTempZip(".sch");
+    String js = makeTempZip(".schema.json");
+    String shex = makeTempZip(".shex");
+    
+    Set<String> files = new HashSet<String>();
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
+          String fn = Utilities.path(outputDir, r.getElement().fhirType()+"-"+r.getId()+".json");
+          if (new File(fn).exists())
+            files.add(fn);
+          else {
+            fn = Utilities.path(outputDir, r.getElement().fhirType()+"-"+r.getId()+".xml");
+            if (new File(fn).exists())
+              files.add(fn);
+            else {
+              fn = Utilities.path(outputDir, r.getElement().fhirType()+"-"+r.getId()+".ttl");
+              if (new File(fn).exists())
+                files.add(fn);
+            }            
+          }
+        }
+      }
+    }
+    ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "validator.pack"));
+    for (String fn : files)
+      zip.addFileName(fn.substring(fn.lastIndexOf(File.separator)+1), fn, false);
+    if (sch != null)
+      zip.addFileName("schematron.zip", sch, false);
+    if (js != null)
+      zip.addFileName("json.schema.zip", sch, false);
+    if (shex != null)
+      zip.addFileName("shex.zip", sch, false);
+      
+    zip.close();
+  }
+
+  private String makeTempZip(String ext) throws IOException {
+    Set<String> files = new HashSet<String>();
+    for (String s : new File(outputDir).list()) {
+      if (s.endsWith(ext))
+        files.add(s);
+    }
+    if (files.size() == 0)
+      return null;
+    File tmp = File.createTempFile("fhir", "zip");
+    tmp.deleteOnExit();
+    ZipGenerator zip = new ZipGenerator(tmp.getAbsolutePath());
+    for (String fn : files)
+      zip.addFileName(fn, Utilities.path(outputDir, fn), false);
+    zip.close();
+    return tmp.getAbsolutePath();
   }
 
   private boolean generateExampleZip(FhirFormat fmt) throws Exception {

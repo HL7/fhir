@@ -20,6 +20,7 @@ import org.hl7.fhir.dstu3.elementmodel.ParserBase;
 import org.hl7.fhir.dstu3.elementmodel.XmlParser;
 import org.hl7.fhir.dstu3.elementmodel.Element.SpecialElement;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
 import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
@@ -157,24 +158,23 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
   }
 
-
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format) throws Exception {
-    return validate(errors, stream, format, (StructureDefinition) null);
+    return validate(errors, stream, format, new ValidationProfileSet());
   }
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format, String profile) throws Exception {
-    long t = System.nanoTime();
-    StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
-    sdTime = sdTime + (System.nanoTime() - t);
-    if (p == null)
-      throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    return validate(errors, stream, format, p);
+    return validate(errors, stream, format,  new ValidationProfileSet(profile));
   }
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format, StructureDefinition profile) throws Exception {
+    return validate(errors, stream, format, new ValidationProfileSet(profile));
+  }
+  
+  @Override
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format, ValidationProfileSet profiles) throws Exception {
     ParserBase parser = Manager.makeParser(context, format);
     if (parser instanceof XmlParser) 
       ((XmlParser) parser).setAllowXsiLocation(allowXsiLocation);
@@ -183,136 +183,135 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     Element e = parser.parse(stream);
     loadTime = System.nanoTime() - t;
     if (e != null)
-      validate(errors, e, profile);
+      validate(errors, e, profiles);
     return e;
   }
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, Resource resource) throws Exception {
-    return validate(errors, resource, (StructureDefinition) null);
+    return validate(errors, resource, new ValidationProfileSet());
   }
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, Resource resource, String profile) throws Exception {
-    long t = System.nanoTime();
-    StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
-    sdTime = sdTime + (System.nanoTime() - t);
-    if (p == null)
-      throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    return validate(errors, resource, p);
+    return validate(errors, resource, new ValidationProfileSet(profile));
   }
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, Resource resource, StructureDefinition profile) throws Exception {
-    throw new Exception("Not done yet");
-    //    ParserBase parser = new ObjectParser(context);
-    //    parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
-    //    long t = System.nanoTime();
-    //    Element e = parser.parse(resource);
-    //    loadTime = System.nanoTime() - t;
-    //    validate(errors, e, profile);    
+    return validate(errors, resource, new ValidationProfileSet(profile));
   }
 
   @Override
-  public void validate(List<ValidationMessage> errors, Element element) throws Exception {
-    validate(errors, element, (StructureDefinition) null);
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, Resource resource, ValidationProfileSet profiles) throws Exception {
+    long t = System.nanoTime();
+    Element e = new ObjectConverter(context).convert(resource);
+    loadTime = System.nanoTime() - t;
+    validate(errors, e, profiles);
+    return e;
   }
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, org.w3c.dom.Element element) throws Exception {
-    return validate(errors, element, (StructureDefinition) null);
-  }
-
-  @Override
-  public void validate(List<ValidationMessage> errors, Element element, String profile) throws Exception {
-    long t = System.nanoTime();
-    StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
-    sdTime = sdTime + (System.nanoTime() - t);
-    if (p == null)
-      throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    validate(errors, element, p);
+    return validate(errors, element, new ValidationProfileSet());
   }
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, org.w3c.dom.Element element, String profile) throws Exception {
-    long t = System.nanoTime();
-    StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
-    sdTime = sdTime + (System.nanoTime() - t);
-    if (p == null)
-      throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    return validate(errors, element, p);
+    return validate(errors, element, new ValidationProfileSet(profile));
   }
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, org.w3c.dom.Element element, StructureDefinition profile) throws Exception {
+    return validate(errors, element, new ValidationProfileSet(profile));
+  }
+
+  @Override
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, org.w3c.dom.Element element, ValidationProfileSet profiles) throws Exception {
     XmlParser parser = new XmlParser(context);
     parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
     long t = System.nanoTime();
     Element e = parser.parse(element);
     loadTime = System.nanoTime() - t;
-    validate(errors, e, profile);
+    if (e != null) 
+      validate(errors, e, profiles);
     return e;
   }
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, Document document) throws Exception {
-    return validate(errors, document, (StructureDefinition) null);
+    return validate(errors, document, new ValidationProfileSet());
   }
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, Document document, String profile) throws Exception {
-    long t = System.nanoTime();
-    StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
-    sdTime = sdTime + (System.nanoTime() - t);
-    if (p == null)
-      throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    return validate(errors, document, p);
+    return validate(errors, document, new ValidationProfileSet(profile));
   }
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, Document document, StructureDefinition profile) throws Exception {
+    return validate(errors, document, new ValidationProfileSet(profile));
+  }
+
+  @Override
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, Document document, ValidationProfileSet profiles) throws Exception {
     XmlParser parser = new XmlParser(context);
     parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
     long t = System.nanoTime();
     Element e = parser.parse(document);
     loadTime = System.nanoTime() - t;
-    if (e != null) {
-      validate(errors, e, profile);
-    }
+    if (e != null)
+      validate(errors, e, profiles);
     return e;
   }
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, JsonObject object) throws Exception {
-    return validate(errors, object, (StructureDefinition) null);
+    return validate(errors, object, new ValidationProfileSet());
   }
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, JsonObject object, String profile) throws Exception {
-    long t = System.nanoTime();
-    StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
-    sdTime = sdTime + (System.nanoTime() - t);
-    if (p == null)
-      throw new DefinitionException("StructureDefinition '" + profile + "' not found");
-    return validate(errors, object, p);
+    return validate(errors, object, new ValidationProfileSet(profile));
   }
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, JsonObject object, StructureDefinition profile) throws Exception {
+    return validate(errors, object, new ValidationProfileSet(profile));
+  }
+
+  @Override
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, JsonObject object, ValidationProfileSet profiles) throws Exception {
     JsonParser parser = new JsonParser(context);
     parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
     long t = System.nanoTime();
     Element e = parser.parse(object);
     loadTime = System.nanoTime() - t;
-    validate(errors, e, profile);
+    if (e != null)
+      validate(errors, e, profiles);
     return e;
   }
 
   @Override
+  public void validate(List<ValidationMessage> errors, Element element) throws Exception {
+    validate(errors, element, new ValidationProfileSet());
+  }
+  
+  @Override
+  public void validate(List<ValidationMessage> errors, Element element, String profile) throws Exception {
+    validate(errors, element, new ValidationProfileSet(profile));
+  }
+
+  @Override
   public void validate(List<ValidationMessage> errors, Element element, StructureDefinition profile) throws Exception {
+    validate(errors, element, new ValidationProfileSet(profile));
+  }
+
+  @Override
+  public void validate(List<ValidationMessage> errors, Element element, ValidationProfileSet profiles) throws Exception {
     // this is the main entry point; all the other entry points end up here coming here...
     long t = System.nanoTime();
-    validateResource(errors, element, element, profile, resourceIdRule, new NodeStack(element));
+    validateResource(errors, element, element, null, profiles, resourceIdRule, new NodeStack(element));
     overall = System.nanoTime() - t;
   }
 
@@ -1579,12 +1578,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   // we assume that the following things are true:
   // the instance at root is valid against the schema and schematron
   // the instance validator had no issues against the base resource profile
-  private void start(List<ValidationMessage> errors, Element resource, Element element, StructureDefinition profile, NodeStack stack) throws FHIRException, FHIRException {
+  private void start(List<ValidationMessage> errors, Element resource, Element element, StructureDefinition defn, ValidationProfileSet profiles, NodeStack stack) throws FHIRException, FHIRException {
     // profile is valid, and matches the resource name
-    if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), profile.hasSnapshot(),
+    if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), defn.hasSnapshot(),
         "StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided")) {
-      validateElement(errors, profile, profile.getSnapshot().getElement().get(0), null, null, resource, element, element.getName(), stack, false);
+      validateElement(errors, defn, defn.getSnapshot().getElement().get(0), null, null, resource, element, element.getName(), stack, false);
 
+      if (profiles != null)
+        for (StructureDefinition profile : profiles.getDefinitions())  
+          validateElement(errors, profile, profile.getSnapshot().getElement().get(0), null, null, resource, element, element.getName(), stack, false);
       checkDeclaredProfiles(errors, resource, element, stack);
 
       // specific known special validations
@@ -2088,7 +2090,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (element.getSpecial() == SpecialElement.BUNDLE_ENTRY || element.getSpecial() == SpecialElement.BUNDLE_OUTCOME || element.getSpecial() == SpecialElement.PARAMETER ) 
       resource = element;
     if (rule(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), profile != null, "No profile found for contained resource of type '" + resourceName + "'"))
-      validateResource(errors, resource, element, profile, idstatus, stack);
+      validateResource(errors, resource, element, profile, null, idstatus, stack);
   }
 
   private void validateDocument(List<ValidationMessage> errors, List<Element> entries, Element composition, NodeStack stack, String fullUrl, String id) {
@@ -2385,41 +2387,50 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   /*
    * The actual base entry point
    */
-  private void validateResource(List<ValidationMessage> errors, Element resource, Element element, StructureDefinition profile, IdStatus idstatus, NodeStack stack) throws FHIRException, FHIRException {
+  private void validateResource(List<ValidationMessage> errors, Element resource, Element element, StructureDefinition defn, ValidationProfileSet profiles, IdStatus idstatus, NodeStack stack) throws FHIRException, FHIRException {
     assert stack != null;
     assert resource != null;
 
-    // getting going - either we got a profile, or not.
     boolean ok = true;
-    if (ok) {
-      String resourceName = element.getType();
-      if (profile == null) {
-        long t = System.nanoTime();
-        profile = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + resourceName);
-        sdTime = sdTime + (System.nanoTime() - t);
-        ok = rule(errors, IssueType.INVALID, element.line(), element.col(), stack.addToLiteralPath(resourceName), profile != null, "No profile found for resource type '" + resourceName + "'");
-      } else {
-        String type = profile.getKind() == StructureDefinitionKind.LOGICAL ? profile.getId() : profile.getType();
-        // special case: we have a bundle, and the profile is not for a bundle. We'll try the first entry instead 
-        if (!type.equals(resourceName) && resourceName.equals("Bundle")) {
-          Element first = getFirstEntry(element);
-          if (first != null && first.getType().equals(type)) {
-            element = first;
-            resourceName = element.getType();
-            idstatus = IdStatus.OPTIONAL; // why?
-          }
-        }
-        ok = rule(errors, IssueType.INVALID, -1, -1, stack.getLiteralPath(), type.equals(resourceName),
-            "Specified profile type was '" + type + "', but found type '" + resourceName + "'");
+
+    String resourceName = element.getType(); // todo: consider namespace...?
+    if (defn == null) {
+      long t = System.nanoTime();
+      defn = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + resourceName);
+      loadProfiles(profiles);
+      sdTime = sdTime + (System.nanoTime() - t);
+      ok = rule(errors, IssueType.INVALID, element.line(), element.col(), stack.addToLiteralPath(resourceName), defn != null, "No definition found for resource type '" + resourceName + "'");
+    }
+
+    String type = defn.getKind() == StructureDefinitionKind.LOGICAL ? defn.getId() : defn.getType();
+    // special case: we have a bundle, and the profile is not for a bundle. We'll try the first entry instead 
+    if (!type.equals(resourceName) && resourceName.equals("Bundle")) {
+      Element first = getFirstEntry(element);
+      if (first != null && first.getType().equals(type)) {
+        element = first;
+        resourceName = element.getType();
+        idstatus = IdStatus.OPTIONAL; // why?
       }
     }
+    ok = rule(errors, IssueType.INVALID, -1, -1, stack.getLiteralPath(), type.equals(resourceName), "Specified profile type was '" + type + "', but found type '" + resourceName + "'");
 
     if (ok) {
       if (idstatus == IdStatus.REQUIRED && (element.getNamedChild("id") == null))
         rule(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), false, "Resource requires an id, but none is present");
       else if (idstatus == IdStatus.PROHIBITED && (element.getNamedChild("id") != null))
         rule(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), false, "Resource has an id, but none is allowed");
-      start(errors, resource, element, profile, stack); // root is both definition and type
+      start(errors, resource, element, defn, profiles, stack); // root is both definition and type
+    }
+  }
+
+  private void loadProfiles(ValidationProfileSet profiles) throws DefinitionException {
+    if (profiles != null) { 
+      for (String profile : profiles.getCanonical()) {
+        StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
+        if (p == null)
+          throw new DefinitionException("StructureDefinition '" + profile + "' not found");
+        profiles.getDefinitions().add(p);
+      }
     }
   }
 

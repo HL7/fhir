@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -199,21 +200,22 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		loadFromStream(new CSFileInputStream(path));
 	}
 
-	private void loadFromStream(InputStream stream) throws IOException, FHIRException {
-		ZipInputStream zip = new ZipInputStream(stream);
-		ZipEntry ze;
-		while ((ze = zip.getNextEntry()) != null) {
-			if (ze.getName().endsWith(".xml")) {
-				String name = ze.getName();
-				loadFromFile(zip, name);
-			} else if (ze.getName().equals("version.info")) {
-			  readVersionInfo(ze, zip);
-			} else
-			  loadBytes(ze.getName(), ze, zip);
-			zip.closeEntry();
-		}
-		zip.close();
-	}
+  private void loadFromStream(InputStream stream) throws IOException, FHIRException {
+    ZipInputStream zip = new ZipInputStream(stream);
+    ZipEntry ze;
+    while ((ze = zip.getNextEntry()) != null) {
+      if (ze.getName().endsWith(".xml")) {
+        String name = ze.getName();
+        loadFromFile(zip, name);
+      } else if (ze.getName().equals("version.info")) {
+        readVersionInfo(ze, zip);
+      } else
+        loadBytes(ze.getName(), ze, zip);
+      zip.closeEntry();
+    }
+    zip.close();
+  }
+
 
   private void readVersionInfo(ZipEntry entry, ZipInputStream zip) throws IOException {
     int size;

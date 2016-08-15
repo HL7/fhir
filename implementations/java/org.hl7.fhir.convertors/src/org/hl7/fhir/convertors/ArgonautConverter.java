@@ -15,6 +15,7 @@ import java.util.Set;
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu2.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.model.Address;
 import org.hl7.fhir.dstu3.model.AllergyIntolerance;
@@ -74,6 +75,7 @@ import org.hl7.fhir.dstu3.model.Procedure.ProcedureStatus;
 import org.hl7.fhir.dstu3.terminologies.ITerminologyServices;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ResourceUtilities;
+import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.validation.ValidationEngine;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.utilities.Utilities;
@@ -131,7 +133,8 @@ public class ArgonautConverter extends ConverterBase {
 	}
 
 	private UcumService ucumSvc;
-	private ValidationEngine validator;
+//	private ValidationEngine validator;
+	private SimpleWorkerContext context;
 	private Map<String, Map<String, Integer>> sections = new HashMap<String, Map<String,Integer>>();
 	private Map<String, Practitioner> practitionerCache = new HashMap<String, Practitioner>();
 	public int perfCount;
@@ -148,9 +151,10 @@ public class ArgonautConverter extends ConverterBase {
 	public ArgonautConverter(UcumService ucumSvc, String path) throws Exception {
 		super();
 		this.ucumSvc = ucumSvc;
-		validator = new ValidationEngine();
-		validator.readDefinitions(path);
-		validator.setAnyExtensionsAllowed(true);
+		context = SimpleWorkerContext.fromPack(path);
+//		validator = new ValidationEngine();
+//		validator.readDefinitions(path);
+//		validator.setAnyExtensionsAllowed(true);
 	}
 
 	public int getErrors() {
@@ -342,7 +346,7 @@ public class ArgonautConverter extends ConverterBase {
 		if (resource instanceof DomainResource) {
 			dr = (DomainResource) resource;
 			if (!dr.hasText()) {
-				NarrativeGenerator generator = new NarrativeGenerator("", "", validator.getContext());
+				NarrativeGenerator generator = new NarrativeGenerator("", "", context);
 				generator.generate(dr);
 			}
 		}
@@ -385,15 +389,15 @@ public class ArgonautConverter extends ConverterBase {
 			return;
 		if (url == null)
 			url = "http://hl7.org/fhir/StructureDefinition/"+resource.getResourceType().toString();
-		StructureDefinition def = validator.getContext().fetchResource(StructureDefinition.class, url);
+		StructureDefinition def = context.fetchResource(StructureDefinition.class, url);
 		if (def == null)
 			throw new Exception("Unable to find Structure Definition "+url);
 
-		validator.reset();
-		validator.setProfile(def);
-		validator.setSource(src);
-		validator.process();
-		List<ValidationMessage> msgs = validator.getOutputs();
+//		validator.reset();
+//		validator.setProfile(def);
+//		validator.setSource(src);
+//		validator.process();
+		List<ValidationMessage> msgs = null; // validator.getOutputs();
 		boolean ok = false;
 		boolean first = true;
 		for (ValidationMessage m : msgs) {

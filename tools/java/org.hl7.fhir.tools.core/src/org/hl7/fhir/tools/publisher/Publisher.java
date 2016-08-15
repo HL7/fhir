@@ -1913,68 +1913,68 @@ public class Publisher implements URIResolver, SectionNumberer {
     page.setNavigation(new Navigation());
     page.getNavigation().parse(page.getFolders().srcDir + "navigation.xml");
 
-      processCDA();
-      processRDF();
+    processCDA();
+    processRDF();
 
-      page.log("Produce Schemas", LogMessageType.Process);
-      new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir+"codegen"+File.separator, page.getFolders().dstDir,
-          page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), true, page.getWorkerContext());
-      new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir, page.getFolders().dstDir,
-          page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), false, page.getWorkerContext());
-      new org.hl7.fhir.definitions.generators.specification.json.SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir, page.getFolders().dstDir,
-          page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), page.getWorkerContext());
+    page.log("Produce Schemas", LogMessageType.Process);
+    new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir+"codegen"+File.separator, page.getFolders().dstDir,
+        page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), true, page.getWorkerContext());
+    new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir, page.getFolders().dstDir,
+        page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), false, page.getWorkerContext());
+    new org.hl7.fhir.definitions.generators.specification.json.SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir, page.getFolders().dstDir,
+        page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), page.getWorkerContext());
 
-      List<StructureDefinition> list = new ArrayList<StructureDefinition>();
-      for (StructureDefinition sd : page.getWorkerContext().allStructures()) {
-        if (sd.getDerivation() == TypeDerivationRule.SPECIALIZATION)
-          list.add(sd);
-      }
+    List<StructureDefinition> list = new ArrayList<StructureDefinition>();
+    for (StructureDefinition sd : page.getWorkerContext().allStructures()) {
+      if (sd.getDerivation() == TypeDerivationRule.SPECIALIZATION)
+        list.add(sd);
+    }
     ShExGenerator shgen = new ShExGenerator(page.getWorkerContext());
     shgen.completeModel = true;
     shgen.withComments = false;
     TextFile.stringToFile(shgen.generate(HTMLLinkPolicy.NONE, list), page.getFolders().dstDir+"fhir.shex", false);
 
     if (buildFlags.get("all")) {
-        for (PlatformGenerator gen : page.getReferenceImplementations()) {
-          page.log("Produce " + gen.getName() + " Reference Implementation", LogMessageType.Process);
+      for (PlatformGenerator gen : page.getReferenceImplementations()) {
+        page.log("Produce " + gen.getName() + " Reference Implementation", LogMessageType.Process);
 
-          String destDir = page.getFolders().dstDir;
-          String implDir = page.getFolders().implDir(gen.getName());
+        String destDir = page.getFolders().dstDir;
+        String implDir = page.getFolders().implDir(gen.getName());
 
-          gen.generate(page.getDefinitions(), destDir, implDir, page.getVersion(), page.getGenDate().getTime(), page, page.getSvnRevision());
-        }
-        for (PlatformGenerator gen : page.getReferenceImplementations()) {
-          if (gen.doesCompile()) {
-            page.log("Compile " + gen.getName() + " Reference Implementation", LogMessageType.Process);
-            if (!gen.compile(page.getFolders().rootDir, new ArrayList<String>(), page, page.getValidationErrors())) {
-              // Must always be able to compile Java to go on. Also, if we're
-              // building
-              // the web build, all generators that can compile, must compile
-              // without error.
-              if (gen.getName().equals("java")) // || web)
-                throw new Exception("Compile " + gen.getName() + " failed");
-              else
-                page.log("Compile " + gen.getName() + " failed, still going on.", LogMessageType.Error);
-            }
+        gen.generate(page.getDefinitions(), destDir, implDir, page.getVersion(), page.getGenDate().getTime(), page, page.getSvnRevision());
+      }
+      for (PlatformGenerator gen : page.getReferenceImplementations()) {
+        if (gen.doesCompile()) {
+          page.log("Compile " + gen.getName() + " Reference Implementation", LogMessageType.Process);
+          if (!gen.compile(page.getFolders().rootDir, new ArrayList<String>(), page, page.getValidationErrors())) {
+            // Must always be able to compile Java to go on. Also, if we're
+            // building
+            // the web build, all generators that can compile, must compile
+            // without error.
+            if (gen.getName().equals("java")) // || web)
+              throw new Exception("Compile " + gen.getName() + " failed");
+            else
+              page.log("Compile " + gen.getName() + " failed, still going on.", LogMessageType.Error);
           }
         }
       }
+    }
 
-      page.log("Produce Schematrons", LogMessageType.Process);
-      for (String rname : page.getDefinitions().sortedResourceNames()) {
-        ResourceDefn r = page.getDefinitions().getResources().get(rname);
-        String n = r.getName().toLowerCase();
-        SchematronGenerator sch = new SchematronGenerator(page);
-        sch.generate(new FileOutputStream(page.getFolders().dstDir + n + ".sch"), r, page.getDefinitions());
-      }
+    page.log("Produce Schematrons", LogMessageType.Process);
+    for (String rname : page.getDefinitions().sortedResourceNames()) {
+      ResourceDefn r = page.getDefinitions().getResources().get(rname);
+      String n = r.getName().toLowerCase();
+      SchematronGenerator sch = new SchematronGenerator(page);
+      sch.generate(new FileOutputStream(page.getFolders().dstDir + n + ".sch"), r, page.getDefinitions());
+    }
 
-      SchematronGenerator sg = new SchematronGenerator(page);
-      sg.generate(new FileOutputStream(page.getFolders().dstDir + "fhir-invariants.sch"), page.getDefinitions());
+    SchematronGenerator sg = new SchematronGenerator(page);
+    sg.generate(new FileOutputStream(page.getFolders().dstDir + "fhir-invariants.sch"), page.getDefinitions());
 
-      produceSchemaZip();
-      
-      page.log("Load R2 Definitions", LogMessageType.Process);
-      loadR2Definitions();
+    produceSchemaZip();
+
+    page.log("Load R2 Definitions", LogMessageType.Process);
+    loadR2Definitions();
     page.log("Produce Content", LogMessageType.Process);
     produceSpec();
 
@@ -2418,7 +2418,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       produceComparisons();
       produceSpecMap();
 
-      page.log("....validator", LogMessageType.Process);
+      page.log("....definitions", LogMessageType.Process);
       ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "definitions.xml.zip");
       zip.addFileName("profiles-types.xml", page.getFolders().dstDir + "profiles-types.xml", false);
       zip.addFileName("profiles-resources.xml", page.getFolders().dstDir + "profiles-resources.xml", false);
@@ -2444,6 +2444,24 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
       zip.addFileName("conceptmaps.json", page.getFolders().dstDir + "conceptmaps.json", false);
       zip.addFileName("dataelements.json", page.getFolders().dstDir + "dataelements.json", false);
+      zip.addFileName("fhir.schema.json.zip", page.getFolders().dstDir + "fhir.schema.json.zip", false);
+      zip.close();
+
+      // this is the actual package used by the validator. 
+      zip = new ZipGenerator(page.getFolders().dstDir + "validator.pack");
+      // conformance resources
+      zip.addFileName("profiles-types.json", page.getFolders().dstDir + "profiles-types.json", false);
+      zip.addFileName("profiles-resources.json", page.getFolders().dstDir + "profiles-resources.json", false);
+      zip.addFileName("profiles-others.json", page.getFolders().dstDir + "profiles-others.json", false);
+      zip.addFileName("extension-definitions.json", page.getFolders().dstDir + "extension-definitions.json", false);
+      zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json", false);
+      zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json", false);
+      zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
+      zip.addFileName("conceptmaps.json", page.getFolders().dstDir + "conceptmaps.json", false);
+      // native schema
+      zip.addFileName("fhir-all-xsd.zip", page.getFolders().dstDir + "fhir-all-xsd.zip", false);
+      zip.addFileName("fhir.schema.json.zip", page.getFolders().dstDir + "fhir.schema.json.zip", false);
+      zip.addFileName("fhir.shex", page.getFolders().dstDir + "fhir.shex", false);
       zip.close();
 
       page.log("....dstu2 format", LogMessageType.Process);
@@ -3461,7 +3479,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     zip.addFiles(page.getFolders().dstDir, "", ".schema.json", null);
     zip.close();
     Utilities.copyFile(new CSFile(page.getFolders().tmpResDir + "fhir.schema.json.zip"), f);
-
   }
 
   private void produceResource1(ResourceDefn resource, boolean isAbstract) throws Exception {
