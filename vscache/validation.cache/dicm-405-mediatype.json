@@ -1,0 +1,16 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/dicm-405-mediatype",
+  "outcomes": [
+    {
+      "hash": "|http://nema.org/dicom/dicm|null|110033|DVD",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "110033",
+        "definition": null,
+        "display": "DVD"
+      }
+    }
+  ]
+}

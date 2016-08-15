@@ -76,6 +76,7 @@ import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.dstu3.model.ImplementationGuide;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
@@ -115,14 +116,15 @@ public class ValidationEngine {
   private byte[] focus;
   private FhirFormat cntType;
   private List<String> profiles;
-  private List<ValidationMessage> messages;
+  private List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
   private boolean doNative;
+  private Map<String, byte[]> binaries = new HashMap<String, byte[]>();
 
   public void loadDefinitions(String src) throws Exception {
     Map<String, byte[]> source = loadSource(src);   
     context = SimpleWorkerContext.fromDefinitions(source);
     validator  = new InstanceValidator(context);    
-    grabNatives(source);
+    grabNatives(source, "http://hl7.org/fhir");
   }
 
   Map<String, byte[]> loadSource(String src) throws Exception {
@@ -168,7 +170,7 @@ public class ValidationEngine {
         return res;
       }
     } else {
-      if (src.endsWith(".zip"))
+      if (src.endsWith(".zip") || src.endsWith("validator.pack"))
         return readZip(new FileInputStream(src));
       else {
         Map<String, byte[]> res = new HashMap<String, byte[]>();
@@ -218,10 +220,14 @@ public class ValidationEngine {
   }
 
   public void connectToTSServer(String url) throws URISyntaxException {
-    context.connectToTSServer(url);
+    if (url == null) {
+      context.setCanRunWithoutTerminology(true);
+    } else
+      context.connectToTSServer(url);
   }
 
   public void loadIg(String src) throws IOException, FHIRException, Exception {
+    String canonical = null;
     Map<String, byte[]> source = loadSource(src);
     for (Entry<String, byte[]> t : source.entrySet()) {
       String fn = t.getKey();
@@ -238,12 +244,18 @@ public class ValidationEngine {
       } else if (res != null && res instanceof Questionnaire) {
         context.seeResource(((Questionnaire) res).getUrl(), res);
       } 
+      if (res instanceof ImplementationGuide)
+        canonical = ((ImplementationGuide) res).getUrl();
     }
-    grabNatives(source);
+    if (canonical != null)
+      grabNatives(source, canonical);
   }
 
-  private void grabNatives(Map<String, byte[]> source) {
-  
+  private void grabNatives(Map<String, byte[]> source, String prefix) {
+    for (Entry<String, byte[]> e : source.entrySet()) {
+      if (e.getKey().endsWith(".zip"))
+        binaries.put(prefix+"#"+e.getKey(), e.getValue());
+    }
   }
 
   public void setQuestionnaire(boolean questionnaire) {
@@ -291,8 +303,29 @@ public class ValidationEngine {
     messages.add(new ValidationMessage(Source.InstanceValidator, IssueType.INFORMATIONAL, "SHEX Validation is not done yet", IssueSeverity.INFORMATION));
   }
 
-  private void validateXmlSchema() {
+  private void validateXmlSchema() throws FileNotFoundException, IOException, SAXException {
+    XmlValidator xml = new XmlValidator(messages, loadSchemas(), loadTransforms());
     messages.add(new ValidationMessage(Source.InstanceValidator, IssueType.INFORMATIONAL, "XML Schema Validation is not done yet", IssueSeverity.INFORMATION));
+  }
+
+  private Map<String, byte[]> loadSchemas() throws IOException {
+    Map<String, byte[]> res = new HashMap<String, byte[]>();
+    for (Entry<String, byte[]> e : readZip(new ByteArrayInputStream(binaries.get("http://hl7.org/fhir#fhir-all-xsd.zip"))).entrySet()) {
+      if (e.getKey().equals("fhir-single.xsd"))
+        res.put(e.getKey(), e.getValue());
+      if (e.getKey().equals("fhir-invariants.sch"))
+        res.put(e.getKey(), e.getValue());
+    }
+    return res;
+  }
+  
+  private Map<String, byte[]> loadTransforms() throws IOException {
+    Map<String, byte[]> res = new HashMap<String, byte[]>();
+    for (Entry<String, byte[]> e : readZip(new ByteArrayInputStream(binaries.get("http://hl7.org/fhir#fhir-all-xsd.zip"))).entrySet()) {
+      if (e.getKey().endsWith(".xsl"))
+        res.put(e.getKey(), e.getValue());
+    }
+    return res;
   }
 
   private void validateJsonSchema() {

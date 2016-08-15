@@ -160,7 +160,6 @@ public class Validator {
         
         ValidationEngine validator = new ValidationEngine();
         validator.loadDefinitions(definitions);
-        if (txServer != null)
           validator.connectToTSServer(txServer);
         for (String src : igs)
           validator.loadIg(src);

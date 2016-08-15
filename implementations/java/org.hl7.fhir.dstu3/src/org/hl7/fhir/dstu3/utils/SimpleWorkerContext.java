@@ -112,6 +112,9 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 			if (name.endsWith(".xml")) {
 				res.loadFromFile(new ByteArrayInputStream(source.get(name)), name);
 			}
+      if (name.endsWith(".json")) {
+        res.loadFromFileJson(new ByteArrayInputStream(source.get(name)), name);
+      }
 		}
 		return res;
 	}
@@ -136,6 +139,23 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 			seeResource(e.getFullUrl(), e.getResource());
 		}
 	}
+
+  private void loadFromFileJson(InputStream stream, String name) throws IOException, FHIRException {
+    JsonParser json = new JsonParser();
+    Bundle f;
+    try {
+      f = (Bundle) json.parse(stream);
+    } catch (FHIRFormatError e1) {
+      throw new org.hl7.fhir.dstu3.exceptions.FHIRFormatError(e1.getMessage(), e1);
+    }
+    for (BundleEntryComponent e : f.getEntry()) {
+
+      if (e.getFullUrl() == null) {
+        System.out.println("unidentified resource in " + name+" (no fullUrl)");
+      }
+      seeResource(e.getFullUrl(), e.getResource());
+    }
+  }
 
 	public void seeResource(String url, Resource r) throws FHIRException {
     if (r instanceof StructureDefinition)

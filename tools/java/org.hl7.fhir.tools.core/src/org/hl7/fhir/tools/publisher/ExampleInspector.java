@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -98,7 +99,7 @@ public class ExampleInspector {
     validator.setResourceIdRule(IdStatus.REQUIRED);
     validator.setBestPracticeWarningLevel(BestPracticeWarningLevel.Warning);    
 
-    xml = new XmlValidator(errorsInt, rootDir, xsltDir, new String[] {"fhir-all.xsd"});
+    xml = new XmlValidator(errorsInt, loadSchemas(), loadTransforms());
 
     if (VALIDATE_BY_JSON_SCHEMA) {
       String source = TextFile.fileToString(Utilities.path(rootDir, "fhir.schema.json"));
@@ -107,6 +108,27 @@ public class ExampleInspector {
     }
     
     fpe = new FluentPathEngine(context);
+  }
+
+  private Map<String, byte[]> loadTransforms() throws FileNotFoundException, IOException {
+    Map<String, byte[]> res = new HashMap<String, byte[]>();
+    for (String s : new File(xsltDir).list()) {
+      if (s.endsWith(".xslt"))
+        res.put(s, TextFile.fileToBytes(Utilities.path(xsltDir, s)));
+    }
+    return res;
+  }
+
+  private Map<String, byte[]> loadSchemas() throws FileNotFoundException, IOException {
+    Map<String, byte[]> res = new HashMap<String, byte[]>();
+    res.put("fhir-single.xsd", TextFile.fileToBytes(Utilities.path(rootDir, "fhir-single.xsd")));
+    res.put("fhir-xhtml.xsd", TextFile.fileToBytes(Utilities.path(rootDir, "fhir-xhtml.xsd")));
+    res.put("xml.xsd", TextFile.fileToBytes(Utilities.path(rootDir, "xml.xsd")));
+    for (String s : new File(rootDir).list()) {
+      if (s.endsWith(".sch"))
+        res.put(s, TextFile.fileToBytes(Utilities.path(rootDir, s)));
+    }
+    return res;
   }
 
 //  static final String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";

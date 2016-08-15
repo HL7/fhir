@@ -518,7 +518,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                     ValidationResult vr = context.validateCode(c, valueset);
                     txTime = txTime + (System.nanoTime() - t);
                     if (!vr.isOk()) {
-                      if (binding.getStrength() == BindingStrength.REQUIRED)
+                      if (vr.IsNoService())
+                        hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "The value provided could not be validated in the absence of a terminology server");
+                      else if (binding.getStrength() == BindingStrength.REQUIRED)
                         rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided is not in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is required from this value set)");
                       else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
                         warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided is not in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code)");
@@ -941,7 +943,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         ValidationResult vr = context.validateCode(null, value, null, vs);
         txTime = txTime + (System.nanoTime() - t);
         if (vr != null && !vr.isOk()) {
-          if (binding.getStrength() == BindingStrength.REQUIRED)
+          if (vr.IsNoService())
+            hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "The value provided ('"+value+"') could not be validated in the absence of a terminology server");
+          else if (binding.getStrength() == BindingStrength.REQUIRED)
             rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided ('"+value+"') is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code is required from this value set)");
           else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
             warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided ('"+value+"') is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code should come from this value set unless it has no suitable code)");

@@ -48,9 +48,11 @@ import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpanderFactory;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ETooCostly;
+import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ExpansionErrorClass;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ILoggingService;
 import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
+import org.hl7.fhir.exceptions.NoTerminologyServiceException;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.TextFile;
@@ -170,8 +172,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       }
       return res;
       }
+    } catch (NoTerminologyServiceException e) {
+      return new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage(), ExpansionErrorClass.NOSERVICE);
     } catch (Exception e) {
-      return new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage());
+      return new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage(), ExpansionErrorClass.UNKNOWN);
     }
   }
 
@@ -179,7 +183,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     JsonParser parser = new JsonParser();
     Resource r = parser.parse(new FileInputStream(cacheFn));
     if (r instanceof OperationOutcome)
-      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDetails().getText());
+      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDetails().getText(), ExpansionErrorClass.NOSERVICE);
     else {
       vs.setExpansion(((ValueSet) r).getExpansion()); // because what is cached might be from a different value set
       return new ValueSetExpansionOutcome(vs);
@@ -243,7 +247,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   public ValueSetExpansionOutcome expandOnServer(ValueSet vs, String fn) throws Exception {
     if (noTerminologyServer)
-      return new ValueSetExpansionOutcome("Error expanding ValueSet: running without terminology services");
+      return new ValueSetExpansionOutcome("Error expanding ValueSet: running without terminology services", ExpansionErrorClass.NOSERVICE);
       
     try {
       Map<String, String> params = new HashMap<String, String>();
@@ -254,7 +258,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       ValueSet result = txServer.expandValueset(vs, params);
       return new ValueSetExpansionOutcome(result);  
     } catch (Exception e) {
-      return new ValueSetExpansionOutcome("Error expanding ValueSet \""+vs.getUrl()+": "+e.getMessage());
+      return new ValueSetExpansionOutcome("Error expanding ValueSet \""+vs.getUrl()+": "+e.getMessage(), ExpansionErrorClass.UNKNOWN);
     }
   }
 
@@ -604,6 +608,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       return verifyCodeInExpansion(vs, code);
     else {
       ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs, null);
+      if (vse.getValueset() == null)
+        return new ValidationResult(IssueSeverity.ERROR, vse.getError(), vse.getErrorClass());
+      else
       return verifyCodeInExpansion(vse.getValueset(), code);
     }
   }
@@ -702,6 +709,11 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   public void setExpansionProfile(ExpansionProfile expProfile) {
     this.expProfile = expProfile;
+  }
+
+  @Override
+  public boolean isNoTerminologyServer() {
+    return noTerminologyServer;
   }
 
 }

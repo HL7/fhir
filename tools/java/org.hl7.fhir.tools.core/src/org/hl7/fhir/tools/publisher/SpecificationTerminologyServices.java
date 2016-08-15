@@ -35,15 +35,18 @@ import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ExpansionErrorClass;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ValidationResult;
 import org.hl7.fhir.dstu3.utils.client.EFhirClientException;
 import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
+import org.hl7.fhir.exceptions.NoTerminologyServiceException;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XMLWriter;
+import org.omg.CORBA.UNKNOWN;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -353,7 +356,7 @@ public class SpecificationTerminologyServices {
         return loadFromCache(vs.copy(), cacheFn);
       return expandOnServer(vs, cacheFn);
     } catch (Exception e) {
-      return new ValueSetExpansionOutcome(e.getMessage());
+      return new ValueSetExpansionOutcome(e.getMessage(), e instanceof NoTerminologyServiceException ? ExpansionErrorClass.NOSERVICE : ExpansionErrorClass.UNKNOWN);
     }
   }
 
@@ -377,7 +380,7 @@ public class SpecificationTerminologyServices {
     JsonParser parser = new JsonParser();
     Resource r = parser.parse(new FileInputStream(cacheFn));
     if (r instanceof OperationOutcome)
-      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDiagnostics());
+      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDiagnostics(), ExpansionErrorClass.UNKNOWN);
     else {
       vs.setExpansion(((ValueSet) r).getExpansion()); // because what is cached might be from a different value set
       return new ValueSetExpansionOutcome(vs);

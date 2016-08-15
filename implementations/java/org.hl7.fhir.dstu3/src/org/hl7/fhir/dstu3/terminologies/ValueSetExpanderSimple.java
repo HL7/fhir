@@ -68,6 +68,7 @@ import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionParameterComponent;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.exceptions.NoTerminologyServiceException;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -239,15 +240,19 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 				focus.getExpansion().setTotal(total);
 			}
 			
-			return new ValueSetExpansionOutcome(focus, null);
+      return new ValueSetExpansionOutcome(focus);
 		} catch (RuntimeException e) {
 			// TODO: we should put something more specific instead of just Exception below, since
 			// it swallows bugs.. what would be expected to be caught there?
 			throw e;
+    } catch (NoTerminologyServiceException e) {
+      // well, we couldn't expand, so we'll return an interface to a checker that can check membership of the set
+      // that might fail too, but it might not, later.
+      return new ValueSetExpansionOutcome(new ValueSetCheckerSimple(source, factory, context), e.getMessage(), ExpansionErrorClass.NOSERVICE);
 		} catch (Exception e) {
 			// well, we couldn't expand, so we'll return an interface to a checker that can check membership of the set
 			// that might fail too, but it might not, later.
-			return new ValueSetExpansionOutcome(new ValueSetCheckerSimple(source, factory, context), e.getMessage());
+    return new ValueSetExpansionOutcome(new ValueSetCheckerSimple(source, factory, context), e.getMessage(), ExpansionErrorClass.UNKNOWN);
 		}
 	}
 
@@ -283,7 +288,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 		return null;
 	}
 
-	private void handleCompose(ValueSetComposeComponent compose, List<ValueSetExpansionParameterComponent> params, ExpansionProfile profile) throws TerminologyServiceException, ETooCostly, FileNotFoundException, IOException {
+  private void handleCompose(ValueSetComposeComponent compose, List<ValueSetExpansionParameterComponent> params, ExpansionProfile profile) throws TerminologyServiceException, ETooCostly, FileNotFoundException, IOException, NoTerminologyServiceException {
 		// Exclude comes first because we build up a map of things to exclude
 		for (ConceptSetComponent inc : compose.getExclude())
 			excludeCodes(inc, params);
@@ -330,15 +335,19 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 		}
 	}
 
-  private void includeCodes(ConceptSetComponent inc, List<ValueSetExpansionParameterComponent> params, ExpansionProfile profile) throws ETooCostly, org.hl7.fhir.exceptions.TerminologyServiceException {
+  private void includeCodes(ConceptSetComponent inc, List<ValueSetExpansionParameterComponent> params, ExpansionProfile profile) throws ETooCostly, org.hl7.fhir.exceptions.TerminologyServiceException, NoTerminologyServiceException {
 		CodeSystem cs = context.fetchCodeSystem(inc.getSystem());
 		if ((cs == null || cs.getContent() != CodeSystemContentMode.COMPLETE) && context.supportsSystem(inc.getSystem())) {
       addCodes(context.expandVS(inc, canBeHeirarchy), params, profile);
 			return;
 		}
 
-		if (cs == null)
+    if (cs == null) {
+      if (context.isNoTerminologyServer())
+        throw new NoTerminologyServiceException("unable to find code system "+inc.getSystem().toString());
+      else
 			throw new TerminologyServiceException("unable to find code system " + inc.getSystem().toString());
+    }
 		if (cs.getContent() != CodeSystemContentMode.COMPLETE)
 			throw new TerminologyServiceException("Code system " + inc.getSystem().toString() + " is incomplete");
 		if (cs.hasVersion())

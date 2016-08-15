@@ -5,8 +5,13 @@ import java.io.IOException;
 
 import org.hl7.fhir.dstu3.model.ExpansionProfile;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ExpansionErrorClass;
 
 public interface ValueSetExpander {
+  public enum ExpansionErrorClass {
+    UNKNOWN, NOSERVICE
+
+  }
   public class ETooCostly extends Exception {
 
     public ETooCostly(String msg) {
@@ -25,28 +30,33 @@ public interface ValueSetExpander {
     private ValueSet valueset;
     private ValueSetChecker service;
     private String error;
+    private ExpansionErrorClass errorClass;
+    
     public ValueSetExpansionOutcome(ValueSet valueset) {
       super();
       this.valueset = valueset;
       this.service = null;
       this.error = null;
     }
-    public ValueSetExpansionOutcome(ValueSet valueset, String error) {
+    public ValueSetExpansionOutcome(ValueSet valueset, String error, ExpansionErrorClass errorClass) {
       super();
       this.valueset = valueset;
       this.service = null;
       this.error = error;
+      this.errorClass = errorClass;
     }
-    public ValueSetExpansionOutcome(ValueSetChecker service, String error) {
+    public ValueSetExpansionOutcome(ValueSetChecker service, String error, ExpansionErrorClass errorClass) {
       super();
       this.valueset = null;
       this.service = service;
       this.error = error;
+      this.errorClass = errorClass;
     }
-    public ValueSetExpansionOutcome(String error) {
+    public ValueSetExpansionOutcome(String error, ExpansionErrorClass errorClass) {
       this.valueset = null;
       this.service = null;
       this.error = error;
+      this.errorClass = errorClass;
     }
     public ValueSet getValueset() {
       return valueset;
@@ -56,6 +66,9 @@ public interface ValueSetExpander {
     }
     public String getError() {
       return error;
+    }
+    public ExpansionErrorClass getErrorClass() {
+      return errorClass;
     }
 
 
