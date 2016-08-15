@@ -1,15 +1,14 @@
 package server
 
 import (
-	"net/url"
-	"reflect"
-	"strconv"
-	"time"
-
 	"github.com/intervention-engine/fhir/models"
 	"github.com/intervention-engine/fhir/search"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
+	"net/url"
+	"reflect"
+	"strconv"
+	"time"
 )
 
 // NewMongoDataAccessLayer returns an implementation of DataAccessLayer that is backed by a Mongo database
@@ -43,13 +42,9 @@ type InterceptorList []Interceptor
 // Supported verbs are: POST, PUT, DELETE
 func (dal *mongoDataAccessLayer) invokeInterceptors(httpVerb, resourceType string, resource interface{}) {
 
-	var interceptors InterceptorList
-	if httpVerb == "POST" || httpVerb == "PUT" || httpVerb == "DELETE" {
-		interceptors = dal.Interceptors[httpVerb]
-		for _, interceptor := range interceptors {
-			if interceptor.ResourceType == resourceType || interceptor.ResourceType == "*" {
-				interceptor.Handler(resource)
-			}
+	for _, interceptor := range dal.Interceptors[httpVerb] {
+		if interceptor.ResourceType == resourceType || interceptor.ResourceType == "*" {
+			interceptor.Handler(resource)
 		}
 	}
 }
@@ -151,10 +146,7 @@ func (dal *mongoDataAccessLayer) Delete(id, resourceType string) error {
 		return convertMongoErr(err)
 	}
 
-	collection := dal.Database.C(models.PluralizeLowerResourceName(resourceType))
-	err = collection.RemoveId(bsonID.Hex())
-
-	if err == nil && dal.hasInterceptorsForVerbAndType("DELETE", resourceType) {
+	if dal.hasInterceptorsForVerbAndType("DELETE", resourceType) {
 		// Although this is a delete operation we need to get the resource first so we can
 		// run any interceptors on the resource before it's deleted.
 		resource, err := dal.Get(id, resourceType)
@@ -162,6 +154,9 @@ func (dal *mongoDataAccessLayer) Delete(id, resourceType string) error {
 			dal.invokeInterceptors("DELETE", resourceType, resource)
 		}
 	}
+
+	collection := dal.Database.C(models.PluralizeLowerResourceName(resourceType))
+	err = collection.RemoveId(bsonID.Hex())
 	return convertMongoErr(err)
 }
 
@@ -178,19 +173,24 @@ func (dal *mongoDataAccessLayer) ConditionalDelete(query search.Query) (count in
 		bundle, err = dal.Search(url.URL{}, query) // the baseURL argument here does not matter
 
 		if err != nil {
-			return count, convertMongoErr(err)
-		}
-		count = int(*bundle.Total)
-		resourceIds := make([]string, count)
-		for i, elem := range bundle.Entry {
-			resourceIds[i] = reflect.ValueOf(elem.Resource).Elem().FieldByName("Id").String()
-			dal.invokeInterceptors("DELETE", resourceType, elem.Resource)
-		}
+			// Skip the interceptor(s) since trying to get the resources failed, use the default
+			// queryObject created for the conditional delete instead
+			queryObject = searcher.CreateQueryObject(query)
 
-		queryObject = bson.M{
-			"_id": bson.M{"$in": resourceIds},
+		} else {
+			count = int(*bundle.Total)
+			resourceIds := make([]string, count)
+			for i, elem := range bundle.Entry {
+				resourceIds[i] = reflect.ValueOf(elem.Resource).Elem().FieldByName("Id").String()
+				dal.invokeInterceptors("DELETE", resourceType, elem.Resource)
+			}
+
+			queryObject = bson.M{
+				"_id": bson.M{"$in": resourceIds},
+			}
 		}
 	} else {
+		// No interceptor(s) registered, use the default conditional query
 		queryObject = searcher.CreateQueryObject(query)
 	}
 
