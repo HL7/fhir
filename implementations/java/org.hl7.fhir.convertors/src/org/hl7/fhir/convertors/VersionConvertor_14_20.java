@@ -43,7 +43,7 @@ import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 
-public class VersionConvertor_16_20 {
+public class VersionConvertor_14_20 {
 
   private static void copyElement(org.hl7.fhir.dstu2016may.model.Element src, org.hl7.fhir.dstu3.model.Element tgt) throws FHIRException {
     tgt.setId(src.getId());

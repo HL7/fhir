@@ -2576,9 +2576,10 @@ public class ProfileUtilities {
 
   public void populateLogicalSnapshot(StructureDefinition sd) throws FHIRException {
     sd.getSnapshot().getElement().add(sd.getDifferential().getElementFirstRep().copy());
+    
     StructureDefinition base = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
     if (base == null)
-      throw new FHIRException("Unable to find base definition for logical model: "+sd.getBaseDefinition());
+      throw new FHIRException("Unable to find base definition for logical model: "+sd.getBaseDefinition()+" from "+sd.getUrl());
     copyElements(sd, base.getSnapshot().getElement());
     copyElements(sd, sd.getDifferential().getElement());
   }

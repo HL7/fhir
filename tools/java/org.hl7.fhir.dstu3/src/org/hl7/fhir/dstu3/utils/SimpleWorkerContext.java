@@ -188,10 +188,8 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	private void seeProfile(String url, StructureDefinition p) throws FHIRException {
     if (Utilities.noString(url))
       url = p.getUrl();
-    if (p.getKind() == StructureDefinitionKind.LOGICAL)
-      return;
     
-    if (!p.hasSnapshot()) {
+    if (!p.hasSnapshot() && p.getKind() != StructureDefinitionKind.LOGICAL) {
       if (!p.hasBaseDefinition())
         throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") has no base and no snapshot");
       StructureDefinition sd = fetchResource(StructureDefinition.class, p.getBaseDefinition());

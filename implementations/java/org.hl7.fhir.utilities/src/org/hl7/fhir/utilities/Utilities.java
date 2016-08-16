@@ -979,6 +979,11 @@ public class Utilities {
   }
 
 
+  public static String getFileExtension(String fn) {
+    return fn.contains(".") ? fn.substring(fn.lastIndexOf(".")+1) : "";
+  }
+
+
 
 
 }

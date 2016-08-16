@@ -324,7 +324,7 @@ public class IGPublisherFrame extends javax.swing.JFrame {
 
   protected void btnGetHelpClick(ActionEvent evt) {
     try {
-      String text = Publisher.buildReport((String) cbxIGName.getSelectedItem(), fullLog.toString(), qa == null ? null : Utilities.changeFileExt(qa, ".txt"));
+      String text = Publisher.buildReport((String) cbxIGName.getSelectedItem(), null, fullLog.toString(), qa == null ? null : Utilities.changeFileExt(qa, ".txt"));
       StringSelection stringSelection = new StringSelection(text);
       Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
       clpbrd.setContents(stringSelection, null);
