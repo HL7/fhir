@@ -19,20 +19,21 @@ func (f *FHIRServer) AddMiddleware(key string, middleware gin.HandlerFunc) {
 	f.MiddlewareConfig[key] = append(f.MiddlewareConfig[key], middleware)
 }
 
-// AddInterceptor adds a new interceptor for a particular HTTP verb and FHIR resource. For example:
-// AddInterceptor("POST", "Patient", handleFunc) would register the function "handleFunc"
-// to be run against a Patient resource when it is created, before being added to the database.
+// AddInterceptor adds a new interceptor for a particular database operation and FHIR resource.
+// For example:
+// AddInterceptor("Create", "Patient", handleFunc) would register the function "handleFunc"
+// to be run against a Patient resource when it is created, after being added to the database.
 //
 // To run a handler against ALL resources pass "*" as the resourceType.
 //
-// Supported HTTP verbs are: POST, PUT, DELETE
-func (f *FHIRServer) AddInterceptor(httpVerb, resourceType string, handler InterceptorHandler) error {
+// Supported database operations are: "Create", "Update", "Delete"
+func (f *FHIRServer) AddInterceptor(op, resourceType string, handler InterceptorHandler) error {
 
-	if httpVerb == "POST" || httpVerb == "PUT" || httpVerb == "DELETE" {
-		f.Interceptors[httpVerb] = append(f.Interceptors[httpVerb], Interceptor{ResourceType: resourceType, Handler: handler})
+	if op == "Create" || op == "Update" || op == "Delete" {
+		f.Interceptors[op] = append(f.Interceptors[op], Interceptor{ResourceType: resourceType, Handler: handler})
 		return nil
 	}
-	return errors.New(fmt.Sprintf("AddInterceptor: unsupported HTTP verb %s", httpVerb))
+	return errors.New(fmt.Sprintf("AddInterceptor: unsupported database operation %s", op))
 }
 
 func NewServer(databaseHost string) *FHIRServer {
