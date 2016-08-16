@@ -37,6 +37,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.*;
+import java.text.SimpleDateFormat;
 
 import org.hl7.fhir.definitions.model.*;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
@@ -82,6 +83,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
             put("modelDir", Utilities.path(basedDir, "app", "models"));
             put("searchDir", Utilities.path(basedDir, "app", "search"));
             put("serverDir", Utilities.path(basedDir, "app", "server"));
+            put("conformanceDir", Utilities.path(basedDir, "app", "conformance"));
         }};
 
         createDirStructure(dirs);
@@ -125,6 +127,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         // with no web endpoint.
         generateResourceHelpers(namesAndDefinitions.keySet(), dirs.get("modelDir"), templateGroup);
         generateSearchParameterDictionary(definitions, dirs.get("searchDir"), templateGroup);
+        generateConformanceStatement(definitions, dirs.get("conformanceDir"), templateGroup);
 
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "codeableconcept_ext.go")), new File(dirs.get("modelDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "operationoutcome_ext.go")), new File(dirs.get("modelDir")));
@@ -318,6 +321,39 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         utilTemplate.add("ResourceSearchInfos", searchInfos);
 
         File outputFile = new File(Utilities.path(outputDir, "search_parameter_dictionary.go"));
+        Writer controllerWriter = new BufferedWriter(new FileWriter(outputFile));
+        controllerWriter.write(utilTemplate.render());
+        controllerWriter.flush();
+        controllerWriter.close();
+    }
+
+    private void generateConformanceStatement(Definitions definitions, String outputDir, STGroup templateGroup) throws IOException {
+        ST utilTemplate = templateGroup.getInstanceOf("conformance_statement.json");
+
+        // Generate current ISO8601 datetime
+        Date currDate = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
+        String dateString = format.format(currDate);
+        utilTemplate.add("Date", dateString);
+
+        // List of resources
+        ArrayList<ResourceSearchInfo> searchInfos = new ArrayList<ResourceSearchInfo>(definitions.getResources().size());
+        for (ResourceDefn defn: definitions.getResources().values()) {
+            ResourceSearchInfo searchInfo = new ResourceSearchInfo(defn.getName());
+            searchInfo.addAllSearchParams(getSearchParameterDefinitions(definitions, defn));
+            searchInfo.sortSearchParams(); // Sort the param list so that the final result is deterministic
+            searchInfos.add(searchInfo);
+        }
+        // Sort the resource search infos so that the final result is deterministic
+        Collections.sort(searchInfos, new Comparator<ResourceSearchInfo>() {
+            @Override
+            public int compare(ResourceSearchInfo a, ResourceSearchInfo b) {
+                return a.name.compareTo(b.name);
+            }
+        });
+        utilTemplate.add("ResourceSearchInfos", searchInfos);
+
+        File outputFile = new File(Utilities.path(outputDir, "conformance_statement.json"));
         Writer controllerWriter = new BufferedWriter(new FileWriter(outputFile));
         controllerWriter.write(utilTemplate.render());
         controllerWriter.flush();
