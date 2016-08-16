@@ -43,7 +43,7 @@ import org.apache.commons.codec.Charsets;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.PumpStreamHandler;
 import org.apache.commons.lang3.SystemUtils;
-import org.hl7.fhir.convertors.VersionConvertor;
+import org.hl7.fhir.convertors.VersionConvertor_10_20;
 import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
@@ -1054,7 +1054,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
               res2 = new org.hl7.fhir.dstu2.formats.JsonParser().parse(file.getSource());
             else if (file.getContentType().contains("xml"))
               res2 = new org.hl7.fhir.dstu2.formats.XmlParser().parse(file.getSource());
-            org.hl7.fhir.dstu3.model.Resource res = new VersionConvertor(null).convertResource(res2);
+            org.hl7.fhir.dstu3.model.Resource res = new VersionConvertor_10_20(null).convertResource(res2);
             e = new ObjectConverter(context).convert(res);
             r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
             r.setResource(res);

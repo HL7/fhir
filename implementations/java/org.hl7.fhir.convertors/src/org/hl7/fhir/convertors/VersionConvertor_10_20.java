@@ -51,7 +51,7 @@ import org.hl7.fhir.utilities.Utilities;
 // Generated on Thu, Apr 7, 2016 02:14+1000 for FHIR v1.4.0
 
 
-public class VersionConvertor {
+public class VersionConvertor_10_20 {
 
   public interface VersionConvertorAdvisor {
     boolean ignoreEntry(org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent src);
@@ -62,7 +62,7 @@ public class VersionConvertor {
   public VersionConvertorAdvisor advisor;
 
 
-	public VersionConvertor(VersionConvertorAdvisor advisor) {
+	public VersionConvertor_10_20(VersionConvertorAdvisor advisor) {
     super();
     this.advisor = advisor;
   }

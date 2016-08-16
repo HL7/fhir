@@ -6,8 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import org.hl7.fhir.convertors.VersionConvertor;
-import org.hl7.fhir.convertors.VersionConvertor.VersionConvertorAdvisor;
+import org.hl7.fhir.convertors.VersionConvertor_10_20;
+import org.hl7.fhir.convertors.VersionConvertor_10_20.VersionConvertorAdvisor;
 import org.hl7.fhir.dstu2.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu2.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2.model.Resource;
@@ -26,11 +26,11 @@ import org.hl7.fhir.exceptions.FHIRException;
 public class DSTU2ValidationConvertor implements VersionConvertorAdvisor {
 
   private Bundle source;
-  private VersionConvertor vc;
+  private VersionConvertor_10_20 vc;
   
   public void convert(String bundleSource, String bundleTarget) throws Exception {
     System.out.println("Convert "+bundleSource);
-    vc = new VersionConvertor(this);
+    vc = new VersionConvertor_10_20(this);
     
     try {
       source = (Bundle) new XmlParser().parse(new FileInputStream(bundleSource));

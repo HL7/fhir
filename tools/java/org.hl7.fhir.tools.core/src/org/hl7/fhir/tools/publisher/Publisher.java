@@ -73,7 +73,7 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 
 import org.apache.commons.io.IOUtils;
-import org.hl7.fhir.convertors.VersionConvertor;
+import org.hl7.fhir.convertors.VersionConvertor_10_20;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
@@ -1996,7 +1996,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (org.hl7.fhir.dstu2.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
       if (be.getResource() instanceof org.hl7.fhir.dstu2.model.StructureDefinition) {
         org.hl7.fhir.dstu2.model.StructureDefinition sd = (org.hl7.fhir.dstu2.model.StructureDefinition) be.getResource();
-        map.put(sd.getName(), new VersionConvertor(null).convertStructureDefinition(sd));
+        map.put(sd.getName(), new VersionConvertor_10_20(null).convertStructureDefinition(sd));
       }
     }
   }
@@ -2006,7 +2006,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (org.hl7.fhir.dstu2.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
       if (be.getResource() instanceof org.hl7.fhir.dstu2.model.ValueSet) {
         org.hl7.fhir.dstu2.model.ValueSet sd = (org.hl7.fhir.dstu2.model.ValueSet) be.getResource();
-        map.put(sd.getName(), new VersionConvertor(null).convertValueSet(sd));
+        map.put(sd.getName(), new VersionConvertor_10_20(null).convertValueSet(sd));
       }
     }    
   }

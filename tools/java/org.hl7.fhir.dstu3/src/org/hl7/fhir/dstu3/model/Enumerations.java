@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Aug 11, 2016 07:16+1000 for FHIR v1.6.0
+// Generated on Mon, Aug 15, 2016 19:10+1000 for FHIR v1.7.0
 
 
 import org.hl7.fhir.instance.model.api.*;

@@ -210,7 +210,7 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
     return 
           Utilities.existsInList(s, "Element", "BackboneElement")  // structural
       ||
-          Utilities.existsInList(s, "ModuleMetadata", "CodeSystem"); // no equivalence in DSTU2
+          Utilities.existsInList(s, "ModuleMetadata"); // no equivalence in DSTU2
 }
 
   private List<String> sorted(Set<String> keys) {
@@ -297,7 +297,7 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
   }
   
   private void generate(ElementDefn root, ElementDefn n, JavaGenClass clss, String nameOverride) throws Exception {
-    if (exemptTypeName(n.getName()) || !r2TypeName(n.getName())) 
+    if (exemptTypeName(n.getName())) 
       return;
 
     typeNames.clear();
@@ -321,15 +321,7 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
 
   }
 
-  private boolean r2TypeName(String name) {
-    return Utilities.existsInList(name, "base64Binary", "boolean", "code", "date", "dateTime", "decimal", "id", "instant", "integer", "markdown", "oid", "positiveInt", "sid", "string", "time", "unsignedInt", "uri", "uuid", "Account", "Address", "Age", "AllergyIntolerance", "Annotation", "Appointment", "AppointmentResponse", "Attachment", "AuditEvent", 
-        "BackboneElement", "Basic", "Binary", "BodySite", "Bundle", "CarePlan", "Claim", "ClaimResponse", "ClinicalImpression", "CodeableConcept", "Coding", "Communication", "CommunicationRequest", "Comparison", "Composition", "ConceptMap", "Condition", "Configuration", "Conformance", "Constants", "ContactPoint", "Contract", "Count", "Coverage", "DataElement", "DetectedIssue", "Device", 
-        "DeviceComponent", "DeviceMetric", "DeviceUseRequest", "DeviceUseStatement", "DiagnosticOrder", "DiagnosticReport", "Distance", "DocumentManifest", "DocumentReference", "DomainResource", "Duration", "Element", "ElementDefinition", "EligibilityRequest", "EligibilityResponse", "Encounter", "EnrollmentRequest", "EnrollmentResponse", "EpisodeOfCare", "ExplanationOfBenefit", "ExpressionNode", "Extension", "FamilyMemberHistory", "Flag", "Goal", 
-        "Group", "HealthcareService", "HumanName", "Identifier", "ImagingObjectSelection", "ImagingStudy", "Immunization", "ImmunizationRecommendation", "ImplementationGuide", "List_", "Location", "Media", "Medication", "MedicationAdministration", "MedicationDispense", "MedicationOrder", "MedicationStatement", "MessageHeader", "Meta", "Money", "NamingSystem", "Narrative", "NutritionOrder", "Observation", "OperationDefinition", "OperationOutcome", "Order", "OrderResponse", "Organization", 
-        "Parameters", "Patient", "PaymentNotice", "PaymentReconciliation", "Period", "Person", "Practitioner", "Procedure", "ProcedureRequest", "ProcessRequest", "ProcessResponse", "Property", "Provenance", "Quantity", "Questionnaire", "QuestionnaireResponse", "Range", "Ratio", "Reference", "ReferralRequest", "RelatedPerson", "Resource", "Resource", "RiskAssessment", 
-        "SampledData", "Schedule", "SearchParameter", "Signature", "SimpleQuantity", "Slot", "Specimen", "StructureDefinition", "Subscription", "Substance", "SupplyDelivery", "SupplyRequest", "TemporalPrecisionEnum", "TestScript", "Timing", "ValueSet", "VisionPrescription");
-  }
-
+  
   private String javaClassName(String name) {
     if (name.equals("List"))
       return "ListResource";

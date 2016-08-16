@@ -15,5 +15,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu3"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/hapi-fhir-base-1.6.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-codec-1.9.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu2016may"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
