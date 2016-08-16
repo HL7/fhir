@@ -53,8 +53,7 @@ func (dal *mongoDataAccessLayer) invokeInterceptors(httpVerb, resourceType strin
 func (dal *mongoDataAccessLayer) hasInterceptorsForVerbAndType(httpVerb, resourceType string) bool {
 
 	if len(dal.Interceptors[httpVerb]) > 0 {
-		interceptors := dal.Interceptors[httpVerb]
-		for _, interceptor := range interceptors {
+		for _, interceptor := range dal.Interceptors[httpVerb] {
 			if interceptor.ResourceType == resourceType || interceptor.ResourceType == "*" {
 				// At least 1 interceptor is registered for this verb and resource type
 				return true
@@ -146,17 +145,25 @@ func (dal *mongoDataAccessLayer) Delete(id, resourceType string) error {
 		return convertMongoErr(err)
 	}
 
-	if dal.hasInterceptorsForVerbAndType("DELETE", resourceType) {
+	var resource interface{}
+	var getError error
+	hasInterceptor := dal.hasInterceptorsForVerbAndType("DELETE", resourceType)
+
+	if hasInterceptor {
 		// Although this is a delete operation we need to get the resource first so we can
 		// run any interceptors on the resource before it's deleted.
-		resource, err := dal.Get(id, resourceType)
-		if err == nil {
-			dal.invokeInterceptors("DELETE", resourceType, resource)
-		}
+		resource, getError = dal.Get(id, resourceType)
 	}
 
 	collection := dal.Database.C(models.PluralizeLowerResourceName(resourceType))
 	err = collection.RemoveId(bsonID.Hex())
+
+	if err == nil && hasInterceptor {
+		if getError == nil {
+			dal.invokeInterceptors("DELETE", resourceType, resource)
+		}
+	}
+
 	return convertMongoErr(err)
 }
 
@@ -164,34 +171,66 @@ func (dal *mongoDataAccessLayer) ConditionalDelete(query search.Query) (count in
 	resourceType := query.Resource
 	searcher := search.NewMongoSearcher(dal.Database)
 	collection := dal.Database.C(models.PluralizeLowerResourceName(resourceType))
-
+	defaultQueryObject := searcher.CreateQueryObject(query)
 	var queryObject bson.M
 
 	if dal.hasInterceptorsForVerbAndType("DELETE", resourceType) {
+		/* Interceptors for a conditional delete are tricky since an interceptor is only run
+		   AFTER the database operation and only on resources that were SUCCESSFULLY deleted. We use
+		   the following approach:
+		   1. Search for all matching resources by the original query (returns a bundle of resources)
+		   2. Bulk delete those resources by ID
+		   3. Search again using the SAME query, to verify that those resources were in fact deleted
+		   4. Run the interceptor(s) on all resources that ARE NOT in the second search (since they were truly deleted)
+		*/
+
 		// get the resources that are about to be deleted
 		var bundle *models.Bundle
 		bundle, err = dal.Search(url.URL{}, query) // the baseURL argument here does not matter
 
-		if err != nil {
-			// Skip the interceptor(s) since trying to get the resources failed, use the default
-			// queryObject created for the conditional delete instead
-			queryObject = searcher.CreateQueryObject(query)
+		if err == nil {
+			resourceIds := getResourceIdsFromBundle(bundle)
+			queryObject = bson.M{ "_id": bson.M{"$in": resourceIds} }
 
-		} else {
-			count = int(*bundle.Total)
-			resourceIds := make([]string, count)
-			for i, elem := range bundle.Entry {
-				resourceIds[i] = reflect.ValueOf(elem.Resource).Elem().FieldByName("Id").String()
-				dal.invokeInterceptors("DELETE", resourceType, elem.Resource)
+			// do the bulk delete by ID
+			info, err := collection.RemoveAll(queryObject)
+			successfulIds := make([]string, len(resourceIds))
+
+			if info != nil {
+				count = info.Removed
 			}
 
-			queryObject = bson.M{
-				"_id": bson.M{"$in": resourceIds},
+			if err != nil {
+				return count, convertMongoErr(err)
 			}
+
+			var failBundle *models.Bundle
+			var searchErr error
+
+			if count < len(resourceIds) {
+				// Not all resources were removed...
+				failBundle, searchErr = dal.Search(url.URL{}, query) // original search query
+				successfulIds = setDiff(resourceIds, getResourceIdsFromBundle(failBundle))
+			} else {
+				// All resources were successfully removed
+				successfulIds = resourceIds
+			}
+
+			if searchErr == nil {
+				for _, elem := range bundle.Entry {
+					id := reflect.ValueOf(elem.Resource).Elem().FieldByName("Id").String()
+
+					if elementInSlice(id, successfulIds) {
+						// This resource was confirmed deleted
+						dal.invokeInterceptors("DELETE", resourceType, elem.Resource)
+					}
+				}
+			}
+			return count, convertMongoErr(err)
 		}
 	} else {
 		// No interceptor(s) registered, use the default conditional query
-		queryObject = searcher.CreateQueryObject(query)
+		queryObject = defaultQueryObject
 	}
 
 	// do the bulk delete the usual way
@@ -402,4 +441,45 @@ func convertMongoErr(err error) error {
 	case mgo.ErrNotFound:
 		return ErrNotFound
 	}
+}
+
+// getResourceIdsFromBundle parses a slice of BSON resource IDs from a valid
+// bundle of resources (typically returned from a search operation). Order is
+// preserved.
+func getResourceIdsFromBundle(bundle *models.Bundle) []string {
+	resourceIds := make([]string, int(*bundle.Total))
+	for i, elem := range bundle.Entry {
+		resourceIds[i] = reflect.ValueOf(elem.Resource).Elem().FieldByName("Id").String()
+	}
+	return resourceIds
+}
+
+// setDiff returns all the elements in slice X that are not in slice Y
+func setDiff(X, Y []string) []string {
+	m := make(map[string]int)
+
+    for _, y := range Y {
+        m[y]++
+    }
+
+    var ret []string
+    for _, x := range X {
+        if m[x] > 0 {
+            m[x]--
+            continue
+        }
+        ret = append(ret, x)
+    }
+
+    return ret
+}
+
+// elementInSlice tests if a string element is in a larger slice of strings
+func elementInSlice(element string, slice []string) bool {
+	for _, el := range slice {
+		if element == el {
+			return true
+		}
+	}
+	return false
 }
