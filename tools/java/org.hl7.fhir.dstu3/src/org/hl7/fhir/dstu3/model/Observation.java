@@ -2707,7 +2707,7 @@ public class Observation extends DomainResource {
           this.getPerformer().add(castToReference(value)); // Reference
           break;
         case 111972721: // value
-          this.value = (Type) value; // Type
+          this.value = castToType(value); // Type
           break;
         case 1034315687: // dataAbsentReason
           this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept

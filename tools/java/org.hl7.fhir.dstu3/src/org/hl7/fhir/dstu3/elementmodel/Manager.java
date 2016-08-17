@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -45,6 +46,12 @@ public class Manager {
     case TURTLE : return new TurtleParser(context);
     }
     return null;
+  }
+
+  public static Element build(IWorkerContext context, StructureDefinition sd) {
+    Property p = new Property(context, sd.getSnapshot().getElementFirstRep(), sd);
+    Element e = new Element(null, p);
+    return e;
   }
 
 }

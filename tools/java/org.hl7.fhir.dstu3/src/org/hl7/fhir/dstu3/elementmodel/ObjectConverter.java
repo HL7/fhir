@@ -7,6 +7,7 @@ import java.util.List;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
@@ -14,6 +15,7 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
+
 
 public class ObjectConverter  {
 
@@ -65,6 +67,18 @@ public class ObjectConverter  {
       return path.substring(path.lastIndexOf('.')+1);
     else
       return path;
+  }
+
+  public Type convertToType(Element element) throws FHIRException {
+    Type b = new Factory().create(element.fhirType());
+    if (b instanceof PrimitiveType) {
+      ((PrimitiveType) b).setValueAsString(element.primitiveValue());
+    } else {
+      for (Element child : element.getChildren()) {
+        b.setProperty(child.getName(), convertToType(child));
+      }
+    }
+    return b;
   }
 
 

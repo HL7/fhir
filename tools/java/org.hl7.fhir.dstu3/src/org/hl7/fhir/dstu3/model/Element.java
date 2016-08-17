@@ -306,5 +306,14 @@ public abstract class Element extends Base implements IBaseHasExtensions {
       }
 
 
+      @Override
+      public String getIdBase() {
+        return getId();
+      }
+
+      @Override
+      public void setIdBase(String value) {
+        setId(value);
+      }
 }
 

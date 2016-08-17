@@ -402,7 +402,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       ElementDefinitionBindingComponent binding = theElementCntext.getBinding();
       if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, binding != null, "Binding for " + path + " missing (cc)")) {
         if (binding.hasValueSet() && binding.getValueSet() instanceof Reference) {
-          ValueSet valueset = resolveBindingReference(profile, binding.getValueSet());
+          ValueSet valueset = resolveBindingReference(profile, binding.getValueSet(), profile.getUrl());
           if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, valueset != null, "ValueSet " + describeReference(binding.getValueSet()) + " not found")) {
             try {
               CodeableConcept cc = readAsCodeableConcept(element);
@@ -510,7 +510,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             ElementDefinitionBindingComponent binding = theElementCntext.getBinding();
             if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, binding != null, "Binding for " + path + " missing")) {
               if (binding.hasValueSet() && binding.getValueSet() instanceof Reference) {
-                ValueSet valueset = resolveBindingReference(profile, binding.getValueSet());
+                ValueSet valueset = resolveBindingReference(profile, binding.getValueSet(), profile.getUrl());
                 if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, valueset != null, "ValueSet " + describeReference(binding.getValueSet()) + " not found")) {
                   try {
                     Coding c = readAsCoding(element);
@@ -937,7 +937,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     // firstly, resolve the value set
     ElementDefinitionBindingComponent binding = elementContext.getBinding();
     if (binding.hasValueSet() && binding.getValueSet() instanceof Reference) {
-      ValueSet vs = resolveBindingReference(profile, binding.getValueSet());
+      ValueSet vs = resolveBindingReference(profile, binding.getValueSet(), profile.getUrl());
       if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, vs != null, "ValueSet {0} not found", describeReference(binding.getValueSet()))) {
         long t = System.nanoTime();
         ValidationResult vr = context.validateCode(null, value, null, vs);
@@ -1409,7 +1409,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
   }
 
-  private ValueSet resolveBindingReference(DomainResource ctxt, Type reference) {
+  private ValueSet resolveBindingReference(DomainResource ctxt, Type reference, String uri) {
     if (reference instanceof UriType) {
       long t = System.nanoTime();
       ValueSet fr = context.fetchResource(ValueSet.class, ((UriType) reference).getValue().toString());
@@ -1426,13 +1426,31 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         return null;
       } else {
         long t = System.nanoTime();
-        ValueSet fr = context.fetchResource(ValueSet.class, ((Reference) reference).getReference());
+        String ref = ((Reference) reference).getReference();
+        if (!Utilities.isAbsoluteUrl(ref))
+          ref = resolve(uri, ref);
+        ValueSet fr = context.fetchResource(ValueSet.class, ref);
         txTime = txTime + (System.nanoTime() - t);
         return fr;
       }
     }
     else
       return null;
+  }
+
+  private String resolve(String uri, String ref) {
+    String[] up = uri.split("\\/");
+    String[] rp = ref.split("\\/");
+    if (context.getResourceNames().contains(up[up.length-2]) && context.getResourceNames().contains(rp[0])) {
+      StringBuilder b = new StringBuilder();
+      for (int i = 0; i < up.length-2; i++) {
+        b.append(up[i]);
+        b.append("/");
+      }
+      b.append(ref);
+      return b.toString();
+    } else
+      return ref;
   }
 
   private Element resolveInBundle(List<Element> entries, String ref, String fullUrl, String type, String id) {
@@ -1824,7 +1842,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	}*/
 
   private void validateAnswerCode(List<ValidationMessage> errors, Element value, NodeStack stack, Questionnaire qSrc, Reference ref, boolean theOpenChoice) {
-    ValueSet vs = resolveBindingReference(qSrc, ref);
+    ValueSet vs = resolveBindingReference(qSrc, ref, qSrc.getUrl());
     if (warning(errors, IssueType.CODEINVALID, value.line(), value.col(), stack.getLiteralPath(), vs != null, "ValueSet " + describeReference(ref) + " not found"))  {
       try {
         Coding c = readAsCoding(value);
@@ -2400,7 +2418,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     String resourceName = element.getType(); // todo: consider namespace...?
     if (defn == null) {
       long t = System.nanoTime();
-      defn = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + resourceName);
+      defn = element.getProperty().getStructure();
+      if (defn == null)
+        defn = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + resourceName);
       loadProfiles(profiles);
       sdTime = sdTime + (System.nanoTime() - t);
       ok = rule(errors, IssueType.INVALID, element.line(), element.col(), stack.addToLiteralPath(resourceName), defn != null, "No definition found for resource type '" + resourceName + "'");

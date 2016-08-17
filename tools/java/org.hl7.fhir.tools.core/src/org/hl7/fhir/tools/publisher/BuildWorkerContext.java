@@ -1018,6 +1018,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     result.addAll(valueSets.values());
     result.addAll(codeSystems.values());
     result.addAll(maps.values());
+    result.addAll(transforms.values());
     return result;
   }
 

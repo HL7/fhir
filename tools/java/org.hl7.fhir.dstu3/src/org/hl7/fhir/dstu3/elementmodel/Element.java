@@ -11,6 +11,7 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -191,6 +192,19 @@ public class Element extends Base {
   	return null;
 	}
 
+  public void setChildValue(String name, String value) {
+    if (children == null)
+      children = new ArrayList<Element>();
+    for (Element child : children) {
+      if (name.equals(child.getName())) {
+        if (!child.isPrimitive())
+          throw new Error("Cannot set a value of a non-primitive type ("+name+" on "+this.getName()+")");
+        child.setValue(value);
+      }
+    }
+    throw new Error("not done yet");
+  }
+
 	public List<Element> getChildren(String name) {
 		List<Element> res = new ArrayList<Element>(); 
 		for (Element child : children) {
@@ -243,6 +257,16 @@ public class Element extends Base {
 	  }
   }
 
+  @Override
+  public void setProperty(int hash, String name, Base value) throws FHIRException {
+    throw new Error("not done yet"); 
+  }
+
+  @Override
+  public Base makeProperty(int hash, String name) throws FHIRException {
+    throw new Error("not done yet"); 
+  }
+  
 	private int maxToInt(String max) {
     if (max.equals("*"))
       return Integer.MAX_VALUE;
@@ -380,6 +404,17 @@ public class Element extends Base {
     return name+"="+fhirType() + "["+(children == null || hasValue() ? value : Integer.toString(children.size())+" children")+"]";
   }
 
+  @Override
+  public String getIdBase() {
+    return getChildValue("id");
+  }
+
+  @Override
+  public void setIdBase(String value) {
+    setChildValue("id", value);
+  }
+
+
 //  @Override
 //  public boolean equalsDeep(Base other) {
 //    if (!super.equalsDeep(other))
@@ -393,5 +428,12 @@ public class Element extends Base {
 //      return false;
 //  }
 
+  public Type asType() throws FHIRException {
+    return new ObjectConverter(property.getContext()).convertToType(this);
+  }
 
+  @Override
+  public boolean isMetadataBased() {
+    return true;
+  }
 }

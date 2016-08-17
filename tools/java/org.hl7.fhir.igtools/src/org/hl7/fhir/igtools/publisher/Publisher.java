@@ -26,6 +26,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -50,6 +51,7 @@ import org.apache.commons.lang3.SystemUtils;
 import org.hl7.fhir.convertors.VersionConvertor_10_20;
 import org.hl7.fhir.convertors.VersionConvertor_14_20;
 import org.hl7.fhir.dstu3.elementmodel.Element;
+import org.hl7.fhir.dstu3.elementmodel.Manager;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
 import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
@@ -59,6 +61,7 @@ import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
@@ -70,6 +73,7 @@ import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.dstu3.model.ExpansionProfile;
+import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
@@ -77,10 +81,13 @@ import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.ResourceFactory;
 import org.hl7.fhir.dstu3.model.ResourceType;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureMap;
+import org.hl7.fhir.dstu3.model.StructureMap.StructureMapModelMode;
+import org.hl7.fhir.dstu3.model.StructureMap.StructureMapStructureComponent;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.UriType;
@@ -1089,14 +1096,58 @@ public class Publisher implements IWorkerContext.ILoggingService {
     load("NamingSystem");
     load("CodeSystem");
     load("ValueSet");
+    load("ConceptMap");
     load("DataElement");
     load("StructureDefinition");
-    load("ConceptMap");
-    load("StructureMap");
     load("OperationDefinition");
     generateSnapshots();
     generateLogicalMaps();
+    load("StructureMap");
     generateAdditionalExamples();
+    executeTransforms();
+  }
+
+  private void executeTransforms() throws FHIRException, Exception {
+    if ("true".equals(ostr(configuration, "do-transforms"))) {
+      StructureMapUtilities utils = new StructureMapUtilities(context, context.getTransforms(), null);
+      for (FetchedFile f : changeList) {
+        Map<FetchedResource, List<StructureMap>> worklist = new HashMap<FetchedResource, List<StructureMap>>();
+        for (FetchedResource r : f.getResources()) {
+          List<StructureMap> transforms = context.findTransformsforSource(r.getElement().getProperty().getStructure().getUrl());
+          if (transforms.size() > 0) {
+            worklist.put(r, transforms);
+          }
+        }
+        for (Entry<FetchedResource, List<StructureMap>> t : worklist.entrySet()) {
+          for (StructureMap map : t.getValue()) {
+            boolean ok = true;
+            String tgturl = null;
+            for (StructureMapStructureComponent st : map.getStructure()) {
+              if (st.getMode() == StructureMapModelMode.TARGET) {
+                if (tgturl == null)
+                  tgturl = st.getUrl();
+                else
+                  ok = false;
+              }
+            }
+            if (ok && tgturl != null) {
+              StructureDefinition tsd = context.fetchResource(StructureDefinition.class, tgturl);
+              if (tsd != null) {
+                Resource target = ResourceFactory.createResource(tsd.getId());
+                utils.transform(null, t.getKey().getElement(), map, target);
+                FetchedResource nr = new FetchedResource();
+                nr.setElement(new ObjectConverter(context).convert(target));
+                nr.setId(target.getId());
+                nr.setResource(target);
+                nr.setTitle("Generated Example (by Transform)");
+                f.getResources().add(nr);
+                igpkp.findConfiguration(f, nr);
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   private boolean noteFile(ImplementationGuidePackageResourceComponent key, FetchedFile file) {

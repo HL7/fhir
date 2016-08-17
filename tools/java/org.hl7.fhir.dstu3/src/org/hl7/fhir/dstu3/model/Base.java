@@ -251,6 +251,15 @@ private Map<String, Object> userData;
 	
 	// -- converters for property setters
 	
+  public Type castToType(Base b) throws FHIRException {
+    if (b instanceof Type)
+      return (Type) b;
+    else if (b.isMetadataBased())
+      return ((org.hl7.fhir.dstu3.elementmodel.Element) b).asType();
+    else
+      throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a Reference");
+  }
+  
 
 	public BooleanType castToBoolean(Base b) throws FHIRException {
 		if (b instanceof BooleanType)
@@ -637,4 +646,6 @@ private Map<String, Object> userData;
   }
 	
 
+  public abstract String getIdBase();
+  public abstract void setIdBase(String value);
 }

@@ -31,6 +31,7 @@ import org.hl7.fhir.dstu3.model.Parameters;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StringType;
+import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
@@ -67,6 +68,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected Set<String> nonSupportedCodeSystems = new HashSet<String>();
   protected Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
   protected Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
+  protected Map<String, StructureMap> transforms = new HashMap<String, StructureMap>();
   
   protected ValueSetExpanderFactory expansionCache = new ValueSetExpansionCache(this);
   protected boolean cacheValidation; // if true, do an expansion and cache the expansion

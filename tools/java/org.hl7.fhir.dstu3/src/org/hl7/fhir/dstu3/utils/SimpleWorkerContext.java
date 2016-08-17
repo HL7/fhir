@@ -44,6 +44,9 @@ import org.hl7.fhir.dstu3.model.ResourceType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
+import org.hl7.fhir.dstu3.model.StructureMap;
+import org.hl7.fhir.dstu3.model.StructureMap.StructureMapModelMode;
+import org.hl7.fhir.dstu3.model.StructureMap.StructureMapStructureComponent;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
@@ -166,6 +169,8 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
       seeCodeSystem(url, (CodeSystem) r);
     else if (r instanceof ConceptMap)
       maps.put(((ConceptMap) r).getUrl(), (ConceptMap) r);
+    else if (r instanceof StructureMap)
+      transforms.put(((StructureMap) r).getUrl(), (StructureMap) r);
     else if (r instanceof NamingSystem)
     	systems.add((NamingSystem) r);
 	}
@@ -354,19 +359,25 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 					return (T) maps.get(uri);
 				else
 					return null;      
+      } else if (class_ == StructureMap.class) {
+        if (transforms.containsKey(uri))
+          return (T) transforms.get(uri);
+        else
+          return null;      
 			}
 		}
 		if (class_ == null && uri.contains("/")) {
 			return null;      
 		}
 
+		
 		throw new Error("fetching "+class_.getName()+" not done yet for URI "+uri);
 	}
 
 
 
 	public int totalCount() {
-		return valueSets.size() +  maps.size() + structures.size();
+		return valueSets.size() +  maps.size() + structures.size() + transforms.size();
 	}
 
 	public void setCache(ValueSetExpansionCache cache) {
@@ -457,6 +468,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     result.addAll(codeSystems.values());
     result.addAll(valueSets.values());
     result.addAll(maps.values());
+    result.addAll(transforms.values());
     return result;
   }
 
@@ -550,5 +562,24 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     return version+"-"+revision;
   }
 
-  
+  public Map<String, StructureMap> getTransforms() {
+    return transforms;
+  }
+
+  public List<StructureMap> findTransformsforSource(String url) {
+    List<StructureMap> res = new ArrayList<StructureMap>();
+    for (StructureMap map : transforms.values()) {
+      boolean match = false;
+      boolean ok = true;
+      for (StructureMapStructureComponent t : map.getStructure()) {
+        if (t.getMode() == StructureMapModelMode.SOURCE) {
+          match = match || t.getUrl().equals(url);
+          ok = ok && t.getUrl().equals(url);
+        }
+      }
+      if (match && ok)
+        res.add(map);
+    }
+    return res;
+  }
 }

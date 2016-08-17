@@ -149,8 +149,8 @@ public class Property {
   }
 
 	public boolean IsLogicalAndHasPrimitiveValue(String name) {
-		if (canBePrimitive!= null)
-			return canBePrimitive;
+//		if (canBePrimitive!= null)
+//			return canBePrimitive;
 		
 		canBePrimitive = false;
   	if (structure.getKind() != StructureDefinitionKind.LOGICAL)
@@ -158,7 +158,11 @@ public class Property {
   	if (!hasType(name))
   		return false;
   	StructureDefinition sd = context.fetchResource(StructureDefinition.class, structure.getUrl().substring(0, structure.getUrl().lastIndexOf("/")+1)+getType(name));
-  	if (sd == null || sd.getKind() != StructureDefinitionKind.LOGICAL)
+  	if (sd == null)
+  	  sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+getType(name));
+    if (sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE)
+      return true;
+    if (sd == null || sd.getKind() != StructureDefinitionKind.LOGICAL)
   		return false;
   	for (ElementDefinition ed : sd.getSnapshot().getElement()) {
   		if (ed.getPath().equals(sd.getId()+".value") && ed.getType().size() == 1 && isPrimitive(ed.getType().get(0).getCode())) {
@@ -246,6 +250,10 @@ public class Property {
       }
     }
     return null;
+  }
+
+  public IWorkerContext getContext() {
+    return context;
   }
 
 
