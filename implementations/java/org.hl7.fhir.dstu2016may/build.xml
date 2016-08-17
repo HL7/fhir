@@ -19,6 +19,7 @@
         <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/commons-codec-1.9.jar"/>
         <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/Saxon-HE-9.5.1-5.jar"/>
         <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/txtmark-0.11.jar"/>
+        <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/ST4-4.0.7.jar"/>
         <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/hapi-fhir-base-1.6.jar"/>
     </path>
     <path id="org.hl7.fhir.dstu2.classpath">
