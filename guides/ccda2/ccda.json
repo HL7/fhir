@@ -64,7 +64,8 @@
 			 "base": "StructureDefinition-ccda-performer-extension.html"
 		},
 		"StructureDefinition/ccda-us-realm-header-composition": {
-			 "template-base": "instance-template-sd-no-example.html"
+			 "template-base": "instance-template-sd-no-example.html",
+			 "base": "StructureDefinition-ccda-us-realm-header-composition.html"
 		},
 		"ValueSet/1.3.6.1.4.1.12009.10.2.5": {
 			 "base": "ValueSet-1.3.6.1.4.1.12009.10.2.5.html"
@@ -98,9 +99,6 @@
 		},
 		"ValueSet/2.16.840.1.113883.11.20.9.59": {
 			 "base": "ValueSet-2.16.840.1.113883.11.20.9.59.html"
-		},
-		"ValueSet/2.16.840.1.113883.11.20.8.1": {
-			 "base": "ValueSet-2.16.840.1.113883.11.20.8.1.html"
 		}
   }
 }

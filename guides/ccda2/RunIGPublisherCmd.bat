@@ -1,0 +1,1 @@
+java -jar ..\..\publish\org.hl7.fhir.igpublisher.jar -ig %~dp0ccda.json
