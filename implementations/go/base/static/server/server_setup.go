@@ -21,8 +21,8 @@ func (f *FHIRServer) AddMiddleware(key string, middleware gin.HandlerFunc) {
 
 // AddInterceptor adds a new interceptor for a particular database operation and FHIR resource.
 // For example:
-// AddInterceptor("Create", "Patient", handleFunc) would register the function "handleFunc"
-// to be run against a Patient resource when it is created, after being added to the database.
+// AddInterceptor("Create", "Patient", patientInterceptorHandler) would register the
+// patientInterceptorHandler methods to be run against a Patient resource when it is created.
 //
 // To run a handler against ALL resources pass "*" as the resourceType.
 //

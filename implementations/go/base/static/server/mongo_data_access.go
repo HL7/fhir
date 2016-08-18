@@ -24,27 +24,55 @@ type mongoDataAccessLayer struct {
 	Interceptors map[string]InterceptorList
 }
 
-// Interceptor executes a function on a specified resource type immediately AFTER
-// the resource is modified in the database. To register an interceptor for ALL resource
+// InterceptorList is a list of interceptors registered for a given database operation
+type InterceptorList []Interceptor
+
+// Interceptor optionally executes functions on a specified resource type before and after
+// a database operation involving that resource. To register an interceptor for ALL resource
 // types use a "*" as the resourceType.
 type Interceptor struct {
 	ResourceType string
 	Handler      InterceptorHandler
 }
 
-// InterceptorHandler is a function that is executed on a single FHIR resource
-type InterceptorHandler func(interface{})
+// InterceptorHandler is an interface that defines three methods that are executed on a resource
+// before the database operation, after the database operation SUCCEEDS, and after the database
+// operation FAILS.
+type InterceptorHandler interface {
+	Before(resource interface{})
+	After(resource interface{})
+	OnError(err error, resource interface{})
+}
 
-// InterceptorList is a list of interceptors registered for a given database operation
-type InterceptorList []Interceptor
-
-// invokeInterceptors invokes the interceptor list for a particular database operation and resource type.
-// Supported operations are: "Create", "Update", and "Delete"
-func (dal *mongoDataAccessLayer) invokeInterceptors(op, resourceType string, resource interface{}) {
+// invokeInterceptorsBefore invokes the interceptor list for the given resource type before a database
+// operation occurs.
+func (dal *mongoDataAccessLayer) invokeInterceptorsBefore(op, resourceType string, resource interface{}) {
 
 	for _, interceptor := range dal.Interceptors[op] {
 		if interceptor.ResourceType == resourceType || interceptor.ResourceType == "*" {
-			interceptor.Handler(resource)
+			interceptor.Handler.Before(resource)
+		}
+	}
+}
+
+// invokeInterceptorsAfter invokes the interceptor list for the given resource type after a database
+// operation occurs and succeeds.
+func (dal *mongoDataAccessLayer) invokeInterceptorsAfter(op, resourceType string, resource interface{}) {
+
+	for _, interceptor := range dal.Interceptors[op] {
+		if interceptor.ResourceType == resourceType || interceptor.ResourceType == "*" {
+			interceptor.Handler.After(resource)
+		}
+	}
+}
+
+// invokeInterceptorsOnError invokes the interceptor list for the given resource type after a database
+// operation occurs and fails.
+func (dal *mongoDataAccessLayer) invokeInterceptorsOnError(op, resourceType string, err error, resource interface{}) {
+
+	for _, interceptor := range dal.Interceptors[op] {
+		if interceptor.ResourceType == resourceType || interceptor.ResourceType == "*" {
+			interceptor.Handler.OnError(err, resource)
 		}
 	}
 }
@@ -93,11 +121,17 @@ func (dal *mongoDataAccessLayer) PostWithID(id string, resource interface{}) err
 	resourceType := reflect.TypeOf(resource).Elem().Name()
 	collection := dal.Database.C(models.PluralizeLowerResourceName(resourceType))
 	updateLastUpdatedDate(resource)
+
+	dal.invokeInterceptorsBefore("Create", resourceType, resource)
+
 	err = collection.Insert(resource)
 
 	if err == nil {
-		dal.invokeInterceptors("Create", resourceType, resource)
+		dal.invokeInterceptorsAfter("Create", resourceType, resource)
+	} else {
+		dal.invokeInterceptorsOnError("Create", resourceType, err, resource)
 	}
+
 	return convertMongoErr(err)
 }
 
@@ -112,14 +146,18 @@ func (dal *mongoDataAccessLayer) Put(id string, resource interface{}) (createdNe
 	reflect.ValueOf(resource).Elem().FieldByName("Id").SetString(bsonID.Hex())
 	updateLastUpdatedDate(resource)
 
+	dal.invokeInterceptorsBefore("Update", resourceType, resource)
+
 	info, err := collection.UpsertId(bsonID.Hex(), resource)
 	if err == nil {
 		createdNew = (info.Updated == 0)
 		if createdNew {
-			dal.invokeInterceptors("Create", resourceType, resource)
+			dal.invokeInterceptorsAfter("Create", resourceType, resource)
 		} else {
-			dal.invokeInterceptors("Update", resourceType, resource)
+			dal.invokeInterceptorsAfter("Update", resourceType, resource)
 		}
+	} else {
+		dal.invokeInterceptorsOnError("Update", resourceType, err, resource)
 	}
 
 	return createdNew, convertMongoErr(err)
@@ -157,14 +195,17 @@ func (dal *mongoDataAccessLayer) Delete(id, resourceType string) error {
 		// Although this is a delete operation we need to get the resource first so we can
 		// run any interceptors on the resource before it's deleted.
 		resource, getError = dal.Get(id, resourceType)
+		dal.invokeInterceptorsBefore("Delete", resourceType, resource)
 	}
 
 	collection := dal.Database.C(models.PluralizeLowerResourceName(resourceType))
 	err = collection.RemoveId(bsonID.Hex())
 
-	if err == nil && hasInterceptor {
-		if getError == nil {
-			dal.invokeInterceptors("Delete", resourceType, resource)
+	if hasInterceptor {
+		if err == nil && getError == nil {
+			dal.invokeInterceptorsAfter("Delete", resourceType, resource)
+		} else {
+			dal.invokeInterceptorsOnError("Delete", resourceType, err, resource)
 		}
 	}
 
@@ -196,6 +237,10 @@ func (dal *mongoDataAccessLayer) ConditionalDelete(query search.Query) (count in
 			resourceIds := getResourceIdsFromBundle(bundle)
 			queryObject = bson.M{"_id": bson.M{"$in": resourceIds}}
 
+			for _, elem := range bundle.Entry {
+				dal.invokeInterceptorsBefore("Delete", resourceType, elem.Resource)
+			}
+
 			// do the bulk delete by ID
 			info, err := collection.RemoveAll(queryObject)
 			successfulIds := make([]string, len(resourceIds))
@@ -205,6 +250,9 @@ func (dal *mongoDataAccessLayer) ConditionalDelete(query search.Query) (count in
 			}
 
 			if err != nil {
+				for _, elem := range bundle.Entry {
+					dal.invokeInterceptorsOnError("Delete", resourceType, err, elem.Resource)
+				}
 				return count, convertMongoErr(err)
 			}
 
@@ -226,7 +274,7 @@ func (dal *mongoDataAccessLayer) ConditionalDelete(query search.Query) (count in
 
 					if elementInSlice(id, successfulIds) {
 						// This resource was confirmed deleted
-						dal.invokeInterceptors("Delete", resourceType, elem.Resource)
+						dal.invokeInterceptorsAfter("Delete", resourceType, elem.Resource)
 					}
 				}
 			}
