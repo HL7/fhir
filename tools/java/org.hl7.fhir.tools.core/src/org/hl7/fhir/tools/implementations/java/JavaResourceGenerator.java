@@ -311,9 +311,28 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		  write("   }\r\n");
 		  write("\r\n"); 
 		} else if (isAbstract && Utilities.noString(supertype) && clss != JavaGenClass.Structure) {
+      write("\r\n"); 
+      write("  @Override\r\n"); 
+      write("  public String getIdBase() {\r\n"); 
+      write("    return getId();\r\n"); 
+      write("  }\r\n"); 
+      write("  \r\n");
+      write("  @Override\r\n");
+      write("  public void setIdBase(String value) {\r\n");
+      write("    setId(value);\r\n");
+      write("  }\r\n");
 		  write("  public abstract ResourceType getResourceType();\r\n");
-		}
-		
+		} else if (isAbstract && Utilities.noString(supertype) && clss == JavaGenClass.Structure) {
+      write("  @Override\r\n"); 
+      write("  public String getIdBase() {\r\n"); 
+      write("    return getId();\r\n"); 
+      write("  }\r\n"); 
+      write("  \r\n");
+      write("  @Override\r\n");
+      write("  public void setIdBase(String value) {\r\n");
+      write("    setId(value);\r\n");
+      write("  }\r\n");
+		}		
 		// Write resource fields which can be used as constants in client code
 		// to refer to standard search params
 		if (nameToSearchParamDef != null) {
