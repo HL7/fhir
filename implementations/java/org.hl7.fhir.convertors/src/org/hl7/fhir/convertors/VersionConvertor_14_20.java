@@ -36,6 +36,7 @@ import java.util.List;
 
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionPropertyComponent;
+import org.hl7.fhir.dstu2016may.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.CodeSystem.FilterOperator;
@@ -4859,7 +4860,10 @@ public class VersionConvertor_14_20 {
     tgt.setContextType(convertExtensionContext(src.getContextType()));
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getContext())
       tgt.addContext(t.getValue());
-    tgt.setType(src.getBaseType());
+    if (src.getDerivation() == TypeDerivationRule.CONSTRAINT)
+      tgt.setType(src.getBaseType());
+    else
+      tgt.setType(src.getId());
     tgt.setBaseDefinition(src.getBaseDefinition());
     tgt.setDerivation(convertTypeDerivationRule(src.getDerivation()));
     tgt.setSnapshot(convertStructureDefinitionSnapshotComponent(src.getSnapshot()));

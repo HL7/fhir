@@ -1,8 +1,5 @@
 package org.hl7.fhir.dstu3.formats;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 /*
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
@@ -36,9 +33,6 @@ import java.math.BigDecimal;
 import java.net.URI;
 
 import org.apache.commons.codec.binary.Base64;
-import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
-import org.hl7.fhir.utilities.TextFile;
-import org.hl7.fhir.utilities.xml.XMLUtil;
 
 public abstract class FormatUtilities {
   public static final String ID_REGEX = "[A-Za-z0-9\\-\\.]{1,64}";
@@ -82,5 +76,8 @@ public abstract class FormatUtilities {
         b.append(c);
     return b.toString();
   }
+  
+
+
 
 }

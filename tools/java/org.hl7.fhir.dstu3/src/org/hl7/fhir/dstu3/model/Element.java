@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Aug 15, 2016 19:10+1000 for FHIR v1.7.0
+// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -306,14 +306,5 @@ public abstract class Element extends Base implements IBaseHasExtensions {
       }
 
 
-      @Override
-      public String getIdBase() {
-        return getId();
-      }
-
-      @Override
-      public void setIdBase(String value) {
-        setId(value);
-      }
 }
 

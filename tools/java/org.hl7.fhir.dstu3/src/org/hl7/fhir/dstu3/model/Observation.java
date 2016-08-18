@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Aug 15, 2016 19:10+1000 for FHIR v1.7.0
+// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2707,7 +2707,7 @@ public class Observation extends DomainResource {
           this.getPerformer().add(castToReference(value)); // Reference
           break;
         case 111972721: // value
-          this.value = castToType(value); // Type
+          this.value = (Type) value; // Type
           break;
         case 1034315687: // dataAbsentReason
           this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
