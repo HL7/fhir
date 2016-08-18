@@ -65,6 +65,9 @@ public interface IResourceValidator {
   boolean isNoBindingMsgSuppressed();
   void setNoBindingMsgSuppressed(boolean noBindingMsgSuppressed);
   
+  public boolean isNoInvariantChecks();
+  public void setNoInvariantChecks(boolean value) ;
+  
   /**
    * Validate suite
    *  
@@ -119,5 +122,6 @@ public interface IResourceValidator {
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, JsonObject object, String profile) throws Exception;
   @Deprecated
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, JsonObject object, StructureDefinition profile) throws Exception; 
+
 
 }

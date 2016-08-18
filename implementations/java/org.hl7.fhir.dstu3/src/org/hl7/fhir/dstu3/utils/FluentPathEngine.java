@@ -525,7 +525,8 @@ public class FluentPathEngine {
         Function f = Function.fromCode(result.getName());
         FunctionDetails details = null;
         if (f == null) {
-          details = hostServices.resolveFunction(result.getName());
+          if (hostServices != null)
+            details = hostServices.resolveFunction(result.getName());
           if (details == null)
             throw lexer.error("The name "+result.getName()+" is not a valid function name");
           f = Function.Custom;

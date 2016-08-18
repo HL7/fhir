@@ -101,6 +101,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 
   private boolean anyExtensionsAllowed;
+  private boolean noInvariantChecks;
 
   private BestPracticeWarningLevel bpWarnings;
   // configuration items
@@ -133,6 +134,16 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     this.context = theContext;
     fpe = new FluentPathEngine(context);
     source = Source.InstanceValidator;
+  }
+
+  @Override
+  public boolean isNoInvariantChecks() {
+    return noInvariantChecks;
+  }
+
+  @Override
+  public void setNoInvariantChecks(boolean value) {
+    this.noInvariantChecks = value;
   }
 
   private boolean allowUnknownExtension(String url) {
@@ -2362,6 +2373,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   private void checkInvariants(List<ValidationMessage> errors, String path, StructureDefinition profile, ElementDefinition ed, String typename, String typeProfile, Element resource, Element element) throws FHIRException, FHIRException {
+    if (noInvariantChecks)
+      return;
+    
     for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
       if (inv.hasExpression()) {
         ExpressionNode n = (ExpressionNode) inv.getUserData("validator.expression.cache");

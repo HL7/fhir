@@ -38,7 +38,7 @@ public class FluentPathTests {
 
   @Parameters(name = "{index}: file {0}")
   public static Iterable<Object[]> data() throws ParserConfigurationException, SAXException, IOException {
-    Document dom = XMLUtil.parseFileToDom("C:\\work\\fluentpath\\spec\\tests-fhir-r3.xml");
+    Document dom = XMLUtil.parseFileToDom("C:\\work\\fluentpath\\tests\\stu3\\tests-fhir-r3.xml");
 
     List<Element> list = new ArrayList<Element>();
     List<Element> groups = new ArrayList<Element>();
