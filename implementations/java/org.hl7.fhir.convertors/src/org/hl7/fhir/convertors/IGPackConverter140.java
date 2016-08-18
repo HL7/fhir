@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
+import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+
 public class IGPackConverter140 {
   
   public static void main(String[] args) throws Exception {
@@ -15,6 +17,7 @@ public class IGPackConverter140 {
         org.hl7.fhir.dstu2016may.model.Resource r14 = xp.parse(new FileInputStream("C:\\temp\\igpack\\"+s));
         org.hl7.fhir.dstu3.model.Resource r17 = VersionConvertor_14_20.convertResource(r14);
         org.hl7.fhir.dstu3.formats.XmlParser xc = new org.hl7.fhir.dstu3.formats.XmlParser();
+        xc.setOutputStyle(OutputStyle.PRETTY);
         xc.compose(new FileOutputStream("C:\\temp\\igpack\\"+s), r17);
       }
     }

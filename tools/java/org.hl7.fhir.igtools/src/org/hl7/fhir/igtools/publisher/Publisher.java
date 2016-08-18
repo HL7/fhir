@@ -664,10 +664,10 @@ public class Publisher implements IWorkerContext.ILoggingService {
     else
       throw new FHIRException("Unsupported version "+version);
     
-    log("Fetch Validation Pack from "+source);
-    String fn = grabToLocalCache(source);
-    log("Load Validation Pack");
-    context = SimpleWorkerContext.fromPack(fn);
+//    log("Fetch Validation Pack from "+source);
+//    String fn = grabToLocalCache(source);
+//    log("Load Validation Pack");
+    context = SimpleWorkerContext.fromPack("C:\\temp\\igpack\\igpack.zip"); //fn);
   }
 
   private String grabToLocalCache(String source) throws IOException {
@@ -1444,7 +1444,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         dlog(" .. "+f.getName());
       for (FetchedResource r : f.getResources()) {
         if (!r.isValidated()) {
-          dlog("     validating "+r.getTitle());
+          log("     validating "+r.getTitle());
           validate(f, r);
         }
       }

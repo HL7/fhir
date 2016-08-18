@@ -15,6 +15,7 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.CodeType;
+import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
@@ -36,6 +37,7 @@ import org.hl7.fhir.dstu3.model.IdType;
 import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
+import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceFactory;
 import org.hl7.fhir.dstu3.model.StringType;
@@ -47,6 +49,9 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
+import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapContactComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupInputComponent;
@@ -72,6 +77,7 @@ public class StructureMapUtilities {
 	public static final String MAP_WHERE_CHECK = "map.where.check";
 	public static final String MAP_WHERE_EXPRESSION = "map.where.expression";
 	public static final String MAP_EXPRESSION = "map.transform.expression";
+  private static final boolean RENDER_MULTIPLE_TARGETS_ONELINE = false;
 
 	public interface ITransformerServices {
 		//    public boolean validateByValueSet(Coding code, String valuesetId);
@@ -187,9 +193,13 @@ public class StructureMapUtilities {
 					first = false;
 				else
 					b.append(", ");
+				if (RENDER_MULTIPLE_TARGETS_ONELINE)
+	        b.append(' ');
+				else {
 				b.append("\r\n");
 				for (int i = 0; i < indent+4; i++)
 					b.append(' ');
+				}
 				renderTarget(b, rt);
 			}
 		} else if (r.hasTarget()) { 
@@ -197,13 +207,13 @@ public class StructureMapUtilities {
 			renderTarget(b, r.getTarget().get(0));
 		}
 		if (r.hasRule()) {
-			b.append(" then {");
+			b.append(" then {\r\n");
 			renderDoco(b, r.getDocumentation());
-			for (int i = 0; i < indent; i++)
-				b.append(' ');
 			for (StructureMapGroupRuleComponent ir : r.getRule()) {
 			  renderRule(b, ir, indent+2);
 			}
+      for (int i = 0; i < indent; i++)
+        b.append(' ');
 			b.append("}\r\n");
 		} else {
 			if (r.hasDependent()) {
@@ -261,12 +271,15 @@ public class StructureMapUtilities {
 	}
 
 	private void renderTarget(StringBuilder b, StructureMapGroupRuleTargetComponent rt) throws FHIRException {
+	  if (rt.hasContext()) {
 		b.append(rt.getContext());
 		if (rt.hasElement())  {
 			b.append('.');
 			b.append(rt.getElement());
 		}
+	  }
 		if (rt.hasTransform()) {
+	    if (rt.hasContext()) 
 			b.append(" = ");
 			if (rt.getTransform() == StructureMapTransform.COPY && rt.getParameter().size() == 1) {
 				renderTransformParam(b, rt.getParameter().get(0));
@@ -652,7 +665,7 @@ public class StructureMapUtilities {
 					}       
 				}
 				lexer.token(")");
-			} else {
+		} else if (name != null) {
 				target.setTransform(StructureMapTransform.COPY);
 				if (!isConstant) {
 					String id = name;
@@ -801,9 +814,10 @@ public class StructureMapUtilities {
 	public void transform(Object appInfo, Base source, StructureMap map, Base target) throws Exception {
 		TransformContext context = new TransformContext(appInfo);
 		Variables vars = new Variables();
-		vars.add(VariableMode.INPUT, "src", source);
-		vars.add(VariableMode.OUTPUT, "tgt", target);
+		vars.add(VariableMode.INPUT, "source", source);
+		vars.add(VariableMode.OUTPUT, "target", target);
 
+		log("Start Transform "+map.getUrl());
 		executeGroup("", context, map, vars, map.getGroup().get(0));
 	}
 
@@ -931,17 +945,20 @@ public class StructureMapUtilities {
 
 
 	private void processTarget(TransformContext context, Variables vars, StructureMap map, StructureMapGroupRuleTargetComponent tgt) throws Exception {
-		Base dest = vars.get(VariableMode.OUTPUT, tgt.getContext());
+	  Base dest = null;
+	  if (tgt.hasContext()) {
+  		dest = vars.get(VariableMode.OUTPUT, tgt.getContext());
 		if (dest == null)
 			throw new Exception("target context not known: "+tgt.getContext());
 		if (!tgt.hasElement())
 			throw new Exception("Not supported yet");
+	  }
 		Base v = null;
 		if (tgt.hasTransform()) {
 			v = runTransform(context, map, tgt, vars);
-			if (v != null)
+			if (v != null && dest != null)
 				dest.setProperty(tgt.getElement().hashCode(), tgt.getElement(), v);
-		} else 
+		} else if (dest != null) 
 			v = dest.makeProperty(tgt.getElement().hashCode(), tgt.getElement());
 		if (tgt.hasVariable() && v != null)
 			vars.add(VariableMode.OUTPUT, tgt.getVariable(), v);
@@ -950,7 +967,9 @@ public class StructureMapUtilities {
 	private Base runTransform(TransformContext context, StructureMap map, StructureMapGroupRuleTargetComponent tgt, Variables vars) throws FHIRException {
 		switch (tgt.getTransform()) {
 		case CREATE :
-			return ResourceFactory.createResourceOrType(getParamString(vars, tgt.getParameter().get(0)));
+			Base res = ResourceFactory.createResourceOrType(getParamString(vars, tgt.getParameter().get(0)));
+			res.setIdBase(UUID.randomUUID().toString().toLowerCase());
+      return res;
 		case COPY : 
 			return getParam(vars, tgt.getParameter().get(0));
 		case EVALUATE :
@@ -982,21 +1001,63 @@ public class StructureMapUtilities {
 		case TRANSLATE : 
 			return translate(context, map, vars, tgt.getParameter());
 		case REFERENCE :
-			throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+      Base b = getParam(vars, tgt.getParameter().get(0));
+      if (b == null)
+        throw new FHIRException("Unable to find parameter "+((IdType) tgt.getParameter().get(0).getValue()).asStringValue());
+      if (!b.isResource())
+        throw new FHIRException("Transform engine cannot point at an element of type "+b.fhirType());
+      else {
+        String id = b.getIdBase();
+        if (id == null) {
+          id = UUID.randomUUID().toString().toLowerCase();
+          b.setIdBase(id);
+        }
+        return new Reference().setReference(b.fhirType()+"/"+id);
+      }
 		case DATEOP :
 			throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
 		case UUID :
 			return new IdType(UUID.randomUUID().toString());
 		case POINTER :
-			Base b = getParam(vars, tgt.getParameter().get(0));
+			b = getParam(vars, tgt.getParameter().get(0));
 			if (b instanceof Resource)
 				return new UriType("urn:uuid:"+((Resource) b).getId());
 			else
 				throw new FHIRException("Transform engine cannot point at an element of type "+b.fhirType());
+		case CC:
+		  CodeableConcept cc = new CodeableConcept();
+		  cc.addCoding(buildCoding(getParamString(vars, tgt.getParameter().get(0)), getParamString(vars, tgt.getParameter().get(1))));
+		  return cc;
+		case C: 
+      Coding c = buildCoding(getParamString(vars, tgt.getParameter().get(0)), getParamString(vars, tgt.getParameter().get(1)));
+      return c;
 		default:
 			throw new Error("Transform Unknown: "+tgt.getTransform().toCode());
 		}
 	}
+
+
+	private Coding buildCoding(String uri, String code) throws FHIRException {
+	  // if we can get this as a valueSet, we will
+	  String system = null;
+	  ValueSet vs = worker.fetchResource(ValueSet.class, uri);
+	  if (vs != null) {
+	    ValueSetExpansionOutcome vse = worker.expandVS(vs, true, false);
+	    if (vse.getError() != null)
+	      throw new FHIRException(vse.getError());
+
+	    for (ValueSetExpansionContainsComponent t : vse.getValueset().getExpansion().getContains()) {
+	      if (code.equals(t.getCode()) && t.hasSystem()) {
+	        system = t.getSystem();
+	        break;
+	      }
+	    }
+	    if (system == null)
+	      throw new FHIRException("The code '"+code+"' is not in the value set '"+uri+"'");
+	  } else
+	    system = uri;
+    return new Coding().setSystem(system).setCode(code);
+  }
 
 
 	private String getParamString(Variables vars, StructureMapGroupRuleTargetParameterComponent parameter) {
@@ -1023,7 +1084,7 @@ public class StructureMapUtilities {
 	private Base translate(TransformContext context, StructureMap map, Variables vars, List<StructureMapGroupRuleTargetParameterComponent> parameter) throws FHIRException {
 		Base src = getParam(vars, parameter.get(0));
 		String id = getParamString(vars, parameter.get(1));
-		String fld = getParamString(vars, parameter.get(2));
+		String fld = parameter.size() > 2 ? getParamString(vars, parameter.get(2)) : null;
 		return translate(context, map, src, id, fld);
 	}
 

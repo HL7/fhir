@@ -58,13 +58,13 @@ public class Property {
         throw new Error("not handled yet");
       boolean found = false;
       for (ElementDefinition d : structure.getSnapshot().getElement()) {
-        if (d.getPath().equals(definition.getContentReference().substring(1))) {
+        if (d.hasId() && d.getId().equals(definition.getContentReference().substring(1))) {
           found = true;
           ed = d;
         }
       }
       if (!found)
-        throw new Error("Unable to resolve "+definition.getContentReference());
+        throw new Error("Unable to resolve "+definition.getContentReference()+" at "+definition.getPath()+" on "+structure.getUrl());
     }
     if (ed.getType().size() == 0)
 			return null;
@@ -149,8 +149,8 @@ public class Property {
   }
 
 	public boolean IsLogicalAndHasPrimitiveValue(String name) {
-		if (canBePrimitive!= null)
-			return canBePrimitive;
+//		if (canBePrimitive!= null)
+//			return canBePrimitive;
 		
 		canBePrimitive = false;
   	if (structure.getKind() != StructureDefinitionKind.LOGICAL)
@@ -158,6 +158,10 @@ public class Property {
   	if (!hasType(name))
   		return false;
   	StructureDefinition sd = context.fetchResource(StructureDefinition.class, structure.getUrl().substring(0, structure.getUrl().lastIndexOf("/")+1)+getType(name));
+  	if (sd == null)
+  	  sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+getType(name));
+    if (sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE)
+      return true;
   	if (sd == null || sd.getKind() != StructureDefinitionKind.LOGICAL)
   		return false;
   	for (ElementDefinition ed : sd.getSnapshot().getElement()) {
@@ -246,6 +250,10 @@ public class Property {
       }
     }
     return null;
+  }
+
+  public IWorkerContext getContext() {
+    return context;
   }
 
 

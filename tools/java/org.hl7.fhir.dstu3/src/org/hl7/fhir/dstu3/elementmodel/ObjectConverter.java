@@ -30,7 +30,6 @@ public class ObjectConverter  {
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     org.hl7.fhir.dstu3.formats.JsonParser jp = new org.hl7.fhir.dstu3.formats.JsonParser();
     jp.compose(bs, ig);
-    TextFile.bytesToFile(bs.toByteArray(), "c:\\temp\\tmp.xml");
     ByteArrayInputStream bi = new ByteArrayInputStream(bs.toByteArray());
     return new JsonParser(context).parse(bi);
   }

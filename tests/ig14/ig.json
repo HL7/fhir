@@ -10,6 +10,9 @@
   },
 	"canonicalBase": "http://hl7.org/fhir/test-ig-14",
   "version" : "1.4.0",
+	"spreadsheets": [
+		"diagnosticorder-daf-profile-spreadsheet.xml"
+	],  
 	"defaults": {
 		"Any": {
 	  	"template-format" : "format.html",
