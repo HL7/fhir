@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2398,10 +2398,10 @@ public class ConceptMap extends BaseConformance {
           this.copyright = castToString(value); // StringType
           break;
         case -896505829: // source
-          this.source = (Type) value; // Type
+          this.source = castToType(value); // Type
           break;
         case -880905839: // target
-          this.target = (Type) value; // Type
+          this.target = castToType(value); // Type
           break;
         case 98629247: // group
           this.getGroup().add((ConceptMapGroupComponent) value); // ConceptMapGroupComponent
@@ -2440,9 +2440,9 @@ public class ConceptMap extends BaseConformance {
         else if (name.equals("copyright"))
           this.copyright = castToString(value); // StringType
         else if (name.equals("source[x]"))
-          this.source = (Type) value; // Type
+          this.source = castToType(value); // Type
         else if (name.equals("target[x]"))
-          this.target = (Type) value; // Type
+          this.target = castToType(value); // Type
         else if (name.equals("group"))
           this.getGroup().add((ConceptMapGroupComponent) value);
         else

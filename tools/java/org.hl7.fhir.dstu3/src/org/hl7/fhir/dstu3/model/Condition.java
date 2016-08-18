@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1748,10 +1748,10 @@ public class Condition extends DomainResource {
           this.context = castToReference(value); // Reference
           break;
         case 105901603: // onset
-          this.onset = (Type) value; // Type
+          this.onset = castToType(value); // Type
           break;
         case -921554001: // abatement
-          this.abatement = (Type) value; // Type
+          this.abatement = castToType(value); // Type
           break;
         case 1888120446: // dateRecorded
           this.dateRecorded = castToDate(value); // DateType
@@ -1794,9 +1794,9 @@ public class Condition extends DomainResource {
         else if (name.equals("context"))
           this.context = castToReference(value); // Reference
         else if (name.equals("onset[x]"))
-          this.onset = (Type) value; // Type
+          this.onset = castToType(value); // Type
         else if (name.equals("abatement[x]"))
-          this.abatement = (Type) value; // Type
+          this.abatement = castToType(value); // Type
         else if (name.equals("dateRecorded"))
           this.dateRecorded = castToDate(value); // DateType
         else if (name.equals("asserter"))

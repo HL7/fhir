@@ -67,6 +67,7 @@ import org.hl7.fhir.dstu3.model.StructureMap.StructureMapStructureComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapTransform;
 import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -1045,15 +1046,21 @@ public class StructureMapUtilities {
 	    ValueSetExpansionOutcome vse = worker.expandVS(vs, true, false);
 	    if (vse.getError() != null)
 	      throw new FHIRException(vse.getError());
-
+	    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
 	    for (ValueSetExpansionContainsComponent t : vse.getValueset().getExpansion().getContains()) {
+	      if (t.hasCode())
+	        b.append(t.getCode());
 	      if (code.equals(t.getCode()) && t.hasSystem()) {
 	        system = t.getSystem();
 	        break;
 	      }
+        if (code.equalsIgnoreCase(t.getDisplay()) && t.hasSystem()) {
+          system = t.getSystem();
+          break;
+        }
 	    }
 	    if (system == null)
-	      throw new FHIRException("The code '"+code+"' is not in the value set '"+uri+"'");
+	      throw new FHIRException("The code '"+code+"' is not in the value set '"+uri+"' (valid codes: "+b.toString()+"; also checked displays)");
 	  } else
 	    system = uri;
     return new Coding().setSystem(system).setCode(code);

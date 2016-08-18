@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -534,7 +534,7 @@ public class ClinicalImpression extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3242771: // item
-          this.item = (Type) value; // Type
+          this.item = castToType(value); // Type
           break;
         case 94434409: // cause
           this.cause = castToString(value); // StringType
@@ -547,7 +547,7 @@ public class ClinicalImpression extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("item[x]"))
-          this.item = (Type) value; // Type
+          this.item = castToType(value); // Type
         else if (name.equals("cause"))
           this.cause = castToString(value); // StringType
         else
@@ -1914,7 +1914,7 @@ public class ClinicalImpression extends DomainResource {
           this.date = castToDateTime(value); // DateTimeType
           break;
         case -1468651097: // effective
-          this.effective = (Type) value; // Type
+          this.effective = castToType(value); // Type
           break;
         case 951530927: // context
           this.context = castToReference(value); // Reference
@@ -1974,7 +1974,7 @@ public class ClinicalImpression extends DomainResource {
         else if (name.equals("date"))
           this.date = castToDateTime(value); // DateTimeType
         else if (name.equals("effective[x]"))
-          this.effective = (Type) value; // Type
+          this.effective = castToType(value); // Type
         else if (name.equals("context"))
           this.context = castToReference(value); // Reference
         else if (name.equals("previous"))

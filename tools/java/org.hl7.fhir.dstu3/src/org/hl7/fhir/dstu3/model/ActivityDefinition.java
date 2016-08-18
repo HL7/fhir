@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2714,7 +2714,7 @@ public class ActivityDefinition extends DomainResource {
           this.code = castToCodeableConcept(value); // CodeableConcept
           break;
         case -873664438: // timing
-          this.timing = (Type) value; // Type
+          this.timing = castToType(value); // Type
           break;
         case 1901043637: // location
           this.location = castToReference(value); // Reference
@@ -2723,7 +2723,7 @@ public class ActivityDefinition extends DomainResource {
           this.getParticipantType().add(new ActivityParticipantTypeEnumFactory().fromType(value)); // Enumeration<ActivityParticipantType>
           break;
         case -309474065: // product
-          this.product = (Type) value; // Type
+          this.product = castToType(value); // Type
           break;
         case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
@@ -2788,13 +2788,13 @@ public class ActivityDefinition extends DomainResource {
         else if (name.equals("code"))
           this.code = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("timing[x]"))
-          this.timing = (Type) value; // Type
+          this.timing = castToType(value); // Type
         else if (name.equals("location"))
           this.location = castToReference(value); // Reference
         else if (name.equals("participantType"))
           this.getParticipantType().add(new ActivityParticipantTypeEnumFactory().fromType(value));
         else if (name.equals("product[x]"))
-          this.product = (Type) value; // Type
+          this.product = castToType(value); // Type
         else if (name.equals("quantity"))
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
         else if (name.equals("transform"))

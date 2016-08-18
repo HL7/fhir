@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -368,7 +368,7 @@ public class CommunicationRequest extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 951530617: // content
-          this.content = (Type) value; // Type
+          this.content = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -378,7 +378,7 @@ public class CommunicationRequest extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("content[x]"))
-          this.content = (Type) value; // Type
+          this.content = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -1287,7 +1287,7 @@ public class CommunicationRequest extends DomainResource {
           this.encounter = castToReference(value); // Reference
           break;
         case -160710483: // scheduled
-          this.scheduled = (Type) value; // Type
+          this.scheduled = castToType(value); // Type
           break;
         case -934964668: // reason
           this.getReason().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1327,7 +1327,7 @@ public class CommunicationRequest extends DomainResource {
         else if (name.equals("encounter"))
           this.encounter = castToReference(value); // Reference
         else if (name.equals("scheduled[x]"))
-          this.scheduled = (Type) value; // Type
+          this.scheduled = castToType(value); // Type
         else if (name.equals("reason"))
           this.getReason().add(castToCodeableConcept(value));
         else if (name.equals("requestedOn"))

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -138,7 +138,7 @@ public class DocumentManifest extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 112: // p
-          this.p = (Type) value; // Type
+          this.p = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -148,7 +148,7 @@ public class DocumentManifest extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("p[x]"))
-          this.p = (Type) value; // Type
+          this.p = castToType(value); // Type
         else
           super.setProperty(name, value);
       }

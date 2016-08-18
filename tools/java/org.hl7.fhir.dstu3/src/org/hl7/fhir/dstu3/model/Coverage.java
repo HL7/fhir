@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1247,7 +1247,7 @@ public class Coverage extends DomainResource {
           this.status = new CoverageStatusEnumFactory().fromType(value); // Enumeration<CoverageStatus>
           break;
         case -1179159879: // issuer
-          this.issuer = (Type) value; // Type
+          this.issuer = castToType(value); // Type
           break;
         case -2140761088: // isAgreement
           this.isAgreement = castToBoolean(value); // BooleanType
@@ -1262,10 +1262,10 @@ public class Coverage extends DomainResource {
           this.type = castToCoding(value); // Coding
           break;
         case 1007064597: // planholder
-          this.planholder = (Type) value; // Type
+          this.planholder = castToType(value); // Type
           break;
         case -565102875: // beneficiary
-          this.beneficiary = (Type) value; // Type
+          this.beneficiary = castToType(value); // Type
           break;
         case -261851592: // relationship
           this.relationship = castToCoding(value); // Coding
@@ -1310,7 +1310,7 @@ public class Coverage extends DomainResource {
         if (name.equals("status"))
           this.status = new CoverageStatusEnumFactory().fromType(value); // Enumeration<CoverageStatus>
         else if (name.equals("issuer[x]"))
-          this.issuer = (Type) value; // Type
+          this.issuer = castToType(value); // Type
         else if (name.equals("isAgreement"))
           this.isAgreement = castToBoolean(value); // BooleanType
         else if (name.equals("bin"))
@@ -1320,9 +1320,9 @@ public class Coverage extends DomainResource {
         else if (name.equals("type"))
           this.type = castToCoding(value); // Coding
         else if (name.equals("planholder[x]"))
-          this.planholder = (Type) value; // Type
+          this.planholder = castToType(value); // Type
         else if (name.equals("beneficiary[x]"))
-          this.beneficiary = (Type) value; // Type
+          this.beneficiary = castToType(value); // Type
         else if (name.equals("relationship"))
           this.relationship = castToCoding(value); // Coding
         else if (name.equals("identifier"))

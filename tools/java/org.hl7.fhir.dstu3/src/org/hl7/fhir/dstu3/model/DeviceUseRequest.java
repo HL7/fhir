@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1471,7 +1471,7 @@ public class DeviceUseRequest extends DomainResource {
           this.stage = castToCodeableConcept(value); // CodeableConcept
           break;
         case -1335157162: // device
-          this.device = (Type) value; // Type
+          this.device = castToType(value); // Type
           break;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
@@ -1480,7 +1480,7 @@ public class DeviceUseRequest extends DomainResource {
           this.context = castToReference(value); // Reference
           break;
         case 1687874001: // occurrence
-          this.occurrence = (Type) value; // Type
+          this.occurrence = castToType(value); // Type
           break;
         case 1433073514: // authored
           this.authored = castToDateTime(value); // DateTimeType
@@ -1531,13 +1531,13 @@ public class DeviceUseRequest extends DomainResource {
         else if (name.equals("stage"))
           this.stage = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("device[x]"))
-          this.device = (Type) value; // Type
+          this.device = castToType(value); // Type
         else if (name.equals("subject"))
           this.subject = castToReference(value); // Reference
         else if (name.equals("context"))
           this.context = castToReference(value); // Reference
         else if (name.equals("occurrence[x]"))
-          this.occurrence = (Type) value; // Type
+          this.occurrence = castToType(value); // Type
         else if (name.equals("authored"))
           this.authored = castToDateTime(value); // DateTimeType
         else if (name.equals("requester"))

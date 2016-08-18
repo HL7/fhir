@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2427,7 +2427,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.description = castToString(value); // StringType
           break;
         case -1410174671: // valueSet
-          this.valueSet = (Type) value; // Type
+          this.valueSet = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -2441,7 +2441,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         else if (name.equals("description"))
           this.description = castToString(value); // StringType
         else if (name.equals("valueSet[x]"))
-          this.valueSet = (Type) value; // Type
+          this.valueSet = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -4704,25 +4704,25 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.getType().add((TypeRefComponent) value); // TypeRefComponent
           break;
         case -659125328: // defaultValue
-          this.defaultValue = (org.hl7.fhir.dstu3.model.Type) value; // org.hl7.fhir.dstu3.model.Type
+          this.defaultValue = castToType(value); // org.hl7.fhir.dstu3.model.Type
           break;
         case 1857257103: // meaningWhenMissing
           this.meaningWhenMissing = castToMarkdown(value); // MarkdownType
           break;
         case 97445748: // fixed
-          this.fixed = (org.hl7.fhir.dstu3.model.Type) value; // org.hl7.fhir.dstu3.model.Type
+          this.fixed = castToType(value); // org.hl7.fhir.dstu3.model.Type
           break;
         case -791090288: // pattern
-          this.pattern = (org.hl7.fhir.dstu3.model.Type) value; // org.hl7.fhir.dstu3.model.Type
+          this.pattern = castToType(value); // org.hl7.fhir.dstu3.model.Type
           break;
         case -1322970774: // example
-          this.example = (org.hl7.fhir.dstu3.model.Type) value; // org.hl7.fhir.dstu3.model.Type
+          this.example = castToType(value); // org.hl7.fhir.dstu3.model.Type
           break;
         case -1376969153: // minValue
-          this.minValue = (Type) value; // Type
+          this.minValue = castToType(value); // Type
           break;
         case 399227501: // maxValue
-          this.maxValue = (Type) value; // Type
+          this.maxValue = castToType(value); // Type
           break;
         case -791400086: // maxLength
           this.maxLength = castToInteger(value); // IntegerType
@@ -4788,19 +4788,19 @@ public class ElementDefinition extends Type implements ICompositeType {
         else if (name.equals("type"))
           this.getType().add((TypeRefComponent) value);
         else if (name.equals("defaultValue[x]"))
-          this.defaultValue = (org.hl7.fhir.dstu3.model.Type) value; // org.hl7.fhir.dstu3.model.Type
+          this.defaultValue = castToType(value); // org.hl7.fhir.dstu3.model.Type
         else if (name.equals("meaningWhenMissing"))
           this.meaningWhenMissing = castToMarkdown(value); // MarkdownType
         else if (name.equals("fixed[x]"))
-          this.fixed = (org.hl7.fhir.dstu3.model.Type) value; // org.hl7.fhir.dstu3.model.Type
+          this.fixed = castToType(value); // org.hl7.fhir.dstu3.model.Type
         else if (name.equals("pattern[x]"))
-          this.pattern = (org.hl7.fhir.dstu3.model.Type) value; // org.hl7.fhir.dstu3.model.Type
+          this.pattern = castToType(value); // org.hl7.fhir.dstu3.model.Type
         else if (name.equals("example[x]"))
-          this.example = (org.hl7.fhir.dstu3.model.Type) value; // org.hl7.fhir.dstu3.model.Type
+          this.example = castToType(value); // org.hl7.fhir.dstu3.model.Type
         else if (name.equals("minValue[x]"))
-          this.minValue = (Type) value; // Type
+          this.minValue = castToType(value); // Type
         else if (name.equals("maxValue[x]"))
-          this.maxValue = (Type) value; // Type
+          this.maxValue = castToType(value); // Type
         else if (name.equals("maxLength"))
           this.maxLength = castToInteger(value); // IntegerType
         else if (name.equals("condition"))

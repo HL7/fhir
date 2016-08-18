@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -604,7 +604,7 @@ public class DeviceUseStatement extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1702620169: // bodySite
-          this.bodySite = (Type) value; // Type
+          this.bodySite = castToType(value); // Type
           break;
         case 2042879511: // whenUsed
           this.whenUsed = castToPeriod(value); // Period
@@ -628,7 +628,7 @@ public class DeviceUseStatement extends DomainResource {
           this.subject = castToReference(value); // Reference
           break;
         case -873664438: // timing
-          this.timing = (Type) value; // Type
+          this.timing = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -638,7 +638,7 @@ public class DeviceUseStatement extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("bodySite[x]"))
-          this.bodySite = (Type) value; // Type
+          this.bodySite = castToType(value); // Type
         else if (name.equals("whenUsed"))
           this.whenUsed = castToPeriod(value); // Period
         else if (name.equals("device"))
@@ -654,7 +654,7 @@ public class DeviceUseStatement extends DomainResource {
         else if (name.equals("subject"))
           this.subject = castToReference(value); // Reference
         else if (name.equals("timing[x]"))
-          this.timing = (Type) value; // Type
+          this.timing = castToType(value); // Type
         else
           super.setProperty(name, value);
       }

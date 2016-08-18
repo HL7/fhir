@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -442,7 +442,7 @@ public class Claim extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 94742588: // claim
-          this.claim = (Type) value; // Type
+          this.claim = castToType(value); // Type
           break;
         case -261851592: // relationship
           this.relationship = castToCoding(value); // Coding
@@ -458,7 +458,7 @@ public class Claim extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("claim[x]"))
-          this.claim = (Type) value; // Type
+          this.claim = castToType(value); // Type
         else if (name.equals("relationship"))
           this.relationship = castToCoding(value); // Coding
         else if (name.equals("reference"))
@@ -705,7 +705,7 @@ public class Claim extends DomainResource {
           this.resourceType = castToCoding(value); // Coding
           break;
         case 106437350: // party
-          this.party = (Type) value; // Type
+          this.party = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -719,7 +719,7 @@ public class Claim extends DomainResource {
         else if (name.equals("resourceType"))
           this.resourceType = castToCoding(value); // Coding
         else if (name.equals("party[x]"))
-          this.party = (Type) value; // Type
+          this.party = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -1016,10 +1016,10 @@ public class Claim extends DomainResource {
           this.code = castToCoding(value); // Coding
           break;
         case -873664438: // timing
-          this.timing = (Type) value; // Type
+          this.timing = castToType(value); // Type
           break;
         case 111972721: // value
-          this.value = (Type) value; // Type
+          this.value = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -1033,9 +1033,9 @@ public class Claim extends DomainResource {
         else if (name.equals("code"))
           this.code = castToCoding(value); // Coding
         else if (name.equals("timing[x]"))
-          this.timing = (Type) value; // Type
+          this.timing = castToType(value); // Type
         else if (name.equals("value[x]"))
-          this.value = (Type) value; // Type
+          this.value = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -1664,7 +1664,7 @@ public class Claim extends DomainResource {
           this.date = castToDateTime(value); // DateTimeType
           break;
         case -1095204141: // procedure
-          this.procedure = (Type) value; // Type
+          this.procedure = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -1678,7 +1678,7 @@ public class Claim extends DomainResource {
         else if (name.equals("date"))
           this.date = castToDateTime(value); // DateTimeType
         else if (name.equals("procedure[x]"))
-          this.procedure = (Type) value; // Type
+          this.procedure = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -2181,7 +2181,7 @@ public class Claim extends DomainResource {
           this.focal = castToBoolean(value); // BooleanType
           break;
         case -351767064: // coverage
-          this.coverage = (Type) value; // Type
+          this.coverage = castToType(value); // Type
           break;
         case 259920682: // businessArrangement
           this.businessArrangement = castToString(value); // StringType
@@ -2207,7 +2207,7 @@ public class Claim extends DomainResource {
         else if (name.equals("focal"))
           this.focal = castToBoolean(value); // BooleanType
         else if (name.equals("coverage[x]"))
-          this.coverage = (Type) value; // Type
+          this.coverage = castToType(value); // Type
         else if (name.equals("businessArrangement"))
           this.businessArrangement = castToString(value); // StringType
         else if (name.equals("preAuthRef"))
@@ -2505,7 +2505,7 @@ public class Claim extends DomainResource {
           this.type = castToCoding(value); // Coding
           break;
         case 1901043637: // location
-          this.location = (Type) value; // Type
+          this.location = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -2519,7 +2519,7 @@ public class Claim extends DomainResource {
         else if (name.equals("type"))
           this.type = castToCoding(value); // Coding
         else if (name.equals("location[x]"))
-          this.location = (Type) value; // Type
+          this.location = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -3724,10 +3724,10 @@ public class Claim extends DomainResource {
           this.getProgramCode().add(castToCoding(value)); // Coding
           break;
         case 1379209295: // serviced
-          this.serviced = (Type) value; // Type
+          this.serviced = castToType(value); // Type
           break;
         case 1901043637: // location
-          this.location = (Type) value; // Type
+          this.location = castToType(value); // Type
           break;
         case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
@@ -3783,9 +3783,9 @@ public class Claim extends DomainResource {
         else if (name.equals("programCode"))
           this.getProgramCode().add(castToCoding(value));
         else if (name.equals("serviced[x]"))
-          this.serviced = (Type) value; // Type
+          this.serviced = castToType(value); // Type
         else if (name.equals("location[x]"))
-          this.location = (Type) value; // Type
+          this.location = castToType(value); // Type
         else if (name.equals("quantity"))
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
         else if (name.equals("unitPrice"))
@@ -4232,7 +4232,7 @@ public class Claim extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -987494927: // provider
-          this.provider = (Type) value; // Type
+          this.provider = castToType(value); // Type
           break;
         case 1847674614: // responsible
           this.responsible = castToBoolean(value); // BooleanType
@@ -4251,7 +4251,7 @@ public class Claim extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("provider[x]"))
-          this.provider = (Type) value; // Type
+          this.provider = castToType(value); // Type
         else if (name.equals("responsible"))
           this.responsible = castToBoolean(value); // BooleanType
         else if (name.equals("role"))
@@ -8311,13 +8311,13 @@ public class Claim extends DomainResource {
           this.billablePeriod = castToPeriod(value); // Period
           break;
         case 1957615864: // insurer
-          this.insurer = (Type) value; // Type
+          this.insurer = castToType(value); // Type
           break;
         case -987494927: // provider
-          this.provider = (Type) value; // Type
+          this.provider = castToType(value); // Type
           break;
         case 1178922291: // organization
-          this.organization = (Type) value; // Type
+          this.organization = castToType(value); // Type
           break;
         case 116103: // use
           this.use = new UseEnumFactory().fromType(value); // Enumeration<Use>
@@ -8329,25 +8329,25 @@ public class Claim extends DomainResource {
           this.fundsReserve = castToCoding(value); // Coding
           break;
         case -1591951995: // enterer
-          this.enterer = (Type) value; // Type
+          this.enterer = castToType(value); // Type
           break;
         case 501116579: // facility
-          this.facility = (Type) value; // Type
+          this.facility = castToType(value); // Type
           break;
         case 1090493483: // related
           this.getRelated().add((RelatedClaimComponent) value); // RelatedClaimComponent
           break;
         case 460301338: // prescription
-          this.prescription = (Type) value; // Type
+          this.prescription = castToType(value); // Type
           break;
         case -1814015861: // originalPrescription
-          this.originalPrescription = (Type) value; // Type
+          this.originalPrescription = castToType(value); // Type
           break;
         case 106443592: // payee
           this.payee = (PayeeComponent) value; // PayeeComponent
           break;
         case -722568291: // referral
-          this.referral = (Type) value; // Type
+          this.referral = castToType(value); // Type
           break;
         case 1968600364: // information
           this.getInformation().add((SpecialConditionComponent) value); // SpecialConditionComponent
@@ -8359,7 +8359,7 @@ public class Claim extends DomainResource {
           this.getProcedure().add((ProcedureComponent) value); // ProcedureComponent
           break;
         case -791418107: // patient
-          this.patient = (Type) value; // Type
+          this.patient = castToType(value); // Type
           break;
         case -351767064: // coverage
           this.getCoverage().add((CoverageComponent) value); // CoverageComponent
@@ -8406,11 +8406,11 @@ public class Claim extends DomainResource {
         else if (name.equals("billablePeriod"))
           this.billablePeriod = castToPeriod(value); // Period
         else if (name.equals("insurer[x]"))
-          this.insurer = (Type) value; // Type
+          this.insurer = castToType(value); // Type
         else if (name.equals("provider[x]"))
-          this.provider = (Type) value; // Type
+          this.provider = castToType(value); // Type
         else if (name.equals("organization[x]"))
-          this.organization = (Type) value; // Type
+          this.organization = castToType(value); // Type
         else if (name.equals("use"))
           this.use = new UseEnumFactory().fromType(value); // Enumeration<Use>
         else if (name.equals("priority"))
@@ -8418,19 +8418,19 @@ public class Claim extends DomainResource {
         else if (name.equals("fundsReserve"))
           this.fundsReserve = castToCoding(value); // Coding
         else if (name.equals("enterer[x]"))
-          this.enterer = (Type) value; // Type
+          this.enterer = castToType(value); // Type
         else if (name.equals("facility[x]"))
-          this.facility = (Type) value; // Type
+          this.facility = castToType(value); // Type
         else if (name.equals("related"))
           this.getRelated().add((RelatedClaimComponent) value);
         else if (name.equals("prescription[x]"))
-          this.prescription = (Type) value; // Type
+          this.prescription = castToType(value); // Type
         else if (name.equals("originalPrescription[x]"))
-          this.originalPrescription = (Type) value; // Type
+          this.originalPrescription = castToType(value); // Type
         else if (name.equals("payee"))
           this.payee = (PayeeComponent) value; // PayeeComponent
         else if (name.equals("referral[x]"))
-          this.referral = (Type) value; // Type
+          this.referral = castToType(value); // Type
         else if (name.equals("information"))
           this.getInformation().add((SpecialConditionComponent) value);
         else if (name.equals("diagnosis"))
@@ -8438,7 +8438,7 @@ public class Claim extends DomainResource {
         else if (name.equals("procedure"))
           this.getProcedure().add((ProcedureComponent) value);
         else if (name.equals("patient[x]"))
-          this.patient = (Type) value; // Type
+          this.patient = castToType(value); // Type
         else if (name.equals("coverage"))
           this.getCoverage().add((CoverageComponent) value);
         else if (name.equals("accident"))

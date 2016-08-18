@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1564,7 +1564,7 @@ public class DiagnosticReport extends DomainResource {
           this.encounter = castToReference(value); // Reference
           break;
         case -1468651097: // effective
-          this.effective = (Type) value; // Type
+          this.effective = castToType(value); // Type
           break;
         case -1179159893: // issued
           this.issued = castToInstant(value); // InstantType
@@ -1616,7 +1616,7 @@ public class DiagnosticReport extends DomainResource {
         else if (name.equals("encounter"))
           this.encounter = castToReference(value); // Reference
         else if (name.equals("effective[x]"))
-          this.effective = (Type) value; // Type
+          this.effective = castToType(value); // Type
         else if (name.equals("issued"))
           this.issued = castToInstant(value); // InstantType
         else if (name.equals("performer"))

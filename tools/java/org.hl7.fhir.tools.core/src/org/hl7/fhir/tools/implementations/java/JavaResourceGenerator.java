@@ -1049,6 +1049,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           cn = "new "+tn.substring(tn.indexOf("<")+1, tn.length()-1)+"EnumFactory().fromType(value)";
         } else if (e.getTypes().size() == 1 && !e.typeCode().equals("*") && !e.getTypes().get(0).getName().startsWith("@")) { 
           cn = "castTo"+upFirst(e.getTypes().get(0).getName())+"(value)";
+        } else if (e.getTypes().size() > 0 && !e.getTypes().get(0).getName().startsWith("@")) { 
+          cn = "castToType(value)";
         }
         if (e.unbounded()) {
           write(indent+"      this.get"+upFirst(getElementName(name, false))+"().add("+cn+");\r\n");
@@ -1077,6 +1079,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           cn = "new "+tn.substring(tn.indexOf("<")+1, tn.length()-1)+"EnumFactory().fromType(value)";
         } else if (e.getTypes().size() == 1 && !e.typeCode().equals("*") && !e.getTypes().get(0).getName().startsWith("@")) { 
           cn = "castTo"+upFirst(e.getTypes().get(0).getName())+"(value)";
+        } else if (e.getTypes().size() > 0 && !e.getTypes().get(0).getName().startsWith("@")) { 
+          cn = "castToType(value)";
         }
         if (e.unbounded()) {
           write(indent+"      this.get"+upFirst(getElementName(name, false))+"().add("+cn+"); // "+tn+"\r\n");

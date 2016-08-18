@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2394,7 +2394,7 @@ public class Consent extends DomainResource {
           this.organization = castToReference(value); // Reference
           break;
         case -896505829: // source
-          this.source = (Type) value; // Type
+          this.source = castToType(value); // Type
           break;
         case -982670030: // policy
           this.policy = castToUri(value); // UriType
@@ -2432,7 +2432,7 @@ public class Consent extends DomainResource {
         else if (name.equals("organization"))
           this.organization = castToReference(value); // Reference
         else if (name.equals("source[x]"))
-          this.source = (Type) value; // Type
+          this.source = castToType(value); // Type
         else if (name.equals("policy"))
           this.policy = castToUri(value); // UriType
         else if (name.equals("recipient"))

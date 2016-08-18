@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1382,7 +1382,7 @@ public class DiagnosticRequest extends DomainResource {
           this.context = castToReference(value); // Reference
           break;
         case 1687874001: // occurrence
-          this.occurrence = (Type) value; // Type
+          this.occurrence = castToType(value); // Type
           break;
         case 1433073514: // authored
           this.authored = castToDateTime(value); // DateTimeType
@@ -1436,7 +1436,7 @@ public class DiagnosticRequest extends DomainResource {
         else if (name.equals("context"))
           this.context = castToReference(value); // Reference
         else if (name.equals("occurrence[x]"))
-          this.occurrence = (Type) value; // Type
+          this.occurrence = castToType(value); // Type
         else if (name.equals("authored"))
           this.authored = castToDateTime(value); // DateTimeType
         else if (name.equals("requester"))

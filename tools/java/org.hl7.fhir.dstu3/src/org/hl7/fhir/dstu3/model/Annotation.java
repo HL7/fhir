@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -246,7 +246,7 @@ public class Annotation extends Type implements ICompositeType {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1406328437: // author
-          this.author = (Type) value; // Type
+          this.author = castToType(value); // Type
           break;
         case 3560141: // time
           this.time = castToDateTime(value); // DateTimeType
@@ -262,7 +262,7 @@ public class Annotation extends Type implements ICompositeType {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("author[x]"))
-          this.author = (Type) value; // Type
+          this.author = castToType(value); // Type
         else if (name.equals("time"))
           this.time = castToDateTime(value); // DateTimeType
         else if (name.equals("text"))

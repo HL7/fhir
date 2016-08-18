@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -992,7 +992,7 @@ public class Contract extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1298275357: // entity
-          this.entity = (Type) value; // Type
+          this.entity = castToType(value); // Type
           break;
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
@@ -1023,7 +1023,7 @@ public class Contract extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("entity[x]"))
-          this.entity = (Type) value; // Type
+          this.entity = castToType(value); // Type
         else if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("effectiveTime"))
@@ -2687,7 +2687,7 @@ public class Contract extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1298275357: // entity
-          this.entity = (Type) value; // Type
+          this.entity = castToType(value); // Type
           break;
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
@@ -2718,7 +2718,7 @@ public class Contract extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("entity[x]"))
-          this.entity = (Type) value; // Type
+          this.entity = castToType(value); // Type
         else if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("effectiveTime"))
@@ -2930,7 +2930,7 @@ public class Contract extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 951530617: // content
-          this.content = (Type) value; // Type
+          this.content = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -2940,7 +2940,7 @@ public class Contract extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("content[x]"))
-          this.content = (Type) value; // Type
+          this.content = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -3095,7 +3095,7 @@ public class Contract extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 951530617: // content
-          this.content = (Type) value; // Type
+          this.content = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -3105,7 +3105,7 @@ public class Contract extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("content[x]"))
-          this.content = (Type) value; // Type
+          this.content = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -3260,7 +3260,7 @@ public class Contract extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 951530617: // content
-          this.content = (Type) value; // Type
+          this.content = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -3270,7 +3270,7 @@ public class Contract extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("content[x]"))
-          this.content = (Type) value; // Type
+          this.content = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -4573,7 +4573,7 @@ public class Contract extends DomainResource {
           this.getTerm().add((TermComponent) value); // TermComponent
           break;
         case -108220795: // binding
-          this.binding = (Type) value; // Type
+          this.binding = castToType(value); // Type
           break;
         case -1423054677: // friendly
           this.getFriendly().add((FriendlyLanguageComponent) value); // FriendlyLanguageComponent
@@ -4622,7 +4622,7 @@ public class Contract extends DomainResource {
         else if (name.equals("term"))
           this.getTerm().add((TermComponent) value);
         else if (name.equals("binding[x]"))
-          this.binding = (Type) value; // Type
+          this.binding = castToType(value); // Type
         else if (name.equals("friendly"))
           this.getFriendly().add((FriendlyLanguageComponent) value);
         else if (name.equals("legal"))

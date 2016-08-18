@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -4209,7 +4209,7 @@ public class ClaimResponse extends DomainResource {
           this.focal = castToBoolean(value); // BooleanType
           break;
         case -351767064: // coverage
-          this.coverage = (Type) value; // Type
+          this.coverage = castToType(value); // Type
           break;
         case 259920682: // businessArrangement
           this.businessArrangement = castToString(value); // StringType
@@ -4232,7 +4232,7 @@ public class ClaimResponse extends DomainResource {
         else if (name.equals("focal"))
           this.focal = castToBoolean(value); // BooleanType
         else if (name.equals("coverage[x]"))
-          this.coverage = (Type) value; // Type
+          this.coverage = castToType(value); // Type
         else if (name.equals("businessArrangement"))
           this.businessArrangement = castToString(value); // StringType
         else if (name.equals("preAuthRef"))
@@ -5472,7 +5472,7 @@ public class ClaimResponse extends DomainResource {
           this.status = new ClaimResponseStatusEnumFactory().fromType(value); // Enumeration<ClaimResponseStatus>
           break;
         case 1095692943: // request
-          this.request = (Type) value; // Type
+          this.request = castToType(value); // Type
           break;
         case 1548678118: // ruleset
           this.ruleset = castToCoding(value); // Coding
@@ -5484,13 +5484,13 @@ public class ClaimResponse extends DomainResource {
           this.created = castToDateTime(value); // DateTimeType
           break;
         case 1178922291: // organization
-          this.organization = (Type) value; // Type
+          this.organization = castToType(value); // Type
           break;
         case 1601527200: // requestProvider
-          this.requestProvider = (Type) value; // Type
+          this.requestProvider = castToType(value); // Type
           break;
         case 599053666: // requestOrganization
-          this.requestOrganization = (Type) value; // Type
+          this.requestOrganization = castToType(value); // Type
           break;
         case -1106507950: // outcome
           this.outcome = castToCoding(value); // Coding
@@ -5546,7 +5546,7 @@ public class ClaimResponse extends DomainResource {
         else if (name.equals("status"))
           this.status = new ClaimResponseStatusEnumFactory().fromType(value); // Enumeration<ClaimResponseStatus>
         else if (name.equals("request[x]"))
-          this.request = (Type) value; // Type
+          this.request = castToType(value); // Type
         else if (name.equals("ruleset"))
           this.ruleset = castToCoding(value); // Coding
         else if (name.equals("originalRuleset"))
@@ -5554,11 +5554,11 @@ public class ClaimResponse extends DomainResource {
         else if (name.equals("created"))
           this.created = castToDateTime(value); // DateTimeType
         else if (name.equals("organization[x]"))
-          this.organization = (Type) value; // Type
+          this.organization = castToType(value); // Type
         else if (name.equals("requestProvider[x]"))
-          this.requestProvider = (Type) value; // Type
+          this.requestProvider = castToType(value); // Type
         else if (name.equals("requestOrganization[x]"))
-          this.requestOrganization = (Type) value; // Type
+          this.requestOrganization = castToType(value); // Type
         else if (name.equals("outcome"))
           this.outcome = castToCoding(value); // Coding
         else if (name.equals("disposition"))

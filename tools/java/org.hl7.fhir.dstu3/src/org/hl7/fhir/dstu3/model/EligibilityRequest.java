@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1054,34 +1054,34 @@ public class EligibilityRequest extends DomainResource {
           this.created = castToDateTime(value); // DateTimeType
           break;
         case 1957615864: // insurer
-          this.insurer = (Type) value; // Type
+          this.insurer = castToType(value); // Type
           break;
         case -987494927: // provider
-          this.provider = (Type) value; // Type
+          this.provider = castToType(value); // Type
           break;
         case 1178922291: // organization
-          this.organization = (Type) value; // Type
+          this.organization = castToType(value); // Type
           break;
         case -1165461084: // priority
           this.priority = castToCoding(value); // Coding
           break;
         case -1591951995: // enterer
-          this.enterer = (Type) value; // Type
+          this.enterer = castToType(value); // Type
           break;
         case 501116579: // facility
-          this.facility = (Type) value; // Type
+          this.facility = castToType(value); // Type
           break;
         case -791418107: // patient
-          this.patient = (Type) value; // Type
+          this.patient = castToType(value); // Type
           break;
         case -351767064: // coverage
-          this.coverage = (Type) value; // Type
+          this.coverage = castToType(value); // Type
           break;
         case 259920682: // businessArrangement
           this.businessArrangement = castToString(value); // StringType
           break;
         case 1379209295: // serviced
-          this.serviced = (Type) value; // Type
+          this.serviced = castToType(value); // Type
           break;
         case -1023390027: // benefitCategory
           this.benefitCategory = castToCoding(value); // Coding
@@ -1107,25 +1107,25 @@ public class EligibilityRequest extends DomainResource {
         else if (name.equals("created"))
           this.created = castToDateTime(value); // DateTimeType
         else if (name.equals("insurer[x]"))
-          this.insurer = (Type) value; // Type
+          this.insurer = castToType(value); // Type
         else if (name.equals("provider[x]"))
-          this.provider = (Type) value; // Type
+          this.provider = castToType(value); // Type
         else if (name.equals("organization[x]"))
-          this.organization = (Type) value; // Type
+          this.organization = castToType(value); // Type
         else if (name.equals("priority"))
           this.priority = castToCoding(value); // Coding
         else if (name.equals("enterer[x]"))
-          this.enterer = (Type) value; // Type
+          this.enterer = castToType(value); // Type
         else if (name.equals("facility[x]"))
-          this.facility = (Type) value; // Type
+          this.facility = castToType(value); // Type
         else if (name.equals("patient[x]"))
-          this.patient = (Type) value; // Type
+          this.patient = castToType(value); // Type
         else if (name.equals("coverage[x]"))
-          this.coverage = (Type) value; // Type
+          this.coverage = castToType(value); // Type
         else if (name.equals("businessArrangement"))
           this.businessArrangement = castToString(value); // StringType
         else if (name.equals("serviced[x]"))
-          this.serviced = (Type) value; // Type
+          this.serviced = castToType(value); // Type
         else if (name.equals("benefitCategory"))
           this.benefitCategory = castToCoding(value); // Coding
         else if (name.equals("benefitSubCategory"))

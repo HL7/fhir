@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2042,7 +2042,7 @@ public class CarePlan extends DomainResource {
           this.prohibited = castToBoolean(value); // BooleanType
           break;
         case -160710483: // scheduled
-          this.scheduled = (Type) value; // Type
+          this.scheduled = castToType(value); // Type
           break;
         case 1901043637: // location
           this.location = castToReference(value); // Reference
@@ -2051,7 +2051,7 @@ public class CarePlan extends DomainResource {
           this.getPerformer().add(castToReference(value)); // Reference
           break;
         case -309474065: // product
-          this.product = (Type) value; // Type
+          this.product = castToType(value); // Type
           break;
         case -768908335: // dailyAmount
           this.dailyAmount = castToSimpleQuantity(value); // SimpleQuantity
@@ -2088,13 +2088,13 @@ public class CarePlan extends DomainResource {
         else if (name.equals("prohibited"))
           this.prohibited = castToBoolean(value); // BooleanType
         else if (name.equals("scheduled[x]"))
-          this.scheduled = (Type) value; // Type
+          this.scheduled = castToType(value); // Type
         else if (name.equals("location"))
           this.location = castToReference(value); // Reference
         else if (name.equals("performer"))
           this.getPerformer().add(castToReference(value));
         else if (name.equals("product[x]"))
-          this.product = (Type) value; // Type
+          this.product = castToType(value); // Type
         else if (name.equals("dailyAmount"))
           this.dailyAmount = castToSimpleQuantity(value); // SimpleQuantity
         else if (name.equals("quantity"))

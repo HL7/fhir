@@ -1449,7 +1449,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         dlog(" .. "+f.getName());
       for (FetchedResource r : f.getResources()) {
         if (!r.isValidated()) {
-          log("     validating "+r.getTitle());
+          dlog("     validating "+r.getTitle());
           validate(f, r);
         }
       }
