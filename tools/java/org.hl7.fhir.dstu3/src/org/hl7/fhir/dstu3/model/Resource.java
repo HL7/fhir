@@ -384,5 +384,16 @@ public abstract class Resource extends BaseResource implements IAnyResource {
 
   public abstract ResourceType getResourceType();
 
+  @Override
+  public String getIdBase() {
+    return getId();
+  }
+
+  @Override
+  public void setIdBase(String value) {
+    setId(value);
+  }
+
+
 }
 

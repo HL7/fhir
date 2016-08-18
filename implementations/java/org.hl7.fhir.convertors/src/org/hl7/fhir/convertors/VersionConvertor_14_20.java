@@ -4867,7 +4867,11 @@ public class VersionConvertor_14_20 {
     tgt.setBaseDefinition(src.getBaseDefinition());
     tgt.setDerivation(convertTypeDerivationRule(src.getDerivation()));
     tgt.setSnapshot(convertStructureDefinitionSnapshotComponent(src.getSnapshot()));
+    if (tgt.hasSnapshot())
+      tgt.getSnapshot().getElementFirstRep().getType().clear();
     tgt.setDifferential(convertStructureDefinitionDifferentialComponent(src.getDifferential()));
+    if (tgt.hasDifferential())
+      tgt.getDifferential().getElementFirstRep().getType().clear();
     return tgt;
   }
 

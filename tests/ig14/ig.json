@@ -6,7 +6,7 @@
     "temp" : "temp",
     "qa" : "qa",
     "output" : "output",
-    "specification" : "http://hl7-fhir.github.io/"
+    "specification" : "http://hl7.org/fhir/2016May"
   },
 	"canonicalBase": "http://hl7.org/fhir/test-ig-14",
   "version" : "1.4.0",
