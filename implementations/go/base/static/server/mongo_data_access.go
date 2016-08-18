@@ -148,9 +148,15 @@ func (dal *mongoDataAccessLayer) Put(id string, resource interface{}) (createdNe
 	reflect.ValueOf(resource).Elem().FieldByName("Id").SetString(bsonID.Hex())
 	updateLastUpdatedDate(resource)
 
-	dal.invokeInterceptorsBefore("Update", resourceType, resource)
+	if dal.hasInterceptorsForOpAndType("Update", resourceType) {
+		oldResource, getError := dal.Get(id, resourceType)
+		if getError == nil {
+			dal.invokeInterceptorsBefore("Update", resourceType, oldResource)
+		}
+	}
 
 	info, err := collection.UpsertId(bsonID.Hex(), resource)
+
 	if err == nil {
 		createdNew = (info.Updated == 0)
 		if createdNew {
