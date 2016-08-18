@@ -1121,6 +1121,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
           }
         }
         for (Entry<FetchedResource, List<StructureMap>> t : worklist.entrySet()) {
+          int i = 0;
           for (StructureMap map : t.getValue()) {
             boolean ok = true;
             String tgturl = null;
@@ -1136,6 +1137,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
               StructureDefinition tsd = context.fetchResource(StructureDefinition.class, tgturl);
               if (tsd != null) {
                 Resource target = ResourceFactory.createResource(tsd.getId());
+                target.setId(t.getKey().getId()+"-map-"+Integer.toString(i));
+                i++;
                 utils.transform(null, t.getKey().getElement(), map, target);
                 FetchedResource nr = new FetchedResource();
                 nr.setElement(new ObjectConverter(context).convert(target));
