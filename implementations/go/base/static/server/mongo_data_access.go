@@ -1,6 +1,8 @@
 package server
 
 import (
+	"errors"
+	"fmt"
 	"github.com/intervention-engine/fhir/models"
 	"github.com/intervention-engine/fhir/search"
 	"gopkg.in/mgo.v2"
@@ -275,6 +277,10 @@ func (dal *mongoDataAccessLayer) ConditionalDelete(query search.Query) (count in
 					if elementInSlice(id, successfulIds) {
 						// This resource was confirmed deleted
 						dal.invokeInterceptorsAfter("Delete", resourceType, elem.Resource)
+					} else {
+						// This resource was not confirmed deleted, which is an error
+						resourceErr := errors.New(fmt.Sprintf("ConditionalDelete: failed to delete resource %s with ID %s", resourceType, id))
+						dal.invokeInterceptorsOnError("Delete", resourceType, resourceErr, elem.Resource)
 					}
 				}
 			}
