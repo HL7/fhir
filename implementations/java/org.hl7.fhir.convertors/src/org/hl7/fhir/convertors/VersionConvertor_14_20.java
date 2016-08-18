@@ -37,7 +37,9 @@ import java.util.List;
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionPropertyComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.CodeSystem.FilterOperator;
+import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.exceptions.FHIRException;
@@ -2422,6 +2424,193 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
+  public static org.hl7.fhir.dstu3.model.CompartmentDefinition convertCompartmentDefinition(org.hl7.fhir.dstu2016may.model.CompartmentDefinition src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.dstu3.model.CompartmentDefinition tgt = new org.hl7.fhir.dstu3.model.CompartmentDefinition();
+    copyDomainResource(src, tgt);
+    tgt.setUrl(src.getUrl());
+    tgt.setName(src.getName());
+    tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
+    tgt.setExperimental(src.getExperimental());
+    tgt.setPublisher(src.getPublisher());
+    for (org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionContactComponent t : src.getContact())
+      tgt.addContact(convertCompartmentDefinitionContactComponent(t));
+    tgt.setDate(src.getDate());
+    tgt.setDescription(src.getDescription());
+    tgt.setRequirements(src.getRequirements());
+    tgt.setCode(convertCompartmentType(src.getCode()));
+    tgt.setSearch(src.getSearch());
+    for (org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionResourceComponent t : src.getResource())
+      tgt.addResource(convertCompartmentDefinitionResourceComponent(t));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu2016may.model.CompartmentDefinition convertCompartmentDefinition(org.hl7.fhir.dstu3.model.CompartmentDefinition src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.dstu2016may.model.CompartmentDefinition tgt = new org.hl7.fhir.dstu2016may.model.CompartmentDefinition();
+    copyDomainResource(src, tgt);
+    tgt.setUrl(src.getUrl());
+    tgt.setName(src.getName());
+    tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
+    tgt.setExperimental(src.getExperimental());
+    tgt.setPublisher(src.getPublisher());
+    for (org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionContactComponent t : src.getContact())
+      tgt.addContact(convertCompartmentDefinitionContactComponent(t));
+    tgt.setDate(src.getDate());
+    tgt.setDescription(src.getDescription());
+    tgt.setRequirements(src.getRequirements());
+    tgt.setCode(convertCompartmentType(src.getCode()));
+    tgt.setSearch(src.getSearch());
+    for (org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionResourceComponent t : src.getResource())
+      tgt.addResource(convertCompartmentDefinitionResourceComponent(t));
+    return tgt;
+  }
+
+  private static org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentType convertCompartmentType(org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentType src) throws FHIRException {
+    if (src == null)
+      return null;
+    switch (src) {
+    case PATIENT: return org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentType.PATIENT;
+    case ENCOUNTER: return org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentType.ENCOUNTER;
+    case RELATEDPERSON: return org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentType.RELATEDPERSON;
+    case PRACTITIONER: return org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentType.PRACTITIONER;
+    case DEVICE: return org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentType.DEVICE;
+    default: return org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentType.NULL;
+  }
+}
+
+  private static org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentType convertCompartmentType(org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentType src) throws FHIRException {
+    if (src == null)
+      return null;
+    switch (src) {
+    case PATIENT: return org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentType.PATIENT;
+    case ENCOUNTER: return org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentType.ENCOUNTER;
+    case RELATEDPERSON: return org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentType.RELATEDPERSON;
+    case PRACTITIONER: return org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentType.PRACTITIONER;
+    case DEVICE: return org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentType.DEVICE;
+    default: return org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentType.NULL;
+  }
+}
+
+  public static org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionContactComponent convertCompartmentDefinitionContactComponent(org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionContactComponent src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionContactComponent tgt = new org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionContactComponent();
+    copyElement(src, tgt);
+    tgt.setName(src.getName());
+    for (org.hl7.fhir.dstu2016may.model.ContactPoint t : src.getTelecom())
+      tgt.addTelecom(convertContactPoint(t));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionContactComponent convertCompartmentDefinitionContactComponent(org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionContactComponent src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionContactComponent tgt = new org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionContactComponent();
+    copyElement(src, tgt);
+    tgt.setName(src.getName());
+    for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
+      tgt.addTelecom(convertContactPoint(t));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionResourceComponent convertCompartmentDefinitionResourceComponent(org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionResourceComponent src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionResourceComponent tgt = new org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionResourceComponent();
+    copyElement(src, tgt);
+    tgt.setCode(src.getCode());
+    for (org.hl7.fhir.dstu2016may.model.StringType t : src.getParam())
+      tgt.addParam(t.getValue());
+    tgt.setDocumentation(src.getDocumentation());
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionResourceComponent convertCompartmentDefinitionResourceComponent(org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionResourceComponent src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionResourceComponent tgt = new org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionResourceComponent();
+    copyElement(src, tgt);
+    tgt.setCode(src.getCode());
+    for (org.hl7.fhir.dstu3.model.StringType t : src.getParam())
+      tgt.addParam(t.getValue());
+    tgt.setDocumentation(src.getDocumentation());
+    return tgt;
+  }
+
+
+  public static org.hl7.fhir.dstu3.model.ConceptMap convertConceptMap(org.hl7.fhir.dstu2016may.model.ConceptMap src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.dstu3.model.ConceptMap tgt = new org.hl7.fhir.dstu3.model.ConceptMap();
+    copyDomainResource(src, tgt);
+    tgt.setUrl(src.getUrl());
+    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+    tgt.setVersion(src.getVersion());
+    tgt.setName(src.getName());
+    tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
+    tgt.setExperimental(src.getExperimental());
+    tgt.setPublisher(src.getPublisher());
+    for (org.hl7.fhir.dstu2016may.model.ConceptMap.ConceptMapContactComponent t : src.getContact())
+      tgt.addContact(convertConceptMapContactComponent(t));
+    tgt.setDate(src.getDate());
+    tgt.setDescription(src.getDescription());
+    for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
+      tgt.addUseContext(convertCodeableConcept(t));
+    tgt.setRequirements(src.getRequirements());
+    tgt.setCopyright(src.getCopyright());
+    tgt.setSource(convertType(src.getSource()));
+    tgt.setTarget(convertType(src.getTarget()));
+    for (org.hl7.fhir.dstu2016may.model.ConceptMap.SourceElementComponent t : src.getElement()) {
+      List<SourceElementComponentWrapper> ws = convertSourceElementComponent(t);
+      for (SourceElementComponentWrapper w : ws)
+      getGroup(tgt, w.source, w.target).addElement(w.comp);
+    }
+    return tgt;
+  }
+
+  private static ConceptMapGroupComponent getGroup(ConceptMap map, String srcs, String tgts) {
+    for (ConceptMapGroupComponent grp : map.getGroup()) {
+      if (grp.getSource().equals(srcs) && grp.getTarget().equals(tgts))
+        return grp;
+    }
+    ConceptMapGroupComponent grp = map.addGroup();
+    grp.setSource(srcs);
+    grp.setTarget(tgts);
+    return grp;
+  }
+
+
+  public static org.hl7.fhir.dstu2016may.model.ConceptMap convertConceptMap(org.hl7.fhir.dstu3.model.ConceptMap src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.dstu2016may.model.ConceptMap tgt = new org.hl7.fhir.dstu2016may.model.ConceptMap();
+    copyDomainResource(src, tgt);
+    tgt.setUrl(src.getUrl());
+    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+    tgt.setVersion(src.getVersion());
+    tgt.setName(src.getName());
+    tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
+    tgt.setExperimental(src.getExperimental());
+    tgt.setPublisher(src.getPublisher());
+    for (org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent t : src.getContact())
+      tgt.addContact(convertConceptMapContactComponent(t));
+    tgt.setDate(src.getDate());
+    tgt.setDescription(src.getDescription());
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
+      tgt.addUseContext(convertCodeableConcept(t));
+    tgt.setRequirements(src.getRequirements());
+    tgt.setCopyright(src.getCopyright());
+    tgt.setSource(convertType(src.getSource()));
+    tgt.setTarget(convertType(src.getTarget()));
+    for (org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent g : src.getGroup())
+      for (org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent t : g.getElement())
+        tgt.addElement(convertSourceElementComponent(t, g));
+    return tgt;
+  }
+
 
   public static org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent convertConceptMapContactComponent(org.hl7.fhir.dstu2016may.model.ConceptMap.ConceptMapContactComponent src) throws FHIRException {
     if (src == null)
@@ -2445,7 +2634,7 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  private class SourceElementComponentWrapper {
+  private static class SourceElementComponentWrapper {
     public SourceElementComponentWrapper(SourceElementComponent comp, String source, String target) {
       super();
       this.source = source;
@@ -2457,7 +2646,7 @@ public class VersionConvertor_14_20 {
     private org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent comp;
 
   }
-  public List<SourceElementComponentWrapper> convertSourceElementComponent(org.hl7.fhir.dstu2016may.model.ConceptMap.SourceElementComponent src) throws FHIRException {
+  public static List<SourceElementComponentWrapper> convertSourceElementComponent(org.hl7.fhir.dstu2016may.model.ConceptMap.SourceElementComponent src) throws FHIRException {
     List<SourceElementComponentWrapper> res = new ArrayList<SourceElementComponentWrapper>();
     if (src == null)
       return res;
@@ -5983,6 +6172,10 @@ public class VersionConvertor_14_20 {
       return convertBundle((org.hl7.fhir.dstu2016may.model.Bundle) src);
     if (src instanceof org.hl7.fhir.dstu2016may.model.CodeSystem)
       return convertCodeSystem((org.hl7.fhir.dstu2016may.model.CodeSystem) src);
+    if (src instanceof org.hl7.fhir.dstu2016may.model.CompartmentDefinition)
+      return convertCompartmentDefinition((org.hl7.fhir.dstu2016may.model.CompartmentDefinition) src);
+    if (src instanceof org.hl7.fhir.dstu2016may.model.ConceptMap)
+      return convertConceptMap((org.hl7.fhir.dstu2016may.model.ConceptMap) src);
     if (src instanceof org.hl7.fhir.dstu2016may.model.Conformance)
       return convertConformance((org.hl7.fhir.dstu2016may.model.Conformance) src);
     if (src instanceof org.hl7.fhir.dstu2016may.model.DataElement)
@@ -6021,6 +6214,10 @@ public class VersionConvertor_14_20 {
       return convertBundle((org.hl7.fhir.dstu3.model.Bundle) src);
     if (src instanceof org.hl7.fhir.dstu3.model.CodeSystem)
       return convertCodeSystem((org.hl7.fhir.dstu3.model.CodeSystem) src);
+    if (src instanceof org.hl7.fhir.dstu3.model.CompartmentDefinition)
+      return convertCompartmentDefinition((org.hl7.fhir.dstu3.model.CompartmentDefinition) src);
+    if (src instanceof org.hl7.fhir.dstu3.model.ConceptMap)
+      return convertConceptMap((org.hl7.fhir.dstu3.model.ConceptMap) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Conformance)
       return convertConformance((org.hl7.fhir.dstu3.model.Conformance) src);
     if (src instanceof org.hl7.fhir.dstu3.model.DataElement)

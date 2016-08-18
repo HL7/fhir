@@ -15,6 +15,7 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
+import org.hl7.fhir.utilities.TextFile;
 
 
 public class ObjectConverter  {
@@ -29,6 +30,7 @@ public class ObjectConverter  {
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     org.hl7.fhir.dstu3.formats.JsonParser jp = new org.hl7.fhir.dstu3.formats.JsonParser();
     jp.compose(bs, ig);
+    TextFile.bytesToFile(bs.toByteArray(), "c:\\temp\\tmp.xml");
     ByteArrayInputStream bi = new ByteArrayInputStream(bs.toByteArray());
     return new JsonParser(context).parse(bi);
   }

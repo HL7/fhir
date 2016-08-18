@@ -58,13 +58,13 @@ public class Property {
         throw new Error("not handled yet");
       boolean found = false;
       for (ElementDefinition d : structure.getSnapshot().getElement()) {
-        if (d.getPath().equals(definition.getContentReference().substring(1))) {
+        if (d.hasId() && d.getId().equals(definition.getContentReference().substring(1))) {
           found = true;
           ed = d;
         }
       }
       if (!found)
-        throw new Error("Unable to resolve "+definition.getContentReference());
+        throw new Error("Unable to resolve "+definition.getContentReference()+" at "+definition.getPath()+" on "+structure.getUrl());
     }
     if (ed.getType().size() == 0)
       return null;
