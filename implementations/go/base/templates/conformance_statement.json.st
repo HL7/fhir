@@ -1,6 +1,6 @@
 {
   "resourceType" : "Conformance",
-  "url" : "/Metadata",
+  "url" : "/metadata",
   "version" : "1",
   "name" : "GoFHIR Conformance Statement",
   "status" : "active",

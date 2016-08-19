@@ -241,6 +241,11 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         serverWriter.write("\te.POST(\"/\", batchHandlers...)");
         serverWriter.newLine();
         serverWriter.newLine();
+        serverWriter.write("\t// Conformance Statement");
+        serverWriter.newLine();
+        serverWriter.write("\te.StaticFile(\"metadata\", \"conformance/conformance_statement.json\")");
+        serverWriter.newLine();
+        serverWriter.newLine();
         serverWriter.write("\t// Resources");
         serverWriter.newLine();
         serverWriter.newLine();
