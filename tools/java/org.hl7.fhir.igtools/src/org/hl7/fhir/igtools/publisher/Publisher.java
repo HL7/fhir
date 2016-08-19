@@ -1597,7 +1597,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         String u = igpkp.getCanonical()+r.getUrlTail();
         if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
           String uc = ((BaseConformance) r.getResource()).getUrl();
-          if (!u.equals(uc) && !u.startsWith("http://hl7.org/fhir/template-adhoc-ig"))
+          if (!u.equals(uc) && !u.startsWith("http://hl7.org/fhir/template-adhoc-ig") && !(r.getResource() instanceof CodeSystem))
             throw new Exception("URL Mismatch "+u+" vs "+uc);
         }
         map.path(u, igpkp.getLinkFor(f, r));

@@ -777,6 +777,8 @@ public class IgSpreadsheetParser {
       String s = sheet.getColumn(row, "Example "+Integer.toString(i));
       if (Utilities.noString(s))
         s = sheet.getByColumnPrefix(row, "Example "+Integer.toString(i)+" (");
+      if (s.contains("//"))
+        s = s.substring(0,  s.indexOf("//")).trim();
       if (!Utilities.noString(s)) {
         Extension ex = e.addExtension();
         ex.setUrl("http://hl7.org/fhir/StructureDefinition/structuredefinition-example");
