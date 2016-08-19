@@ -1113,6 +1113,30 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if ("true".equals(ostr(configuration, "do-transforms"))) {
       MappingServices services = new MappingServices(context, igpkp.getCanonical());
       StructureMapUtilities utils = new StructureMapUtilities(context, context.getTransforms(), services);
+      
+      // ok, our first task is to generate the profiles
+      // for now, we only check use the logical models
+      for (FetchedFile f : changeList) {
+        for (FetchedResource r : f.getResources()) {
+          if (r.getResource() != null && r.getResource() instanceof StructureDefinition) {
+            List<StructureMap> transforms = context.findTransformsforSource(((StructureDefinition) r.getResource()).getUrl());
+            for (StructureMap map : transforms) {
+              List<StructureDefinition> profiles = utils.profileTransform(null, map);
+              for (StructureDefinition sd : profiles) {
+                FetchedResource nr = new FetchedResource();
+                nr.setElement(new ObjectConverter(context).convert(sd));
+                nr.setId(sd.getId());
+                nr.setResource(sd);
+                nr.setTitle("Generated Profile (by Transform)");
+                f.getResources().add(nr);
+                igpkp.findConfiguration(f, nr);
+              }
+            }
+          }
+        }
+      }
+      
+      
       for (FetchedFile f : changeList) {
         Map<FetchedResource, List<StructureMap>> worklist = new HashMap<FetchedResource, List<StructureMap>>();
         for (FetchedResource r : f.getResources()) {
@@ -1138,7 +1162,10 @@ public class Publisher implements IWorkerContext.ILoggingService {
               StructureDefinition tsd = context.fetchResource(StructureDefinition.class, tgturl);
               if (tsd != null) {
                 Resource target = ResourceFactory.createResource(tsd.getId());
-                target.setId(t.getKey().getId()+"-map-"+Integer.toString(i));
+                if (t.getValue().size() > 1)
+                  target.setId(t.getKey().getId()+"-map-"+Integer.toString(i));
+                else
+                  target.setId(t.getKey().getId()+"-map");
                 i++;
                 services.reset();
                 utils.transform(target, t.getKey().getElement(), map, target);

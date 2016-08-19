@@ -74,6 +74,18 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
+/**
+ * Services in this class:
+ * 
+ * string render(map) - take a structure and convert it to text
+ * map parse(text) - take a text representation and parse it 
+ * transform(appInfo, source, map, target) - transform from source to target following the map
+ * profileTransform(appInfo, map) - generate profiles for the targets of the transform
+ * map generateMapFromMappings(StructureDefinition) - build a mapping from a structure definition with loigcal mappings
+ *  
+ * @author Grahame Grieve
+ *
+ */
 public class StructureMapUtilities {
 
 	public static final String MAP_WHERE_CHECK = "map.where.check";
