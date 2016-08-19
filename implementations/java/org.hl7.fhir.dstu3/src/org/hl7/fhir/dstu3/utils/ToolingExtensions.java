@@ -87,6 +87,8 @@ public class ToolingExtensions {
   public static final String EXT_REFERENCEFILTER = "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter";
 
   // unregistered?
+  public static final String EXT_MAPPING_PREFIX = "http://hl7.org/fhir/StructureDefinition/logical-mapping-prefix";
+  public static final String EXT_MAPPING_SUFFIX = "http://hl7.org/fhir/StructureDefinition/logical-mapping-suffix";
 
 //  public static final String EXT_FLYOVER = "http://hl7.org/fhir/Profile/questionnaire-extensions#flyover";
 //  private static final String EXT_QTYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
@@ -145,6 +147,16 @@ public class ToolingExtensions {
   }
 
   public static void addStringExtension(Element e, String url, String content) {
+    if (!StringUtils.isBlank(content)) {
+      Extension ex = getExtension(e, url);
+      if (ex != null)
+        ex.setValue(new StringType(content));
+      else
+        e.getExtension().add(Factory.newExtension(url, new StringType(content), true));   
+    }
+  }
+
+  public static void addStringExtension(DomainResource e, String url, String content) {
     if (!StringUtils.isBlank(content)) {
       Extension ex = getExtension(e, url);
       if (ex != null)

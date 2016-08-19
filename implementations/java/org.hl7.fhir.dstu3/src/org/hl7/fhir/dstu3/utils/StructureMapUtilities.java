@@ -66,6 +66,7 @@ import org.hl7.fhir.dstu3.model.StructureMap.StructureMapModelMode;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapStructureComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapTransform;
 import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
+import org.hl7.fhir.dstu3.utils.IWorkerContext.ValidationResult;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.TextFile;
@@ -82,6 +83,7 @@ public class StructureMapUtilities {
 
 	public interface ITransformerServices {
 		//    public boolean validateByValueSet(Coding code, String valuesetId);
+    public Base createResource(TransformContext context, Base res);
 		public Coding translate(Object appInfo, Coding source, String conceptMapUrl) throws FHIRException;
 		//    public Coding translate(Coding code)
 		//    ValueSet validation operation
@@ -969,7 +971,9 @@ public class StructureMapUtilities {
 		switch (tgt.getTransform()) {
 		case CREATE :
 			Base res = ResourceFactory.createResourceOrType(getParamString(vars, tgt.getParameter().get(0)));
-			res.setIdBase(UUID.randomUUID().toString().toLowerCase());
+			res.setIdBase(tgt.getParameter().size() > 1 ? getParamString(vars, tgt.getParameter().get(0)) : UUID.randomUUID().toString().toLowerCase());
+			if (services != null) 
+			  res = services.createResource(context, res);
       return res;
 		case COPY : 
 			return getParam(vars, tgt.getParameter().get(0));
@@ -1041,6 +1045,7 @@ public class StructureMapUtilities {
 	private Coding buildCoding(String uri, String code) throws FHIRException {
 	  // if we can get this as a valueSet, we will
 	  String system = null;
+	  String display = null;
 	  ValueSet vs = worker.fetchResource(ValueSet.class, uri);
 	  if (vs != null) {
 	    ValueSetExpansionOutcome vse = worker.expandVS(vs, true, false);
@@ -1052,10 +1057,12 @@ public class StructureMapUtilities {
 	        b.append(t.getCode());
 	      if (code.equals(t.getCode()) && t.hasSystem()) {
 	        system = t.getSystem();
+          display = t.getDisplay();
 	        break;
 	      }
         if (code.equalsIgnoreCase(t.getDisplay()) && t.hasSystem()) {
           system = t.getSystem();
+          display = t.getDisplay();
           break;
         }
 	    }
@@ -1063,7 +1070,10 @@ public class StructureMapUtilities {
 	      throw new FHIRException("The code '"+code+"' is not in the value set '"+uri+"' (valid codes: "+b.toString()+"; also checked displays)");
 	  } else
 	    system = uri;
-    return new Coding().setSystem(system).setCode(code);
+	  ValidationResult vr = worker.validateCode(system, code, null);
+	  if (vr != null && vr.getDisplay() != null)
+	    display = vr.getDisplay();
+   return new Coding().setSystem(system).setCode(code).setDisplay(display);
   }
 
 
@@ -1515,22 +1525,34 @@ public class StructureMapUtilities {
     String id = getLogicalMappingId(sd);
     if (id == null) 
         return null;
+    String prefix = ToolingExtensions.readStringExtension(sd,  ToolingExtensions.EXT_MAPPING_PREFIX);
+    String suffix = ToolingExtensions.readStringExtension(sd,  ToolingExtensions.EXT_MAPPING_SUFFIX);
+    if (prefix == null || suffix == null)
+      return null;
     // we build this by text. Any element that has a mapping, we put it's mappings inside it....
     StringBuilder b = new StringBuilder();
-    b.append("map \""+sd.getUrl().replace("StructureDefinition", "StructureMap")+"-map\" = \"Map for "+sd.getId()+"\"\r\n");
-    b.append("\r\n");
-    b.append("uses \""+sd.getUrl()+"\" as source\r\n\r\n");
+    b.append(prefix);
+
     ElementDefinition root = sd.getSnapshot().getElementFirstRep();
-    b.append(getMapping(root, id)+"\r\n\r\n");
+    String m = getMapping(root, id);
+    if (m != null)
+      b.append(m+"\r\n");
     addChildMappings(b, id, "", sd, root, false);
-    b.append("endgroup\r\n");
+    b.append("\r\n");
+    b.append(suffix);
+    b.append("\r\n");
     TextFile.stringToFile(b.toString(), "c:\\temp\\test.map");
     StructureMap map = parse(b.toString());
-    map.setId(sd.getId()+"-map");
+    map.setId(tail(map.getUrl()));
     map.getText().setStatus(NarrativeStatus.GENERATED);
     map.getText().setDiv(new XhtmlNode(NodeType.Element));
     map.getText().getDiv().addTag("pre").addText(render(map));
     return map;
+  }
+
+
+  private String tail(String url) {
+    return url.substring(url.lastIndexOf("/")+1);
   }
 
 
@@ -1567,13 +1589,8 @@ public class StructureMapUtilities {
     String id = null;
     for (StructureDefinitionMappingComponent map : sd.getMapping()) {
       if ("http://hl7.org/fhir/logical".equals(map.getUri()))
-        id = map.getIdentity();
+        return map.getIdentity();
     }
-    if (id == null)
-      return null;
-    for (ElementDefinitionMappingComponent map : sd.getSnapshot().getElementFirstRep().getMapping())
-      if (id.equals(map.getIdentity()))
-        return id;
     return null;
   }
 	

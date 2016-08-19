@@ -1111,7 +1111,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
   private void executeTransforms() throws FHIRException, Exception {
     if ("true".equals(ostr(configuration, "do-transforms"))) {
-      StructureMapUtilities utils = new StructureMapUtilities(context, context.getTransforms(), null);
+      MappingServices services = new MappingServices(context, igpkp.getCanonical());
+      StructureMapUtilities utils = new StructureMapUtilities(context, context.getTransforms(), services);
       for (FetchedFile f : changeList) {
         Map<FetchedResource, List<StructureMap>> worklist = new HashMap<FetchedResource, List<StructureMap>>();
         for (FetchedResource r : f.getResources()) {
@@ -1139,7 +1140,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
                 Resource target = ResourceFactory.createResource(tsd.getId());
                 target.setId(t.getKey().getId()+"-map-"+Integer.toString(i));
                 i++;
-                utils.transform(null, t.getKey().getElement(), map, target);
+                services.reset();
+                utils.transform(target, t.getKey().getElement(), map, target);
                 FetchedResource nr = new FetchedResource();
                 nr.setElement(new ObjectConverter(context).convert(target));
                 nr.setId(target.getId());

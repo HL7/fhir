@@ -185,7 +185,7 @@ public class IgSpreadsheetParser {
           i++;
         }
       } else if (!hasMetadata("extensions")) {
-        parseProfileSheet("Data Elements", namedSheets, f.getErrors(), true);
+        first = parseProfileSheet("Data Elements", namedSheets, f.getErrors(), true);
       }
       if (namedSheets.isEmpty() && xls.getSheets().containsKey("Search"))
         readSearchParams(xls.getSheets().get("Search"), first);
@@ -193,6 +193,9 @@ public class IgSpreadsheetParser {
       if (xls.getSheets().containsKey("Operations"))
         readOperations(loadSheet("Operations"));
 
+      if (first != null) 
+        processMetadata(first);
+      
       checkOutputs(f);
       
     } catch (Exception e) {
@@ -200,6 +203,13 @@ public class IgSpreadsheetParser {
     }
 
     return bundle;
+  }
+
+  private void processMetadata(StructureDefinition first) {
+    if (hasMetadata("logical-mapping-prefix"))
+      ToolingExtensions.addStringExtension(first, ToolingExtensions.EXT_MAPPING_PREFIX, metadata("logical-mapping-prefix"));
+    if (hasMetadata("logical-mapping-suffix"))
+      ToolingExtensions.addStringExtension(first, ToolingExtensions.EXT_MAPPING_SUFFIX, metadata("logical-mapping-suffix"));
   }
 
   private void checkOutputs(FetchedFile f) throws Exception {
