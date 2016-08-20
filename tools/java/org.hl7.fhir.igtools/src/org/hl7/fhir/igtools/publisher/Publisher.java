@@ -666,10 +666,14 @@ public class Publisher implements IWorkerContext.ILoggingService {
     else
       throw new FHIRException("Unsupported version "+version);
     
-    log("Fetch Validation Pack from "+source);
-    String fn = grabToLocalCache(source);
-    log("Load Validation Pack");
-    context = SimpleWorkerContext.fromPack(fn);
+    if (new File("c:\\temp\\igpack\\igpack.zip").exists())
+      context = SimpleWorkerContext.fromPack("c:\\temp\\igpack\\igpack.zip");
+    else {
+      log("Fetch Validation Pack from "+source);
+      String fn = grabToLocalCache(source);
+      log("Load Validation Pack");
+      context = SimpleWorkerContext.fromPack(fn);
+    }
   }
 
   private String grabToLocalCache(String source) throws IOException {
@@ -1253,20 +1257,17 @@ public class Publisher implements IWorkerContext.ILoggingService {
         String ver = r.getConfig() == null ? null : ostr(r.getConfig(), "version");
         if (ver == null)
           ver = version; // fall back to global version
-        if (!ver.equals(Constants.VERSION)) {
-          if ("1.0.2".equals(ver)) {
-            file.getErrors().clear();
-            org.hl7.fhir.dstu2.model.Resource res2 = null;
-            if (file.getContentType().contains("json"))
-              res2 = new org.hl7.fhir.dstu2.formats.JsonParser().parse(file.getSource());
-            else if (file.getContentType().contains("xml"))
-              res2 = new org.hl7.fhir.dstu2.formats.XmlParser().parse(file.getSource());
-            org.hl7.fhir.dstu3.model.Resource res = new VersionConvertor_10_20(null).convertResource(res2);
-            e = new ObjectConverter(context).convert(res);
-            r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
-            r.setResource(res);
-          } else
-            throw new Exception("Unknown version "+ver);
+        if ("1.0.2".equals(ver)) {
+          file.getErrors().clear();
+          org.hl7.fhir.dstu2.model.Resource res2 = null;
+          if (file.getContentType().contains("json"))
+            res2 = new org.hl7.fhir.dstu2.formats.JsonParser().parse(file.getSource());
+          else if (file.getContentType().contains("xml"))
+            res2 = new org.hl7.fhir.dstu2.formats.XmlParser().parse(file.getSource());
+          org.hl7.fhir.dstu3.model.Resource res = new VersionConvertor_10_20(null).convertResource(res2);
+          e = new ObjectConverter(context).convert(res);
+          r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
+          r.setResource(res); 
         }
       } catch ( Exception ex ) {
         throw new Exception("Unable to determine type for  "+file.getName()+": " +ex.getMessage(), ex);
