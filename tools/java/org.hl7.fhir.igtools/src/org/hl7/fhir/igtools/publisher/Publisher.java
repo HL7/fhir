@@ -666,14 +666,15 @@ public class Publisher implements IWorkerContext.ILoggingService {
     else
       throw new FHIRException("Unsupported version "+version);
     
+    String fn = "";
     if (new File("c:\\temp\\igpack\\igpack.zip").exists())
-      context = SimpleWorkerContext.fromPack("c:\\temp\\igpack\\igpack.zip");
+      fn = "c:\\temp\\igpack\\igpack.zip";
     else {
       log("Fetch Validation Pack from "+source);
-      String fn = grabToLocalCache(source);
-      log("Load Validation Pack");
-      context = SimpleWorkerContext.fromPack(fn);
-    }
+      fn = grabToLocalCache(source);
+      }
+    log("Local Validation Pack from cache location " + fn);
+    context = SimpleWorkerContext.fromPack(fn);
   }
 
   private String grabToLocalCache(String source) throws IOException {
