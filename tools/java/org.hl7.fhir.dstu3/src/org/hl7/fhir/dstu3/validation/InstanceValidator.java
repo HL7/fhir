@@ -1596,7 +1596,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       String discriminator = s.getValue();
       ElementDefinition criteria = getCriteriaForDiscriminator(path, ed, discriminator, profile);
       if (discriminator.equals("url") && criteria.getPath().equals("Extension.url")) {
-        if (!element.getNamedChildValue("url").equals(((UriType) criteria.getFixed()).asStringValue()))
+        if (criteria.getFixed() == null)
+          return false;
+        else if (!element.getNamedChildValue("url").equals(((UriType) criteria.getFixed()).asStringValue()))
           return false;
       } else {
         Element value = getValueForDiscriminator(element, discriminator, criteria);
