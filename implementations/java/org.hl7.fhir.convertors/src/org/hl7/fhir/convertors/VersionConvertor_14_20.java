@@ -49,14 +49,16 @@ import org.hl7.fhir.utilities.Utilities;
 public class VersionConvertor_14_20 {
 
   private static void copyElement(org.hl7.fhir.dstu2016may.model.Element src, org.hl7.fhir.dstu3.model.Element tgt) throws FHIRException {
-    tgt.setId(src.getId());
+    if (src.hasId())
+      tgt.setId(src.getId());
     for (org.hl7.fhir.dstu2016may.model.Extension  e : src.getExtension()) {
       tgt.addExtension(convertExtension(e));
     }
   }
 
   private static void copyElement(org.hl7.fhir.dstu3.model.Element src, org.hl7.fhir.dstu2016may.model.Element tgt) throws FHIRException {
-    tgt.setId(src.getId());
+    if (src.hasId())
+      tgt.setId(src.getId());
     for (org.hl7.fhir.dstu3.model.Extension  e : src.getExtension()) {
       tgt.addExtension(convertExtension(e));
     }
@@ -77,205 +79,273 @@ public class VersionConvertor_14_20 {
   }
 
   public static org.hl7.fhir.dstu3.model.Base64BinaryType convertBase64Binary(org.hl7.fhir.dstu2016may.model.Base64BinaryType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.Base64BinaryType tgt = new org.hl7.fhir.dstu3.model.Base64BinaryType(src.getValue());
+    org.hl7.fhir.dstu3.model.Base64BinaryType tgt = new org.hl7.fhir.dstu3.model.Base64BinaryType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.Base64BinaryType convertBase64Binary(org.hl7.fhir.dstu3.model.Base64BinaryType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.Base64BinaryType tgt = new org.hl7.fhir.dstu2016may.model.Base64BinaryType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.Base64BinaryType tgt = new org.hl7.fhir.dstu2016may.model.Base64BinaryType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu3.model.BooleanType convertBoolean(org.hl7.fhir.dstu2016may.model.BooleanType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.BooleanType tgt = new org.hl7.fhir.dstu3.model.BooleanType(src.getValue());
+    org.hl7.fhir.dstu3.model.BooleanType tgt = new org.hl7.fhir.dstu3.model.BooleanType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.BooleanType convertBoolean(org.hl7.fhir.dstu3.model.BooleanType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.BooleanType tgt = new org.hl7.fhir.dstu2016may.model.BooleanType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.BooleanType tgt = new org.hl7.fhir.dstu2016may.model.BooleanType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu3.model.CodeType convertCode(org.hl7.fhir.dstu2016may.model.CodeType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.CodeType tgt = new org.hl7.fhir.dstu3.model.CodeType(src.getValue());
+    org.hl7.fhir.dstu3.model.CodeType tgt = new org.hl7.fhir.dstu3.model.CodeType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.CodeType convertCode(org.hl7.fhir.dstu3.model.CodeType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.CodeType tgt = new org.hl7.fhir.dstu2016may.model.CodeType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.CodeType tgt = new org.hl7.fhir.dstu2016may.model.CodeType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu3.model.DateType convertDate(org.hl7.fhir.dstu2016may.model.DateType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.DateType tgt = new org.hl7.fhir.dstu3.model.DateType(src.getValue());
+    org.hl7.fhir.dstu3.model.DateType tgt = new org.hl7.fhir.dstu3.model.DateType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.DateType convertDate(org.hl7.fhir.dstu3.model.DateType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.DateType tgt = new org.hl7.fhir.dstu2016may.model.DateType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.DateType tgt = new org.hl7.fhir.dstu2016may.model.DateType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu3.model.DateTimeType convertDateTime(org.hl7.fhir.dstu2016may.model.DateTimeType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.DateTimeType tgt = new org.hl7.fhir.dstu3.model.DateTimeType(src.getValue());
+    org.hl7.fhir.dstu3.model.DateTimeType tgt = new org.hl7.fhir.dstu3.model.DateTimeType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.DateTimeType convertDateTime(org.hl7.fhir.dstu3.model.DateTimeType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.DateTimeType tgt = new org.hl7.fhir.dstu2016may.model.DateTimeType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.DateTimeType tgt = new org.hl7.fhir.dstu2016may.model.DateTimeType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu3.model.DecimalType convertDecimal(org.hl7.fhir.dstu2016may.model.DecimalType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.DecimalType tgt = new org.hl7.fhir.dstu3.model.DecimalType(src.getValue());
+    org.hl7.fhir.dstu3.model.DecimalType tgt = new org.hl7.fhir.dstu3.model.DecimalType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.DecimalType convertDecimal(org.hl7.fhir.dstu3.model.DecimalType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.DecimalType tgt = new org.hl7.fhir.dstu2016may.model.DecimalType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.DecimalType tgt = new org.hl7.fhir.dstu2016may.model.DecimalType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu3.model.IdType convertId(org.hl7.fhir.dstu2016may.model.IdType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.IdType tgt = new org.hl7.fhir.dstu3.model.IdType(src.getValue());
+    org.hl7.fhir.dstu3.model.IdType tgt = new org.hl7.fhir.dstu3.model.IdType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.IdType convertId(org.hl7.fhir.dstu3.model.IdType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.IdType tgt = new org.hl7.fhir.dstu2016may.model.IdType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.IdType tgt = new org.hl7.fhir.dstu2016may.model.IdType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu3.model.InstantType convertInstant(org.hl7.fhir.dstu2016may.model.InstantType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.InstantType tgt = new org.hl7.fhir.dstu3.model.InstantType(src.getValue());
+    org.hl7.fhir.dstu3.model.InstantType tgt = new org.hl7.fhir.dstu3.model.InstantType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.InstantType convertInstant(org.hl7.fhir.dstu3.model.InstantType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.InstantType tgt = new org.hl7.fhir.dstu2016may.model.InstantType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.InstantType tgt = new org.hl7.fhir.dstu2016may.model.InstantType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu3.model.IntegerType convertInteger(org.hl7.fhir.dstu2016may.model.IntegerType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.IntegerType tgt = new org.hl7.fhir.dstu3.model.IntegerType(src.getValue());
+    org.hl7.fhir.dstu3.model.IntegerType tgt = new org.hl7.fhir.dstu3.model.IntegerType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.IntegerType convertInteger(org.hl7.fhir.dstu3.model.IntegerType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.IntegerType tgt = new org.hl7.fhir.dstu2016may.model.IntegerType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.IntegerType tgt = new org.hl7.fhir.dstu2016may.model.IntegerType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu3.model.MarkdownType convertMarkdown(org.hl7.fhir.dstu2016may.model.MarkdownType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.MarkdownType tgt = new org.hl7.fhir.dstu3.model.MarkdownType(src.getValue());
+    org.hl7.fhir.dstu3.model.MarkdownType tgt = new org.hl7.fhir.dstu3.model.MarkdownType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.MarkdownType convertMarkdown(org.hl7.fhir.dstu3.model.MarkdownType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.MarkdownType tgt = new org.hl7.fhir.dstu2016may.model.MarkdownType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.MarkdownType tgt = new org.hl7.fhir.dstu2016may.model.MarkdownType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu3.model.OidType convertOid(org.hl7.fhir.dstu2016may.model.OidType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.OidType tgt = new org.hl7.fhir.dstu3.model.OidType(src.getValue());
+    org.hl7.fhir.dstu3.model.OidType tgt = new org.hl7.fhir.dstu3.model.OidType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.OidType convertOid(org.hl7.fhir.dstu3.model.OidType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.OidType tgt = new org.hl7.fhir.dstu2016may.model.OidType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.OidType tgt = new org.hl7.fhir.dstu2016may.model.OidType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu3.model.PositiveIntType convertPositiveInt(org.hl7.fhir.dstu2016may.model.PositiveIntType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.PositiveIntType tgt = new org.hl7.fhir.dstu3.model.PositiveIntType(src.getValue());
+    org.hl7.fhir.dstu3.model.PositiveIntType tgt = new org.hl7.fhir.dstu3.model.PositiveIntType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.PositiveIntType convertPositiveInt(org.hl7.fhir.dstu3.model.PositiveIntType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.PositiveIntType tgt = new org.hl7.fhir.dstu2016may.model.PositiveIntType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.PositiveIntType tgt = new org.hl7.fhir.dstu2016may.model.PositiveIntType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu3.model.StringType convertString(org.hl7.fhir.dstu2016may.model.StringType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.StringType tgt = new org.hl7.fhir.dstu3.model.StringType(src.getValue());
+    org.hl7.fhir.dstu3.model.StringType tgt = new org.hl7.fhir.dstu3.model.StringType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.StringType convertString(org.hl7.fhir.dstu3.model.StringType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.StringType tgt = new org.hl7.fhir.dstu2016may.model.StringType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.StringType tgt = new org.hl7.fhir.dstu2016may.model.StringType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu3.model.TimeType convertTime(org.hl7.fhir.dstu2016may.model.TimeType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.TimeType tgt = new org.hl7.fhir.dstu3.model.TimeType(src.getValue());
+    org.hl7.fhir.dstu3.model.TimeType tgt = new org.hl7.fhir.dstu3.model.TimeType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.TimeType convertTime(org.hl7.fhir.dstu3.model.TimeType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.TimeType tgt = new org.hl7.fhir.dstu2016may.model.TimeType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.TimeType tgt = new org.hl7.fhir.dstu2016may.model.TimeType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu3.model.UnsignedIntType convertUnsignedInt(org.hl7.fhir.dstu2016may.model.UnsignedIntType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.UnsignedIntType tgt = new org.hl7.fhir.dstu3.model.UnsignedIntType(src.getValue());
+    org.hl7.fhir.dstu3.model.UnsignedIntType tgt = new org.hl7.fhir.dstu3.model.UnsignedIntType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.UnsignedIntType convertUnsignedInt(org.hl7.fhir.dstu3.model.UnsignedIntType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.UnsignedIntType tgt = new org.hl7.fhir.dstu2016may.model.UnsignedIntType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.UnsignedIntType tgt = new org.hl7.fhir.dstu2016may.model.UnsignedIntType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu3.model.UriType convertUri(org.hl7.fhir.dstu2016may.model.UriType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.UriType tgt = new org.hl7.fhir.dstu3.model.UriType(src.getValue());
+    org.hl7.fhir.dstu3.model.UriType tgt = new org.hl7.fhir.dstu3.model.UriType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.UriType convertUri(org.hl7.fhir.dstu3.model.UriType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.UriType tgt = new org.hl7.fhir.dstu2016may.model.UriType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.UriType tgt = new org.hl7.fhir.dstu2016may.model.UriType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu3.model.UuidType convertUuid(org.hl7.fhir.dstu2016may.model.UuidType src) throws FHIRException {
-    org.hl7.fhir.dstu3.model.UuidType tgt = new org.hl7.fhir.dstu3.model.UuidType(src.getValue());
+    org.hl7.fhir.dstu3.model.UuidType tgt = new org.hl7.fhir.dstu3.model.UuidType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
 
   public static org.hl7.fhir.dstu2016may.model.UuidType convertUuid(org.hl7.fhir.dstu3.model.UuidType src) throws FHIRException {
-    org.hl7.fhir.dstu2016may.model.UuidType tgt = new org.hl7.fhir.dstu2016may.model.UuidType(src.getValue());
+    org.hl7.fhir.dstu2016may.model.UuidType tgt = new org.hl7.fhir.dstu2016may.model.UuidType();
+    if (src.hasValue())
+      tgt.setValue(tgt.getValue());
     copyElement(src, tgt);
     return tgt;
   }
@@ -349,11 +419,15 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Age tgt = new org.hl7.fhir.dstu3.model.Age();
     copyElement(src, tgt);
-    tgt.setValue(src.getValue());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    tgt.setUnit(src.getUnit());
-    tgt.setSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    if (src.hasUnit())
+      tgt.setUnit(src.getUnit());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     return tgt;
   }
 
@@ -362,11 +436,15 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Age tgt = new org.hl7.fhir.dstu2016may.model.Age();
     copyElement(src, tgt);
-    tgt.setValue(src.getValue());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    tgt.setUnit(src.getUnit());
-    tgt.setSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    if (src.hasUnit())
+      tgt.setUnit(src.getUnit());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     return tgt;
   }
 
@@ -377,7 +455,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.Annotation tgt = new org.hl7.fhir.dstu3.model.Annotation();
     copyElement(src, tgt);
     tgt.setAuthor(convertType(src.getAuthor()));
-    tgt.setTime(src.getTime());
+    if (src.hasTime())
+      tgt.setTime(src.getTime());
     tgt.setText(src.getText());
     return tgt;
   }
@@ -388,7 +467,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.Annotation tgt = new org.hl7.fhir.dstu2016may.model.Annotation();
     copyElement(src, tgt);
     tgt.setAuthor(convertType(src.getAuthor()));
-    tgt.setTime(src.getTime());
+    if (src.hasTime())
+      tgt.setTime(src.getTime());
     tgt.setText(src.getText());
     return tgt;
   }
@@ -398,14 +478,22 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Attachment tgt = new org.hl7.fhir.dstu3.model.Attachment();
     copyElement(src, tgt);
-    tgt.setContentType(src.getContentType());
-    tgt.setLanguage(src.getLanguage());
-    tgt.setData(src.getData());
-    tgt.setUrl(src.getUrl());
-    tgt.setSize(src.getSize());
-    tgt.setHash(src.getHash());
-    tgt.setTitle(src.getTitle());
-    tgt.setCreation(src.getCreation());
+    if (src.hasContentType())
+      tgt.setContentType(src.getContentType());
+    if (src.hasLanguage())
+      tgt.setLanguage(src.getLanguage());
+    if (src.hasData())
+      tgt.setData(src.getData());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
+    if (src.hasSize())
+      tgt.setSize(src.getSize());
+    if (src.hasHash())
+      tgt.setHash(src.getHash());
+    if (src.hasTitle())
+      tgt.setTitle(src.getTitle());
+    if (src.hasCreation())
+      tgt.setCreation(src.getCreation());
     return tgt;
   }
 
@@ -414,14 +502,22 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Attachment tgt = new org.hl7.fhir.dstu2016may.model.Attachment();
     copyElement(src, tgt);
-    tgt.setContentType(src.getContentType());
-    tgt.setLanguage(src.getLanguage());
-    tgt.setData(src.getData());
-    tgt.setUrl(src.getUrl());
-    tgt.setSize(src.getSize());
-    tgt.setHash(src.getHash());
-    tgt.setTitle(src.getTitle());
-    tgt.setCreation(src.getCreation());
+    if (src.hasContentType())
+      tgt.setContentType(src.getContentType());
+    if (src.hasLanguage())
+      tgt.setLanguage(src.getLanguage());
+    if (src.hasData())
+      tgt.setData(src.getData());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
+    if (src.hasSize())
+      tgt.setSize(src.getSize());
+    if (src.hasHash())
+      tgt.setHash(src.getHash());
+    if (src.hasTitle())
+      tgt.setTitle(src.getTitle());
+    if (src.hasCreation())
+      tgt.setCreation(src.getCreation());
     return tgt;
   }
 
@@ -432,7 +528,8 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     for (org.hl7.fhir.dstu2016may.model.Coding t : src.getCoding())
       tgt.addCoding(convertCoding(t));
-    tgt.setText(src.getText());
+    if (src.hasText())
+      tgt.setText(src.getText());
     return tgt;
   }
 
@@ -443,7 +540,8 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     for (org.hl7.fhir.dstu3.model.Coding t : src.getCoding())
       tgt.addCoding(convertCoding(t));
-    tgt.setText(src.getText());
+    if (src.hasText())
+      tgt.setText(src.getText());
     return tgt;
   }
 
@@ -452,11 +550,16 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Coding tgt = new org.hl7.fhir.dstu3.model.Coding();
     copyElement(src, tgt);
-    tgt.setSystem(src.getSystem());
-    tgt.setVersion(src.getVersion());
-    tgt.setCode(src.getCode());
-    tgt.setDisplay(src.getDisplay());
-    tgt.setUserSelected(src.getUserSelected());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
+    if (src.hasDisplay())
+      tgt.setDisplay(src.getDisplay());
+    if (src.hasUserSelected())
+      tgt.setUserSelected(src.getUserSelected());
     return tgt;
   }
 
@@ -465,11 +568,16 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Coding tgt = new org.hl7.fhir.dstu2016may.model.Coding();
     copyElement(src, tgt);
-    tgt.setSystem(src.getSystem());
-    tgt.setVersion(src.getVersion());
-    tgt.setCode(src.getCode());
-    tgt.setDisplay(src.getDisplay());
-    tgt.setUserSelected(src.getUserSelected());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
+    if (src.hasDisplay())
+      tgt.setDisplay(src.getDisplay());
+    if (src.hasUserSelected())
+      tgt.setUserSelected(src.getUserSelected());
     return tgt;
   }
 
@@ -478,11 +586,15 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Count tgt = new org.hl7.fhir.dstu3.model.Count();
     copyElement(src, tgt);
-    tgt.setValue(src.getValue());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    tgt.setUnit(src.getUnit());
-    tgt.setSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    if (src.hasUnit())
+      tgt.setUnit(src.getUnit());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     return tgt;
   }
 
@@ -491,11 +603,15 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Count tgt = new org.hl7.fhir.dstu2016may.model.Count();
     copyElement(src, tgt);
-    tgt.setValue(src.getValue());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    tgt.setUnit(src.getUnit());
-    tgt.setSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    if (src.hasUnit())
+      tgt.setUnit(src.getUnit());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     return tgt;
   }
 
@@ -504,11 +620,15 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Distance tgt = new org.hl7.fhir.dstu3.model.Distance();
     copyElement(src, tgt);
-    tgt.setValue(src.getValue());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    tgt.setUnit(src.getUnit());
-    tgt.setSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    if (src.hasUnit())
+      tgt.setUnit(src.getUnit());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     return tgt;
   }
 
@@ -517,11 +637,15 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Distance tgt = new org.hl7.fhir.dstu2016may.model.Distance();
     copyElement(src, tgt);
-    tgt.setValue(src.getValue());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    tgt.setUnit(src.getUnit());
-    tgt.setSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    if (src.hasUnit())
+      tgt.setUnit(src.getUnit());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     return tgt;
   }
 
@@ -530,11 +654,15 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Duration tgt = new org.hl7.fhir.dstu3.model.Duration();
     copyElement(src, tgt);
-    tgt.setValue(src.getValue());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    tgt.setUnit(src.getUnit());
-    tgt.setSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    if (src.hasUnit())
+      tgt.setUnit(src.getUnit());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     return tgt;
   }
 
@@ -543,11 +671,15 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Duration tgt = new org.hl7.fhir.dstu2016may.model.Duration();
     copyElement(src, tgt);
-    tgt.setValue(src.getValue());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    tgt.setUnit(src.getUnit());
-    tgt.setSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    if (src.hasUnit())
+      tgt.setUnit(src.getUnit());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     return tgt;
   }
 
@@ -556,11 +688,15 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Money tgt = new org.hl7.fhir.dstu3.model.Money();
     copyElement(src, tgt);
-    tgt.setValue(src.getValue());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    tgt.setUnit(src.getUnit());
-    tgt.setSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    if (src.hasUnit())
+      tgt.setUnit(src.getUnit());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     return tgt;
   }
 
@@ -569,11 +705,15 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Money tgt = new org.hl7.fhir.dstu2016may.model.Money();
     copyElement(src, tgt);
-    tgt.setValue(src.getValue());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    tgt.setUnit(src.getUnit());
-    tgt.setSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    if (src.hasUnit())
+      tgt.setUnit(src.getUnit());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     return tgt;
   }
 
@@ -584,8 +724,10 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     tgt.setUse(convertIdentifierUse(src.getUse()));
     tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setSystem(src.getSystem());
-    tgt.setValue(src.getValue());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setPeriod(convertPeriod(src.getPeriod()));
     tgt.setAssigner(convertReference(src.getAssigner()));
     return tgt;
@@ -598,8 +740,10 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     tgt.setUse(convertIdentifierUse(src.getUse()));
     tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setSystem(src.getSystem());
-    tgt.setValue(src.getValue());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setPeriod(convertPeriod(src.getPeriod()));
     tgt.setAssigner(convertReference(src.getAssigner()));
     return tgt;
@@ -635,8 +779,10 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Period tgt = new org.hl7.fhir.dstu3.model.Period();
     copyElement(src, tgt);
-    tgt.setStart(src.getStart());
-    tgt.setEnd(src.getEnd());
+    if (src.hasStart())
+      tgt.setStart(src.getStart());
+    if (src.hasEnd())
+      tgt.setEnd(src.getEnd());
     return tgt;
   }
 
@@ -645,8 +791,10 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Period tgt = new org.hl7.fhir.dstu2016may.model.Period();
     copyElement(src, tgt);
-    tgt.setStart(src.getStart());
-    tgt.setEnd(src.getEnd());
+    if (src.hasStart())
+      tgt.setStart(src.getStart());
+    if (src.hasEnd())
+      tgt.setEnd(src.getEnd());
     return tgt;
   }
 
@@ -655,11 +803,15 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Quantity tgt = new org.hl7.fhir.dstu3.model.Quantity();
     copyElement(src, tgt);
-    tgt.setValue(src.getValue());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    tgt.setUnit(src.getUnit());
-    tgt.setSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    if (src.hasUnit())
+      tgt.setUnit(src.getUnit());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     return tgt;
   }
 
@@ -668,11 +820,15 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Quantity tgt = new org.hl7.fhir.dstu2016may.model.Quantity();
     copyElement(src, tgt);
-    tgt.setValue(src.getValue());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    tgt.setUnit(src.getUnit());
-    tgt.setSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    if (src.hasUnit())
+      tgt.setUnit(src.getUnit());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     return tgt;
   }
 
@@ -745,8 +901,10 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Reference tgt = new org.hl7.fhir.dstu3.model.Reference();
     copyElement(src, tgt);
-    tgt.setReference(src.getReference());
-    tgt.setDisplay(src.getDisplay());
+    if (src.hasReference())
+      tgt.setReference(src.getReference());
+    if (src.hasDisplay())
+      tgt.setDisplay(src.getDisplay());
     return tgt;
   }
 
@@ -755,8 +913,10 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Reference tgt = new org.hl7.fhir.dstu2016may.model.Reference();
     copyElement(src, tgt);
-    tgt.setReference(src.getReference());
-    tgt.setDisplay(src.getDisplay());
+    if (src.hasReference())
+      tgt.setReference(src.getReference());
+    if (src.hasDisplay())
+      tgt.setDisplay(src.getDisplay());
     return tgt;
   }
 
@@ -767,9 +927,12 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     tgt.setOrigin(convertSimpleQuantity(src.getOrigin()));
     tgt.setPeriod(src.getPeriod());
-    tgt.setFactor(src.getFactor());
-    tgt.setLowerLimit(src.getLowerLimit());
-    tgt.setUpperLimit(src.getUpperLimit());
+    if (src.hasFactor())
+      tgt.setFactor(src.getFactor());
+    if (src.hasLowerLimit())
+      tgt.setLowerLimit(src.getLowerLimit());
+    if (src.hasUpperLimit())
+      tgt.setUpperLimit(src.getUpperLimit());
     tgt.setDimensions(src.getDimensions());
     tgt.setData(src.getData());
     return tgt;
@@ -782,9 +945,12 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     tgt.setOrigin(convertSimpleQuantity(src.getOrigin()));
     tgt.setPeriod(src.getPeriod());
-    tgt.setFactor(src.getFactor());
-    tgt.setLowerLimit(src.getLowerLimit());
-    tgt.setUpperLimit(src.getUpperLimit());
+    if (src.hasFactor())
+      tgt.setFactor(src.getFactor());
+    if (src.hasLowerLimit())
+      tgt.setLowerLimit(src.getLowerLimit());
+    if (src.hasUpperLimit())
+      tgt.setUpperLimit(src.getUpperLimit());
     tgt.setDimensions(src.getDimensions());
     tgt.setData(src.getData());
     return tgt;
@@ -799,8 +965,10 @@ public class VersionConvertor_14_20 {
       tgt.addType(convertCoding(t));
     tgt.setWhen(src.getWhen());
     tgt.setWho(convertType(src.getWho()));
-    tgt.setContentType(src.getContentType());
-    tgt.setBlob(src.getBlob());
+    if (src.hasContentType())
+      tgt.setContentType(src.getContentType());
+    if (src.hasBlob())
+      tgt.setBlob(src.getBlob());
     return tgt;
   }
 
@@ -813,8 +981,10 @@ public class VersionConvertor_14_20 {
       tgt.addType(convertCoding(t));
     tgt.setWhen(src.getWhen());
     tgt.setWho(convertType(src.getWho()));
-    tgt.setContentType(src.getContentType());
-    tgt.setBlob(src.getBlob());
+    if (src.hasContentType())
+      tgt.setContentType(src.getContentType());
+    if (src.hasBlob())
+      tgt.setBlob(src.getBlob());
     return tgt;
   }
 
@@ -825,14 +995,20 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     tgt.setUse(convertAddressUse(src.getUse()));
     tgt.setType(convertAddressType(src.getType()));
-    tgt.setText(src.getText());
+    if (src.hasText())
+      tgt.setText(src.getText());
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getLine())
       tgt.addLine(t.getValue());
-    tgt.setCity(src.getCity());
-    tgt.setDistrict(src.getDistrict());
-    tgt.setState(src.getState());
-    tgt.setPostalCode(src.getPostalCode());
-    tgt.setCountry(src.getCountry());
+    if (src.hasCity())
+      tgt.setCity(src.getCity());
+    if (src.hasDistrict())
+      tgt.setDistrict(src.getDistrict());
+    if (src.hasState())
+      tgt.setState(src.getState());
+    if (src.hasPostalCode())
+      tgt.setPostalCode(src.getPostalCode());
+    if (src.hasCountry())
+      tgt.setCountry(src.getCountry());
     tgt.setPeriod(convertPeriod(src.getPeriod()));
     return tgt;
   }
@@ -844,14 +1020,20 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     tgt.setUse(convertAddressUse(src.getUse()));
     tgt.setType(convertAddressType(src.getType()));
-    tgt.setText(src.getText());
+    if (src.hasText())
+      tgt.setText(src.getText());
     for (org.hl7.fhir.dstu3.model.StringType t : src.getLine())
       tgt.addLine(t.getValue());
-    tgt.setCity(src.getCity());
-    tgt.setDistrict(src.getDistrict());
-    tgt.setState(src.getState());
-    tgt.setPostalCode(src.getPostalCode());
-    tgt.setCountry(src.getCountry());
+    if (src.hasCity())
+      tgt.setCity(src.getCity());
+    if (src.hasDistrict())
+      tgt.setDistrict(src.getDistrict());
+    if (src.hasState())
+      tgt.setState(src.getState());
+    if (src.hasPostalCode())
+      tgt.setPostalCode(src.getPostalCode());
+    if (src.hasCountry())
+      tgt.setCountry(src.getCountry());
     tgt.setPeriod(convertPeriod(src.getPeriod()));
     return tgt;
   }
@@ -908,9 +1090,11 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.ContactPoint tgt = new org.hl7.fhir.dstu3.model.ContactPoint();
     copyElement(src, tgt);
     tgt.setSystem(convertContactPointSystem(src.getSystem()));
-    tgt.setValue(src.getValue());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setUse(convertContactPointUse(src.getUse()));
-    tgt.setRank(src.getRank());
+    if (src.hasRank())
+      tgt.setRank(src.getRank());
     tgt.setPeriod(convertPeriod(src.getPeriod()));
     return tgt;
   }
@@ -921,9 +1105,11 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.ContactPoint tgt = new org.hl7.fhir.dstu2016may.model.ContactPoint();
     copyElement(src, tgt);
     tgt.setSystem(convertContactPointSystem(src.getSystem()));
-    tgt.setValue(src.getValue());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setUse(convertContactPointUse(src.getUse()));
-    tgt.setRank(src.getRank());
+    if (src.hasRank())
+      tgt.setRank(src.getRank());
     tgt.setPeriod(convertPeriod(src.getPeriod()));
     return tgt;
   }
@@ -988,38 +1174,52 @@ public class VersionConvertor_14_20 {
     tgt.setPath(src.getPath());
     for (org.hl7.fhir.dstu2016may.model.Enumeration<org.hl7.fhir.dstu2016may.model.ElementDefinition.PropertyRepresentation> t : src.getRepresentation())
       tgt.addRepresentation(convertPropertyRepresentation(t.getValue()));
-    tgt.setName(src.getName());
-    tgt.setLabel(src.getLabel());
+    if (src.hasName())
+      tgt.setName(src.getName());
+    if (src.hasLabel())
+      tgt.setLabel(src.getLabel());
     for (org.hl7.fhir.dstu2016may.model.Coding t : src.getCode())
       tgt.addCode(convertCoding(t));
     tgt.setSlicing(convertElementDefinitionSlicingComponent(src.getSlicing()));
-    tgt.setShort(src.getShort());
-    tgt.setDefinition(src.getDefinition());
-    tgt.setComments(src.getComments());
-    tgt.setRequirements(src.getRequirements());
+    if (src.hasShort())
+      tgt.setShort(src.getShort());
+    if (src.hasDefinition())
+      tgt.setDefinition(src.getDefinition());
+    if (src.hasComments())
+      tgt.setComments(src.getComments());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getAlias())
       tgt.addAlias(t.getValue());
-    tgt.setMin(src.getMin());
-    tgt.setMax(src.getMax());
+    if (src.hasMin())
+      tgt.setMin(src.getMin());
+    if (src.hasMax())
+      tgt.setMax(src.getMax());
     tgt.setBase(convertElementDefinitionBaseComponent(src.getBase()));
-    tgt.setContentReference(src.getContentReference());
+    if (src.hasContentReference())
+      tgt.setContentReference(src.getContentReference());
     for (org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent t : src.getType())
       tgt.addType(convertTypeRefComponent(t));
     tgt.setDefaultValue(convertType(src.getDefaultValue()));
-    tgt.setMeaningWhenMissing(src.getMeaningWhenMissing());
+    if (src.hasMeaningWhenMissing())
+      tgt.setMeaningWhenMissing(src.getMeaningWhenMissing());
     tgt.setFixed(convertType(src.getFixed()));
     tgt.setPattern(convertType(src.getPattern()));
     tgt.setExample(convertType(src.getExample()));
     tgt.setMinValue(convertType(src.getMinValue()));
     tgt.setMaxValue(convertType(src.getMaxValue()));
-    tgt.setMaxLength(src.getMaxLength());
+    if (src.hasMaxLength())
+      tgt.setMaxLength(src.getMaxLength());
     for (org.hl7.fhir.dstu2016may.model.IdType t : src.getCondition())
       tgt.addCondition(t.getValue());
     for (org.hl7.fhir.dstu2016may.model.ElementDefinition.ElementDefinitionConstraintComponent t : src.getConstraint())
       tgt.addConstraint(convertElementDefinitionConstraintComponent(t));
-    tgt.setMustSupport(src.getMustSupport());
-    tgt.setIsModifier(src.getIsModifier());
-    tgt.setIsSummary(src.getIsSummary());
+    if (src.hasMustSupport())
+      tgt.setMustSupport(src.getMustSupport());
+    if (src.hasIsModifier())
+      tgt.setIsModifier(src.getIsModifier());
+    if (src.hasIsSummary())
+      tgt.setIsSummary(src.getIsSummary());
     tgt.setBinding(convertElementDefinitionBindingComponent(src.getBinding()));
     for (org.hl7.fhir.dstu2016may.model.ElementDefinition.ElementDefinitionMappingComponent t : src.getMapping())
       tgt.addMapping(convertElementDefinitionMappingComponent(t));
@@ -1034,38 +1234,52 @@ public class VersionConvertor_14_20 {
     tgt.setPath(src.getPath());
     for (org.hl7.fhir.dstu3.model.Enumeration<org.hl7.fhir.dstu3.model.ElementDefinition.PropertyRepresentation> t : src.getRepresentation())
       tgt.addRepresentation(convertPropertyRepresentation(t.getValue()));
-    tgt.setName(src.getName());
-    tgt.setLabel(src.getLabel());
+    if (src.hasName())
+      tgt.setName(src.getName());
+    if (src.hasLabel())
+      tgt.setLabel(src.getLabel());
     for (org.hl7.fhir.dstu3.model.Coding t : src.getCode())
       tgt.addCode(convertCoding(t));
     tgt.setSlicing(convertElementDefinitionSlicingComponent(src.getSlicing()));
-    tgt.setShort(src.getShort());
-    tgt.setDefinition(src.getDefinition());
-    tgt.setComments(src.getComments());
-    tgt.setRequirements(src.getRequirements());
+    if (src.hasShort())
+      tgt.setShort(src.getShort());
+    if (src.hasDefinition())
+      tgt.setDefinition(src.getDefinition());
+    if (src.hasComments())
+      tgt.setComments(src.getComments());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
     for (org.hl7.fhir.dstu3.model.StringType t : src.getAlias())
       tgt.addAlias(t.getValue());
-    tgt.setMin(src.getMin());
-    tgt.setMax(src.getMax());
+    if (src.hasMin())
+      tgt.setMin(src.getMin());
+    if (src.hasMax())
+      tgt.setMax(src.getMax());
     tgt.setBase(convertElementDefinitionBaseComponent(src.getBase()));
-    tgt.setContentReference(src.getContentReference());
+    if (src.hasContentReference())
+      tgt.setContentReference(src.getContentReference());
     for (org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent t : src.getType())
       tgt.addType(convertTypeRefComponent(t));
     tgt.setDefaultValue(convertType(src.getDefaultValue()));
-    tgt.setMeaningWhenMissing(src.getMeaningWhenMissing());
+    if (src.hasMeaningWhenMissing())
+      tgt.setMeaningWhenMissing(src.getMeaningWhenMissing());
     tgt.setFixed(convertType(src.getFixed()));
     tgt.setPattern(convertType(src.getPattern()));
     tgt.setExample(convertType(src.getExample()));
     tgt.setMinValue(convertType(src.getMinValue()));
     tgt.setMaxValue(convertType(src.getMaxValue()));
-    tgt.setMaxLength(src.getMaxLength());
+    if (src.hasMaxLength())
+      tgt.setMaxLength(src.getMaxLength());
     for (org.hl7.fhir.dstu3.model.IdType t : src.getCondition())
       tgt.addCondition(t.getValue());
     for (org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent t : src.getConstraint())
       tgt.addConstraint(convertElementDefinitionConstraintComponent(t));
-    tgt.setMustSupport(src.getMustSupport());
-    tgt.setIsModifier(src.getIsModifier());
-    tgt.setIsSummary(src.getIsSummary());
+    if (src.hasMustSupport())
+      tgt.setMustSupport(src.getMustSupport());
+    if (src.hasIsModifier())
+      tgt.setIsModifier(src.getIsModifier());
+    if (src.hasIsSummary())
+      tgt.setIsSummary(src.getIsSummary());
     tgt.setBinding(convertElementDefinitionBindingComponent(src.getBinding()));
     for (org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent t : src.getMapping())
       tgt.addMapping(convertElementDefinitionMappingComponent(t));
@@ -1103,8 +1317,10 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getDiscriminator())
       tgt.addDiscriminator(t.getValue());
-    tgt.setDescription(src.getDescription());
-    tgt.setOrdered(src.getOrdered());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
+    if (src.hasOrdered())
+      tgt.setOrdered(src.getOrdered());
     tgt.setRules(convertSlicingRules(src.getRules()));
     return tgt;
   }
@@ -1116,8 +1332,10 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     for (org.hl7.fhir.dstu3.model.StringType t : src.getDiscriminator())
       tgt.addDiscriminator(t.getValue());
-    tgt.setDescription(src.getDescription());
-    tgt.setOrdered(src.getOrdered());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
+    if (src.hasOrdered())
+      tgt.setOrdered(src.getOrdered());
     tgt.setRules(convertSlicingRules(src.getRules()));
     return tgt;
   }
@@ -1243,10 +1461,12 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent tgt = new org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent();
     copyElement(src, tgt);
     tgt.setKey(src.getKey());
-    tgt.setRequirements(src.getRequirements());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
     tgt.setSeverity(convertConstraintSeverity(src.getSeverity()));
     tgt.setHuman(src.getHuman());
-    tgt.setExpression(src.getExpression());
+    if (src.hasExpression())
+      tgt.setExpression(src.getExpression());
     tgt.setXpath(src.getXpath());
     return tgt;
   }
@@ -1257,10 +1477,12 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.ElementDefinition.ElementDefinitionConstraintComponent tgt = new org.hl7.fhir.dstu2016may.model.ElementDefinition.ElementDefinitionConstraintComponent();
     copyElement(src, tgt);
     tgt.setKey(src.getKey());
-    tgt.setRequirements(src.getRequirements());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
     tgt.setSeverity(convertConstraintSeverity(src.getSeverity()));
     tgt.setHuman(src.getHuman());
-    tgt.setExpression(src.getExpression());
+    if (src.hasExpression())
+      tgt.setExpression(src.getExpression());
     tgt.setXpath(src.getXpath());
     return tgt;
   }
@@ -1291,7 +1513,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent tgt = new org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent();
     copyElement(src, tgt);
     tgt.setStrength(convertBindingStrength(src.getStrength()));
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     tgt.setValueSet(convertType(src.getValueSet()));
     return tgt;
   }
@@ -1302,7 +1525,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.ElementDefinition.ElementDefinitionBindingComponent tgt = new org.hl7.fhir.dstu2016may.model.ElementDefinition.ElementDefinitionBindingComponent();
     copyElement(src, tgt);
     tgt.setStrength(convertBindingStrength(src.getStrength()));
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     tgt.setValueSet(convertType(src.getValueSet()));
     return tgt;
   }
@@ -1337,7 +1561,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent tgt = new org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent();
     copyElement(src, tgt);
     tgt.setIdentity(src.getIdentity());
-    tgt.setLanguage(src.getLanguage());
+    if (src.hasLanguage())
+      tgt.setLanguage(src.getLanguage());
     tgt.setMap(src.getMap());
     return tgt;
   }
@@ -1348,7 +1573,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.ElementDefinition.ElementDefinitionMappingComponent tgt = new org.hl7.fhir.dstu2016may.model.ElementDefinition.ElementDefinitionMappingComponent();
     copyElement(src, tgt);
     tgt.setIdentity(src.getIdentity());
-    tgt.setLanguage(src.getLanguage());
+    if (src.hasLanguage())
+      tgt.setLanguage(src.getLanguage());
     tgt.setMap(src.getMap());
     return tgt;
   }
@@ -1359,7 +1585,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.HumanName tgt = new org.hl7.fhir.dstu3.model.HumanName();
     copyElement(src, tgt);
     tgt.setUse(convertNameUse(src.getUse()));
-    tgt.setText(src.getText());
+    if (src.hasText())
+      tgt.setText(src.getText());
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getFamily())
       tgt.addFamily(t.getValue());
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getGiven())
@@ -1378,7 +1605,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.HumanName tgt = new org.hl7.fhir.dstu2016may.model.HumanName();
     copyElement(src, tgt);
     tgt.setUse(convertNameUse(src.getUse()));
-    tgt.setText(src.getText());
+    if (src.hasText())
+      tgt.setText(src.getText());
     for (org.hl7.fhir.dstu3.model.StringType t : src.getFamily())
       tgt.addFamily(t.getValue());
     for (org.hl7.fhir.dstu3.model.StringType t : src.getGiven())
@@ -1426,8 +1654,10 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Meta tgt = new org.hl7.fhir.dstu3.model.Meta();
     copyElement(src, tgt);
-    tgt.setVersionId(src.getVersionId());
-    tgt.setLastUpdated(src.getLastUpdated());
+    if (src.hasVersionId())
+      tgt.setVersionId(src.getVersionId());
+    if (src.hasLastUpdated())
+      tgt.setLastUpdated(src.getLastUpdated());
     for (org.hl7.fhir.dstu2016may.model.UriType t : src.getProfile())
       tgt.addProfile(t.getValue());
     for (org.hl7.fhir.dstu2016may.model.Coding t : src.getSecurity())
@@ -1442,8 +1672,10 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Meta tgt = new org.hl7.fhir.dstu2016may.model.Meta();
     copyElement(src, tgt);
-    tgt.setVersionId(src.getVersionId());
-    tgt.setLastUpdated(src.getLastUpdated());
+    if (src.hasVersionId())
+      tgt.setVersionId(src.getVersionId());
+    if (src.hasLastUpdated())
+      tgt.setLastUpdated(src.getLastUpdated());
     for (org.hl7.fhir.dstu3.model.UriType t : src.getProfile())
       tgt.addProfile(t.getValue());
     for (org.hl7.fhir.dstu3.model.Coding t : src.getSecurity())
@@ -1483,18 +1715,27 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.Timing.TimingRepeatComponent tgt = new org.hl7.fhir.dstu3.model.Timing.TimingRepeatComponent();
     copyElement(src, tgt);
     tgt.setBounds(convertType(src.getBounds()));
-    tgt.setCount(src.getCount());
-    tgt.setCountMax(src.getCountMax());
-    tgt.setDuration(src.getDuration());
-    tgt.setDurationMax(src.getDurationMax());
+    if (src.hasCount())
+      tgt.setCount(src.getCount());
+    if (src.hasCountMax())
+      tgt.setCountMax(src.getCountMax());
+    if (src.hasDuration())
+      tgt.setDuration(src.getDuration());
+    if (src.hasDurationMax())
+      tgt.setDurationMax(src.getDurationMax());
     tgt.setDurationUnit(convertUnitsOfTime(src.getDurationUnit()));
-    tgt.setFrequency(src.getFrequency());
-    tgt.setFrequencyMax(src.getFrequencyMax());
-    tgt.setPeriod(src.getPeriod());
-    tgt.setPeriodMax(src.getPeriodMax());
+    if (src.hasFrequency())
+      tgt.setFrequency(src.getFrequency());
+    if (src.hasFrequencyMax())
+      tgt.setFrequencyMax(src.getFrequencyMax());
+    if (src.hasPeriod())
+      tgt.setPeriod(src.getPeriod());
+    if (src.hasPeriodMax())
+      tgt.setPeriodMax(src.getPeriodMax());
     tgt.setPeriodUnit(convertUnitsOfTime(src.getPeriodUnit()));
     tgt.setWhen(convertEventTiming(src.getWhen()));
-    tgt.setOffset(src.getOffset());
+    if (src.hasOffset())
+      tgt.setOffset(src.getOffset());
     return tgt;
   }
 
@@ -1504,18 +1745,27 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.Timing.TimingRepeatComponent tgt = new org.hl7.fhir.dstu2016may.model.Timing.TimingRepeatComponent();
     copyElement(src, tgt);
     tgt.setBounds(convertType(src.getBounds()));
-    tgt.setCount(src.getCount());
-    tgt.setCountMax(src.getCountMax());
-    tgt.setDuration(src.getDuration());
-    tgt.setDurationMax(src.getDurationMax());
+    if (src.hasCount())
+      tgt.setCount(src.getCount());
+    if (src.hasCountMax())
+      tgt.setCountMax(src.getCountMax());
+    if (src.hasDuration())
+      tgt.setDuration(src.getDuration());
+    if (src.hasDurationMax())
+      tgt.setDurationMax(src.getDurationMax());
     tgt.setDurationUnit(convertUnitsOfTime(src.getDurationUnit()));
-    tgt.setFrequency(src.getFrequency());
-    tgt.setFrequencyMax(src.getFrequencyMax());
-    tgt.setPeriod(src.getPeriod());
-    tgt.setPeriodMax(src.getPeriodMax());
+    if (src.hasFrequency())
+      tgt.setFrequency(src.getFrequency());
+    if (src.hasFrequencyMax())
+      tgt.setFrequencyMax(src.getFrequencyMax());
+    if (src.hasPeriod())
+      tgt.setPeriod(src.getPeriod());
+    if (src.hasPeriodMax())
+      tgt.setPeriodMax(src.getPeriodMax());
     tgt.setPeriodUnit(convertUnitsOfTime(src.getPeriodUnit()));
     tgt.setWhen(convertEventTiming(src.getWhen()));
-    tgt.setOffset(src.getOffset());
+    if (src.hasOffset())
+      tgt.setOffset(src.getOffset());
     return tgt;
   }
 
@@ -1598,11 +1848,15 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.SimpleQuantity tgt = new org.hl7.fhir.dstu3.model.SimpleQuantity();
     copyElement(src, tgt);
-    tgt.setValue(src.getValue());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    tgt.setUnit(src.getUnit());
-    tgt.setSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    if (src.hasUnit())
+      tgt.setUnit(src.getUnit());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     return tgt;
   }
 
@@ -1611,11 +1865,15 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.SimpleQuantity tgt = new org.hl7.fhir.dstu2016may.model.SimpleQuantity();
     copyElement(src, tgt);
-    tgt.setValue(src.getValue());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    tgt.setUnit(src.getUnit());
-    tgt.setSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    if (src.hasUnit())
+      tgt.setUnit(src.getUnit());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     return tgt;
   }
 
@@ -1866,16 +2124,22 @@ public class VersionConvertor_14_20 {
   }
 
   private static void copyResource(org.hl7.fhir.dstu2016may.model.Resource src, org.hl7.fhir.dstu3.model.Resource tgt) throws FHIRException {
-    tgt.setId(src.getId());
+    if (src.hasId())
+      tgt.setId(src.getId());
     tgt.setMeta(convertMeta(src.getMeta()));
-    tgt.setImplicitRules(src.getImplicitRules());
-    tgt.setLanguage(src.getLanguage());
+    if (src.hasImplicitRules())
+      tgt.setImplicitRules(src.getImplicitRules());
+    if (src.hasLanguage())
+      tgt.setLanguage(src.getLanguage());
   }
   private static void copyResource(org.hl7.fhir.dstu3.model.Resource src, org.hl7.fhir.dstu2016may.model.Resource tgt) throws FHIRException {
-    tgt.setId(src.getId());
+    if (src.hasId())
+      tgt.setId(src.getId());
     tgt.setMeta(convertMeta(src.getMeta()));
-    tgt.setImplicitRules(src.getImplicitRules());
-    tgt.setLanguage(src.getLanguage());
+    if (src.hasImplicitRules())
+      tgt.setImplicitRules(src.getImplicitRules());
+    if (src.hasLanguage())
+      tgt.setLanguage(src.getLanguage());
   }
 
   public static org.hl7.fhir.dstu3.model.Binary convertBinary(org.hl7.fhir.dstu2016may.model.Binary src) throws FHIRException {
@@ -1905,7 +2169,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.Bundle tgt = new org.hl7.fhir.dstu3.model.Bundle();
     copyResource(src, tgt);
     tgt.setType(convertBundleType(src.getType()));
-    tgt.setTotal(src.getTotal());
+    if (src.hasTotal())
+      tgt.setTotal(src.getTotal());
     for (org.hl7.fhir.dstu2016may.model.Bundle.BundleLinkComponent t : src.getLink())
       tgt.addLink(convertBundleLinkComponent(t));
     for (org.hl7.fhir.dstu2016may.model.Bundle.BundleEntryComponent t : src.getEntry())
@@ -1920,7 +2185,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.Bundle tgt = new org.hl7.fhir.dstu2016may.model.Bundle();
     copyResource(src, tgt);
     tgt.setType(convertBundleType(src.getType()));
-    tgt.setTotal(src.getTotal());
+    if (src.hasTotal())
+      tgt.setTotal(src.getTotal());
     for (org.hl7.fhir.dstu3.model.Bundle.BundleLinkComponent t : src.getLink())
       tgt.addLink(convertBundleLinkComponent(t));
     for (org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent t : src.getEntry())
@@ -1990,7 +2256,8 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     for (org.hl7.fhir.dstu2016may.model.Bundle.BundleLinkComponent t : src.getLink())
       tgt.addLink(convertBundleLinkComponent(t));
-    tgt.setFullUrl(src.getFullUrl());
+    if (src.hasFullUrl())
+      tgt.setFullUrl(src.getFullUrl());
     tgt.setResource(convertResource(src.getResource()));
     tgt.setSearch(convertBundleEntrySearchComponent(src.getSearch()));
     tgt.setRequest(convertBundleEntryRequestComponent(src.getRequest()));
@@ -2005,7 +2272,8 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     for (org.hl7.fhir.dstu3.model.Bundle.BundleLinkComponent t : src.getLink())
       tgt.addLink(convertBundleLinkComponent(t));
-    tgt.setFullUrl(src.getFullUrl());
+    if (src.hasFullUrl())
+      tgt.setFullUrl(src.getFullUrl());
     tgt.setResource(convertResource(src.getResource()));
     tgt.setSearch(convertBundleEntrySearchComponent(src.getSearch()));
     tgt.setRequest(convertBundleEntryRequestComponent(src.getRequest()));
@@ -2019,7 +2287,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.Bundle.BundleEntrySearchComponent tgt = new org.hl7.fhir.dstu3.model.Bundle.BundleEntrySearchComponent();
     copyElement(src, tgt);
     tgt.setMode(convertSearchEntryMode(src.getMode()));
-    tgt.setScore(src.getScore());
+    if (src.hasScore())
+      tgt.setScore(src.getScore());
     return tgt;
   }
 
@@ -2029,7 +2298,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.Bundle.BundleEntrySearchComponent tgt = new org.hl7.fhir.dstu2016may.model.Bundle.BundleEntrySearchComponent();
     copyElement(src, tgt);
     tgt.setMode(convertSearchEntryMode(src.getMode()));
-    tgt.setScore(src.getScore());
+    if (src.hasScore())
+      tgt.setScore(src.getScore());
     return tgt;
   }
 
@@ -2062,10 +2332,14 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     tgt.setMethod(convertHTTPVerb(src.getMethod()));
     tgt.setUrl(src.getUrl());
-    tgt.setIfNoneMatch(src.getIfNoneMatch());
-    tgt.setIfModifiedSince(src.getIfModifiedSince());
-    tgt.setIfMatch(src.getIfMatch());
-    tgt.setIfNoneExist(src.getIfNoneExist());
+    if (src.hasIfNoneMatch())
+      tgt.setIfNoneMatch(src.getIfNoneMatch());
+    if (src.hasIfModifiedSince())
+      tgt.setIfModifiedSince(src.getIfModifiedSince());
+    if (src.hasIfMatch())
+      tgt.setIfMatch(src.getIfMatch());
+    if (src.hasIfNoneExist())
+      tgt.setIfNoneExist(src.getIfNoneExist());
     return tgt;
   }
 
@@ -2076,10 +2350,14 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     tgt.setMethod(convertHTTPVerb(src.getMethod()));
     tgt.setUrl(src.getUrl());
-    tgt.setIfNoneMatch(src.getIfNoneMatch());
-    tgt.setIfModifiedSince(src.getIfModifiedSince());
-    tgt.setIfMatch(src.getIfMatch());
-    tgt.setIfNoneExist(src.getIfNoneExist());
+    if (src.hasIfNoneMatch())
+      tgt.setIfNoneMatch(src.getIfNoneMatch());
+    if (src.hasIfModifiedSince())
+      tgt.setIfModifiedSince(src.getIfModifiedSince());
+    if (src.hasIfMatch())
+      tgt.setIfMatch(src.getIfMatch());
+    if (src.hasIfNoneExist())
+      tgt.setIfNoneExist(src.getIfNoneExist());
     return tgt;
   }
 
@@ -2113,9 +2391,12 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.Bundle.BundleEntryResponseComponent tgt = new org.hl7.fhir.dstu3.model.Bundle.BundleEntryResponseComponent();
     copyElement(src, tgt);
     tgt.setStatus(src.getStatus());
-    tgt.setLocation(src.getLocation());
-    tgt.setEtag(src.getEtag());
-    tgt.setLastModified(src.getLastModified());
+    if (src.hasLocation())
+      tgt.setLocation(src.getLocation());
+    if (src.hasEtag())
+      tgt.setEtag(src.getEtag());
+    if (src.hasLastModified())
+      tgt.setLastModified(src.getLastModified());
     return tgt;
   }
 
@@ -2125,9 +2406,12 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.Bundle.BundleEntryResponseComponent tgt = new org.hl7.fhir.dstu2016may.model.Bundle.BundleEntryResponseComponent();
     copyElement(src, tgt);
     tgt.setStatus(src.getStatus());
-    tgt.setLocation(src.getLocation());
-    tgt.setEtag(src.getEtag());
-    tgt.setLastModified(src.getLastModified());
+    if (src.hasLocation())
+      tgt.setLocation(src.getLocation());
+    if (src.hasEtag())
+      tgt.setEtag(src.getEtag());
+    if (src.hasLastModified())
+      tgt.setLastModified(src.getLastModified());
     return tgt;
   }
 
@@ -2158,27 +2442,41 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.CodeSystem tgt = new org.hl7.fhir.dstu3.model.CodeSystem();
     copyDomainResource(src, tgt);
-    tgt.setUrl(src.getUrl());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
     tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setVersion(src.getVersion());
-    tgt.setName(src.getName());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
+    if (src.hasName())
+      tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu2016may.model.CodeSystem.CodeSystemContactComponent t : src.getContact())
       tgt.addContact(convertCodeSystemContactComponent(t));
-    tgt.setDate(src.getDate());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setRequirements(src.getRequirements());
-    tgt.setCopyright(src.getCopyright());
-    tgt.setCaseSensitive(src.getCaseSensitive());
-    tgt.setValueSet(src.getValueSet());
-    tgt.setCompositional(src.getCompositional());
-    tgt.setVersionNeeded(src.getVersionNeeded());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
+    if (src.hasCaseSensitive())
+      tgt.setCaseSensitive(src.getCaseSensitive());
+    if (src.hasValueSet())
+      tgt.setValueSet(src.getValueSet());
+    if (src.hasCompositional())
+      tgt.setCompositional(src.getCompositional());
+    if (src.hasVersionNeeded())
+      tgt.setVersionNeeded(src.getVersionNeeded());
     tgt.setContent(convertCodeSystemContentMode(src.getContent()));
-    tgt.setCount(src.getCount());
+    if (src.hasCount())
+      tgt.setCount(src.getCount());
     for (org.hl7.fhir.dstu2016may.model.CodeSystem.CodeSystemFilterComponent t : src.getFilter())
       tgt.addFilter(convertCodeSystemFilterComponent(t));
     for (org.hl7.fhir.dstu2016may.model.CodeSystem.CodeSystemPropertyComponent t : src.getProperty())
@@ -2193,27 +2491,41 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.CodeSystem tgt = new org.hl7.fhir.dstu2016may.model.CodeSystem();
     copyDomainResource(src, tgt);
-    tgt.setUrl(src.getUrl());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
     tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setVersion(src.getVersion());
-    tgt.setName(src.getName());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
+    if (src.hasName())
+      tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContactComponent t : src.getContact())
       tgt.addContact(convertCodeSystemContactComponent(t));
-    tgt.setDate(src.getDate());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setRequirements(src.getRequirements());
-    tgt.setCopyright(src.getCopyright());
-    tgt.setCaseSensitive(src.getCaseSensitive());
-    tgt.setValueSet(src.getValueSet());
-    tgt.setCompositional(src.getCompositional());
-    tgt.setVersionNeeded(src.getVersionNeeded());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
+    if (src.hasCaseSensitive())
+      tgt.setCaseSensitive(src.getCaseSensitive());
+    if (src.hasValueSet())
+      tgt.setValueSet(src.getValueSet());
+    if (src.hasCompositional())
+      tgt.setCompositional(src.getCompositional());
+    if (src.hasVersionNeeded())
+      tgt.setVersionNeeded(src.getVersionNeeded());
     tgt.setContent(convertCodeSystemContentMode(src.getContent()));
-    tgt.setCount(src.getCount());
+    if (src.hasCount())
+      tgt.setCount(src.getCount());
     for (org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemFilterComponent t : src.getFilter())
       tgt.addFilter(convertCodeSystemFilterComponent(t));
     for (org.hl7.fhir.dstu3.model.CodeSystem.PropertyComponent t : src.getProperty())
@@ -2252,7 +2564,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContactComponent tgt = new org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu2016may.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -2263,7 +2576,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.CodeSystem.CodeSystemContactComponent tgt = new org.hl7.fhir.dstu2016may.model.CodeSystem.CodeSystemContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -2275,7 +2589,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemFilterComponent tgt = new org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemFilterComponent();
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeType t : src.getOperator())
       try {
         tgt.addOperator(CodeSystem.FilterOperator.fromCode(t.getValue()));
@@ -2292,7 +2607,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.CodeSystem.CodeSystemFilterComponent tgt = new org.hl7.fhir.dstu2016may.model.CodeSystem.CodeSystemFilterComponent();
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (Enumeration<FilterOperator> t : src.getOperator())
       tgt.addOperator(t.getValue().toCode());
     tgt.setValue(src.getValue());
@@ -2305,7 +2621,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.CodeSystem.PropertyComponent tgt = new org.hl7.fhir.dstu3.model.CodeSystem.PropertyComponent();
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     tgt.setType(convertPropertyType(src.getType()));
     return tgt;
   }
@@ -2316,7 +2633,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.CodeSystem.CodeSystemPropertyComponent tgt = new org.hl7.fhir.dstu2016may.model.CodeSystem.CodeSystemPropertyComponent();
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     tgt.setType(convertPropertyType(src.getType()));
     return tgt;
   }
@@ -2355,8 +2673,10 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent tgt = new org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent();
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
-    tgt.setDisplay(src.getDisplay());
-    tgt.setDefinition(src.getDefinition());
+    if (src.hasDisplay())
+      tgt.setDisplay(src.getDisplay());
+    if (src.hasDefinition())
+      tgt.setDefinition(src.getDefinition());
     for (org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionDesignationComponent t : src.getDesignation())
       tgt.addDesignation(convertConceptDefinitionDesignationComponent(t));
     for (ConceptDefinitionPropertyComponent t : src.getProperty())
@@ -2372,8 +2692,10 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionComponent tgt = new org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionComponent();
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
-    tgt.setDisplay(src.getDisplay());
-    tgt.setDefinition(src.getDefinition());
+    if (src.hasDisplay())
+      tgt.setDisplay(src.getDisplay());
+    if (src.hasDefinition())
+      tgt.setDefinition(src.getDefinition());
     for (org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent t : src.getDesignation())
       tgt.addDesignation(convertConceptDefinitionDesignationComponent(t));
     for (org.hl7.fhir.dstu3.model.CodeSystem.ConceptPropertyComponent t : src.getProperty())
@@ -2388,7 +2710,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent tgt = new org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent();
     copyElement(src, tgt);
-    tgt.setLanguage(src.getLanguage());
+    if (src.hasLanguage())
+      tgt.setLanguage(src.getLanguage());
     tgt.setUse(convertCoding(src.getUse()));
     tgt.setValue(src.getValue());
     return tgt;
@@ -2399,7 +2722,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionDesignationComponent tgt = new org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionDesignationComponent();
     copyElement(src, tgt);
-    tgt.setLanguage(src.getLanguage());
+    if (src.hasLanguage())
+      tgt.setLanguage(src.getLanguage());
     tgt.setUse(convertCoding(src.getUse()));
     tgt.setValue(src.getValue());
     return tgt;
@@ -2433,13 +2757,18 @@ public class VersionConvertor_14_20 {
     tgt.setUrl(src.getUrl());
     tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionContactComponent t : src.getContact())
       tgt.addContact(convertCompartmentDefinitionContactComponent(t));
-    tgt.setDate(src.getDate());
-    tgt.setDescription(src.getDescription());
-    tgt.setRequirements(src.getRequirements());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
     tgt.setCode(convertCompartmentType(src.getCode()));
     tgt.setSearch(src.getSearch());
     for (org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionResourceComponent t : src.getResource())
@@ -2455,13 +2784,18 @@ public class VersionConvertor_14_20 {
     tgt.setUrl(src.getUrl());
     tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionContactComponent t : src.getContact())
       tgt.addContact(convertCompartmentDefinitionContactComponent(t));
-    tgt.setDate(src.getDate());
-    tgt.setDescription(src.getDescription());
-    tgt.setRequirements(src.getRequirements());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
     tgt.setCode(convertCompartmentType(src.getCode()));
     tgt.setSearch(src.getSearch());
     for (org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionResourceComponent t : src.getResource())
@@ -2500,7 +2834,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionContactComponent tgt = new org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu2016may.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -2511,7 +2846,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionContactComponent tgt = new org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -2525,7 +2861,8 @@ public class VersionConvertor_14_20 {
     tgt.setCode(src.getCode());
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getParam())
       tgt.addParam(t.getValue());
-    tgt.setDocumentation(src.getDocumentation());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
     return tgt;
   }
 
@@ -2537,7 +2874,8 @@ public class VersionConvertor_14_20 {
     tgt.setCode(src.getCode());
     for (org.hl7.fhir.dstu3.model.StringType t : src.getParam())
       tgt.addParam(t.getValue());
-    tgt.setDocumentation(src.getDocumentation());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
     return tgt;
   }
 
@@ -2547,21 +2885,30 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.ConceptMap tgt = new org.hl7.fhir.dstu3.model.ConceptMap();
     copyDomainResource(src, tgt);
-    tgt.setUrl(src.getUrl());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
     tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setVersion(src.getVersion());
-    tgt.setName(src.getName());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
+    if (src.hasName())
+      tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu2016may.model.ConceptMap.ConceptMapContactComponent t : src.getContact())
       tgt.addContact(convertConceptMapContactComponent(t));
-    tgt.setDate(src.getDate());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setRequirements(src.getRequirements());
-    tgt.setCopyright(src.getCopyright());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
     tgt.setSource(convertType(src.getSource()));
     tgt.setTarget(convertType(src.getTarget()));
     for (org.hl7.fhir.dstu2016may.model.ConceptMap.SourceElementComponent t : src.getElement()) {
@@ -2589,21 +2936,30 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.ConceptMap tgt = new org.hl7.fhir.dstu2016may.model.ConceptMap();
     copyDomainResource(src, tgt);
-    tgt.setUrl(src.getUrl());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
     tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setVersion(src.getVersion());
-    tgt.setName(src.getName());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
+    if (src.hasName())
+      tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent t : src.getContact())
       tgt.addContact(convertConceptMapContactComponent(t));
-    tgt.setDate(src.getDate());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setRequirements(src.getRequirements());
-    tgt.setCopyright(src.getCopyright());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
     tgt.setSource(convertType(src.getSource()));
     tgt.setTarget(convertType(src.getTarget()));
     for (org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent g : src.getGroup())
@@ -2618,7 +2974,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent tgt = new org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu2016may.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -2629,7 +2986,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.ConceptMap.ConceptMapContactComponent tgt = new org.hl7.fhir.dstu2016may.model.ConceptMap.ConceptMapContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -2654,7 +3012,8 @@ public class VersionConvertor_14_20 {
     for (org.hl7.fhir.dstu2016may.model.ConceptMap.TargetElementComponent t : src.getTarget()) {
       org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent tgt = new org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent();
       copyElement(src, tgt);
-      tgt.setCode(src.getCode());
+      if (src.hasCode())
+        tgt.setCode(src.getCode());
       tgt.addTarget(convertTargetElementComponent(t));
       res.add(new SourceElementComponentWrapper(tgt, src.getSystem(), t.getSystem()));
     }
@@ -2666,8 +3025,10 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.ConceptMap.SourceElementComponent tgt = new org.hl7.fhir.dstu2016may.model.ConceptMap.SourceElementComponent();
     copyElement(src, tgt);
-    tgt.setSystem(g.getSource());
-    tgt.setCode(src.getCode());
+    if (g.hasSource())
+      tgt.setSystem(g.getSource());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     for (org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent t : src.getTarget())
       tgt.addTarget(convertTargetElementComponent(t, g));
     return tgt;
@@ -2678,9 +3039,11 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent tgt = new org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent();
     copyElement(src, tgt);
-    tgt.setCode(src.getCode());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     tgt.setEquivalence(convertConceptMapEquivalence(src.getEquivalence()));
-    tgt.setComments(src.getComments());
+    if (src.hasComments())
+      tgt.setComments(src.getComments());
     for (org.hl7.fhir.dstu2016may.model.ConceptMap.OtherElementComponent t : src.getDependsOn())
       tgt.addDependsOn(convertOtherElementComponent(t));
     for (org.hl7.fhir.dstu2016may.model.ConceptMap.OtherElementComponent t : src.getProduct())
@@ -2693,10 +3056,13 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.ConceptMap.TargetElementComponent tgt = new org.hl7.fhir.dstu2016may.model.ConceptMap.TargetElementComponent();
     copyElement(src, tgt);
-    tgt.setSystem(g.getTarget());
-    tgt.setCode(src.getCode());
+    if (g.hasTarget())
+      tgt.setSystem(g.getTarget());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
     tgt.setEquivalence(convertConceptMapEquivalence(src.getEquivalence()));
-    tgt.setComments(src.getComments());
+    if (src.hasComments())
+      tgt.setComments(src.getComments());
     for (org.hl7.fhir.dstu3.model.ConceptMap.OtherElementComponent t : src.getDependsOn())
       tgt.addDependsOn(convertOtherElementComponent(t));
     for (org.hl7.fhir.dstu3.model.ConceptMap.OtherElementComponent t : src.getProduct())
@@ -2766,20 +3132,29 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Conformance tgt = new org.hl7.fhir.dstu3.model.Conformance();
     copyDomainResource(src, tgt);
-    tgt.setUrl(src.getUrl());
-    tgt.setVersion(src.getVersion());
-    tgt.setName(src.getName());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
+    if (src.hasName())
+      tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setDate(src.getDate());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu2016may.model.Conformance.ConformanceContactComponent t : src.getContact())
       tgt.addContact(convertConformanceContactComponent(t));
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setRequirements(src.getRequirements());
-    tgt.setCopyright(src.getCopyright());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
     tgt.setKind(convertConformanceStatementKind(src.getKind()));
     tgt.setSoftware(convertConformanceSoftwareComponent(src.getSoftware()));
     tgt.setImplementation(convertConformanceImplementationComponent(src.getImplementation()));
@@ -2803,20 +3178,29 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Conformance tgt = new org.hl7.fhir.dstu2016may.model.Conformance();
     copyDomainResource(src, tgt);
-    tgt.setUrl(src.getUrl());
-    tgt.setVersion(src.getVersion());
-    tgt.setName(src.getName());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
+    if (src.hasName())
+      tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setDate(src.getDate());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu3.model.Conformance.ConformanceContactComponent t : src.getContact())
       tgt.addContact(convertConformanceContactComponent(t));
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setRequirements(src.getRequirements());
-    tgt.setCopyright(src.getCopyright());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
     tgt.setKind(convertConformanceStatementKind(src.getKind()));
     tgt.setSoftware(convertConformanceSoftwareComponent(src.getSoftware()));
     tgt.setImplementation(convertConformanceImplementationComponent(src.getImplementation()));
@@ -2886,7 +3270,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Conformance.ConformanceContactComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu2016may.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -2897,7 +3282,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Conformance.ConformanceContactComponent tgt = new org.hl7.fhir.dstu2016may.model.Conformance.ConformanceContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -2909,8 +3295,10 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.Conformance.ConformanceSoftwareComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceSoftwareComponent();
     copyElement(src, tgt);
     tgt.setName(src.getName());
-    tgt.setVersion(src.getVersion());
-    tgt.setReleaseDate(src.getReleaseDate());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
+    if (src.hasReleaseDate())
+      tgt.setReleaseDate(src.getReleaseDate());
     return tgt;
   }
 
@@ -2920,8 +3308,10 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.Conformance.ConformanceSoftwareComponent tgt = new org.hl7.fhir.dstu2016may.model.Conformance.ConformanceSoftwareComponent();
     copyElement(src, tgt);
     tgt.setName(src.getName());
-    tgt.setVersion(src.getVersion());
-    tgt.setReleaseDate(src.getReleaseDate());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
+    if (src.hasReleaseDate())
+      tgt.setReleaseDate(src.getReleaseDate());
     return tgt;
   }
 
@@ -2931,7 +3321,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.Conformance.ConformanceImplementationComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceImplementationComponent();
     copyElement(src, tgt);
     tgt.setDescription(src.getDescription());
-    tgt.setUrl(src.getUrl());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
     return tgt;
   }
 
@@ -2941,7 +3332,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.Conformance.ConformanceImplementationComponent tgt = new org.hl7.fhir.dstu2016may.model.Conformance.ConformanceImplementationComponent();
     copyElement(src, tgt);
     tgt.setDescription(src.getDescription());
-    tgt.setUrl(src.getUrl());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
     return tgt;
   }
 
@@ -2951,7 +3343,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.Conformance.ConformanceRestComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceRestComponent();
     copyElement(src, tgt);
     tgt.setMode(convertRestfulConformanceMode(src.getMode()));
-    tgt.setDocumentation(src.getDocumentation());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
     tgt.setSecurity(convertConformanceRestSecurityComponent(src.getSecurity()));
     for (org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestResourceComponent t : src.getResource())
       tgt.addResource(convertConformanceRestResourceComponent(t));
@@ -2972,7 +3365,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestComponent tgt = new org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestComponent();
     copyElement(src, tgt);
     tgt.setMode(convertRestfulConformanceMode(src.getMode()));
-    tgt.setDocumentation(src.getDocumentation());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
     tgt.setSecurity(convertConformanceRestSecurityComponent(src.getSecurity()));
     for (org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceComponent t : src.getResource())
       tgt.addResource(convertConformanceRestResourceComponent(t));
@@ -3012,10 +3406,12 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Conformance.ConformanceRestSecurityComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceRestSecurityComponent();
     copyElement(src, tgt);
-    tgt.setCors(src.getCors());
+    if (src.hasCors())
+      tgt.setCors(src.getCors());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getService())
       tgt.addService(convertCodeableConcept(t));
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestSecurityCertificateComponent t : src.getCertificate())
       tgt.addCertificate(convertConformanceRestSecurityCertificateComponent(t));
     return tgt;
@@ -3026,10 +3422,12 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestSecurityComponent tgt = new org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestSecurityComponent();
     copyElement(src, tgt);
-    tgt.setCors(src.getCors());
+    if (src.hasCors())
+      tgt.setCors(src.getCors());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getService())
       tgt.addService(convertCodeableConcept(t));
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.Conformance.ConformanceRestSecurityCertificateComponent t : src.getCertificate())
       tgt.addCertificate(convertConformanceRestSecurityCertificateComponent(t));
     return tgt;
@@ -3040,8 +3438,10 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Conformance.ConformanceRestSecurityCertificateComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceRestSecurityCertificateComponent();
     copyElement(src, tgt);
-    tgt.setType(src.getType());
-    tgt.setBlob(src.getBlob());
+    if (src.hasType())
+      tgt.setType(src.getType());
+    if (src.hasBlob())
+      tgt.setBlob(src.getBlob());
     return tgt;
   }
 
@@ -3050,8 +3450,10 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestSecurityCertificateComponent tgt = new org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestSecurityCertificateComponent();
     copyElement(src, tgt);
-    tgt.setType(src.getType());
-    tgt.setBlob(src.getBlob());
+    if (src.hasType())
+      tgt.setType(src.getType());
+    if (src.hasBlob())
+      tgt.setBlob(src.getBlob());
     return tgt;
   }
 
@@ -3065,10 +3467,14 @@ public class VersionConvertor_14_20 {
     for (org.hl7.fhir.dstu2016may.model.Conformance.ResourceInteractionComponent t : src.getInteraction())
       tgt.addInteraction(convertResourceInteractionComponent(t));
     tgt.setVersioning(convertResourceVersionPolicy(src.getVersioning()));
-    tgt.setReadHistory(src.getReadHistory());
-    tgt.setUpdateCreate(src.getUpdateCreate());
-    tgt.setConditionalCreate(src.getConditionalCreate());
-    tgt.setConditionalUpdate(src.getConditionalUpdate());
+    if (src.hasReadHistory())
+      tgt.setReadHistory(src.getReadHistory());
+    if (src.hasUpdateCreate())
+      tgt.setUpdateCreate(src.getUpdateCreate());
+    if (src.hasConditionalCreate())
+      tgt.setConditionalCreate(src.getConditionalCreate());
+    if (src.hasConditionalUpdate())
+      tgt.setConditionalUpdate(src.getConditionalUpdate());
     tgt.setConditionalDelete(convertConditionalDeleteStatus(src.getConditionalDelete()));
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getSearchInclude())
       tgt.addSearchInclude(t.getValue());
@@ -3089,10 +3495,14 @@ public class VersionConvertor_14_20 {
     for (org.hl7.fhir.dstu3.model.Conformance.ResourceInteractionComponent t : src.getInteraction())
       tgt.addInteraction(convertResourceInteractionComponent(t));
     tgt.setVersioning(convertResourceVersionPolicy(src.getVersioning()));
-    tgt.setReadHistory(src.getReadHistory());
-    tgt.setUpdateCreate(src.getUpdateCreate());
-    tgt.setConditionalCreate(src.getConditionalCreate());
-    tgt.setConditionalUpdate(src.getConditionalUpdate());
+    if (src.hasReadHistory())
+      tgt.setReadHistory(src.getReadHistory());
+    if (src.hasUpdateCreate())
+      tgt.setUpdateCreate(src.getUpdateCreate());
+    if (src.hasConditionalCreate())
+      tgt.setConditionalCreate(src.getConditionalCreate());
+    if (src.hasConditionalUpdate())
+      tgt.setConditionalUpdate(src.getConditionalUpdate());
     tgt.setConditionalDelete(convertConditionalDeleteStatus(src.getConditionalDelete()));
     for (org.hl7.fhir.dstu3.model.StringType t : src.getSearchInclude())
       tgt.addSearchInclude(t.getValue());
@@ -3153,7 +3563,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.Conformance.ResourceInteractionComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ResourceInteractionComponent();
     copyElement(src, tgt);
     tgt.setCode(convertTypeRestfulInteraction(src.getCode()));
-    tgt.setDocumentation(src.getDocumentation());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
     return tgt;
   }
 
@@ -3163,7 +3574,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.Conformance.ResourceInteractionComponent tgt = new org.hl7.fhir.dstu2016may.model.Conformance.ResourceInteractionComponent();
     copyElement(src, tgt);
     tgt.setCode(convertTypeRestfulInteraction(src.getCode()));
-    tgt.setDocumentation(src.getDocumentation());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
     return tgt;
   }
 
@@ -3237,9 +3649,11 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceSearchParamComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceSearchParamComponent();
     copyElement(src, tgt);
     tgt.setName(src.getName());
-    tgt.setDefinition(src.getDefinition());
+    if (src.hasDefinition())
+      tgt.setDefinition(src.getDefinition());
     tgt.setType(convertSearchParamType(src.getType()));
-    tgt.setDocumentation(src.getDocumentation());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
     for (org.hl7.fhir.dstu2016may.model.CodeType t : src.getTarget())
       tgt.addTarget(t.getValue());
     for (org.hl7.fhir.dstu2016may.model.Enumeration<org.hl7.fhir.dstu2016may.model.Conformance.SearchModifierCode> t : src.getModifier())
@@ -3255,9 +3669,11 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestResourceSearchParamComponent tgt = new org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestResourceSearchParamComponent();
     copyElement(src, tgt);
     tgt.setName(src.getName());
-    tgt.setDefinition(src.getDefinition());
+    if (src.hasDefinition())
+      tgt.setDefinition(src.getDefinition());
     tgt.setType(convertSearchParamType(src.getType()));
-    tgt.setDocumentation(src.getDocumentation());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
     for (org.hl7.fhir.dstu3.model.CodeType t : src.getTarget())
       tgt.addTarget(t.getValue());
     for (org.hl7.fhir.dstu3.model.Enumeration<org.hl7.fhir.dstu3.model.Conformance.SearchModifierCode> t : src.getModifier())
@@ -3310,7 +3726,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.Conformance.SystemInteractionComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.SystemInteractionComponent();
     copyElement(src, tgt);
     tgt.setCode(convertSystemRestfulInteraction(src.getCode()));
-    tgt.setDocumentation(src.getDocumentation());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
     return tgt;
   }
 
@@ -3320,7 +3737,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.Conformance.SystemInteractionComponent tgt = new org.hl7.fhir.dstu2016may.model.Conformance.SystemInteractionComponent();
     copyElement(src, tgt);
     tgt.setCode(convertSystemRestfulInteraction(src.getCode()));
-    tgt.setDocumentation(src.getDocumentation());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
     return tgt;
   }
 
@@ -3373,8 +3791,10 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     for (org.hl7.fhir.dstu2016may.model.Conformance.ConformanceMessagingEndpointComponent t : src.getEndpoint())
       tgt.addEndpoint(convertConformanceMessagingEndpointComponent(t));
-    tgt.setReliableCache(src.getReliableCache());
-    tgt.setDocumentation(src.getDocumentation());
+    if (src.hasReliableCache())
+      tgt.setReliableCache(src.getReliableCache());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
     for (org.hl7.fhir.dstu2016may.model.Conformance.ConformanceMessagingEventComponent t : src.getEvent())
       tgt.addEvent(convertConformanceMessagingEventComponent(t));
     return tgt;
@@ -3387,8 +3807,10 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     for (org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingEndpointComponent t : src.getEndpoint())
       tgt.addEndpoint(convertConformanceMessagingEndpointComponent(t));
-    tgt.setReliableCache(src.getReliableCache());
-    tgt.setDocumentation(src.getDocumentation());
+    if (src.hasReliableCache())
+      tgt.setReliableCache(src.getReliableCache());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
     for (org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingEventComponent t : src.getEvent())
       tgt.addEvent(convertConformanceMessagingEventComponent(t));
     return tgt;
@@ -3425,7 +3847,8 @@ public class VersionConvertor_14_20 {
     tgt.setFocus(src.getFocus());
     tgt.setRequest(convertReference(src.getRequest()));
     tgt.setResponse(convertReference(src.getResponse()));
-    tgt.setDocumentation(src.getDocumentation());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
     return tgt;
   }
 
@@ -3440,7 +3863,8 @@ public class VersionConvertor_14_20 {
     tgt.setFocus(src.getFocus());
     tgt.setRequest(convertReference(src.getRequest()));
     tgt.setResponse(convertReference(src.getResponse()));
-    tgt.setDocumentation(src.getDocumentation());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
     return tgt;
   }
 
@@ -3492,7 +3916,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.Conformance.ConformanceDocumentComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceDocumentComponent();
     copyElement(src, tgt);
     tgt.setMode(convertDocumentMode(src.getMode()));
-    tgt.setDocumentation(src.getDocumentation());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
     tgt.setProfile(convertReference(src.getProfile()));
     return tgt;
   }
@@ -3503,7 +3928,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.Conformance.ConformanceDocumentComponent tgt = new org.hl7.fhir.dstu2016may.model.Conformance.ConformanceDocumentComponent();
     copyElement(src, tgt);
     tgt.setMode(convertDocumentMode(src.getMode()));
-    tgt.setDocumentation(src.getDocumentation());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
     tgt.setProfile(convertReference(src.getProfile()));
     return tgt;
   }
@@ -3534,20 +3960,27 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.DataElement tgt = new org.hl7.fhir.dstu3.model.DataElement();
     copyDomainResource(src, tgt);
-    tgt.setUrl(src.getUrl());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
     for (org.hl7.fhir.dstu2016may.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setVersion(src.getVersion());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setPublisher(src.getPublisher());
-    tgt.setDate(src.getDate());
-    tgt.setName(src.getName());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu2016may.model.DataElement.DataElementContactComponent t : src.getContact())
       tgt.addContact(convertDataElementContactComponent(t));
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setCopyright(src.getCopyright());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
     tgt.setStringency(convertDataElementStringency(src.getStringency()));
     for (org.hl7.fhir.dstu2016may.model.DataElement.DataElementMappingComponent t : src.getMapping())
       tgt.addMapping(convertDataElementMappingComponent(t));
@@ -3561,20 +3994,27 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.DataElement tgt = new org.hl7.fhir.dstu2016may.model.DataElement();
     copyDomainResource(src, tgt);
-    tgt.setUrl(src.getUrl());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
     for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setVersion(src.getVersion());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setPublisher(src.getPublisher());
-    tgt.setDate(src.getDate());
-    tgt.setName(src.getName());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu3.model.DataElement.DataElementContactComponent t : src.getContact())
       tgt.addContact(convertDataElementContactComponent(t));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setCopyright(src.getCopyright());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
     tgt.setStringency(convertDataElementStringency(src.getStringency()));
     for (org.hl7.fhir.dstu3.model.DataElement.DataElementMappingComponent t : src.getMapping())
       tgt.addMapping(convertDataElementMappingComponent(t));
@@ -3616,7 +4056,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.DataElement.DataElementContactComponent tgt = new org.hl7.fhir.dstu3.model.DataElement.DataElementContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu2016may.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -3627,7 +4068,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.DataElement.DataElementContactComponent tgt = new org.hl7.fhir.dstu2016may.model.DataElement.DataElementContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -3639,9 +4081,12 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.DataElement.DataElementMappingComponent tgt = new org.hl7.fhir.dstu3.model.DataElement.DataElementMappingComponent();
     copyElement(src, tgt);
     tgt.setIdentity(src.getIdentity());
-    tgt.setUri(src.getUri());
-    tgt.setName(src.getName());
-    tgt.setComment(src.getComment());
+    if (src.hasUri())
+      tgt.setUri(src.getUri());
+    if (src.hasName())
+      tgt.setName(src.getName());
+    if (src.hasComment())
+      tgt.setComment(src.getComment());
     return tgt;
   }
 
@@ -3651,9 +4096,12 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.DataElement.DataElementMappingComponent tgt = new org.hl7.fhir.dstu2016may.model.DataElement.DataElementMappingComponent();
     copyElement(src, tgt);
     tgt.setIdentity(src.getIdentity());
-    tgt.setUri(src.getUri());
-    tgt.setName(src.getName());
-    tgt.setComment(src.getComment());
+    if (src.hasUri())
+      tgt.setUri(src.getUri());
+    if (src.hasName())
+      tgt.setName(src.getName());
+    if (src.hasComment())
+      tgt.setComment(src.getComment());
     return tgt;
   }
 
@@ -3663,19 +4111,26 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.ImplementationGuide tgt = new org.hl7.fhir.dstu3.model.ImplementationGuide();
     copyDomainResource(src, tgt);
     tgt.setUrl(src.getUrl());
-    tgt.setVersion(src.getVersion());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
     tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuideContactComponent t : src.getContact())
       tgt.addContact(convertImplementationGuideContactComponent(t));
-    tgt.setDate(src.getDate());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setCopyright(src.getCopyright());
-    tgt.setFhirVersion(src.getFhirVersion());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
+    if (src.hasFhirVersion())
+      tgt.setFhirVersion(src.getFhirVersion());
     for (org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuideDependencyComponent t : src.getDependency())
       tgt.addDependency(convertImplementationGuideDependencyComponent(t));
     for (org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuidePackageComponent t : src.getPackage())
@@ -3694,19 +4149,26 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.ImplementationGuide tgt = new org.hl7.fhir.dstu2016may.model.ImplementationGuide();
     copyDomainResource(src, tgt);
     tgt.setUrl(src.getUrl());
-    tgt.setVersion(src.getVersion());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
     tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuideContactComponent t : src.getContact())
       tgt.addContact(convertImplementationGuideContactComponent(t));
-    tgt.setDate(src.getDate());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setCopyright(src.getCopyright());
-    tgt.setFhirVersion(src.getFhirVersion());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
+    if (src.hasFhirVersion())
+      tgt.setFhirVersion(src.getFhirVersion());
     for (org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuideDependencyComponent t : src.getDependency())
       tgt.addDependency(convertImplementationGuideDependencyComponent(t));
     for (org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent t : src.getPackage())
@@ -3724,7 +4186,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuideContactComponent tgt = new org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuideContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu2016may.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -3735,7 +4198,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuideContactComponent tgt = new org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuideContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -3787,7 +4251,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent tgt = new org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent();
     copyElement(src, tgt);
     tgt.setName(src.getName());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuidePackageResourceComponent t : src.getResource())
       tgt.addResource(convertImplementationGuidePackageResourceComponent(t));
     return tgt;
@@ -3799,7 +4264,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuidePackageComponent tgt = new org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuidePackageComponent();
     copyElement(src, tgt);
     tgt.setName(src.getName());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent t : src.getResource())
       tgt.addResource(convertImplementationGuidePackageResourceComponent(t));
     return tgt;
@@ -3811,11 +4277,15 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent tgt = new org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent();
     copyElement(src, tgt);
     tgt.setExample(src.getExample());
-    tgt.setName(src.getName());
-    tgt.setDescription(src.getDescription());
-    tgt.setAcronym(src.getAcronym());
+    if (src.hasName())
+      tgt.setName(src.getName());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
+    if (src.hasAcronym())
+      tgt.setAcronym(src.getAcronym());
     tgt.setSource(convertType(src.getSource()));
-    tgt.setExampleFor(convertReference(src.getExampleFor()));
+    if (src.hasExampleFor())
+      tgt.setExampleFor(convertReference(src.getExampleFor()));
     return tgt;
   }
 
@@ -3825,11 +4295,15 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuidePackageResourceComponent tgt = new org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuidePackageResourceComponent();
     copyElement(src, tgt);
     tgt.setExample(src.getExample());
-    tgt.setName(src.getName());
-    tgt.setDescription(src.getDescription());
-    tgt.setAcronym(src.getAcronym());
+    if (src.hasName())
+      tgt.setName(src.getName());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
+    if (src.hasAcronym())
+      tgt.setAcronym(src.getAcronym());
     tgt.setSource(convertType(src.getSource()));
-    tgt.setExampleFor(convertReference(src.getExampleFor()));
+    if (src.hasExampleFor())
+      tgt.setExampleFor(convertReference(src.getExampleFor()));
     return tgt;
   }
 
@@ -3865,7 +4339,8 @@ public class VersionConvertor_14_20 {
       tgt.addType(t.getValue());
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getPackage())
       tgt.addPackage(t.getValue());
-    tgt.setFormat(src.getFormat());
+    if (src.hasFormat())
+      tgt.setFormat(src.getFormat());
     for (org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuidePageComponent t : src.getPage())
       tgt.addPage(convertImplementationGuidePageComponent(t));
     return tgt;
@@ -3883,7 +4358,8 @@ public class VersionConvertor_14_20 {
       tgt.addType(t.getValue());
     for (org.hl7.fhir.dstu3.model.StringType t : src.getPackage())
       tgt.addPackage(t.getValue());
-    tgt.setFormat(src.getFormat());
+    if (src.hasFormat())
+      tgt.setFormat(src.getFormat());
     for (org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageComponent t : src.getPage())
       tgt.addPage(convertImplementationGuidePageComponent(t));
     return tgt;
@@ -3930,15 +4406,19 @@ public class VersionConvertor_14_20 {
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
     tgt.setKind(convertNamingSystemType(src.getKind()));
     tgt.setDate(src.getDate());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu2016may.model.NamingSystem.NamingSystemContactComponent t : src.getContact())
       tgt.addContact(convertNamingSystemContactComponent(t));
-    tgt.setResponsible(src.getResponsible());
+    if (src.hasResponsible())
+      tgt.setResponsible(src.getResponsible());
     tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setUsage(src.getUsage());
+    if (src.hasUsage())
+      tgt.setUsage(src.getUsage());
     for (org.hl7.fhir.dstu2016may.model.NamingSystem.NamingSystemUniqueIdComponent t : src.getUniqueId())
       tgt.addUniqueId(convertNamingSystemUniqueIdComponent(t));
     tgt.setReplacedBy(convertReference(src.getReplacedBy()));
@@ -3954,15 +4434,19 @@ public class VersionConvertor_14_20 {
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
     tgt.setKind(convertNamingSystemType(src.getKind()));
     tgt.setDate(src.getDate());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemContactComponent t : src.getContact())
       tgt.addContact(convertNamingSystemContactComponent(t));
-    tgt.setResponsible(src.getResponsible());
+    if (src.hasResponsible())
+      tgt.setResponsible(src.getResponsible());
     tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setUsage(src.getUsage());
+    if (src.hasUsage())
+      tgt.setUsage(src.getUsage());
     for (org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent t : src.getUniqueId())
       tgt.addUniqueId(convertNamingSystemUniqueIdComponent(t));
     tgt.setReplacedBy(convertReference(src.getReplacedBy()));
@@ -3996,7 +4480,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemContactComponent tgt = new org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu2016may.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -4007,7 +4492,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.NamingSystem.NamingSystemContactComponent tgt = new org.hl7.fhir.dstu2016may.model.NamingSystem.NamingSystemContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -4020,7 +4506,8 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     tgt.setType(convertNamingSystemIdentifierType(src.getType()));
     tgt.setValue(src.getValue());
-    tgt.setPreferred(src.getPreferred());
+    if (src.hasPreferred())
+      tgt.setPreferred(src.getPreferred());
     tgt.setPeriod(convertPeriod(src.getPeriod()));
     return tgt;
   }
@@ -4032,7 +4519,8 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     tgt.setType(convertNamingSystemIdentifierType(src.getType()));
     tgt.setValue(src.getValue());
-    tgt.setPreferred(src.getPreferred());
+    if (src.hasPreferred())
+      tgt.setPreferred(src.getPreferred());
     tgt.setPeriod(convertPeriod(src.getPeriod()));
     return tgt;
   }
@@ -4066,23 +4554,32 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.OperationDefinition tgt = new org.hl7.fhir.dstu3.model.OperationDefinition();
     copyDomainResource(src, tgt);
-    tgt.setUrl(src.getUrl());
-    tgt.setVersion(src.getVersion());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
     tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
     tgt.setKind(convertOperationKind(src.getKind()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setDate(src.getDate());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu2016may.model.OperationDefinition.OperationDefinitionContactComponent t : src.getContact())
       tgt.addContact(convertOperationDefinitionContactComponent(t));
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setRequirements(src.getRequirements());
-    tgt.setIdempotent(src.getIdempotent());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
+    if (src.hasIdempotent())
+      tgt.setIdempotent(src.getIdempotent());
     tgt.setCode(src.getCode());
-    tgt.setComment(src.getComment());
+    if (src.hasComment())
+      tgt.setComment(src.getComment());
     tgt.setBase(convertReference(src.getBase()));
     tgt.setSystem(src.getSystem());
     for (org.hl7.fhir.dstu2016may.model.CodeType t : src.getType())
@@ -4098,23 +4595,32 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.OperationDefinition tgt = new org.hl7.fhir.dstu2016may.model.OperationDefinition();
     copyDomainResource(src, tgt);
-    tgt.setUrl(src.getUrl());
-    tgt.setVersion(src.getVersion());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
     tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
     tgt.setKind(convertOperationKind(src.getKind()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setDate(src.getDate());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu3.model.OperationDefinition.OperationDefinitionContactComponent t : src.getContact())
       tgt.addContact(convertOperationDefinitionContactComponent(t));
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setRequirements(src.getRequirements());
-    tgt.setIdempotent(src.getIdempotent());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
+    if (src.hasIdempotent())
+      tgt.setIdempotent(src.getIdempotent());
     tgt.setCode(src.getCode());
-    tgt.setComment(src.getComment());
+    if (src.hasComment())
+      tgt.setComment(src.getComment());
     tgt.setBase(convertReference(src.getBase()));
     tgt.setSystem(src.getSystem());
     for (org.hl7.fhir.dstu3.model.CodeType t : src.getType())
@@ -4150,7 +4656,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.OperationDefinition.OperationDefinitionContactComponent tgt = new org.hl7.fhir.dstu3.model.OperationDefinition.OperationDefinitionContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu2016may.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -4161,7 +4668,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.OperationDefinition.OperationDefinitionContactComponent tgt = new org.hl7.fhir.dstu2016may.model.OperationDefinition.OperationDefinitionContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -4176,8 +4684,10 @@ public class VersionConvertor_14_20 {
     tgt.setUse(convertOperationParameterUse(src.getUse()));
     tgt.setMin(src.getMin());
     tgt.setMax(src.getMax());
-    tgt.setDocumentation(src.getDocumentation());
-    tgt.setType(src.getType());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
+    if (src.hasType())
+      tgt.setType(src.getType());
     tgt.setSearchType(convertSearchParamType(src.getSearchType()));
     tgt.setProfile(convertReference(src.getProfile()));
     tgt.setBinding(convertOperationDefinitionParameterBindingComponent(src.getBinding()));
@@ -4195,8 +4705,10 @@ public class VersionConvertor_14_20 {
     tgt.setUse(convertOperationParameterUse(src.getUse()));
     tgt.setMin(src.getMin());
     tgt.setMax(src.getMax());
-    tgt.setDocumentation(src.getDocumentation());
-    tgt.setType(src.getType());
+    if (src.hasDocumentation())
+      tgt.setDocumentation(src.getDocumentation());
+    if (src.hasType())
+      tgt.setType(src.getType());
     tgt.setSearchType(convertSearchParamType(src.getSearchType()));
     tgt.setProfile(convertReference(src.getProfile()));
     tgt.setBinding(convertOperationDefinitionParameterBindingComponent(src.getBinding()));
@@ -4273,7 +4785,8 @@ public class VersionConvertor_14_20 {
     tgt.setSeverity(convertIssueSeverity(src.getSeverity()));
     tgt.setCode(convertIssueType(src.getCode()));
     tgt.setDetails(convertCodeableConcept(src.getDetails()));
-    tgt.setDiagnostics(src.getDiagnostics());
+    if (src.hasDiagnostics())
+      tgt.setDiagnostics(src.getDiagnostics());
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getLocation())
       tgt.addLocation(t.getValue());
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getExpression())
@@ -4289,7 +4802,8 @@ public class VersionConvertor_14_20 {
     tgt.setSeverity(convertIssueSeverity(src.getSeverity()));
     tgt.setCode(convertIssueType(src.getCode()));
     tgt.setDetails(convertCodeableConcept(src.getDetails()));
-    tgt.setDiagnostics(src.getDiagnostics());
+    if (src.hasDiagnostics())
+      tgt.setDiagnostics(src.getDiagnostics());
     for (org.hl7.fhir.dstu3.model.StringType t : src.getLocation())
       tgt.addLocation(t.getValue());
     for (org.hl7.fhir.dstu3.model.StringType t : src.getExpression())
@@ -4401,18 +4915,23 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Questionnaire tgt = new org.hl7.fhir.dstu3.model.Questionnaire();
     copyDomainResource(src, tgt);
-    tgt.setUrl(src.getUrl());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
     for (org.hl7.fhir.dstu2016may.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setVersion(src.getVersion());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
     tgt.setStatus(convertQuestionnaireStatus(src.getStatus()));
-    tgt.setDate(src.getDate());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu2016may.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setTitle(src.getTitle());
+    if (src.hasTitle())
+      tgt.setTitle(src.getTitle());
     for (org.hl7.fhir.dstu2016may.model.Coding t : src.getConcept())
       tgt.addConcept(convertCoding(t));
     for (org.hl7.fhir.dstu2016may.model.CodeType t : src.getSubjectType())
@@ -4427,18 +4946,23 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Questionnaire tgt = new org.hl7.fhir.dstu2016may.model.Questionnaire();
     copyDomainResource(src, tgt);
-    tgt.setUrl(src.getUrl());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
     for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setVersion(src.getVersion());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
     tgt.setStatus(convertQuestionnaireStatus(src.getStatus()));
-    tgt.setDate(src.getDate());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setTitle(src.getTitle());
+    if (src.hasTitle())
+      tgt.setTitle(src.getTitle());
     for (org.hl7.fhir.dstu3.model.Coding t : src.getConcept())
       tgt.addConcept(convertCoding(t));
     for (org.hl7.fhir.dstu3.model.CodeType t : src.getSubjectType())
@@ -4475,18 +4999,25 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemComponent tgt = new org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemComponent();
     copyElement(src, tgt);
-    tgt.setLinkId(src.getLinkId());
+    if (src.hasLinkId())
+      tgt.setLinkId(src.getLinkId());
     for (org.hl7.fhir.dstu2016may.model.Coding t : src.getConcept())
       tgt.addConcept(convertCoding(t));
-    tgt.setPrefix(src.getPrefix());
-    tgt.setText(src.getText());
+    if (src.hasPrefix())
+      tgt.setPrefix(src.getPrefix());
+    if (src.hasText())
+      tgt.setText(src.getText());
     tgt.setType(convertQuestionnaireItemType(src.getType()));
     for (org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemEnableWhenComponent t : src.getEnableWhen())
       tgt.addEnableWhen(convertQuestionnaireItemEnableWhenComponent(t));
-    tgt.setRequired(src.getRequired());
-    tgt.setRepeats(src.getRepeats());
-    tgt.setReadOnly(src.getReadOnly());
-    tgt.setMaxLength(src.getMaxLength());
+    if (src.hasRequired())
+      tgt.setRequired(src.getRequired());
+    if (src.hasRepeats())
+      tgt.setRepeats(src.getRepeats());
+    if (src.hasReadOnly())
+      tgt.setReadOnly(src.getReadOnly());
+    if (src.hasMaxLength())
+      tgt.setMaxLength(src.getMaxLength());
     tgt.setOptions(convertReference(src.getOptions()));
     for (org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemOptionComponent t : src.getOption())
       tgt.addOption(convertQuestionnaireItemOptionComponent(t));
@@ -4501,18 +5032,25 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemComponent tgt = new org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemComponent();
     copyElement(src, tgt);
-    tgt.setLinkId(src.getLinkId());
+    if (src.hasLinkId())
+      tgt.setLinkId(src.getLinkId());
     for (org.hl7.fhir.dstu3.model.Coding t : src.getConcept())
       tgt.addConcept(convertCoding(t));
-    tgt.setPrefix(src.getPrefix());
-    tgt.setText(src.getText());
+    if (src.hasPrefix())
+      tgt.setPrefix(src.getPrefix());
+    if (src.hasText())
+      tgt.setText(src.getText());
     tgt.setType(convertQuestionnaireItemType(src.getType()));
     for (org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemEnableWhenComponent t : src.getEnableWhen())
       tgt.addEnableWhen(convertQuestionnaireItemEnableWhenComponent(t));
-    tgt.setRequired(src.getRequired());
-    tgt.setRepeats(src.getRepeats());
-    tgt.setReadOnly(src.getReadOnly());
-    tgt.setMaxLength(src.getMaxLength());
+    if (src.hasRequired())
+      tgt.setRequired(src.getRequired());
+    if (src.hasRepeats())
+      tgt.setRepeats(src.getRepeats());
+    if (src.hasReadOnly())
+      tgt.setReadOnly(src.getReadOnly());
+    if (src.hasMaxLength())
+      tgt.setMaxLength(src.getMaxLength());
     tgt.setOptions(convertReference(src.getOptions()));
     for (org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemOptionComponent t : src.getOption())
       tgt.addOption(convertQuestionnaireItemOptionComponent(t));
@@ -4580,7 +5118,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemEnableWhenComponent tgt = new org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemEnableWhenComponent();
     copyElement(src, tgt);
     tgt.setQuestion(src.getQuestion());
-    tgt.setHasAnswer(src.getAnswered());
+    if (src.hasAnswered())
+      tgt.setHasAnswer(src.getAnswered());
     tgt.setAnswer(convertType(src.getAnswer()));
     return tgt;
   }
@@ -4591,7 +5130,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemEnableWhenComponent tgt = new org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemEnableWhenComponent();
     copyElement(src, tgt);
     tgt.setQuestion(src.getQuestion());
-    tgt.setAnswered(src.getHasAnswer());
+    if (src.hasHasAnswer())
+      tgt.setAnswered(src.getHasAnswer());
     tgt.setAnswer(convertType(src.getAnswer()));
     return tgt;
   }
@@ -4625,7 +5165,8 @@ public class VersionConvertor_14_20 {
     tgt.setSubject(convertReference(src.getSubject()));
     tgt.setContext(convertReference(src.getEncounter()));
     tgt.setAuthor(convertReference(src.getAuthor()));
-    tgt.setAuthored(src.getAuthored());
+    if (src.hasAuthored())
+      tgt.setAuthored(src.getAuthored());
     tgt.setSource(convertReference(src.getSource()));
     for (org.hl7.fhir.dstu2016may.model.QuestionnaireResponse.QuestionnaireResponseItemComponent t : src.getItem())
       tgt.addItem(convertQuestionnaireResponseItemComponent(t));
@@ -4643,7 +5184,8 @@ public class VersionConvertor_14_20 {
     tgt.setSubject(convertReference(src.getSubject()));
     tgt.setEncounter(convertReference(src.getContext()));
     tgt.setAuthor(convertReference(src.getAuthor()));
-    tgt.setAuthored(src.getAuthored());
+    if (src.hasAuthored())
+      tgt.setAuthored(src.getAuthored());
     tgt.setSource(convertReference(src.getSource()));
     for (org.hl7.fhir.dstu3.model.QuestionnaireResponse.QuestionnaireResponseItemComponent t : src.getItem())
       tgt.addItem(convertQuestionnaireResponseItemComponent(t));
@@ -4677,8 +5219,10 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.QuestionnaireResponse.QuestionnaireResponseItemComponent tgt = new org.hl7.fhir.dstu3.model.QuestionnaireResponse.QuestionnaireResponseItemComponent();
     copyElement(src, tgt);
-    tgt.setLinkId(src.getLinkId());
-    tgt.setText(src.getText());
+    if (src.hasLinkId())
+      tgt.setLinkId(src.getLinkId());
+    if (src.hasText())
+      tgt.setText(src.getText());
     tgt.setSubject(convertReference(src.getSubject()));
     for (org.hl7.fhir.dstu2016may.model.QuestionnaireResponse.QuestionnaireResponseItemAnswerComponent t : src.getAnswer())
       tgt.addAnswer(convertQuestionnaireResponseItemAnswerComponent(t));
@@ -4692,8 +5236,10 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.QuestionnaireResponse.QuestionnaireResponseItemComponent tgt = new org.hl7.fhir.dstu2016may.model.QuestionnaireResponse.QuestionnaireResponseItemComponent();
     copyElement(src, tgt);
-    tgt.setLinkId(src.getLinkId());
-    tgt.setText(src.getText());
+    if (src.hasLinkId())
+      tgt.setLinkId(src.getLinkId());
+    if (src.hasText())
+      tgt.setText(src.getText());
     tgt.setSubject(convertReference(src.getSubject()));
     for (org.hl7.fhir.dstu3.model.QuestionnaireResponse.QuestionnaireResponseItemAnswerComponent t : src.getAnswer())
       tgt.addAnswer(convertQuestionnaireResponseItemAnswerComponent(t));
@@ -4732,20 +5278,26 @@ public class VersionConvertor_14_20 {
     tgt.setUrl(src.getUrl());
     tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setDate(src.getDate());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu2016may.model.SearchParameter.SearchParameterContactComponent t : src.getContact())
       tgt.addContact(convertSearchParameterContactComponent(t));
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setRequirements(src.getRequirements());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
     tgt.setCode(src.getCode());
     tgt.setBase(src.getBase());
     tgt.setType(convertSearchParamType(src.getType()));
     tgt.setDescription(src.getDescription());
-    tgt.setExpression(src.getExpression());
-    tgt.setXpath(src.getXpath());
+    if (src.hasExpression())
+      tgt.setExpression(src.getExpression());
+    if (src.hasXpath())
+      tgt.setXpath(src.getXpath());
     tgt.setXpathUsage(convertXPathUsageType(src.getXpathUsage()));
     for (org.hl7.fhir.dstu2016may.model.CodeType t : src.getTarget())
       tgt.addTarget(t.getValue());
@@ -4760,20 +5312,26 @@ public class VersionConvertor_14_20 {
     tgt.setUrl(src.getUrl());
     tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setDate(src.getDate());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu3.model.SearchParameter.SearchParameterContactComponent t : src.getContact())
       tgt.addContact(convertSearchParameterContactComponent(t));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setRequirements(src.getRequirements());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
     tgt.setCode(src.getCode());
     tgt.setBase(src.getBase());
     tgt.setType(convertSearchParamType(src.getType()));
     tgt.setDescription(src.getDescription());
-    tgt.setExpression(src.getExpression());
-    tgt.setXpath(src.getXpath());
+    if (src.hasExpression())
+      tgt.setExpression(src.getExpression());
+    if (src.hasXpath())
+      tgt.setXpath(src.getXpath());
     tgt.setXpathUsage(convertXPathUsageType(src.getXpathUsage()));
     for (org.hl7.fhir.dstu3.model.CodeType t : src.getTarget())
       tgt.addTarget(t.getValue());
@@ -4811,7 +5369,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.SearchParameter.SearchParameterContactComponent tgt = new org.hl7.fhir.dstu3.model.SearchParameter.SearchParameterContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu2016may.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -4822,7 +5381,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.SearchParameter.SearchParameterContactComponent tgt = new org.hl7.fhir.dstu2016may.model.SearchParameter.SearchParameterContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -4833,26 +5393,36 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.StructureDefinition tgt = new org.hl7.fhir.dstu3.model.StructureDefinition();
     copyDomainResource(src, tgt);
-    tgt.setUrl(src.getUrl());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
     for (org.hl7.fhir.dstu2016may.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setVersion(src.getVersion());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
     tgt.setName(src.getName());
-    tgt.setDisplay(src.getDisplay());
+    if (src.hasDisplay())
+      tgt.setDisplay(src.getDisplay());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionContactComponent t : src.getContact())
       tgt.addContact(convertStructureDefinitionContactComponent(t));
-    tgt.setDate(src.getDate());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setRequirements(src.getRequirements());
-    tgt.setCopyright(src.getCopyright());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
     for (org.hl7.fhir.dstu2016may.model.Coding t : src.getCode())
       tgt.addCode(convertCoding(t));
-    tgt.setFhirVersion(src.getFhirVersion());
+    if (src.hasFhirVersion())
+      tgt.setFhirVersion(src.getFhirVersion());
     for (org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionMappingComponent t : src.getMapping())
       tgt.addMapping(convertStructureDefinitionMappingComponent(t));
     tgt.setKind(convertStructureDefinitionKind(src.getKind()));
@@ -4864,14 +5434,17 @@ public class VersionConvertor_14_20 {
       tgt.setType(src.getBaseType());
     else
       tgt.setType(src.getId());
-    tgt.setBaseDefinition(src.getBaseDefinition());
+    if (src.hasBaseDefinition())
+      tgt.setBaseDefinition(src.getBaseDefinition());
     tgt.setDerivation(convertTypeDerivationRule(src.getDerivation()));
-    tgt.setSnapshot(convertStructureDefinitionSnapshotComponent(src.getSnapshot()));
-    if (tgt.hasSnapshot())
+    if (src.hasSnapshot()) {
+      tgt.setSnapshot(convertStructureDefinitionSnapshotComponent(src.getSnapshot()));
       tgt.getSnapshot().getElementFirstRep().getType().clear();
-    tgt.setDifferential(convertStructureDefinitionDifferentialComponent(src.getDifferential()));
-    if (tgt.hasDifferential())
+    }
+    if (src.hasDifferential()) {
+      tgt.setDifferential(convertStructureDefinitionDifferentialComponent(src.getDifferential()));
       tgt.getDifferential().getElementFirstRep().getType().clear();
+    }
     return tgt;
   }
 
@@ -4880,26 +5453,36 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.StructureDefinition tgt = new org.hl7.fhir.dstu2016may.model.StructureDefinition();
     copyDomainResource(src, tgt);
-    tgt.setUrl(src.getUrl());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
     for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setVersion(src.getVersion());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
     tgt.setName(src.getName());
-    tgt.setDisplay(src.getDisplay());
+    if (src.hasDisplay())
+      tgt.setDisplay(src.getDisplay());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionContactComponent t : src.getContact())
       tgt.addContact(convertStructureDefinitionContactComponent(t));
-    tgt.setDate(src.getDate());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setRequirements(src.getRequirements());
-    tgt.setCopyright(src.getCopyright());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
     for (org.hl7.fhir.dstu3.model.Coding t : src.getCode())
       tgt.addCode(convertCoding(t));
-    tgt.setFhirVersion(src.getFhirVersion());
+    if (src.hasFhirVersion())
+      tgt.setFhirVersion(src.getFhirVersion());
     for (org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent t : src.getMapping())
       tgt.addMapping(convertStructureDefinitionMappingComponent(t));
     tgt.setKind(convertStructureDefinitionKind(src.getKind()));
@@ -4907,8 +5490,8 @@ public class VersionConvertor_14_20 {
     tgt.setContextType(convertExtensionContext(src.getContextType()));
     for (org.hl7.fhir.dstu3.model.StringType t : src.getContext())
       tgt.addContext(t.getValue());
-    tgt.setBaseType(src.getType());
-    tgt.setBaseDefinition(src.getBaseDefinition());
+    if (src.hasBaseDefinition())
+      tgt.setBaseDefinition(src.getBaseDefinition());
     tgt.setDerivation(convertTypeDerivationRule(src.getDerivation()));
     tgt.setSnapshot(convertStructureDefinitionSnapshotComponent(src.getSnapshot()));
     tgt.setDifferential(convertStructureDefinitionDifferentialComponent(src.getDifferential()));
@@ -4985,7 +5568,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionContactComponent tgt = new org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu2016may.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -4996,7 +5580,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionContactComponent tgt = new org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -5008,9 +5593,12 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent tgt = new org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent();
     copyElement(src, tgt);
     tgt.setIdentity(src.getIdentity());
-    tgt.setUri(src.getUri());
-    tgt.setName(src.getName());
-    tgt.setComments(src.getComments());
+    if (src.hasUri())
+      tgt.setUri(src.getUri());
+    if (src.hasName())
+      tgt.setName(src.getName());
+    if (src.hasComments())
+      tgt.setComments(src.getComments());
     return tgt;
   }
 
@@ -5020,9 +5608,12 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionMappingComponent tgt = new org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionMappingComponent();
     copyElement(src, tgt);
     tgt.setIdentity(src.getIdentity());
-    tgt.setUri(src.getUri());
-    tgt.setName(src.getName());
-    tgt.setComments(src.getComments());
+    if (src.hasUri())
+      tgt.setUri(src.getUri());
+    if (src.hasName())
+      tgt.setName(src.getName());
+    if (src.hasComments())
+      tgt.setComments(src.getComments());
     return tgt;
   }
 
@@ -5072,20 +5663,27 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.TestScript tgt = new org.hl7.fhir.dstu3.model.TestScript();
     copyDomainResource(src, tgt);
     tgt.setUrl(src.getUrl());
-    tgt.setVersion(src.getVersion());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
     tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
     tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu2016may.model.TestScript.TestScriptContactComponent t : src.getContact())
       tgt.addContact(convertTestScriptContactComponent(t));
-    tgt.setDate(src.getDate());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setRequirements(src.getRequirements());
-    tgt.setCopyright(src.getCopyright());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
     for (org.hl7.fhir.dstu2016may.model.TestScript.TestScriptOriginComponent t : src.getOrigin())
       tgt.addOrigin(convertTestScriptOriginComponent(t));
     for (org.hl7.fhir.dstu2016may.model.TestScript.TestScriptDestinationComponent t : src.getDestination())
@@ -5114,20 +5712,27 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.TestScript tgt = new org.hl7.fhir.dstu2016may.model.TestScript();
     copyDomainResource(src, tgt);
     tgt.setUrl(src.getUrl());
-    tgt.setVersion(src.getVersion());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
     tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
     tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu3.model.TestScript.TestScriptContactComponent t : src.getContact())
       tgt.addContact(convertTestScriptContactComponent(t));
-    tgt.setDate(src.getDate());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setRequirements(src.getRequirements());
-    tgt.setCopyright(src.getCopyright());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
     for (org.hl7.fhir.dstu3.model.TestScript.TestScriptOriginComponent t : src.getOrigin())
       tgt.addOrigin(convertTestScriptOriginComponent(t));
     for (org.hl7.fhir.dstu3.model.TestScript.TestScriptDestinationComponent t : src.getDestination())
@@ -5155,7 +5760,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.TestScript.TestScriptContactComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.TestScriptContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu2016may.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -5166,7 +5772,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.TestScript.TestScriptContactComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.TestScriptContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -5242,7 +5849,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.TestScript.TestScriptMetadataLinkComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.TestScriptMetadataLinkComponent();
     copyElement(src, tgt);
     tgt.setUrl(src.getUrl());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     return tgt;
   }
 
@@ -5252,7 +5860,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.TestScript.TestScriptMetadataLinkComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.TestScriptMetadataLinkComponent();
     copyElement(src, tgt);
     tgt.setUrl(src.getUrl());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     return tgt;
   }
 
@@ -5261,12 +5870,16 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.TestScript.TestScriptMetadataCapabilityComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.TestScriptMetadataCapabilityComponent();
     copyElement(src, tgt);
-    tgt.setRequired(src.getRequired());
-    tgt.setValidated(src.getValidated());
-    tgt.setDescription(src.getDescription());
+    if (src.hasRequired())
+      tgt.setRequired(src.getRequired());
+    if (src.hasValidated())
+      tgt.setValidated(src.getValidated());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.IntegerType t : src.getOrigin())
       tgt.addOrigin(t.getValue());
-    tgt.setDestination(src.getDestination());
+    if (src.hasDestination())
+      tgt.setDestination(src.getDestination());
     for (org.hl7.fhir.dstu2016may.model.UriType t : src.getLink())
       tgt.addLink(t.getValue());
     tgt.setConformance(convertReference(src.getConformance()));
@@ -5278,12 +5891,16 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.TestScript.TestScriptMetadataCapabilityComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.TestScriptMetadataCapabilityComponent();
     copyElement(src, tgt);
-    tgt.setRequired(src.getRequired());
-    tgt.setValidated(src.getValidated());
-    tgt.setDescription(src.getDescription());
+    if (src.hasRequired())
+      tgt.setRequired(src.getRequired());
+    if (src.hasValidated())
+      tgt.setValidated(src.getValidated());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.IntegerType t : src.getOrigin())
       tgt.addOrigin(t.getValue());
-    tgt.setDestination(src.getDestination());
+    if (src.hasDestination())
+      tgt.setDestination(src.getDestination());
     for (org.hl7.fhir.dstu3.model.UriType t : src.getLink())
       tgt.addLink(t.getValue());
     tgt.setConformance(convertReference(src.getConformance()));
@@ -5295,9 +5912,12 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.TestScript.TestScriptFixtureComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.TestScriptFixtureComponent();
     copyElement(src, tgt);
-    tgt.setAutocreate(src.getAutocreate());
-    tgt.setAutodelete(src.getAutodelete());
-    tgt.setResource(convertReference(src.getResource()));
+    if (src.hasAutocreate())
+      tgt.setAutocreate(src.getAutocreate());
+    if (src.hasAutodelete())
+      tgt.setAutodelete(src.getAutodelete());
+    if (src.hasResource())
+      tgt.setResource(convertReference(src.getResource()));
     return tgt;
   }
 
@@ -5306,9 +5926,12 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.TestScript.TestScriptFixtureComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.TestScriptFixtureComponent();
     copyElement(src, tgt);
-    tgt.setAutocreate(src.getAutocreate());
-    tgt.setAutodelete(src.getAutodelete());
-    tgt.setResource(convertReference(src.getResource()));
+    if (src.hasAutocreate())
+      tgt.setAutocreate(src.getAutocreate());
+    if (src.hasAutodelete())
+      tgt.setAutodelete(src.getAutodelete());
+    if (src.hasResource())
+      tgt.setResource(convertReference(src.getResource()));
     return tgt;
   }
 
@@ -5318,10 +5941,14 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.TestScript.TestScriptVariableComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.TestScriptVariableComponent();
     copyElement(src, tgt);
     tgt.setName(src.getName());
-    tgt.setDefaultValue(src.getDefaultValue());
-    tgt.setHeaderField(src.getHeaderField());
-    tgt.setPath(src.getPath());
-    tgt.setSourceId(src.getSourceId());
+    if (src.hasDefaultValue())
+      tgt.setDefaultValue(src.getDefaultValue());
+    if (src.hasHeaderField())
+      tgt.setHeaderField(src.getHeaderField());
+    if (src.hasPath())
+      tgt.setPath(src.getPath());
+    if (src.hasSourceId())
+      tgt.setSourceId(src.getSourceId());
     return tgt;
   }
 
@@ -5331,10 +5958,14 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.TestScript.TestScriptVariableComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.TestScriptVariableComponent();
     copyElement(src, tgt);
     tgt.setName(src.getName());
-    tgt.setDefaultValue(src.getDefaultValue());
-    tgt.setHeaderField(src.getHeaderField());
-    tgt.setPath(src.getPath());
-    tgt.setSourceId(src.getSourceId());
+    if (src.hasDefaultValue())
+      tgt.setDefaultValue(src.getDefaultValue());
+    if (src.hasHeaderField())
+      tgt.setHeaderField(src.getHeaderField());
+    if (src.hasPath())
+      tgt.setPath(src.getPath());
+    if (src.hasSourceId())
+      tgt.setSourceId(src.getSourceId());
     return tgt;
   }
 
@@ -5344,6 +5975,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.TestScript.TestScriptRuleComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.TestScriptRuleComponent();
     copyElement(src, tgt);
     tgt.setResource(convertReference(src.getResource()));
+    for (org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRuleParamComponent t : src.getParam())
+      tgt.addParam(convertTestScriptRuleParamComponent(t));
     return tgt;
   }
 
@@ -5353,6 +5986,30 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRuleComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRuleComponent();
     copyElement(src, tgt);
     tgt.setResource(convertReference(src.getResource()));
+    for (org.hl7.fhir.dstu3.model.TestScript.RuleParamComponent t : src.getParam())
+      tgt.addParam(convertTestScriptRuleParamComponent(t));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu3.model.TestScript.RuleParamComponent convertTestScriptRuleParamComponent(org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRuleParamComponent src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu3.model.TestScript.RuleParamComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.RuleParamComponent();
+    copyElement(src, tgt);
+    tgt.setName(src.getName());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRuleParamComponent convertTestScriptRuleParamComponent(org.hl7.fhir.dstu3.model.TestScript.RuleParamComponent src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRuleParamComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRuleParamComponent();
+    copyElement(src, tgt);
+    tgt.setName(src.getName());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     return tgt;
   }
 
@@ -5362,6 +6019,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.TestScript.TestScriptRulesetComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.TestScriptRulesetComponent();
     copyElement(src, tgt);
     tgt.setResource(convertReference(src.getResource()));
+    for (org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRulesetRuleComponent t : src.getRule())
+      tgt.addRule(convertTestScriptRulesetRuleComponent(t));
     return tgt;
   }
 
@@ -5371,6 +6030,50 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRulesetComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRulesetComponent();
     copyElement(src, tgt);
     tgt.setResource(convertReference(src.getResource()));
+    for (org.hl7.fhir.dstu3.model.TestScript.RulesetRuleComponent t : src.getRule())
+      tgt.addRule(convertTestScriptRulesetRuleComponent(t));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu3.model.TestScript.RulesetRuleComponent convertTestScriptRulesetRuleComponent(org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRulesetRuleComponent src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu3.model.TestScript.RulesetRuleComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.RulesetRuleComponent();
+    copyElement(src, tgt);
+    for (org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRulesetRuleParamComponent t : src.getParam())
+      tgt.addParam(convertTestScriptRulesetRuleParamComponent(t));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRulesetRuleComponent convertTestScriptRulesetRuleComponent(org.hl7.fhir.dstu3.model.TestScript.RulesetRuleComponent src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRulesetRuleComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRulesetRuleComponent();
+    copyElement(src, tgt);
+    for (org.hl7.fhir.dstu3.model.TestScript.RulesetRuleParamComponent t : src.getParam())
+      tgt.addParam(convertTestScriptRulesetRuleParamComponent(t));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu3.model.TestScript.RulesetRuleParamComponent convertTestScriptRulesetRuleParamComponent(org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRulesetRuleParamComponent src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu3.model.TestScript.RulesetRuleParamComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.RulesetRuleParamComponent();
+    copyElement(src, tgt);
+    tgt.setName(src.getName());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRulesetRuleParamComponent convertTestScriptRulesetRuleParamComponent(org.hl7.fhir.dstu3.model.TestScript.RulesetRuleParamComponent src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRulesetRuleParamComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.TestScriptRulesetRuleParamComponent();
+    copyElement(src, tgt);
+    tgt.setName(src.getName());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     return tgt;
   }
 
@@ -5420,21 +6123,32 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.TestScript.SetupActionOperationComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.SetupActionOperationComponent();
     copyElement(src, tgt);
     tgt.setType(convertCoding(src.getType()));
-    tgt.setResource(src.getResource());
-    tgt.setLabel(src.getLabel());
-    tgt.setDescription(src.getDescription());
+    if (src.hasResource())
+      tgt.setResource(src.getResource());
+    if (src.hasLabel())
+      tgt.setLabel(src.getLabel());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     tgt.setAccept(convertContentType(src.getAccept()));
     tgt.setContentType(convertContentType(src.getContentType()));
-    tgt.setDestination(src.getDestination());
-    tgt.setEncodeRequestUrl(src.getEncodeRequestUrl());
-    tgt.setOrigin(src.getOrigin());
-    tgt.setParams(src.getParams());
+    if (src.hasDestination())
+      tgt.setDestination(src.getDestination());
+    if (src.hasEncodeRequestUrl())
+      tgt.setEncodeRequestUrl(src.getEncodeRequestUrl());
+    if (src.hasOrigin())
+      tgt.setOrigin(src.getOrigin());
+    if (src.hasParams())
+      tgt.setParams(src.getParams());
     for (org.hl7.fhir.dstu2016may.model.TestScript.SetupActionOperationRequestHeaderComponent t : src.getRequestHeader())
       tgt.addRequestHeader(convertSetupActionOperationRequestHeaderComponent(t));
-    tgt.setResponseId(src.getResponseId());
-    tgt.setSourceId(src.getSourceId());
-    tgt.setTargetId(src.getTargetId());
-    tgt.setUrl(src.getUrl());
+    if (src.hasResponseId())
+      tgt.setResponseId(src.getResponseId());
+    if (src.hasSourceId())
+      tgt.setSourceId(src.getSourceId());
+    if (src.hasTargetId())
+      tgt.setTargetId(src.getTargetId());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
     return tgt;
   }
 
@@ -5443,22 +6157,32 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.TestScript.SetupActionOperationComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.SetupActionOperationComponent();
     copyElement(src, tgt);
-    tgt.setType(convertCoding(src.getType()));
-    tgt.setResource(src.getResource());
-    tgt.setLabel(src.getLabel());
-    tgt.setDescription(src.getDescription());
+    if (src.hasResource())
+      tgt.setResource(src.getResource());
+    if (src.hasLabel())
+      tgt.setLabel(src.getLabel());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     tgt.setAccept(convertContentType(src.getAccept()));
     tgt.setContentType(convertContentType(src.getContentType()));
-    tgt.setDestination(src.getDestination());
-    tgt.setEncodeRequestUrl(src.getEncodeRequestUrl());
-    tgt.setOrigin(src.getOrigin());
-    tgt.setParams(src.getParams());
+    if (src.hasDestination())
+      tgt.setDestination(src.getDestination());
+    if (src.hasEncodeRequestUrl())
+      tgt.setEncodeRequestUrl(src.getEncodeRequestUrl());
+    if (src.hasOrigin())
+      tgt.setOrigin(src.getOrigin());
+    if (src.hasParams())
+      tgt.setParams(src.getParams());
     for (org.hl7.fhir.dstu3.model.TestScript.SetupActionOperationRequestHeaderComponent t : src.getRequestHeader())
       tgt.addRequestHeader(convertSetupActionOperationRequestHeaderComponent(t));
-    tgt.setResponseId(src.getResponseId());
-    tgt.setSourceId(src.getSourceId());
-    tgt.setTargetId(src.getTargetId());
-    tgt.setUrl(src.getUrl());
+    if (src.hasResponseId())
+      tgt.setResponseId(src.getResponseId());
+    if (src.hasSourceId())
+      tgt.setSourceId(src.getSourceId());
+    if (src.hasTargetId())
+      tgt.setTargetId(src.getTargetId());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
     return tgt;
   }
 
@@ -5507,24 +6231,40 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.TestScript.SetupActionAssertComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.SetupActionAssertComponent();
     copyElement(src, tgt);
-    tgt.setLabel(src.getLabel());
-    tgt.setDescription(src.getDescription());
+    if (src.hasLabel())
+      tgt.setLabel(src.getLabel());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     tgt.setDirection(convertAssertionDirectionType(src.getDirection()));
-    tgt.setCompareToSourceId(src.getCompareToSourceId());
-    tgt.setCompareToSourcePath(src.getCompareToSourcePath());
+    if (src.hasCompareToSourceId())
+      tgt.setCompareToSourceId(src.getCompareToSourceId());
+    if (src.hasCompareToSourcePath())
+      tgt.setCompareToSourcePath(src.getCompareToSourcePath());
     tgt.setContentType(convertContentType(src.getContentType()));
-    tgt.setHeaderField(src.getHeaderField());
-    tgt.setMinimumId(src.getMinimumId());
-    tgt.setNavigationLinks(src.getNavigationLinks());
+    if (src.hasHeaderField())
+      tgt.setHeaderField(src.getHeaderField());
+    if (src.hasMinimumId())
+      tgt.setMinimumId(src.getMinimumId());
+    if (src.hasNavigationLinks())
+      tgt.setNavigationLinks(src.getNavigationLinks());
     tgt.setOperator(convertAssertionOperatorType(src.getOperator()));
-    tgt.setPath(src.getPath());
-    tgt.setResource(src.getResource());
+    if (src.hasPath())
+      tgt.setPath(src.getPath());
+    if (src.hasResource())
+      tgt.setResource(src.getResource());
     tgt.setResponse(convertAssertionResponseTypes(src.getResponse()));
-    tgt.setResponseCode(src.getResponseCode());
-    tgt.setSourceId(src.getSourceId());
-    tgt.setValidateProfileId(src.getValidateProfileId());
-    tgt.setValue(src.getValue());
-    tgt.setWarningOnly(src.getWarningOnly());
+    if (src.hasResponseCode())
+      tgt.setResponseCode(src.getResponseCode());
+    tgt.setRule(convertSetupActionAssertRuleComponent(src.getRule()));
+    tgt.setRuleset(convertSetupActionAssertRulesetComponent(src.getRuleset()));
+    if (src.hasSourceId())
+      tgt.setSourceId(src.getSourceId());
+    if (src.hasValidateProfileId())
+      tgt.setValidateProfileId(src.getValidateProfileId());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
+    if (src.hasWarningOnly())
+      tgt.setWarningOnly(src.getWarningOnly());
     return tgt;
   }
 
@@ -5533,24 +6273,144 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertComponent();
     copyElement(src, tgt);
-    tgt.setLabel(src.getLabel());
-    tgt.setDescription(src.getDescription());
+    if (src.hasLabel())
+      tgt.setLabel(src.getLabel());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     tgt.setDirection(convertAssertionDirectionType(src.getDirection()));
-    tgt.setCompareToSourceId(src.getCompareToSourceId());
-    tgt.setCompareToSourcePath(src.getCompareToSourcePath());
+    if (src.hasCompareToSourceId())
+      tgt.setCompareToSourceId(src.getCompareToSourceId());
+    if (src.hasCompareToSourcePath())
+      tgt.setCompareToSourcePath(src.getCompareToSourcePath());
     tgt.setContentType(convertContentType(src.getContentType()));
-    tgt.setHeaderField(src.getHeaderField());
-    tgt.setMinimumId(src.getMinimumId());
-    tgt.setNavigationLinks(src.getNavigationLinks());
+    if (src.hasHeaderField())
+      tgt.setHeaderField(src.getHeaderField());
+    if (src.hasMinimumId())
+      tgt.setMinimumId(src.getMinimumId());
+    if (src.hasNavigationLinks())
+      tgt.setNavigationLinks(src.getNavigationLinks());
     tgt.setOperator(convertAssertionOperatorType(src.getOperator()));
-    tgt.setPath(src.getPath());
-    tgt.setResource(src.getResource());
+    if (src.hasPath())
+      tgt.setPath(src.getPath());
+    if (src.hasResource())
+      tgt.setResource(src.getResource());
     tgt.setResponse(convertAssertionResponseTypes(src.getResponse()));
-    tgt.setResponseCode(src.getResponseCode());
-    tgt.setSourceId(src.getSourceId());
-    tgt.setValidateProfileId(src.getValidateProfileId());
-    tgt.setValue(src.getValue());
-    tgt.setWarningOnly(src.getWarningOnly());
+    if (src.hasResponseCode())
+      tgt.setResponseCode(src.getResponseCode());
+    tgt.setRule(convertSetupActionAssertRuleComponent(src.getRule()));
+    tgt.setRuleset(convertSetupActionAssertRulesetComponent(src.getRuleset()));
+    if (src.hasSourceId())
+      tgt.setSourceId(src.getSourceId());
+    if (src.hasValidateProfileId())
+      tgt.setValidateProfileId(src.getValidateProfileId());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
+    if (src.hasWarningOnly())
+      tgt.setWarningOnly(src.getWarningOnly());
+    return tgt;
+  }
+  
+  public static org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleComponent convertSetupActionAssertRuleComponent(org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRuleComponent src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleComponent();
+    copyElement(src, tgt);
+    for (org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRuleParamComponent t : src.getParam())
+      tgt.addParam(convertSetupActionAssertRuleParamComponent(t));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRuleComponent convertSetupActionAssertRuleComponent(org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleComponent src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRuleComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRuleComponent();
+    copyElement(src, tgt);
+    for (org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleParamComponent t : src.getParam())
+      tgt.addParam(convertSetupActionAssertRuleParamComponent(t));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleParamComponent convertSetupActionAssertRuleParamComponent(org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRuleParamComponent src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleParamComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleParamComponent();
+    copyElement(src, tgt);
+    tgt.setName(src.getName());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRuleParamComponent convertSetupActionAssertRuleParamComponent(org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleParamComponent src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRuleParamComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRuleParamComponent();
+    copyElement(src, tgt);
+    tgt.setName(src.getName());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetComponent convertSetupActionAssertRulesetComponent(org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRulesetComponent src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetComponent();
+    copyElement(src, tgt);
+    for (org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRulesetRuleComponent t : src.getRule())
+      tgt.addRule(convertSetupActionAssertRulesetRuleComponent(t));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRulesetComponent convertSetupActionAssertRulesetComponent(org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetComponent src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRulesetComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRulesetComponent();
+    copyElement(src, tgt);
+    for (org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleComponent t : src.getRule())
+      tgt.addRule(convertSetupActionAssertRulesetRuleComponent(t));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleComponent convertSetupActionAssertRulesetRuleComponent(org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRulesetRuleComponent src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleComponent();
+    copyElement(src, tgt);
+    for (org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRulesetRuleParamComponent t : src.getParam())
+      tgt.addParam(convertSetupActionAssertRulesetRuleParamComponent(t));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRulesetRuleComponent convertSetupActionAssertRulesetRuleComponent(org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleComponent src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRulesetRuleComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRulesetRuleComponent();
+    copyElement(src, tgt);
+    for (org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleParamComponent t : src.getParam())
+      tgt.addParam(convertSetupActionAssertRulesetRuleParamComponent(t));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleParamComponent convertSetupActionAssertRulesetRuleParamComponent(org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRulesetRuleParamComponent src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleParamComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleParamComponent();
+    copyElement(src, tgt);
+    tgt.setName(src.getName());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRulesetRuleParamComponent convertSetupActionAssertRulesetRuleParamComponent(org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleParamComponent src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRulesetRuleParamComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.SetupActionAssertRulesetRuleParamComponent();
+    copyElement(src, tgt);
+    tgt.setName(src.getName());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
     return tgt;
   }
 
@@ -5656,8 +6516,10 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.TestScript.TestScriptTestComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.TestScriptTestComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
-    tgt.setDescription(src.getDescription());
+    if (src.hasName())
+      tgt.setName(src.getName());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.TestScript.TestActionComponent t : src.getAction())
       tgt.addAction(convertTestActionComponent(t));
     return tgt;
@@ -5668,8 +6530,10 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.TestScript.TestScriptTestComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.TestScriptTestComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
-    tgt.setDescription(src.getDescription());
+    if (src.hasName())
+      tgt.setName(src.getName());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.TestScript.TestActionComponent t : src.getAction())
       tgt.addAction(convertTestActionComponent(t));
     return tgt;
@@ -5738,25 +6602,37 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.ValueSet tgt = new org.hl7.fhir.dstu3.model.ValueSet();
     copyDomainResource(src, tgt);
-    tgt.setUrl(src.getUrl());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
     if (src.hasIdentifier())
       tgt.addIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setVersion(src.getVersion());
-    tgt.setName(src.getName());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
+    if (src.hasName())
+      tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetContactComponent t : src.getContact())
       tgt.addContact(convertValueSetContactComponent(t));
-    tgt.setDate(src.getDate());
-    tgt.setLockedDate(src.getLockedDate());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasLockedDate())
+      tgt.setLockedDate(src.getLockedDate());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setImmutable(src.getImmutable());
-    tgt.setRequirements(src.getRequirements());
-    tgt.setCopyright(src.getCopyright());
-    tgt.setExtensible(src.getExtensible());
+    if (src.hasImmutable())
+      tgt.setImmutable(src.getImmutable());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
+    if (src.hasExtensible())
+      tgt.setExtensible(src.getExtensible());
     tgt.setCompose(convertValueSetComposeComponent(src.getCompose()));
     tgt.setExpansion(convertValueSetExpansionComponent(src.getExpansion()));
     return tgt;
@@ -5767,25 +6643,37 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.ValueSet tgt = new org.hl7.fhir.dstu2016may.model.ValueSet();
     copyDomainResource(src, tgt);
-    tgt.setUrl(src.getUrl());
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
     for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
       tgt.setIdentifier(convertIdentifier(t));
-    tgt.setVersion(src.getVersion());
-    tgt.setName(src.getName());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
+    if (src.hasName())
+      tgt.setName(src.getName());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
-    tgt.setPublisher(src.getPublisher());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent t : src.getContact())
       tgt.addContact(convertValueSetContactComponent(t));
-    tgt.setDate(src.getDate());
-    tgt.setLockedDate(src.getLockedDate());
-    tgt.setDescription(src.getDescription());
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasLockedDate())
+      tgt.setLockedDate(src.getLockedDate());
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    tgt.setImmutable(src.getImmutable());
-    tgt.setRequirements(src.getRequirements());
-    tgt.setCopyright(src.getCopyright());
-    tgt.setExtensible(src.getExtensible());
+    if (src.hasImmutable())
+      tgt.setImmutable(src.getImmutable());
+    if (src.hasRequirements())
+      tgt.setRequirements(src.getRequirements());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
+    if (src.hasExtensible())
+      tgt.setExtensible(src.getExtensible());
     tgt.setCompose(convertValueSetComposeComponent(src.getCompose()));
     tgt.setExpansion(convertValueSetExpansionComponent(src.getExpansion()));
     return tgt;
@@ -5796,7 +6684,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent tgt = new org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu2016may.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -5807,7 +6696,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetContactComponent tgt = new org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetContactComponent();
     copyElement(src, tgt);
-    tgt.setName(src.getName());
+    if (src.hasName())
+      tgt.setName(src.getName());
     for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     return tgt;
@@ -5847,7 +6737,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent tgt = new org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent();
     copyElement(src, tgt);
     tgt.setSystem(src.getSystem());
-    tgt.setVersion(src.getVersion());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
     for (org.hl7.fhir.dstu2016may.model.ValueSet.ConceptReferenceComponent t : src.getConcept())
       tgt.addConcept(convertConceptReferenceComponent(t));
     for (org.hl7.fhir.dstu2016may.model.ValueSet.ConceptSetFilterComponent t : src.getFilter())
@@ -5861,7 +6752,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.ValueSet.ConceptSetComponent tgt = new org.hl7.fhir.dstu2016may.model.ValueSet.ConceptSetComponent();
     copyElement(src, tgt);
     tgt.setSystem(src.getSystem());
-    tgt.setVersion(src.getVersion());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
     for (org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent t : src.getConcept())
       tgt.addConcept(convertConceptReferenceComponent(t));
     for (org.hl7.fhir.dstu3.model.ValueSet.ConceptSetFilterComponent t : src.getFilter())
@@ -5875,7 +6767,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent tgt = new org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent();
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
-    tgt.setDisplay(src.getDisplay());
+    if (src.hasDisplay())
+      tgt.setDisplay(src.getDisplay());
     for (org.hl7.fhir.dstu2016may.model.ValueSet.ConceptReferenceDesignationComponent t : src.getDesignation())
       tgt.addDesignation(convertConceptReferenceDesignationComponent(t));
     return tgt;
@@ -5887,7 +6780,8 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.ValueSet.ConceptReferenceComponent tgt = new org.hl7.fhir.dstu2016may.model.ValueSet.ConceptReferenceComponent();
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
-    tgt.setDisplay(src.getDisplay());
+    if (src.hasDisplay())
+      tgt.setDisplay(src.getDisplay());
     for (org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceDesignationComponent t : src.getDesignation())
       tgt.addDesignation(convertConceptReferenceDesignationComponent(t));
     return tgt;
@@ -5898,7 +6792,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceDesignationComponent tgt = new org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceDesignationComponent();
     copyElement(src, tgt);
-    tgt.setLanguage(src.getLanguage());
+    if (src.hasLanguage())
+      tgt.setLanguage(src.getLanguage());
     tgt.setUse(convertCoding(src.getUse()));
     tgt.setValue(src.getValue());
     return tgt;
@@ -5909,7 +6804,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.ValueSet.ConceptReferenceDesignationComponent tgt = new org.hl7.fhir.dstu2016may.model.ValueSet.ConceptReferenceDesignationComponent();
     copyElement(src, tgt);
-    tgt.setLanguage(src.getLanguage());
+    if (src.hasLanguage())
+      tgt.setLanguage(src.getLanguage());
     tgt.setUse(convertCoding(src.getUse()));
     tgt.setValue(src.getValue());
     return tgt;
@@ -5972,8 +6868,10 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     tgt.setIdentifier(src.getIdentifier());
     tgt.setTimestamp(src.getTimestamp());
-    tgt.setTotal(src.getTotal());
-    tgt.setOffset(src.getOffset());
+    if (src.hasTotal())
+      tgt.setTotal(src.getTotal());
+    if (src.hasOffset())
+      tgt.setOffset(src.getOffset());
     for (org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetExpansionParameterComponent t : src.getParameter())
       tgt.addParameter(convertValueSetExpansionParameterComponent(t));
     for (org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetExpansionContainsComponent t : src.getContains())
@@ -5988,8 +6886,10 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     tgt.setIdentifier(src.getIdentifier());
     tgt.setTimestamp(src.getTimestamp());
-    tgt.setTotal(src.getTotal());
-    tgt.setOffset(src.getOffset());
+    if (src.hasTotal())
+      tgt.setTotal(src.getTotal());
+    if (src.hasOffset())
+      tgt.setOffset(src.getOffset());
     for (org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionParameterComponent t : src.getParameter())
       tgt.addParameter(convertValueSetExpansionParameterComponent(t));
     for (org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent t : src.getContains())
@@ -6022,11 +6922,16 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent tgt = new org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent();
     copyElement(src, tgt);
-    tgt.setSystem(src.getSystem());
-    tgt.setAbstract(src.getAbstract());
-    tgt.setVersion(src.getVersion());
-    tgt.setCode(src.getCode());
-    tgt.setDisplay(src.getDisplay());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasAbstract())
+      tgt.setAbstract(src.getAbstract());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
+    if (src.hasDisplay())
+      tgt.setDisplay(src.getDisplay());
     for (org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetExpansionContainsComponent t : src.getContains())
       tgt.addContains(convertValueSetExpansionContainsComponent(t));
     return tgt;
@@ -6037,17 +6942,22 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetExpansionContainsComponent tgt = new org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetExpansionContainsComponent();
     copyElement(src, tgt);
-    tgt.setSystem(src.getSystem());
-    tgt.setAbstract(src.getAbstract());
-    tgt.setVersion(src.getVersion());
-    tgt.setCode(src.getCode());
-    tgt.setDisplay(src.getDisplay());
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasAbstract())
+      tgt.setAbstract(src.getAbstract());
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
+    if (src.hasCode())
+      tgt.setCode(src.getCode());
+    if (src.hasDisplay())
+      tgt.setDisplay(src.getDisplay());
     for (org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent t : src.getContains())
       tgt.addContains(convertValueSetExpansionContainsComponent(t));
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu3.model.VisionPrescription convertVisionPrescription(org.hl7.fhir.dstu2016may.model.VisionPrescription src) throws FHIRException {
+/*  public static org.hl7.fhir.dstu3.model.VisionPrescription convertVisionPrescription(org.hl7.fhir.dstu2016may.model.VisionPrescription src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu3.model.VisionPrescription tgt = new org.hl7.fhir.dstu3.model.VisionPrescription();
@@ -6170,7 +7080,7 @@ public class VersionConvertor_14_20 {
     default: return org.hl7.fhir.dstu2016may.model.VisionPrescription.VisionBase.NULL;
     }
   }
-
+*/
   public static org.hl7.fhir.dstu3.model.Resource convertResource(org.hl7.fhir.dstu2016may.model.Resource src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
@@ -6208,8 +7118,8 @@ public class VersionConvertor_14_20 {
       return convertTestScript((org.hl7.fhir.dstu2016may.model.TestScript) src);
     if (src instanceof org.hl7.fhir.dstu2016may.model.ValueSet)
       return convertValueSet((org.hl7.fhir.dstu2016may.model.ValueSet) src);
-    if (src instanceof org.hl7.fhir.dstu2016may.model.VisionPrescription)
-      return convertVisionPrescription((org.hl7.fhir.dstu2016may.model.VisionPrescription) src);
+/*    if (src instanceof org.hl7.fhir.dstu2016may.model.VisionPrescription)
+      return convertVisionPrescription((org.hl7.fhir.dstu2016may.model.VisionPrescription) src);*/
     throw new Error("Unknown resource "+src.fhirType());
   }
 
@@ -6251,8 +7161,8 @@ public class VersionConvertor_14_20 {
       return convertTestScript((org.hl7.fhir.dstu3.model.TestScript) src);
     if (src instanceof org.hl7.fhir.dstu3.model.ValueSet)
       return convertValueSet((org.hl7.fhir.dstu3.model.ValueSet) src);
-    if (src instanceof org.hl7.fhir.dstu3.model.VisionPrescription)
-      return convertVisionPrescription((org.hl7.fhir.dstu3.model.VisionPrescription) src);
+/*    if (src instanceof org.hl7.fhir.dstu3.model.VisionPrescription)
+      return convertVisionPrescription((org.hl7.fhir.dstu3.model.VisionPrescription) src);*/
     throw new Error("Unknown resource "+src.fhirType());
   }
 
