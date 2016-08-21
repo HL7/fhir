@@ -185,6 +185,10 @@ public class HTLMLInspector {
     boolean htmlName = f.getName().endsWith(".html") || f.getName().endsWith(".xhtml");
     try {
       x = new XhtmlParser().setMustBeWellFormed(strict).parse(new FileInputStream(f), null);
+      if (x.getElement("html")==null && !htmlName) {
+        // We don't want resources being treated as HTML.  We'll check the HTML of the narrative in the page representation
+        x = null;
+      }
     } catch (FHIRFormatError | IOException e) {
       x = null;
       if (htmlName || !(e.getMessage().startsWith("Unable to Parse HTML - does not start with tag.") || e.getMessage().startsWith("Malformed XHTML")))
@@ -192,7 +196,7 @@ public class HTLMLInspector {
     }
     LoadedFile lf = new LoadedFile(f.lastModified(), x, iteration);
     cache.put(s, lf);
-    if (x != null && (htmlName || (x.getFirstElement()!=null && x.getFirstElement().equals("html")))) {
+    if (x != null) {
       checkHtmlStructure(s, x, messages);
       listTargets(x, lf.getTargets());
     }
