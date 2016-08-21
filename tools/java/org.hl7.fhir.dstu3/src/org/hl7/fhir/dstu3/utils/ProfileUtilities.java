@@ -855,8 +855,15 @@ public class ProfileUtilities {
     for (int i = start; i <= end; i++) {
       String statedPath = context.getElement().get(i).getPath();
       if (statedPath.equals(path) || (path.endsWith("[x]") && statedPath.length() > path.length() - 2 && statedPath.substring(0, path.length()-3).equals(path.substring(0, path.length()-3)) && !statedPath.substring(path.length()).contains("."))) {
+        /* 
+         * Commenting this out because it raises warnings when profiling inherited elements.  For example,
+         * Error: unknown element 'Bundle.meta.profile' (or it is out of order) in profile ... (looking for 'Bundle.entry')
+         * Not sure we have enough information here to do the check properly.  Might be better done when we're sorting the profile?
+
         if (i != start && result.isEmpty() && !path.startsWith(context.getElement().get(start).getPath()))
           messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.VALUE, "StructureDefinition.differential.element["+Integer.toString(start)+"]", "Error: unknown element '"+context.getElement().get(start).getPath()+"' (or it is out of order) in profile '"+url+"' (looking for '"+path+"')", IssueSeverity.WARNING));
+
+         */
         result.add(context.getElement().get(i));
       } 
     }
