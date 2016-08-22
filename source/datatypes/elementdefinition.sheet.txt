@@ -232,10 +232,10 @@
 
  -- Row 11 -----------------------------------
   Id = 12
-  Context = ElementDefinition.binding.valueSetUri
+  Context = ElementDefinition.binding.valueSet[x]
   English = URI SHALL start with http:// or https:// urn:
   XPath = starts-with(string(@value), \'http:\') or starts-with(string(@value), \'https:\') or starts-with(string(@value), \'urn:\')
-  Expression = startsWith(\'http:\') or startsWith(\'https\') or startsWith(\'urn:\')
+  Expression = is(uri).not() or as(uri).startsWith(\'http:\') or as(uri).startsWith(\'https\') or as(uri).startsWith(\'urn:\')
 
  -- Row 12 -----------------------------------
   Id = 13
