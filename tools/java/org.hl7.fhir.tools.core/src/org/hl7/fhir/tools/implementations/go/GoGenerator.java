@@ -52,8 +52,10 @@ import org.stringtemplate.v4.STRawGroupDir;
 
 public class GoGenerator extends BaseGenerator implements PlatformGenerator {
 
-    private static final List<String> UNSUPPORTED_SEARCH_PARAMS = Arrays.asList("_query", "_text", "_content");
+    private static final List<String> UNSUPPORTED_SEARCH_PARAMS = Arrays.asList("_query", "_text", "_content", "email", "phone");
 
+    private static final List<SearchParameterDefn.SearchType> UNSUPPORTED_SEARCH_PARAM_TYPES = Arrays.asList(SearchParameterDefn.SearchType.composite);
+ 
     @Override
     public String getName() {
         return "go";
@@ -375,6 +377,15 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
             }
         }
         for (SearchParameterDefn p : resource.getSearchParams().values()) {
+
+            if (UNSUPPORTED_SEARCH_PARAMS.contains(p.getCode())) {
+                continue;
+            }
+
+            if (UNSUPPORTED_SEARCH_PARAM_TYPES.contains(p.getType())) {
+                continue;
+            }
+
             if (p.getPaths().isEmpty() && p.getComposites().isEmpty()) {
                 // We know we don't support _query, _text, or _content, so don't make a big fuss
                 if (! UNSUPPORTED_SEARCH_PARAMS.contains(p.getCode())) {
