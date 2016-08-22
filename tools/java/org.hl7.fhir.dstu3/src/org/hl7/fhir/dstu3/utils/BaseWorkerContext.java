@@ -620,7 +620,13 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   private ValidationResult verifyCodeInCodeSystem(CodeSystem cs, String system, String code, String display) {
     ConceptDefinitionComponent cc = findCodeInConcept(cs.getConcept(), code);
     if (cc == null)
-      return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+cs.getUrl());
+	  if (cs.getContent().equals(CodeSystem.CodeSystemContentMode.COMPLETE))
+	    return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+cs.getUrl());
+	  else if (!cs.getContent().equals(CodeSystem.CodeSystemContentMode.NOTPRESENT))
+	    return new ValidationResult(IssueSeverity.WARNING, "Unknown Code "+code+" in partial code list of "+cs.getUrl());
+	  else
+	    return new ValidationResult(IssueSeverity.WARNING, "Codes are not available for validation of content from system "+cs.getUrl());
+//      return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+cs.getUrl());
     if (display == null)
       return new ValidationResult(cc);
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();

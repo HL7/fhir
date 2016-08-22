@@ -237,7 +237,9 @@ public interface IWorkerContext {
     }
 
     public String getDisplay() {
-      return definition == null ? "??" : definition.getDisplay();
+// We don't want to return question-marks because that prevents something more useful from being displayed (e.g. the code) if there's no display value
+//      return definition == null ? "??" : definition.getDisplay();
+      return definition == null ? null : definition.getDisplay();
     }
 
     public ConceptDefinitionComponent asConceptDefinition() {

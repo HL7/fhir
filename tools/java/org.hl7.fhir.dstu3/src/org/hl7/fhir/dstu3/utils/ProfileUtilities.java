@@ -178,7 +178,7 @@ public class ProfileUtilities {
     boolean isResource(String typeSimple);
     boolean hasLinkFor(String typeSimple);
     String getLinkFor(String corePath, String typeSimple);
-    BindingResolution resolveBinding(StructureDefinition def, ElementDefinitionBindingComponent binding);
+    BindingResolution resolveBinding(StructureDefinition def, ElementDefinitionBindingComponent binding, String path);
     String getLinkForProfile(StructureDefinition profile, String url);
     boolean prependLinks();
   }
@@ -1434,9 +1434,9 @@ public class ProfileUtilities {
           if (parts[0].startsWith("http:") || parts[0].startsWith("https:"))
             c.addPiece(checkForNoChange(t, gen.new Piece(parts[0], parts[1], t.getCode())));
           else
-            c.addPiece(checkForNoChange(t, gen.new Piece(corePath+parts[0], parts[1], t.getCode())));
+            c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().startsWith(corePath)? corePath: "")+parts[0], parts[1], t.getCode())));
         } else
-          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+ref, t.getCode(), null)));
+          c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().startsWith(corePath)? corePath: "")+ref, t.getCode(), null)));
       } else if (pkp.hasLinkFor(t.getCode())) {
         c.addPiece(checkForNoChange(t, gen.new Piece(pkp.getLinkFor(corePath, t.getCode()), t.getCode(), null)));
       } else
@@ -1872,7 +1872,7 @@ public class ProfileUtilities {
           if (binding!=null && !binding.isEmpty()) {
             if (!c.getPieces().isEmpty()) 
               c.addPiece(gen.new Piece("br"));
-            BindingResolution br = pkp.resolveBinding(profile, binding);
+            BindingResolution br = pkp.resolveBinding(profile, binding, definition.getPath());
             c.getPieces().add(checkForNoChange(binding, gen.new Piece(null, "Binding: ", null).addStyle("font-weight:bold")));
             c.getPieces().add(checkForNoChange(binding, gen.new Piece(br.url == null ? null : Utilities.isAbsoluteUrl(br.url) || !pkp.prependLinks() ? br.url : corePath+br.url, br.display, null)));
             if (binding.hasStrength()) {

@@ -144,8 +144,8 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
   }
 
   @Override
-  public BindingResolution resolveBinding(StructureDefinition profile, ElementDefinitionBindingComponent binding) {
-    return page.resolveBinding(profile, binding);
+  public BindingResolution resolveBinding(StructureDefinition profile, ElementDefinitionBindingComponent binding, String path) {
+    return page.resolveBinding(profile, binding, path);
   }
 
   @Override

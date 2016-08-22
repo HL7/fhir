@@ -2366,6 +2366,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
       fragment("StructureDefinition-"+sd.getId()+"-dict", sdr.dict(), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "maps"))
       fragment("StructureDefinition-"+sd.getId()+"-maps", sdr.mappings(), f.getOutputNames(), r, vars, null);
+    if (igpkp.wantGen(r, "csv"))
+      fragment("StructureDefinition-"+sd.getId()+"-csv", sdr.csvs(), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "xref"))
       fragmentError("StructureDefinition-"+sd.getId()+"-sd-xref", "Yet to be done: xref", f.getOutputNames());
 

@@ -48,6 +48,8 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintCom
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.dstu3.model.Enumeration;
+import org.hl7.fhir.dstu3.model.ElementDefinition.AggregationMode;
 import org.hl7.fhir.dstu3.model.IdType;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.StringType;
@@ -313,7 +315,17 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
           b.append("<a href=\""+prefix+p.getName().toLowerCase()+".html\">");
         b.append(p.getName());
         b.append("</a>");
-      }      
+      }
+      if (!t.getAggregation().isEmpty()) {
+        b.append(" : ");
+        boolean firstMode = true;
+        for (Enumeration<AggregationMode> a :t.getAggregation()) {
+          if (!firstMode)
+            b.append(", ");
+          b.append(" <a href=\"" + prefix + "codesystem-resource-aggregation-mode.html#content\">" + a.getValueAsString() + "</a>");
+          firstMode = false;
+        }
+      }
       b.append(")");
     }
   }

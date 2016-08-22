@@ -34,7 +34,12 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
     return list;
   }
   
-  public String generate(String title, List<ValidationMessage> linkErrors, List<FetchedFile> files, String path) throws IOException {
+  public String generate(String title, List<ValidationMessage> allErrors, List<FetchedFile> files, String path) throws IOException {
+    List<ValidationMessage> linkErrors = new ArrayList<ValidationMessage>();
+    for (ValidationMessage error : allErrors) {
+      if (!linkErrors.contains(error))
+        linkErrors.add(error);
+    }
     StringBuilder b = new StringBuilder();
     b.append(genHeader(title));
     b.append(genSummaryRowInteral(linkErrors));

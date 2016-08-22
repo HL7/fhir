@@ -61,7 +61,7 @@ public class ReviewSpreadsheetGenerator {
     ElementDefinition ed = profile.getSnapshot().getElement().get(0);
     String path = ed.getPath();
     addRow(sheet, style, path+" : "+profile.getType(), profile.getName(), "", ed.getDefinition(), "");
-    processRows(workbook, path, profile.getSnapshot().getElement(), 1, sheet, "  ");
+    processRows(workbook, path, profile, profile.getSnapshot().getElement(), 1, sheet, "  ");
   }
 
   private String sanitize(String name) {
@@ -74,7 +74,7 @@ public class ReviewSpreadsheetGenerator {
     return b.toString();
   }
 
-  private int processRows(HSSFWorkbook workbook, String path, List<ElementDefinition> list, int i, HSSFSheet sheet, String indent) {
+  private int processRows(HSSFWorkbook workbook, String path, StructureDefinition profile, List<ElementDefinition> list, int i, HSSFSheet sheet, String indent) {
     ElementDefinition ed = list.get(i);
     HSSFFont font = workbook.createFont();
     font.setFontName("Calibri");
@@ -112,7 +112,7 @@ public class ReviewSpreadsheetGenerator {
         cell.setCellValue("");
         i++;
         if (i < list.size())
-          i = processRows(workbook, ed.getPath(), list, i, sheet, indent+"  ");
+          i = processRows(workbook, ed.getPath(), profile, list, i, sheet, indent+"  ");
       } else if (ed.getType().size() == 1) {
         cell = row.createCell(c++);
         cell.setCellStyle(style);
@@ -120,7 +120,7 @@ public class ReviewSpreadsheetGenerator {
           cell.setCellValue(ed.getType().get(0).getProfile());
         cell = row.createCell(c++);
         cell.setCellStyle(style);
-        cell.setCellValue(describeBinding(ed));
+        cell.setCellValue(describeBinding(profile, ed));
         i++;
       } else {
         cell = row.createCell(c++);
@@ -128,7 +128,7 @@ public class ReviewSpreadsheetGenerator {
         cell.setCellValue(ed.getName());
         cell = row.createCell(c++);
         cell.setCellStyle(style);
-        cell.setCellValue(describeBinding(ed));
+        cell.setCellValue(describeBinding(profile, ed));
         i++;
       }
       cell = row.createCell(c++);
@@ -143,10 +143,10 @@ public class ReviewSpreadsheetGenerator {
     
   }
 
-  private String describeBinding(ElementDefinition def) {
+  private String describeBinding(StructureDefinition profile, ElementDefinition def) {
     if (!def.hasBinding())
       return "";
-    BindingResolution br = pkp.resolveBinding(null, def.getBinding());
+    BindingResolution br = pkp.resolveBinding(profile, def.getBinding(), def.getPath());
     return br.display;
   }
 

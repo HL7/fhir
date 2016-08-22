@@ -145,8 +145,10 @@ public class HTLMLInspector {
         checkLinks(s, "", lf.getXhtml(), messages);
     }
 
+ 
     // check other links:
     for (StringPair sp : otherlinks) {
+      sp = sp;
       checkResolveLink(sp.source, null, null, sp.link, messages);
     }
     
@@ -274,7 +276,7 @@ public class HTLMLInspector {
       resolved = manual.contains(ref);
     if (!resolved && specs != null){
       for (SpecMapManager spec : specs) {
-        resolved = resolved || spec.getBase().equals(ref) || (spec.getBase()+"/").equals(ref) || spec.hasTarget(ref); 
+        resolved = resolved || spec.getBase().equals(ref) || (spec.getBase()).equals(ref+"/") || spec.hasTarget(ref); 
       }
     }
     if (!resolved) {

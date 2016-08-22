@@ -36,6 +36,7 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingCo
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.utils.CSVWriter;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
@@ -849,6 +850,16 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     }
   }
 
+  public String csvs() throws Exception {
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    CSVWriter csv = new CSVWriter(baos, sd, true);
+
+    for (ElementDefinition child : sd.getSnapshot().getElement()) {
+      csv.processElement(child);
+    }
+    return baos.toString("UTF-8");
+  }
+   
   private void genElement(StringBuilder s, ElementDefinition e, String id) {
     s.append(" <tr><td>");
     boolean root = true;

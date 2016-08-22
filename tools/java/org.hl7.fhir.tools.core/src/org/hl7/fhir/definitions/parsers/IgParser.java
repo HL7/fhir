@@ -159,7 +159,10 @@ public class IgParser {
           if (id.startsWith("valueset-"))
             id = id.substring(9);
           vs.setId(id);
-          vs.setUrl("http://hl7.org/fhir/ValueSet/"+id);
+          if (vs.getUrl()==null) {
+            // Asserting this all the time causes issues for non-HL7 URL value sets
+            vs.setUrl("http://hl7.org/fhir/ValueSet/"+id);
+          }
           vs.setUserData(ToolResourceUtilities.NAME_RES_IG, igd);
           vs.setUserData("path", igd.getPath()+"valueset-"+id+".html");
           vs.setUserData("filename", "valueset-"+id);

@@ -7028,7 +7028,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   @Override
-  public BindingResolution resolveBinding(StructureDefinition profile, ElementDefinitionBindingComponent binding) {
+  public BindingResolution resolveBinding(StructureDefinition profile, ElementDefinitionBindingComponent binding, String path) {
     BindingResolution br = new BindingResolution();
     if (!binding.hasValueSet()) {
       br.url = "terminologies.html#unbound";
@@ -7089,9 +7089,20 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         }  else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v2-")) {
           br.url = "v2/"+ref.substring(26)+"/index.html"; 
           br.display = ref.substring(26);
+        }  else if (ref.startsWith("#")) {
+          br.url = null;
+          br.display = ref;
         } else {
-          br.url = ref;
-          br.display = "????";
+          ValueSet vs = definitions.getValuesets().get(ref);
+          if (vs == null) {
+            br.url = ref;
+            br.display = "????";
+            getValidationErrors().add(
+              new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, -1, -1, path, "Unresolved Value set "+ref, IssueSeverity.WARNING));
+          } else {
+            br.url = vs.getUserString("path");
+            br.display = vs.getName();
+          }
         }
       }
     }
