@@ -6,7 +6,7 @@
   "status" : "active",
   "date" : "<Date>",
   "publisher" : "Not Provided",
-  "description" : "GoFHIR sample conformance statement",
+  "description" : "GoFHIR conformance statement",
   "kind" : "instance",
   "fhirVersion" : "1.4.0",
   "acceptUnknown" : "extensions",
