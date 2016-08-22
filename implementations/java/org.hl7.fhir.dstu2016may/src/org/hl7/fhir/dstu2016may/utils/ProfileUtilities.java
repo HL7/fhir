@@ -1235,17 +1235,17 @@ public class ProfileUtilities {
       if (e.hasContentReference()) {
         return c;
       } else {
-      ElementDefinition d = (ElementDefinition) e.getUserData(DERIVATION_POINTER);
-      if (d != null && d.hasType()) {
-        types = new ArrayList<ElementDefinition.TypeRefComponent>();
-        for (TypeRefComponent tr : d.getType()) {
-          TypeRefComponent tt = tr.copy();
-          tt.setUserData(DERIVATION_EQUALS, true);
-          types.add(tt);
-        }
-      } else
-        return c;
-    }
+        ElementDefinition d = (ElementDefinition) e.getUserData(DERIVATION_POINTER);
+        if (d != null && d.hasType()) {
+          types = new ArrayList<ElementDefinition.TypeRefComponent>();
+          for (TypeRefComponent tr : d.getType()) {
+            TypeRefComponent tt = tr.copy();
+            tt.setUserData(DERIVATION_EQUALS, true);
+            types.add(tt);
+          }
+        } else
+          return c;
+      }
     }
 
     boolean first = true;

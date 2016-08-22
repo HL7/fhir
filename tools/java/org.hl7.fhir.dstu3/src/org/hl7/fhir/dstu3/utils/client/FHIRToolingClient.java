@@ -425,8 +425,8 @@ public class FHIRToolingClient {
   	for (ParametersParameterComponent p : params.getParameter())
   		complex = complex || !(p.getValue() instanceof PrimitiveType);
   	Parameters searchResults = null;
-			String ps = "";
-  		try {
+		String ps = "";
+		try {
       if (!complex)
   			for (ParametersParameterComponent p : params.getParameter())
   	  		if (p.getValue() instanceof PrimitiveType)
@@ -448,10 +448,10 @@ public class FHIRToolingClient {
   			p_out.addParameter().setName("return").setResource(result.getPayload());
   			return p_out;
   		}
-  		} catch (Exception e) {
-  			handleException("Error performing operation '"+name+"' with parameters " + ps, e);
-  		}
-  		return null;
+		} catch (Exception e) {
+			handleException("Error performing operation '"+name+"' with parameters " + ps, e);
+		}
+		return null;
   }
 
 

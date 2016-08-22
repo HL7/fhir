@@ -440,8 +440,6 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         b.append("display="+((Coding) p.getValue()).getDisplay());
       } else if (p.hasResource() && (p.getResource() instanceof ValueSet)) {
         b.append("valueset="+getVSSummary((ValueSet) p.getResource()));
-        b.append("code="+((Coding) p.getValue()).getCode());
-        b.append("display="+((Coding) p.getValue()).getDisplay());
       } 
     }
     return b.toString();
@@ -506,16 +504,24 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   
   @Override
   public ValidationResult validateCode(Coding code, ValueSet vs) {
-    try {
-      if (codeSystems.containsKey(code.getSystem()) && codeSystems.get(code.getSystem()) != null) 
+    if (codeSystems.containsKey(code.getSystem()) && codeSystems.get(code.getSystem()) != null) 
+      try {
         return verifyCodeInCodeSystem(codeSystems.get(code.getSystem()), code.getSystem(), code.getCode(), code.getDisplay());
-      else if (vs.hasExpansion()) 
+      } catch (Exception e) {
+        return new ValidationResult(IssueSeverity.FATAL, "Error validating code \""+code+"\" in system \""+code.getSystem()+"\": "+e.getMessage());
+      }
+    else if (vs.hasExpansion()) 
+      try {
         return verifyCodeInternal(vs, code.getSystem(), code.getCode(), code.getDisplay());
-      else 
+      } catch (Exception e) {
+        return new ValidationResult(IssueSeverity.FATAL, "Error validating code \""+code+"\" in system \""+code.getSystem()+"\": "+e.getMessage());
+      }
+    else 
+      try {
         return verifyCodeExternal(vs, code, true);
-    } catch (Exception e) {
-      return new ValidationResult(IssueSeverity.FATAL, "Error validating code \""+code+"\" in system \""+code.getSystem()+"\": "+e.getMessage());
-    }
+      } catch (Exception e) {
+        return new ValidationResult(IssueSeverity.WARNING, "Error validating code \""+code+"\" in system \""+code.getSystem()+"\": "+e.getMessage());
+      }
   }
 
   @Override

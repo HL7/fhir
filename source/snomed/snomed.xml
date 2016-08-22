@@ -13302,6 +13302,10 @@
     <display value="Hyperlipidemia screening test"/>
     <display value="Hyperlipidemia screening test (procedure)"/>
   </concept>
+  <concept id="314453003" display="Average diastolic blood pressure">
+    <display value="Average diastolic blood pressure"/>
+    <display value="Average diastolic blood pressure (observable entity)"/>
+  </concept>
   <concept id="314592008" display="Low anterior resection of rectum">
     <display value="Low anterior resection of rectum (procedure)"/>
   </concept>

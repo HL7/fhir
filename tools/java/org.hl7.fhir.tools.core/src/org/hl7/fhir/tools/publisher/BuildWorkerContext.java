@@ -573,6 +573,10 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     try {
       if (system.equals("http://snomed.info/sct"))
         return verifySnomed(code, display);
+    } catch (Exception e) {
+      return new ValidationResult(IssueSeverity.WARNING, "Error validating snomed code \""+code+"\": "+e.getMessage());
+    }
+    try {
       if (system.equals("http://loinc.org"))
         return verifyLoinc(code, display);
       if (system.equals("http://unitsofmeasure.org"))
