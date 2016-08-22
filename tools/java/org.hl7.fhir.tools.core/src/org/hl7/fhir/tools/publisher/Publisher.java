@@ -2508,7 +2508,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.close();
     
       page.log("....IG Builder (1)", LogMessageType.Process);
-      zip = new ZipGenerator(page.getFolders().tmpDir + "igpack.zip");
+      zip = new ZipGenerator(page.getFolders().dstDir + "igpack.zip");
       zip.addFileName("fhir.css", page.getFolders().dstDir + "fhir.css", false);
       zip.addFileName("spec.internals", page.getFolders().dstDir + "spec.internals", false);
       zip.addFileName("profiles-types.xml", page.getFolders().dstDir + "profiles-types.xml", false);
@@ -2530,7 +2530,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "publish", ""), "", ".gif", null);
       zip.close();
       page.log("....IG Builder (2)", LogMessageType.Process);
-      javaReferencePlatform.buildIGPublisher(page.getFolders().tmpDir + "igpack.zip");
+      javaReferencePlatform.buildIGPublisher(page.getFolders().dstDir + "igpack.zip");
 
       page.log(" ...zips", LogMessageType.Process);
       zip = new ZipGenerator(page.getFolders().dstDir + "examples.zip");

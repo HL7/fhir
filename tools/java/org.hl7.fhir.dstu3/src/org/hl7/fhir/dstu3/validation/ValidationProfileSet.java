@@ -26,7 +26,8 @@ public class ValidationProfileSet {
 
   public ValidationProfileSet(List<String> profiles) {
     super();
-    canonical.addAll(profiles);
+    if (profiles != null)
+      canonical.addAll(profiles);
   }
 
   public List<String> getCanonical() {

@@ -104,8 +104,46 @@ import org.xml.sax.XMLReader;
 import com.google.gson.JsonObject;
 
 /**
- * This is just a wrapper around the InstanceValidator class for stand along use
+ * This is just a wrapper around the InstanceValidator class for convenient use 
  * 
+ * The following resource formats are supported: XML, JSON, Turtle
+ * The following verions are supported: 1.4.0, 1.6.0, and current
+ * 
+ * Note: the validation engine is not threadsafe
+ * To Use:
+ *  
+ * 1/ Initialise
+ *    ValidationEngine validator = new ValidationEngine();
+ *    validator.loadDefinitions(src);
+ *      - this must refer to the igpack.zip for the version of the spec against which you wnat to validate
+ *       it can be a url or a file reference. It can nominate the igpack.zip directly, 
+ *       or it can name the container alone (e.g. just the spec URL).
+ *       The validation engine does not cache igpack.zip. the user must manage that if desired 
+ *
+ *    validator.connectToTSServer(txServer);
+ *      - this is optional; in the absence of a terminology service, snomed, loinc etc will not be validated
+ *      
+ *    validator.loadIg(src);
+ *      - call this any number of times for the Implementation Guide of interest. This is also a reference
+ *        to the igpack.zip for the implementation guide - same rules as above
+ *        the version of the IGPack must match that of the spec (todo: enforce this?)
+ *         
+ *    validator.loadQuestionnaire(src)
+ *      - url or filename of a questionnaire to load. Any loaded questionnaires will be used while validating
+ *      
+ *    validator.setNative(doNative);
+ *      - whether to do xml/json/rdf schema validation as well
+ *
+ *   You only need to do this initialization once. You can validate as many times as you like
+ *   
+ * 2. validate
+ *    validator.validate(src, profiles);
+ *      - source (as stream, byte[]), or url or filename of a resource to validate. 
+ *        Also validate against any profiles (as canonical URLS, equivalent to listing them in Resource.meta.profile)
+ *        
+ *        if the source is provided as byte[] or stream, you need to provide a format too, though you can 
+ *        leave that as null, and the validator will guess
+ *         
  * @author Grahame Grieve
  *
  */
@@ -113,28 +151,25 @@ public class ValidationEngine {
 
   private SimpleWorkerContext context;
   private InstanceValidator validator;
-  private byte[] focus;
-  private FhirFormat cntType;
-  private List<String> profiles;
   private List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
   private boolean doNative;
   private Map<String, byte[]> binaries = new HashMap<String, byte[]>();
 
   public void loadDefinitions(String src) throws Exception {
-    Map<String, byte[]> source = loadSource(src);   
+    Map<String, byte[]> source = loadSource(src, "igpack.zip");   
     context = SimpleWorkerContext.fromDefinitions(source);
     validator  = new InstanceValidator(context);    
     grabNatives(source, "http://hl7.org/fhir");
   }
 
-  Map<String, byte[]> loadSource(String src) throws Exception {
+  Map<String, byte[]> loadSource(String src, String defname) throws Exception {
     System.out.println("  .. load "+src);
     if (Utilities.noString(src)) {
       throw new FHIRException("Definitions Source '' could not be processed");
     } else if (src.startsWith("https:") || src.startsWith("http:")) {
       return loadFromUrl(src);
     } else if (new File(src).exists()) {
-      return loadFromFile(src);      
+      return loadFromFile(src, defname);      
     } else {
       throw new FHIRException("Definitions Source '"+src+"' could not be processed");
     }
@@ -154,11 +189,13 @@ public class ValidationEngine {
     }
   }
 
-  private Map<String, byte[]> loadFromFile(String src) throws FileNotFoundException, IOException {
+  private Map<String, byte[]> loadFromFile(String src, String defname) throws FileNotFoundException, IOException {
     File f = new File(src);
     if (f.isDirectory()) {
-      if (new File(Utilities.path(src, "validator.pack")).exists())
-        return readZip(new FileInputStream(Utilities.path(src, "validator.pack")));
+      if (defname == null)
+        throw new IOException("You must provide a fie name, not a directory name");
+      if (new File(Utilities.path(src, defname)).exists())
+        return readZip(new FileInputStream(Utilities.path(src, defname)));
       else {
         Map<String, byte[]> res = new HashMap<String, byte[]>();
         for (File ff : f.listFiles()) {
@@ -170,7 +207,7 @@ public class ValidationEngine {
         return res;
       }
     } else {
-      if (src.endsWith(".zip") || src.endsWith("validator.pack"))
+      if (src.endsWith(".zip") || (defname != null && src.endsWith(defname)))
         return readZip(new FileInputStream(src));
       else {
         Map<String, byte[]> res = new HashMap<String, byte[]>();
@@ -228,7 +265,7 @@ public class ValidationEngine {
 
   public void loadIg(String src) throws IOException, FHIRException, Exception {
     String canonical = null;
-    Map<String, byte[]> source = loadSource(src);
+    Map<String, byte[]> source = loadSource(src, "pack.zip");
     for (Entry<String, byte[]> t : source.entrySet()) {
       String fn = t.getKey();
       Resource res = null;
@@ -258,7 +295,7 @@ public class ValidationEngine {
     }
   }
 
-  public void setQuestionnaire(boolean questionnaire) {
+  public void setQuestionnaires(List<String> questionnaires) {
 //    validator.set
   }
 
@@ -266,10 +303,13 @@ public class ValidationEngine {
     this.doNative = doNative;
   }
 
-  public void loadResource(String src) throws Exception {
-    Map<String, byte[]> s = loadSource(src);
+
+  public OperationOutcome validate(String source, List<String> profiles) throws Exception {
+    Map<String, byte[]> s = loadSource(source, null);
     if (s.size() != 1)
       throw new Exception("Unable to find a single resource to validate");
+    byte[] focus = null;
+    FhirFormat cntType = null;
     for (Entry<String, byte[]> t: s.entrySet()) {
       focus = t.getValue();
       if (t.getKey().endsWith(".json"))
@@ -279,15 +319,12 @@ public class ValidationEngine {
       else if (t.getKey().endsWith(".ttl"))
         cntType = FhirFormat.TURTLE; 
       else
-        throw new Exception("Unable to find a single resource to validate");
+        throw new Exception("Todo: Determining resource type is not yet done");
     }
+    return validate(focus, cntType, profiles);
   }
-
-  public void setProfiles(List<String> profiles) {
-    this.profiles = profiles;    
-  }
-
-  public void validate() throws Exception {
+  
+  public OperationOutcome validate(byte[] source, FhirFormat cntType, List<String> profiles) throws Exception {
     if (doNative) {
       if (cntType == FhirFormat.JSON)
         validateJsonSchema();
@@ -296,7 +333,9 @@ public class ValidationEngine {
       if (cntType == FhirFormat.TURTLE)
         validateSHEX();
     }
-    validator.validate(messages, new ByteArrayInputStream(focus), cntType, new ValidationProfileSet(profiles));
+    messages.clear();
+    validator.validate(messages, new ByteArrayInputStream(source), cntType, new ValidationProfileSet(profiles));
+    return getOutcome();
   }
 
   private void validateSHEX() {
@@ -336,13 +375,17 @@ public class ValidationEngine {
     return messages;
   }
 
-  public OperationOutcome getOutcome() throws DefinitionException {
+  private OperationOutcome getOutcome() throws DefinitionException {
     OperationOutcome op = new OperationOutcome();
     for (ValidationMessage vm : messages) {
       op.getIssue().add(vm.asIssue(op));
     }
     new NarrativeGenerator("", "", context).generate(op);
     return op;
+  }
+
+  public InstanceValidator getValidator() {
+    return validator;
   }
 
 

@@ -1119,27 +1119,27 @@ public class Publisher implements IWorkerContext.ILoggingService {
       MappingServices services = new MappingServices(context, igpkp.getCanonical());
       StructureMapUtilities utils = new StructureMapUtilities(context, context.getTransforms(), services);
       
-      // ok, our first task is to generate the profiles
-      // for now, we only check use the logical models
-      for (FetchedFile f : changeList) {
-        for (FetchedResource r : f.getResources()) {
-          if (r.getResource() != null && r.getResource() instanceof StructureDefinition) {
-            List<StructureMap> transforms = context.findTransformsforSource(((StructureDefinition) r.getResource()).getUrl());
-            for (StructureMap map : transforms) {
-              List<StructureDefinition> profiles = utils.profileTransform(null, map);
-              for (StructureDefinition sd : profiles) {
-                FetchedResource nr = new FetchedResource();
-                nr.setElement(new ObjectConverter(context).convert(sd));
-                nr.setId(sd.getId());
-                nr.setResource(sd);
-                nr.setTitle("Generated Profile (by Transform)");
-                f.getResources().add(nr);
-                igpkp.findConfiguration(f, nr);
-              }
-            }
-          }
-        }
-      }
+//      // ok, our first task is to generate the profiles
+//      // for now, we only check use the logical models
+//      for (FetchedFile f : changeList) {
+//        for (FetchedResource r : f.getResources()) {
+//          if (r.getResource() != null && r.getResource() instanceof StructureDefinition) {
+//            List<StructureMap> transforms = context.findTransformsforSource(((StructureDefinition) r.getResource()).getUrl());
+//            for (StructureMap map : transforms) {
+//              List<StructureDefinition> profiles = utils.profileTransform(null, map);
+//              for (StructureDefinition sd : profiles) {
+//                FetchedResource nr = new FetchedResource();
+//                nr.setElement(new ObjectConverter(context).convert(sd));
+//                nr.setId(sd.getId());
+//                nr.setResource(sd);
+//                nr.setTitle("Generated Profile (by Transform)");
+//                f.getResources().add(nr);
+//                igpkp.findConfiguration(f, nr);
+//              }
+//            }
+//          }
+//        }
+//      }
       
       
       for (FetchedFile f : changeList) {

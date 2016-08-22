@@ -24,6 +24,7 @@ import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
 import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
+import org.hl7.fhir.dstu3.exceptions.PathEngineException;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.model.Address;
 import org.hl7.fhir.dstu3.model.Attachment;
@@ -75,6 +76,7 @@ import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.dstu3.utils.FluentPathEngine;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ValidationResult;
@@ -93,6 +95,13 @@ import com.google.gson.JsonObject;
 import ca.uhn.fhir.util.ObjectUtil;
 
 
+/**
+ * Thinking of using this in a java progam? Don't! 
+ * You should use on of the wrappers instead. Either in HAPI, or use ValidationEngine
+ * 
+ * @author Grahame Grieve
+ *
+ */
 /* 
  * todo:
  * check urn's don't start oid: or uuid: 
@@ -2707,6 +2716,29 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   public void setNoBindingMsgSuppressed(boolean noBindingMsgSuppressed) {
     this.noBindingMsgSuppressed = noBindingMsgSuppressed;
+  }
+
+  public void checkAllInvariants(){
+    for (StructureDefinition sd : context.allStructures()) {
+      if (sd.getDerivation() == TypeDerivationRule.SPECIALIZATION) {
+        for (ElementDefinition ed : sd.getSnapshot().getElement()) {
+          for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
+            if (inv.hasExpression()) {
+              try {
+                ExpressionNode n = (ExpressionNode) inv.getUserData("validator.expression.cache");
+                if (n == null) {
+                  n = fpe.parse(inv.getExpression());
+                  inv.setUserData("validator.expression.cache", n);
+                }
+                fpe.check(null, sd.getKind() == StructureDefinitionKind.RESOURCE ?  sd.getType() : "DomainResource", ed.getPath(), n);
+              } catch (Exception e) {
+                System.out.println("Error processing structure ["+sd.getId()+"] path "+ed.getPath()+":"+inv.getKey()+" (\""+inv.getExpression()+"\"): "+e.getMessage());
+              }
+            }
+          }
+        }
+      }
+    }
   }
   
   
