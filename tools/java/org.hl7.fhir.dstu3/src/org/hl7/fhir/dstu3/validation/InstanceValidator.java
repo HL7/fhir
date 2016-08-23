@@ -1687,7 +1687,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     for (StringType s : slice.getSlicing().getDiscriminator()) {
       String discriminator = s.getValue();
       ElementDefinition criteria = getCriteriaForDiscriminator(path, ed, discriminator, profile);
-      if (discriminator.equals("url") && criteria.getPath().equals("Extension.url")) {
+      if (discriminator.equals("url") && criteria.getPath().endsWith("xtension.url")) {
+        // We do a partial match instead of "Extension.url" because otherwise we end up in places that won't validate due to complex slicing, while this approach handles a high-frequency use-case
         if (criteria.getFixed() == null)
           return false;
         else if (!element.getNamedChildValue("url").equals(((UriType) criteria.getFixed()).asStringValue()))
@@ -2270,18 +2271,19 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     ElementDefinition slice = null;
     boolean unsupportedSlicing = false;
     ArrayList problematicPaths = new ArrayList();
+    slice = slice;
     String slicingPath = null;
     int slicingOffset = 0;
     for (int i = 0; i < childDefinitions.size(); i++) {
       ElementDefinition ed = childDefinitions.get(i);
       boolean childUnsupportedSlicing = false;
       boolean process = true;
-	  if (ed.hasSlicing() && !ed.getSlicing().getOrdered())
-		slicingPath = ed.getPath();
-	  else if (slicingPath!=null && ed.getPath().equals(slicingPath))
-	    slicingOffset++;
-	  else if (slicingPath != null && !ed.getPath().startsWith(slicingPath))
-	    slicingPath = null;
+      if (ed.hasSlicing() && !ed.getSlicing().getOrdered())
+        slicingPath = ed.getPath();
+      else if (slicingPath!=null && ed.getPath().equals(slicingPath))
+        slicingOffset++;
+      else if (slicingPath != null && !ed.getPath().startsWith(slicingPath))
+        slicingPath = null;
       // where are we with slicing
       if (ed.hasSlicing()) {
         if (slice != null && slice.getPath().equals(ed.getPath()))
@@ -2325,23 +2327,23 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition != null, "Element is unknown or does not match any slice (url=\"" + ei.element.getNamedChildValue("url") + "\")" + (profile==null ? "" : " for profile " + profile.getUrl()));
       else if (!unsupportedSlicing)
         rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition != null),
-		  "Element " + ei.element.getName() + " is unknown or does not match any slice " + sliceInfo + (profile==null ? "" : " for profile " + profile.getUrl()));
+          "Element " + ei.element.getName() + " is unknown or does not match any slice " + sliceInfo + (profile==null ? "" : " for profile " + profile.getUrl()));
       else
         hint(errors, IssueType.NOTSUPPORTED, ei.line(), ei.col(), ei.path, (ei.definition != null),
           "Could not verify slice for profile " + profile.getUrl());
-	  // TODO: Should get the order of elements correct when parsing elements that are XML attributes vs. elements
-	  boolean isXmlAttr = false;
-	  if (ei.definition!=null)
-	    for (Enumeration<PropertyRepresentation> r : ei.definition.getRepresentation()) {
-	      if (r.getValue() == PropertyRepresentation.XMLATTR) {
-	        isXmlAttr = true;
-	        break;
-	      }
-	    }
+      // TODO: Should get the order of elements correct when parsing elements that are XML attributes vs. elements
+      boolean isXmlAttr = false;
+      if (ei.definition!=null)
+  	    for (Enumeration<PropertyRepresentation> r : ei.definition.getRepresentation()) {
+  	      if (r.getValue() == PropertyRepresentation.XMLATTR) {
+  	        isXmlAttr = true;
+  	        break;
+  	      }
+  	    }
 	      
-	  rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.index >= last) || isXmlAttr, "Profile " + profile.getUrl() + ", Element is out of order");
-	  if (ei.definition == null || !isXmlAttr)
-        last = ei.index;
+  	  rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.index >= last) || isXmlAttr, "Profile " + profile.getUrl() + ", Element is out of order");
+  	  if (ei.definition == null || !isXmlAttr)
+          last = ei.index;
     }
 
     // 3. report any definitions that have a cardinality problem
