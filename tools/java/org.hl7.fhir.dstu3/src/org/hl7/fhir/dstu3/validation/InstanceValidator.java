@@ -598,7 +598,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
   }
 
-	private StructureDefinition checkExtension(List<ValidationMessage> errors, String path, Element element, ElementDefinition def, StructureDefinition profile, NodeStack stack) throws FHIRException {
+	private StructureDefinition checkExtension(List<ValidationMessage> errors, String path, Element resource, Element element, ElementDefinition def, StructureDefinition profile, NodeStack stack) throws FHIRException {
     String url = element.getNamedChildValue("url");
     boolean isModifier = element.getName().equals("modifierExtension");
 
@@ -628,7 +628,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             "The Extension '" + url + "' must not be used as an extension (it's a modifierExtension)");
 
       // 2. is the content of the extension valid?
-	  validateElement(errors, ex, ex.getSnapshot().getElement().get(0), null, null, element, element, "Extension", stack, false);
+	  validateElement(errors, ex, ex.getSnapshot().getElement().get(0), null, null, resource, element, "Extension", stack, false);
 
     }
     return ex;
@@ -2436,7 +2436,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 			// We only check extensions if we're not in a complex extension or if the element we're dealing with is not defined as part of that complex extension
 			if (type.equals("Extension") && ei.element.getChildValue("url").contains("/"))
-              checkExtension(errors, ei.path, ei.element, ei.definition, profile, localStack);
+              checkExtension(errors, ei.path, resource, ei.element, ei.definition, profile, localStack);
             else if (type.equals("Resource"))
               validateContains(errors, ei.path, ei.definition, definition, resource, ei.element, localStack, idStatusForEntry(element, ei)); // if
             // (str.matches(".*([.,/])work\\1$"))

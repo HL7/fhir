@@ -178,7 +178,7 @@ public class ProfileUtilities {
     boolean isResource(String typeSimple);
     boolean hasLinkFor(String typeSimple);
     String getLinkFor(String corePath, String typeSimple);
-    BindingResolution resolveBinding(StructureDefinition def, ElementDefinitionBindingComponent binding);
+    BindingResolution resolveBinding(StructureDefinition def, ElementDefinitionBindingComponent binding, String path);
     String getLinkForProfile(StructureDefinition profile, String url);
     boolean prependLinks();
   }
@@ -309,7 +309,7 @@ public class ProfileUtilities {
     // we actually delegate the work to a subroutine so we can re-enter it with a different cursors
     processPaths(derived.getSnapshot(), base.getSnapshot(), derived.getDifferential(), baseCursor, diffCursor, base.getSnapshot().getElement().size()-1, derived.getDifferential().getElement().size()-1, url, derived.getId(), null, false, base.getUrl(), null, false);
     if (!derived.getSnapshot().getElementFirstRep().getType().isEmpty())
-      throw new Error("type on first snapshot element!");
+      throw new Error("type on first snapshot element for "+derived.getSnapshot().getElementFirstRep().getPath()+" in "+derived.getUrl()+" from "+base.getUrl());
     updateMaps(base, derived);
     setIds(derived, derived.getName());
   }
@@ -854,8 +854,15 @@ public class ProfileUtilities {
     for (int i = start; i <= end; i++) {
       String statedPath = context.getElement().get(i).getPath();
       if (statedPath.equals(path) || (path.endsWith("[x]") && statedPath.length() > path.length() - 2 && statedPath.substring(0, path.length()-3).equals(path.substring(0, path.length()-3)) && !statedPath.substring(path.length()).contains("."))) {
+        /* 
+         * Commenting this out because it raises warnings when profiling inherited elements.  For example,
+         * Error: unknown element 'Bundle.meta.profile' (or it is out of order) in profile ... (looking for 'Bundle.entry')
+         * Not sure we have enough information here to do the check properly.  Might be better done when we're sorting the profile?
+
         if (i != start && result.isEmpty() && !path.startsWith(context.getElement().get(start).getPath()))
           messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.VALUE, "StructureDefinition.differential.element["+Integer.toString(start)+"]", "Error: unknown element '"+context.getElement().get(start).getPath()+"' (or it is out of order) in profile '"+url+"' (looking for '"+path+"')", IssueSeverity.WARNING));
+
+         */
         result.add(context.getElement().get(i));
       }
     }
@@ -1426,9 +1433,9 @@ public class ProfileUtilities {
           if (parts[0].startsWith("http:") || parts[0].startsWith("https:"))
             c.addPiece(checkForNoChange(t, gen.new Piece(parts[0], parts[1], t.getCode())));
           else
-          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+parts[0], parts[1], t.getCode())));
+            c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().startsWith(corePath)? corePath: "")+parts[0], parts[1], t.getCode())));
         } else
-          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+ref, t.getCode(), null)));
+          c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().startsWith(corePath)? corePath: "")+ref, t.getCode(), null)));
       } else if (pkp.hasLinkFor(t.getCode())) {
         c.addPiece(checkForNoChange(t, gen.new Piece(pkp.getLinkFor(corePath, t.getCode()), t.getCode(), null)));
       } else
@@ -1864,7 +1871,7 @@ public class ProfileUtilities {
           if (binding!=null && !binding.isEmpty()) {
             if (!c.getPieces().isEmpty()) 
               c.addPiece(gen.new Piece("br"));
-            BindingResolution br = pkp.resolveBinding(profile, binding);
+            BindingResolution br = pkp.resolveBinding(profile, binding, definition.getPath());
             c.getPieces().add(checkForNoChange(binding, gen.new Piece(null, "Binding: ", null).addStyle("font-weight:bold")));
             c.getPieces().add(checkForNoChange(binding, gen.new Piece(br.url == null ? null : Utilities.isAbsoluteUrl(br.url) || !pkp.prependLinks() ? br.url : corePath+br.url, br.display, null)));
             if (binding.hasStrength()) {

@@ -148,7 +148,7 @@ public class StructureMapTests {
       }
     }
         
-    List<StructureDefinition> result = scu.profileTransform(null, maps.get("http://hl7.org/fhir/StructureMap/cda"));
+    List<StructureDefinition> result = scu.transformProfile(null, maps.get("http://hl7.org/fhir/StructureMap/cda"));
     for (StructureDefinition sd : result)
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream("c:\\temp\\res-"+sd.getId()+".xml"), sd);
   }

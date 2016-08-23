@@ -531,7 +531,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         context = SimpleWorkerContext.fromClassPath("igpack.zip");
       } catch (NullPointerException npe) {
         log("Unable to find igpack.zip in the jar");
-        context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\temp\\igpack.zip");
+        context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\igpack.zip");
       }
     } else
       loadValidationPack();

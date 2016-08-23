@@ -74,6 +74,18 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
+/**
+ * Services in this class:
+ * 
+ * string render(map) - take a structure and convert it to text
+ * map parse(text) - take a text representation and parse it 
+ * transform(appInfo, source, map, target) - transform from source to target following the map
+ * profileTransform(appInfo, map) - generate profiles for the targets of the transform
+ * map generateMapFromMappings(StructureDefinition) - build a mapping from a structure definition with loigcal mappings
+ *  
+ * @author Grahame Grieve
+ *
+ */
 public class StructureMapUtilities {
 
 	public static final String MAP_WHERE_CHECK = "map.where.check";
@@ -810,10 +822,6 @@ public class StructureMapUtilities {
 				result.add(v);
 	}
 
-	public Base transform(Base source, StructureMap map) {
-		return null;
-	}
-
 	public void transform(Object appInfo, Base source, StructureMap map, Base target) throws Exception {
 		TransformContext context = new TransformContext(appInfo);
 		Variables vars = new Variables();
@@ -1300,124 +1308,353 @@ public class StructureMapUtilities {
 	 * @return
 	 * @throws Exception
 	 */
-  public List<StructureDefinition> profileTransform(Object appInfo, StructureMap map) throws Exception {
-    StructureMapGroupComponent start = map.getGroup().get(0);
-    VariablesForProfiling vars = new VariablesForProfiling(false, false);
+  public List<StructureDefinition> transformProfile(Object appInfo, StructureMap map) throws Exception {
+    TransformContext context = new TransformContext(appInfo);
     List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
-    
+    VariablesForProfiling vars = new VariablesForProfiling(false, false);
+    StructureMapGroupComponent start = map.getGroup().get(0);
     for (StructureMapGroupInputComponent t : start.getInput())
       if (t.getMode() == StructureMapInputMode.SOURCE)
         vars.add(VariableMode.INPUT, t.getName(), resolveType(map, t.getType(), t.getMode()));
       else 
         vars.add(VariableMode.OUTPUT, t.getName(), createProfile(map, profiles, resolveType(map, t.getType(), t.getMode())));
 
-    executeGroupProfile("", appInfo, map, vars, start);
-
+    log("Start Profiling Transform "+map.getUrl());
+//    executeGroupProfile("", context, map, vars, start);
     return profiles;
   }
 
-
-  private void executeGroupProfile(String indent, Object appInfo, StructureMap map, VariablesForProfiling vars, StructureMapGroupComponent group) throws Exception {
-    log(indent+"Profile Group : "+group.getName());
+  private void executeGroupProfile(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group) throws Exception {
+    log(indent+"Group : "+group.getName());
     // todo: extends
     // todo: check inputs
     for (StructureMapGroupRuleComponent r : group.getRule()) {
-      executeRuleProfile(indent+"  ", appInfo, map, vars, group, r);
+      executeRule(indent+"  ", context, map, vars, group, r);
     }    
   }
 
+//private void executeGroupProfile(String indent, Object appInfo, StructureMap map, VariablesForProfiling vars, StructureMapGroupComponent group) throws Exception {
+//log(indent+"Profile Group : "+group.getName());
+//// todo: extends
+//// todo: check inputs
+//for (StructureMapGroupRuleComponent r : group.getRule()) {
+//  executeRuleProfile(indent+"  ", appInfo, map, vars, group, r);
+//}    
+//}
+//
+//
 
-  private void executeRuleProfile(String indent, Object appInfo, StructureMap map, VariablesForProfiling vars, StructureMapGroupComponent group, StructureMapGroupRuleComponent rule) throws Exception {
-    log(indent+"Profile rule : "+rule.getName());
-    VariablesForProfiling srcVars = vars.copy();
+
+  private void executeRuleProfile(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group, StructureMapGroupRuleComponent rule) throws Exception {
+    log(indent+"rule : "+rule.getName());
+    Variables srcVars = vars.copy();
     if (rule.getSource().size() != 1)
       throw new Exception("not handled yet");
-    VariablesForProfiling source = analyseSourceProfile(appInfo, srcVars, rule.getSource().get(0));
+    List<Variables> source = analyseSource(context, srcVars, rule.getSource().get(0));
     if (source != null) {
+      for (Variables v : source) {
       for (StructureMapGroupRuleTargetComponent t : rule.getTarget()) {
-        processTargetProfile(appInfo, source, map, t);
+          processTarget(context, v, map, t);
       }
-//        if (rule.hasRule()) {
-//          for (StructureMapGroupRuleComponent childrule : rule.getRule()) {
-//            executeRule(indent +"  ", context, map, v, group, childrule);
-//          }
-//        } else if (rule.hasDependent()) {
-//          for (StructureMapGroupRuleDependentComponent dependent : rule.getDependent()) {
-//            executeDependency(indent+"  ", context, map, v, group, dependent);
-//          }
-//        }
-//      }
+        if (rule.hasRule()) {
+          for (StructureMapGroupRuleComponent childrule : rule.getRule()) {
+            executeRule(indent +"  ", context, map, v, group, childrule);
+          }
+        } else if (rule.hasDependent()) {
+          for (StructureMapGroupRuleDependentComponent dependent : rule.getDependent()) {
+            executeDependency(indent+"  ", context, map, v, group, dependent);
+          }
+        }
+      }
     }
   }
 
-  private void processTargetProfile(Object appInfo, VariablesForProfiling vars, StructureMap map, StructureMapGroupRuleTargetComponent tgt) throws Exception {
-    PropertyWithType dest = vars.get(VariableMode.OUTPUT, tgt.getContext());
+  private void executeDependencyProfile(String indent, TransformContext context, StructureMap map, Variables vin, StructureMapGroupComponent group, StructureMapGroupRuleDependentComponent dependent) throws Exception {
+    StructureMap targetMap = null;
+    StructureMapGroupComponent target = null;
+    for (StructureMapGroupComponent grp : map.getGroup()) {
+      if (grp.getName().equals(dependent.getName())) {
+        if (targetMap == null) {
+          targetMap = map;
+          target = grp;
+        } else 
+          throw new FHIRException("Multiple possible matches for rule '"+dependent.getName()+"'");
+      }
+    }
+
+    for (UriType imp : map.getImport()) {
+      StructureMap impMap = library.get(imp.getValue());
+      if (impMap == null)
+        throw new FHIRException("Unable to find map "+imp.getValue());
+      for (StructureMapGroupComponent grp : impMap.getGroup()) {
+        if (grp.getName().equals(dependent.getName())) {
+          if (targetMap == null) {
+            targetMap = impMap;
+            target = grp;
+          } else 
+            throw new FHIRException("Multiple possible matches for rule '"+dependent.getName()+"'");
+        }
+      }
+    }
+    if (target == null)
+      throw new FHIRException("No matches found for rule '"+dependent.getName()+"'");
+
+    if (target.getInput().size() != dependent.getVariable().size()) {
+      throw new FHIRException("Rule '"+dependent.getName()+"' has "+Integer.toString(target.getInput().size())+" but the invocation has "+Integer.toString(dependent.getVariable().size())+" variables");
+    }
+    Variables v = new Variables();
+    for (int i = 0; i < target.getInput().size(); i++) {
+      StructureMapGroupInputComponent input = target.getInput().get(i);
+      StringType var = dependent.getVariable().get(i);
+      VariableMode mode = input.getMode() == StructureMapInputMode.SOURCE ? VariableMode.INPUT : VariableMode.OUTPUT;
+      Base vv = vin.get(mode, var.getValue());
+      if (vv == null)
+        throw new FHIRException("Rule '"+dependent.getName()+"' "+mode.toString()+" variable '"+input.getName()+"' has no value");
+      v.add(mode, input.getName(), vv);     
+    }
+    executeGroup(indent+"  ", context, targetMap, v, target);
+  }
+
+
+  private List<Variables> analyseSourceProfile(TransformContext context, Variables vars, StructureMapGroupRuleSourceComponent src) throws Exception {
+    Base b = vars.get(VariableMode.INPUT, src.getContext());
+    if (b == null)
+      throw new FHIRException("Unknown input variable "+src.getContext());
+
+    if (src.hasCondition()) {
+      ExpressionNode expr = (ExpressionNode) src.getUserData(MAP_WHERE_EXPRESSION);
+      if (expr == null) {
+        expr = fpe.parse(src.getCondition());
+        //        fpe.check(context.appInfo, ??, ??, expr)
+        src.setUserData(MAP_WHERE_EXPRESSION, expr);
+      }
+      if (!fpe.evaluateToBoolean(null, b, expr))
+        return null;
+    }
+
+    if (src.hasCheck()) {
+      ExpressionNode expr = (ExpressionNode) src.getUserData(MAP_WHERE_CHECK);
+      if (expr == null) {
+        expr = fpe.parse(src.getCheck());
+        //        fpe.check(context.appInfo, ??, ??, expr)
+        src.setUserData(MAP_WHERE_CHECK, expr);
+      }
+      if (!fpe.evaluateToBoolean(null, b, expr))
+        throw new Exception("Check condition failed");
+    } 
+
+    List<Base> items = new ArrayList<Base>();
+    if (!src.hasElement()) 
+      items.add(b);
+    else 
+      getChildrenByName(b, src.getElement(), items);
+    List<Variables> result = new ArrayList<Variables>();
+    for (Base r : items) {
+      Variables v = vars.copy();
+      if (src.hasVariable())
+        v.add(VariableMode.INPUT, src.getVariable(), r);
+      result.add(v); 
+    }
+    return result;
+  }
+
+
+  private void processTargetProfile(TransformContext context, Variables vars, StructureMap map, StructureMapGroupRuleTargetComponent tgt) throws Exception {
+    Base dest = null;
+    if (tgt.hasContext()) {
+      dest = vars.get(VariableMode.OUTPUT, tgt.getContext());
     if (dest == null)
       throw new Exception("target context not known: "+tgt.getContext());
     if (!tgt.hasElement())
       throw new Exception("Not supported yet");
-    TypeDetails td = runTransformProfile(appInfo, map, tgt, vars);
-//    Property prop = updateProfile(tgt.getElement().hashCode(), tgt.getElement(), td);
-//    if (tgt.hasVariable())
-//      vars.add(VariableMode.OUTPUT, tgt.getVariable(), prop);
+    }
+    Base v = null;
+    if (tgt.hasTransform()) {
+      v = runTransform(context, map, tgt, vars);
+      if (v != null && dest != null)
+        dest.setProperty(tgt.getElement().hashCode(), tgt.getElement(), v);
+    } else if (dest != null) 
+      v = dest.makeProperty(tgt.getElement().hashCode(), tgt.getElement());
+    if (tgt.hasVariable() && v != null)
+      vars.add(VariableMode.OUTPUT, tgt.getVariable(), v);
   }
 
-//  private Property updateProfile(int hashCode, String element, TypeDetails td) {
-////    !// TODO Auto-generated method stub
-////    return null;
-//  }
-
-
-  private TypeDetails runTransformProfile(Object appInfo, StructureMap map, StructureMapGroupRuleTargetComponent tgt, VariablesForProfiling vars) throws FHIRException {
+  private Base runTransformProfile(TransformContext context, StructureMap map, StructureMapGroupRuleTargetComponent tgt, Variables vars) throws FHIRException {
     switch (tgt.getTransform()) {
     case CREATE :
-      return new TypeDetails(CollectionStatus.SINGLETON, getParamString(vars, tgt.getParameter().get(0)));
+      Base res = ResourceFactory.createResourceOrType(getParamString(vars, tgt.getParameter().get(0)));
+      res.setIdBase(tgt.getParameter().size() > 1 ? getParamString(vars, tgt.getParameter().get(0)) : UUID.randomUUID().toString().toLowerCase());
+      if (services != null) 
+        res = services.createResource(context, res);
+      return res;
     case COPY : 
       return getParam(vars, tgt.getParameter().get(0));
-//    case EVALUATE :
-//      ExpressionNode expr = (ExpressionNode) tgt.getUserData(MAP_EXPRESSION);
-//      if (expr == null) {
-//        expr = fpe.parse(getParamString(vars, tgt.getParameter().get(1)));
-//        tgt.setUserData(MAP_WHERE_EXPRESSION, expr);
-//      }
-//      List<Base> v = fpe.evaluate(null, null, getParam(vars, tgt.getParameter().get(0)), expr);
-//      if (v.size() != 1)
-//        throw new FHIRException("evaluation of "+expr.toString()+" returned "+Integer.toString(v.size())+" objects");
-//      return v.get(0);
-//
-//    case TRUNCATE : 
-//      String src = getParamString(vars, tgt.getParameter().get(0));
-//      String len = getParamString(vars, tgt.getParameter().get(1));
-//      if (Utilities.isInteger(len)) {
-//        int l = Integer.parseInt(len);
-//        if (src.length() > l)
-//          src = src.substring(0, l);
-//      }
-//      return new StringType(src);
-//    case ESCAPE : 
-//      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
-//    case CAST :
-//      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
-//    case APPEND : 
-//      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
-//    case TRANSLATE : 
-//      return translate(context, map, vars, tgt.getParameter());
-//    case REFERENCE :
-//      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
-//    case DATEOP :
-//      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
-//    case UUID :
-//      return new IdType(UUID.randomUUID().toString());
-//    case POINTER :
-//      Base b = getParam(vars, tgt.getParameter().get(0));
-//      if (b instanceof Resource)
-//        return new UriType("urn:uuid:"+((Resource) b).getId());
-//      else
-//        throw new FHIRException("Transform engine cannot point at an element of type "+b.fhirType());
+    case EVALUATE :
+      ExpressionNode expr = (ExpressionNode) tgt.getUserData(MAP_EXPRESSION);
+      if (expr == null) {
+        expr = fpe.parse(getParamString(vars, tgt.getParameter().get(1)));
+        tgt.setUserData(MAP_WHERE_EXPRESSION, expr);
+      }
+      List<Base> v = fpe.evaluate(null, null, getParam(vars, tgt.getParameter().get(0)), expr);
+      if (v.size() != 1)
+        throw new FHIRException("evaluation of "+expr.toString()+" returned "+Integer.toString(v.size())+" objects");
+      return v.get(0);
+
+    case TRUNCATE : 
+      String src = getParamString(vars, tgt.getParameter().get(0));
+      String len = getParamString(vars, tgt.getParameter().get(1));
+      if (Utilities.isInteger(len)) {
+        int l = Integer.parseInt(len);
+        if (src.length() > l)
+          src = src.substring(0, l);
+      }
+      return new StringType(src);
+    case ESCAPE : 
+      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+    case CAST :
+      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+    case APPEND : 
+      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+    case TRANSLATE : 
+      return translate(context, map, vars, tgt.getParameter());
+    case REFERENCE :
+      Base b = getParam(vars, tgt.getParameter().get(0));
+      if (b == null)
+        throw new FHIRException("Unable to find parameter "+((IdType) tgt.getParameter().get(0).getValue()).asStringValue());
+      if (!b.isResource())
+        throw new FHIRException("Transform engine cannot point at an element of type "+b.fhirType());
+      else {
+        String id = b.getIdBase();
+        if (id == null) {
+          id = UUID.randomUUID().toString().toLowerCase();
+          b.setIdBase(id);
+        }
+        return new Reference().setReference(b.fhirType()+"/"+id);
+      }
+    case DATEOP :
+      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+    case UUID :
+      return new IdType(UUID.randomUUID().toString());
+    case POINTER :
+      b = getParam(vars, tgt.getParameter().get(0));
+      if (b instanceof Resource)
+        return new UriType("urn:uuid:"+((Resource) b).getId());
+      else
+        throw new FHIRException("Transform engine cannot point at an element of type "+b.fhirType());
+    case CC:
+      CodeableConcept cc = new CodeableConcept();
+      cc.addCoding(buildCoding(getParamString(vars, tgt.getParameter().get(0)), getParamString(vars, tgt.getParameter().get(1))));
+      return cc;
+    case C: 
+      Coding c = buildCoding(getParamString(vars, tgt.getParameter().get(0)), getParamString(vars, tgt.getParameter().get(1)));
+      return c;
     default:
-      throw new Error("Transform Unknown or not handled yet: "+tgt.getTransform().toCode());
+      throw new Error("Transform Unknown: "+tgt.getTransform().toCode());
     }
   }
+
+
+//  private void executeGroupProfile(String indent, Object appInfo, StructureMap map, VariablesForProfiling vars, StructureMapGroupComponent group) throws Exception {
+//    log(indent+"Profile Group : "+group.getName());
+//    // todo: extends
+//    // todo: check inputs
+//    for (StructureMapGroupRuleComponent r : group.getRule()) {
+//      executeRuleProfile(indent+"  ", appInfo, map, vars, group, r);
+//    }    
+//  }
+//
+//
+//  private void executeRuleProfile(String indent, Object appInfo, StructureMap map, VariablesForProfiling vars, StructureMapGroupComponent group, StructureMapGroupRuleComponent rule) throws Exception {
+//    log(indent+"Profile rule : "+rule.getName());
+//    VariablesForProfiling srcVars = vars.copy();
+//    if (rule.getSource().size() != 1)
+//      throw new Exception("not handled yet");
+//    VariablesForProfiling source = analyseSourceProfile(appInfo, srcVars, rule.getSource().get(0));
+//    if (source != null) {
+//      for (StructureMapGroupRuleTargetComponent t : rule.getTarget()) {
+//        processTargetProfile(appInfo, source, map, t);
+//      }
+////        if (rule.hasRule()) {
+////          for (StructureMapGroupRuleComponent childrule : rule.getRule()) {
+////            executeRule(indent +"  ", context, map, v, group, childrule);
+////          }
+////        } else if (rule.hasDependent()) {
+////          for (StructureMapGroupRuleDependentComponent dependent : rule.getDependent()) {
+////            executeDependency(indent+"  ", context, map, v, group, dependent);
+////          }
+////        }
+////      }
+//    }
+//  }
+//
+//  private void processTargetProfile(Object appInfo, VariablesForProfiling vars, StructureMap map, StructureMapGroupRuleTargetComponent tgt) throws Exception {
+//    PropertyWithType dest = vars.get(VariableMode.OUTPUT, tgt.getContext());
+//    if (dest == null)
+//      throw new Exception("target context not known: "+tgt.getContext());
+//    if (!tgt.hasElement())
+//      throw new Exception("Not supported yet");
+//    TypeDetails td = runTransformProfile(appInfo, map, tgt, vars);
+////    Property prop = updateProfile(tgt.getElement().hashCode(), tgt.getElement(), td);
+////    if (tgt.hasVariable())
+////      vars.add(VariableMode.OUTPUT, tgt.getVariable(), prop);
+//  }
+//
+////  private Property updateProfile(int hashCode, String element, TypeDetails td) {
+//////    !// TODO Auto-generated method stub
+//////    return null;
+////  }
+//
+//
+//  private TypeDetails runTransformProfile(Object appInfo, StructureMap map, StructureMapGroupRuleTargetComponent tgt, VariablesForProfiling vars) throws FHIRException {
+//    switch (tgt.getTransform()) {
+//    case CREATE :
+//      return new TypeDetails(CollectionStatus.SINGLETON, getParamString(vars, tgt.getParameter().get(0)));
+//    case COPY : 
+//      return getParam(vars, tgt.getParameter().get(0));
+////    case EVALUATE :
+////      ExpressionNode expr = (ExpressionNode) tgt.getUserData(MAP_EXPRESSION);
+////      if (expr == null) {
+////        expr = fpe.parse(getParamString(vars, tgt.getParameter().get(1)));
+////        tgt.setUserData(MAP_WHERE_EXPRESSION, expr);
+////      }
+////      List<Base> v = fpe.evaluate(null, null, getParam(vars, tgt.getParameter().get(0)), expr);
+////      if (v.size() != 1)
+////        throw new FHIRException("evaluation of "+expr.toString()+" returned "+Integer.toString(v.size())+" objects");
+////      return v.get(0);
+////
+////    case TRUNCATE : 
+////      String src = getParamString(vars, tgt.getParameter().get(0));
+////      String len = getParamString(vars, tgt.getParameter().get(1));
+////      if (Utilities.isInteger(len)) {
+////        int l = Integer.parseInt(len);
+////        if (src.length() > l)
+////          src = src.substring(0, l);
+////      }
+////      return new StringType(src);
+////    case ESCAPE : 
+////      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+////    case CAST :
+////      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+////    case APPEND : 
+////      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+////    case TRANSLATE : 
+////      return translate(context, map, vars, tgt.getParameter());
+////    case REFERENCE :
+////      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+////    case DATEOP :
+////      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+////    case UUID :
+////      return new IdType(UUID.randomUUID().toString());
+////    case POINTER :
+////      Base b = getParam(vars, tgt.getParameter().get(0));
+////      if (b instanceof Resource)
+////        return new UriType("urn:uuid:"+((Resource) b).getId());
+////      else
+////        throw new FHIRException("Transform engine cannot point at an element of type "+b.fhirType());
+//    default:
+//      throw new Error("Transform Unknown or not handled yet: "+tgt.getTransform().toCode());
+//    }
+//  }
 
   private String getParamString(VariablesForProfiling vars, StructureMapGroupRuleTargetParameterComponent parameter) {
     Type p = parameter.getValue();

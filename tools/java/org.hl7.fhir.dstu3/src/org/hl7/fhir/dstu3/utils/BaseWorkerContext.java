@@ -440,6 +440,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         b.append("display="+((Coding) p.getValue()).getDisplay());
       } else if (p.hasResource() && (p.getResource() instanceof ValueSet)) {
         b.append("valueset="+getVSSummary((ValueSet) p.getResource()));
+        b.append("code="+((Coding) p.getValue()).getCode());
+        b.append("display="+((Coding) p.getValue()).getDisplay());
       } 
     }
     return b.toString();

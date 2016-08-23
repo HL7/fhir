@@ -26,6 +26,7 @@ public class ValidationProfileSet {
 
   public ValidationProfileSet(List<String> profiles) {
     super();
+    if (profiles != null)
     canonical.addAll(profiles);
   }
 

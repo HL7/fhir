@@ -506,15 +506,23 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   
   @Override
   public ValidationResult validateCode(Coding code, ValueSet vs) {
-    try {
       if (codeSystems.containsKey(code.getSystem()) && codeSystems.get(code.getSystem()) != null) 
+      try {
         return verifyCodeInCodeSystem(codeSystems.get(code.getSystem()), code.getSystem(), code.getCode(), code.getDisplay());
+      } catch (Exception e) {
+        return new ValidationResult(IssueSeverity.FATAL, "Error validating code \""+code+"\" in system \""+code.getSystem()+"\": "+e.getMessage());
+      }
       else if (vs.hasExpansion()) 
+      try {
         return verifyCodeInternal(vs, code.getSystem(), code.getCode(), code.getDisplay());
+      } catch (Exception e) {
+        return new ValidationResult(IssueSeverity.FATAL, "Error validating code \""+code+"\" in system \""+code.getSystem()+"\": "+e.getMessage());
+      }
       else 
+      try {
         return verifyCodeExternal(vs, code, true);
     } catch (Exception e) {
-      return new ValidationResult(IssueSeverity.FATAL, "Error validating code \""+code+"\" in system \""+code.getSystem()+"\": "+e.getMessage());
+        return new ValidationResult(IssueSeverity.WARNING, "Error validating code \""+code+"\" in system \""+code.getSystem()+"\": "+e.getMessage());
     }
   }
 
@@ -620,7 +628,13 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   private ValidationResult verifyCodeInCodeSystem(CodeSystem cs, String system, String code, String display) {
     ConceptDefinitionComponent cc = findCodeInConcept(cs.getConcept(), code);
     if (cc == null)
+	  if (cs.getContent().equals(CodeSystem.CodeSystemContentMode.COMPLETE))
       return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+cs.getUrl());
+	  else if (!cs.getContent().equals(CodeSystem.CodeSystemContentMode.NOTPRESENT))
+	    return new ValidationResult(IssueSeverity.WARNING, "Unknown Code "+code+" in partial code list of "+cs.getUrl());
+	  else
+	    return new ValidationResult(IssueSeverity.WARNING, "Codes are not available for validation of content from system "+cs.getUrl());
+//      return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+cs.getUrl());
     if (display == null)
       return new ValidationResult(cc);
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();

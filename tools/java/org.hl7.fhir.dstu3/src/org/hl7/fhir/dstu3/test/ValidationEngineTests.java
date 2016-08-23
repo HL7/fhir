@@ -79,6 +79,24 @@ public class ValidationEngineTests {
     System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
   }
 
+  @Test
+  public static void testCurrentDataElement() throws Exception {
+    System.out.println("Validate dataelement-example.xml in Current version");
+    ValidationEngine ve = new ValidationEngine();
+    ve.loadDefinitions("C:\\work\\org.hl7.fhir\\build\\publish");
+    ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
+    ve.getValidator().checkAllInvariants();
+    OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir\\build\\publish\\dataelement-example.xml", null);
+    int e = errors(op);
+    int w = warnings(op);
+    int h = hints(op);
+    Assert.assertTrue(e == 0);
+    Assert.assertTrue(w == 1);
+    Assert.assertTrue(h == 0);
+    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+  }
+
+
   private static int errors(OperationOutcome op) {
     int i = 0;
     for (OperationOutcomeIssueComponent vm : op.getIssue()) {
@@ -107,10 +125,11 @@ public class ValidationEngineTests {
   }
 
   public static void execute() throws Exception {
-    testCurrentXml();
-    testCurrentJson();
-    test160();
-    test140();
+//    testCurrentXml();
+//    testCurrentJson();
+//    test160();
+//    test140();
+    testCurrentDataElement();
     System.out.println("Finished");
   }
 
