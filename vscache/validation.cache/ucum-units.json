@@ -1,4 +1,16 @@
 ﻿{
   "url": "http://hl7.org/fhir/ValueSet/ucum-units",
-  "outcomes": []
+  "outcomes": [
+    {
+      "hash": "#|http://unitsofmeasure.org|1.9|s|second",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "s"
+      }
+    }
+  ]
 }

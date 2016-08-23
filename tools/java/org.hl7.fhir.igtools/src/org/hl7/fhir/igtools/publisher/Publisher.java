@@ -524,6 +524,11 @@ public class Publisher implements IWorkerContext.ILoggingService {
     forceDir(qaDir);
 
     Utilities.createDirectory(vsCache);
+    if (clearCache) {
+      log("Terminology Cache is at "+vsCache+". Clearing now");
+      Utilities.clearDirectory(vsCache);
+    } else
+      log("Terminology Cache is at "+vsCache);
     
     if (version.equals(Constants.VERSION)) {
       try {
@@ -544,17 +549,11 @@ public class Publisher implements IWorkerContext.ILoggingService {
     context.setExpansionProfile(makeExpProfile());
     context.initTS(vsCache, txServer);
     context.connectToTSServer(txServer);
-    if (clearCache) {
-      log("Terminology Cache is at "+vsCache+". Clearing now");
-      Utilities.clearDirectory(vsCache);
-    } else
-      log("Terminology Cache is at "+vsCache);
     // ;
     validator = new InstanceValidator(context);
     validator.setAllowXsiLocation(true);
     validator.setNoBindingMsgSuppressed(true);
-    if (version.equals("1.4.0"))
-      validator.setNoInvariantChecks(true);
+    validator.setNoInvariantChecks(true);
 
     loadSpecDetails(context.getBinaries().get("spec.internals"));
     igpkp = new IGKnowledgeProvider(context, specPath, configuration, errors);
@@ -838,7 +837,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (needToBuild) {
       sourceIg = (ImplementationGuide) parse(igf);
       FetchedResource igr = igf.addResource();
-      igr.setElement(new ObjectConverter(context).convert(sourceIg));
+      igr.setElement(loadFromXml(igf));
       igr.setResource(sourceIg);
       igr.setId(sourceIg.getId()).setTitle(sourceIg.getName());
     } else {
@@ -968,7 +967,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         FetchedResource r = f.addResource();
         r.setResource(b.getResource());
         r.setId(b.getResource().getId());
-        r.setElement(new ObjectConverter(context).convert(r.getResource()));
+        r.setElement(convertToElement(r.getResource()));
         for (UriType p : b.getResource().getMeta().getProfile())
           r.getProfiles().add(p.asStringValue());
         r.setTitle(r.getElement().getChildValue("name"));
@@ -1034,7 +1033,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         FetchedResource r = f.addResource();
         r.setResource(b.getResource());
         r.setId(b.getResource().getId());
-        r.setElement(new ObjectConverter(context).convert(r.getResource()));
+        r.setElement(convertToElement(r.getResource()));
         r.setTitle(r.getElement().getChildValue("name"));
         igpkp.findConfiguration(f, r);
       }
@@ -1129,7 +1128,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
 //              List<StructureDefinition> profiles = utils.profileTransform(null, map);
 //              for (StructureDefinition sd : profiles) {
 //                FetchedResource nr = new FetchedResource();
-//                nr.setElement(new ObjectConverter(context).convert(sd));
+//                nr.setElement(convertToElement(sd));
 //                nr.setId(sd.getId());
 //                nr.setResource(sd);
 //                nr.setTitle("Generated Profile (by Transform)");
@@ -1175,7 +1174,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
                 services.reset();
                 utils.transform(target, t.getKey().getElement(), map, target);
                 FetchedResource nr = new FetchedResource();
-                nr.setElement(new ObjectConverter(context).convert(target));
+                nr.setElement(convertToElement(target));
                 nr.setId(target.getId());
                 nr.setResource(target);
                 nr.setTitle("Generated Example (by Transform)");
@@ -1266,7 +1265,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
           else if (file.getContentType().contains("xml"))
             res2 = new org.hl7.fhir.dstu2.formats.XmlParser().parse(file.getSource());
           org.hl7.fhir.dstu3.model.Resource res = new VersionConvertor_10_20(null).convertResource(res2);
-          e = new ObjectConverter(context).convert(res);
+          e = convertToElement(res);
           r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
           r.setResource(res); 
         }
@@ -1314,7 +1313,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
             bc.setStatus(ConformanceResourceStatus.DRAFT);
           }
           if (altered)
-            r.setElement(new ObjectConverter(context).convert(bc));
+            r.setElement(convertToElement(bc));
           igpkp.checkForPath(f, r, bc);
           try {
             if (!(bc instanceof StructureDefinition))
@@ -1406,7 +1405,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       }
     }
     if (changed || (!r.getElement().hasChild("snapshot") && sd.hasSnapshot()))
-      r.setElement(new ObjectConverter(context).convert(sd));
+      r.setElement(convertToElement(sd));
     r.setSnapshotted(true);
     dlog("Context.See "+sd.getUrl());
     context.seeResource(sd.getUrl(), sd);
@@ -1443,7 +1442,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       for (StructureMap map : maps) {
         FetchedResource nr = f.addResource();
         nr.setResource(map);
-        nr.setElement(new ObjectConverter(context).convert(map));
+        nr.setElement(convertToElement(map));
         nr.setId(map.getId());
         nr.setTitle(map.getName());
         igpkp.findConfiguration(f, nr);
@@ -1561,10 +1560,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
       }
     }
 
-
     FetchedResource r = altMap.get(IG_NAME).getResources().get(0);
     r.setResource(pubIg);
-    r.setElement(new ObjectConverter(context).convert(pubIg));
+    r.setElement(convertToElement(pubIg));
   }
 
   private String checkPlural(String word, int c) {
@@ -1589,10 +1587,23 @@ public class Publisher implements IWorkerContext.ILoggingService {
     r.setId(bc.getId());
     r.setTitle(bc.getName());
     r.setValidated(true);
-    r.setElement(new ObjectConverter(context).convert(bc));
+    r.setElement(convertToElement(bc));
     igpkp.findConfiguration(f, r);
     bc.setUserData("config", r.getConfig());
     generateOutputs(f, true);
+  }
+
+  private Element convertToElement(Resource res) throws IOException, org.hl7.fhir.exceptions.FHIRException, FHIRFormatError, DefinitionException {
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    if (version.equals("1.4.0")) {
+      org.hl7.fhir.dstu2016may.formats.JsonParser jp = new org.hl7.fhir.dstu2016may.formats.JsonParser();
+      jp.compose(bs, VersionConvertor_14_20.convertResource(res));
+    } else { // if (version.equals(Constants.VERSION)) {
+      org.hl7.fhir.dstu3.formats.JsonParser jp = new org.hl7.fhir.dstu3.formats.JsonParser();
+      jp.compose(bs, res);
+    }  
+    ByteArrayInputStream bi = new ByteArrayInputStream(bs.toByteArray());
+    return new org.hl7.fhir.dstu3.elementmodel.JsonParser(context).parse(bi);
   }
 
   private void cleanOutput(String folder) throws IOException {
