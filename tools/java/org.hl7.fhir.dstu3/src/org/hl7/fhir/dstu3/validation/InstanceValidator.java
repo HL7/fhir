@@ -531,11 +531,13 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                 boolean bindingsOk = true;
                 if (binding.getStrength() != BindingStrength.EXAMPLE) {
                   boolean atLeastOneSystemIsSupported = false;
+                  boolean allSystemsAreSupported = true;
                   for (Coding nextCoding : cc.getCoding()) {
                     String nextSystem = nextCoding.getSystem();
                     if (isNotBlank(nextSystem) && context.supportsSystem(nextSystem)) {
                       atLeastOneSystemIsSupported = true;
-                      break;
+                    } else {
+                      allSystemsAreSupported = false;
                     }
                   }
 
@@ -546,12 +548,21 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                     txTime = txTime + (System.nanoTime() - t);
                     if (!vr.isOk()) {
                       bindingsOk = false;
-                      if (binding.getStrength() == BindingStrength.REQUIRED)
-                        rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl()+", and a code from this value set is required)");
-                      else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
-                        warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code)");
-                      else if (binding.getStrength() == BindingStrength.PREFERRED)
-                        hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is recommended to come from this value set)");
+                      if (allSystemsAreSupported) {
+                        if (binding.getStrength() == BindingStrength.REQUIRED)
+                          rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl()+", and a code from this value set is required)");
+                        else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
+                          warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code)");
+                        else if (binding.getStrength() == BindingStrength.PREFERRED)
+                          hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is recommended to come from this value set)");
+                      } else {
+                        if (binding.getStrength() == BindingStrength.REQUIRED)
+                          warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl()+", and a code from this value set is required)");
+                        else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
+                          warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code)");
+                        else if (binding.getStrength() == BindingStrength.PREFERRED)
+                          hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is recommended to come from this value set)");
+                      }
                     }
                   }
                   // Then, for any codes that are in code systems we are able
@@ -1111,11 +1122,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
       for (TypeRefComponent type : container.getType()) {
         if (!ok && type.getCode().equals("Reference")) {
-          // we validate as much as we can. First, can we infer a type from the profile?
-          if (!type.hasTargetProfile() || type.getTargetProfile().equals("http://hl7.org/fhir/StructureDefinition/Resource"))
+          // we validate as much as we can. First, can we infer a type from the profile?  (Need to change this to targetProfile when Grahame's ready)
+          if (!type.hasProfile() || type.getProfile().equals("http://hl7.org/fhir/StructureDefinition/Resource"))
             ok = true;
           else {
-            String pr = type.getTargetProfile();
+            String pr = type.getProfile(); // Need to change to targetProfile when Grahame's ready
 
             String bt = getBaseType(profile, pr);
             StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + bt);
@@ -1128,9 +1139,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             } else
               ok = true; // suppress following check
       		    if (ok && type.hasAggregation()) {
-        			  rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, !type.getAggregation().equals(ElementDefinition.AggregationMode.CONTAINED) ||refType.equals("contained"), "Reference is not contained, when aggregation mode requires contained");
-                rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, !type.getAggregation().equals(ElementDefinition.AggregationMode.BUNDLED) ||refType.equals("bundled"), "Reference is not bundled, when aggregation mode requires bundled");
-                rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, type.getAggregation().equals(ElementDefinition.AggregationMode.CONTAINED) ||!refType.equals("contained"), "Reference is contained, when aggregation mode is not");
+      		      if (type.getAggregation().equals(ElementDefinition.AggregationMode.CONTAINED)) {
+                  rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, refType.equals("contained"), "Reference is not contained, when aggregation mode requires contained");
+      		      } else {
+                  rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, !refType.equals("contained"), "Reference is contained, when aggregation mode is not");
+                  if (type.getAggregation().equals(ElementDefinition.AggregationMode.BUNDLED)) {
+                    rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, refType.equals("bundled"), "Reference is not bundled, when aggregation mode requires bundled");                  
+                  }
+      		      }
       		    }
           }
         }
@@ -1825,21 +1841,22 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (!resourceProfiles.isProcessed())
       checkDeclaredProfiles(resourceProfiles, errors, resource, element, stack);
     
-    if (!resourceProfiles.isProcessed() && !resourceProfiles.hasProfiles()) {
-      if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), defn.hasSnapshot(),
-          "StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided")) {
-        // Don't need to validate against the resource if there's a profile because the profile snapshot will include the relevant parts of the resources
-        validateElement(errors, defn, defn.getSnapshot().getElement().get(0), null, null, resource, element, element.getName(), stack, false);
-  
-  
-        // specific known special validations
-        if (element.getType().equals("Bundle"))
-          validateBundle(errors, element, stack);
-        if (element.getType().equals("Observation"))
-          validateObservation(errors, element, stack);
-        if (element.getType().equals("QuestionnaireResponse"))
-          validateQuestionannaireResponse(errors, element, stack);
+    if (!resourceProfiles.isProcessed()) {
+      resourceProfiles.setProcessed();
+      if (!resourceProfiles.hasProfiles() &&
+        (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), defn.hasSnapshot(),
+        "StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided"))) {
+          // Don't need to validate against the resource if there's a profile because the profile snapshot will include the relevant parts of the resources
+          validateElement(errors, defn, defn.getSnapshot().getElement().get(0), null, null, resource, element, element.getName(), stack, false);
       }
+  
+      // specific known special validations
+      if (element.getType().equals("Bundle"))
+        validateBundle(errors, element, stack);
+      if (element.getType().equals("Observation"))
+        validateObservation(errors, element, stack);
+      if (element.getType().equals("QuestionnaireResponse"))
+        validateQuestionannaireResponse(errors, element, stack);
     } else {
       for (ProfileUsage profileUsage : resourceProfiles.uncheckedProfiles()) {
         profileUsage.setChecked();

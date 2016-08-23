@@ -1390,8 +1390,13 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent tgt = new org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent();
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
-    for (org.hl7.fhir.dstu2016may.model.UriType t : src.getProfile())
-      tgt.setProfile(t.getValueAsString());
+    for (org.hl7.fhir.dstu2016may.model.UriType t : src.getProfile()) {
+      if (src.getCode().equals("Reference"))
+        // Will change this to targetProfile when Grahame's ready
+        tgt.setProfile(t.getValueAsString());
+      else
+        tgt.setProfile(t.getValueAsString());
+    }
     for (org.hl7.fhir.dstu2016may.model.Enumeration<org.hl7.fhir.dstu2016may.model.ElementDefinition.AggregationMode> t : src.getAggregation())
       tgt.addAggregation(convertAggregationMode(t.getValue()));
     tgt.setVersioning(convertReferenceVersionRules(src.getVersioning()));
@@ -1404,7 +1409,11 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent tgt = new org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent();
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
-    tgt.addProfile(src.getProfile());
+    if (src.getCode().equals("Reference"))
+        // Will change this to targetProfile when Grahame's ready
+      tgt.addProfile(src.getProfile());
+    else
+      tgt.addProfile(src.getProfile());      
     for (org.hl7.fhir.dstu3.model.Enumeration<org.hl7.fhir.dstu3.model.ElementDefinition.AggregationMode> t : src.getAggregation())
       tgt.addAggregation(convertAggregationMode(t.getValue()));
     tgt.setVersioning(convertReferenceVersionRules(src.getVersioning()));
