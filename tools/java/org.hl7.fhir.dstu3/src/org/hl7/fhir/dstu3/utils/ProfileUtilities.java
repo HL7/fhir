@@ -69,6 +69,8 @@ import org.hl7.fhir.utilities.xml.SchematronWriter.Rule;
 import org.hl7.fhir.utilities.xml.SchematronWriter.SchematronType;
 import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
 
+import ca.uhn.fhir.model.api.BaseElement;
+
 /**
  * This class provides a set of utility operations for working with Profiles.
  * Key functionality:
@@ -558,19 +560,32 @@ public class ProfileUtilities {
             updateFromDefinition(outcome, diffItem, profileName, trimDifferential, url);
             // --- LM Added this
             diffCursor = differential.getElement().indexOf(diffItem)+1;
-            if (differential.getElement().size() > diffCursor && outcome.getPath().contains(".") && isDataType(outcome.getType())) {  // don't want to do this for the root, since that's base, and we're already processing it
-              if (pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".") && !baseWalksInto(base.getElement(), baseCursor)) {
-                if (outcome.getType().size() > 1)
-                  throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
-                StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
-                if (dt == null)
-                  throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") for type "+typeCode(outcome.getType())+" in profile "+profileName+", but can't find type");
-                contextName = dt.getUrl();
-                int start = diffCursor;
-                while (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+"."))
-                  diffCursor++;
-                processPaths(result, dt.getSnapshot(), differential, 1 /* starting again on the data type, but skip the root */, start-1, dt.getSnapshot().getElement().size()-1,
-                    diffCursor - 1, url, profileName+pathTail(diffMatches, 0), diffMatches.get(0).getPath(), outcome.getPath(), trimDifferential, contextName, resultPathBase, false);
+            if ((outcome.getType().get(0).getCode().equals("Extension") || differential.getElement().size() > diffCursor) && outcome.getPath().contains(".") && isDataType(outcome.getType())) {  // don't want to do this for the root, since that's base, and we're already processing it
+              if (!baseWalksInto(base.getElement(), baseCursor)) {
+                if (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".")) {
+                  if (outcome.getType().size() > 1)
+                    throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
+                  StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
+                  if (dt == null)
+                    throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") for type "+typeCode(outcome.getType())+" in profile "+profileName+", but can't find type");
+                  contextName = dt.getUrl();
+                  int start = diffCursor;
+                  while (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+"."))
+                    diffCursor++;
+                    processPaths(result, dt.getSnapshot(), differential, 1 /* starting again on the data type, but skip the root */, start-1, dt.getSnapshot().getElement().size()-1,
+                      diffCursor - 1, url, profileName+pathTail(diffMatches, 0), diffMatches.get(0).getPath(), outcome.getPath(), trimDifferential, contextName, resultPathBase, false);
+                } else if (outcome.getType().get(0).getCode().equals("Extension")) {
+                  // Force URL to appear if we're dealing with an extension.  (This is a kludge - may need to drill down in other cases where we're slicing and the type has a profile declaration that could be setting the fixed value)
+                  StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
+                  for (ElementDefinition extEd : dt.getSnapshot().getElement()) {
+                    ElementDefinition extUrlEd = updateURLs(url, extEd.copy());
+                    extUrlEd.setPath(fixedPath(contextPathDst, extUrlEd.getPath()));
+                    updateFromBase(extUrlEd, currentBase);
+                    markDerived(extUrlEd);
+                    result.getElement().add(extUrlEd);
+                  }
+                  
+                }
               }
             }
             // ---
@@ -2216,7 +2231,9 @@ public class ProfileUtilities {
             throw new FHIRException("Unable to resolve profile " + "http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode() + " in element " + ed.getPath());
           ccmp = new ElementDefinitionComparer(false, profile.getSnapshot().getElement(), child.getSelf().getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
         } else if (ed.getPath().endsWith("[x]") && !child.getSelf().getPath().endsWith("[x]")) {
-          String p = child.getSelf().getPath().substring(cmp.prefixLength+ed.getPath().length()-3-cmp.base.length());
+          String edLastNode = ed.getPath().replaceAll("(.*\\.)*(.*)", "$2");
+          String childLastNode = child.getSelf().getPath().replaceAll("(.*\\.)*(.*)", "$2");
+          String p = childLastNode.substring(edLastNode.length()-3);
           StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+p);
           if (sd == null)
             throw new Error("Unable to find profile "+p);
