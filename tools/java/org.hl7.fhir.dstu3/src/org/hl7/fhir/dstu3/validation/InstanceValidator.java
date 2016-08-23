@@ -1709,7 +1709,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     // profile is valid, and matches the resource name
     if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), defn.hasSnapshot(),
         "StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided")) {
-      validateElement(errors, defn, defn.getSnapshot().getElement().get(0), null, null, resource, element, element.getName(), stack, false);
+      // Don't need to validate against the resource if there's a profile because the profile snapshot will include the relevant parts of the resources
+      if (profiles == null)
+        validateElement(errors, defn, defn.getSnapshot().getElement().get(0), null, null, resource, element, element.getName(), stack, false);
 
       if (profiles != null)
         for (StructureDefinition profile : profiles.getDefinitions())  
@@ -2434,8 +2436,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             } else if (type.equals("Reference"))
               checkReference(errors, ei.path, ei.element, profile, ei.definition, actualType, localStack);
 
-			// We only check extensions if we're not in a complex extension or if the element we're dealing with is not defined as part of that complex extension
-			if (type.equals("Extension") && ei.element.getChildValue("url").contains("/"))
+            // We only check extensions if we're not in a complex extension or if the element we're dealing with is not defined as part of that complex extension
+            if (type.equals("Extension") && ei.element.getChildValue("url").contains("/"))
               checkExtension(errors, ei.path, resource, ei.element, ei.definition, profile, localStack);
             else if (type.equals("Resource"))
               validateContains(errors, ei.path, ei.definition, definition, resource, ei.element, localStack, idStatusForEntry(element, ei)); // if
@@ -2554,10 +2556,29 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   /*
    * The actual base entry point
    */
+/*  private void validateResource(List<ValidationMessage> errors, Element resource, Element element, StructureDefinition defn, ValidationProfileSet profiles, IdStatus idstatus, NodeStack stack) throws FHIRException, FHIRException {
+    List<StructureDefinition> declProfiles = new ArrayList<StructureDefinition>();
+    List<Element> meta = element.getChildrenByName("meta");
+    if (!meta.isEmpty()) {
+      for (Element profileName : meta.get(0).getChildrenByName("profile")) {
+        StructureDefinition sd = context.fetchResource(StructureDefinition.class, profileName.getValue());
+        if (sd != null)
+          declProfiles.add(sd);
+      }
+    }
+
+    if (!declProfiles.isEmpty()) {
+      // Validate against profiles rather than the resource itself as they'll be more constrained and will cover the resource elements anyhow
+      for (StructureDefinition sd : declProfiles)
+        validateResource2(errors, resource, element, sd, profiles, idstatus, stack);
+    } else
+      validateResource2(errors, resource, element, defn, profiles, idstatus, stack);
+  }*/
+    
   private void validateResource(List<ValidationMessage> errors, Element resource, Element element, StructureDefinition defn, ValidationProfileSet profiles, IdStatus idstatus, NodeStack stack) throws FHIRException, FHIRException {
     assert stack != null;
     assert resource != null;
-
+    
     boolean ok = true;
 
     String resourceName = element.getType(); // todo: consider namespace...?
