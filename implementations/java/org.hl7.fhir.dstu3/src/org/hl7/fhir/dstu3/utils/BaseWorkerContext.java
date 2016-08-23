@@ -438,10 +438,17 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         b.append("system="+((Coding) p.getValue()).getSystem());
         b.append("code="+((Coding) p.getValue()).getCode());
         b.append("display="+((Coding) p.getValue()).getDisplay());
+      } else if (p.hasValue() && p.getValue() instanceof CodeableConcept) {
+        if (((CodeableConcept) p.getValue()).hasCoding()) {
+          Coding c = ((CodeableConcept) p.getValue()).getCodingFirstRep();
+          b.append("system="+c.getSystem());
+          b.append("code="+c.getCode());
+          b.append("display="+c.getDisplay());
+        } else if (((CodeableConcept) p.getValue()).hasText()) {
+          b.append("text="+((CodeableConcept) p.getValue()).getText());
+        }
       } else if (p.hasResource() && (p.getResource() instanceof ValueSet)) {
         b.append("valueset="+getVSSummary((ValueSet) p.getResource()));
-        b.append("code="+((Coding) p.getValue()).getCode());
-        b.append("display="+((Coding) p.getValue()).getDisplay());
       } 
     }
     return b.toString();

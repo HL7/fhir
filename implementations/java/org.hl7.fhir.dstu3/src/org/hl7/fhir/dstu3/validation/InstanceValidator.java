@@ -1687,7 +1687,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     for (StringType s : slice.getSlicing().getDiscriminator()) {
       String discriminator = s.getValue();
       ElementDefinition criteria = getCriteriaForDiscriminator(path, ed, discriminator, profile);
-      if (discriminator.equals("url") && criteria.getPath().equals("Extension.url")) {
+      if (discriminator.equals("url") && criteria.getPath().endsWith("xtension.url")) {
+        // We do a partial match instead of "Extension.url" because otherwise we end up in places that won't validate due to complex slicing, while this approach handles a high-frequency use-case
         if (criteria.getFixed() == null)
           return false;
         else if (!element.getNamedChildValue("url").equals(((UriType) criteria.getFixed()).asStringValue()))
@@ -2270,6 +2271,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     ElementDefinition slice = null;
     boolean unsupportedSlicing = false;
     ArrayList problematicPaths = new ArrayList();
+    slice = slice;
     String slicingPath = null;
     int slicingOffset = 0;
     for (int i = 0; i < childDefinitions.size(); i++) {

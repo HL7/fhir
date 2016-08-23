@@ -96,6 +96,23 @@ public class ValidationEngineTests {
     System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
   }
 
+  @Test
+  public static void testCurrentDataElementLabMaster() throws Exception {
+    System.out.println("Validate dataelement-labtestmaster-example.xml in Current version");
+    ValidationEngine ve = new ValidationEngine();
+    ve.loadDefinitions("C:\\work\\org.hl7.fhir\\build\\publish");
+    ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
+    ve.getValidator().checkAllInvariants();
+    OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir\\build\\publish\\dataelement-labtestmaster-example.xml", null);
+    int e = errors(op);
+    int w = warnings(op);
+    int h = hints(op);
+    Assert.assertTrue(e == 0);
+    Assert.assertTrue(w == 1);
+    Assert.assertTrue(h == 0);
+    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+  }
+
 
   private static int errors(OperationOutcome op) {
     int i = 0;
@@ -129,7 +146,8 @@ public class ValidationEngineTests {
 //    testCurrentJson();
 //    test160();
 //    test140();
-    testCurrentDataElement();
+//    testCurrentDataElement();
+    testCurrentDataElementLabMaster();
     System.out.println("Finished");
   }
 
