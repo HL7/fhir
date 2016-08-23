@@ -2,17 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/observation-interpretation",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|HH|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "HH",
-        "definition": null,
-        "display": "Critically high"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/v2/0078|null|H|High",
       "severity": null,
       "message": null,
@@ -35,17 +24,6 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|LL|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "LL",
-        "definition": null,
-        "display": "Critically low"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/v2/0078|null|L|Low",
       "severity": null,
       "message": null,
@@ -58,17 +36,6 @@
     },
     {
       "hash": "#|http://hl7.org/fhir/v2/0078|null|L|low",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "L",
-        "definition": null,
-        "display": "Low"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|null",
       "severity": null,
       "message": null,
       "definition": {
@@ -98,28 +65,6 @@
         "code": "POS",
         "definition": null,
         "display": "Positive"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|R|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "R",
-        "definition": null,
-        "display": "Resistant"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|S|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "S",
-        "definition": null,
-        "display": "Susceptible"
       }
     },
     {

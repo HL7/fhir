@@ -864,16 +864,6 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     }
   }
 
-  public String csvs() throws Exception {
-    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-    CSVWriter csv = new CSVWriter(baos, sd, true);
-
-    for (ElementDefinition child : sd.getSnapshot().getElement()) {
-      csv.processElement(child);
-    }
-    return baos.toString("UTF-8");
-  }
-   
   private void genElement(StringBuilder s, ElementDefinition e, String id) {
     s.append(" <tr><td>");
     boolean root = true;

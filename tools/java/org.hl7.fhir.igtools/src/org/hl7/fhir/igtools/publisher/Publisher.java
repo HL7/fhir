@@ -2364,13 +2364,17 @@ public class Publisher implements IWorkerContext.ILoggingService {
       fragment("StructureDefinition-"+sd.getId()+"-dict", sdr.dict(), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "maps"))
       fragment("StructureDefinition-"+sd.getId()+"-maps", sdr.mappings(), f.getOutputNames(), r, vars, null);
-    if (igpkp.wantGen(r, "csv"))
-      fragment("StructureDefinition-"+sd.getId()+"-csv", sdr.csvs(), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "xref"))
       fragmentError("StructureDefinition-"+sd.getId()+"-sd-xref", "Yet to be done: xref", f.getOutputNames());
 
     if (igpkp.wantGen(r, "example-list"))
       fragment("StructureDefinition-example-list-"+sd.getId(), sdr.exampleList(fileList), f.getOutputNames(), r, vars, null);
+
+    if (igpkp.wantGen(r, "csv")) {
+      String path = Utilities.path(tempDir, r.getId()+".csv");
+      f.getOutputNames().add(path);
+      new ProfileUtilities(context, errors, igpkp).generateCsvs(new FileOutputStream(path), sd);
+    }
 
     if (!regen && sd.getKind() != StructureDefinitionKind.LOGICAL &&  igpkp.wantGen(r, ".sch")) {
       String path = Utilities.path(tempDir, r.getId()+".sch");

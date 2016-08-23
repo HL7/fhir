@@ -2300,6 +2300,19 @@ public class ProfileUtilities {
     sch.dump();
   }
 
+  // generate schematrons for the rules in a structure definition
+  public void generateCsvs(OutputStream dest, StructureDefinition structure) throws IOException, DefinitionException, Exception {
+    if (!structure.hasSnapshot())
+      throw new DefinitionException("needs a snapshot");
+
+    CSVWriter csv = new CSVWriter(dest, structure, true);
+
+    for (ElementDefinition child : structure.getSnapshot().getElement()) {
+      csv.processElement(child);
+    }
+    csv.dump();
+  }
+  
   private class Slicer extends ElementDefinitionSlicingComponent {
     String criteria = "";
     String name = "";   
