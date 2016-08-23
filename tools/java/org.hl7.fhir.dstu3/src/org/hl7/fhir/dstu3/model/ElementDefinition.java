@@ -48,6 +48,13 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
 @DatatypeDef(name="ElementDefinition")
 public class ElementDefinition extends Type implements ICompositeType {
 
+  public String toString() {
+    if (hasName())
+      return getPath()+":"+getName();
+    else
+      return getPath();
+  }
+  
     public enum PropertyRepresentation {
         /**
          * In XML, this property is represented as an attribute not an element.
