@@ -6,7 +6,7 @@
  -- Row 1 -----------------------------------
   Id = 1
   Context = Reference
-  English = SHALL have a local reference if the resource is provided inline
+  English = SHALL have a contained resource if a local reference is provided
   XPath = not(starts-with(f:reference/@value, \'#\')) or exists(ancestor::*[self::f:entry or self::f:parameter]/f:resource/f:*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, \'#\')]|/*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, \'#\')])
   Expression = reference.startsWith(\'#\').not() or (reference.substring(1).trace(\'url\') in %resource.contained.id.trace(\'ids\'))
 
