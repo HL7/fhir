@@ -1661,6 +1661,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void generateDefinitions(FhirFormat fmt, String specFile)  throws Exception {
+    // public definitions
     Set<String> files = new HashSet<String>();
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
@@ -1677,7 +1678,6 @@ public class Publisher implements IWorkerContext.ILoggingService {
         zip.addFileName(fn.substring(fn.lastIndexOf(File.separator)+1), fn, false);
       zip.addFileName("spec.internals", specFile, false);
       zip.close();
-
     }
   }
 
@@ -1686,36 +1686,23 @@ public class Publisher implements IWorkerContext.ILoggingService {
     String js = makeTempZip(".schema.json");
     String shex = makeTempZip(".shex");
     
-    Set<String> files = new HashSet<String>();
+    ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "validator.pack"));
+    zip.addBytes("version.info", context.getBinaries().get("version.info"), false);
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
-          String fn = Utilities.path(outputDir, r.getElement().fhirType()+"-"+r.getId()+".json");
-          if (new File(fn).exists())
-            files.add(fn);
-          else {
-            fn = Utilities.path(outputDir, r.getElement().fhirType()+"-"+r.getId()+".xml");
-            if (new File(fn).exists())
-              files.add(fn);
-            else {
-              fn = Utilities.path(outputDir, r.getElement().fhirType()+"-"+r.getId()+".ttl");
-              if (new File(fn).exists())
-                files.add(fn);
-            }            
-          }
+          ByteArrayOutputStream bs = new ByteArrayOutputStream();
+          new JsonParser().compose(bs, r.getResource());
+          zip.addBytes(r.getElement().fhirType()+"-"+r.getId()+".json", bs.toByteArray(), false);
         }
       }
     }
-    ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "validator.pack"));
-    for (String fn : files)
-      zip.addFileName(fn.substring(fn.lastIndexOf(File.separator)+1), fn, false);
     if (sch != null)
       zip.addFileName("schematron.zip", sch, false);
     if (js != null)
       zip.addFileName("json.schema.zip", sch, false);
     if (shex != null)
       zip.addFileName("shex.zip", sch, false);
-      
     zip.close();
   }
 

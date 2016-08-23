@@ -240,7 +240,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	}
 
 
-  private void readVersionInfo(ZipEntry entry, ZipInputStream zip) throws IOException {
+  private void readVersionInfo(ZipEntry entry, ZipInputStream zip) throws IOException, DefinitionException {
     int size;
     byte[] buffer = new byte[2048];
 
@@ -252,11 +252,16 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     }
     bos.flush();
     bos.close();
+    binaries.put("version.info", bytes.toByteArray());
     
     String[] vi = new String(bytes.toByteArray()).split("\\r?\\n");
     for (String s : vi) {
-      if (s.startsWith("version="))
+      if (s.startsWith("version=")) {
+        if (version == null)
         version = s.substring(8);
+        else if (!version.equals(s.substring(8))) 
+          throw new DefinitionException("Version mismatch. The context has version "+version+" loaded, and the new content being loaded is version "+s.substring(8));
+      }
       if (s.startsWith("revision="))
         revision = s.substring(9);
       if (s.startsWith("date="))

@@ -69,8 +69,6 @@ import org.hl7.fhir.utilities.xml.SchematronWriter.Rule;
 import org.hl7.fhir.utilities.xml.SchematronWriter.SchematronType;
 import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
 
-import ca.uhn.fhir.model.api.BaseElement;
-
 /**
  * This class provides a set of utility operations for working with Profiles.
  * Key functionality:

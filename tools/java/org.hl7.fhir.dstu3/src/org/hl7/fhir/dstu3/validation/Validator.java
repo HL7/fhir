@@ -77,7 +77,11 @@ public class Validator {
     if (args.length == 0) {
       runGUI();
     } else if (hasParam(args, "-tests")) {
-      ValidationEngineTests.execute();
+      try {
+        ValidationEngineTests.execute();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
     } else if (hasParam(args, "help") || hasParam(args, "?") || hasParam(args, "-?") || hasParam(args, "/?") ) {
       System.out.println("FHIR Validation tool. ");
       System.out.println("");
@@ -179,10 +183,15 @@ public class Validator {
       }
 
       ValidationEngine validator = new ValidationEngine();
+      System.out.println("  .. load FHIR from "+definitions);
       validator.loadDefinitions(definitions);
+      if (txServer != null) 
+        System.out.println("  .. connect to tx server @ "+txServer);
       validator.connectToTSServer(txServer);
-      for (String src : igs)
+      for (String src : igs) {
+        System.out.println("  .. load IG from "+definitions);
         validator.loadIg(src);
+      }
       validator.setQuestionnaires(questionnaires);
       validator.setNative(doNative);
 

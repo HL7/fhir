@@ -17,7 +17,6 @@ public class ValidationEngineTests {
     ValidationEngine ve = new ValidationEngine();
     ve.loadDefinitions("C:\\work\\org.hl7.fhir\\build\\publish");
     ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
-    ve.getValidator().checkAllInvariants();
     OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir\\build\\publish\\patient-example.xml", null);
     int e = errors(op);
     int w = warnings(op);
@@ -50,7 +49,6 @@ public class ValidationEngineTests {
     ValidationEngine ve = new ValidationEngine();
     ve.loadDefinitions("C:\\work\\org.hl7.fhir.2016Sep\\build\\publish");
     ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
-    ve.getValidator().checkAllInvariants();
     OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir.2016Sep\\build\\publish\\patient-example.xml", null);
     int e = errors(op);
     int w = warnings(op);
@@ -67,7 +65,6 @@ public class ValidationEngineTests {
     ValidationEngine ve = new ValidationEngine();
     ve.loadDefinitions("C:\\work\\org.hl7.fhir.2016May\\build\\publish");
     ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
-    ve.getValidator().checkAllInvariants();
     ve.getValidator().setNoInvariantChecks(true);
     OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir.2016May\\build\\publish\\patient-example.xml", null);
     int e = errors(op);
@@ -85,7 +82,6 @@ public class ValidationEngineTests {
     ValidationEngine ve = new ValidationEngine();
     ve.loadDefinitions("C:\\work\\org.hl7.fhir\\build\\publish");
     ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
-    ve.getValidator().checkAllInvariants();
     OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir\\build\\publish\\dataelement-example.xml", null);
     int e = errors(op);
     int w = warnings(op);
@@ -102,7 +98,6 @@ public class ValidationEngineTests {
     ValidationEngine ve = new ValidationEngine();
     ve.loadDefinitions("C:\\work\\org.hl7.fhir\\build\\publish");
     ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
-    ve.getValidator().checkAllInvariants();
     OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir\\build\\publish\\dataelement-labtestmaster-example.xml", null);
     int e = errors(op);
     int w = warnings(op);
@@ -110,6 +105,44 @@ public class ValidationEngineTests {
     Assert.assertTrue(e == 0);
     Assert.assertTrue(w == 1);
     Assert.assertTrue(h == 0);
+    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+  }
+
+  @Test
+  public static void testCurrentDaf() throws Exception {
+    System.out.println("Validate DAF patient-example.xml in Current version");
+    ValidationEngine ve = new ValidationEngine();
+    System.out.println("  .. load FHIR from C:\\work\\org.hl7.fhir\\build\\publish");
+    ve.loadDefinitions("C:\\work\\org.hl7.fhir\\build\\publish");
+    ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
+    System.out.println("  .. load IG from C:\\work\\org.hl7.fhir\\build\\guides\\daf2\\output");
+    ve.loadIg("C:\\work\\org.hl7.fhir\\build\\guides\\daf2\\output");
+    OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir\\build\\guides\\daf2\\output\\Patient-example.xml", null);
+    int e = errors(op);
+    int w = warnings(op);
+    int h = hints(op);
+    Assert.assertTrue(e == 3);
+    Assert.assertTrue(w == 0);
+    Assert.assertTrue(h == 0);
+    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+  }
+
+  @Test
+  public static void test140Telus() throws Exception {
+    System.out.println("Validate Telus Practitioner-example-practitioner.xml in 1.4.0");
+    ValidationEngine ve = new ValidationEngine();
+    System.out.println("  .. load FHIR from C:\\temp\\igpack\\igpack.zip");
+    ve.loadDefinitions("C:\\temp\\igpack");
+    ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
+    System.out.println("  .. load IG from C:\\temp\\telus\\website");
+    ve.loadIg("C:\\temp\\telus\\website");
+    OperationOutcome op = ve.validate("C:\\temp\\telus\\website\\Practitioner-example-practitioner.xml", null);
+    int e = errors(op);
+    int w = warnings(op);
+    int h = hints(op);
+    Assert.assertTrue(e == 0);
+    Assert.assertTrue(w == 0);
+    Assert.assertTrue(h == 3);
     System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
   }
 
@@ -147,7 +180,9 @@ public class ValidationEngineTests {
 //    test160();
 //    test140();
 //    testCurrentDataElement();
-    testCurrentDataElementLabMaster();
+//    testCurrentDataElementLabMaster();
+//    testCurrentDaf();
+    test140Telus();
     System.out.println("Finished");
   }
 
