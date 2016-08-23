@@ -44,8 +44,8 @@ public class InstanceValidatorTests {
 		
 	private void validate(String path, int errorCount, boolean json) throws Exception {
     if (TestingUtilities.context == null) {
-    	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip");
-      ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://local.healthintersections.com.au:960/open");
+    	TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\igpack.zip");
+      ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://fhir3.healthintersections.com.au/open");
     }
 
     System.out.println("Test "+path);
@@ -66,8 +66,8 @@ public class InstanceValidatorTests {
 		
   private void validateCnt(String cnt, int errorCount, boolean json) throws Exception {
     if (TestingUtilities.context == null) {
-      TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip");
-      ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://local.healthintersections.com.au:960/open");
+      TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\igpack.zip");
+      ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://fhir3.healthintersections.com.au/open");
     }
 
     System.out.println("Test Content");
@@ -209,7 +209,7 @@ public class InstanceValidatorTests {
 
 	@Test
 	public void testXmlContainedBad() throws Exception {
-		validate("build\\tests\\validation-examples\\list-contained-bad.xml", 1, false);
+		validate("build\\tests\\validation-examples\\list-contained-bad.xml", 3, false); // broken reference will generate 3 errors
 	}
 
 	@Test
@@ -244,7 +244,7 @@ public class InstanceValidatorTests {
 
 	@Test
 	public void testXmlGroupEmpty() throws Exception {
-		validate("build\\tests\\validation-examples\\group-choice-empty.xml", 1, false);
+		validate("build\\tests\\validation-examples\\group-choice-empty.xml", 2, false); // empty elements generate a double warning (well, most of them)
 	}
 
   @Test
@@ -346,7 +346,7 @@ public class InstanceValidatorTests {
 
 	@Test
 	public void testJsonContainedBad() throws Exception {
-		validate("build\\tests\\validation-examples\\list-contained-bad.json", 1, true);
+		validate("build\\tests\\validation-examples\\list-contained-bad.json", 3, true);
 	}
 
 	@Test
@@ -392,7 +392,7 @@ public class InstanceValidatorTests {
 	
   @Test
   public void testBuildPatientExampleB() throws Exception {
-    validate("build\\publish\\patient-example-b.xml", 0, true);
+    validate("build\\publish\\patient-example-b.xml", 0, false);
   }
 
   @Test
@@ -425,7 +425,7 @@ public class InstanceValidatorTests {
         "          \"status\": \"generated\",\r\n"+
         "          \"div\": \"<div>Single liveborn, born in hospital, delivered without mention of cesarean section</div>\"\r\n"+
         "        },\r\n"+
-        "        \"patient\": {\r\n"+
+        "        \"subject\": {\r\n"+
         "          \"reference\": \"Patient/1032702\"\r\n"+
         "        },\r\n"+
         "        \"code\": {\r\n"+

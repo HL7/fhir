@@ -1,7 +1,9 @@
 package org.hl7.fhir.dstu3.validation;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 
@@ -40,6 +42,14 @@ public class ValidationProfileSet {
 
   public boolean empty() {
     return canonical.isEmpty() && definitions.isEmpty();
+  }
+
+  public List<String> getCanonicalAll() {
+    Set<String> res = new HashSet<String>();
+    res.addAll(canonical);
+    for (StructureDefinition sd : definitions)
+      res.add(sd.getUrl());
+    return new ArrayList<String>(res);
   }
 
 }

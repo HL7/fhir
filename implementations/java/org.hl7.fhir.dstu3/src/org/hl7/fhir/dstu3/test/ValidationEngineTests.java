@@ -175,13 +175,13 @@ public class ValidationEngineTests {
   }
 
   public static void execute() throws Exception {
-//    testCurrentXml();
-//    testCurrentJson();
-//    test160();
-//    test140();
-//    testCurrentDataElement();
-//    testCurrentDataElementLabMaster();
-//    testCurrentDaf();
+    testCurrentXml();
+    testCurrentJson();
+    test160();
+    test140();
+    testCurrentDataElement();
+    testCurrentDataElementLabMaster();
+    testCurrentDaf();
     test140Telus();
     System.out.println("Finished");
   }

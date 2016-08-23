@@ -3,17 +3,20 @@
   <parameter>
     <name value="param"/>
     <resource>
-      <Order>
+      <Basic>
         <id value="2"/>
         <contained>
           <Patient>
             <id value="patient"/>
           </Patient>
         </contained>
-        <detail>
+        <code>
+          <text value="test"/>
+        </code>
+        <subject>
           <reference value="#patient"/>
-        </detail>
-      </Order>
+        </subject>
+      </Basic>
     </resource>
   </parameter>
 </Parameters>

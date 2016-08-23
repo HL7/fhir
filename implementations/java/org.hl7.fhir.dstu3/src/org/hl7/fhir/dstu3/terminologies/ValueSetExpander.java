@@ -9,9 +9,9 @@ import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ExpansionErrorClass;
 
 public interface ValueSetExpander {
   public enum ExpansionErrorClass {
-    UNKNOWN, NOSERVICE
-
+    UNKNOWN, NOSERVICE, VALUESET_UNSUPPORTED
   }
+  
   public class ETooCostly extends Exception {
 
     public ETooCostly(String msg) {
