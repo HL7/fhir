@@ -1798,12 +1798,7 @@ public class ProfileUtilities {
 
 
   private String makePathLink(ElementDefinition element) {
-    if (!element.hasName())
-      return element.getPath();
-    if (!element.getPath().contains("."))
-      return element.getName();
-    return element.getPath().substring(0, element.getPath().lastIndexOf("."))+"."+element.getName();
-
+    return element.getId();
   }
 
   private Cell generateDescription(HierarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, StructureDefinition profile, String corePath, String imagePath, boolean root, boolean logicalModel) throws IOException {

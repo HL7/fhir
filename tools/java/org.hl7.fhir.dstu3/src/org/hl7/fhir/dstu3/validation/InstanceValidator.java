@@ -1710,7 +1710,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), defn.hasSnapshot(),
         "StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided")) {
       // Don't need to validate against the resource if there's a profile because the profile snapshot will include the relevant parts of the resources
-      if (profiles == null)
+      if (profiles == null || profiles.empty())
         validateElement(errors, defn, defn.getSnapshot().getElement().get(0), null, null, resource, element, element.getName(), stack, false);
 
       if (profiles != null)

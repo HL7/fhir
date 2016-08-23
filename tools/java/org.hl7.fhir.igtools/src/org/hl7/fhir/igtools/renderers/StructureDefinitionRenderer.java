@@ -471,11 +471,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
 
 
   private String makePathLink(ElementDefinition element) {
-    if (!element.hasName())
-      return element.getPath();
-    if (!element.getPath().contains("."))
-      return element.getName();
-    return element.getPath().substring(0, element.getPath().lastIndexOf("."))+"."+element.getName();
+    return element.getId();
   }
 
   private ElementDefinition getExtensionValueDefinition(StructureDefinition extDefn) {

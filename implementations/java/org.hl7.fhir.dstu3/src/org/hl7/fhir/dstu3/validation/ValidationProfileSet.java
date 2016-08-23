@@ -38,4 +38,8 @@ public class ValidationProfileSet {
     return definitions;
   }
 
+  public boolean empty() {
+    return canonical.isEmpty() && definitions.isEmpty();
+  }
+
 }
