@@ -1585,7 +1585,7 @@ public class ProfileUtilities {
     List<ElementDefinition> list = diff ? profile.getDifferential().getElement() : profile.getSnapshot().getElement();
     List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
     profiles.add(profile);
-    genElement(defFile == null ? null : defFile+"#"+profile.getId()+".", gen, model.getRows(), list.get(0), list, profiles, diff, profileBaseFileName, null, snapshot, corePath, imagePath, true, logicalModel, profile.getDerivation() == TypeDerivationRule.CONSTRAINT && usesMustSupport(list));
+    genElement(defFile == null ? null : defFile+"#", gen, model.getRows(), list.get(0), list, profiles, diff, profileBaseFileName, null, snapshot, corePath, imagePath, true, logicalModel, profile.getDerivation() == TypeDerivationRule.CONSTRAINT && usesMustSupport(list));
     try {
       return gen.generate(model, imagePath);
     } catch (org.hl7.fhir.exceptions.FHIRException e) {
@@ -1643,7 +1643,7 @@ public class ProfileUtilities {
         row.setIcon("icon_datatype.gif", HierarchicalTableGenerator.TEXT_ICON_DATATYPE);
       else
         row.setIcon("icon_resource.png", HierarchicalTableGenerator.TEXT_ICON_RESOURCE);
-      String ref = defPath == null ? null : defPath + makePathLink(element);
+      String ref = defPath == null ? null : defPath + element.getId();
       UnusedTracker used = new UnusedTracker();
       used.used = true;
       Cell left = gen.new Cell(null, ref, s, !hasDef ? null : element.getDefinition(), null);
@@ -1810,11 +1810,6 @@ public class ProfileUtilities {
     String t = tail(element.getPath());
     return (t.equals("extension") || t.equals("modifierExtension"))
           && element.getSlicing().getRules() != SlicingRules.CLOSED && element.getSlicing().getDiscriminator().size() == 1 && element.getSlicing().getDiscriminator().get(0).getValue().equals("url");
-  }
-
-
-  private String makePathLink(ElementDefinition element) {
-    return element.getId();
   }
 
   private Cell generateDescription(HierarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, StructureDefinition profile, String corePath, String imagePath, boolean root, boolean logicalModel) throws IOException {
@@ -2455,7 +2450,7 @@ public class ProfileUtilities {
 //      throw new Exception("Illegal name "+name+": no spaces");
     StringBuilder b = new StringBuilder();
     for (char c : name.toCharArray()) {
-      if (!Utilities.existsInList(c, '.', ' ', ':', '"', '\'', '(', ')', '&'))
+      if (!Utilities.existsInList(c, '.', ' ', ':', '"', '\'', '(', ')', '&', '[', ']'))
         b.append(c);
     }
     return b.toString().toLowerCase();

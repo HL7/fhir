@@ -44,6 +44,7 @@ import org.hl7.fhir.igtools.publisher.FetchedFile;
 import org.hl7.fhir.igtools.publisher.FetchedResource;
 import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
+import org.hl7.fhir.igtools.renderers.StructureDefinitionRenderer.StringPair;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -404,30 +405,44 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     }
   }
 
+  public class StringPair {
+
+    private String match;
+    private String replace;
+
+    public StringPair(String match, String replace) {
+      this.match = match;
+      this.replace = replace;
+    }
+
+  }
+
   public String dict() throws Exception {
     int i = 1;
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"dict\">\r\n");
 
+    List<StringPair> replacements = new ArrayList<StringPair>();
     for (ElementDefinition ec : sd.getSnapshot().getElement()) {
       if (isProfiledExtension(ec)) {
-        String name = sd.getId()+"."+ makePathLink(ec);
         StructureDefinition extDefn = context.fetchResource(StructureDefinition.class, ec.getType().get(0).getProfile());
         if (extDefn == null) {
           String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile()+")";
-          b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
+          b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+ec.getId()+"\"> </a><b>"+title+"</b></td></tr>\r\n");
           generateElementInner(b, sd,  ec, 1, null);
         } else {
           String title = ec.getPath() + " (<a href=\""+(extDefn.hasUserData("path") ? extDefn.getUserData("path") : "extension-"+extDefn.getId().toLowerCase()+".html")+
               "\">"+(ec.getType().get(0).getProfile().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
-          b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a>");
-          if (name.endsWith("[x]")) {
+          b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+ec.getId()+"\"> </a>");
+          if (ec.getId().endsWith("[x]")) {
             Set<String> tl = new HashSet<String>();
             for (TypeRefComponent tr : ec.getType()) {
               String tc = tr.getCode();
               if (!tl.contains(tc)) {
                 tl.add(tc);
-                b.append("<a name=\""+name.replace("[x]", Utilities.capitalize(tc))+"\"> </a>");
+                String s = ec.getId().replace("[x]", Utilities.capitalize(tc));
+                b.append("<a name=\""+s+"\"> </a>");
+                replacements.add(new StringPair(ec.getId(), s));
               }
             }
           }
@@ -436,24 +451,27 @@ public class StructureDefinitionRenderer extends BaseRenderer {
           generateElementInner(b, extDefn, extDefn.getSnapshot().getElement().get(0), valueDefn == null ? 2 : 3, valueDefn);
         }
       } else {
-        String name = sd.getId()+"."+ makePathLink(ec);
         String title = ec.getPath() + (!ec.hasName() ? "" : "(" +ec.getName() +")");
-        b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a>");
-        if (name.endsWith("[x]")) {
+        b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+ec.getId()+"\"> </a>");
+        if (ec.getId().endsWith("[x]")) {
           Set<String> tl = new HashSet<String>();
           for (TypeRefComponent tr : ec.getType()) {
             String tc = tr.getCode();
             if (!tl.contains(tc)) {
               tl.add(tc);
-              b.append("<a name=\""+name.replace("[x]", Utilities.capitalize(tc))+"\"> </a>");
+              String s = ec.getId().replace("[x]", Utilities.capitalize(tc));
+              b.append("<a name=\""+s+"\"> </a>");
+              replacements.add(new StringPair(ec.getId(), s));
             }
           }
+        } else if (ec.hasBase() && ec.getBase().getPath().endsWith("[x]")) {
+          String s = nottail(ec.getId())+"."+tail(ec.getBase().getPath());
+          replacements.add(new StringPair(ec.getId(), s));
+          b.append("<a name=\""+s+"\"> </a>");
         }
-        if (ec.hasBase() && ec.getBase().getPath().endsWith("[x]") && !ec.getPath().endsWith("[x]")) {
-          String bt = tail(ec.getBase().getPath());
-          String th = nottail(name);
-          b.append("<a name=\""+th+"."+bt+"\"> </a>");
-        }
+        for (StringPair s : replacements)
+          if (ec.getId().startsWith(s.match))
+            b.append("<a name=\""+s.replace+ec.getId().substring(s.match.length())+"\"> </a>");
         b.append("<b>"+title+"</b></td></tr>\r\n");
         generateElementInner(b, sd, ec, 1, null);
         if (ec.hasSlicing())
