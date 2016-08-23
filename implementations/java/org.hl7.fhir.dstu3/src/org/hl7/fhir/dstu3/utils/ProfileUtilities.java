@@ -2401,8 +2401,9 @@ public class ProfileUtilities {
         b.append(".");
       }
       b.append(t);
-      idMap.put(ed.hasId() ? ed.getId() : ed.getPath(), b.toString());
-      ed.setId(b.toString());
+      String bs = b.toString();
+      idMap.put(ed.hasId() ? ed.getId() : ed.getPath(), bs);
+      ed.setId(bs);
       paths.add(t);
       if (ed.hasContentReference()) {
         String s = ed.getContentReference().substring(1);
@@ -2433,7 +2434,12 @@ public class ProfileUtilities {
 ////      throw new Exception("Illegal name "+name+": no '.'");
 //    if (name.contains(" "))
 //      throw new Exception("Illegal name "+name+": no spaces");
-    return name.replace(".", "").replace(" ", "").replace(":", "").toLowerCase();
+    StringBuilder b = new StringBuilder();
+    for (char c : name.toCharArray()) {
+      if (!Utilities.existsInList(c, '.', ' ', ':', '"', '\'', '(', ')', '&'))
+        b.append(c);
+    }
+    return b.toString().toLowerCase();
   }
 
 
