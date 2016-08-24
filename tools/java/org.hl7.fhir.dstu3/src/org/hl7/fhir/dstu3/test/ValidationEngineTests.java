@@ -183,12 +183,12 @@ public class ValidationEngineTests {
     ve.loadDefinitions(Utilities.path(TestingUtilities.path, "publish"));
     ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
     if (!TestingUtilities.silent)
-      System.out.println("  .. load CCDA from " +Utilities.path(TestingUtilities.path, "guides\\ccda2\\cdalogical"));
-    ve.loadIg(Utilities.path(TestingUtilities.path, "guides\\ccda2\\cdalogical"));
+      System.out.println("  .. load CCDA from " +Utilities.path(TestingUtilities.path, "guides\\ccda2\\mapping\\logical"));
+    ve.loadIg(Utilities.path(TestingUtilities.path, "guides\\ccda2\\mapping\\logical"));
     if (!TestingUtilities.silent)
-      System.out.println("  .. load Maps from " +Utilities.path(TestingUtilities.path, "guides\\ccda2\\resources\\structuremap"));
-    ve.loadIg(Utilities.path(TestingUtilities.path, "guides\\ccda2\\resources\\structuremap"));
-    Resource r = ve.transform(Utilities.path(TestingUtilities.path, "guides\\ccda2\\cdalogical\\examples\\ccd.xml"), "http://hl7.org/fhir/StructureMap/cda");
+      System.out.println("  .. load Maps from " +Utilities.path(TestingUtilities.path, "guides\\ccda2\\mapping\\map"));
+    ve.loadIg(Utilities.path(TestingUtilities.path, "guides\\ccda2\\mapping\\map"));
+    Resource r = ve.transform(Utilities.path(TestingUtilities.path, "guides\\ccda2\\mapping\\example\\ccd.xml"), "http://hl7.org/fhir/StructureMap/cda");
     if (!TestingUtilities.silent)
       System.out.println("  .. done");
   }

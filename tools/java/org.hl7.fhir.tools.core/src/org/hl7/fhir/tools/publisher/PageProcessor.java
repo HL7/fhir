@@ -3592,7 +3592,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           if ("http://hl7.org/fhir/restful-interaction".equals(uri)) n = "FHIR";
           if ("http://unitsofmeasure.org".equals(uri)) n = "FHIR";
           if (uri.startsWith("http://hl7.org/fhir/v3/"))  n = "V3";
-          if (uri.startsWith("http://hl7.org/fhir/v2/"))  n = "V2";
+          else if (uri.startsWith("http://hl7.org/fhir/v2/"))  n = "V2";
+          else if (uri.startsWith("http://hl7.org/fhir"))  n = "Internal";
         }
         if (!done.contains(n))
           b.append(", ").append(n);
