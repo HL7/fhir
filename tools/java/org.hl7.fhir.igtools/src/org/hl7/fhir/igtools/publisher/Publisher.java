@@ -71,8 +71,10 @@ import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.dstu3.model.ExpansionProfile;
+import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
@@ -95,6 +97,7 @@ import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.EOperationOutcome;
+import org.hl7.fhir.dstu3.utils.FluentPathEngine;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
@@ -1403,6 +1406,23 @@ public class Publisher implements IWorkerContext.ILoggingService {
       if (!sd.hasSnapshot()) {
         utils.populateLogicalSnapshot(sd);
         changed = true;
+      }
+    }
+    FluentPathEngine fpe = new FluentPathEngine(context);
+    for (ElementDefinition ed : sd.getSnapshot().getElement()) {
+      for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
+        if (inv.hasExpression()) {
+          try {
+            ExpressionNode n = (ExpressionNode) inv.getUserData("validator.expression.cache");
+            if (n == null) {
+              n = fpe.parse(inv.getExpression());
+              inv.setUserData("validator.expression.cache", n);
+            }
+            fpe.check(null, sd.getKind() == StructureDefinitionKind.RESOURCE ?  sd.getType() : "DomainResource", ed.getPath(), n);
+          } catch (Exception e) {
+            f.getErrors().add(new ValidationMessage(Source.ProfileValidator, IssueType.INVALID, sd.getUrl()+":"+ed.getPath()+":"+inv.getKey(), e.getMessage(), IssueSeverity.ERROR));
+          }
+        }
       }
     }
     if (changed || (!r.getElement().hasChild("snapshot") && sd.hasSnapshot()))
