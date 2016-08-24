@@ -541,7 +541,7 @@ public class FHIRPathEngine {
 				Function f = Function.fromCode(result.getName());  
         FunctionDetails details = null;
         if (f == null) {
-          details = hostServices.resolveFunction(result.getName());
+          details = hostServices != null ? hostServices.resolveFunction(result.getName()) : null;
           if (details == null)
 					throw lexer.error("The name "+result.getName()+" is not a valid function name");
           f = Function.Custom;
@@ -785,7 +785,7 @@ public class FHIRPathEngine {
 	}
 
 	private List<Base> execute(ExecutionContext context, List<Base> focus, ExpressionNode exp, boolean atEntry) throws PathEngineException  {
-    System.out.println("Evaluate {'"+exp.toString()+"'} on "+focus.toString());
+//    System.out.println("Evaluate {'"+exp.toString()+"'} on "+focus.toString());
 		List<Base> work = new ArrayList<Base>();
 		switch (exp.getKind()) {
 		case Name:
@@ -829,13 +829,13 @@ public class FHIRPathEngine {
         } else {
           work2 = execute(context, focus, next, true);
           work = operate(work, last.getOperation(), work2);
-          System.out.println("Result of {'"+last.toString()+" "+last.getOperation().toCode()+" "+next.toString()+"'}: "+focus.toString());
+//          System.out.println("Result of {'"+last.toString()+" "+last.getOperation().toCode()+" "+next.toString()+"'}: "+focus.toString());
 				}
 					last = next;
 					next = next.getOpNext();
 				}
 			}
-    System.out.println("Result of {'"+exp.toString()+"'}: "+work.toString());
+//    System.out.println("Result of {'"+exp.toString()+"'}: "+work.toString());
 		return work;
 	}
 
@@ -870,6 +870,7 @@ public class FHIRPathEngine {
   }
 
   private TypeDetails executeType(ExecutionTypeContext context, TypeDetails focus, ExpressionNode exp, boolean atEntry) throws PathEngineException, DefinitionException {
+//    System.out.println("Evaluate {'"+exp.toString()+"'} on "+focus.toString());
     TypeDetails result = new TypeDetails(null);
 		switch (exp.getKind()) {
 		case Name:
@@ -1010,7 +1011,7 @@ public class FHIRPathEngine {
           b.append('\\');
           break;
         case '/': 
-          b.append('\\');
+          b.append('/');
           break;
         case 'u':
           i++;
@@ -2591,7 +2592,7 @@ public class FHIRPathEngine {
 		for (ElementDefinition ed : sd.getSnapshot().getElement()) {
 			if (ed.getPath().equals(path)) {
         if (ed.hasNameReference()) {
-          return getElementDefinitionById(sd, ed.getNameReference());
+          return getElementDefinitionByName(sd, ed.getNameReference());
 				} else
 					return new ElementDefinitionMatch(ed, null);
 			}
@@ -2611,10 +2612,10 @@ public class FHIRPathEngine {
         StructureDefinition nsd = worker.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode());
   	    if (nsd == null) 
   	      throw new PathEngineException("Unknown type "+ed.getType().get(0).getCode());
-        return getElementDefinition(sd, sd.getId()+path.substring(ed.getPath().length()), allowTypedName);
+        return getElementDefinition(nsd, nsd.getId()+path.substring(ed.getPath().length()), allowTypedName);
       }
       if (ed.hasNameReference() && path.startsWith(ed.getPath()+".")) {
-        ElementDefinitionMatch m = getElementDefinitionById(sd, ed.getNameReference());
+        ElementDefinitionMatch m = getElementDefinitionByName(sd, ed.getNameReference());
         return getElementDefinition(sd, m.definition.getPath()+path.substring(ed.getPath().length()), allowTypedName);
 			}
 		}
@@ -2637,9 +2638,9 @@ public class FHIRPathEngine {
 		return ed.hasType() && !(ed.getType().get(0).getCode().equals("Element") || ed.getType().get(0).getCode().equals("BackboneElement"));
 	}
 
-  private ElementDefinitionMatch getElementDefinitionById(StructureDefinition sd, String ref) {
+  private ElementDefinitionMatch getElementDefinitionByName(StructureDefinition sd, String ref) {
 		for (ElementDefinition ed : sd.getSnapshot().getElement()) {
-      if (ref.equals("#"+ed.getId())) 
+      if (ref.equals(ed.getName())) 
 				return new ElementDefinitionMatch(ed, null);
 		}
 		return null;

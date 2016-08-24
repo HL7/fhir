@@ -9,6 +9,7 @@ import org.hl7.fhir.dstu2.model.CodeableConcept;
 import org.hl7.fhir.dstu2.model.Coding;
 import org.hl7.fhir.dstu2.model.ConceptMap;
 import org.hl7.fhir.dstu2.model.Resource;
+import org.hl7.fhir.dstu2.model.StructureDefinition;
 import org.hl7.fhir.dstu2.model.ValueSet;
 import org.hl7.fhir.dstu2.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent;
@@ -286,6 +287,8 @@ public interface IWorkerContext {
    * @return
    */
   public String getAbbreviation(String name);
+
+  public List<StructureDefinition> allStructures();
 
 
 }

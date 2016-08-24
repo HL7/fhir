@@ -16,11 +16,17 @@ import org.hl7.fhir.dstu2.exceptions.PathEngineException;
 import org.hl7.fhir.dstu2.formats.XmlParser;
 import org.hl7.fhir.dstu2.model.Base;
 import org.hl7.fhir.dstu2.model.BooleanType;
+import org.hl7.fhir.dstu2.model.ElementDefinition;
+import org.hl7.fhir.dstu2.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.dstu2.model.ExpressionNode;
+import org.hl7.fhir.dstu2.model.OperationOutcome.IssueSeverityEnumFactory;
 import org.hl7.fhir.dstu2.model.PrimitiveType;
 import org.hl7.fhir.dstu2.model.Resource;
+import org.hl7.fhir.dstu2.model.StructureDefinition;
 import org.hl7.fhir.dstu2.test.TestingUtilities;
 import org.hl7.fhir.dstu2.utils.FHIRLexer.FHIRLexerException;
+import org.hl7.fhir.dstu2.validation.InstanceValidator.BaseOnWrapper;
+import org.hl7.fhir.dstu2.validation.InstanceValidator.ResourceOnWrapper;
 import org.hl7.fhir.dstu2.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu2.utils.SimpleWorkerContext;
 import org.hl7.fhir.exceptions.FHIRException;
@@ -140,6 +146,38 @@ public class FluentPathTests {
         Assert.assertTrue(String.format("Outcome %d: Value should be a primitive type but was %s", i, outcome.get(i).fhirType()), outcome.get(i) instanceof PrimitiveType);
         Assert.assertTrue(String.format("Outcome %d: Value should be %s but was %s", i, v, outcome.get(i).toString()), v.equals(((PrimitiveType)outcome.get(i)).asStringValue()));
       } 
+    }
+  }
+
+  @Test
+  public void testDefinitions() throws FileNotFoundException, IOException, FHIRException {
+    if (TestingUtilities.context == null)
+      TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir.dstu2\\build\\publish\\validation-min.xml.zip");
+    if (fp == null)
+      fp = new FHIRPathEngine(TestingUtilities.context);
+    for (StructureDefinition sd : TestingUtilities.context.allStructures()) {
+      for (ElementDefinition ed : sd.getSnapshot().getElement()) {
+        for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
+          if (inv.hasExtension("http://hl7.org/fhir/StructureDefinition/structuredefinition-expression")) {
+            testExpression(sd, ed, inv);
+          }
+        }
+      }
+    }
+    Assert.assertTrue(false);
+  }
+
+  private void testExpression(StructureDefinition sd, ElementDefinition ed, ElementDefinitionConstraintComponent inv) throws FHIRException {
+    String expr = inv.getExtensionString("http://hl7.org/fhir/StructureDefinition/structuredefinition-expression");
+    try {
+      ExpressionNode n = (ExpressionNode) inv.getUserData("validator.expression.cache");
+      if (n == null) {
+        n = fp.parse(expr);
+        inv.setUserData("validator.expression.cache", n);
+      }
+      fp.check(null, sd.getKind() == org.hl7.fhir.dstu2.model.StructureDefinition.StructureDefinitionKind.RESOURCE ?  sd.getId() : "DomainResource", ed.getPath(), n);
+    } catch (Exception e) {
+      System.out.println("FluentPath Error on "+sd.getUrl()+":"+ed.getPath()+":"+inv.getKey()+" ('"+expr+"'): "+e.getMessage());
     }
   }
 

@@ -995,7 +995,7 @@ public class FluentPathEngine {
           b.append('\\');
           break;
         case '/': 
-          b.append('\\');
+          b.append('/');
           break;
         case 'u':
           i++;

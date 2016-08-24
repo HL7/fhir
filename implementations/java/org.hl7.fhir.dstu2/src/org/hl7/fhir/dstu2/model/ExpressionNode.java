@@ -234,6 +234,10 @@ public class ExpressionNode {
   }
 
   public static class TypeDetails {
+    @Override
+    public String toString() {
+      return (collectionStatus == null ? "" : collectionStatus.toString())+(types == null ? "[]" : types.toString());
+    }
     private Set<String> types = new HashSet<String>();
     private CollectionStatus collectionStatus;
     public TypeDetails(CollectionStatus collectionStatus, String... names) {

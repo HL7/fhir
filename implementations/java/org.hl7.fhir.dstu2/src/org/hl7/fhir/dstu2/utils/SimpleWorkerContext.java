@@ -335,6 +335,13 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     return null;
   }
 
+  @Override
+  public List<StructureDefinition> allStructures() {
+    List<StructureDefinition> res = new ArrayList<StructureDefinition>();
+    res.addAll(structures.values());
+    return res ;
+  }
+
 
 
 }
