@@ -16080,6 +16080,10 @@
     <display value="Brown Swiss cow"/>
     <display value="Brown Swiss cow (organism)"/>
   </concept>
+  <concept id="442311008" display="Liveborn born in hospital">
+    <display value="Liveborn born in hospital"/>
+    <display value="Liveborn born in hospital (situation)"/>
+  </concept>
   <concept id="442376007" display="Test with result pending (observable entity)">
     <display value="Test with result pending"/>
     <display value="Test with result pending (observable entity)"/>

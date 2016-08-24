@@ -5,47 +5,65 @@ import static org.junit.Assert.*;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.OperationOutcomeIssueComponent;
+import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.validation.ValidationEngine;
+import org.hl7.fhir.utilities.Utilities;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class ValidationEngineTests {
 
+  public static boolean nopast;
+
   @Test
   public static void testCurrentXml() throws Exception {
-    System.out.println("Validate patient-example.xml in Current version");
+    if (TestingUtilities.path == null)
+      TestingUtilities.path = "C:\\work\\org.hl7.fhir\\build";
+    if (!TestingUtilities.silent) 
+      System.out.println("Validate patient-example.xml in Current version");
     ValidationEngine ve = new ValidationEngine();
-    ve.loadDefinitions("C:\\work\\org.hl7.fhir\\build\\publish");
+    ve.loadDefinitions(Utilities.path(TestingUtilities.path, "publish"));
     ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
-    OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir\\build\\publish\\patient-example.xml", null);
+    OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.path, "publish\\patient-example.xml"), null);
     int e = errors(op);
     int w = warnings(op);
     int h = hints(op);
     Assert.assertTrue(e == 0);
-    Assert.assertTrue(w == 3);
+    Assert.assertTrue(w == 2);
     Assert.assertTrue(h == 0);
-    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+    if (!TestingUtilities.silent)
+      System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
   }
 
   @Test
   public static void testCurrentJson() throws Exception {
-    System.out.println("Validate patient-example.json in Current version");
+    if (TestingUtilities.path == null)
+      TestingUtilities.path = "C:\\work\\org.hl7.fhir\\build";
+    if (!TestingUtilities.silent)
+      System.out.println("Validate patient-example.json in Current version");
     ValidationEngine ve = new ValidationEngine();
-    ve.loadDefinitions("C:\\work\\org.hl7.fhir\\build\\publish");
+    ve.loadDefinitions(Utilities.path(TestingUtilities.path, "publish"));
     ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
-    OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir\\build\\publish\\patient-example.xml", null);
+    OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.path, "publish\\patient-example.xml"), null);
     int e = errors(op);
     int w = warnings(op);
     int h = hints(op);
     Assert.assertTrue(e == 0);
-    Assert.assertTrue(w == 3);
+    Assert.assertTrue(w == 2);
     Assert.assertTrue(h == 0);
-    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+    if (!TestingUtilities.silent)
+      System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
   }
 
   @Test
   public static void test160() throws Exception {
-    System.out.println("Validate patient-example.xml in v1.6.0 version");
+    if (nopast) {
+      Assert.assertTrue(true);
+      return;
+    }
+
+    if (!TestingUtilities.silent)
+      System.out.println("Validate patient-example.xml in v1.6.0 version");
     ValidationEngine ve = new ValidationEngine();
     ve.loadDefinitions("C:\\work\\org.hl7.fhir.2016Sep\\build\\publish");
     ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
@@ -54,14 +72,20 @@ public class ValidationEngineTests {
     int w = warnings(op);
     int h = hints(op);
     Assert.assertTrue(e == 0);
-    Assert.assertTrue(w == 3);
+    Assert.assertTrue(w == 2);
     Assert.assertTrue(h == 0);
-    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+    if (!TestingUtilities.silent)
+      System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
   }
 
   @Test
   public static void test140() throws Exception {
-    System.out.println("Validate patient-example.xml in v1.4.0 version");
+    if (nopast) {
+      Assert.assertTrue(true);
+      return;
+    }
+    if (!TestingUtilities.silent)
+      System.out.println("Validate patient-example.xml in v1.4.0 version");
     ValidationEngine ve = new ValidationEngine();
     ve.loadDefinitions("C:\\work\\org.hl7.fhir.2016May\\build\\publish");
     ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
@@ -71,70 +95,114 @@ public class ValidationEngineTests {
     int w = warnings(op);
     int h = hints(op);
     Assert.assertTrue(e == 0);
-    Assert.assertTrue(w == 2);
+    Assert.assertTrue(w == 1);
     Assert.assertTrue(h == 0);
-    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+    if (!TestingUtilities.silent)
+      System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
   }
 
   @Test
   public static void testCurrentDataElement() throws Exception {
-    System.out.println("Validate dataelement-example.xml in Current version");
+    if (TestingUtilities.path == null)
+      TestingUtilities.path = "C:\\work\\org.hl7.fhir\\build";
+    if (!TestingUtilities.silent)
+      System.out.println("Validate dataelement-example.xml in Current version");
     ValidationEngine ve = new ValidationEngine();
-    ve.loadDefinitions("C:\\work\\org.hl7.fhir\\build\\publish");
+    ve.loadDefinitions(Utilities.path(TestingUtilities.path, "publish"));
     ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
-    OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir\\build\\publish\\dataelement-example.xml", null);
+    OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.path, "publish\\dataelement-example.xml"), null);
     int e = errors(op);
     int w = warnings(op);
     int h = hints(op);
     Assert.assertTrue(e == 0);
     Assert.assertTrue(w == 1);
     Assert.assertTrue(h == 0);
-    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+    if (!TestingUtilities.silent)
+      System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
   }
 
   @Test
   public static void testCurrentDataElementLabMaster() throws Exception {
-    System.out.println("Validate dataelement-labtestmaster-example.xml in Current version");
+    if (TestingUtilities.path == null)
+      TestingUtilities.path = "C:\\work\\org.hl7.fhir\\build";
+    if (!TestingUtilities.silent)
+      System.out.println("Validate dataelement-labtestmaster-example.xml in Current version");
     ValidationEngine ve = new ValidationEngine();
-    ve.loadDefinitions("C:\\work\\org.hl7.fhir\\build\\publish");
+    ve.loadDefinitions(Utilities.path(TestingUtilities.path, "publish"));
     ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
-    OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir\\build\\publish\\dataelement-labtestmaster-example.xml", null);
+    OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.path, "publish\\dataelement-labtestmaster-example.xml"), null);
     int e = errors(op);
     int w = warnings(op);
     int h = hints(op);
     Assert.assertTrue(e == 0);
     Assert.assertTrue(w == 1);
     Assert.assertTrue(h == 0);
-    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+    if (!TestingUtilities.silent)
+      System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
   }
 
   @Test
   public static void testCurrentDaf() throws Exception {
-    System.out.println("Validate DAF patient-example.xml in Current version");
+    if (TestingUtilities.path == null)
+      TestingUtilities.path = "C:\\work\\org.hl7.fhir\\build";
+    if (!TestingUtilities.silent)
+      System.out.println("Validate DAF patient-example.xml in Current version");
     ValidationEngine ve = new ValidationEngine();
-    System.out.println("  .. load FHIR from C:\\work\\org.hl7.fhir\\build\\publish");
-    ve.loadDefinitions("C:\\work\\org.hl7.fhir\\build\\publish");
+    if (!TestingUtilities.silent)
+      System.out.println("  .. load FHIR from " +Utilities.path(TestingUtilities.path, "publish")+"publish");
+    ve.loadDefinitions(Utilities.path(TestingUtilities.path, "publish"));
     ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
-    System.out.println("  .. load IG from C:\\work\\org.hl7.fhir\\build\\guides\\daf2\\output");
-    ve.loadIg("C:\\work\\org.hl7.fhir\\build\\guides\\daf2\\output");
-    OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir\\build\\guides\\daf2\\output\\Patient-example.xml", null);
+    if (!TestingUtilities.silent)
+      System.out.println("  .. load IG from " +Utilities.path(TestingUtilities.path, "publish")+"guides\\daf2\\output");
+    ve.loadIg(Utilities.path(TestingUtilities.path, "guides\\daf2\\output"));
+    OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.path, "guides\\daf2\\output\\Patient-example.xml"), null);
     int e = errors(op);
     int w = warnings(op);
     int h = hints(op);
     Assert.assertTrue(e == 3);
     Assert.assertTrue(w == 0);
     Assert.assertTrue(h == 0);
-    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+    if (!TestingUtilities.silent)
+      System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+  }
+
+  @Test
+  public static void testTransform() throws Exception {
+    if (TestingUtilities.path == null)
+      TestingUtilities.path = "C:\\work\\org.hl7.fhir\\build";
+    if (!TestingUtilities.silent)
+      System.out.println("Transform CCDA");
+    ValidationEngine ve = new ValidationEngine();
+    if (!TestingUtilities.silent)
+      System.out.println("  .. load FHIR from " +Utilities.path(TestingUtilities.path, "publish"));
+    ve.loadDefinitions(Utilities.path(TestingUtilities.path, "publish"));
+    ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
+    if (!TestingUtilities.silent)
+      System.out.println("  .. load CCDA from " +Utilities.path(TestingUtilities.path, "guides\\ccda2\\cdalogical"));
+    ve.loadIg(Utilities.path(TestingUtilities.path, "guides\\ccda2\\cdalogical"));
+    if (!TestingUtilities.silent)
+      System.out.println("  .. load Maps from " +Utilities.path(TestingUtilities.path, "guides\\ccda2\\resources\\structuremap"));
+    ve.loadIg(Utilities.path(TestingUtilities.path, "guides\\ccda2\\resources\\structuremap"));
+    Resource r = ve.transform(Utilities.path(TestingUtilities.path, "guides\\ccda2\\cdalogical\\examples\\ccd.xml"), "http://hl7.org/fhir/StructureMap/cda");
+    if (!TestingUtilities.silent)
+      System.out.println("  .. done");
   }
 
   @Test
   public static void test140Telus() throws Exception {
-    System.out.println("Validate Telus Practitioner-example-practitioner.xml in 1.4.0");
+    if (nopast) {
+      Assert.assertTrue(true);
+      return;
+    }
+    if (!TestingUtilities.silent)
+      System.out.println("Validate Telus Practitioner-example-practitioner.xml in 1.4.0");
     ValidationEngine ve = new ValidationEngine();
-    System.out.println("  .. load FHIR from C:\\temp\\igpack\\igpack.zip");
+    if (!TestingUtilities.silent)
+      System.out.println("  .. load FHIR from C:\\temp\\igpack\\igpack.zip");
     ve.loadDefinitions("C:\\temp\\igpack");
     ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
-    System.out.println("  .. load IG from C:\\temp\\telus\\website");
+    if (!TestingUtilities.silent)
+      System.out.println("  .. load IG from C:\\temp\\telus\\website");
     ve.loadIg("C:\\temp\\telus\\website");
     OperationOutcome op = ve.validate("C:\\temp\\telus\\website\\Practitioner-example-practitioner.xml", null);
     int e = errors(op);
@@ -143,7 +211,8 @@ public class ValidationEngineTests {
     Assert.assertTrue(e == 0);
     Assert.assertTrue(w == 0);
     Assert.assertTrue(h == 3);
-    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+    if (!TestingUtilities.silent)
+      System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
   }
 
 
@@ -175,14 +244,15 @@ public class ValidationEngineTests {
   }
 
   public static void execute() throws Exception {
-    testCurrentXml();
-    testCurrentJson();
-    test160();
-    test140();
-    testCurrentDataElement();
-    testCurrentDataElementLabMaster();
-    testCurrentDaf();
-    test140Telus();
+//    testCurrentXml();
+//    testCurrentJson();
+//    test160();
+//    test140();
+//    testCurrentDataElement();
+//    testCurrentDataElementLabMaster();
+//    testCurrentDaf();
+//    test140Telus();
+    testTransform();
     System.out.println("Finished");
   }
 

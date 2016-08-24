@@ -332,7 +332,7 @@ public class IgSpreadsheetParser {
     else
       sd.setStatus(ConformanceResourceStatus.DRAFT);
 
-    new ProfileUtilities(context, null, null).setIds(sd, sd.getName());
+    new ProfileUtilities(context, null, null).setIds(sd, false);
     return sd;
   }
 
@@ -1074,7 +1074,7 @@ public class IgSpreadsheetParser {
     ProfileUtilities utils = new ProfileUtilities(this.context, issues, null);
     utils.sortDifferential(base, ex, "extension "+ex.getUrl(), errors);
     assert(errors.size() == 0);
-    utils.setIds(ex, ex.getName());
+    utils.setIds(ex, false);
     return row;
   }
 

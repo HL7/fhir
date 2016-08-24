@@ -19,6 +19,7 @@ import javax.xml.transform.sax.SAXSource;
 
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
+import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.utils.XmlLocationAnnotator;
 import org.hl7.fhir.utilities.CSFile;
@@ -42,7 +43,9 @@ import com.google.gson.JsonSyntaxException;
 public class TestingUtilities {
   private static final boolean SHOW_DIFF = true;
   
-	static public SimpleWorkerContext context;
+	static public IWorkerContext context;
+	static public boolean silent;
+	static public String path;
 
 	public static String checkXMLIsSame(String f1, String f2) throws Exception {
 		String result = compareXml(f1, f2);

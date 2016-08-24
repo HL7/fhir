@@ -2106,14 +2106,14 @@ public class SpreadsheetParser {
     ProfileUtilities utils = new ProfileUtilities(this.context, issues, pkp);
     gen.convertElements(exe, ex, null);
     ex.getDifferential().getElementFirstRep().getType().clear();
-    utils.setIds(ex, ex.getName());
+    utils.setIds(ex, false);
     
     StructureDefinition base = definitions != null ? definitions.getSnapShotForType("Extension") : this.context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/Extension");
     List<String> errors = new ArrayList<String>();
     utils.sortDifferential(base, ex, "extension "+ex.getUrl(), errors);
     assert(errors.size() == 0);
     utils.generateSnapshot(base, ex, ex.getUrl(), ex.getName());
-    utils.setIds(ex, ex.getName());
+    utils.setIds(ex, true);
 	  this.context.seeExtensionDefinition("http://hl7.org/fhir", ex);
 	  return row;
 	}

@@ -563,7 +563,8 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     return false;
   }
 
-  public String getVersionRevision() {
+  @Override
+  public String getVersion() {
     return version+"-"+revision;
   }
 

@@ -18,6 +18,7 @@ import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.sax.SAXSource;
 
 import org.apache.commons.codec.binary.Base64;
+import org.hl7.fhir.dstu2.utils.IWorkerContext;
 import org.hl7.fhir.dstu2.utils.SimpleWorkerContext;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.TextFile;
@@ -40,7 +41,7 @@ import com.google.gson.JsonSyntaxException;
 public class TestingUtilities {
   private static final boolean SHOW_DIFF = true;
   
-	static public SimpleWorkerContext context;
+	static public IWorkerContext context;
 
 	public static String checkXMLIsSame(String f1, String f2) throws Exception {
 		String result = compareXml(f1, f2);

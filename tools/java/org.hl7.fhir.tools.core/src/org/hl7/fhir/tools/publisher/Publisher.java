@@ -118,6 +118,8 @@ import org.hl7.fhir.definitions.parsers.SourceParser;
 import org.hl7.fhir.definitions.validation.ConceptMapValidator;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
+import org.hl7.fhir.dstu3.test.TestingUtilities;
+import org.hl7.fhir.dstu3.test.ValidationEngineTests;
 import org.hl7.fhir.dstu3.elementmodel.Manager;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
@@ -197,6 +199,7 @@ import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
+import org.hl7.fhir.dstu3.test.InstanceValidatorTests;
 import org.hl7.fhir.dstu3.utils.FluentPathEngine;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.LogicalModelUtilities;
@@ -276,6 +279,9 @@ import com.google.gson.JsonObject;
 import org.everit.json.schema.loader.SchemaLoader;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
 
 /**
  * This is the entry point for the publication method for FHIR The general order
@@ -5110,6 +5116,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void validationProcess() throws Exception {
 
+    runJUnitTests();
     page.clean();
     page.log("Validating Examples", LogMessageType.Process);
     ExampleInspector ei = new ExampleInspector(page.getWorkerContext(), page, page.getFolders().dstDir, Utilities.path(page.getFolders().rootDir, "tools", "schematron"), page.getValidationErrors(), page.getDefinitions().getResources());
@@ -5172,6 +5179,24 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     ei.summarise();
     miscValidation();
+  }
+
+  private void runJUnitTests() {
+    TestingUtilities.context = page.getWorkerContext();
+    TestingUtilities.silent = true;
+    TestingUtilities.path = page.getFolders().rootDir;
+    ValidationEngineTests.nopast = true;
+    
+    runJUnitClass(InstanceValidatorTests.class);
+    runJUnitClass(ValidationEngineTests.class);
+  }
+
+  private void runJUnitClass(Class<?> clzz) {
+    page.log("Run JUnit: "+clzz.getName(), LogMessageType.Process);
+    Result result = JUnitCore.runClasses(clzz);
+    for (Failure failure : result.getFailures()) {
+      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.EXCEPTION, -1, -1, clzz.getName(), failure.toString(), IssueSeverity.ERROR));
+    }
   }
 
   private void miscValidation() throws Exception {

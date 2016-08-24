@@ -34,6 +34,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -71,7 +72,9 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.JsonParser;
+import org.hl7.fhir.dstu3.formats.ParserFactory;
 import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.Bundle;
@@ -82,11 +85,15 @@ import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.Questionnaire;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.ResourceFactory;
 import org.hl7.fhir.dstu3.model.ResourceType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpansionCache;
+import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
+import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
 import org.hl7.fhir.dstu3.utils.XmlLocationAnnotator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.SchemaInputSource;
@@ -126,7 +133,8 @@ import com.google.gson.JsonObject;
  *    validator.loadIg(src);
  *      - call this any number of times for the Implementation Guide of interest. This is also a reference
  *        to the igpack.zip for the implementation guide - same rules as above
- *        the version of the IGPack must match that of the spec (todo: enforce this?)
+ *        the version of the IGPack must match that of the spec 
+ *        Alternatively it can point ot a local folder that contains conformance resources.
  *         
  *    validator.loadQuestionnaire(src)
  *      - url or filename of a questionnaire to load. Any loaded questionnaires will be used while validating
@@ -143,7 +151,8 @@ import com.google.gson.JsonObject;
  *        
  *        if the source is provided as byte[] or stream, you need to provide a format too, though you can 
  *        leave that as null, and the validator will guess
- *         
+ *
+ * 3. Or, instead of validating, transform        
  * @author Grahame Grieve
  *
  */
@@ -199,8 +208,8 @@ public class ValidationEngine {
         Map<String, byte[]> res = new HashMap<String, byte[]>();
         for (File ff : f.listFiles()) {
           FhirFormat fmt = checkIsResource(ff.getAbsolutePath());
-          if (ff != null) {
-            res.put(Utilities.changeFileExt(ff.getName(), fmt.getExtension()), TextFile.fileToBytes(ff.getAbsolutePath()));
+          if (fmt != null) {
+            res.put(Utilities.changeFileExt(ff.getName(), "."+fmt.getExtension()), TextFile.fileToBytes(ff.getAbsolutePath()));
           }
         }
         return res;
@@ -217,20 +226,34 @@ public class ValidationEngine {
   }
 
   private FhirFormat checkIsResource(String path) {
-    try {
-      Manager.parse(context, new FileInputStream(path), FhirFormat.XML);
-      return FhirFormat.XML;
-    } catch (Exception e) {
+    String ext = Utilities.getFileExtension(path);
+    if (!Utilities.existsInList(ext, ".json", ".ttl", ".map")) {
+      try {
+        Manager.parse(context, new FileInputStream(path), FhirFormat.XML);
+        return FhirFormat.XML;
+      } catch (Exception e) {
+      }
     }
-    try {
-      Manager.parse(context, new FileInputStream(path), FhirFormat.JSON);
-      return FhirFormat.JSON;
-    } catch (Exception e) {
+    if (!Utilities.existsInList(ext, ".xml", ".ttl", ".map")) {
+      try {
+        Manager.parse(context, new FileInputStream(path), FhirFormat.JSON);
+        return FhirFormat.JSON;
+      } catch (Exception e) {
+      }
     }
-    try {
-      Manager.parse(context, new FileInputStream(path), FhirFormat.TURTLE);
-      return FhirFormat.TURTLE;
-    } catch (Exception e) {
+    if (!Utilities.existsInList(ext, ".json", ".xml", ".map")) {
+      try {
+        Manager.parse(context, new FileInputStream(path), FhirFormat.TURTLE);
+        return FhirFormat.TURTLE;
+      } catch (Exception e) {
+      }
+    }
+    if (!Utilities.existsInList(ext, ".json", ".xml", ".ttl")) {
+      try {
+        new StructureMapUtilities(context, null, null).parse(TextFile.fileToString(path));
+        return FhirFormat.TEXT;
+      } catch (Exception e) {
+      }
     }
     return null;
   }
@@ -303,24 +326,33 @@ public class ValidationEngine {
   }
 
 
-  public OperationOutcome validate(String source, List<String> profiles) throws Exception {
-    Map<String, byte[]> s = loadSource(source, null);
-    if (s.size() != 1)
-      throw new Exception("Unable to find a single resource to validate");
+  private class Content {
     byte[] focus = null;
     FhirFormat cntType = null;
+  }
+  
+  public Content loadContent(String source, String opName) throws Exception {
+    Map<String, byte[]> s = loadSource(source, null);
+    Content res = new Content();
+    if (s.size() != 1)
+      throw new Exception("Unable to find a single resource to "+opName);
     for (Entry<String, byte[]> t: s.entrySet()) {
-      focus = t.getValue();
+      res.focus = t.getValue();
       if (t.getKey().endsWith(".json"))
-        cntType = FhirFormat.JSON; 
+        res.cntType = FhirFormat.JSON; 
       else if (t.getKey().endsWith(".xml"))
-        cntType = FhirFormat.XML; 
+        res.cntType = FhirFormat.XML; 
       else if (t.getKey().endsWith(".ttl"))
-        cntType = FhirFormat.TURTLE; 
+        res.cntType = FhirFormat.TURTLE; 
       else
         throw new Exception("Todo: Determining resource type is not yet done");
     }
-    return validate(focus, cntType, profiles);
+    return res;
+  }
+
+  public OperationOutcome validate(String source, List<String> profiles) throws Exception {
+    Content cnt = loadContent(source, "validate");
+    return validate(cnt.focus, cnt.cntType, profiles);
   }
   
   public OperationOutcome validate(byte[] source, FhirFormat cntType, List<String> profiles) throws Exception {
@@ -386,4 +418,23 @@ public class ValidationEngine {
   public InstanceValidator getValidator() {
     return validator;
   }
+
+  public Resource transform(String source, String map) throws Exception {
+    Content cnt = loadContent(source, "validate");
+    return transform(cnt.focus, cnt.cntType, map);
+  }
+  
+  public Resource transform(byte[] source, FhirFormat cntType, String mapUri) throws Exception {
+    StructureMapUtilities scu = new StructureMapUtilities(context, new HashMap<String, StructureMap>(), null);
+
+    org.hl7.fhir.dstu3.elementmodel.Element src = Manager.parse(context, new ByteArrayInputStream(source), cntType); 
+    StructureMap map = scu.getLibrary().get(mapUri);
+    if (map == null)
+      throw new Error("Unable to find map "+mapUri);
+    
+    Resource dst = ResourceFactory.createResource("Bundle");
+    scu.transform(null, src, map, dst);
+    return dst;
+  }
+
 }

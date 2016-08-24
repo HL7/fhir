@@ -179,7 +179,7 @@ public class IgParser {
         } else if (rt == ResourceType.StructureDefinition) {
           StructureDefinition sd;
           sd = (StructureDefinition) new XmlParser().parse(new CSFileInputStream(fn));
-          new ProfileUtilities(context, null, pkp).setIds(sd, sd.getId());
+          new ProfileUtilities(context, null, pkp).setIds(sd, false);
           if (sd.getKind() == StructureDefinitionKind.LOGICAL) {
             fn = new CSFile(Utilities.path(myRoot, r.getSourceUriType().asStringValue()));
             LogicalModel lm = new LogicalModel(sd);

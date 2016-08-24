@@ -542,7 +542,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       loadValidationPack();
       
     context.setLogger(logger);
-    log("Definitions "+context.getVersionRevision());
+    log("Definitions "+context.getVersion());
     context.setAllowLoadingDuplicates(true);
     context.setExpandCodesLimit(1000);
     log("Connect to Terminology Server at "+txServer);
@@ -1378,6 +1378,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     dlog("Check Snapshot for "+sd.getUrl());
     ProfileUtilities utils = new ProfileUtilities(context, f.getErrors(), igpkp);
     StructureDefinition base = sd.hasBaseDefinition() ? fetchSnapshotted(sd.getBaseDefinition()) : null;
+    utils.setIds(sd, true);
     if (sd.getKind() != StructureDefinitionKind.LOGICAL) {
       if (!sd.hasSnapshot()) {
         dlog("Generate Snapshot for "+sd.getUrl());
@@ -1387,7 +1388,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         utils.sortDifferential(base, sd, "profile "+sd.getUrl(), errors);
         for (String s : errors)
           f.getErrors().add(new ValidationMessage(Source.ProfileValidator, IssueType.INVALID, sd.getUrl(), s, IssueSeverity.ERROR));
-        utils.setIds(sd, sd.getName());
+        utils.setIds(sd, true);
 
         String p = sd.getDifferential().getElement().get(0).getPath();
         if (p.contains(".")) {
@@ -1399,7 +1400,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       }
     } else { //sd.getKind() == StructureDefinitionKind.LOGICAL
       dlog("Generate Snapshot for Logical Model "+sd.getUrl());
-      if (base != null && !sd.hasSnapshot()) {
+      if (!sd.hasSnapshot()) {
         utils.populateLogicalSnapshot(sd);
         changed = true;
       }
