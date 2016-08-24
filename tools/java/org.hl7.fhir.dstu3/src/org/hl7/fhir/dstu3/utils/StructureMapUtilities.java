@@ -853,10 +853,10 @@ public class StructureMapUtilities {
 	  String name = null;
     for (StructureMapGroupInputComponent inp : g.getInput()) {
       if (inp.getMode() == mode)
-        if (name == null)
+        if (name != null)
           throw new DefinitionException("This engine does not support multiple source inputs");
         else
-          name = g.getName();
+          name = inp.getName();
     }
     return name == null ? def : name;
   }
