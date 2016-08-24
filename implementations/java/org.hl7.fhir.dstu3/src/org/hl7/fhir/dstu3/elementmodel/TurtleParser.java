@@ -287,14 +287,6 @@ public class TurtleParser extends ParserBase {
 
 		for (Element child : e.getChildren()) {
 			composeElement(section, subject, child, null);
-      if("Reference".equals(child.getType())) {
-        String refURI = getReferenceURI(child.getChildValue("reference"));
-        if (refURI != null) {
-          String uriType = getURIType(refURI);
-          if(uriType != null)
-            section.triple(refURI, "a", "fhir:" + uriType);
-        }
-      }
 		}
   }
   
@@ -370,6 +362,15 @@ public class TurtleParser extends ParserBase {
     if ("Reference".equals(element.getType()))
       decorateReference(t, element);
 	  		
+    if("Reference".equals(element.getType())) {
+      String refURI = getReferenceURI(element.getChildValue("reference"));
+      if (refURI != null) {
+        String uriType = getURIType(refURI);
+        if(uriType != null)
+          section.triple(refURI, "a", "fhir:" + uriType);
+      }
+    }
+
 		for (Element child : element.getChildren()) {
       if ("xhtml".equals(child.getType())) {
         String childfn = getFormalName(child);

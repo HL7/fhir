@@ -10,7 +10,7 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.StringUtils;
 
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander;
-import org.stringtemplate.v4.*;
+import org.stringtemplate.v4.ST;
 
 public class ShExGenerator {
 
@@ -35,7 +35,7 @@ public class ShExGenerator {
           "BASE <http://hl7.org/fhir/shape/>\n$start$";
 
   // Start template for single (open) entry
-  private static String START_TEMPLATE = "\n\nstart=<$id$> AND {fhir:nodeRole [fhir:treeRoot]}\n";
+  private static String START_TEMPLATE = "\n\nstart=@<$id$> AND {fhir:nodeRole [fhir:treeRoot]}\n";
 
   // Start template for complete (closed) model
   private static String ALL_START_TEMPLATE = "\n\nstart=<All>\n";
@@ -141,8 +141,13 @@ public class ShExGenerator {
                                                    "\n    fhir:index xsd:integer?" +
                                                    "\n}";
 
+  private static String TARGET_REFERENCE_TEMPLATE = "\n<$refType$> {" +
+          "\n    a [fhir:$refType$];" +
+          "\n    fhir:nodeRole [fhir:treeRoot]?" +
+          "\n}";
+
   // A value set definition
-  private static String VALUE_SET_DEFINITION = "# $comment$\n@$vsuri$$val_list$\n";
+  private static String VALUE_SET_DEFINITION = "# $comment$\n$vsuri$$val_list$\n";
 
 
   /**
@@ -256,9 +261,11 @@ public class ShExGenerator {
     }
 
     shapeDefinitions.append("\n#---------------------- Reference Types -------------------\n");
-    for(String r: references)
+    for(String r: references) {
       shapeDefinitions.append("\n").append(tmplt(TYPED_REFERENCE_TEMPLATE).add("refType", r).render()).append("\n");
-
+      if (!"Resource".equals(r))
+        shapeDefinitions.append("\n").append(tmplt(TARGET_REFERENCE_TEMPLATE).add("refType", r).render()).append("\n");
+    }
     shex_def.add("shapeDefinitions", shapeDefinitions);
 
     if(completeModel && known_resources.size() > 0) {
@@ -293,6 +300,7 @@ public class ShExGenerator {
     // Resources are either incomplete items or consist of everything that is defined as a resource (completeModel)
     if("Resource".equals(sd.getName())) {
       shape_defn = tmplt(RESOURCE_SHAPE_TEMPLATE);
+      known_resources.add(sd.getName());
     } else {
       shape_defn = tmplt(SHAPE_DEFINITION_TEMPLATE).add("id", sd.getId());
       if (sd.getKind().name().equals("RESOURCE")) {
@@ -405,7 +413,7 @@ public class ShExGenerator {
       tmplt.remove("comment");
       sep = new char[nspaces];
       Arrays.fill(sep, ' ');
-      ArrayList<String> comment_lines = split_text(ed.getShort(), MAX_CHARS);
+      ArrayList<String> comment_lines = split_text(ed.getShort().replace("\n", " "), MAX_CHARS);
       StringBuilder comment = new StringBuilder("# ");
       char[] indent = new char[COMMENT_COL];
       Arrays.fill(indent, ' ');
@@ -711,7 +719,7 @@ public class ShExGenerator {
       for(ValueSet.ValueSetExpansionContainsComponent vsec : vse.getValueset().getExpansion().getContains())
         valid_codes.add("\"" + vsec.getCode() + "\"");
     }
-    return vsd.add("val_list", valid_codes.size() > 0? " = [" + StringUtils.join(valid_codes, " ") + ']' : " EXTERNAL").render();
+    return vsd.add("val_list", valid_codes.size() > 0? " [" + StringUtils.join(valid_codes, " ") + ']' : " EXTERNAL").render();
   }
 
 

@@ -399,7 +399,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   private ValidationResult serverValidateCode(Parameters pin, boolean doCache) throws IOException {
     if (noTerminologyServer)
-      return new ValidationResult(null);
+      return new ValidationResult(null, null, ExpansionErrorClass.NOSERVICE);
     String cacheName = doCache ? generateCacheName(pin) : null;
     ValidationResult res = loadFromCache(cacheName);
     if (res != null)
