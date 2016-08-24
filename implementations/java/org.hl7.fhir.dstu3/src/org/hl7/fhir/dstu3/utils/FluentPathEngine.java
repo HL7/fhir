@@ -1006,6 +1006,7 @@ public class FluentPathEngine {
         default:
           throw new PathEngineException("Unknown character escape \\"+s.charAt(i));
         }
+        i++;
       } else {
         b.append(ch);
         i++;

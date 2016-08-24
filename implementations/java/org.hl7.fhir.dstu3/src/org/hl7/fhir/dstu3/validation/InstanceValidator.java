@@ -2737,7 +2737,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           msg = ex.getMessage(); 
         }
         if (!ok) {
+          try {
           ok = fpe.evaluateToBoolean(resource, element, n);
+          } catch (PathEngineException e) {
+            throw new FHIRException("Problem processing expression "+inv.getExpression() +" in profile " + profile.getUrl() + " path " + path + ": " + e.getMessage());
+          }
           if (!Utilities.noString(msg))
             msg = " ("+msg+")";
           if (inv.getSeverity() == ConstraintSeverity.ERROR)
