@@ -444,7 +444,8 @@ public class StructureMapUtilities {
 
 	private ConceptMapGroupComponent getGroup(ConceptMap map, String srcs, String tgts) {
 	  for (ConceptMapGroupComponent grp : map.getGroup()) {
-	    if (grp.getSource().equals(srcs) && grp.getTarget().equals(tgts))
+	    if (grp.getSource().equals(srcs)) 
+	      if ((tgts == null && !grp.hasTarget()) || (tgts != null && tgts.equals(grp.getTarget())))
 	      return grp;
 	  }
 	  ConceptMapGroupComponent grp = map.addGroup(); 
@@ -852,10 +853,10 @@ public class StructureMapUtilities {
 	  String name = null;
     for (StructureMapGroupInputComponent inp : g.getInput()) {
       if (inp.getMode() == mode)
-        if (name == null)
+        if (name != null)
           throw new DefinitionException("This engine does not support multiple source inputs");
         else
-          name = g.getName();
+          name = inp.getName();
     }
     return name == null ? def : name;
 	}
@@ -1171,6 +1172,7 @@ public class StructureMapUtilities {
 		} else
 			throw new FHIRException("Unable to translate source "+source.fhirType());
 
+		String su = conceptMapUrl;
 		if (conceptMapUrl.equals("http://hl7.org/fhir/ConceptMap/special-oid2uri")) {
 			String uri = worker.oid2Uri(src.getCode());
 			if (uri == null)
@@ -1183,8 +1185,10 @@ public class StructureMapUtilities {
 			ConceptMap cmap = null;
 			if (conceptMapUrl.startsWith("#")) {
 				for (Resource r : map.getContained()) {
-					if (r instanceof ConceptMap && ((ConceptMap) r).getId().equals(conceptMapUrl.substring(1)))
+					if (r instanceof ConceptMap && ((ConceptMap) r).getId().equals(conceptMapUrl.substring(1))) {
 						cmap = (ConceptMap) r;
+						su = map.getUrl()+conceptMapUrl;
+					}
 				}
 			} else
 				cmap = worker.fetchResource(ConceptMap.class, conceptMapUrl);
@@ -1211,12 +1215,12 @@ public class StructureMapUtilities {
 				if (list.size() == 0)
 					done = true;
 				else if (list.get(0).comp.getTarget().size() == 0)
-					message = "Concept map "+conceptMapUrl+" found no translation for "+src.getCode();
+					message = "Concept map "+su+" found no translation for "+src.getCode();
 				else {
 					for (TargetElementComponent tgt : list.get(0).comp.getTarget()) {
-						if (tgt.getEquivalence() == ConceptMapEquivalence.EQUAL || tgt.getEquivalence() == ConceptMapEquivalence.EQUIVALENT || tgt.getEquivalence() == ConceptMapEquivalence.WIDER) {
+						if (tgt.getEquivalence() == null || tgt.getEquivalence() == ConceptMapEquivalence.EQUAL || tgt.getEquivalence() == ConceptMapEquivalence.EQUIVALENT || tgt.getEquivalence() == ConceptMapEquivalence.WIDER) {
 							if (done) {
-								message = "Concept map "+conceptMapUrl+" found multiple matches for "+src.getCode();
+								message = "Concept map "+su+" found multiple matches for "+src.getCode();
 								done = false;
 							} else {
 								done = true;
@@ -1227,7 +1231,7 @@ public class StructureMapUtilities {
 						}
 					}
 					if (!done)
-						message = "Concept map "+conceptMapUrl+" found no usable translation for "+src.getCode();
+						message = "Concept map "+su+" found no usable translation for "+src.getCode();
 				}
 			}
 			if (!done) 

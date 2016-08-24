@@ -202,9 +202,9 @@ public class ValidationEngineTests {
     ve.loadDefinitions("C:\\temp\\igpack");
     ve.connectToTSServer("http://fhir3.healthintersections.com.au/open");
     if (!TestingUtilities.silent)
-    System.out.println("  .. load IG from C:\\temp\\telus\\website");
-    ve.loadIg("C:\\temp\\telus\\website");
-    OperationOutcome op = ve.validate("C:\\temp\\telus\\website\\Practitioner-example-practitioner.xml", null);
+      System.out.println("  .. load IG from C:\\temp\\telus");
+    ve.loadIg("C:\\temp\\telus");
+    OperationOutcome op = ve.validate("C:\\temp\\telus\\example-a1-101-e110.xml", null);
     int e = errors(op);
     int w = warnings(op);
     int h = hints(op);
@@ -252,8 +252,8 @@ public class ValidationEngineTests {
 //    self.testCurrentDataElement();
 //    self.testCurrentDataElementLabMaster();
 //    self.testCurrentDaf();
-//    self.test140Telus();
-    self.testTransform();
+    self.test140Telus();
+//    self.testTransform();
     System.out.println("Finished");
   }
 

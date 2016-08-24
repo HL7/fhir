@@ -227,34 +227,35 @@ public class ValidationEngine {
 
   private FhirFormat checkIsResource(String path) {
     String ext = Utilities.getFileExtension(path);
-    if (!Utilities.existsInList(ext, "json", "ttl", "map")) {
+    if (Utilities.existsInList(ext, "xml")) 
+      return FhirFormat.XML;
+    if (Utilities.existsInList(ext, "json")) 
+      return FhirFormat.JSON;
+    if (Utilities.existsInList(ext, "ttl")) 
+      return FhirFormat.TURTLE;
+    if (Utilities.existsInList(ext, "map")) 
+      return FhirFormat.TEXT;
+
     try {
       Manager.parse(context, new FileInputStream(path), FhirFormat.XML);
       return FhirFormat.XML;
     } catch (Exception e) {
   }
-    }
-    if (!Utilities.existsInList(ext, "xml", "ttl", "map")) {
     try {
       Manager.parse(context, new FileInputStream(path), FhirFormat.JSON);
       return FhirFormat.JSON;
     } catch (Exception e) {
   }
-    }
-    if (!Utilities.existsInList(ext, "json", "xml", "map")) {
     try {
       Manager.parse(context, new FileInputStream(path), FhirFormat.TURTLE);
       return FhirFormat.TURTLE;
     } catch (Exception e) {
   }
-    }
-    if (!Utilities.existsInList(ext, "json", "xml", "ttl")) {
       try {
         new StructureMapUtilities(context, null, null).parse(TextFile.fileToString(path));
         return FhirFormat.TEXT;
       } catch (Exception e) {
       }
-    }
     return null;
 	}
 
@@ -291,6 +292,7 @@ public class ValidationEngine {
     for (Entry<String, byte[]> t : source.entrySet()) {
       String fn = t.getKey();
       Resource res = null;
+      try { 
       if (fn.endsWith(".xml"))
         res = new XmlParser().parse(t.getValue());
       else if (fn.endsWith(".json"))
@@ -299,6 +301,9 @@ public class ValidationEngine {
 //        res = new RdfParser().parse(t.getValue());
       else if (fn.endsWith(".txt"))
         res = new StructureMapUtilities(context, null, null).parse(TextFile.bytesToString(t.getValue()));
+      } catch (Exception e) {
+        throw new Exception("Error parsing "+fn+": "+e.getMessage(), e);
+      }
 
       if (res != null && res instanceof BaseConformance) {
         context.seeResource(((BaseConformance) res).getUrl(), res);

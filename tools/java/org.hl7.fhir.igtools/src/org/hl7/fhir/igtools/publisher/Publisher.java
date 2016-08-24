@@ -1408,28 +1408,36 @@ public class Publisher implements IWorkerContext.ILoggingService {
         changed = true;
       }
     }
-    FluentPathEngine fpe = new FluentPathEngine(context);
-    for (ElementDefinition ed : sd.getSnapshot().getElement()) {
-      for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
-        if (inv.hasExpression()) {
-          try {
-            ExpressionNode n = (ExpressionNode) inv.getUserData("validator.expression.cache");
-            if (n == null) {
-              n = fpe.parse(inv.getExpression());
-              inv.setUserData("validator.expression.cache", n);
-            }
-            fpe.check(null, sd.getKind() == StructureDefinitionKind.RESOURCE ?  sd.getType() : "DomainResource", ed.getPath(), n);
-          } catch (Exception e) {
-            f.getErrors().add(new ValidationMessage(Source.ProfileValidator, IssueType.INVALID, sd.getUrl()+":"+ed.getPath()+":"+inv.getKey(), e.getMessage(), IssueSeverity.ERROR));
-          }
-        }
-      }
-    }
+    validateExpressions(f, sd);
     if (changed || (!r.getElement().hasChild("snapshot") && sd.hasSnapshot()))
       r.setElement(convertToElement(sd));
     r.setSnapshotted(true);
     dlog("Context.See "+sd.getUrl());
     context.seeResource(sd.getUrl(), sd);
+  }
+
+  private void validateExpressions(FetchedFile f, StructureDefinition sd) {
+    FluentPathEngine fpe = new FluentPathEngine(context);
+    for (ElementDefinition ed : sd.getSnapshot().getElement()) {
+      for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
+        validateExpression(f, sd, fpe, ed, inv);
+      }
+    }
+  }
+
+  private void validateExpression(FetchedFile f, StructureDefinition sd, FluentPathEngine fpe, ElementDefinition ed, ElementDefinitionConstraintComponent inv) {
+    if (inv.hasExpression()) {
+      try {
+        ExpressionNode n = (ExpressionNode) inv.getUserData("validator.expression.cache");
+        if (n == null) {
+          n = fpe.parse(inv.getExpression());
+          inv.setUserData("validator.expression.cache", n);
+        }
+        fpe.check(null, sd.getKind() == StructureDefinitionKind.RESOURCE ?  sd.getType() : "DomainResource", ed.getPath(), n);
+      } catch (Exception e) {
+        f.getErrors().add(new ValidationMessage(Source.ProfileValidator, IssueType.INVALID, sd.getUrl()+":"+ed.getPath()+":"+inv.getKey(), e.getMessage(), IssueSeverity.ERROR));
+      }
+    }
   }
 
   private StructureDefinition fetchSnapshotted(String url) throws Exception {
