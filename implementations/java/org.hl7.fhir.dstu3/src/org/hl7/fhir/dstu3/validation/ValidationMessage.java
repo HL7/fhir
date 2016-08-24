@@ -29,6 +29,8 @@ package org.hl7.fhir.dstu3.validation;
 
  */
 
+import java.util.Comparator;
+import java.util.Formatter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
@@ -38,7 +40,7 @@ import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
 
-public class ValidationMessage 
+public class ValidationMessage implements Comparator<ValidationMessage>, Comparable<ValidationMessage>
 {
   public enum Source {
     ExampleValidator, 
@@ -284,6 +286,21 @@ public class ValidationMessage
     return b.build();
   }
 
+  @Override
+  public boolean equals(Object o) {
+    return this.getMessage().equals(((ValidationMessage)o).getMessage()) && this.getLocation().equals(((ValidationMessage)o).getLocation());
+  }
   
+  @Override
+  public int compare(ValidationMessage x, ValidationMessage y) {
+    String sx = x.getLevel().getDisplay() + x.getType().getDisplay() + String.format("%06d", x.getLine()) + x.getMessage();
+    String sy = y.getLevel().getDisplay() + y.getType().getDisplay() + String.format("%06d", y.getLine()) + y.getMessage();
+    return sx.compareTo(sy);
+  }  
+  
+  @Override
+  public int compareTo(ValidationMessage y) {
+    return compare(this, y);
+  }
   
 }

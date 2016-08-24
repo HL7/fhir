@@ -97,15 +97,15 @@ public class Validator {
       System.out.println("-ig [file|url]: an IG or profile definition to load. Can be the URL of an implementation guide,");
       System.out.println("     or a direct reference to the igpack.zip for a built implementation guide");
       System.out.println("     or a local folder that contains a set of conformance resources to load");
-      System.out.println("     no default value. This parameter can only appear any number of times");
+      System.out.println("     no default value. This parameter can appear any number of times");
       System.out.println("-tx [url]: the [base] url of a FHIR terminology service");
       System.out.println("     Default value is http://fhir3.healthintersections.com.au/open");
       System.out.println("     To run without terminology value, specific n/a as the URL");
       System.out.println("-profile [url]: a canonical URL to validate against (same as if it was specified in Resource.meta.profile)");
-      System.out.println("     no default value. This parameter can only appear any number of times");
+      System.out.println("     no default value. This parameter can appear any number of times");
       System.out.println("-questionnaire [file|url}: the location of a questionnaire. If provided, then the validator will validate");
       System.out.println("     any QuestionnaireResponse that claims to match the Questionnaire against it");
-      System.out.println("     no default value. This parameter can only appear any number of times");
+      System.out.println("     no default value. This parameter can appear any number of times");
       System.out.println("-output [file]: a filename for the results (OperationOutcome)");
       System.out.println("     Default: results are sent to the std out.");
       System.out.println("-native: use schema for validation as well");
@@ -136,30 +136,33 @@ public class Validator {
       boolean transform = false;
       String map = null;
       String output = null;
+      List<String> inputs= new ArrayList<String>();
       
       // load the parameters - so order doesn't matter
       for (int i = 1; i < args.length; i++) {
         if (args[i].equals("-defn"))
-          definitions = args[i+1];
-        if (args[i].equals("-output"))
-          output = args[i+1];
-        if (args[i].equals("-profile"))
-          profiles.add(args[i+1]);
-        if (args[i].equals("-questionnaire"))
-          questionnaires.add(args[i+1]);
-        if (args[i].equals("-native"))
+          definitions = args[++i];
+        else if (args[i].equals("-output"))
+          output = args[++i];
+        else if (args[i].equals("-profile"))
+          profiles.add(args[++i]);
+        else if (args[i].equals("-questionnaire"))
+          questionnaires.add(args[++i]);
+        else if (args[i].equals("-native"))
           doNative = true;
-        if (args[i].equals("-transform"))
+        else if (args[i].equals("-transform"))
           transform = true;
-        if (args[i].equals("-tx"))
-          txServer = "n/a".equals(args[i+1]) ? null : args[i+1];
-        if (args[i].equals("-ig"))
-          igs.add(args[i+1]);
-        if (args[i].equals("-map"))
+        else if (args[i].equals("-tx"))
+          txServer = "n/a".equals(args[++i]) ? null : args[i];
+        else if (args[i].equals("-ig"))
+          igs.add(args[++i]);
+        else if (args[i].equals("-map"))
           if (map == null)
-            map = args[i+1];
+            map = args[++i];
           else
             throw new Exception("Can only nominate a single -map parameter");
+        else
+          inputs.add(args[i]);
       }
       if  (transform && txServer == null)
         throw new Exception("Must provide a terminology server when doing a transform");
@@ -195,8 +198,9 @@ public class Validator {
       } else {
         OperationOutcome op = validator.validate(args[0], profiles);
         if (output == null) {
-          System.out.println("Validating "+args[0]+": "+Integer.toString(validator.getMessages().size())+" messages");
-          for (ValidationMessage v : validator.getMessages()) {
+          List <ValidationMessage> messages = validator.getFilteredMessages();
+          System.out.println("Validating "+args[0]+": "+Integer.toString(messages.size())+" messages");
+          for (ValidationMessage v : messages) {
             System.out.println(v.summary());
           }
           int count = 0;

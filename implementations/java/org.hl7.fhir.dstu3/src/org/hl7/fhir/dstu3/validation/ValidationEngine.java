@@ -413,9 +413,19 @@ public class ValidationEngine {
     return messages;
 	}
 
+  public List<ValidationMessage> getFilteredMessages() {
+    List<ValidationMessage> filteredValidation = new ArrayList<ValidationMessage>();
+    for (ValidationMessage e : getMessages()) {
+      if (!filteredValidation.contains(e))
+        filteredValidation.add(e);
+    }
+    filteredValidation.sort(null);
+    return filteredValidation;
+  }
+  
   private OperationOutcome getOutcome() throws DefinitionException {
     OperationOutcome op = new OperationOutcome();
-    for (ValidationMessage vm : messages) {
+    for (ValidationMessage vm : getFilteredMessages()) {
       op.getIssue().add(vm.asIssue(op));
     }
     new NarrativeGenerator("", "", context).generate(op);
