@@ -640,6 +640,13 @@ type Error struct {
 	OperationOutcome *models.OperationOutcome
 }
 
+func (e *Error) Error() string {
+	if e.OperationOutcome == nil {
+		return fmt.Sprintf("HTTP %d", e.HTTPStatus)
+	}
+	return fmt.Sprintf("HTTP %d: %s", e.HTTPStatus, e.OperationOutcome.Error())
+}
+
 func createUnsupportedSearchError(code, display string) *Error {
 	return &Error{
 		HTTPStatus:       http.StatusNotImplemented,

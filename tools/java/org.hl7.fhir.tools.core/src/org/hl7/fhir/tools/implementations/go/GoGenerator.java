@@ -40,6 +40,7 @@ import java.util.*;
 import java.text.SimpleDateFormat;
 
 import org.hl7.fhir.definitions.model.*;
+import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
@@ -405,13 +406,12 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
                     // Some paths (in bundle parameters) have an indexer at the end.  In that case, we only support
                     // index 0 (which, lucky for us, is all that is needed in DSTU2).  Still, we need to strip the
                     // indexer for the rest of this to work.
-                    boolean zeroIndexer = false;
-                    if (path.endsWith("(0)")) {
-                        path = path.substring(0, path.length() - 3);
-                        zeroIndexer = true;
+                    String cleanPath = path;
+                    if (path.contains("(0)")) {
+                        cleanPath = path.replaceAll("\\(0\\)", "");
                     }
-                    ElementDefn el = resource.getRoot().getElementForPath(path, definitions, "Resolving Search Parameter Path", true);
-                    path = enhancePath(definitions, resource, path, zeroIndexer);
+                    ElementDefn el = resource.getRoot().getElementForPath(cleanPath, definitions, "Resolving Search Parameter Path", true, true);
+                    path = enhancePath(definitions, resource, path);
                     // Special support for id since we store it as _id (TODO: this probably breaks the notion of the "internal" id)
                     if ("_id".equals(param.getName())) {
                         path = "_id";
@@ -438,7 +438,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
                         }
                     }
                 } catch (Exception e) {
-                    System.err.println("Couldn't process search parameter " + p.getCode() + " path: " + path);
+                    System.err.println("Couldn't process search parameter " + p.getCode() + "; path: " + path + "; error: " + e.toString());
                 }
             }
             param.sortPaths(); // Sort the path list so that the final result is deterministic
@@ -457,15 +457,20 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         return params;
     }
 
-    private String enhancePath(Definitions definitions, ResourceDefn resource, String path, boolean zeroIndexer) {
+    private String enhancePath(Definitions definitions, ResourceDefn resource, String path) {
         StringBuilder newPath = new StringBuilder();
 
         String[] parts = path.split("\\.");
         // Intentionally skip first part (resource name) then detect and mark arrays in path
         for (int i = 1; i < parts.length; i++) {
             try {
+                boolean zeroIndexer = false;
+                if (parts[i].endsWith("(0)")) {
+                    parts[i] = parts[i].substring(0, parts[i].length() - 3);
+                    zeroIndexer = true;
+                }
                 String partialPath = String.join(".", Arrays.copyOfRange(parts, 0, i+1));
-                ElementDefn el = resource.getRoot().getElementForPath(partialPath, definitions, "resolving search parameter path", true);
+                ElementDefn el = resource.getRoot().getElementForPath(partialPath, definitions, "resolving search parameter path", true, true);
                 if (el.getMaxCardinality() > 1) {
                     newPath.append(zeroIndexer ? "[0]" : "[]");
                 }

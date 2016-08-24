@@ -8,7 +8,7 @@
   "publisher" : "Not Provided",
   "description" : "GoFHIR conformance statement",
   "kind" : "instance",
-  "fhirVersion" : "1.4.0",
+  "fhirVersion" : "1.6.0",
   "acceptUnknown" : "extensions",
   "format" : [
     "json"
