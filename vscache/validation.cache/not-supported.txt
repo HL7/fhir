@@ -68,6 +68,7 @@ http://example.com
 http://tools.ietf.org/html/bcp47
 urn:iso:std:iso:4217
 http://hl7.org/fhir/service-uscls
+http://www.ama-assn.org/go/cpt
 http://www.ihe.net/xds/connectathon/practiceSettingCodes
 http://hl7.org/fhir/ValueSet/http-verb
 http://acme.lab
