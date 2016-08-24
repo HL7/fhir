@@ -13,7 +13,7 @@ import org.junit.Test;
 
 public class ValidationEngineTests {
 
-  public static boolean nopast;
+  public static boolean inbuild;
 
   @Test
   public void testCurrentXml() throws Exception {
@@ -57,7 +57,7 @@ public class ValidationEngineTests {
 
   @Test
   public void test160() throws Exception {
-    if (nopast) {
+    if (inbuild) {
       Assert.assertTrue(true);
       return;
     }
@@ -80,7 +80,7 @@ public class ValidationEngineTests {
 
   @Test
   public void test140() throws Exception {
-    if (nopast) {
+    if (inbuild) {
       Assert.assertTrue(true);
       return;
     }
@@ -143,6 +143,11 @@ public class ValidationEngineTests {
 
   @Test
   public void testCurrentDaf() throws Exception {
+    // can't do DAF in the build, since it won't have been built.
+    if (inbuild) {
+      Assert.assertTrue(true);
+      return;
+    }
     if (TestingUtilities.path == null)
       TestingUtilities.path = "C:\\work\\org.hl7.fhir\\build";
     if (!TestingUtilities.silent)
@@ -190,7 +195,7 @@ public class ValidationEngineTests {
 
   @Test
   public void test140Telus() throws Exception {
-    if (nopast) {
+    if (inbuild) {
       Assert.assertTrue(true);
       return;
     }
