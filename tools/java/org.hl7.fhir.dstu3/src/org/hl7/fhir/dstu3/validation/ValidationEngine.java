@@ -292,6 +292,7 @@ public class ValidationEngine {
     for (Entry<String, byte[]> t : source.entrySet()) {
       String fn = t.getKey();
       Resource res = null;
+      try { 
       if (fn.endsWith(".xml"))
         res = new XmlParser().parse(t.getValue());
       else if (fn.endsWith(".json"))
@@ -300,6 +301,9 @@ public class ValidationEngine {
 //        res = new RdfParser().parse(t.getValue());
       else if (fn.endsWith(".txt"))
         res = new StructureMapUtilities(context, null, null).parse(TextFile.bytesToString(t.getValue()));
+      } catch (Exception e) {
+        throw new Exception("Error parsing "+fn+": "+e.getMessage(), e);
+      }
       
       if (res != null && res instanceof BaseConformance) {
         context.seeResource(((BaseConformance) res).getUrl(), res);

@@ -415,6 +415,9 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
     addSourceFiles(0, classes, rootDir + "implementations"+sl+"java"+sl+"org.hl7.fhir.utilities"+sl+"src", paths);
     addSourceFiles(0, classes, rootDir + "implementations"+sl+"java"+sl+"org.hl7.fhir.dstu3"+sl+"src", paths);
+    addSourceFiles(0, classes, rootDir + "implementations"+sl+"java"+sl+"org.hl7.fhir.dstu2016may"+sl+"src", paths);
+    addSourceFiles(0, classes, rootDir + "implementations"+sl+"java"+sl+"org.hl7.fhir.dstu2"+sl+"src", paths);
+    addSourceFiles(0, classes, rootDir + "implementations"+sl+"java"+sl+"org.hl7.fhir.convertors"+sl+"src", paths);
     addSourceFiles(0, classes, rootDir + "implementations"+sl+"java"+sl+"org.hl7.fhir.rdf"+sl+"src", paths);
     if (!hasBinIGTools(rootDir + "tools"+sl+"java"+sl+"org.hl7.fhir.igtools"+sl+"bin"))
       addSourceFiles(0, classes, rootDir + "tools"+sl+"java"+sl+"org.hl7.fhir.igtools"+sl+"src", paths);
@@ -483,6 +486,8 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
     AddToJar(jar, new File(rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.dstu3"+sl+"src"), (rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.dstu3"+sl+"src"+sl).length(), names);
+    AddToJar(jar, new File(rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.dstu2016may"+sl+"src"), (rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.dstu2016may"+sl+"src"+sl).length(), names);
+    AddToJar(jar, new File(rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.convertors"+sl+"src"), (rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.convertors"+sl+"src"+sl).length(), names);
     AddToJar(jar, new File(rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.utilities"+sl+"src"), (rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.utilities"+sl+"src"+sl).length(), names);
     jar.close();
 
@@ -806,6 +811,8 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu3", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu3", "src").length()+1, names);
+    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu2016may", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu2016may", "src").length()+1, names);
+    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.convertors", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.convertors", "src").length()+1, names);
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.utilities", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.utilities", "src").length()+1, names);
     // ok now add the igtools
     if (hasBinIGTools(Utilities.path(folders.rootDir,"tools", "java", "org.hl7.fhir.igtools", "bin")))

@@ -4,8 +4,8 @@ conceptmap "#map-use" {
 //  source "http://hl7.org/fhir/ValueSet/address-use"
 //  target "http://hl7.org/fhir/ValueSet/v3-AddressUse"
   
-  prefix f = "http://hl7.org/fhir/address-use"
-  prefix v3 = "http://hl7.org/fhir/v3/AddressUse"
+  prefix f = "http://hl7.org/fhir/name-use"
+  prefix v3 = "http://hl7.org/fhir/v3/EntityNameUse"
   
   v3:C <= f:official
   v3:I <= f:nickname
