@@ -315,7 +315,6 @@ public class ProfileUtilities {
     setIds(derived, false);
   }
 
-
   /**
    * @param trimDifferential
    * @throws DefinitionException, FHIRException 

@@ -9,7 +9,7 @@ import org.w3c.dom.Document;
 
 import com.google.gson.JsonObject;
 
-  /**
+/**
  * Interface to the instance validator. This takes a resource, in one of many forms, and 
  * checks whether it is valid
    *  
@@ -98,24 +98,28 @@ public interface IResourceValidator {
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format, String profile) throws Exception;
   @Deprecated
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, InputStream stream, FhirFormat format, StructureDefinition profile) throws Exception;
+
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, org.hl7.fhir.dstu3.model.Resource resource) throws Exception;
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, org.hl7.fhir.dstu3.model.Resource resource, ValidationProfileSet profiles) throws Exception;
   @Deprecated
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, org.hl7.fhir.dstu3.model.Resource resource, String profile) throws Exception;
   @Deprecated
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, org.hl7.fhir.dstu3.model.Resource resource, StructureDefinition profile) throws Exception;
+
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, org.w3c.dom.Element element) throws Exception;
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, org.w3c.dom.Element element, ValidationProfileSet profiles) throws Exception;
   @Deprecated
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, org.w3c.dom.Element element, String profile) throws Exception;
   @Deprecated
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, org.w3c.dom.Element element, StructureDefinition profile) throws Exception;
+
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, org.w3c.dom.Document document) throws Exception;
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, org.w3c.dom.Document document, ValidationProfileSet profiles) throws Exception;
   @Deprecated
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, org.w3c.dom.Document document, String profile) throws Exception;
   @Deprecated
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, org.w3c.dom.Document document, StructureDefinition profile) throws Exception;
+
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, JsonObject object) throws Exception;
   org.hl7.fhir.dstu3.elementmodel.Element validate(List<ValidationMessage> errors, JsonObject object, ValidationProfileSet profiles) throws Exception;
   @Deprecated

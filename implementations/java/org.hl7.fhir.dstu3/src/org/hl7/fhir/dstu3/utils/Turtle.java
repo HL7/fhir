@@ -435,9 +435,9 @@ public class Turtle {
         else {
           if (Utilities.noString(sbj.id)) 
             writer.write("]");
-					writer.write("."+comment+"\r\n\r\n");
-			}
+          writer.write(" ."+comment+"\r\n\r\n");
 		}
+	  }
 	}
   }
 

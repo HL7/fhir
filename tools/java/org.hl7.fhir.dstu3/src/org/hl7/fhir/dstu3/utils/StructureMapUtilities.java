@@ -106,7 +106,6 @@ public class StructureMapUtilities {
 		//    Create an instance tree
 		//    Return the correct string format to refer to a tree (input or output)
 
-
 	}
 
 	private IWorkerContext worker;

@@ -117,9 +117,9 @@ public class Property {
 
 	public boolean isPrimitive(String name) {
 	  String code = name;
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
-    return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
-}
+      StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+      return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
+    }
 
 	private String lowFirst(String t) {
 		return t.substring(0, 1).toLowerCase()+t.substring(1);
@@ -136,9 +136,9 @@ public class Property {
 	  return !"1".equals(definition.getMax());
 	}
 
-  public String getScopedPropertyName() {
-    return definition.getBase().getPath();
-  }
+    public String getScopedPropertyName() {
+      return definition.getBase().getPath();
+    }
 
   public String getNamespace() {
     if (ToolingExtensions.hasExtension(definition, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"))

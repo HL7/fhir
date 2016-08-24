@@ -26,7 +26,7 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
 
- */
+*/
 
 import java.awt.EventQueue;
 import java.io.ByteArrayOutputStream;
@@ -64,7 +64,6 @@ import org.hl7.fhir.utilities.Utilities;
  *
  */
 public class Validator {
-
 
   public static void main(String[] args) throws Exception {
     if (args.length == 0) {

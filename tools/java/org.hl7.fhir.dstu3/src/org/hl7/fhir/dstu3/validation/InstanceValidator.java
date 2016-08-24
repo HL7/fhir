@@ -563,7 +563,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                         else if (binding.getStrength() == BindingStrength.PREFERRED)
                           hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is recommended to come from this value set)");
                       }
-                    }
+                    } else if (vr.getMessage()!=null)
+                      warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, vr.getMessage());
                   }
                   // Then, for any codes that are in code systems we are able
                   // to validate, we'll validate that the codes actually exist

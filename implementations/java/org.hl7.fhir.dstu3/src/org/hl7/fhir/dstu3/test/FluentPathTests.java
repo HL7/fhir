@@ -129,8 +129,7 @@ public class FluentPathTests {
       if (!Utilities.noString(v)) {
         Assert.assertTrue(String.format("Outcome %d: Value should be a primitive type but was %s", i, outcome.get(i).fhirType()), outcome.get(i) instanceof PrimitiveType);
         Assert.assertTrue(String.format("Outcome %d: Value should be %s but was %s", i, v, outcome.get(i).toString()), v.equals(((PrimitiveType)outcome.get(i)).asStringValue()));
+      }
+    }
   }
-  }
-  }
-
-  }
+}

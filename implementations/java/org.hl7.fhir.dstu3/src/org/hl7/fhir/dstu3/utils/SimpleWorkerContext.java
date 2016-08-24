@@ -135,7 +135,6 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 			throw new org.hl7.fhir.dstu3.exceptions.FHIRFormatError(e1.getMessage(), e1);
 		}
 		for (BundleEntryComponent e : f.getEntry()) {
-
 			if (e.getFullUrl() == null) {
 				System.out.println("unidentified resource in " + name+" (no fullUrl)");
 			}

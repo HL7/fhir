@@ -316,10 +316,10 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     if (vso.getError() != null)
       throw new TerminologyServiceException("Unable to expand imported value set: "+vso.getError());
 		if (vso.getService() != null)
-			throw new TerminologyServiceException("Unable to expand imported value set " + value);
+      throw new TerminologyServiceException("Unable to expand imported value set "+value);
 		if (vs.hasVersion())
-			if (!existsInParams(params, "version", new UriType(vs.getUrl() + "?version=" + vs.getVersion())))
-				params.add(new ValueSetExpansionParameterComponent().setName("version").setValue(new UriType(vs.getUrl() + "?version=" + vs.getVersion())));
+      if (!existsInParams(params, "version", new UriType(vs.getUrl()+"?version="+vs.getVersion())))
+        params.add(new ValueSetExpansionParameterComponent().setName("version").setValue(new UriType(vs.getUrl()+"?version="+vs.getVersion())));
 		for (ValueSetExpansionParameterComponent p : vso.getValueset().getExpansion().getParameter()) {
 			if (!existsInParams(params, p.getName(), p.getValue()))
 				params.add(p);
@@ -346,13 +346,13 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       if (context.isNoTerminologyServer())
         throw new NoTerminologyServiceException("unable to find code system "+inc.getSystem().toString());
       else
-			throw new TerminologyServiceException("unable to find code system " + inc.getSystem().toString());
+        throw new TerminologyServiceException("unable to find code system "+inc.getSystem().toString());
     }
 		if (cs.getContent() != CodeSystemContentMode.COMPLETE)
-			throw new TerminologyServiceException("Code system " + inc.getSystem().toString() + " is incomplete");
+      throw new TerminologyServiceException("Code system "+inc.getSystem().toString()+" is incomplete");
 		if (cs.hasVersion())
-			if (!existsInParams(params, "version", new UriType(cs.getUrl() + "?version=" + cs.getVersion())))
-				params.add(new ValueSetExpansionParameterComponent().setName("version").setValue(new UriType(cs.getUrl() + "?version=" + cs.getVersion())));
+      if (!existsInParams(params, "version", new UriType(cs.getUrl()+"?version="+cs.getVersion())))
+        params.add(new ValueSetExpansionParameterComponent().setName("version").setValue(new UriType(cs.getUrl()+"?version="+cs.getVersion())));
 	  
 		if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) {
 			// special case - add all the code system
@@ -377,7 +377,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 				// special: all non-abstract codes in the target code system under the value
 				ConceptDefinitionComponent def = getConceptForCode(cs.getConcept(), fc.getValue());
 				if (def == null)
-					throw new TerminologyServiceException("Code '" + fc.getValue() + "' not found in system '" + inc.getSystem() + "'");
+          throw new TerminologyServiceException("Code '"+fc.getValue()+"' not found in system '"+inc.getSystem()+"'");
         addCodeAndDescendents(cs, inc.getSystem(), def, null, profile);
 			} else if ("display".equals(fc.getProperty()) && fc.getOp() == FilterOperator.EQUAL) {
 			  // gg; note: wtf is this: if the filter is display=v, look up the code 'v', and see if it's diplsay is 'v'?

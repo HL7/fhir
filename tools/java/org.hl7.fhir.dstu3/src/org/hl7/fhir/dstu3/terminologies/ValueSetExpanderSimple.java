@@ -32,7 +32,7 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
 
- */
+*/
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -311,7 +311,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       throw new TerminologyServiceException("unable to find value set with no identity");
     ValueSet vs = context.fetchResource(ValueSet.class, value);
     if (vs == null)
-      throw new TerminologyServiceException("Unable to find imported value set "+value);
+      throw new TerminologyServiceException("Unable to find imported value set " + value);
     ValueSetExpansionOutcome vso = factory.getExpander().expand(vs, profile);
     if (vso.getError() != null)
       throw new TerminologyServiceException("Unable to expand imported value set: "+vso.getError());

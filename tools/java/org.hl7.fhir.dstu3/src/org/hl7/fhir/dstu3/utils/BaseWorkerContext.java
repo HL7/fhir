@@ -655,7 +655,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       if (display.equalsIgnoreCase(ds.getValue()))
         return new ValidationResult(cc);
     }
-    return new ValidationResult(IssueSeverity.ERROR, "Display Name for "+code+" must be one of '"+b.toString()+"'");
+    return new ValidationResult(IssueSeverity.WARNING, "Display Name for "+code+" must be one of '"+b.toString()+"'", cc);
   }
 
 
@@ -668,7 +668,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     if (cc.hasDisplay()) {
       if (display.equalsIgnoreCase(cc.getDisplay()))
         return new ValidationResult(new ConceptDefinitionComponent().setCode(code).setDisplay(cc.getDisplay()));
-      return new ValidationResult(IssueSeverity.ERROR, "Display Name for "+code+" must be '"+cc.getDisplay()+"'");
+      return new ValidationResult(IssueSeverity.WARNING, "Display Name for "+code+" must be '"+cc.getDisplay()+"'", new ConceptDefinitionComponent().setCode(code).setDisplay(cc.getDisplay()));
     }
     return null;
   }

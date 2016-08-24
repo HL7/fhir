@@ -525,6 +525,7 @@ public class ShExGenerator {
    * @return Type reference string
    */
   private String genTypeRef(StructureDefinition sd, ElementDefinition ed, String id, ElementDefinition.TypeRefComponent typ) {
+
     if(typ.hasProfile()) {
       if(typ.getCode().equals("Reference"))
         return genReference("", typ);

@@ -38,6 +38,7 @@ import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.ElementDefinition.AggregationMode;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ConstraintSeverity;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
@@ -547,7 +548,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                     txTime = txTime + (System.nanoTime() - t);
                     if (!vr.isOk()) {
                       bindingsOk = false;
-                      if (vr.getErrorClass() == ExpansionErrorClass.VALUESET_UNSUPPORTED) {
+                      if (vr.getErrorClass() != null) {
                         if (binding.getStrength() == BindingStrength.REQUIRED)
                           warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl()+", and a code from this value set is required)");
                         else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
@@ -562,7 +563,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                       else if (binding.getStrength() == BindingStrength.PREFERRED)
                         hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is recommended to come from this value set)");
                     }
-                  }
+                    } else if (vr.getMessage()!=null)
+                      warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, vr.getMessage());
                   }
                   // Then, for any codes that are in code systems we are able
                   // to validate, we'll validate that the codes actually exist
@@ -1138,14 +1140,16 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             } else
               ok = true; // suppress following check
 		    if (ok && type.hasAggregation()) {
-              if (type.getAggregation().equals(ElementDefinition.AggregationMode.CONTAINED)) {
-                rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, refType.equals("contained"), "Reference is not contained, when aggregation mode requires contained");
-              } else {
-                rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, !refType.equals("contained"), "Reference is contained, when aggregation mode is not");
-                if (type.getAggregation().equals(ElementDefinition.AggregationMode.BUNDLED)) {
-                  rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, refType.equals("bundled"), "Reference is not bundled, when aggregation mode requires bundled");                  
-                }
+                boolean modeOk;
+                for (Enumeration<AggregationMode> mode : type.getAggregation()) {
+                  if (mode.getValue().equals(AggregationMode.CONTAINED) && refType.equals("contained"))
+                    ok = true;
+                  else if (mode.getValue().equals(AggregationMode.BUNDLED) && refType.equals("bundled"))
+                    ok = true;
+                  else if (mode.getValue().equals(AggregationMode.REFERENCED) && (refType.equals("bundled")||refType.equals("remote")))
+                    ok = true;
               }
+                rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, ok, "Reference is " + refType + " which isn't supported by the specified aggregation mode(s) for the reference");
 		    }
           }
         }
@@ -1392,7 +1396,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 	private Element getFromBundle(Element bundle, String ref, String fullUrl, List<ValidationMessage> errors, String path) {
 	  String targetUrl = null;
-	  String version = null;
+    String version = "";
 	  if (ref.startsWith("http") || ref.startsWith("urn")) {
 	    // We've got an absolute reference, no need to calculate
 	    if (ref.contains("/_history/")) {
@@ -1443,7 +1447,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     for (Element we : entries) {
 	  if (we.getChildValue("fullUrl").equals(targetUrl)) {
 	    Element r = we.getNamedChild("resource");
-	    if (version == null) {
+        if (version.isEmpty()) {
       	  rule(errors, IssueType.FORBIDDEN, -1, -1, path, match==null, "Multiple matches in bundle for reference " + ref);
 	      match = r;
 	    } else {
@@ -2332,16 +2336,78 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         if (rule(errors, IssueType.INVALID, firstEntry.line(), firstEntry.col(), stack.addToLiteralPath("entry", ":0"), resource != null, "No resource on first entry")) {
           validateDocument(errors, entries, resource, localStack.push(resource, -1, null, null), fullUrl, id);
         }
+        checkAllInterlinked(errors, entries, stack, bundle);
       }
-      if (type.equals("message"))
-        validateMessage(errors, bundle);
+      if (type.equals("message")) {
+        Element resource = firstEntry.getNamedChild("resource");
+        NodeStack localStack = firstStack.push(resource, -1, null, null);
+        String id = resource.getNamedChildValue("id");
+        if (rule(errors, IssueType.INVALID, firstEntry.line(), firstEntry.col(), stack.addToLiteralPath("entry", ":0"), resource != null, "No resource on first entry")) {
+          validateMessage(errors, entries, resource, localStack.push(resource, -1, null, null), fullUrl, id);
+        }
+        checkAllInterlinked(errors, entries, stack, bundle);
+      }
+    }
+  }
+
+  private void checkAllInterlinked(List<ValidationMessage> errors, List<Element> entries, NodeStack stack, Element bundle) {
+    List<Element> visitedResources = new ArrayList<Element>();
+    HashMap<Element,Element> candidateEntries = new HashMap<Element,Element>();
+    List<Element> candidateResources = new ArrayList<Element>();
+    for (Element entry: entries) {
+      candidateEntries.put(entry.getNamedChild("resource"), entry);
+      candidateResources.add(entry.getNamedChild("resource"));
+    }
+    followResourceLinks(entries.get(0), visitedResources, candidateEntries, candidateResources, true, errors, stack);
+    List<Element> unusedResources = new ArrayList<Element>();
+    unusedResources.addAll(candidateResources);
+    unusedResources.removeAll(visitedResources);
+    int i = 0;
+    for (Element entry : entries) {
+      warning(errors, IssueType.INFORMATIONAL, entry.line(), entry.col(), stack.addToLiteralPath("entry", Integer.toString(i)), !unusedResources.contains(entry.getNamedChild("resource")), "Entry isn't reachable by traversing from first Bundle entry");
+      i++;
+    }
+    // Todo - check if the remaining resources point *to* the elements in the referenced set.  Any that are still left over are errors
+  }
+    
+  private void followResourceLinks(Element entry, List<Element> visitedResources, HashMap<Element, Element> candidateEntries, List<Element> candidateResources, boolean referenced, List<ValidationMessage> errors, NodeStack stack) {
+    Element resource = entry.getNamedChild("resource");
+    if (visitedResources.contains(resource))
+      return;
+    
+    if (referenced)
+      visitedResources.add(resource);
+    
+    List<String> references = findReferences(resource);
+    for (String reference: references) {
+      Element r = getFromBundle(stack.getElement(), reference, entry.getChildValue("fullUrl"), errors, stack.addToLiteralPath("entry:" + candidateResources.indexOf(resource)));
+      if (r!=null && !visitedResources.contains(r)) {
+        followResourceLinks(candidateEntries.get(r), visitedResources, candidateEntries, candidateResources, referenced, errors, stack);
+      }
+    }
+  }
+  
+  private List<String> findReferences(Element start) {
+    List<String> references = new ArrayList<String>();
+    findReferences(start, references);
+    return references;
+  }
+
+  private void findReferences(Element start, List<String> references) {
+    for (Element child : start.getChildren()) {
+      if (child.getType().equals("Reference")) {
+        String ref = child.getChildValue("reference");
+        if (ref!=null && !ref.startsWith("#"))
+          references.add(ref);
+      }
+      findReferences(child, references);
     }
   }
 
   private void validateBundleReference(List<ValidationMessage> errors, List<Element> entries, Element ref, String name, NodeStack stack, String fullUrl, String type, String id) {
     if (ref != null && !Utilities.noString(ref.getNamedChildValue("reference"))) {
       Element target = resolveInBundle(entries, ref.getNamedChildValue("reference"), fullUrl, type, id);
-      rule(errors, IssueType.INVALID, target.line(), target.col(), stack.addToLiteralPath("reference"), target != null, "Unable to resolve the target of the reference in the bundle (" + name + ")");
+      rule(errors, IssueType.INVALID, ref.line(), ref.col(), stack.addToLiteralPath("reference"), target != null, "Unable to resolve the target of the reference in the bundle (" + name + ")");
     }
   }
 
@@ -2438,6 +2504,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           if (slice == null) {
             match = nameMatches(ei.name, tail(ed.getPath()));
           } else {
+            ei.slice = slice;
             if (nameMatches(ei.name, tail(ed.getPath())))
               try {
                 match = sliceMatches(ei.element, ei.path, slice, ed, profile);
@@ -2465,6 +2532,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       if (ei.path.endsWith(".extension"))
         rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition != null, "Element is unknown or does not match any slice (url=\"" + ei.element.getNamedChildValue("url") + "\")" + (profile==null ? "" : " for profile " + profile.getUrl()));
       else if (!unsupportedSlicing)
+        if (ei.slice!=null && (ei.slice.getSlicing().getRules().equals(ElementDefinition.SlicingRules.OPEN) || ei.slice.getSlicing().getRules().equals(ElementDefinition.SlicingRules.OPEN)))
+          hint(errors, IssueType.INFORMATIONAL, ei.line(), ei.col(), ei.path, (ei.definition != null),
+            "Element " + ei.element.getName() + " is unknown or does not match any slice " + sliceInfo + (profile==null ? "" : " for profile " + profile.getUrl()));
+        else
+          if (ei.slice!=null && (ei.slice.getSlicing().getRules().equals(ElementDefinition.SlicingRules.OPEN) || ei.slice.getSlicing().getRules().equals(ElementDefinition.SlicingRules.OPEN)))
         rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition != null),
 		  "Element " + ei.element.getName() + " is unknown or does not match any slice " + sliceInfo + (profile==null ? "" : " for profile " + profile.getUrl()));
       else
@@ -2677,9 +2749,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
   }
 
-  private void validateMessage(List<ValidationMessage> errors, Element bundle) {
-    // TODO Auto-generated method stub
-
+  private void validateMessage(List<ValidationMessage> errors, List<Element> entries, Element messageHeader, NodeStack stack, String fullUrl, String id) {
+    // first entry must be a messageheader
+    if (rule(errors, IssueType.INVALID, messageHeader.line(), messageHeader.col(), stack.getLiteralPath(), messageHeader.getType().equals("MessageHeader"),
+        "The first entry in a message must be a MessageHeader")) {
+      // the composition subject and section references must resolve in the bundle
+      List<Element> elements = messageHeader.getChildren("data");
+      for (Element elem: elements)
+        validateBundleReference(errors, entries, elem, "MessageHeader Data", stack.push(elem, -1, null, null), fullUrl, "MessageHeader", id);
+    }
   }
 
   private void validateObservation(List<ValidationMessage> errors, Element element, NodeStack stack) {
@@ -2960,6 +3038,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     public int index;
     public int count;
     public ElementDefinition definition;
+    public ElementDefinition slice;
     private Element element;
     private String name;
     private String path;
@@ -3021,6 +3100,4 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       }
     }
   }
-  
-  
 }

@@ -117,8 +117,8 @@ public class Property {
 
 	public boolean isPrimitive(String name) {
 	  String code = name;
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
-    return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
+      StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+      return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
 	}
 
 	private String lowFirst(String t) {

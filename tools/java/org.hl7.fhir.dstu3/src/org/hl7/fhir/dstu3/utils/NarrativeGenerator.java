@@ -31,7 +31,7 @@ Copyright (c) 2011+, HL7, Inc
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
 
- */
+*/
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -862,7 +862,6 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return new XhtmlComposer().compose(x);
   }
 
-
   private void generateByProfile(Element eres, StructureDefinition profile, Element ee, List<ElementDefinition> allElements, ElementDefinition defn, List<ElementDefinition> children,  XhtmlNode x, String path, boolean showCodeDetails) throws FHIRException, UnsupportedEncodingException, IOException {
 
     ResurceWrapperElement resw = new ResurceWrapperElement(eres, profile);
@@ -1078,7 +1077,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (e.getType().size() == 1 && isBase(e.getType().get(0).getCode()))
       return false;
     return true;
-    //    return !e.getType().isEmpty()
+//    return !e.getType().isEmpty()
   }
 
   private boolean isBase(String code) {
@@ -3467,16 +3466,16 @@ public class NarrativeGenerator implements INarrativeGenerator {
       node.addTag("hr");
       if (section.hasTitleElement())
         node.addTag("h"+Integer.toString(level)).addText(section.getTitle());
-      //      else if (section.hasCode())
-      //        node.addTag("h"+Integer.toString(level)).addText(displayCodeableConcept(section.getCode()));
+//      else if (section.hasCode())
+//        node.addTag("h"+Integer.toString(level)).addText(displayCodeableConcept(section.getCode()));
 
-      //      if (section.hasText()) {
-      //        node.getChildNodes().add(section.getText().getDiv());
-      //      }
-      //
-      //      if (!section.getSection().isEmpty()) {
-      //        renderSections(feed, node.addTag("blockquote"), section.getSection(), level+1);
-      //      }
+//      if (section.hasText()) {
+//        node.getChildNodes().add(section.getText().getDiv());
+//      }
+//
+//      if (!section.getSection().isEmpty()) {
+//        renderSections(feed, node.addTag("blockquote"), section.getSection(), level+1);
+//      }
     }
   }
 
