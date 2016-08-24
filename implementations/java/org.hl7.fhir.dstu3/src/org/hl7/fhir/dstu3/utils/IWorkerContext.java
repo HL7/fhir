@@ -47,7 +47,14 @@ import org.hl7.fhir.exceptions.TerminologyServiceException;
  */
 public interface IWorkerContext {
 
+  /**
+   * Get the versions of the definitions loaded in context
+   * @return
+   */
+  public String getVersion();
+  
   // -- Parsers (read and write instances) ----------------------------------------
+
 
   /**
    * Get a parser to read/write instances. Use the defined type (will be extended 

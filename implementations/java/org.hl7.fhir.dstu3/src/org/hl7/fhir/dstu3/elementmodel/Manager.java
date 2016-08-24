@@ -13,7 +13,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 
 public class Manager {
 
-  public enum FhirFormat { XML, JSON, JSONLD, TURTLE ;
+  public enum FhirFormat { XML, JSON, JSONLD, TURTLE, TEXT;
 
     public String getExtension() {
       switch (this) {
@@ -25,6 +25,8 @@ public class Manager {
         return "ttl";
       case XML:
         return "xml";
+      case TEXT:
+        return "txt";
       }
       return null;
     }
@@ -44,6 +46,7 @@ public class Manager {
     case JSONLD : return new JsonLDParser(context);
     case XML : return new XmlParser(context);
     case TURTLE : return new TurtleParser(context);
+    case TEXT : throw new Error("Programming logic error: do not call makeParser for a text resource");
     }
     return null;
   }

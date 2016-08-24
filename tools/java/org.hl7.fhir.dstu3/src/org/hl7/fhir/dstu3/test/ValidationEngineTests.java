@@ -1,6 +1,6 @@
 package org.hl7.fhir.dstu3.test;
 
-import static org.junit.Assert.*;
+import org.junit.Assert.*;
 
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
@@ -16,7 +16,7 @@ public class ValidationEngineTests {
   public static boolean nopast;
 
   @Test
-  public static void testCurrentXml() throws Exception {
+  public void testCurrentXml() throws Exception {
     if (TestingUtilities.path == null)
       TestingUtilities.path = "C:\\work\\org.hl7.fhir\\build";
     if (!TestingUtilities.silent) 
@@ -36,7 +36,7 @@ public class ValidationEngineTests {
   }
 
   @Test
-  public static void testCurrentJson() throws Exception {
+  public void testCurrentJson() throws Exception {
     if (TestingUtilities.path == null)
       TestingUtilities.path = "C:\\work\\org.hl7.fhir\\build";
     if (!TestingUtilities.silent)
@@ -56,7 +56,7 @@ public class ValidationEngineTests {
   }
 
   @Test
-  public static void test160() throws Exception {
+  public void test160() throws Exception {
     if (nopast) {
       Assert.assertTrue(true);
       return;
@@ -79,7 +79,7 @@ public class ValidationEngineTests {
   }
 
   @Test
-  public static void test140() throws Exception {
+  public void test140() throws Exception {
     if (nopast) {
       Assert.assertTrue(true);
       return;
@@ -102,7 +102,7 @@ public class ValidationEngineTests {
   }
 
   @Test
-  public static void testCurrentDataElement() throws Exception {
+  public void testCurrentDataElement() throws Exception {
     if (TestingUtilities.path == null)
       TestingUtilities.path = "C:\\work\\org.hl7.fhir\\build";
     if (!TestingUtilities.silent)
@@ -122,7 +122,7 @@ public class ValidationEngineTests {
   }
 
   @Test
-  public static void testCurrentDataElementLabMaster() throws Exception {
+  public void testCurrentDataElementLabMaster() throws Exception {
     if (TestingUtilities.path == null)
       TestingUtilities.path = "C:\\work\\org.hl7.fhir\\build";
     if (!TestingUtilities.silent)
@@ -142,7 +142,7 @@ public class ValidationEngineTests {
   }
 
   @Test
-  public static void testCurrentDaf() throws Exception {
+  public void testCurrentDaf() throws Exception {
     if (TestingUtilities.path == null)
       TestingUtilities.path = "C:\\work\\org.hl7.fhir\\build";
     if (!TestingUtilities.silent)
@@ -167,7 +167,7 @@ public class ValidationEngineTests {
   }
 
   @Test
-  public static void testTransform() throws Exception {
+  public void testTransform() throws Exception {
     if (TestingUtilities.path == null)
       TestingUtilities.path = "C:\\work\\org.hl7.fhir\\build";
     if (!TestingUtilities.silent)
@@ -189,7 +189,7 @@ public class ValidationEngineTests {
   }
 
   @Test
-  public static void test140Telus() throws Exception {
+  public void test140Telus() throws Exception {
     if (nopast) {
       Assert.assertTrue(true);
       return;
@@ -216,7 +216,7 @@ public class ValidationEngineTests {
   }
 
 
-  private static int errors(OperationOutcome op) {
+  private int errors(OperationOutcome op) {
     int i = 0;
     for (OperationOutcomeIssueComponent vm : op.getIssue()) {
       if (vm.getSeverity() == IssueSeverity.ERROR || vm.getSeverity() == IssueSeverity.FATAL)
@@ -225,7 +225,7 @@ public class ValidationEngineTests {
     return i;
   }
 
-  private static int warnings(OperationOutcome op) {
+  private int warnings(OperationOutcome op) {
     int i = 0;
     for (OperationOutcomeIssueComponent vm : op.getIssue()) {
       if (vm.getSeverity() == IssueSeverity.WARNING)
@@ -234,7 +234,7 @@ public class ValidationEngineTests {
     return i;
   }
 
-  private static int hints(OperationOutcome op) {
+  private int hints(OperationOutcome op) {
     int i = 0;
     for (OperationOutcomeIssueComponent vm : op.getIssue()) {
       if (vm.getSeverity() == IssueSeverity.INFORMATION)
@@ -244,15 +244,16 @@ public class ValidationEngineTests {
   }
 
   public static void execute() throws Exception {
-//    testCurrentXml();
-//    testCurrentJson();
-//    test160();
-//    test140();
-//    testCurrentDataElement();
-//    testCurrentDataElementLabMaster();
-//    testCurrentDaf();
-//    test140Telus();
-    testTransform();
+    ValidationEngineTests self = new ValidationEngineTests();
+//    self.testCurrentXml();
+//    self.testCurrentJson();
+//    self.test160();
+//    self.test140();
+//    self.testCurrentDataElement();
+//    self.testCurrentDataElementLabMaster();
+//    self.testCurrentDaf();
+//    self.test140Telus();
+    self.testTransform();
     System.out.println("Finished");
   }
 

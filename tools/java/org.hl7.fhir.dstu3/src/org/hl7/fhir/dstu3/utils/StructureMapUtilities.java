@@ -74,6 +74,8 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
+import ca.uhn.fhir.model.base.resource.BaseConformance;
+
 /**
  * Services in this class:
  * 
@@ -119,6 +121,18 @@ public class StructureMapUtilities {
 		this.services = services;
 		fpe = new FluentPathEngine(worker);
 	}
+
+  public StructureMapUtilities(IWorkerContext worker, ITransformerServices services) {
+    super();
+    this.worker = worker;
+    this.library = new HashMap<String, StructureMap>();
+    for (org.hl7.fhir.dstu3.model.BaseConformance bc : worker.allConformanceResources()) {
+      if (bc instanceof StructureMap)
+        library.put(bc.getUrl(), (StructureMap) bc);
+    }
+    this.services = services;
+    fpe = new FluentPathEngine(worker);
+  }
 
 
 	public String render(StructureMap map) throws FHIRException {
@@ -825,15 +839,29 @@ public class StructureMapUtilities {
 
 	public void transform(Object appInfo, Base source, StructureMap map, Base target) throws Exception {
 		TransformContext context = new TransformContext(appInfo);
-		Variables vars = new Variables();
-		vars.add(VariableMode.INPUT, "source", source);
-		vars.add(VariableMode.OUTPUT, "target", target);
+    log("Start Transform "+map.getUrl());
+    StructureMapGroupComponent g = map.getGroup().get(0);
 
-		log("Start Transform "+map.getUrl());
-		executeGroup("", context, map, vars, map.getGroup().get(0));
+    Variables vars = new Variables();
+		vars.add(VariableMode.INPUT, getInputName(g, StructureMapInputMode.SOURCE, "source"), source);
+		vars.add(VariableMode.OUTPUT, getInputName(g, StructureMapInputMode.TARGET, "target"), target);
+
+    executeGroup("", context, map, vars, g);
 	}
 
-	private void executeGroup(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group) throws Exception {
+	private String getInputName(StructureMapGroupComponent g, StructureMapInputMode mode, String def) throws DefinitionException {
+	  String name = null;
+    for (StructureMapGroupInputComponent inp : g.getInput()) {
+      if (inp.getMode() == mode)
+        if (name == null)
+          throw new DefinitionException("This engine does not support multiple source inputs");
+        else
+          name = g.getName();
+    }
+    return name == null ? def : name;
+  }
+
+  private void executeGroup(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group) throws Exception {
 		log(indent+"Group : "+group.getName());
 		// todo: extends
 		// todo: check inputs

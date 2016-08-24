@@ -42,10 +42,11 @@ import javax.swing.UIManager;
 
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.test.ValidationEngineTests;
-import org.hl7.fhir.dstu3.utils.Transformer;
 import org.hl7.fhir.utilities.Utilities;
 
 /**
@@ -58,14 +59,6 @@ import org.hl7.fhir.utilities.Utilities;
  * ValidationEngine
  * 
  * todo: find a gome for this:
- *       System.out.println("Alternatively, you can use the validator to execute a transformation as described by a structure map.");
-      System.out.println("To do this, you must provide some additional parameters:");
-      System.out.println("");
-      System.out.println(" -transform -folder [folder] -map [map-file]");
-      System.out.println("");
-      System.out.println("* [map] the URI of the map that the transform starts with");
-      System.out.println("");
-      System.out.println("-transform requires the parameters -defn, -txserver, -folder (at least one with the map files), and -output");
 
  * @author Grahame
  *
@@ -82,7 +75,7 @@ public class Validator {
         e.printStackTrace();
       }
     } else if (hasParam(args, "help") || hasParam(args, "?") || hasParam(args, "-?") || hasParam(args, "/?") ) {
-      System.out.println("FHIR Validation tool. ");
+      System.out.println("FHIR Validation tool v"+Constants.VERSION+"-"+Constants.REVISION);
       System.out.println("");
       System.out.println("The FHIR validation tool validates a FHIR resource or bundle.");
       System.out.println("The validation tool compares a resource against the base definitions and any");
@@ -103,6 +96,7 @@ public class Validator {
       System.out.println("      default value is http://hl7.org/fhir. This parameter can only appear once");
       System.out.println("-ig [file|url]: an IG or profile definition to load. Can be the URL of an implementation guide,");
       System.out.println("     or a direct reference to the igpack.zip for a built implementation guide");
+      System.out.println("     or a local folder that contains a set of conformance resources to load");
       System.out.println("     no default value. This parameter can only appear any number of times");
       System.out.println("-tx [url]: the [base] url of a FHIR terminology service");
       System.out.println("     Default value is http://fhir3.healthintersections.com.au/open");
@@ -122,45 +116,25 @@ public class Validator {
       System.out.println("");
       System.out.println("Parameters can appear in any order");
       System.out.println("");
+      System.out.println("Alternatively, you can use the validator to execute a transformation as described by a structure map.");
+      System.out.println("To do this, you must provide some additional parameters:");
+      System.out.println("");
+      System.out.println(" -transform -map [map-file]");
+      System.out.println("");
+      System.out.println("* [map] the URI of the map that the transform starts with");
+      System.out.println("");
+      System.out.println("Any other dependency maps have to be loaded through an -ig reference ");
+      System.out.println("");
+      System.out.println("-transform requires the parameters -defn, -txserver, -folder (at least one with the map files), and -output");
       } else { 
-      //      if (args[0].equals("-profile-tests")) {
-      //        String pack = null;
-      //        String registry = null;
-      //        for (int i = 0; i < args.length - 1; i++) {
-      //          if (args[i].equals("-profile-tests"))
-      //            registry = args[i+1];
-      //          if (args[i].equals("-defn"))
-      //            pack = args[i+1];
-      //          	
-      //        }
-      //        ProfileValidatorTests tests = new ProfileValidatorTests(new File(pack), new File(registry));
-      //        tests.execute();
-      //      } else if (hasTransformParam(args)) {
-      //        Transformer exe = new Transformer();
-      //        exe.setSource(args[0]);
-      //        for (int i = 1; i < args.length; i++) {
-      //          if (args[i].equals("-defn"))
-      //            exe.setDefinitions(args[i+1]);
-      //          if (args[i].equals("-output"))
-      //            exe.setOutput(args[i+1]);
-      //          if (args[i].equals("-txserver"))
-      //            exe.setTxServer(args[i+1]);
-      //          if (args[i].equals("-folder"))
-      //            exe.addFolder(args[i+1]);
-      //          if (args[i].equals("-map"))
-      //            exe.setMapUri(args[i+1]);
-      //        }
-      //        if (exe.process()) 
-      //          System.out.println(" ...success");
-      //        else
-      //          System.out.println(" ...failure: "+exe.getMessage());
-      //      } else {
         String definitions = "http://hl7-fhir.github.io/";
         List<String> igs = new ArrayList<String>();
       List<String> questionnaires = new ArrayList<String>();
         String txServer = "http://fhir3.healthintersections.com.au/open";
         boolean doNative = false;
         List<String> profiles = new ArrayList<String>();
+      boolean transform = false;
+      String map = null;
         String output = null;
 
         // load the parameters - so order doesn't matter
@@ -175,25 +149,50 @@ public class Validator {
           questionnaires.add(args[i+1]);
           if (args[i].equals("-native"))
             doNative = true;
+        if (args[i].equals("-transform"))
+          transform = true;
           if (args[i].equals("-tx"))
             txServer = "n/a".equals(args[i+1]) ? null : args[i+1];
           if (args[i].equals("-ig"))
             igs.add(args[i+1]);
+        if (args[i].equals("-map"))
+          if (map == null)
+            map = args[i+1];
+          else
+            throw new Exception("Can only nominate a single -map parameter");
         }
+      if  (transform && txServer == null)
+        throw new Exception("Must provide a terminology server when doing a transform");
+      if  (transform && map == null)
+        throw new Exception("Must provide a map when doing a transform");
         
         ValidationEngine validator = new ValidationEngine();
       System.out.println("  .. load FHIR from "+definitions);
         validator.loadDefinitions(definitions);
+      System.out.println("    (v"+validator.getValidator().getContext().getVersion()+")");
       if (txServer != null) 
         System.out.println("  .. connect to tx server @ "+txServer);
           validator.connectToTSServer(txServer);
       for (String src : igs) {
-        System.out.println("  .. load IG from "+definitions);
+        System.out.println("  .. load IG from "+src);
           validator.loadIg(src);
       }
       validator.setQuestionnaires(questionnaires);
         validator.setNative(doNative);
 
+      if (transform) {
+        try {
+          Resource r = validator.transform(args[0], map);
+          System.out.println(" ...success");
+          if (output != null) {
+            FileOutputStream s = new FileOutputStream(output);
+            new XmlParser().compose(s, r, true);
+            s.close();
+          }
+        } catch (Exception e) {
+          System.out.println(" ...Failure: "+e.getMessage());
+        }
+      } else {
       OperationOutcome op = validator.validate(args[0], profiles);
         if (output == null) {
           System.out.println("Validating "+args[0]+": "+Integer.toString(validator.getMessages().size())+" messages");
@@ -215,7 +214,7 @@ public class Validator {
           s.close();
         }
       }
-    //    }
+    }
   }
 
   private static void runGUI() {

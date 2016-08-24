@@ -312,7 +312,7 @@ public class ProfileUtilities {
     if (!derived.getSnapshot().getElementFirstRep().getType().isEmpty())
       throw new Error("type on first snapshot element for "+derived.getSnapshot().getElementFirstRep().getPath()+" in "+derived.getUrl()+" from "+base.getUrl());
     updateMaps(base, derived);
-    setIds(derived, derived.getName());
+    setIds(derived, false);
   }
 
   /**
@@ -2394,9 +2394,20 @@ public class ProfileUtilities {
   }
 
 
-  public void setIds(StructureDefinition sd, String name)  {
-    generateIds(sd.getDifferential().getElement(), name);
-    generateIds(sd.getSnapshot().getElement(), name);    
+  public void setIds(StructureDefinition sd, boolean checkFirst)  {
+    if (!checkFirst || hasMissingIds(sd.getDifferential().getElement()))
+      generateIds(sd.getDifferential().getElement(), sd.getName());
+    if (!checkFirst || hasMissingIds(sd.getSnapshot().getElement()))
+      generateIds(sd.getSnapshot().getElement(), sd.getName());    
+  }
+
+
+  private boolean hasMissingIds(List<ElementDefinition> list) {
+    for (ElementDefinition ed : list) {
+      if (!ed.hasId())
+        return true;
+    }    
+    return false;
   }
 
 
@@ -2608,10 +2619,12 @@ public class ProfileUtilities {
   public void populateLogicalSnapshot(StructureDefinition sd) throws FHIRException {
     sd.getSnapshot().getElement().add(sd.getDifferential().getElementFirstRep().copy());
     
+    if (sd.hasBaseDefinition()) {
     StructureDefinition base = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
     if (base == null)
       throw new FHIRException("Unable to find base definition for logical model: "+sd.getBaseDefinition()+" from "+sd.getUrl());
     copyElements(sd, base.getSnapshot().getElement());
+    }
     copyElements(sd, sd.getDifferential().getElement());
   }
 

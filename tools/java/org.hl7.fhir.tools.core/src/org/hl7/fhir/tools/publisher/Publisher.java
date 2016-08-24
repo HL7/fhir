@@ -5181,7 +5181,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     miscValidation();
   }
 
-  private void runJUnitTests() {
+  private void runJUnitTests() throws Exception {
     TestingUtilities.context = page.getWorkerContext();
     TestingUtilities.silent = true;
     TestingUtilities.path = page.getFolders().rootDir;
@@ -5189,6 +5189,8 @@ public class Publisher implements URIResolver, SectionNumberer {
     
     runJUnitClass(InstanceValidatorTests.class);
     runJUnitClass(ValidationEngineTests.class);
+    
+    checkAllOk();
   }
 
   private void runJUnitClass(Class<?> clzz) {

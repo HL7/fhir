@@ -201,7 +201,7 @@ public class ValidationEngine {
     File f = new File(src);
     if (f.isDirectory()) {
       if (defname == null)
-        throw new IOException("You must provide a fie name, not a directory name");
+        throw new IOException("You must provide a file name, not a directory name");
       if (new File(Utilities.path(src, defname)).exists())
         return readZip(new FileInputStream(Utilities.path(src, defname)));
       else {
@@ -227,28 +227,28 @@ public class ValidationEngine {
 
   private FhirFormat checkIsResource(String path) {
     String ext = Utilities.getFileExtension(path);
-    if (!Utilities.existsInList(ext, ".json", ".ttl", ".map")) {
+    if (!Utilities.existsInList(ext, "json", "ttl", "map")) {
       try {
         Manager.parse(context, new FileInputStream(path), FhirFormat.XML);
         return FhirFormat.XML;
       } catch (Exception e) {
       }
     }
-    if (!Utilities.existsInList(ext, ".xml", ".ttl", ".map")) {
+    if (!Utilities.existsInList(ext, "xml", "ttl", "map")) {
       try {
         Manager.parse(context, new FileInputStream(path), FhirFormat.JSON);
         return FhirFormat.JSON;
       } catch (Exception e) {
       }
     }
-    if (!Utilities.existsInList(ext, ".json", ".xml", ".map")) {
+    if (!Utilities.existsInList(ext, "json", "xml", "map")) {
       try {
         Manager.parse(context, new FileInputStream(path), FhirFormat.TURTLE);
         return FhirFormat.TURTLE;
       } catch (Exception e) {
       }
     }
-    if (!Utilities.existsInList(ext, ".json", ".xml", ".ttl")) {
+    if (!Utilities.existsInList(ext, "json", "xml", "ttl")) {
       try {
         new StructureMapUtilities(context, null, null).parse(TextFile.fileToString(path));
         return FhirFormat.TEXT;
@@ -297,7 +297,9 @@ public class ValidationEngine {
         res = new JsonParser().parse(t.getValue());
 //      else if (fn.endsWith(".ttl"))
 //        res = new RdfParser().parse(t.getValue());
-
+      else if (fn.endsWith(".txt"))
+        res = new StructureMapUtilities(context, null, null).parse(TextFile.bytesToString(t.getValue()));
+      
       if (res != null && res instanceof BaseConformance) {
         context.seeResource(((BaseConformance) res).getUrl(), res);
       } else if (res != null && res instanceof Questionnaire) {
@@ -425,7 +427,7 @@ public class ValidationEngine {
   }
   
   public Resource transform(byte[] source, FhirFormat cntType, String mapUri) throws Exception {
-    StructureMapUtilities scu = new StructureMapUtilities(context, new HashMap<String, StructureMap>(), null);
+    StructureMapUtilities scu = new StructureMapUtilities(context, null);
 
     org.hl7.fhir.dstu3.elementmodel.Element src = Manager.parse(context, new ByteArrayInputStream(source), cntType); 
     StructureMap map = scu.getLibrary().get(mapUri);
