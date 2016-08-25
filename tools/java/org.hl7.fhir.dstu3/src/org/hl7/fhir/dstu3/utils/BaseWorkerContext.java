@@ -36,6 +36,7 @@ import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemHierarchyMeaning;
@@ -409,6 +410,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     boolean ok = false;
     String message = "No Message returned";
     String display = null;
+    ExpansionErrorClass err = ExpansionErrorClass.UNKNOWN;
     for (ParametersParameterComponent p : pout.getParameter()) {
       if (p.getName().equals("result"))
         ok = ((BooleanType) p.getValue()).getValue().booleanValue();
@@ -416,9 +418,17 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         message = ((StringType) p.getValue()).getValue();
       else if (p.getName().equals("display"))
         display = ((StringType) p.getValue()).getValue();
+      else if (p.getName().equals("cause")) {
+        try {
+          IssueType it = IssueType.fromCode(((StringType) p.getValue()).getValue());
+          if (it == IssueType.UNKNOWN || it == IssueType.NOTSUPPORTED)
+            err = ExpansionErrorClass.VALUESET_UNSUPPORTED;
+        } catch (FHIRException e) {
+        }
+      }
     }
     if (!ok)
-      res = new ValidationResult(IssueSeverity.ERROR, message);
+      res = new ValidationResult(IssueSeverity.ERROR, message, err);
     else if (display != null)
       res = new ValidationResult(new ConceptDefinitionComponent().setDisplay(display));
     else

@@ -182,8 +182,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private String configFile;
   private String sourceDir;
   private String destDir;
-  private String txServer = "http://fhir3.healthintersections.com.au/open";
-  //  private String txServer = "http://local.healthintersections.com.au:960/open";
+//  private String txServer = "http://fhir3.healthintersections.com.au/open";
+  private String txServer = "http://local.healthintersections.com.au:960/open";
   private boolean watch;
 
   private GenerationTool tool;
