@@ -50,6 +50,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.hl7.fhir.convertors.VersionConvertor_10_20;
 import org.hl7.fhir.convertors.VersionConvertor_14_20;
+import org.hl7.fhir.dstu3.model.Conformance;
 import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.elementmodel.Manager;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
@@ -113,6 +114,7 @@ import org.hl7.fhir.igtools.renderers.BaseRenderer;
 import org.hl7.fhir.igtools.renderers.CodeSystemRenderer;
 import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
 import org.hl7.fhir.igtools.renderers.StructureDefinitionRenderer;
+import org.hl7.fhir.igtools.renderers.SwaggerGenerator;
 import org.hl7.fhir.igtools.renderers.ValidationPresenter;
 import org.hl7.fhir.igtools.renderers.ValueSetRenderer;
 import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
@@ -134,6 +136,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import com.trilead.ssh2.signature.DSASignature;
 
 /**
  * Implementation Guide Publisher
@@ -182,8 +185,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private String configFile;
   private String sourceDir;
   private String destDir;
-//  private String txServer = "http://fhir3.healthintersections.com.au/open";
-  private String txServer = "http://local.healthintersections.com.au:960/open";
+  private String txServer = "http://fhir3.healthintersections.com.au/open";
+//  private String txServer = "http://local.healthintersections.com.au:960/open";
   private boolean watch;
 
   private GenerationTool tool;
@@ -1109,6 +1112,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     load("DataElement");
     load("StructureDefinition");
     load("OperationDefinition");
+    load("Conformance");
     generateSnapshots();
     generateLogicalMaps();
     load("StructureMap");
@@ -1666,7 +1670,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         String u = igpkp.getCanonical()+r.getUrlTail();
         if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
           String uc = ((BaseConformance) r.getResource()).getUrl();
-          if (!u.equals(uc) && !u.startsWith("http://hl7.org/fhir/template-adhoc-ig") && !(r.getResource() instanceof CodeSystem))
+          if (uc != null && !u.equals(uc) && !u.startsWith("http://hl7.org/fhir/template-adhoc-ig") && !(r.getResource() instanceof CodeSystem))
             throw new Exception("URL Mismatch "+u+" vs "+uc);
         }
         map.path(u, igpkp.getLinkFor(f, r));
@@ -1893,6 +1897,20 @@ public class Publisher implements IWorkerContext.ILoggingService {
     TextFile.stringToFile(json, Utilities.path(tempDir, "_data", "structuredefinitions.json"));
   }
 
+  private Conformance fetchConformance(String url) throws Exception {
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        if (r.getResource() instanceof Conformance) {
+          Conformance conf = (Conformance) r.getResource();
+          if (conf.getUrl().equals(url)) {
+            return conf;
+          }
+        }
+      }
+    }
+    return context.fetchResource(Conformance.class, url);
+  }
+
   private void generateDataFile() throws IOException {
     JsonObject data = new JsonObject();
     data.addProperty("path", specPath);
@@ -2094,7 +2112,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     } else {
       for (FetchedResource r : f.getResources()) {
         try {
-          dlog("Produce outputs for "+r.getElement().fhirType()+"/"+r.getId());
+          log("Produce outputs for "+r.getElement().fhirType()+"/"+r.getId());
           Map<String, String> vars = makeVars(r);
           saveDirectResourceOutputs(f, r, vars);
 
@@ -2112,6 +2130,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
               break;
 
             case DataElement:
+              break;
+            case Conformance:
+              generateOutputsConformance(f, r, (Conformance) r.getResource(), vars);
               break;
             case StructureDefinition:
               generateOutputsStructureDefinition(f, r, (StructureDefinition) r.getResource(), vars, regen);
@@ -2354,6 +2375,16 @@ public class Publisher implements IWorkerContext.ILoggingService {
       fragmentError("ConceptMap-"+cm.getId()+"-xref", "yet to be done: list of all places where concept map is used", f.getOutputNames());
   }
 
+  private void generateOutputsConformance(FetchedFile f, FetchedResource r, Conformance conf, Map<String, String> vars) throws Exception {
+    if (igpkp.wantGen(r, "swagger")) {
+      String path = Utilities.path(tempDir, r.getId()+"-swagger.yaml");
+      f.getOutputNames().add(path);
+      SwaggerGenerator sg = new SwaggerGenerator(context, version);
+      sg.generate(conf);
+      sg.save(path);
+    }
+  }
+  
   private void generateOutputsStructureDefinition(FetchedFile f, FetchedResource r, StructureDefinition sd, Map<String, String> vars, boolean regen) throws Exception {
     // todo : generate shex itself
     if (igpkp.wantGen(r, "shex"))

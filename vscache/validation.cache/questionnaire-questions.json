@@ -3,48 +3,48 @@
   "outcomes": [
     {
       "hash": "|http://example.org/system/code/lifelines/nl|null|VL 1-1, 18-65_1.2.2|Lifelines Questionnaire 1 part 1",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
+      "severity": null,
+      "message": null
     },
     {
       "hash": "|http://example.org/system/code/questions|null|COMCAR00|Angina Pectoris",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
+      "severity": null,
+      "message": null
     },
     {
       "hash": "|http://example.org/system/code/questions|null|COMORBCAR|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
+      "severity": null,
+      "message": null
     },
     {
       "hash": "|http://example.org/system/code/questions|null|COMORB|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
+      "severity": null,
+      "message": null
     },
     {
       "hash": "|http://example.org/system/code/questions|null|STADPT|pT category",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
+      "severity": null,
+      "message": null
     },
     {
       "hash": "|http://example.org/system/code/sections|null|ABDOMINAL|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
+      "severity": null,
+      "message": null
     },
     {
       "hash": "|http://example.org/system/code/sections|null|CARDIAL|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
+      "severity": null,
+      "message": null
     },
     {
       "hash": "|http://example.org/system/code/sections|null|COMORBIDITY|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
+      "severity": null,
+      "message": null
     },
     {
       "hash": "|http://example.org/system/code/sections|null|HISTOPATHOLOGY|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
+      "severity": null,
+      "message": null
     },
     {
       "hash": "|http://loinc.org|null|44249-1|PHQ-9 quick depression assessment panel:-:Pt:^Patient:-:Report.PHQ-9",
@@ -213,13 +213,13 @@
     },
     {
       "hash": "|http://snomed.info/sct|null|194828000|Angina (disorder)",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
+      "severity": null,
+      "message": null
     },
     {
       "hash": "|http://snomed.info/sct|null|22298006|Myocardial infarction (disorder)",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
+      "severity": null,
+      "message": null
     }
   ]
 }

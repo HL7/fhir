@@ -193,7 +193,9 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   }
   
   public void checkForPath(FetchedFile f, FetchedResource r, BaseConformance bc) {
-    if (!bc.getUrl().endsWith("/"+bc.getId()))
+    if (!bc.hasUrl())
+      error("Resource has no url: "+bc.getId());
+    else if (!bc.getUrl().endsWith("/"+bc.getId()))
       error("Resource id/url mismatch: "+bc.getId()+"/"+bc.getUrl());
     if (!r.getId().equals(bc.getId()))
       error("Resource id/id mismatch: "+r.getId()+"/"+bc.getUrl());

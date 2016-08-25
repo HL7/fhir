@@ -21,6 +21,7 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
@@ -112,17 +113,23 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	public static SimpleWorkerContext fromDefinitions(Map<String, byte[]> source) throws IOException, FHIRException {
 		SimpleWorkerContext res = new SimpleWorkerContext();
 		for (String name : source.keySet()) {
-      if (name.endsWith(".xml")) {
-        res.loadFromFile(new ByteArrayInputStream(source.get(name)), name);
-      }
-      if (name.endsWith(".json")) {
-        res.loadFromFileJson(new ByteArrayInputStream(source.get(name)), name);
-      }
+		  res.loadDefinitionItem(name, new ByteArrayInputStream(source.get(name)));
 		}
 		return res;
 	}
 
-	public void connectToTSServer(String url) throws URISyntaxException {
+	private void loadDefinitionItem(String name, InputStream stream) throws IOException, FHIRException {
+    if (name.endsWith(".xml"))
+      loadFromFile(stream, name);
+    else if (name.endsWith(".json"))
+      loadFromFileJson(stream, name);
+    else if (name.equals("version.info"))
+      readVersionInfo(stream);
+    else
+      loadBytes(name, stream);
+  }
+
+  public void connectToTSServer(String url) throws URISyntaxException {
 	  txServer = new FHIRToolingClient(url);
 	}
 
@@ -226,34 +233,17 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     ZipInputStream zip = new ZipInputStream(stream);
     ZipEntry ze;
     while ((ze = zip.getNextEntry()) != null) {
-      if (ze.getName().endsWith(".xml")) {
-        String name = ze.getName();
-        loadFromFile(zip, name);
-      } else if (ze.getName().equals("version.info")) {
-        readVersionInfo(ze, zip);
-      } else
-        loadBytes(ze.getName(), ze, zip);
+      loadDefinitionItem(ze.getName(), zip);
       zip.closeEntry();
     }
     zip.close();
   }
 
-
-  private void readVersionInfo(ZipEntry entry, ZipInputStream zip) throws IOException, DefinitionException {
-    int size;
-    byte[] buffer = new byte[2048];
-
-    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-    BufferedOutputStream bos = new BufferedOutputStream(bytes, buffer.length);
-
-    while ((size = zip.read(buffer, 0, buffer.length)) != -1) {
-      bos.write(buffer, 0, size);
-    }
-    bos.flush();
-    bos.close();
-    binaries.put("version.info", bytes.toByteArray());
+  private void readVersionInfo(InputStream stream) throws IOException, DefinitionException {
+    byte[] bytes = IOUtils.toByteArray(stream);
+    binaries.put("version.info", bytes);
     
-    String[] vi = new String(bytes.toByteArray()).split("\\r?\\n");
+    String[] vi = new String(bytes).split("\\r?\\n");
     for (String s : vi) {
       if (s.startsWith("version=")) {
         if (version == null)
@@ -268,20 +258,9 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     }
   }
 
-
-	private void loadBytes(String name, ZipEntry entry, ZipInputStream zip) throws IOException {
-    int size;
-    byte[] buffer = new byte[2048];
-
-    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-    BufferedOutputStream bos = new BufferedOutputStream(bytes, buffer.length);
-
-    while ((size = zip.read(buffer, 0, buffer.length)) != -1) {
-      bos.write(buffer, 0, size);
-    }
-    bos.flush();
-    bos.close();
-	  binaries.put(name, bytes.toByteArray());
+	private void loadBytes(String name, InputStream stream) throws IOException {
+    byte[] bytes = IOUtils.toByteArray(stream);
+	  binaries.put(name, bytes);
   }
 
   @Override
