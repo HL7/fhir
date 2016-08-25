@@ -479,6 +479,8 @@ public class FluentPathEngine {
       this.appInfo = appInfo;
       this.resource = resource;
       this.context = context;
+      this.thisItem = thisItem;
+      
     }
     public String getResource() {
       return resource;
