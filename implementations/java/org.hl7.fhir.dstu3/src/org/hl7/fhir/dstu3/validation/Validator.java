@@ -42,11 +42,15 @@ import javax.swing.UIManager;
 
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.model.Bundle;
+import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu3.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.test.ValidationEngineTests;
+import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
 
 /**
@@ -85,18 +89,23 @@ public class Validator {
       System.out.println("The following resource formats are supported: XML, JSON, Turtle");
       System.out.println("The following verions are supported: 1.4.0, 1.6.0, and current");
       System.out.println("");
-      System.out.println("In addition, (if requested) schema is also checked (W3C XML Schema | JSON schema | ShEx)");
+      System.out.println("If requested, instances will also be verified against the appropriate schema");
+      System.out.println("W3C XML Schema, JSON schema or ShEx, as appropriate");
       System.out.println("");
-      System.out.println("Usage: org.hl7.fhir.validator.jar [source] (parameters)");
-      System.out.println("");
-      System.out.println("[source] is a file name or url of the resource or bundle feed to validate");
+      System.out.println("Usage: org.hl7.fhir.validator.jar (parameters)");
       System.out.println("");
       System.out.println("The following parameters are supported:");
+      System.out.println("[source]: a file, url, directory or pattern for resources to validate.  At");
+      System.out.println("    least one source must be declared.  If there is more than one source or if");
+      System.out.println("    the source is other than a single file or url and the output parameter is");
+      System.out.println("    used, results will be provided as a Bundle.");
+      System.out.println("    Patterns are limited to a directory followed by a filename with an embedded");
+      System.out.println("    asterisk.  E.g. foo*-examples.xml or someresource.*, etc.");
       System.out.println("-defn [file|url]: where to find the FHIR specification igpack.zip");
       System.out.println("      default value is http://hl7.org/fhir. This parameter can only appear once");
-      System.out.println("-ig [file|url]: an IG or profile definition to load. Can be the URL of an implementation guide,");
-      System.out.println("     or a direct reference to the igpack.zip for a built implementation guide");
-      System.out.println("     or a local folder that contains a set of conformance resources to load");
+      System.out.println("-ig [file|url]: an IG or profile definition to load. Can be the URL of an ");
+      System.out.println("     implementation guide or a direct reference to the igpack.zip for a built");
+      System.out.println("     implementation guide or a local folder that contains a set of conformance ");
       System.out.println("     no default value. This parameter can appear any number of times");
       System.out.println("-tx [url]: the [base] url of a FHIR terminology service");
       System.out.println("     Default value is http://fhir3.healthintersections.com.au/open");
@@ -136,10 +145,10 @@ public class Validator {
       boolean transform = false;
       String map = null;
         String output = null;
-      List<String> inputs= new ArrayList<String>();
+      List<String> sources= new ArrayList<String>();
 
         // load the parameters - so order doesn't matter
-        for (int i = 1; i < args.length; i++) {
+      for (int i = 0; i < args.length; i++) {
           if (args[i].equals("-defn"))
           definitions = args[++i];
         else if (args[i].equals("-output"))
@@ -162,12 +171,18 @@ public class Validator {
           else
             throw new Exception("Can only nominate a single -map parameter");
         else
-          inputs.add(args[i]);
+          sources.add(args[i]);
         }
+      if  (sources.isEmpty())
+        throw new Exception("Must provide at least one source file");
+      if  (transform && sources.size() > 1)
+        throw new Exception("Can only have one source when doing a transform");
       if  (transform && txServer == null)
         throw new Exception("Must provide a terminology server when doing a transform");
       if  (transform && map == null)
         throw new Exception("Must provide a map when doing a transform");
+      if  (!transform && definitions == null)
+        throw new Exception("Must provide a defn when doing validation");
         
         ValidationEngine validator = new ValidationEngine();
       System.out.println("  .. load FHIR from "+definitions);
@@ -185,7 +200,7 @@ public class Validator {
 
       if (transform) {
         try {
-          Resource r = validator.transform(args[0], map);
+          Resource r = validator.transform(sources.get(0), map);
           System.out.println(" ...success");
           if (output != null) {
             FileOutputStream s = new FileOutputStream(output);
@@ -196,31 +211,48 @@ public class Validator {
           System.out.println(" ...Failure: "+e.getMessage());
         }
       } else {
-      OperationOutcome op = validator.validate(args[0], profiles);
+        Resource r = validator.validate(sources, profiles);
         if (output == null) {
-          List <ValidationMessage> messages = validator.getFilteredMessages();
-          System.out.println("Validating "+args[0]+": "+Integer.toString(messages.size())+" messages");
-          for (ValidationMessage v : messages) {
-            System.out.println(v.summary());
-          }
-          int count = 0;
-          for (ValidationMessage t : validator.getMessages()) {
-          	if (t.getLevel() == IssueSeverity.ERROR || t.getLevel() == IssueSeverity.FATAL)
-          		count++;
-          }
-          if (count == 0)
-            System.out.println(" ...success");
+          if (r instanceof Bundle)
+            for (BundleEntryComponent e : ((Bundle)r).getEntry())
+              displayOO((OperationOutcome)e.getResource());
           else
-            System.out.println(" ...failure");
+            displayOO((OperationOutcome)r);
         } else {
           FileOutputStream s = new FileOutputStream(output);
-        new XmlParser().compose(s, op, true);
+          new XmlParser().compose(s, r, true);
           s.close();
         }
       }
     }
   }
 
+  private static void displayOO(OperationOutcome oo) {
+    int error = 0;
+    int warn = 0;
+    int info = 0;
+    String file = ToolingExtensions.readStringExtension(oo, ToolingExtensions.EXT_OO_FILE);
+
+    for (OperationOutcomeIssueComponent issue : oo.getIssue()) {
+      if (issue.getSeverity()==OperationOutcome.IssueSeverity.FATAL || issue.getSeverity()==OperationOutcome.IssueSeverity.ERROR)
+        error++;
+      else if (issue.getSeverity()==OperationOutcome.IssueSeverity.WARNING)
+        warn++;
+      else
+        info++;
+    }
+    
+    System.out.println((error==0?"Success...":"*FAILURE* ")+ "validating "+file+": "+" error:"+Integer.toString(error)+" warn:"+Integer.toString(warn)+" info:"+Integer.toString(info));
+    for (OperationOutcomeIssueComponent issue : oo.getIssue()) {
+      System.out.println(getIssueSummary(issue));
+    }
+    System.out.println();
+  }
+
+  private static String getIssueSummary(OperationOutcomeIssueComponent issue) {
+    return "  " + issue.getSeverity().getDisplay() + " @ " + issue.getLocation().get(0).asStringValue() + " : " + issue.getDetails().getText();
+  }
+  
   private static void runGUI() {
     EventQueue.invokeLater(new Runnable() {
       public void run() {

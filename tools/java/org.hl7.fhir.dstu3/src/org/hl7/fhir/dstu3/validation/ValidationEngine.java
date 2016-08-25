@@ -35,6 +35,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -94,6 +95,7 @@ import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
+import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.utils.XmlLocationAnnotator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.SchemaInputSource;
@@ -164,6 +166,37 @@ public class ValidationEngine {
   private boolean doNative;
   private Map<String, byte[]> binaries = new HashMap<String, byte[]>();
 
+  private class AsteriskFilter implements FilenameFilter {
+    String dir;
+    String prefix;
+    String suffix;
+    int minLength;
+    
+    public AsteriskFilter(String filter) throws IOException {
+      if (!filter.matches("(.*(\\\\|\\/))*(.*)\\*(.*)"))
+        throw new IOException("Filter names must have the following syntax: [directorypath][prefix]?*[suffix]?   I.e. The asterisk must be in the filename, not the directory path");
+      dir = filter.replaceAll("(.*(\\\\|\\/))*(.*)\\*(.*)", "$1");
+      prefix = filter.replaceAll("(.*(\\\\|\\/))*(.*)\\*(.*)", "$3");
+      suffix = filter.replaceAll("(.*(\\\\|\\/))*(.*)\\*(.*)", "$4");
+      File f = new File(dir);
+      if (!f.exists()) {
+        throw new IOException("Directory " + dir + " does not exist");
+      }
+      if (!f.isDirectory()) {
+        throw new IOException("Directory " + dir + " is not a directory");
+      }
+    }
+    
+    public boolean accept(File dir, String s) {
+      boolean match = s.startsWith(prefix) && s.endsWith(suffix) && s.length() >= minLength;
+      return match;
+    }
+    
+    public String getDir() {
+      return dir;
+    }
+  }
+  
   public void loadDefinitions(String src) throws Exception {
     Map<String, byte[]> source = loadSource(src, "igpack.zip");   
     context = SimpleWorkerContext.fromDefinitions(source);
@@ -358,10 +391,74 @@ public class ValidationEngine {
   }
 
   public OperationOutcome validate(String source, List<String> profiles) throws Exception {
-    Content cnt = loadContent(source, "validate");
-    return validate(cnt.focus, cnt.cntType, profiles);
+    List<String> l = new ArrayList<String>();
+    l.add(source);
+    return (OperationOutcome)validate(l, profiles);
+  }
+    
+  public Resource validate(List<String> sources, List<String> profiles) throws Exception {
+    List<String> refs = new ArrayList<String>();
+    boolean asBundle = handleSources(sources, refs);
+    Bundle results = new Bundle();
+    results.setType(Bundle.BundleType.COLLECTION);
+    for (String ref : refs) {
+      Content cnt = loadContent(ref, "validate");
+      OperationOutcome outcome = validate(cnt.focus, cnt.cntType, profiles);
+      ToolingExtensions.addStringExtension(outcome, ToolingExtensions.EXT_OO_FILE, ref);
+      results.addEntry().setResource(outcome);
+    }
+    if (asBundle)
+      return results;
+    else
+      return results.getEntryFirstRep().getResource();
+  }
+
+  private boolean handleSources(List<String> sources, List<String> refs) throws IOException {
+    boolean asBundle = sources.size() > 1;
+    for (String source : sources) {
+      if (handleSource(source, refs)) {
+        asBundle = true;  // Code needs to be written this way to ensure handleSource gets called
+      }
+    }
+    
+    return asBundle;
   }
   
+  private boolean handleSource(String name, List<String> refs) throws IOException {
+    boolean isBundle = false;
+    if (name.startsWith("https:") || name.startsWith("http:")) {
+      refs.add(name);
+
+    } else if (name.contains("*")) {
+      isBundle = true;
+      AsteriskFilter filter = new AsteriskFilter(name);
+      File[] files = new File(filter.getDir()).listFiles(filter);
+      for (int i=0; i < files.length; i++) {
+        refs.add(files[i].getPath());
+      }
+    
+    } else {
+      File file = new File(name);
+
+      if (!file.exists())
+        throw new IOException("File " + name + " does not exist");
+    
+      if (file.isFile()) {
+        refs.add(name);
+        
+      } else {
+        isBundle = true;
+        for (int i=0; i < file.listFiles().length; i++) {
+          File[] fileList = file.listFiles();
+          if (fileList[i].isFile())
+            refs.add(fileList[i].getPath());
+        }
+      }
+    }
+    
+    return isBundle;
+  }
+
   public OperationOutcome validate(byte[] source, FhirFormat cntType, List<String> profiles) throws Exception {
     if (doNative) {
       if (cntType == FhirFormat.JSON)
