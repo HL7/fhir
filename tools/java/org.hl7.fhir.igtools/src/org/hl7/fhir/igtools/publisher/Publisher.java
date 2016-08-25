@@ -559,7 +559,6 @@ public class Publisher implements IWorkerContext.ILoggingService {
     validator = new InstanceValidator(context);
     validator.setAllowXsiLocation(true);
     validator.setNoBindingMsgSuppressed(true);
-    validator.setNoInvariantChecks(true);
 
     loadSpecDetails(context.getBinaries().get("spec.internals"));
     igpkp = new IGKnowledgeProvider(context, specPath, configuration, errors);
