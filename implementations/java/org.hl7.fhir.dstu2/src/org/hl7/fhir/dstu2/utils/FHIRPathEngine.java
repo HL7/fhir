@@ -238,7 +238,7 @@ public class FHIRPathEngine {
 	  }
 	}
 
-    return executeType(new ExecutionTypeContext(appContext, resourceType, types), types, expr, true);
+    return executeType(new ExecutionTypeContext(appContext, resourceType, context, types), types, expr, true);
   }
 
   public TypeDetails check(Object appContext, String resourceType, String context, String expr) throws FHIRLexerException, PathEngineException, DefinitionException {
@@ -260,7 +260,7 @@ public class FHIRPathEngine {
 		if (base != null)
 			list.add(base);
 		log = new StringBuilder();
-		return execute(new ExecutionContext(null, null, base), list, ExpressionNode, true);
+		return execute(new ExecutionContext(null, null, base, base), list, ExpressionNode, true);
 	}
 
 	/**
@@ -280,7 +280,7 @@ public class FHIRPathEngine {
 		if (base != null)
 			list.add(base);
 		log = new StringBuilder();
-		return execute(new ExecutionContext(null, null, base), list, exp, true);
+		return execute(new ExecutionContext(null, null, base, base), list, exp, true);
 	}
 
 	/**
@@ -298,7 +298,7 @@ public class FHIRPathEngine {
     if (base != null)
       list.add(base);
     log = new StringBuilder();
-    return execute(new ExecutionContext(appContext, resource, base), list, ExpressionNode, true);
+    return execute(new ExecutionContext(appContext, resource, base, base), list, ExpressionNode, true);
   }
 
   /**
@@ -316,7 +316,7 @@ public class FHIRPathEngine {
 		if (base != null)
 			list.add(base);
 		log = new StringBuilder();
-		return execute(new ExecutionContext(appContext, resource, base), list, ExpressionNode, true);
+		return execute(new ExecutionContext(appContext, resource, base, base), list, ExpressionNode, true);
 	}
 
 	/**
@@ -336,7 +336,7 @@ public class FHIRPathEngine {
 		if (base != null)
 			list.add(base);
 		log = new StringBuilder();
-		return execute(new ExecutionContext(appContext, resource, base), list, exp, true);
+		return execute(new ExecutionContext(appContext, resource, base, base), list, exp, true);
 	}
 
 	/**
@@ -467,10 +467,12 @@ public class FHIRPathEngine {
 	private class ExecutionContext {
 		private Object appInfo;
     private Base resource;
+    private Base context;
     private Base thisItem;
-    public ExecutionContext(Object appInfo, Base resource, Base thisItem) {
+    public ExecutionContext(Object appInfo, Base resource, Base context, Base thisItem) {
 			this.appInfo = appInfo;
 			this.resource = resource; 
+			this.context = context;
       this.thisItem = thisItem;
 		}
     public Base getResource() {
@@ -484,20 +486,22 @@ public class FHIRPathEngine {
 	private class ExecutionTypeContext {
 		private Object appInfo; 
 		private String resource;
-    private TypeDetails context;
+		private String context;
+    private TypeDetails thisItem;
 
 
-    public ExecutionTypeContext(Object appInfo, String resource, TypeDetails context) {
+    public ExecutionTypeContext(Object appInfo, String resource, String context, TypeDetails thisItem) {
 			super();
 			this.appInfo = appInfo;
 			this.resource = resource;
-			this.context = context;
+      this.context = context;
+      this.thisItem = thisItem;
 		}
 		public String getResource() {
 			return resource;
 		}
-    public TypeDetails getContext() {
-			return context;
+    public TypeDetails getThisItem() {
+			return thisItem;
 		}
 	}
 
@@ -875,7 +879,7 @@ public class FHIRPathEngine {
 		switch (exp.getKind()) {
 		case Name:
       if (atEntry && exp.getName().equals("$this"))
-        result.update(context.getContext());
+        result.update(context.getThisItem());
       else {
         for (String s : focus.getTypes()) {
           result.update(executeType(s, exp, atEntry));
@@ -965,6 +969,8 @@ public class FHIRPathEngine {
       return new StringType("http://loinc.org");
 		else if (s.equals("%ucum"))
       return new StringType("http://unitsofmeasure.org");
+    else if (s.equals("%context")) 
+      return context.context;
     else if (s.equals("%resource")) {
       if (context.resource == null)
         throw new PathEngineException("Cannot use %resource in this context");
@@ -1656,6 +1662,8 @@ public class FHIRPathEngine {
 			return "string";
 		else if (s.equals("%ucum"))
 			return "string";
+    else if (s.equals("%context"))
+      return context.context;
     else if (s.equals("%resource")) {
       if (context.resource == null)
         throw new PathEngineException("%resource cannot be used in this context");
@@ -2016,11 +2024,11 @@ public class FHIRPathEngine {
 
 
   private ExecutionContext changeThis(ExecutionContext context, Base newThis) {
-    return new ExecutionContext(context.appInfo, context.resource, newThis);
+    return new ExecutionContext(context.appInfo, context.resource, context.context, newThis);
   }
 
   private ExecutionTypeContext changeThis(ExecutionTypeContext context, TypeDetails newThis) {
-    return new ExecutionTypeContext(context.appInfo, context.resource, newThis);
+    return new ExecutionTypeContext(context.appInfo, context.resource, context.context, newThis);
   }
 
 
