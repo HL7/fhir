@@ -285,7 +285,7 @@ public class ValidationEngine {
     } catch (Exception e) {
     }
     try {
-      new StructureMapUtilities(context, null, null).parse(TextFile.fileToString(path));
+      new StructureMapUtilities(context, null, null, null).parse(TextFile.fileToString(path));
       return FhirFormat.TEXT;
     } catch (Exception e) {
     }
@@ -539,7 +539,7 @@ public class ValidationEngine {
   }
   
   public Resource transform(byte[] source, FhirFormat cntType, String mapUri) throws Exception {
-    StructureMapUtilities scu = new StructureMapUtilities(context, null);
+    StructureMapUtilities scu = new StructureMapUtilities(context);
 
     org.hl7.fhir.dstu3.elementmodel.Element src = Manager.parse(context, new ByteArrayInputStream(source), cntType); 
     StructureMap map = scu.getLibrary().get(mapUri);

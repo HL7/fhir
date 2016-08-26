@@ -67,6 +67,8 @@ import org.hl7.fhir.dstu3.model.StructureMap.StructureMapStructureComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapTransform;
 import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ValidationResult;
+import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.dstu3.utils.StructureMapUtilities.StructureMapAnalysis;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.TextFile;
@@ -82,7 +84,7 @@ import ca.uhn.fhir.model.base.resource.BaseConformance;
  * string render(map) - take a structure and convert it to text
  * map parse(text) - take a text representation and parse it 
  * transform(appInfo, source, map, target) - transform from source to target following the map
- * profileTransform(appInfo, map) - generate profiles for the targets of the transform
+ * analyse(appInfo, map) - generate profiles and other analysis artifacts for the targets of the transform
  * map generateMapFromMappings(StructureDefinition) - build a mapping from a structure definition with loigcal mappings
  *  
  * @author Grahame Grieve
@@ -112,6 +114,16 @@ public class StructureMapUtilities {
 	private FluentPathEngine fpe;
 	private Map<String, StructureMap> library;
 	private ITransformerServices services;
+  private ProfileKnowledgeProvider pkp;
+
+	public StructureMapUtilities(IWorkerContext worker, Map<String, StructureMap> library, ITransformerServices services, ProfileKnowledgeProvider pkp) {
+		super();
+		this.worker = worker;
+		this.library = library;
+		this.services = services;
+		this.pkp = pkp;
+		fpe = new FluentPathEngine(worker);
+	}
 
 	public StructureMapUtilities(IWorkerContext worker, Map<String, StructureMap> library, ITransformerServices services) {
 		super();
@@ -120,6 +132,19 @@ public class StructureMapUtilities {
 		this.services = services;
 		fpe = new FluentPathEngine(worker);
 	}
+
+  public StructureMapUtilities(IWorkerContext worker, Map<String, StructureMap> library) {
+    super();
+    this.worker = worker;
+    this.library = library;
+    fpe = new FluentPathEngine(worker);
+  }
+
+  public StructureMapUtilities(IWorkerContext worker) {
+    super();
+    this.worker = worker;
+    fpe = new FluentPathEngine(worker);
+  }
 
   public StructureMapUtilities(IWorkerContext worker, ITransformerServices services) {
     super();
@@ -875,7 +900,7 @@ public class StructureMapUtilities {
 		Variables srcVars = vars.copy();
 		if (rule.getSource().size() != 1)
 			throw new Exception("not handled yet");
-		List<Variables> source = analyseSource(context, srcVars, rule.getSource().get(0));
+		List<Variables> source = processSource(context, srcVars, rule.getSource().get(0));
 		if (source != null) {
 			for (Variables v : source) {
 				for (StructureMapGroupRuleTargetComponent t : rule.getTarget()) {
@@ -941,7 +966,7 @@ public class StructureMapUtilities {
 	}
 
 
-	private List<Variables> analyseSource(TransformContext context, Variables vars, StructureMapGroupRuleSourceComponent src) throws Exception {
+	private List<Variables> processSource(TransformContext context, Variables vars, StructureMapGroupRuleSourceComponent src) throws Exception {
 		Base b = vars.get(VariableMode.INPUT, src.getContext());
 		if (b == null)
 			throw new FHIRException("Unknown input variable "+src.getContext());
@@ -1332,15 +1357,33 @@ public class StructureMapUtilities {
     }
   }
 
+  public class StructureMapAnalysis {
+    private List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
+    private XhtmlNode summary;
+    public List<StructureDefinition> getProfiles() {
+      return profiles;
+    }
+    public XhtmlNode getSummary() {
+      return summary;
+    }
+    
+  }
+
 	/**
-	 * Given a structure map, return a set of profiles for what it will create
+	 * Given a structure map, return a set of analyses on it. 
+	 * 
+	 * Returned:
+	 *   - a list or profiles for what it will create. First profile is the target
+	 *   - a table with a summary (in xhtml) for easy human undertanding of the mapping
+	 *   
 	 * 
 	 * @param appInfo
 	 * @param map
 	 * @return
 	 * @throws Exception
 	 */
-  public List<StructureDefinition> transformProfile(Object appInfo, StructureMap map) throws Exception {
+  public StructureMapAnalysis analyse(Object appInfo, StructureMap map) throws Exception {
+    StructureMapAnalysis result = new StructureMapAnalysis(); 
     TransformContext context = new TransformContext(appInfo);
     List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
     VariablesForProfiling vars = new VariablesForProfiling(false, false);
@@ -1351,9 +1394,14 @@ public class StructureMapUtilities {
       else 
         vars.add(VariableMode.OUTPUT, t.getName(), createProfile(map, profiles, resolveType(map, t.getType(), t.getMode())));
 
+    result.summary = new XhtmlNode(NodeType.Element, "table").setAttribute("class", "grid");
+    XhtmlNode tr = result.summary.addTag("tr");
+    tr.addTag("td").addTag("b").addText("Source");
+    tr.addTag("td").addTag("b").addText("Target");
+    
     log("Start Profiling Transform "+map.getUrl());
 //    executeGroupProfile("", context, map, vars, start);
-    return profiles;
+    return result;
   }
 
   private void executeGroupProfile(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group) throws Exception {
@@ -1382,7 +1430,7 @@ public class StructureMapUtilities {
     Variables srcVars = vars.copy();
     if (rule.getSource().size() != 1)
       throw new Exception("not handled yet");
-    List<Variables> source = analyseSource(context, srcVars, rule.getSource().get(0));
+    List<Variables> source = processSource(context, srcVars, rule.getSource().get(0));
     if (source != null) {
       for (Variables v : source) {
       for (StructureMapGroupRuleTargetComponent t : rule.getTarget()) {

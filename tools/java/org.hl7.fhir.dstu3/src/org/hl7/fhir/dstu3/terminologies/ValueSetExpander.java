@@ -5,11 +5,15 @@ import java.io.IOException;
 
 import org.hl7.fhir.dstu3.model.ExpansionProfile;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ExpansionErrorClass;
+import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.TerminologyServiceErrorClass;
 
 public interface ValueSetExpander {
-  public enum ExpansionErrorClass {
-    UNKNOWN, NOSERVICE, VALUESET_UNSUPPORTED
+  public enum TerminologyServiceErrorClass {
+    UNKNOWN, NOSERVICE, SERVER_ERROR, VALUESET_UNSUPPORTED;
+
+    public boolean isInfrastructure() {
+      return this == NOSERVICE || this == SERVER_ERROR || this == VALUESET_UNSUPPORTED;
+    }
   }
   
   public class ETooCostly extends Exception {
@@ -30,7 +34,7 @@ public interface ValueSetExpander {
     private ValueSet valueset;
     private ValueSetChecker service;
     private String error;
-    private ExpansionErrorClass errorClass;
+    private TerminologyServiceErrorClass errorClass;
     
     public ValueSetExpansionOutcome(ValueSet valueset) {
       super();
@@ -38,21 +42,21 @@ public interface ValueSetExpander {
       this.service = null;
       this.error = null;
     }
-    public ValueSetExpansionOutcome(ValueSet valueset, String error, ExpansionErrorClass errorClass) {
+    public ValueSetExpansionOutcome(ValueSet valueset, String error, TerminologyServiceErrorClass errorClass) {
       super();
       this.valueset = valueset;
       this.service = null;
       this.error = error;
       this.errorClass = errorClass;
     }
-    public ValueSetExpansionOutcome(ValueSetChecker service, String error, ExpansionErrorClass errorClass) {
+    public ValueSetExpansionOutcome(ValueSetChecker service, String error, TerminologyServiceErrorClass errorClass) {
       super();
       this.valueset = null;
       this.service = service;
       this.error = error;
       this.errorClass = errorClass;
     }
-    public ValueSetExpansionOutcome(String error, ExpansionErrorClass errorClass) {
+    public ValueSetExpansionOutcome(String error, TerminologyServiceErrorClass errorClass) {
       this.valueset = null;
       this.service = null;
       this.error = error;
@@ -67,7 +71,7 @@ public interface ValueSetExpander {
     public String getError() {
       return error;
     }
-    public ExpansionErrorClass getErrorClass() {
+    public TerminologyServiceErrorClass getErrorClass() {
       return errorClass;
     }
 

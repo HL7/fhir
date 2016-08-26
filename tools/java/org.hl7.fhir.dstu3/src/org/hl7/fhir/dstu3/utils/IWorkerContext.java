@@ -19,7 +19,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionComponent;
-import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ExpansionErrorClass;
+import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.TerminologyServiceErrorClass;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ILoggingService;
 import org.hl7.fhir.dstu3.validation.IResourceValidator;
@@ -215,7 +215,7 @@ public interface IWorkerContext {
     private ConceptDefinitionComponent definition;
     private IssueSeverity severity;
     private String message;
-    private ExpansionErrorClass errorClass;
+    private TerminologyServiceErrorClass errorClass;
     
     public ValidationResult(IssueSeverity severity, String message) {
       this.severity = severity;
@@ -232,7 +232,7 @@ public interface IWorkerContext {
       this.definition = definition;
     }
     
-    public ValidationResult(IssueSeverity error, String error2, ExpansionErrorClass errorClass) {
+    public ValidationResult(IssueSeverity error, String error2, TerminologyServiceErrorClass errorClass) {
       this.severity = severity;
       this.message = message;
       this.errorClass = errorClass;
@@ -261,10 +261,10 @@ public interface IWorkerContext {
     }
 
     public boolean IsNoService() {
-      return errorClass == ExpansionErrorClass.NOSERVICE;
+      return errorClass == TerminologyServiceErrorClass.NOSERVICE;
     }
 
-    public ExpansionErrorClass getErrorClass() {
+    public TerminologyServiceErrorClass getErrorClass() {
       return errorClass;
     }
     

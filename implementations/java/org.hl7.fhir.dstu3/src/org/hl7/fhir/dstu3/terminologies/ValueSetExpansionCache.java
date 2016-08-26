@@ -43,7 +43,7 @@ import org.hl7.fhir.dstu3.model.ExpansionProfile;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ExpansionErrorClass;
+import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.TerminologyServiceErrorClass;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
@@ -114,7 +114,7 @@ public class ValueSetExpansionCache implements ValueSetExpanderFactory {
         if (r instanceof OperationOutcome) {
           OperationOutcome oo = (OperationOutcome) r;
           expansions.put(ToolingExtensions.getExtension(oo,VS_ID_EXT).getValue().toString(),
-            new ValueSetExpansionOutcome(new XhtmlComposer().setXmlOnly(true).composePlainText(oo.getText().getDiv()), ExpansionErrorClass.UNKNOWN));
+            new ValueSetExpansionOutcome(new XhtmlComposer().setXmlOnly(true).composePlainText(oo.getText().getDiv()), TerminologyServiceErrorClass.UNKNOWN));
         } else {
           ValueSet vs = (ValueSet) r; 
           expansions.put(vs.getUrl(), new ValueSetExpansionOutcome(vs));

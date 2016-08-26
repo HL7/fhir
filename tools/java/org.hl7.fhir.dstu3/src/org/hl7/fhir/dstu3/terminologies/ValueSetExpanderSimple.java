@@ -248,11 +248,11 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     } catch (NoTerminologyServiceException e) {
       // well, we couldn't expand, so we'll return an interface to a checker that can check membership of the set
       // that might fail too, but it might not, later.
-      return new ValueSetExpansionOutcome(new ValueSetCheckerSimple(source, factory, context), e.getMessage(), ExpansionErrorClass.NOSERVICE);
+      return new ValueSetExpansionOutcome(new ValueSetCheckerSimple(source, factory, context), e.getMessage(), TerminologyServiceErrorClass.NOSERVICE);
     } catch (Exception e) {
     // well, we couldn't expand, so we'll return an interface to a checker that can check membership of the set
     // that might fail too, but it might not, later.
-    return new ValueSetExpansionOutcome(new ValueSetCheckerSimple(source, factory, context), e.getMessage(), ExpansionErrorClass.UNKNOWN);
+    return new ValueSetExpansionOutcome(new ValueSetCheckerSimple(source, factory, context), e.getMessage(), TerminologyServiceErrorClass.UNKNOWN);
   }
   }
 

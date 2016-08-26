@@ -79,7 +79,7 @@ import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ExpansionErrorClass;
+import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.TerminologyServiceErrorClass;
 import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.dstu3.utils.FluentPathEngine;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
@@ -548,7 +548,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                     txTime = txTime + (System.nanoTime() - t);
                     if (!vr.isOk()) {
                       bindingsOk = false;
-                      if (vr.getErrorClass() == ExpansionErrorClass.VALUESET_UNSUPPORTED || vr.getErrorClass() == ExpansionErrorClass.NOSERVICE) {
+                      if (vr.getErrorClass() == TerminologyServiceErrorClass.VALUESET_UNSUPPORTED || vr.getErrorClass() == TerminologyServiceErrorClass.NOSERVICE) {
                         if (binding.getStrength() == BindingStrength.REQUIRED)
                           warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl()+", and a code from this value set is required)");
                         else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
@@ -645,7 +645,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                     if (!vr.isOk()) {
                       if (vr.IsNoService())
                         hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "The value provided could not be validated in the absence of a terminology server");
-                      else if (vr.getErrorClass() == ExpansionErrorClass.VALUESET_UNSUPPORTED || vr.getErrorClass() == ExpansionErrorClass.NOSERVICE) {
+                      else if (vr.getErrorClass() == TerminologyServiceErrorClass.VALUESET_UNSUPPORTED || vr.getErrorClass() == TerminologyServiceErrorClass.NOSERVICE) {
                         if (binding.getStrength() == BindingStrength.REQUIRED)
                           warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl()+", and a code from this value set is required)");
                         else if (binding.getStrength() == BindingStrength.EXTENSIBLE)

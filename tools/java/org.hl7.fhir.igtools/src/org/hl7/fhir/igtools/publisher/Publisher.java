@@ -2470,7 +2470,11 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void generateOutputsStructureMap(FetchedFile f, FetchedResource r, StructureMap resource, Map<String,String> vars) {
-
+// to generate:
+    // map file
+    // summary table 
+    // profile index
+    
   }
 
   private XhtmlNode getXhtml(FetchedResource r) {

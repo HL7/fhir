@@ -35,7 +35,7 @@ import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ExpansionErrorClass;
+import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.TerminologyServiceErrorClass;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ValidationResult;
 import org.hl7.fhir.dstu3.utils.client.EFhirClientException;
@@ -356,7 +356,7 @@ public class SpecificationTerminologyServices {
         return loadFromCache(vs.copy(), cacheFn);
       return expandOnServer(vs, cacheFn);
     } catch (Exception e) {
-      return new ValueSetExpansionOutcome(e.getMessage(), e instanceof NoTerminologyServiceException ? ExpansionErrorClass.NOSERVICE : ExpansionErrorClass.UNKNOWN);
+      return new ValueSetExpansionOutcome(e.getMessage(), e instanceof NoTerminologyServiceException ? TerminologyServiceErrorClass.NOSERVICE : TerminologyServiceErrorClass.UNKNOWN);
     }
   }
 
@@ -380,7 +380,7 @@ public class SpecificationTerminologyServices {
     JsonParser parser = new JsonParser();
     Resource r = parser.parse(new FileInputStream(cacheFn));
     if (r instanceof OperationOutcome)
-      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDiagnostics(), ExpansionErrorClass.UNKNOWN);
+      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDiagnostics(), TerminologyServiceErrorClass.UNKNOWN);
     else {
       vs.setExpansion(((ValueSet) r).getExpansion()); // because what is cached might be from a different value set
       return new ValueSetExpansionOutcome(vs);
