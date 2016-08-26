@@ -243,6 +243,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
   private String vsCache;
 
+  private String adHocTmpDir;
+
   public void execute(boolean clearCache) throws Exception {
     globalStart = System.nanoTime();
     initialize(clearCache);
@@ -460,8 +462,10 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
   public void initialize(boolean clearCache) throws Exception {
     first = true;
+    boolean copyTemplate = false;
     if (configFile == null) {
       buildConfigFile();
+      copyTemplate = true;
     } else
       log("Load Configuration from "+configFile);
     configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
@@ -546,7 +550,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
       }
     } else
       loadValidationPack();
-      
+    if (copyTemplate)
+      copyTemplate();
     context.setLogger(logger);
     log("Definitions "+context.getVersion());
     context.setAllowLoadingDuplicates(true);
@@ -618,35 +623,49 @@ public class Publisher implements IWorkerContext.ILoggingService {
     }
   }
 
+  private void copyTemplate() throws IOException {
+    byte[] template = context.getBinaries().get("ig-template.zip");
+    ZipInputStream zip = new ZipInputStream(new ByteArrayInputStream(template));
+    byte[] buffer = new byte[2048];
+    ZipEntry entry;
+    while((entry = zip.getNextEntry())!=null) {
+      String filename = Utilities.path(adHocTmpDir, entry.getName());
+      String dir = Utilities.getDirectoryForFile(filename);
+      Utilities.createDirectory(dir);
+      FileOutputStream output = new FileOutputStream(filename);
+      int len = 0;
+      while ((len = zip.read(buffer)) > 0)
+        output.write(buffer, 0, len);
+      output.close();
+    }
+    zip.close();
+    // replace config
+    configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
+  }
+  
   private void buildConfigFile() throws IOException, org.hl7.fhir.exceptions.FHIRException, FHIRFormatError {
     log("Process Resources from "+sourceDir);
-    String tmpDir = Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-scratch");
-    if (!new File(tmpDir).exists())
-      Utilities.createDirectory(tmpDir);
-    Utilities.clearDirectory(tmpDir);
-    Utilities.copyDirectory("C:\\work\\org.hl7.fhir\\build\\tools\\ig", tmpDir, null);
-    configFile = Utilities.path(tmpDir, "ig.json");
-//    ImplementationGuide ig = (ImplementationGuide) new XmlParser().parse(new FileInputStream(Utilities.path(tmpDir, "resources", "ig.xml")));
-//    List<FoundResource> resources = findResources();
-//    String url = null;
-//    for (FoundResource res : resources) {
-//      Utilities.copyFile(res.getPath(), Utilities.path(tmpDir, "resources", Utilities.fileTitle(res.getPath())+"."+res.getFormat().getExtension()));
-//      ImplementationGuidePackageResourceComponent t = ig.getPackageFirstRep().addResource();
-//      t.setSource(new Reference().setReference(res.getType()+"/"+res.getId()));
-//      if (url == null)
-//        url = res.getUrl();
-//      else
-//        url = pickRoot(url, res.getUrl());
-//    }
-//    if (url == null)
-//      url = "http://hl7.org/fhir/template-ig";
-//    else if (url.length() == 0)
-//      throw new FHIRFormatError("No common canonical URL found in input resources");
-//    new XmlParser().compose(new FileOutputStream(Utilities.path(tmpDir, "resources", "ig.xml")), ig);
-//    
-//    String cfg = TextFile.fileToString(Utilities.path(tempDir, "ig.json"));
-//    cfg = cfg.replace("[[[dst]]]", destDir);
-//    cfg = cfg.replace("[[[can]]]", url);
+    adHocTmpDir = Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-scratch");
+    if (!new File(adHocTmpDir).exists())
+      Utilities.createDirectory(adHocTmpDir);
+    Utilities.clearDirectory(adHocTmpDir);
+    configFile = Utilities.path(adHocTmpDir, "ig.json");
+    // temporary config, until full ig template is in place
+    TextFile.stringToFile(
+            "{\r\n"+
+            "  \"tool\" : \"jekyll\",\r\n"+
+            "  \"paths\" : {\r\n"+
+            "    \"resources\" : \"resources\",\r\n"+
+            "    \"pages\" : \"pages\",\r\n"+
+            "    \"temp\" : \"temp\",\r\n"+
+            "    \"qa\" : \"qa\",\r\n"+
+            "    \"output\" : \"output\",\r\n"+
+            "    \"specification\" : \"http://hl7-fhir.github.io/\"\r\n"+
+            "  },\r\n"+
+            "  \"source\": \"ig.xml\"\r\n"+
+            "}\r\n", configFile, false);
+    Utilities.createDirectory(Utilities.path(adHocTmpDir, "resources"));
+    Utilities.createDirectory(Utilities.path(adHocTmpDir, "pages"));
   }
 
   private String pickRoot(String url, String url2) {
@@ -727,11 +746,13 @@ public class Publisher implements IWorkerContext.ILoggingService {
         }
         if (r instanceof BaseConformance) {
           String u = ((BaseConformance) r).getUrl();
-          String p = igm.getPath(u);
-          if (p == null)
-            throw new Exception("Internal error in IG "+name+" map: No identity found for "+u);
-          r.setUserData("path", location+"/"+p);
-          context.seeResource(u, r);
+          if (u != null) {
+            String p = igm.getPath(u);
+            if (p == null)
+              throw new Exception("Internal error in IG "+name+" map: No identity found for "+u);
+            r.setUserData("path", location+"/"+p);
+            context.seeResource(u, r);
+          }
         }
       }
     }
@@ -2111,7 +2132,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     } else {
       for (FetchedResource r : f.getResources()) {
         try {
-          log("Produce outputs for "+r.getElement().fhirType()+"/"+r.getId());
+          dlog("Produce outputs for "+r.getElement().fhirType()+"/"+r.getId());
           Map<String, String> vars = makeVars(r);
           saveDirectResourceOutputs(f, r, vars);
 

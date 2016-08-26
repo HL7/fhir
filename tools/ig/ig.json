@@ -8,6 +8,7 @@
     "output" : "output",
     "specification" : "http://hl7-fhir.github.io/"
   },
+	"source": "ig.xml",
 	"canonicalBase": "http://hl7.org/fhir/template-adhoc-ig",
 	"defaults": {
 		"Any": {
@@ -27,7 +28,6 @@
       "template-base" : "sd.html"
 		}
 	},
-	"source": "ig.xml",
   "resources" : {
   }
 }

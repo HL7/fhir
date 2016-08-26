@@ -107,7 +107,7 @@ public class ZipGenerator {
     for (String f : files) {
       if (new CSFile(Utilities.path(actualDir, f)).isDirectory())
         addFolder(Utilities.path(actualDir, f), Utilities.pathReverse(statedDir, f), omitIfExists, noExt);
-      else if (!f.endsWith(noExt))
+      else if (noExt == null || !f.endsWith(noExt))
         addFileName(Utilities.pathReverse(statedDir, f), Utilities.path(actualDir, f), omitIfExists);
     }
   }

@@ -2514,6 +2514,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.close();
     
       page.log("....IG Builder (1)", LogMessageType.Process);
+      zip = new ZipGenerator(page.getFolders().tmpDir + "ig-template.zip");
+      zip.addFolder(Utilities.path(page.getFolders().rootDir, "tools", "ig"), "", false, null);
+      zip.close();
+
       zip = new ZipGenerator(page.getFolders().dstDir + "igpack.zip");
       zip.addFileName("fhir.css", page.getFolders().dstDir + "fhir.css", false);
       zip.addFileName("spec.internals", page.getFolders().dstDir + "spec.internals", false);
@@ -2532,6 +2536,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("redirect.asp.template", page.getFolders().srcDir + "redirect.asp", false);
       zip.addFileName("redirect.cgi.template", page.getFolders().srcDir + "redirect.cgi", false);
       zip.addFileName("redirect.php.template", page.getFolders().srcDir + "redirect.php", false);
+      zip.addFileName("ig-template.zip", Utilities.path(page.getFolders().tmpDir, "ig-template.zip"), false);
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "publish", ""), "", ".png", null);
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "publish", ""), "", ".gif", null);
       zip.close();
