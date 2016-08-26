@@ -54,7 +54,6 @@ func (rc *ResourceController) IndexHandler(c *gin.Context) {
 	c.Set("Resource", rc.Name)
 	c.Set("Action", "search")
 
-	c.Header("Access-Control-Allow-Origin", "*")
 	c.JSON(http.StatusOK, bundle)
 }
 
@@ -80,7 +79,6 @@ func (rc *ResourceController) ShowHandler(c *gin.Context) {
 		return
 	}
 
-	c.Header("Access-Control-Allow-Origin", "*")
 	if err == ErrNotFound {
 		c.Status(http.StatusNotFound)
 		return
@@ -110,7 +108,6 @@ func (rc *ResourceController) CreateHandler(c *gin.Context) {
 	c.Set("Action", "create")
 
 	c.Header("Location", responseURL(c.Request, rc.Name, id).String())
-	c.Header("Access-Control-Allow-Origin", "*")
 	c.JSON(http.StatusCreated, resource)
 }
 
@@ -135,7 +132,6 @@ func (rc *ResourceController) UpdateHandler(c *gin.Context) {
 	c.Set("Resource", rc.Name)
 
 	c.Header("Location", responseURL(c.Request, rc.Name, c.Param("id")).String())
-	c.Header("Access-Control-Allow-Origin", "*")
 	if createdNew {
 		c.Set("Action", "create")
 		c.JSON(http.StatusCreated, resource)
@@ -171,7 +167,6 @@ func (rc *ResourceController) ConditionalUpdateHandler(c *gin.Context) {
 	c.Set("Resource", rc.Name)
 
 	c.Header("Location", responseURL(c.Request, rc.Name, id).String())
-	c.Header("Access-Control-Allow-Origin", "*")
 	if createdNew {
 		c.Set("Action", "create")
 		c.JSON(http.StatusCreated, resource)
@@ -194,7 +189,6 @@ func (rc *ResourceController) DeleteHandler(c *gin.Context) {
 	c.Set("Resource", rc.Name)
 	c.Set("Action", "delete")
 
-	c.Header("Access-Control-Allow-Origin", "*")
 	c.Status(http.StatusNoContent)
 }
 
@@ -211,7 +205,6 @@ func (rc *ResourceController) ConditionalDeleteHandler(c *gin.Context) {
 	c.Set("Resource", rc.Name)
 	c.Set("Action", "delete")
 
-	c.Header("Access-Control-Allow-Origin", "*")
 	c.Status(http.StatusNoContent)
 }
 

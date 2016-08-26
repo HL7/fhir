@@ -3,9 +3,12 @@ package server
 import (
 	"errors"
 	"fmt"
-	"github.com/gin-gonic/gin"
-	"gopkg.in/mgo.v2"
 	"log"
+	"time"
+
+	"github.com/gin-gonic/gin"
+	"github.com/itsjamie/gin-cors"
+	"gopkg.in/mgo.v2"
 )
 
 type FHIRServer struct {
@@ -43,6 +46,17 @@ func NewServer(databaseHost string) *FHIRServer {
 		Interceptors:     make(map[string]InterceptorList),
 	}
 	server.Engine = gin.Default()
+
+	server.Engine.Use(cors.Middleware(cors.Config{
+		Origins:         "*",
+		Methods:         "GET, PUT, POST, DELETE",
+		RequestHeaders:  "Origin, Authorization, Content-Type, If-Match, If-None-Exist",
+		ExposedHeaders:  "Location, ETag, Last-Modified",
+		MaxAge:          86400 * time.Second, // Preflight expires after 1 day
+		Credentials:     true,
+		ValidateHeaders: false,
+	}))
+
 	return server
 }
 
