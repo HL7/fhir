@@ -143,7 +143,7 @@ public class XmlXHtmlRenderer implements IXMLWriter {
           b.append(a.name);
         b.append("=&quot;");
         if (a.value != null)
-          b.append(a.value);
+          b.append(Utilities.escapeXml(a.value));
         b.append("&quot;");
       }
     }
