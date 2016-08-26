@@ -474,6 +474,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, importsDir+sl+"xpp3-1.1.4c.jar", names);
     AddJarToJar(jar, importsDir+sl+"gson-2.3.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-codec-1.9.jar", names);
+    AddJarToJar(jar, importsDir+sl+"commons-io-1.2.jar", names);
     //    AddJarToJar(jar, importsDir+sl+"Saxon-B-9.0.jar", names);
     //    AddJarToJar(jar, importsDir+sl+"saxon-dom-8.7.jar", names);
     AddJarToJar(jar, importsDir+sl+"Saxon-HE-9.5.1-5.jar", names);
