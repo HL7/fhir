@@ -50,7 +50,7 @@ import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpanderFactory;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ETooCostly;
-import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ExpansionErrorClass;
+import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.TerminologyServiceErrorClass;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ILoggingService;
 import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
@@ -176,9 +176,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         return res;
       }
     } catch (NoTerminologyServiceException e) {
-      return new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage(), ExpansionErrorClass.NOSERVICE);
+      return new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage(), TerminologyServiceErrorClass.NOSERVICE);
     } catch (Exception e) {
-      return new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage(), ExpansionErrorClass.UNKNOWN);
+      return new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage(), TerminologyServiceErrorClass.UNKNOWN);
     }
   }
 
@@ -186,7 +186,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     JsonParser parser = new JsonParser();
     Resource r = parser.parse(new FileInputStream(cacheFn));
     if (r instanceof OperationOutcome)
-      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDetails().getText(), ExpansionErrorClass.NOSERVICE);
+      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDetails().getText(), TerminologyServiceErrorClass.NOSERVICE);
     else {
       vs.setExpansion(((ValueSet) r).getExpansion()); // because what is cached might be from a different value set
       return new ValueSetExpansionOutcome(vs);
@@ -250,7 +250,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   public ValueSetExpansionOutcome expandOnServer(ValueSet vs, String fn) throws Exception {
     if (noTerminologyServer)
-      return new ValueSetExpansionOutcome("Error expanding ValueSet: running without terminology services", ExpansionErrorClass.NOSERVICE);
+      return new ValueSetExpansionOutcome("Error expanding ValueSet: running without terminology services", TerminologyServiceErrorClass.NOSERVICE);
       
     try {
       Map<String, String> params = new HashMap<String, String>();
@@ -261,7 +261,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       ValueSet result = txServer.expandValueset(vs, params);
       return new ValueSetExpansionOutcome(result);  
     } catch (Exception e) {
-      return new ValueSetExpansionOutcome("Error expanding ValueSet \""+vs.getUrl()+": "+e.getMessage(), ExpansionErrorClass.UNKNOWN);
+      return new ValueSetExpansionOutcome("Error expanding ValueSet \""+vs.getUrl()+": "+e.getMessage(), TerminologyServiceErrorClass.UNKNOWN);
     }
   }
 
@@ -400,7 +400,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   private ValidationResult serverValidateCode(Parameters pin, boolean doCache) throws IOException {
     if (noTerminologyServer)
-      return new ValidationResult(null, null, ExpansionErrorClass.NOSERVICE);
+      return new ValidationResult(null, null, TerminologyServiceErrorClass.NOSERVICE);
     String cacheName = doCache ? generateCacheName(pin) : null;
     ValidationResult res = loadFromCache(cacheName);
     if (res != null)
@@ -410,7 +410,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     boolean ok = false;
     String message = "No Message returned";
     String display = null;
-    ExpansionErrorClass err = ExpansionErrorClass.UNKNOWN;
+    TerminologyServiceErrorClass err = TerminologyServiceErrorClass.UNKNOWN;
     for (ParametersParameterComponent p : pout.getParameter()) {
       if (p.getName().equals("result"))
         ok = ((BooleanType) p.getValue()).getValue().booleanValue();
@@ -422,7 +422,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         try {
           IssueType it = IssueType.fromCode(((StringType) p.getValue()).getValue());
           if (it == IssueType.UNKNOWN || it == IssueType.NOTSUPPORTED)
-            err = ExpansionErrorClass.VALUESET_UNSUPPORTED;
+            err = TerminologyServiceErrorClass.VALUESET_UNSUPPORTED;
         } catch (FHIRException e) {
         }
       }
@@ -551,7 +551,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       else 
         return verifyCodeExternal(vs, code, true);
     } catch (Exception e) {
-      return new ValidationResult(IssueSeverity.FATAL, "Error validating code \""+code.toString()+"\": "+e.getMessage(), ExpansionErrorClass.UNKNOWN);
+      return new ValidationResult(IssueSeverity.FATAL, "Error validating code \""+code.toString()+"\": "+e.getMessage(), TerminologyServiceErrorClass.SERVER_ERROR);
     }
   }
 
