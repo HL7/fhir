@@ -12,6 +12,7 @@ import javax.naming.Context;
 import org.hl7.fhir.dstu3.elementmodel.Property;
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
+import org.hl7.fhir.dstu3.exceptions.PathEngineException;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.CodeType;
@@ -66,9 +67,12 @@ import org.hl7.fhir.dstu3.model.StructureMap.StructureMapModelMode;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapStructureComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapTransform;
 import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
+import org.hl7.fhir.dstu3.utils.FluentPathEngine.IEvaluationContext;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ValidationResult;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.dstu3.utils.StructureMapUtilities.StringPair;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities.StructureMapAnalysis;
+import org.hl7.fhir.dstu3.utils.StructureMapUtilities.TargetWriter;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.TextFile;
@@ -110,6 +114,44 @@ public class StructureMapUtilities {
 
 	}
 
+	private class FluentPathHostServices implements IEvaluationContext{
+
+    public Base resolveConstant(Object appContext, String name) throws PathEngineException {
+      throw new Error("Not Implemented Yet");
+    }
+
+    @Override
+    public TypeDetails resolveConstantType(Object appContext, String name) throws PathEngineException {
+      if (!(appContext instanceof VariablesForProfiling)) 
+        throw new Error("Internal Logic Error (wrong type '"+appContext.getClass().getName()+"' in resolveConstantType)");
+      VariablesForProfiling vars = (VariablesForProfiling) appContext;
+      VariableForProfiling v = vars.get(null, name);
+      if (v == null)
+        throw new PathEngineException("Unknown variable '"+name+"' from variables "+vars.summary());
+      return v.property.types;
+    }
+
+    @Override
+    public boolean Log(String argument, List<Base> focus) {
+      throw new Error("Not Implemented Yet");
+    }
+
+    @Override
+    public FunctionDetails resolveFunction(String functionName) {
+      throw new Error("Not Implemented Yet");
+    }
+
+    @Override
+    public TypeDetails checkFunction(Object appContext, String functionName, List<TypeDetails> parameters) throws PathEngineException {
+      throw new Error("Not Implemented Yet");
+    }
+
+    @Override
+    public List<Base> executeFunction(Object appContext, String functionName, List<List<Base>> parameters) {
+      throw new Error("Not Implemented Yet");
+    }
+	  
+	}
 	private IWorkerContext worker;
 	private FluentPathEngine fpe;
 	private Map<String, StructureMap> library;
@@ -123,6 +165,7 @@ public class StructureMapUtilities {
 		this.services = services;
 		this.pkp = pkp;
 		fpe = new FluentPathEngine(worker);
+		fpe.setHostServices(new FluentPathHostServices());
 	}
 
   public StructureMapUtilities(IWorkerContext worker, Map<String, StructureMap> library, ITransformerServices services) {
@@ -337,6 +380,10 @@ public class StructureMapUtilities {
   			b.append(" = ");
 			if (rt.getTransform() == StructureMapTransform.COPY && rt.getParameter().size() == 1) {
 				renderTransformParam(b, rt.getParameter().get(0));
+      } else if (rt.getTransform() == StructureMapTransform.EVALUATE && rt.getParameter().size() == 1) {
+        b.append("(");
+        b.append(((StringType) rt.getParameter().get(0).getValue()).asStringValue());
+        b.append(")");
 			} else if (rt.getTransform() == StructureMapTransform.EVALUATE && rt.getParameter().size() == 2) {
 				b.append(rt.getTransform().toCode());
 				b.append("(");
@@ -703,7 +750,14 @@ public class StructureMapUtilities {
 		} else 
 		  name = start;
 		
-		if (lexer.hasToken("(")) {
+		if ("(".equals(name)) {
+		  // inline fluentpath expression
+      target.setTransform(StructureMapTransform.EVALUATE);
+      ExpressionNode node = fpe.parse(lexer);
+      target.setUserData(MAP_EXPRESSION, node);
+      target.addParameter().setValue(new StringType(node.toString()));
+      lexer.token(")");
+		} else if (lexer.hasToken("(")) {
 		  target.setTransform(StructureMapTransform.fromCode(name));
 		  lexer.token("(");
 		  if (target.getTransform() == StructureMapTransform.EVALUATE) {
@@ -795,6 +849,9 @@ public class StructureMapUtilities {
 		public Base getObject() {
 			return object;
 		}
+    public String summary() {
+      return name+": "+object.fhirType();
+    }
 	}
 
 	public class Variables {
@@ -822,6 +879,17 @@ public class StructureMapUtilities {
 					return v.getObject();
 			return null;
 		}
+
+    public String summary() {
+      CommaSeparatedStringBuilder s = new CommaSeparatedStringBuilder();
+      CommaSeparatedStringBuilder t = new CommaSeparatedStringBuilder();
+      for (Variable v : list)
+        if (v.mode == VariableMode.INPUT)
+          s.append(v.summary());
+        else
+          t.append(v.summary());
+      return "source variables ["+s.toString()+"], target variables ["+t.toString()+"]";
+    }
 	}
 
 	public class TransformContext {
@@ -1046,9 +1114,12 @@ public class StructureMapUtilities {
 				tgt.setUserData(MAP_WHERE_EXPRESSION, expr);
 			}
 			List<Base> v = fpe.evaluate(null, null, getParam(vars, tgt.getParameter().get(0)), expr);
-			if (v.size() != 1)
+      if (v.size() == 0)
+        return null;
+      else if (v.size() != 1)
 				throw new FHIRException("evaluation of "+expr.toString()+" returned "+Integer.toString(v.size())+" objects");
-			return v.get(0);
+      else
+        return v.get(0);
 
 		case TRUNCATE : 
 			String src = getParamString(vars, tgt.getParameter().get(0));
@@ -1139,7 +1210,7 @@ public class StructureMapUtilities {
   }
 
 
-  private String getParamString(Variables vars, StructureMapGroupRuleTargetParameterComponent parameter) {
+  private String getParamString(Variables vars, StructureMapGroupRuleTargetParameterComponent parameter) throws DefinitionException {
 		Base b = getParam(vars, parameter);
 		if (b == null || !b.hasPrimitiveValue())
 			return null;
@@ -1147,14 +1218,17 @@ public class StructureMapUtilities {
 	}
 
 
-	private Base getParam(Variables vars, StructureMapGroupRuleTargetParameterComponent parameter) {
+	private Base getParam(Variables vars, StructureMapGroupRuleTargetParameterComponent parameter) throws DefinitionException {
 		Type p = parameter.getValue();
 		if (!(p instanceof IdType))
 			return p;
 		else { 
-			Base b = vars.get(VariableMode.INPUT, ((IdType) p).asStringValue());
+			String n = ((IdType) p).asStringValue();
+      Base b = vars.get(VariableMode.INPUT, n);
 			if (b == null)
-				b = vars.get(VariableMode.OUTPUT, ((IdType) p).asStringValue());
+				b = vars.get(VariableMode.OUTPUT, n);
+			if (b == null)
+        throw new DefinitionException("Variable "+n+" not found ("+vars.summary()+")");
 			return b;
 		}
 	}
@@ -1276,19 +1350,45 @@ public class StructureMapUtilities {
 	}
 
 	public class PropertyWithType {
-	  private Property property;
+    private String path;
+    private Property baseProperty;
+    private Property profileProperty;
 	  private TypeDetails types;
-    public PropertyWithType(Property property, TypeDetails types) {
+    public PropertyWithType(String path, Property baseProperty, Property profileProperty, TypeDetails types) {
       super();
-      this.property = property;
+      this.baseProperty = baseProperty;
+      this.profileProperty = profileProperty;
+      this.path = path;
       this.types = types;
     }
-    public Property getProperty() {
-      return property;
-    }
+
     public TypeDetails getTypes() {
       return types;
     }
+    public String getPath() {
+      return path;
+    }
+
+    public Property getBaseProperty() {
+      return baseProperty;
+    }
+
+    public void setBaseProperty(Property baseProperty) {
+      this.baseProperty = baseProperty;
+    }
+
+    public Property getProfileProperty() {
+      return profileProperty;
+    }
+
+    public void setProfileProperty(Property profileProperty) {
+      this.profileProperty = profileProperty;
+    }
+
+    public String summary() {
+      return path;
+    }
+    
 	}
 	
 	public class VariableForProfiling {
@@ -1311,6 +1411,9 @@ public class StructureMapUtilities {
       public PropertyWithType getProperty() {
         return property;
       }
+      public String summary() {
+        return name+": "+property.summary();
+      }      
 	  }
 
   public class VariablesForProfiling {
@@ -1323,8 +1426,12 @@ public class StructureMapUtilities {
       this.repeating = repeating;
     }
 
-    public void add(VariableMode mode, String name, Property property, TypeDetails types) {
-      add(mode, name, new PropertyWithType(property, types));
+    public void add(VariableMode mode, String name, String path, Property property, TypeDetails types) {
+      add(mode, name, new PropertyWithType(path, property, null, types));
+    }
+    
+    public void add(VariableMode mode, String name, String path, Property baseProperty, Property profileProperty, TypeDetails types) {
+      add(mode, name, new PropertyWithType(path, baseProperty, profileProperty, types));
     }
     
     public void add(VariableMode mode, String name, PropertyWithType property) {
@@ -1349,11 +1456,30 @@ public class StructureMapUtilities {
       return result;
     }
 
-    public PropertyWithType get(VariableMode mode, String name) {
+    public VariableForProfiling get(VariableMode mode, String name) {
+      if (mode == null) {
+        for (VariableForProfiling v : list) 
+          if ((v.mode == VariableMode.OUTPUT) && v.getName().equals(name))
+            return v;
+        for (VariableForProfiling v : list) 
+          if ((v.mode == VariableMode.INPUT) && v.getName().equals(name))
+            return v;
+      }
       for (VariableForProfiling v : list) 
         if ((v.mode == mode) && v.getName().equals(name))
-          return v.getProperty();
+          return v;
       return null;
+    }
+
+    public String summary() {
+      CommaSeparatedStringBuilder s = new CommaSeparatedStringBuilder();
+      CommaSeparatedStringBuilder t = new CommaSeparatedStringBuilder();
+      for (VariableForProfiling v : list)
+        if (v.mode == VariableMode.INPUT)
+          s.append(v.summary());
+        else
+          t.append(v.summary());
+      return "source variables ["+s.toString()+"], target variables ["+t.toString()+"]";
     }
   }
 
@@ -1385,179 +1511,309 @@ public class StructureMapUtilities {
   public StructureMapAnalysis analyse(Object appInfo, StructureMap map) throws Exception {
     StructureMapAnalysis result = new StructureMapAnalysis(); 
     TransformContext context = new TransformContext(appInfo);
-    List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
     VariablesForProfiling vars = new VariablesForProfiling(false, false);
     StructureMapGroupComponent start = map.getGroup().get(0);
-    for (StructureMapGroupInputComponent t : start.getInput())
+    for (StructureMapGroupInputComponent t : start.getInput()) {
+      PropertyWithType ti = resolveType(map, t.getType(), t.getMode());
       if (t.getMode() == StructureMapInputMode.SOURCE)
-       vars.add(VariableMode.INPUT, t.getName(), resolveType(map, t.getType(), t.getMode()));
+       vars.add(VariableMode.INPUT, t.getName(), ti);
       else 
-        vars.add(VariableMode.OUTPUT, t.getName(), createProfile(map, profiles, resolveType(map, t.getType(), t.getMode())));
-
+        vars.add(VariableMode.OUTPUT, t.getName(), createProfile(map, result.profiles, ti));
+    }
+    
     result.summary = new XhtmlNode(NodeType.Element, "table").setAttribute("class", "grid");
     XhtmlNode tr = result.summary.addTag("tr");
     tr.addTag("td").addTag("b").addText("Source");
     tr.addTag("td").addTag("b").addText("Target");
     
     log("Start Profiling Transform "+map.getUrl());
-//    executeGroupProfile("", context, map, vars, start);
+    analyseGroup("", context, map, vars, start, result);
     return result;
   }
   
-  private void executeGroupProfile(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group) throws Exception {
-    log(indent+"Group : "+group.getName());
+  private void analyseGroup(String indent, TransformContext context, StructureMap map, VariablesForProfiling vars, StructureMapGroupComponent group, StructureMapAnalysis result) throws Exception {
+    log(indent+"Analyse Group : "+group.getName());
     // todo: extends
     // todo: check inputs
+    XhtmlNode tr = result.summary.addTag("tr").setAttribute("class", "diff-title");
+    XhtmlNode xs = tr.addTag("td");
+    XhtmlNode xt = tr.addTag("td");
+    for (StructureMapGroupInputComponent inp : group.getInput()) {
+      if (inp.getMode() == StructureMapInputMode.SOURCE) 
+        noteInput(vars, inp, VariableMode.INPUT, xs);
+      if (inp.getMode() == StructureMapInputMode.TARGET) 
+        noteInput(vars, inp, VariableMode.OUTPUT, xt);
+    }
     for (StructureMapGroupRuleComponent r : group.getRule()) {
-      executeRule(indent+"  ", context, map, vars, group, r);
+      analyseRule(indent+"  ", context, map, vars, group, r, result);
     }
   }
-
-//private void executeGroupProfile(String indent, Object appInfo, StructureMap map, VariablesForProfiling vars, StructureMapGroupComponent group) throws Exception {
-//log(indent+"Profile Group : "+group.getName());
-//// todo: extends
-//// todo: check inputs
-//for (StructureMapGroupRuleComponent r : group.getRule()) {
-//  executeRuleProfile(indent+"  ", appInfo, map, vars, group, r);
-//}    
-//}
-//
-//
 
   
-  private void executeRuleProfile(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group, StructureMapGroupRuleComponent rule) throws Exception {
-    log(indent+"rule : "+rule.getName());
-    Variables srcVars = vars.copy();
+  private void noteInput(VariablesForProfiling vars, StructureMapGroupInputComponent inp, VariableMode mode, XhtmlNode xs) {
+    VariableForProfiling v = vars.get(mode, inp.getName());
+    if (v != null)
+      xs.addText("Input: "+v.property.getPath());
+  }
+
+  private void analyseRule(String indent, TransformContext context, StructureMap map, VariablesForProfiling vars, StructureMapGroupComponent group, StructureMapGroupRuleComponent rule, StructureMapAnalysis result) throws Exception {
+    log(indent+"Analyse rule : "+rule.getName());
+    XhtmlNode tr = result.summary.addTag("tr");
+    XhtmlNode xs = tr.addTag("td");
+    XhtmlNode xt = tr.addTag("td");
+
+    VariablesForProfiling srcVars = vars.copy();
     if (rule.getSource().size() != 1)
       throw new Exception("not handled yet");
-    List<Variables> source = processSource(context, srcVars, rule.getSource().get(0));
-    if (source != null) {
-      for (Variables v : source) {
-        for (StructureMapGroupRuleTargetComponent t : rule.getTarget()) {
-          processTarget(context, v, map, t);
-        }
-        if (rule.hasRule()) {
-          for (StructureMapGroupRuleComponent childrule : rule.getRule()) {
-            executeRule(indent +"  ", context, map, v, group, childrule);
-          }
-        } else if (rule.hasDependent()) {
-          for (StructureMapGroupRuleDependentComponent dependent : rule.getDependent()) {
-            executeDependency(indent+"  ", context, map, v, group, dependent);
-          }
-        }
+    VariablesForProfiling source = analyseSource(context, srcVars, rule.getSourceFirstRep(), xs);
+
+    TargetWriter tw = new TargetWriter();
+    for (StructureMapGroupRuleTargetComponent t : rule.getTarget()) {
+      analyseTarget(context, source, map, t, rule.getSourceFirstRep().getVariable(), tw, result.profiles);
+    }
+    tw.commit(xt);
+
+    for (StructureMapGroupRuleComponent childrule : rule.getRule()) {
+      analyseRule(indent+"  ", context, map, source, group, childrule, result);
+    }
+//    for (StructureMapGroupRuleDependentComponent dependent : rule.getDependent()) {
+//      executeDependency(indent+"  ", context, map, v, group, dependent); // do we need group here?
+//    }
+  }
+
+  public class StringPair {
+    private String var;
+    private String desc;
+    public StringPair(String var, String desc) {
+      super();
+      this.var = var;
+      this.desc = desc;
+    }
+    public String getVar() {
+      return var;
+    }
+    public String getDesc() {
+      return desc;
+    }
+  }
+  public class TargetWriter {
+    private Map<String, String> newResources = new HashMap<String, String>();
+    private List<StringPair> assignments = new ArrayList<StringPair>();
+    private CommaSeparatedStringBuilder txt = new CommaSeparatedStringBuilder();
+
+    public void newResource(String var, String name) {
+      newResources.put(var, name);
+      txt.append("new "+name);
+    }
+
+    public void valueAssignment(String context, String desc) {
+      assignments.add(new StringPair(context, desc));      
+      txt.append(desc);
+    }
+    
+    public void commit(XhtmlNode xt) {
+      if (newResources.size() == 1 && assignments.size() == 1 && newResources.containsKey(assignments.get(0).getVar())) {
+        xt.addText("new "+assignments.get(0).desc);
+      } else {
+        xt.addText(txt.toString());        
       }
     }
   }
 
-  private void executeDependencyProfile(String indent, TransformContext context, StructureMap map, Variables vin, StructureMapGroupComponent group, StructureMapGroupRuleDependentComponent dependent) throws Exception {
-    StructureMap targetMap = null;
-    StructureMapGroupComponent target = null;
-    for (StructureMapGroupComponent grp : map.getGroup()) {
-      if (grp.getName().equals(dependent.getName())) {
-        if (targetMap == null) {
-          targetMap = map;
-          target = grp;
-        } else 
-          throw new FHIRException("Multiple possible matches for rule '"+dependent.getName()+"'");
-      }
-    }
-
-    for (UriType imp : map.getImport()) {
-      StructureMap impMap = library.get(imp.getValue());
-      if (impMap == null)
-        throw new FHIRException("Unable to find map "+imp.getValue());
-      for (StructureMapGroupComponent grp : impMap.getGroup()) {
-        if (grp.getName().equals(dependent.getName())) {
-          if (targetMap == null) {
-            targetMap = impMap;
-            target = grp;
-          } else 
-            throw new FHIRException("Multiple possible matches for rule '"+dependent.getName()+"'");
-        }
-      }
-    }
-    if (target == null)
-      throw new FHIRException("No matches found for rule '"+dependent.getName()+"'");
-
-    if (target.getInput().size() != dependent.getVariable().size()) {
-      throw new FHIRException("Rule '"+dependent.getName()+"' has "+Integer.toString(target.getInput().size())+" but the invocation has "+Integer.toString(dependent.getVariable().size())+" variables");
-    }
-    Variables v = new Variables();
-    for (int i = 0; i < target.getInput().size(); i++) {
-      StructureMapGroupInputComponent input = target.getInput().get(i);
-      StringType var = dependent.getVariable().get(i);
-      VariableMode mode = input.getMode() == StructureMapInputMode.SOURCE ? VariableMode.INPUT : VariableMode.OUTPUT;
-      Base vv = vin.get(mode, var.getValue());
-      if (vv == null)
-        throw new FHIRException("Rule '"+dependent.getName()+"' "+mode.toString()+" variable '"+input.getName()+"' has no value");
-      v.add(mode, input.getName(), vv);     
-    }
-    executeGroup(indent+"  ", context, targetMap, v, target);
-  }
-
-
-  private List<Variables> analyseSourceProfile(TransformContext context, Variables vars, StructureMapGroupRuleSourceComponent src) throws Exception {
-    Base b = vars.get(VariableMode.INPUT, src.getContext());
-    if (b == null)
+  private VariablesForProfiling analyseSource(TransformContext context, VariablesForProfiling vars, StructureMapGroupRuleSourceComponent src, XhtmlNode td) throws Exception {
+    VariableForProfiling var = vars.get(VariableMode.INPUT, src.getContext());
+    if (var == null)
       throw new FHIRException("Unknown input variable "+src.getContext());
+    PropertyWithType prop = var.getProperty();
+
+    boolean optional = false;
+    boolean repeating = false;
 
     if (src.hasCondition()) {
-      ExpressionNode expr = (ExpressionNode) src.getUserData(MAP_WHERE_EXPRESSION);
-      if (expr == null) {
-        expr = fpe.parse(src.getCondition());
-        //        fpe.check(context.appInfo, ??, ??, expr)
-        src.setUserData(MAP_WHERE_EXPRESSION, expr);
-      }
-      if (!fpe.evaluateToBoolean(null, b, expr))
-        return null;
+      optional = true;
     }
 
-    if (src.hasCheck()) {
-      ExpressionNode expr = (ExpressionNode) src.getUserData(MAP_WHERE_CHECK);
-      if (expr == null) {
-        expr = fpe.parse(src.getCheck());
-        //        fpe.check(context.appInfo, ??, ??, expr)
-        src.setUserData(MAP_WHERE_CHECK, expr);
-      }
-      if (!fpe.evaluateToBoolean(null, b, expr))
-        throw new Exception("Check condition failed");
-    } 
-
-    List<Base> items = new ArrayList<Base>();
-    if (!src.hasElement()) 
-      items.add(b);
-    else 
-      getChildrenByName(b, src.getElement(), items);
-    List<Variables> result = new ArrayList<Variables>();
-    for (Base r : items) {
-      Variables v = vars.copy();
+    if (src.hasElement()) {
+      Property element = prop.getBaseProperty().getChild(prop.types.getType(), src.getElement());
+      if (element == null)
+        throw new Exception("unknown element name "+src.getElement());
+      if (element.getDefinition().getMin() == 0)
+        optional = true;
+      if (element.getDefinition().getMax().equals("*"))
+        repeating = true;
+      VariablesForProfiling result = vars.copy(optional, repeating);
+      TypeDetails type = new TypeDetails(CollectionStatus.SINGLETON);
+      for (TypeRefComponent tr : element.getDefinition().getType()) {
+        type.addType(tr.getCode());
+      }      
+      td.addText(prop.getPath()+"."+src.getElement()); 
       if (src.hasVariable())
-        v.add(VariableMode.INPUT, src.getVariable(), r);
-      result.add(v); 
+        result.add(VariableMode.INPUT, src.getVariable(), new PropertyWithType(prop.getPath()+"."+src.getElement(), element, null, type));
+      return result;
+    } else {
+      td.addText(prop.getPath()); // ditto!
+      return vars.copy(optional, repeating);
     }
-    return result;
   }
 
-
-  private void processTargetProfile(TransformContext context, Variables vars, StructureMap map, StructureMapGroupRuleTargetComponent tgt) throws Exception {
-    Base dest = null;
+  
+  private void analyseTarget(TransformContext context, VariablesForProfiling vars, StructureMap map, StructureMapGroupRuleTargetComponent tgt, String tv, TargetWriter tw, List<StructureDefinition> profiles) throws Exception {
+    VariableForProfiling var = null;
     if (tgt.hasContext()) {
-      dest = vars.get(VariableMode.OUTPUT, tgt.getContext());
-      if (dest == null)
+      var = vars.get(VariableMode.OUTPUT, tgt.getContext());
+      if (var == null)
         throw new Exception("target context not known: "+tgt.getContext());
       if (!tgt.hasElement())
         throw new Exception("Not supported yet");
-    }
-    Base v = null;
+    }  
+
+    
+    TypeDetails type = null;
     if (tgt.hasTransform()) {
-      v = runTransform(context, map, tgt, vars);
-      if (v != null && dest != null)
-        dest.setProperty(tgt.getElement().hashCode(), tgt.getElement(), v);
-    } else if (dest != null) 
-      v = dest.makeProperty(tgt.getElement().hashCode(), tgt.getElement());
-    if (tgt.hasVariable() && v != null)
-      vars.add(VariableMode.OUTPUT, tgt.getVariable(), v);
+      type = analyseTransform(context, map, tgt, var, vars);
+        // profiling: dest.setProperty(tgt.getElement().hashCode(), tgt.getElement(), v);
+    } else  
+      type = new TypeDetails(CollectionStatus.SINGLETON, var.property.baseProperty.getChild(tgt.getElement(),  tgt.getElement()).getType(tgt.getElement()));
+
+    if (tgt.getTransform() == StructureMapTransform.CREATE) {
+      String s = getParamString(vars, tgt.getParameter().get(0));
+      if (worker.getResourceNames().contains(s))
+        tw.newResource(tgt.getVariable(), s);
+    } else { 
+      boolean mapsSrc = false;
+      for (StructureMapGroupRuleTargetParameterComponent p : tgt.getParameter()) {
+        Type pr = p.getValue();
+        if (pr instanceof IdType && ((IdType) pr).asStringValue().equals(tv)) 
+          mapsSrc = true;
+      }
+      if (mapsSrc) 
+        tw.valueAssignment(tgt.getContext(), var.property.getPath()+"."+tgt.getElement()+getTransformSuffix(tgt.getTransform()));
+    }
+    
+    PropertyWithType prop = updateProfile(var, tgt.getElement(), type, map, profiles);
+    if (tgt.hasVariable())
+      if (tgt.hasElement())
+        vars.add(VariableMode.OUTPUT, tgt.getVariable(), prop); 
+      else
+        vars.add(VariableMode.OUTPUT, tgt.getVariable(), prop); 
   }
+  
+  private String getTransformSuffix(StructureMapTransform transform) {
+    switch (transform) {
+    case COPY: return ""; 
+    case TRUNCATE: return " (truncated)"; 
+    //case ESCAPE: 
+    //case CAST: 
+    //case APPEND: 
+    case TRANSLATE: return " (translated)"; 
+  //case DATEOP, 
+  //case UUID, 
+  //case POINTER, 
+  //case EVALUATE, 
+    case CC: return " (--> CodeableConcept)"; 
+    case C: return " (--> Coding)"; 
+    case QTY: return " (--> Quantity)"; 
+  //case ID, 
+  //case CP, 
+    default:
+      return " {??)";
+    }
+  }
+
+  private PropertyWithType updateProfile(VariableForProfiling var, String element, TypeDetails type, StructureMap map, List<StructureDefinition> profiles) throws DefinitionException {
+    if (var == null) {
+      assert (Utilities.noString(element));
+      StructureDefinition sd = worker.fetchResource(StructureDefinition.class, type.getType());
+      ElementDefinition ed = sd.getSnapshot().getElementFirstRep();
+      return createProfile(map, profiles, new PropertyWithType(sd.getId(), new Property(worker, ed, sd), null, type)); 
+    } else {
+      assert (!Utilities.noString(element));
+      Property p = var.getProperty().getBaseProperty().getChild(element, type);
+      return new PropertyWithType(var.property.path+"."+element, p, null, type);
+    }
+  }
+  
+
+
+  private TypeDetails analyseTransform(TransformContext context, StructureMap map, StructureMapGroupRuleTargetComponent tgt, VariableForProfiling var, VariablesForProfiling vars) throws FHIRException {
+    switch (tgt.getTransform()) {
+    case CREATE :
+      String p = getParamString(vars, tgt.getParameter().get(0));
+      return new TypeDetails(CollectionStatus.SINGLETON, p);
+    case COPY : 
+      return getParam(vars, tgt.getParameter().get(0));
+    case EVALUATE :
+      ExpressionNode expr = (ExpressionNode) tgt.getUserData(MAP_EXPRESSION);
+      if (expr == null) {
+        expr = fpe.parse(getParamString(vars, tgt.getParameter().get(tgt.getParameter().size()-1)));
+        tgt.setUserData(MAP_WHERE_EXPRESSION, expr);
+      }
+      return fpe.check(vars, null, null, expr);
+
+////case TRUNCATE : 
+////  String src = getParamString(vars, tgt.getParameter().get(0));
+////  String len = getParamString(vars, tgt.getParameter().get(1));
+////  if (Utilities.isInteger(len)) {
+////    int l = Integer.parseInt(len);
+////    if (src.length() > l)
+////      src = src.substring(0, l);
+////  }
+////  return new StringType(src);
+////case ESCAPE : 
+////  throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+////case CAST :
+////  throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+////case APPEND : 
+////  throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+    case TRANSLATE : 
+      return new TypeDetails(CollectionStatus.SINGLETON, "CodeableConcept");
+   case CC:
+     return new TypeDetails(CollectionStatus.SINGLETON, "CodeableConcept");
+   case C:
+     return new TypeDetails(CollectionStatus.SINGLETON, "Coding");
+   case REFERENCE :
+     return new TypeDetails(CollectionStatus.SINGLETON, "Reference");
+////case DATEOP :
+////  throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
+////case UUID :
+////  return new IdType(UUID.randomUUID().toString());
+////case POINTER :
+////  Base b = getParam(vars, tgt.getParameter().get(0));
+////  if (b instanceof Resource)
+////    return new UriType("urn:uuid:"+((Resource) b).getId());
+////  else
+////    throw new FHIRException("Transform engine cannot point at an element of type "+b.fhirType());
+    default:
+      throw new Error("Transform Unknown or not handled yet: "+tgt.getTransform().toCode());
+    }
+  }
+  private String getParamString(VariablesForProfiling vars, StructureMapGroupRuleTargetParameterComponent parameter) {
+    Type p = parameter.getValue();
+    if (p == null || p instanceof IdType)
+      return null;
+    if (!p.hasPrimitiveValue())
+      return null;
+    return p.primitiveValue();
+  }
+
+
+  private TypeDetails getParam(VariablesForProfiling vars, StructureMapGroupRuleTargetParameterComponent parameter) throws DefinitionException {
+    Type p = parameter.getValue();
+    if (!(p instanceof IdType))
+      return new TypeDetails(CollectionStatus.SINGLETON, "http://hl7.org/fhir/StructureDefinition/"+p.fhirType());
+    else { 
+      String n = ((IdType) p).asStringValue();
+      VariableForProfiling b = vars.get(VariableMode.INPUT, n);
+      if (b == null)
+        b = vars.get(VariableMode.OUTPUT, n);
+      if (b == null)
+        throw new DefinitionException("Variable "+n+" not found ("+vars.summary()+")");
+      return b.getProperty().getTypes();
+    }
+  }
+
+
+  
 
   private Base runTransformProfile(TransformContext context, StructureMap map, StructureMapGroupRuleTargetComponent tgt, Variables vars) throws FHIRException {
     switch (tgt.getTransform()) {
@@ -1633,6 +1889,60 @@ public class StructureMapUtilities {
     }
   }
 
+  
+  
+  
+  
+  
+//  private void executeDependencyProfile(String indent, TransformContext context, StructureMap map, Variables vin, StructureMapGroupComponent group, StructureMapGroupRuleDependentComponent dependent) throws Exception {
+//    StructureMap targetMap = null;
+//    StructureMapGroupComponent target = null;
+//    for (StructureMapGroupComponent grp : map.getGroup()) {
+//      if (grp.getName().equals(dependent.getName())) {
+//        if (targetMap == null) {
+//          targetMap = map;
+//          target = grp;
+//        } else 
+//          throw new FHIRException("Multiple possible matches for rule '"+dependent.getName()+"'");
+//      }
+//    }
+//
+//    for (UriType imp : map.getImport()) {
+//      StructureMap impMap = library.get(imp.getValue());
+//      if (impMap == null)
+//        throw new FHIRException("Unable to find map "+imp.getValue());
+//      for (StructureMapGroupComponent grp : impMap.getGroup()) {
+//        if (grp.getName().equals(dependent.getName())) {
+//          if (targetMap == null) {
+//            targetMap = impMap;
+//            target = grp;
+//          } else 
+//            throw new FHIRException("Multiple possible matches for rule '"+dependent.getName()+"'");
+//        }
+//      }
+//    }
+//    if (target == null)
+//      throw new FHIRException("No matches found for rule '"+dependent.getName()+"'");
+//
+//    if (target.getInput().size() != dependent.getVariable().size()) {
+//      throw new FHIRException("Rule '"+dependent.getName()+"' has "+Integer.toString(target.getInput().size())+" but the invocation has "+Integer.toString(dependent.getVariable().size())+" variables");
+//    }
+//    Variables v = new Variables();
+//    for (int i = 0; i < target.getInput().size(); i++) {
+//      StructureMapGroupInputComponent input = target.getInput().get(i);
+//      StringType var = dependent.getVariable().get(i);
+//      VariableMode mode = input.getMode() == StructureMapInputMode.SOURCE ? VariableMode.INPUT : VariableMode.OUTPUT;
+//      Base vv = vin.get(mode, var.getValue());
+//      if (vv == null)
+//        throw new FHIRException("Rule '"+dependent.getName()+"' "+mode.toString()+" variable '"+input.getName()+"' has no value");
+//      v.add(mode, input.getName(), vv);     
+//    }
+//    executeGroup(indent+"  ", context, targetMap, v, target);
+//  }
+//
+
+
+
 
 //  private void executeGroupProfile(String indent, Object appInfo, StructureMap map, VariablesForProfiling vars, StructureMapGroupComponent group) throws Exception {
 //    log(indent+"Profile Group : "+group.getName());
@@ -1644,161 +1954,18 @@ public class StructureMapUtilities {
 //  }
 //
 //
-//  private void executeRuleProfile(String indent, Object appInfo, StructureMap map, VariablesForProfiling vars, StructureMapGroupComponent group, StructureMapGroupRuleComponent rule) throws Exception {
-//    log(indent+"Profile rule : "+rule.getName());
-//    VariablesForProfiling srcVars = vars.copy();
-//    if (rule.getSource().size() != 1)
-//      throw new Exception("not handled yet");
-//    VariablesForProfiling source = analyseSourceProfile(appInfo, srcVars, rule.getSource().get(0));
-//    if (source != null) {
-//      for (StructureMapGroupRuleTargetComponent t : rule.getTarget()) {
-//        processTargetProfile(appInfo, source, map, t);
-//      }
-////        if (rule.hasRule()) {
-////          for (StructureMapGroupRuleComponent childrule : rule.getRule()) {
-////            executeRule(indent +"  ", context, map, v, group, childrule);
-////          }
-////        } else if (rule.hasDependent()) {
-////          for (StructureMapGroupRuleDependentComponent dependent : rule.getDependent()) {
-////            executeDependency(indent+"  ", context, map, v, group, dependent);
-////          }
-////        }
-////      }
-//    }
-//  }
+
 //
-//  private void processTargetProfile(Object appInfo, VariablesForProfiling vars, StructureMap map, StructureMapGroupRuleTargetComponent tgt) throws Exception {
-//    PropertyWithType dest = vars.get(VariableMode.OUTPUT, tgt.getContext());
-//    if (dest == null)
-//      throw new Exception("target context not known: "+tgt.getContext());
-//    if (!tgt.hasElement())
-//      throw new Exception("Not supported yet");
-//    TypeDetails td = runTransformProfile(appInfo, map, tgt, vars);
-////    Property prop = updateProfile(tgt.getElement().hashCode(), tgt.getElement(), td);
-////    if (tgt.hasVariable())
-////      vars.add(VariableMode.OUTPUT, tgt.getVariable(), prop);
-//  }
-//
-////  private Property updateProfile(int hashCode, String element, TypeDetails td) {
-//////    !// TODO Auto-generated method stub
-//////    return null;
-////  }
-//
-//
-//  private TypeDetails runTransformProfile(Object appInfo, StructureMap map, StructureMapGroupRuleTargetComponent tgt, VariablesForProfiling vars) throws FHIRException {
-//    switch (tgt.getTransform()) {
-//    case CREATE :
-//      return new TypeDetails(CollectionStatus.SINGLETON, getParamString(vars, tgt.getParameter().get(0)));
-//    case COPY : 
-//      return getParam(vars, tgt.getParameter().get(0));
-////    case EVALUATE :
-////      ExpressionNode expr = (ExpressionNode) tgt.getUserData(MAP_EXPRESSION);
-////      if (expr == null) {
-////        expr = fpe.parse(getParamString(vars, tgt.getParameter().get(1)));
-////        tgt.setUserData(MAP_WHERE_EXPRESSION, expr);
-////      }
-////      List<Base> v = fpe.evaluate(null, null, getParam(vars, tgt.getParameter().get(0)), expr);
-////      if (v.size() != 1)
-////        throw new FHIRException("evaluation of "+expr.toString()+" returned "+Integer.toString(v.size())+" objects");
-////      return v.get(0);
-////
-////    case TRUNCATE : 
-////      String src = getParamString(vars, tgt.getParameter().get(0));
-////      String len = getParamString(vars, tgt.getParameter().get(1));
-////      if (Utilities.isInteger(len)) {
-////        int l = Integer.parseInt(len);
-////        if (src.length() > l)
-////          src = src.substring(0, l);
-////      }
-////      return new StringType(src);
-////    case ESCAPE : 
-////      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
-////    case CAST :
-////      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
-////    case APPEND : 
-////      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
-////    case TRANSLATE : 
-////      return translate(context, map, vars, tgt.getParameter());
-////    case REFERENCE :
-////      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
-////    case DATEOP :
-////      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
-////    case UUID :
-////      return new IdType(UUID.randomUUID().toString());
-////    case POINTER :
-////      Base b = getParam(vars, tgt.getParameter().get(0));
-////      if (b instanceof Resource)
-////        return new UriType("urn:uuid:"+((Resource) b).getId());
-////      else
-////        throw new FHIRException("Transform engine cannot point at an element of type "+b.fhirType());
-//    default:
-//      throw new Error("Transform Unknown or not handled yet: "+tgt.getTransform().toCode());
-//    }
-//  }
-
-  private String getParamString(VariablesForProfiling vars, StructureMapGroupRuleTargetParameterComponent parameter) {
-    Type p = parameter.getValue();
-    if (p == null || p instanceof IdType)
-      return null;
-    if (!p.hasPrimitiveValue())
-      return null;
-    return p.primitiveValue();
-  }
 
 
-  private TypeDetails getParam(VariablesForProfiling vars, StructureMapGroupRuleTargetParameterComponent parameter) {
-    Type p = parameter.getValue();
-    if (!(p instanceof IdType))
-      return new TypeDetails(CollectionStatus.SINGLETON, p.fhirType());
-    else { 
-      PropertyWithType b = vars.get(VariableMode.INPUT, ((IdType) p).asStringValue());
-      if (b == null)
-        b = vars.get(VariableMode.OUTPUT, ((IdType) p).asStringValue());
-      return b.getTypes();
-    }
-  }
-
-
-  private VariablesForProfiling analyseSourceProfile(Object appInfo, VariablesForProfiling vars, StructureMapGroupRuleSourceComponent src) throws Exception {
-    PropertyWithType prop = vars.get(VariableMode.INPUT, src.getContext());
-    if (prop == null)
-      throw new FHIRException("Unknown input variable "+src.getContext());
-
-    boolean optional = false;
-    boolean repeating = false;
-    
-    if (src.hasCondition()) {
-      optional = true;
-    }
-
-    if (src.hasElement()) {
-      Property element = prop.getProperty().getChild(prop.types.getType(), src.getElement());
-      if (element == null)
-        throw new Exception("unknown element name "+src.getElement());
-      if (element.getDefinition().getMin() == 0)
-        optional = true;
-      if (element.getDefinition().getMax().equals("*"))
-        repeating = true;
-      VariablesForProfiling result = vars.copy(optional, repeating);
-      TypeDetails type = new TypeDetails(CollectionStatus.SINGLETON);
-      for (TypeRefComponent tr : element.getDefinition().getType()) {
-        type.addType(tr.getCode());
-      }      
-      result.add(VariableMode.INPUT, src.getVariable(), new PropertyWithType(element, type));
-      return result;
-    } else
-      return vars.copy(optional, repeating);
-  }
-
-
-  private PropertyWithType createProfile(StructureMap map, List<StructureDefinition> profiles, PropertyWithType prop) throws Exception {
-    if (prop.getProperty().getDefinition().getPath().contains(".")) 
-      throw new Exception("Unable to process entry point");
+  private PropertyWithType createProfile(StructureMap map, List<StructureDefinition> profiles, PropertyWithType prop) throws DefinitionException {
+    if (prop.getBaseProperty().getDefinition().getPath().contains(".")) 
+      throw new DefinitionException("Unable to process entry point");
     StructureDefinition profile = new StructureDefinition();
     profiles.add(profile);
     profile.setDerivation(TypeDerivationRule.CONSTRAINT);
-    profile.setType(prop.getProperty().getDefinition().getPath());
-    profile.setBaseDefinition(prop.getProperty().getStructure().getUrl());
+    profile.setType(prop.getBaseProperty().getDefinition().getPath());
+    profile.setBaseDefinition(prop.getBaseProperty().getStructure().getUrl());
     profile.setName("Profile on "+profile.getType()+" for map "+map.getName());
     profile.setUrl(map.getUrl().replace("StructureMap", "StructureDefinition")+"-"+profile.getType());
     profile.setId(map.getId()+"-"+profile.getType());
@@ -1814,11 +1981,12 @@ public class StructureMapUtilities {
     profile.setDate(map.getDate());
     profile.setCopyright(map.getCopyright());
     profile.setFhirVersion(Constants.VERSION);
-    profile.setKind(prop.getProperty().getStructure().getKind());
+    profile.setKind(prop.getBaseProperty().getStructure().getKind());
     profile.setAbstract(false);
     ElementDefinition ed = profile.getDifferential().addElement();
-    ed.setPath(prop.getProperty().getDefinition().getPath());
-    return new PropertyWithType(new Property(worker, ed, profile), new TypeDetails(CollectionStatus.SINGLETON, profile.getType()));
+    ed.setPath(profile.getType());
+    prop.profileProperty = new Property(worker, ed, profile);
+    return prop;
   }
 
 
@@ -1830,7 +1998,7 @@ public class StructureMapUtilities {
         if (sd == null)
           throw new Exception("Import "+imp.getUrl()+" cannot be resolved");
         if (sd.getId().equals(type)) {
-          return new PropertyWithType(new Property(worker, sd.getSnapshot().getElement().get(0), sd), new TypeDetails(CollectionStatus.SINGLETON, sd.getId()));
+          return new PropertyWithType(sd.getType(), new Property(worker, sd.getSnapshot().getElement().get(0), sd), null, new TypeDetails(CollectionStatus.SINGLETON, sd.getUrl()));
         }
       }
     }

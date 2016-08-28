@@ -82,8 +82,26 @@ public class FluentPathEngine {
 
     }
 
-    public Type resolveConstant(Object appContext, String name);
-    public String resolveConstantType(Object appContext, String name);
+    /**
+     * A constant reference - e.g. a reference to a name that must be resolved in context.
+     * The % will be removed from the constant name before this is invoked.
+     * 
+     * This will also be called if the host invokes the FluentPath engine with a context of null
+     *  
+     * @param appContext - content passed into the fluent path engine
+     * @param name - name reference to resolve
+     * @return the value of the reference (or null, if it's not valid, though can throw an exception if desired)
+     */
+    public Base resolveConstant(Object appContext, String name)  throws PathEngineException;
+    public TypeDetails resolveConstantType(Object appContext, String name) throws PathEngineException;
+    
+    /**
+     * when the .log() function is called
+     * 
+     * @param argument
+     * @param focus
+     * @return
+     */
     public boolean Log(String argument, List<Base> focus);
 
     // extensibility for functions
@@ -132,12 +150,12 @@ public class FluentPathEngine {
   // if you don't override, it falls through to the using the base reference implementation 
   // HAPI overrides to these to support extensing the base model
 
-  public IEvaluationContext getConstantResolver() {
+  public IEvaluationContext getHostServices() {
     return hostServices;
   }
 
 
-  public void setConstantResolver(IEvaluationContext constantResolver) {
+  public void setHostServices(IEvaluationContext constantResolver) {
     this.hostServices = constantResolver;
   }
 
@@ -214,10 +232,14 @@ public class FluentPathEngine {
   public TypeDetails check(Object appContext, String resourceType, String context, ExpressionNode expr) throws FHIRLexerException, PathEngineException, DefinitionException {
     // if context is a path that refers to a type, do that conversion now 
 	TypeDetails types; 
-	if (!context.contains("."))
-	  types = new TypeDetails(CollectionStatus.SINGLETON, context);
-	else {
-	  StructureDefinition sd = worker.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+context.substring(0, context.indexOf('.')));
+	if (context == null) {
+	  types = null; // this is a special case; the first path reference will have to resolve to something in the context
+	} else if (!context.contains(".")) {
+    StructureDefinition sd = worker.fetchResource(StructureDefinition.class, context);
+	  types = new TypeDetails(CollectionStatus.SINGLETON, sd.getUrl());
+	} else {
+	  String ctxt = context.substring(0, context.indexOf('.'));
+	  StructureDefinition sd = worker.fetchResource(StructureDefinition.class, ctxt);
 	  if (sd == null) 
 	    throw new PathEngineException("Unknown context "+context);
 	  ElementDefinitionMatch ed = getElementDefinition(sd, context, true);
@@ -226,7 +248,7 @@ public class FluentPathEngine {
 	  if (ed.fixedType != null) 
 	    types = new TypeDetails(CollectionStatus.SINGLETON, ed.fixedType);
 	  else if (ed.getDefinition().getType().isEmpty() || isAbstractType(ed.getDefinition().getType())) 
-	    types = new TypeDetails(CollectionStatus.SINGLETON, context);
+	    types = new TypeDetails(CollectionStatus.SINGLETON, ctxt+"#"+context);
 	  else {
 	    types = new TypeDetails(CollectionStatus.SINGLETON);
 		for (TypeRefComponent t : ed.getDefinition().getType()) 
@@ -865,6 +887,8 @@ public class FluentPathEngine {
     case Name:
       if (atEntry && exp.getName().equals("$this"))
         result.update(context.getThisItem());
+      else if (atEntry && focus == null)
+        result.update(executeContextType(context, exp.getName()));
       else {
         for (String s : focus.getTypes()) {
           result.update(executeType(s, exp, atEntry));
@@ -877,7 +901,7 @@ public class FluentPathEngine {
       result.update(evaluateFunctionType(context, focus, exp));
       break;
     case Constant:
-      result.addType(readConstantType(context, exp.getConstant()));
+      result.update(readConstantType(context, exp.getConstant()));
       break;
     case Group:
       result.update(executeType(context, focus, exp.getGroup(), atEntry));
@@ -971,7 +995,7 @@ public class FluentPathEngine {
     else if (hostServices == null)
       throw new PathEngineException("Unknown fixed constant '"+s+"'");
     else
-      return hostServices.resolveConstant(context.appInfo, s);
+      return hostServices.resolveConstant(context.appInfo, s.substring(1));
   }
 
 
@@ -1008,7 +1032,7 @@ public class FluentPathEngine {
           i++;
           int uc = Integer.parseInt(s.substring(i, i+4), 16);
           b.append((char) uc);
-          i = i + 4;
+          i = i + 3;
           break;
         default:
           throw new PathEngineException("Unknown character escape \\"+s.charAt(i));
@@ -1626,44 +1650,44 @@ public class FluentPathEngine {
   }
 
 
-  private String readConstantType(ExecutionTypeContext context, String constant) throws PathEngineException {
+  private TypeDetails readConstantType(ExecutionTypeContext context, String constant) throws PathEngineException {
     if (constant.equals("true")) 
-      return "boolean";
+      return new TypeDetails(CollectionStatus.SINGLETON, "boolean");
     else if (constant.equals("false")) 
-      return "boolean";
+      return new TypeDetails(CollectionStatus.SINGLETON, "boolean");
     else if (Utilities.isInteger(constant))
-      return "integer";
+      return new TypeDetails(CollectionStatus.SINGLETON, "integer");
     else if (Utilities.isDecimal(constant))
-      return "decimal";
+      return new TypeDetails(CollectionStatus.SINGLETON, "decimal");
     else if (constant.startsWith("%"))
       return resolveConstantType(context, constant);
     else
-      return "string";
+      return new TypeDetails(CollectionStatus.SINGLETON, "string");
   }
 
-  private String resolveConstantType(ExecutionTypeContext context, String s) throws PathEngineException {
+  private TypeDetails resolveConstantType(ExecutionTypeContext context, String s) throws PathEngineException {
     if (s.equals("%sct"))
-      return "string";
+      return new TypeDetails(CollectionStatus.SINGLETON, "string");
     else if (s.equals("%loinc"))
-      return "string";
+      return new TypeDetails(CollectionStatus.SINGLETON, "string");
     else if (s.equals("%ucum"))
-      return "string";
+      return new TypeDetails(CollectionStatus.SINGLETON, "string");
     else if (s.equals("%resource")) {
       if (context.resource == null)
         throw new PathEngineException("%resource cannot be used in this context");
-      return context.resource;
+      return new TypeDetails(CollectionStatus.SINGLETON, context.resource);
     } else if (s.equals("%context")) {
-      return context.context;
+      return new TypeDetails(CollectionStatus.SINGLETON, context.context);
     } else if (s.equals("%map-codes"))
-      return "string";
+      return new TypeDetails(CollectionStatus.SINGLETON, "string");
     else if (s.equals("%us-zip"))
-      return "string";
+      return new TypeDetails(CollectionStatus.SINGLETON, "string");
     else if (s.startsWith("%\"vs-"))
-      return "string";
+      return new TypeDetails(CollectionStatus.SINGLETON, "string");
     else if (s.startsWith("%\"cs-"))
-      return "string";
+      return new TypeDetails(CollectionStatus.SINGLETON, "string");
     else if (s.startsWith("%\"ext-"))
-      return "string";
+      return new TypeDetails(CollectionStatus.SINGLETON, "string");
     else if (hostServices == null)
       throw new PathEngineException("Unknown fixed constant type for '"+s+"'");
     else
@@ -1680,12 +1704,23 @@ public class FluentPathEngine {
     return result;
   }	
 
+  private TypeDetails executeContextType(ExecutionTypeContext context, String name) throws PathEngineException, DefinitionException {
+    if (hostServices == null)
+      throw new PathEngineException("Unable to resolve context reference since no host services are provided");
+    return hostServices.resolveConstantType(context.appInfo, name);
+  }
+  
   private TypeDetails executeType(String type, ExpressionNode exp, boolean atEntry) throws PathEngineException, DefinitionException {
-    if (atEntry && Character.isUpperCase(exp.getName().charAt(0)) && type.equals(exp.getName())) // special case for start up
+    if (atEntry && Character.isUpperCase(exp.getName().charAt(0)) && tail(type).equals(exp.getName())) // special case for start up
       return new TypeDetails(CollectionStatus.SINGLETON, type);
     TypeDetails result = new TypeDetails(null);
     getChildTypesByName(type, exp.getName(), result);
     return result;
+  }
+
+
+  private String tail(String type) {
+    return type.contains("#") ? "" : type.substring(type.lastIndexOf("/")+1);
   }
 
 
@@ -2480,13 +2515,13 @@ public class FluentPathEngine {
   private void getChildTypesByName(String type, String name, TypeDetails result) throws PathEngineException, DefinitionException {
     if (Utilities.noString(type))
       throw new PathEngineException("No type provided in BuildToolPathEvaluator.getChildTypesByName");
-    if (type.equals("xhtml"))
+    if (type.equals("http://hl7.org/fhir/StructureDefinition/xhtml"))
       return;
     String url = null;
-    if (type.contains(".")) {
-      url = "http://hl7.org/fhir/StructureDefinition/"+type.substring(0, type.indexOf("."));
+    if (type.contains("#")) {
+      url = type.substring(0, type.indexOf("#"));
     } else {
-      url = "http://hl7.org/fhir/StructureDefinition/"+type;
+      url = type;
     }
     String tail = "";
     StructureDefinition sd = worker.fetchResource(StructureDefinition.class, url);
@@ -2494,8 +2529,8 @@ public class FluentPathEngine {
       throw new DefinitionException("Unknown type "+type); // this really is an error, because we can only get to here if the internal infrastrucgture is wrong
     List<StructureDefinition> sdl = new ArrayList<StructureDefinition>();
     ElementDefinitionMatch m = null;
-    if (type.contains("."))
-      m = getElementDefinition(sd, type, false);
+    if (type.contains("#"))
+      m = getElementDefinition(sd, type.substring(type.indexOf("#")+1), false);
     if (m != null && hasDataType(m.definition)) {
       if (m.fixedType != null)
       {
@@ -2512,8 +2547,10 @@ public class FluentPathEngine {
         }
     } else {
       sdl.add(sd);
-      if (type.contains("."))
-        tail = type.substring(type.indexOf("."));
+      if (type.contains("#")) {
+        tail = type.substring(type.indexOf("#")+1);
+        tail = tail.substring(tail.indexOf("."));
+      }
     }
 
     for (StructureDefinition sdi : sdl) {
@@ -2526,19 +2563,17 @@ public class FluentPathEngine {
               if (t.hasCode() && t.getCodeElement().hasValue()) {
                 String tn = null;
                 if (t.getCode().equals("Element") || t.getCode().equals("BackboneElement"))
-                  tn = ed.getPath();
+                  tn = sdi.getType()+"#"+ed.getPath();
                 else
                   tn = t.getCode();
                 if (t.getCode().equals("Resource")) {
                   for (String rn : worker.getResourceNames()) {
                     if (!result.hasType(worker, rn)) {
-                      result.addType(rn);
-                      getChildTypesByName(rn, "**", result);
+                      getChildTypesByName(result.addType(rn), "**", result);
                     }                  
                   }
                 } else if (!result.hasType(worker, tn)) {
-                  result.addType(tn);
-                  getChildTypesByName(tn, "**", result);
+                  getChildTypesByName(result.addType(tn), "**", result);
                 }
               }
             }
@@ -2549,7 +2584,7 @@ public class FluentPathEngine {
           if (ed.getPath().startsWith(path) && !ed.getPath().substring(path.length()).contains("."))
             for (TypeRefComponent t : ed.getType()) {
               if (t.getCode().equals("Element") || t.getCode().equals("BackboneElement"))
-                result.addType(ed.getPath());
+                result.addType(sdi.getType()+"#"+ed.getPath());
               else if (t.getCode().equals("Resource"))
                 result.addTypes(worker.getResourceNames());
               else
@@ -2568,8 +2603,10 @@ public class FluentPathEngine {
               if (Utilities.noString(t.getCode()))
                 break; // throw new PathEngineException("Illegal reference to primitive value attribute @ "+path);
 
+              if (t.hasProfile())
+                result.addType(t.getProfile());
               if (t.getCode().equals("Element") || t.getCode().equals("BackboneElement"))
-                result.addType(path);
+                result.addType(sdi.getUrl()+"#"+path);
               else if (t.getCode().equals("Resource"))
                 result.addTypes(worker.getResourceNames());
               else

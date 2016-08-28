@@ -211,11 +211,11 @@
     <display value="Thermocouple device"/>
     <display value="Thermocouple device (physical object)"/>
   </concept>
-  <concept id="11840006" display="Traveler&#39;s diarrhea">
-    <display value="Traveler&#39;s diarrhea"/>
+  <concept id="11840006" display="Traveler&amp;#39;s diarrhea">
+    <display value="Traveler&amp;#39;s diarrhea"/>
     <display value="Turista"/>
-    <display value="Traveler&#39;s diarrhoea"/>
-    <display value="Traveler&#39;s diarrhea (disorder)"/>
+    <display value="Traveler&amp;#39;s diarrhoea"/>
+    <display value="Traveler&amp;#39;s diarrhea (disorder)"/>
   </concept>
   <concept id="119295008" display="Specimen obtained by aspiration (specimen)">
     <display value="Specimen obtained by aspiration"/>
@@ -1067,10 +1067,10 @@
     <display value="Nanyang cattle breed"/>
     <display value="Nanyang cattle breed (organism)"/>
   </concept>
-  <concept id="131505008" display="N&#39;Dama Sanga cattle">
-    <display value="N&#39;Dama Sanga cattle"/>
-    <display value="N&#39;Dama Sanga cattle breed"/>
-    <display value="N&#39;Dama Sanga cattle breed (organism)"/>
+  <concept id="131505008" display="N&amp;#39;Dama Sanga cattle">
+    <display value="N&amp;#39;Dama Sanga cattle"/>
+    <display value="N&amp;#39;Dama Sanga cattle breed"/>
+    <display value="N&amp;#39;Dama Sanga cattle breed (organism)"/>
   </concept>
   <concept id="131506009" display="Nganda cattle">
     <display value="Nganda cattle"/>
@@ -2011,10 +2011,10 @@
     <display value="Damani goat breed"/>
     <display value="Damani goat breed (organism)"/>
   </concept>
-  <concept id="131690002" display="Des Fosses (Communes de l&#39;Ouest) goat">
-    <display value="Des Fosses (Communes de l&#39;Ouest) goat"/>
-    <display value="Des Fosses (Communes de l&#39;Ouest) goat breed"/>
-    <display value="Des Fosses (Communes de l&#39;Ouest) goat breed (organism)"/>
+  <concept id="131690002" display="Des Fosses (Communes de l&amp;#39;Ouest) goat">
+    <display value="Des Fosses (Communes de l&amp;#39;Ouest) goat"/>
+    <display value="Des Fosses (Communes de l&amp;#39;Ouest) goat breed"/>
+    <display value="Des Fosses (Communes de l&amp;#39;Ouest) goat breed (organism)"/>
   </concept>
   <concept id="131691003" display="English goat">
     <display value="English goat"/>
@@ -5936,10 +5936,10 @@
     <display value="Moghani sheep breed"/>
     <display value="Moghani sheep breed (organism)"/>
   </concept>
-  <concept id="132789004" display="Rouge de l&#39;Quest sheep">
-    <display value="Rouge de l&#39;Quest sheep"/>
-    <display value="Rouge de l&#39;Quest sheep breed"/>
-    <display value="Rouge de l&#39;Quest sheep breed (organism)"/>
+  <concept id="132789004" display="Rouge de l&amp;#39;Quest sheep">
+    <display value="Rouge de l&amp;#39;Quest sheep"/>
+    <display value="Rouge de l&amp;#39;Quest sheep breed"/>
+    <display value="Rouge de l&amp;#39;Quest sheep breed (organism)"/>
   </concept>
   <concept id="132790008" display="Soay sheep">
     <display value="Soay sheep"/>
@@ -6742,10 +6742,10 @@
     <display value="Mustang horse breed"/>
     <display value="Mustang horse breed (organism)"/>
   </concept>
-  <concept id="133034004" display="M&#39;Bayar horse">
-    <display value="M&#39;Bayar horse"/>
-    <display value="M&#39;Bayar horse breed"/>
-    <display value="M&#39;Bayar horse breed (organism)"/>
+  <concept id="133034004" display="M&amp;#39;Bayar horse">
+    <display value="M&amp;#39;Bayar horse"/>
+    <display value="M&amp;#39;Bayar horse breed"/>
+    <display value="M&amp;#39;Bayar horse breed (organism)"/>
   </concept>
   <concept id="133035003" display="Lusitano horse">
     <display value="Lusitano horse"/>
@@ -7843,10 +7843,10 @@
     <display value="Kurdi cattle breed"/>
     <display value="Kurdi cattle breed (organism)"/>
   </concept>
-  <concept id="133253003" display="N&#39;dama cattle">
-    <display value="N&#39;dama cattle"/>
-    <display value="N&#39;dama cattle breed"/>
-    <display value="N&#39;dama cattle breed (organism)"/>
+  <concept id="133253003" display="N&amp;#39;dama cattle">
+    <display value="N&amp;#39;dama cattle"/>
+    <display value="N&amp;#39;dama cattle breed"/>
+    <display value="N&amp;#39;dama cattle breed (organism)"/>
   </concept>
   <concept id="133254009" display="Norwegian Red cattle">
     <display value="Norwegian Red cattle"/>
@@ -8597,10 +8597,10 @@
     <display value="Pester cattle breed"/>
     <display value="Pester cattle breed (organism)"/>
   </concept>
-  <concept id="133403007" display="Pie Rouge de l&#39;Est cattle">
-    <display value="Pie Rouge de l&#39;Est cattle"/>
-    <display value="Pie Rouge de l&#39;Est cattle breed"/>
-    <display value="Pie Rouge de l&#39;Est cattle breed (organism)"/>
+  <concept id="133403007" display="Pie Rouge de l&amp;#39;Est cattle">
+    <display value="Pie Rouge de l&amp;#39;Est cattle"/>
+    <display value="Pie Rouge de l&amp;#39;Est cattle breed"/>
+    <display value="Pie Rouge de l&amp;#39;Est cattle breed (organism)"/>
   </concept>
   <concept id="133404001" display="Pisana cattle">
     <display value="Pisana cattle"/>
@@ -9256,10 +9256,10 @@
     <display value="Nejdi cattle breed"/>
     <display value="Nejdi cattle breed (organism)"/>
   </concept>
-  <concept id="133534009" display="N&#39;Gabou cattle">
-    <display value="N&#39;Gabou cattle"/>
-    <display value="N&#39;Gabou cattle breed"/>
-    <display value="N&#39;Gabou cattle breed (organism)"/>
+  <concept id="133534009" display="N&amp;#39;Gabou cattle">
+    <display value="N&amp;#39;Gabou cattle"/>
+    <display value="N&amp;#39;Gabou cattle breed"/>
+    <display value="N&amp;#39;Gabou cattle breed (organism)"/>
   </concept>
   <concept id="133535005" display="North Finncattle cattle">
     <display value="North Finncattle cattle"/>
@@ -10325,10 +10325,10 @@
     <display value="Nepalese Hill Zebu cattle breed"/>
     <display value="Nepalese Hill Zebu cattle breed (organism)"/>
   </concept>
-  <concept id="133742008" display="N&#39;Gaoundere cattle">
-    <display value="N&#39;Gaoundere cattle"/>
-    <display value="N&#39;Gaoundere cattle breed"/>
-    <display value="N&#39;Gaoundere cattle breed (organism)"/>
+  <concept id="133742008" display="N&amp;#39;Gaoundere cattle">
+    <display value="N&amp;#39;Gaoundere cattle"/>
+    <display value="N&amp;#39;Gaoundere cattle breed"/>
+    <display value="N&amp;#39;Gaoundere cattle breed (organism)"/>
   </concept>
   <concept id="133743003" display="Nkedi cattle">
     <display value="Nkedi cattle"/>
@@ -10402,10 +10402,10 @@
     <display value="Prewakwa cattle breed"/>
     <display value="Prewakwa cattle breed (organism)"/>
   </concept>
-  <concept id="133755009" display="Pul-M&#39;bor cattle">
-    <display value="Pul-M&#39;bor cattle"/>
-    <display value="Pul-M&#39;bor cattle breed"/>
-    <display value="Pul-M&#39;bor cattle breed (organism)"/>
+  <concept id="133755009" display="Pul-M&amp;#39;bor cattle">
+    <display value="Pul-M&amp;#39;bor cattle"/>
+    <display value="Pul-M&amp;#39;bor cattle breed"/>
+    <display value="Pul-M&amp;#39;bor cattle breed (organism)"/>
   </concept>
   <concept id="133756005" display="Punganur cattle">
     <display value="Punganur cattle"/>
@@ -10675,12 +10675,12 @@
     <display value="Djakore cattle breed"/>
     <display value="Djakore X zebu cattle breed (organism)"/>
   </concept>
-  <concept id="133802009" display="Gambian N&#39;Dama cattle">
-    <display value="Gambian N&#39;Dama cattle"/>
-    <display value="Gambian N&#39;Dama X zebu cattle breed"/>
-    <display value="Gambian N&#39;Dama cattle breed (organism)"/>
-    <display value="Gambian N&#39;Dama cattle breed"/>
-    <display value="Gambian N&#39;Dama X zebu cattle breed (organism)"/>
+  <concept id="133802009" display="Gambian N&amp;#39;Dama cattle">
+    <display value="Gambian N&amp;#39;Dama cattle"/>
+    <display value="Gambian N&amp;#39;Dama X zebu cattle breed"/>
+    <display value="Gambian N&amp;#39;Dama cattle breed (organism)"/>
+    <display value="Gambian N&amp;#39;Dama cattle breed"/>
+    <display value="Gambian N&amp;#39;Dama X zebu cattle breed (organism)"/>
   </concept>
   <concept id="133803004" display="Ghana Sanga cattle">
     <display value="Ghana Sanga cattle"/>
@@ -11191,7 +11191,7 @@
     <display value="Induced (qualifier value)"/>
   </concept>
   <concept id="16564004" display="Hartmann operation, rectal resection (procedure)">
-    <display value="Hartmann&#39;s procedure"/>
+    <display value="Hartmann&amp;#39;s procedure"/>
   </concept>
   <concept id="166001" display="Behavioral therapy (regime/therapy)">
     <display value="Behavioral therapy (regime/therapy)"/>
@@ -11489,10 +11489,10 @@
     <display value="Asthma"/>
     <display value="Asthma (disorder)"/>
   </concept>
-  <concept id="19602009" display="Fee-for-service private physicians&#39; group office (environment)">
-    <display value="Fee-for-service private physicians&#39; group office"/>
-    <display value="Fee-for-service private physicians&#39; group clinic"/>
-    <display value="Fee-for-service private physicians&#39; group office (environment)"/>
+  <concept id="19602009" display="Fee-for-service private physicians&amp;#39; group office (environment)">
+    <display value="Fee-for-service private physicians&amp;#39; group office"/>
+    <display value="Fee-for-service private physicians&amp;#39; group clinic"/>
+    <display value="Fee-for-service private physicians&amp;#39; group office (environment)"/>
   </concept>
   <concept id="19770007" display="Hereford pig">
     <display value="Hereford pig"/>
@@ -13636,19 +13636,19 @@
     <display value="Blister (morphologic abnormality)"/>
     <display value="A fluid-filled, raised, often translucent lesion, greater than 1 cm in diameter"/>
   </concept>
-  <concept id="34000006" display="Crohn&#39;s disease (disorder)">
+  <concept id="34000006" display="Crohn&amp;#39;s disease (disorder)">
     <display value="Crohn disease"/>
     <display value="Crohns disease"/>
-    <display value="CD - Crohn&#39;s disease"/>
+    <display value="CD - Crohn&amp;#39;s disease"/>
     <display value="RE - Regional enteritis"/>
-    <display value="Crohn&#39;s regional enteritis"/>
-    <display value="Crohn&#39;s disease"/>
-    <display value="Crohn&#39;s disease, NOS"/>
+    <display value="Crohn&amp;#39;s regional enteritis"/>
+    <display value="Crohn&amp;#39;s disease"/>
+    <display value="Crohn&amp;#39;s disease, NOS"/>
     <display value="Regional enteritis, NOS"/>
     <display value="Granulomatous enteritis, NOS"/>
     <display value="Regional enteritis"/>
     <display value="Granulomatous enteritis"/>
-    <display value="Crohn&#39;s disease (disorder)"/>
+    <display value="Crohn&amp;#39;s disease (disorder)"/>
   </concept>
   <concept id="340519003" display="Lysine intolerance">
     <display value="Lysine intolerance"/>
@@ -13736,7 +13736,7 @@
     <display value="Equus caballus caballus"/>
     <display value="Horse"/>
     <display value="Equus caballus"/>
-    <display value="Przewalski&#39;s horse"/>
+    <display value="Przewalski&amp;#39;s horse"/>
     <display value="Mongolian horse"/>
     <display value="Equus caballus (organism)"/>
   </concept>
@@ -14367,10 +14367,10 @@
     <display value="Amoxicillin + clavulanate potassium 875mg/125mg tablet"/>
     <display value="Amoxicillin + clavulanic acid 875mg/125mg tablet"/>
   </concept>
-  <concept id="39350007" display="Private physicians&#39; group office (environment)">
-    <display value="Private physicians&#39; group office"/>
+  <concept id="39350007" display="Private physicians&amp;#39; group office (environment)">
+    <display value="Private physicians&amp;#39; group office"/>
     <display value="Medical clinic"/>
-    <display value="Private physicians&#39; group office (environment)"/>
+    <display value="Private physicians&amp;#39; group office (environment)"/>
   </concept>
   <concept id="394539006" display="Pediatric surgery (qualifier value)">
     <display value="Paediatric surgery (qualifier value)"/>
@@ -14378,9 +14378,9 @@
     <display value="Pediatric surgery"/>
     <display value="Pediatric surgery (qualifier value)"/>
   </concept>
-  <concept id="394576009" display="Accident &amp; emergency (qualifier value)">
-    <display value="Accident &amp; emergency (qualifier value)"/>
-    <display value="Accident &amp; emergency"/>
+  <concept id="394576009" display="Accident &amp;amp; emergency (qualifier value)">
+    <display value="Accident &amp;amp; emergency (qualifier value)"/>
+    <display value="Accident &amp;amp; emergency"/>
   </concept>
   <concept id="394577000" display="Anesthetics (qualifier value)">
     <display value="Anaesthetics (qualifier value)"/>
@@ -14567,9 +14567,9 @@
     <display value="Health encounter sites"/>
   </concept>
   <concept id="394801008" display="Trauma and orthopedics (qualifier value)">
-    <display value="Trauma &amp; orthopaedics (qualifier value)"/>
-    <display value="Trauma &amp; orthopaedics"/>
-    <display value="Trauma &amp; orthopedics"/>
+    <display value="Trauma &amp;amp; orthopaedics (qualifier value)"/>
+    <display value="Trauma &amp;amp; orthopaedics"/>
+    <display value="Trauma &amp;amp; orthopedics"/>
     <display value="Trauma and orthopedics (qualifier value)"/>
     <display value="Trauma and orthopaedics"/>
     <display value="Trauma and orthopedics"/>
@@ -15189,8 +15189,8 @@
   <concept id="409909005" display="Antwerp bearded bantam (organism)">
     <display value="Antwerp bearded bantam (organism)"/>
     <display value="Antwerp bearded bantam"/>
-    <display value="Barbu d&#39;Anvers"/>
-    <display value="Bearded d&#39;Anvers"/>
+    <display value="Barbu d&amp;#39;Anvers"/>
+    <display value="Bearded d&amp;#39;Anvers"/>
   </concept>
   <concept id="409910000" display="Bantam (organism)">
     <display value="Bantam (organism)"/>
@@ -15917,7 +15917,7 @@
     <display value="Dietary liquid consistency - honey thick liquid"/>
   </concept>
   <concept id="439041000124103" display="Dietary liquid consistency - spoon thick liquid (regime/therapy)">
-    <display value="Liquids included in the diet are provided at a viscosity of &gt; 1750 centipoise (cP). (Source: Nutrition Care Manual, Academy of Nutrition and Dietetics 2013)."/>
+    <display value="Liquids included in the diet are provided at a viscosity of &amp;gt; 1750 centipoise (cP). (Source: Nutrition Care Manual, Academy of Nutrition and Dietetics 2013)."/>
     <display value="Dietary liquid consistency - spoon thick liquid (regime/therapy)"/>
     <display value="Dietary liquid consistency - spoon thick liquid"/>
   </concept>
@@ -16638,9 +16638,9 @@
     <display value="Silkie chicken (organism)"/>
     <display value="Silkie chicken"/>
   </concept>
-  <concept id="48311003" display="Veteran&#39;s administration hospital (environment)">
-    <display value="Veteran&#39;s administration hospital (environment)"/>
-    <display value="Veteran&#39;s administration hospital"/>
+  <concept id="48311003" display="Veteran&amp;#39;s administration hospital (environment)">
+    <display value="Veteran&amp;#39;s administration hospital (environment)"/>
+    <display value="Veteran&amp;#39;s administration hospital"/>
     <display value="V.A. hospital"/>
   </concept>
   <concept id="48338005" display="Structure of right colic flexure (body structure)">
@@ -17149,9 +17149,9 @@
   <concept id="59367005" display="Adenosquamous carcinoma (morphologic abnormality)">
     <display value="Adenosquamous carcinoma"/>
   </concept>
-  <concept id="59374000" display="Traveler&#39;s aid clinic (environment)">
-    <display value="Traveler&#39;s aid clinic (environment)"/>
-    <display value="Traveler&#39;s aid clinic"/>
+  <concept id="59374000" display="Traveler&amp;#39;s aid clinic (environment)">
+    <display value="Traveler&amp;#39;s aid clinic (environment)"/>
+    <display value="Traveler&amp;#39;s aid clinic"/>
   </concept>
   <concept id="59573005" display="Potassium measurement (procedure)">
     <display value="Potassium measurement (procedure)"/>
@@ -17258,9 +17258,9 @@
     <display value="Royal palm turkey"/>
     <display value="Royal palm turkey (organism)"/>
   </concept>
-  <concept id="62153005" display="Blonde d&#39;Aquitaine">
-    <display value="Blonde d&#39;Aquitaine"/>
-    <display value="Blonde d&#39;Aquitaine (organism)"/>
+  <concept id="62153005" display="Blonde d&amp;#39;Aquitaine">
+    <display value="Blonde d&amp;#39;Aquitaine"/>
+    <display value="Blonde d&amp;#39;Aquitaine (organism)"/>
   </concept>
   <concept id="6220006" display="Galiceno horse">
     <display value="Galiceno horse"/>
@@ -18176,9 +18176,9 @@
     <display value="Ring finger structure"/>
     <display value="Ring finger structure (body structure)"/>
   </concept>
-  <concept id="82242000" display="Children&#39;s hospital (environment)">
-    <display value="Children&#39;s hospital"/>
-    <display value="Children&#39;s hospital (environment)"/>
+  <concept id="82242000" display="Children&amp;#39;s hospital (environment)">
+    <display value="Children&amp;#39;s hospital"/>
+    <display value="Children&amp;#39;s hospital (environment)"/>
   </concept>
   <concept id="82249009" display="California chicken">
     <display value="California chicken"/>
@@ -18252,7 +18252,7 @@
   </concept>
   <concept id="83891005" display="Solo practice private office (environment)">
     <display value="Solo practice private office"/>
-    <display value="Doctor&#39;s office"/>
+    <display value="Doctor&amp;#39;s office"/>
     <display value="Solo practice private office (environment)"/>
   </concept>
   <concept id="83996001" display="Criollo cattle breed (organism)">
@@ -18457,7 +18457,7 @@
   </concept>
   <concept id="88645003" display="Bicarbonate measurement (procedure)">
     <display value="Bicarbonate measurement"/>
-    <display value="HC0&gt;3&lt;- measurement"/>
+    <display value="HC0&amp;gt;3&amp;lt;- measurement"/>
     <display value="Bicarbonate measurement (procedure)"/>
   </concept>
   <concept id="88807001" display="Red Poll cattle breed (organism)">

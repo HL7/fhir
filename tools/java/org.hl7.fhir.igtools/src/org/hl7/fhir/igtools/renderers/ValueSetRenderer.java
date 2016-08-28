@@ -31,7 +31,7 @@ public class ValueSetRenderer extends BaseRenderer {
     this.vs = vs;
   }
 
-  public String summary(IGKnowledgeProvider igkp, FetchedResource r, boolean xml, boolean json, boolean ttl) throws Exception {
+  public String summary(FetchedResource r, boolean xml, boolean json, boolean ttl) throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">\r\n");
     b.append(" <tbody><tr><td>Defining URL:</td><td>"+Utilities.escapeXml(vs.getUrl())+"</td></tr>\r\n");
@@ -46,20 +46,20 @@ public class ValueSetRenderer extends BaseRenderer {
     if (xml || json || ttl) {
       b.append(" <tr><td>Source Resource</td><td>");
       boolean first = true;
-      String filename = igkp.getProperty(r, "format");
+      String filename = igp.getProperty(r, "format");
       if (filename == null)
         filename = "ValueSet-"+r.getId()+".{{[fmt]}}.html";
       if (xml) {
         first = false;
-        b.append("<a href=\""+igkp.doReplacements(filename,  r,  null, "xml")+"\">XML</a>");
+        b.append("<a href=\""+igp.doReplacements(filename,  r,  null, "xml")+"\">XML</a>");
       }
       if (json) {
         if (first) first = false; else b.append(" / ");
-        b.append("<a href=\""+igkp.doReplacements(filename,  r,  null, "json")+"\">JSON</a>");
+        b.append("<a href=\""+igp.doReplacements(filename,  r,  null, "json")+"\">JSON</a>");
       }
       if (ttl) {
         if (first) first = false; else b.append(" / ");
-        b.append("<a href=\""+igkp.doReplacements(filename,  r,  null, "ttl")+"\">Turtle</a>");
+        b.append("<a href=\""+igp.doReplacements(filename,  r,  null, "ttl")+"\">Turtle</a>");
       }
       b.append("</td></tr>\r\n");
     }

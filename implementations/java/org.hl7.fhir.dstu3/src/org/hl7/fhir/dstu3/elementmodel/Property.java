@@ -8,6 +8,7 @@ import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.dstu3.model.ExpressionNode.TypeDetails;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
@@ -238,6 +239,45 @@ public class Property {
     return properties;
   }
 
+  protected List<Property> getChildProperties(TypeDetails type) throws DefinitionException {
+    ElementDefinition ed = definition;
+    StructureDefinition sd = structure;
+    List<ElementDefinition> children = ProfileUtilities.getChildMap(sd, ed);
+    if (children.isEmpty()) {
+      // ok, find the right definitions
+      String t = null;
+      if (ed.getType().size() == 1)
+        t = ed.getType().get(0).getCode();
+      else if (ed.getType().size() == 0)
+        throw new Error("types == 0, and no children found");
+      else {
+        t = ed.getType().get(0).getCode();
+        boolean all = true;
+        for (TypeRefComponent tr : ed.getType()) {
+          if (!tr.getCode().equals(t)) {
+            all = false;
+            break;
+          }
+        }
+        if (!all) {
+          // ok, it's polymorphic
+          t = type.getType();
+        }
+      }
+      if (!"xhtml".equals(t)) {
+        sd = context.fetchResource(StructureDefinition.class, t);
+        if (sd == null)
+          throw new DefinitionException("Unable to find class '"+t+"' for name '"+ed.getPath()+"' on property "+definition.getPath());
+        children = ProfileUtilities.getChildMap(sd, sd.getSnapshot().getElement().get(0));
+      }
+    }
+    List<Property> properties = new ArrayList<Property>();
+    for (ElementDefinition child : children) {
+      properties.add(new Property(context, child, sd));
+    }
+    return properties;
+  }
+
   private String tail(String path) {
     return path.contains(".") ? path.substring(path.lastIndexOf(".")+1) : path;
   }
@@ -246,6 +286,16 @@ public class Property {
     List<Property> children = getChildProperties(elementName, null);
     for (Property p : children) {
       if (p.getName().equals(childName)) {
+        return p;
+      }
+    }
+    return null;
+  }
+
+  public Property getChild(String name, TypeDetails type) throws DefinitionException {
+    List<Property> children = getChildProperties(type);
+    for (Property p : children) {
+      if (p.getName().equals(name) || p.getName().equals(name+"[x]")) {
         return p;
       }
     }

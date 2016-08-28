@@ -1,4 +1,10 @@
 ﻿{
   "url": "http://hl7.org/fhir/ValueSet/consent-content-class",
-  "outcomes": []
+  "outcomes": [
+    {
+      "hash": "|urn:ietf:bcp:13|null|application/hl7-cda+xml|null",
+      "severity": null,
+      "message": null
+    }
+  ]
 }

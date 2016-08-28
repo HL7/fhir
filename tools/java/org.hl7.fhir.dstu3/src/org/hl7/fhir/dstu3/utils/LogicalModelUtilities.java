@@ -13,6 +13,7 @@ import org.hl7.fhir.dstu3.model.Bundle.BundleType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
+import org.hl7.fhir.dstu3.model.ExpressionNode.CollectionStatus;
 import org.hl7.fhir.dstu3.model.ExpressionNode.TypeDetails;
 import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.StringType;
@@ -67,7 +68,7 @@ public class LogicalModelUtilities implements IEvaluationContext {
     bnd.getMeta().setLastUpdated(new Date());
     
     FluentPathEngine fp = new FluentPathEngine(context);
-    fp.setConstantResolver(this);
+    fp.setHostServices(this);
     
     // first, look for data
     parseExpressions(fp, key, data);
@@ -173,9 +174,9 @@ public class LogicalModelUtilities implements IEvaluationContext {
   }
 
   @Override
-  public String resolveConstantType(Object appContext, String name) {
+  public TypeDetails resolveConstantType(Object appContext, String name) {
     if (name.equals("%map-codes"))
-      return "CodeableConcept";
+      return new TypeDetails(CollectionStatus.SINGLETON, "http://hl7.org/fhir/StructureDefinition/CodeableConcept");
     else
       throw new NotImplementedException("Not done yet ("+name+")");
   }

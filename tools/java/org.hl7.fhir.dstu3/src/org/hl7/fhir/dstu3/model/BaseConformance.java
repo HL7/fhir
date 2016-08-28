@@ -48,6 +48,10 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  */
 public abstract class BaseConformance extends DomainResource {
 
+  @Override
+  public String toString() {
+    return getUrl();
+  }
     /**
      * An absolute URL that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this conformance statement is (or will be) published.
      */

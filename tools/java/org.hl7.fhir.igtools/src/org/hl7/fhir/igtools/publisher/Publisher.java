@@ -104,6 +104,7 @@ import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
+import org.hl7.fhir.dstu3.utils.StructureMapUtilities.StructureMapAnalysis;
 import org.hl7.fhir.dstu3.utils.Turtle;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ILoggingService;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
@@ -114,6 +115,7 @@ import org.hl7.fhir.igtools.renderers.BaseRenderer;
 import org.hl7.fhir.igtools.renderers.CodeSystemRenderer;
 import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
 import org.hl7.fhir.igtools.renderers.StructureDefinitionRenderer;
+import org.hl7.fhir.igtools.renderers.StructureMapRenderer;
 import org.hl7.fhir.igtools.renderers.SwaggerGenerator;
 import org.hl7.fhir.igtools.renderers.ValidationPresenter;
 import org.hl7.fhir.igtools.renderers.ValueSetRenderer;
@@ -1143,30 +1145,34 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private void executeTransforms() throws FHIRException, Exception {
     if ("true".equals(ostr(configuration, "do-transforms"))) {
       MappingServices services = new MappingServices(context, igpkp.getCanonical());
-      StructureMapUtilities utils = new StructureMapUtilities(context, context.getTransforms(), services);
+      StructureMapUtilities utils = new StructureMapUtilities(context, context.getTransforms(), services, igpkp);
       
-//      // ok, our first task is to generate the profiles
-//      // for now, we only check use the logical models
-//      for (FetchedFile f : changeList) {
-//        for (FetchedResource r : f.getResources()) {
-//          if (r.getResource() != null && r.getResource() instanceof StructureDefinition) {
-//            List<StructureMap> transforms = context.findTransformsforSource(((StructureDefinition) r.getResource()).getUrl());
-//            for (StructureMap map : transforms) {
-//              List<StructureDefinition> profiles = utils.profileTransform(null, map);
-//              for (StructureDefinition sd : profiles) {
-//                FetchedResource nr = new FetchedResource();
-//                nr.setElement(convertToElement(sd));
-//                nr.setId(sd.getId());
-//                nr.setResource(sd);
-//                nr.setTitle("Generated Profile (by Transform)");
-//                f.getResources().add(nr);
-//                igpkp.findConfiguration(f, nr);
-//              }
-//            }
-//          }
-//        }
-//      }
-      
+      // ok, our first task is to generate the profiles
+      // for now, we only check use the logical models
+      for (FetchedFile f : changeList) {
+        List<StructureMap> worklist = new ArrayList<StructureMap>();
+        for (FetchedResource r : f.getResources()) {
+          if (r.getResource() != null && r.getResource() instanceof StructureDefinition) {
+            List<StructureMap> transforms = context.findTransformsforSource(((StructureDefinition) r.getResource()).getUrl());
+            worklist.addAll(transforms);
+          }
+        }
+
+        for (StructureMap map : worklist) {
+          StructureMapAnalysis analysis = utils.analyse(null, map);
+          map.setUserData("analysis", analysis);
+          List<StructureDefinition> profiles = analysis.getProfiles();
+          for (StructureDefinition sd : profiles) {
+//            FetchedResource nr = new FetchedResource();
+//            nr.setElement(convertToElement(sd));
+//            nr.setId(sd.getId());
+//            nr.setResource(sd);
+//            nr.setTitle("Generated Profile (by Transform)");
+//            f.getResources().add(nr);
+//            igpkp.findConfiguration(f, nr);
+          }
+        }
+      }
       
       for (FetchedFile f : changeList) {
         Map<FetchedResource, List<StructureMap>> worklist = new HashMap<FetchedResource, List<StructureMap>>();
@@ -2346,7 +2352,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private void generateOutputsValueSet(FetchedFile f, FetchedResource r, ValueSet vs, Map<String, String> vars) throws Exception {
     ValueSetRenderer vsr = new ValueSetRenderer(context, specPath, vs, igpkp, specMaps);
     if (igpkp.wantGen(r, "summary"))
-      fragment("ValueSet-"+vs.getId()+"-summary", vsr.summary(igpkp, r, igpkp.wantGen(r, "xml"), igpkp.wantGen(r, "json"), igpkp.wantGen(r, "ttl")), f.getOutputNames(), r, vars, null);
+      fragment("ValueSet-"+vs.getId()+"-summary", vsr.summary(r, igpkp.wantGen(r, "xml"), igpkp.wantGen(r, "json"), igpkp.wantGen(r, "ttl")), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "cld"))
       try {
         fragment("ValueSet-"+vs.getId()+"-cld", vsr.cld(), f.getOutputNames(), r, vars, null);
@@ -2469,7 +2475,16 @@ public class Publisher implements IWorkerContext.ILoggingService {
     return s.endsWith("/") ? s : s+"/";
   }
 
-  private void generateOutputsStructureMap(FetchedFile f, FetchedResource r, StructureMap resource, Map<String,String> vars) {
+  private void generateOutputsStructureMap(FetchedFile f, FetchedResource r, StructureMap map, Map<String,String> vars) throws Exception {
+    StructureMapRenderer smr = new StructureMapRenderer(context, checkAppendSlash(specPath), map, Utilities.path(tempDir), igpkp, specMaps);
+    if (igpkp.wantGen(r, "summary"))
+      fragment("StructureMap-"+map.getId()+"-summary", smr.summary(r, igpkp.wantGen(r, "xml"), igpkp.wantGen(r, "json"), igpkp.wantGen(r, "ttl")), f.getOutputNames(), r, vars, null);
+    if (igpkp.wantGen(r, "content"))
+      fragment("StructureMap-"+map.getId()+"-content", smr.content(), f.getOutputNames(), r, vars, null);
+    if (igpkp.wantGen(r, "profiles"))
+      fragment("StructureMap-"+map.getId()+"-profiles", smr.profiles(), f.getOutputNames(), r, vars, null);
+    if (igpkp.wantGen(r, "script"))
+      fragment("StructureMap-"+map.getId()+"-script", smr.script(), f.getOutputNames(), r, vars, null);
 // to generate:
     // map file
     // summary table 
