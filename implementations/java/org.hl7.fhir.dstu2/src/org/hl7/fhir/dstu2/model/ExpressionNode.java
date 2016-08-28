@@ -6,8 +6,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.hl7.fhir.dstu2.model.ExpressionNode.CollectionStatus;
-import org.hl7.fhir.dstu2.model.ExpressionNode.TypeDetails;
 import org.hl7.fhir.dstu2.utils.IWorkerContext;
 import org.hl7.fhir.utilities.Utilities;
 

@@ -9,6 +9,10 @@ import java.util.UUID;
 
 import javax.naming.Context;
 
+import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
+import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.dstu3.context.IWorkerContext;
+import org.hl7.fhir.dstu3.context.IWorkerContext.ValidationResult;
 import org.hl7.fhir.dstu3.elementmodel.Property;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
@@ -68,8 +72,6 @@ import org.hl7.fhir.dstu3.model.StructureMap.StructureMapStructureComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapTransform;
 import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.dstu3.utils.FluentPathEngine.IEvaluationContext;
-import org.hl7.fhir.dstu3.utils.IWorkerContext.ValidationResult;
-import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities.StringPair;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities.StructureMapAnalysis;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities.TargetWriter;
@@ -1599,6 +1601,7 @@ public class StructureMapUtilities {
   public class TargetWriter {
     private Map<String, String> newResources = new HashMap<String, String>();
     private List<StringPair> assignments = new ArrayList<StringPair>();
+    private List<StringPair> keyProps = new ArrayList<StringPair>();
     private CommaSeparatedStringBuilder txt = new CommaSeparatedStringBuilder();
 
     public void newResource(String var, String name) {
@@ -1611,6 +1614,10 @@ public class StructureMapUtilities {
       txt.append(desc);
     }
     
+    public void keyAssignment(String context, String desc) {
+      keyProps.add(new StringPair(context, desc));      
+      txt.append(desc);
+    }
     public void commit(XhtmlNode xt) {
       if (newResources.size() == 1 && assignments.size() == 1 && newResources.containsKey(assignments.get(0).getVar())) {
         xt.addText("new "+assignments.get(0).desc);

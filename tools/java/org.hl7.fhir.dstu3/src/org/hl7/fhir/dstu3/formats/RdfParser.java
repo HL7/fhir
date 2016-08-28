@@ -39,6 +39,7 @@ import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.OidType;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.UuidType;
+import org.hl7.fhir.dstu3.utils.formats.Turtle.Complex;
 import org.hl7.fhir.dstu3.model.InstantType;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.Base64BinaryType;
@@ -53,7 +54,7 @@ import org.xmlpull.v1.*;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.dstu3.utils.Turtle.Complex;
+
 import java.io.IOException;
 
 public class RdfParser extends RdfParserBase {

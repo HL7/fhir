@@ -3,6 +3,7 @@ package org.hl7.fhir.dstu3.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;

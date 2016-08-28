@@ -32,9 +32,9 @@ package org.hl7.fhir.dstu2.validation;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hl7.fhir.dstu2.model.OperationOutcome;
-import org.hl7.fhir.dstu2.model.StringType;
 import org.hl7.fhir.dstu2.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu2.model.OperationOutcome.OperationOutcomeIssueComponent;
+import org.hl7.fhir.dstu2.model.StringType;
 import org.hl7.fhir.dstu2.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
 

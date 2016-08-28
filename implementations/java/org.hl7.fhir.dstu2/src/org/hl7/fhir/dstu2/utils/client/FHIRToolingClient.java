@@ -39,20 +39,17 @@ import java.util.Map;
 import org.apache.http.Header;
 import org.apache.http.HttpHost;
 import org.hl7.fhir.dstu2.model.Bundle;
+import org.hl7.fhir.dstu2.model.Coding;
+import org.hl7.fhir.dstu2.model.ConceptMap;
 import org.hl7.fhir.dstu2.model.Conformance;
 import org.hl7.fhir.dstu2.model.OperationOutcome;
 import org.hl7.fhir.dstu2.model.Parameters;
+import org.hl7.fhir.dstu2.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.dstu2.model.PrimitiveType;
 import org.hl7.fhir.dstu2.model.Resource;
+import org.hl7.fhir.dstu2.model.StringType;
 import org.hl7.fhir.dstu2.model.ValueSet;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu2.model.Parameters.ParametersParameterComponent;
-import org.hl7.fhir.dstu2.model.Coding;
-import org.hl7.fhir.dstu2.model.ConceptMap;
-import org.hl7.fhir.dstu2.model.StringType;
-import org.hl7.fhir.dstu2.utils.client.ClientUtils;
-import org.hl7.fhir.dstu2.utils.client.EFhirClientException;
-import org.hl7.fhir.dstu2.utils.client.ResourceRequest;
 
 /**
  * Very Simple RESTful client. This is purely for use in the standalone 

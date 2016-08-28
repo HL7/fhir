@@ -5,12 +5,11 @@ import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
-import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.dstu2016may.model.StructureDefinition;
-import org.hl7.fhir.dstu2016may.utils.IWorkerContext;
 import org.hl7.fhir.dstu2016may.utils.ShExGenerator;
 import org.hl7.fhir.dstu2016may.utils.ShExGenerator.HTMLLinkPolicy;
 import org.hl7.fhir.dstu2016may.utils.SimpleWorkerContext;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.TextFile;
 import org.junit.Test;
 

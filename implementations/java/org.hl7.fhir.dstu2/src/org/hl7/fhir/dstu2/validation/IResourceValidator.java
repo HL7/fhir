@@ -3,7 +3,6 @@ package org.hl7.fhir.dstu2.validation;
 import java.util.List;
 
 import org.hl7.fhir.dstu2.model.StructureDefinition;
-import org.hl7.fhir.dstu2.validation.IResourceValidator.IdStatus;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 

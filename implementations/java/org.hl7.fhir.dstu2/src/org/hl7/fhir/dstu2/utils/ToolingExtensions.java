@@ -50,18 +50,18 @@ import org.hl7.fhir.dstu2.model.Identifier;
 import org.hl7.fhir.dstu2.model.IntegerType;
 import org.hl7.fhir.dstu2.model.MarkdownType;
 import org.hl7.fhir.dstu2.model.PrimitiveType;
+import org.hl7.fhir.dstu2.model.Questionnaire.GroupComponent;
+import org.hl7.fhir.dstu2.model.Questionnaire.QuestionComponent;
 import org.hl7.fhir.dstu2.model.Reference;
 import org.hl7.fhir.dstu2.model.StringType;
 import org.hl7.fhir.dstu2.model.Type;
 import org.hl7.fhir.dstu2.model.UriType;
 import org.hl7.fhir.dstu2.model.ValueSet;
-import org.hl7.fhir.dstu2.model.Questionnaire.GroupComponent;
-import org.hl7.fhir.dstu2.model.Questionnaire.QuestionComponent;
 import org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu2.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.dstu2.validation.ValidationMessage.Source;
-import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.utilities.Utilities;
 
 
 public class ToolingExtensions {

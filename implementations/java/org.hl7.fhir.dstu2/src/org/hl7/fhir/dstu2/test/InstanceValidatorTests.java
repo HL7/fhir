@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.apache.commons.codec.Charsets;
 import org.hl7.fhir.dstu2.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu2.test.TestingUtilities;
 import org.hl7.fhir.dstu2.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu2.validation.InstanceValidator;
 import org.hl7.fhir.dstu2.validation.ValidationMessage;

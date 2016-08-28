@@ -38,15 +38,14 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.NotImplementedException;
-import org.hl7.fhir.exceptions.TerminologyServiceException;
+import org.hl7.fhir.dstu2016may.model.CodeSystem;
+import org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu2016may.model.DateTimeType;
 import org.hl7.fhir.dstu2016may.model.Factory;
 import org.hl7.fhir.dstu2016may.model.PrimitiveType;
 import org.hl7.fhir.dstu2016may.model.Type;
 import org.hl7.fhir.dstu2016may.model.UriType;
 import org.hl7.fhir.dstu2016may.model.ValueSet;
-import org.hl7.fhir.dstu2016may.model.CodeSystem;
-import org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ConceptSetFilterComponent;
@@ -56,7 +55,7 @@ import org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetExpansionParameterComponent;
 import org.hl7.fhir.dstu2016may.utils.IWorkerContext;
-import org.hl7.fhir.dstu2016may.utils.ToolingExtensions;
+import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.Utilities;
 
 public class ValueSetExpanderSimple implements ValueSetExpander {

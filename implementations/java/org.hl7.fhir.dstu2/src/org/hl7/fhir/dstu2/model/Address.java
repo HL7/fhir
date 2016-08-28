@@ -30,16 +30,15 @@ package org.hl7.fhir.dstu2.model;
 */
 
 // Generated on Wed, Jul 13, 2016 05:32+1000 for FHIR v1.0.2
+import java.util.ArrayList;
+import java.util.List;
 
-import java.util.*;
-
-import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu2.model.annotations.Child;
-import org.hl7.fhir.dstu2.model.annotations.Description;
 import org.hl7.fhir.dstu2.model.annotations.DatatypeDef;
-import org.hl7.fhir.dstu2.model.annotations.Block;
-import org.hl7.fhir.dstu2.model.api.*;
+import org.hl7.fhir.dstu2.model.annotations.Description;
+import org.hl7.fhir.dstu2.model.api.ICompositeType;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for all addresses around the world.
  */

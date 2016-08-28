@@ -3,14 +3,14 @@ package org.hl7.fhir.igtools.publisher;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.Resource;
-import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities.ITransformerServices;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities.TransformContext;
+import org.hl7.fhir.exceptions.FHIRException;
 
 public class MappingServices implements ITransformerServices {
 

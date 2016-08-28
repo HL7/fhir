@@ -1,11 +1,10 @@
 package org.hl7.fhir.igtools.renderers;
 
 import java.util.List;
-import java.util.Map;
 
+import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
+import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.utils.IWorkerContext;
-import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.utilities.Utilities;
@@ -65,7 +64,7 @@ public class BaseRenderer {
       int i = text.length() - 3;
       while (i > 0) {
         if (text.substring(i, i+2).equals("](")) {
-          if (!text.substring(i, i+7).equals("](http:")) { //  && !text.substring(i, i+8).equals("](https:"));
+          if (!text.substring(i, i+7).equals("](http:") && !text.substring(i, i+7).equals("](https:")) { //  && !text.substring(i, i+8).equals("](https:"));
             text = text.substring(0, i)+"]("+prefix+text.substring(i+2);
           }
         }

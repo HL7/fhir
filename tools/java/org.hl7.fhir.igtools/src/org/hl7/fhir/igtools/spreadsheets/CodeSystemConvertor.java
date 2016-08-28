@@ -12,7 +12,6 @@ import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
-import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.utilities.Utilities;
 
 public class CodeSystemConvertor {

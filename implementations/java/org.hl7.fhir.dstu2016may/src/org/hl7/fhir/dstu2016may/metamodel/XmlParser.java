@@ -1,10 +1,8 @@
 package org.hl7.fhir.dstu2016may.metamodel;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -16,32 +14,28 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.sax.SAXSource;
 
-import org.apache.commons.lang3.NotImplementedException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu2016may.formats.FormatUtilities;
 import org.hl7.fhir.dstu2016may.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2016may.metamodel.Element.SpecialElement;
 import org.hl7.fhir.dstu2016may.model.DateTimeType;
-import org.hl7.fhir.dstu2016may.model.ElementDefinition;
 import org.hl7.fhir.dstu2016may.model.ElementDefinition.PropertyRepresentation;
+import org.hl7.fhir.dstu2016may.model.Enumeration;
 import org.hl7.fhir.dstu2016may.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu2016may.model.OperationOutcome.IssueType;
-import org.hl7.fhir.dstu2016may.model.Enumeration;
 import org.hl7.fhir.dstu2016may.model.StructureDefinition;
 import org.hl7.fhir.dstu2016may.utils.IWorkerContext;
 import org.hl7.fhir.dstu2016may.utils.ToolingExtensions;
 import org.hl7.fhir.dstu2016may.utils.XmlLocationAnnotator;
 import org.hl7.fhir.dstu2016may.utils.XmlLocationData;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XMLWriter;
-import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;

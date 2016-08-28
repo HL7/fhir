@@ -1,17 +1,17 @@
 package org.hl7.fhir.igtools.ui;
 
 import java.awt.Toolkit;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
-import java.awt.datatransfer.*;
-import java.awt.Toolkit;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -19,18 +19,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import javax.swing.SwingWorker;
 
-import org.hl7.fhir.dstu3.model.Constants;
-import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
-import org.hl7.fhir.dstu3.utils.IWorkerContext.ILoggingService;
-import org.hl7.fhir.dstu3.validation.InstanceValidator;
-import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
+import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService;
 import org.hl7.fhir.igtools.publisher.Publisher;
-import org.hl7.fhir.igtools.publisher.Publisher.GenerationTool;
 import org.hl7.fhir.utilities.IniFile;
-import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
-
-import com.google.gson.JsonObject;
 
 import javafx.application.Platform;
 import javafx.scene.Scene;

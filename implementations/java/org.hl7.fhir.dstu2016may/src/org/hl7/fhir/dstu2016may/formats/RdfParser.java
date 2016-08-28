@@ -1,5 +1,7 @@
 package org.hl7.fhir.dstu2016may.formats;
 
+import org.hl7.fhir.dstu2016may.formats.RdfGenerator.Complex;
+
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
@@ -30,31 +32,8 @@ package org.hl7.fhir.dstu2016may.formats;
 */
 
 // Generated on Sun, May 8, 2016 03:05+1000 for FHIR v1.4.0
-
-import org.hl7.fhir.dstu2016may.model.MarkdownType;
-import org.hl7.fhir.dstu2016may.model.IntegerType;
-import org.hl7.fhir.dstu2016may.model.DateTimeType;
-import org.hl7.fhir.dstu2016may.model.UnsignedIntType;
-import org.hl7.fhir.dstu2016may.model.CodeType;
-import org.hl7.fhir.dstu2016may.model.DateType;
-import org.hl7.fhir.dstu2016may.model.DecimalType;
-import org.hl7.fhir.dstu2016may.model.UriType;
-import org.hl7.fhir.dstu2016may.model.IdType;
-import org.hl7.fhir.dstu2016may.model.Base64BinaryType;
-import org.hl7.fhir.dstu2016may.model.TimeType;
-import org.hl7.fhir.dstu2016may.model.OidType;
-import org.hl7.fhir.dstu2016may.model.PositiveIntType;
-import org.hl7.fhir.dstu2016may.model.StringType;
-import org.hl7.fhir.dstu2016may.model.BooleanType;
-import org.hl7.fhir.dstu2016may.model.UuidType;
-import org.hl7.fhir.dstu2016may.model.InstantType;
 import org.hl7.fhir.dstu2016may.model.*;
-import org.xmlpull.v1.*;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.exceptions.FHIRFormatError;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.dstu2016may.formats.RdfGenerator.Complex;
-import java.io.IOException;
 
 public class RdfParser extends RdfParserBase {
 

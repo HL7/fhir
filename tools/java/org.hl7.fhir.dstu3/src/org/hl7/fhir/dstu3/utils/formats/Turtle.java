@@ -1,4 +1,4 @@
-package org.hl7.fhir.dstu3.utils;
+package org.hl7.fhir.dstu3.utils.formats;
 
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -12,9 +12,9 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.Map;
 
+import org.hl7.fhir.dstu3.utils.formats.Turtle.TTLComplex;
+import org.hl7.fhir.dstu3.utils.formats.Turtle.TTLObject;
 import org.hl7.fhir.exceptions.FHIRFormatError;
-import org.hl7.fhir.dstu3.utils.Turtle.TTLComplex;
-import org.hl7.fhir.dstu3.utils.Turtle.TTLObject;
 import org.hl7.fhir.utilities.Utilities;
 
 public class Turtle {

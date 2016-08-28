@@ -30,17 +30,18 @@ package org.hl7.fhir.dstu2.model;
 */
 
 // Generated on Wed, Jul 13, 2016 05:32+1000 for FHIR v1.0.2
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-import java.util.*;
-
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu2.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu2.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.dstu2.model.annotations.Block;
 import org.hl7.fhir.dstu2.model.annotations.Child;
 import org.hl7.fhir.dstu2.model.annotations.Description;
-import org.hl7.fhir.dstu2.model.annotations.Block;
-import org.hl7.fhir.dstu2.model.api.*;
+import org.hl7.fhir.dstu2.model.annotations.ResourceDef;
+import org.hl7.fhir.dstu2.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.dstu2.model.api.IBaseBackboneElement;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
  */

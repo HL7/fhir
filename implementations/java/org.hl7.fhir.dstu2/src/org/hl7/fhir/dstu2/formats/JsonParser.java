@@ -1,5 +1,7 @@
 package org.hl7.fhir.dstu2.formats;
 
+import java.io.IOException;
+
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
@@ -30,31 +32,12 @@ package org.hl7.fhir.dstu2.formats;
 */
 
 // Generated on Wed, Jul 13, 2016 05:32+1000 for FHIR v1.0.2
-
-import org.hl7.fhir.dstu2.model.DateType;
-import org.hl7.fhir.dstu2.model.DateTimeType;
-import org.hl7.fhir.dstu2.model.CodeType;
-import org.hl7.fhir.dstu2.model.StringType;
-import org.hl7.fhir.dstu2.model.IntegerType;
-import org.hl7.fhir.dstu2.model.OidType;
-import org.hl7.fhir.dstu2.model.UriType;
-import org.hl7.fhir.dstu2.model.UuidType;
-import org.hl7.fhir.dstu2.model.InstantType;
-import org.hl7.fhir.dstu2.model.BooleanType;
-import org.hl7.fhir.dstu2.model.Base64BinaryType;
-import org.hl7.fhir.dstu2.model.UnsignedIntType;
-import org.hl7.fhir.dstu2.model.MarkdownType;
-import org.hl7.fhir.dstu2.model.TimeType;
-import org.hl7.fhir.dstu2.model.IdType;
-import org.hl7.fhir.dstu2.model.PositiveIntType;
-import org.hl7.fhir.dstu2.model.DecimalType;
 import org.hl7.fhir.dstu2.model.*;
-import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.exceptions.FHIRFormatError;
-import org.hl7.fhir.exceptions.FHIRException;
-import com.google.gson.JsonObject;
+import org.hl7.fhir.utilities.Utilities;
+
 import com.google.gson.JsonArray;
-import java.io.IOException;
+import com.google.gson.JsonObject;
 
 public class JsonParser extends JsonParserBase {
 

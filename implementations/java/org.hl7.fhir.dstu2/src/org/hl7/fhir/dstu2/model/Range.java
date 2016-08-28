@@ -30,14 +30,12 @@ package org.hl7.fhir.dstu2.model;
 */
 
 // Generated on Wed, Jul 13, 2016 05:32+1000 for FHIR v1.0.2
-
-import java.util.*;
+import java.util.List;
 
 import org.hl7.fhir.dstu2.model.annotations.Child;
-import org.hl7.fhir.dstu2.model.annotations.Description;
 import org.hl7.fhir.dstu2.model.annotations.DatatypeDef;
-import org.hl7.fhir.dstu2.model.annotations.Block;
-import org.hl7.fhir.dstu2.model.api.*;
+import org.hl7.fhir.dstu2.model.annotations.Description;
+import org.hl7.fhir.dstu2.model.api.ICompositeType;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A set of ordered Quantities defined by a low and high limit.

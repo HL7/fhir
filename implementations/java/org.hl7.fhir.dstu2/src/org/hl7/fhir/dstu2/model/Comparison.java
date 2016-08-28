@@ -3,8 +3,8 @@ package org.hl7.fhir.dstu2.model;
 import java.util.List;
 
 import org.apache.commons.lang3.NotImplementedException;
-import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.Utilities;
 
 /**
  * See http://www.healthintersections.com.au/?p=1941

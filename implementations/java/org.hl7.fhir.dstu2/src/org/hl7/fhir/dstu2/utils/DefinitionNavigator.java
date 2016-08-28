@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.dstu2.model.ElementDefinition;
-import org.hl7.fhir.dstu2.model.StructureDefinition;
 import org.hl7.fhir.dstu2.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.dstu2.model.StructureDefinition;
 import org.hl7.fhir.exceptions.DefinitionException;
 
 public class DefinitionNavigator {

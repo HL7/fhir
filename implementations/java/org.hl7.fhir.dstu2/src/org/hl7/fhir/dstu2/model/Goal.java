@@ -30,16 +30,16 @@ package org.hl7.fhir.dstu2.model;
 */
 
 // Generated on Wed, Jul 13, 2016 05:32+1000 for FHIR v1.0.2
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-import java.util.*;
-
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu2.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu2.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.dstu2.model.annotations.Block;
 import org.hl7.fhir.dstu2.model.annotations.Child;
 import org.hl7.fhir.dstu2.model.annotations.Description;
-import org.hl7.fhir.dstu2.model.annotations.Block;
-import org.hl7.fhir.dstu2.model.api.*;
+import org.hl7.fhir.dstu2.model.annotations.ResourceDef;
+import org.hl7.fhir.dstu2.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.dstu2.model.api.IBaseBackboneElement;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.

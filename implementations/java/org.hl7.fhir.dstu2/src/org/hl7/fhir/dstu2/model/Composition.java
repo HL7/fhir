@@ -30,17 +30,18 @@ package org.hl7.fhir.dstu2.model;
 */
 
 // Generated on Wed, Jul 13, 2016 05:32+1000 for FHIR v1.0.2
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-import java.util.*;
-
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu2.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu2.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.dstu2.model.annotations.Block;
 import org.hl7.fhir.dstu2.model.annotations.Child;
 import org.hl7.fhir.dstu2.model.annotations.Description;
-import org.hl7.fhir.dstu2.model.annotations.Block;
-import org.hl7.fhir.dstu2.model.api.*;
+import org.hl7.fhir.dstu2.model.annotations.ResourceDef;
+import org.hl7.fhir.dstu2.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.dstu2.model.api.IBaseBackboneElement;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.
  */

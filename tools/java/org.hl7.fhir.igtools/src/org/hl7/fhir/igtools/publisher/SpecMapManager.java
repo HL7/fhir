@@ -6,8 +6,6 @@ import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.hl7.fhir.dstu3.formats.FormatUtilities;
-import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 

@@ -1,16 +1,9 @@
 package org.hl7.fhir.dstu2016may.test;
 
-import static org.junit.Assert.*;
-
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
 
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu2016may.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2016may.metamodel.Element;
 import org.hl7.fhir.dstu2016may.metamodel.Manager;

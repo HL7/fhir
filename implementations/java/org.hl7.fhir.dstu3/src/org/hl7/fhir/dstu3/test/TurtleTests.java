@@ -3,7 +3,7 @@ package org.hl7.fhir.dstu3.test;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import org.hl7.fhir.dstu3.utils.Turtle;
+import org.hl7.fhir.dstu3.utils.formats.Turtle;
 import org.hl7.fhir.utilities.TextFile;
 import org.junit.Test;
 

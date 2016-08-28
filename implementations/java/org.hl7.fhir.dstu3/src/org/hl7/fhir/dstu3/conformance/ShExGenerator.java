@@ -1,15 +1,17 @@
-package org.hl7.fhir.dstu3.utils;
+package org.hl7.fhir.dstu3.conformance;
 
 import java.util.*;
 
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.elementmodel.TurtleParser;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.StringUtils;
 
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander;
+import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.stringtemplate.v4.ST;
 
 public class ShExGenerator {
@@ -31,8 +33,8 @@ public class ShExGenerator {
   private static String HEADER_TEMPLATE =
           "PREFIX fhir: <$fhir$> \n" +
                   "PREFIX fhirvs: <$fhirvs$>\n" +
-                  "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \n" +
-                  "BASE <http://hl7.org/fhir/shape/>\n$start$";
+          "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \n" +
+          "BASE <http://hl7.org/fhir/shape/>\n$start$";
 
   // Start template for single (open) entry
   private static String START_TEMPLATE = "\n\nstart=@<$id$> AND {fhir:nodeRole [fhir:treeRoot]}\n";
@@ -52,16 +54,16 @@ public class ShExGenerator {
   //      an optional index element (for appearances inside ordered lists)
   private static String SHAPE_DEFINITION_TEMPLATE =
           "$comment$\n<$id$> CLOSED {\n    $resourceDecl$" +
-                  "\n    $elements$" +
+          "\n    $elements$" +
                   "\n    fhir:index xsd:integer?                 # Relative position in a list\n}\n";
 
   // Resource Definition
   //      an open shape of type Resource.  Used when completeModel = false.
   private static String RESOURCE_SHAPE_TEMPLATE =
           "$comment$\n<Resource> {a .+;" +
-                  "\n    $elements$" +
-                  "\n    fhir:index xsd:integer?" +
-                  "\n}\n";
+          "\n    $elements$" +
+          "\n    fhir:index xsd:integer?" +
+          "\n}\n";
 
   // If we have knowledge of all of the possible resources available to us (completeModel = true), we can build
   // a model of all possible resources.
@@ -133,13 +135,13 @@ public class ShExGenerator {
 
   // A typed reference -- a fhir:uri with an optional type and the possibility of a resolvable shape
   private static String TYPED_REFERENCE_TEMPLATE = "\n<$refType$Reference> CLOSED {" +
-          "\n    fhir:Element.id @<id>?;" +
-          "\n    fhir:extension @<Extension>*;" +
+                                                   "\n    fhir:Element.id @<id>?;" +
+                                                   "\n    fhir:extension @<Extension>*;" +
           "\n    fhir:link @<$refType$> OR CLOSED {a fhir:$refType$}?;" +
-          "\n    fhir:Reference.reference @<string>?;" +
-          "\n    fhir:Reference.display @<string>?;" +
-          "\n    fhir:index xsd:integer?" +
-          "\n}";
+                                                   "\n    fhir:Reference.reference @<string>?;" +
+                                                   "\n    fhir:Reference.display @<string>?;" +
+                                                   "\n    fhir:index xsd:integer?" +
+                                                   "\n}";
 
   private static String TARGET_REFERENCE_TEMPLATE = "\n<$refType$> {" +
           "\n    a [fhir:$refType$];" +
@@ -165,13 +167,13 @@ public class ShExGenerator {
    */
   private HashSet<Pair<StructureDefinition, ElementDefinition>> innerTypes, emittedInnerTypes;
   private HashSet<String> datatypes, emittedDatatypes;
-  private HashSet<String> references;
+    private HashSet<String> references;
   private LinkedList<StructureDefinition> uniq_structures;
   private HashSet<String> uniq_structure_urls;
   private HashSet<ValueSet> required_value_sets;
   private HashSet<String> known_resources;          // Used when generating a full definition
 
-  public ShExGenerator(IWorkerContext context) {
+    public ShExGenerator(IWorkerContext context) {
     super();
     this.context = context;
     innerTypes = new HashSet<Pair<StructureDefinition, ElementDefinition>>();
@@ -182,7 +184,7 @@ public class ShExGenerator {
     required_value_sets = new HashSet<ValueSet>();
     known_resources = new HashSet<String>();
   }
-
+  
   public String generate(HTMLLinkPolicy links, StructureDefinition structure) {
     List<StructureDefinition> list = new ArrayList<StructureDefinition>();
     list.add(structure);
@@ -195,7 +197,7 @@ public class ShExGenerator {
     known_resources.clear();
     return generate(links, list);
   }
-
+  
   public class SortById implements Comparator<StructureDefinition> {
 
     @Override
@@ -450,7 +452,7 @@ public class ShExGenerator {
       element_def.add("id", "fhir:" + (id.charAt(0) == id.toLowerCase().charAt(0) ||
               (ed.hasType() && "Extension".equals(ed.getType().get(0).getCode()))? shortId : id) + " ");
     }
-
+    
     List<ElementDefinition> children = ProfileUtilities.getChildList(sd, ed);
     if (children.size() > 0) {
       innerTypes.add(new ImmutablePair<StructureDefinition, ElementDefinition>(sd, ed));
@@ -577,13 +579,13 @@ public class ShExGenerator {
       td_entry.add("facets", facets.toString());
       return td_entry.render();
 
-    } else if (typ.getCode() == null) {
+      } else if (typ.getCode() == null) {
       ST primitive_entry = tmplt(PRIMITIVE_ELEMENT_DEFN_TEMPLATE);
       primitive_entry.add("typ", "xsd:string");
-      return primitive_entry.render();
+        return primitive_entry.render();
 
     } else if(typ.getCode().equals("xhtml")) {
-      return tmplt(XHTML_TYPE_TEMPLATE).render();
+        return tmplt(XHTML_TYPE_TEMPLATE).render();
     } else {
       datatypes.add(typ.getCode());
       return simpleElement(sd, ed, typ.getCode());
@@ -696,11 +698,11 @@ public class ShExGenerator {
     return shex_ref.render();
   }
 
-  /**
-   * Return the type name for typ
-   * @param typ type to get name for
-   * @return name
-   */
+	/**
+     * Return the type name for typ
+     * @param typ type to get name for
+     * @return name
+     */
   private String getTypeName(ElementDefinition.TypeRefComponent typ) {
     // TODO: This is brittle. There has to be a utility to do this...
     if(typ.hasProfile()) {

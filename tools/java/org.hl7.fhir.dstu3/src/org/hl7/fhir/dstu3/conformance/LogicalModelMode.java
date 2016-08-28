@@ -1,4 +1,4 @@
-package org.hl7.fhir.dstu3.utils;
+package org.hl7.fhir.dstu3.conformance;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,21 +6,21 @@ import java.util.List;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.Type;
 
-public class LogicalModelNode {
+public class LogicalModelMode {
 
   private Type data;
-  private List<LogicalModelNode> children;
+  private List<LogicalModelMode> children;
   private ElementDefinition definition;
   private String mapping;
   
   
-  public LogicalModelNode(ElementDefinition definition) {
+  public LogicalModelMode(ElementDefinition definition) {
     super();
     this.definition = definition;
-    children = new ArrayList<LogicalModelNode>();
+    children = new ArrayList<LogicalModelMode>();
   }
   
-  public LogicalModelNode(ElementDefinition definition, Type data) {
+  public LogicalModelMode(ElementDefinition definition, Type data) {
     super();
     this.definition = definition;
     this.data = data;
@@ -32,7 +32,7 @@ public class LogicalModelNode {
     else if (children == null || children.isEmpty())
       return true;
     else {
-      for (LogicalModelNode lmn : children) {
+      for (LogicalModelMode lmn : children) {
         if (!lmn.isEmpty())
           return false;
       }
@@ -44,15 +44,14 @@ public class LogicalModelNode {
     return data;
   }
 
-  public List<LogicalModelNode> getChildren() {
+  public List<LogicalModelMode> getChildren() {
     return children;
   }
 
   public ElementDefinition getDefinition() {
     return definition;
   }
-
- 
+  
   public boolean hasData() {
     return data != null;
   }

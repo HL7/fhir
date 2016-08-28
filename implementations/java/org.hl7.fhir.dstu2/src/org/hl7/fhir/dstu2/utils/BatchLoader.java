@@ -10,16 +10,14 @@ import java.util.zip.ZipInputStream;
 
 import org.hl7.fhir.dstu2.formats.IParser;
 import org.hl7.fhir.dstu2.formats.JsonParser;
-import org.hl7.fhir.dstu2.formats.XmlParser;
 import org.hl7.fhir.dstu2.model.Bundle;
-import org.hl7.fhir.dstu2.model.Resource;
 import org.hl7.fhir.dstu2.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu2.model.Bundle.BundleType;
 import org.hl7.fhir.dstu2.model.Bundle.HTTPVerb;
+import org.hl7.fhir.dstu2.model.Resource;
 import org.hl7.fhir.dstu2.utils.client.FHIRToolingClient;
-import org.hl7.fhir.utilities.IniFile;
-import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.Utilities;
 
 public class BatchLoader {
 

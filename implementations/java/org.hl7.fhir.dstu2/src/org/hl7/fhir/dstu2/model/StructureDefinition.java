@@ -30,18 +30,20 @@ package org.hl7.fhir.dstu2.model;
 */
 
 // Generated on Wed, Jul 13, 2016 05:32+1000 for FHIR v1.0.2
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-import java.util.*;
-
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu2.model.Enumerations.*;
-import org.hl7.fhir.dstu2.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu2.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.dstu2.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu2.model.Enumerations.ConformanceResourceStatusEnumFactory;
+import org.hl7.fhir.dstu2.model.annotations.Block;
 import org.hl7.fhir.dstu2.model.annotations.Child;
 import org.hl7.fhir.dstu2.model.annotations.Description;
-import org.hl7.fhir.dstu2.model.annotations.Block;
-import org.hl7.fhir.dstu2.model.api.*;
+import org.hl7.fhir.dstu2.model.annotations.ResourceDef;
+import org.hl7.fhir.dstu2.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.dstu2.model.api.IBaseBackboneElement;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.
  */

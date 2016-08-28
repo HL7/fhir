@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.dstu2.model.Base;
 import org.hl7.fhir.dstu2.model.BooleanType;
 import org.hl7.fhir.dstu2.model.DateTimeType;
@@ -30,16 +28,16 @@ import org.hl7.fhir.dstu2.model.IntegerType;
 import org.hl7.fhir.dstu2.model.Resource;
 import org.hl7.fhir.dstu2.model.StringType;
 import org.hl7.fhir.dstu2.model.StructureDefinition;
-import org.hl7.fhir.dstu2.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu2.model.TemporalPrecisionEnum;
 import org.hl7.fhir.dstu2.model.TimeType;
 import org.hl7.fhir.dstu2.model.Type;
 import org.hl7.fhir.dstu2.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.dstu2.utils.FHIRPathEngine.IEvaluationContext.FunctionDetails;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.exceptions.UcumException;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ucum.Decimal;
-import ca.uhn.fhir.util.ElementUtil;
 
 
 /**

@@ -31,7 +31,6 @@ POSSIBILITY OF SUCH DAMAGE.
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
@@ -43,7 +42,6 @@ import org.hl7.fhir.dstu2.model.OperationOutcome;
 import org.hl7.fhir.dstu2.model.Resource;
 import org.hl7.fhir.dstu2.model.ValueSet;
 import org.hl7.fhir.dstu2.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.dstu2.utils.EOperationOutcome;
 import org.hl7.fhir.dstu2.utils.IWorkerContext;
 import org.hl7.fhir.dstu2.utils.ToolingExtensions;
 import org.hl7.fhir.exceptions.FHIRFormatError;

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/fhir-single.xsd">
+  <id value="logical"/>
+  <url value="http://hl7.org/fhir/v2/StructureDefinition/Message"/>
+  <name value="HL7 v2 Logical Model"/>
+  <status value="draft"/>
+  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+    </telecom>
+  </contact>
+  <date value="2016-08-25T13:46:22+10:00"/>
+  <description value="Logical Model for Version 2"/>
+  <requirements value="To support v2 -&gt; FHIR mapping and v2 validation"/>
+  <fhirVersion value="1.7.0"/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <type value="Message"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Element"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Message">
+      <path value="Message"/>
+      <short value="A message or batch - standalone set of segments"/>
+      <definition value="A set of segments - a message, or a batch. A segment always starts with a segment with code = MSH, where as a batch will haev the batch header first"/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Message.segment">
+      <path value="Message.segment"/>
+      <short value="A segment - a list of fields"/>
+      <definition value="A segment a code, with a list of fields"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Element"/>
+      </type>
+    </element>
+    <element id="Message.segment.code">
+      <path value="Message.segment.code"/>
+      <short value="code that identifies the meaning of the segment"/>
+      <definition value="A code that identifies the meaning of the segment - a reference to the structure (canonical url = http://hl7.org/fhir/v2/StructureDefinition/[code]"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <maxLength value="3"/>
+    </element>
+    <element id="Message.segment.element">
+      <path value="Message.segment.element"/>
+      <short value="An item in an segment - known by it's offset in the segment (1 based)"/>
+      <definition value="An item in an segment - known by it's offset in the segment"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Element"/>
+      </type>
+    </element>
+    <element id="Message.segment.element.index">
+      <path value="Message.segment.element.index"/>
+      <short value="1 based item index (since items repeat)"/>
+      <definition value="Which item this is in the segment/element/component (since items repeat). Always 1 based"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="Message.segment.element.content">
+      <path value="Message.segment.element.content"/>
+      <short value="The content in an element repeat"/>
+      <definition value="The content in an element"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Element"/>
+      </type>
+      <constraint>
+        <key value="v2-cell-choice"/>
+        <severity value="error"/>
+        <human value="Content (component or element) cannot have both a value and components"/>
+        <expression value="(value.exists() and component.exists()).not()"/>
+        <xpath value="n/a"/>
+      </constraint>
+      <constraint>
+        <key value="v2-sub-components"/>
+        <severity value="error"/>
+        <human value="No components on subcomponents"/>
+        <expression value="component.component.component.empty()"/>
+        <xpath value="n/a"/>
+      </constraint>
+    </element>
+    <element id="Message.segment.element.content.value">
+      <path value="Message.segment.element.content.value[x]"/>
+      <short value="the simple value of the element"/>
+      <definition value="The value of the element, if it's simple. Use XHTML if there is escapes, or code for IS &amp; ID (for list, see ...)"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="xhtml"/>
+      </type>
+    </element>
+    <element id="Message.segment.element.content.component">
+      <path value="Message.segment.element.content.component"/>
+      <short value="A component in an element or a component"/>
+      <definition value="A component in an element or a component"/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#Message.segment.element.content"/>
+    </element>
+  </differential>
+</StructureDefinition>

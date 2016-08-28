@@ -35,12 +35,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.hl7.fhir.dstu2.formats.IParser;
+import org.hl7.fhir.dstu2.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2.formats.JsonParser;
 import org.hl7.fhir.dstu2.formats.XmlParser;
-import org.hl7.fhir.dstu2.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2.model.Resource;
 import org.hl7.fhir.exceptions.FHIRFormatError;
-import org.xmlpull.v1.XmlPullParserException;
 
 public class ResourceTest {
 

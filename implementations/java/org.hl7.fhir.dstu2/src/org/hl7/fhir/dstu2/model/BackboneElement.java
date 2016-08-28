@@ -30,14 +30,13 @@ package org.hl7.fhir.dstu2.model;
 */
 
 // Generated on Wed, Jul 13, 2016 05:32+1000 for FHIR v1.0.2
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.hl7.fhir.dstu2.model.annotations.Child;
-import org.hl7.fhir.dstu2.model.annotations.Description;
 import org.hl7.fhir.dstu2.model.annotations.DatatypeDef;
-import org.hl7.fhir.dstu2.model.annotations.Block;
-import org.hl7.fhir.dstu2.model.api.*;
+import org.hl7.fhir.dstu2.model.annotations.Description;
+import org.hl7.fhir.dstu2.model.api.IBaseBackboneElement;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Base definition for all elements that are defined inside a resource - but not those in a data type.

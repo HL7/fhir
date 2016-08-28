@@ -7,29 +7,27 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.management.modelmbean.RequiredModelMBean;
-
-import org.hl7.fhir.dstu2.formats.XmlParser;
 import org.hl7.fhir.dstu2.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu2.formats.XmlParser;
 import org.hl7.fhir.dstu2.model.Base;
 import org.hl7.fhir.dstu2.model.CodeType;
 import org.hl7.fhir.dstu2.model.ElementDefinition;
-import org.hl7.fhir.dstu2.model.Reference;
-import org.hl7.fhir.dstu2.model.StructureDefinition;
 import org.hl7.fhir.dstu2.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.dstu2.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu2.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu2.model.Reference;
+import org.hl7.fhir.dstu2.model.StructureDefinition;
 import org.hl7.fhir.dstu2.utils.EOperationOutcome;
 import org.hl7.fhir.dstu2.utils.ProfileComparer;
+import org.hl7.fhir.dstu2.utils.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.dstu2.utils.ProfileUtilities;
 import org.hl7.fhir.dstu2.utils.SimpleWorkerContext;
-import org.hl7.fhir.dstu2.utils.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.dstu2.validation.ValidationMessage;
-import org.hl7.fhir.utilities.CSFile;
-import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.utilities.CSFile;
+import org.hl7.fhir.utilities.Utilities;
 
 public class ProfileUtilitiesTests {
 

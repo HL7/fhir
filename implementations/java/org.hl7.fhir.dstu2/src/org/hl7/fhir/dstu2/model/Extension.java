@@ -30,15 +30,13 @@ package org.hl7.fhir.dstu2.model;
 */
 
 // Generated on Wed, Jul 13, 2016 05:32+1000 for FHIR v1.0.2
+import java.util.List;
 
-import java.util.*;
-
-import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu2.model.annotations.Child;
-import org.hl7.fhir.dstu2.model.annotations.Description;
 import org.hl7.fhir.dstu2.model.annotations.DatatypeDef;
-import org.hl7.fhir.dstu2.model.annotations.Block;
-import org.hl7.fhir.dstu2.model.api.*;
+import org.hl7.fhir.dstu2.model.annotations.Description;
+import org.hl7.fhir.dstu2.model.api.IBaseExtension;
+import org.hl7.fhir.dstu2.model.api.IBaseHasExtensions;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Optional Extensions Element - found in all resources.

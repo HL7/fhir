@@ -11,7 +11,6 @@ import org.hl7.fhir.dstu2.utils.EOperationOutcome;
 import org.hl7.fhir.dstu2.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu2.utils.SimpleWorkerContext;
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

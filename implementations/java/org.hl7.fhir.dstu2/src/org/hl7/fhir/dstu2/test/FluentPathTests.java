@@ -1,8 +1,5 @@
 package org.hl7.fhir.dstu2.test;
 
-import static org.junit.Assert.*;
-
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -11,31 +8,22 @@ import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.dstu2.formats.XmlParser;
 import org.hl7.fhir.dstu2.model.Base;
 import org.hl7.fhir.dstu2.model.BooleanType;
 import org.hl7.fhir.dstu2.model.ElementDefinition;
 import org.hl7.fhir.dstu2.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.dstu2.model.ExpressionNode;
-import org.hl7.fhir.dstu2.model.OperationOutcome.IssueSeverityEnumFactory;
 import org.hl7.fhir.dstu2.model.PrimitiveType;
 import org.hl7.fhir.dstu2.model.Resource;
 import org.hl7.fhir.dstu2.model.StructureDefinition;
-import org.hl7.fhir.dstu2.test.TestingUtilities;
-import org.hl7.fhir.dstu2.utils.FHIRLexer.FHIRLexerException;
-import org.hl7.fhir.dstu2.validation.InstanceValidator.BaseOnWrapper;
-import org.hl7.fhir.dstu2.validation.InstanceValidator.ResourceOnWrapper;
 import org.hl7.fhir.dstu2.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu2.utils.SimpleWorkerContext;
+import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
-import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;

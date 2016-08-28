@@ -6,11 +6,11 @@ import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu3.conformance.ShExGenerator;
+import org.hl7.fhir.dstu3.conformance.ShExGenerator.HTMLLinkPolicy;
+import org.hl7.fhir.dstu3.context.IWorkerContext;
+import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.utils.IWorkerContext;
-import org.hl7.fhir.dstu3.utils.ShExGenerator;
-import org.hl7.fhir.dstu3.utils.ShExGenerator.HTMLLinkPolicy;
-import org.hl7.fhir.dstu3.utils.SimpleWorkerContext;
 import org.hl7.fhir.utilities.TextFile;
 import org.junit.Test;
 

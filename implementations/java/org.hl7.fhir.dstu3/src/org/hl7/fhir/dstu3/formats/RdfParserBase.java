@@ -11,10 +11,10 @@ import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.Type;
-import org.hl7.fhir.dstu3.utils.Turtle;
-import org.hl7.fhir.dstu3.utils.Turtle.Complex;
-import org.hl7.fhir.dstu3.utils.Turtle.Section;
-import org.hl7.fhir.dstu3.utils.Turtle.Subject;
+import org.hl7.fhir.dstu3.utils.formats.Turtle;
+import org.hl7.fhir.dstu3.utils.formats.Turtle.Complex;
+import org.hl7.fhir.dstu3.utils.formats.Turtle.Section;
+import org.hl7.fhir.dstu3.utils.formats.Turtle.Subject;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public abstract class RdfParserBase extends ParserBase implements IParser  {
