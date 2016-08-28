@@ -104,7 +104,7 @@
   Context = StructureDefinition
   English = Element paths must be unique unless the structure is a constraint
   XPath = (f:derivation/@value = \'constraint\') or (count(f:snapshot/f:element) = count(distinct-values(f:snapshot/f:element/f:path/@value)))
-  Expression = derivation = \'constraint\' or snapshot.element.select(path).distinct()
+  Expression = derivation = \'constraint\' or snapshot.element.select(path).isDistinct()
 
  -- Row 2 -----------------------------------
   Id = 2

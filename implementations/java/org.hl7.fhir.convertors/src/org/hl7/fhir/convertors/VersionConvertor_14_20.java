@@ -7161,7 +7161,6 @@ public class VersionConvertor_14_20 {
       return convertQuestionnaire((org.hl7.fhir.dstu3.model.Questionnaire) src);
     if (src instanceof org.hl7.fhir.dstu3.model.QuestionnaireResponse)
       return convertQuestionnaireResponse((org.hl7.fhir.dstu3.model.QuestionnaireResponse) src);
-    if (src instanceof org.hl7.fhir.dstu3.model.ReferralRequest)
     if (src instanceof org.hl7.fhir.dstu3.model.SearchParameter)
       return convertSearchParameter((org.hl7.fhir.dstu3.model.SearchParameter) src);
     if (src instanceof org.hl7.fhir.dstu3.model.StructureDefinition)
