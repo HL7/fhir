@@ -150,7 +150,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     }
     write("import ca.uhn.fhir.model.api.annotation.Block;\r\n");
     write("import org.hl7.fhir.instance.model.api.*;\r\n");
-    write("import org.hl7.fhir.dstu3.exceptions.FHIRException;\r\n");
+    write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
     
 		jdoc("", root.getDefinition());
 		classname = upFirst(name);

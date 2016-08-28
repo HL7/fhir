@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
-import org.hl7.fhir.dstu2016may.exceptions.FHIRFormatError;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu2016may.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2016may.metamodel.Element;
 import org.hl7.fhir.dstu2016may.metamodel.Manager;

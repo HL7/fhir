@@ -22,9 +22,9 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import org.apache.commons.io.IOUtils;
-import org.hl7.fhir.dstu3.exceptions.DefinitionException;
-import org.hl7.fhir.dstu3.exceptions.FHIRException;
-import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.ParserType;
@@ -139,7 +139,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     try {
       f = (Bundle) xml.parse(stream);
     } catch (FHIRFormatError e1) {
-      throw new org.hl7.fhir.dstu3.exceptions.FHIRFormatError(e1.getMessage(), e1);
+      throw new org.hl7.fhir.exceptions.FHIRFormatError(e1.getMessage(), e1);
     }
     for (BundleEntryComponent e : f.getEntry()) {
       if (e.getFullUrl() == null) {
@@ -155,7 +155,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     try {
       f = (Bundle) json.parse(stream);
     } catch (FHIRFormatError e1) {
-      throw new org.hl7.fhir.dstu3.exceptions.FHIRFormatError(e1.getMessage(), e1);
+      throw new org.hl7.fhir.exceptions.FHIRFormatError(e1.getMessage(), e1);
     }
     for (BundleEntryComponent e : f.getEntry()) {
 

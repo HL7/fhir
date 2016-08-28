@@ -18,9 +18,9 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import org.hl7.fhir.dstu2016may.exceptions.DefinitionException;
-import org.hl7.fhir.dstu2016may.exceptions.FHIRException;
-import org.hl7.fhir.dstu2016may.exceptions.FHIRFormatError;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu2016may.formats.IParser;
 import org.hl7.fhir.dstu2016may.formats.JsonParser;
 import org.hl7.fhir.dstu2016may.formats.ParserType;
@@ -107,7 +107,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		try {
 			f = (Bundle) xml.parse(stream);
 		} catch (FHIRFormatError e1) {
-			throw new org.hl7.fhir.dstu2016may.exceptions.FHIRFormatError(e1.getMessage(), e1);
+			throw new org.hl7.fhir.exceptions.FHIRFormatError(e1.getMessage(), e1);
 		}
 		for (BundleEntryComponent e : f.getEntry()) {
 

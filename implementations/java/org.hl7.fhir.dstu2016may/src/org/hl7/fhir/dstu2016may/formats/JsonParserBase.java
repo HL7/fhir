@@ -35,8 +35,8 @@ import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.util.List;
 
-import org.hl7.fhir.dstu2016may.exceptions.FHIRException;
-import org.hl7.fhir.dstu2016may.exceptions.FHIRFormatError;
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu2016may.model.DomainResource;
 import org.hl7.fhir.dstu2016may.model.Element;
 import org.hl7.fhir.dstu2016may.model.IdType;

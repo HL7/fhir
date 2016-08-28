@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
-import org.hl7.fhir.dstu2016may.exceptions.DefinitionException;
-import org.hl7.fhir.dstu2016may.exceptions.FHIRException;
-import org.hl7.fhir.dstu2016may.exceptions.FHIRFormatError;
-import org.hl7.fhir.dstu2016may.exceptions.PathEngineException;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.dstu2016may.formats.JsonParser;
 import org.hl7.fhir.dstu2016may.model.Appointment;
 import org.hl7.fhir.dstu2016may.model.Base;

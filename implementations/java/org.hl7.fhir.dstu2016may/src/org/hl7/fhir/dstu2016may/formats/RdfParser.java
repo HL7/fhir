@@ -51,8 +51,8 @@ import org.hl7.fhir.dstu2016may.model.InstantType;
 import org.hl7.fhir.dstu2016may.model.*;
 import org.xmlpull.v1.*;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu2016may.exceptions.FHIRFormatError;
-import org.hl7.fhir.dstu2016may.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.dstu2016may.formats.RdfGenerator.Complex;
 import java.io.IOException;
 

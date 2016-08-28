@@ -13,8 +13,8 @@ import java.util.Set;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.hl7.fhir.dstu2016may.exceptions.DefinitionException;
-import org.hl7.fhir.dstu2016may.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.dstu2016may.formats.FormatUtilities;
 import org.hl7.fhir.dstu2016may.metamodel.Element;
 import org.hl7.fhir.dstu2016may.metamodel.JsonParser;
@@ -1123,7 +1123,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		return context;
 	}
 
-	private ElementDefinition getCriteriaForDiscriminator(String path, ElementDefinition ed, String discriminator, StructureDefinition profile) throws DefinitionException, org.hl7.fhir.dstu2016may.exceptions.DefinitionException {
+	private ElementDefinition getCriteriaForDiscriminator(String path, ElementDefinition ed, String discriminator, StructureDefinition profile) throws DefinitionException, org.hl7.fhir.exceptions.DefinitionException {
 		List<ElementDefinition> childDefinitions = ProfileUtilities.getChildMap(profile, ed);
 		List<ElementDefinition> snapshot = null;
 		int index;

@@ -61,9 +61,9 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
 import org.apache.commons.io.IOUtils;
-import org.hl7.fhir.dstu2016may.exceptions.DefinitionException;
-import org.hl7.fhir.dstu2016may.exceptions.FHIRException;
-import org.hl7.fhir.dstu2016may.exceptions.FHIRFormatError;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu2016may.formats.IParser;
 import org.hl7.fhir.dstu2016may.formats.JsonParser;
 import org.hl7.fhir.dstu2016may.formats.XmlParser;

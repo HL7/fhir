@@ -329,7 +329,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     OutputStreamWriter output = new OutputStreamWriter(new FileOutputStream(javaDir+"ResourceType.java"), "UTF-8");
     output.write("package org.hl7.fhir.dstu3.model;\r\n");
     output.write("\r\n");
-    output.write("import org.hl7.fhir.dstu3.exceptions.FHIRException;\r\n");
+    output.write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
     output.write("\r\n");
     output.write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
     output.write("public enum ResourceType {");

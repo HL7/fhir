@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.Map;
 
-import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.utils.Turtle.TTLComplex;
 import org.hl7.fhir.dstu3.utils.Turtle.TTLObject;
 import org.hl7.fhir.utilities.Utilities;

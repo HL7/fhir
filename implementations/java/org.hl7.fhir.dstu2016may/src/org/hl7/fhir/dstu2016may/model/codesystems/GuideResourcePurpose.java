@@ -32,7 +32,7 @@ package org.hl7.fhir.dstu2016may.model.codesystems;
 // Generated on Tue, Mar 22, 2016 08:00+1100 for FHIR v1.3.0
 
 
-import org.hl7.fhir.dstu2016may.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRException;
 
 public enum GuideResourcePurpose {
 

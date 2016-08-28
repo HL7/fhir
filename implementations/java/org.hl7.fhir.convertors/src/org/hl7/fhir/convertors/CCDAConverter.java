@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import org.hl7.fhir.dstu2.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.AllergyIntolerance;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
@@ -282,7 +282,7 @@ public class CCDAConverter {
 		// main todo: fill out the narrative, but before we can do that, we have to convert everything else
 	}
 
-	protected DocumentConfidentiality convertConfidentiality(Element child) throws FHIRException, org.hl7.fhir.dstu3.exceptions.FHIRException {
+	protected DocumentConfidentiality convertConfidentiality(Element child) throws FHIRException, org.hl7.fhir.exceptions.FHIRException {
 		// TODO Auto-generated method stub
 		return DocumentConfidentiality.fromCode(child.getAttribute("code"));
 	}

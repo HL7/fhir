@@ -32,7 +32,7 @@ package org.hl7.fhir.dstu2016may.model.codesystems;
 // Generated on Mon, Mar 21, 2016 12:03+1100 for FHIR v1.3.0
 
 
-import org.hl7.fhir.dstu2016may.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRException;
 
 public enum ProfileOriginTypes {
 

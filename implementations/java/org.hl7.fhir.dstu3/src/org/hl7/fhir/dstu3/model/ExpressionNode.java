@@ -230,7 +230,7 @@ public class ExpressionNode {
 	}
 
   public enum CollectionStatus {
-    SINGLETON, ORDERED, UNORDERED
+    SINGLETON, ORDERED, UNORDERED;
   }
 
   public static class TypeDetails {
@@ -239,29 +239,45 @@ public class ExpressionNode {
     public TypeDetails(CollectionStatus collectionStatus, String... names) {
       super();
       this.collectionStatus = collectionStatus;
-      for (String n : names)
-        this.types.add(n);
+      for (String n : names) {
+        this.types.add(Utilities.isAbsoluteUrl(n) ? n : "http://hl7.org/fhir/StructureDefinition/"+n);
+      }
     }
     public TypeDetails(CollectionStatus collectionStatus, Set<String> names) {
       super();
       this.collectionStatus = collectionStatus;
-      for (String n : names)
-        this.types.add(n);
+      for (String n : names) {
+        this.types.add(Utilities.isAbsoluteUrl(n) ? n : "http://hl7.org/fhir/StructureDefinition/"+n);
+      }
     }
-    public void addType(String n) {
-      this.types.add(n);      
+    public String addType(String n) {
+      String res = Utilities.isAbsoluteUrl(n) ? n : "http://hl7.org/fhir/StructureDefinition/"+n;
+      this.types.add(res);
+      return res;
     }
-    public void addTypes(Collection<String> n) {
-      this.types.addAll(n);      
+    public void addTypes(Collection<String> names) {
+      for (String n : names) 
+        this.types.add(Utilities.isAbsoluteUrl(n) ? n : "http://hl7.org/fhir/StructureDefinition/"+n);
     }
     public boolean hasType(IWorkerContext context, String... tn) {
-      for (String t: tn)
-      if (types.contains(t))
-        return true;
-      for (String t: tn) {
-        StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+t);
+      for (String n: tn) {
+        String t = Utilities.isAbsoluteUrl(n) ? n : "http://hl7.org/fhir/StructureDefinition/"+n;
+        if (types.contains(t))
+          return true;
+      }
+      for (String n: tn) {
+        String id = n.contains("#") ? n.substring(0, n.indexOf("#")) : n;
+        String tail = null;
+        if (n.contains("#")) {
+          tail = n.substring( n.indexOf("#")+1);
+          tail = tail.substring(tail.indexOf("."));
+        }
+        String t = Utilities.isAbsoluteUrl(n) ? n : "http://hl7.org/fhir/StructureDefinition/"+n;
+        StructureDefinition sd = context.fetchResource(StructureDefinition.class, t);
         while (sd != null) {
-          if (types.contains(sd.getId()))
+          if (tail == null && types.contains(sd.getUrl()))
+              return true;
+          if (tail != null && types.contains(sd.getUrl()+"#"+sd.getType()+tail))
             return true;
           if (sd.hasBaseDefinition())
             sd = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
@@ -306,9 +322,11 @@ public class ExpressionNode {
       return collectionStatus;
     }
     public boolean hasType(Set<String> tn) {
-      for (String t: tn)
-      if (types.contains(t))
-        return true;
+      for (String n: tn) {
+        String t = Utilities.isAbsoluteUrl(n) ? n : "http://hl7.org/fhir/StructureDefinition/"+n;
+        if (types.contains(t))
+          return true;
+      }
       return false;
     }
     public String describe() {
@@ -319,7 +337,10 @@ public class ExpressionNode {
         return t;
       return null;
     }
-    
+    @Override
+    public String toString() {
+      return (collectionStatus == null ? collectionStatus.SINGLETON.toString() : collectionStatus.toString()) + types.toString();
+    }
   }
 
 

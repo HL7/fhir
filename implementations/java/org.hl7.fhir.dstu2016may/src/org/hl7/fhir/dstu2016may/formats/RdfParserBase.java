@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import org.hl7.fhir.dstu2016may.exceptions.FHIRFormatError;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu2016may.formats.RdfGenerator.Complex;
 import org.hl7.fhir.dstu2016may.formats.RdfGenerator.Section;
 import org.hl7.fhir.dstu2016may.formats.RdfGenerator.Subject;

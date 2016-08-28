@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 
-import org.hl7.fhir.dstu2.exceptions.PathEngineException;
+import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.dstu2.formats.FormatUtilities;
 import org.hl7.fhir.dstu2.model.Address;
 import org.hl7.fhir.dstu2.model.Attachment;

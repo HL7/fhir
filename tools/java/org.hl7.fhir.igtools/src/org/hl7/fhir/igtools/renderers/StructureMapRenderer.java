@@ -3,7 +3,7 @@ package org.hl7.fhir.igtools.renderers;
 import java.io.IOException;
 import java.util.List;
 
-import org.hl7.fhir.dstu3.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;

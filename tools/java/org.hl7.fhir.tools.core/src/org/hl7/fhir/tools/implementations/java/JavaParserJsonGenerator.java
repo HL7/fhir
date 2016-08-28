@@ -227,8 +227,8 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("import org.hl7.fhir.dstu3.model.*;\r\n");
     write("import org.hl7.fhir.utilities.Utilities;\r\n");
     write("import org.hl7.fhir.utilities.xhtml.XhtmlNode;\r\n");
-    write("import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;\r\n");
-    write("import org.hl7.fhir.dstu3.exceptions.FHIRException;\r\n");
+    write("import org.hl7.fhir.exceptions.FHIRFormatError;\r\n");
+    write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
     write("import com.google.gson.JsonObject;\r\n");
     write("import com.google.gson.JsonArray;\r\n");
     write("import java.io.IOException;\r\n");

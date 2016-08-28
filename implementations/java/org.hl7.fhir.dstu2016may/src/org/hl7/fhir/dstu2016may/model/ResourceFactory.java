@@ -31,7 +31,7 @@ package org.hl7.fhir.dstu2016may.model;
 
 // Generated on Sun, May 8, 2016 03:05+1000 for FHIR v1.4.0
 
-import org.hl7.fhir.dstu2016may.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRException;
 
 public class ResourceFactory extends Factory {
 

@@ -32,7 +32,7 @@ package org.hl7.fhir.dstu2016may.model.codesystems;
 // Generated on Mon, Apr 18, 2016 07:09+1000 for FHIR v1.4.0
 
 
-import org.hl7.fhir.dstu2016may.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRException;
 
 public enum EndpointStatus {
 

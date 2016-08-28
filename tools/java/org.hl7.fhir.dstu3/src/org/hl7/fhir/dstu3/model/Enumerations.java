@@ -33,7 +33,7 @@ package org.hl7.fhir.dstu3.model;
 
 
 import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.dstu3.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRException;
 
 public class Enumerations {
 

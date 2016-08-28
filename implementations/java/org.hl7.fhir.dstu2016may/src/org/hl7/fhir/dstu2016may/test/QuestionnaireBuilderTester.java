@@ -3,7 +3,7 @@ package org.hl7.fhir.dstu2016may.test;
 import java.io.File;
 import java.io.FileInputStream;
 
-import org.hl7.fhir.dstu2016may.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.dstu2016may.formats.XmlParser;
 import org.hl7.fhir.dstu2016may.model.StructureDefinition;
 import org.hl7.fhir.dstu2016may.utils.QuestionnaireBuilder;

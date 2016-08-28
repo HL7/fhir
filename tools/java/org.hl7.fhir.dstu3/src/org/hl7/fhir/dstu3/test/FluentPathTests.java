@@ -83,7 +83,7 @@ public class FluentPathTests {
 
   @SuppressWarnings("deprecation")
   @Test
-  public void test() throws FileNotFoundException, IOException, FHIRException, org.hl7.fhir.dstu3.exceptions.FHIRException {
+  public void test() throws FileNotFoundException, IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
     if (TestingUtilities.context == null)
       TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip");
     if (fp == null)

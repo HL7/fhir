@@ -3,7 +3,7 @@ package org.hl7.fhir.dstu3.elementmodel;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.dstu3.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.PropertyRepresentation;

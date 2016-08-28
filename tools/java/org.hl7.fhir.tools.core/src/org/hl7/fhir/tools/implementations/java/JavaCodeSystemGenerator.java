@@ -52,7 +52,7 @@ public class JavaCodeSystemGenerator extends JavaBaseGenerator {
     write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
     write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
     write("\r\n");
-    write("import org.hl7.fhir.dstu3.exceptions.FHIRException;\r\n");
+    write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
     write("\r\n");
 
     write("public enum "+tns+" {\r\n");

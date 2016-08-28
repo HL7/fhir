@@ -13,8 +13,8 @@ import java.util.Set;
 
 import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
 import org.hl7.fhir.dstu3.elementmodel.Property;
-import org.hl7.fhir.dstu3.exceptions.DefinitionException;
-import org.hl7.fhir.dstu3.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.BooleanType;
@@ -75,6 +75,7 @@ import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
  *  * getChildMap --?
  *  * getChildList
  *  * generateSnapshot: Given a base (snapshot) profile structure, and a differential profile, generate a new snapshot profile
+ *  * closeDifferential: fill out a differential by excluding anything not mentioned
  *  * generateExtensionsTable: generate the HTML for a hierarchical table presentation of the extensions
  *  * generateTable: generate  the HTML for a hierarchical table presentation of a structure
  *  * summarise: describe the contents of a profile
@@ -1228,6 +1229,21 @@ public class ProfileUtilities {
     return false;
   }
 
+  public void closeDifferential(StructureDefinition base, StructureDefinition derived) {
+//    for (ElementDefinition edb : base.getSnapshot().getElement()) {
+//      if (!hasMatchInDerived(derived.getDifferential().getElement())) {
+//        if (edb.getMin() > 0)
+//          throw new DefinitionException()
+//        ElementDefinition edd = derived.getDifferential().addElement();
+//        edd.setPath(edb.getPath());
+//        )
+//      }
+//    }
+//    // for anything in base that has no match in derived, add it to the derived with max cardinality 0
+//    // sort the derived differential 
+//    
+//    !!
+  }
 
   public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, boolean full, String corePath, String imagePath) throws IOException, FHIRException {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);

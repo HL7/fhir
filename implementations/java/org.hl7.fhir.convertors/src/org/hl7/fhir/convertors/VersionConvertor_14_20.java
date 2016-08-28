@@ -2603,7 +2603,7 @@ public class VersionConvertor_14_20 {
     for (org.hl7.fhir.dstu2016may.model.CodeType t : src.getOperator())
       try {
         tgt.addOperator(CodeSystem.FilterOperator.fromCode(t.getValue()));
-      } catch (org.hl7.fhir.dstu3.exceptions.FHIRException e) {
+      } catch (org.hl7.fhir.exceptions.FHIRException e) {
         throw new FHIRException(e);
       }
     tgt.setValue(src.getValue());

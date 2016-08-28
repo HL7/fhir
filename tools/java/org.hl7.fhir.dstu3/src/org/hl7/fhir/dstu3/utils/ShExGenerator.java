@@ -2,7 +2,7 @@ package org.hl7.fhir.dstu3.utils;
 
 import java.util.*;
 
-import org.hl7.fhir.dstu3.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.*;
 import org.hl7.fhir.dstu3.elementmodel.TurtleParser;
 import org.apache.commons.lang3.tuple.Pair;

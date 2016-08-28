@@ -8,7 +8,7 @@ import java.io.IOException;
 
 import org.hl7.fhir.convertors.VersionConvertor_10_20;
 import org.hl7.fhir.convertors.VersionConvertor_10_20.VersionConvertorAdvisor;
-import org.hl7.fhir.dstu2.exceptions.FHIRFormatError;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu2.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2.model.Resource;
 import org.hl7.fhir.dstu2.model.ValueSet.ValueSetCodeSystemComponent;

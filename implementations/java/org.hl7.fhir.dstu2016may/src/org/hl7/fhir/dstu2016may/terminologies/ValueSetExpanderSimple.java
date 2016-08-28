@@ -38,7 +38,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.NotImplementedException;
-import org.hl7.fhir.dstu2016may.exceptions.TerminologyServiceException;
+import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.dstu2016may.model.DateTimeType;
 import org.hl7.fhir.dstu2016may.model.Factory;
 import org.hl7.fhir.dstu2016may.model.PrimitiveType;

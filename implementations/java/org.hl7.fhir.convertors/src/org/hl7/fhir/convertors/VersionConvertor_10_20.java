@@ -3401,7 +3401,7 @@ public class VersionConvertor_10_20 {
     if (src.hasItemCodeableConcept())
       try {
         tgt.setItem(convertCodeableConcept(src.getItemCodeableConcept()));
-      } catch (org.hl7.fhir.dstu3.exceptions.FHIRException e) {
+      } catch (org.hl7.fhir.exceptions.FHIRException e) {
       }
     tgt.setCause(src.getCause());
     return tgt;
@@ -3622,7 +3622,7 @@ public class VersionConvertor_10_20 {
     tgt.setStatus(convertCompositionStatus(src.getStatus()));
     try {
       tgt.setConfidentiality(org.hl7.fhir.dstu3.model.Composition.DocumentConfidentiality.fromCode(src.getConfidentiality()));
-    } catch (org.hl7.fhir.dstu3.exceptions.FHIRException e) {
+    } catch (org.hl7.fhir.exceptions.FHIRException e) {
       throw new FHIRException(e);
     }
     tgt.setSubject(convertReference(src.getSubject()));
@@ -3773,7 +3773,7 @@ public class VersionConvertor_10_20 {
     tgt.setText(convertNarrative(src.getText()));
     try {
       tgt.setMode(org.hl7.fhir.dstu3.model.Composition.SectionMode.fromCode(src.getMode()));
-    } catch (org.hl7.fhir.dstu3.exceptions.FHIRException e) {
+    } catch (org.hl7.fhir.exceptions.FHIRException e) {
       throw new FHIRException(e);
     }
     tgt.setOrderedBy(convertCodeableConcept(src.getOrderedBy()));
@@ -4058,7 +4058,7 @@ public class VersionConvertor_10_20 {
     tgt.setCategory(convertCodeableConcept(src.getCategory()));
     try {
       tgt.setClinicalStatus(org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus.fromCode(src.getClinicalStatus()));
-    } catch (org.hl7.fhir.dstu3.exceptions.FHIRException e) {
+    } catch (org.hl7.fhir.exceptions.FHIRException e) {
       throw new FHIRException(e);
     }
     tgt.setVerificationStatus(convertConditionVerificationStatus(src.getVerificationStatus()));
@@ -7796,7 +7796,7 @@ public class VersionConvertor_10_20 {
       tgt.addIdentifier(convertIdentifier(t));
     try {
       tgt.setStatus(org.hl7.fhir.dstu3.model.Immunization.ImmunizationStatus.fromCode(src.getStatus()));
-    } catch (org.hl7.fhir.dstu3.exceptions.FHIRException e) {
+    } catch (org.hl7.fhir.exceptions.FHIRException e) {
       throw new FHIRException(e);
     }
     tgt.setDate(src.getDate());
@@ -11538,7 +11538,7 @@ public class VersionConvertor_10_20 {
       if (t.hasValueCoding())
         try {
           tgt.addOption(convertCoding(t.getValueCoding()));
-        } catch (org.hl7.fhir.dstu3.exceptions.FHIRException e) {
+        } catch (org.hl7.fhir.exceptions.FHIRException e) {
           throw new FHIRException(e);
         }
     for (org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemComponent t : src.getItem())

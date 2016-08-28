@@ -55,7 +55,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
-import org.hl7.fhir.dstu2.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
@@ -1235,7 +1235,7 @@ public class ProfileGenerator {
     return ce;
   }
 
-  private void buildDefinitionFromElement(String path, ElementDefinition ce, ElementDefn e, Profile ap, StructureDefinition p) throws FHIRException, org.hl7.fhir.dstu3.exceptions.FHIRException {
+  private void buildDefinitionFromElement(String path, ElementDefinition ce, ElementDefn e, Profile ap, StructureDefinition p) throws FHIRException, org.hl7.fhir.exceptions.FHIRException {
     if (!Utilities.noString(e.getComments()))
       ce.setComments(e.getComments());
     if (!Utilities.noString(e.getShortDefn()))
