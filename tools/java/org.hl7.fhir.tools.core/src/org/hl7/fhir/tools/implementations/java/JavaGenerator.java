@@ -249,7 +249,6 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     jConv.close();
     TextFile.stringToFileNoPrefix(makeConstantsClass(version, svnRevision, genDate), implDir+"org.hl7.fhir.dstu3"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu3"+sl+"model"+sl+"Constants.java");
     ZipGenerator zip = new ZipGenerator(destDir+getReference(version));
-    zip.addFiles(implDir+"org.hl7.fhir.dstu3"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu3"+sl+"exceptions"+sl, "org/hl7/fhir/dstu3/exceptions/", ".java", null);
     zip.addFiles(implDir+"org.hl7.fhir.dstu3"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu3"+sl+"formats"+sl, "org/hl7/fhir/dstu3/formats/", ".java", null);
     zip.addFiles(implDir+"org.hl7.fhir.dstu3"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu3"+sl+"model"+sl, "org/hl7/fhir/dstu3/model/", ".java", null);
     //    zip.addFiles(implDir+"org.hl7.fhir.dstu3"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu3"+sl+"model"+sl+"annotations"+sl, "org/hl7/fhir/instance/model/annotations/", ".java", null);
