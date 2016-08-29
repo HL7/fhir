@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.hl7.fhir.dstu3.context.IWorkerContext;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities.StructureMapAnalysis;
@@ -68,7 +69,13 @@ public class StructureMapRenderer extends BaseRenderer {
   }
 
   public String profiles() {
-    return "[--Profiles go here--]";
+    StringBuilder b = new StringBuilder();
+    b.append("<ul>\r\n");
+    for (StructureDefinition sd : analysis.getProfiles()) {
+      b.append("  <li><a href=\""+sd.getUserString("path")+"\">"+Utilities.escapeXml(sd.getName())+"</a></li>\r\n");
+    }
+    b.append("</ul>\r\n");
+    return b.toString();
   }
 
   public String script() throws FHIRException {

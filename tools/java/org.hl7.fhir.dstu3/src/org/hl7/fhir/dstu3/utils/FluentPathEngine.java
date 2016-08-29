@@ -2604,7 +2604,7 @@ public class FluentPathEngine {
               if (Utilities.noString(t.getCode()))
                 break; // throw new PathEngineException("Illegal reference to primitive value attribute @ "+path);
 
-              if (t.hasProfile())
+              if (t.hasProfile() && !t.getCode().equals("Reference"))
                 result.addType(t.getProfile());
               if (t.getCode().equals("Element") || t.getCode().equals("BackboneElement"))
                 result.addType(sdi.getUrl()+"#"+path);

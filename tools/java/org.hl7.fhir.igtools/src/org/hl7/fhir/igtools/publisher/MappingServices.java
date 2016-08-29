@@ -59,4 +59,9 @@ public class MappingServices implements ITransformerServices {
     ids.clear();
   }
 
+  @Override
+  public void log(String message) {
+    return;
+  }
+
 }

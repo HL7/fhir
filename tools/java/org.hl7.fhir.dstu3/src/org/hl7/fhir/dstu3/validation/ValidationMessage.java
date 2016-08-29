@@ -288,7 +288,7 @@ public class ValidationMessage implements Comparator<ValidationMessage>, Compara
   
   @Override
   public boolean equals(Object o) {
-    return this.getMessage().equals(((ValidationMessage)o).getMessage()) && this.getLocation().equals(((ValidationMessage)o).getLocation());
+    return (this.getMessage() != null && this.getMessage().equals(((ValidationMessage)o).getMessage())) && (this.getLocation() != null && this.getLocation().equals(((ValidationMessage)o).getLocation()));
   }
  
   @Override

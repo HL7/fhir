@@ -59,6 +59,7 @@ import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.dstu3.model.Bundle.BundleType;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.Constants;
@@ -385,15 +386,15 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private FetchedResource getResourceForUri(FetchedFile f, String uri) {
-    for (FetchedResource r : f.getResources()) {
-      if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
-        BaseConformance bc = (BaseConformance) r.getResource();
-        if (bc.getUrl().equals(uri))
+      for (FetchedResource r : f.getResources()) {
+        if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
+          BaseConformance bc = (BaseConformance) r.getResource();
+          if (bc.getUrl().equals(uri))
           return r;
+        }
       }
-    }
     return null;
-  }
+    }
 
   private FetchedResource getResourceForUri(String uri) {
     for (FetchedFile f : fileList) {
@@ -893,9 +894,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
               r.setExampleUri(ref);
             } else {
               r.setExampleUri(sourceIg.getUrl().substring(0, sourceIg.getUrl().indexOf("ImplementationGuide/")) + ref);
-            }
-          }
         }
+      }
+    }
       }
     }
 
@@ -914,7 +915,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     execTime = Calendar.getInstance();
     return needToBuild;
   }
-  
+
   private void loadIgPages(ImplementationGuidePageComponent page, HashMap<String, ImplementationGuidePageComponent> map) {
     map.put(page.getSource(), page);
     for (ImplementationGuidePageComponent childPage: page.getPage()) {
@@ -1171,7 +1172,6 @@ public class Publisher implements IWorkerContext.ILoggingService {
       StructureMapUtilities utils = new StructureMapUtilities(context, context.getTransforms(), services, igpkp);
       
       // ok, our first task is to generate the profiles
-      // for now, we only check use the logical models
       for (FetchedFile f : changeList) {
         List<StructureMap> worklist = new ArrayList<StructureMap>();
         for (FetchedResource r : f.getResources()) {
@@ -1184,16 +1184,17 @@ public class Publisher implements IWorkerContext.ILoggingService {
         for (StructureMap map : worklist) {
           StructureMapAnalysis analysis = utils.analyse(null, map);
           map.setUserData("analysis", analysis);
-//          List<StructureDefinition> profiles = analysis.getProfiles();
-//          for (StructureDefinition sd : profiles) {
-//            FetchedResource nr = new FetchedResource();
-//            nr.setElement(convertToElement(sd));
-//            nr.setId(sd.getId());
-//            nr.setResource(sd);
-//            nr.setTitle("Generated Profile (by Transform)");
-//            f.getResources().add(nr);
-//            igpkp.findConfiguration(f, nr);
-//          }
+          for (StructureDefinition sd : analysis.getProfiles()) {
+            FetchedResource nr = new FetchedResource();
+            nr.setElement(convertToElement(sd));
+            nr.setId(sd.getId());
+            nr.setResource(sd);
+            nr.setTitle("Generated Profile (by Transform)");
+            f.getResources().add(nr);
+            igpkp.findConfiguration(f, nr);
+            sd.setUserData("path", igpkp.getLinkFor(nr));
+            generateSnapshot(f, nr, sd, true);
+          }
         }
       }
       
@@ -1218,25 +1219,28 @@ public class Publisher implements IWorkerContext.ILoggingService {
                   ok = false;
               }
             }
-            if (ok && tgturl != null) {
-              StructureDefinition tsd = context.fetchResource(StructureDefinition.class, tgturl);
-              if (tsd != null) {
-                Resource target = ResourceFactory.createResource(tsd.getId());
-                if (t.getValue().size() > 1)
-                  target.setId(t.getKey().getId()+"-map-"+Integer.toString(i));
-                else
-                  target.setId(t.getKey().getId()+"-map");
-                i++;
-                services.reset();
-                utils.transform(target, t.getKey().getElement(), map, target);
-                FetchedResource nr = new FetchedResource();
-                nr.setElement(convertToElement(target));
-                nr.setId(target.getId());
-                nr.setResource(target);
-                nr.setTitle("Generated Example (by Transform)");
-                f.getResources().add(nr);
-                igpkp.findConfiguration(f, nr);
+            if (ok) {
+              Resource target = new Bundle().setType(BundleType.COLLECTION);
+              if (tgturl != null) {
+                StructureDefinition tsd = context.fetchResource(StructureDefinition.class, tgturl);
+                if (tsd == null) 
+                  throw new Exception("Unable to find definition "+tgturl);
+                target = ResourceFactory.createResource(tsd.getType());
               }
+              if (t.getValue().size() > 1)
+                target.setId(t.getKey().getId()+"-map-"+Integer.toString(i));
+              else
+                target.setId(t.getKey().getId()+"-map");
+              i++;
+              services.reset();
+              utils.transform(target, t.getKey().getElement(), map, target);
+              FetchedResource nr = new FetchedResource();
+              nr.setElement(convertToElement(target));
+              nr.setId(target.getId());
+              nr.setResource(target);
+              nr.setTitle("Generated Example (by Transform)");
+              f.getResources().add(nr);
+              igpkp.findConfiguration(f, nr);
             }
           }
         }
@@ -1417,7 +1421,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       for (FetchedResource r : f.getResources()) {
         if (r.getResource() instanceof StructureDefinition && !r.isSnapshotted()) {
           StructureDefinition sd = (StructureDefinition) r.getResource();
-          generateSnapshot(f, r, sd);
+          generateSnapshot(f, r, sd, false);
         }
       }
     }
@@ -1429,7 +1433,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     }
   }
 
-  private void generateSnapshot(FetchedFile f, FetchedResource r, StructureDefinition sd) throws Exception {
+  private void generateSnapshot(FetchedFile f, FetchedResource r, StructureDefinition sd, boolean close) throws Exception {
     boolean changed = false;
     dlog("Check Snapshot for "+sd.getUrl());
     ProfileUtilities utils = new ProfileUtilities(context, f.getErrors(), igpkp);
@@ -1441,7 +1445,10 @@ public class Publisher implements IWorkerContext.ILoggingService {
         if (base == null)
           throw new Exception("base is null ("+sd.getBaseDefinition()+" from "+sd.getUrl()+")");
         List<String> errors = new ArrayList<String>();
-        utils.sortDifferential(base, sd, "profile "+sd.getUrl(), errors);
+        if (close)
+          utils.closeDifferential(base, sd);
+        else
+          utils.sortDifferential(base, sd, "profile "+sd.getUrl(), errors);
         for (String s : errors)
           f.getErrors().add(new ValidationMessage(Source.ProfileValidator, IssueType.INVALID, sd.getUrl(), s, IssueSeverity.ERROR));
         utils.setIds(sd, true);
@@ -1500,7 +1507,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
           StructureDefinition sd = (StructureDefinition) r.getResource();
           if (sd.getUrl().equals(url)) {
             if (!r.isSnapshotted())
-              generateSnapshot(f, r, sd);
+              generateSnapshot(f, r, sd, false);
             return sd;
           }
         }
@@ -1899,7 +1906,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void generateSummaryOutputs() throws Exception {
-    log("Generating SummaryOutputs");
+    log("Generating Summary Outputs");
     generateResourceReferences();
 
     generateDataFile();
@@ -1961,17 +1968,17 @@ public class Publisher implements IWorkerContext.ILoggingService {
     json = pages.toString();
     TextFile.stringToFile(json, Utilities.path(tempDir, "_data", "pages.json"));
   }
-  
+
   private String breadCrumbForPage(ImplementationGuidePageComponent page, boolean withLink) {
     if (withLink)
       return "<li><a href='" + page.getSource() + "'><b>" + Utilities.escapeXml(page.getTitle()) + "</b></a></li>";
     else
       return "<li><b>" + Utilities.escapeXml(page.getTitle()) + "</b></li>";
-  }
+          }
 
   private void addPageData(JsonObject pages, ImplementationGuidePageComponent page, String label, String breadcrumb, boolean includeExamples) {
     addPageData(pages, page, page.getSource(), page.getTitle(), label, breadcrumb, includeExamples);
-  }
+        }
   
   private void addPageData(JsonObject pages, ImplementationGuidePageComponent page, String source, String title, String label, String breadcrumb, boolean includeExamples) {
     addPageDataRow(pages, source, title, label, breadcrumb + breadCrumbForPage(page, false), null);
@@ -1991,7 +1998,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       addPageDataRow(pages, sourceBase + ".xml.html", page.getTitle() + " - XML Representation", label, breadcrumb + breadCrumbForPage(page, false), null);
       addPageDataRow(pages, sourceBase + ".json.html", page.getTitle() + " - JSON Representation", label, breadcrumb + breadCrumbForPage(page, false), null);
       addPageDataRow(pages, sourceBase + ".ttl.html", page.getTitle() + " - TTL Representation", label, breadcrumb + breadCrumbForPage(page, false), null);
-    }
+      }
     int i = 1;
     for (ImplementationGuidePageComponent childPage : page.getPage()) {
       addPageData(pages, childPage, (label.equals("0") ? "" : label+".") + Integer.toString(i), breadcrumb + breadCrumbForPage(page, true), includeExamples);
@@ -2310,7 +2317,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       switch (r.getResource().getResourceType()) {
       case StructureDefinition:
         StructureDefinition sd = (StructureDefinition) r.getResource();
-        String url = sd.getUrl();
+        String url = sd.getBaseDefinition();
         StructureDefinition base = context.fetchResource(StructureDefinition.class, url);
         if (base != null) {
           map.put("parent-name", base.getName());

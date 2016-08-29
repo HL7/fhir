@@ -118,6 +118,8 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   }
 
   public String doReplacements(String s, FetchedResource r, Map<String, String> vars, String format) {
+    if (Utilities.noString(s))
+      return s;
     s = s.replace("{{[title]}}", r.getTitle() == null ? "?title?" : r.getTitle());
     s = s.replace("{{[name]}}", r.getId()+(format==null? "": "-"+format)+"-html");
     s = s.replace("{{[id]}}", r.getId());

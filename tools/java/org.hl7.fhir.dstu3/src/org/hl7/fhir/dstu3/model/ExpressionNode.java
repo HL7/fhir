@@ -9,6 +9,7 @@ import java.util.Set;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.model.ExpressionNode.CollectionStatus;
 import org.hl7.fhir.dstu3.model.ExpressionNode.TypeDetails;
+import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.utilities.Utilities;
 
 public class ExpressionNode {
@@ -340,6 +341,16 @@ public class ExpressionNode {
     @Override
     public String toString() {
       return (collectionStatus == null ? collectionStatus.SINGLETON.toString() : collectionStatus.toString()) + types.toString();
+    }
+    public String getTypeCode() throws DefinitionException {
+      if (types.size() != 1)
+        throw new DefinitionException("Multiple types? ("+types.toString()+")");
+      for (String t : types)
+        if (t.startsWith("http://hl7.org/fhir/StructureDefinition/"))
+          return t.substring(40);
+        else
+          return t;
+      return null;
     }
   }
 
