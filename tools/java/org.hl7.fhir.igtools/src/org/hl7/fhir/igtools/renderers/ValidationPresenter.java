@@ -1,15 +1,19 @@
 package org.hl7.fhir.igtools.renderers;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-
-import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
+import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.model.Bundle;
+import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Constants;
+import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.igtools.publisher.FetchedFile;
 import org.hl7.fhir.utilities.TextFile;
@@ -20,11 +24,8 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
 
   private static final String INTERNAL_LINK = "internal";
 
-  private SimpleWorkerContext context;
-
-  public ValidationPresenter(SimpleWorkerContext context) {
+  public ValidationPresenter() {
     super();
-    this.context = context;
   }
 
   private List<FetchedFile> sorted(List<FetchedFile> files) {
@@ -35,11 +36,7 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
   }
   
   public String generate(String title, List<ValidationMessage> allErrors, List<FetchedFile> files, String path) throws IOException {
-    List<ValidationMessage> linkErrors = new ArrayList<ValidationMessage>();
-    for (ValidationMessage error : allErrors) {
-      if (!linkErrors.contains(error))
-        linkErrors.add(error);
-    }
+    List<ValidationMessage> linkErrors = removeDupMessages(allErrors); 
     StringBuilder b = new StringBuilder();
     b.append(genHeader(title));
     b.append(genSummaryRowInteral(linkErrors));
@@ -60,6 +57,26 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
     b.append(genFooter(title));
     TextFile.stringToFile(b.toString(), path);
 
+    Bundle validationBundle = new Bundle().setType(Bundle.BundleType.COLLECTION);
+    OperationOutcome oo = new OperationOutcome();
+    validationBundle.addEntry(new BundleEntryComponent().setResource(oo));
+    for (ValidationMessage vm : linkErrors) {
+      oo.getIssue().add(vm.asIssue(oo));
+    }
+    for (FetchedFile f : files) {
+      if (!f.getErrors().isEmpty()) {
+        oo = new OperationOutcome();
+        validationBundle.addEntry(new BundleEntryComponent().setResource(oo));
+        ToolingExtensions.addStringExtension(oo, ToolingExtensions.EXT_OO_FILE, f.getName());
+        for (ValidationMessage vm : removeDupMessages(f.getErrors())) {
+          oo.getIssue().add(vm.asIssue(oo));
+        }
+      }
+    }
+    FileOutputStream s = new FileOutputStream(Utilities.changeFileExt(path, ".xml"));
+    new XmlParser().compose(s, validationBundle, true);
+    s.close();
+
     b = new StringBuilder();
     b.append(genHeaderTxt(title));
     b.append(genSummaryRowTxtInternal(linkErrors));
@@ -79,9 +96,19 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
     }    
     b.append(genFooterTxt(title));
     TextFile.stringToFile(b.toString(), Utilities.changeFileExt(path, ".txt"));
+    
     return path;
   }
 
+  private List<ValidationMessage> removeDupMessages(List<ValidationMessage> errors) {
+    List<ValidationMessage> filteredErrors = new ArrayList<ValidationMessage>();
+    for (ValidationMessage error : errors) {
+      if (!filteredErrors.contains(error))
+        filteredErrors.add(error);
+    }
+    return filteredErrors;
+  }
+  
   // HTML templating
   private final String headerTemplate = 
       "<!DOCTYPE HTML>\r\n"+
@@ -336,7 +363,5 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
   @Override
   public int compare(FetchedFile f1, FetchedFile f2) {
     return f1.getName().compareTo(f2.getName());
-  }
-
-  
+  }  
 }

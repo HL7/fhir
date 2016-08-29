@@ -380,7 +380,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     return canonical;
   }
 
-  public String getLinkFor(FetchedFile f, FetchedResource r) {
+  public String getLinkFor(FetchedResource r) {
 	String base = getProperty(r, "base");
 	if (base!=null)
 	  return base;

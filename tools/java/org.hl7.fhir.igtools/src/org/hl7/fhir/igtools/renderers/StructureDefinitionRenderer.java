@@ -915,7 +915,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
             String name = r.getTitle();
             if (Utilities.noString(name))
               name = "example";
-            String ref = igp.getLinkFor(f, r);
+            String ref = igp.getLinkFor(r);
             b.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a></li>\r\n");
           }
         }

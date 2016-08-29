@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9384</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>7716</WindowHeight>
+  <WindowWidth>11208</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>5</ActiveSheet>
@@ -5131,7 +5131,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="144">
+   <Row ss:AutoFitHeight="0" ss:Height="144">
     <Cell ss:StyleID="s126"><Data ss:Type="String">sourceStructureMap</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
@@ -5165,7 +5165,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="144">
+   <Row ss:AutoFitHeight="0" ss:Height="144">
     <Cell ss:StyleID="s126"><Data ss:Type="String">targetStructureMap</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
@@ -5559,7 +5559,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s122"><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">No minOccurs on display</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!No minOccurs on display</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">minOccurs</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">minOccurs can't exist for display items</Data></Cell>
@@ -5568,7 +5568,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s122"><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">No maxOccurs on display</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!No maxOccurs on display</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">maxOccurs</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">maxOccurs can't exist for display items</Data></Cell>
@@ -5577,7 +5577,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s122"><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Choice orientation for choices</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!Choice orientation for choices</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">choiceOrientation</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">choiceOrientation can only be present on elements of type &quot;choice&quot; or &quot;open-choice&quot;</Data></Cell>
@@ -5586,7 +5586,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s122"><Data ss:Type="Number">9</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">No data element display</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!No data element display</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">deReference</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">Data Element references can't be specified for &quot;display&quot; items</Data></Cell>
@@ -5595,7 +5595,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s122"><Data ss:Type="Number">10</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Allowed resource only for reference</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!Allowed resource only for reference</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">allowedResource</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">Allowed resource can only be specified for items of type 'reference'</Data></Cell>
@@ -5604,7 +5604,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s122"><Data ss:Type="Number">11</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Display category only for display</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!Display category only for display</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">displayCategory</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">Display category can only be specified for items of type display</Data></Cell>
@@ -5613,7 +5613,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s122"><Data ss:Type="Number">13</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Reference filter only for reference</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!Reference filter only for reference</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">referenceFilter</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">Allowed reference filter can only be specified for items of type 'reference'</Data></Cell>
@@ -5622,7 +5622,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s122"><Data ss:Type="Number">14</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">fhirType not for display</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!fhirType not for display</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">fhirType</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">Fhir type can only be specified for groups or questions</Data></Cell>
@@ -5631,7 +5631,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s122"><Data ss:Type="Number">15</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">lookupQuestionnaire only for reference</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">!lookupQuestionnaire only for reference</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">lookupQuestionnaire</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Lookup Questionnaire can only be specified for questions with a type of &quot;reference&quot;</Data></Cell>
@@ -5640,16 +5640,16 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s122"><Data ss:Type="Number">16</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">unit only for decimal or integer</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">!unit only for decimal or integer</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">unit</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Lookup Questionnaire can only be specified for questions with a type of &quot;integer&quot; or &quot;decimal&quot;</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">$parent.type='integer' or $parent.type='decimal'</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">parent::*/f:type/@value=('integer', 'decimal')</Data></Cell>
    </Row>
-   <Row ss:Height="28.8">
+   <Row ss:AutoFitHeight="0" ss:Height="28.8">
     <Cell ss:StyleID="s122"><Data ss:Type="Number">17</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Allowed profile only for reference</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!Allowed profile only for reference</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">allowedProfile</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">Allowed profile can only be specified for items of type 'reference'</Data></Cell>
@@ -5959,12 +5959,11 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>2</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

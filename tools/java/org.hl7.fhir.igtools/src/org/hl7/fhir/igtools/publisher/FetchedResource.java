@@ -1,9 +1,11 @@
 package org.hl7.fhir.igtools.publisher;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import org.hl7.fhir.dstu3.elementmodel.Element;
+import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
 
 import com.google.gson.JsonObject;
@@ -17,6 +19,8 @@ public class FetchedResource {
   private boolean validated;
   private List<String> profiles = new ArrayList<String>();
   private boolean snapshotted;
+  private String exampleUri;
+  private HashSet<FetchedResource> examples = new HashSet<FetchedResource>();
 
   public Resource getResource() {
     return resource;
@@ -77,5 +81,19 @@ public class FetchedResource {
     return element.fhirType()+"/"+id;
   }
 
-  
+  public String getExampleUri() {
+    return exampleUri;
+  }  
+
+  public void setExampleUri(String exampleUri) {
+    this.exampleUri = exampleUri;
+  }  
+
+  public HashSet<FetchedResource> getExamples() {
+    return examples;
+  }  
+
+  public void addExample(FetchedResource r) {
+    this.examples.add(r);
+  }  
 }
