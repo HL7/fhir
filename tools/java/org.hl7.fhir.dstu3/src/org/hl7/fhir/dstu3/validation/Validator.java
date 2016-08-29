@@ -211,6 +211,7 @@ public class Validator {
           System.out.println(" ...Failure: "+e.getMessage());
         }
       } else {
+        System.out.println("  .. validate");
         Resource r = validator.validate(sources, profiles);
         if (output == null) {
           if (r instanceof Bundle)

@@ -3,8 +3,10 @@ package org.hl7.fhir.dstu3.utils;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.naming.Context;
@@ -105,6 +107,7 @@ public class StructureMapUtilities {
 
 	public interface ITransformerServices {
 		//    public boolean validateByValueSet(Coding code, String valuesetId);
+	  public void log(String message); // log internal progress
     public Base createResource(TransformContext context, Base res);
 		public Coding translate(Object appInfo, Coding source, String conceptMapUrl) throws FHIRException;
 		//    public Coding translate(Coding code)
@@ -159,6 +162,7 @@ public class StructureMapUtilities {
 	private Map<String, StructureMap> library;
 	private ITransformerServices services;
   private ProfileKnowledgeProvider pkp;
+  private Map<String, Integer> ids = new HashMap<String, Integer>(); 
 
 	public StructureMapUtilities(IWorkerContext worker, Map<String, StructureMap> library, ITransformerServices services, ProfileKnowledgeProvider pkp) {
 		super();
@@ -909,7 +913,8 @@ public class StructureMapUtilities {
 	}
 
 	private void log(String cnt) {
-		System.out.println(cnt);
+	  if (services != null)
+	    services.log(cnt);
 	}
 
 	/**
@@ -1511,6 +1516,7 @@ public class StructureMapUtilities {
 	 * @throws Exception
 	 */
   public StructureMapAnalysis analyse(Object appInfo, StructureMap map) throws Exception {
+    ids.clear();
     StructureMapAnalysis result = new StructureMapAnalysis(); 
     TransformContext context = new TransformContext(appInfo);
     VariablesForProfiling vars = new VariablesForProfiling(false, false);
@@ -1520,7 +1526,7 @@ public class StructureMapUtilities {
       if (t.getMode() == StructureMapInputMode.SOURCE)
        vars.add(VariableMode.INPUT, t.getName(), ti);
       else 
-        vars.add(VariableMode.OUTPUT, t.getName(), createProfile(map, result.profiles, ti));
+        vars.add(VariableMode.OUTPUT, t.getName(), createProfile(map, result.profiles, ti, start.getName()));
     }
 
     result.summary = new XhtmlNode(NodeType.Element, "table").setAttribute("class", "grid");
@@ -1530,6 +1536,9 @@ public class StructureMapUtilities {
     
     log("Start Profiling Transform "+map.getUrl());
     analyseGroup("", context, map, vars, start, result);
+    ProfileUtilities pu = new ProfileUtilities(worker, null, pkp);
+    for (StructureDefinition sd : result.getProfiles())
+      pu.cleanUpDifferential(sd);
     return result;
   }
 
@@ -1571,7 +1580,7 @@ public class StructureMapUtilities {
 
     TargetWriter tw = new TargetWriter();
       for (StructureMapGroupRuleTargetComponent t : rule.getTarget()) {
-      analyseTarget(context, source, map, t, rule.getSourceFirstRep().getVariable(), tw, result.profiles);
+      analyseTarget(context, source, map, t, rule.getSourceFirstRep().getVariable(), tw, result.profiles, rule.getName());
       }
     tw.commit(xt);
 
@@ -1601,6 +1610,7 @@ public class StructureMapUtilities {
   public class TargetWriter {
     private Map<String, String> newResources = new HashMap<String, String>();
     private List<StringPair> assignments = new ArrayList<StringPair>();
+    private List<StringPair> keyProps = new ArrayList<StringPair>();
     private CommaSeparatedStringBuilder txt = new CommaSeparatedStringBuilder();
 
     public void newResource(String var, String name) {
@@ -1613,6 +1623,10 @@ public class StructureMapUtilities {
       txt.append(desc);
         }
 
+    public void keyAssignment(String context, String desc) {
+      keyProps.add(new StringPair(context, desc));      
+      txt.append(desc);
+    }
     public void commit(XhtmlNode xt) {
       if (newResources.size() == 1 && assignments.size() == 1 && newResources.containsKey(assignments.get(0).getVar())) {
         xt.addText("new "+assignments.get(0).desc);
@@ -1659,7 +1673,7 @@ public class StructureMapUtilities {
   }
 
 
-  private void analyseTarget(TransformContext context, VariablesForProfiling vars, StructureMap map, StructureMapGroupRuleTargetComponent tgt, String tv, TargetWriter tw, List<StructureDefinition> profiles) throws Exception {
+  private void analyseTarget(TransformContext context, VariablesForProfiling vars, StructureMap map, StructureMapGroupRuleTargetComponent tgt, String tv, TargetWriter tw, List<StructureDefinition> profiles, String sliceName) throws Exception {
     VariableForProfiling var = null;
     if (tgt.hasContext()) {
       var = vars.get(VariableMode.OUTPUT, tgt.getContext());
@@ -1688,11 +1702,16 @@ public class StructureMapUtilities {
         if (pr instanceof IdType && ((IdType) pr).asStringValue().equals(tv)) 
           mapsSrc = true;
       }
-      if (mapsSrc) 
+      if (mapsSrc) { 
         tw.valueAssignment(tgt.getContext(), var.property.getPath()+"."+tgt.getElement()+getTransformSuffix(tgt.getTransform()));
+      } else if (tgt.hasContext()) {
+        if (isSignificantElement(var.property, tgt.getElement())) {
+          tw.keyAssignment(tgt.getContext(), "["+var.property.getPath()+"."+tgt.getElement()+" = "+describeTransform(tgt.getTransform())+"]");
+        }
+      }
     }
     
-    PropertyWithType prop = updateProfile(var, tgt.getElement(), type, map, profiles);
+    PropertyWithType prop = updateProfile(var, tgt.getElement(), type, map, profiles, sliceName);
     if (tgt.hasVariable())
       if (tgt.hasElement())
         vars.add(VariableMode.OUTPUT, tgt.getVariable(), prop); 
@@ -1700,6 +1719,19 @@ public class StructureMapUtilities {
         vars.add(VariableMode.OUTPUT, tgt.getVariable(), prop); 
   }
   
+  private String describeTransform(StructureMapTransform transform) {
+    return "todo";
+  }
+
+  private boolean isSignificantElement(PropertyWithType property, String element) {
+    if ("Observation".equals(property.getPath()))
+      return "code".equals(element);
+    else if ("Bundle".equals(property.getPath()))
+      return "type".equals(element);
+    else
+      return false;
+  }
+
   private String getTransformSuffix(StructureMapTransform transform) {
     switch (transform) {
     case COPY: return ""; 
@@ -1722,20 +1754,77 @@ public class StructureMapUtilities {
     }
   }
 
-  private PropertyWithType updateProfile(VariableForProfiling var, String element, TypeDetails type, StructureMap map, List<StructureDefinition> profiles) throws DefinitionException {
+  private PropertyWithType updateProfile(VariableForProfiling var, String element, TypeDetails type, StructureMap map, List<StructureDefinition> profiles, String sliceName) throws FHIRException {
     if (var == null) {
       assert (Utilities.noString(element));
-      StructureDefinition sd = worker.fetchResource(StructureDefinition.class, type.getType());
-      ElementDefinition ed = sd.getSnapshot().getElementFirstRep();
-      return createProfile(map, profiles, new PropertyWithType(sd.getId(), new Property(worker, ed, sd), null, type)); 
+      // 1. start the new structure definition
+      StructureDefinition sdn = worker.fetchResource(StructureDefinition.class, type.getType());
+      ElementDefinition edn = sdn.getSnapshot().getElementFirstRep();
+      PropertyWithType pn = createProfile(map, profiles, new PropertyWithType(sdn.getId(), new Property(worker, edn, sdn), null, type), sliceName);
+
+//      // 2. hook it into the base bundle
+//      if (type.getType().startsWith("http://hl7.org/fhir/StructureDefinition/") && worker.getResourceNames().contains(type.getType().substring(40))) {
+//        StructureDefinition sd = var.getProperty().profileProperty.getStructure();
+//        ElementDefinition ed = sd.getDifferential().addElement();
+//        ed.setPath("Bundle.entry");
+//        ed.setName(sliceName);
+//        ed.setMax("1"); // well, it is for now...
+//        ed = sd.getDifferential().addElement();
+//        ed.setPath("Bundle.entry.fullUrl");
+//        ed.setMin(1);
+//        ed = sd.getDifferential().addElement();
+//        ed.setPath("Bundle.entry.resource");
+//        ed.setMin(1);
+//        ed.addType().setCode(pn.getProfileProperty().getStructure().getType()).setProfile(pn.getProfileProperty().getStructure().getUrl());
+//      }
+      return pn; 
     } else {
       assert (!Utilities.noString(element));
-      Property p = var.getProperty().getBaseProperty().getChild(element, type);
-      return new PropertyWithType(var.property.path+"."+element, p, null, type);
+      Property pvb = var.getProperty().getBaseProperty();
+      Property pvd = var.getProperty().getProfileProperty();
+      Property pc = pvb.getChild(element, var.property.types);
+      if (pc == null)
+        throw new DefinitionException("Unable to find a definition for "+pvb.getDefinition().getPath()+"."+element);
+      
+      // the profile structure definition (derived)
+      StructureDefinition sd = var.getProperty().profileProperty.getStructure();
+      ElementDefinition ednew = sd.getDifferential().addElement();
+      ednew.setPath(var.getProperty().profileProperty.getDefinition().getPath()+"."+pc.getName());
+      ednew.setUserData("slice-name", sliceName);
+      for (String t : type.getTypes()) {
+        if (t.startsWith("http://hl7.org/fhir/StructureDefinition/"))
+          t = t.substring(40);
+          t = checkType(t, pc);
+          if (t != null)
+            ednew.addType().setCode(t);
+      }
+      
+      return new PropertyWithType(var.property.path+"."+element, pc, new Property(worker, ednew, sd), type);
     }
   }
   
 
+
+  private String checkType(String t, Property pvb) throws FHIRException {
+    if (pvb.getDefinition().getType().size() == 1 && isCompatibleType(t, pvb.getDefinition().getType().get(0).getCode())) 
+      return null;
+    for (TypeRefComponent tr : pvb.getDefinition().getType()) {
+      if (isCompatibleType(t, tr.getCode()))
+        return tr.getCode(); // note what is returned - the base type, not the inferred mapping type
+    }
+    throw new FHIRException("The type "+t+" is not compatible with the allowed types for "+pvb.getDefinition().getPath());
+  }
+
+  private boolean isCompatibleType(String t, String code) {
+    if (t.equals(code))
+      return true;
+    if (t.equals("string")) {
+      StructureDefinition sd = worker.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+      if (sd != null && sd.getBaseDefinition().equals("http://hl7.org/fhir/StructureDefinition/string"))
+        return true;
+    }
+    return false;
+  }
 
   private TypeDetails analyseTransform(TransformContext context, StructureMap map, StructureMapGroupRuleTargetComponent tgt, VariableForProfiling var, VariablesForProfiling vars) throws FHIRException {
     switch (tgt.getTransform()) {
@@ -1960,17 +2049,28 @@ public class StructureMapUtilities {
 //
 
 
-  private PropertyWithType createProfile(StructureMap map, List<StructureDefinition> profiles, PropertyWithType prop) throws DefinitionException {
+  private PropertyWithType createProfile(StructureMap map, List<StructureDefinition> profiles, PropertyWithType prop, String sliceName) throws DefinitionException {
     if (prop.getBaseProperty().getDefinition().getPath().contains(".")) 
       throw new DefinitionException("Unable to process entry point");
+
+    String type = prop.getBaseProperty().getDefinition().getPath();
+    String suffix = "";
+    if (ids.containsKey(type)) {
+      int id = ids.get(type);
+      id++;
+      ids.put(type, id);
+      suffix = "-"+Integer.toString(id);
+    } else
+      ids.put(type, 0);
+    
     StructureDefinition profile = new StructureDefinition();
     profiles.add(profile);
     profile.setDerivation(TypeDerivationRule.CONSTRAINT);
-    profile.setType(prop.getBaseProperty().getDefinition().getPath());
+    profile.setType(type);
     profile.setBaseDefinition(prop.getBaseProperty().getStructure().getUrl());
-    profile.setName("Profile on "+profile.getType()+" for map "+map.getName());
-    profile.setUrl(map.getUrl().replace("StructureMap", "StructureDefinition")+"-"+profile.getType());
-    profile.setId(map.getId()+"-"+profile.getType());
+    profile.setName("Map Profile on "+profile.getType()+" for "+sliceName);
+    profile.setUrl(map.getUrl().replace("StructureMap", "StructureDefinition")+"-"+profile.getType()+suffix);
+    profile.setId(map.getId()+"-"+profile.getType()+suffix);
     profile.setStatus(map.getStatus());
     profile.setExperimental(map.getExperimental());
     profile.setDescription("Generated automatically from the mapping by the Java Reference Implementation");

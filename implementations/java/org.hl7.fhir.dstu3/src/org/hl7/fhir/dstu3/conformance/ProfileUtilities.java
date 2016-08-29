@@ -410,9 +410,9 @@ public class ProfileUtilities {
           if (!unbounded(currentBase) && !isSlicedToOneOnly(diffMatches.get(0)))
             // you can only slice an element that doesn't repeat if the sum total of your slices is limited to 1
             // (but you might do that in order to split up constraints by type)
-            throw new DefinitionException("Attempt to a slice an element that does not repeat: "+currentBase.getPath()+"/"+currentBase.getName()+" from "+contextName);
+            throw new DefinitionException("Attempt to a slice an element that does not repeat: "+currentBase.getPath()+"/"+currentBase.getName()+" from "+contextName+" in "+url);
           if (!diffMatches.get(0).hasSlicing() && !isExtension(currentBase)) // well, the diff has set up a slice, but hasn't defined it. this is an error
-            throw new DefinitionException("differential does not have a slice: "+currentBase.getPath());
+            throw new DefinitionException("differential does not have a slice: "+currentBase.getPath()+" in profile "+url);
 
           // well, if it passed those preconditions then we slice the dest.
           // we're just going to accept the differential slicing at face value
@@ -1232,20 +1232,88 @@ public class ProfileUtilities {
     return false;
   }
 
-  public void closeDifferential(StructureDefinition base, StructureDefinition derived) {
-//    for (ElementDefinition edb : base.getSnapshot().getElement()) {
-//      if (!hasMatchInDerived(derived.getDifferential().getElement())) {
-//        if (edb.getMin() > 0)
-//          throw new DefinitionException()
-//        ElementDefinition edd = derived.getDifferential().addElement();
-//        edd.setPath(edb.getPath());
-//        )
-//      }
-//    }
-//    // for anything in base that has no match in derived, add it to the derived with max cardinality 0
-//    // sort the derived differential 
-//    
-//    !!
+  public void closeDifferential(StructureDefinition base, StructureDefinition derived) throws FHIRException {
+    for (ElementDefinition edb : base.getSnapshot().getElement()) {
+      if (isImmediateChild(edb) && !edb.getPath().endsWith(".id")) {
+        ElementDefinition edm = getMatchInDerived(edb, derived.getDifferential().getElement());
+        if (edm == null) {
+          ElementDefinition edd = derived.getDifferential().addElement();
+          edd.setPath(edb.getPath());
+          edd.setMax("0");
+        } else {
+          closeChildren(base, edb, derived, edm);
+        }
+      }
+    }
+    sortDifferential(base, derived, derived.getName(), new ArrayList<String>());
+  }
+
+  private void closeChildren(StructureDefinition base, ElementDefinition edb, StructureDefinition derived, ElementDefinition edm) {
+    String path = edb.getPath()+".";
+    int baseStart = base.getSnapshot().getElement().indexOf(edb);
+    int baseEnd = findEnd(base.getSnapshot().getElement(), edb, baseStart+1);
+    int diffStart = derived.getDifferential().getElement().indexOf(edm);
+    int diffEnd = findEnd(derived.getDifferential().getElement(), edm, diffStart+1);
+    
+    for (int cBase = baseStart; cBase < baseEnd; cBase++) {
+      ElementDefinition edBase = base.getSnapshot().getElement().get(cBase);
+      if (isImmediateChild(edBase, edb)) {
+        ElementDefinition edMatch = getMatchInDerived(edBase, derived.getDifferential().getElement(), diffStart, diffEnd);
+        if (edMatch == null) {
+          ElementDefinition edd = derived.getDifferential().addElement();
+          edd.setPath(edBase.getPath());
+          edd.setMax("0");
+        } else {
+          closeChildren(base, edBase, derived, edMatch);
+        }        
+      }
+    }
+  }
+
+
+
+
+  private int findEnd(List<ElementDefinition> list, ElementDefinition ed, int cursor) {
+    String path = ed.getPath()+".";
+    while (cursor < list.size() && list.get(cursor).getPath().startsWith(path))
+      cursor++;
+    return cursor;
+  }
+
+
+  private ElementDefinition getMatchInDerived(ElementDefinition ed, List<ElementDefinition> list) {
+    for (ElementDefinition t : list)
+      if (t.getPath().equals(ed.getPath()))
+        return t;
+    return null;
+  }
+
+  private ElementDefinition getMatchInDerived(ElementDefinition ed, List<ElementDefinition> list, int start, int end) {
+    for (int i = start; i < end; i++) {
+      ElementDefinition t = list.get(i);
+      if (t.getPath().equals(ed.getPath()))
+        return t;
+    }
+    return null;
+  }
+
+
+  private boolean isImmediateChild(ElementDefinition ed) {
+    String p = ed.getPath();
+    if (!p.contains("."))
+      return false;
+    p = p.substring(p.indexOf(".")+1);
+    return !p.contains(".");
+  }
+
+  private boolean isImmediateChild(ElementDefinition candidate, ElementDefinition base) {
+    String p = candidate.getPath();
+    if (!p.contains("."))
+      return false;
+    if (!p.startsWith(base.getPath()+"."))
+      return false;
+    p = p.substring(base.getPath().length()+1);
+    return !p.contains(".");
   }
 
   public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, boolean full, String corePath, String imagePath) throws IOException, FHIRException {
@@ -2656,7 +2724,83 @@ public class ProfileUtilities {
         sd.getSnapshot().addElement(n);
       }
     }
-    
   }
 
+    
+  public void cleanUpDifferential(StructureDefinition sd) {
+    if (sd.getDifferential().getElement().size() > 1)
+      cleanUpDifferential(sd, 1);
+  }
+  
+  private void cleanUpDifferential(StructureDefinition sd, int start) {
+    int level = Utilities.charCount(sd.getDifferential().getElement().get(start).getPath(), '.');
+    int c = start;
+    int len = sd.getDifferential().getElement().size();
+    HashSet<String> paths = new HashSet<String>();
+    while (c < len && Utilities.charCount(sd.getDifferential().getElement().get(c).getPath(), '.') == level) {
+      ElementDefinition ed = sd.getDifferential().getElement().get(c);
+      if (!paths.contains(ed.getPath())) {
+        paths.add(ed.getPath());
+        int ic = c+1; 
+        while (ic < len && Utilities.charCount(sd.getDifferential().getElement().get(ic).getPath(), '.') > level) 
+          ic++;
+        ElementDefinition slicer = null;
+        List<ElementDefinition> slices = new ArrayList<ElementDefinition>();
+        slices.add(ed);
+        while (ic < len && Utilities.charCount(sd.getDifferential().getElement().get(ic).getPath(), '.') == level) {
+          ElementDefinition edi = sd.getDifferential().getElement().get(ic);
+          if (ed.getPath().equals(edi.getPath())) {
+            if (slicer == null) {
+              slicer = new ElementDefinition();
+              slicer.setPath(edi.getPath());
+              slicer.getSlicing().setRules(SlicingRules.OPEN);
+              sd.getDifferential().getElement().add(c, slicer);
+              c++;
+              ic++;
+            }
+            slices.add(edi);
+          }
+          ic++;
+          while (ic < len && Utilities.charCount(sd.getDifferential().getElement().get(ic).getPath(), '.') > level) 
+            ic++;
+        }
+        // now we're at the end, we're going to figure out the slicing discriminator
+        if (slicer != null)
+          determineSlicing(slicer, slices);
+      }
+      c++;
+      if (c < len && Utilities.charCount(sd.getDifferential().getElement().get(c).getPath(), '.') > level) {
+        cleanUpDifferential(sd, c);
+        c++;
+        while (c < len && Utilities.charCount(sd.getDifferential().getElement().get(c).getPath(), '.') > level) 
+          c++;
+      }
+  }
+  }
+
+
+  private void determineSlicing(ElementDefinition slicer, List<ElementDefinition> slices) {
+    // first, name them
+    int i = 0;
+    for (ElementDefinition ed : slices) {
+      if (ed.hasUserData("slice-name")) {
+        ed.setName(ed.getUserString("slice-name"));
+      } else {
+        i++;
+        ed.setName("slice-"+Integer.toString(i));
+      }
+    }
+    // now, the hard bit, how are they differentiated? 
+    // right now, we hard code this...
+    if (slicer.getPath().endsWith(".extension") || slicer.getPath().endsWith(".modifierExtension"))
+      slicer.getSlicing().addDiscriminator("url");
+    else if (slicer.getPath().equals("DiagnosticReport.result"))
+      slicer.getSlicing().addDiscriminator("reference.code");
+    else if (slicer.getPath().equals("Observation.related"))
+      slicer.getSlicing().addDiscriminator("target.reference.code");
+    else if (slicer.getPath().equals("Bundle.entry"))
+      slicer.getSlicing().addDiscriminator("resource.@profile");
+    else  
+      throw new Error("No slicing for "+slicer.getPath()); 
+  }
 }
