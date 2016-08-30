@@ -2561,7 +2561,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     boolean unsupportedSlicing = false;
     List<String> problematicPaths = new ArrayList<String>();
     String slicingPath = null;
-    int slicingOffset = 0;
+    int sliceOffset = 0;
     for (int i = 0; i < childDefinitions.size(); i++) {
       ElementDefinition ed = childDefinitions.get(i);
       boolean childUnsupportedSlicing = false;
@@ -2569,7 +2569,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	  if (ed.hasSlicing() && !ed.getSlicing().getOrdered())
 		slicingPath = ed.getPath();
 	  else if (slicingPath!=null && ed.getPath().equals(slicingPath))
-	    slicingOffset++;
+        ; // nothing
 	  else if (slicingPath != null && !ed.getPath().startsWith(slicingPath))
 	    slicingPath = null;
       // where are we with slicing
@@ -2578,6 +2578,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           throw new DefinitionException("Slice encountered midway through path on " + slice.getPath());
         slice = ed;
         process = false;
+        sliceOffset = i;
       } else if (slice != null && !slice.getPath().equals(ed.getPath()))
         slice = null;
 
@@ -2599,7 +2600,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           if (match) {
             if (rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition == null, "Profile " + profile.getUrl() + ", Element matches more than one slice")) {
               ei.definition = ed;
-			        ei.index = i - slicingOffset;
+              if (ei.slice != null) {
+                ei.index = i;
+              } else {
+                ei.index = sliceOffset;
+                ei.sliceindex = i - (sliceOffset + 1);
+              }
             }
           } else if (childUnsupportedSlicing) {
             problematicPaths.add(ed.getPath());
@@ -2608,6 +2614,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       }
     }
     int last = -1;
+    int lastSlice = -1;
     for (ElementInfo ei : children) {
       String sliceInfo = "";
       if (slice != null)
@@ -2636,8 +2643,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	    }
 	      
 	  rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.index >= last) || isXmlAttr, "Profile " + profile.getUrl() + ", Element is out of order");
+      if (ei.slice != null && ei.index == last && ei.slice.getSlicing().getOrdered())
+        rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.sliceindex >= lastSlice) || isXmlAttr, "Profile " + profile.getUrl() + ", Element is out of order in ordered slice");
 	  if (ei.definition == null || !isXmlAttr)
         last = ei.index;
+      if (ei.slice != null)
+        lastSlice = ei.sliceindex;
     }
 
     // 3. report any definitions that have a cardinality problem
@@ -3129,7 +3140,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   public class ElementInfo {
 
-    public int index;
+    public int index; // order of definition in overall order. all slices get the index of the slicing definition
+    public int sliceindex; // order of the definition in the slices (if slice != null)
     public int count;
     public ElementDefinition definition;
     public ElementDefinition slice;
