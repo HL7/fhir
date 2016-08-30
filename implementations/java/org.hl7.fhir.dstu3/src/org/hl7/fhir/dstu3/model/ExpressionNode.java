@@ -1,14 +1,8 @@
 package org.hl7.fhir.dstu3.model;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import org.hl7.fhir.dstu3.context.IWorkerContext;
-import org.hl7.fhir.dstu3.model.ExpressionNode.CollectionStatus;
-import org.hl7.fhir.dstu3.model.ExpressionNode.TypeDetails;
 import org.hl7.fhir.utilities.Utilities;
 
 public class ExpressionNode {
@@ -232,119 +226,8 @@ public class ExpressionNode {
   public enum CollectionStatus {
     SINGLETON, ORDERED, UNORDERED;
   }
-
-  public static class TypeDetails {
-    private Set<String> types = new HashSet<String>();
-    private CollectionStatus collectionStatus;
-    public TypeDetails(CollectionStatus collectionStatus, String... names) {
-      super();
-      this.collectionStatus = collectionStatus;
-      for (String n : names) {
-        this.types.add(Utilities.isAbsoluteUrl(n) ? n : "http://hl7.org/fhir/StructureDefinition/"+n);
-      }
-    }
-    public TypeDetails(CollectionStatus collectionStatus, Set<String> names) {
-      super();
-      this.collectionStatus = collectionStatus;
-      for (String n : names) {
-        this.types.add(Utilities.isAbsoluteUrl(n) ? n : "http://hl7.org/fhir/StructureDefinition/"+n);
-      }
-    }
-    public String addType(String n) {
-      String res = Utilities.isAbsoluteUrl(n) ? n : "http://hl7.org/fhir/StructureDefinition/"+n;
-      this.types.add(res);
-      return res;
-    }
-    public void addTypes(Collection<String> names) {
-      for (String n : names) 
-        this.types.add(Utilities.isAbsoluteUrl(n) ? n : "http://hl7.org/fhir/StructureDefinition/"+n);
-    }
-    public boolean hasType(IWorkerContext context, String... tn) {
-      for (String n: tn) {
-        String t = Utilities.isAbsoluteUrl(n) ? n : "http://hl7.org/fhir/StructureDefinition/"+n;
-        if (types.contains(t))
-          return true;
-      }
-      for (String n: tn) {
-        String id = n.contains("#") ? n.substring(0, n.indexOf("#")) : n;
-        String tail = null;
-        if (n.contains("#")) {
-          tail = n.substring( n.indexOf("#")+1);
-          tail = tail.substring(tail.indexOf("."));
-        }
-        String t = Utilities.isAbsoluteUrl(n) ? n : "http://hl7.org/fhir/StructureDefinition/"+n;
-        StructureDefinition sd = context.fetchResource(StructureDefinition.class, t);
-        while (sd != null) {
-          if (tail == null && types.contains(sd.getUrl()))
-              return true;
-          if (tail != null && types.contains(sd.getUrl()+"#"+sd.getType()+tail))
-            return true;
-          if (sd.hasBaseDefinition())
-            sd = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
-          else
-            sd = null;
-        }
-      }
-      return false;
-    }
-    public void update(TypeDetails source) {
-      types.addAll(source.types);
-      if (collectionStatus == null)
-        collectionStatus = source.collectionStatus;
-      else if (source.collectionStatus == CollectionStatus.UNORDERED)
-        collectionStatus = source.collectionStatus;
-      else
-        collectionStatus = CollectionStatus.ORDERED;
-    }
-    public TypeDetails union(TypeDetails right) {
-      TypeDetails result = new TypeDetails(null);
-      if (right.collectionStatus == CollectionStatus.UNORDERED || collectionStatus == CollectionStatus.UNORDERED)
-        result.collectionStatus = CollectionStatus.UNORDERED;
-      else 
-        result.collectionStatus = CollectionStatus.ORDERED;
-      result.types.addAll(types);
-      result.types.addAll(right.types);
-      return result;
-    }
-    
-    public boolean hasNoTypes() {
-      return types.isEmpty();
-    }
-    public Set<String> getTypes() {
-      return types;
-    }
-    public TypeDetails toSingleton() {
-      TypeDetails result = new TypeDetails(CollectionStatus.SINGLETON);
-      result.types.addAll(types);
-      return result;
-    }
-    public CollectionStatus getCollectionStatus() {
-      return collectionStatus;
-    }
-    public boolean hasType(Set<String> tn) {
-      for (String n: tn) {
-        String t = Utilities.isAbsoluteUrl(n) ? n : "http://hl7.org/fhir/StructureDefinition/"+n;
-        if (types.contains(t))
-          return true;
-      }
-      return false;
-    }
-    public String describe() {
-      return types.toString();
-    }
-    public String getType() {
-      for (String t : types)
-        return t;
-      return null;
-    }
-    @Override
-    public String toString() {
-      return (collectionStatus == null ? collectionStatus.SINGLETON.toString() : collectionStatus.toString()) + types.toString();
-    }
-  }
-
-
-	//the expression will have one of either name or constant
+  
+  //the expression will have one of either name or constant
 	private String uniqueId;
 	private Kind kind;
 	private String name;

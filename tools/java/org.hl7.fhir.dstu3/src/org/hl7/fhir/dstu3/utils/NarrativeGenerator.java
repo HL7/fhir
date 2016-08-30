@@ -1505,7 +1505,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       x.addTag("span").setAttribute("title", "{"+c.getSystem()+" "+c.getCode()+"}").addText(s);
   }
 
-  private String describeSystem(String system) {
+  public static String describeSystem(String system) {
     if (system == null)
       return "[not stated]";
     if (system.equals("http://loinc.org"))
@@ -1516,6 +1516,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return "RxNorm";
     if (system.equals("http://hl7.org/fhir/sid/icd-9"))
       return "ICD-9";
+    if (system.equals("http://nema.org/dicom/dicm"))
+      return "DICOM";
+    if (system.equals("http://unitsofmeasure.org"))
+      return "UCUM";
 
     return system;
   }

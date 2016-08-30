@@ -61,7 +61,7 @@ public class MappingServices implements ITransformerServices {
 
   @Override
   public void log(String message) {
-    return;
+    System.out.println(message);
   }
 
 }

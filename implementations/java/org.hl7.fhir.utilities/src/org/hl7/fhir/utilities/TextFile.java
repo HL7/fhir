@@ -78,23 +78,30 @@ public class TextFile {
 	}
 	
 	
-  public static void stringToFile(String content, String path) throws IOException  {
-    File file = new CSFile(path);
+  public static void stringToFile(String content, File file) throws IOException {
     OutputStreamWriter sw = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
     sw.write('\ufeff');  // Unicode BOM, translates to UTF-8 with the configured outputstreamwriter
     sw.write(content);
     sw.flush();
     sw.close();
   }
-
-  public static void stringToFile(String content, String path, boolean bom) throws IOException  {
+  public static void stringToFile(String content, String path) throws IOException  {
     File file = new CSFile(path);
+    stringToFile(content, file);
+  }
+
+  public static void stringToFile(String content, File file, boolean bom) throws IOException  {
     OutputStreamWriter sw = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
     if (bom)
       sw.write('\ufeff');  // Unicode BOM, translates to UTF-8 with the configured outputstreamwriter
     sw.write(content);
     sw.flush();
     sw.close();
+  }
+  
+  public static void stringToFile(String content, String path, boolean bom) throws IOException  {
+    File file = new CSFile(path);
+    stringToFile(content, file, bom);
   }
 
   public static void stringToFileNoPrefix(String content, String path) throws IOException  {
@@ -105,6 +112,10 @@ public class TextFile {
     sw.close();
   }
 
+  public static String fileToString(File f) throws FileNotFoundException, IOException {
+    return streamToString(new FileInputStream(f));
+  }
+  
   public static String fileToString(String src) throws FileNotFoundException, IOException  {
     return streamToString(new FileInputStream(new CSFile(src)));
 	}
@@ -151,4 +162,6 @@ public class TextFile {
   public static String bytesToString(byte[] bs) throws IOException {
     return streamToString(new ByteArrayInputStream(bs));
   }
+
+
 }

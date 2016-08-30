@@ -32,13 +32,13 @@ import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.DecimalType;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.ExpressionNode.CollectionStatus;
-import org.hl7.fhir.dstu3.model.ExpressionNode.TypeDetails;
 import org.hl7.fhir.dstu3.model.Group;
 import org.hl7.fhir.dstu3.model.IdType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -55,6 +55,8 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionSnapshotC
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.Type;
+import org.hl7.fhir.dstu3.model.TypeDetails;
+import org.hl7.fhir.dstu3.model.TypeDetails.ProfiledType;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
@@ -1629,7 +1631,9 @@ public class StructureMapUtilities {
       txt.append(desc);
     }
     public void commit(XhtmlNode xt) {
-      if (newResources.size() == 1 && assignments.size() == 1 && newResources.containsKey(assignments.get(0).getVar())) {
+      if (newResources.size() == 1 && assignments.size() == 1 && newResources.containsKey(assignments.get(0).getVar()) && keyProps.size() == 1 && newResources.containsKey(keyProps.get(0).getVar()) ) {
+        xt.addText("new "+assignments.get(0).desc+" ("+keyProps.get(0).desc.substring(keyProps.get(0).desc.indexOf(".")+1)+")");
+      } else if (newResources.size() == 1 && assignments.size() == 1 && newResources.containsKey(assignments.get(0).getVar()) && keyProps.size() == 0) {
         xt.addText("new "+assignments.get(0).desc);
       } else {
         xt.addText(txt.toString());        
@@ -1661,7 +1665,12 @@ public class StructureMapUtilities {
       VariablesForProfiling result = vars.copy(optional, repeating);
       TypeDetails type = new TypeDetails(CollectionStatus.SINGLETON);
       for (TypeRefComponent tr : element.getDefinition().getType()) {
-        type.addType(tr.getCode());
+        ProfiledType pt = new ProfiledType(tr.getCode());
+        if (tr.hasProfile())
+          pt.addProfile(tr.getProfile());
+        if (element.getDefinition().hasBinding())
+          pt.addBinding(element.getDefinition().getBinding());
+        type.addType(pt);
       }      
       td.addText(prop.getPath()+"."+src.getElement()); 
       if (src.hasVariable())
@@ -1707,12 +1716,15 @@ public class StructureMapUtilities {
         tw.valueAssignment(tgt.getContext(), var.property.getPath()+"."+tgt.getElement()+getTransformSuffix(tgt.getTransform()));
       } else if (tgt.hasContext()) {
         if (isSignificantElement(var.property, tgt.getElement())) {
-          tw.keyAssignment(tgt.getContext(), "["+var.property.getPath()+"."+tgt.getElement()+" = "+describeTransform(tgt.getTransform())+"]");
+          String td = describeTransform(tgt);
+          if (td != null)
+            tw.keyAssignment(tgt.getContext(), var.property.getPath()+"."+tgt.getElement()+" = "+td);
         }
       }
     }
+    Type fixed = generateFixedValue(tgt);
     
-    PropertyWithType prop = updateProfile(var, tgt.getElement(), type, map, profiles, sliceName);
+    PropertyWithType prop = updateProfile(var, tgt.getElement(), type, map, profiles, sliceName, fixed);
     if (tgt.hasVariable())
       if (tgt.hasElement())
         vars.add(VariableMode.OUTPUT, tgt.getVariable(), prop); 
@@ -1720,8 +1732,82 @@ public class StructureMapUtilities {
         vars.add(VariableMode.OUTPUT, tgt.getVariable(), prop); 
   }
   
-  private String describeTransform(StructureMapTransform transform) {
-    return "todo";
+  private Type generateFixedValue(StructureMapGroupRuleTargetComponent tgt) {
+    if (!allParametersFixed(tgt))
+      return null;
+    if (!tgt.hasTransform())
+      return null;
+    switch (tgt.getTransform()) {
+    case COPY: return tgt.getParameter().get(0).getValue(); 
+    case TRUNCATE: return null; 
+    //case ESCAPE: 
+    //case CAST: 
+    //case APPEND: 
+    case TRANSLATE: return null; 
+  //case DATEOP, 
+  //case UUID, 
+  //case POINTER, 
+  //case EVALUATE, 
+    case CC: 
+      CodeableConcept cc = new CodeableConcept();
+      cc.addCoding(buildCoding(tgt.getParameter().get(0).getValue(), tgt.getParameter().get(1).getValue()));
+      return cc;
+    case C: 
+      return buildCoding(tgt.getParameter().get(0).getValue(), tgt.getParameter().get(1).getValue());
+    case QTY: return null; 
+  //case ID, 
+  //case CP, 
+    default:
+      return null;
+    }
+  }
+
+  @SuppressWarnings("rawtypes")
+  private Coding buildCoding(Type value1, Type value2) {
+    return new Coding().setSystem(((PrimitiveType) value1).asStringValue()).setCode(((PrimitiveType) value2).asStringValue()) ;
+  }
+
+  private boolean allParametersFixed(StructureMapGroupRuleTargetComponent tgt) {
+    for (StructureMapGroupRuleTargetParameterComponent p : tgt.getParameter()) {
+      Type pr = p.getValue();
+      if (pr instanceof IdType)
+        return false;
+    }
+    return true;
+  }
+
+  private String describeTransform(StructureMapGroupRuleTargetComponent tgt) {
+    switch (tgt.getTransform()) {
+    case COPY: return null; 
+    case TRUNCATE: return null; 
+    //case ESCAPE: 
+    //case CAST: 
+    //case APPEND: 
+    case TRANSLATE: return null; 
+  //case DATEOP, 
+  //case UUID, 
+  //case POINTER, 
+  //case EVALUATE, 
+    case CC: return describeTransformCCorC(tgt); 
+    case C: return describeTransformCCorC(tgt); 
+    case QTY: return null; 
+  //case ID, 
+  //case CP, 
+    default:
+      return null;
+    }
+  }
+
+  private String describeTransformCCorC(StructureMapGroupRuleTargetComponent tgt) {
+    if (tgt.getParameter().size() < 2)
+      return null;
+    Type p1 = tgt.getParameter().get(0).getValue();
+    Type p2 = tgt.getParameter().get(1).getValue();
+    if (p1 instanceof IdType || p2 instanceof IdType)
+      return null;
+    if (!(p1 instanceof PrimitiveType) || !(p2 instanceof PrimitiveType))
+      return null;
+    return NarrativeGenerator.describeSystem(((PrimitiveType) p1).asStringValue())+"#"+((PrimitiveType) p2).asStringValue();
   }
 
   private boolean isSignificantElement(PropertyWithType property, String element) {
@@ -1755,7 +1841,7 @@ public class StructureMapUtilities {
     }
   }
 
-  private PropertyWithType updateProfile(VariableForProfiling var, String element, TypeDetails type, StructureMap map, List<StructureDefinition> profiles, String sliceName) throws FHIRException {
+  private PropertyWithType updateProfile(VariableForProfiling var, String element, TypeDetails type, StructureMap map, List<StructureDefinition> profiles, String sliceName, Type fixed) throws FHIRException {
     if (var == null) {
       assert (Utilities.noString(element));
       // 1. start the new structure definition
@@ -1792,12 +1878,21 @@ public class StructureMapUtilities {
       ElementDefinition ednew = sd.getDifferential().addElement();
       ednew.setPath(var.getProperty().profileProperty.getDefinition().getPath()+"."+pc.getName());
       ednew.setUserData("slice-name", sliceName);
-      for (String t : type.getTypes()) {
-        if (t.startsWith("http://hl7.org/fhir/StructureDefinition/"))
-          t = t.substring(40);
+      ednew.setFixed(fixed);
+      for (ProfiledType pt : type.getProfiledTypes()) {
+        if (pt.hasBindings())
+          ednew.setBinding(pt.getBindings().get(0));
+        if (pt.getUri().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
+          String t = pt.getUri().substring(40);
           t = checkType(t, pc);
-          if (t != null)
-            ednew.addType().setCode(t);
+          if (t != null) {
+            if (pt.hasProfiles()) {
+              for (String p : pt.getProfiles())
+                ednew.addType().setCode(t).setProfile(p);
+            } else 
+              ednew.addType().setCode(t);
+          }
+        }
       }
       
       return new PropertyWithType(var.property.path+"."+element, pc, new Property(worker, ednew, sd), type);
@@ -1860,11 +1955,21 @@ public class StructureMapUtilities {
     case TRANSLATE : 
       return new TypeDetails(CollectionStatus.SINGLETON, "CodeableConcept");
    case CC:
-     return new TypeDetails(CollectionStatus.SINGLETON, "CodeableConcept");
+     ProfiledType res = new ProfiledType("CodeableConcept");
+     if (tgt.getParameter().size() >= 2  && isParamId(vars, tgt.getParameter().get(1))) {
+       TypeDetails td = vars.get(null, getParamId(vars, tgt.getParameter().get(1))).property.types;
+       if (td != null && td.hasBinding())
+         // todo: do we need to check that there's no implicit translation her? I don't think we do...
+         res.addBinding(td.getBinding());
+     }
+     return new TypeDetails(CollectionStatus.SINGLETON, res);
    case C:
      return new TypeDetails(CollectionStatus.SINGLETON, "Coding");
    case REFERENCE :
-     return new TypeDetails(CollectionStatus.SINGLETON, "Reference");
+     String profile = vars.get(VariableMode.OUTPUT, getParamId(vars, tgt.getParameterFirstRep())).property.getProfileProperty().getStructure().getUrl();
+     TypeDetails td = new TypeDetails(CollectionStatus.SINGLETON);
+     td.addType("Reference", profile);
+     return td;  
 ////case DATEOP :
 ////  throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
 ////case UUID :
@@ -1888,6 +1993,19 @@ public class StructureMapUtilities {
     return p.primitiveValue();
   }
 
+  private String getParamId(VariablesForProfiling vars, StructureMapGroupRuleTargetParameterComponent parameter) {
+    Type p = parameter.getValue();
+    if (p == null || !(p instanceof IdType))
+      return null;
+    return p.primitiveValue();
+  }
+
+  private boolean isParamId(VariablesForProfiling vars, StructureMapGroupRuleTargetParameterComponent parameter) {
+    Type p = parameter.getValue();
+    if (p == null || !(p instanceof IdType))
+      return false;
+    return vars.get(null, p.primitiveValue()) != null;
+  }
 
   private TypeDetails getParam(VariablesForProfiling vars, StructureMapGroupRuleTargetParameterComponent parameter) throws DefinitionException {
     Type p = parameter.getValue();

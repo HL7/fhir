@@ -26,8 +26,8 @@ import org.hl7.fhir.dstu3.model.ExpressionNode.CollectionStatus;
 import org.hl7.fhir.dstu3.model.ExpressionNode.Function;
 import org.hl7.fhir.dstu3.model.ExpressionNode.Kind;
 import org.hl7.fhir.dstu3.model.ExpressionNode.Operation;
+import org.hl7.fhir.dstu3.model.TypeDetails.ProfiledType;
 import org.hl7.fhir.dstu3.model.ExpressionNode.SourceLocation;
-import org.hl7.fhir.dstu3.model.ExpressionNode.TypeDetails;
 import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StringType;
@@ -37,6 +37,7 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.TemporalPrecisionEnum;
 import org.hl7.fhir.dstu3.model.TimeType;
 import org.hl7.fhir.dstu3.model.Type;
+import org.hl7.fhir.dstu3.model.TypeDetails;
 import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.dstu3.utils.FluentPathEngine.IEvaluationContext.FunctionDetails;
 import org.hl7.fhir.exceptions.UcumException;
@@ -2604,14 +2605,20 @@ public class FluentPathEngine {
               if (Utilities.noString(t.getCode()))
                 break; // throw new PathEngineException("Illegal reference to primitive value attribute @ "+path);
 
-              if (t.hasProfile() && !t.getCode().equals("Reference"))
-                result.addType(t.getProfile());
+              ProfiledType pt = null;
               if (t.getCode().equals("Element") || t.getCode().equals("BackboneElement"))
-                result.addType(sdi.getUrl()+"#"+path);
+                pt = new ProfiledType(sdi.getUrl()+"#"+path);
               else if (t.getCode().equals("Resource"))
                 result.addTypes(worker.getResourceNames());
               else 
-                result.addType(t.getCode());
+                pt = new ProfiledType(t.getCode());
+              if (pt != null) {
+                if (t.hasProfile())
+                  pt.addProfile(t.getProfile());
+                if (ed.getDefinition().hasBinding())
+                  pt.addBinding(ed.getDefinition().getBinding());
+                result.addType(pt);
+              }
             }
         }
       }
