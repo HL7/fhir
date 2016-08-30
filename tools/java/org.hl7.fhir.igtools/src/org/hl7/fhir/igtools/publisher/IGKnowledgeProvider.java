@@ -65,16 +65,16 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
       if (!pp.getKey().startsWith("_")) {
         String s = pp.getKey();
         if (!s.contains("/"))
-          throw new Exception("Bad Resource Identity - should have the format [Type]/[id]");
+          throw new Exception("Bad Resource Identity - should have the format [Type]/[id]:" + s);
         String type = s.substring(0,  s.indexOf("/"));
         String id = s.substring(s.indexOf("/")+1); 
         try {
           ResourceType.fromCode(type);
         } catch (Exception ex) {
-          throw new Exception("Bad Resource Identity - should have the format [Type]/[id] where Type is a valid resource type");
+          throw new Exception("Bad Resource Identity - should have the format [Type]/[id] where Type is a valid resource type:" + s);
         }
         if (!id.matches(FormatUtilities.ID_REGEX))
-          throw new Exception("Bad Resource Identity - should have the format [Type]/[id] where id is a valid FHIR id type");
+          throw new Exception("Bad Resource Identity - should have the format [Type]/[id] where id is a valid FHIR id type:" + s);
 
         if (!(pp.getValue() instanceof JsonObject))
           throw new Exception("Unexpected type in resource list - must be an object");
