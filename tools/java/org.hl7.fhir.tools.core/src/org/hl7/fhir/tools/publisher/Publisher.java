@@ -802,18 +802,22 @@ public class Publisher implements URIResolver, SectionNumberer {
     StringBuilder b = new StringBuilder();
     FluentPathEngine fp = new FluentPathEngine(page.getWorkerContext());
     for (FHIRPathUsage p : fpUsages) {
-      b.append(p.getResource() + " (" + p.getContext() + "): " + p.getExpression()+"\r\n");
-      try {
-        if (!"n/a".equals(p.getExpression())) {
-          fp.check(null, p.getResource(), p.getContext(), p.getExpression()); 
-        }
-      } catch (Exception e) {
-        BaseValidator.rule(page.getValidationErrors(), Source.Publisher, IssueType.STRUCTURE, p.getLocation(), false, "Expression '"+p.getExpression()+"' has illegal path ("+e.getMessage()+")"); 
-      }
+      checkExpression(b, fp, p);
     }
     TextFile.stringToFile(b.toString(), Utilities.path(page.getFolders().dstDir, "fhirpaths.txt"));
 
     checkAllOk();
+  }
+
+  private void checkExpression(StringBuilder b, FluentPathEngine fp, FHIRPathUsage p) {
+    b.append(p.getResource() + " (" + p.getContext() + "): " + p.getExpression()+"\r\n");
+    try {
+      if (!"n/a".equals(p.getExpression())) {
+        fp.check(null, p.getResource(), p.getContext(), p.getExpression()); 
+      }
+    } catch (Exception e) {
+      BaseValidator.rule(page.getValidationErrors(), Source.Publisher, IssueType.STRUCTURE, p.getLocation(), false, "Expression '"+p.getExpression()+"' has illegal path ("+e.getMessage()+")"); 
+    }
   }
 
   private void processExtension(StructureDefinition ex) throws Exception {

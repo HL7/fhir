@@ -1111,6 +1111,8 @@ public class StructureMapUtilities {
 		case CREATE :
 			Base res = ResourceFactory.createResourceOrType(getParamString(vars, tgt.getParameter().get(0)));
 			res.setIdBase(tgt.getParameter().size() > 1 ? getParamString(vars, tgt.getParameter().get(0)) : UUID.randomUUID().toString().toLowerCase());
+			if (tgt.hasUserData("profile"))
+			  res.setUserData("profile", tgt.getUserData("profile"));
 			if (services != null) 
 			  res = services.createResource(context, res);
       return res;
@@ -1528,7 +1530,7 @@ public class StructureMapUtilities {
       if (t.getMode() == StructureMapInputMode.SOURCE)
        vars.add(VariableMode.INPUT, t.getName(), ti);
       else 
-        vars.add(VariableMode.OUTPUT, t.getName(), createProfile(map, result.profiles, ti, start.getName()));
+        vars.add(VariableMode.OUTPUT, t.getName(), createProfile(map, result.profiles, ti, start.getName(), start));
     }
 
     result.summary = new XhtmlNode(NodeType.Element, "table").setAttribute("class", "grid");
@@ -1723,7 +1725,7 @@ public class StructureMapUtilities {
     }
     Type fixed = generateFixedValue(tgt);
     
-    PropertyWithType prop = updateProfile(var, tgt.getElement(), type, map, profiles, sliceName, fixed);
+    PropertyWithType prop = updateProfile(var, tgt.getElement(), type, map, profiles, sliceName, fixed, tgt);
     if (tgt.hasVariable())
       if (tgt.hasElement())
         vars.add(VariableMode.OUTPUT, tgt.getVariable(), prop); 
@@ -1797,6 +1799,7 @@ public class StructureMapUtilities {
     }
   }
 
+  @SuppressWarnings("rawtypes")
   private String describeTransformCCorC(StructureMapGroupRuleTargetComponent tgt) {
     if (tgt.getParameter().size() < 2)
       return null;
@@ -1840,13 +1843,13 @@ public class StructureMapUtilities {
     }
   }
 
-  private PropertyWithType updateProfile(VariableForProfiling var, String element, TypeDetails type, StructureMap map, List<StructureDefinition> profiles, String sliceName, Type fixed) throws FHIRException {
+  private PropertyWithType updateProfile(VariableForProfiling var, String element, TypeDetails type, StructureMap map, List<StructureDefinition> profiles, String sliceName, Type fixed, StructureMapGroupRuleTargetComponent tgt) throws FHIRException {
     if (var == null) {
       assert (Utilities.noString(element));
       // 1. start the new structure definition
       StructureDefinition sdn = worker.fetchResource(StructureDefinition.class, type.getType());
       ElementDefinition edn = sdn.getSnapshot().getElementFirstRep();
-      PropertyWithType pn = createProfile(map, profiles, new PropertyWithType(sdn.getId(), new Property(worker, edn, sdn), null, type), sliceName);
+      PropertyWithType pn = createProfile(map, profiles, new PropertyWithType(sdn.getId(), new Property(worker, edn, sdn), null, type), sliceName, tgt);
 
 //      // 2. hook it into the base bundle
 //      if (type.getType().startsWith("http://hl7.org/fhir/StructureDefinition/") && worker.getResourceNames().contains(type.getType().substring(40))) {
@@ -2021,153 +2024,7 @@ public class StructureMapUtilities {
     }
   }
 
-
-  
-
-  private Base runTransformProfile(TransformContext context, StructureMap map, StructureMapGroupRuleTargetComponent tgt, Variables vars) throws FHIRException {
-    switch (tgt.getTransform()) {
-    case CREATE :
-      Base res = ResourceFactory.createResourceOrType(getParamString(vars, tgt.getParameter().get(0)));
-      res.setIdBase(tgt.getParameter().size() > 1 ? getParamString(vars, tgt.getParameter().get(0)) : UUID.randomUUID().toString().toLowerCase());
-      if (services != null) 
-        res = services.createResource(context, res);
-      return res;
-    case COPY : 
-      return getParam(vars, tgt.getParameter().get(0));
-    case EVALUATE :
-      ExpressionNode expr = (ExpressionNode) tgt.getUserData(MAP_EXPRESSION);
-      if (expr == null) {
-        expr = fpe.parse(getParamString(vars, tgt.getParameter().get(1)));
-        tgt.setUserData(MAP_WHERE_EXPRESSION, expr);
-      }
-      List<Base> v = fpe.evaluate(null, null, getParam(vars, tgt.getParameter().get(0)), expr);
-      if (v.size() != 1)
-        throw new FHIRException("evaluation of "+expr.toString()+" returned "+Integer.toString(v.size())+" objects");
-      return v.get(0);
-
-    case TRUNCATE : 
-      String src = getParamString(vars, tgt.getParameter().get(0));
-      String len = getParamString(vars, tgt.getParameter().get(1));
-      if (Utilities.isInteger(len)) {
-        int l = Integer.parseInt(len);
-        if (src.length() > l)
-          src = src.substring(0, l);
-      }
-      return new StringType(src);
-    case ESCAPE : 
-      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
-    case CAST :
-      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
-    case APPEND : 
-      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
-    case TRANSLATE : 
-      return translate(context, map, vars, tgt.getParameter());
-    case REFERENCE :
-      Base b = getParam(vars, tgt.getParameter().get(0));
-      if (b == null)
-        throw new FHIRException("Unable to find parameter "+((IdType) tgt.getParameter().get(0).getValue()).asStringValue());
-      if (!b.isResource())
-        throw new FHIRException("Transform engine cannot point at an element of type "+b.fhirType());
-      else {
-        String id = b.getIdBase();
-        if (id == null) {
-          id = UUID.randomUUID().toString().toLowerCase();
-          b.setIdBase(id);
-        }
-        return new Reference().setReference(b.fhirType()+"/"+id);
-      }
-    case DATEOP :
-      throw new Error("Transform "+tgt.getTransform().toCode()+" not supported yet");
-    case UUID :
-      return new IdType(UUID.randomUUID().toString());
-    case POINTER :
-      b = getParam(vars, tgt.getParameter().get(0));
-      if (b instanceof Resource)
-        return new UriType("urn:uuid:"+((Resource) b).getId());
-      else
-        throw new FHIRException("Transform engine cannot point at an element of type "+b.fhirType());
-    case CC:
-      CodeableConcept cc = new CodeableConcept();
-      cc.addCoding(buildCoding(getParamString(vars, tgt.getParameter().get(0)), getParamString(vars, tgt.getParameter().get(1))));
-      return cc;
-    case C: 
-      Coding c = buildCoding(getParamString(vars, tgt.getParameter().get(0)), getParamString(vars, tgt.getParameter().get(1)));
-      return c;
-    default:
-      throw new Error("Transform Unknown: "+tgt.getTransform().toCode());
-    }
-  }
-
-
-  
-  
-  
-  
-//  private void executeDependencyProfile(String indent, TransformContext context, StructureMap map, Variables vin, StructureMapGroupComponent group, StructureMapGroupRuleDependentComponent dependent) throws Exception {
-//    StructureMap targetMap = null;
-//    StructureMapGroupComponent target = null;
-//    for (StructureMapGroupComponent grp : map.getGroup()) {
-//      if (grp.getName().equals(dependent.getName())) {
-//        if (targetMap == null) {
-//          targetMap = map;
-//          target = grp;
-//        } else 
-//          throw new FHIRException("Multiple possible matches for rule '"+dependent.getName()+"'");
-//    }    
-//  }
-//
-//    for (UriType imp : map.getImport()) {
-//      StructureMap impMap = library.get(imp.getValue());
-//      if (impMap == null)
-//        throw new FHIRException("Unable to find map "+imp.getValue());
-//      for (StructureMapGroupComponent grp : impMap.getGroup()) {
-//        if (grp.getName().equals(dependent.getName())) {
-//          if (targetMap == null) {
-//            targetMap = impMap;
-//            target = grp;
-//          } else 
-//            throw new FHIRException("Multiple possible matches for rule '"+dependent.getName()+"'");
-//      }
-//    }
-//  }
-//    if (target == null)
-//      throw new FHIRException("No matches found for rule '"+dependent.getName()+"'");
-//
-//    if (target.getInput().size() != dependent.getVariable().size()) {
-//      throw new FHIRException("Rule '"+dependent.getName()+"' has "+Integer.toString(target.getInput().size())+" but the invocation has "+Integer.toString(dependent.getVariable().size())+" variables");
-//  }
-//    Variables v = new Variables();
-//    for (int i = 0; i < target.getInput().size(); i++) {
-//      StructureMapGroupInputComponent input = target.getInput().get(i);
-//      StringType var = dependent.getVariable().get(i);
-//      VariableMode mode = input.getMode() == StructureMapInputMode.SOURCE ? VariableMode.INPUT : VariableMode.OUTPUT;
-//      Base vv = vin.get(mode, var.getValue());
-//      if (vv == null)
-//        throw new FHIRException("Rule '"+dependent.getName()+"' "+mode.toString()+" variable '"+input.getName()+"' has no value");
-//      v.add(mode, input.getName(), vv);     
-//    }
-//    executeGroup(indent+"  ", context, targetMap, v, target);
-//  }
-//
-
-
-
-
-//  private void executeGroupProfile(String indent, Object appInfo, StructureMap map, VariablesForProfiling vars, StructureMapGroupComponent group) throws Exception {
-//    log(indent+"Profile Group : "+group.getName());
-//    // todo: extends
-//    // todo: check inputs
-//    for (StructureMapGroupRuleComponent r : group.getRule()) {
-//      executeRuleProfile(indent+"  ", appInfo, map, vars, group, r);
-//    }    
-//  }
-//
-//
-
-//
-
-
-  private PropertyWithType createProfile(StructureMap map, List<StructureDefinition> profiles, PropertyWithType prop, String sliceName) throws DefinitionException {
+  private PropertyWithType createProfile(StructureMap map, List<StructureDefinition> profiles, PropertyWithType prop, String sliceName, Base ctxt) throws DefinitionException {
     if (prop.getBaseProperty().getDefinition().getPath().contains(".")) 
       throw new DefinitionException("Unable to process entry point");
 
@@ -2186,8 +2043,9 @@ public class StructureMapUtilities {
     profile.setDerivation(TypeDerivationRule.CONSTRAINT);
     profile.setType(type);
     profile.setBaseDefinition(prop.getBaseProperty().getStructure().getUrl());
-    profile.setName("Map Profile on "+profile.getType()+" for "+sliceName);
+    profile.setName("Profile for "+profile.getType()+" for "+sliceName);
     profile.setUrl(map.getUrl().replace("StructureMap", "StructureDefinition")+"-"+profile.getType()+suffix);
+    ctxt.setUserData("profile", profile.getUrl()); // then we can easily assign this profile url for validation later when we actually transform
     profile.setId(map.getId()+"-"+profile.getType()+suffix);
     profile.setStatus(map.getStatus());
     profile.setExperimental(map.getExperimental());
@@ -2208,7 +2066,6 @@ public class StructureMapUtilities {
     prop.profileProperty = new Property(worker, ed, profile);
     return prop;
   }
-
 
   private PropertyWithType resolveType(StructureMap map, String type, StructureMapInputMode mode) throws Exception {
     for (StructureMapStructureComponent imp : map.getStructure()) {
