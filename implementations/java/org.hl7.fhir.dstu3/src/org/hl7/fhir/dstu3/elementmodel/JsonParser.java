@@ -343,7 +343,7 @@ public class JsonParser extends ParserBase {
     this.json = json;
     json.beginObject();
     
-    prop("resourceType", e.getType(), linkResolver == null ? null : linkResolver.resolveType(e.getType()));
+    prop("resourceType", e.getType(), linkResolver == null ? null : linkResolver.resolveProperty(e.getProperty()));
     Set<String> done = new HashSet<String>();
     for (Element child : e.getChildren()) {
       compose(e.getName(), e, done, child);

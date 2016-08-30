@@ -811,6 +811,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu3", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu3", "src").length()+1, names);
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu2016may", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu2016may", "src").length()+1, names);
+    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu2", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu2", "src").length()+1, names);
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.convertors", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.convertors", "src").length()+1, names);
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.utilities", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.utilities", "src").length()+1, names);
     // ok now add the igtools

@@ -55,7 +55,7 @@ public class InstanceValidatorTests {
     FileInputStream file = new FileInputStream(Utilities.path(TestingUtilities.path, path));
 		InstanceValidator val = new InstanceValidator(TestingUtilities.context);
 		List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
-		val.validate(errors, file, json ? FhirFormat.JSON : FhirFormat.XML);
+		val.validate(null, errors, file, json ? FhirFormat.JSON : FhirFormat.XML);
 		int ec = 0;
 		for (ValidationMessage m : errors) {
 			if (m.getLevel() == IssueSeverity.ERROR || m.getLevel() == IssueSeverity.FATAL) {
@@ -82,7 +82,7 @@ public class InstanceValidatorTests {
     ByteArrayInputStream file = new ByteArrayInputStream(cnt.getBytes(Charsets.UTF_8));
     InstanceValidator val = new InstanceValidator(TestingUtilities.context);
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
-    val.validate(errors, file, json ? FhirFormat.JSON : FhirFormat.XML);
+    val.validate(null, errors, file, json ? FhirFormat.JSON : FhirFormat.XML);
     int ec = 0;
     for (ValidationMessage m : errors) {
       if (m.getLevel() == IssueSeverity.ERROR || m.getLevel() == IssueSeverity.FATAL) {

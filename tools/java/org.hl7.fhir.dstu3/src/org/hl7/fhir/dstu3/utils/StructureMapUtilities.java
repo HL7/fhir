@@ -1111,10 +1111,10 @@ public class StructureMapUtilities {
 		case CREATE :
 			Base res = ResourceFactory.createResourceOrType(getParamString(vars, tgt.getParameter().get(0)));
 			res.setIdBase(tgt.getParameter().size() > 1 ? getParamString(vars, tgt.getParameter().get(0)) : UUID.randomUUID().toString().toLowerCase());
-			if (tgt.hasUserData("profile"))
-			  res.setUserData("profile", tgt.getUserData("profile"));
 			if (services != null) 
 			  res = services.createResource(context, res);
+      if (tgt.hasUserData("profile"))
+        res.setUserData("profile", tgt.getUserData("profile"));
       return res;
 		case COPY : 
 			return getParam(vars, tgt.getParameter().get(0));

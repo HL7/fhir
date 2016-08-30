@@ -578,6 +578,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     igpkp = new IGKnowledgeProvider(context, specPath, configuration, errors);
     igpkp.loadSpecPaths(specMaps.get(0));
     fetcher.setPkp(igpkp);
+    validator.setFetcher(new ValidationServices(context, igpkp, fileList));
     for (String s : context.getBinaries().keySet())
       if (needFile(s)) {
         checkMakeFile(context.getBinaries().get(s), Utilities.path(qaDir, s), otherFilesStartup);
@@ -1239,6 +1240,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
               nr.setId(target.getId());
               nr.setResource(target);
               nr.setTitle("Generated Example (by Transform)");
+              nr.setValidateByUserData(true);
               f.getResources().add(nr);
               igpkp.findConfiguration(f, nr);
             }
@@ -1577,7 +1579,21 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
   private void validate(FetchedFile file, FetchedResource r) throws Exception {
     List<ValidationMessage> errs = new ArrayList<ValidationMessage>();
-    validator.validate(errs, r.getElement());
+    if (r.isValidateByUserData()) {
+      Resource res = r.getResource();
+      if (res instanceof Bundle) {
+        validator.validate(null, errs, r.getElement());
+        
+        for (BundleEntryComponent be : ((Bundle) res).getEntry()) {
+          Resource ber = be.getResource();
+          if (ber.hasUserData("profile"))
+            validator.validate(r.getElement(), errs, ber, ber.getUserString("profile"));
+        }
+      } else if (res.hasUserData("profile")) {
+        validator.validate(null, errs, res, res.getUserString("profile"));
+      }
+    } else
+      validator.validate(null, errs, r.getElement());
     for (ValidationMessage vm : errs) {
       file.getErrors().add(vm.setLocation(r.getElement().fhirType()+"/"+r.getId()+": "+vm.getLocation()));
     }

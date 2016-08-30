@@ -469,7 +469,7 @@ public class ValidationEngine {
         validateSHEX();
     }
     messages.clear();
-    validator.validate(messages, new ByteArrayInputStream(source), cntType, new ValidationProfileSet(profiles));
+    validator.validate(null, messages, new ByteArrayInputStream(source), cntType, new ValidationProfileSet(profiles));
     return getOutcome();
   }
 

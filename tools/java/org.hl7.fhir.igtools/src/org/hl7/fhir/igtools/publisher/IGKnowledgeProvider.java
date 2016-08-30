@@ -188,9 +188,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
 
   public void findConfiguration(FetchedFile f, FetchedResource r) {
     JsonObject e = resourceConfig.getAsJsonObject(r.getElement().fhirType()+"/"+r.getId());
-    if (e == null)
-      hint("no configuration found for "+r.getElement().fhirType()+"/"+r.getId()+" in "+f.getName());
-    else 
+    if (e != null)
       r.setConfig(e);
   }
   

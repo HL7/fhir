@@ -463,6 +463,8 @@ public class StructureDefinitionRenderer extends BaseRenderer {
           String s = nottail(ec.getId())+"."+tail(ec.getBase().getPath());
           replacements.add(new StringPair(ec.getId(), s));
           b.append("<a name=\""+s+"\"> </a>");
+        } else if (!ec.getId().equals(ec.getPath())) {
+          b.append("<a name=\""+ec.getPath()+"\"> </a>");
         }
         for (StringPair s : replacements)
           if (ec.getId().startsWith(s.match))

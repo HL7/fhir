@@ -12298,8 +12298,10 @@ public class VersionConvertor_10_20 {
     tgt.setDerivation(src.hasConstrainedType() ?  org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule.CONSTRAINT : org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule.SPECIALIZATION);
     tgt.setSnapshot(convertStructureDefinitionSnapshotComponent(src.getSnapshot()));
     tgt.setDifferential(convertStructureDefinitionDifferentialComponent(src.getDifferential()));
-    tgt.getSnapshot().getElementFirstRep().getType().clear();
-    tgt.getDifferential().getElementFirstRep().getType().clear();
+    if (tgt.hasSnapshot())
+      tgt.getSnapshot().getElementFirstRep().getType().clear();
+    if (tgt.hasDifferential())
+      tgt.getDifferential().getElementFirstRep().getType().clear();
     return tgt;
   }
 

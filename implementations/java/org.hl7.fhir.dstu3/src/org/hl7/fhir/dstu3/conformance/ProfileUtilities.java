@@ -2481,7 +2481,7 @@ public class ProfileUtilities {
   }
 
 
-  public void setIds(StructureDefinition sd, boolean checkFirst)  {
+  public void setIds(StructureDefinition sd, boolean checkFirst) throws DefinitionException  {
     if (!checkFirst || hasMissingIds(sd.getDifferential().getElement()))
       generateIds(sd.getDifferential().getElement(), sd.getName());
     if (!checkFirst || hasMissingIds(sd.getSnapshot().getElement()))
@@ -2498,7 +2498,7 @@ public class ProfileUtilities {
   }
 
 
-  private void generateIds(List<ElementDefinition> list, String name)  {
+  private void generateIds(List<ElementDefinition> list, String name) throws DefinitionException  {
     if (list.isEmpty())
       return;
     
@@ -2507,6 +2507,8 @@ public class ProfileUtilities {
     List<String> paths = new ArrayList<String>();
     // first pass, update the element ids
     for (ElementDefinition ed : list) {
+      if (!ed.hasPath())
+        throw new DefinitionException("No path on element Definition "+Integer.toString(list.indexOf(ed))+" in "+name);
       int depth = charCount(ed.getPath(), '.');
       String tail = tail(ed.getPath());
 
@@ -2644,7 +2646,7 @@ public class ProfileUtilities {
     List<ElementDefinition> children = getChildMap(profile, ed);
     for (ElementDefinition child : children) {
       if (child.getPath().endsWith(".id")) {
-        org.hl7.fhir.dstu3.elementmodel.Element id = new org.hl7.fhir.dstu3.elementmodel.Element("id", new Property(context, ed, profile));
+        org.hl7.fhir.dstu3.elementmodel.Element id = new org.hl7.fhir.dstu3.elementmodel.Element("id", new Property(context, child, profile));
         id.setValue(profile.getId()+accessor.getId());
         r.getChildren().add(id);
       } else { 

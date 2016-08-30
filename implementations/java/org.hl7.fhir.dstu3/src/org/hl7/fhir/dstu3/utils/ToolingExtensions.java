@@ -87,8 +87,8 @@ public class ToolingExtensions {
   public static final String EXT_REFERENCEFILTER = "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter";
 
   // unregistered?
-  public static final String EXT_MAPPING_PREFIX = "http://hl7.org/fhir/StructureDefinition/logical-mapping-prefix";
-  public static final String EXT_MAPPING_SUFFIX = "http://hl7.org/fhir/StructureDefinition/logical-mapping-suffix";
+  public static final String EXT_MAPPING_PREFIX = "http://hl7.org/fhir/tools/StructureDefinition/logical-mapping-prefix";
+  public static final String EXT_MAPPING_SUFFIX = "http://hl7.org/fhir/tools/StructureDefinition/logical-mapping-suffix";
 
 //  public static final String EXT_FLYOVER = "http://hl7.org/fhir/Profile/questionnaire-extensions#flyover";
 //  private static final String EXT_QTYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";

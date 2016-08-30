@@ -20,6 +20,7 @@ public class FetchedResource {
   private List<String> profiles = new ArrayList<String>();
   private boolean snapshotted;
   private String exampleUri;
+  private boolean ValidateByUserData;
   private HashSet<FetchedResource> examples = new HashSet<FetchedResource>();
 
   public Resource getResource() {
@@ -95,5 +96,14 @@ public class FetchedResource {
 
   public void addExample(FetchedResource r) {
     this.examples.add(r);
-  }  
+  }
+  
+  public boolean isValidateByUserData() {
+    return ValidateByUserData;
+  }
+  public void setValidateByUserData(boolean validateByUserData) {
+    ValidateByUserData = validateByUserData;
+  }
+  
+  
 }
