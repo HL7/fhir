@@ -94,7 +94,7 @@
         case of a FHIR REST Server, just delete this profile reference. Profile references do 
         not need to be a UUID, though a profile registry could insist that they are  -->
       <profile>
-        <reference value="http://fhir.hl7.org/base/Profile7896271d-57f6-4231-89dc-dcc91eab2416"/>
+        <reference value="http://fhir.hl7.org/base/StructureDefinition/7896271d-57f6-4231-89dc-dcc91eab2416"/>
       </profile>
       <interaction>
         <code value="read"/>
