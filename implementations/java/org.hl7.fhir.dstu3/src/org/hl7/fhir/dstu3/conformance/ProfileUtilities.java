@@ -1240,7 +1240,7 @@ public class ProfileUtilities {
           ElementDefinition edd = derived.getDifferential().addElement();
           edd.setPath(edb.getPath());
           edd.setMax("0");
-        } else {
+        } else if (edb.hasSlicing()) {
           closeChildren(base, edb, derived, edm);
         }
       }

@@ -893,14 +893,15 @@ public class Publisher implements IWorkerContext.ILoggingService {
             String ref = res.getExampleFor().getReference();
             if (ref.contains(":")) {
               r.setExampleUri(ref);
-            } else {
+            } else if (sourceIg.getUrl().contains("ImplementationGuide/")) 
               r.setExampleUri(sourceIg.getUrl().substring(0, sourceIg.getUrl().indexOf("ImplementationGuide/")) + ref);
+            else
+              r.setExampleUri(Utilities.pathReverse(sourceIg.getUrl(), ref));
+          }
         }
       }
     }
-      }
-    }
-
+  
     // load static pages
     needToBuild = loadPrePages() || needToBuild;
     needToBuild = loadPages() || needToBuild;
@@ -2020,7 +2021,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
       addPageDataRow(pages, sourceBase + "-mappings.html", page.getTitle() + " - Mappings", label, breadcrumb + breadCrumbForPage(page, false), null);
       if (includeExamples) {
         FetchedResource r = resources.get(source);
-        addPageDataRow(pages, sourceBase + "-examples.html", page.getTitle() + " - Examples", label, breadcrumb + breadCrumbForPage(page, false), r.getExamples());
+        if (r != null)
+          addPageDataRow(pages, sourceBase + "-examples.html", page.getTitle() + " - Examples", label, breadcrumb + breadCrumbForPage(page, false), r.getExamples());
       } else
         addPageDataRow(pages, sourceBase + "-examples.html", page.getTitle() + " - Examples", label, breadcrumb + breadCrumbForPage(page, false), null);
       addPageDataRow(pages, sourceBase + ".profile.xml.html", page.getTitle() + " - Profile XML", label, breadcrumb + breadCrumbForPage(page, false), null);
@@ -2059,10 +2061,10 @@ public class Publisher implements IWorkerContext.ILoggingService {
       TreeSet<ImplementationGuidePageComponent> examplePages = new TreeSet<ImplementationGuidePageComponent>(new ImplementationGuidePageComponentComparator());
       for (FetchedResource exampleResource: examples) {
         ImplementationGuidePageComponent page = pageForFetchedResource(exampleResource);
-        if (page==null)
-          throw new Error("Unable to find page for resource "+ exampleResource.getId());
-        else
+        if (page!=null)
           examplePages.add(page);
+        // else
+        //   throw new Error("Unable to find page for resource "+ exampleResource.getId());
       }
       for (ImplementationGuidePageComponent examplePage : examplePages) {
         JsonObject exampleItem = new JsonObject();

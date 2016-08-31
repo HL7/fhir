@@ -207,6 +207,7 @@ public class Element extends Base {
 
 	public List<Element> getChildren(String name) {
 		List<Element> res = new ArrayList<Element>(); 
+		if (children != null)
 		for (Element child : children) {
 			if (name.equals(child.getName()))
 				res.add(child);

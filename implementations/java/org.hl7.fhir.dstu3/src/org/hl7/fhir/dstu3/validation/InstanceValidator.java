@@ -1551,7 +1551,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   private Element getValueForDiscriminator(Object appContext, List<ValidationMessage> errors, Element element, String discriminator, ElementDefinition criteria, NodeStack stack) throws FHIRException, IOException  {
-    String p = stack.getLiteralPath();
+    String p = stack.getLiteralPath()+"."+element.getName();
     Element focus = element;
     String[] dlist = discriminator.split("\\.");
     for (String d : dlist) {
@@ -1564,6 +1564,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         if (target == null)
           throw new FHIRException("Unable to find resource "+url+" at "+d+" resolving discriminator "+discriminator+" from "+element.getProperty().getName());
         focus = target;
+      } else if (d.equals("value") && focus.isPrimitive()) {
+        return focus;
       } else {
         List<Element> children = focus.getChildren(d);
         if (children.isEmpty())
