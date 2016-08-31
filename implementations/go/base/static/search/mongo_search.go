@@ -584,7 +584,16 @@ func (m *MongoSearcher) createTokenQueryObject(t *TokenParam) bson.M {
 			if !t.AnySystem {
 				criteria["use"] = ci(t.System)
 			}
-		case "code", "boolean", "string", "id":
+		case "boolean":
+			switch t.Code {
+			case "true":
+				return buildBSON(p.Path, true)
+			case "false":
+				return buildBSON(p.Path, false)
+			default:
+				panic(createInvalidSearchError("MSG_PARAM_INVALID", fmt.Sprintf("Parameter \"%s\" content is invalid", t.Name)))
+			}
+		case "code", "string", "id":
 			// criteria isn't a bson, so just return the right answer
 			return buildBSON(p.Path, ci(t.Code))
 		}
