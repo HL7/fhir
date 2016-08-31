@@ -1165,6 +1165,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     load("StructureMap");
     generateAdditionalExamples();
     executeTransforms();
+    validateExpressions();
   }
 
   private void executeTransforms() throws FHIRException, Exception {
@@ -1470,7 +1471,6 @@ public class Publisher implements IWorkerContext.ILoggingService {
         changed = true;
       }
     }
-    validateExpressions(f, sd);
     if (changed || (!r.getElement().hasChild("snapshot") && sd.hasSnapshot()))
       r.setElement(convertToElement(sd));
     r.setSnapshotted(true);
@@ -1478,6 +1478,18 @@ public class Publisher implements IWorkerContext.ILoggingService {
     context.seeResource(sd.getUrl(), sd);
   }
 
+  private void validateExpressions() {
+    dlog("validate Expressions");
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        if (r.getResource() instanceof StructureDefinition && !r.isSnapshotted()) {
+          StructureDefinition sd = (StructureDefinition) r.getResource();
+          validateExpressions(f, sd);
+        }
+      }
+    }
+  }
+  
   private void validateExpressions(FetchedFile f, StructureDefinition sd) {
     FluentPathEngine fpe = new FluentPathEngine(context);
     for (ElementDefinition ed : sd.getSnapshot().getElement()) {
