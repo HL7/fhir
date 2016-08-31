@@ -2601,7 +2601,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           if (match) {
             if (rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition == null, "Profile " + profile.getUrl() + ", Element matches more than one slice")) {
               ei.definition = ed;
-              if (ei.slice != null) {
+              if (ei.slice == null) {
                 ei.index = i;
               } else {
                 ei.index = sliceOffset;
@@ -2650,6 +2650,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           last = ei.index;
       if (ei.slice != null)
         lastSlice = ei.sliceindex;
+      else
+        lastSlice = -1;
     }
 
     // 3. report any definitions that have a cardinality problem

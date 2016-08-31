@@ -4636,7 +4636,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">If the structure describes a base Resource or Type, the URL has to start with &quot;http://hl7.org/fhir/StructureDefinition/&quot; and the tail must match the id</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">(derivation = 'constraint') or (url = 'http://hl7.org/fhir/StructureDefinition/'+id)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">(derivation = 'constraint') or (kind = 'logical') or (url = 'http://hl7.org/fhir/StructureDefinition/'+id)</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">(f:derivation/@value = 'constraint') or f:url/@value=concat('http://hl7.org/fhir/StructureDefinition/', f:id/@value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">

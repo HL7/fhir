@@ -1495,7 +1495,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
           n = fpe.parse(inv.getExpression());
           inv.setUserData("validator.expression.cache", n);
         }
-        fpe.check(null, sd.getKind() == StructureDefinitionKind.RESOURCE ?  sd.getType() : "DomainResource", ed.getPath(), n);
+        fpe.check(null, sd, ed.getPath(), n);
       } catch (Exception e) {
         f.getErrors().add(new ValidationMessage(Source.ProfileValidator, IssueType.INVALID, sd.getUrl()+":"+ed.getPath()+":"+inv.getKey(), e.getMessage(), IssueSeverity.ERROR));
       }

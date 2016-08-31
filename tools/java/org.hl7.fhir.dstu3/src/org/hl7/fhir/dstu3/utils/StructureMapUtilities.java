@@ -37,6 +37,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingCompon
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.Enumerations.ConceptMapEquivalence;
+import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.ExpressionNode.CollectionStatus;
 import org.hl7.fhir.dstu3.model.Group;
@@ -62,6 +63,7 @@ import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapContactComponent;
+import org.hl7.fhir.dstu3.model.StructureMap.StructureMapContextType;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupInputComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupRuleComponent;
@@ -377,6 +379,8 @@ public class StructureMapUtilities {
 
 	private void renderTarget(StringBuilder b, StructureMapGroupRuleTargetComponent rt) throws FHIRException {
 	  if (rt.hasContext()) {
+	    if (rt.getContextType() == StructureMapContextType.TYPE)
+	      b.append("@");
 	    b.append(rt.getContext());
 	    if (rt.hasElement())  {
 	      b.append('.');
@@ -484,6 +488,7 @@ public class StructureMapUtilities {
 		if (!id.startsWith("#"))
 			lexer.error("Concept Map identifier must start with #");
 		map.setId(id.substring(1));
+		map.setStatus(ConformanceResourceStatus.DRAFT); // todo: how to add this to the text format
 		result.getContained().add(map);
 		lexer.token("{");
 		lexer.skipComments();
@@ -700,6 +705,7 @@ public class StructureMapUtilities {
 		else
 			source.setRequired(true);
 		source.setContext(lexer.take());
+		source.setContextType(StructureMapContextType.VARIABLE);
 		if (lexer.hasToken(".")) {
 			lexer.token(".");
 			source.setElement(lexer.take());
@@ -743,6 +749,7 @@ public class StructureMapUtilities {
 		String start = lexer.take();
 		if (lexer.hasToken(".")) {
 	    target.setContext(start);
+	    target.setContextType(StructureMapContextType.VARIABLE);
 	    start = null;
 			lexer.token(".");
 			target.setElement(lexer.take());
@@ -1938,7 +1945,7 @@ public class StructureMapUtilities {
         expr = fpe.parse(getParamString(vars, tgt.getParameter().get(tgt.getParameter().size()-1)));
         tgt.setUserData(MAP_WHERE_EXPRESSION, expr);
       }
-      return fpe.check(vars, null, null, expr);
+      return fpe.check(vars, null, expr);
 
 ////case TRUNCATE : 
 ////  String src = getParamString(vars, tgt.getParameter().get(0));
@@ -2108,7 +2115,7 @@ public class StructureMapUtilities {
     StructureMap map = parse(b.toString());
     map.setId(tail(map.getUrl()));
     map.getText().setStatus(NarrativeStatus.GENERATED);
-    map.getText().setDiv(new XhtmlNode(NodeType.Element));
+    map.getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
     map.getText().getDiv().addTag("pre").addText(render(map));
     return map;
   }

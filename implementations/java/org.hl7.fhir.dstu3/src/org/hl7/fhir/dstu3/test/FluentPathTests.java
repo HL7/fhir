@@ -98,7 +98,7 @@ public class FluentPathTests {
     ExpressionNode node = fp.parse(expression);
     try {
       if (Utilities.noString(input))
-        fp.check(null, null, null, node);
+        fp.check(null, null, node);
       else {
         res = new XmlParser().parse(new FileInputStream(Utilities.path("C:\\work\\org.hl7.fhir\\build\\publish", input)));
         fp.check(res, res.getResourceType().toString(), res.getResourceType().toString(), node);

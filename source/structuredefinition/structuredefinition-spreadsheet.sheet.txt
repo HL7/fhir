@@ -147,7 +147,7 @@
   Context = StructureDefinition
   English = If the structure describes a base Resource or Type, the URL has to start with \"http://hl7.org/fhir/StructureDefinition/\" and the tail must match the id
   XPath = (f:derivation/@value = \'constraint\') or f:url/@value=concat(\'http://hl7.org/fhir/StructureDefinition/\', f:id/@value)
-  Expression = (derivation = \'constraint\') or (url = \'http://hl7.org/fhir/StructureDefinition/\'+id)
+  Expression = (derivation = \'constraint\') or (kind = \'logical\') or (url = \'http://hl7.org/fhir/StructureDefinition/\'+id)
 
  -- Row 8 -----------------------------------
   Id = 8

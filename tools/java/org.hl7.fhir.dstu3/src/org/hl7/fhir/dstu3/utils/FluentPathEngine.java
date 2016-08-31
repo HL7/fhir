@@ -233,32 +233,64 @@ public class FluentPathEngine {
    */
   public TypeDetails check(Object appContext, String resourceType, String context, ExpressionNode expr) throws FHIRLexerException, PathEngineException, DefinitionException {
     // if context is a path that refers to a type, do that conversion now 
-	TypeDetails types; 
-	if (context == null) {
-	  types = null; // this is a special case; the first path reference will have to resolve to something in the context
-	} else if (!context.contains(".")) {
-    StructureDefinition sd = worker.fetchResource(StructureDefinition.class, context);
-	  types = new TypeDetails(CollectionStatus.SINGLETON, sd.getUrl());
-	} else {
-	  String ctxt = context.substring(0, context.indexOf('.'));
-	  StructureDefinition sd = worker.fetchResource(StructureDefinition.class, ctxt);
-	  if (sd == null) 
-	    throw new PathEngineException("Unknown context "+context);
-	  ElementDefinitionMatch ed = getElementDefinition(sd, context, true);
-	  if (ed == null) 
-	    throw new PathEngineException("Unknown context element "+context);
-	  if (ed.fixedType != null) 
-	    types = new TypeDetails(CollectionStatus.SINGLETON, ed.fixedType);
-	  else if (ed.getDefinition().getType().isEmpty() || isAbstractType(ed.getDefinition().getType())) 
-	    types = new TypeDetails(CollectionStatus.SINGLETON, ctxt+"#"+context);
-	  else {
-	    types = new TypeDetails(CollectionStatus.SINGLETON);
-		for (TypeRefComponent t : ed.getDefinition().getType()) 
-		  types.addType(t.getCode());
-	  }
-	}
+    TypeDetails types; 
+    if (context == null) {
+      types = null; // this is a special case; the first path reference will have to resolve to something in the context
+    } else if (!context.contains(".")) {
+      StructureDefinition sd = worker.fetchResource(StructureDefinition.class, context);
+      types = new TypeDetails(CollectionStatus.SINGLETON, sd.getUrl());
+    } else {
+      String ctxt = context.substring(0, context.indexOf('.'));
+      if (Utilities.isAbsoluteUrl(resourceType)) {
+        ctxt = resourceType.substring(0, resourceType.lastIndexOf("/")+1)+ctxt;
+      }
+      StructureDefinition sd = worker.fetchResource(StructureDefinition.class, ctxt);
+      if (sd == null) 
+        throw new PathEngineException("Unknown context "+context);
+      ElementDefinitionMatch ed = getElementDefinition(sd, context, true);
+      if (ed == null) 
+        throw new PathEngineException("Unknown context element "+context);
+      if (ed.fixedType != null) 
+        types = new TypeDetails(CollectionStatus.SINGLETON, ed.fixedType);
+      else if (ed.getDefinition().getType().isEmpty() || isAbstractType(ed.getDefinition().getType())) 
+        types = new TypeDetails(CollectionStatus.SINGLETON, ctxt+"#"+context);
+      else {
+        types = new TypeDetails(CollectionStatus.SINGLETON);
+        for (TypeRefComponent t : ed.getDefinition().getType()) 
+          types.addType(t.getCode());
+      }
+    }
 
     return executeType(new ExecutionTypeContext(appContext, resourceType, context, types), types, expr, true);
+  }
+
+  public TypeDetails check(Object appContext, StructureDefinition sd, String context, ExpressionNode expr) throws FHIRLexerException, PathEngineException, DefinitionException {
+    // if context is a path that refers to a type, do that conversion now 
+    TypeDetails types; 
+    if (!context.contains(".")) {
+      types = new TypeDetails(CollectionStatus.SINGLETON, sd.getUrl());
+    } else {
+      ElementDefinitionMatch ed = getElementDefinition(sd, context, true);
+      if (ed == null) 
+        throw new PathEngineException("Unknown context element "+context);
+      if (ed.fixedType != null) 
+        types = new TypeDetails(CollectionStatus.SINGLETON, ed.fixedType);
+      else if (ed.getDefinition().getType().isEmpty() || isAbstractType(ed.getDefinition().getType())) 
+        types = new TypeDetails(CollectionStatus.SINGLETON, sd.getUrl()+"#"+context);
+      else {
+        types = new TypeDetails(CollectionStatus.SINGLETON);
+        for (TypeRefComponent t : ed.getDefinition().getType()) 
+          types.addType(t.getCode());
+      }
+    }
+
+    return executeType(new ExecutionTypeContext(appContext, sd.getUrl(), context, types), types, expr, true);
+  }
+
+  public TypeDetails check(Object appContext, StructureDefinition sd, ExpressionNode expr) throws FHIRLexerException, PathEngineException, DefinitionException {
+    // if context is a path that refers to a type, do that conversion now 
+    TypeDetails types = null; // this is a special case; the first path reference will have to resolve to something in the context
+    return executeType(new ExecutionTypeContext(appContext, sd == null ? null : sd.getUrl(), null, types), types, expr, true);
   }
 
   public TypeDetails check(Object appContext, String resourceType, String context, String expr) throws FHIRLexerException, PathEngineException, DefinitionException {

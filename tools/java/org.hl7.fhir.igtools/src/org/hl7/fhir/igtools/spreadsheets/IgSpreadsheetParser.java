@@ -775,16 +775,19 @@ public class IgSpreadsheetParser {
       if (s.contains("//"))
         s = s.substring(0,  s.indexOf("//")).trim();
       if (!Utilities.noString(s)) {
-        Extension ex = e.addExtension();
-        ex.setUrl("http://hl7.org/fhir/StructureDefinition/structuredefinition-example");
-        ex.addExtension().setUrl("index").setValue(new StringType(Integer.toString(i)));
         Type v = processStringToType(e.getTypeFirstRep().getCode(), s, e.getPath());
-        ex.addExtension().setUrl("exValue").setValue(v);              
+        if (v != null) {
+          Extension ex = e.addExtension();
+          ex.setUrl("http://hl7.org/fhir/StructureDefinition/structuredefinition-example");
+          ex.addExtension().setUrl("index").setValue(new StringType(Integer.toString(i)));
+          ex.addExtension().setUrl("exValue").setValue(v);
+        }
       }
     }    
   }
 
   private Type processStringToType(String type, String s, String path) throws Exception {
+    s = s.trim();
     if (s.equalsIgnoreCase("Not Stated") || s.equalsIgnoreCase("n/a") || s.equalsIgnoreCase("-"))
       return null;
     if (Utilities.noString(type))
@@ -858,6 +861,7 @@ public class IgSpreadsheetParser {
       XmlParser xml = new XmlParser();
       return xml.parseType(source, type);
     } else {
+      source = source.trim();
       if (source.startsWith("\"") && source.endsWith("\""))
         source = source.substring(1, source.length()-1);
       

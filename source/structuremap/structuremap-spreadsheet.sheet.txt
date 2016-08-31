@@ -216,6 +216,20 @@
 
 === Sheet Invariants =====================================
 
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = StructureMap.group.rule.target
+  English = Can only have a element if you have a context
+  XPath = not(f:/element)) or (f:/context)
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = StructureMap.group.rule.target
+  English = Must have a contextType if you have a context
+  XPath = not(f:/context)) or (f:/contextType)
+  Severity = error
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -578,7 +592,7 @@
 
  -- Row 43 -----------------------------------
   Element = StructureMap.group.rule.target.context
-  Card. = 1..1
+  Card. = 0..1
   Summary = y
   Type = id
   Short Label = Type or variable this rule applies to
@@ -586,7 +600,7 @@
 
  -- Row 44 -----------------------------------
   Element = StructureMap.group.rule.target.contextType
-  Card. = 1..1
+  Card. = 0..1
   Summary = y
   Type = code
   Binding = StructureMapContextType
