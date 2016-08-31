@@ -77,6 +77,8 @@ public class ValidationMessage implements Comparator<ValidationMessage>, Compara
     this.line = -1;
     this.col = -1;
     this.location = path;
+    if (message == null)
+      throw new Error("message is null");
     this.message = message;
     this.html = Utilities.escapeXml(message);
     this.level = level;
@@ -109,6 +111,8 @@ public class ValidationMessage implements Comparator<ValidationMessage>, Compara
     this.line = -1;
     this.col = -1;
     this.location = path;
+    if (message == null)
+      throw new Error("message is null");
     this.message = message;
     this.html = html;
     this.level = level;
@@ -125,6 +129,8 @@ public class ValidationMessage implements Comparator<ValidationMessage>, Compara
     this.line = line;
     this.col = col;
     this.location = path;
+    if (message == null)
+      throw new Error("message is null");
     this.message = message;
     this.html = html;
     this.level = level;
@@ -140,6 +146,8 @@ public class ValidationMessage implements Comparator<ValidationMessage>, Compara
     super();
     this.line = -1;
     this.col = -1;
+    if (message == null)
+      throw new Error("message is null");
     this.message = message;
     this.level = level;
     this.source = source;

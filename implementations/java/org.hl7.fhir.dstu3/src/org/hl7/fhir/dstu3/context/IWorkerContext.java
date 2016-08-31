@@ -233,7 +233,7 @@ public interface IWorkerContext {
       this.definition = definition;
     }
     
-    public ValidationResult(IssueSeverity error, String error2, TerminologyServiceErrorClass errorClass) {
+    public ValidationResult(IssueSeverity severity, String message, TerminologyServiceErrorClass errorClass) {
       this.severity = severity;
       this.message = message;
       this.errorClass = errorClass;

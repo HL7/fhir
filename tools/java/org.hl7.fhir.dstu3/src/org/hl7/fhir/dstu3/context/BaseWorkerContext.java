@@ -167,7 +167,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         ValueSetExpansionOutcome res = expandOnServer(vs, cacheFn);
         if (cacheFn != null) {
           if (res.getValueset() != null) {
-            saveToCache(vs, cacheFn);
+            saveToCache(res.getValueset(), cacheFn);
           } else { 
             OperationOutcome oo = new OperationOutcome();
             oo.addIssue().getDetails().setText(res.getError());
@@ -422,7 +422,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       else if (p.getName().equals("cause")) {
         try {
           IssueType it = IssueType.fromCode(((StringType) p.getValue()).getValue());
-          if (it == IssueType.UNKNOWN || it == IssueType.NOTSUPPORTED)
+          if (it == IssueType.UNKNOWN)
+            err = TerminologyServiceErrorClass.UNKNOWN;
+          else if (it == IssueType.NOTSUPPORTED)
             err = TerminologyServiceErrorClass.VALUESET_UNSUPPORTED;
         } catch (FHIRException e) {
         }
@@ -484,10 +486,12 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       return;
     if (res.getDisplay() != null)
       TextFile.stringToFile(res.getDisplay(), cacheName);
-    else if (res.getSeverity() == IssueSeverity.WARNING)
-      TextFile.stringToFile("!warning: "+res.getMessage(), cacheName);
-    else 
-      TextFile.stringToFile("!error: "+res.getMessage(), cacheName);
+    else if (res.getMessage() != null) {
+      if (res.getSeverity() == IssueSeverity.WARNING)
+        TextFile.stringToFile("!warning: "+res.getMessage(), cacheName);
+      else 
+        TextFile.stringToFile("!error: "+res.getMessage(), cacheName);
+    }
   }
 
   private String generateCacheName(Parameters pin) throws IOException {
