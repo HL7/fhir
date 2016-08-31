@@ -37,7 +37,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.*;
-import java.text.SimpleDateFormat;
 
 import org.hl7.fhir.definitions.model.*;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
@@ -83,6 +82,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         final String basedDir = Utilities.path(implDir, "base");
 
         Map<String, String> dirs = new HashMap<String, String>() {{
+            put("authDir", Utilities.path(basedDir, "app", "auth"));
             put("modelDir", Utilities.path(basedDir, "app", "models"));
             put("searchDir", Utilities.path(basedDir, "app", "search"));
             put("serverDir", Utilities.path(basedDir, "app", "server"));
@@ -114,7 +114,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         }
 
         Map<String, ResourceDefn> namesAndDefinitions = definitions.getResources();
-        generateGoRouting(namesAndDefinitions, dirs.get("serverDir"));
+        generateGoRouting(namesAndDefinitions.keySet(), dirs.get("serverDir"), templateGroup);
 
         for (Map.Entry<String, ResourceDefn> entry : namesAndDefinitions.entrySet()) {
             generateMgoModel(entry.getKey(), dirs.get("modelDir"), templateGroup, definitions);
@@ -132,6 +132,10 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         generateSearchParameterDictionary(definitions, dirs.get("searchDir"), templateGroup);
         generateConformanceStatement(definitions, dirs.get("conformanceDir"), templateGroup);
 
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "auth", "config.go")), new File(dirs.get("authDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "auth", "heart_auth.go")), new File(dirs.get("authDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "auth", "oauth.go")), new File(dirs.get("authDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "auth", "oidc.go")), new File(dirs.get("authDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "codeableconcept_ext.go")), new File(dirs.get("modelDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "operationoutcome_ext.go")), new File(dirs.get("modelDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference_ext.go")), new File(dirs.get("modelDir")));
@@ -151,7 +155,6 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "request_logger.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "resource_controller.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server_setup.go")), new File(dirs.get("serverDir")));
-        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "smart_auth.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server.go")), new File(Utilities.path(basedDir, "app")));
 
         ZipGenerator zip = new ZipGenerator(destDir + getReference(version));
@@ -172,104 +175,19 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         model.generate();
     }
 
-    private void generateGoRouting(Map<String, ResourceDefn> namesAndDefinitions, String serverDir) throws IOException {
-        File serverFile = new File(Utilities.path(serverDir, "routing.go"));
+    private void generateGoRouting(Set<String> resourceNames, String outputDir, STGroup templateGroup) throws IOException {
+        // Sort the resources by name just for consistent (diff-able) output
+        ArrayList<String> resourceList = new ArrayList<String>(resourceNames);
+        Collections.sort(resourceList);
 
-        BufferedWriter serverWriter = new BufferedWriter(new FileWriter(serverFile));
+        ST utilTemplate = templateGroup.getInstanceOf("routing.go");
+        utilTemplate.add("Resources", resourceList);
 
-        serverWriter.write("package server");
-        serverWriter.newLine();
-        serverWriter.newLine();
-        serverWriter.write("import \"github.com/gin-gonic/gin\"");
-        serverWriter.newLine();
-        serverWriter.newLine();
-        serverWriter.write("// RegisterController registers the CRUD routes (and middleware) for a FHIR resource");
-        serverWriter.newLine();
-        serverWriter.write("func RegisterController(name string, e *gin.Engine, m []gin.HandlerFunc, dal DataAccessLayer, config Config) {");
-        serverWriter.newLine();
-        serverWriter.write("\trc := NewResourceController(name, dal)");
-        serverWriter.newLine();
-        serverWriter.write("\trcBase := e.Group(\"/\" + name)");
-        serverWriter.newLine();
-        serverWriter.newLine();
-        serverWriter.write("\tif len(m) > 0 {");
-        serverWriter.newLine();
-        serverWriter.write("\t\trcBase.Use(m...)");
-        serverWriter.newLine();
-        serverWriter.write("\t}");
-        serverWriter.newLine();
-        serverWriter.newLine();
-        serverWriter.write("\tif config.UseSmartAuth {");
-        serverWriter.newLine();
-        serverWriter.write("\t\trcBase.Use(SmartAuthHandler(name))");
-        serverWriter.newLine();
-        serverWriter.write("\t}");
-        serverWriter.newLine();
-        serverWriter.newLine();
-        serverWriter.write("\trcBase.GET(\"\", rc.IndexHandler)");
-        serverWriter.newLine();
-        serverWriter.write("\trcBase.POST(\"\", rc.CreateHandler)");
-        serverWriter.newLine();
-        serverWriter.write("\trcBase.PUT(\"\", rc.ConditionalUpdateHandler)");
-        serverWriter.newLine();
-        serverWriter.write("\trcBase.DELETE(\"\", rc.ConditionalDeleteHandler)");
-        serverWriter.newLine();
-        serverWriter.newLine();
-        serverWriter.write("\trcItem := rcBase.Group(\"/:id\")");
-        serverWriter.newLine();
-        serverWriter.write("\trcItem.GET(\"\", rc.ShowHandler)");
-        serverWriter.newLine();
-        serverWriter.write("\trcItem.PUT(\"\", rc.UpdateHandler)");
-        serverWriter.newLine();
-        serverWriter.write("\trcItem.DELETE(\"\", rc.DeleteHandler)");
-        serverWriter.newLine();
-        serverWriter.write("}");
-        serverWriter.newLine();
-        serverWriter.newLine();
-        serverWriter.write("// RegisterRoutes registers the routes for each of the FHIR resources");
-        serverWriter.newLine();
-        serverWriter.write("func RegisterRoutes(e *gin.Engine, config map[string][]gin.HandlerFunc, dal DataAccessLayer, serverConfig Config) {");
-        serverWriter.newLine();
-        serverWriter.newLine();
-        serverWriter.write("\t// Batch Support");
-        serverWriter.newLine();
-        serverWriter.write("\tbatch := NewBatchController(dal)");
-        serverWriter.newLine();
-        serverWriter.write("\tbatchHandlers := make([]gin.HandlerFunc, len(config[\"Batch\"]))");
-        serverWriter.newLine();
-        serverWriter.write("\tcopy(batchHandlers, config[\"Batch\"])");
-        serverWriter.newLine();
-        serverWriter.write("\tbatchHandlers = append(batchHandlers, batch.Post)");
-        serverWriter.newLine();
-        serverWriter.write("\te.POST(\"/\", batchHandlers...)");
-        serverWriter.newLine();
-        serverWriter.newLine();
-        serverWriter.write("\t// Conformance Statement");
-        serverWriter.newLine();
-        serverWriter.write("\te.StaticFile(\"metadata\", \"conformance/conformance_statement.json\")");
-        serverWriter.newLine();
-        serverWriter.newLine();
-        serverWriter.write("\t// Resources");
-        serverWriter.newLine();
-        serverWriter.newLine();
-
-        /*
-        batch := NewBatchController(dal)
-	batchHandlers := make([]gin.HandlerFunc, len(config["Batch"]))
-	copy(batchHandlers, config["Batch"])
-	batchHandlers = append(batchHandlers, batch.Post)
-	e.POST("/", batchHandlers...)
-         */
-
-        for (String name : namesAndDefinitions.keySet()) {
-            serverWriter.write("\tRegisterController(\""+ name + "\", e, config[\"" + name + "\"], dal, serverConfig)");
-            serverWriter.newLine();
-        }
-
-        serverWriter.write("}");
-
-        serverWriter.flush();
-        serverWriter.close();
+        File outputFile = new File(Utilities.path(outputDir, "routing.go"));
+        Writer routingWriter = new BufferedWriter(new FileWriter(outputFile));
+        routingWriter.write(utilTemplate.render());
+        routingWriter.flush();
+        routingWriter.close();
     }
 
     private void generateGoUtil(Set<String> resourceNames, String outputDir, STGroup templateGroup) throws IOException {

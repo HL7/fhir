@@ -11,10 +11,13 @@ import (
 	"gopkg.in/mgo.v2"
 )
 
+type AfterRoutes func(*gin.Engine)
+
 type FHIRServer struct {
 	DatabaseHost     string
 	Engine           *gin.Engine
 	MiddlewareConfig map[string][]gin.HandlerFunc
+	AfterRoutes      []AfterRoutes
 	Interceptors     map[string]InterceptorList
 }
 
@@ -74,6 +77,10 @@ func (f *FHIRServer) Run(config Config) {
 	Database = session.DB("fhir")
 
 	RegisterRoutes(f.Engine, f.MiddlewareConfig, NewMongoDataAccessLayer(Database, f.Interceptors), config)
+
+	for _, ar := range f.AfterRoutes {
+		ar(f.Engine)
+	}
 
 	f.Engine.Run(":3001")
 }
