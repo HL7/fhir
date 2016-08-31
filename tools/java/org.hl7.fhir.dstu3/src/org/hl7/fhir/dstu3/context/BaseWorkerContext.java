@@ -553,8 +553,18 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     try {
       if (vs.hasExpansion()) 
         return verifyCodeInternal(vs, code);
-      else 
+      else {
+        // we'll try expanding first; if that doesn't work, then we'll just pass it to the server to validate 
+        // ... could be a problem if the server doesn't have the code systems we have locally, so we try not to depend on the server
+        try {
+          ValueSetExpansionOutcome vse = expandVS(vs, true, false);
+          if (vse.getValueset() != null)
+            return verifyCodeInternal(vse.getValueset(), code);
+        } catch (Exception e) {
+          // failed? we'll just try the server
+        }        
         return verifyCodeExternal(vs, code, true);
+      }
     } catch (Exception e) {
       return new ValidationResult(IssueSeverity.FATAL, "Error validating code \""+code.toString()+"\": "+e.getMessage(), TerminologyServiceErrorClass.SERVER_ERROR);
     }

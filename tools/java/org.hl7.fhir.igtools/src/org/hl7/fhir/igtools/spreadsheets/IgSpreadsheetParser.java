@@ -792,6 +792,9 @@ public class IgSpreadsheetParser {
       return null;
     if (Utilities.noString(type))
       return new StringType(s);
+    if (type.equals("Reference")) {
+      return new Reference().setReference(s);
+    }
     if (type.equals("Quantity")) {
       int j = s.charAt(0) == '>' || s.charAt(0) == '<' ? 1 : 0;
       int i = j;

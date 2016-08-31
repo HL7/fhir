@@ -1785,7 +1785,7 @@ public class StructureMapUtilities {
     return true;
   }
 
-  private String describeTransform(StructureMapGroupRuleTargetComponent tgt) {
+  private String describeTransform(StructureMapGroupRuleTargetComponent tgt) throws FHIRException {
     switch (tgt.getTransform()) {
     case COPY: return null; 
     case TRUNCATE: return null; 
@@ -1808,7 +1808,7 @@ public class StructureMapUtilities {
   }
 
   @SuppressWarnings("rawtypes")
-  private String describeTransformCCorC(StructureMapGroupRuleTargetComponent tgt) {
+  private String describeTransformCCorC(StructureMapGroupRuleTargetComponent tgt) throws FHIRException {
     if (tgt.getParameter().size() < 2)
       return null;
     Type p1 = tgt.getParameter().get(0).getValue();
@@ -1817,8 +1817,16 @@ public class StructureMapUtilities {
       return null;
     if (!(p1 instanceof PrimitiveType) || !(p2 instanceof PrimitiveType))
       return null;
-    return NarrativeGenerator.describeSystem(((PrimitiveType) p1).asStringValue())+"#"+((PrimitiveType) p2).asStringValue();
+    String uri = ((PrimitiveType) p1).asStringValue();
+    String code = ((PrimitiveType) p2).asStringValue();
+    if (Utilities.noString(uri))
+      throw new FHIRException("Describe Transform, but the uri is blank");
+    if (Utilities.noString(code))
+      throw new FHIRException("Describe Transform, but the code is blank");
+    Coding c = buildCoding(uri, code);
+    return NarrativeGenerator.describeSystem(c.getSystem())+"#"+c.getCode()+(c.hasDisplay() ? "("+c.getDisplay()+")" : "");
   }
+
 
   private boolean isSignificantElement(PropertyWithType property, String element) {
     if ("Observation".equals(property.getPath()))
@@ -2114,6 +2122,8 @@ public class StructureMapUtilities {
     TextFile.stringToFile(b.toString(), "c:\\temp\\test.map");
     StructureMap map = parse(b.toString());
     map.setId(tail(map.getUrl()));
+    if (!map.hasStatus())
+      map.setStatus(ConformanceResourceStatus.DRAFT);
     map.getText().setStatus(NarrativeStatus.GENERATED);
     map.getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
     map.getText().getDiv().addTag("pre").addText(render(map));

@@ -81,8 +81,10 @@ public class XLSXmlParser {
         return ""; // throw new FHIRException("unable to find column "+column+" in "+s.substring(1));
       else if (rows.get(row).size() <= c)
         return "";
-      else
-        return rows.get(row).get(c).trim();
+      else {
+        s = rows.get(row).get(c); 
+        return s == null ? "" : s.trim();
+      }
     }
 
     public String getByColumnPrefix(int row, String column)  {

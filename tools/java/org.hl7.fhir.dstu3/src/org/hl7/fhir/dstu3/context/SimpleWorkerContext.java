@@ -358,7 +358,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		}
 
 		
-		throw new Error("fetching "+class_.getName()+" not done yet for URI "+uri);
+		throw new Error("fetching "+class_.getName()+" not done yet for URI '"+uri+"'");
 	}
 
 
