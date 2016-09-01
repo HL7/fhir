@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.instance.model.api.IBase;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 import ca.uhn.fhir.model.api.IElement;
@@ -553,7 +554,12 @@ private Map<String, Object> userData;
 	public Reference castToReference(Base b) throws FHIRException {
 		if (b instanceof Reference)
 			return (Reference) b;
-		else
+		else if (b.isPrimitive() && Utilities.isURL(b.primitiveValue()))
+      return new Reference().setReference(b.primitiveValue());
+    else if (b instanceof org.hl7.fhir.dstu3.elementmodel.Element && b.fhirType().equals("Reference")) {
+      org.hl7.fhir.dstu3.elementmodel.Element e = (org.hl7.fhir.dstu3.elementmodel.Element) b;
+      return new Reference().setReference(e.getChildValue("reference")).setDisplay(e.getChildValue("display"));
+    } else
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a Reference");
 	}
 	

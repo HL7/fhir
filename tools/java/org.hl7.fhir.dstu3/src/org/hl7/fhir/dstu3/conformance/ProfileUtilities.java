@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.hl7.fhir.dstu3.conformance.ProfileUtilities.SpanEntry;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
@@ -21,6 +22,7 @@ import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.Element;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
@@ -55,6 +57,7 @@ import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.utils.formats.CSVWriter;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
@@ -66,6 +69,7 @@ import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Cell;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Piece;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Row;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.TableModel;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Title;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xml.SchematronWriter;
 import org.hl7.fhir.utilities.xml.SchematronWriter.Rule;
@@ -80,7 +84,8 @@ import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
  *  * generateSnapshot: Given a base (snapshot) profile structure, and a differential profile, generate a new snapshot profile
  *  * closeDifferential: fill out a differential by excluding anything not mentioned
  *  * generateExtensionsTable: generate the HTML for a hierarchical table presentation of the extensions
- *  * generateTable: generate  the HTML for a hierarchical table presentation of a structure
+ *  * generateTable: generate the HTML for a hierarchical table presentation of a structure
+ *  * generateSpanningTable: generate the HTML for a table presentation of a network of structures, starting at a nominated point
  *  * summarise: describe the contents of a profile
  * @author Grahame
  *
@@ -1677,6 +1682,7 @@ public class ProfileUtilities {
     }
   }
 
+
   private boolean usesMustSupport(List<ElementDefinition> list) {
     for (ElementDefinition ed : list)
       if (ed.hasMustSupport() && ed.getMustSupport())
@@ -2805,4 +2811,261 @@ public class ProfileUtilities {
     else  
       throw new Error("No slicing for "+slicer.getPath()); 
   }
+
+  public class SpanEntry {
+    private List<SpanEntry> children = new ArrayList<SpanEntry>();
+    private boolean profile;
+    private String id;
+    private String name;
+    private String resType;
+    private String cardinality;
+    private String description;
+    private String profileLink;
+    private String resLink;
+    private String type;
+    
+    public String getName() {
+      return name;
+    }
+    public void setName(String name) {
+      this.name = name;
+    }
+    public String getResType() {
+      return resType;
+    }
+    public void setResType(String resType) {
+      this.resType = resType;
+    }
+    public String getCardinality() {
+      return cardinality;
+    }
+    public void setCardinality(String cardinality) {
+      this.cardinality = cardinality;
+    }
+    public String getDescription() {
+      return description;
+    }
+    public void setDescription(String description) {
+      this.description = description;
+    }
+    public String getProfileLink() {
+      return profileLink;
+    }
+    public void setProfileLink(String profileLink) {
+      this.profileLink = profileLink;
+    }
+    public String getResLink() {
+      return resLink;
+    }
+    public void setResLink(String resLink) {
+      this.resLink = resLink;
+    }
+    public String getId() {
+      return id;
+    }
+    public void setId(String id) {
+      this.id = id;
+    }
+    public boolean isProfile() {
+      return profile;
+    }
+    public void setProfile(boolean profile) {
+      this.profile = profile;
+    }
+    public List<SpanEntry> getChildren() {
+      return children;
+    }
+    public String getType() {
+      return type;
+    }
+    public void setType(String type) {
+      this.type = type;
+    }
+    
+  }
+
+  public XhtmlNode generateSpanningTable(StructureDefinition profile, String imageFolder, boolean onlyConstraints) throws IOException, FHIRException {
+    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, false);
+    TableModel model = initSpanningTable(gen, "", false);
+    Set<String> processed = new HashSet<String>();
+    SpanEntry span = buildSpanningTable("(focus)", "", profile, processed, onlyConstraints);
+    
+    genSpanEntry(gen, model.getRows(), span);
+    return gen.generate(model, "");
+  }
+
+  private SpanEntry buildSpanningTable(String name, String cardinality, StructureDefinition profile, Set<String> processed, boolean onlyConstraints) throws IOException {
+    SpanEntry res = buildSpanEntryFromProfile(name, cardinality, profile);
+    boolean wantProcess = !processed.contains(profile.getUrl());
+    processed.add(profile.getUrl());
+    if (wantProcess && profile.getDerivation() == TypeDerivationRule.CONSTRAINT) {
+      for (ElementDefinition ed : profile.getSnapshot().getElement()) {
+        if (!"0".equals(ed.getMax()) && ed.getType().size() > 0) {
+          String card = getCardinality(ed, profile.getSnapshot().getElement());
+          if (!card.endsWith(".0")) {
+            List<String> refProfiles = listReferenceProfiles(ed);
+            if (refProfiles.size() > 0) {
+              StructureDefinition sd = context.fetchResource(StructureDefinition.class, refProfiles.get(0));
+              if (sd != null && (!onlyConstraints || sd.getDerivation() == TypeDerivationRule.CONSTRAINT)) {
+                res.getChildren().add(buildSpanningTable(nameForElement(ed), card, sd, processed, onlyConstraints));
+              }
+            }
+          }
+        } 
+      }
+    }
+    return res;
+  }
+
+
+  private String getCardinality(ElementDefinition ed, List<ElementDefinition> list) {
+    int min = ed.getMin();
+    int max = ed.getMax().equals("*") ? Integer.MAX_VALUE : Integer.parseInt(ed.getMax());
+    while (ed != null && ed.getPath().contains(".")) {
+      ed = findParent(ed, list);
+      if (ed.getMax().equals("0"))
+        max = 0;
+      else if (!ed.getMax().equals("1") && !ed.hasSlicing())
+        max = Integer.MAX_VALUE;
+      if (ed.getMin() == 0)
+        min = 0;
+    }
+    return Integer.toString(min)+".."+(max == Integer.MAX_VALUE ? "*" : Integer.toString(max));
+  }
+
+
+  private ElementDefinition findParent(ElementDefinition ed, List<ElementDefinition> list) {
+    int i = list.indexOf(ed)-1;
+    while (i >= 0 && !ed.getPath().startsWith(list.get(i).getPath()+"."))
+      i--;
+    if (i == -1)
+      return null;
+    else
+      return list.get(i);
+  }
+
+
+  private List<String> listReferenceProfiles(ElementDefinition ed) {
+    List<String> res = new ArrayList<String>();
+    for (TypeRefComponent tr : ed.getType()) {
+      if (tr.getCode().equals("Reference"))
+        res.add(tr.getProfile());
+    }
+    return res ;
+  }
+
+
+  private String nameForElement(ElementDefinition ed) {
+    return ed.getPath().substring(ed.getPath().indexOf(".")+1);
+  }
+
+
+  private SpanEntry buildSpanEntryFromProfile(String name, String cardinality, StructureDefinition profile) throws IOException {
+    SpanEntry res = new SpanEntry();
+    res.setName(name);
+    res.setCardinality(cardinality);
+    res.setProfileLink(profile.getUserString("path"));
+    res.setResType(profile.getType());
+    StructureDefinition base = context.fetchResource(StructureDefinition.class, res.getResType());
+    if (base != null)
+      res.setResLink(base.getUserString("path"));
+    res.setId(profile.getId());
+    res.setProfile(profile.getDerivation() == TypeDerivationRule.CONSTRAINT);
+    StringBuilder b = new StringBuilder();
+    b.append(res.getResType());
+    boolean first = true;
+    boolean open = false;
+    if (profile.getDerivation() == TypeDerivationRule.CONSTRAINT) {
+      res.setDescription(profile.getName());
+      for (ElementDefinition ed : profile.getSnapshot().getElement()) {
+        if (isKeyProperty(ed.getBase().getPath()) && ed.hasFixed()) {
+          if (first) {
+            open = true;
+            first = false;
+            b.append("[");
+          } else {
+            b.append(", ");
+          }
+          b.append(tail(ed.getBase().getPath()));
+          b.append("=");
+          b.append(summarise(ed.getFixed()));
+        }
+      }
+      if (open)
+        b.append("]");
+    } else
+      res.setDescription("Base FHIR "+profile.getName());
+    res.setType(b.toString());
+    return res ;
+  }
+
+
+  private String summarise(Type value) throws IOException {
+    if (value instanceof Coding)
+      return summariseCoding((Coding) value);
+    else if (value instanceof CodeableConcept)
+      return summariseCodeableConcept((CodeableConcept) value);
+    else
+      return buildJson(value);
+  }
+
+
+  private String summariseCoding(Coding value) {
+    String uri = value.getSystem();
+    String system = NarrativeGenerator.describeSystem(uri);
+    if (Utilities.isURL(system)) {
+      if (system.equals("http://cap.org/protocols"))
+        system = "CAP Code";
+    }
+    return system+" "+value.getCode();
+  }
+
+
+  private String summariseCodeableConcept(CodeableConcept value) {
+    if (value.hasCoding())
+      return summariseCoding(value.getCodingFirstRep());
+    else
+      return value.getText();
+  }
+
+
+  private boolean isKeyProperty(String path) {
+    return Utilities.existsInList(path, "Observation.code");
+  }
+
+
+  public TableModel initSpanningTable(HierarchicalTableGenerator gen, String prefix, boolean isLogical) {
+    TableModel model = gen.new TableModel();
+    
+    model.setDocoImg(prefix+"help16.png");
+    model.setDocoRef(prefix+"igs.html#table");
+    model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Property", "A profiled resource", null, 0));
+    model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Card.", "Minimum and Maximum # of times the the element can appear in the instance", null, 0));
+    model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Content", "What goes here", null, 0));
+    model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Description", "Description of the profile", null, 0));
+    return model;
+  }
+
+  private void genSpanEntry(HierarchicalTableGenerator gen, List<Row> rows, SpanEntry span) throws IOException {
+    Row row = gen.new Row();
+    rows.add(row);
+    row.setAnchor(span.getId());
+    //row.setColor(..?);
+    if (span.isProfile()) 
+      row.setIcon("icon_profile.png", HierarchicalTableGenerator.TEXT_ICON_PROFILE);
+    else
+      row.setIcon("icon_resource.png", HierarchicalTableGenerator.TEXT_ICON_RESOURCE);
+    
+    row.getCells().add(gen.new Cell(null, null, span.getName(), null, null));
+    row.getCells().add(gen.new Cell(null, null, span.getCardinality(), null, null));
+    row.getCells().add(gen.new Cell(null, span.getProfileLink(), span.getType(), null, null));
+    row.getCells().add(gen.new Cell(null, null, span.getDescription(), null, null));
+
+    for (SpanEntry child : span.getChildren())
+      genSpanEntry(gen, row.getSubRows(), child);
+  }
+
+
+
+
 }

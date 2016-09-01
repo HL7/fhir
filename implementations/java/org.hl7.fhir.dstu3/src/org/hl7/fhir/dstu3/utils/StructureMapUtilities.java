@@ -1901,7 +1901,7 @@ public class StructureMapUtilities {
           ednew.setBinding(pt.getBindings().get(0));
         if (pt.getUri().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
           String t = pt.getUri().substring(40);
-          t = checkType(t, pc);
+          t = checkType(t, pc, pt.getProfiles());
           if (t != null) {
             if (pt.hasProfiles()) {
               for (String p : pt.getProfiles())
@@ -1918,14 +1918,18 @@ public class StructureMapUtilities {
   
 
 
-  private String checkType(String t, Property pvb) throws FHIRException {
-    if (pvb.getDefinition().getType().size() == 1 && isCompatibleType(t, pvb.getDefinition().getType().get(0).getCode())) 
+  private String checkType(String t, Property pvb, List<String> profiles) throws FHIRException {
+    if (pvb.getDefinition().getType().size() == 1 && isCompatibleType(t, pvb.getDefinition().getType().get(0).getCode()) && profilesMatch(profiles, pvb.getDefinition().getType().get(0).getProfile())) 
       return null;
     for (TypeRefComponent tr : pvb.getDefinition().getType()) {
       if (isCompatibleType(t, tr.getCode()))
         return tr.getCode(); // note what is returned - the base type, not the inferred mapping type
     }
     throw new FHIRException("The type "+t+" is not compatible with the allowed types for "+pvb.getDefinition().getPath());
+  }
+
+  private boolean profilesMatch(List<String> profiles, String profile) {
+    return profiles == null || profiles.size() == 0 || (profiles.size() == 1 && profiles.get(0).equals(profile));
   }
 
   private boolean isCompatibleType(String t, String code) {
