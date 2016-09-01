@@ -1,0 +1,29 @@
+-- [Class] --
+
+// entries in this file get added to the generated class. "Class" in the line above is just the plain Class name e.g. BaseConformance
+// whatever is between -- [Class] nd ---- will be added to the generated class without modification
+ 
+fragment
+
+----
+
+-- BaseConformance --
+
+  @Override
+  public String toString() {
+    return getUrl();
+  }
+  
+----
+
+-- ElementDefinition --
+  
+  public String toString() {
+    if (hasName())
+      return getPath()+":"+getName();
+    else
+      return getPath();
+  }
+    
+----
+  
