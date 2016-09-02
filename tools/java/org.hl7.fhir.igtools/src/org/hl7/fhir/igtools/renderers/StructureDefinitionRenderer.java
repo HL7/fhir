@@ -33,6 +33,7 @@ import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent;
+import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
@@ -902,6 +903,15 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     b.append("<p>\r\n");
     b.append(processMarkdown("description", sd.getDescription()));
     b.append("</p>\r\n");
+    if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
+      b.append("<p>\r\n");
+      StructureDefinition sdb = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
+      if (sdb != null)
+        b.append("This profile builds on <a href=\""+sdb.getUserString("path")+"\">"+sdb.getName()+"</a>.");
+      else
+        b.append("This profile builds on "+sd.getBaseDefinition()+".");
+      b.append("</p>\r\n");
+    }
     b.append("<p>\r\n");
     b.append("This profile was published on "+sd.getDate().toString()+" as a "+sd.getStatus().toCode()+" by "+sd.getPublisher()+".\r\n");
     b.append("</p>\r\n");

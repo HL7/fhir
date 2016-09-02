@@ -721,12 +721,14 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
   private void loadIg(JsonObject dep) throws Exception {
     String name = str(dep, "name");
+    if (!Utilities.isToken(name))
+      throw new Exception("IG Name must be a valid token ("+name+")");
     String location = str(dep, "location");
-    String source = str(dep, "source");
+    String source = ostr(dep, "source");
     if (Utilities.noString(source))
       source = location;
     log("Load "+name+" ("+location+") from "+source);
-    Map<String, byte[]> files = fetchDefinitions(source);
+    Map<String, byte[]> files = fetchDefinitions(source, name);
     SpecMapManager igm = new SpecMapManager(files.get("spec.internals"));
     igm.setName(name);
     igm.setBase(location);
@@ -757,10 +759,15 @@ public class Publisher implements IWorkerContext.ILoggingService {
     }
   }
 
-  private Map<String, byte[]> fetchDefinitions(String filename) throws IOException {
+  private Map<String, byte[]> fetchDefinitions(String source, String name) throws Exception {
     // todo: if filename is a URL
     Map<String, byte[]> res = new HashMap<String, byte[]>();
-    ZipInputStream zip = new ZipInputStream(new FileInputStream(Utilities.path(Utilities.getDirectoryForFile(configFile), filename, "definitions.json.zip")));
+    String filename;
+    if (source.startsWith("http:") || source.startsWith("https:"))
+      filename = fetchFromURL(source, name);
+    else
+      filename = Utilities.path(Utilities.getDirectoryForFile(configFile), source, "definitions.json.zip");
+    ZipInputStream zip = new ZipInputStream(new FileInputStream(filename));
     ZipEntry ze;
     while ((ze = zip.getNextEntry()) != null) {
       int size;
@@ -780,6 +787,24 @@ public class Publisher implements IWorkerContext.ILoggingService {
     }
     zip.close();
     return res;
+  }
+
+  private String fetchFromURL(String source, String name) throws Exception {
+    String filename = Utilities.path(vsCache, name+".cache");
+    if (new File(filename).exists())
+      return filename;
+    
+    if (!source.endsWith("definitions.json.zip") && !source.endsWith("definitions.xml.zip"))
+      source = Utilities.pathReverse(source, "definitions.json.zip");
+    try {
+      URL url = new URL(source);
+      URLConnection c = url.openConnection();
+      byte[] cnt = IOUtils.toByteArray(c.getInputStream());
+      TextFile.bytesToFile(cnt, filename);
+      return filename;
+    } catch (Exception e) {
+      throw new Exception("Unable to load definitions from URL '"+source+"': "+e.getMessage(), e);
+    }   
   }
 
   private static String getCurentDirectory() {

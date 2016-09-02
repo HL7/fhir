@@ -881,40 +881,64 @@ public class VersionConvertor_10_20 {
     tgt.setPath(src.getPath());
     for (org.hl7.fhir.dstu2.model.Enumeration<org.hl7.fhir.dstu2.model.ElementDefinition.PropertyRepresentation> t : src.getRepresentation())
       tgt.addRepresentation(convertPropertyRepresentation(t.getValue()));
-    tgt.setName(src.getName());
-    tgt.setId(src.getName());
-    tgt.setLabel(src.getLabel());
+    if (src.hasName()) {
+      tgt.setName(src.getName());
+      tgt.setId(src.getName());
+    }
+    if (src.hasLabel()) 
+      tgt.setLabel(src.getLabel());
     for (org.hl7.fhir.dstu2.model.Coding t : src.getCode())
       tgt.addCode(convertCoding(t));
-    tgt.setSlicing(convertElementDefinitionSlicingComponent(src.getSlicing()));
-    tgt.setShort(src.getShort());
-    tgt.setDefinition(src.getDefinition());
-    tgt.setComments(src.getComments());
-    tgt.setRequirements(src.getRequirements());
+    if (src.hasSlicing())
+      tgt.setSlicing(convertElementDefinitionSlicingComponent(src.getSlicing()));
+    if (src.hasShort()) 
+      tgt.setShort(src.getShort());
+    if (src.hasDefinition()) 
+      tgt.setDefinition(src.getDefinition());
+    if (src.hasComments()) 
+      tgt.setComments(src.getComments());
+    if (src.hasRequirements()) 
+      tgt.setRequirements(src.getRequirements());
     for (org.hl7.fhir.dstu2.model.StringType t : src.getAlias())
       tgt.addAlias(t.getValue());
-    tgt.setMin(src.getMin());
-    tgt.setMax(src.getMax());
-    tgt.setBase(convertElementDefinitionBaseComponent(src.getBase()));
-    tgt.setContentReference("#"+src.getNameReference());
+    if (src.hasMin()) 
+      tgt.setMin(src.getMin());
+    if (src.hasMax()) 
+      tgt.setMax(src.getMax());
+    if (src.hasBase())
+      tgt.setBase(convertElementDefinitionBaseComponent(src.getBase()));
+    if (src.hasNameReference()) 
+      tgt.setContentReference("#"+src.getNameReference());
     for (org.hl7.fhir.dstu2.model.ElementDefinition.TypeRefComponent t : src.getType())
       tgt.addType(convertTypeRefComponent(t));
-    tgt.setDefaultValue(convertType(src.getDefaultValue()));
-    tgt.setMeaningWhenMissing(src.getMeaningWhenMissing());
-    tgt.setFixed(convertType(src.getFixed()));
-    tgt.setPattern(convertType(src.getPattern()));
-    tgt.setExample(convertType(src.getExample()));
-    tgt.setMinValue(convertType(src.getMinValue()));
-    tgt.setMaxValue(convertType(src.getMaxValue()));
-    tgt.setMaxLength(src.getMaxLength());
+    if (src.hasDefaultValue()) 
+      tgt.setDefaultValue(convertType(src.getDefaultValue()));
+    if (src.hasMeaningWhenMissing()) 
+      tgt.setMeaningWhenMissing(src.getMeaningWhenMissing());
+    if (src.hasFixed()) 
+      tgt.setFixed(convertType(src.getFixed()));
+    if (src.hasPattern())
+      tgt.setPattern(convertType(src.getPattern()));
+    if (src.hasExample()) 
+      tgt.setExample(convertType(src.getExample()));
+    if (src.hasMinValue()) 
+      tgt.setMinValue(convertType(src.getMinValue()));
+    if (src.hasMaxValue()) 
+      tgt.setMaxValue(convertType(src.getMaxValue()));
+    if (src.hasMaxLength()) 
+      tgt.setMaxLength(src.getMaxLength());
     for (org.hl7.fhir.dstu2.model.IdType t : src.getCondition())
       tgt.addCondition(t.getValue());
     for (org.hl7.fhir.dstu2.model.ElementDefinition.ElementDefinitionConstraintComponent t : src.getConstraint())
       tgt.addConstraint(convertElementDefinitionConstraintComponent(t));
-    tgt.setMustSupport(src.getMustSupport());
-    tgt.setIsModifier(src.getIsModifier());
-    tgt.setIsSummary(src.getIsSummary());
-    tgt.setBinding(convertElementDefinitionBindingComponent(src.getBinding()));
+    if (src.hasMustSupport()) 
+      tgt.setMustSupport(src.getMustSupport());
+    if (src.hasIsModifier()) 
+      tgt.setIsModifier(src.getIsModifier());
+    if (src.hasIsSummary()) 
+      tgt.setIsSummary(src.getIsSummary());
+    if (src.hasBinding())
+      tgt.setBinding(convertElementDefinitionBindingComponent(src.getBinding()));
     for (org.hl7.fhir.dstu2.model.ElementDefinition.ElementDefinitionMappingComponent t : src.getMapping())
       tgt.addMapping(convertElementDefinitionMappingComponent(t));
     return tgt;
@@ -12266,7 +12290,8 @@ public class VersionConvertor_10_20 {
     tgt.setName(src.getName());
     tgt.setDisplay(src.getDisplay());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
-    tgt.setExperimental(src.getExperimental());
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
     tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu2.model.StructureDefinition.StructureDefinitionContactComponent t : src.getContact())
       tgt.addContact(convertStructureDefinitionContactComponent(t));
