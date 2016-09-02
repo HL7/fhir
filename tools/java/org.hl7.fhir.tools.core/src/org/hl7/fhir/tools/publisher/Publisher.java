@@ -1485,7 +1485,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     res.getInteraction().add(t);
   }
 
-  private void registerReferencePlatforms() {
+  private void registerReferencePlatforms() throws FileNotFoundException, IOException {
     javaReferencePlatform = new JavaGenerator(page.getFolders());
     delphiReferencePlatform = new DelphiGenerator(page.getFolders());
     page.getReferenceImplementations().add(javaReferencePlatform);

@@ -77,11 +77,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
   public enum JavaGenClass { Structure, Type, Resource, BackboneElement, Constraint }
 	private JavaGenClass clss;
   private Map<String, ImpliedBaseType> impliedTypes;
+  private Map<String, String> adornments;
 	
-	public JavaResourceGenerator(OutputStream out, Definitions definitions, Map<String, ImpliedBaseType> impliedTypes) throws UnsupportedEncodingException {
+	public JavaResourceGenerator(OutputStream out, Definitions definitions, Map<String, ImpliedBaseType> impliedTypes, Map<String, String> adornments) throws UnsupportedEncodingException {
 		super(out);
 		this.definitions = definitions;
 		this.impliedTypes = impliedTypes;
+		this.adornments = adornments; 
 	}
 
 	private Map<ElementDefn, String> typeNames = new HashMap<ElementDefn, String>();
@@ -392,6 +394,9 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		  }
 		}
 		
+		if (adornments.containsKey(classname)) {
+		  write(adornments.get(classname));
+		}
 		write("\r\n");
 		write("}\r\n");
 		write("\r\n");
@@ -1490,6 +1495,9 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     generateEquals(e, tn, true, false);
     generateIsEmpty(e, tn, true, false);
     generateFhirType(e.getPath());
+    if (adornments.containsKey(tn)) {
+      write(adornments.get(tn));
+    }
     write("  }\r\n");
 		write("\r\n");
 
