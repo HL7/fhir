@@ -564,13 +564,12 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
       // consideration
       if (!(MAX_VER.equals(max)) || comment.equalsIgnoreCase("deprecated")) {
         CodeSystemUtilities.setDeprecated(cs, concept, dateForVersion(Utilities.noString(commentVer) ? max : commentVer));
-        concept.addProperty().setCode("deprecated").setValue(new BooleanType(true));
         if (Utilities.noString(comment))
           comment = "deprecated";
       }
       cs.getConcept().add(concept);
-      String nm = Utilities.nmtokenize(cd);
-      s.append("<tr><td>" + Utilities.escapeXml(cd) + "<a name=\"" + Utilities.escapeXml(nm) + "\"> </a></td><td>" + Utilities.escapeXml(codes.get(cd))
+      String nm = Utilities.nmtokenize(concept.getCode());
+      s.append("<tr><td>" + Utilities.escapeXml(concept.getCode()) + "<a name=\"" + Utilities.escapeXml(nm) + "\"> </a></td><td>" + Utilities.escapeXml(codes.get(cd))
          + "</td><td>" + Utilities.escapeXml(comment) + "</td><td>" + ver + "</td></tr>");
     }
     s.append("</table>\r\n");
@@ -734,6 +733,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
       concept.setDisplay(codes.get(cd)); // we deem the v2 description to
       if (comments.containsKey(cd))
         ToolingExtensions.addComment(concept, comments.get(cd));
+      
       
       // be display name, not
       // definition. Open for

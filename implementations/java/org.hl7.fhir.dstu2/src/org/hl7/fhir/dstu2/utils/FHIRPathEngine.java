@@ -227,7 +227,7 @@ public class FHIRPathEngine {
 	    throw new PathEngineException("Unknown context element "+context);
 	  if (ed.fixedType != null) 
 	    types = new TypeDetails(CollectionStatus.SINGLETON, ed.fixedType);
-	  else if (ed.getDefinition().getType().isEmpty() || isAbstractType(ed.getDefinition().getType())) 
+	  else if (ed.getDefinition().getType().isEmpty() || ( isAbstractType(ed.getDefinition().getType()))) 
 	    types = new TypeDetails(CollectionStatus.SINGLETON, context);
 	  else {
 	    types = new TypeDetails(CollectionStatus.SINGLETON);
@@ -2629,7 +2629,7 @@ public class FHIRPathEngine {
 	}
 
   private boolean isAbstractType(List<TypeRefComponent> list) {
-	return list.size() != 1 ? true : Utilities.existsInList(list.get(0).getCode(), "Element", "BackboneElement", "Resource", "DomainResource");
+	return list.size() != 1 ? false : Utilities.existsInList(list.get(0).getCode(), "Element", "BackboneElement", "Resource", "DomainResource");
 }
 
 
