@@ -11,6 +11,17 @@
         "definition": null,
         "display": "Outpatient Note"
       }
+    },
+    {
+      "hash": "|http://loinc.org|null|34108-1|Outpatient Note",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Outpatient Note"
+      }
     }
   ]
 }

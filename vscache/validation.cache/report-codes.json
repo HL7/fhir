@@ -2,27 +2,27 @@
   "url": "http://hl7.org/fhir/ValueSet/report-codes",
   "outcomes": [
     {
-      "hash": "#|http://acme.com/labs/reports|null|142080|Rapid Plasma Reagin",
-      "severity": null,
-      "message": null
+      "hash": "|http://acme.com/labs/reports|null|142080|Rapid Plasma Reagin",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Diagnostic Report Codes"
     },
     {
-      "hash": "#|http://acme.com/labs/reports|null|25T|E/LFT (MASTER)",
-      "severity": null,
-      "message": null
+      "hash": "|http://acme.com/labs/reports|null|25T|E/LFT (MASTER)",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Diagnostic Report Codes"
     },
     {
-      "hash": "#|http://acme.com/labs/reports|null|GHP|General Health Profile",
-      "severity": null,
-      "message": null
+      "hash": "|http://acme.com/labs/reports|null|GHP|General Health Profile",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Diagnostic Report Codes"
     },
     {
-      "hash": "#|http://acme.com/labs/reports|null|bchem2|Specialist Biochemistry",
-      "severity": null,
-      "message": null
+      "hash": "|http://acme.com/labs/reports|null|bchem2|Specialist Biochemistry",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Diagnostic Report Codes"
     },
     {
-      "hash": "#|http://loinc.org|null|18769-0|Microbial susceptibility tests Set",
+      "hash": "|http://loinc.org|null|18769-0|Microbial susceptibility tests Set",
       "severity": null,
       "message": null,
       "definition": {
@@ -33,7 +33,7 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|38269-7|null",
+      "hash": "|http://loinc.org|null|38269-7|null",
       "severity": null,
       "message": null,
       "definition": {
@@ -44,7 +44,7 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|47527-7|null",
+      "hash": "|http://loinc.org|null|47527-7|null",
       "severity": null,
       "message": null,
       "definition": {
@@ -55,7 +55,7 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|58410-2|Complete blood count (hemogram) panel - Blood by Automated count",
+      "hash": "|http://loinc.org|null|58410-2|Complete blood count (hemogram) panel - Blood by Automated count",
       "severity": null,
       "message": null,
       "definition": {
@@ -66,18 +66,7 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|58410-2|Complete blood count (hemogram) panel - Blood by Automated count#|null|null|CBC|MASTER FULL BLOOD COUNT",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Complete blood count (hemogram) panel - Blood by Automated count"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|632-0|null",
+      "hash": "|http://loinc.org|null|632-0|null",
       "severity": null,
       "message": null,
       "definition": {
@@ -88,19 +77,19 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|104177005|Blood culture for bacteria, including anaerobic screen",
-      "severity": null,
-      "message": null
+      "hash": "|http://snomed.info/sct|null|104177005|Blood culture for bacteria, including anaerobic screen",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Diagnostic Report Codes"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|429858000|Computed tomography (CT) of head and neck",
-      "severity": null,
-      "message": null
+      "hash": "|http://snomed.info/sct|null|429858000|Computed tomography (CT) of head and neck",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Diagnostic Report Codes"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|45036003|Ultrasonography of abdomen",
-      "severity": null,
-      "message": null
+      "hash": "|http://snomed.info/sct|null|45036003|Ultrasonography of abdomen",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Diagnostic Report Codes"
     }
   ]
 }

@@ -35,6 +35,8 @@ import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu3.model.Enumerations.*;
+import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
+
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
@@ -1761,10 +1763,14 @@ public class StructureMap extends BaseConformance {
           , input, rule);
       }
 
-  public String fhirType() {
-    return "StructureMap.group";
+      public String fhirType() {
+        return "StructureMap.group";
 
-  }
+      }
+
+      public String toString() {
+        return StructureMapUtilities.groupToString(this);
+      }
 
   }
 
@@ -2661,10 +2667,14 @@ public class StructureMap extends BaseConformance {
           , dependent, documentation);
       }
 
-  public String fhirType() {
-    return "StructureMap.group.rule";
+      public String fhirType() {
+        return "StructureMap.group.rule";
 
-  }
+      }
+
+      public String toString() {
+        return StructureMapUtilities.ruleToString(this);
+      }
 
   }
 
@@ -3298,10 +3308,15 @@ public class StructureMap extends BaseConformance {
           , element, listMode, variable, condition, check);
       }
 
-  public String fhirType() {
-    return "StructureMap.group.rule.source";
+      public String fhirType() {
+        return "StructureMap.group.rule.source";
 
-  }
+      }
+
+      public String toString() {
+        return StructureMapUtilities.sourceToString(this);
+      }
+
 
   }
 
@@ -3963,10 +3978,15 @@ public class StructureMap extends BaseConformance {
           , variable, listMode, listRuleId, transform, parameter);
       }
 
-  public String fhirType() {
-    return "StructureMap.group.rule.target";
+      public String fhirType() {
+        return "StructureMap.group.rule.target";
 
-  }
+      }
+
+      public String toString() {
+        return StructureMapUtilities.targetToString(this);
+      }
+
 
   }
 
@@ -4179,10 +4199,14 @@ public class StructureMap extends BaseConformance {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(value);
       }
 
-  public String fhirType() {
-    return "StructureMap.group.rule.target.parameter";
+      public String fhirType() {
+        return "StructureMap.group.rule.target.parameter";
 
-  }
+      }
+
+      public String toString() {
+        return StructureMapUtilities.paramToString(this);
+      }
 
   }
 
@@ -5592,6 +5616,9 @@ public class StructureMap extends BaseConformance {
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
+  public String toString() {
+    return StructureMapUtilities.render(this);
+  }
 
 }
 

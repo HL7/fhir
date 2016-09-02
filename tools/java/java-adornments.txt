@@ -27,3 +27,63 @@ fragment
     
 ----
   
+-- StructureMap --
+
+  public String toString() {
+    return StructureMapUtilities.render(this);
+  }
+
+----
+
+-- StructureMapGroupComponent --
+
+  public String toString() {
+    return StructureMapUtilities.groupToString(this);
+  }
+
+----
+
+-- StructureMapGroupRuleComponent --
+
+  public String toString() {
+    return StructureMapUtilities.ruleToString(this);
+  }
+
+----
+
+-- StructureMapGroupRuleSourceComponent --
+
+  public String toString() {
+    return StructureMapUtilities.sourceToString(this);
+  }
+
+----
+
+-- StructureMapGroupRuleTargetComponent --
+
+  public String toString() {
+    return StructureMapUtilities.targetToString(this);
+  }
+
+----
+
+
+-- StructureMapGroupRuleTargetParameterComponent --
+
+  public String toString() {
+    return StructureMapUtilities.paramToString(this);
+  }
+
+----
+
+
+
+-- StructureMapGroupRuleTargetParameterComponent --
+
+      public String toString() {
+        return value == null ? "null!" : value.toString();
+      }
+
+
+----
+
