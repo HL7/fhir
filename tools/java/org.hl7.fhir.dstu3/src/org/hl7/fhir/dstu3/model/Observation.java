@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1328,7 +1328,7 @@ public class Observation extends DomainResource {
           this.code = castToCodeableConcept(value); // CodeableConcept
           break;
         case 111972721: // value
-          this.value = (Type) value; // Type
+          this.value = castToType(value); // Type
           break;
         case 1034315687: // dataAbsentReason
           this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
@@ -1349,7 +1349,7 @@ public class Observation extends DomainResource {
         if (name.equals("code"))
           this.code = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("value[x]"))
-          this.value = (Type) value; // Type
+          this.value = castToType(value); // Type
         else if (name.equals("dataAbsentReason"))
           this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("interpretation"))
@@ -2698,7 +2698,7 @@ public class Observation extends DomainResource {
           this.encounter = castToReference(value); // Reference
           break;
         case -1468651097: // effective
-          this.effective = (Type) value; // Type
+          this.effective = castToType(value); // Type
           break;
         case -1179159893: // issued
           this.issued = castToInstant(value); // InstantType
@@ -2759,13 +2759,13 @@ public class Observation extends DomainResource {
         else if (name.equals("encounter"))
           this.encounter = castToReference(value); // Reference
         else if (name.equals("effective[x]"))
-          this.effective = (Type) value; // Type
+          this.effective = castToType(value); // Type
         else if (name.equals("issued"))
           this.issued = castToInstant(value); // InstantType
         else if (name.equals("performer"))
           this.getPerformer().add(castToReference(value));
         else if (name.equals("value[x]"))
-          this.value = (Type) value; // Type
+          this.value = castToType(value); // Type
         else if (name.equals("dataAbsentReason"))
           this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("interpretation"))

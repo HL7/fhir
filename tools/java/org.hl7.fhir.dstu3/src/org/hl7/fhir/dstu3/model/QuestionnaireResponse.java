@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -882,7 +882,7 @@ public class QuestionnaireResponse extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 111972721: // value
-          this.value = (Type) value; // Type
+          this.value = castToType(value); // Type
           break;
         case 3242771: // item
           this.getItem().add((QuestionnaireResponseItemComponent) value); // QuestionnaireResponseItemComponent
@@ -895,7 +895,7 @@ public class QuestionnaireResponse extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("value[x]"))
-          this.value = (Type) value; // Type
+          this.value = castToType(value); // Type
         else if (name.equals("item"))
           this.getItem().add((QuestionnaireResponseItemComponent) value);
         else

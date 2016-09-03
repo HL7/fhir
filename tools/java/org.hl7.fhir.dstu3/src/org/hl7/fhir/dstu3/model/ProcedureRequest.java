@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1224,10 +1224,10 @@ public class ProcedureRequest extends DomainResource {
           this.getBodySite().add(castToCodeableConcept(value)); // CodeableConcept
           break;
         case -934964668: // reason
-          this.reason = (Type) value; // Type
+          this.reason = castToType(value); // Type
           break;
         case -160710483: // scheduled
-          this.scheduled = (Type) value; // Type
+          this.scheduled = castToType(value); // Type
           break;
         case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
@@ -1242,7 +1242,7 @@ public class ProcedureRequest extends DomainResource {
           this.getNotes().add(castToAnnotation(value)); // Annotation
           break;
         case -1432923513: // asNeeded
-          this.asNeeded = (Type) value; // Type
+          this.asNeeded = castToType(value); // Type
           break;
         case -391079124: // orderedOn
           this.orderedOn = castToDateTime(value); // DateTimeType
@@ -1269,9 +1269,9 @@ public class ProcedureRequest extends DomainResource {
         else if (name.equals("bodySite"))
           this.getBodySite().add(castToCodeableConcept(value));
         else if (name.equals("reason[x]"))
-          this.reason = (Type) value; // Type
+          this.reason = castToType(value); // Type
         else if (name.equals("scheduled[x]"))
-          this.scheduled = (Type) value; // Type
+          this.scheduled = castToType(value); // Type
         else if (name.equals("encounter"))
           this.encounter = castToReference(value); // Reference
         else if (name.equals("performer"))
@@ -1281,7 +1281,7 @@ public class ProcedureRequest extends DomainResource {
         else if (name.equals("notes"))
           this.getNotes().add(castToAnnotation(value));
         else if (name.equals("asNeeded[x]"))
-          this.asNeeded = (Type) value; // Type
+          this.asNeeded = castToType(value); // Type
         else if (name.equals("orderedOn"))
           this.orderedOn = castToDateTime(value); // DateTimeType
         else if (name.equals("orderer"))

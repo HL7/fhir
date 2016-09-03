@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -39,7 +39,6 @@ import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.OidType;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.UuidType;
-import org.hl7.fhir.dstu3.utils.formats.Turtle.Complex;
 import org.hl7.fhir.dstu3.model.InstantType;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.Base64BinaryType;
@@ -54,7 +53,7 @@ import org.xmlpull.v1.*;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.exceptions.FHIRException;
-
+import org.hl7.fhir.dstu3.utils.formats.Turtle.Complex;
 import java.io.IOException;
 
 public class RdfParser extends RdfParserBase {

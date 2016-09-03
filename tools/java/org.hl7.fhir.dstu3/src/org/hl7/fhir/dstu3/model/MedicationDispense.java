@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -718,10 +718,10 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           this.timing = castToTiming(value); // Timing
           break;
         case -1432923513: // asNeeded
-          this.asNeeded = (Type) value; // Type
+          this.asNeeded = castToType(value); // Type
           break;
         case 3530567: // site
-          this.site = (Type) value; // Type
+          this.site = castToType(value); // Type
           break;
         case 108704329: // route
           this.route = castToCodeableConcept(value); // CodeableConcept
@@ -730,10 +730,10 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           this.method = castToCodeableConcept(value); // CodeableConcept
           break;
         case 3089437: // dose
-          this.dose = (Type) value; // Type
+          this.dose = castToType(value); // Type
           break;
         case 3493088: // rate
-          this.rate = (Type) value; // Type
+          this.rate = castToType(value); // Type
           break;
         case 1506263709: // maxDosePerPeriod
           this.maxDosePerPeriod = castToRatio(value); // Ratio
@@ -752,17 +752,17 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         else if (name.equals("timing"))
           this.timing = castToTiming(value); // Timing
         else if (name.equals("asNeeded[x]"))
-          this.asNeeded = (Type) value; // Type
+          this.asNeeded = castToType(value); // Type
         else if (name.equals("site[x]"))
-          this.site = (Type) value; // Type
+          this.site = castToType(value); // Type
         else if (name.equals("route"))
           this.route = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("method"))
           this.method = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("dose[x]"))
-          this.dose = (Type) value; // Type
+          this.dose = castToType(value); // Type
         else if (name.equals("rate[x]"))
-          this.rate = (Type) value; // Type
+          this.rate = castToType(value); // Type
         else if (name.equals("maxDosePerPeriod"))
           this.maxDosePerPeriod = castToRatio(value); // Ratio
         else
@@ -2633,7 +2633,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           this.status = new MedicationDispenseStatusEnumFactory().fromType(value); // Enumeration<MedicationDispenseStatus>
           break;
         case 1998965455: // medication
-          this.medication = (Type) value; // Type
+          this.medication = castToType(value); // Type
           break;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
@@ -2692,7 +2692,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         else if (name.equals("status"))
           this.status = new MedicationDispenseStatusEnumFactory().fromType(value); // Enumeration<MedicationDispenseStatus>
         else if (name.equals("medication[x]"))
-          this.medication = (Type) value; // Type
+          this.medication = castToType(value); // Type
         else if (name.equals("patient"))
           this.patient = castToReference(value); // Reference
         else if (name.equals("dispenser"))

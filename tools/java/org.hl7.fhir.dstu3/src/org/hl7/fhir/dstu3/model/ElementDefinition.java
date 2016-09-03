@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -48,13 +48,6 @@ import org.hl7.fhir.exceptions.FHIRException;
 @DatatypeDef(name="ElementDefinition")
 public class ElementDefinition extends Type implements ICompositeType {
 
-  public String toString() {
-    if (hasName())
-      return getPath()+":"+getName();
-    else
-      return getPath();
-  }
-  
     public enum PropertyRepresentation {
         /**
          * In XML, this property is represented as an attribute not an element.
@@ -5669,6 +5662,14 @@ public class ElementDefinition extends Type implements ICompositeType {
           , isSummary, binding, mapping);
       }
 
+  
+  public String toString() {
+    if (hasName())
+      return getPath()+":"+getName();
+    else
+      return getPath();
+  }
+    
 
 }
 

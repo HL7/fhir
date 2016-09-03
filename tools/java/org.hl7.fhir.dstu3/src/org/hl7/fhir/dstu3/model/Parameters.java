@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -258,7 +258,7 @@ public class Parameters extends Resource implements IBaseParameters {
           this.name = castToString(value); // StringType
           break;
         case 111972721: // value
-          this.value = (org.hl7.fhir.dstu3.model.Type) value; // org.hl7.fhir.dstu3.model.Type
+          this.value = castToType(value); // org.hl7.fhir.dstu3.model.Type
           break;
         case -341064690: // resource
           this.resource = castToResource(value); // Resource
@@ -276,7 +276,7 @@ public class Parameters extends Resource implements IBaseParameters {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("value[x]"))
-          this.value = (org.hl7.fhir.dstu3.model.Type) value; // org.hl7.fhir.dstu3.model.Type
+          this.value = castToType(value); // org.hl7.fhir.dstu3.model.Type
         else if (name.equals("resource"))
           this.resource = castToResource(value); // Resource
         else if (name.equals("part"))

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2089,7 +2089,7 @@ public class Procedure extends DomainResource {
           this.getPerformer().add((ProcedurePerformerComponent) value); // ProcedurePerformerComponent
           break;
         case 481140672: // performed
-          this.performed = (Type) value; // Type
+          this.performed = castToType(value); // Type
           break;
         case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
@@ -2157,7 +2157,7 @@ public class Procedure extends DomainResource {
         else if (name.equals("performer"))
           this.getPerformer().add((ProcedurePerformerComponent) value);
         else if (name.equals("performed[x]"))
-          this.performed = (Type) value; // Type
+          this.performed = castToType(value); // Type
         else if (name.equals("encounter"))
           this.encounter = castToReference(value); // Reference
         else if (name.equals("location"))

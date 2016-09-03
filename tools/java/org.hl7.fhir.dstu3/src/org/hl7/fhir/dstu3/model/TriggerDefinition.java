@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -482,7 +482,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
           this.eventName = castToString(value); // StringType
           break;
         case 125465476: // eventTiming
-          this.eventTiming = (Type) value; // Type
+          this.eventTiming = castToType(value); // Type
           break;
         case 30931300: // eventData
           this.eventData = castToDataRequirement(value); // DataRequirement
@@ -499,7 +499,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
         else if (name.equals("eventName"))
           this.eventName = castToString(value); // StringType
         else if (name.equals("eventTiming[x]"))
-          this.eventTiming = (Type) value; // Type
+          this.eventTiming = castToType(value); // Type
         else if (name.equals("eventData"))
           this.eventData = castToDataRequirement(value); // DataRequirement
         else

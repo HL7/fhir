@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -429,10 +429,10 @@ public class Signature extends Type implements ICompositeType {
           this.when = castToInstant(value); // InstantType
           break;
         case 117694: // who
-          this.who = (Type) value; // Type
+          this.who = castToType(value); // Type
           break;
         case -14402964: // onBehalfOf
-          this.onBehalfOf = (Type) value; // Type
+          this.onBehalfOf = castToType(value); // Type
           break;
         case -389131437: // contentType
           this.contentType = castToCode(value); // CodeType
@@ -452,9 +452,9 @@ public class Signature extends Type implements ICompositeType {
         else if (name.equals("when"))
           this.when = castToInstant(value); // InstantType
         else if (name.equals("who[x]"))
-          this.who = (Type) value; // Type
+          this.who = castToType(value); // Type
         else if (name.equals("onBehalfOf[x]"))
-          this.onBehalfOf = (Type) value; // Type
+          this.onBehalfOf = castToType(value); // Type
         else if (name.equals("contentType"))
           this.contentType = castToCode(value); // CodeType
         else if (name.equals("blob"))

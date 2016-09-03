@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -825,19 +825,19 @@ public class PaymentNotice extends DomainResource {
           this.created = castToDateTime(value); // DateTimeType
           break;
         case -880905839: // target
-          this.target = (Type) value; // Type
+          this.target = castToType(value); // Type
           break;
         case -987494927: // provider
-          this.provider = (Type) value; // Type
+          this.provider = castToType(value); // Type
           break;
         case 1178922291: // organization
-          this.organization = (Type) value; // Type
+          this.organization = castToType(value); // Type
           break;
         case 1095692943: // request
-          this.request = (Type) value; // Type
+          this.request = castToType(value); // Type
           break;
         case -340323263: // response
-          this.response = (Type) value; // Type
+          this.response = castToType(value); // Type
           break;
         case 1430704536: // paymentStatus
           this.paymentStatus = castToCoding(value); // Coding
@@ -863,15 +863,15 @@ public class PaymentNotice extends DomainResource {
         else if (name.equals("created"))
           this.created = castToDateTime(value); // DateTimeType
         else if (name.equals("target[x]"))
-          this.target = (Type) value; // Type
+          this.target = castToType(value); // Type
         else if (name.equals("provider[x]"))
-          this.provider = (Type) value; // Type
+          this.provider = castToType(value); // Type
         else if (name.equals("organization[x]"))
-          this.organization = (Type) value; // Type
+          this.organization = castToType(value); // Type
         else if (name.equals("request[x]"))
-          this.request = (Type) value; // Type
+          this.request = castToType(value); // Type
         else if (name.equals("response[x]"))
-          this.response = (Type) value; // Type
+          this.response = castToType(value); // Type
         else if (name.equals("paymentStatus"))
           this.paymentStatus = castToCoding(value); // Coding
         else if (name.equals("statusDate"))

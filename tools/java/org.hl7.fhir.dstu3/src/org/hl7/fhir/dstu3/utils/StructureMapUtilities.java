@@ -1266,9 +1266,9 @@ public class StructureMapUtilities {
   private String getParamStringNoNull(Variables vars, StructureMapGroupRuleTargetParameterComponent parameter, String message) throws FHIRException {
     Base b = getParam(vars, parameter);
     if (b == null)
-      throw new FHIRException("Unable to find a value for "+parameter.toString()+". Context = "+message);
+      throw new FHIRException("Unable to find a value for "+parameter.toString()+". Context: "+message);
     if (!b.hasPrimitiveValue())
-      throw new FHIRException("Found a value for "+parameter.toString()+", but it has a type of "+b.fhirType()+" and cannot be treated as a string. Context = "+message);
+      throw new FHIRException("Found a value for "+parameter.toString()+", but it has a type of "+b.fhirType()+" and cannot be treated as a string. Context: "+message);
     return b.primitiveValue();
   }
 
@@ -1278,7 +1278,6 @@ public class StructureMapUtilities {
 			return null;
 		return b.primitiveValue();
 	}
-
 
 	private Base getParam(Variables vars, StructureMapGroupRuleTargetParameterComponent parameter) throws DefinitionException {
 		Type p = parameter.getValue();
@@ -1294,7 +1293,6 @@ public class StructureMapUtilities {
 			return b;
 		}
 	}
-
 
 	private Base translate(TransformContext context, StructureMap map, Variables vars, List<StructureMapGroupRuleTargetParameterComponent> parameter) throws FHIRException {
 		Base src = getParam(vars, parameter.get(0));

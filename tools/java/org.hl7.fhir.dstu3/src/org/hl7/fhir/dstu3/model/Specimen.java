@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -413,7 +413,7 @@ public class Specimen extends DomainResource {
           this.collector = castToReference(value); // Reference
           break;
         case 1883491145: // collected
-          this.collected = (Type) value; // Type
+          this.collected = castToType(value); // Type
           break;
         case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
@@ -434,7 +434,7 @@ public class Specimen extends DomainResource {
         if (name.equals("collector"))
           this.collector = castToReference(value); // Reference
         else if (name.equals("collected[x]"))
-          this.collected = (Type) value; // Type
+          this.collected = castToType(value); // Type
         else if (name.equals("quantity"))
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
         else if (name.equals("method"))
@@ -803,7 +803,7 @@ public class Specimen extends DomainResource {
           this.getAdditive().add(castToReference(value)); // Reference
           break;
         case 3560141: // time
-          this.time = (Type) value; // Type
+          this.time = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -819,7 +819,7 @@ public class Specimen extends DomainResource {
         else if (name.equals("additive"))
           this.getAdditive().add(castToReference(value));
         else if (name.equals("time[x]"))
-          this.time = (Type) value; // Type
+          this.time = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -1224,7 +1224,7 @@ public class Specimen extends DomainResource {
           this.specimenQuantity = castToSimpleQuantity(value); // SimpleQuantity
           break;
         case -1226589236: // additive
-          this.additive = (Type) value; // Type
+          this.additive = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -1244,7 +1244,7 @@ public class Specimen extends DomainResource {
         else if (name.equals("specimenQuantity"))
           this.specimenQuantity = castToSimpleQuantity(value); // SimpleQuantity
         else if (name.equals("additive[x]"))
-          this.additive = (Type) value; // Type
+          this.additive = castToType(value); // Type
         else
           super.setProperty(name, value);
       }

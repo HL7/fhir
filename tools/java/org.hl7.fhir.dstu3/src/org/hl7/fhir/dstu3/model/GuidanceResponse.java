@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2002,7 +2002,7 @@ public class GuidanceResponse extends DomainResource {
           this.relatedAction = (GuidanceResponseActionRelatedActionComponent) value; // GuidanceResponseActionRelatedActionComponent
           break;
         case -873664438: // timing
-          this.timing = (Type) value; // Type
+          this.timing = castToType(value); // Type
           break;
         case 767422259: // participant
           this.getParticipant().add(castToReference(value)); // Reference
@@ -2055,7 +2055,7 @@ public class GuidanceResponse extends DomainResource {
         else if (name.equals("relatedAction"))
           this.relatedAction = (GuidanceResponseActionRelatedActionComponent) value; // GuidanceResponseActionRelatedActionComponent
         else if (name.equals("timing[x]"))
-          this.timing = (Type) value; // Type
+          this.timing = castToType(value); // Type
         else if (name.equals("participant"))
           this.getParticipant().add(castToReference(value));
         else if (name.equals("type"))
@@ -2509,7 +2509,7 @@ public class GuidanceResponse extends DomainResource {
           this.relationship = new ActionRelationshipTypeEnumFactory().fromType(value); // Enumeration<ActionRelationshipType>
           break;
         case -1019779949: // offset
-          this.offset = (Type) value; // Type
+          this.offset = castToType(value); // Type
           break;
         case -1413299531: // anchor
           this.anchor = new ActionRelationshipAnchorEnumFactory().fromType(value); // Enumeration<ActionRelationshipAnchor>
@@ -2526,7 +2526,7 @@ public class GuidanceResponse extends DomainResource {
         else if (name.equals("relationship"))
           this.relationship = new ActionRelationshipTypeEnumFactory().fromType(value); // Enumeration<ActionRelationshipType>
         else if (name.equals("offset[x]"))
-          this.offset = (Type) value; // Type
+          this.offset = castToType(value); // Type
         else if (name.equals("anchor"))
           this.anchor = new ActionRelationshipAnchorEnumFactory().fromType(value); // Enumeration<ActionRelationshipAnchor>
         else
@@ -3483,7 +3483,7 @@ public class GuidanceResponse extends DomainResource {
           this.performer = castToReference(value); // Reference
           break;
         case -934964668: // reason
-          this.reason = (Type) value; // Type
+          this.reason = castToType(value); // Type
           break;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
@@ -3524,7 +3524,7 @@ public class GuidanceResponse extends DomainResource {
         else if (name.equals("performer"))
           this.performer = castToReference(value); // Reference
         else if (name.equals("reason[x]"))
-          this.reason = (Type) value; // Type
+          this.reason = castToType(value); // Type
         else if (name.equals("note"))
           this.getNote().add(castToAnnotation(value));
         else if (name.equals("evaluationMessage"))

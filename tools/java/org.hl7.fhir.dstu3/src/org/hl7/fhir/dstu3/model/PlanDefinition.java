@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2338,7 +2338,7 @@ public class PlanDefinition extends DomainResource {
           this.getRelatedAction().add((PlanDefinitionActionDefinitionRelatedActionComponent) value); // PlanDefinitionActionDefinitionRelatedActionComponent
           break;
         case -873664438: // timing
-          this.timing = (Type) value; // Type
+          this.timing = castToType(value); // Type
           break;
         case 841294093: // participantType
           this.getParticipantType().add(new PlanActionParticipantTypeEnumFactory().fromType(value)); // Enumeration<PlanActionParticipantType>
@@ -2401,7 +2401,7 @@ public class PlanDefinition extends DomainResource {
         else if (name.equals("relatedAction"))
           this.getRelatedAction().add((PlanDefinitionActionDefinitionRelatedActionComponent) value);
         else if (name.equals("timing[x]"))
-          this.timing = (Type) value; // Type
+          this.timing = castToType(value); // Type
         else if (name.equals("participantType"))
           this.getParticipantType().add(new PlanActionParticipantTypeEnumFactory().fromType(value));
         else if (name.equals("type"))
@@ -3194,7 +3194,7 @@ public class PlanDefinition extends DomainResource {
           this.relationship = new PlanActionRelationshipTypeEnumFactory().fromType(value); // Enumeration<PlanActionRelationshipType>
           break;
         case -1019779949: // offset
-          this.offset = (Type) value; // Type
+          this.offset = castToType(value); // Type
           break;
         case -1413299531: // anchor
           this.anchor = new PlanActionRelationshipAnchorEnumFactory().fromType(value); // Enumeration<PlanActionRelationshipAnchor>
@@ -3211,7 +3211,7 @@ public class PlanDefinition extends DomainResource {
         else if (name.equals("relationship"))
           this.relationship = new PlanActionRelationshipTypeEnumFactory().fromType(value); // Enumeration<PlanActionRelationshipType>
         else if (name.equals("offset[x]"))
-          this.offset = (Type) value; // Type
+          this.offset = castToType(value); // Type
         else if (name.equals("anchor"))
           this.anchor = new PlanActionRelationshipAnchorEnumFactory().fromType(value); // Enumeration<PlanActionRelationshipAnchor>
         else

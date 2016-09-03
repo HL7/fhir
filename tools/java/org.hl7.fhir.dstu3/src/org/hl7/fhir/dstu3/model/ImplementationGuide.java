@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1477,7 +1477,7 @@ public class ImplementationGuide extends DomainResource {
           this.acronym = castToString(value); // StringType
           break;
         case -896505829: // source
-          this.source = (Type) value; // Type
+          this.source = castToType(value); // Type
           break;
         case -2002349313: // exampleFor
           this.exampleFor = castToReference(value); // Reference
@@ -1498,7 +1498,7 @@ public class ImplementationGuide extends DomainResource {
         else if (name.equals("acronym"))
           this.acronym = castToString(value); // StringType
         else if (name.equals("source[x]"))
-          this.source = (Type) value; // Type
+          this.source = castToType(value); // Type
         else if (name.equals("exampleFor"))
           this.exampleFor = castToReference(value); // Reference
         else

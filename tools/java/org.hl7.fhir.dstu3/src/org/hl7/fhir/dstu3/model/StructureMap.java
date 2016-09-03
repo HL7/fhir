@@ -29,14 +29,12 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu3.model.Enumerations.*;
-import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
-
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
@@ -45,6 +43,9 @@ import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
+
+import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
+
 /**
  * A Map of relationships between 2 structures that can be used to transform data.
  */
@@ -1763,14 +1764,15 @@ public class StructureMap extends BaseConformance {
           , input, rule);
       }
 
-      public String fhirType() {
-        return "StructureMap.group";
+  public String fhirType() {
+    return "StructureMap.group";
 
-      }
+  }
 
-      public String toString() {
-        return StructureMapUtilities.groupToString(this);
-      }
+
+  public String toString() {
+    return StructureMapUtilities.groupToString(this);
+  }
 
   }
 
@@ -2667,14 +2669,15 @@ public class StructureMap extends BaseConformance {
           , dependent, documentation);
       }
 
-      public String fhirType() {
-        return "StructureMap.group.rule";
+  public String fhirType() {
+    return "StructureMap.group.rule";
 
-      }
+  }
 
-      public String toString() {
-        return StructureMapUtilities.ruleToString(this);
-      }
+
+  public String toString() {
+    return StructureMapUtilities.ruleToString(this);
+  }
 
   }
 
@@ -3308,15 +3311,15 @@ public class StructureMap extends BaseConformance {
           , element, listMode, variable, condition, check);
       }
 
-      public String fhirType() {
-        return "StructureMap.group.rule.source";
+  public String fhirType() {
+    return "StructureMap.group.rule.source";
 
-      }
+  }
 
-      public String toString() {
-        return StructureMapUtilities.sourceToString(this);
-      }
 
+  public String toString() {
+    return StructureMapUtilities.sourceToString(this);
+  }
 
   }
 
@@ -3325,14 +3328,14 @@ public class StructureMap extends BaseConformance {
         /**
          * Type or variable this rule applies to.
          */
-        @Child(name = "context", type = {IdType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "context", type = {IdType.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Type or variable this rule applies to", formalDefinition="Type or variable this rule applies to." )
         protected IdType context;
 
         /**
          * How to interpret the context.
          */
-        @Child(name = "contextType", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "contextType", type = {CodeType.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="type | variable", formalDefinition="How to interpret the context." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/map-context-type")
         protected Enumeration<StructureMapContextType> contextType;
@@ -3390,15 +3393,6 @@ public class StructureMap extends BaseConformance {
         super();
       }
 
-    /**
-     * Constructor
-     */
-      public StructureMapGroupRuleTargetComponent(IdType context, Enumeration<StructureMapContextType> contextType) {
-        super();
-        this.context = context;
-        this.contextType = contextType;
-      }
-
         /**
          * @return {@link #context} (Type or variable this rule applies to.). This is the underlying object with id, value and extensions. The accessor "getContext" gives direct access to the value
          */
@@ -3438,9 +3432,13 @@ public class StructureMap extends BaseConformance {
          * @param value Type or variable this rule applies to.
          */
         public StructureMapGroupRuleTargetComponent setContext(String value) { 
+          if (Utilities.noString(value))
+            this.context = null;
+          else {
             if (this.context == null)
               this.context = new IdType();
             this.context.setValue(value);
+          }
           return this;
         }
 
@@ -3483,9 +3481,13 @@ public class StructureMap extends BaseConformance {
          * @param value How to interpret the context.
          */
         public StructureMapGroupRuleTargetComponent setContextType(StructureMapContextType value) { 
+          if (value == null)
+            this.contextType = null;
+          else {
             if (this.contextType == null)
               this.contextType = new Enumeration<StructureMapContextType>(new StructureMapContextTypeEnumFactory());
             this.contextType.setValue(value);
+          }
           return this;
         }
 
@@ -3978,15 +3980,15 @@ public class StructureMap extends BaseConformance {
           , variable, listMode, listRuleId, transform, parameter);
       }
 
-      public String fhirType() {
-        return "StructureMap.group.rule.target";
+  public String fhirType() {
+    return "StructureMap.group.rule.target";
 
-      }
+  }
 
-      public String toString() {
-        return StructureMapUtilities.targetToString(this);
-      }
 
+  public String toString() {
+    return StructureMapUtilities.targetToString(this);
+  }
 
   }
 
@@ -4118,7 +4120,7 @@ public class StructureMap extends BaseConformance {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 111972721: // value
-          this.value = (Type) value; // Type
+          this.value = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -4128,7 +4130,7 @@ public class StructureMap extends BaseConformance {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("value[x]"))
-          this.value = (Type) value; // Type
+          this.value = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -4199,14 +4201,16 @@ public class StructureMap extends BaseConformance {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(value);
       }
 
-      public String fhirType() {
-        return "StructureMap.group.rule.target.parameter";
+  public String fhirType() {
+    return "StructureMap.group.rule.target.parameter";
 
-      }
+  }
+
 
       public String toString() {
-        return StructureMapUtilities.paramToString(this);
+        return value == null ? "null!" : value.toString();
       }
+
 
   }
 
@@ -5616,9 +5620,11 @@ public class StructureMap extends BaseConformance {
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
+
   public String toString() {
     return StructureMapUtilities.render(this);
   }
+
 
 }
 

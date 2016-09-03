@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1121,7 +1121,7 @@ public class ProcessResponse extends DomainResource {
           this.status = new ProcessResponseStatusEnumFactory().fromType(value); // Enumeration<ProcessResponseStatus>
           break;
         case 1095692943: // request
-          this.request = (Type) value; // Type
+          this.request = castToType(value); // Type
           break;
         case -1106507950: // outcome
           this.outcome = castToCoding(value); // Coding
@@ -1139,13 +1139,13 @@ public class ProcessResponse extends DomainResource {
           this.created = castToDateTime(value); // DateTimeType
           break;
         case 1178922291: // organization
-          this.organization = (Type) value; // Type
+          this.organization = castToType(value); // Type
           break;
         case 1601527200: // requestProvider
-          this.requestProvider = (Type) value; // Type
+          this.requestProvider = castToType(value); // Type
           break;
         case 599053666: // requestOrganization
-          this.requestOrganization = (Type) value; // Type
+          this.requestOrganization = castToType(value); // Type
           break;
         case 3148996: // form
           this.form = castToCoding(value); // Coding
@@ -1168,7 +1168,7 @@ public class ProcessResponse extends DomainResource {
         else if (name.equals("status"))
           this.status = new ProcessResponseStatusEnumFactory().fromType(value); // Enumeration<ProcessResponseStatus>
         else if (name.equals("request[x]"))
-          this.request = (Type) value; // Type
+          this.request = castToType(value); // Type
         else if (name.equals("outcome"))
           this.outcome = castToCoding(value); // Coding
         else if (name.equals("disposition"))
@@ -1180,11 +1180,11 @@ public class ProcessResponse extends DomainResource {
         else if (name.equals("created"))
           this.created = castToDateTime(value); // DateTimeType
         else if (name.equals("organization[x]"))
-          this.organization = (Type) value; // Type
+          this.organization = castToType(value); // Type
         else if (name.equals("requestProvider[x]"))
-          this.requestProvider = (Type) value; // Type
+          this.requestProvider = castToType(value); // Type
         else if (name.equals("requestOrganization[x]"))
-          this.requestOrganization = (Type) value; // Type
+          this.requestOrganization = castToType(value); // Type
         else if (name.equals("form"))
           this.form = castToCoding(value); // Coding
         else if (name.equals("notes"))

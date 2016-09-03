@@ -177,9 +177,9 @@ public class TypeDetails {
     else 
       result.collectionStatus = CollectionStatus.ORDERED;
     for (ProfiledType pt : types)
-      addType(pt);
+      result.addType(pt);
     for (ProfiledType pt : right.types)
-      addType(pt);
+      result.addType(pt);
     return result;
   }
   

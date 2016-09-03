@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -420,7 +420,7 @@ public class Substance extends DomainResource {
           this.quantity = castToRatio(value); // Ratio
           break;
         case 530040176: // substance
-          this.substance = (Type) value; // Type
+          this.substance = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -432,7 +432,7 @@ public class Substance extends DomainResource {
         if (name.equals("quantity"))
           this.quantity = castToRatio(value); // Ratio
         else if (name.equals("substance[x]"))
-          this.substance = (Type) value; // Type
+          this.substance = castToType(value); // Type
         else
           super.setProperty(name, value);
       }

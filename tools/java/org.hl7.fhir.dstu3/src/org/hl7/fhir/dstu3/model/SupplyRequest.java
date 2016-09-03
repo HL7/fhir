@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -917,13 +917,13 @@ public class SupplyRequest extends DomainResource {
           this.kind = castToCodeableConcept(value); // CodeableConcept
           break;
         case 2129914144: // orderedItem
-          this.orderedItem = (Type) value; // Type
+          this.orderedItem = castToType(value); // Type
           break;
         case -1663305268: // supplier
           this.getSupplier().add(castToReference(value)); // Reference
           break;
         case -934964668: // reason
-          this.reason = (Type) value; // Type
+          this.reason = castToType(value); // Type
           break;
         case 3648314: // when
           this.when = (SupplyRequestWhenComponent) value; // SupplyRequestWhenComponent
@@ -948,11 +948,11 @@ public class SupplyRequest extends DomainResource {
         else if (name.equals("kind"))
           this.kind = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("orderedItem[x]"))
-          this.orderedItem = (Type) value; // Type
+          this.orderedItem = castToType(value); // Type
         else if (name.equals("supplier"))
           this.getSupplier().add(castToReference(value));
         else if (name.equals("reason[x]"))
-          this.reason = (Type) value; // Type
+          this.reason = castToType(value); // Type
         else if (name.equals("when"))
           this.when = (SupplyRequestWhenComponent) value; // SupplyRequestWhenComponent
         else

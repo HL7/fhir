@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -484,7 +484,7 @@ public class MedicationAdministration extends DomainResource {
           this.text = castToString(value); // StringType
           break;
         case 3530567: // site
-          this.site = (Type) value; // Type
+          this.site = castToType(value); // Type
           break;
         case 108704329: // route
           this.route = castToCodeableConcept(value); // CodeableConcept
@@ -496,7 +496,7 @@ public class MedicationAdministration extends DomainResource {
           this.dose = castToSimpleQuantity(value); // SimpleQuantity
           break;
         case 3493088: // rate
-          this.rate = (Type) value; // Type
+          this.rate = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -508,7 +508,7 @@ public class MedicationAdministration extends DomainResource {
         if (name.equals("text"))
           this.text = castToString(value); // StringType
         else if (name.equals("site[x]"))
-          this.site = (Type) value; // Type
+          this.site = castToType(value); // Type
         else if (name.equals("route"))
           this.route = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("method"))
@@ -516,7 +516,7 @@ public class MedicationAdministration extends DomainResource {
         else if (name.equals("dose"))
           this.dose = castToSimpleQuantity(value); // SimpleQuantity
         else if (name.equals("rate[x]"))
-          this.rate = (Type) value; // Type
+          this.rate = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -1924,7 +1924,7 @@ public class MedicationAdministration extends DomainResource {
           this.status = new MedicationAdministrationStatusEnumFactory().fromType(value); // Enumeration<MedicationAdministrationStatus>
           break;
         case 1998965455: // medication
-          this.medication = (Type) value; // Type
+          this.medication = castToType(value); // Type
           break;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
@@ -1933,7 +1933,7 @@ public class MedicationAdministration extends DomainResource {
           this.encounter = castToReference(value); // Reference
           break;
         case -929905388: // effectiveTime
-          this.effectiveTime = (Type) value; // Type
+          this.effectiveTime = castToType(value); // Type
           break;
         case 481140686: // performer
           this.performer = castToReference(value); // Reference
@@ -1974,13 +1974,13 @@ public class MedicationAdministration extends DomainResource {
         else if (name.equals("status"))
           this.status = new MedicationAdministrationStatusEnumFactory().fromType(value); // Enumeration<MedicationAdministrationStatus>
         else if (name.equals("medication[x]"))
-          this.medication = (Type) value; // Type
+          this.medication = castToType(value); // Type
         else if (name.equals("patient"))
           this.patient = castToReference(value); // Reference
         else if (name.equals("encounter"))
           this.encounter = castToReference(value); // Reference
         else if (name.equals("effectiveTime[x]"))
-          this.effectiveTime = (Type) value; // Type
+          this.effectiveTime = castToType(value); // Type
         else if (name.equals("performer"))
           this.performer = castToReference(value); // Reference
         else if (name.equals("prescription"))

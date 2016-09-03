@@ -154,8 +154,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("import org.hl7.fhir.instance.model.api.*;\r\n");
     write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
     
+    classname = upFirst(name);
+    if (adornments.containsKey(classname+".imports")) {
+      write("// added from java-adornments.txt:\r\n");
+      write(adornments.get(classname+".imports")+"\r\n");
+      write("// end addition\r\n");
+    }
 		jdoc("", root.getDefinition());
-		classname = upFirst(name);
 		String supertype = root.typeCode();
 		boolean hasImpliedBaseType = false;
 		
@@ -395,7 +400,9 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		}
 		
 		if (adornments.containsKey(classname)) {
-		  write(adornments.get(classname));
+      write("// added from java-adornments.txt:\r\n");
+		  write(adornments.get(classname)+"\r\n");
+      write("// end addition\r\n");
 		}
 		write("\r\n");
 		write("}\r\n");
@@ -1496,7 +1503,9 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     generateIsEmpty(e, tn, true, false);
     generateFhirType(e.getPath());
     if (adornments.containsKey(tn)) {
-      write(adornments.get(tn));
+      write("// added from java-adornments.txt:\r\n");
+      write(adornments.get(tn)+"\r\n");
+      write("// end addition\r\n");
     }
     write("  }\r\n");
 		write("\r\n");

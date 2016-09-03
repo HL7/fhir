@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -762,7 +762,7 @@ public class SupplyDelivery extends DomainResource {
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
           break;
         case 1993333233: // suppliedItem
-          this.suppliedItem = (Type) value; // Type
+          this.suppliedItem = castToType(value); // Type
           break;
         case -1663305268: // supplier
           this.supplier = castToReference(value); // Reference
@@ -797,7 +797,7 @@ public class SupplyDelivery extends DomainResource {
         else if (name.equals("quantity"))
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
         else if (name.equals("suppliedItem[x]"))
-          this.suppliedItem = (Type) value; // Type
+          this.suppliedItem = castToType(value); // Type
         else if (name.equals("supplier"))
           this.supplier = castToReference(value); // Reference
         else if (name.equals("whenPrepared"))

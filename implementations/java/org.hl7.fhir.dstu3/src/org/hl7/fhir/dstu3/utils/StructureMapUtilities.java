@@ -212,7 +212,7 @@ public class StructureMapUtilities {
   }
 
 
-	public String render(StructureMap map) throws FHIRException {
+	public static String render(StructureMap map) {
 		StringBuilder b = new StringBuilder();
 		b.append("map \"");
 		b.append(map.getUrl());
@@ -227,7 +227,7 @@ public class StructureMapUtilities {
 		return b.toString();
 	}
 
-	private void renderUses(StringBuilder b, StructureMap map) {
+	private static void renderUses(StringBuilder b, StructureMap map) {
 		for (StructureMapStructureComponent s : map.getStructure()) {
 			b.append("uses \"");
 			b.append(s.getUrl());
@@ -240,7 +240,7 @@ public class StructureMapUtilities {
 			b.append("\r\n");
 	}
 
-	private void renderImports(StringBuilder b, StructureMap map) {
+	private static void renderImports(StringBuilder b, StructureMap map) {
 		for (UriType s : map.getImport()) {
 			b.append("imports \"");
 			b.append(s.getValue());
@@ -250,7 +250,13 @@ public class StructureMapUtilities {
 			b.append("\r\n");
 	}
 
-	private void renderGroup(StringBuilder b, StructureMapGroupComponent g) throws FHIRException {
+  public static String groupToString(StructureMapGroupComponent g) {
+    StringBuilder b = new StringBuilder();
+    renderGroup(b, g);
+    return b.toString();
+  }
+  
+  private static void renderGroup(StringBuilder b, StructureMapGroupComponent g) {
 		b.append("group ");
 		b.append(g.getName());
 		if (g.hasExtends()) {
@@ -279,7 +285,13 @@ public class StructureMapUtilities {
 		b.append("\r\nendgroup\r\n");
 	}
 
-	private void renderRule(StringBuilder b, StructureMapGroupRuleComponent r, int indent) throws FHIRException {
+  public static String ruleToString(StructureMapGroupRuleComponent r) {
+    StringBuilder b = new StringBuilder();
+    renderRule(b, r, 0);
+    return b.toString();
+  }
+  
+	private static void renderRule(StringBuilder b, StructureMapGroupRuleComponent r, int indent) {
 		for (int i = 0; i < indent; i++)
 			b.append(' ');
 		b.append(r.getName());
@@ -348,7 +360,13 @@ public class StructureMapUtilities {
 
 	}
 
-	private void renderSource(StringBuilder b, StructureMapGroupRuleSourceComponent rs) {
+  public static String sourceToString(StructureMapGroupRuleSourceComponent r) {
+    StringBuilder b = new StringBuilder();
+    renderSource(b, r);
+    return b.toString();
+  }
+  
+	private static void renderSource(StringBuilder b, StructureMapGroupRuleSourceComponent rs) {
 		if (!rs.getRequired())
 			b.append("optional ");
 		b.append(rs.getContext());
@@ -377,7 +395,13 @@ public class StructureMapUtilities {
 		}
 	}
 
-	private void renderTarget(StringBuilder b, StructureMapGroupRuleTargetComponent rt) throws FHIRException {
+  public static String targetToString(StructureMapGroupRuleTargetComponent rt) {
+    StringBuilder b = new StringBuilder();
+    renderTarget(b, rt);
+    return b.toString();
+  }
+	
+	private static void renderTarget(StringBuilder b, StructureMapGroupRuleTargetComponent rt) {
 	  if (rt.hasContext()) {
 	    if (rt.getContextType() == StructureMapContextType.TYPE)
 	      b.append("@");
@@ -394,13 +418,13 @@ public class StructureMapUtilities {
 				renderTransformParam(b, rt.getParameter().get(0));
       } else if (rt.getTransform() == StructureMapTransform.EVALUATE && rt.getParameter().size() == 1) {
         b.append("(");
-        b.append(((StringType) rt.getParameter().get(0).getValue()).asStringValue());
+        b.append("\""+((StringType) rt.getParameter().get(0).getValue()).asStringValue()+"\"");
         b.append(")");
 			} else if (rt.getTransform() == StructureMapTransform.EVALUATE && rt.getParameter().size() == 2) {
 				b.append(rt.getTransform().toCode());
 				b.append("(");
 				b.append(((IdType) rt.getParameter().get(0).getValue()).asStringValue());
-				b.append(((StringType) rt.getParameter().get(1).getValue()).asStringValue());
+				b.append("\""+((StringType) rt.getParameter().get(1).getValue()).asStringValue()+"\"");
 				b.append(")");
 			} else {
 				b.append(rt.getTransform().toCode());
@@ -430,7 +454,14 @@ public class StructureMapUtilities {
 		}
 	}
 
-	private void renderTransformParam(StringBuilder b, StructureMapGroupRuleTargetParameterComponent rtp) throws FHIRException {
+  public static String paramToString(StructureMapGroupRuleTargetParameterComponent rtp) {
+    StringBuilder b = new StringBuilder();
+    renderTransformParam(b, rtp);
+    return b.toString();
+  }
+  	
+	private static void renderTransformParam(StringBuilder b, StructureMapGroupRuleTargetParameterComponent rtp) {
+	  try {
 		if (rtp.hasValueBooleanType())
 			b.append(rtp.getValueBooleanType().asStringValue());
 		else if (rtp.hasValueDecimalType())
@@ -442,10 +473,14 @@ public class StructureMapUtilities {
 		else if (rtp.hasValueIntegerType())
 			b.append(rtp.getValueIntegerType().asStringValue());
 		else 
-			b.append(Utilities.escapeJava(rtp.getValueStringType().asStringValue()));
+	      b.append("\""+Utilities.escapeJava(rtp.getValueStringType().asStringValue())+"\"");
+	  } catch (FHIRException e) {
+	    e.printStackTrace();
+	    b.append("error!");
+	  }
 	}
 
-	private void renderDoco(StringBuilder b, String doco) {
+	private static void renderDoco(StringBuilder b, String doco) {
 		if (Utilities.noString(doco))
 			return;
 		b.append(" // ");
@@ -1116,7 +1151,7 @@ public class StructureMapUtilities {
 	private Base runTransform(TransformContext context, StructureMap map, StructureMapGroupRuleTargetComponent tgt, Variables vars) throws FHIRException {
 		switch (tgt.getTransform()) {
 		case CREATE :
-			Base res = ResourceFactory.createResourceOrType(getParamString(vars, tgt.getParameter().get(0)));
+			Base res = ResourceFactory.createResourceOrType(getParamStringNoNull(vars, tgt.getParameter().get(0), tgt.toString()));
 			res.setIdBase(tgt.getParameter().size() > 1 ? getParamString(vars, tgt.getParameter().get(0)) : UUID.randomUUID().toString().toLowerCase());
 			if (services != null) 
 			  res = services.createResource(context, res);
@@ -1128,7 +1163,7 @@ public class StructureMapUtilities {
 		case EVALUATE :
 			ExpressionNode expr = (ExpressionNode) tgt.getUserData(MAP_EXPRESSION);
 			if (expr == null) {
-				expr = fpe.parse(getParamString(vars, tgt.getParameter().get(1)));
+				expr = fpe.parse(getParamStringNoNull(vars, tgt.getParameter().get(1), tgt.toString()));
 				tgt.setUserData(MAP_WHERE_EXPRESSION, expr);
 			}
 			List<Base> v = fpe.evaluate(null, null, getParam(vars, tgt.getParameter().get(0)), expr);
@@ -1141,7 +1176,7 @@ public class StructureMapUtilities {
 
 		case TRUNCATE : 
 			String src = getParamString(vars, tgt.getParameter().get(0));
-			String len = getParamString(vars, tgt.getParameter().get(1));
+			String len = getParamStringNoNull(vars, tgt.getParameter().get(1), tgt.toString());
 			if (Utilities.isInteger(len)) {
 				int l = Integer.parseInt(len);
 				if (src.length() > l)
@@ -1182,10 +1217,10 @@ public class StructureMapUtilities {
 				throw new FHIRException("Transform engine cannot point at an element of type "+b.fhirType());
 		case CC:
 		  CodeableConcept cc = new CodeableConcept();
-		  cc.addCoding(buildCoding(getParamString(vars, tgt.getParameter().get(0)), getParamString(vars, tgt.getParameter().get(1))));
+		  cc.addCoding(buildCoding(getParamStringNoNull(vars, tgt.getParameter().get(0), tgt.toString()), getParamStringNoNull(vars, tgt.getParameter().get(1), tgt.toString())));
 		  return cc;
 		case C: 
-      Coding c = buildCoding(getParamString(vars, tgt.getParameter().get(0)), getParamString(vars, tgt.getParameter().get(1)));
+      Coding c = buildCoding(getParamStringNoNull(vars, tgt.getParameter().get(0), tgt.toString()), getParamStringNoNull(vars, tgt.getParameter().get(1), tgt.toString()));
       return c;
 		default:
 			throw new Error("Transform Unknown: "+tgt.getTransform().toCode());
@@ -1227,6 +1262,15 @@ public class StructureMapUtilities {
    return new Coding().setSystem(system).setCode(code).setDisplay(display);
   }
 
+
+  private String getParamStringNoNull(Variables vars, StructureMapGroupRuleTargetParameterComponent parameter, String message) throws FHIRException {
+    Base b = getParam(vars, parameter);
+    if (b == null)
+      throw new FHIRException("Unable to find a value for "+parameter.toString()+". Context: "+message);
+    if (!b.hasPrimitiveValue())
+      throw new FHIRException("Found a value for "+parameter.toString()+", but it has a type of "+b.fhirType()+" and cannot be treated as a string. Context: "+message);
+    return b.primitiveValue();
+  }
 
   private String getParamString(Variables vars, StructureMapGroupRuleTargetParameterComponent parameter) throws DefinitionException {
 		Base b = getParam(vars, parameter);
@@ -1826,6 +1870,7 @@ public class StructureMapUtilities {
     Coding c = buildCoding(uri, code);
     return NarrativeGenerator.describeSystem(c.getSystem())+"#"+c.getCode()+(c.hasDisplay() ? "("+c.getDisplay()+")" : "");
   }
+
 
   private boolean isSignificantElement(PropertyWithType property, String element) {
     if ("Observation".equals(property.getPath()))

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2353,7 +2353,7 @@ public class Patient extends DomainResource {
           this.birthDate = castToDate(value); // DateType
           break;
         case 561497972: // deceased
-          this.deceased = (Type) value; // Type
+          this.deceased = castToType(value); // Type
           break;
         case -1147692044: // address
           this.getAddress().add(castToAddress(value)); // Address
@@ -2362,7 +2362,7 @@ public class Patient extends DomainResource {
           this.maritalStatus = castToCodeableConcept(value); // CodeableConcept
           break;
         case -677369713: // multipleBirth
-          this.multipleBirth = (Type) value; // Type
+          this.multipleBirth = castToType(value); // Type
           break;
         case 106642994: // photo
           this.getPhoto().add(castToAttachment(value)); // Attachment
@@ -2405,13 +2405,13 @@ public class Patient extends DomainResource {
         else if (name.equals("birthDate"))
           this.birthDate = castToDate(value); // DateType
         else if (name.equals("deceased[x]"))
-          this.deceased = (Type) value; // Type
+          this.deceased = castToType(value); // Type
         else if (name.equals("address"))
           this.getAddress().add(castToAddress(value));
         else if (name.equals("maritalStatus"))
           this.maritalStatus = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("multipleBirth[x]"))
-          this.multipleBirth = (Type) value; // Type
+          this.multipleBirth = castToType(value); // Type
         else if (name.equals("photo"))
           this.getPhoto().add(castToAttachment(value));
         else if (name.equals("contact"))

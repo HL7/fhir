@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -442,7 +442,7 @@ public class Group extends DomainResource {
           this.code = castToCodeableConcept(value); // CodeableConcept
           break;
         case 111972721: // value
-          this.value = (Type) value; // Type
+          this.value = castToType(value); // Type
           break;
         case -1321148966: // exclude
           this.exclude = castToBoolean(value); // BooleanType
@@ -460,7 +460,7 @@ public class Group extends DomainResource {
         if (name.equals("code"))
           this.code = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("value[x]"))
-          this.value = (Type) value; // Type
+          this.value = castToType(value); // Type
         else if (name.equals("exclude"))
           this.exclude = castToBoolean(value); // BooleanType
         else if (name.equals("period"))

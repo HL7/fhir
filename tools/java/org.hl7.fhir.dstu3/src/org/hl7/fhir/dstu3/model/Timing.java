@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1345,7 +1345,7 @@ public class Timing extends Type implements ICompositeType {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1383205195: // bounds
-          this.bounds = (Type) value; // Type
+          this.bounds = castToType(value); // Type
           break;
         case 94851343: // count
           this.count = castToInteger(value); // IntegerType
@@ -1391,7 +1391,7 @@ public class Timing extends Type implements ICompositeType {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("bounds[x]"))
-          this.bounds = (Type) value; // Type
+          this.bounds = castToType(value); // Type
         else if (name.equals("count"))
           this.count = castToInteger(value); // IntegerType
         else if (name.equals("countMax"))

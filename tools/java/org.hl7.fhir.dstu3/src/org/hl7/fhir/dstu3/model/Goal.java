@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -379,7 +379,7 @@ public class Goal extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -934426595: // result
-          this.result = (Type) value; // Type
+          this.result = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -389,7 +389,7 @@ public class Goal extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("result[x]"))
-          this.result = (Type) value; // Type
+          this.result = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -1279,10 +1279,10 @@ public class Goal extends DomainResource {
           this.subject = castToReference(value); // Reference
           break;
         case 109757538: // start
-          this.start = (Type) value; // Type
+          this.start = castToType(value); // Type
           break;
         case -880905839: // target
-          this.target = (Type) value; // Type
+          this.target = castToType(value); // Type
           break;
         case 50511102: // category
           this.getCategory().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1326,9 +1326,9 @@ public class Goal extends DomainResource {
         else if (name.equals("subject"))
           this.subject = castToReference(value); // Reference
         else if (name.equals("start[x]"))
-          this.start = (Type) value; // Type
+          this.start = castToType(value); // Type
         else if (name.equals("target[x]"))
-          this.target = (Type) value; // Type
+          this.target = castToType(value); // Type
         else if (name.equals("category"))
           this.getCategory().add(castToCodeableConcept(value));
         else if (name.equals("description"))

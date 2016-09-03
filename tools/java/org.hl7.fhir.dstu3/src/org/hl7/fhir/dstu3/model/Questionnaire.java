@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1521,7 +1521,7 @@ public class Questionnaire extends DomainResource {
           this.getOption().add((QuestionnaireItemOptionComponent) value); // QuestionnaireItemOptionComponent
           break;
         case 1948342084: // initial
-          this.initial = (Type) value; // Type
+          this.initial = castToType(value); // Type
           break;
         case 3242771: // item
           this.getItem().add((QuestionnaireItemComponent) value); // QuestionnaireItemComponent
@@ -1558,7 +1558,7 @@ public class Questionnaire extends DomainResource {
         else if (name.equals("option"))
           this.getOption().add((QuestionnaireItemOptionComponent) value);
         else if (name.equals("initial[x]"))
-          this.initial = (Type) value; // Type
+          this.initial = castToType(value); // Type
         else if (name.equals("item"))
           this.getItem().add((QuestionnaireItemComponent) value);
         else
@@ -2106,7 +2106,7 @@ public class Questionnaire extends DomainResource {
           this.hasAnswer = castToBoolean(value); // BooleanType
           break;
         case -1412808770: // answer
-          this.answer = (Type) value; // Type
+          this.answer = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -2120,7 +2120,7 @@ public class Questionnaire extends DomainResource {
         else if (name.equals("hasAnswer"))
           this.hasAnswer = castToBoolean(value); // BooleanType
         else if (name.equals("answer[x]"))
-          this.answer = (Type) value; // Type
+          this.answer = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -2371,7 +2371,7 @@ public class Questionnaire extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 111972721: // value
-          this.value = (Type) value; // Type
+          this.value = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -2381,7 +2381,7 @@ public class Questionnaire extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("value[x]"))
-          this.value = (Type) value; // Type
+          this.value = castToType(value); // Type
         else
           super.setProperty(name, value);
       }

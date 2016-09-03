@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Aug 19, 2016 09:08+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -48,10 +48,6 @@ import org.hl7.fhir.exceptions.FHIRException;
  */
 public abstract class BaseConformance extends DomainResource {
 
-  @Override
-  public String toString() {
-    return getUrl();
-  }
     /**
      * An absolute URL that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this conformance statement is (or will be) published.
      */
@@ -557,6 +553,12 @@ public abstract class BaseConformance extends DomainResource {
           , date, useContext);
       }
 
+
+  @Override
+  public String toString() {
+    return getUrl();
+  }
+  
 
 }
 

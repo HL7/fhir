@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -457,7 +457,7 @@ public class Medication extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3242771: // item
-          this.item = (Type) value; // Type
+          this.item = castToType(value); // Type
           break;
         case -1413853096: // amount
           this.amount = castToRatio(value); // Ratio
@@ -470,7 +470,7 @@ public class Medication extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("item[x]"))
-          this.item = (Type) value; // Type
+          this.item = castToType(value); // Type
         else if (name.equals("amount"))
           this.amount = castToRatio(value); // Ratio
         else
@@ -1102,7 +1102,7 @@ public class Medication extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3242771: // item
-          this.item = (Type) value; // Type
+          this.item = castToType(value); // Type
           break;
         case -1413853096: // amount
           this.amount = castToSimpleQuantity(value); // SimpleQuantity
@@ -1115,7 +1115,7 @@ public class Medication extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("item[x]"))
-          this.item = (Type) value; // Type
+          this.item = castToType(value); // Type
         else if (name.equals("amount"))
           this.amount = castToSimpleQuantity(value); // SimpleQuantity
         else

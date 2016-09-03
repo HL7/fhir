@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -320,7 +320,7 @@ public class ExplanationOfBenefit extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 94742588: // claim
-          this.claim = (Type) value; // Type
+          this.claim = castToType(value); // Type
           break;
         case -261851592: // relationship
           this.relationship = castToCoding(value); // Coding
@@ -336,7 +336,7 @@ public class ExplanationOfBenefit extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("claim[x]"))
-          this.claim = (Type) value; // Type
+          this.claim = castToType(value); // Type
         else if (name.equals("relationship"))
           this.relationship = castToCoding(value); // Coding
         else if (name.equals("reference"))
@@ -575,7 +575,7 @@ public class ExplanationOfBenefit extends DomainResource {
           this.resourceType = castToCoding(value); // Coding
           break;
         case 106437350: // party
-          this.party = (Type) value; // Type
+          this.party = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -589,7 +589,7 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("resourceType"))
           this.resourceType = castToCoding(value); // Coding
         else if (name.equals("party[x]"))
-          this.party = (Type) value; // Type
+          this.party = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -886,10 +886,10 @@ public class ExplanationOfBenefit extends DomainResource {
           this.code = castToCoding(value); // Coding
           break;
         case -873664438: // timing
-          this.timing = (Type) value; // Type
+          this.timing = castToType(value); // Type
           break;
         case 111972721: // value
-          this.value = (Type) value; // Type
+          this.value = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -903,9 +903,9 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("code"))
           this.code = castToCoding(value); // Coding
         else if (name.equals("timing[x]"))
-          this.timing = (Type) value; // Type
+          this.timing = castToType(value); // Type
         else if (name.equals("value[x]"))
-          this.value = (Type) value; // Type
+          this.value = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -1534,7 +1534,7 @@ public class ExplanationOfBenefit extends DomainResource {
           this.date = castToDateTime(value); // DateTimeType
           break;
         case -1095204141: // procedure
-          this.procedure = (Type) value; // Type
+          this.procedure = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -1548,7 +1548,7 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("date"))
           this.date = castToDateTime(value); // DateTimeType
         else if (name.equals("procedure[x]"))
-          this.procedure = (Type) value; // Type
+          this.procedure = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -1777,7 +1777,7 @@ public class ExplanationOfBenefit extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -351767064: // coverage
-          this.coverage = (Type) value; // Type
+          this.coverage = castToType(value); // Type
           break;
         case 522246568: // preAuthRef
           this.getPreAuthRef().add(castToString(value)); // StringType
@@ -1790,7 +1790,7 @@ public class ExplanationOfBenefit extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("coverage[x]"))
-          this.coverage = (Type) value; // Type
+          this.coverage = castToType(value); // Type
         else if (name.equals("preAuthRef"))
           this.getPreAuthRef().add(castToString(value));
         else
@@ -2046,7 +2046,7 @@ public class ExplanationOfBenefit extends DomainResource {
           this.type = castToCoding(value); // Coding
           break;
         case 1901043637: // location
-          this.location = (Type) value; // Type
+          this.location = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -2060,7 +2060,7 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("type"))
           this.type = castToCoding(value); // Coding
         else if (name.equals("location[x]"))
-          this.location = (Type) value; // Type
+          this.location = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -3397,10 +3397,10 @@ public class ExplanationOfBenefit extends DomainResource {
           this.getProgramCode().add(castToCoding(value)); // Coding
           break;
         case 1379209295: // serviced
-          this.serviced = (Type) value; // Type
+          this.serviced = castToType(value); // Type
           break;
         case 1901043637: // location
-          this.location = (Type) value; // Type
+          this.location = castToType(value); // Type
           break;
         case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
@@ -3462,9 +3462,9 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("programCode"))
           this.getProgramCode().add(castToCoding(value));
         else if (name.equals("serviced[x]"))
-          this.serviced = (Type) value; // Type
+          this.serviced = castToType(value); // Type
         else if (name.equals("location[x]"))
-          this.location = (Type) value; // Type
+          this.location = castToType(value); // Type
         else if (name.equals("quantity"))
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
         else if (name.equals("unitPrice"))
@@ -3935,7 +3935,7 @@ public class ExplanationOfBenefit extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -987494927: // provider
-          this.provider = (Type) value; // Type
+          this.provider = castToType(value); // Type
           break;
         case 1847674614: // responsible
           this.responsible = castToBoolean(value); // BooleanType
@@ -3954,7 +3954,7 @@ public class ExplanationOfBenefit extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("provider[x]"))
-          this.provider = (Type) value; // Type
+          this.provider = castToType(value); // Type
         else if (name.equals("responsible"))
           this.responsible = castToBoolean(value); // BooleanType
         else if (name.equals("role"))
@@ -9701,10 +9701,10 @@ public class ExplanationOfBenefit extends DomainResource {
           this.type = castToCoding(value); // Coding
           break;
         case -222710633: // benefit
-          this.benefit = (Type) value; // Type
+          this.benefit = castToType(value); // Type
           break;
         case -549981964: // benefitUsed
-          this.benefitUsed = (Type) value; // Type
+          this.benefitUsed = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -9716,9 +9716,9 @@ public class ExplanationOfBenefit extends DomainResource {
         if (name.equals("type"))
           this.type = castToCoding(value); // Coding
         else if (name.equals("benefit[x]"))
-          this.benefit = (Type) value; // Type
+          this.benefit = castToType(value); // Type
         else if (name.equals("benefitUsed[x]"))
-          this.benefitUsed = (Type) value; // Type
+          this.benefitUsed = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -11796,13 +11796,13 @@ public class ExplanationOfBenefit extends DomainResource {
           this.status = new ExplanationOfBenefitStatusEnumFactory().fromType(value); // Enumeration<ExplanationOfBenefitStatus>
           break;
         case -1406328437: // author
-          this.author = (Type) value; // Type
+          this.author = castToType(value); // Type
           break;
         case 94742588: // claim
-          this.claim = (Type) value; // Type
+          this.claim = castToType(value); // Type
           break;
         case 689513629: // claimResponse
-          this.claimResponse = (Type) value; // Type
+          this.claimResponse = castToType(value); // Type
           break;
         case 3575610: // type
           this.type = castToCoding(value); // Coding
@@ -11829,28 +11829,28 @@ public class ExplanationOfBenefit extends DomainResource {
           this.disposition = castToString(value); // StringType
           break;
         case -987494927: // provider
-          this.provider = (Type) value; // Type
+          this.provider = castToType(value); // Type
           break;
         case 1178922291: // organization
-          this.organization = (Type) value; // Type
+          this.organization = castToType(value); // Type
           break;
         case 501116579: // facility
-          this.facility = (Type) value; // Type
+          this.facility = castToType(value); // Type
           break;
         case 1090493483: // related
           this.getRelated().add((RelatedClaimComponent) value); // RelatedClaimComponent
           break;
         case 460301338: // prescription
-          this.prescription = (Type) value; // Type
+          this.prescription = castToType(value); // Type
           break;
         case -1814015861: // originalPrescription
-          this.originalPrescription = (Type) value; // Type
+          this.originalPrescription = castToType(value); // Type
           break;
         case 106443592: // payee
           this.payee = (PayeeComponent) value; // PayeeComponent
           break;
         case -722568291: // referral
-          this.referral = (Type) value; // Type
+          this.referral = castToType(value); // Type
           break;
         case 1968600364: // information
           this.getInformation().add((SpecialConditionComponent) value); // SpecialConditionComponent
@@ -11862,7 +11862,7 @@ public class ExplanationOfBenefit extends DomainResource {
           this.getProcedure().add((ProcedureComponent) value); // ProcedureComponent
           break;
         case -791418107: // patient
-          this.patient = (Type) value; // Type
+          this.patient = castToType(value); // Type
           break;
         case 159695370: // precedence
           this.precedence = castToPositiveInt(value); // PositiveIntType
@@ -11921,11 +11921,11 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("status"))
           this.status = new ExplanationOfBenefitStatusEnumFactory().fromType(value); // Enumeration<ExplanationOfBenefitStatus>
         else if (name.equals("author[x]"))
-          this.author = (Type) value; // Type
+          this.author = castToType(value); // Type
         else if (name.equals("claim[x]"))
-          this.claim = (Type) value; // Type
+          this.claim = castToType(value); // Type
         else if (name.equals("claimResponse[x]"))
-          this.claimResponse = (Type) value; // Type
+          this.claimResponse = castToType(value); // Type
         else if (name.equals("type"))
           this.type = castToCoding(value); // Coding
         else if (name.equals("subType"))
@@ -11943,21 +11943,21 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("disposition"))
           this.disposition = castToString(value); // StringType
         else if (name.equals("provider[x]"))
-          this.provider = (Type) value; // Type
+          this.provider = castToType(value); // Type
         else if (name.equals("organization[x]"))
-          this.organization = (Type) value; // Type
+          this.organization = castToType(value); // Type
         else if (name.equals("facility[x]"))
-          this.facility = (Type) value; // Type
+          this.facility = castToType(value); // Type
         else if (name.equals("related"))
           this.getRelated().add((RelatedClaimComponent) value);
         else if (name.equals("prescription[x]"))
-          this.prescription = (Type) value; // Type
+          this.prescription = castToType(value); // Type
         else if (name.equals("originalPrescription[x]"))
-          this.originalPrescription = (Type) value; // Type
+          this.originalPrescription = castToType(value); // Type
         else if (name.equals("payee"))
           this.payee = (PayeeComponent) value; // PayeeComponent
         else if (name.equals("referral[x]"))
-          this.referral = (Type) value; // Type
+          this.referral = castToType(value); // Type
         else if (name.equals("information"))
           this.getInformation().add((SpecialConditionComponent) value);
         else if (name.equals("diagnosis"))
@@ -11965,7 +11965,7 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("procedure"))
           this.getProcedure().add((ProcedureComponent) value);
         else if (name.equals("patient[x]"))
-          this.patient = (Type) value; // Type
+          this.patient = castToType(value); // Type
         else if (name.equals("precedence"))
           this.precedence = castToPositiveInt(value); // PositiveIntType
         else if (name.equals("coverage"))

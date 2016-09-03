@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Aug 17, 2016 16:59+1000 for FHIR v1.7.0
+// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -550,16 +550,16 @@ public class PaymentReconciliation extends DomainResource {
           this.type = castToCoding(value); // Coding
           break;
         case 1095692943: // request
-          this.request = (Type) value; // Type
+          this.request = castToType(value); // Type
           break;
         case -340323263: // response
-          this.response = (Type) value; // Type
+          this.response = castToType(value); // Type
           break;
         case 348678409: // submitter
-          this.submitter = (Type) value; // Type
+          this.submitter = castToType(value); // Type
           break;
         case 106443592: // payee
-          this.payee = (Type) value; // Type
+          this.payee = castToType(value); // Type
           break;
         case 3076014: // date
           this.date = castToDate(value); // DateType
@@ -577,13 +577,13 @@ public class PaymentReconciliation extends DomainResource {
         if (name.equals("type"))
           this.type = castToCoding(value); // Coding
         else if (name.equals("request[x]"))
-          this.request = (Type) value; // Type
+          this.request = castToType(value); // Type
         else if (name.equals("response[x]"))
-          this.response = (Type) value; // Type
+          this.response = castToType(value); // Type
         else if (name.equals("submitter[x]"))
-          this.submitter = (Type) value; // Type
+          this.submitter = castToType(value); // Type
         else if (name.equals("payee[x]"))
-          this.payee = (Type) value; // Type
+          this.payee = castToType(value); // Type
         else if (name.equals("date"))
           this.date = castToDate(value); // DateType
         else if (name.equals("amount"))
@@ -1744,7 +1744,7 @@ public class PaymentReconciliation extends DomainResource {
           this.status = new PaymentReconciliationStatusEnumFactory().fromType(value); // Enumeration<PaymentReconciliationStatus>
           break;
         case 1095692943: // request
-          this.request = (Type) value; // Type
+          this.request = castToType(value); // Type
           break;
         case -1106507950: // outcome
           this.outcome = new RemittanceOutcomeEnumFactory().fromType(value); // Enumeration<RemittanceOutcome>
@@ -1765,13 +1765,13 @@ public class PaymentReconciliation extends DomainResource {
           this.period = castToPeriod(value); // Period
           break;
         case 1178922291: // organization
-          this.organization = (Type) value; // Type
+          this.organization = castToType(value); // Type
           break;
         case 1601527200: // requestProvider
-          this.requestProvider = (Type) value; // Type
+          this.requestProvider = castToType(value); // Type
           break;
         case 599053666: // requestOrganization
-          this.requestOrganization = (Type) value; // Type
+          this.requestOrganization = castToType(value); // Type
           break;
         case -1335224239: // detail
           this.getDetail().add((DetailsComponent) value); // DetailsComponent
@@ -1797,7 +1797,7 @@ public class PaymentReconciliation extends DomainResource {
         else if (name.equals("status"))
           this.status = new PaymentReconciliationStatusEnumFactory().fromType(value); // Enumeration<PaymentReconciliationStatus>
         else if (name.equals("request[x]"))
-          this.request = (Type) value; // Type
+          this.request = castToType(value); // Type
         else if (name.equals("outcome"))
           this.outcome = new RemittanceOutcomeEnumFactory().fromType(value); // Enumeration<RemittanceOutcome>
         else if (name.equals("disposition"))
@@ -1811,11 +1811,11 @@ public class PaymentReconciliation extends DomainResource {
         else if (name.equals("period"))
           this.period = castToPeriod(value); // Period
         else if (name.equals("organization[x]"))
-          this.organization = (Type) value; // Type
+          this.organization = castToType(value); // Type
         else if (name.equals("requestProvider[x]"))
-          this.requestProvider = (Type) value; // Type
+          this.requestProvider = castToType(value); // Type
         else if (name.equals("requestOrganization[x]"))
-          this.requestOrganization = (Type) value; // Type
+          this.requestOrganization = castToType(value); // Type
         else if (name.equals("detail"))
           this.getDetail().add((DetailsComponent) value);
         else if (name.equals("form"))
