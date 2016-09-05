@@ -136,7 +136,7 @@ public class JsonXhtmlRenderer implements JsonCreator {
     b.append("\r\n");
     for (int i = 0; i < levels.size(); i++) 
       b.append(indent);
-    b.append("}");
+    b.append("]");
   }
 
   @Override
