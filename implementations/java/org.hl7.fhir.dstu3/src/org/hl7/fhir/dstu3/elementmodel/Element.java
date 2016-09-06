@@ -252,11 +252,11 @@ public class Element extends Base {
 	@Override
 	protected void listChildren(List<org.hl7.fhir.dstu3.model.Property> childProps) {
 	  if (children != null) {
-	  for (Element c : children) {
-	    childProps.add(new org.hl7.fhir.dstu3.model.Property(c.getName(), c.fhirType(), c.getProperty().getDefinition().getDefinition(), c.getProperty().getDefinition().getMin(), maxToInt(c.getProperty().getDefinition().getMax()), c));
+	    for (Element c : children) {
+	      childProps.add(new org.hl7.fhir.dstu3.model.Property(c.getName(), c.fhirType(), c.getProperty().getDefinition().getDefinition(), c.getProperty().getDefinition().getMin(), maxToInt(c.getProperty().getDefinition().getMax()), c));
+	    }
 	  }
-  }
-  }
+	}
 	
   @Override
   public void setProperty(int hash, String name, Base value) throws FHIRException {

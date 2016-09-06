@@ -214,9 +214,9 @@ public class ProfileUtilities {
             res.add(e);
         } else
           break;
-          }
-    return res;
-  }
+      }
+      return res;
+    }
   }
 
 

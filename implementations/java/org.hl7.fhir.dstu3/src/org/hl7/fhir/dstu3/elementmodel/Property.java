@@ -128,7 +128,7 @@ public class Property {
 
 	public boolean isResource() {
 	  if (definition.getType().size() > 0)
-		return definition.getType().size() == 1 && ("Resource".equals(definition.getType().get(0).getCode()) || "DomainResource".equals(definition.getType().get(0).getCode()));
+	    return definition.getType().size() == 1 && ("Resource".equals(definition.getType().get(0).getCode()) || "DomainResource".equals(definition.getType().get(0).getCode()));
 	  else
 	    return !definition.getPath().contains(".") && structure.getKind() == StructureDefinitionKind.RESOURCE;
 	}
