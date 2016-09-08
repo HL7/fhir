@@ -37,6 +37,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.*;
+import java.text.SimpleDateFormat;
 
 import org.hl7.fhir.definitions.model.*;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
