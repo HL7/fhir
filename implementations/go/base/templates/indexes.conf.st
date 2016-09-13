@@ -26,7 +26,7 @@
 # -------------------------------------------------------------------------------------------------
 # Required Indexes:
 <if(r.indexes)><r.indexes: {idx |
-fhir.<r.name>.<idx.name>.(referenceid_1, type_1)
+fhir.<r.name>.(<idx.name>.referenceid_1, <idx.name>.type_1)
 }>
 <else># No required indexes for this resource
 
