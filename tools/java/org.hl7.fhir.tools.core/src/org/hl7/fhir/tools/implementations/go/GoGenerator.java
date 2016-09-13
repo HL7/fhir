@@ -88,6 +88,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
             put("searchDir", Utilities.path(basedDir, "app", "search"));
             put("serverDir", Utilities.path(basedDir, "app", "server"));
             put("conformanceDir", Utilities.path(basedDir, "app", "conformance"));
+            put("configDir", Utilities.path(basedDir, "app", "config"));
         }};
 
         createDirStructure(dirs);
@@ -132,6 +133,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         generateResourceHelpers(namesAndDefinitions.keySet(), dirs.get("modelDir"), templateGroup);
         generateSearchParameterDictionary(definitions, dirs.get("searchDir"), templateGroup);
         generateConformanceStatement(definitions, dirs.get("conformanceDir"), templateGroup);
+        generateIndexesConfig(definitions, dirs.get("configDir"), templateGroup);
 
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "auth", "config.go")), new File(dirs.get("authDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "auth", "heart_auth.go")), new File(dirs.get("authDir")));
@@ -281,6 +283,53 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         utilTemplate.add("ResourceSearchInfos", searchInfos);
 
         File outputFile = new File(Utilities.path(outputDir, "conformance_statement.json"));
+        Writer controllerWriter = new BufferedWriter(new FileWriter(outputFile));
+        controllerWriter.write(utilTemplate.render());
+        controllerWriter.flush();
+        controllerWriter.close();
+    }
+
+    private void generateIndexesConfig(Definitions definitions, String outputDir, STGroup templateGroup) throws IOException {
+        ST utilTemplate = templateGroup.getInstanceOf("indexes.conf");        
+
+        // Identify for each resource all elements of type REFERENCE
+        ArrayList<ResourceIndexInfo> indexInfos = new ArrayList<ResourceIndexInfo>(definitions.getResources().size());
+        for (ResourceDefn resource : definitions.getResources().values()) {
+
+            ResourceIndexInfo indexInfo = new ResourceIndexInfo(Utilities.pluralizeMe(resource.getName().toLowerCase()));
+
+            for (ElementDefn el : resource.getRoot().getElements()) {
+
+                for (TypeRef typeRef : el.getTypes()) {
+
+                    // check if the element is a reference type
+                    String elementType = typeRef.getName();
+                    if (elementType.equals("Reference")) {
+                        
+                        StringBuilder elementNameBuilder = new StringBuilder(el.getName().replace("[x]", ""));
+                        if (el.getTypes().size() > 1) {
+                            elementNameBuilder.append(Utilities.capitalize(typeRef.getName()));
+                        }
+                        String elementName = elementNameBuilder.toString();
+
+                        MgoIndex index = new MgoIndex(elementName);
+                        indexInfo.addIndex(index);
+                    }
+                } 
+            }
+            indexInfos.add(indexInfo);
+        }
+
+        // Sort by resource name so the final result is deterministic
+        Collections.sort(indexInfos, new Comparator<ResourceIndexInfo>() {
+            @Override
+            public int compare(ResourceIndexInfo a, ResourceIndexInfo b) {
+                return a.name.compareTo(b.name);
+            }
+        });
+        utilTemplate.add("ResourceIndexInfo", indexInfos);
+
+        File outputFile = new File(Utilities.path(outputDir, "indexes.conf"));
         Writer controllerWriter = new BufferedWriter(new FileWriter(outputFile));
         controllerWriter.write(utilTemplate.render());
         controllerWriter.flush();
@@ -528,6 +577,53 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
 
         public String getType() {
             return type;
+        }
+    }
+
+    /*
+        ResourceIndexInfo defines a list of indexes to be created for a specific 
+        collection in the fhir database. This information is passed to the indexes.conf.st
+        template.
+    */
+    private static class ResourceIndexInfo {
+        private final String name;  // pluralized
+        private final ArrayList<MgoIndex> indexes;
+
+        public ResourceIndexInfo(String name) {
+            this.name = name;
+            this.indexes = new ArrayList<MgoIndex>();
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public ArrayList<MgoIndex> getIndexes() {
+            return indexes;
+        }
+
+        public void addIndex(MgoIndex index) {
+            indexes.add(index);
+        }
+    }
+
+    /*
+        MgoIndex defines a single index to be created in mongo.
+        In the indexes.conf.st template this definition will create an entry like:
+        fhir.<collection_name>.<index_name>_1
+        
+        The index name could potentially contain sub-fields too, e.g. "subject.referenceid".
+        For now we create all indexes in ascending order (hence the "_1")
+    */
+    private static class MgoIndex {
+        private final String name;
+
+        public MgoIndex(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
         }
     }
 
