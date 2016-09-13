@@ -13,12 +13,12 @@
 # https://docs.mongodb.com/manual/core/index-compound/
 #
 # Standard indexes in this file should have the following format:
-# \<db_name>.\<collection_name>.\<key>_(-)1
+# \<collection_name>.\<key>_(-)1
 # 
 # Where the sort order can be specified as 1 (ascending) or -1 (descending).
 # 
 # Compound indexes in this file should have the following format:
-# \<db_name>.\<collection_name>.(\<key1>_(-)1, \<key2>_(-)1, ...)
+# \<collection_name>.(\<key1>_(-)1, \<key2>_(-)1, ...)
 
 <ResourceIndexInfo: {r |
 # -------------------------------------------------------------------------------------------------
@@ -26,7 +26,7 @@
 # -------------------------------------------------------------------------------------------------
 # Required Indexes:
 <if(r.indexes)><r.indexes: {idx |
-fhir.<r.name>.(<idx.name>.referenceid_1, <idx.name>.type_1)
+<r.name>.(<idx.name>.referenceid_1, <idx.name>.type_1)
 }>
 <else># No required indexes for this resource
 

@@ -32,7 +32,7 @@ func ConfigureIndexes(session *mgo.Session, config Config) {
 	}
 
 	// parse the config file
-	indexMap, err := parseIndexes(string(idxConfig), config.DatabaseName)
+	indexMap, err := parseIndexes(string(idxConfig))
 
 	if err != nil {
 		log.Fatal(err.Error())
@@ -54,7 +54,7 @@ func ConfigureIndexes(session *mgo.Session, config Config) {
 	session.Close()
 }
 
-func parseIndexes(fileContents string, configuredDBName string) (IndexMap, error) {
+func parseIndexes(fileContents string) (IndexMap, error) {
 	var indexMap = make(IndexMap)
 	lines := strings.Split(fileContents, "\n")
 	for _, line := range lines {
@@ -69,29 +69,23 @@ func parseIndexes(fileContents string, configuredDBName string) (IndexMap, error
 		}
 
 		// Begin parsing new index from next line of file
-		// format: <db_name>.<collection_name>.<index(es)>
+		// format: <collection_name>.<index(es)>
 		var newIndex *mgo.Index
 		var err error
 
-		config := strings.SplitN(line, ".", 3)
-		if len(config) < 3 {
+		config := strings.SplitN(line, ".", 2)
+		if len(config) < 2 {
 			// Bad index format
-			return nil, newParseIndexError(line, "Not of format <db_name>.<collection_name>.<index(es)>")
+			return nil, newParseIndexError(line, "Not of format <collection_name>.<index(es)>")
 		}
 
-		dbName := config[0]
-		if dbName != configuredDBName {
-			// Wrong database name
-			return nil, newParseIndexError(line, "DB name does not match server configuration")
-		}
-
-		collectionName := config[1]
+		collectionName := config[0]
 		if len(collectionName) == 0 {
 			// No collection name provided
 			return nil, newParseIndexError(line, "No collection name given")
 		}
 
-		indexSpec := config[2]
+		indexSpec := config[1]
 		if len(indexSpec) == 0 {
 			// No index specification provided
 			return nil, newParseIndexError(line, "No index key(s) given")
