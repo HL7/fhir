@@ -3,8 +3,7 @@
   "paths": {
     "resources": [
       "resources",
-      "examples",
-      "cdalogical"
+      "examples"
     ],
     "pages": "pages",
     "temp": "temp",
