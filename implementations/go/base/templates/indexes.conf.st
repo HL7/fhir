@@ -20,7 +20,7 @@
 # Compound indexes in this file should have the following format:
 # \<collection_name>.(\<key1>_(-)1, \<key2>_(-)1, ...)
 
-<ResourceIndexInfo: {r |
+<ResourceIndexInfos: {r |
 # -------------------------------------------------------------------------------------------------
 # Collection: <r.name>
 # -------------------------------------------------------------------------------------------------

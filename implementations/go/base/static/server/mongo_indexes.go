@@ -1,10 +1,11 @@
 package server
 
 import (
+	"bufio"
 	"errors"
 	"fmt"
-	"io/ioutil"
 	"log"
+	"os"
 	"strings"
 
 	mgo "gopkg.in/mgo.v2"
@@ -22,20 +23,35 @@ type IndexMap map[string][]*mgo.Index
 // other connections to the mongo database.
 func ConfigureIndexes(session *mgo.Session, config Config) {
 	var err error
-
 	db := session.DB(config.DatabaseName)
 
 	// Read the config file
-	idxConfig, err := ioutil.ReadFile(config.IndexConfigPath)
+	f, err := os.Open(config.IndexConfigPath)
 	if err != nil {
 		log.Println("[WARNING] Could not find indexes configuration file")
+		return
 	}
+	defer f.Close()
 
 	// parse the config file
-	indexMap, err := parseIndexes(string(idxConfig))
+	var indexMap = make(IndexMap)
+	scanner := bufio.NewScanner(f)
 
-	if err != nil {
-		log.Fatal(err.Error())
+	for scanner.Scan() {
+		line := strings.TrimSpace(scanner.Text())
+
+		// Skip blank lines or lines with bash-style comments
+		if line != "" && !strings.HasPrefix(line, "#") {
+
+			collectionName, index, err := parseIndex(line)
+
+			if err != nil {
+				log.Printf("[WARNING] %s\n", err.Error())
+				continue
+			}
+
+			indexMap[collectionName] = append(indexMap[collectionName], index)
+		}
 	}
 
 	// ensure all indexes in the config file
@@ -51,64 +67,46 @@ func ConfigureIndexes(session *mgo.Session, config Config) {
 			}
 		}
 	}
-	session.Close()
 }
 
-func parseIndexes(fileContents string) (IndexMap, error) {
-	var indexMap = make(IndexMap)
-	lines := strings.Split(fileContents, "\n")
-	for _, line := range lines {
+// parseIndex parses a line from the index config file and returns a new *mgo.Index struct
+func parseIndex(line string) (collectionName string, newIndex *mgo.Index, err error) {
 
-		// Skip blank lines or lines with bash-style comments
-		if line == "" {
-			continue
-		}
-
-		if string(line[0]) == "#" {
-			continue
-		}
-
-		// Begin parsing new index from next line of file
-		// format: <collection_name>.<index(es)>
-		var newIndex *mgo.Index
-		var err error
-
-		config := strings.SplitN(line, ".", 2)
-		if len(config) < 2 {
-			// Bad index format
-			return nil, newParseIndexError(line, "Not of format <collection_name>.<index(es)>")
-		}
-
-		collectionName := config[0]
-		if len(collectionName) == 0 {
-			// No collection name provided
-			return nil, newParseIndexError(line, "No collection name given")
-		}
-
-		indexSpec := config[1]
-		if len(indexSpec) == 0 {
-			// No index specification provided
-			return nil, newParseIndexError(line, "No index key(s) given")
-		}
-
-		if string(indexSpec[0]) == "(" {
-			// this is a compound index spec
-			newIndex, err = parseCompoundIndex(indexSpec)
-		} else {
-			// this is a standard index spec
-			newIndex, err = parseStandardIndex(indexSpec)
-		}
-
-		if err != nil {
-			return nil, newParseIndexError(line, err.Error())
-		}
-
-		// build the index in the background; do not block other connections
-		newIndex.Background = true
-
-		indexMap[collectionName] = append(indexMap[collectionName], newIndex)
+	// Begin parsing new index from next line of file
+	// format: <collection_name>.<index(es)>
+	config := strings.SplitN(line, ".", 2)
+	if len(config) < 2 {
+		// Bad index format
+		return "", nil, newParseIndexError(line, "Not of format <collection_name>.<index(es)>")
 	}
-	return indexMap, nil
+
+	collectionName = config[0]
+	if len(collectionName) == 0 {
+		// No collection name provided
+		return "", nil, newParseIndexError(line, "No collection name given")
+	}
+
+	indexSpec := config[1]
+	if len(indexSpec) == 0 {
+		// No index specification provided
+		return "", nil, newParseIndexError(line, "No index key(s) given")
+	}
+
+	if string(indexSpec[0]) == "(" {
+		// this is a compound index spec
+		newIndex, err = parseCompoundIndex(indexSpec)
+	} else {
+		// this is a standard index spec
+		newIndex, err = parseStandardIndex(indexSpec)
+	}
+
+	if err != nil {
+		return "", nil, newParseIndexError(line, err.Error())
+	}
+
+	// build the index in the background; do not block other connections
+	newIndex.Background = true
+	return collectionName, newIndex, nil
 }
 
 // parseStandardIndex parses an index of the form:

@@ -77,7 +77,10 @@ func (f *FHIRServer) Run(config Config) {
 	Database = session.DB(config.DatabaseName)
 
 	RegisterRoutes(f.Engine, f.MiddlewareConfig, NewMongoDataAccessLayer(Database, f.Interceptors), config)
-	ConfigureIndexes(session.Copy(), config)
+
+	indexSession := session.Copy()
+	ConfigureIndexes(indexSession, config)
+	indexSession.Close()
 
 	for _, ar := range f.AfterRoutes {
 		ar(f.Engine)
