@@ -472,7 +472,7 @@ func (m *MongoSearcher) createReferenceQueryObject(r *ReferenceParam) bson.M {
 		criteria := bson.M{}
 		switch ref := r.Reference.(type) {
 		case LocalReference:
-			criteria["referenceid"] = ci(ref.ID)
+			criteria["referenceid"] = ref.ID
 			if ref.Type != "" {
 				criteria["type"] = ref.Type
 			}
@@ -510,7 +510,7 @@ func (m *MongoSearcher) createInlinedReferenceQueryObject(r *ReferenceParam, p S
 		if ref.Type != "" {
 			criteria["resourceType"] = ref.Type
 		}
-		criteria["_id"] = ci(ref.ID)
+		criteria["_id"] = ref.ID
 	case ChainedQueryReference:
 		criteria = m.createQueryObject(ref.ChainedQuery)
 		if ref.Type != "" {
@@ -545,13 +545,10 @@ func (m *MongoSearcher) createStringQueryObject(s *StringParam) bson.M {
 				},
 			})
 		default:
-			var criteria bson.RegEx
 			if s.Name == "_id" {
-				criteria = ci(s.String)
-			} else {
-				criteria = cisw(s.String)
+				return buildBSON(p.Path, s.String)
 			}
-			return buildBSON(p.Path, criteria)
+			return buildBSON(p.Path, cisw(s.String))
 		}
 	}
 
@@ -593,9 +590,13 @@ func (m *MongoSearcher) createTokenQueryObject(t *TokenParam) bson.M {
 			default:
 				panic(createInvalidSearchError("MSG_PARAM_INVALID", fmt.Sprintf("Parameter \"%s\" content is invalid", t.Name)))
 			}
-		case "code", "string", "id":
+		case "code", "string":
 			// criteria isn't a bson, so just return the right answer
 			return buildBSON(p.Path, ci(t.Code))
+
+		case "id":
+			// id does not need the case-insensitive match
+			return buildBSON(p.Path, t.Code)
 		}
 
 		return buildBSON(p.Path, criteria)
