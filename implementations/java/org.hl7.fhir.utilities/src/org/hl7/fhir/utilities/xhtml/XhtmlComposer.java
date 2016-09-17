@@ -28,6 +28,7 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.utilities.xhtml;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -305,6 +306,16 @@ public class XhtmlComposer {
       }
     } else
       throw new Error("Unknown node type: "+node.getNodeType().toString());
+  }
+
+  public void compose(OutputStream stream, XhtmlNode x) throws IOException {
+    byte[] bom = new byte[] { (byte)0xEF, (byte)0xBB, (byte)0xBF };
+    stream.write(bom);
+    dst = new OutputStreamWriter(stream, "UTF-8");
+    dst.append("<html><head><link rel=\"stylesheet\" href=\"fhir.css\"/></head><body>\r\n");
+    writeNode("", x);
+    dst.append("</body></html>\r\n");
+    dst.flush();
   }
   
 }

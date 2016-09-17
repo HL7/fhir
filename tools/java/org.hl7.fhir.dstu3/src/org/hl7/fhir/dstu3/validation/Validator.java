@@ -45,6 +45,7 @@ import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Constants;
+import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.OperationOutcomeIssueComponent;
@@ -52,6 +53,7 @@ import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.test.ValidationEngineTests;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
 /**
  * A executable class that will validate one or more FHIR resources against 
@@ -135,6 +137,13 @@ public class Validator {
       System.out.println("Any other dependency maps have to be loaded through an -ig reference ");
       System.out.println("");
       System.out.println("-transform requires the parameters -defn, -txserver, -folder (at least one with the map files), and -output");
+      System.out.println("");
+      System.out.println("Alternatively, you can use the validator to generate narrative for a resource.");
+      System.out.println("To do this, you must provide a specific parameter:");
+      System.out.println("");
+      System.out.println(" -narrative");
+      System.out.println("");
+      System.out.println("-narrative requires the parameters -defn, -txserver, -source, and -output. ig and profile may be used");
     } else {
       String definitions = "http://hl7-fhir.github.io/";
       List<String> igs = new ArrayList<String>();
@@ -143,6 +152,7 @@ public class Validator {
       boolean doNative = false;
       List<String> profiles = new ArrayList<String>();
       boolean transform = false;
+      boolean narrative = false;
       String map = null;
       String output = null;
       List<String> sources= new ArrayList<String>();
@@ -161,6 +171,8 @@ public class Validator {
           doNative = true;
         else if (args[i].equals("-transform"))
           transform = true;
+        else if (args[i].equals("-narrative"))
+          narrative = true;
         else if (args[i].equals("-tx"))
           txServer = "n/a".equals(args[++i]) ? null : args[i];
         else if (args[i].equals("-ig"))
@@ -209,6 +221,17 @@ public class Validator {
           }
         } catch (Exception e) {
           System.out.println(" ...Failure: "+e.getMessage());
+        }
+      } else if (narrative) {
+        DomainResource r = validator.generate(sources.get(0));
+        System.out.println(" ...success");
+        if (output != null) {
+          FileOutputStream s = new FileOutputStream(output);
+          if (output.endsWith(".html") || output.endsWith(".htm"))
+            new XhtmlComposer().compose(s, r.getText().getDiv());
+          else
+            new XmlParser().compose(s, r, true);
+          s.close();
         }
       } else {
         System.out.println("  .. validate");

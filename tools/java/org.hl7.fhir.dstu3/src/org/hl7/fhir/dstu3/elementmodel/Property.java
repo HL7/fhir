@@ -302,6 +302,16 @@ public class Property {
     return null;
   }
 
+  public Property getChild(String name) throws DefinitionException {
+    List<Property> children = getChildProperties(name, null);
+    for (Property p : children) {
+      if (p.getName().equals(name)) {
+        return p;
+      }
+    }
+    return null;
+  }
+
   public IWorkerContext getContext() {
     return context;
   }

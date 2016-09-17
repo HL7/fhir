@@ -126,7 +126,7 @@ public class V2ProfileGenerator {
       ElementDefinition ed = sd.getDifferential().addElement();
       ed.setPath("Message.segment.element");
       ed.setId("Message.segment:"+segment.code+".element:"+Integer.toString(i));
-      ed.setName(Integer.toString(i));
+      ed.setName(segment.code+"-"+Integer.toString(i));
       if ("R".equals(sde.conf))
         ed.setMin(1);
       else

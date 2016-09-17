@@ -76,12 +76,14 @@ import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.ParserFactory;
+import org.hl7.fhir.dstu3.formats.RdfParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.model.BaseConformance;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
@@ -552,4 +554,20 @@ public class ValidationEngine {
     return null;
   }
 
+  public DomainResource generate(String source) throws Exception {
+    Content cnt = loadContent(source, "validate");
+    Resource res;
+    if (cnt.cntType == FhirFormat.XML)
+      res = new XmlParser().parse(cnt.focus);
+    else if (cnt.cntType == FhirFormat.JSON)
+      res = new JsonParser().parse(cnt.focus);
+    else if (cnt.cntType == FhirFormat.TURTLE)
+      res = new RdfParser().parse(cnt.focus);
+    else
+      throw new Error("Not supported yet");
+  
+    new NarrativeGenerator("",  "", context).generate((DomainResource) res);
+    return (DomainResource) res;
+  }
+  
 }

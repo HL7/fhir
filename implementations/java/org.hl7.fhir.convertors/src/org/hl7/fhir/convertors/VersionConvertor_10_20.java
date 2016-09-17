@@ -10003,24 +10003,26 @@ public class VersionConvertor_10_20 {
     tgt.setMax(src.getMax());
     tgt.setDocumentation(src.getDocumentation());
     tgt.setType("string");
-    if (src.getType().equals("number"))
-      tgt.setSearchType(org.hl7.fhir.dstu3.model.Enumerations.SearchParamType.NUMBER);
-    else if (src.getType().equals("date"))
-      tgt.setSearchType(org.hl7.fhir.dstu3.model.Enumerations.SearchParamType.NUMBER);
-    else if (src.getType().equals("string"))
-      tgt.setSearchType(org.hl7.fhir.dstu3.model.Enumerations.SearchParamType.NUMBER);
-    else if (src.getType().equals("token"))
-      tgt.setSearchType(org.hl7.fhir.dstu3.model.Enumerations.SearchParamType.NUMBER);
-    else if (src.getType().equals("reference"))
-      tgt.setSearchType(org.hl7.fhir.dstu3.model.Enumerations.SearchParamType.NUMBER);
-    else if (src.getType().equals("composite"))
-      tgt.setSearchType(org.hl7.fhir.dstu3.model.Enumerations.SearchParamType.NUMBER);
-    else if (src.getType().equals("quantity"))
-      tgt.setSearchType(org.hl7.fhir.dstu3.model.Enumerations.SearchParamType.NUMBER);
-    else if (src.getType().equals("uri"))
-      tgt.setSearchType(org.hl7.fhir.dstu3.model.Enumerations.SearchParamType.NUMBER);
-    else
-      tgt.setType(src.getType());
+    if (src.hasType()) {
+      if (src.getType().equals("number"))
+        tgt.setSearchType(org.hl7.fhir.dstu3.model.Enumerations.SearchParamType.NUMBER);
+      else if (src.getType().equals("date"))
+        tgt.setSearchType(org.hl7.fhir.dstu3.model.Enumerations.SearchParamType.NUMBER);
+      else if (src.getType().equals("string"))
+        tgt.setSearchType(org.hl7.fhir.dstu3.model.Enumerations.SearchParamType.NUMBER);
+      else if (src.getType().equals("token"))
+        tgt.setSearchType(org.hl7.fhir.dstu3.model.Enumerations.SearchParamType.NUMBER);
+      else if (src.getType().equals("reference"))
+        tgt.setSearchType(org.hl7.fhir.dstu3.model.Enumerations.SearchParamType.NUMBER);
+      else if (src.getType().equals("composite"))
+        tgt.setSearchType(org.hl7.fhir.dstu3.model.Enumerations.SearchParamType.NUMBER);
+      else if (src.getType().equals("quantity"))
+        tgt.setSearchType(org.hl7.fhir.dstu3.model.Enumerations.SearchParamType.NUMBER);
+      else if (src.getType().equals("uri"))
+        tgt.setSearchType(org.hl7.fhir.dstu3.model.Enumerations.SearchParamType.NUMBER);
+      else
+        tgt.setType(src.getType());
+    }
     tgt.setProfile(convertReference(src.getProfile()));
     tgt.setBinding(convertOperationDefinitionParameterBindingComponent(src.getBinding()));
     for (org.hl7.fhir.dstu2.model.OperationDefinition.OperationDefinitionParameterComponent t : src.getPart())

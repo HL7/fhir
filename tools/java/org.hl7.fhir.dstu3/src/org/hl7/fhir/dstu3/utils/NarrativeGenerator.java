@@ -1,6 +1,7 @@
 package org.hl7.fhir.dstu3.utils;
 
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
@@ -51,6 +52,7 @@ import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.context.IWorkerContext.ValidationResult;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
+import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.model.Address;
 import org.hl7.fhir.dstu3.model.Annotation;
@@ -74,6 +76,7 @@ import org.hl7.fhir.dstu3.model.ConceptMap.OtherElementComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent;
 import org.hl7.fhir.dstu3.model.Conformance;
+import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.model.Conformance.ConformanceRestComponent;
 import org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceComponent;
 import org.hl7.fhir.dstu3.model.Conformance.ResourceInteractionComponent;
@@ -121,6 +124,7 @@ import org.hl7.fhir.dstu3.model.Timing.TimingRepeatComponent;
 import org.hl7.fhir.dstu3.model.Timing.UnitsOfTime;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
@@ -133,7 +137,9 @@ import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.dstu3.test.ValidationEngineTests;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator.IReferenceResolver;
+import org.hl7.fhir.dstu3.validation.ValidationEngine;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -3484,7 +3490,5 @@ public class NarrativeGenerator implements INarrativeGenerator {
 //      }
     }
   }
-
-
 
 }
