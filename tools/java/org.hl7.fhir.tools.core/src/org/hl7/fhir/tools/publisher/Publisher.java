@@ -1956,7 +1956,10 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void loadR2Definitions() throws FileNotFoundException, FHIRException, IOException {
     loadR2DefinitionBundle(page.getDiffEngine().getOriginal().getTypes(), Utilities.path(page.getFolders().srcDir, "release2", "profiles-types.xml"));
     loadR2DefinitionBundle(page.getDiffEngine().getOriginal().getResources(), Utilities.path(page.getFolders().srcDir, "release2", "profiles-resources.xml"));
+    loadR2DefinitionBundle(page.getDiffEngine().getOriginal().getExtensions(), Utilities.path(page.getFolders().srcDir, "release2", "extension-definitions.xml"));
+    loadR2DefinitionBundle(page.getDiffEngine().getOriginal().getProfiles(), Utilities.path(page.getFolders().srcDir, "release2", "profiles-others.xml"));
     loadValueSetBundle(page.getDiffEngine().getOriginal().getExpansions(), Utilities.path(page.getFolders().srcDir, "release2", "expansions.xml"));
+    loadValueSetBundle(page.getDiffEngine().getOriginal().getValuesets(), Utilities.path(page.getFolders().srcDir, "release2", "valuesets.xml"));
   }
 
   private void loadR2DefinitionBundle(Map<String, StructureDefinition> map, String fn) throws FHIRException, FileNotFoundException, IOException {
@@ -2458,6 +2461,11 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("dataelements.xml", page.getFolders().tmpDir + "dataelements-r2.xml", false);
       zip.close();
 
+      page.log("....dstu2 in dstu3 format", LogMessageType.Process);
+      zip = new ZipGenerator(page.getFolders().dstDir + "definitions-r2asr3.xml.zip");
+      page.getDiffEngine().saveR2AsR3(zip);
+      zip.close();
+      
 
       zip = new ZipGenerator(page.getFolders().dstDir + "validator.zip");
       zip.addFileName("readme.txt", Utilities.path(page.getFolders().srcDir, "tools", "readme.txt"), false);
@@ -2507,11 +2515,11 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       page.log(" ...zips", LogMessageType.Process);
       zip = new ZipGenerator(page.getFolders().dstDir + "examples.zip");
-      zip.addFiles(page.getFolders().dstDir + "examples" + File.separator, "", null, null);
+      zip.addFiles(page.getFolders().dstDir + "examples" + File.separator, "", null, "expansions.xml");
       zip.close();
 
       zip = new ZipGenerator(page.getFolders().dstDir + "examples-json.zip");
-      zip.addFilesFiltered(page.getFolders().dstDir, "", ".json", new String[] {".schema.json", ".canonical.json"});
+      zip.addFilesFiltered(page.getFolders().dstDir, "", ".json", new String[] {".schema.json", ".canonical.json", "expansions.json"});
       zip.close();
 
       if (web) {

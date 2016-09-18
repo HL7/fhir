@@ -1,5 +1,6 @@
 package org.hl7.fhir.convertors;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.Bundle;
@@ -20,6 +22,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Reference;
+import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.Type;
@@ -32,6 +35,7 @@ import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.ZipGenerator;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -39,12 +43,12 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 public class SpecDifferenceEvaluator {
 
   public class SpecPackage {
-//    private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
+    private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
     private Map<String, ValueSet> expansions = new HashMap<String, ValueSet>();
     private Map<String, StructureDefinition> types = new HashMap<String, StructureDefinition>();
     private Map<String, StructureDefinition> resources = new HashMap<String, StructureDefinition>();
-//    private Map<String, StructureDefinition> extensions = new HashMap<String, StructureDefinition>();
-//    private Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
+    private Map<String, StructureDefinition> extensions = new HashMap<String, StructureDefinition>();
+    private Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
     public Map<String, StructureDefinition> getTypes() {
       return types;
     }
@@ -54,6 +58,16 @@ public class SpecDifferenceEvaluator {
     public Map<String, ValueSet> getExpansions() {
       return expansions;
     }
+    public Map<String, ValueSet> getValuesets() {
+      return valuesets;
+    }
+    public Map<String, StructureDefinition> getExtensions() {
+      return extensions;
+    }
+    public Map<String, StructureDefinition> getProfiles() {
+      return profiles;
+    }
+    
   }
   
   private SpecPackage original = new SpecPackage();
@@ -544,6 +558,27 @@ public class SpecDifferenceEvaluator {
       return tr.getCode()+"("+tr.getProfile().substring(40)+")";
     else
       return tr.getCode()+"{"+tr.getProfile()+"}";
+  }
+
+  public void saveR2AsR3(ZipGenerator zip) throws IOException {
+    for (StructureDefinition t : original.types.values()) 
+      saveResource(zip, t);
+    for (StructureDefinition t : original.resources.values()) 
+      saveResource(zip, t);
+    for (StructureDefinition t : original.profiles.values()) 
+      saveResource(zip, t);
+    for (StructureDefinition t : original.extensions.values()) 
+      saveResource(zip, t);
+    for (ValueSet t : original.valuesets.values()) 
+      saveResource(zip, t);
+    for (ValueSet t : original.expansions.values()) 
+      saveResource(zip, t);
+  }
+
+  private void saveResource(ZipGenerator zip, Resource t) throws IOException {
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(bs, t);
+    zip.addBytes(t.fhirType()+"-"+t.getId(), bs.toByteArray(), true);
   }
  
 }
