@@ -37,6 +37,9 @@
     <item id="ActivityDefinition">
  		<translation lang="en">ActivityDefinition</translation>
 	</item>
+    <item id="ActivityGroup">
+ 		<translation lang="en">ActivityGroup</translation>
+	</item>
     <item id="AdverseReaction">
         <translation lang="en">AdverseReaction</translation>
         <translation lang="zh">不良反应</translation>
