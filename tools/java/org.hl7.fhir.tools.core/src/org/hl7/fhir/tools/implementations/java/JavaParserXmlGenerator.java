@@ -767,17 +767,25 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         generateComposer(n, JavaGenClass.Structure);
       }
     }
-    
-    for (ElementDefn n : definitions.getTypes().values()) {
-      if (n.getTypes().size() > 0 && n.getTypes().get(0).getName().equals("GenericType")) {
 
-        throw new Error("not supported anymore");
-      } else {
+    // first, any with specializations
+    for (ElementDefn n : definitions.getTypes().values()) {
+      if (!(n.typeCode().equals("Element") || n.typeCode().equals("Type") || n.typeCode().equals("Structure"))) {
         generateComposer(n, JavaGenClass.Type);
         String nn = javaClassName(n.getName());
         regtn.append("    else if (type instanceof "+nn+")\r\n       compose"+nn+"(prefix+\""+n.getName()+"\", ("+nn+") type);\r\n");
-//        regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
       }
+      //        regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
+    }
+
+    // then the base
+    for (ElementDefn n : definitions.getTypes().values()) {
+      if (n.typeCode().equals("Element") || n.typeCode().equals("Type") || n.typeCode().equals("Structure")) {
+        generateComposer(n, JavaGenClass.Type);
+        String nn = javaClassName(n.getName());
+        regtn.append("    else if (type instanceof "+nn+")\r\n       compose"+nn+"(prefix+\""+n.getName()+"\", ("+nn+") type);\r\n");
+      }
+      //        regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
 
     for (ProfiledType n : definitions.getConstraints().values()) {
