@@ -1,0 +1,10 @@
+// Request guideline appropriate ordering assessment
+POST [base]/ServiceDefinition/example/$evaluate
+
+$include evaluate-operation-request-example.xml
+
+--------------------------------------
+// Request an InfoButton evaluate
+POST [base]/ServiceDefinition/infobutton/$evaluate
+
+$include infobutton-evaluate-request.xml

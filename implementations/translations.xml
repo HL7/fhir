@@ -614,6 +614,9 @@
         <translation lang="es">EventoSeguridad</translation>
         <translation lang="fr">ÉvènementSécurité</translation>
     </item>
+    <item id="ServiceDefinition">
+        <translation lang="en">ServiceDefinition</translation>
+	</item>
     <item id="Sequence">
         <translation lang="en">Sequence</translation>
         <translation lang="zh">序列</translation>

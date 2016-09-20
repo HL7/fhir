@@ -1,0 +1,6 @@
+// Returned on successful InfoButton request
+
+HTTP/1.1 200 OK
+
+$include infobutton-evaluate-response.xml
+

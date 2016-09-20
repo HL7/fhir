@@ -309,6 +309,7 @@ signatures.html
       <page type="resource" resource="PlanDefinition"/>
       <page type="resource" resource="Library"/>
       <page type="resource" resource="DecisionSupportServiceModule"/>
+      <page type="resource" resource="ServiceDefinition"/>
       <page type="resource" resource="GuidanceResponse"/>
       <page type="resource" resource="Measure"/>
       <page type="resource" resource="MeasureReport"/>

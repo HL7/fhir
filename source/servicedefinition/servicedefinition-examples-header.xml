@@ -1,0 +1,5 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+This example illustrates the use of the DecisionSupportServiceModule resource to describe a Guideline Appropriate Ordering assessment module. This module is also the focus of the $evaluate operation example.
+
+</div>

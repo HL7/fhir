@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/decisionsupportservicemodule.xsd">
+  <id value="example"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Guideline Appropriate Ordering Module</div>
+  </text>
+  
+  <identifier>
+    <use value="official"/>
+    <value value="guildeline-appropriate-ordering"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <title value="Guideline Appropriate Ordering Module"/>
+  <status value="draft"/>
+  <description value="Guideline appropriate ordering is used to assess appropriateness of an order given a patient, a proposed order, and a set of clinical indications."/>
+  <publicationDate value="2015-07-22"/>
+  <topic>
+    <text value="Guideline Appropriate Ordering"/>
+  </topic>
+  <topic>
+    <text value="Appropriate Use Criteria"/>
+  </topic>
+  
+  <!-- Patient Parameter -->
+  <!-- TODO: Move to OperationDefinition -->
+  <!--
+  <parameter>
+    <name value="patient"/>
+    <use value="in"/>
+    <type value="Patient"/>
+    <profile>
+      <reference value="http://hl7.org/fhir/StructureDefinition/gao-patient"/>
+    </profile>
+    <mustSupport value="gender"/>
+    <mustSupport value="birthDate"/>
+  </parameter>
+  -->
+
+  <!-- Order Parameter -->
+  <!-- TODO: Move to OperationDefinition -->
+  <!--
+  <parameter>
+    <name value="order"/>
+    <use value="in"/>
+    <type value="Task"/>
+    <profile>
+      <reference value="http://hl7.org/fhir/StructureDefinition/gao-task"/>
+    </profile>
+  </parameter>
+  -->
+
+  <!-- Order Output -->
+  <!-- TODO: Move to OperationDefinition -->
+  <!--
+  <parameter>
+    <name value="order"/>
+    <use value="out"/>
+    <type value="Task"/>
+    <profile>
+      <reference value="http://hl7.org/fhir/StructureDefinition/gao-task"/>
+    </profile>
+  </parameter>
+  -->
+
+  <!-- Result -->
+  <!-- TODO: Move to OperationDefinition -->
+  <!--
+  <parameter>
+    <name value="result"/>
+    <use value="out"/>
+    <type value="Basic"/>
+    <profile>
+      <reference value="http://hl7.org/fhir/StructureDefinition/gao-result"/>
+    </profile>
+  </parameter>
+  -->
+
+</ServiceDefinition>

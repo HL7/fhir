@@ -1,0 +1,5 @@
+// Request InfoButton content
+POST [base]/ServiceDefinition/infobutton/$evaluate
+
+$include infobutton-evaluate-request.xml
+
