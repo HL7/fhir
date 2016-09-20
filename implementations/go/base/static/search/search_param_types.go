@@ -30,7 +30,7 @@ const (
 	ContainedParam     = "_contained"
 	ContainedTypeParam = "_containedType"
 	OffsetParam        = "_offset" // Custom param, not in FHIR spec
-	FormatParam		   = "_format"
+	FormatParam        = "_format"
 )
 
 var globalSearchParams = map[string]bool{IDParam: true, LastUpdatedParam: true, TagParam: true,
@@ -94,6 +94,15 @@ func (q *Query) Params() []SearchParam {
 func (q *Query) Options() *QueryOptions {
 	options := NewQueryOptions()
 	queryParams, _ := ParseQuery(q.Query)
+
+	if strings.Contains(q.Query, "_include=*") {
+		options.IsIncludeAll = true
+	}
+
+	if strings.Contains(q.Query, "_revinclude=*") {
+		options.IsRevincludeAll = true
+	}
+
 	for _, queryParam := range queryParams.All() {
 		param, modifier, _ := ParseParamNameModifierAndPostFix(queryParam.Key)
 		if !strings.HasPrefix(param, "_") || isGlobalSearchParam(param) {
@@ -137,6 +146,11 @@ func (q *Query) Options() *QueryOptions {
 			}
 
 		case IncludeParam:
+
+			if options.IsIncludeAll {
+				continue
+			}
+
 			incls := strings.Split(queryParam.Value, ":")
 			if len(incls) < 2 || len(incls) > 3 {
 				panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_include\" content is invalid"))
@@ -160,6 +174,11 @@ func (q *Query) Options() *QueryOptions {
 			options.Include = append(options.Include, IncludeOption{Resource: incls[0], Parameter: inclParam})
 
 		case RevIncludeParam:
+
+			if options.IsRevincludeAll {
+				continue
+			}
+
 			incls := strings.Split(queryParam.Value, ":")
 			if len(incls) < 2 || len(incls) > 3 {
 				panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
@@ -191,11 +210,33 @@ func (q *Query) Options() *QueryOptions {
 				// Currently we only support JSON
 				panic(createUnsupportedSearchError("MSG_PARAM_INVALID", "Parameter \"_format\" content is invalid"))
 			}
-			
+
 		default:
 			panic(createUnsupportedSearchError("MSG_PARAM_UNKNOWN", fmt.Sprintf("Parameter \"%s\" not understood", param)))
 		}
 	}
+
+	if options.IsIncludeAll {
+		// check if this resource has any includes
+		inclParams := SearchParameterDictionary[q.Resource]
+		for _, inclParam := range inclParams {
+			if inclParam.Type == "reference" {
+				options.Include = append(options.Include, IncludeOption{Resource: q.Resource, Parameter: inclParam})
+			}
+		}
+	}
+
+	if options.IsRevincludeAll {
+		// scan the search parameter dictionary for all revincludes referencing this resource
+		for resource, resourceSearchParams := range SearchParameterDictionary {
+			for _, revInclParam := range resourceSearchParams {
+				if revInclParam.Type == "reference" && contains(revInclParam.Targets, q.Resource) {
+					options.RevInclude = append(options.RevInclude, RevIncludeOption{Resource: resource, Parameter: revInclParam})
+				}
+			}
+		}
+	}
+
 	return options
 }
 
@@ -228,9 +269,28 @@ func (q *Query) URLQueryParameters(withOptions bool) URLQueryParameters {
 	}
 
 	if withOptions {
-		oQueryParams := q.Options().URLQueryParameters()
+		options := q.Options()
+		oQueryParams := options.URLQueryParameters()
 		for _, oQueryParam := range oQueryParams.All() {
+
+			if options.IsIncludeAll && oQueryParam.Key == "_include" {
+				// skip adding any include parameters until the end
+				continue
+			}
+
+			if options.IsRevincludeAll && oQueryParam.Key == "_revinclude" {
+				continue
+			}
+
 			queryParams.Add(oQueryParam.Key, oQueryParam.Value)
+		}
+
+		if options.IsIncludeAll {
+			queryParams.Add("_include", "*")
+		}
+
+		if options.IsRevincludeAll {
+			queryParams.Add("_revinclude", "*")
 		}
 	}
 
@@ -239,12 +299,14 @@ func (q *Query) URLQueryParameters(withOptions bool) URLQueryParameters {
 
 // QueryOptions contains option values such as count and offset.
 type QueryOptions struct {
-	Count      int
-	Offset     int
-	Sort       []SortOption
-	Include    []IncludeOption
-	RevInclude []RevIncludeOption
-	IsSTU3Sort bool
+	Count           int
+	Offset          int
+	Sort            []SortOption
+	Include         []IncludeOption
+	RevInclude      []RevIncludeOption
+	IsSTU3Sort      bool
+	IsIncludeAll    bool
+	IsRevincludeAll bool
 }
 
 // NewQueryOptions constructs a new QueryOptions with default values (offset = 0, Count = 100)
@@ -1113,4 +1175,14 @@ func escape(s string) string {
 	s = strings.Replace(s, "$", "\\$", -1)
 	s = strings.Replace(s, ",", "\\,", -1)
 	return strings.Replace(s, "```ie.bs```", "\\\\", -1)
+}
+
+func contains(values []string, want string) bool {
+	// Tests if a slice of strings contains a certain string element
+	for _, el := range values {
+		if el == want {
+			return true
+		}
+	}
+	return false
 }

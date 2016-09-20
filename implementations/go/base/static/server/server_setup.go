@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -60,6 +61,8 @@ func NewServer(databaseHost string) *FHIRServer {
 		ValidateHeaders: false,
 	}))
 
+	server.Engine.Use(AbortNonJSONRequests)
+
 	return server
 }
 
@@ -87,4 +90,14 @@ func (f *FHIRServer) Run(config Config) {
 	}
 
 	f.Engine.Run(":3001")
+}
+
+// AbortNonJSONRequests is middleware that responds to any request that Accepts a format
+// other than JSON with a 406 Not Acceptable status.
+func AbortNonJSONRequests(c *gin.Context) {
+
+	acceptHeader := c.Request.Header.Get("Accept")
+	if acceptHeader != "" && !strings.Contains(acceptHeader, "json") && !strings.Contains(acceptHeader, "*/*") {
+		c.AbortWithStatus(406)
+	}
 }

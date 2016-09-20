@@ -161,7 +161,6 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "resource_controller.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server_setup.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "mongo_indexes.go")), new File(dirs.get("serverDir")));
-        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server.go")), new File(Utilities.path(basedDir, "app")));
 
         ZipGenerator zip = new ZipGenerator(destDir + getReference(version));
         zip.addFolder(implDir, "mgo", false);

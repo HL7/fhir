@@ -73,7 +73,7 @@ func (rc *ResourceController) LoadResource(c *gin.Context) (interface{}, error) 
 // ShowHandler handles requests to get a particular resource by ID.
 func (rc *ResourceController) ShowHandler(c *gin.Context) {
 	c.Set("Action", "read")
-	_, err := rc.LoadResource(c)
+	resource, err := rc.LoadResource(c)
 	if err != nil && err != ErrNotFound {
 		c.AbortWithError(http.StatusInternalServerError, err)
 		return
@@ -83,8 +83,41 @@ func (rc *ResourceController) ShowHandler(c *gin.Context) {
 		c.Status(http.StatusNotFound)
 		return
 	}
-	resource, _ := c.Get(rc.Name)
 	c.JSON(http.StatusOK, resource)
+}
+
+// EverythingHandler handles requests for everything related to a Patient or Encounter resource.
+func (rc *ResourceController) EverythingHandler(c *gin.Context) {
+	defer func() {
+		if r := recover(); r != nil {
+			switch x := r.(type) {
+			case *search.Error:
+				c.JSON(x.HTTPStatus, x.OperationOutcome)
+				return
+			default:
+				outcome := models.NewOperationOutcome("fatal", "exception", "")
+				c.JSON(http.StatusInternalServerError, outcome)
+				return
+			}
+		}
+	}()
+
+	// For now we interpret $everything as the union of _include and _revinclude
+	query := fmt.Sprintf("_id=%s&_include=*&_revinclude=*", c.Param("id"))
+
+	searchQuery := search.Query{Resource: rc.Name, Query: query}
+	baseURL := responseURL(c.Request, rc.Name)
+	bundle, err := rc.DAL.Search(*baseURL, searchQuery)
+	if err != nil {
+		c.AbortWithError(http.StatusInternalServerError, err)
+		return
+	}
+
+	c.Set("bundle", bundle)
+	c.Set("Resource", rc.Name)
+	c.Set("Action", "search")
+
+	c.JSON(http.StatusOK, bundle)
 }
 
 // CreateHandler handles requests to create a new resource instance, assigning it a new ID.
