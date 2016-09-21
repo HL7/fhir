@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
+// Generated on Wed, Sep 21, 2016 20:43+1000 for FHIR v1.7.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2278,6 +2278,10 @@ public class Enumerations {
          */
         ACTIVITYDEFINITION, 
         /**
+         * A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.
+         */
+        ACTIVITYGROUP, 
+        /**
          * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
          */
         ALLERGYINTOLERANCE, 
@@ -2670,6 +2674,10 @@ public class Enumerations {
          */
         SEQUENCE, 
         /**
+         * The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.
+         */
+        SERVICEDEFINITION, 
+        /**
          * A slot of time on a schedule that may be available for booking appointments.
          */
         SLOT, 
@@ -2842,6 +2850,8 @@ public class Enumerations {
           return ACCOUNT;
         if ("ActivityDefinition".equals(codeString))
           return ACTIVITYDEFINITION;
+        if ("ActivityGroup".equals(codeString))
+          return ACTIVITYGROUP;
         if ("AllergyIntolerance".equals(codeString))
           return ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -3038,6 +3048,8 @@ public class Enumerations {
           return SEARCHPARAMETER;
         if ("Sequence".equals(codeString))
           return SEQUENCE;
+        if ("ServiceDefinition".equals(codeString))
+          return SERVICEDEFINITION;
         if ("Slot".equals(codeString))
           return SLOT;
         if ("Specimen".equals(codeString))
@@ -3125,6 +3137,7 @@ public class Enumerations {
             case XHTML: return "xhtml";
             case ACCOUNT: return "Account";
             case ACTIVITYDEFINITION: return "ActivityDefinition";
+            case ACTIVITYGROUP: return "ActivityGroup";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -3223,6 +3236,7 @@ public class Enumerations {
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
             case SEQUENCE: return "Sequence";
+            case SERVICEDEFINITION: return "ServiceDefinition";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case STRUCTUREDEFINITION: return "StructureDefinition";
@@ -3297,6 +3311,7 @@ public class Enumerations {
             case XHTML: return "http://hl7.org/fhir/data-types";
             case ACCOUNT: return "http://hl7.org/fhir/resource-types";
             case ACTIVITYDEFINITION: return "http://hl7.org/fhir/resource-types";
+            case ACTIVITYGROUP: return "http://hl7.org/fhir/resource-types";
             case ALLERGYINTOLERANCE: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENT: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENTRESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -3395,6 +3410,7 @@ public class Enumerations {
             case SCHEDULE: return "http://hl7.org/fhir/resource-types";
             case SEARCHPARAMETER: return "http://hl7.org/fhir/resource-types";
             case SEQUENCE: return "http://hl7.org/fhir/resource-types";
+            case SERVICEDEFINITION: return "http://hl7.org/fhir/resource-types";
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
             case STRUCTUREDEFINITION: return "http://hl7.org/fhir/resource-types";
@@ -3469,6 +3485,7 @@ public class Enumerations {
             case XHTML: return "XHTML format, as defined by W3C, but restricted usage (mainly, no active content)";
             case ACCOUNT: return "A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.";
             case ACTIVITYDEFINITION: return "This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.";
+            case ACTIVITYGROUP: return "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.";
             case ALLERGYINTOLERANCE: return "Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.";
             case APPOINTMENT: return "A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).";
             case APPOINTMENTRESPONSE: return "A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.";
@@ -3567,6 +3584,7 @@ public class Enumerations {
             case SCHEDULE: return "A container for slot(s) of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
             case SEQUENCE: return "Raw data describing a biological sequence.";
+            case SERVICEDEFINITION: return "The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.";
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
             case STRUCTUREDEFINITION: return "A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.";
@@ -3641,6 +3659,7 @@ public class Enumerations {
             case XHTML: return "XHTML";
             case ACCOUNT: return "Account";
             case ACTIVITYDEFINITION: return "ActivityDefinition";
+            case ACTIVITYGROUP: return "ActivityGroup";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -3739,6 +3758,7 @@ public class Enumerations {
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
             case SEQUENCE: return "Sequence";
+            case SERVICEDEFINITION: return "ServiceDefinition";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case STRUCTUREDEFINITION: return "StructureDefinition";
@@ -3873,6 +3893,8 @@ public class Enumerations {
           return FHIRAllTypes.ACCOUNT;
         if ("ActivityDefinition".equals(codeString))
           return FHIRAllTypes.ACTIVITYDEFINITION;
+        if ("ActivityGroup".equals(codeString))
+          return FHIRAllTypes.ACTIVITYGROUP;
         if ("AllergyIntolerance".equals(codeString))
           return FHIRAllTypes.ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -4069,6 +4091,8 @@ public class Enumerations {
           return FHIRAllTypes.SEARCHPARAMETER;
         if ("Sequence".equals(codeString))
           return FHIRAllTypes.SEQUENCE;
+        if ("ServiceDefinition".equals(codeString))
+          return FHIRAllTypes.SERVICEDEFINITION;
         if ("Slot".equals(codeString))
           return FHIRAllTypes.SLOT;
         if ("Specimen".equals(codeString))
@@ -4215,6 +4239,8 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ACCOUNT);
         if ("ActivityDefinition".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ACTIVITYDEFINITION);
+        if ("ActivityGroup".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ACTIVITYGROUP);
         if ("AllergyIntolerance".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ALLERGYINTOLERANCE);
         if ("Appointment".equals(codeString))
@@ -4411,6 +4437,8 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.SEARCHPARAMETER);
         if ("Sequence".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.SEQUENCE);
+        if ("ServiceDefinition".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.SERVICEDEFINITION);
         if ("Slot".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.SLOT);
         if ("Specimen".equals(codeString))
@@ -4552,6 +4580,8 @@ public class Enumerations {
         return "Account";
       if (code == FHIRAllTypes.ACTIVITYDEFINITION)
         return "ActivityDefinition";
+      if (code == FHIRAllTypes.ACTIVITYGROUP)
+        return "ActivityGroup";
       if (code == FHIRAllTypes.ALLERGYINTOLERANCE)
         return "AllergyIntolerance";
       if (code == FHIRAllTypes.APPOINTMENT)
@@ -4748,6 +4778,8 @@ public class Enumerations {
         return "SearchParameter";
       if (code == FHIRAllTypes.SEQUENCE)
         return "Sequence";
+      if (code == FHIRAllTypes.SERVICEDEFINITION)
+        return "ServiceDefinition";
       if (code == FHIRAllTypes.SLOT)
         return "Slot";
       if (code == FHIRAllTypes.SPECIMEN)
@@ -5005,6 +5037,10 @@ public class Enumerations {
          */
         ACTIVITYDEFINITION, 
         /**
+         * A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.
+         */
+        ACTIVITYGROUP, 
+        /**
          * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
          */
         ALLERGYINTOLERANCE, 
@@ -5397,6 +5433,10 @@ public class Enumerations {
          */
         SEQUENCE, 
         /**
+         * The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.
+         */
+        SERVICEDEFINITION, 
+        /**
          * A slot of time on a schedule that may be available for booking appointments.
          */
         SLOT, 
@@ -5561,6 +5601,8 @@ public class Enumerations {
           return ACCOUNT;
         if ("ActivityDefinition".equals(codeString))
           return ACTIVITYDEFINITION;
+        if ("ActivityGroup".equals(codeString))
+          return ACTIVITYGROUP;
         if ("AllergyIntolerance".equals(codeString))
           return ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -5757,6 +5799,8 @@ public class Enumerations {
           return SEARCHPARAMETER;
         if ("Sequence".equals(codeString))
           return SEQUENCE;
+        if ("ServiceDefinition".equals(codeString))
+          return SERVICEDEFINITION;
         if ("Slot".equals(codeString))
           return SLOT;
         if ("Specimen".equals(codeString))
@@ -5840,6 +5884,7 @@ public class Enumerations {
             case XHTML: return "xhtml";
             case ACCOUNT: return "Account";
             case ACTIVITYDEFINITION: return "ActivityDefinition";
+            case ACTIVITYGROUP: return "ActivityGroup";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -5938,6 +5983,7 @@ public class Enumerations {
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
             case SEQUENCE: return "Sequence";
+            case SERVICEDEFINITION: return "ServiceDefinition";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case STRUCTUREDEFINITION: return "StructureDefinition";
@@ -6010,6 +6056,7 @@ public class Enumerations {
             case XHTML: return "http://hl7.org/fhir/data-types";
             case ACCOUNT: return "http://hl7.org/fhir/resource-types";
             case ACTIVITYDEFINITION: return "http://hl7.org/fhir/resource-types";
+            case ACTIVITYGROUP: return "http://hl7.org/fhir/resource-types";
             case ALLERGYINTOLERANCE: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENT: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENTRESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -6108,6 +6155,7 @@ public class Enumerations {
             case SCHEDULE: return "http://hl7.org/fhir/resource-types";
             case SEARCHPARAMETER: return "http://hl7.org/fhir/resource-types";
             case SEQUENCE: return "http://hl7.org/fhir/resource-types";
+            case SERVICEDEFINITION: return "http://hl7.org/fhir/resource-types";
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
             case STRUCTUREDEFINITION: return "http://hl7.org/fhir/resource-types";
@@ -6180,6 +6228,7 @@ public class Enumerations {
             case XHTML: return "XHTML format, as defined by W3C, but restricted usage (mainly, no active content)";
             case ACCOUNT: return "A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.";
             case ACTIVITYDEFINITION: return "This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.";
+            case ACTIVITYGROUP: return "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.";
             case ALLERGYINTOLERANCE: return "Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.";
             case APPOINTMENT: return "A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).";
             case APPOINTMENTRESPONSE: return "A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.";
@@ -6278,6 +6327,7 @@ public class Enumerations {
             case SCHEDULE: return "A container for slot(s) of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
             case SEQUENCE: return "Raw data describing a biological sequence.";
+            case SERVICEDEFINITION: return "The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.";
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
             case STRUCTUREDEFINITION: return "A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.";
@@ -6350,6 +6400,7 @@ public class Enumerations {
             case XHTML: return "XHTML";
             case ACCOUNT: return "Account";
             case ACTIVITYDEFINITION: return "ActivityDefinition";
+            case ACTIVITYGROUP: return "ActivityGroup";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -6448,6 +6499,7 @@ public class Enumerations {
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
             case SEQUENCE: return "Sequence";
+            case SERVICEDEFINITION: return "ServiceDefinition";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case STRUCTUREDEFINITION: return "StructureDefinition";
@@ -6580,6 +6632,8 @@ public class Enumerations {
           return FHIRDefinedType.ACCOUNT;
         if ("ActivityDefinition".equals(codeString))
           return FHIRDefinedType.ACTIVITYDEFINITION;
+        if ("ActivityGroup".equals(codeString))
+          return FHIRDefinedType.ACTIVITYGROUP;
         if ("AllergyIntolerance".equals(codeString))
           return FHIRDefinedType.ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -6776,6 +6830,8 @@ public class Enumerations {
           return FHIRDefinedType.SEARCHPARAMETER;
         if ("Sequence".equals(codeString))
           return FHIRDefinedType.SEQUENCE;
+        if ("ServiceDefinition".equals(codeString))
+          return FHIRDefinedType.SERVICEDEFINITION;
         if ("Slot".equals(codeString))
           return FHIRDefinedType.SLOT;
         if ("Specimen".equals(codeString))
@@ -6918,6 +6974,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ACCOUNT);
         if ("ActivityDefinition".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ACTIVITYDEFINITION);
+        if ("ActivityGroup".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ACTIVITYGROUP);
         if ("AllergyIntolerance".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ALLERGYINTOLERANCE);
         if ("Appointment".equals(codeString))
@@ -7114,6 +7172,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SEARCHPARAMETER);
         if ("Sequence".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SEQUENCE);
+        if ("ServiceDefinition".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SERVICEDEFINITION);
         if ("Slot".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SLOT);
         if ("Specimen".equals(codeString))
@@ -7251,6 +7311,8 @@ public class Enumerations {
         return "Account";
       if (code == FHIRDefinedType.ACTIVITYDEFINITION)
         return "ActivityDefinition";
+      if (code == FHIRDefinedType.ACTIVITYGROUP)
+        return "ActivityGroup";
       if (code == FHIRDefinedType.ALLERGYINTOLERANCE)
         return "AllergyIntolerance";
       if (code == FHIRDefinedType.APPOINTMENT)
@@ -7447,6 +7509,8 @@ public class Enumerations {
         return "SearchParameter";
       if (code == FHIRDefinedType.SEQUENCE)
         return "Sequence";
+      if (code == FHIRDefinedType.SERVICEDEFINITION)
+        return "ServiceDefinition";
       if (code == FHIRDefinedType.SLOT)
         return "Slot";
       if (code == FHIRDefinedType.SPECIMEN)
@@ -7925,6 +7989,10 @@ public class Enumerations {
          */
         ACTIVITYDEFINITION, 
         /**
+         * A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.
+         */
+        ACTIVITYGROUP, 
+        /**
          * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
          */
         ALLERGYINTOLERANCE, 
@@ -8317,6 +8385,10 @@ public class Enumerations {
          */
         SEQUENCE, 
         /**
+         * The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.
+         */
+        SERVICEDEFINITION, 
+        /**
          * A slot of time on a schedule that may be available for booking appointments.
          */
         SLOT, 
@@ -8375,6 +8447,8 @@ public class Enumerations {
           return ACCOUNT;
         if ("ActivityDefinition".equals(codeString))
           return ACTIVITYDEFINITION;
+        if ("ActivityGroup".equals(codeString))
+          return ACTIVITYGROUP;
         if ("AllergyIntolerance".equals(codeString))
           return ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -8571,6 +8645,8 @@ public class Enumerations {
           return SEARCHPARAMETER;
         if ("Sequence".equals(codeString))
           return SEQUENCE;
+        if ("ServiceDefinition".equals(codeString))
+          return SERVICEDEFINITION;
         if ("Slot".equals(codeString))
           return SLOT;
         if ("Specimen".equals(codeString))
@@ -8601,6 +8677,7 @@ public class Enumerations {
           switch (this) {
             case ACCOUNT: return "Account";
             case ACTIVITYDEFINITION: return "ActivityDefinition";
+            case ACTIVITYGROUP: return "ActivityGroup";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -8699,6 +8776,7 @@ public class Enumerations {
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
             case SEQUENCE: return "Sequence";
+            case SERVICEDEFINITION: return "ServiceDefinition";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case STRUCTUREDEFINITION: return "StructureDefinition";
@@ -8718,6 +8796,7 @@ public class Enumerations {
           switch (this) {
             case ACCOUNT: return "http://hl7.org/fhir/resource-types";
             case ACTIVITYDEFINITION: return "http://hl7.org/fhir/resource-types";
+            case ACTIVITYGROUP: return "http://hl7.org/fhir/resource-types";
             case ALLERGYINTOLERANCE: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENT: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENTRESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -8816,6 +8895,7 @@ public class Enumerations {
             case SCHEDULE: return "http://hl7.org/fhir/resource-types";
             case SEARCHPARAMETER: return "http://hl7.org/fhir/resource-types";
             case SEQUENCE: return "http://hl7.org/fhir/resource-types";
+            case SERVICEDEFINITION: return "http://hl7.org/fhir/resource-types";
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
             case STRUCTUREDEFINITION: return "http://hl7.org/fhir/resource-types";
@@ -8835,6 +8915,7 @@ public class Enumerations {
           switch (this) {
             case ACCOUNT: return "A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.";
             case ACTIVITYDEFINITION: return "This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.";
+            case ACTIVITYGROUP: return "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.";
             case ALLERGYINTOLERANCE: return "Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.";
             case APPOINTMENT: return "A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).";
             case APPOINTMENTRESPONSE: return "A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.";
@@ -8933,6 +9014,7 @@ public class Enumerations {
             case SCHEDULE: return "A container for slot(s) of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
             case SEQUENCE: return "Raw data describing a biological sequence.";
+            case SERVICEDEFINITION: return "The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.";
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
             case STRUCTUREDEFINITION: return "A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.";
@@ -8952,6 +9034,7 @@ public class Enumerations {
           switch (this) {
             case ACCOUNT: return "Account";
             case ACTIVITYDEFINITION: return "ActivityDefinition";
+            case ACTIVITYGROUP: return "ActivityGroup";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -9050,6 +9133,7 @@ public class Enumerations {
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
             case SEQUENCE: return "Sequence";
+            case SERVICEDEFINITION: return "ServiceDefinition";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case STRUCTUREDEFINITION: return "StructureDefinition";
@@ -9076,6 +9160,8 @@ public class Enumerations {
           return ResourceType.ACCOUNT;
         if ("ActivityDefinition".equals(codeString))
           return ResourceType.ACTIVITYDEFINITION;
+        if ("ActivityGroup".equals(codeString))
+          return ResourceType.ACTIVITYGROUP;
         if ("AllergyIntolerance".equals(codeString))
           return ResourceType.ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -9272,6 +9358,8 @@ public class Enumerations {
           return ResourceType.SEARCHPARAMETER;
         if ("Sequence".equals(codeString))
           return ResourceType.SEQUENCE;
+        if ("ServiceDefinition".equals(codeString))
+          return ResourceType.SERVICEDEFINITION;
         if ("Slot".equals(codeString))
           return ResourceType.SLOT;
         if ("Specimen".equals(codeString))
@@ -9308,6 +9396,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.ACCOUNT);
         if ("ActivityDefinition".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.ACTIVITYDEFINITION);
+        if ("ActivityGroup".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.ACTIVITYGROUP);
         if ("AllergyIntolerance".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.ALLERGYINTOLERANCE);
         if ("Appointment".equals(codeString))
@@ -9504,6 +9594,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.SEARCHPARAMETER);
         if ("Sequence".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.SEQUENCE);
+        if ("ServiceDefinition".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.SERVICEDEFINITION);
         if ("Slot".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.SLOT);
         if ("Specimen".equals(codeString))
@@ -9535,6 +9627,8 @@ public class Enumerations {
         return "Account";
       if (code == ResourceType.ACTIVITYDEFINITION)
         return "ActivityDefinition";
+      if (code == ResourceType.ACTIVITYGROUP)
+        return "ActivityGroup";
       if (code == ResourceType.ALLERGYINTOLERANCE)
         return "AllergyIntolerance";
       if (code == ResourceType.APPOINTMENT)
@@ -9731,6 +9825,8 @@ public class Enumerations {
         return "SearchParameter";
       if (code == ResourceType.SEQUENCE)
         return "Sequence";
+      if (code == ResourceType.SERVICEDEFINITION)
+        return "ServiceDefinition";
       if (code == ResourceType.SLOT)
         return "Slot";
       if (code == ResourceType.SPECIMEN)

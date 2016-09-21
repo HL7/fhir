@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
+// Generated on Wed, Sep 21, 2016 20:43+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -43,9 +43,10 @@ import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
-
+// added from java-adornments.txt:
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
 
+// end addition
 /**
  * A Map of relationships between 2 structures that can be used to transform data.
  */
@@ -1769,11 +1770,14 @@ public class StructureMap extends BaseConformance {
 
   }
 
+// added from java-adornments.txt:
 
   public String toString() {
     return StructureMapUtilities.groupToString(this);
   }
 
+
+// end addition
   }
 
     @Block()
@@ -2674,11 +2678,14 @@ public class StructureMap extends BaseConformance {
 
   }
 
+// added from java-adornments.txt:
 
   public String toString() {
     return StructureMapUtilities.ruleToString(this);
   }
 
+
+// end addition
   }
 
     @Block()
@@ -3316,11 +3323,14 @@ public class StructureMap extends BaseConformance {
 
   }
 
+// added from java-adornments.txt:
 
   public String toString() {
     return StructureMapUtilities.sourceToString(this);
   }
 
+
+// end addition
   }
 
     @Block()
@@ -3985,11 +3995,14 @@ public class StructureMap extends BaseConformance {
 
   }
 
+// added from java-adornments.txt:
 
   public String toString() {
     return StructureMapUtilities.targetToString(this);
   }
 
+
+// end addition
   }
 
     @Block()
@@ -4206,12 +4219,15 @@ public class StructureMap extends BaseConformance {
 
   }
 
+// added from java-adornments.txt:
 
       public String toString() {
         return value == null ? "null!" : value.toString();
       }
 
 
+
+// end addition
   }
 
     @Block()
@@ -5620,11 +5636,14 @@ public class StructureMap extends BaseConformance {
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
+// added from java-adornments.txt:
 
   public String toString() {
     return StructureMapUtilities.render(this);
   }
 
+
+// end addition
 
 }
 

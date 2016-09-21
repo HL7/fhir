@@ -2,11 +2,12 @@ package org.hl7.fhir.dstu3.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
+// Generated on Wed, Sep 21, 2016 20:43+1000 for FHIR v1.7.0
 
 public enum ResourceType {
     Account,
     ActivityDefinition,
+    ActivityGroup,
     AllergyIntolerance,
     Appointment,
     AppointmentResponse,
@@ -103,6 +104,7 @@ public enum ResourceType {
     Schedule,
     SearchParameter,
     Sequence,
+    ServiceDefinition,
     Slot,
     Specimen,
     StructureDefinition,
@@ -123,6 +125,8 @@ public enum ResourceType {
       return "account";
     case ActivityDefinition:
       return "activitydefinition";
+    case ActivityGroup:
+      return "activitygroup";
     case AllergyIntolerance:
       return "allergyintolerance";
     case Appointment:
@@ -315,6 +319,8 @@ public enum ResourceType {
       return "searchparameter";
     case Sequence:
       return "sequence";
+    case ServiceDefinition:
+      return "servicedefinition";
     case Slot:
       return "slot";
     case Specimen:
@@ -349,6 +355,8 @@ public enum ResourceType {
       return Account;
     if ("ActivityDefinition".equals(code))
       return ActivityDefinition;
+    if ("ActivityGroup".equals(code))
+      return ActivityGroup;
     if ("AllergyIntolerance".equals(code))
       return AllergyIntolerance;
     if ("Appointment".equals(code))
@@ -541,6 +549,8 @@ public enum ResourceType {
       return SearchParameter;
     if ("Sequence".equals(code))
       return Sequence;
+    if ("ServiceDefinition".equals(code))
+      return ServiceDefinition;
     if ("Slot".equals(code))
       return Slot;
     if ("Specimen".equals(code))

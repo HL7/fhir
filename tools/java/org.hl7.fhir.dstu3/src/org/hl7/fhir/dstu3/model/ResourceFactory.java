@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
+// Generated on Wed, Sep 21, 2016 20:43+1000 for FHIR v1.7.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -56,6 +56,8 @@ public class ResourceFactory extends Factory {
             return new Medication();
         if ("Measure".equals(name))
             return new Measure();
+        if ("ActivityGroup".equals(name))
+            return new ActivityGroup();
         if ("Subscription".equals(name))
             return new Subscription();
         if ("DocumentReference".equals(name))
@@ -108,6 +110,8 @@ public class ResourceFactory extends Factory {
             return new Substance();
         if ("SearchParameter".equals(name))
             return new SearchParameter();
+        if ("ServiceDefinition".equals(name))
+            return new ServiceDefinition();
         if ("Communication".equals(name))
             return new Communication();
         if ("ActivityDefinition".equals(name))
@@ -352,6 +356,8 @@ public class ResourceFactory extends Factory {
             return new Medication();
         if ("Measure".equals(name))
             return new Measure();
+        if ("ActivityGroup".equals(name))
+            return new ActivityGroup();
         if ("Subscription".equals(name))
             return new Subscription();
         if ("DocumentReference".equals(name))
@@ -404,6 +410,8 @@ public class ResourceFactory extends Factory {
             return new Substance();
         if ("SearchParameter".equals(name))
             return new SearchParameter();
+        if ("ServiceDefinition".equals(name))
+            return new ServiceDefinition();
         if ("Communication".equals(name))
             return new Communication();
         if ("ActivityDefinition".equals(name))

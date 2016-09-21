@@ -140,6 +140,7 @@ import org.hl7.fhir.dstu3.model.Conformance.ConformanceRestComponent;
 import org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceComponent;
 import org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceSearchParamComponent;
 import org.hl7.fhir.dstu3.model.Conformance.ConformanceStatementKind;
+import org.hl7.fhir.dstu3.model.Conformance.ReferenceHandlingPolicy;
 import org.hl7.fhir.dstu3.model.Conformance.ResourceInteractionComponent;
 import org.hl7.fhir.dstu3.model.Conformance.RestfulConformanceMode;
 import org.hl7.fhir.dstu3.model.Conformance.SystemInteractionComponent;
@@ -1371,6 +1372,8 @@ public class Publisher implements URIResolver, SectionNumberer {
         res.setConditionalCreate(true);
         res.setConditionalUpdate(true);
         res.setConditionalDelete(ConditionalDeleteStatus.MULTIPLE);
+        res.addReferencePolicy(ReferenceHandlingPolicy.LITERAL);
+        res.addReferencePolicy(ReferenceHandlingPolicy.LOGICAL);
         for (SearchParameterDefn i : rd.getSearchParams().values()) {
           res.getSearchParam().add(makeSearchParam(conf, rn, i));
           if (i.getType().equals(SearchType.reference))

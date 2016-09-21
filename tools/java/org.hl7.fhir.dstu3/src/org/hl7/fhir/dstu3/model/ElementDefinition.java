@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
+// Generated on Wed, Sep 21, 2016 20:43+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -5662,6 +5662,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           , isSummary, binding, mapping);
       }
 
+// added from java-adornments.txt:
   
   public String toString() {
     if (hasName())
@@ -5670,6 +5671,8 @@ public class ElementDefinition extends Type implements ICompositeType {
       return getPath();
   }
     
+
+// end addition
 
 }
 

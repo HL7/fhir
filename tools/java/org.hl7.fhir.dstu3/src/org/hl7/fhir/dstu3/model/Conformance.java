@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Sep 3, 2016 10:50+1000 for FHIR v1.7.0
+// Generated on Wed, Sep 21, 2016 20:43+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -884,6 +884,144 @@ public class Conformance extends BaseConformance implements IBaseConformance {
       return "?";
       }
     public String toSystem(ConditionalDeleteStatus code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum ReferenceHandlingPolicy {
+        /**
+         * The server supports and populates Literal references where they are known (this code does not guarantee that all references are literal; see 'enforced')
+         */
+        LITERAL, 
+        /**
+         * The server allows logical references
+         */
+        LOGICAL, 
+        /**
+         * The server will attempt to resolve logical references to literal references (if resolution fails, the server may still accept resources; see logical)
+         */
+        RESOLVES, 
+        /**
+         * The server enforces that references have integrity - e.g. it ensures that references can always be resolved. This is typically the case for clinical record systems, but often no the case for middleware/proxy systems
+         */
+        ENFORCED, 
+        /**
+         * The server does not support references that point to other servers
+         */
+        LOCAL, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static ReferenceHandlingPolicy fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("literal".equals(codeString))
+          return LITERAL;
+        if ("logical".equals(codeString))
+          return LOGICAL;
+        if ("resolves".equals(codeString))
+          return RESOLVES;
+        if ("enforced".equals(codeString))
+          return ENFORCED;
+        if ("local".equals(codeString))
+          return LOCAL;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ReferenceHandlingPolicy code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case LITERAL: return "literal";
+            case LOGICAL: return "logical";
+            case RESOLVES: return "resolves";
+            case ENFORCED: return "enforced";
+            case LOCAL: return "local";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case LITERAL: return "http://hl7.org/fhir/reference-handling-policy";
+            case LOGICAL: return "http://hl7.org/fhir/reference-handling-policy";
+            case RESOLVES: return "http://hl7.org/fhir/reference-handling-policy";
+            case ENFORCED: return "http://hl7.org/fhir/reference-handling-policy";
+            case LOCAL: return "http://hl7.org/fhir/reference-handling-policy";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case LITERAL: return "The server supports and populates Literal references where they are known (this code does not guarantee that all references are literal; see 'enforced')";
+            case LOGICAL: return "The server allows logical references";
+            case RESOLVES: return "The server will attempt to resolve logical references to literal references (if resolution fails, the server may still accept resources; see logical)";
+            case ENFORCED: return "The server enforces that references have integrity - e.g. it ensures that references can always be resolved. This is typically the case for clinical record systems, but often no the case for middleware/proxy systems";
+            case LOCAL: return "The server does not support references that point to other servers";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case LITERAL: return "Literal References";
+            case LOGICAL: return "Logical References";
+            case RESOLVES: return "Resolves References";
+            case ENFORCED: return "Reference Integrity Enforced";
+            case LOCAL: return "Local References Only";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ReferenceHandlingPolicyEnumFactory implements EnumFactory<ReferenceHandlingPolicy> {
+    public ReferenceHandlingPolicy fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("literal".equals(codeString))
+          return ReferenceHandlingPolicy.LITERAL;
+        if ("logical".equals(codeString))
+          return ReferenceHandlingPolicy.LOGICAL;
+        if ("resolves".equals(codeString))
+          return ReferenceHandlingPolicy.RESOLVES;
+        if ("enforced".equals(codeString))
+          return ReferenceHandlingPolicy.ENFORCED;
+        if ("local".equals(codeString))
+          return ReferenceHandlingPolicy.LOCAL;
+        throw new IllegalArgumentException("Unknown ReferenceHandlingPolicy code '"+codeString+"'");
+        }
+        public Enumeration<ReferenceHandlingPolicy> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("literal".equals(codeString))
+          return new Enumeration<ReferenceHandlingPolicy>(this, ReferenceHandlingPolicy.LITERAL);
+        if ("logical".equals(codeString))
+          return new Enumeration<ReferenceHandlingPolicy>(this, ReferenceHandlingPolicy.LOGICAL);
+        if ("resolves".equals(codeString))
+          return new Enumeration<ReferenceHandlingPolicy>(this, ReferenceHandlingPolicy.RESOLVES);
+        if ("enforced".equals(codeString))
+          return new Enumeration<ReferenceHandlingPolicy>(this, ReferenceHandlingPolicy.ENFORCED);
+        if ("local".equals(codeString))
+          return new Enumeration<ReferenceHandlingPolicy>(this, ReferenceHandlingPolicy.LOCAL);
+        throw new FHIRException("Unknown ReferenceHandlingPolicy code '"+codeString+"'");
+        }
+    public String toCode(ReferenceHandlingPolicy code) {
+      if (code == ReferenceHandlingPolicy.LITERAL)
+        return "literal";
+      if (code == ReferenceHandlingPolicy.LOGICAL)
+        return "logical";
+      if (code == ReferenceHandlingPolicy.RESOLVES)
+        return "resolves";
+      if (code == ReferenceHandlingPolicy.ENFORCED)
+        return "enforced";
+      if (code == ReferenceHandlingPolicy.LOCAL)
+        return "local";
+      return "?";
+      }
+    public String toSystem(ReferenceHandlingPolicy code) {
       return code.getSystem();
       }
     }
@@ -3626,27 +3764,35 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         protected Enumeration<ConditionalDeleteStatus> conditionalDelete;
 
         /**
+         * A set of flags that defines how references are supported.
+         */
+        @Child(name = "referencePolicy", type = {CodeType.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="literal | logical | resolves | enforced | local", formalDefinition="A set of flags that defines how references are supported." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reference-handling-policy")
+        protected List<Enumeration<ReferenceHandlingPolicy>> referencePolicy;
+
+        /**
          * A list of _include values supported by the server.
          */
-        @Child(name = "searchInclude", type = {StringType.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "searchInclude", type = {StringType.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="_include values supported by the server", formalDefinition="A list of _include values supported by the server." )
         protected List<StringType> searchInclude;
 
         /**
          * A list of _revinclude (reverse include) values supported by the server.
          */
-        @Child(name = "searchRevInclude", type = {StringType.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "searchRevInclude", type = {StringType.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="_revinclude values supported by the server", formalDefinition="A list of _revinclude (reverse include) values supported by the server." )
         protected List<StringType> searchRevInclude;
 
         /**
          * Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.
          */
-        @Child(name = "searchParam", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "searchParam", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Search params supported by implementation", formalDefinition="Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation." )
         protected List<ConformanceRestResourceSearchParamComponent> searchParam;
 
-        private static final long serialVersionUID = 1603701261L;
+        private static final long serialVersionUID = -939520401L;
 
     /**
      * Constructor
@@ -4182,6 +4328,67 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         }
 
         /**
+         * @return {@link #referencePolicy} (A set of flags that defines how references are supported.)
+         */
+        public List<Enumeration<ReferenceHandlingPolicy>> getReferencePolicy() { 
+          if (this.referencePolicy == null)
+            this.referencePolicy = new ArrayList<Enumeration<ReferenceHandlingPolicy>>();
+          return this.referencePolicy;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConformanceRestResourceComponent setReferencePolicy(List<Enumeration<ReferenceHandlingPolicy>> theReferencePolicy) { 
+          this.referencePolicy = theReferencePolicy;
+          return this;
+        }
+
+        public boolean hasReferencePolicy() { 
+          if (this.referencePolicy == null)
+            return false;
+          for (Enumeration<ReferenceHandlingPolicy> item : this.referencePolicy)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #referencePolicy} (A set of flags that defines how references are supported.)
+         */
+        public Enumeration<ReferenceHandlingPolicy> addReferencePolicyElement() {//2 
+          Enumeration<ReferenceHandlingPolicy> t = new Enumeration<ReferenceHandlingPolicy>(new ReferenceHandlingPolicyEnumFactory());
+          if (this.referencePolicy == null)
+            this.referencePolicy = new ArrayList<Enumeration<ReferenceHandlingPolicy>>();
+          this.referencePolicy.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #referencePolicy} (A set of flags that defines how references are supported.)
+         */
+        public ConformanceRestResourceComponent addReferencePolicy(ReferenceHandlingPolicy value) { //1
+          Enumeration<ReferenceHandlingPolicy> t = new Enumeration<ReferenceHandlingPolicy>(new ReferenceHandlingPolicyEnumFactory());
+          t.setValue(value);
+          if (this.referencePolicy == null)
+            this.referencePolicy = new ArrayList<Enumeration<ReferenceHandlingPolicy>>();
+          this.referencePolicy.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #referencePolicy} (A set of flags that defines how references are supported.)
+         */
+        public boolean hasReferencePolicy(ReferenceHandlingPolicy value) { 
+          if (this.referencePolicy == null)
+            return false;
+          for (Enumeration<ReferenceHandlingPolicy> v : this.referencePolicy)
+            if (v.getValue().equals(value)) // code
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #searchInclude} (A list of _include values supported by the server.)
          */
         public List<StringType> getSearchInclude() { 
@@ -4369,6 +4576,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           childrenList.add(new Property("conditionalRead", "code", "A code that indicates how the server supports conditional read.", 0, java.lang.Integer.MAX_VALUE, conditionalRead));
           childrenList.add(new Property("conditionalUpdate", "boolean", "A flag that indicates that the server supports conditional update.", 0, java.lang.Integer.MAX_VALUE, conditionalUpdate));
           childrenList.add(new Property("conditionalDelete", "code", "A code that indicates how the server supports conditional delete.", 0, java.lang.Integer.MAX_VALUE, conditionalDelete));
+          childrenList.add(new Property("referencePolicy", "code", "A set of flags that defines how references are supported.", 0, java.lang.Integer.MAX_VALUE, referencePolicy));
           childrenList.add(new Property("searchInclude", "string", "A list of _include values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchInclude));
           childrenList.add(new Property("searchRevInclude", "string", "A list of _revinclude (reverse include) values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchRevInclude));
           childrenList.add(new Property("searchParam", "", "Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.", 0, java.lang.Integer.MAX_VALUE, searchParam));
@@ -4388,6 +4596,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         case 822786364: /*conditionalRead*/ return this.conditionalRead == null ? new Base[0] : new Base[] {this.conditionalRead}; // Enumeration<ConditionalReadStatus>
         case 519849711: /*conditionalUpdate*/ return this.conditionalUpdate == null ? new Base[0] : new Base[] {this.conditionalUpdate}; // BooleanType
         case 23237585: /*conditionalDelete*/ return this.conditionalDelete == null ? new Base[0] : new Base[] {this.conditionalDelete}; // Enumeration<ConditionalDeleteStatus>
+        case 796257373: /*referencePolicy*/ return this.referencePolicy == null ? new Base[0] : this.referencePolicy.toArray(new Base[this.referencePolicy.size()]); // Enumeration<ReferenceHandlingPolicy>
         case -1035904544: /*searchInclude*/ return this.searchInclude == null ? new Base[0] : this.searchInclude.toArray(new Base[this.searchInclude.size()]); // StringType
         case -2123884979: /*searchRevInclude*/ return this.searchRevInclude == null ? new Base[0] : this.searchRevInclude.toArray(new Base[this.searchRevInclude.size()]); // StringType
         case -553645115: /*searchParam*/ return this.searchParam == null ? new Base[0] : this.searchParam.toArray(new Base[this.searchParam.size()]); // ConformanceRestResourceSearchParamComponent
@@ -4432,6 +4641,9 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         case 23237585: // conditionalDelete
           this.conditionalDelete = new ConditionalDeleteStatusEnumFactory().fromType(value); // Enumeration<ConditionalDeleteStatus>
           break;
+        case 796257373: // referencePolicy
+          this.getReferencePolicy().add(new ReferenceHandlingPolicyEnumFactory().fromType(value)); // Enumeration<ReferenceHandlingPolicy>
+          break;
         case -1035904544: // searchInclude
           this.getSearchInclude().add(castToString(value)); // StringType
           break;
@@ -4470,6 +4682,8 @@ public class Conformance extends BaseConformance implements IBaseConformance {
           this.conditionalUpdate = castToBoolean(value); // BooleanType
         else if (name.equals("conditionalDelete"))
           this.conditionalDelete = new ConditionalDeleteStatusEnumFactory().fromType(value); // Enumeration<ConditionalDeleteStatus>
+        else if (name.equals("referencePolicy"))
+          this.getReferencePolicy().add(new ReferenceHandlingPolicyEnumFactory().fromType(value));
         else if (name.equals("searchInclude"))
           this.getSearchInclude().add(castToString(value));
         else if (name.equals("searchRevInclude"))
@@ -4494,6 +4708,7 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         case 822786364: throw new FHIRException("Cannot make property conditionalRead as it is not a complex type"); // Enumeration<ConditionalReadStatus>
         case 519849711: throw new FHIRException("Cannot make property conditionalUpdate as it is not a complex type"); // BooleanType
         case 23237585: throw new FHIRException("Cannot make property conditionalDelete as it is not a complex type"); // Enumeration<ConditionalDeleteStatus>
+        case 796257373: throw new FHIRException("Cannot make property referencePolicy as it is not a complex type"); // Enumeration<ReferenceHandlingPolicy>
         case -1035904544: throw new FHIRException("Cannot make property searchInclude as it is not a complex type"); // StringType
         case -2123884979: throw new FHIRException("Cannot make property searchRevInclude as it is not a complex type"); // StringType
         case -553645115:  return addSearchParam(); // ConformanceRestResourceSearchParamComponent
@@ -4538,6 +4753,9 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         else if (name.equals("conditionalDelete")) {
           throw new FHIRException("Cannot call addChild on a primitive type Conformance.conditionalDelete");
         }
+        else if (name.equals("referencePolicy")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Conformance.referencePolicy");
+        }
         else if (name.equals("searchInclude")) {
           throw new FHIRException("Cannot call addChild on a primitive type Conformance.searchInclude");
         }
@@ -4569,6 +4787,11 @@ public class Conformance extends BaseConformance implements IBaseConformance {
         dst.conditionalRead = conditionalRead == null ? null : conditionalRead.copy();
         dst.conditionalUpdate = conditionalUpdate == null ? null : conditionalUpdate.copy();
         dst.conditionalDelete = conditionalDelete == null ? null : conditionalDelete.copy();
+        if (referencePolicy != null) {
+          dst.referencePolicy = new ArrayList<Enumeration<ReferenceHandlingPolicy>>();
+          for (Enumeration<ReferenceHandlingPolicy> i : referencePolicy)
+            dst.referencePolicy.add(i.copy());
+        };
         if (searchInclude != null) {
           dst.searchInclude = new ArrayList<StringType>();
           for (StringType i : searchInclude)
@@ -4599,8 +4822,9 @@ public class Conformance extends BaseConformance implements IBaseConformance {
            && compareDeep(readHistory, o.readHistory, true) && compareDeep(updateCreate, o.updateCreate, true)
            && compareDeep(conditionalCreate, o.conditionalCreate, true) && compareDeep(conditionalRead, o.conditionalRead, true)
            && compareDeep(conditionalUpdate, o.conditionalUpdate, true) && compareDeep(conditionalDelete, o.conditionalDelete, true)
-           && compareDeep(searchInclude, o.searchInclude, true) && compareDeep(searchRevInclude, o.searchRevInclude, true)
-           && compareDeep(searchParam, o.searchParam, true);
+           && compareDeep(referencePolicy, o.referencePolicy, true) && compareDeep(searchInclude, o.searchInclude, true)
+           && compareDeep(searchRevInclude, o.searchRevInclude, true) && compareDeep(searchParam, o.searchParam, true)
+          ;
       }
 
       @Override
@@ -4614,15 +4838,15 @@ public class Conformance extends BaseConformance implements IBaseConformance {
            && compareValues(readHistory, o.readHistory, true) && compareValues(updateCreate, o.updateCreate, true)
            && compareValues(conditionalCreate, o.conditionalCreate, true) && compareValues(conditionalRead, o.conditionalRead, true)
            && compareValues(conditionalUpdate, o.conditionalUpdate, true) && compareValues(conditionalDelete, o.conditionalDelete, true)
-           && compareValues(searchInclude, o.searchInclude, true) && compareValues(searchRevInclude, o.searchRevInclude, true)
-          ;
+           && compareValues(referencePolicy, o.referencePolicy, true) && compareValues(searchInclude, o.searchInclude, true)
+           && compareValues(searchRevInclude, o.searchRevInclude, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, profile, documentation
           , interaction, versioning, readHistory, updateCreate, conditionalCreate, conditionalRead
-          , conditionalUpdate, conditionalDelete, searchInclude, searchRevInclude, searchParam
-          );
+          , conditionalUpdate, conditionalDelete, referencePolicy, searchInclude, searchRevInclude
+          , searchParam);
       }
 
   public String fhirType() {
