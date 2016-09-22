@@ -5024,6 +5024,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
       node.addText(" ");
       XhtmlNode a = node.addTag("a");
+      if (node.hasAttribute("class"))
+        throw new Error("test");
+      else
+        node.setAttribute("class", "self-link-parent");
       a.setAttribute("href", (link.contains(File.separator) ? link.substring(link.lastIndexOf(File.separator)+1) : link) +"#"+sv);
       a.setAttribute("title", "link to here");
       a.setAttribute("class", "self-link");
@@ -5031,7 +5035,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       String s = "assets/images/link.svg";
       for (int i = 0; i < level; i++)
         s = "../"+s;
-      img.attribute("src", s).attribute("height", "20").attribute("width", "20").attribute("style", "border: 1px solid lightgrey; margin: 4px");
+      img.attribute("src", s).attribute("height", "20").attribute("width", "20").attribute("class", "self-link");
 
     }
     if (node.getNodeType() == NodeType.Document

@@ -554,3 +554,11 @@ tr.diff-del {
 tr.diff-del-item {
   background-color: #fff4f4;
 }
+
+
+.self-link-parent a{
+  visibility:hidden;
+}
+.self-link-parent:hover a {
+ visibility:visible;
+}
