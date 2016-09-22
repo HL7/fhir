@@ -865,7 +865,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       return true;
     if (s.startsWith("icon"))
       return true;
-    if (Utilities.existsInList(s, "modifier.png", "mustsupport.png", "summary.png", "lock.png", "external.png", "cc0.png", "target.png"))
+    if (Utilities.existsInList(s, "modifier.png", "mustsupport.png", "summary.png", "lock.png", "external.png", "cc0.png", "target.png", "link.svg"))
       return true;
     return false;
   }

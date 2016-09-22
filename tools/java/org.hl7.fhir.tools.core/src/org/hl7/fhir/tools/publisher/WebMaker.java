@@ -91,7 +91,7 @@ public class WebMaker {
         a.setAttribute("href", pagename+"#"+link);
         a.setAttribute("title", "link to here");
         XhtmlNode img = a.addTag("img");
-        img.attribute("src", "target.png");
+        img.attribute("src", "assets/images/link.svg").attribute("height", "20").attribute("width", "20").attribute("style", "border: 1px solid lightgrey; margin: 4px");
       }
     }
     for (XhtmlNode child : node.getChildNodes()) 

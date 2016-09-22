@@ -5028,10 +5028,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       a.setAttribute("title", "link to here");
       a.setAttribute("class", "self-link");
       XhtmlNode img = a.addTag("img");
-      String s = "target.png";
+      String s = "assets/images/link.svg";
       for (int i = 0; i < level; i++)
         s = "../"+s;
-      img.attribute("src", s);
+      img.attribute("src", s).attribute("height", "20").attribute("width", "20").attribute("style", "border: 1px solid lightgrey; margin: 4px");
 
     }
     if (node.getNodeType() == NodeType.Document
