@@ -6,7 +6,6 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>This value set includes the following SNOMED CT &quot;Severity&quot; concepts:</p>
       <ul>
-        <li>399166001: Fatal</li>
         <li>24484000: Severe</li>
         <li>6736007: Moderate</li>
         <li>255604002: Mild</li>
@@ -29,9 +28,6 @@
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-      <concept>
-        <code value="399166001"/>
-      </concept>
       <concept>
         <code value="24484000"/>
       </concept>

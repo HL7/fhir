@@ -136,6 +136,7 @@
  -- Row 2 -----------------------------------
   Element = Condition.identifier
   Card. = 0..*
+  Summary = Y
   Type = Identifier
   Short Label = External Ids for this condition
   Definition = This records identifiers associated with this condition that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
@@ -147,6 +148,7 @@
   Element = Condition.clinicalStatus
   Card. = 0..1
   Is Modifier = y
+  Summary = Y
   Type = code
   Binding = ConditionClinicalStatus
   Short Label = active | relapse | remission | resolved
@@ -158,6 +160,7 @@
   Element = Condition.verificationStatus
   Card. = 1..1
   Is Modifier = y
+  Summary = Y
   Type = code
   Binding = ConditionVerificationStatus
   Short Label = provisional | differential | confirmed | refuted | entered-in-error | unknown
@@ -206,6 +209,7 @@
  -- Row 8 -----------------------------------
   Element = Condition.code
   Card. = 1..1
+  Summary = Y
   Type = CodeableConcept
   Binding = ConditionKind
   Short Label = Identification of the condition, problem or diagnosis
@@ -217,6 +221,7 @@
  -- Row 9 -----------------------------------
   Element = Condition.bodySite
   Card. = 0..*
+  Summary = Y
   Type = CodeableConcept
   Binding = BodySite
   Short Label = Anatomical location, if relevant
@@ -227,6 +232,7 @@
  -- Row 10 -----------------------------------
   Element = Condition.subject
   Card. = 1..1
+  Summary = Y
   Type = Reference(Patient|Group)
   Short Label = Who has the condition?
   Definition = Indicates the patient or group who the condition record is associated with
@@ -250,6 +256,7 @@
  -- Row 12 -----------------------------------
   Element = Condition.onset[x]
   Card. = 0..1
+  Summary = Y
   Type = dateTime | Age | Period | Range | string
   Short Label = Estimated or actual date,  date-time, or age
   Definition = Estimated or actual date or date-time  the condition began, in the opinion of the clinician
@@ -283,6 +290,7 @@
  -- Row 15 -----------------------------------
   Element = Condition.asserter
   Card. = 0..1
+  Summary = Y
   Type = Reference(Practitioner|Patient)
   Short Label = Person who asserts this condition
   Definition = Individual who is making the condition statement
@@ -425,8 +433,8 @@
   Path = Condition.abatement[x]
 
  -- Row 12 -----------------------------------
-  Name = abatement-info
-  Type = quantity
+  Name = abatement-string
+  Type = string
   Description = Abatement as a string
   Path = Condition.abatement[x]
 

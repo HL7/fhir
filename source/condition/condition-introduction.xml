@@ -32,9 +32,14 @@ captured as problems/diagnoses.
 <a href="procedure.html">Procedure</a>, <a href="diagnosticrequest.html">DiagnosticRequest</a>, etc.)
 </p>
 <p>
-This resource is not to be used to record information about subjective and objective information that might lead to the recording of a Condition.
-Such signs and symptoms that are typically captured using the <a href="observation.html">Observation</a> resource; 
+This resource is not to be used to record information about subjective and objective information that might lead to the recording of a Condition. Such signs and symptoms that are typically captured using the <a href="observation.html">Observation</a> resource; 
 although in some cases a persistent symptom, e.g. fever, headache may be captured as a condition before a definitive diagnosis can be discerned by a clinician.
+</p>
+<p>
+Use the <a href="observation.html">Observation</a> resource when a symptom is resolved without long term management, tracking, or when a symptom contributes to the establishment of a condition.
+</p>
+<p>
+Use Condition when a symptom requires long term management, tracking, or is used as a proxy for a diagnosis or problem that is not yet determined.
 </p>
 <p>
 The condition resource also specifically excludes <a href="allergyintolerance.html">AllergyIntolerance</a> as those are handled with their own resource.
