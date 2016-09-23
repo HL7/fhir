@@ -96,7 +96,7 @@
   Id = 4
   Code = resolved
   Display = Resolved
-  Definition = A reaction to the identified substance has been clinically reassessed by testing or rechallenge re-exposure and considered to be resolved e.g. change the word rechallenged to re-exposure
+  Definition = A reaction to the identified substance has been clinically reassessed by testing or re-exposure and considered to be resolved
   Parent = #2
 
  -- Row 5 -----------------------------------
@@ -175,7 +175,7 @@
   Id = 4
   Code = biologic
   Display = Biologic
-  Definition = A preparation that is synthesized from living organisms or their products, especially a human or animal protein, such as a hormone or antitoxin, that is used as a diagnostic, preventive, or therapeutic agent. Also called biological drug.  Examples of biological products include: vaccines; blood and blood products for transfusion and/or manufacturing into other products; allergenic extracts, which are used for both diagnosis and treatment (for example, allergy shots); human cells and tissues used for transplantation (for example, tendons, ligaments and bone); gene therapies; cellular therapies; tests to screen potential blood donors for infectious agents such as HIV.
+  Definition = A preparation that is synthesized from living organisms or their products, especially a human or animal protein, such as a hormone or antitoxin, that is used as a diagnostic, preventive, or therapeutic agent. Also called biological drug. Examples of biologic medications include: vaccines; allergenic extracts, which are used for both diagnosis and treatment (for example, allergy shots); gene therapies; cellular therapies.  There are other biologic products, such as tissues, that are not typically associated with allergies.
   Parent = medication
 
 === Sheet reaction-event-certainty =====================================
@@ -330,7 +330,6 @@
  -- Row 9 -----------------------------------
   Element = AllergyIntolerance.attestedDate
   Card. = 0..1
-  Summary = y
   Type = dateTime
   Short Label = Date record was believed accurate
   Definition = Indicates the most recent date on which the recorder has asserted that the information represented by this AllergyIntolerance record is accurate
@@ -343,7 +342,6 @@
   Element = AllergyIntolerance.recorder
   Card. = 0..1
   Aliases = Author
-  Summary = y
   Type = Reference(Practitioner|Patient)
   Short Label = Who recorded the sensitivity
   Definition = Individual who recorded the record and takes responsibility for its content
@@ -366,7 +364,6 @@
  -- Row 12 -----------------------------------
   Element = AllergyIntolerance.onset
   Card. = 0..1
-  Summary = y
   Type = dateTime
   Short Label = Date(/time) when manifestations showed
   Definition = Record of the date and/or time of the onset of the Allergy or Intolerance
@@ -375,7 +372,6 @@
  -- Row 13 -----------------------------------
   Element = AllergyIntolerance.lastOccurrence
   Card. = 0..1
-  Summary = Y
   Type = dateTime
   Short Label = Date(/time) of last known occurrence of a reaction
   Definition = Represents the date and/or time of the last known occurrence of a reaction event
@@ -402,7 +398,6 @@
  -- Row 16 -----------------------------------
   Element = AllergyIntolerance.reaction.substance
   Card. = 0..1
-  Summary = Y
   Type = CodeableConcept
   Binding = SubstanceCode
   Short Label = Specific substance or pharmaceutical product considered to be responsible for event
@@ -414,7 +409,6 @@
   Element = AllergyIntolerance.reaction.certainty
   Card. = 0..1
   Aliases = Cause;
-  Summary = Y
   Type = code
   Binding = AllergyIntoleranceCertainty
   Short Label = unlikely | likely | confirmed - clinical certainty about the specific substance
@@ -425,7 +419,6 @@
   Element = AllergyIntolerance.reaction.manifestation
   Card. = 1..*
   Aliases = Symptoms; Signs
-  Summary = Y
   Type = CodeableConcept
   Binding = Manifestation
   Short Label = Clinical symptoms/signs associated with the Event
@@ -447,7 +440,6 @@
  -- Row 20 -----------------------------------
   Element = AllergyIntolerance.reaction.onset
   Card. = 0..1
-  Summary = Y
   Type = dateTime
   Short Label = Date(/time) when manifestations showed
   Definition = Record of the date and/or time of the onset of the Reaction
@@ -457,7 +449,6 @@
  -- Row 21 -----------------------------------
   Element = AllergyIntolerance.reaction.severity
   Card. = 0..1
-  Summary = Y
   Type = code
   Binding = AllergyIntoleranceSeverity
   Short Label = mild | moderate | severe (of event as a whole)
@@ -468,7 +459,6 @@
  -- Row 22 -----------------------------------
   Element = AllergyIntolerance.reaction.exposureRoute
   Card. = 0..1
-  Summary = Y
   Type = CodeableConcept
   Binding = RouteOfAdministration
   Short Label = How the subject was exposed to the substance

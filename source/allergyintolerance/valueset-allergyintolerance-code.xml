@@ -67,7 +67,7 @@
       <filter>
         <property value="concept"/>
         <op value="is-a"/>
-        <value value="160244002"/> <!-- No known allergies (situation) -->
+        <value value="716186003"/> <!-- No known allergies (situation) -->
       </filter>
     </include>
   </compose>
