@@ -59,6 +59,11 @@
     <definition value="Get a conformance statement for the system."/>
   </concept>
   <concept>
+    <code value="apply"/>
+    <display value="$apply"/>
+    <definition value="Realize a definition in a specific context"/>
+  </concept>
+  <concept>
     <code value="cancel"/>
     <display value="$cancel"/>
     <definition value="Cancel Task"/>
@@ -72,6 +77,16 @@
     <code value="closure"/>
     <display value="$closure"/>
     <definition value="Closure Table Maintenance"/>
+  </concept>
+  <concept>
+    <code value="conforms"/>
+    <display value="$conforms"/>
+    <definition value="Test if a server implements a client's required operations"/>
+  </concept>
+  <concept>
+    <code value="data-requirements"/>
+    <display value="$data-requirements"/>
+    <definition value="Aggregates and return the parameters and data requirements as a single module definition library"/>
   </concept>
   <concept>
     <code value="document"/>
@@ -114,6 +129,16 @@
     <definition value="Finish Task"/>
   </concept>
   <concept>
+    <code value="implements"/>
+    <display value="$implements"/>
+    <definition value="Test if a server implements a client's required operations"/>
+  </concept>
+  <concept>
+    <code value="infer"/>
+    <display value="$infer"/>
+    <definition value="Perform inferencing based on a set of codes"/>
+  </concept>
+  <concept>
     <code value="lookup"/>
     <display value="$lookup"/>
     <definition value="Concept Look Up"/>
@@ -147,6 +172,16 @@
     <code value="populate"/>
     <display value="$populate"/>
     <definition value="Populate Questionnaire"/>
+  </concept>
+  <concept>
+    <code value="populatehtml"/>
+    <display value="$populatehtml"/>
+    <definition value="Geneate HTML for Questionnaire"/>
+  </concept>
+  <concept>
+    <code value="populatelink"/>
+    <display value="$populatelink"/>
+    <definition value="Generate a link to a Questionnaire completion webpage"/>
   </concept>
   <concept>
     <code value="process-message"/>
@@ -189,14 +224,34 @@
     <definition value="Start Task"/>
   </concept>
   <concept>
+    <code value="stats"/>
+    <display value="$stats"/>
+    <definition value="Observation Statistics"/>
+  </concept>
+  <concept>
     <code value="stop"/>
     <display value="$stop"/>
     <definition value="Stop Task"/>
   </concept>
   <concept>
+    <code value="subset"/>
+    <display value="$subset"/>
+    <definition value="Fetch a subset of the conformance resource"/>
+  </concept>
+  <concept>
+    <code value="subsumes"/>
+    <display value="$subsumes"/>
+    <definition value="Determine if code A is subsumed by code B"/>
+  </concept>
+  <concept>
     <code value="suspend"/>
     <display value="$suspend"/>
     <definition value="Suspend Task"/>
+  </concept>
+  <concept>
+    <code value="transform"/>
+    <display value="$transform"/>
+    <definition value="Model Instance Transformation"/>
   </concept>
   <concept>
     <code value="translate"/>
