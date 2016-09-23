@@ -80,7 +80,7 @@ purposes:</p>
   <li><b>identifier</b> is used to reference the overall questionnaire in business terms.  It is the number printed across the top of the form or listed beside the form
   when making a choice between alternate forms.</li>
   <li>The <b>id</b> attribute supported on each element is used for references within a resource, for example linking narrative to discrete elements.  Ids are not generally displayed to end users</li>
-  <li>The <b>linkId</b> element on questions and groups establishes a link between elements in a <a href="questionnaireresponse.html">QuestionnaireAnsers</a> and their
+  <li>The <b>linkId</b> element on questions and groups establishes a link between elements in a <a href="questionnaireresponse.html">QuestionnaireResponse</a> and their
   definition inside a Questionnaire.  This is the <i>only</i> way to link between the groups and questions in a Questionnaire and QuestionnaireResponse.  These are also not displayed to end users</li>
 </ul>
 
