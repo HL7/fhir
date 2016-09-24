@@ -23,6 +23,17 @@
     
     <xsl:template match="/">
         <xsl:apply-templates/>
+        <xsl:variable name="total" select="count(//*:table)"/>
+        <xsl:variable name="fullyTranslated" select="count(//*:table[not(*:version[not(contains(@version,' '))]/*:item[not(*:desc)])])"/>
+        <xsl:variable name="partiallyTranslated" select="count(//*:table[*:version[not(contains(@version,' '))]/*:item[*:desc]][*:version[not(contains(@version,' '))]/*:item[not(*:desc)]])"/>
+        <xsl:variable name="missingTitles" select="count(//*:table[*:version[not(contains(@version,' '))][not(*:desc)]][*:version[not(contains(@version,' '))]/*:item[*:desc]])"/>
+        
+        <xsl:message>Tables: <xsl:value-of select="$total"/></xsl:message>
+        <xsl:message>   Fully translated tables         : <xsl:value-of select="$fullyTranslated"/></xsl:message>
+        <xsl:message>   Partially translated tables     : <xsl:value-of select="$partiallyTranslated"/></xsl:message>
+        <xsl:message>   Untranslated tables             : <xsl:value-of select="$total - $fullyTranslated - $partiallyTranslated"/></xsl:message>
+        <xsl:message>   Translated tables missing title : <xsl:value-of select="$missingTitles"/></xsl:message>
+        <xsl:message>   Percentage done                 : <xsl:value-of select="round(($fullyTranslated div $total) * 100)"/>%</xsl:message>
     </xsl:template>
     
     <xsl:template match="f:tables">
