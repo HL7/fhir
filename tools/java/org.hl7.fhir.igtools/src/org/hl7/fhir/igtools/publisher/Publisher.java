@@ -63,6 +63,7 @@ import org.hl7.fhir.dstu3.model.Bundle.BundleType;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.Constants;
+import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
@@ -71,6 +72,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.dstu3.model.ExpansionProfile;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
+import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuideContactComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
@@ -2125,6 +2127,35 @@ public class Publisher implements IWorkerContext.ILoggingService {
     data.addProperty("totalFiles", fileList.size());
     data.addProperty("processedFiles", changeList.size());
     data.addProperty("genDate", genTime());
+    JsonObject ig = new JsonObject();
+    data.add("ig", ig);
+    ig.addProperty("id", sourceIg.getId());
+    ig.addProperty("name", sourceIg.getName());
+    ig.addProperty("url", sourceIg.getUrl());
+    ig.addProperty("version", sourceIg.getVersion());
+    ig.addProperty("status", sourceIg.getStatusElement().asStringValue());
+    ig.addProperty("experimental", sourceIg.getExperimental());
+    ig.addProperty("publisher", sourceIg.getPublisher());
+    if (sourceIg.hasContact()) {
+      JsonArray jc = new JsonArray();
+      ig.add("contact", jc);
+      for (ImplementationGuideContactComponent c : sourceIg.getContact()) {
+        JsonObject jco = new JsonObject();
+        jc.add(jco);
+        jco.addProperty("name", c.getName());
+        if (c.hasTelecom()) {
+          JsonArray jct = new JsonArray();
+          jco.add("telecom", jct);
+          for (ContactPoint cc : c.getTelecom()) {
+            jct.add(new JsonPrimitive(cc.getValue()));
+          }
+        }
+      }
+    }
+    ig.addProperty("date", sourceIg.getDateElement().asStringValue());
+    ig.addProperty("description", sourceIg.getDescription());
+    ig.addProperty("copyright", sourceIg.getCopyright());
+    ig.addProperty("fhirVersion", sourceIg.getFhirVersion());
 
     for (SpecMapManager sm : specMaps) {
       if (sm.getName() != null)
