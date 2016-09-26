@@ -31,8 +31,8 @@ may not have a target for each concept.
 
 </div> 
 
-<a name="bnr"> </a>
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 While <code>ConceptMap</code> resources are not referred to directly from any other 

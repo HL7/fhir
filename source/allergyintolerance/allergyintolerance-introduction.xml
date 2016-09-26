@@ -136,7 +136,6 @@ AllergyIntolerance describes a specific type of risk - propensity to reaction to
 			</li>
 			<li>Not to be used for recording failed therapy.</li>
 		</ul>
-	</div>
 	<!-- (optional):
 <div>
 <h2>Background and Context</h2>
@@ -145,11 +144,12 @@ Provides additional detail on exactly how the resource is to be used
 </p>
 </div>
 -->
-<blockquote class="dstu-note">
 <a name="dstu0"> </a>
+<blockquote class="dstu-note">
 <p>
 <b>STU Note:</b>Requests have been received (GF#10369) to add codes to the AllergyIntolerance.reaction.certainty value set (reaction-event-certainty), which is a required binding.  The requested codes include "unknown", "ruled out" and "possible".  The Patient Care WG has voted to add "unknown" to the value set, but recommends that if other terms (including "ruled out" and "possible") are desired for use in a specific setting, an extension or profile should be used.  During the STU period <a href="http://gforge.hl7.org/gf/project/fhir/tracker/">feedback</a> is solicited regarding (1) the need and desirability of adding the code "unknown" to the value set, vs. omitting the element if the certainty is not known; and (2) whether or not additional codes besides "unknown" should be added to the value set for the core specification, or whether additional codes, if needed, should be added in an extension/profile.
 </p>
 </blockquote>
+</div>
 
 </div>

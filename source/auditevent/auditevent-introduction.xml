@@ -23,7 +23,8 @@ This resource is managed collaboratively between HL7, DICOM, and IHE.
 The primary purpose of this resource is the maintenance of security audit log information.  However, 
 it can also be used for any audit logging needs and simple event-based notification.
 </p>
-
+</div>
+<div>
 <a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>

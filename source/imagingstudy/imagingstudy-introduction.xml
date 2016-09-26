@@ -29,6 +29,10 @@ resource; use of a DICOM WADO-RS server or other storage mechanism is needed.
 Only a single DICOM study may be referenced from one ImagingStudy. In many cases, only one ImagingStudy 
 will reference a particular DICOM study, but this is not required.
 </p>
+</div>
+
+<div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 In contrast to <a href="imagingmanifest.html">ImagingManifest</a>, this resource represents all of the known imaging objects from a single 

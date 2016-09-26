@@ -75,8 +75,8 @@ In contrast to the <a href="observation.html">Observation</a> resource, the Diag
 <p>
 If you have a highly structured report, then use DiagnosticReport - it has data and workflow support.  Details about the request for a diagnostic investigation are captured in the various "request" resources (e.g., the <a href="diagnosticrequest.html">DiagnosticRequest</a>) resource and allow the report to connect to clinical workflows. For more narrative driven reports with less work flow (histology/mortuary, etc.), the <a href="composition.html">Composition</a> resource would be more appropriate.
 </p>
-<blockquote class="dstu-note">
 <a name="dstu"> </a>
+<blockquote class="dstu-note">
 <p>
 <b>DSTU Note:</b> The relationship between the two resources is subject to ongoing evaluation during the trial use period.
 </p>
