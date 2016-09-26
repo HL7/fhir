@@ -145,60 +145,6 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Goal.subject
-  Card. = 0..1
-  Summary = Y
-  Type = Reference(Patient | Group | Organization)
-  Short Label = Who this goal is intended for
-  Definition = Identifies the patient, group or organization for whom the goal is being established.
-  Requirements = Subject is optional to support annonymized reporting
-  v2 Mapping = PID-3-patient ID list
-  RIM Mapping = .participation[typeCode=PAT].role[classCode=PAT]
-  w5 = who.focus
-
- -- Row 4 -----------------------------------
-  Element = Goal.start[x]
-  Card. = 0..1
-  Summary = Y
-  Type = date | CodeableConcept
-  Binding = GoalStartEvent
-  Short Label = When goal pursuit begins
-  Definition = The date or event after which the goal should begin being pursued
-  Requirements = Goals can be established prior to there being an intention to start pursuing them; e.g. Goals for post-surgical recovery established prior to surgery.
-
- -- Row 5 -----------------------------------
-  Element = Goal.target[x]
-  Card. = 0..1
-  Summary = Y
-  Type = date | Duration
-  Short Label = Reach goal on or before
-  Definition = Indicates either the date or the duration after start by which the goal should be met
-  Requirements = Identifies when the goal should be evaluated.
-
- -- Row 6 -----------------------------------
-  Element = Goal.category
-  Card. = 0..*
-  Summary = Y
-  Type = CodeableConcept
-  Binding = GoalCategory
-  Short Label = E.g. Treatment, dietary, behavioral, etc.
-  Definition = Indicates a category the goal falls within
-  Requirements = Allows goals to be filtered and sorted
-
- -- Row 7 -----------------------------------
-  Element = Goal.description
-  Card. = 1..1
-  Summary = Y
-  Type = CodeableConcept
-  Binding = GoalDescription
-  Short Label = Code or text describing goal
-  Definition = Code and/or human-readable description of a specific desired objective of care.
-  Requirements = Without a description of what\'s trying to be achieved, element has no purpose
-  Comments = If no code is available, use CodeableConcept.text.
-  v2 Mapping = GOL-3.2-goal ID.text
-  RIM Mapping = .text
-
- -- Row 8 -----------------------------------
   Element = Goal.status
   Card. = 1..1
   Is Modifier = Y
@@ -212,36 +158,18 @@
   RIM Mapping = .statusCode in-progress = active (classCode = OBJ) achieved = complete sustaining = active (classCode=OBJC) cancelled = aborted
   w5 = status
 
- -- Row 9 -----------------------------------
-  Element = Goal.statusDate
-  Card. = 0..1
-  Summary = Y
-  Type = date
-  Short Label = When goal status took effect
-  Definition = Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.
-  Comments = To see the date for past statuses, query history
-  w5 = when.recorded
-
- -- Row 10 -----------------------------------
-  Element = Goal.statusReason
+ -- Row 4 -----------------------------------
+  Element = Goal.category
   Card. = 0..*
-  Type = CodeableConcept
-  Binding = GoalStatusReason
-  Short Label = Reason for current status
-  Definition = Captures the reason for the current status.
-  Comments = This will typically be captured for statuses such as rejected, on-hold or cancelled, but could be present for others.
-
- -- Row 11 -----------------------------------
-  Element = Goal.expressedBy
-  Card. = 0..1
   Summary = Y
-  Type = Reference(Patient|Practitioner|RelatedPerson)
-  Short Label = Who\'s responsible for creating Goal?
-  Definition = Indicates whose goal this is - patient goal, practitioner goal, etc.
-  Comments = This is the individual reponsible for establishing the goal, not necessarily who recorded it.  (For that, use the Provenance resource.)
-  w5 = who.source
+  Type = CodeableConcept
+  Binding = GoalCategory
+  Short Label = E.g. Treatment, dietary, behavioral, etc.
+  Definition = Indicates a category the goal falls within
+  Requirements = Allows goals to be filtered and sorted
+  w5 = class
 
- -- Row 12 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Goal.priority
   Card. = 0..1
   Summary = Y
@@ -252,6 +180,83 @@
   Requirements = Used for sorting and presenting goals
   Comments = Extensions are available to track priorities as established by each participant (i.e. Priority from the patient\'s perspective, different practitioners\' perspectives, family member\'s perspectives)\r\rThe ordinal extension on Coding can be used to convey a numerically comparable ranking to priority.  (Keep in mind that different coding systems may use a \"low value=important\"
   RIM Mapping = .priorityCode
+  w5 = grade
+
+ -- Row 6 -----------------------------------
+  Element = Goal.description
+  Card. = 1..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = GoalDescription
+  Short Label = Code or text describing goal
+  Definition = Code and/or human-readable description of a specific desired objective of care.
+  Requirements = Without a description of what\'s trying to be achieved, element has no purpose
+  Comments = If no code is available, use CodeableConcept.text.
+  v2 Mapping = GOL-3.2-goal ID.text
+  RIM Mapping = .text
+  w5 = what
+
+ -- Row 7 -----------------------------------
+  Element = Goal.subject
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Patient | Group | Organization)
+  Short Label = Who this goal is intended for
+  Definition = Identifies the patient, group or organization for whom the goal is being established.
+  Requirements = Subject is optional to support annonymized reporting
+  v2 Mapping = PID-3-patient ID list
+  RIM Mapping = .participation[typeCode=PAT].role[classCode=PAT]
+  w5 = who.focus
+
+ -- Row 8 -----------------------------------
+  Element = Goal.start[x]
+  Card. = 0..1
+  Summary = Y
+  Type = date | CodeableConcept
+  Binding = GoalStartEvent
+  Short Label = When goal pursuit begins
+  Definition = The date or event after which the goal should begin being pursued
+  Requirements = Goals can be established prior to there being an intention to start pursuing them; e.g. Goals for post-surgical recovery established prior to surgery.
+  w5 = when.planned
+
+ -- Row 9 -----------------------------------
+  Element = Goal.target[x]
+  Card. = 0..1
+  Summary = Y
+  Type = date | Duration
+  Short Label = Reach goal on or before
+  Definition = Indicates either the date or the duration after start by which the goal should be met
+  Requirements = Identifies when the goal should be evaluated.
+  w5 = when.done
+
+ -- Row 10 -----------------------------------
+  Element = Goal.statusDate
+  Card. = 0..1
+  Summary = Y
+  Type = date
+  Short Label = When goal status took effect
+  Definition = Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.
+  Comments = To see the date for past statuses, query history
+  w5 = when.recorded
+
+ -- Row 11 -----------------------------------
+  Element = Goal.statusReason
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = GoalStatusReason
+  Short Label = Reason for current status
+  Definition = Captures the reason for the current status.
+  Comments = This will typically be captured for statuses such as rejected, on-hold or cancelled, but could be present for others.
+
+ -- Row 12 -----------------------------------
+  Element = Goal.expressedBy
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Patient|Practitioner|RelatedPerson)
+  Short Label = Who\'s responsible for creating Goal?
+  Definition = Indicates whose goal this is - patient goal, practitioner goal, etc.
+  Comments = This is the individual reponsible for establishing the goal, not necessarily who recorded it.  (For that, use the Provenance resource.)
+  w5 = who.source
 
  -- Row 13 -----------------------------------
   Element = Goal.addresses
@@ -261,6 +266,7 @@
   Definition = The identified conditions and other health record elements that are intended to be addressed by the goal
   Requirements = Allows specific goals to explicitly linked to the concerns they\'re dealing with - makes the goal more understandable
   RIM Mapping = .outboundRelationship[typeCode=SUBJ].target[classCode=CONC]
+  w5 = why
 
  -- Row 14 -----------------------------------
   Element = Goal.note

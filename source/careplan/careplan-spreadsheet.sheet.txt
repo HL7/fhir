@@ -191,18 +191,9 @@
   Requirements = Need to allow connection to a wider workflow
   v2 Mapping = PTH-3
   RIM Mapping = .id
+  w5 = id
 
  -- Row 3 -----------------------------------
-  Element = CarePlan.subject
-  Card. = 0..1
-  Summary = Y
-  Type = Reference(Patient | Group)
-  Short Label = Who care plan is for
-  Definition = Identifies the patient or group whose intended care is described by the plan.
-  v2 Mapping = PID-3
-  RIM Mapping = .participation[typeCode=PAT].role[classCode=PAT]
-
- -- Row 4 -----------------------------------
   Element = CarePlan.status
   Card. = 1..1
   Is Modifier = Y
@@ -216,7 +207,41 @@
   RIM Mapping = .statusCode planned = new active = active completed = completed
   w5 = status
 
+ -- Row 4 -----------------------------------
+  Element = CarePlan.category
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = CarePlanCategory
+  Short Label = Type of plan
+  Definition = Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans; e.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", \"wellness plan\", etc.
+  Requirements = Used for filtering what plan(s) are retrieved and displayed to different types of users
+  Comments = There may be multiple axis of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.concern.
+  To Do = Need a value set for this
+  w5 = class
+
  -- Row 5 -----------------------------------
+  Element = CarePlan.description
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Summary of nature of plan
+  Definition = A description of the scope and nature of the plan
+  Requirements = Provides more detail than conveyed by category
+  w5 = what
+
+ -- Row 6 -----------------------------------
+  Element = CarePlan.subject
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Patient | Group)
+  Short Label = Who care plan is for
+  Definition = Identifies the patient or group whose intended care is described by the plan.
+  v2 Mapping = PID-3
+  RIM Mapping = .participation[typeCode=PAT].role[classCode=PAT]
+  w5 = who.focus
+
+ -- Row 7 -----------------------------------
   Element = CarePlan.context
   Card. = 0..1
   Summary = Y
@@ -228,7 +253,7 @@
   RIM Mapping = .
   w5 = context
 
- -- Row 6 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = CarePlan.period
   Card. = 0..1
   Summary = Y
@@ -239,17 +264,9 @@
   Comments = Any activities scheduled as part of the plan should be constrained to the specified period.
   v2 Mapping = GOL-7 / GOL-8
   RIM Mapping = .effectiveTime
+  w5 = when.init
 
- -- Row 7 -----------------------------------
-  Element = CarePlan.author
-  Card. = 0..*
-  Summary = Y
-  Type = Reference(Patient|Practitioner|RelatedPerson|Organization)
-  Short Label = Who is responsible for contents of the plan
-  Definition = Identifies the individual(s) or ogranization who is responsible for the content of the care plan.
-  Comments = Collaborative care plans may have multiple authors.
-
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = CarePlan.modified
   Card. = 0..1
   Summary = Y
@@ -260,29 +277,28 @@
   v2 Mapping = PTH-6
   RIM Mapping = .participation[typeCode=AUT].time
   Committee Notes = Do we need this in addition to the resource metadata which tracks last changed?
-
- -- Row 9 -----------------------------------
-  Element = CarePlan.category
-  Card. = 0..*
-  Summary = Y
-  Type = CodeableConcept
-  Binding = CarePlanCategory
-  Short Label = Type of plan
-  Definition = Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans; e.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", \"wellness plan\", etc.
-  Requirements = Used for filtering what plan(s) are retrieved and displayed to different types of users
-  Comments = There may be multiple axis of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.concern.
-  To Do = Need a value set for this
+  w5 = when.recorded
 
  -- Row 10 -----------------------------------
-  Element = CarePlan.description
-  Card. = 0..1
+  Element = CarePlan.author
+  Card. = 0..*
   Summary = Y
-  Type = string
-  Short Label = Summary of nature of plan
-  Definition = A description of the scope and nature of the plan
-  Requirements = Provides more detail than conveyed by category
+  Type = Reference(Patient|Practitioner|RelatedPerson|Organization)
+  Short Label = Who is responsible for contents of the plan
+  Definition = Identifies the individual(s) or ogranization who is responsible for the content of the care plan.
+  Comments = Collaborative care plans may have multiple authors.
+  w5 = who.source
 
  -- Row 11 -----------------------------------
+  Element = CarePlan.careTeam
+  Card. = 0..*
+  Type = Reference(CareTeam)
+  Short Label = Who\'s involved in plan?
+  Definition = Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.
+  Requirements = Allows representation of care teams, helps scope care plan.  In some cases may be a determiner of access permissions.
+  w5 = who.actor
+
+ -- Row 12 -----------------------------------
   Element = CarePlan.addresses
   Card. = 0..*
   Summary = Y
@@ -292,8 +308,9 @@
   Requirements = Links plan to the conditions it manages.  Also scopes plans - multiple plans may exist addressing different concerns.
   v2 Mapping = PRB-4
   RIM Mapping = .actRelationship[typeCode=SUBJ].target[classCode=CONC, moodCode=EVN]
+  w5 = why
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = CarePlan.support
   Card. = 0..*
   Type = Reference(Any)
@@ -302,7 +319,7 @@
   Requirements = Identifies barriers and other considerations associated with the care plan.
   Comments = Use \"concern\" to identify specific conditions addressed by the care plan.
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = CarePlan.relatedPlan
   Card. = 0..*
   UML = 0;300
@@ -310,7 +327,7 @@
   Definition = Identifies CarePlans with some sort of formal relationship to the current plan.
   Comments = Relationships are uni-directional with the \"newer\" plan pointing to the older one.
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = CarePlan.relatedPlan.code
   Card. = 0..1
   Type = code
@@ -319,20 +336,12 @@
   Definition = Identifies the type of relationship this plan has to the target plan.
   Comments = Read the relationship as \"this plan\" [relatedPlan.code] \"relatedPlan.plan\"; e.g. This plan includes Plan B.\n\nAdditional relationship types can be proposed for future releases or handled as extensions.
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = CarePlan.relatedPlan.plan
   Card. = 1..1
   Type = Reference(CarePlan)
   Short Label = Plan relationship exists with
   Definition = A reference to the plan to which a relationship is asserted.
-
- -- Row 16 -----------------------------------
-  Element = CarePlan.careTeam
-  Card. = 0..*
-  Type = Reference(CareTeam)
-  Short Label = Who\'s involved in plan?
-  Definition = Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.
-  Requirements = Allows representation of care teams, helps scope care plan.  In some cases may be a determiner of access permissions.
 
  -- Row 17 -----------------------------------
   Element = CarePlan.goal
@@ -649,6 +658,11 @@
   Name = category
   Type = token
   Path = CarePlan.category
+
+ -- Row 15 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = CarePlan.identifier
 
 === Sheet Profiles =====================================
 

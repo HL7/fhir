@@ -34,34 +34,34 @@
   <contained>
     <Goal>
       <id value="goal"/>
-      <subject>
-        <reference value="Patient/f201"/>
-        <display value="Roel"/>
-      </subject>
+      <status value="cancelled"/>
       <description>
         <text value="Check whether further treatment of sepsis/pulmonary abcess is required"/>
       </description>
-      <status value="cancelled"/>
+      <subject>
+        <reference value="Patient/f201"/>
+        <display value="Roel"/>
+      </subject>      
     </Goal>
   </contained>
+  <status value="completed"/>
   <subject>
     <!--It entails Roel's careplan-->
     <reference value="Patient/f201"/>
     <display value="Roel"/>
   </subject>
-  <status value="completed"/>
   <period>
     <start value="2013-04-14"/>
     <end value="2013-04-21"/>
   </period>
   <modified value="2013-03-11"/>
+  <careTeam>
+    <reference value="#careteam"/>
+  </careTeam>
   <addresses>
     <reference value="Condition/f203"/>
     <display value="Roel's sepsis"/>
   </addresses>
-   <careTeam>
-    <reference value="#careteam"/>
-  </careTeam>
   <goal>
     <reference value="#goal"/>
   </goal>

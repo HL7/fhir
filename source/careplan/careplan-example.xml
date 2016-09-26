@@ -46,31 +46,31 @@
           </valueQuantity>
         </extension>
       </extension>
+      <status value="planned"/>
+      <description>
+        <text value="Target weight is 80 kg"/>
+      </description>
       <subject>
         <reference value="Patient/example"/>
         <display value="Peter James Chalmers"/>
       </subject>
-      <description>
-        <text value="Target weight is 80 kg"/>
-      </description>
-      <status value="planned"/>
     </Goal>
   </contained>
+  <status value="active"/>
   <subject>
     <reference value="Patient/example"/>
     <display value="Peter James Chalmers"/>
   </subject>
-  <status value="active"/>
   <period>
     <end value="2013-01-01"/>
   </period>
+  <careTeam>
+    <reference value="CareTeam/example"/>
+  </careTeam>
   <addresses>
     <reference value="#p1"/>
     <display value="obesity"/>
   </addresses>
-  <careTeam>
-    <reference value="CareTeam/example"/>
-  </careTeam>
   <goal>
     <reference value="#goal"/>
   </goal>

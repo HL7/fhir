@@ -91,36 +91,33 @@
 <contained>
     <Goal>
       <id value="goal"/>
-      <subject>
+      <status value="planned"/>
+	  <description>
+        <text value="Complete consultation"/>
+      </description>
+	  <subject>
         <reference value="Patient/100"/>
         <display value="Peter James Chalmers"/>
       </subject>
-      <description>
-        <text value="Complete consultation"/>
-      </description>
-      <status value="planned"/>
     </Goal>
   </contained>
+  <status value="active"/>
   <subject>
     <reference value="Patient/100"/>
     <display value="Peter James Chalmers"/>
   </subject>
-  <status value="active"/>
   <period>
     <!-- This is the time the plan started - i.e. when they arrived-->
     <start value="2013-01-01T10:30:00+00:00"/>
     <!-- No end yet as the encounter is still in progress.-->
   </period>
+  <careTeam>
+    <reference value="#careteam"/>
+  </careTeam>
   <addresses>
     <reference value="#p1"/>
     <display value="obesity"/>
   </addresses>
- 
-
-  <careTeam>
-    <reference value="#careteam"/>
-  </careTeam>
-
   <goal>
     <reference value="#goal"/>
   </goal>

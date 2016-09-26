@@ -193,34 +193,34 @@
           </valueRange>
         </extension>
       </extension>
-      <subject>
+      <status value="in-progress"/>
+	  <description>
+        <text value="Maintain Peak flow above 500"/>
+      </description>
+	  <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
-      <description>
-        <text value="Maintain Peak flow above 500"/>
-      </description>
-      <status value="in-progress"/>
     </Goal>
   </contained>
   <contained>
     <Goal>
       <id value="g1"/>
-      <subject>
+      <status value="in-progress"/>
+	  <description>
+        <text value="Eve will aim to record Peak Flow daily. An activity is created to prompt her."/>
+      </description>
+	  <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
-      <description>
-        <text value="Eve will aim to record Peak Flow daily. An activity is created to prompt her."/>
-      </description>
-      <status value="in-progress"/>
     </Goal>
   </contained>
+  <status value="active"/>
   <subject>
     <reference value="Patient/1"/>
     <display value="Eve Everywoman"/>
   </subject>
-  <status value="active"/>
   <modified value="2012-09-10"/>
   <addresses>
     <!-- The concern points to the contained Condition. Other options are to point to a 'real' Condition resource-->

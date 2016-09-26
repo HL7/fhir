@@ -34,14 +34,14 @@
 			</valueRange>
 		</extension>
 	</extension>
+	<status value="in-progress"/>
+	<description>
+    		<text value="Target weight is 160 to 180 lbs."/>
+	</description>
 	<subject>
 		<reference value="Patient/example"/>
 		<display value="Peter James Chalmers"/>
 	</subject>
-	<description>
-    <text value="Target weight is 160 to 180 lbs."/>
-	</description>
-	<status value="in-progress"/>
 	<addresses>
 		<reference value="Condition/12345"/>
 		<display value="obesity"/>

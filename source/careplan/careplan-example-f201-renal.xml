@@ -34,36 +34,36 @@
   <contained>
     <Goal>
       <id value="goal"/>
-      <subject>
-        <reference value="Patient/f201"/>
-        <display value="Roel"/>
-      </subject>
+      <status value="achieved"/>
       <description>
         <text value="Re-established renal function with at least healthy nutrients."/>
       </description>
-      <status value="achieved"/>
+      <subject>
+        <reference value="Patient/f201"/>
+        <display value="Roel"/>
+      </subject>      
     </Goal>
   </contained>
+  <status value="draft"/>
+  <!--This careplan is "ended", but was never closed in the EHR, wherefore the status is "planned"-->
   <subject>
     <!--It entails Roel's careplan-->
     <reference value="Patient/f201"/>
     <display value="Roel"/>
   </subject>
-  <status value="draft"/>
-  <!--This careplan is "ended", but was never closed in the EHR, wherefore the status is "planned"-->
   <period>
     <start value="2013-03-11"/>
     <end value="2013-03-13"/>
     <!--Period is less than nine days because the careplan requires adjustments after evaluation-->
   </period>
   <modified value="2013-03-11"/>
+  <careTeam>
+    <reference value="#careteam"/>
+  </careTeam>
   <addresses>
     <reference value="Condition/f204"/>
     <display value="Roel's renal insufficiency"/>
   </addresses>
-  <careTeam>
-    <reference value="#careteam"/>
-  </careTeam>
   <goal>
     <reference value="#goal"/>
   </goal>

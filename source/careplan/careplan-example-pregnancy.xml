@@ -89,37 +89,37 @@
   <contained>
     <Goal>
       <id value="goal"/>
-      <subject>
-        <reference value="Patient/1"/>
-        <display value="Eve Everywoman"/>
-      </subject>
+      <status value="in-progress"/>
       <description>
         <text value="Maintain patient's health throughout pregnancy and ensure a healthy child"/>
       </description>
-      <status value="in-progress"/>
+      <subject>
+        <reference value="Patient/1"/>
+        <display value="Eve Everywoman"/>
+      </subject>     
     </Goal>
   </contained>
   <!-- an extension to record the LMP, which is required at the plan level... -->
   <extension url="http://example.org/DoNotUse/careplan#lmp">
     <valueDateTime value="2013-01-01"/>
   </extension>
+  <status value="active"/>
   <subject>
     <reference value="Patient/1"/>
     <display value="Eve Everywoman"/>
-  </subject>
-  <status value="active"/>
+  </subject> 
   <period>
     <!-- The likely duration of the pregnancy -->
     <start value="2013-01-01"/>
     <end value="2013-10-01"/>
   </period>
+  <careTeam>
+    <reference value="#careteam"/>
+  </careTeam>
   <addresses>
     <reference value="#p1"/>
     <display value="pregnancy"/>
   </addresses>
-  <careTeam>
-    <reference value="#careteam"/>
-  </careTeam>
   <goal>
     <reference value="#goal"/>
   </goal>

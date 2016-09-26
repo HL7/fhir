@@ -163,73 +163,73 @@
   <contained>
     <Goal>
       <id value="g1"/>
-      <subject>
+      <status value="in-progress"/>
+	  <description>
+        <text value="Eve will lose weight and reduce her GERDS symptoms by improving her diet"/>
+      </description>
+	  <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
-      <description>
-        <text value="Eve will lose weight and reduce her GERDS symptoms by improving her diet"/>
-      </description>
-      <status value="in-progress"/>
     </Goal>
   </contained>
   <contained>
     <Goal>
       <id value="g2"/>
-      <subject>
-        <reference value="Patient/1"/>
-        <display value="Eve Everywoman"/>
-      </subject>
+	  <status value="in-progress"/>
       <description>
         <text value="Eve will improve her GERDS symptoms"/>
       </description>
-      <status value="in-progress"/>
+	  <subject>
+        <reference value="Patient/1"/>
+        <display value="Eve Everywoman"/>
+      </subject>
     </Goal>
   </contained>
   <contained>
     <Goal>
       <id value="g3"/>
-      <subject>
+      <status value="in-progress"/>
+	  <description>
+        <text value="Eve will increase her energy by being more active"/>
+      </description>
+	  <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
-      <description>
-        <text value="Eve will increase her energy by being more active"/>
-      </description>
-      <status value="in-progress"/>
     </Goal>
   </contained>
   <contained>
     <Goal>
       <id value="g4"/>
-      <subject>
+      <status value="in-progress"/>
+	  <description>
+        <text value="Eve will set up her medications and take as prescribed"/>
+      </description>
+	  <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
-      <description>
-        <text value="Eve will set up her medications and take as prescribed"/>
-      </description>
-      <status value="in-progress"/>
     </Goal>
   </contained>
   <contained>
     <Goal>
       <id value="g5"/>
-      <subject>
+      <status value="in-progress"/>
+	  <description>
+        <text value="Eve will restart her light treatments"/>
+      </description>
+	  <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
-      <description>
-        <text value="Eve will restart her light treatments"/>
-      </description>
-      <status value="in-progress"/>
     </Goal>
   </contained>
+  <status value="active"/>
   <subject>
     <reference value="Patient/1"/>
     <display value="Eve Everywoman"/>
   </subject>
-  <status value="active"/>
   <modified value="2012-09-10"/>
   <addresses>
     <reference value="#p1"/>
