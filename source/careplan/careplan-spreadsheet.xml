@@ -1662,7 +1662,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="Number">3</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationOrder|NutritionRequest|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationOrder|NutritionRequest|ProcedureRequest|ProcessRequest|ReferralRequest|VisionPrescription)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3949,7 +3949,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>15</TopRowBottomPane>
+   <TopRowBottomPane>20</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3966,8 +3966,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>23</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
