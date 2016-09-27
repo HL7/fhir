@@ -87,8 +87,8 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = MedicationForm
-  Short Label = powder | tablets | carton +
-  Definition = Describes the form of the item.  Powder; tablets; carton
+  Short Label = powder | tablets | capsule +
+  Definition = Describes the form of the item.  Powder; tablets; capsule
   Comments = When Medication is referenced from MedicationOrder, this is the ordered form.  When Medication is referenced within MedicationDispense, this is the dispensed form.  When Medication is referenced within MedicationAdministration, this is administered form.
   SCRIPT 10.6 Mapping = coding.code =  //element(*,DrugCodedType)/FormCode\r\rcoding.system = //element(*,DrugCodedType)/FormSourceCode
   v2 Mapping = RXO-5-Requested Dosage Form / RXE-6-Give Dosage Form / RXD-6-Actual Dosage Form / RXG-8-Give Dosage Form / RXA-8-Administered Dosage Form
