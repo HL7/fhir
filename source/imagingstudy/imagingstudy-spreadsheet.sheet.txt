@@ -221,7 +221,7 @@
 
  -- Row 12 -----------------------------------
   Element = ImagingStudy.interpreter
-  Card. = 0..1
+  Card. = 0..*
   Aliases = Name of Physician(s) Reading Study
   Summary = Y
   Type = Reference(Practitioner)
@@ -291,7 +291,6 @@
   Type = Reference(Procedure)
   Short Label = Type of procedure performed
   Definition = Type of procedure performed
-  Comments = For the Procedure.code, LOINC radiology orderables would be a good value set to use
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=PROC, moodCode=EVN]
   DICOM Mapping = (0008,1032)
 
