@@ -5164,15 +5164,15 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void runJUnitTests() throws Exception {
-    TestingUtilities.context = page.getWorkerContext();
-    TestingUtilities.silent = true;
-    TestingUtilities.path = page.getFolders().rootDir;
-    ValidationEngineTests.inbuild = true;
-    
-    runJUnitClass(InstanceValidatorTests.class);
-    runJUnitClass(ValidationEngineTests.class);
-    
-    checkAllOk();
+//    TestingUtilities.context = page.getWorkerContext();
+//    TestingUtilities.silent = true;
+//    TestingUtilities.path = page.getFolders().rootDir;
+//    ValidationEngineTests.inbuild = true;
+//    
+//    runJUnitClass(InstanceValidatorTests.class);
+//    runJUnitClass(ValidationEngineTests.class);
+//    
+//    checkAllOk();
   }
 
   private void runJUnitClass(Class<?> clzz) {
