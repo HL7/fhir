@@ -7687,7 +7687,7 @@ public class VersionConvertor_10_20 {
     tgt.setPatient(convertReference(src.getPatient()));
     tgt.setStarted(src.getStarted());
     tgt.setReferrer(convertReference(src.getReferrer()));
-    tgt.setInterpreter(convertReference(src.getInterpreter()));
+    tgt.addInterpreter(convertReference(src.getInterpreter()));
     tgt.setNumberOfSeries(src.getNumberOfSeries());
     tgt.setNumberOfInstances(src.getNumberOfInstances());
     for (org.hl7.fhir.dstu2.model.Reference t : src.getProcedure())
@@ -7713,7 +7713,8 @@ public class VersionConvertor_10_20 {
     tgt.setPatient(convertReference(src.getPatient()));
     tgt.setStarted(src.getStarted());
     tgt.setReferrer(convertReference(src.getReferrer()));
-    tgt.setInterpreter(convertReference(src.getInterpreter()));
+    for (org.hl7.fhir.dstu3.model.Reference t : src.getInterpreter())
+      tgt.setInterpreter(convertReference(t));
     tgt.setNumberOfSeries(src.getNumberOfSeries());
     tgt.setNumberOfInstances(src.getNumberOfInstances());
     for (org.hl7.fhir.dstu3.model.Reference t : src.getProcedure())
