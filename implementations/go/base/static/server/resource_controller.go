@@ -243,10 +243,10 @@ func (rc *ResourceController) ConditionalDeleteHandler(c *gin.Context) {
 
 func responseURL(r *http.Request, paths ...string) *url.URL {
 	responseURL := url.URL{}
-	if r.TLS == nil {
-		responseURL.Scheme = "http"
-	} else {
+	if r.TLS != nil || r.Header.Get("X-Forwarded-Proto") == "https" {
 		responseURL.Scheme = "https"
+	} else {
+		responseURL.Scheme = "http"
 	}
 	responseURL.Host = r.Host
 	responseURL.Path = fmt.Sprintf("/%s", strings.Join(paths, "/"))
