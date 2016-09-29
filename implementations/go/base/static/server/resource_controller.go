@@ -13,16 +13,18 @@ import (
 
 // ResourceController provides the necessary CRUD handlers for a given resource.
 type ResourceController struct {
-	Name string
-	DAL  DataAccessLayer
+	Name   string
+	DAL    DataAccessLayer
+	Config Config
 }
 
 // NewResourceController creates a new resource controller for the passed in resource name and the passed in
 // DataAccessLayer.
-func NewResourceController(name string, dal DataAccessLayer) *ResourceController {
+func NewResourceController(name string, dal DataAccessLayer, config Config) *ResourceController {
 	return &ResourceController{
-		Name: name,
-		DAL:  dal,
+		Name:   name,
+		DAL:    dal,
+		Config: config,
 	}
 }
 
@@ -43,7 +45,7 @@ func (rc *ResourceController) IndexHandler(c *gin.Context) {
 	}()
 
 	searchQuery := search.Query{Resource: rc.Name, Query: c.Request.URL.RawQuery}
-	baseURL := responseURL(c.Request, rc.Name)
+	baseURL := responseURL(c.Request, rc.Config, rc.Name)
 	bundle, err := rc.DAL.Search(*baseURL, searchQuery)
 	if err != nil {
 		c.AbortWithError(http.StatusInternalServerError, err)
@@ -106,7 +108,7 @@ func (rc *ResourceController) EverythingHandler(c *gin.Context) {
 	query := fmt.Sprintf("_id=%s&_include=*&_revinclude=*", c.Param("id"))
 
 	searchQuery := search.Query{Resource: rc.Name, Query: query}
-	baseURL := responseURL(c.Request, rc.Name)
+	baseURL := responseURL(c.Request, rc.Config, rc.Name)
 	bundle, err := rc.DAL.Search(*baseURL, searchQuery)
 	if err != nil {
 		c.AbortWithError(http.StatusInternalServerError, err)
@@ -140,7 +142,7 @@ func (rc *ResourceController) CreateHandler(c *gin.Context) {
 	c.Set("Resource", rc.Name)
 	c.Set("Action", "create")
 
-	c.Header("Location", responseURL(c.Request, rc.Name, id).String())
+	c.Header("Location", responseURL(c.Request, rc.Config, rc.Name, id).String())
 	c.JSON(http.StatusCreated, resource)
 }
 
@@ -164,7 +166,7 @@ func (rc *ResourceController) UpdateHandler(c *gin.Context) {
 	c.Set(rc.Name, resource)
 	c.Set("Resource", rc.Name)
 
-	c.Header("Location", responseURL(c.Request, rc.Name, c.Param("id")).String())
+	c.Header("Location", responseURL(c.Request, rc.Config, rc.Name, c.Param("id")).String())
 	if createdNew {
 		c.Set("Action", "create")
 		c.JSON(http.StatusCreated, resource)
@@ -199,7 +201,7 @@ func (rc *ResourceController) ConditionalUpdateHandler(c *gin.Context) {
 
 	c.Set("Resource", rc.Name)
 
-	c.Header("Location", responseURL(c.Request, rc.Name, id).String())
+	c.Header("Location", responseURL(c.Request, rc.Config, rc.Name, id).String())
 	if createdNew {
 		c.Set("Action", "create")
 		c.JSON(http.StatusCreated, resource)
@@ -241,8 +243,19 @@ func (rc *ResourceController) ConditionalDeleteHandler(c *gin.Context) {
 	c.Status(http.StatusNoContent)
 }
 
-func responseURL(r *http.Request, paths ...string) *url.URL {
+func responseURL(r *http.Request, config Config, paths ...string) *url.URL {
+
+	if config.ServerURL != "" {
+		theURL := fmt.Sprintf("%s/%s", strings.TrimSuffix(config.ServerURL, "/"), strings.Join(paths, "/"))
+		responseURL, err := url.Parse(theURL)
+
+		if err == nil {
+			return responseURL
+		}
+	}
+
 	responseURL := url.URL{}
+
 	if r.TLS != nil || r.Header.Get("X-Forwarded-Proto") == "https" {
 		responseURL.Scheme = "https"
 	} else {

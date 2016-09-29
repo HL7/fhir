@@ -11,7 +11,7 @@ var Database *mgo.Database
 
 // DefaultConfig is the default server configuration
 var DefaultConfig = Config{
-	ServerURL:       "http://localhost:3001",
+	ServerURL:       "",
 	IndexConfigPath: "config/indexes.conf",
 	DatabaseName:    "fhir",
 	Auth:            auth.None(),

@@ -19,12 +19,16 @@ import (
 
 // BatchController handles FHIR batch operations via input bundles
 type BatchController struct {
-	DAL DataAccessLayer
+	DAL    DataAccessLayer
+	Config Config
 }
 
 // NewBatchController creates a new BatchController based on the passed in DAL
-func NewBatchController(dal DataAccessLayer) *BatchController {
-	return &BatchController{DAL: dal}
+func NewBatchController(dal DataAccessLayer, config Config) *BatchController {
+	return &BatchController{
+		DAL:    dal,
+		Config: config,
+	}
 }
 
 // Post processes and incoming batch request
@@ -90,7 +94,7 @@ func (b *BatchController) Post(c *gin.Context) {
 			}
 
 			// Rewrite the FullUrl using the new ID
-			entry.FullUrl = responseURL(c.Request, entry.Request.Url, id).String()
+			entry.FullUrl = responseURL(c.Request, b.Config, entry.Request.Url, id).String()
 		} else if entry.Request.Method == "PUT" && isConditional(entry) {
 			// We need to process conditionals referencing temp IDs in a second pass, so skip them here
 			if strings.Contains(entry.Request.Url, "urn:uuid:") || strings.Contains(entry.Request.Url, "urn%3Auuid%3A") {
@@ -176,7 +180,7 @@ func (b *BatchController) Post(c *gin.Context) {
 			}
 		case "PUT":
 			// Because we pre-process conditional PUTs, we know this is always a normal PUT operation
-			entry.FullUrl = responseURL(c.Request, entry.Request.Url).String()
+			entry.FullUrl = responseURL(c.Request, b.Config, entry.Request.Url).String()
 			parts := strings.SplitN(entry.Request.Url, "/", 2)
 			if len(parts) != 2 {
 				c.AbortWithError(http.StatusInternalServerError,
@@ -248,7 +252,7 @@ func (b *BatchController) resolveConditionalPut(request *http.Request, entryInde
 	}
 
 	// Rewrite the FullUrl using the new ID
-	entry.FullUrl = responseURL(request, entry.Request.Url, id).String()
+	entry.FullUrl = responseURL(request, b.Config, entry.Request.Url, id).String()
 
 	return nil
 }

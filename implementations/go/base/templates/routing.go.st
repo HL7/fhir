@@ -12,7 +12,7 @@ import (
 
 // RegisterController registers the CRUD routes (and middleware) for a FHIR resource
 func RegisterController(name string, e *gin.Engine, m []gin.HandlerFunc, dal DataAccessLayer, config Config) {
-	rc := NewResourceController(name, dal)
+	rc := NewResourceController(name, dal, config)
 	rcBase := e.Group("/" + name)
 
 	if len(m) > 0 {
@@ -87,7 +87,7 @@ func RegisterRoutes(e *gin.Engine, config map[string][]gin.HandlerFunc, dal Data
 	}
 
 	// Batch Support
-	batch := NewBatchController(dal)
+	batch := NewBatchController(dal, serverConfig)
 	batchHandlers := make([]gin.HandlerFunc, len(config["Batch"]))
 	copy(batchHandlers, config["Batch"])
 	batchHandlers = append(batchHandlers, batch.Post)
