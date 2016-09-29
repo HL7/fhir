@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Sep 21, 2016 20:43+1000 for FHIR v1.7.0
+// Generated on Fri, Sep 30, 2016 02:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -62,7 +62,7 @@ public class AllergyIntolerance extends DomainResource {
          */
         INACTIVE, 
         /**
-         * A reaction to the identified substance has been clinically reassessed by testing or rechallenge re-exposure and considered to be resolved e.g. change the word rechallenged to re-exposure
+         * A reaction to the identified substance has been clinically reassessed by testing or re-exposure and considered to be resolved
          */
         RESOLVED, 
         /**
@@ -124,7 +124,7 @@ public class AllergyIntolerance extends DomainResource {
             case ACTIVE: return "An active record of a risk of a reaction to the identified substance.";
             case ACTIVECONFIRMED: return "A high level of certainty about the propensity for a reaction to the identified substance, which may include clinical evidence by testing or rechallenge.";
             case INACTIVE: return "An inactivated record of a risk of a reaction to the identified substance";
-            case RESOLVED: return "A reaction to the identified substance has been clinically reassessed by testing or rechallenge re-exposure and considered to be resolved e.g. change the word rechallenged to re-exposure";
+            case RESOLVED: return "A reaction to the identified substance has been clinically reassessed by testing or re-exposure and considered to be resolved";
             case REFUTED: return "A propensity for a reaction to the identified substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.";
             case ENTEREDINERROR: return "The statement was entered in error and is not valid.";
             default: return "?";
@@ -302,7 +302,7 @@ public class AllergyIntolerance extends DomainResource {
          */
         MEDICATION, 
         /**
-         * A preparation that is synthesized from living organisms or their products, especially a human or animal protein, such as a hormone or antitoxin, that is used as a diagnostic, preventive, or therapeutic agent. Also called biological drug.  Examples of biological products include: vaccines; blood and blood products for transfusion and/or manufacturing into other products; allergenic extracts, which are used for both diagnosis and treatment (for example, allergy shots); human cells and tissues used for transplantation (for example, tendons, ligaments and bone); gene therapies; cellular therapies; tests to screen potential blood donors for infectious agents such as HIV.
+         * A preparation that is synthesized from living organisms or their products, especially a human or animal protein, such as a hormone or antitoxin, that is used as a diagnostic, preventive, or therapeutic agent. Also called biological drug. Examples of biologic medications include: vaccines; allergenic extracts, which are used for both diagnosis and treatment (for example, allergy shots); gene therapies; cellular therapies.  There are other biologic products, such as tissues, that are not typically associated with allergies.
          */
         BIOLOGIC, 
         /**
@@ -351,7 +351,7 @@ public class AllergyIntolerance extends DomainResource {
           switch (this) {
             case FOOD: return "Any substance consumed to provide nutritional support for the body.";
             case MEDICATION: return "Substances administered to achieve a physiological effect.";
-            case BIOLOGIC: return "A preparation that is synthesized from living organisms or their products, especially a human or animal protein, such as a hormone or antitoxin, that is used as a diagnostic, preventive, or therapeutic agent. Also called biological drug.  Examples of biological products include: vaccines; blood and blood products for transfusion and/or manufacturing into other products; allergenic extracts, which are used for both diagnosis and treatment (for example, allergy shots); human cells and tissues used for transplantation (for example, tendons, ligaments and bone); gene therapies; cellular therapies; tests to screen potential blood donors for infectious agents such as HIV.";
+            case BIOLOGIC: return "A preparation that is synthesized from living organisms or their products, especially a human or animal protein, such as a hormone or antitoxin, that is used as a diagnostic, preventive, or therapeutic agent. Also called biological drug. Examples of biologic medications include: vaccines; allergenic extracts, which are used for both diagnosis and treatment (for example, allergy shots); gene therapies; cellular therapies.  There are other biologic products, such as tissues, that are not typically associated with allergies.";
             case ENVIRONMENT: return "Substances that are encountered in the environment.";
             default: return "?";
           }
@@ -737,7 +737,7 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * Identification of the specific substance (or pharmaceutical product) considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.
          */
-        @Child(name = "substance", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "substance", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Specific substance or pharmaceutical product considered to be responsible for event", formalDefinition="Identification of the specific substance (or pharmaceutical product) considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the 'code' and ignore the 'reaction.substance'." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/substance-code")
         protected CodeableConcept substance;
@@ -745,7 +745,7 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event.
          */
-        @Child(name = "certainty", type = {CodeType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "certainty", type = {CodeType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="unlikely | likely | confirmed - clinical certainty about the specific substance", formalDefinition="Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reaction-event-certainty")
         protected Enumeration<AllergyIntoleranceCertainty> certainty;
@@ -753,7 +753,7 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * Clinical symptoms and/or signs that are observed or associated with the adverse reaction event.
          */
-        @Child(name = "manifestation", type = {CodeableConcept.class}, order=3, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "manifestation", type = {CodeableConcept.class}, order=3, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Clinical symptoms/signs associated with the Event", formalDefinition="Clinical symptoms and/or signs that are observed or associated with the adverse reaction event." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/manifestation-codes")
         protected List<CodeableConcept> manifestation;
@@ -768,14 +768,14 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * Record of the date and/or time of the onset of the Reaction.
          */
-        @Child(name = "onset", type = {DateTimeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "onset", type = {DateTimeType.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Date(/time) when manifestations showed", formalDefinition="Record of the date and/or time of the onset of the Reaction." )
         protected DateTimeType onset;
 
         /**
          * Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
          */
-        @Child(name = "severity", type = {CodeType.class}, order=6, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "severity", type = {CodeType.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="mild | moderate | severe (of event as a whole)", formalDefinition="Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reaction-event-severity")
         protected Enumeration<AllergyIntoleranceSeverity> severity;
@@ -783,7 +783,7 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * Identification of the route by which the subject was exposed to the substance.
          */
-        @Child(name = "exposureRoute", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "exposureRoute", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="How the subject was exposed to the substance", formalDefinition="Identification of the route by which the subject was exposed to the substance." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/route-codes")
         protected CodeableConcept exposureRoute;
@@ -1403,14 +1403,14 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * Indicates the most recent date on which the recorder has asserted that the information represented by this AllergyIntolerance record is accurate.
      */
-    @Child(name = "attestedDate", type = {DateTimeType.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "attestedDate", type = {DateTimeType.class}, order=7, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Date record was believed accurate", formalDefinition="Indicates the most recent date on which the recorder has asserted that the information represented by this AllergyIntolerance record is accurate." )
     protected DateTimeType attestedDate;
 
     /**
      * Individual who recorded the record and takes responsibility for its content.
      */
-    @Child(name = "recorder", type = {Practitioner.class, Patient.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "recorder", type = {Practitioner.class, Patient.class}, order=8, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Who recorded the sensitivity", formalDefinition="Individual who recorded the record and takes responsibility for its content." )
     protected Reference recorder;
 
@@ -1434,14 +1434,14 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * Record of the date and/or time of the onset of the Allergy or Intolerance.
      */
-    @Child(name = "onset", type = {DateTimeType.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "onset", type = {DateTimeType.class}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Date(/time) when manifestations showed", formalDefinition="Record of the date and/or time of the onset of the Allergy or Intolerance." )
     protected DateTimeType onset;
 
     /**
      * Represents the date and/or time of the last known occurrence of a reaction event.
      */
-    @Child(name = "lastOccurrence", type = {DateTimeType.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "lastOccurrence", type = {DateTimeType.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Date(/time) of last known occurrence of a reaction", formalDefinition="Represents the date and/or time of the last known occurrence of a reaction event." )
     protected DateTimeType lastOccurrence;
 

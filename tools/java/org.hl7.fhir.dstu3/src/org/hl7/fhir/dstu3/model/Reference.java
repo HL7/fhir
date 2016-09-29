@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Sep 21, 2016 20:43+1000 for FHIR v1.7.0
+// Generated on Fri, Sep 30, 2016 02:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -55,10 +55,10 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
     protected StringType reference;
 
     /**
-     * An identifier for the other resource. This Is used when there is no way to reference the other resource directly, either because the entity is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location.
+     * An identifier for the other resource. This is used when there is no way to reference the other resource directly, either because the entity is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Logical reference, when literal reference is not known", formalDefinition="An identifier for the other resource. This Is used when there is no way to reference the other resource directly, either because the entity is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location." )
+    @Description(shortDefinition="Logical reference, when literal reference is not known", formalDefinition="An identifier for the other resource. This is used when there is no way to reference the other resource directly, either because the entity is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location." )
     protected Identifier identifier;
 
     /**
@@ -154,7 +154,7 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
     }
 
     /**
-     * @return {@link #identifier} (An identifier for the other resource. This Is used when there is no way to reference the other resource directly, either because the entity is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location.)
+     * @return {@link #identifier} (An identifier for the other resource. This is used when there is no way to reference the other resource directly, either because the entity is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location.)
      */
     public Identifier getIdentifier() { 
       if (this.identifier == null)
@@ -170,7 +170,7 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
     }
 
     /**
-     * @param value {@link #identifier} (An identifier for the other resource. This Is used when there is no way to reference the other resource directly, either because the entity is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location.)
+     * @param value {@link #identifier} (An identifier for the other resource. This is used when there is no way to reference the other resource directly, either because the entity is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location.)
      */
     public Reference setIdentifier(Identifier value) { 
       this.identifier = value;
@@ -245,7 +245,7 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("reference", "string", "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 0, java.lang.Integer.MAX_VALUE, reference));
-        childrenList.add(new Property("identifier", "Identifier", "An identifier for the other resource. This Is used when there is no way to reference the other resource directly, either because the entity is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("identifier", "Identifier", "An identifier for the other resource. This is used when there is no way to reference the other resource directly, either because the entity is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("display", "string", "Plain text narrative that identifies the resource in addition to the resource reference.", 0, java.lang.Integer.MAX_VALUE, display));
       }
 

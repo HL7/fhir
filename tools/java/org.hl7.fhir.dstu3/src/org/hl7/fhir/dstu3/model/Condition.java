@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Sep 21, 2016 20:43+1000 for FHIR v1.7.0
+// Generated on Fri, Sep 30, 2016 02:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -329,7 +329,7 @@ public class Condition extends DomainResource {
         /**
          * A simple summary of the stage such as "Stage 3". The determination of the stage is disease-specific.
          */
-        @Child(name = "summary", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "summary", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Simple summary (disease specific)", formalDefinition="A simple summary of the stage such as \"Stage 3\". The determination of the stage is disease-specific." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-stage")
         protected CodeableConcept summary;
@@ -337,7 +337,7 @@ public class Condition extends DomainResource {
         /**
          * Reference to a formal record of the evidence on which the staging assessment is based.
          */
-        @Child(name = "assessment", type = {ClinicalImpression.class, DiagnosticReport.class, Observation.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "assessment", type = {ClinicalImpression.class, DiagnosticReport.class, Observation.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Formal record of assessment", formalDefinition="Reference to a formal record of the evidence on which the staging assessment is based." )
         protected List<Reference> assessment;
         /**
@@ -553,7 +553,7 @@ public class Condition extends DomainResource {
         /**
          * A manifestation or symptom that led to the recording of this condition.
          */
-        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Manifestation/symptom", formalDefinition="A manifestation or symptom that led to the recording of this condition." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/manifestation-or-symptom")
         protected CodeableConcept code;
@@ -561,7 +561,7 @@ public class Condition extends DomainResource {
         /**
          * Links to other relevant information, including pathology reports.
          */
-        @Child(name = "detail", type = {Reference.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "detail", type = {Reference.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Supporting information found elsewhere", formalDefinition="Links to other relevant information, including pathology reports." )
         protected List<Reference> detail;
         /**
@@ -798,7 +798,7 @@ public class Condition extends DomainResource {
     /**
      * A category assigned to the condition.
      */
-    @Child(name = "category", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "category", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="complaint | symptom | finding | diagnosis", formalDefinition="A category assigned to the condition." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-category")
     protected CodeableConcept category;
@@ -806,7 +806,7 @@ public class Condition extends DomainResource {
     /**
      * A subjective assessment of the severity of the condition as evaluated by the clinician.
      */
-    @Child(name = "severity", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "severity", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Subjective severity of condition", formalDefinition="A subjective assessment of the severity of the condition as evaluated by the clinician." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-severity")
     protected CodeableConcept severity;
@@ -842,7 +842,7 @@ public class Condition extends DomainResource {
     /**
      * Encounter during which the condition was first asserted.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=8, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Encounter when condition first asserted", formalDefinition="Encounter during which the condition was first asserted." )
     protected Reference context;
 
@@ -861,14 +861,14 @@ public class Condition extends DomainResource {
     /**
      * The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.
      */
-    @Child(name = "abatement", type = {DateTimeType.class, Age.class, BooleanType.class, Period.class, Range.class, StringType.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "abatement", type = {DateTimeType.class, Age.class, BooleanType.class, Period.class, Range.class, StringType.class}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="If/when in resolution/remission", formalDefinition="The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate." )
     protected Type abatement;
 
     /**
      * A date, when  the Condition statement was documented.
      */
-    @Child(name = "dateRecorded", type = {DateType.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "dateRecorded", type = {DateType.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="When first entered", formalDefinition="A date, when  the Condition statement was documented." )
     protected DateType dateRecorded;
 
@@ -887,21 +887,21 @@ public class Condition extends DomainResource {
     /**
      * Clinical stage or grade of a condition. May include formal severity assessments.
      */
-    @Child(name = "stage", type = {}, order=13, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "stage", type = {}, order=13, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Stage/grade, usually assessed formally", formalDefinition="Clinical stage or grade of a condition. May include formal severity assessments." )
     protected ConditionStageComponent stage;
 
     /**
      * Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.
      */
-    @Child(name = "evidence", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "evidence", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Supporting evidence", formalDefinition="Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed." )
     protected List<ConditionEvidenceComponent> evidence;
 
     /**
      * Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
      */
-    @Child(name = "note", type = {Annotation.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "note", type = {Annotation.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Additional information about the Condition", formalDefinition="Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis." )
     protected List<Annotation> note;
 
@@ -2186,26 +2186,6 @@ public class Condition extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ABATEMENT_BOOLEAN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ABATEMENT_BOOLEAN);
 
  /**
-   * Search parameter: <b>abatement-info</b>
-   * <p>
-   * Description: <b>Abatement as a string</b><br>
-   * Type: <b>quantity</b><br>
-   * Path: <b>Condition.abatement[x]</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="abatement-info", path="Condition.abatement.as(string)", description="Abatement as a string", type="quantity" )
-  public static final String SP_ABATEMENT_INFO = "abatement-info";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>abatement-info</b>
-   * <p>
-   * Description: <b>Abatement as a string</b><br>
-   * Type: <b>quantity</b><br>
-   * Path: <b>Condition.abatement[x]</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.QuantityClientParam ABATEMENT_INFO = new ca.uhn.fhir.rest.gclient.QuantityClientParam(SP_ABATEMENT_INFO);
-
- /**
    * Search parameter: <b>onset-date</b>
    * <p>
    * Description: <b>Date related onsets (dateTime and Period)</b><br>
@@ -2310,6 +2290,26 @@ public class Condition extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STAGE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STAGE);
+
+ /**
+   * Search parameter: <b>abatement-string</b>
+   * <p>
+   * Description: <b>Abatement as a string</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Condition.abatement[x]</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="abatement-string", path="Condition.abatement.as(string)", description="Abatement as a string", type="string" )
+  public static final String SP_ABATEMENT_STRING = "abatement-string";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>abatement-string</b>
+   * <p>
+   * Description: <b>Abatement as a string</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Condition.abatement[x]</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ABATEMENT_STRING = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ABATEMENT_STRING);
 
  /**
    * Search parameter: <b>patient</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Sep 21, 2016 20:43+1000 for FHIR v1.7.0
+// Generated on Fri, Sep 30, 2016 02:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -4746,34 +4746,41 @@ public class TestScript extends BaseConformance {
         protected List<SetupActionOperationRequestHeaderComponent> requestHeader;
 
         /**
+         * The fixture id (maybe new) to map to the request.
+         */
+        @Child(name = "requestId", type = {IdType.class}, order=12, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Fixture Id of mapped request", formalDefinition="The fixture id (maybe new) to map to the request." )
+        protected IdType requestId;
+
+        /**
          * The fixture id (maybe new) to map to the response.
          */
-        @Child(name = "responseId", type = {IdType.class}, order=12, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "responseId", type = {IdType.class}, order=13, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Fixture Id of mapped response", formalDefinition="The fixture id (maybe new) to map to the response." )
         protected IdType responseId;
 
         /**
          * The id of the fixture used as the body of a PUT or POST request.
          */
-        @Child(name = "sourceId", type = {IdType.class}, order=13, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "sourceId", type = {IdType.class}, order=14, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Fixture Id of body for PUT and POST requests", formalDefinition="The id of the fixture used as the body of a PUT or POST request." )
         protected IdType sourceId;
 
         /**
          * Id of fixture used for extracting the [id],  [type], and [vid] for GET requests.
          */
-        @Child(name = "targetId", type = {IdType.class}, order=14, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "targetId", type = {IdType.class}, order=15, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Id of fixture used for extracting the [id],  [type], and [vid] for GET requests", formalDefinition="Id of fixture used for extracting the [id],  [type], and [vid] for GET requests." )
         protected IdType targetId;
 
         /**
          * Complete request URL.
          */
-        @Child(name = "url", type = {StringType.class}, order=15, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "url", type = {StringType.class}, order=16, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Request URL", formalDefinition="Complete request URL." )
         protected StringType url;
 
-        private static final long serialVersionUID = 606457859L;
+        private static final long serialVersionUID = -488909648L;
 
     /**
      * Constructor
@@ -5289,6 +5296,55 @@ public class TestScript extends BaseConformance {
         }
 
         /**
+         * @return {@link #requestId} (The fixture id (maybe new) to map to the request.). This is the underlying object with id, value and extensions. The accessor "getRequestId" gives direct access to the value
+         */
+        public IdType getRequestIdElement() { 
+          if (this.requestId == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SetupActionOperationComponent.requestId");
+            else if (Configuration.doAutoCreate())
+              this.requestId = new IdType(); // bb
+          return this.requestId;
+        }
+
+        public boolean hasRequestIdElement() { 
+          return this.requestId != null && !this.requestId.isEmpty();
+        }
+
+        public boolean hasRequestId() { 
+          return this.requestId != null && !this.requestId.isEmpty();
+        }
+
+        /**
+         * @param value {@link #requestId} (The fixture id (maybe new) to map to the request.). This is the underlying object with id, value and extensions. The accessor "getRequestId" gives direct access to the value
+         */
+        public SetupActionOperationComponent setRequestIdElement(IdType value) { 
+          this.requestId = value;
+          return this;
+        }
+
+        /**
+         * @return The fixture id (maybe new) to map to the request.
+         */
+        public String getRequestId() { 
+          return this.requestId == null ? null : this.requestId.getValue();
+        }
+
+        /**
+         * @param value The fixture id (maybe new) to map to the request.
+         */
+        public SetupActionOperationComponent setRequestId(String value) { 
+          if (Utilities.noString(value))
+            this.requestId = null;
+          else {
+            if (this.requestId == null)
+              this.requestId = new IdType();
+            this.requestId.setValue(value);
+          }
+          return this;
+        }
+
+        /**
          * @return {@link #responseId} (The fixture id (maybe new) to map to the response.). This is the underlying object with id, value and extensions. The accessor "getResponseId" gives direct access to the value
          */
         public IdType getResponseIdElement() { 
@@ -5497,6 +5553,7 @@ public class TestScript extends BaseConformance {
           childrenList.add(new Property("origin", "integer", "The server where the request message originates from.  Must be one of the server numbers listed in TestScript.origin section.", 0, java.lang.Integer.MAX_VALUE, origin));
           childrenList.add(new Property("params", "string", "Path plus parameters after [type].  Used to set parts of the request URL explicitly.", 0, java.lang.Integer.MAX_VALUE, params));
           childrenList.add(new Property("requestHeader", "", "Header elements would be used to set HTTP headers.", 0, java.lang.Integer.MAX_VALUE, requestHeader));
+          childrenList.add(new Property("requestId", "id", "The fixture id (maybe new) to map to the request.", 0, java.lang.Integer.MAX_VALUE, requestId));
           childrenList.add(new Property("responseId", "id", "The fixture id (maybe new) to map to the response.", 0, java.lang.Integer.MAX_VALUE, responseId));
           childrenList.add(new Property("sourceId", "id", "The id of the fixture used as the body of a PUT or POST request.", 0, java.lang.Integer.MAX_VALUE, sourceId));
           childrenList.add(new Property("targetId", "id", "Id of fixture used for extracting the [id],  [type], and [vid] for GET requests.", 0, java.lang.Integer.MAX_VALUE, targetId));
@@ -5517,6 +5574,7 @@ public class TestScript extends BaseConformance {
         case -1008619738: /*origin*/ return this.origin == null ? new Base[0] : new Base[] {this.origin}; // IntegerType
         case -995427962: /*params*/ return this.params == null ? new Base[0] : new Base[] {this.params}; // StringType
         case 1074158076: /*requestHeader*/ return this.requestHeader == null ? new Base[0] : this.requestHeader.toArray(new Base[this.requestHeader.size()]); // SetupActionOperationRequestHeaderComponent
+        case 693933066: /*requestId*/ return this.requestId == null ? new Base[0] : new Base[] {this.requestId}; // IdType
         case -633138884: /*responseId*/ return this.responseId == null ? new Base[0] : new Base[] {this.responseId}; // IdType
         case 1746327190: /*sourceId*/ return this.sourceId == null ? new Base[0] : new Base[] {this.sourceId}; // IdType
         case -441951604: /*targetId*/ return this.targetId == null ? new Base[0] : new Base[] {this.targetId}; // IdType
@@ -5562,6 +5620,9 @@ public class TestScript extends BaseConformance {
         case 1074158076: // requestHeader
           this.getRequestHeader().add((SetupActionOperationRequestHeaderComponent) value); // SetupActionOperationRequestHeaderComponent
           break;
+        case 693933066: // requestId
+          this.requestId = castToId(value); // IdType
+          break;
         case -633138884: // responseId
           this.responseId = castToId(value); // IdType
           break;
@@ -5603,6 +5664,8 @@ public class TestScript extends BaseConformance {
           this.params = castToString(value); // StringType
         else if (name.equals("requestHeader"))
           this.getRequestHeader().add((SetupActionOperationRequestHeaderComponent) value);
+        else if (name.equals("requestId"))
+          this.requestId = castToId(value); // IdType
         else if (name.equals("responseId"))
           this.responseId = castToId(value); // IdType
         else if (name.equals("sourceId"))
@@ -5629,6 +5692,7 @@ public class TestScript extends BaseConformance {
         case -1008619738: throw new FHIRException("Cannot make property origin as it is not a complex type"); // IntegerType
         case -995427962: throw new FHIRException("Cannot make property params as it is not a complex type"); // StringType
         case 1074158076:  return addRequestHeader(); // SetupActionOperationRequestHeaderComponent
+        case 693933066: throw new FHIRException("Cannot make property requestId as it is not a complex type"); // IdType
         case -633138884: throw new FHIRException("Cannot make property responseId as it is not a complex type"); // IdType
         case 1746327190: throw new FHIRException("Cannot make property sourceId as it is not a complex type"); // IdType
         case -441951604: throw new FHIRException("Cannot make property targetId as it is not a complex type"); // IdType
@@ -5674,6 +5738,9 @@ public class TestScript extends BaseConformance {
         else if (name.equals("requestHeader")) {
           return addRequestHeader();
         }
+        else if (name.equals("requestId")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.requestId");
+        }
         else if (name.equals("responseId")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.responseId");
         }
@@ -5708,6 +5775,7 @@ public class TestScript extends BaseConformance {
           for (SetupActionOperationRequestHeaderComponent i : requestHeader)
             dst.requestHeader.add(i.copy());
         };
+        dst.requestId = requestId == null ? null : requestId.copy();
         dst.responseId = responseId == null ? null : responseId.copy();
         dst.sourceId = sourceId == null ? null : sourceId.copy();
         dst.targetId = targetId == null ? null : targetId.copy();
@@ -5726,8 +5794,8 @@ public class TestScript extends BaseConformance {
            && compareDeep(description, o.description, true) && compareDeep(accept, o.accept, true) && compareDeep(contentType, o.contentType, true)
            && compareDeep(destination, o.destination, true) && compareDeep(encodeRequestUrl, o.encodeRequestUrl, true)
            && compareDeep(origin, o.origin, true) && compareDeep(params, o.params, true) && compareDeep(requestHeader, o.requestHeader, true)
-           && compareDeep(responseId, o.responseId, true) && compareDeep(sourceId, o.sourceId, true) && compareDeep(targetId, o.targetId, true)
-           && compareDeep(url, o.url, true);
+           && compareDeep(requestId, o.requestId, true) && compareDeep(responseId, o.responseId, true) && compareDeep(sourceId, o.sourceId, true)
+           && compareDeep(targetId, o.targetId, true) && compareDeep(url, o.url, true);
       }
 
       @Override
@@ -5740,14 +5808,15 @@ public class TestScript extends BaseConformance {
         return compareValues(resource, o.resource, true) && compareValues(label, o.label, true) && compareValues(description, o.description, true)
            && compareValues(accept, o.accept, true) && compareValues(contentType, o.contentType, true) && compareValues(destination, o.destination, true)
            && compareValues(encodeRequestUrl, o.encodeRequestUrl, true) && compareValues(origin, o.origin, true)
-           && compareValues(params, o.params, true) && compareValues(responseId, o.responseId, true) && compareValues(sourceId, o.sourceId, true)
-           && compareValues(targetId, o.targetId, true) && compareValues(url, o.url, true);
+           && compareValues(params, o.params, true) && compareValues(requestId, o.requestId, true) && compareValues(responseId, o.responseId, true)
+           && compareValues(sourceId, o.sourceId, true) && compareValues(targetId, o.targetId, true) && compareValues(url, o.url, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, resource, label, description
           , accept, contentType, destination, encodeRequestUrl, origin, params, requestHeader
-          , responseId, sourceId, targetId, url);
+          , requestId, responseId, sourceId, targetId, url);
       }
 
   public String fhirType() {
@@ -9270,7 +9339,7 @@ public class TestScript extends BaseConformance {
         /**
          * An operation would involve a REST request to a server.
          */
-        @Child(name = "operation", type = {SetupActionOperationComponent.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "operation", type = {SetupActionOperationComponent.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The teardown operation to perform", formalDefinition="An operation would involve a REST request to a server." )
         protected SetupActionOperationComponent operation;
 
@@ -9281,6 +9350,14 @@ public class TestScript extends BaseConformance {
      */
       public TeardownActionComponent() {
         super();
+      }
+
+    /**
+     * Constructor
+     */
+      public TeardownActionComponent(SetupActionOperationComponent operation) {
+        super();
+        this.operation = operation;
       }
 
         /**

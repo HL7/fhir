@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Sep 21, 2016 20:43+1000 for FHIR v1.7.0
+// Generated on Fri, Sep 30, 2016 02:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -51,10 +51,10 @@ public class Medication extends DomainResource {
     @Block()
     public static class MedicationProductComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Describes the form of the item.  Powder; tablets; carton.
+         * Describes the form of the item.  Powder; tablets; capsule.
          */
         @Child(name = "form", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="powder | tablets | carton +", formalDefinition="Describes the form of the item.  Powder; tablets; carton." )
+        @Description(shortDefinition="powder | tablets | capsule +", formalDefinition="Describes the form of the item.  Powder; tablets; capsule." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-form-codes")
         protected CodeableConcept form;
 
@@ -82,7 +82,7 @@ public class Medication extends DomainResource {
       }
 
         /**
-         * @return {@link #form} (Describes the form of the item.  Powder; tablets; carton.)
+         * @return {@link #form} (Describes the form of the item.  Powder; tablets; capsule.)
          */
         public CodeableConcept getForm() { 
           if (this.form == null)
@@ -98,7 +98,7 @@ public class Medication extends DomainResource {
         }
 
         /**
-         * @param value {@link #form} (Describes the form of the item.  Powder; tablets; carton.)
+         * @param value {@link #form} (Describes the form of the item.  Powder; tablets; capsule.)
          */
         public MedicationProductComponent setForm(CodeableConcept value) { 
           this.form = value;
@@ -213,7 +213,7 @@ public class Medication extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("form", "CodeableConcept", "Describes the form of the item.  Powder; tablets; carton.", 0, java.lang.Integer.MAX_VALUE, form));
+          childrenList.add(new Property("form", "CodeableConcept", "Describes the form of the item.  Powder; tablets; capsule.", 0, java.lang.Integer.MAX_VALUE, form));
           childrenList.add(new Property("ingredient", "", "Identifies a particular constituent of interest in the product.", 0, java.lang.Integer.MAX_VALUE, ingredient));
           childrenList.add(new Property("batch", "", "Information about a group of medication produced or packaged from one production run.", 0, java.lang.Integer.MAX_VALUE, batch));
         }
@@ -1665,17 +1665,17 @@ public class Medication extends DomainResource {
  /**
    * Search parameter: <b>form</b>
    * <p>
-   * Description: <b>powder | tablets | carton +</b><br>
+   * Description: <b>powder | tablets | capsule +</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Medication.product.form</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="form", path="Medication.product.form", description="powder | tablets | carton +", type="token" )
+  @SearchParamDefinition(name="form", path="Medication.product.form", description="powder | tablets | capsule +", type="token" )
   public static final String SP_FORM = "form";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>form</b>
    * <p>
-   * Description: <b>powder | tablets | carton +</b><br>
+   * Description: <b>powder | tablets | capsule +</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Medication.product.form</b><br>
    * </p>

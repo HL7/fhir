@@ -927,6 +927,7 @@ public class ProfileUtilities {
     derived.setUserData(DERIVATION_POINTER, base);
 
     // Before applying changes, apply them to what's in the profile
+    // TODO: follow Chris's rules
     StructureDefinition profile = source.getType().size() == 1 && source.getTypeFirstRep().hasProfile() ? context.fetchResource(StructureDefinition.class, source.getTypeFirstRep().getProfile()) : null;
     if (profile != null) {
       ElementDefinition e = profile.getSnapshot().getElement().get(0);

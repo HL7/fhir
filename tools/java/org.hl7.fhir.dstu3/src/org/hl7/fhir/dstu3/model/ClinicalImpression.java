@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Sep 21, 2016 20:43+1000 for FHIR v1.7.0
+// Generated on Fri, Sep 30, 2016 02:08+1000 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -774,7 +774,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * Plan of action after assessment.
      */
-    @Child(name = "plan", type = {CarePlan.class, Appointment.class, CommunicationRequest.class, DeviceUseRequest.class, DiagnosticRequest.class, MedicationOrder.class, NutritionRequest.class, ProcedureRequest.class, ProcessRequest.class, ReferralRequest.class, SupplyRequest.class, VisionPrescription.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "plan", type = {CarePlan.class, Appointment.class, CommunicationRequest.class, DeviceUseRequest.class, DiagnosticRequest.class, MedicationOrder.class, NutritionRequest.class, ProcedureRequest.class, ProcessRequest.class, ReferralRequest.class, VisionPrescription.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Plan of action after assessment", formalDefinition="Plan of action after assessment." )
     protected List<Reference> plan;
     /**
@@ -786,7 +786,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * Actions taken during assessment.
      */
-    @Child(name = "action", type = {ReferralRequest.class, ProcedureRequest.class, Procedure.class, MedicationOrder.class, DiagnosticRequest.class, NutritionRequest.class, SupplyRequest.class, Appointment.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "action", type = {ReferralRequest.class, ProcedureRequest.class, Procedure.class, MedicationOrder.class, DiagnosticRequest.class, NutritionRequest.class, DeviceUseRequest.class, Appointment.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Actions taken during assessment", formalDefinition="Actions taken during assessment." )
     protected List<Reference> action;
     /**
@@ -1856,8 +1856,8 @@ public class ClinicalImpression extends DomainResource {
         childrenList.add(new Property("finding", "", "Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.", 0, java.lang.Integer.MAX_VALUE, finding));
         childrenList.add(new Property("prognosisCodeableConcept", "CodeableConcept", "Estimate of likely outcome.", 0, java.lang.Integer.MAX_VALUE, prognosisCodeableConcept));
         childrenList.add(new Property("prognosisReference", "Reference(RiskAssessment)", "RiskAssessment expressing likely outcome.", 0, java.lang.Integer.MAX_VALUE, prognosisReference));
-        childrenList.add(new Property("plan", "Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationOrder|NutritionRequest|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)", "Plan of action after assessment.", 0, java.lang.Integer.MAX_VALUE, plan));
-        childrenList.add(new Property("action", "Reference(ReferralRequest|ProcedureRequest|Procedure|MedicationOrder|DiagnosticRequest|NutritionRequest|SupplyRequest|Appointment)", "Actions taken during assessment.", 0, java.lang.Integer.MAX_VALUE, action));
+        childrenList.add(new Property("plan", "Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationOrder|NutritionRequest|ProcedureRequest|ProcessRequest|ReferralRequest|VisionPrescription)", "Plan of action after assessment.", 0, java.lang.Integer.MAX_VALUE, plan));
+        childrenList.add(new Property("action", "Reference(ReferralRequest|ProcedureRequest|Procedure|MedicationOrder|DiagnosticRequest|NutritionRequest|DeviceUseRequest|Appointment)", "Actions taken during assessment.", 0, java.lang.Integer.MAX_VALUE, action));
         childrenList.add(new Property("note", "Annotation", "Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear.", 0, java.lang.Integer.MAX_VALUE, note));
       }
 
@@ -2478,7 +2478,7 @@ public class ClinicalImpression extends DomainResource {
    * Path: <b>ClinicalImpression.action</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="action", path="ClinicalImpression.action", description="Actions taken during assessment", type="reference", target={Appointment.class, DiagnosticRequest.class, MedicationOrder.class, NutritionRequest.class, Procedure.class, ProcedureRequest.class, ReferralRequest.class, SupplyRequest.class } )
+  @SearchParamDefinition(name="action", path="ClinicalImpression.action", description="Actions taken during assessment", type="reference", target={Appointment.class, DeviceUseRequest.class, DiagnosticRequest.class, MedicationOrder.class, NutritionRequest.class, Procedure.class, ProcedureRequest.class, ReferralRequest.class } )
   public static final String SP_ACTION = "action";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>action</b>
@@ -2504,7 +2504,7 @@ public class ClinicalImpression extends DomainResource {
    * Path: <b>ClinicalImpression.plan</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="plan", path="ClinicalImpression.plan", description="Plan of action after assessment", type="reference", target={Appointment.class, CarePlan.class, CommunicationRequest.class, DeviceUseRequest.class, DiagnosticRequest.class, MedicationOrder.class, NutritionRequest.class, ProcedureRequest.class, ProcessRequest.class, ReferralRequest.class, SupplyRequest.class, VisionPrescription.class } )
+  @SearchParamDefinition(name="plan", path="ClinicalImpression.plan", description="Plan of action after assessment", type="reference", target={Appointment.class, CarePlan.class, CommunicationRequest.class, DeviceUseRequest.class, DiagnosticRequest.class, MedicationOrder.class, NutritionRequest.class, ProcedureRequest.class, ProcessRequest.class, ReferralRequest.class, VisionPrescription.class } )
   public static final String SP_PLAN = "plan";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>plan</b>
