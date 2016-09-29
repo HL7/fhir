@@ -69,21 +69,22 @@ func NewServer(databaseHost string) *FHIRServer {
 func (f *FHIRServer) Run(config Config) {
 	var err error
 
-	// Setup the database
+	// Establish initial connection to mongo
 	session, err := mgo.Dial(f.DatabaseHost)
+
 	if err != nil {
 		panic(err)
 	}
-	log.Println("Connected to mongodb")
+
 	defer session.Close()
-
 	Database = session.DB(config.DatabaseName)
+	log.Println("Connected to mongodb")
 
-	RegisterRoutes(f.Engine, f.MiddlewareConfig, NewMongoDataAccessLayer(Database, f.Interceptors), config)
+	// Establish master session
+	masterSession := NewMasterSession(session, config.DatabaseName)
 
-	indexSession := session.Copy()
-	ConfigureIndexes(indexSession, config)
-	indexSession.Close()
+	RegisterRoutes(f.Engine, f.MiddlewareConfig, NewMongoDataAccessLayer(masterSession, f.Interceptors), config)
+	ConfigureIndexes(masterSession, config)
 
 	for _, ar := range f.AfterRoutes {
 		ar(f.Engine)

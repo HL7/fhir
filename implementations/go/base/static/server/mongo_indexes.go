@@ -7,8 +7,9 @@ import (
 	"log"
 	"os"
 	"strings"
+	"time"
 
-	mgo "gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2"
 )
 
 // IndexMap is a map of index arrays with the collection name as the key. Each index array
@@ -21,9 +22,12 @@ type IndexMap map[string][]*mgo.Index
 // on the size of the collection it may take some time before the index is created.
 // This will block the current thread until the indexing completes, but will not block
 // other connections to the mongo database.
-func ConfigureIndexes(session *mgo.Session, config Config) {
+func ConfigureIndexes(ms *MasterSession, config Config) {
 	var err error
-	db := session.DB(config.DatabaseName)
+
+	worker := ms.GetWorkerSession()
+	defer worker.Close()
+	worker.SetTimeout(5 * time.Minute) // Some indexes take a long time to build
 
 	// Read the config file
 	f, err := os.Open(config.IndexConfigPath)
@@ -56,7 +60,7 @@ func ConfigureIndexes(session *mgo.Session, config Config) {
 
 	// ensure all indexes in the config file
 	for k := range indexMap {
-		collection := db.C(k)
+		collection := worker.DB().C(k)
 
 		for _, index := range indexMap[k] {
 			log.Printf("Ensuring index: %s.%s: %s\n", config.DatabaseName, k, sprintIndexKeys(index))
