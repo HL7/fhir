@@ -28,8 +28,6 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.utilities.xhtml;
 
-import static org.apache.commons.lang3.StringUtils.isBlank;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -352,7 +350,7 @@ public class XhtmlNode implements IBaseXhtml {
 		this.content = null;
 		this.name = null;
 		this.nodeType= null;
-		if (isBlank(theValue)) {
+		if (theValue == null || theValue.length() == 0) {
 			return;
 		}
 		
