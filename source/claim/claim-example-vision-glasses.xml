@@ -21,13 +21,13 @@
   
   <created value="2014-08-16"/>
 
- <insurerReference>
+ <insurer>
   <reference value="Organization/2"/>
-</insurerReference>
+</insurer>
 
- <organizationReference>
+ <organization>
     <reference value="Organization/1"/>
- </organizationReference>
+ </organization>
 
  <use value="complete"/>
 
@@ -35,9 +35,9 @@
     <code value="normal"/>
  </priority>
 
- <prescriptionReference>
+ <prescription>
    <reference value="http://www.optdocs.com/prescription/12345"/>
- </prescriptionReference>   
+ </prescription>   
  
  <payee>
    <type>
@@ -52,27 +52,24 @@
 	  </diagnosis>
   </diagnosis>
  
- <patientReference>
+ <patient>
    <reference value="Patient/1"/>
- </patientReference>
+ </patient>
  
  <coverage>
    <sequence value="1"/>
    <focal value="true"/>
-   <coverageReference>
+   <coverage>
      <reference value="Coverage/9876B1"/>
-   </coverageReference>
+   </coverage>
  </coverage>
   
  <item>
    <sequence value="1"/>
-   <!--type>
-     <code value="group"/>
-   </type-->
    <careTeam>
-     <providerReference>
+     <provider>
        <reference value="Practitioner/example"/>
-     </providerReference>
+     </provider>
    </careTeam>
    <service>
      <system value="http://hl7.org/fhir/ex-visionservice"/>
@@ -91,9 +88,6 @@
    </net> 
    <detail>
      <sequence value="1"/>
-     <!--type>
-       <code value="product"/>
-     </type-->
      <service>
        <system value="http://hl7.org/fhir/ex-visionservice"/>
        <code value="frame"/>
@@ -111,9 +105,6 @@
    </detail>
    <detail>
      <sequence value="2"/>
-     <!--type>
-       <code value="product"/>
-     </type-->
      <service>
        <system value="http://hl7.org/fhir/ex-visionservice"/>
        <code value="lens"/>
@@ -134,9 +125,6 @@
    </detail>
    <detail>
      <sequence value="3"/>
-     <!--type>
-       <code value="tax"/>
-     </type-->
      <service>
        <system value="http://hl7.org/fhir/ex-visionservice"/>
        <code value="fst"/>

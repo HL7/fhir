@@ -42,15 +42,19 @@
 
   <created value="2014-08-16"/>
   
-  <insurerIdentifier>
-    <system value="http://www.jurisdiction.com/insurers"/>
-    <value value="123456"/>
-  </insurerIdentifier>
+  <insurer>
+    <identifier>
+      <system value="http://www.jurisdiction.com/insurers"/>
+      <value value="123456"/>
+	</identifier>
+  </insurer>
   
-  <organizationIdentifier>
-    <system value="http://www.jurisdiction.com/careorganizations"/>
-    <value value="HOSP12345"/>
-  </organizationIdentifier>
+  <organization>
+	<identifier>
+      <system value="http://www.jurisdiction.com/careorganizations"/>
+      <value value="HOSP12345"/>
+	</identifier>
+  </organization>
   
   <use value="complete"/>
   
@@ -71,29 +75,31 @@
     </diagnosis>
   </diagnosis>
 
-  <patientReference>
+  <patient>
     <reference value="#patient-1"/>
-  </patientReference>
+  </patient>
     
   <coverage>
     <sequence value="1"/>
     <focal value="true"/>
-    <coverageIdentifier>
-      <system value="http://www.jurisdiction.com/nationalplan"/>
-      <value value="123AB345"/>
-    </coverageIdentifier>
+    <coverage>
+	  <reference value="http://www.jurisdiction.com/nationalplan/123AB345" />
+  	<!-->  <identifier>
+        <system value="http://www.jurisdiction.com/nationalplan"/>
+        <value value="123AB345"/>
+	  </identifier> <!-->
+    </coverage>
   </coverage>
   
   <item>
     <sequence value="1"/>
-    <!--type>
-      <code value="service"/>
-    </type-->
    <careTeam>
-    <providerIdentifier>
+    <provider>
+	 <identifier>
       <system value="http://www.jurisdiction.com/providerId"/>
       <value value="MD98765"/>
-    </providerIdentifier>
+	 </identifier>
+    </provider>
    </careTeam>
     <service>
       <code value="1200"/>

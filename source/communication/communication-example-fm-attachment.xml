@@ -7,6 +7,7 @@
   </text>
   
   <!-- insert contents here -->
+  <!--
    <contained>
     <Organization>
       <id value="provider"/>
@@ -34,7 +35,6 @@
 	    <system value="http://happyvalley.com/claim"/>
         <value value="12345"/>
       </identifier>
-	  <!-- the elements below are required only because of resource cardinalities - may not be actually available to the sender -->
 	  <status value="draft"/>
 	  <type>
         <system value="http://hl7.org/fhir/ex-claimtype"/>
@@ -55,7 +55,8 @@
       </identifier>
 	  <status value="draft"/>
     </ClaimResponse>
-  </contained>
+  </contained> 
+  -->
 	
   <!-- body of the resource -->
   
@@ -79,18 +80,35 @@
 
   <!-- Example using topic 0..* Resource(Any) to provide focal resources -->
   <topic>
-    <reference value="#claim"/>
+    <!-- reference value="#claim"/ -->
+      <identifier>
+	    <system value="http://happyvalley.com/claim"/>
+        <value value="12345"/>
+      </identifier>
   </topic>
   <topic>
-    <reference value="#claimresponse"/>
+    <!-- reference value="#claimresponse"/ -->
+      <identifier>
+	    <system value="http://www.BenefitsInc.com/fhir/claimresponse"/>
+        <value value="R3500"/>
+      </identifier>
   </topic>
   
   <sent value="2016-06-12T18:01:10-08:00"/>
   <sender>
-    <reference value="#provider"/>
+    <!-- reference value="#provider"/ -->
+      <identifier>
+        <system value="http://www.jurisdiction.com/provideroffices"/>
+        <value value="3456"/>
+      </identifier>
+
   </sender>
   <recipient>
-    <reference value="#payor"/>
+    <!-- reference value="#payor"/ -->
+      <identifier>
+        <system value="http://www.jurisdiction.com/insurer"/>
+        <value value="123456"/>
+      </identifier>
   </recipient>
 
   <payload>
@@ -110,6 +128,5 @@
 	  <creation value="2010-02-01T10:57:34+01:00"/>
     </contentAttachment>
   </payload>
-
 
 </Communication>

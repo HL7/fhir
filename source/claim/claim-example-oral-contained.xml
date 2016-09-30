@@ -8,36 +8,6 @@
   </text>
   
   <contained>
-    <Organization>
-      <id value="organization-1"/>
-      <identifier>
-        <system value="http://www.jurisdiction.com/oralhealthoffices"/>
-        <value value="3456"/>
-      </identifier>
-    </Organization>
-  </contained>
-  
-  <contained>
-    <Organization>
-      <id value="organization-2"/>
-      <identifier>
-        <system value="http://www.bindb.com/bin"/>
-        <value value="123456"/>
-      </identifier>
-    </Organization>
-  </contained>
-  
-  <contained>
-    <Practitioner>
-      <id value="practitioner-1"/>
-      <identifier>
-        <system value="http://www.jurisdiction.com/oralhealthproviders"/>
-        <value value="123456789"/>
-      </identifier>
-    </Practitioner>
-  </contained>
-  
-  <contained>
     <Patient>
       <id value="patient-1"/>
       <name>
@@ -61,9 +31,12 @@
     <Coverage>
       <id value="coverage-1"/>
 	  <status value="active"/>
-      <issuerReference>
-        <reference value="#organization-2"/>
-      </issuerReference>
+      <issuerIdentifier>
+       
+        <system value="http://www.bindb.com/bin"/>
+        <value value="123456"/>
+       
+      </issuerIdentifier>
       <type>
         <system value="http://hl7.org/fhir/v3/ActCode"/>
         <code value="EHCPOL"/>
@@ -105,13 +78,19 @@
 
   <created value="2014-08-16"/>
   
-  <insurerReference>
-    <reference value="#organization-2"/>
-  </insurerReference>
+  <insurer>
+     <identifier>
+        <system value="http://www.bindb.com/bin"/>
+        <value value="123456"/>
+     </identifier>
+  </insurer>
   
-  <organizationReference>
-    <reference value="#organization-1"/>
-  </organizationReference>
+  <organization>
+     <identifier>
+        <system value="http://www.jurisdiction.com/oralhealthoffices"/>
+        <value value="3456"/>
+      </identifier>
+  </organization>
   
   <use value="complete"/>
   
@@ -132,27 +111,27 @@
     </diagnosis>
   </diagnosis>
   
-  <patientReference>
+  <patient>
     <reference value="#patient-1"/>
-  </patientReference>
+  </patient>
   
   <coverage>
     <sequence value="1"/>
     <focal value="true"/>
-    <coverageReference>
+    <coverage>
       <reference value="#coverage-1"/>
-    </coverageReference>
+    </coverage>
   </coverage>
   
   <item>
     <sequence value="1"/>
-    <!--type>
-      <code value="service"/>
-    </type-->
    <careTeam>
-    <providerReference>
-      <reference value="#practitioner-1"/>
-    </providerReference>
+    <provider>
+      <identifier>
+        <system value="http://www.jurisdiction.com/oralhealthproviders"/>
+        <value value="123456789"/>
+      </identifier>
+    </provider>
    </careTeam>
     <service>
       <code value="1200"/>

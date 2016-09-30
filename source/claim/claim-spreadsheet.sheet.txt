@@ -486,24 +486,24 @@
   w5 = when.done
 
  -- Row 11 -----------------------------------
-  Element = Claim.insurer[x]
+  Element = Claim.insurer
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Label = Target
   Definition = The Insurer who is target  of the request.
 
  -- Row 12 -----------------------------------
-  Element = Claim.provider[x]
+  Element = Claim.provider
   Card. = 0..1
-  Type = Identifier|Reference(Practitioner)
+  Type = Reference(Practitioner)
   Short Label = Responsible provider
   Definition = The provider which is responsible for the bill, claim pre-determination, pre-authorization.
   w5 = who.source
 
  -- Row 13 -----------------------------------
-  Element = Claim.organization[x]
+  Element = Claim.organization
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the bill, claim pre-determination, pre-authorization.
   w5 = who.source
@@ -534,17 +534,17 @@
   Definition = In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved (\'Patient\' or \'Provider\') to pay for the Benefits determined on the subsequent claim(s). \'None\' explicitly indicates no funds reserving is requested.
 
  -- Row 17 -----------------------------------
-  Element = Claim.enterer[x]
+  Element = Claim.enterer
   Card. = 0..1
-  Type = Identifier|Reference(Practitioner)
+  Type = Reference(Practitioner)
   Short Label = Author
   Definition = Person who created the invoice/claim/pre-determination or pre-authorization.
   w5 = who.author
 
  -- Row 18 -----------------------------------
-  Element = Claim.facility[x]
+  Element = Claim.facility
   Card. = 0..1
-  Type = Identifier|Reference(Location)
+  Type = Reference(Location)
   Short Label = Servicing Facility
   Definition = Facility where the services were provided.
   w5 = where
@@ -558,9 +558,9 @@
   Definition = Other claims which are related to this claim such as prior claim versions or for related services.
 
  -- Row 20 -----------------------------------
-  Element = Claim.related.claim[x]
+  Element = Claim.related.claim
   Card. = 0..1
-  Type = Identifier|Reference(Claim)
+  Type = Reference(Claim)
   Short Label = Reference to the related claim
   Definition = Other claims which are related to this claim such as prior claim versions or for related services.
   Comments = Do we need a relationship code?
@@ -581,18 +581,18 @@
   Definition = An alternate organizational reference to the case or file to which this particular claim pertains - eg Property/Casualy insurer claim # or Workers Compensation case # .
 
  -- Row 23 -----------------------------------
-  Element = Claim.prescription[x]
+  Element = Claim.prescription
   Card. = 0..1
-  Type = Identifier|Reference(MedicationOrder|VisionPrescription)
+  Type = Reference(MedicationOrder|VisionPrescription)
   Short Label = Prescription
   Definition = Prescription to support the dispensing of Pharmacy or Vision products.
   Requirements = For type=Pharmacy and Vision only.
   Comments = Should we create a group to hold multiple prescriptions and add a sequence number and on the line items a link to the sequence.
 
  -- Row 24 -----------------------------------
-  Element = Claim.originalPrescription[x]
+  Element = Claim.originalPrescription
   Card. = 0..1
-  Type = Identifier|Reference(MedicationOrder)
+  Type = Reference(MedicationOrder)
   Short Label = Original Prescription
   Definition = Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.
   Comments = as above
@@ -624,9 +624,9 @@
   Short Label = organization | patient | practitioner | relatedperson
 
  -- Row 29 -----------------------------------
-  Element = Claim.payee.party[x]
+  Element = Claim.payee.party
   Card. = 0..1
-  Type = Identifier|Reference(Practitioner|Organization|Patient|RelatedPerson)
+  Type = Reference(Practitioner|Organization|Patient|RelatedPerson)
   Short Label = Party to receive the payable
   Definition = Party to be reimbursed: Subscriber, provider, other.
 
@@ -634,9 +634,9 @@
   Element = !Referral Information
 
  -- Row 31 -----------------------------------
-  Element = Claim.referral[x]
+  Element = Claim.referral
   Card. = 0..1
-  Type = Identifier|Reference(ReferralRequest)
+  Type = Reference(ReferralRequest)
   Short Label = Treatment Referral
   Definition = The referral resource which lists the date, practitioner, reason and other supporting information.
   w5 = who.cause
@@ -769,9 +769,9 @@
   Element = !Patient Information
 
  -- Row 49 -----------------------------------
-  Element = Claim.patient[x]
+  Element = Claim.patient
   Card. = 1..1
-  Type = Identifier|Reference(Patient)
+  Type = Reference(Patient)
   Short Label = The subject of the Products and Services
   Definition = Patient Resource
   w5 = who.focus
@@ -806,9 +806,9 @@
   Requirements = To identify which coverage is being adjudicated.
 
  -- Row 54 -----------------------------------
-  Element = Claim.coverage.coverage[x]
+  Element = Claim.coverage.coverage
   Card. = 1..1
-  Type = Identifier|Reference(Coverage)
+  Type = Reference(Coverage)
   Short Label = Insurance information
   Definition = Reference to the program or plan identification, underwriter or payor.
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
@@ -922,9 +922,9 @@
   Requirements = Role and Responsible may not be required when there is only a single provider listed.
 
  -- Row 71 -----------------------------------
-  Element = Claim.item.careTeam.provider[x]
+  Element = Claim.item.careTeam.provider
   Card. = 1..1
-  Type = Identifier|Reference(Practitioner|Organization)
+  Type = Reference(Practitioner|Organization)
   Short Label = Provider individual or organization
   Definition = Member of the team who provided the overall service.
   w5 = who.actor
@@ -1397,25 +1397,25 @@
   Path = Claim.priority
 
  -- Row 4 -----------------------------------
-  Name = patient-reference
+  Name = patient
   Type = reference
   Description = Patient receiving the services
-  Path = Claim.patientReference
+  Path = Claim.patient
 
  -- Row 5 -----------------------------------
-  Name = patient-identifier
+  Name = !patient-identifier
   Type = token
   Description = Patient receiving the services
   Path = Claim.patientIdentifier
 
  -- Row 6 -----------------------------------
-  Name = provider-reference
+  Name = provider
   Type = reference
   Description = Provider responsible for the Claim
-  Path = Claim.providerReference
+  Path = Claim.provider
 
  -- Row 7 -----------------------------------
-  Name = provider-identifier
+  Name = !provider-identifier
   Type = token
   Description = Provider responsible for the Claim
   Path = Claim.providerIdentifier
@@ -1427,37 +1427,37 @@
   Path = Claim.created
 
  -- Row 9 -----------------------------------
-  Name = insurer-reference
+  Name = insurer
   Type = reference
   Description = The target payor/insurer for the Claim
-  Path = Claim.insurerReference
+  Path = Claim.insurer
 
  -- Row 10 -----------------------------------
-  Name = insurer-identifier
+  Name = !insurer-identifier
   Type = token
   Description = The target payor/insurer for the Claim
   Path = Claim.insurerIdentifier
 
  -- Row 11 -----------------------------------
-  Name = organization-reference
+  Name = organization
   Type = reference
   Description = The reference to the providing organization
-  Path = Claim.organizationReference
+  Path = Claim.organization
 
  -- Row 12 -----------------------------------
-  Name = organization-identifier
+  Name = !organization-identifier
   Type = token
   Description = The reference to the providing organization
   Path = Claim.organizationIdentifier
 
  -- Row 13 -----------------------------------
-  Name = facility-reference
+  Name = facility
   Type = reference
   Description = Facility responsible for the goods and services
-  Path = Claim.facilityReference
+  Path = Claim.facility
 
  -- Row 14 -----------------------------------
-  Name = facility-identifier
+  Name = !facility-identifier
   Type = token
   Description = Facility responsible for the goods and services
   Path = Claim.facilityIdentifier
