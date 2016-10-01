@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="testscript-example-history"/>
+
+	<url value="http://hl7.org/fhir/TestScript/testscript-example-history"/>
+	<version value="1.0"/>
+	<name value="TestScript Example History"/>
+	<status value="draft"/>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.9877"/>
+	</identifier>
+	<experimental value="true"/>
+	<publisher value="HL7"/>
+	<contact>
+		<name value="Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="support@HL7.org"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-09-26"/>
+	<description value="TestScript example resource with setup to delete if present and create a new instance of a Patient then update that Patient to create a minimum history; and single test definition to get the history of that Patient with various asserts."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="Patient (Conditional) Create, Update, Delete and History (Instance) Operations"/>
+	<copyright value="© HL7.org 2011+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Patient Update, Delete and History (Instance) Operations"/>
+			<link value="http://hl7.org/fhir/http.html#update"/>
+			<link value="http://hl7.org/fhir/http.html#delete"/>
+			<link value="http://hl7.org/fhir/http.html#history"/>
+			<link value="http://hl7.org/fhir/patient.html"/>
+			<conformance>
+				<reference value="Conformance/example" />
+			</conformance>
+		</capability>
+	</metadata>
+
+	<fixture id="fixture-patient-create">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="Patient/example"/>
+			<display value="Peter Chalmers"/>
+		</resource>
+	</fixture>
+
+	<fixture id="fixture-patient-update">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="Patient/pat1"/>
+			<display value="Donald Duck"/>
+		</resource>
+	</fixture>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle" />
+	</profile>
+
+	<variable>
+		<name value="createResourceId"/>
+		<path value="Patient/id"/>
+		<sourceId value="fixture-patient-create"/>
+	</variable>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<label value="SetupDeletePatient"/>
+				<description value="Execute a delete operation to insure the patient does not exist on the server."/>
+				<accept value="json"/>
+				<params value="/${createResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<direction value="response"/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<label value="SetupCreatePatient"/>
+				<description value="Create patient resource on test server using the contents of fixture-patient-create"/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createResourceId}"/>
+				<sourceId value="fixture-patient-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<direction value="response"/>
+				<responseCode value="201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<label value="SetupUpdatePatient"/>
+				<description value="Update patient resource on test server using the contents of fixture-patient-update"/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createResourceId}"/>
+				<sourceId value="fixture-patient-update"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+	</setup>
+
+	<test id="01-HistoryPatient">
+		<name value="History Patient"/>
+		<description value="Get the history for a known Patient and validate response."/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="history"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Get the Patient history on the test server using the id from fixture-patient-create."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<targetId value="fixture-patient-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle conforms to the base FHIR specification."/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type equals 'history'."/>
+				<operator value="equals"/>
+				<path value="fhir:Bundle/fhir:type/@value"/>
+				<value value="history"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

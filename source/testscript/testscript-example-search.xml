@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="testscript-example-search"/>
+
+	<url value="http://hl7.org/fhir/TestScript/testscript-example-search"/>
+	<version value="1.0"/>
+	<name value="TestScript Example Search"/>
+	<status value="draft"/>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.9881"/>
+	</identifier>
+	<experimental value="true"/>
+	<publisher value="HL7"/>
+	<contact>
+		<name value="Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="support@HL7.org"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-09-26"/>
+	<description value="TestScript example resource with simple Patient search test. The read tests will utilize user defined dynamic variables that will hold the Patient search parameter values."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="Patient Search Operation"/>
+	<copyright value="© HL7.org 2011+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Patient Search Operation"/>
+			<link value="http://hl7.org/fhir/http.html#search"/>
+			<link value="http://hl7.org/fhir/patient.html"/>
+			<conformance>
+				<reference value="Conformance/example" />
+			</conformance>
+		</capability>
+	</metadata>
+
+	<fixture id="fixture-patient-create">
+		<resource>
+			<reference value="Patient/example"/>
+			<display value="Peter Chalmers"/>
+		</resource>
+	</fixture>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle" />
+	</profile>
+
+	<variable>
+		<name value="PatientCreateLocation"/>
+		<headerField value="Location"/>
+		<sourceId value="PatientCreateResponse"/>
+	</variable>
+	<variable>
+		<name value="PatientSearchFamilyName"/>
+		<defaultValue value="Chalmers"/>
+	</variable>
+	<variable>
+		<name value="PatientSearchGivenName"/>
+		<defaultValue value="Peter"/>
+	</variable>
+
+	<test id="01-PatientCreateSearch">
+		<name value="Patient Create Search"/>
+		<description value="Create a Patient resource and capture the returned HTTP Header Location. Then search for (read) that Patient using the Location URL value and validate the response."/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Create a Patient resource and capture the returned HTTP Header Location."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<responseId value="PatientCreateResponse"/>
+				<sourceId value="fixture-patient-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Location is present."/>
+				<direction value="response"/>
+				<headerField value="Location"/>
+				<operator value="notEmpty"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<description value="Read the created Patient using the captured Location URL value."/>
+				<accept value="xml"/>
+				<url value="${PatientCreateLocation}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Patient."/>
+				<resource value="Patient"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-PatientSearchDynamic">
+		<name value="Patient Search Dynamic"/>
+		<description value="Search for Patient resources using the user defined dynamic variables ${PatientSearchFamilyName} and ${PatientSearchGivenName} and validate response."/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for Patient resources on the destination test system."/>
+				<accept value="xml"/>
+				<params value="?family=${PatientSearchFamilyName}&amp;given=${PatientSearchGivenName}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle conforms to the base FHIR specification."/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type equals 'searchset'."/>
+				<operator value="equals"/>
+				<path value="fhir:Bundle/fhir:type/@value"/>
+				<value value="searchset"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>
