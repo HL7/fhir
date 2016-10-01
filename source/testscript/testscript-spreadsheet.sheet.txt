@@ -1344,44 +1344,44 @@
 
  -- Row 1 -----------------------------------
   Name = General
-  Identity = example
+  Identity = testscript-example
   Description = General TestScript Example
   Filename = testscript-example.xml
 
  -- Row 2 -----------------------------------
-  Name = Rule
-  Identity = example-rule
-  Description = Rule TestScript Example
-  Filename = testscript-example-rule.xml
+  Name = History Test
+  Identity = testscript-example-history
+  Description = History TestScript Example
+  Filename = testscript-example-history.xml
 
  -- Row 3 -----------------------------------
-  Name = Multiserver
-  Identity = multiserver
-  Description = Multiserver TestScript Example
-  Filename = testscript-example-multiserver.xml
+  Name = Multisystem
+  Identity = testscript-example-multisystem
+  Description = Multisystem TestScript Example
+  Filename = testscript-example-multisystem.xml
 
  -- Row 4 -----------------------------------
   Name = Read Test
-  Identity = ReadTestScript
+  Identity = testscript-example-readtest
   Description = Read TestScript Example
-  Filename = testscript-readtest.xml
+  Filename = testscript-example-readtest.xml
 
  -- Row 5 -----------------------------------
-  Name = Update Test
-  Identity = update
-  Description = Update TestScript Example
-  Filename = testscript-update.xml
+  Name = Rule
+  Identity = testscript-example-rule
+  Description = Rule TestScript Example
+  Filename = testscript-example-rule.xml
 
  -- Row 6 -----------------------------------
-  Name = History Test
-  Identity = history
-  Description = History TestScript Example
-  Filename = testscript-history.xml
+  Name = Search Test
+  Identity = testscript-example-search
+  Description = Search TestScript Example
+  Filename = testscript-example-search.xml
 
  -- Row 7 -----------------------------------
-  Name = Search Test
-  Identity = search
-  Description = Search TestScript Example
-  Filename = testscript-search.xml
+  Name = Update Test
+  Identity = testscript-example-update
+  Description = Update TestScript Example
+  Filename = testscript-example-update.xml
 
 === Sheet Examples =====================================

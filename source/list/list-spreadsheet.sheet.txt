@@ -291,3 +291,154 @@
   Requirements = Allows capturing things like \"none exist\" or \"not asked\" which can be important for most lists
   Comments = The various reasons for an empty list make a significant interpretation to its interpretation. Note that this code is for use when the entire list has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases
   RIM Mapping = .inboundRelationship[typeCode=SUBJ,code<{ListEmptyReason}].value[type=CD]
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = source
+  Type = reference
+  Path = List.source
+
+ -- Row 2 -----------------------------------
+  Name = item
+  Type = reference
+  Path = List.entry.item
+
+ -- Row 3 -----------------------------------
+  Name = empty-reason
+  Type = token
+  Path = List.emptyReason
+
+ -- Row 4 -----------------------------------
+  Name = date
+  Type = date
+  Path = List.date
+
+ -- Row 5 -----------------------------------
+  Name = code
+  Type = token
+  Path = List.code
+
+ -- Row 6 -----------------------------------
+  Name = subject
+  Type = reference
+  Path = List.subject
+
+ -- Row 7 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = List.subject
+  Target Types = Patient
+
+ -- Row 8 -----------------------------------
+  Name = status
+  Type = token
+  Path = List.status
+
+ -- Row 9 -----------------------------------
+  Name = title
+  Type = string
+  Path = List.title
+
+ -- Row 10 -----------------------------------
+  Name = notes
+  Type = string
+  Path = List.note.text
+
+ -- Row 11 -----------------------------------
+  Name = encounter
+  Type = reference
+  Path = List.encounter
+
+ -- Row 12 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = List.identifier
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = !CCDA Cognitive Statuses
+  IG Name = ccda
+  Filename = list-ccda-cognitivestatuses.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = General List Example
+  Filename = list-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Empty List
+  Identity = example-empty
+  Description = Empty List Example
+  Filename = list-example-empty.xml
+
+ -- Row 3 -----------------------------------
+  Name = Simple Empty List
+  Identity = example-simple-empty
+  Description = Empty List (no exception reason)
+  Filename = list-example-simple-empty.xml
+
+ -- Row 4 -----------------------------------
+  Name = Med List
+  Identity = med-list
+  Description = Example Medication Change List
+  Filename = list-example-medlist.xml
+
+ -- Row 5 -----------------------------------
+  Name = Familyhistory
+  Identity = f201
+  Description = Real-world patient example
+  Filename = list-example-familyhistory-f201-roel.xml
+
+ -- Row 6 -----------------------------------
+  Name = Family History - genetic
+  Identity = genetic
+  Description = Simple genetic family member history
+  Filename = list-example-familyhistory-genetics-profile.xml
+
+ -- Row 7 -----------------------------------
+  Name = Family History - genetic annie
+  Identity = prognosis
+  Description = Example for risk assessment
+  Filename = list-example-familyhistory-genetics-profile-annie.xml
+
+ -- Row 8 -----------------------------------
+  Name = Allergies List
+  Identity = current-allergies
+  Description = Example of current allergies list
+  Filename = list-example-allergies.xml
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = find
+  Use = Resource
+  Documentation = This operation allows a client to find an identified list for a particular function by its function. The operation takes two parameters, the identity of a patient, and the name of a functional list.   The list of defined functional lists can be found at [Current Resource Lists](lifecycle.html#lists). Applications are not required to support all the lists, and may define additional lists of their own.   If the system is able to locate a list that serves the identified purpose, it returns it as the body of the response with a 200 OK status. If the resource cannot be located, the server returns a 404 not found (optionally with an OperationOutcome resource)
+  Type = operation
+  Example.Request = $find-request.txt
+  Example.Response = $find-response.txt
+  Title = Find a functional list
+  Footer = Note that servers may support searching by a functional list, and not support this operation that allows clients to find the list directly
+
+ -- Row 2 -----------------------------------
+  Name = find.patient
+  Use = in
+  Documentation = The id of a patient resource located on the server on which this operation is executed
+  Type = id
+  Title = Patient Identity
+  Min = 1
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = find.name
+  Use = in
+  Documentation = The code for the functional list that is being found
+  Type = code
+  Title = Code for list function
+  Min = 1
+  Max = 1

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TestScript xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/testscript.xsd">
-	<id value="example-rule"/>
-	<text><status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example</p><p><b>name</b>: Test Script 1</p><p><b>description</b>: Example Test Script with rule and ruleset</p><h3>Fixtures</h3><table><tr><td>-</td><td><b>Resource</b></td></tr><tr><td>*</td><td><a>Patient resource</a></td></tr></table><blockquote><p><b>test</b></p><p><b>name</b>: Read Patient</p><p><b>description</b>: Read a patient and validate response.</p><blockquote><p><b>metadata</b></p><h3>Links</h3><table><tr><td>-</td><td><b>Url</b></td><td><b>Description</b></td></tr><tr><td>*</td><td><a>http://hl7.org/implement/standards/FHIR-Develop/patient.html</a></td><td>FHIR Patient</td></tr></table><h3>Operations</h3><table><tr><td>-</td><td><b>Type</b></td><td><b>Resource</b></td><td><b>Description</b></td><td><b>Link</b></td><td><b>Required</b></td></tr><tr><td>*</td><td>create</td><td>Patient</td><td>Patient Create Operation</td><td><a>http://hl7.org/implement/standards/FHIR-Develop/http.html#create</a></td><td>true</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Operations</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote><blockquote><p><b>action</b></p><h3>Asserts</h3><table><tr><td>-</td></tr><tr><td>*</td></tr></table></blockquote></blockquote></div></text>
-	<url value="http://hl7.org/fhir/TestScript/example-rule"/>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="testscript-example-rule"/>
+
+	<url value="http://hl7.org/fhir/TestScript/testscript-example-rule"/>
 	<version value="1.0"/>
-	<name value="Test Script 1"/>
+	<name value="TestScript Example"/>
 	<status value="draft"/>
 	<identifier>
 		<system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.9876"/>
+		<value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.9880"/>
 	</identifier>
 	<experimental value="true"/>
 	<publisher value="HL7"/>
@@ -16,12 +16,12 @@
 		<name value="Support"/>
 		<telecom>
 			<system value="email"/>
-			<value value="support@gmail.com"/>
-			<use value="temp"/>
+			<value value="support@HL7.org"/>
+			<use value="work"/>
 		</telecom>
 	</contact>
-	<date value="2015-08-31"/>
-	<description value="Example Test Script"/>
+	<date value="2016-09-26"/>
+	<description value="TestScript example resource with setup to delete if present and create a new instance of a Patient; and single test definition to read the created Patient with various asserts. The asserts now include example rule and ruleset definitions to execute."/>
 	<useContext>
 		<coding>
 			<system value="urn:iso:std:iso:3166"/>
@@ -29,33 +29,52 @@
 			<display value="United States of America (the)"/>
 		</coding>
 	</useContext>
-	<requirements value="Patient Create, Read, and Update Operations"/>
+	<requirements value="Patient Conditional Create (Update), Read and Delete Operations"/>
 	<copyright value="© HL7.org 2011+"/>
+
 	<metadata>
 		<capability>
 			<required value="true"/>
-			<description value="Patient Create, Read, and Update Operations"/>
-			<destination value="1"/>
-			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#create"/>
-			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#read"/>
-			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#update"/>
+			<description value="Patient Update, Read and Delete Operations"/>
+			<link value="http://hl7.org/fhir/http.html#delete"/>
+			<link value="http://hl7.org/fhir/http.html#read"/>
+			<link value="http://hl7.org/fhir/http.html#update"/>
+			<link value="http://hl7.org/fhir/patient.html"/>
 			<conformance>
 				<reference value="Conformance/example" />
 			</conformance>
 		</capability>
 	</metadata>
-	<fixture id="F1">
+
+	<fixture id="fixture-patient-create">
 		<autocreate value="false"/>
 		<autodelete value="false"/>
 		<resource>
 			<reference value="Patient/example"/>
-			<display value="Patient resource"/>
+			<display value="Peter Chalmers"/>
 		</resource>
 	</fixture>
+
+	<fixture id="fixture-patient-minimum">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="Patient/example"/>
+			<display value="Peter Chalmers (minimum)"/>
+		</resource>
+	</fixture>
+
 	<profile id="patient-profile">
 		<reference value="http://hl7.org/fhir/StructureDefinition/Patient" />
 	</profile>
-	<rule id="ruleResponseOkay">
+
+	<variable>
+		<name value="createResourceId"/>
+		<path value="Patient/id"/>
+		<sourceId value="fixture-patient-create"/>
+	</variable>
+
+	<rule id="rule-responseStatusCode">
 		<resource>
 			<reference value="TestScript/example"/>
 		</resource>
@@ -64,7 +83,7 @@
 			<value value="200"/>
 		</param>
 	</rule>
-	<ruleset id="ruleset-responseResourcePatient">
+	<ruleset id="ruleset-responseContentTypeStatusCode">
 		<resource>
 			<reference value="TestScript/example"/>
 		</resource>
@@ -72,7 +91,7 @@
 			<ruleId value="RuleResponseContentType"/>
 			<param>
 				<name value="expectedContentType"/>
-				<value value="JSON"/>
+				<value value="json"/>
 			</param>
 		</rule>
 		<rule>
@@ -83,26 +102,52 @@
 			</param>
 		</rule>
 	</ruleset>
+
 	<setup>
-		<!--   Create the patient using fixture   -->
 		<action>
 			<operation>
 				<type>
-					<code value="create"/>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
 				</type>
-				<label value="SetupPatient"/>
-				<description value="Create patient resource on test server"/>
+				<resource value="Patient"/>
+				<label value="SetupDeletePatient"/>
+				<description value="Execute a delete operation to insure the patient does not exist on the server."/>
 				<accept value="json"/>
-				<responseId value="create-response"/>
-				<sourceId value="F1"/>
+				<params value="/${createResourceId}"/>
 			</operation>
 		</action>
 		<action>
 			<assert>
-				<label value="RuleReadOK"/>
-				<direction value="request"/>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<direction value="response"/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<label value="SetupCreatePatient"/>
+				<description value="Create patient resource on test server using the contents of fixture-patient-create"/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createResourceId}"/>
+				<sourceId value="fixture-patient-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<label value="Setup-RuleCreateOK"/>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<direction value="response"/>
 				<rule>
-					<ruleId value="ruleResponseOkay"/>
+					<ruleId value="rule-responseStatusCode"/>
 					<param>
 						<name value="expectedStatusCode"/>
 						<value value="201"/>
@@ -111,30 +156,35 @@
 			</assert>
 		</action>
 	</setup>
-	<test id="READ01">
+
+	<test id="01-ReadPatient">
 		<name value="Read Patient"/>
 		<description value="Read a patient and validate response."/>
 		<action>
 			<operation>
 				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
 					<code value="read"/>
 				</type>
+				<resource value="Patient"/>
+				<description value="Read the patient resource on the test server using the id from fixture-patient-create. Prevent URL encoding of the request."/>
 				<encodeRequestUrl value="false"/>
-				<responseId value="F1-read"/>
-				<targetId value="F1"/>
+				<responseId value="fixture-patient-read"/>
+				<targetId value="fixture-patient-create"/>
 			</operation>
 		</action>
 		<action>
 			<assert>
-				<label value="RuleReadOK"/>
+				<label value="01-RuleReadPatientOK"/>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
 				<rule>
-					<ruleId value="ruleResponseOkay"/>
+					<ruleId value="rule-responseStatusCode"/>
 				</rule>
 			</assert>
 		</action>
 		<action>
 			<assert>
-				<label value="RuleContentTypeResponse"/>
+				<label value="01-RuleReadPatientContentType"/>
 				<ruleset>
 					<rulesetId value="ruleset-responseResourcePatient"/>
 					<!-- We only need to overwrite one param value in the ruleset -->
@@ -150,6 +200,8 @@
 		</action>
 		<action>
 			<assert>
+				<description value="Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server may not support versioning."/>
+				<direction value="response"/>
 				<headerField value="Last-Modified"/>
 				<operator value="notEmpty"/>
 				<warningOnly value="true"/>
@@ -157,32 +209,38 @@
 		</action>
 		<action>
 			<assert>
+				<description value="Confirm that the returned resource type is Patient."/>
 				<resource value="Patient"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
+				<description value="Confirm that the returned Patient conforms to the base FHIR specification."/>
 				<validateProfileId value="patient-profile"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
+				<description value="Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit sourceId reference to read responseId fixture."/>
 				<operator value="equals"/>
 				<path value="fhir:Patient/fhir:name/fhir:family/@value"/>
+				<sourceId value="fixture-patient-read"/>
 				<value value="Chalmers"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
+				<description value="Confirm that the returned Patient contains the expected given name 'Peter'. Uses explicit sourceId reference to read responseId fixture."/>
 				<operator value="equals"/>
-				<path value="fhir:Patient/fhir:name/fhir:family/@value"/>
-				<sourceId value="F1"/>
-				<value value="Chalmers"/>
+				<path value="fhir:Patient/fhir:name/fhir:given/@value"/>
+				<sourceId value="fixture-patient-read"/>
+				<value value="Peter"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
-				<compareToSourceId value="F1-read"/>
+				<description value="Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient and implicit reference to read response payload."/>
+				<compareToSourceId value="fixture-patient-create"/>
 				<compareToSourcePath value="fhir:Patient/fhir:name/fhir:family/@value"/>
 				<operator value="equals"/>
 				<path value="fhir:Patient/fhir:name/fhir:family/@value"/>
@@ -190,15 +248,18 @@
 		</action>
 		<action>
 			<assert>
-				<compareToSourceId value="F1-read"/>
-				<compareToSourcePath value="fhir:Patient/fhir:name/fhir:family/@value"/>
-				<path value="fhir:Patient/fhir:name/fhir:family/@value"/>
-				<sourceId value="F1"/>
+				<description value="Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient and explicit reference to read response payload and default operator of 'equals'."/>
+				<compareToSourceId value="fixture-patient-create"/>
+				<compareToSourcePath value="fhir:Patient/fhir:name/fhir:given/@value"/>
+				<path value="fhir:Patient/fhir:name/fhir:given/@value"/>
+				<sourceId value="fixture-patient-read"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
-				<minimumId value="F1-min"/>
+				<description value="Confirm that the returned resource contains the expected retained elements and values. Warning only to provide users with reviewable results."/>
+				<minimumId value="fixture-patient-minimum"/>
+				<warningOnly value="true"/>
 			</assert>
 		</action>
 	</test>

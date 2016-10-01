@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Richard J. Ettema (AEGIS.net)</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-07-25T01:52:24Z</LastSaved>
+  <LastSaved>2016-09-26T21:03:30Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -8660,13 +8660,13 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R1C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="37" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="36" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s147" ss:DefaultColumnWidth="260.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s147" ss:Width="89.25"/>
    <Column ss:StyleID="s147" ss:Width="27.75"/>
    <Column ss:StyleID="s147" ss:Width="327.75"/>
-   <Column ss:StyleID="s147" ss:AutoFitWidth="0" ss:Width="84.75"/>
+   <Column ss:StyleID="s147" ss:AutoFitWidth="0" ss:Width="159"/>
    <Column ss:StyleID="s147" ss:Width="206.25" ss:Span="1"/>
    <Column ss:Index="7" ss:StyleID="s147" ss:Width="39.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -8703,44 +8703,8 @@
     <Cell ss:StyleID="s149"><Data ss:Type="String">General</Data></Cell>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s81"><Data ss:Type="String">General TestScript Example</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">testscript-example</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">testscript-example.xml</Data></Cell>
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s150"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Rule</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Rule TestScript Example</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">example-rule</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-example-rule.xml</Data></Cell>
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s150"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Multiserver</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Multiserver TestScript Example</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">multiserver</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-example-multiserver.xml</Data></Cell>
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s150"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Read Test</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Read TestScript Example</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">ReadTestScript</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-readtest.xml</Data></Cell>
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s150"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Update Test</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Update TestScript Example</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">update</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-update.xml</Data></Cell>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s150"/>
    </Row>
@@ -8748,8 +8712,35 @@
     <Cell ss:StyleID="s151"><Data ss:Type="String">History Test</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s89"><Data ss:Type="String">History TestScript Example</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">history</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-history.xml</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-example-history</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-example-history.xml</Data></Cell>
+    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s150"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Multisystem</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Multisystem TestScript Example</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-example-multisystem</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-example-multisystem.xml</Data></Cell>
+    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s150"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Read Test</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Read TestScript Example</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-example-readtest</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-example-readtest.xml</Data></Cell>
+    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s150"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Rule</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Rule TestScript Example</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-example-rule</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-example-rule.xml</Data></Cell>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s150"/>
    </Row>
@@ -8757,17 +8748,17 @@
     <Cell ss:StyleID="s151"><Data ss:Type="String">Search Test</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Search TestScript Example</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">search</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-search.xml</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-example-search</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-example-search.xml</Data></Cell>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s150"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Update Test</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Update TestScript Example</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-example-update</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">testscript-example-update.xml</Data></Cell>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s150"/>
    </Row>
