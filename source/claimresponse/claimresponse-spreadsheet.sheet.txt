@@ -144,9 +144,9 @@
   w5 = status
 
  -- Row 5 -----------------------------------
-  Element = ClaimResponse.request[x]
+  Element = ClaimResponse.request
   Card. = 0..1
-  Type = Identifier|Reference(Claim)
+  Type = Reference(Claim)
   Short Label = Id of resource triggering adjudication
   Definition = Original request resource referrence
   CDAnet v4 Mapping = A02|G01
@@ -181,25 +181,25 @@
   w5 = when.recorded
 
  -- Row 9 -----------------------------------
-  Element = ClaimResponse.organization[x]
+  Element = ClaimResponse.organization
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Label = Insurer
   Definition = The Insurer who produced this adjudicated response.
 
  -- Row 10 -----------------------------------
-  Element = ClaimResponse.requestProvider[x]
+  Element = ClaimResponse.requestProvider
   Card. = 0..1
-  Type = Identifier|Reference(Practitioner)
+  Type = Reference(Practitioner)
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
   w5 = who.source
 
  -- Row 11 -----------------------------------
-  Element = ClaimResponse.requestOrganization[x]
+  Element = ClaimResponse.requestOrganization
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
   w5 = who.source
@@ -728,9 +728,9 @@
   Requirements = To identify which coverage is being adjudicated.
 
  -- Row 84 -----------------------------------
-  Element = ClaimResponse.coverage.coverage[x]
+  Element = ClaimResponse.coverage.coverage
   Card. = 1..1
-  Type = Identifier|Reference(Coverage)
+  Type = Reference(Coverage)
   Short Label = Insurance information
   Definition = Reference to the program or plan identification, underwriter or payor.
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
@@ -769,48 +769,60 @@
   Path = ClaimResponse.identifier
 
  -- Row 2 -----------------------------------
-  Name = request-reference
+  Name = request
+  Type = reference
+  Description = The claim reference
+  Path = ClaimResponse.request
+
+ -- Row 3 -----------------------------------
+  Name = !request-reference
   Type = reference
   Description = The claim reference
   Path = ClaimResponse.requestReference
 
- -- Row 3 -----------------------------------
-  Name = request-identifier
+ -- Row 4 -----------------------------------
+  Name = !request-identifier
   Type = token
   Description = The claim reference
   Path = ClaimResponse.requestIdentifier
 
- -- Row 4 -----------------------------------
-  Name = organization-reference
+ -- Row 5 -----------------------------------
+  Name = organization
+  Type = reference
+  Description = The organization who generated this resource
+  Path = ClaimResponse.organization
+
+ -- Row 6 -----------------------------------
+  Name = !organization-reference
   Type = reference
   Description = The organization who generated this resource
   Path = ClaimResponse.organizationReference
 
- -- Row 5 -----------------------------------
-  Name = organization-identifier
+ -- Row 7 -----------------------------------
+  Name = !organization-identifier
   Type = token
   Description = The organization who generated this resource
   Path = ClaimResponse.organizationIdentifier
 
- -- Row 6 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = outcome
   Type = token
   Description = The processing outcome
   Path = ClaimResponse.outcome
 
- -- Row 7 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = created
   Type = date
   Description = The creation date
   Path = ClaimResponse.created
 
- -- Row 8 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = disposition
   Type = string
   Description = The contents of the disposition message
   Path = ClaimResponse.disposition
 
- -- Row 9 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = paymentdate
   Type = date
   Description = The expected paymentDate

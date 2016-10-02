@@ -14,21 +14,18 @@
 
   <status value="active"/>
 
-  <requestReference>
+  <request>
     <reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/15476332402"/>
-  </requestReference>
+  </request>
 
   <created value="2014-08-16"/>
 
-<!-- 
-  <OrganizationReference>
-    <reference value="Organization/2"/>
-  </OrganizationReference>
- -->
-  <organizationIdentifier>
+  <organization>
+   <identifier>
     <system value="http://www.jurisdiction.org/insurers"/>
     <value value="555123"/>
-  </organizationIdentifier>
+   </identifier>
+  </organization>
 
  <!-- <requestOrganizationReference>
     <reference value="Organization/1"/>
