@@ -11,7 +11,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
   <LastSaved>2015-04-15T04:11:27Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">2eaca039-8f5b-4e09-a647-90931ca82fc4</WorkbookGuid>
@@ -20,11 +20,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9090</WindowHeight>
-  <WindowWidth>19275</WindowWidth>
+  <WindowHeight>11355</WindowHeight>
+  <WindowWidth>18825</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -78,7 +77,7 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous"/>
     <Border ss:Position="Top" ss:LineStyle="Continuous"/>
    </Borders>
-   <Font ss:FontName="Calibri" ss:Color="#000000"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#000000"/>
    <Interior/>
   </Style>
   <Style ss:ID="s67" ss:Parent="s62">
@@ -89,12 +88,12 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous"/>
     <Border ss:Position="Top" ss:LineStyle="Continuous"/>
    </Borders>
-   <Font ss:FontName="Calibri" ss:Color="#000000"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#000000"/>
    <Interior/>
   </Style>
   <Style ss:ID="s68" ss:Parent="s62">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" ss:Color="#000000"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#000000"/>
    <Interior/>
   </Style>
   <Style ss:ID="s69" ss:Parent="s62">
@@ -151,7 +150,7 @@
   </Style>
   <Style ss:ID="s79">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" ss:Color="#000000"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#000000"/>
   </Style>
   <Style ss:ID="s80">
    <Borders>
@@ -187,7 +186,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="86" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="87" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:Width="314.25"/>
@@ -1918,6 +1917,25 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">VisionPrescription.status</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1932,12 +1950,11 @@
     <VerticalResolution>-4</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>60</TopRowVisible>
+   <TopRowVisible>66</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>62</ActiveRow>
-     <RangeSelection>R63</RangeSelection>
+     <ActiveRow>89</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
