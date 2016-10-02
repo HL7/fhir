@@ -13,7 +13,9 @@
     <system value="http://www.happysight.com/prescription"/>
 	<value value="15014"/>
   </identifier>
-  
+ 
+  <status value="active"/>
+ 
   <dateWritten value="2014-06-15"/>
   
   <patient>

@@ -11,8 +11,12 @@
   <content value="complete"/>
   <concept>
     <code value="lens"/>
+    <display value="Lens"/>
+    <definition value="A lens to be fitted to a frame to comprise a pair of glasses."/>
   </concept>
   <concept>
     <code value="contact"/>
+    <display value="Contact Lens"/>
+    <definition value="A lens to be fitted for wearing directly on an eye."/>
   </concept>
 </CodeSystem>
