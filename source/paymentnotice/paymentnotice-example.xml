@@ -15,17 +15,17 @@
  
   <created value="2014-08-16"/>
 
-  <organizationReference>
+  <organization>
     <reference value="Organization/1"/>
-  </organizationReference>
+  </organization>
   
-  <requestReference>
-    <reference value="http://benefitsinc.com/fhir/oralhealthclaim/12345"/>
-  </requestReference>
+  <request>
+    <reference value="http://benefitsinc.com/fhir/claim/12345"/>
+  </request>
 
-	<paymentStatus>
-		<system value="http://hl7.org/fhir/paymentstatus"/>
-		<code value="paid"/>
-	</paymentStatus>
+  <paymentStatus>
+	<system value="http://hl7.org/fhir/paymentstatus"/>
+	<code value="paid"/>
+  </paymentStatus>
 
  </PaymentNotice>

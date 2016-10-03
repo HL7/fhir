@@ -105,41 +105,41 @@
   w5 = when.recorded
 
  -- Row 8 -----------------------------------
-  Element = PaymentNotice.target[x]
+  Element = PaymentNotice.target
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Label = Insurer or Regulatory body
   Definition = The Insurer who is target  of the request.
 
  -- Row 9 -----------------------------------
-  Element = PaymentNotice.provider[x]
+  Element = PaymentNotice.provider
   Card. = 0..1
-  Type = Identifier|Reference(Practitioner)
+  Type = Reference(Practitioner)
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
   w5 = who.source
 
  -- Row 10 -----------------------------------
-  Element = PaymentNotice.organization[x]
+  Element = PaymentNotice.organization
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
   w5 = who.source
 
  -- Row 11 -----------------------------------
-  Element = PaymentNotice.request[x]
+  Element = PaymentNotice.request
   Card. = 0..1
-  Type = Identifier|Reference(Any)
+  Type = Reference(Any)
   Short Label = Request reference
   Definition = Reference of resource for which payment is being made.
   w5 = who.focus
 
  -- Row 12 -----------------------------------
-  Element = PaymentNotice.response[x]
+  Element = PaymentNotice.response
   Card. = 0..1
-  Type = Identifier|Reference(Any)
+  Type = Reference(Any)
   Short Label = Response reference
   Definition = Reference of response to resource for which payment is being made.
   w5 = who.focus
@@ -169,66 +169,90 @@
   Path = PaymentNotice.identifier
 
  -- Row 2 -----------------------------------
-  Name = organization-identifier
+  Name = organization
+  Type = reference
+  Description = The organization who generated this resource
+  Path = PaymentNotice.organization
+
+ -- Row 3 -----------------------------------
+  Name = !organization-identifier
   Type = token
   Description = The organization who generated this resource
   Path = PaymentNotice.organizationIdentifier
 
- -- Row 3 -----------------------------------
-  Name = organization-reference
+ -- Row 4 -----------------------------------
+  Name = !organization-reference
   Type = reference
   Description = The organization who generated this resource
   Path = PaymentNotice.organizationReference
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = created
   Type = date
   Description = Creation date fro the notice
   Path = PaymentNotice.created
 
- -- Row 5 -----------------------------------
-  Name = provider-identifier
+ -- Row 6 -----------------------------------
+  Name = provider
+  Type = reference
+  Description = The reference to the provider
+  Path = PaymentNotice.provider
+
+ -- Row 7 -----------------------------------
+  Name = !provider-identifier
   Type = token
   Description = The reference to the provider
   Path = PaymentNotice.providerIdentifier
 
- -- Row 6 -----------------------------------
-  Name = provider-reference
+ -- Row 8 -----------------------------------
+  Name = !provider-reference
   Type = reference
   Description = The reference to the provider
   Path = PaymentNotice.providerReference
 
- -- Row 7 -----------------------------------
-  Name = request-identifier
+ -- Row 9 -----------------------------------
+  Name = request
+  Type = reference
+  Description = The Claim
+  Path = PaymentNotice.request
+
+ -- Row 10 -----------------------------------
+  Name = !request-identifier
   Type = token
   Description = The Claim
   Path = PaymentNotice.requestIdentifier
 
- -- Row 8 -----------------------------------
-  Name = request-reference
+ -- Row 11 -----------------------------------
+  Name = !request-reference
   Type = reference
   Description = The Claim
   Path = PaymentNotice.requestReference
 
- -- Row 9 -----------------------------------
-  Name = response-identifier
+ -- Row 12 -----------------------------------
+  Name = response
+  Type = reference
+  Description = The ClaimResponse
+  Path = PaymentNotice.response
+
+ -- Row 13 -----------------------------------
+  Name = !response-identifier
   Type = token
   Description = The ClaimResponse
   Path = PaymentNotice.responseIdentifier
 
- -- Row 10 -----------------------------------
-  Name = response-reference
+ -- Row 14 -----------------------------------
+  Name = !response-reference
   Type = reference
   Description = The ClaimResponse
   Path = PaymentNotice.responseReference
 
- -- Row 11 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = payment-status
   Type = token
   Description = The type of payment notice
   Path = PaymentNotice.paymentStatus
 
- -- Row 12 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = statusdate
   Type = date
   Description = The date of the payment action
