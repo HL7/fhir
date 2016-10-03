@@ -78,9 +78,9 @@
   w5 = status
 
  -- Row 5 -----------------------------------
-  Element = ProcessResponse.request[x]
+  Element = ProcessResponse.request
   Card. = 0..1
-  Type = Identifier|Reference(Any)
+  Type = Reference(Any)
   Short Label = Request reference
   Definition = Original request resource reference
   CDAnet v4 Mapping = A02|G01
@@ -128,25 +128,25 @@
   w5 = when.recorded
 
  -- Row 11 -----------------------------------
-  Element = ProcessResponse.organization[x]
+  Element = ProcessResponse.organization
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Label = Authoring Organization
   Definition = The organization who produced this adjudicated response.
   w5 = who.source
 
  -- Row 12 -----------------------------------
-  Element = ProcessResponse.requestProvider[x]
+  Element = ProcessResponse.requestProvider
   Card. = 0..1
-  Type = Identifier|Reference(Practitioner)
+  Type = Reference(Practitioner)
   Short Label = Responsible Practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
 
  -- Row 13 -----------------------------------
-  Element = ProcessResponse.requestOrganization[x]
+  Element = ProcessResponse.requestOrganization
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
 
@@ -205,49 +205,73 @@
   Path = ProcessResponse.identifier
 
  -- Row 2 -----------------------------------
-  Name = request-identifier
+  Name = request
+  Type = reference
+  Description = The reference to the claim
+  Path = ProcessResponse.request
+
+ -- Row 3 -----------------------------------
+  Name = !request-identifier
   Type = token
   Description = The reference to the claim
   Path = ProcessResponse.requestIdentifier
 
- -- Row 3 -----------------------------------
-  Name = request-reference
+ -- Row 4 -----------------------------------
+  Name = !request-reference
   Type = reference
   Description = The reference to the claim
   Path = ProcessResponse.requestReference
 
- -- Row 4 -----------------------------------
-  Name = organization-identifier
+ -- Row 5 -----------------------------------
+  Name = organization
+  Type = reference
+  Description = The organization who generated this resource
+  Path = ProcessResponse.organization
+
+ -- Row 6 -----------------------------------
+  Name = !organization-identifier
   Type = token
   Description = The organization who generated this resource
   Path = ProcessResponse.organizationIdentifier
 
- -- Row 5 -----------------------------------
-  Name = organization-reference
+ -- Row 7 -----------------------------------
+  Name = !organization-reference
   Type = reference
   Description = The organization who generated this resource
   Path = ProcessResponse.organizationReference
 
- -- Row 6 -----------------------------------
-  Name = request-provide-ridentifier
+ -- Row 8 -----------------------------------
+  Name = request-provider
+  Type = reference
+  Description = The Provider who is responsible the request transaction
+  Path = ProcessResponse.requestProvider
+
+ -- Row 9 -----------------------------------
+  Name = !request-provide-ridentifier
   Type = token
   Description = The Provider who is responsible the request transaction
   Path = ProcessResponse.requestProviderIdentifier
 
- -- Row 7 -----------------------------------
-  Name = request-provider-reference
+ -- Row 10 -----------------------------------
+  Name = !request-provider-reference
   Type = reference
   Description = The Provider who is responsible the request transaction
   Path = ProcessResponse.requestProviderReference
 
- -- Row 8 -----------------------------------
-  Name = request-organization-identifier
+ -- Row 11 -----------------------------------
+  Name = request-organization
+  Type = reference
+  Description = The Organization who is responsible the request transaction
+  Path = ProcessResponse.requestOrganization
+
+ -- Row 12 -----------------------------------
+  Name = !request-organization-identifier
   Type = token
   Description = The Organization who is responsible the request transaction
   Path = ProcessResponse.requestOrganizationIdentifier
 
- -- Row 9 -----------------------------------
-  Name = request-organization-reference
+ -- Row 13 -----------------------------------
+  Name = !request-organization-reference
   Type = reference
   Description = The Organization who is responsible the request transaction
   Path = ProcessResponse.requestOrganizationReference
