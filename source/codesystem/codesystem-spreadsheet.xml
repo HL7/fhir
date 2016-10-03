@@ -5682,7 +5682,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">Coding</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">The &quot;sub&quot; coding to test. If the coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The &quot;sub&quot; coding to test. The coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -5693,7 +5693,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">Coding</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">The &quot;super&quot; coding to test. If the coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The &quot;super&quot; coding to test. The coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">

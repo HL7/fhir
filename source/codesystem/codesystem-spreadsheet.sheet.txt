@@ -847,7 +847,7 @@
  -- Row 24 -----------------------------------
   Name = subsumes.codingA
   Use = in
-  Documentation = The \"sub\" coding to test. If the coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established
+  Documentation = The \"sub\" coding to test. The coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established
   Type = Coding
   Min = 0
   Max = 1
@@ -855,7 +855,7 @@
  -- Row 25 -----------------------------------
   Name = subsumes.codingB
   Use = in
-  Documentation = The \"super\" coding to test. If the coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established
+  Documentation = The \"super\" coding to test. The coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established
   Type = Coding
   Min = 0
   Max = 1

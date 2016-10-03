@@ -278,7 +278,7 @@
   Is Modifier = Yes
   Type = code
   Binding = ConceptMapEquivalence
-  Short Label = equivalent | equal | wider | subsumes | narrower | specializes | inexact | unmatched | disjoint
+  Short Label = relatedto | equivalent | equal | wider | subsumes | narrower | specializes | inexact | unmatched | disjoint
   Definition = The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is \'wider\' than the source)
   Default Value = equivalent
 

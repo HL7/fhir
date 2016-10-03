@@ -290,8 +290,8 @@
 	</concept>
 	<concept>
 		<code value="57"/>
-		<display value="Immunisation"/>
-		<definition value="Immunisation"/>
+		<display value="Immunization"/>
+		<definition value="Immunization"/>
 	</concept>
 	<concept>
 		<code value="58"/>

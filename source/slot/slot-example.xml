@@ -16,7 +16,7 @@
 	<serviceType>
 		<coding>
 			<code value="57"/>
-			<display value="Immunisation" />
+			<display value="Immunization" />
 		</coding>
 	</serviceType>
 	<specialty>
