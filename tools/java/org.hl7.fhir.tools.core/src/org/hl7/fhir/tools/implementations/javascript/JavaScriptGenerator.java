@@ -77,7 +77,7 @@ public class JavaScriptGenerator extends BaseGenerator implements PlatformGenera
   }
 
   @Override
-  public void generate(Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
+  public void generate(Definitions definitions, String destDir, String implDir, String actualImpl, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
     String baseDir = Utilities.path(implDir, "app");
     String modelDir = Utilities.path(baseDir, "models");
     String controllerDir = Utilities.path(baseDir, "controllers");

@@ -1,0 +1,104 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="snomedct"/>
+  <url value="http://snomed.info/sct"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.6.96"/>
+  </identifier>
+<!--  <version value="[snomed edition would go here]"/> -->
+  <name value="SNOMED CT"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="IHTSDO">
+  <contact>
+    <telecom>
+      <value value="http://ihtsdo.org"/>
+    </telecom>
+  </contact>
+<!--  <date value=[date for this edition]"/> -->
+  <description value="SNOMED CT is the most comprehensive and precise clinical health terminology product in the world, owned and distributed around the world by The International Health Terminology Standards Development Organisation (IHTSDO)."/>
+  <copyright value="© 2002-2016 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. &quot;SNOMED&quot; and &quot;SNOMED CT&quot; are registered trademarks of the IHTSDO http://www.ihtsdo.org/snomed-ct/get-snomed-ct"/>
+  <caseSensitive  value="false"/>
+  <valueSet value="http://snomed.info/sct?fhir_vs"/>
+  
+  <!-- it's at the discretion of servers whether to present fragments of SNOMED heirarchically or not, when using code systems, but if they are heirarchical, the heirarchy SHALL be based on the is-a relationship -->
+  <heirarchyMeaning value="subsumes"/> 
+  <compositional value="true"/>
+  <versionNeeded value="false"/>
+  <content value="not-present"/>
+  
+<!-- <count value="400000"/>... if working with a specific edition, you could nominate a count -->  
+
+  <!-- filters -->
+  <filter>
+    <code value="concept"/> 
+    <description value="Filter that includes concepts based on their logical definition. e.g. [concept] [is-a] [x] - include all concepts with an is-a relationship to concept x, or [concept] [in] [x]- include all concepts in the reference set identified by concept x",
+    <operator value="is-a"/>
+    <operator value="in"/>
+    <value value="A SNOMED CT code"/>
+  </filter>
+  <filter>
+    <code value="expression"/> 
+    <description value="The result of the filter is the result of executing the given SNOMED CT Expression Constraint",
+    <operator value="="/>
+    <value value="A SNOMED CT code"/>
+  </filter>
+  <filter>
+    <code value="expressions"/> 
+    <description value="Whether post-coordinated expressions are allowed",
+    <operator value="="/>
+    <value value="true or false"/>
+  </filter>
+
+
+  <!-- properties. There are 3 kinds of properties:
+    fhir: display, designation; these are not described here since they are inherent in the specification
+    infrastructural: defined by the structure of SNOMEDC CT itself
+    concept model: defined by the qualifier heirarchy 
+  -->
+  <!-- first, the infrastructural properties -->
+  <property>
+    <code value="inactive"/>
+    <uri value="http://.........?"/>
+    <description value="Whether the code is active or not (defaults to false)"/>
+    <type value="boolean"/>
+  </property>
+  <property>
+    <code value="sufficientlyDefined"/>
+    <uri value="http://.........?"/>
+    <description value="True if the description logic definition of the concept includes sufficient conditions (i.e., if the concept is not primitive)."/>
+    <type value="boolean"/>
+  </property>
+  <property>
+    <code value="parent"/>
+    <uri value="http://.........?"/>
+    <description value="A SNOMED CT concept id that has the target of a direct is-a relationship from the concept"/>
+    <type value=""/>
+  </property>
+  <property>
+    <code value="child"/>
+    <uri value="http://.........?"/>
+    <description value="A SNOMED CT concept id that has a direct is-a relationship to the concept"/>
+    <type value=""/>
+  </property>
+  <property>
+    <code value="moduleId"/>
+    <uri value="http://.........?"/>
+    <description value="The SNOMED CT concept id of the module that the concept belongs to."/>
+    <type value="code"/>
+  </property>
+ 
+  <!-- 
+    SCT relationships also surface as properties. So any attribute code surfaces as a property of SCT as well.
+    
+    As an examplar, show everyone's favorite: Laterality.
+    
+    Todo: should autogenerate all these? (1135 in current AU edition)
+  -->
+  <property>
+    <code value="Laterality"/>
+    <uri value="http://snomed.info/sct#272741003"/>
+    <type value="code"/>
+  </property>
+  
+</CodeSystem>

@@ -34,7 +34,7 @@ public class XMLToolsGenerator extends BaseGenerator implements PlatformGenerato
   }
 
   @Override
-  public void generate(Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
+  public void generate(Definitions definitions, String destDir, String implDir, String actualImpl, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
     ZipGenerator zip = new ZipGenerator(Utilities.path(destDir, getReference(version)));
     zip.addFolder(Utilities.path(implDir, ""), "", false);
     zip.close();

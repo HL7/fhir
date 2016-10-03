@@ -12,7 +12,7 @@ import org.hl7.fhir.utilities.Logger;
 public class CSharpGenerator extends BaseGenerator implements PlatformGenerator {
 
   @Override
-  public void generate(Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
+  public void generate(Definitions definitions, String destDir, String implDir, String actualImpl, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
   }
 
   @Override

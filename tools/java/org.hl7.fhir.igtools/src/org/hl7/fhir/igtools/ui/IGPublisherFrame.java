@@ -1,7 +1,6 @@
 package org.hl7.fhir.igtools.ui;
 
 import java.awt.Toolkit;
-import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;

@@ -47,7 +47,7 @@ public interface PlatformGenerator {
    * @param logger - so that the generator can log issues/errors/progress to the same place as the overall build process
    * @param svnRevision TODO
    */
-  public void generate(Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision)  throws Exception;
+  public void generate(Definitions definitions, String destDir, String implDir, String actualImplDir, String version, Date genDate, Logger logger, String svnRevision)  throws Exception;
   
 
   /**

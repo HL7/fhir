@@ -2,7 +2,7 @@
 <project basedir="." default="build" name="org.hl7.fhir.tools">
   <property environment="env"/>
   <property name="org.hl7.fhir.utilities.location" value="../../../implementations/java/org.hl7.fhir.utilities"/>
-  <property name="org.hl7.fhir.implementation.location" value="../org.hl7.fhir.dstu3"/>
+  <property name="org.hl7.fhir.implementation.location" value="../../../implementations/java/org.hl7.fhir.dstu3"/>
   <property name="org.hl7.fhir.implementation2.location" value="../../../implementations/java/org.hl7.fhir.dstu2"/>
   <property name="org.hl7.fhir.implementation14.location" value="../../../implementations/java/org.hl7.fhir.dstu2016may"/>
   <property name="org.hl7.fhir.convertors.location" value="../../../implementations/java/org.hl7.fhir.convertors"/>

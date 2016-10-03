@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 
 import org.hl7.fhir.dstu3.elementmodel.Element;
-import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
 
 import com.google.gson.JsonObject;

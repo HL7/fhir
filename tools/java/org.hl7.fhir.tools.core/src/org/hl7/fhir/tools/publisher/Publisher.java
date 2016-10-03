@@ -185,9 +185,6 @@ import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
-import org.hl7.fhir.dstu3.test.InstanceValidatorTests;
-import org.hl7.fhir.dstu3.test.TestingUtilities;
-import org.hl7.fhir.dstu3.test.ValidationEngineTests;
 import org.hl7.fhir.dstu3.utils.FluentPathEngine;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.QuestionnaireBuilder;
@@ -1910,9 +1907,10 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.log("Produce " + gen.getName() + " Reference Implementation", LogMessageType.Process);
 
         String destDir = page.getFolders().dstDir;
-        String implDir = page.getFolders().implDir(gen.getName());
+        String tmpImplDir = Utilities.path(page.getFolders().tmpDir, gen.getName(), "");
+        String actualImplDir = Utilities.path(page.getFolders().implDir(gen.getName()), "");
 
-        gen.generate(page.getDefinitions(), destDir, implDir, page.getVersion(), page.getGenDate().getTime(), page, page.getSvnRevision());
+        gen.generate(page.getDefinitions(), destDir, actualImplDir, tmpImplDir, page.getVersion(), page.getGenDate().getTime(), page, page.getSvnRevision());
       }
       for (PlatformGenerator gen : page.getReferenceImplementations()) {
         if (gen.doesCompile()) {
