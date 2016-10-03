@@ -27,11 +27,11 @@
     <reference value="Organization/2"/>
   </organization>
 
-<!--
-  <requestOrganizationReference> PK don't know why this gets rejected by tooling.
+
+  <requestOrganization> 
     <reference value="Organization/1"/>
-  </requestOrganizationReference>
---> 
+  </requestOrganization>
+ 
   <inforce value="true"/>
   
 </EligibilityResponse>
