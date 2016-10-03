@@ -3,9 +3,9 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="org.hl7.fhir.dstu21">
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="org.hl7.fhir.dstu3">
     <property environment="env"/>
-    <property name="org.hl7.fhir.tools.location" value="../org.hl7.fhir.tools.core"/>
+    <property name="org.hl7.fhir.tools.location" value="../../../tools/java/org.hl7.fhir.tools.core"/>
     <property name="org.hl7.fhir.utilities.location" value="../../../implementations/java/org.hl7.fhir.utilities"/>
     <property name="debuglevel" value="source,lines,vars"/>
   <property name="target" value="1.8"/>
@@ -14,7 +14,7 @@
         <pathelement location="${org.hl7.fhir.utilities.location}/bin"/>
     <fileset dir="../imports" includes="*.jar"/>
     </path>
-  <path id="org.hl7.fhir.dstu21.classpath">
+  <path id="org.hl7.fhir.dstu3.classpath">
         <pathelement location="bin"/>
     <fileset dir="../imports" includes="*.jar"/>
         <path refid="org.hl7.fhir.utilities.classpath"/>
@@ -48,7 +48,7 @@
             <src path="src"/>
       <include name="**"/>
       <exclude name="**/test/**/*Test.java"/>
-      <classpath refid="org.hl7.fhir.dstu21.classpath"/>
+      <classpath refid="org.hl7.fhir.dstu3.classpath"/>
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">

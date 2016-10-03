@@ -8,7 +8,7 @@
     <property name="org.hl7.fhir.tools.location" value="../../../tools/java/org.hl7.fhir.tools.core"/>
     <property name="ECLIPSE_HOME" value="../../../../../../tools/eclipse/eclipse/"/>
     <property name="org.hl7.fhir.utilities.location" value="../org.hl7.fhir.utilities"/>
-    <property name="org.hl7.fhir.dstu3.location" value="../../../tools/java/org.hl7.fhir.dstu3"/>
+    <property name="org.hl7.fhir.dstu3.location" value="../../../implementation/java/org.hl7.fhir.dstu3"/>
     <property name="org.hl7.fhir.dstu2.location" value="../org.hl7.fhir.dstu2"/>
     <property name="org.hl7.fhir.dstu14.location" value="../org.hl7.fhir.dstu2016may"/>
     <property name="debuglevel" value="source,lines,vars"/>

@@ -8,7 +8,7 @@
     <property name="com.healthintersections.ihc.utils.location" value="../../../../../com.healthintersections.fhir/ihc/project"/>
     <property name="org.hl7.fhir.convertors.location" value="../org.hl7.fhir.convertors"/>
     <property name="org.hl7.fhir.dstu2.location" value="../org.hl7.fhir.dstu2"/>
-    <property name="org.hl7.fhir.dstu3.location" value="../../../tools/java/org.hl7.fhir.dstu3"/>
+    <property name="org.hl7.fhir.dstu3.location" value="../../../implementation/java/org.hl7.fhir.dstu3"/>
     <property name="org.hl7.fhir.igtools.location" value="../../../tools/java/org.hl7.fhir.igtools"/>
     <property name="org.hl7.fhir.rdf.location" value="../org.hl7.fhir.rdf"/>
     <property name="org.hl7.fhir.tools.location" value="../../../tools/java/org.hl7.fhir.tools.core"/>
