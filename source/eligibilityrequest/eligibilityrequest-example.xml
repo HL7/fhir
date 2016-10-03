@@ -15,24 +15,24 @@
  
   <created value="2014-08-16"/>
 
-  <insurerReference>
+  <insurer>
     <reference value="Organization/2"/>
-  </insurerReference>
+  </insurer>
 
-  <organizationReference>
+  <organization>
     <reference value="Organization/1"/>
-  </organizationReference>
+  </organization>
 
   <priority>
     <code value="normal"/>
   </priority>
 
-  <patientReference>
+  <patient>
     <reference value="Patient/pat1"/>
-  </patientReference>
+  </patient>
  
-  <coverageReference>
+  <coverage>
       <reference value="Coverage/9876B1"/>
-  </coverageReference>
+  </coverage>
 
  </EligibilityRequest>
