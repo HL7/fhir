@@ -13,9 +13,9 @@
   
   <status value="active"/>
 
-  <requestReference>
+  <request>
 	<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332402"/>
-  </requestReference>
+  </request>
   
   <outcome value="complete"/>
   
@@ -23,24 +23,22 @@
  
   <created value="2014-08-16"/>
 
-  <organizationReference>
+  <organization>
     <reference value="Organization/2"/>
-  </organizationReference>
+  </organization>
 
-  <!--
-  <requestOrganizationReference>
+  <requestOrganization>
     <reference value="Organization/1"/>
-  </requestOrganizationReference>
-  -->
+  </requestOrganization>
  
   <detail>
 	<type>
 	   <system value="http://hl7.org/fhir/paymenttype"/>
 	   <code value="payment"/>
 	</type>
-	<requestReference>
+	<request>
 		<reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/225476332402"/>
-	</requestReference>
+	</request>
 	<date value="2014-08-16"/>
 	<amount>
 		<value value="1000.00"/>
@@ -54,9 +52,9 @@
 	   <system value="http://hl7.org/fhir/paymenttype"/>
 	   <code value="payment"/>
 	</type>
-	<requestReference>
+	<request>
 		<reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/225476332699"/>
-	</requestReference>
+	</request>
 	<date value="2014-08-12"/>
 	<amount>
 		<value value="4000.00"/>
