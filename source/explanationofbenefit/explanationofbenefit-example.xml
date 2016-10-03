@@ -13,15 +13,14 @@
 
   <status value="active"/>
 	
-  <claimReference>
+  <claim>
     <reference value="Claim/100150"/>
-  </claimReference>
-
-<!--  
-  <claimResponseReference>
+  </claim>
+  
+  <claimResponse>
     <reference value="ClaimResponse/R3500"/>
-  </claimResponseReference> -->
-<!--  <type value="oral"/> -->
+  </claimResponse> 
+
   <type>
     <system value="http://hl7.org/fhir/ex-claimtype"/>
     <code value="oral"/>
@@ -33,29 +32,26 @@
   </outcome>
   <disposition value="Claim settled as per contract."/>
  
-  <organizationReference>
+  <organization>
     <reference value="Organization/2"/>
-  </organizationReference>
+  </organization>
 
-  <patientReference>
+  <patient>
     <reference value="Patient/pat1"/>
-  </patientReference>
+  </patient>
  
   <coverage>
-    <coverageReference>
+    <coverage>
       <reference value="Coverage/9876B1"/>
-    </coverageReference>
+    </coverage>
   </coverage>
  
  <item>
    <sequence value="1"/>
-   <!--type>
-     <code value="service"/>
-   </type-->
    <careTeam>
-     <providerReference>
+     <provider>
        <reference value="Practitioner/example"/>
-     </providerReference>
+     </provider>
    </careTeam>
    <service>
      <system value="http://hl7.org/fhir/service-uscls"/>

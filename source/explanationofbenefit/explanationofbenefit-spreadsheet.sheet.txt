@@ -429,27 +429,27 @@
   w5 = status
 
  -- Row 5 -----------------------------------
-  Element = ExplanationOfBenefit.author[x]
+  Element = ExplanationOfBenefit.author
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Label = Insurer
   Definition = The insurer which is responsible for the explanation of benefit.
   CDAnet v4 Mapping = B02
   w5 = who.author
 
  -- Row 6 -----------------------------------
-  Element = ExplanationOfBenefit.claim[x]
+  Element = ExplanationOfBenefit.claim
   Card. = 0..1
-  Type = Identifier|Reference(Claim)
+  Type = Reference(Claim)
   Short Label = Claim reference
   Definition = The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.
   CDAnet v4 Mapping = A02|G01
   w5 = why
 
  -- Row 7 -----------------------------------
-  Element = ExplanationOfBenefit.claimResponse[x]
+  Element = ExplanationOfBenefit.claimResponse
   Card. = 0..1
-  Type = Identifier|Reference(ClaimResponse)
+  Type = Reference(ClaimResponse)
   Short Label = Claim response reference
   Definition = The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.
   CDAnet v4 Mapping = A02|G01
@@ -526,27 +526,27 @@
   Comments = Do we need a disposition code?
 
  -- Row 16 -----------------------------------
-  Element = ExplanationOfBenefit.provider[x]
+  Element = ExplanationOfBenefit.provider
   Card. = 0..1
-  Type = Identifier|Reference(Practitioner)
+  Type = Reference(Practitioner)
   Short Label = Responsible provider for the claim
   Definition = The provider which is responsible for the claim.
   CDAnet v4 Mapping = B02
   w5 = who.source
 
  -- Row 17 -----------------------------------
-  Element = ExplanationOfBenefit.organization[x]
+  Element = ExplanationOfBenefit.organization
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Label = Responsible organization for the claim
   Definition = The provider which is responsible for the claim.
   CDAnet v4 Mapping = B02
   w5 = who.source
 
  -- Row 18 -----------------------------------
-  Element = ExplanationOfBenefit.facility[x]
+  Element = ExplanationOfBenefit.facility
   Card. = 0..1
-  Type = Identifier|Reference(Location)
+  Type = Reference(Location)
   Short Label = Servicing Facility
   Definition = Facility where the services were provided.
   w5 = where
@@ -560,9 +560,9 @@
   Definition = Other claims which are related to this claim such as prior claim versions or for related services.
 
  -- Row 20 -----------------------------------
-  Element = ExplanationOfBenefit.related.claim[x]
+  Element = ExplanationOfBenefit.related.claim
   Card. = 0..1
-  Type = Identifier|Reference(Claim)
+  Type = Reference(Claim)
   Short Label = Reference to the related claim
   Definition = Other claims which are related to this claim such as prior claim versions or for related services.
   Comments = Do we need a relationship code?
@@ -583,17 +583,17 @@
   Definition = An alternate organizational reference to the case or file to which this particular claim pertains - eg Property/Casualy insurer claim # or Workers Compensation case # .
 
  -- Row 23 -----------------------------------
-  Element = ExplanationOfBenefit.prescription[x]
+  Element = ExplanationOfBenefit.prescription
   Card. = 0..1
-  Type = Identifier|Reference(MedicationOrder|VisionPrescription)
+  Type = Reference(MedicationOrder|VisionPrescription)
   Short Label = Prescription
   Definition = Prescription to support the dispensing of Pharmacy or Vision products.
   Requirements = For type=Pharmacy and Vision only.
 
  -- Row 24 -----------------------------------
-  Element = ExplanationOfBenefit.originalPrescription[x]
+  Element = ExplanationOfBenefit.originalPrescription
   Card. = 0..1
-  Type = Identifier|Reference(MedicationOrder)
+  Type = Reference(MedicationOrder)
   Short Label = Original Prescription
   Definition = Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.
 
@@ -659,9 +659,9 @@
   Element = !Referral Information
 
  -- Row 34 -----------------------------------
-  Element = ExplanationOfBenefit.referral[x]
+  Element = ExplanationOfBenefit.referral
   Card. = 0..1
-  Type = Identifier|Reference(ReferralRequest)
+  Type = Reference(ReferralRequest)
   Short Label = Treatment Referral
   Definition = The referral resource which lists the date, practitioner, reason and other supporting information.
   CDAnet v4 Mapping = B05
@@ -795,9 +795,9 @@
   Element = !Patient Information
 
  -- Row 52 -----------------------------------
-  Element = ExplanationOfBenefit.patient[x]
+  Element = ExplanationOfBenefit.patient
   Card. = 1..1
-  Type = Identifier|Reference(Patient)
+  Type = Reference(Patient)
   Short Label = The subject of the Products and Services
   Definition = Patient Resource.
   CDAnet v4 Mapping = C06,C07,C08, C05, C04
@@ -825,9 +825,9 @@
   v2 Mapping = Coverage
 
  -- Row 56 -----------------------------------
-  Element = ExplanationOfBenefit.coverage.coverage[x]
+  Element = ExplanationOfBenefit.coverage.coverage
   Card. = 0..1
-  Type = Identifier|Reference(Coverage)
+  Type = Reference(Coverage)
   Short Label = Insurance information
   Definition = Reference to the program or plan identification, underwriter or payor.
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
@@ -941,9 +941,9 @@
   Requirements = Role and Responsible may not be required when there is only a single provider listed.
 
  -- Row 72 -----------------------------------
-  Element = ExplanationOfBenefit.item.careTeam.provider[x]
+  Element = ExplanationOfBenefit.item.careTeam.provider
   Card. = 1..1
-  Type = Identifier|Reference(Practitioner|Organization)
+  Type = Reference(Practitioner|Organization)
   Definition = The members of the team who provided the overall service.
   w5 = who.actor
 
@@ -1892,73 +1892,103 @@
   Path = ExplanationOfBenefit.identifier
 
  -- Row 2 -----------------------------------
-  Name = patientidentifier
+  Name = patient
+  Type = reference
+  Description = The reference to the patient
+  Path = ExplanationOfBenefit.patient
+
+ -- Row 3 -----------------------------------
+  Name = !patientidentifier
   Type = token
   Description = The reference to the patient
   Path = ExplanationOfBenefit.patientIdentifier
 
- -- Row 3 -----------------------------------
-  Name = patientreference
+ -- Row 4 -----------------------------------
+  Name = !patientreference
   Type = reference
   Description = The reference to the patient
   Path = ExplanationOfBenefit.patientReference
 
- -- Row 4 -----------------------------------
-  Name = claimidentifier
+ -- Row 5 -----------------------------------
+  Name = claim
+  Type = reference
+  Description = The reference to the claim
+  Path = ExplanationOfBenefit.claim
+
+ -- Row 6 -----------------------------------
+  Name = !claimidentifier
   Type = token
   Description = The reference to the claim
   Path = ExplanationOfBenefit.claimIdentifier
 
- -- Row 5 -----------------------------------
-  Name = claimreference
+ -- Row 7 -----------------------------------
+  Name = !claimreference
   Type = reference
   Description = The reference to the claim
   Path = ExplanationOfBenefit.claimReference
 
- -- Row 6 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = created
   Type = date
   Description = The creation date for the EOB
   Path = ExplanationOfBenefit.created
 
- -- Row 7 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = disposition
   Type = string
   Description = The contents of the disposition message
   Path = ExplanationOfBenefit.disposition
 
- -- Row 8 -----------------------------------
-  Name = provideridentifier
+ -- Row 10 -----------------------------------
+  Name = provider
+  Type = reference
+  Description = The reference to the provider
+  Path = ExplanationOfBenefit.provider
+
+ -- Row 11 -----------------------------------
+  Name = !provideridentifier
   Type = token
   Description = The reference to the provider
   Path = ExplanationOfBenefit.providerIdentifier
 
- -- Row 9 -----------------------------------
-  Name = providerreference
+ -- Row 12 -----------------------------------
+  Name = !providerreference
   Type = reference
   Description = The reference to the provider
   Path = ExplanationOfBenefit.providerReference
 
- -- Row 10 -----------------------------------
-  Name = organizationidentifier
+ -- Row 13 -----------------------------------
+  Name = organization
+  Type = reference
+  Description = The reference to the providing organization
+  Path = ExplanationOfBenefit.organization
+
+ -- Row 14 -----------------------------------
+  Name = !organizationidentifier
   Type = token
   Description = The reference to the providing organization
   Path = ExplanationOfBenefit.organizationIdentifier
 
- -- Row 11 -----------------------------------
-  Name = organizationreference
+ -- Row 15 -----------------------------------
+  Name = !organizationreference
   Type = reference
   Description = The reference to the providing organization
   Path = ExplanationOfBenefit.organizationReference
 
- -- Row 12 -----------------------------------
-  Name = facilityidentifier
+ -- Row 16 -----------------------------------
+  Name = facility
+  Type = reference
+  Description = Facility responsible for the goods and services
+  Path = ExplanationOfBenefit.facility
+
+ -- Row 17 -----------------------------------
+  Name = !facilityidentifier
   Type = token
   Description = Facility responsible for the goods and services
   Path = ExplanationOfBenefit.facilityIdentifier
 
- -- Row 13 -----------------------------------
-  Name = facilityreference
+ -- Row 18 -----------------------------------
+  Name = !facilityreference
   Type = reference
   Description = Facility responsible for the goods and services
   Path = ExplanationOfBenefit.facilityReference
