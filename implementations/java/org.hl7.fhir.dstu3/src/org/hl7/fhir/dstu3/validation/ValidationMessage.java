@@ -30,7 +30,7 @@ package org.hl7.fhir.dstu3.validation;
  */
 
 import java.util.Comparator;
-import java.util.Formatter;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hl7.fhir.dstu3.model.OperationOutcome;

@@ -9,13 +9,11 @@ import java.util.Set;
 
 import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.elementmodel.Element.SpecialElement;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.utils.formats.Turtle;
 import org.hl7.fhir.dstu3.utils.formats.Turtle.Complex;
 import org.hl7.fhir.dstu3.utils.formats.Turtle.Section;
@@ -25,6 +23,8 @@ import org.hl7.fhir.dstu3.utils.formats.Turtle.TTLList;
 import org.hl7.fhir.dstu3.utils.formats.Turtle.TTLLiteral;
 import org.hl7.fhir.dstu3.utils.formats.Turtle.TTLObject;
 import org.hl7.fhir.dstu3.utils.formats.Turtle.TTLURL;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 

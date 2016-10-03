@@ -9,7 +9,6 @@ import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
-import org.w3c.dom.Document;
 
 import com.google.gson.JsonObject;
 

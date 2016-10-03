@@ -5,7 +5,6 @@ import java.io.IOException;
 
 import org.hl7.fhir.dstu3.model.ExpansionProfile;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.TerminologyServiceErrorClass;
 
 public interface ValueSetExpander {
   public enum TerminologyServiceErrorClass {

@@ -37,7 +37,6 @@ import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 
 /**
  * Validates that an instance of {@link QuestionnaireResponse} is valid against the {@link Questionnaire} that it claims

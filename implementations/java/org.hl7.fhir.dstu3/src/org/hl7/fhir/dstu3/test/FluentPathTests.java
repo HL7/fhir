@@ -15,7 +15,6 @@ import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Resource;
-import org.hl7.fhir.dstu3.test.TestingUtilities;
 import org.hl7.fhir.dstu3.utils.FluentPathEngine;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;

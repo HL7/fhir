@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
@@ -15,6 +14,7 @@ import org.hl7.fhir.dstu3.utils.formats.Turtle;
 import org.hl7.fhir.dstu3.utils.formats.Turtle.Complex;
 import org.hl7.fhir.dstu3.utils.formats.Turtle.Section;
 import org.hl7.fhir.dstu3.utils.formats.Turtle.Subject;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public abstract class RdfParserBase extends ParserBase implements IParser  {

@@ -19,7 +19,6 @@ import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
 
-import ca.uhn.fhir.model.primitive.BaseDateTimeDt;
 import ca.uhn.fhir.parser.DataFormatException;
 
 public abstract class BaseDateTimeType extends PrimitiveType<Date> {

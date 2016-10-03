@@ -1,7 +1,5 @@
 package org.hl7.fhir.dstu3.test;
 
-import org.junit.Assert.*;
-
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.OperationOutcomeIssueComponent;
