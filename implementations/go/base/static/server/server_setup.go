@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"net/http"
 	"strings"
 	"time"
 
@@ -96,9 +97,8 @@ func (f *FHIRServer) Run(config Config) {
 // AbortNonJSONRequests is middleware that responds to any request that Accepts a format
 // other than JSON with a 406 Not Acceptable status.
 func AbortNonJSONRequests(c *gin.Context) {
-
 	acceptHeader := c.Request.Header.Get("Accept")
 	if acceptHeader != "" && !strings.Contains(acceptHeader, "json") && !strings.Contains(acceptHeader, "*/*") {
-		c.AbortWithStatus(406)
+		c.AbortWithStatus(http.StatusNotAcceptable)
 	}
 }
