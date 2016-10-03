@@ -124,7 +124,7 @@
       <arg line="${args}"/>
       <jvmarg value="-Xmx2000m"/>
       <jvmarg value="-Xms1400m"/>
-      <jvmarg value="-XX:MaxPermSize=768m"/>
+      <jvmarg value="-XX:MaxMetaspaceSize=768m"/>
       <jvmarg value="-Djava.awt.headless=true"/>
       <classpath refid="org.hl7.fhir.tools.classpath"/>
     </java>
