@@ -487,8 +487,6 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.utilities", "src")), Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.utilities", "src","").length(), names);
     jar.close();
 
-    checkVersion();
-
     return true;
   }
 
@@ -594,42 +592,6 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
     }
     return list;
-  }
-
-  private void checkVersion() throws Exception {
-    // execute the jar file javatest.jar to check that it's version matches the version of the reference implemetnation bound in to the build tool
-    // also serves as as check of the java
-//
-    String destFile = Utilities.path(System.getProperty("java.io.tmpdir"), "java-version.tmp");
-    File file = new CSFile(destFile);
-    if (file.exists())
-      file.delete();
-
-    List<String> command = new ArrayList<String>();
-    command.add("java");
-    command.add("-jar");
-    command.add("org.hl7.fhir.tools.jar");
-    command.add("version");
-    command.add(destFile);
-
-    ProcessBuilder builder = new ProcessBuilder(command);
-    builder.directory(new File(folders.dstDir));
-    final Process process = builder.start();
-    BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-    String s;
-    while ((s = stdError.readLine()) != null) {
-      System.err.println(s);
-    }
-    builder.directory(new File(folders.dstDir));
-
-    process.waitFor();
-    if (!(new File(destFile).exists()))
-      throw new Exception("Unable to check Java library version");
-    String[] ver = TextFile.fileToString(destFile).split(":");
-    if (!ver[1].equals(Constants.VERSION))
-      throw new Exception("Version mismatch - the compiled version is using FHIR "+ver[1]+" but the bound version of FHIR is "+Constants.VERSION);
-    if (!ver[0].equals(getVersion()))
-      throw new Exception("Version mismatch - the compiled version of the reference implementation is "+ver[0]+" but the bound version is "+getVersion());
   }
 
   private void AddJarToJar(JarOutputStream jar, String name, List<String> names) throws Exception {
