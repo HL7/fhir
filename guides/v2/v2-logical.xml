@@ -78,7 +78,7 @@
     <element id="Message.segment.element.content">
       <path value="Message.segment.element.content"/>
       <short value="The content in an element repeat"/>
-      <definition value="The content in an element"/>
+      <definition value="The content in a cell (element or component)"/>
       <min value="0"/>
       <max value="1"/>
       <type>
