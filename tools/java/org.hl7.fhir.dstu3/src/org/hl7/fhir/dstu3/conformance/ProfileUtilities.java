@@ -2949,7 +2949,7 @@ public class ProfileUtilities {
   private List<String> listReferenceProfiles(ElementDefinition ed) {
     List<String> res = new ArrayList<String>();
     for (TypeRefComponent tr : ed.getType()) {
-      if (tr.getCode().equals("Reference"))
+      if ("Reference".equals(tr.getCode()))
         res.add(tr.getProfile());
     }
     return res ;

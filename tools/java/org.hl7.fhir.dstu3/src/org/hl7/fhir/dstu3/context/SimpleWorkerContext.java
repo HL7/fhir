@@ -45,6 +45,7 @@ import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.Questionnaire;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceType;
+import org.hl7.fhir.dstu3.model.SearchParameter;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
@@ -74,7 +75,8 @@ import org.hl7.fhir.utilities.Utilities;
 public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerContext, ProfileKnowledgeProvider {
 
 	// all maps are to the full URI
-	private Map<String, StructureDefinition> structures = new HashMap<String, StructureDefinition>();
+  private Map<String, StructureDefinition> structures = new HashMap<String, StructureDefinition>();
+  private List<SearchParameter> searchparams = new ArrayList<SearchParameter>();
 	private List<NamingSystem> systems = new ArrayList<NamingSystem>();
 	private Questionnaire questionnaire;
 	private Map<String, byte[]> binaries = new HashMap<String, byte[]>();
@@ -182,7 +184,9 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     else if (r instanceof StructureMap)
       transforms.put(((StructureMap) r).getUrl(), (StructureMap) r);
     else if (r instanceof NamingSystem)
-    	systems.add((NamingSystem) r);
+      systems.add((NamingSystem) r);
+    else if (r instanceof SearchParameter)
+      searchparams.add((SearchParameter) r);
 	}
 	
 	private void seeValueSet(String url, ValueSet vs) throws DefinitionException {
@@ -456,6 +460,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     result.addAll(valueSets.values());
     result.addAll(maps.values());
     result.addAll(transforms.values());
+    result.addAll(searchparams);
     return result;
   }
 
