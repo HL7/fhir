@@ -113,9 +113,9 @@
   w5 = status
 
  -- Row 5 -----------------------------------
-  Element = EligibilityResponse.request[x]
+  Element = EligibilityResponse.request
   Card. = 0..1
-  Type = Identifier|Reference(EligibilityRequest)
+  Type = Reference(EligibilityRequest)
   Short Label = Claim reference
   Definition = Original request resource reference
   CDAnet v4 Mapping = A02|G01
@@ -163,25 +163,25 @@
   w5 = when.recorded
 
  -- Row 11 -----------------------------------
-  Element = EligibilityResponse.organization[x]
+  Element = EligibilityResponse.organization
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Label = Insurer
   Definition = The Insurer who produced this adjudicated response.
 
  -- Row 12 -----------------------------------
-  Element = EligibilityResponse.requestProvider[x]
+  Element = EligibilityResponse.requestProvider
   Card. = 0..1
-  Type = Identifier|Reference(Practitioner)
+  Type = Reference(Practitioner)
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
   w5 = who.source
 
  -- Row 13 -----------------------------------
-  Element = EligibilityResponse.requestOrganization[x]
+  Element = EligibilityResponse.requestOrganization
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
   w5 = who.source
@@ -333,67 +333,91 @@
   Path = EligibilityResponse.identifier
 
  -- Row 2 -----------------------------------
-  Name = request-identifier
+  Name = request
+  Type = reference
+  Description = The EligibilityRequest reference
+  Path = EligibilityResponse.request
+
+ -- Row 3 -----------------------------------
+  Name = !request-identifier
   Type = token
   Description = The EligibilityRequest reference
   Path = EligibilityResponse.requestIdentifier
 
- -- Row 3 -----------------------------------
-  Name = request-reference
+ -- Row 4 -----------------------------------
+  Name = !request-reference
   Type = reference
   Description = The EligibilityRequest reference
   Path = EligibilityResponse.requestReference
 
- -- Row 4 -----------------------------------
-  Name = organization-identifier
+ -- Row 5 -----------------------------------
+  Name = organization
+  Type = reference
+  Description = The organization which generated this resource
+  Path = EligibilityResponse.organization
+
+ -- Row 6 -----------------------------------
+  Name = !organization-identifier
   Type = token
   Description = The organization which generated this resource
   Path = EligibilityResponse.organizationIdentifier
 
- -- Row 5 -----------------------------------
-  Name = organization-reference
+ -- Row 7 -----------------------------------
+  Name = !organization-reference
   Type = reference
   Description = The organization which generated this resource
   Path = EligibilityResponse.organizationReference
 
- -- Row 6 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = outcome
   Type = token
   Description = The processing outcome
   Path = EligibilityResponse.outcome
 
- -- Row 7 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = created
   Type = date
   Description = The creation date
   Path = EligibilityResponse.created
 
- -- Row 8 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = disposition
   Type = string
   Description = The contents of the disposition message
   Path = EligibilityResponse.disposition
 
- -- Row 9 -----------------------------------
-  Name = request-provider-identifier
+ -- Row 11 -----------------------------------
+  Name = request-provider
+  Type = reference
+  Description = The EligibilityRequest provider
+  Path = EligibilityResponse.requestProvider
+
+ -- Row 12 -----------------------------------
+  Name = !request-provider-identifier
   Type = token
   Description = The EligibilityRequest provider
   Path = EligibilityResponse.requestProviderIdentifier
 
- -- Row 10 -----------------------------------
-  Name = request-provider-reference
+ -- Row 13 -----------------------------------
+  Name = !request-provider-reference
   Type = reference
   Description = The EligibilityRequest provider
   Path = EligibilityResponse.requestProviderReference
 
- -- Row 11 -----------------------------------
-  Name = request-organization-identifier
+ -- Row 14 -----------------------------------
+  Name = request-organization
+  Type = reference
+  Description = The EligibilityRequest organization
+  Path = EligibilityResponse.requestOrganization
+
+ -- Row 15 -----------------------------------
+  Name = !request-organization-identifier
   Type = token
   Description = The EligibilityRequest organization
   Path = EligibilityResponse.requestOrganizationIdentifier
 
- -- Row 12 -----------------------------------
-  Name = request-organization-reference
+ -- Row 16 -----------------------------------
+  Name = !request-organization-reference
   Type = reference
   Description = The EligibilityRequest organization
   Path = EligibilityResponse.requestOrganizationReference
