@@ -139,41 +139,41 @@
   w5 = when.recorded
 
  -- Row 9 -----------------------------------
-  Element = ProcessRequest.target[x]
+  Element = ProcessRequest.target
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Label = Target of the request
   Definition = The organization which is the target of the request.
   w5 = who.focus
 
  -- Row 10 -----------------------------------
-  Element = ProcessRequest.provider[x]
+  Element = ProcessRequest.provider
   Card. = 0..1
-  Type = Identifier|Reference(Practitioner)
+  Type = Reference(Practitioner)
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the action specified in this request.
   CDAnet v4 Mapping = B01
   w5 = who.source
 
  -- Row 11 -----------------------------------
-  Element = ProcessRequest.organization[x]
+  Element = ProcessRequest.organization
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the action speccified in this request.
   w5 = who.source
 
  -- Row 12 -----------------------------------
-  Element = ProcessRequest.request[x]
+  Element = ProcessRequest.request
   Card. = 0..1
-  Type = Identifier|Reference(Any)
+  Type = Reference(Any)
   Short Label = Request reference
   Definition = Reference of resource which is the target or subject of this action.
 
  -- Row 13 -----------------------------------
-  Element = ProcessRequest.response[x]
+  Element = ProcessRequest.response
   Card. = 0..1
-  Type = Identifier|Reference(Any)
+  Type = Reference(Any)
   Short Label = Response reference
   Definition = Reference of a prior response to resource which is the target or subject of this action.
 
@@ -237,30 +237,42 @@
   Path = ProcessRequest.identifier
 
  -- Row 2 -----------------------------------
-  Name = organization-identifier
+  Name = organization
+  Type = reference
+  Description = The organization who generated this request
+  Path = ProcessRequest.organization
+
+ -- Row 3 -----------------------------------
+  Name = !organization-identifier
   Type = token
   Description = The organization who generated this request
   Path = ProcessRequest.organizationIdentifier
 
- -- Row 3 -----------------------------------
-  Name = organization-reference
+ -- Row 4 -----------------------------------
+  Name = !organization-reference
   Type = reference
   Description = The organization who generated this request
   Path = ProcessRequest.organizationReference
 
- -- Row 4 -----------------------------------
-  Name = provider-identifier
+ -- Row 5 -----------------------------------
+  Name = provider
+  Type = reference
+  Description = The provider who regenerated this request
+  Path = ProcessRequest.provider
+
+ -- Row 6 -----------------------------------
+  Name = !provider-identifier
   Type = token
   Description = The provider who regenerated this request
   Path = ProcessRequest.providerIdentifier
 
- -- Row 5 -----------------------------------
-  Name = provider-reference
+ -- Row 7 -----------------------------------
+  Name = !provider-reference
   Type = reference
   Description = The provider who regenerated this request
   Path = ProcessRequest.providerReference
 
- -- Row 6 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = action
   Type = token
   Description = The action requested by this resource

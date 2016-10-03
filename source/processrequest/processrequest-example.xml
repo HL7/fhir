@@ -17,8 +17,8 @@
 
   <created value="2014-08-16"/>
 
-  <organizationReference>
+  <organization>
     <reference value="Organization/1"/>
-  </organizationReference>
+  </organization>
    
  </ProcessRequest>

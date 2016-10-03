@@ -17,16 +17,16 @@
   
   <created value="2014-08-16"/>
 
-  <organizationReference>
+  <organization>
     <reference value="Organization/1"/>
-  </organizationReference>
+  </organization>
   
-  <requestReference>
-    <reference value="http://BenefitsInc.com/oralhealthclaim/12345"/>
-  </requestReference>
+  <request>
+    <reference value="http://happyvalley.com/claim/12345"/>
+  </request>
 
-  <responseReference>
+  <response>
     <reference value="http://BenefitsInc.com/fhir/claimresponse/3500"/>
-  </responseReference>
+  </response>
   
  </ProcessRequest>

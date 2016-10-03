@@ -17,11 +17,11 @@
  
   <created value="2014-08-16"/>
 
-  <organizationReference>
+  <organization>
     <reference value="Organization/1"/>
-  </organizationReference>
+  </organization>
   
-  <exclude value="SupportingDocumentation"/>
-  <exclude value="Reconciliation"/>
+  <exclude value="Communication"/>
+  <exclude value="PaymentReconciliation"/>
   
  </ProcessRequest>
