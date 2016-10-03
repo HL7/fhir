@@ -41,7 +41,6 @@ import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.dstu2016may.formats.XmlParser;
 import org.hl7.fhir.dstu2016may.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu2016may.utils.Transformer;
-import org.hl7.fhir.utilities.Utilities;
 
 /**
  * A service that will validate one or more FHIR resources against 

@@ -30,17 +30,20 @@ package org.hl7.fhir.dstu2016may.model;
 */
 
 // Generated on Sun, May 8, 2016 03:05+1000 for FHIR v1.4.0
+import java.util.ArrayList;
+import java.util.List;
 
-import java.util.*;
-
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu2016may.model.Enumerations.*;
-import ca.uhn.fhir.model.api.annotation.Child;
-import ca.uhn.fhir.model.api.annotation.Description;
-import ca.uhn.fhir.model.api.annotation.DatatypeDef;
-import ca.uhn.fhir.model.api.annotation.Block;
-import org.hl7.fhir.instance.model.api.*;
+import org.hl7.fhir.dstu2016may.model.Enumerations.BindingStrength;
+import org.hl7.fhir.dstu2016may.model.Enumerations.BindingStrengthEnumFactory;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.instance.model.api.IBaseDatatypeElement;
+import org.hl7.fhir.instance.model.api.ICompositeType;
+import org.hl7.fhir.utilities.Utilities;
+
+import ca.uhn.fhir.model.api.annotation.Block;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.DatatypeDef;
+import ca.uhn.fhir.model.api.annotation.Description;
 /**
  * Captures constraints on each element within the resource, profile, or extension.
  */

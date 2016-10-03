@@ -1,16 +1,19 @@
 package org.hl7.fhir.dstu2016may.utils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
-import org.hl7.fhir.dstu2016may.model.ElementDefinition;
-import org.hl7.fhir.dstu2016may.model.Extension;
-import org.hl7.fhir.dstu2016may.model.StructureDefinition;
-import org.apache.commons.lang3.tuple.Pair;
-import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.StringUtils;
-
-import org.hl7.fhir.dstu2016may.model.UriType;
-import org.stringtemplate.v4.*;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
+import org.hl7.fhir.dstu2016may.model.ElementDefinition;
+import org.hl7.fhir.dstu2016may.model.StructureDefinition;
+import org.stringtemplate.v4.ST;
 
 public class ShExGenerator {
 

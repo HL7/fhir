@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.hl7.fhir.dstu2016may.formats.XmlParser;
 import org.hl7.fhir.dstu2016may.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu2016may.formats.XmlParser;
 import org.hl7.fhir.dstu2016may.metamodel.Element;
 import org.hl7.fhir.dstu2016may.metamodel.Manager;
 import org.hl7.fhir.dstu2016may.metamodel.Manager.FhirFormat;

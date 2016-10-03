@@ -36,7 +36,6 @@ import org.hl7.fhir.dstu2016may.model.Type;
 import org.hl7.fhir.dstu2016may.model.UriType;
 import org.hl7.fhir.dstu2016may.model.ValueSet;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu2016may.utils.IWorkerContext;
 
 /**

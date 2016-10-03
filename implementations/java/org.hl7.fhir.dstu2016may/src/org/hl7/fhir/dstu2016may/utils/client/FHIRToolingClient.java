@@ -39,19 +39,16 @@ import java.util.Map;
 import org.apache.http.Header;
 import org.apache.http.HttpHost;
 import org.hl7.fhir.dstu2016may.model.Bundle;
+import org.hl7.fhir.dstu2016may.model.Coding;
+import org.hl7.fhir.dstu2016may.model.ConceptMap;
 import org.hl7.fhir.dstu2016may.model.Conformance;
 import org.hl7.fhir.dstu2016may.model.OperationOutcome;
 import org.hl7.fhir.dstu2016may.model.Parameters;
+import org.hl7.fhir.dstu2016may.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.dstu2016may.model.PrimitiveType;
 import org.hl7.fhir.dstu2016may.model.Resource;
-import org.hl7.fhir.dstu2016may.model.ValueSet;
-import org.hl7.fhir.dstu2016may.model.Parameters.ParametersParameterComponent;
-import org.hl7.fhir.dstu2016may.model.Coding;
-import org.hl7.fhir.dstu2016may.model.ConceptMap;
 import org.hl7.fhir.dstu2016may.model.StringType;
-import org.hl7.fhir.dstu2016may.utils.client.ClientUtils;
-import org.hl7.fhir.dstu2016may.utils.client.EFhirClientException;
-import org.hl7.fhir.dstu2016may.utils.client.ResourceRequest;
+import org.hl7.fhir.dstu2016may.model.ValueSet;
 import org.hl7.fhir.utilities.Utilities;
 
 /**

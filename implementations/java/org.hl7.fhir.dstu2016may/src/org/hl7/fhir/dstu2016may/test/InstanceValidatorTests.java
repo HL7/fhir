@@ -1,21 +1,13 @@
 package org.hl7.fhir.dstu2016may.test;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.dstu2016may.formats.IParser.OutputStyle;
-import org.hl7.fhir.dstu2016may.metamodel.Element;
 import org.hl7.fhir.dstu2016may.metamodel.Manager.FhirFormat;
-import org.hl7.fhir.dstu2016may.metamodel.XmlParser;
 import org.hl7.fhir.dstu2016may.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu2016may.utils.IWorkerContext;
 import org.hl7.fhir.dstu2016may.utils.JsonTrackingParser;
 import org.hl7.fhir.dstu2016may.utils.JsonTrackingParser.LocationData;
 import org.hl7.fhir.dstu2016may.utils.SimpleWorkerContext;
@@ -23,7 +15,8 @@ import org.hl7.fhir.dstu2016may.validation.InstanceValidator;
 import org.hl7.fhir.dstu2016may.validation.ValidationMessage;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Test;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

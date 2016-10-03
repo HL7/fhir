@@ -2,10 +2,10 @@ package org.hl7.fhir.dstu2016may.terminologies;
 
 import java.util.List;
 
-import org.hl7.fhir.dstu2016may.model.UriType;
-import org.hl7.fhir.dstu2016may.model.ValueSet;
 import org.hl7.fhir.dstu2016may.model.CodeSystem;
 import org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu2016may.model.UriType;
+import org.hl7.fhir.dstu2016may.model.ValueSet;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ConceptSetFilterComponent;

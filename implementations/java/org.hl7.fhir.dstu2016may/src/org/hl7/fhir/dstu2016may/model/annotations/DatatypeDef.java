@@ -56,6 +56,9 @@ import java.lang.annotation.Target;
 
 import org.hl7.fhir.dstu2016may.model.api.IBaseDatatype;
 
+import ca.uhn.fhir.model.primitive.BoundCodeDt;
+import ca.uhn.fhir.model.primitive.CodeDt;
+
 /**
  * Class annotation to note a class which defines a datatype
  */

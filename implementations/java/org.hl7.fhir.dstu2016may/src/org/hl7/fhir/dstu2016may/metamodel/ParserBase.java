@@ -5,12 +5,9 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu2016may.formats.FormatUtilities;
 import org.hl7.fhir.dstu2016may.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2016may.model.ElementDefinition;
-import org.hl7.fhir.dstu2016may.model.OperationOutcome;
 import org.hl7.fhir.dstu2016may.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu2016may.model.OperationOutcome.IssueSeverity;
@@ -21,6 +18,8 @@ import org.hl7.fhir.dstu2016may.utils.ProfileUtilities;
 import org.hl7.fhir.dstu2016may.utils.ToolingExtensions;
 import org.hl7.fhir.dstu2016may.validation.ValidationMessage;
 import org.hl7.fhir.dstu2016may.validation.ValidationMessage.Source;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.Utilities;
 
 public abstract class ParserBase {

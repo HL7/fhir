@@ -15,15 +15,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.riot.RDFDataMgr;
-
 
 import es.weso.rdf.PrefixMap;
 import es.weso.rdf.RDFReader;
 import es.weso.rdf.jena.RDFAsJenaModel;
 import es.weso.shex.Schema;
 import es.weso.shex.ShExMatcher;
-import es.weso.shex.ShExResult;
 import scala.Option;
 import scala.Tuple2;
 // org.apache.jena.sparql.util.IsoMatcher - comparison

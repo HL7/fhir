@@ -36,9 +36,9 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu2016may.model.BooleanType;
 import org.hl7.fhir.dstu2016may.model.CodeSystem;
+import org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu2016may.model.CodeType;
 import org.hl7.fhir.dstu2016may.model.CodeableConcept;
 import org.hl7.fhir.dstu2016may.model.Coding;
@@ -59,8 +59,8 @@ import org.hl7.fhir.dstu2016may.model.StringType;
 import org.hl7.fhir.dstu2016may.model.Type;
 import org.hl7.fhir.dstu2016may.model.UriType;
 import org.hl7.fhir.dstu2016may.model.ValueSet;
-import org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu2016may.validation.ValidationMessage.Source;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 
 
 public class ToolingExtensions {

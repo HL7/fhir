@@ -68,15 +68,15 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.hl7.fhir.dstu2016may.formats.IParser;
+import org.hl7.fhir.dstu2016may.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2016may.formats.JsonParser;
 import org.hl7.fhir.dstu2016may.formats.XmlParser;
-import org.hl7.fhir.dstu2016may.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2016may.model.Bundle;
 import org.hl7.fhir.dstu2016may.model.OperationOutcome;
-import org.hl7.fhir.dstu2016may.model.Resource;
-import org.hl7.fhir.dstu2016may.model.ResourceType;
 import org.hl7.fhir.dstu2016may.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu2016may.model.OperationOutcome.OperationOutcomeIssueComponent;
+import org.hl7.fhir.dstu2016may.model.Resource;
+import org.hl7.fhir.dstu2016may.model.ResourceType;
 import org.hl7.fhir.dstu2016may.utils.ResourceUtilities;
 
 /**

@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.hl7.fhir.dstu2016may.metamodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu2016may.model.StructureDefinition;
-import org.w3c.dom.Document;
 
 import com.google.gson.JsonObject;
 

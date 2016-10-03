@@ -37,7 +37,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu2016may.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2016may.model.OperationOutcome;
 import org.hl7.fhir.dstu2016may.model.Resource;
@@ -45,6 +44,7 @@ import org.hl7.fhir.dstu2016may.model.ValueSet;
 import org.hl7.fhir.dstu2016may.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu2016may.utils.IWorkerContext;
 import org.hl7.fhir.dstu2016may.utils.ToolingExtensions;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 

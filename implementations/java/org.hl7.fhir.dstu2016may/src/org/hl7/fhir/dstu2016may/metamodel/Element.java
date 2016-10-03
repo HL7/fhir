@@ -3,12 +3,8 @@ package org.hl7.fhir.dstu2016may.metamodel;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.dstu2016may.metamodel.Element.SpecialElement;
 import org.hl7.fhir.dstu2016may.model.Base;
-import org.hl7.fhir.dstu2016may.model.ElementDefinition;
-import org.hl7.fhir.dstu2016may.model.StructureDefinition;
-import org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 

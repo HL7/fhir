@@ -5,11 +5,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.dstu2016may.formats.IParser;
 import org.hl7.fhir.dstu2016may.formats.JsonParser;
 import org.hl7.fhir.dstu2016may.model.Bundle;
 import org.hl7.fhir.dstu2016may.model.Resource;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.junit.Test;
 
 public class MessageTest {

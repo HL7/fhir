@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.NotImplementedException;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.dstu2016may.model.Base;
 import org.hl7.fhir.dstu2016may.model.BooleanType;
 import org.hl7.fhir.dstu2016may.model.Coding;
@@ -43,6 +41,8 @@ import org.hl7.fhir.dstu2016may.model.ValueSet;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu2016may.terminologies.ValueSetExpander;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 
 

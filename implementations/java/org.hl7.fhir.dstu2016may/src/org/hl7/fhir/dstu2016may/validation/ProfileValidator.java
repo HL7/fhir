@@ -5,13 +5,10 @@ import java.util.List;
 
 import org.hl7.fhir.dstu2016may.model.ElementDefinition;
 import org.hl7.fhir.dstu2016may.model.ElementDefinition.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.dstu2016may.model.Extension;
 import org.hl7.fhir.dstu2016may.model.OperationOutcome.IssueType;
-import org.hl7.fhir.dstu2016may.model.StringType;
 import org.hl7.fhir.dstu2016may.model.StructureDefinition;
 import org.hl7.fhir.dstu2016may.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu2016may.utils.IWorkerContext;
-import org.hl7.fhir.dstu2016may.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
 
 public class ProfileValidator extends BaseValidator {

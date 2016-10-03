@@ -3,8 +3,8 @@ package org.hl7.fhir.dstu2016may.metamodel;
 import org.hl7.fhir.dstu2016may.formats.FormatUtilities;
 import org.hl7.fhir.dstu2016may.model.ElementDefinition;
 import org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu2016may.model.StructureDefinition;
+import org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu2016may.utils.IWorkerContext;
 import org.hl7.fhir.dstu2016may.utils.ToolingExtensions;
 

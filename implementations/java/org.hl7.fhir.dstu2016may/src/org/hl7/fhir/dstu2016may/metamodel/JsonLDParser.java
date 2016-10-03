@@ -11,7 +11,6 @@ import java.util.Set;
 
 import org.apache.commons.lang3.NotImplementedException;
 import org.hl7.fhir.dstu2016may.formats.IParser.OutputStyle;
-import org.hl7.fhir.dstu2016may.formats.RdfGenerator.Complex;
 import org.hl7.fhir.dstu2016may.formats.JsonCreator;
 import org.hl7.fhir.dstu2016may.formats.JsonCreatorCanonical;
 import org.hl7.fhir.dstu2016may.formats.JsonCreatorGson;

@@ -4,12 +4,6 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.jena.riot.RDFDataMgr;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
-import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
-
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
@@ -17,6 +11,11 @@ import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.riot.RDFDataMgr;
+import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
+import org.hl7.fhir.dstu3.validation.ValidationMessage;
+import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 
 /**
  * The purpose of this class is twofold:

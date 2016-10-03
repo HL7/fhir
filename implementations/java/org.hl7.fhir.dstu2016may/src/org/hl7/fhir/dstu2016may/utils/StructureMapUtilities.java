@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import javax.naming.Context;
-
-import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.dstu2016may.model.Base;
 import org.hl7.fhir.dstu2016may.model.BooleanType;
 import org.hl7.fhir.dstu2016may.model.CodeType;
@@ -22,13 +19,10 @@ import org.hl7.fhir.dstu2016may.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.dstu2016may.model.ExpressionNode;
 import org.hl7.fhir.dstu2016may.model.IdType;
 import org.hl7.fhir.dstu2016may.model.IntegerType;
-import org.hl7.fhir.dstu2016may.model.PrimitiveType;
 import org.hl7.fhir.dstu2016may.model.Resource;
 import org.hl7.fhir.dstu2016may.model.ResourceFactory;
 import org.hl7.fhir.dstu2016may.model.StringType;
 import org.hl7.fhir.dstu2016may.model.StructureMap;
-import org.hl7.fhir.dstu2016may.model.Type;
-import org.hl7.fhir.dstu2016may.model.UriType;
 import org.hl7.fhir.dstu2016may.model.StructureMap.StructureMapGroupComponent;
 import org.hl7.fhir.dstu2016may.model.StructureMap.StructureMapGroupInputComponent;
 import org.hl7.fhir.dstu2016may.model.StructureMap.StructureMapGroupRuleComponent;
@@ -41,7 +35,10 @@ import org.hl7.fhir.dstu2016may.model.StructureMap.StructureMapListMode;
 import org.hl7.fhir.dstu2016may.model.StructureMap.StructureMapModelMode;
 import org.hl7.fhir.dstu2016may.model.StructureMap.StructureMapStructureComponent;
 import org.hl7.fhir.dstu2016may.model.StructureMap.StructureMapTransform;
+import org.hl7.fhir.dstu2016may.model.Type;
+import org.hl7.fhir.dstu2016may.model.UriType;
 import org.hl7.fhir.dstu2016may.utils.FHIRLexer.FHIRLexerException;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 
 public class StructureMapUtilities {

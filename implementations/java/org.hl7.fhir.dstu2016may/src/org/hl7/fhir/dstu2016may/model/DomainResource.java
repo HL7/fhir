@@ -30,16 +30,17 @@ package org.hl7.fhir.dstu2016may.model;
 */
 
 // Generated on Sun, May 8, 2016 03:05+1000 for FHIR v1.4.0
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-import java.util.*;
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.instance.model.api.IBaseHasExtensions;
+import org.hl7.fhir.instance.model.api.IBaseHasModifierExtensions;
+import org.hl7.fhir.instance.model.api.IDomainResource;
 
-import ca.uhn.fhir.model.api.annotation.ResourceDef;
-import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.Description;
-import ca.uhn.fhir.model.api.annotation.Block;
-import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A resource that includes narrative, extensions, and contained resources.
  */

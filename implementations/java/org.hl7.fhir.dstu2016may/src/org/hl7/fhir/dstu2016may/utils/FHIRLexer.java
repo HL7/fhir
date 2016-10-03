@@ -1,8 +1,8 @@
 package org.hl7.fhir.dstu2016may.utils;
 
-import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.dstu2016may.model.ExpressionNode;
 import org.hl7.fhir.dstu2016may.model.ExpressionNode.SourceLocation;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 
 // shared lexer for concrete syntaxes 

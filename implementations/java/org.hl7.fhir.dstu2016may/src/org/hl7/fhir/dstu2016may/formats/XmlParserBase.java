@@ -37,14 +37,13 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu2016may.model.Base;
 import org.hl7.fhir.dstu2016may.model.DomainResource;
 import org.hl7.fhir.dstu2016may.model.Element;
 import org.hl7.fhir.dstu2016may.model.Resource;
 import org.hl7.fhir.dstu2016may.model.StringType;
 import org.hl7.fhir.dstu2016may.model.Type;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.instance.model.api.IIdType;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;

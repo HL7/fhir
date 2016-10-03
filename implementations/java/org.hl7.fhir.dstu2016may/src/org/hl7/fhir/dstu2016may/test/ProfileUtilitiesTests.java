@@ -7,9 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu2016may.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2016may.formats.XmlParser;
 import org.hl7.fhir.dstu2016may.model.Base;
@@ -27,6 +24,9 @@ import org.hl7.fhir.dstu2016may.utils.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.dstu2016may.utils.ProfileUtilities;
 import org.hl7.fhir.dstu2016may.utils.SimpleWorkerContext;
 import org.hl7.fhir.dstu2016may.validation.ValidationMessage;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Utilities;
 

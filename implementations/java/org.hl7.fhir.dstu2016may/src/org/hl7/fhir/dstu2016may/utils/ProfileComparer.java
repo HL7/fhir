@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.dstu2016may.formats.IParser;
 import org.hl7.fhir.dstu2016may.model.Base;
 import org.hl7.fhir.dstu2016may.model.Coding;
@@ -36,6 +35,7 @@ import org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetExpansionContainsComponen
 import org.hl7.fhir.dstu2016may.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu2016may.validation.ValidationMessage;
 import org.hl7.fhir.dstu2016may.validation.ValidationMessage.Source;
+import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 
