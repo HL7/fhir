@@ -407,7 +407,7 @@
   Element = ValueSet.compose.include.concept.designation
   Card. = 0..*
   UML = right
-  Short Label = Additional representations for this valueset
+  Short Label = Additional representations for this concept
   Definition = Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc.
 
  -- Row 30 -----------------------------------
@@ -598,6 +598,13 @@
   Definition = The recommended display for this item in the expansion
 
  -- Row 52 -----------------------------------
+  Element = ValueSet.expansion.contains.designation
+  Card. = 0..*
+  Type = @ValueSet.compose.include.concept.designation
+  Short Label = Additional representations for this item
+  Definition = Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc. These are relevant when the conditions of the expansion do not fix to a single correct
+
+ -- Row 53 -----------------------------------
   Element = ValueSet.expansion.contains.contains
   Card. = 0..*
   Type = @ValueSet.expansion.contains
