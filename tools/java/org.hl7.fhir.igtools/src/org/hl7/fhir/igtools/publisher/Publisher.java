@@ -556,7 +556,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         log("Load Validation Pack (internal)");
         context = SimpleWorkerContext.fromClassPath("igpack.zip");
       } catch (NullPointerException npe) {
-        log("Unable to find igpack.zip in the jar");
+        log("Unable to find igpack.zip in the jar. Attempting to use local igpack.zip");
         context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\igpack.zip");
       }
     } else
@@ -1902,12 +1902,18 @@ public class Publisher implements IWorkerContext.ILoggingService {
     public MyFilterHandler() {
       buffer = new byte[256];
     }
+    
+    public String getBufferString() {
+    	return new String(this.buffer);
+    }
 
     private boolean passJekyllFilter(String s) {
       if (Utilities.noString(s))
         return false;
       if (s.contains("Source:"))
         return true;
+      if (s.contains("Liquid Exception:"))
+    	  return true;
       if (s.contains("Destination:"))
         return false;
       if (s.contains("Configuration"))
@@ -1951,13 +1957,21 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private boolean runJekyll() throws IOException, InterruptedException {
     DefaultExecutor exec = new DefaultExecutor();
     exec.setExitValue(0);
-    PumpStreamHandler pump = new PumpStreamHandler(new MyFilterHandler());
+    MyFilterHandler pumpHandler = new MyFilterHandler();
+    PumpStreamHandler pump = new PumpStreamHandler(pumpHandler);
     exec.setStreamHandler(pump);
     exec.setWorkingDirectory(new File(tempDir));
-    if (SystemUtils.IS_OS_WINDOWS)
-      exec.execute(org.apache.commons.exec.CommandLine.parse("cmd /C jekyll build --destination "+outputDir));
-    else
-      exec.execute(org.apache.commons.exec.CommandLine.parse("jekyll build --destination "+outputDir));
+    
+    try {    
+	    if (SystemUtils.IS_OS_WINDOWS)
+	      exec.execute(org.apache.commons.exec.CommandLine.parse("cmd /C jekyll build --destination "+outputDir));
+	    else
+	      exec.execute(org.apache.commons.exec.CommandLine.parse("jekyll build --destination "+outputDir));
+    } catch (IOException ioex) {
+    	log("Complete output from Jekyll: " + pumpHandler.getBufferString());
+    	throw ioex;
+    }
+    
     return true;
   }
 
@@ -2070,7 +2084,12 @@ public class Publisher implements IWorkerContext.ILoggingService {
     jsonPage.addProperty("label", label);
     jsonPage.addProperty("breadcrumb", breadcrumb);
     
-    String baseUrl = url.substring(0, url.indexOf(".html"));
+    String baseUrl = url;
+    
+    if (baseUrl.indexOf(".html") > 0) {
+    	baseUrl = baseUrl.substring(0, baseUrl.indexOf(".html"));
+    }
+    
     String contentFile = pagesDir + File.separator + "_includes" + File.separator + "content-" + baseUrl + "-intro.html";
     if (new File(contentFile).exists()) {
       jsonPage.addProperty("intro", "content-" + baseUrl+"-intro.html");
