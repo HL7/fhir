@@ -2659,9 +2659,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (igpkp.wantGen(r, "xref"))
       fragmentError("StructureDefinition-"+sd.getId()+"-sd-xref", "Yet to be done: xref", f.getOutputNames());
     if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT && igpkp.wantGen(r, "span"))
-      fragment("StructureDefinition-"+sd.getId()+"-span", sdr.span(true), f.getOutputNames(), r, vars, null);
+      fragment("StructureDefinition-"+sd.getId()+"-span", sdr.span(true, igpkp.getCanonical()), f.getOutputNames(), r, vars, null);
     if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT && igpkp.wantGen(r, "spanall"))
-      fragment("StructureDefinition-"+sd.getId()+"-spanall", sdr.span(true), f.getOutputNames(), r, vars, null);
+      fragment("StructureDefinition-"+sd.getId()+"-spanall", sdr.span(true, igpkp.getCanonical()), f.getOutputNames(), r, vars, null);
 
     if (igpkp.wantGen(r, "example-list"))
       fragment("StructureDefinition-example-list-"+sd.getId(), sdr.exampleList(fileList), f.getOutputNames(), r, vars, null);

@@ -66,6 +66,7 @@ import org.hl7.fhir.dstu3.utils.client.EFhirClientException;
 import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
 import org.hl7.fhir.dstu3.validation.IResourceValidator;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.exceptions.UcumException;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -292,9 +293,17 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     return new XmlParser();
   }
 
+  public <T extends Resource> T fetchResource(Class<T> class_, String uri) {
+    try {
+      return fetchResourceWithException(class_, uri);
+    } catch (FHIRException e) {
+      throw new Error(e);
+    }
+  }
+  
   @SuppressWarnings("unchecked")
   @Override
-  public <T extends Resource> T fetchResource(Class<T> class_, String uri) {
+  public <T extends Resource> T fetchResourceWithException(Class<T> class_, String uri) throws FHIRException {
     if (class_ == StructureDefinition.class && !uri.contains("/"))
       uri = "http://hl7.org/fhir/StructureDefinition/"+uri;
     
@@ -323,7 +332,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
       
     if (class_ == Questionnaire.class)
       return null;
-    throw new Error("not done yet: can't fetch "+uri);
+    throw new FHIRException("not done yet: can't fetch "+uri);
   }
 
   @Override

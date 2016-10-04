@@ -9,25 +9,17 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.EventListener;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.UUID;
 
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.event.CaretEvent;
-import javax.swing.event.CaretListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import javax.swing.plaf.synth.Region;
-import javax.swing.text.JTextComponent;
 
-import org.eclipse.swt.internal.ole.win32.GUID;
 import org.hl7.fhir.dstu2016may.model.Parameters;
 import org.hl7.fhir.dstu2016may.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.dstu2016may.model.PrimitiveType;
@@ -37,12 +29,9 @@ import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent;
 import org.hl7.fhir.dstu3.model.Enumerations.ConceptMapEquivalence;
-import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -53,12 +42,7 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSyntaxException;
 
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.concurrent.Worker;
-import javafx.concurrent.Worker.State;
 import javafx.scene.Scene;
-import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
 public class ClosureTestingFrame extends javax.swing.JFrame {

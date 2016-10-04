@@ -936,8 +936,8 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     return b.toString();
   }
 
-  public String span(boolean onlyConstraints) throws IOException, FHIRException {
-    return new XhtmlComposer().compose(utils.generateSpanningTable(sd, destDir, onlyConstraints));
+  public String span(boolean onlyConstraints, String canonical) throws IOException, FHIRException {
+    return new XhtmlComposer().compose(utils.generateSpanningTable(sd, destDir, onlyConstraints, canonical));
   }
 
 }

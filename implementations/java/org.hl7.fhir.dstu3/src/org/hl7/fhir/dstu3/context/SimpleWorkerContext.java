@@ -308,9 +308,17 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		return new InstanceValidator(this);
 	}
 
+  @Override
+  public <T extends Resource> T fetchResource(Class<T> class_, String uri) {
+    try {
+      return fetchResourceWithException(class_, uri);
+    } catch (FHIRException e) {
+      throw new Error(e);
+    }
+  }
 	@SuppressWarnings("unchecked")
 	@Override
-	public <T extends Resource> T fetchResource(Class<T> class_, String uri) {
+	public <T extends Resource> T fetchResourceWithException(Class<T> class_, String uri) throws FHIRException {
 	  if (class_ == Questionnaire.class)
 	    return (T) questionnaire;
 	  
@@ -352,7 +360,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		}
 
 		
-		throw new Error("fetching "+class_.getName()+" not done yet for URI '"+uri+"'");
+		throw new FHIRException("fetching "+class_.getName()+" not done yet for URI '"+uri+"'");
 	}
 
 

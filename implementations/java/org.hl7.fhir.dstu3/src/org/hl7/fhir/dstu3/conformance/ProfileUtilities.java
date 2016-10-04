@@ -2879,17 +2879,17 @@ public class ProfileUtilities {
     
   }
 
-  public XhtmlNode generateSpanningTable(StructureDefinition profile, String imageFolder, boolean onlyConstraints) throws IOException, FHIRException {
+  public XhtmlNode generateSpanningTable(StructureDefinition profile, String imageFolder, boolean onlyConstraints, String constraintPrefix) throws IOException, FHIRException {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, false);
     TableModel model = initSpanningTable(gen, "", false);
     Set<String> processed = new HashSet<String>();
-    SpanEntry span = buildSpanningTable("(focus)", "", profile, processed, onlyConstraints);
+    SpanEntry span = buildSpanningTable("(focus)", "", profile, processed, onlyConstraints, constraintPrefix);
     
     genSpanEntry(gen, model.getRows(), span);
     return gen.generate(model, "");
   }
 
-  private SpanEntry buildSpanningTable(String name, String cardinality, StructureDefinition profile, Set<String> processed, boolean onlyConstraints) throws IOException {
+  private SpanEntry buildSpanningTable(String name, String cardinality, StructureDefinition profile, Set<String> processed, boolean onlyConstraints, String constraintPrefix) throws IOException {
     SpanEntry res = buildSpanEntryFromProfile(name, cardinality, profile);
     boolean wantProcess = !processed.contains(profile.getUrl());
     processed.add(profile.getUrl());
@@ -2898,11 +2898,11 @@ public class ProfileUtilities {
         if (!"0".equals(ed.getMax()) && ed.getType().size() > 0) {
           String card = getCardinality(ed, profile.getSnapshot().getElement());
           if (!card.endsWith(".0")) {
-          List<String> refProfiles = listReferenceProfiles(ed);
-          if (refProfiles.size() > 0) {
-            StructureDefinition sd = context.fetchResource(StructureDefinition.class, refProfiles.get(0));
-              if (sd != null && (!onlyConstraints || sd.getDerivation() == TypeDerivationRule.CONSTRAINT)) {
-                res.getChildren().add(buildSpanningTable(nameForElement(ed), card, sd, processed, onlyConstraints));
+            List<String> refProfiles = listReferenceProfiles(ed);
+            if (refProfiles.size() > 0) {
+              StructureDefinition sd = context.fetchResource(StructureDefinition.class, refProfiles.get(0));
+              if (sd != null && (!onlyConstraints || (sd.getDerivation() == TypeDerivationRule.CONSTRAINT && (constraintPrefix == null || sd.getUrl().startsWith(constraintPrefix))))) {
+                res.getChildren().add(buildSpanningTable(nameForElement(ed), card, sd, processed, onlyConstraints, constraintPrefix));
               }
             }
           }

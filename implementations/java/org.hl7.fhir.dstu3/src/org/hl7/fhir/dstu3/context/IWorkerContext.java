@@ -132,9 +132,11 @@ public interface IWorkerContext {
    * @param resource
    * @param Reference
    * @return
+   * @throws FHIRException 
    * @throws Exception
    */
   public <T extends Resource> T fetchResource(Class<T> class_, String uri);
+  public <T extends Resource> T fetchResourceWithException(Class<T> class_, String uri) throws FHIRException;
 
   /**
    * find whether a resource is available. 
