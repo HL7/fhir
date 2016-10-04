@@ -2,7 +2,7 @@
 	<div>
 <a name="scope"> </a>
 		<h2>Scope and Usage</h2>
-	    <p><b>This resource is a <em>request</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</b></p>
+	    <p><strong>This resource is a <em>request</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</strong></p>
 		<p>
 A <i>Diagnostic Request</i> is a record of a request for a set of diagnostic investigations to be performed.
 The investigation will lead to a <a href="diagnosticreport.html">Diagnostic Report</a> that summarizes the
