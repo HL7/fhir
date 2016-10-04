@@ -739,16 +739,12 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "antlr-runtime-3.4.jar"), names);
     
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu3", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu3", "src").length()+1, names);
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu2016may", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu2016may", "src").length()+1, names);
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu2", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu2", "src").length()+1, names);
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.convertors", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.convertors", "src").length()+1, names);
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.utilities", "src")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.utilities", "src").length()+1, names);
-    // ok now add the igtools
-    if (hasBinIGTools(Utilities.path(folders.rootDir,"tools", "java", "org.hl7.fhir.igtools", "bin")))
-      AddToJar(jar, new File(Utilities.path(folders.rootDir,"tools", "java", "org.hl7.fhir.igtools", "bin")), Utilities.path(folders.rootDir,"tools", "java", "org.hl7.fhir.igtools", "bin").length()+1, names);
-    else
-      AddToJar(jar, new File(Utilities.path(folders.rootDir,"tools", "java", "org.hl7.fhir.igtools", "src")), Utilities.path(folders.rootDir,"tools", "java", "org.hl7.fhir.igtools", "bin").length()+1, names);
+    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu3",       "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu3",       "src").length()+1, names);
+    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu2016may", "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu2016may", "bin").length()+1, names);
+    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu2",       "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu2",       "bin").length()+1, names);
+    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.convertors",  "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.convertors",  "bin").length()+1, names);
+    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.utilities",   "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.utilities",   "bin").length()+1, names);
+    AddToJar(jar, new File(Utilities.path(folders.rootDir,"tools",           "java", "org.hl7.fhir.igtools",     "bin")), Utilities.path(folders.rootDir, "tools",           "java", "org.hl7.fhir.igtools",     "bin").length()+1, names);
     
     // last, add the igpack:
     AddToJar(jar, new File(packFileName), packFileName.lastIndexOf(File.separatorChar)+1, names);

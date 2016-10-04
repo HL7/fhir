@@ -122,7 +122,7 @@ is:
  <tr><td>Property Name</td><td>[RELA]</td></tr>
  <tr><td>Operations Allowed</td><td>= / in</td></tr>
  <tr><td>Values Allowed</td><td>CUI:[RXCUI] or AUI:[RXAUI] must be a valid CUI or AUI. Note that a CUI does not need to have an SAB=RXNORM entry to be used here</td></tr>
- <tr><td>Comments</td><td>[RELA] (:rela) is one of the relationship types below</td></tr>
+ <tr><td>Comments</td><td>[RELA] (:rela) is one of the relationship types defined in <a href="https://www.nlm.nih.gov/research/umls/rxnorm/docs/2016/appendix1.html">RxNorm Appendix 1</a> (the "RELA" column)</td></tr>
  <tr><td>SQL</td><td>
    for CUI:
    <pre>and (RXCUI in (select RXCUI from rxnconso where RXCUI in (select RXCUI1 from rxnrel where RELA = :rel and RXCUI2 = :value))</pre>
@@ -130,88 +130,6 @@ is:
    <pre>and (RXCUI in (select RXCUI from rxnconso where RXAUI in (select RXAUI1 from rxnrel where RELA = :rel and RXAUI2 = :value))</pre>
    </td></tr>
 </table>
-
-<p><b>Relationship Types</b></p>
-<ul>
-  <li>active_ingredient_of</li>
-  <li>active_metabolites_of</li>
-  <li>chemical_structure_of</li>
-  <li>consists_of</li>
-  <li>constitutes</li>
-  <li>contained_in</li>
-  <li>contains</li>
-  <li>contraindicated_with_disease</li>
-  <li>contraindicating_class_of</li>
-  <li>contraindicating_mechanism_of_action_of</li>
-  <li>contraindicating_physiologic_effect_of</li>
-  <li>doseformgroup_of</li>
-  <li>dose_form_of</li>
-  <li>effect_may_be_inhibited_by</li>
-  <li>entry_version_of</li>
-  <li>form_of</li>
-  <li>has_active_ingredient</li>
-  <li>has_active_metabolites</li>
-  <li>has_chemical_structure</li>
-  <li>has_contraindicated_drug</li>
-  <li>has_contraindicating_class</li>
-  <li>has_contraindicating_mechanism_of_action</li>
-  <li>has_contraindicating_physiologic_effect</li>
-  <li>has_doseformgroup</li>
-  <li>has_dose_form</li>
-  <li>has_entry_version</li>
-  <li>has_form</li>
-  <li>has_ingredient</li>
-  <li>has_ingredients</li>
-  <li>has_mechanism_of_action</li>
-  <li>has_member</li>
-  <li>has_part</li>
-  <li>has_participant</li>
-  <li>has_permuted_term</li>
-  <li>has_pharmacokinetics</li>
-  <li>has_physiologic_effect</li>
-  <li>has_precise_ingredient</li>
-  <li>has_print_name</li>
-  <li>has_product_component</li>
-  <li>has_quantified_form</li>
-  <li>has_sort_version</li>
-  <li>has_therapeutic_class</li>
-  <li>has_tradename</li>
-  <li>included_in</li>
-  <li>includes</li>
-  <li>induced_by</li>
-  <li>induces</li>
-  <li>ingredients_of</li>
-  <li>ingredient_of</li>
-  <li>inverse_isa</li>
-  <li>isa</li>
-  <li>mapped_from</li>
-  <li>mapped_to</li>
-  <li>may_be_diagnosed_by</li>
-  <li>may_be_prevented_by</li>
-  <li>may_be_treated_by</li>
-  <li>may_diagnose</li>
-  <li>may_inhibit_effect_of</li>
-  <li>may_prevent</li>
-  <li>may_treat</li>
-  <li>mechanism_of_action_of</li>
-  <li>member_of</li>
-  <li>metabolic_site_of</li>
-  <li>participates_in</li>
-  <li>part_of</li>
-  <li>permuted_term_of</li>
-  <li>pharmacokinetics_of</li>
-  <li>physiologic_effect_of</li>
-  <li>precise_ingredient_of</li>
-  <li>print_name_of</li>
-  <li>product_component_of</li>
-  <li>quantified_form_of</li>
-  <li>reformulated_to</li>
-  <li>reformulation_of</li>
-  <li>site_of_metabolism</li>
-  <li>sort_version_of</li>
-  <li>therapeutic_class_of</li>
-  <li>tradename_of</li>
-</ul>
 
 
 <h3>Implicit Value Sets</h3>
