@@ -78,7 +78,7 @@ Mobile Services (kind)
 <a name="positional"> </a>
     <h3>Positional Searching</h3>
     <p>
-        Searching for locations often require that a facility is within a specified distance of a particilar point.
+        Searching for locations often require that a facility is within a specified distance of a particular point.
         For example, to locate healthcare facilities within 2kms of a clients home, or the current geo-coded
         position of a practitioner travelling between patients (read from a mobile phone or device).
     </p>
