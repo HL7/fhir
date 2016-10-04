@@ -8,7 +8,7 @@
             they are to be considered only as draft resource proposals for potential submission.</b>
 		</p>
 	    <p>
-				<strong>This resource is a <em>request</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</strong>
+				<b>This resource is a <em>request</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</b>
 	    </p>
 	    <p>
         This resource describes the request for the use of a device by a patient. The device may be any 
