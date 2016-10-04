@@ -557,7 +557,24 @@ public class Publisher implements IWorkerContext.ILoggingService {
         context = SimpleWorkerContext.fromClassPath("igpack.zip");
       } catch (NullPointerException npe) {
         log("Unable to find igpack.zip in the jar. Attempting to use local igpack.zip");
-        context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\igpack.zip");
+        
+      	File igPackFile = null;
+      	
+      	if (System.getProperty("igpack") != null) {
+      		igPackFile = new File(System.getProperty("igpack"));
+      	}
+      	
+      	if (igPackFile == null || !igPackFile.exists()) {
+      		igPackFile = new File("C:\\work\\org.hl7.fhir\\build\\publish\\igpack.zip");
+      	}
+      	
+      	if (igPackFile != null && igPackFile.exists()) {
+      		log("Found local ig pack at " + igPackFile.getAbsolutePath());
+      		context = SimpleWorkerContext.fromPack(igPackFile.getAbsolutePath());
+      	}
+      	else {
+      		log("No local igpack.zip found");
+      	}
       }
     } else
       loadValidationPack();
