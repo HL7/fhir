@@ -4,8 +4,8 @@
 	<text>
 		<status value="generated" />
 		<div xmlns="http://www.w3.org/1999/xhtml">
-			HACC Program for Peter James Chalmers at HL7 Healthcare 15 Sept 2014 - current<br/>
-			was on leave from 22 Sept - 24 Sept while in respite care
+			Health Intersections CarePlan Hub<br/>
+			CarePlans can be uploaded to/from this loccation
 		</div>
 	</text>
 	<identifier>
@@ -22,25 +22,22 @@
 		<value value="endpointmanager@example.org"/>
 		<use value="work"/>
     </contact>
-	<connectionType>
-		<system value="http://hl7.org/fhir/ValueSet/subscription-channel-type" />
-		<code value="rest-hook" />
-	</connectionType>
-	<method>
-		<system value="http://hl7.org/fhir/ValueSet/http-verb" />
-		<code value="PUT" />
-	</method>
 	<period>
 		<start value="2014-09-01"/>
 	</period>
-	<address value="http://fhir3.healthintersections.com.au/open/CarePlan"/>
-	<payloadFormat value="application/fhir+xml"/>
+	<connectionType>
+		<system value="http://hl7.org/fhir/endpoint-connection-type" />
+		<code value="hl7-fhir-rest" />
+	</connectionType>
 	<payloadType>
 		<coding>
         <system value="http://hl7.org/fhir/resource-types" />
 			<code value="CarePlan" />
 		</coding>
 	</payloadType>
+	<payloadMimeType value="application/fhir+xml"/>
+
+	<address value="http://fhir3.healthintersections.com.au/open/CarePlan"/>
 	<!-- Not a valid bearer token, but is here for demonstration purposes -->
 	<header value="bearer-code BASGS534s4"/>
 

@@ -27,6 +27,12 @@
   Reference = valueset-endpoint-payload-type
   Conformance = example
 
+ -- Row 5 -----------------------------------
+  Binding Name = endpoint-contype
+  Binding = value set
+  Reference = valueset-endpoint-connection-type
+  Conformance = extensible
+
 === Sheet endpoint-status =====================================
 
  -- Row 1 -----------------------------------
@@ -54,11 +60,17 @@
   Definition = This endpoint is no longer to be used
 
  -- Row 5 -----------------------------------
-  Id = 3
+  Id = 5
   Code = entered-in-error
   Display = Entered in error
   Definition = This instance should not have been part of this patient\'s medical record.
   v3 = ActStatus.nullified
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = test
+  Display = Test
+  Definition = This endpoint is not intended for production usage.
 
 === Sheet Invariants =====================================
 
@@ -90,8 +102,8 @@
   Summary = Y
   Type = code
   Binding = EndpointStatus
-  Short Label = active | suspended | error | off | entered-in-error
-  Definition = active | suspended | error | off
+  Short Label = active | suspended | error | off | entered-in-error | test
+  Definition = active | suspended | error | off | test
   RIM Mapping = n/a
   w5 = status
 
@@ -124,19 +136,32 @@
   RIM Mapping = n/a
 
  -- Row 7 -----------------------------------
+  Element = Endpoint.period
+  Card. = 0..1
+  Summary = Y
+  Type = Period
+  Short Label = Interval the endpoint is expected to be operational
+  Definition = The interval during which the endpoint is expected to be operational
+  RIM Mapping = n/a
+  w5 = when.init
+
+ -- Row 8 -----------------------------------
+  Element = !
+
+ -- Row 9 -----------------------------------
   Element = Endpoint.connectionType
   Card. = 1..1
   Summary = Y
   Type = Coding
-  Binding = SubscriptionChannelType
-  Short Label = rest-hook | websocket | email | sms | message
-  Definition = The type of channel to send notifications on
+  Binding = endpoint-contype
+  Short Label = Protocol/Profile/Standard to be used with this endpoint connection
+  Definition = A coded value that represents the technical details of the usage of this endpoint, such as what WSDLs should be used in what way. (e.g. XDS.b/DICOM/cds-hook)
+  Comments = For additional connectivity details for the protocol, extensions will be used at this point, as in the XDS example.
   RIM Mapping = n/a
-  To Do = Just as with subscription, should harmonize with http://hl7.org/fhir/ValueSet/message-transport
   w5 = class
 
- -- Row 8 -----------------------------------
-  Element = Endpoint.method
+ -- Row 10 -----------------------------------
+  Element = !Endpoint.method
   Card. = 0..*
   Summary = Y
   Type = Coding
@@ -144,37 +169,9 @@
   Short Label = The http verb to be used when calling this endpoint
   Comments = This is the HTTP method that must be used when using the connection
   RIM Mapping = n/a
-  To Do = Should this be single, or multiple cardinality?
-
- -- Row 9 -----------------------------------
-  Element = Endpoint.period
-  Card. = 0..1
-  Summary = Y
-  Type = Period
-  Short Label = Interval during responsibility is assumed
-  Definition = The interval during which the managing organization assumes the defined responsibility
-  RIM Mapping = n/a
-  w5 = when.init
-
- -- Row 10 -----------------------------------
-  Element = Endpoint.address
-  Card. = 1..1
-  Summary = y
-  Type = uri
-  Short Label = Where the channel points to
-  Definition = The uri that describes the actual end-point to send messages to
-  Comments = For rest-hook, and websocket, the end-point must be an http: or https: URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since their may be more than one, clients should avoid using relative URIs)
-  RIM Mapping = n/a
 
  -- Row 11 -----------------------------------
-  Element = Endpoint.payloadFormat
-  Card. = 1..1
-  Type = string
-  Short Label = Mimetype to send, or blank for no payload
-  Definition = The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the mime type is blank, then there is no payload in the notification, just a notification
-  Comments = Sending the payload has obvious security consequences. The server is responsible for ensuring that the content is appropriately secured
-  RIM Mapping = n/a
-  To Do = Should this have multiple cardinality?
+  Element = !
 
  -- Row 12 -----------------------------------
   Element = Endpoint.payloadType
@@ -188,6 +185,17 @@
   RIM Mapping = n/a
 
  -- Row 13 -----------------------------------
+  Element = Endpoint.payloadMimeType
+  Card. = 0..*
+  Summary = Y
+  Type = code
+  Binding = MimeType
+  Short Label = Mimetype to send. If not specified, the content could be anything (including no payload, if the connectionType defined this)
+  Definition = The mime type to send the payload in - e.g. application/fhir+xml, application/fhir+json. If the mime type is not specified, then the sender could send any content (including no content depending on the connectionType)
+  Comments = Sending the payload has obvious security consequences. The server is responsible for ensuring that the content is appropriately secured
+  RIM Mapping = n/a
+
+ -- Row 14 -----------------------------------
   Element = !Endpoint.payloadSubType
   Card. = 0..*
   Summary = Y
@@ -195,16 +203,26 @@
   Short Label = The subtypes of content that can be used on this endpoint (e.g. DischargeSummary)
   RIM Mapping = n/a
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
+  Element = Endpoint.address
+  Card. = 1..1
+  Summary = y
+  Type = uri
+  Short Label = The technical address for conneccting to this endpoint
+  Definition = The uri that describes the actual end-point to send messages to
+  Comments = For rest-hook, and websocket, the end-point must be an http: or https: URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since their may be more than one, clients should avoid using relative URIs)
+  RIM Mapping = n/a
+
+ -- Row 16 -----------------------------------
   Element = Endpoint.header
   Card. = 0..*
+  Summary = n
   Type = string
   Short Label = Usage depends on the channel type
   Definition = Additional headers / information to send as part of the notification
   Comments = Exactly what these mean depend on the channel type. The can convey additional information to the recipient and/or meet security requirements
-  RIM Mapping = n/a
 
- -- Row 15 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Endpoint.publicKey
   Card. = 0..1
   Type = string
@@ -233,7 +251,7 @@
  -- Row 4 -----------------------------------
   Name = organization
   Type = reference
-  Description = The organization that is exposing the endpoint
+  Description = The organization that is managing the endpoint
   Path = Endpoint.managingOrganization
   Target Types = Organization
 
@@ -242,6 +260,11 @@
   Type = token
   Path = Endpoint.payloadType
 
+ -- Row 6 -----------------------------------
+  Name = connection-type
+  Type = token
+  Path = Endpoint.connectionType
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
@@ -249,13 +272,13 @@
  -- Row 1 -----------------------------------
   Name = example
   Identity = example
-  Description = Episode Endpoint
+  Description = Example Endpoint
   Filename = endpoint-example.xml
 
  -- Row 2 -----------------------------------
   Name = general
   Identity = b0a5e4277-83c4-4adb-87e2-e3efe3369b6f
-  Description = Sample endpoint data
+  Description = Collection of endpoint examples
   Filename = endpoint-examples-general-template.xml
   Type = csv
 

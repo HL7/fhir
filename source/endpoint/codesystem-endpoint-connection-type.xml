@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+	<url value="http://hl7.org/fhir/endpoint-connection-type" />
+	<name value="EndpointConnectionType" />
+	<status value="draft" />
+	<experimental value="false" />
+	<description value="This is an example codesystem defined by the FHIR project, that could be used to represent possible connection type profile values." />
+	<caseSensitive value="true" />
+	<content value="complete" />
+	<concept>
+		<code value="ihe-xcpd" />
+		<display value="IHE XCPD" />
+		<definition value="IHE Cross Community Patient Discovery Profile (XCPD) - http://wiki.ihe.net/index.php/Cross-Community_Patient_Discovery" />
+	</concept>
+	<concept>
+		<code value="ihe-xca" />
+		<display value="IHE XCA" />
+		<definition value="IHE Cross Community Access Profile (XCA) - http://wiki.ihe.net/index.php/Cross-Community_Access" />
+	</concept>
+	<concept>
+		<code value="ihe-xdr" />
+		<display value="IHE XDR" />
+		<definition value="IHE Cross-Enterprise Document Reliable Exchange (XDR) - http://wiki.ihe.net/index.php/Cross-enterprise_Document_Reliable_Interchange" />
+	</concept>
+	<concept>
+		<code value="ihe-xds" />
+		<display value="IHE XDS" />
+		<definition value="IHE Cross-Enterprise Document Sharing (XDS) - http://wiki.ihe.net/index.php/Cross-Enterprise_Document_Sharing" />
+	</concept>
+	<concept>
+		<code value="ihe-iid" />
+		<display value="IHE IID" />
+		<definition value="IHE Invoke Image Display (IID) - http://wiki.ihe.net/index.php/Invoke_Image_Display" />
+	</concept>
+	<concept>
+		<code value="dicom-wado-rs" />
+		<display value="DICOM WADO-RS" />
+		<definition value="DICOMweb RESTful Image Retrieve - http://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_6.5.html" />
+	</concept>
+	<concept>
+		<code value="dicom-qido-rs" />
+		<display value="DICOM QIDO-RS" />
+		<definition value="DICOMweb RESTful Image query - http://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_6.7.html" />
+	</concept>
+	<concept>
+		<code value="dicom-stow-rs" />
+		<display value="DICOM STOW-RS" />
+		<definition value="DICOMweb RESTful image sending and storage - http://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_6.6.html" />
+	</concept>
+	<concept>
+		<code value="dicom-wado-uri" />
+		<display value="DICOM WADO-URI" />
+		<definition value="DICOMweb Image Retrieve - http://dicom.nema.org/dicom/2013/output/chtml/part18/sect_6.3.html" />
+	</concept>
+	<concept>
+		<code value="hl7-fhir-rest" />
+		<display value="HL7 FHIR" />
+	</concept>
+	<concept>
+		<code value="hl7-fhir-msg" />
+		<display value="HL7 FHIR Messaging" />
+	</concept>
+	<concept>
+		<code value="hl7v2-mllp" />
+		<display value="HL7 v2 MLLP" />
+		<definition value="HL7v2 messages over an LLP TCP connection" />
+	</concept>
+	<concept>
+		<code value="secure-email" />
+		<display value="Secure email" />
+		<definition value="email delivery using a digital certificate to encrypt the content using the public key, receiver must have the private key to decrypt the content" />
+	</concept>
+</CodeSystem>

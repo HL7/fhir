@@ -23,21 +23,21 @@
           <display value="[%managingOrganization%]"/>
         </managingOrganization>
         <connectionType>
-          <!-- system value="http://hl7.org/fhir/ValueSet/http-verb" />-->
-          <code value="[%connectionType%]" />
+           <system value="http://hl7.org/fhir/endpoint-connection-type" />
+           <code value="[%connectionType%]" />
         </connectionType>
-        <method>
+        <!--<method>
           <system value="http://hl7.org/fhir/ValueSet/http-verb" />
           <code value="[%method%]" />
-        </method>
-        <address value="[%address%]"/>
-        <payloadFormat value="[%payloadFormat%]"/>
+        </method>-->
         <payloadType>
           <coding>
               <!--<system value="http://hl7.org/fhir/resource-types" />-->
             <code value="[%payloadType%]" />
           </coding>
         </payloadType>
+        <payloadMimeType value="[%payloadFormat%]"/>
+        <address value="[%address%]"/>
       </Endpoint>
     </resource>
   </entry> [%endloop%] 
