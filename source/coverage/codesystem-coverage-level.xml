@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/coverage-level"/>
+  <name value="Coverage Level Codes"/>
+  <status value="draft"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes Coverage Level codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="group"/>
+    <display value="Group"/>
+    <definition value="An employee group"/>
+  </concept>
+  <concept>
+    <code value="subgroup"/>
+    <display value="SubGroup"/>
+    <definition value="A sub-group of an employee group"/>
+  </concept>
+  <concept>
+    <code value="plan"/>
+    <display value="Plan"/>
+    <definition value="A specific suite of benefits."/>
+  </concept>
+  <concept>
+    <code value="subplan"/>
+    <display value="SubPlan"/>
+    <definition value="A subset of a specific suite of benefits."/>
+  </concept>
+  <concept>
+    <code value="class"/>
+    <display value="Class"/>
+    <definition value="A class of benefits."/>
+  </concept>
+  <concept>
+    <code value="subclass"/>
+    <display value="SubClass"/>
+    <definition value="A subset of a class of benefits."/>
+  </concept>
+</CodeSystem>

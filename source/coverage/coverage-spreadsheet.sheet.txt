@@ -29,6 +29,13 @@
   Definition = A code specifying the state of the resource instance.
   Conformance = required
 
+ -- Row 5 -----------------------------------
+  Binding Name = CoverageLevel
+  Binding = value set
+  Reference = valueset-coverage-level
+  Definition = The policy classifications, eg. Group, Plan, Class, etc.
+  Conformance = example
+
 === Sheet coverage-status =====================================
 
  -- Row 1 -----------------------------------
@@ -104,10 +111,10 @@
   w5 = status
 
  -- Row 3 -----------------------------------
-  Element = Coverage.issuer[x]
+  Element = Coverage.issuer
   Card. = 1..1
   Summary = Y
-  Type = Identifier|Reference(Organization|Patient|RelatedPerson)
+  Type = Reference(Organization|Patient|RelatedPerson)
   Short Label = Identifier for the plan or agreement issuer
   Definition = The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements.
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
@@ -126,7 +133,7 @@
   Requirements = Only insurance policies receive Claims, agreements receive bills.
 
  -- Row 5 -----------------------------------
-  Element = Coverage.bin
+  Element = !Coverage.bin
   Card. = 0..1
   Summary = Y
   Type = string
@@ -156,30 +163,28 @@
   w5 = class
 
  -- Row 8 -----------------------------------
-  Element = Coverage.planholder[x]
+  Element = Coverage.planholder
   Card. = 1..1
   Summary = Y
-  Type = Identifier|Reference(Patient|Organization)
+  Type = Reference(Patient|Organization)
   Short Label = Plan holder
   Definition = The party who \'owns\' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.
   CDAnet v4 Mapping = D01 through D09
   v2 Mapping = IN1-16, 18,  19-name of insured, address, date of birth
   CPhA3 (Pharmacy) Mapping = C.35
-  To Do = D01 through D09
   Committee Notes = C.35
   w5 = who.focus
 
  -- Row 9 -----------------------------------
-  Element = Coverage.beneficiary[x]
+  Element = Coverage.beneficiary
   Card. = 1..1
   Summary = Y
-  Type = Identifier|Reference(Patient)
+  Type = Reference(Patient)
   Short Label = Plan Beneficiary
   Definition = The party who benefits from the insurance coverage.
   CDAnet v4 Mapping = D01 through D09
   v2 Mapping = IN1-16, 18,  19-name of insured, address, date of birth
   CPhA3 (Pharmacy) Mapping = C.35
-  To Do = D01 through D09
   Committee Notes = C.35
   w5 = who.focus
 
@@ -207,7 +212,16 @@
   w5 = id
 
  -- Row 12 -----------------------------------
-  Element = Coverage.group
+  Element = Coverage.level
+  Card. = 0..*
+  Summary = Y
+  Type = Coding
+  Binding = CoverageLevel
+  Short Label = Additional coverage classifications
+  Definition = A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
+
+ -- Row 13 -----------------------------------
+  Element = !Coverage.group
   Card. = 0..1
   Summary = Y
   Type = string
@@ -217,8 +231,8 @@
   v2 Mapping = IN1-8
   CPhA3 (Pharmacy) Mapping = C.31
 
- -- Row 13 -----------------------------------
-  Element = Coverage.subGroup
+ -- Row 14 -----------------------------------
+  Element = !Coverage.subGroup
   Card. = 0..1
   Summary = Y
   Type = string
@@ -226,8 +240,8 @@
   Definition = Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.
   v2 Mapping = IN1-8
 
- -- Row 14 -----------------------------------
-  Element = Coverage.plan
+ -- Row 15 -----------------------------------
+  Element = !Coverage.plan
   Card. = 0..1
   Summary = Y
   Type = string
@@ -236,8 +250,8 @@
   CDAnet v4 Mapping = C01
   v2 Mapping = IN1-35
 
- -- Row 15 -----------------------------------
-  Element = Coverage.subPlan
+ -- Row 16 -----------------------------------
+  Element = !Coverage.subPlan
   Card. = 0..1
   Summary = Y
   Type = string
@@ -245,8 +259,8 @@
   Definition = Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.
   v2 Mapping = IN1-10
 
- -- Row 16 -----------------------------------
-  Element = Coverage.class
+ -- Row 17 -----------------------------------
+  Element = !Coverage.class
   Card. = 0..1
   Summary = Y
   Type = string
@@ -255,7 +269,7 @@
   CDAnet v4 Mapping = C01
   v2 Mapping = IN1-35
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Coverage.dependent
   Card. = 0..1
   Summary = Y
@@ -266,7 +280,7 @@
   CDAnet v4 Mapping = C17
   v2 Mapping = - No exact HL7 v2 equivalent concept seems to exist;
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Coverage.sequence
   Card. = 0..1
   Summary = Y
@@ -277,7 +291,7 @@
   CDAnet v4 Mapping = D11
   v2 Mapping = No HL7 v2 equivalent concept seems to exist
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Coverage.network
   Card. = 0..1
   Summary = Y
@@ -286,7 +300,7 @@
   Definition = The identifier for a community of providers.
   CDAnet v4 Mapping = D10
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Coverage.contract
   Card. = 0..*
   Type = Reference(Contract)
@@ -295,103 +309,120 @@
   CDAnet v4 Mapping = D01 through D09
   v2 Mapping = IN1-16, 18,  19
   CPhA3 (Pharmacy) Mapping = C.35
-  To Do = D01 through D09
   Committee Notes = C.35
 
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = issuer-identifier
+  Name = issuer
+  Type = reference
+  Description = The identity of the insurer
+  Path = Coverage.issuer
+
+ -- Row 2 -----------------------------------
+  Name = !issuer-identifier
   Type = token
   Description = The identity of the insurer
   Path = Coverage.issuerIdentifier
 
- -- Row 2 -----------------------------------
-  Name = issuer-reference
+ -- Row 3 -----------------------------------
+  Name = !issuer-reference
   Type = reference
   Description = The identity of the insurer
   Path = Coverage.issuerReference
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = identifier
   Type = token
   Description = The primary identifier of the insured and the coverage
   Path = Coverage.identifier
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = type
   Type = token
   Description = The kind of coverage (health plan, auto, Workers Compensation)
   Path = Coverage.type
 
- -- Row 5 -----------------------------------
-  Name = plan
+ -- Row 6 -----------------------------------
+  Name = !plan
   Type = token
   Description = A plan or policy identifier
   Path = Coverage.plan
 
- -- Row 6 -----------------------------------
-  Name = subplan
+ -- Row 7 -----------------------------------
+  Name = !subplan
   Type = token
   Description = Sub-plan identifier
   Path = Coverage.subPlan
 
- -- Row 7 -----------------------------------
-  Name = group
+ -- Row 8 -----------------------------------
+  Name = !group
   Type = token
   Description = Group identifier
   Path = Coverage.group
 
- -- Row 8 -----------------------------------
-  Name = subgroup
+ -- Row 9 -----------------------------------
+  Name = !subgroup
   Type = token
   Description = Sub-group identifier
   Path = Coverage.subGroup
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = dependent
   Type = number
   Description = Dependent number
   Path = Coverage.dependent
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = sequence
   Type = number
   Description = Sequence number
   Path = Coverage.sequence
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = !subject
   Type = reference
   Description = Covered party
   Path = Coverage.subject
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = !subscriber
   Type = reference
   Description = Reference to the subscriber
   Path = Coverage.subscriber
 
- -- Row 13 -----------------------------------
-  Name = beneficiary-identifier
+ -- Row 14 -----------------------------------
+  Name = beneficiary
+  Type = reference
+  Description = Covered party
+  Path = Coverage.beneficiary
+
+ -- Row 15 -----------------------------------
+  Name = !beneficiary-identifier
   Type = token
   Description = Covered party
   Path = Coverage.beneficiaryIdentifier
 
- -- Row 14 -----------------------------------
-  Name = beneficiary-reference
+ -- Row 16 -----------------------------------
+  Name = !beneficiary-reference
   Type = reference
   Description = Covered party
   Path = Coverage.beneficiaryReference
 
- -- Row 15 -----------------------------------
-  Name = planholder-identifier
+ -- Row 17 -----------------------------------
+  Name = planholder
+  Type = reference
+  Description = Reference to the planholder
+  Path = Coverage.planholder
+
+ -- Row 18 -----------------------------------
+  Name = !planholder-identifier
   Type = token
   Description = Reference to the planholder
   Path = Coverage.planholderIdentifier
 
- -- Row 16 -----------------------------------
-  Name = planholder-reference
+ -- Row 19 -----------------------------------
+  Name = !planholder-reference
   Type = reference
   Description = Reference to the planholder
   Path = Coverage.planholderReference

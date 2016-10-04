@@ -9,9 +9,9 @@
 
  <status value="active"/>
  
- <issuerReference>
+ <issuer>
   <reference value="Organization/2"/>
- </issuerReference>
+ </issuer>
  
  <period> 
    <start value="2011-05-23"/>
@@ -24,13 +24,13 @@
       <display value="extended healthcare"/>
  </type>
  
- <planholderReference>
+ <planholder>
 	<reference value="Patient/4"/>
- </planholderReference>
+ </planholder>
  
- <beneficiaryReference>
+ <beneficiary>
 	<reference value="Patient/4"/>
- </beneficiaryReference>
+ </beneficiary>
  
  <relationship>
       <code value="self"/>
@@ -41,9 +41,17 @@
     <value value="12345"/>
  </identifier>
  
- <plan value="CBI35"/>
- 
- <subPlan value="123"/>
+ <level>
+     <system value="http://benefitsinc.com/plan" />
+	 <code value="CBI35" />
+	 <display value="Corporate Baker's Inc. Plan#35" />
+ </level>
+
+ <level>
+     <system value="http://benefitsinc.com/subplan" />
+	 <code value="123" />
+	 <display value="Trainee Part-time Benefits" />
+ </level>
  
  <dependent value="1"/>
  

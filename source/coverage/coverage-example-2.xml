@@ -9,9 +9,9 @@
 
  <status value="active"/>
   
- <issuerReference>
+ <issuer>
   <reference value="Organization/2"/>
- </issuerReference>
+ </issuer>
  
  <period> 
    <start value="2011-03-17"/>
@@ -24,13 +24,13 @@
       <display value="extended healthcare"/>
  </type>
 
- <planholderReference>
+ <planholder>
 	<reference value="Patient/5"/>
- </planholderReference>
+ </planholder>
  
- <beneficiaryReference>
+ <beneficiary>
 	<reference value="Patient/5"/>
- </beneficiaryReference>
+ </beneficiary>
  
  <relationship>
       <code value="self"/>
@@ -41,9 +41,21 @@
     <value value="AB9876"/>
  </identifier>
  
- <plan value="11024"/>
- 
- <subPlan value="D15C9"/>
+  <level>
+     <system value="http://xyz.com/codes/group" />
+	 <code value="WESTAIR" />
+	 <display value="Western Airlines" />
+ </level>
+ <level>
+     <system value="http://xyz.com/codes/plan" />
+	 <code value="11024" />
+	 <display value="Aircraft Maintenance Division" />
+ </level>
+ <level>
+     <system value="http://xyz.com/codes/subplan" />
+	 <code value="D15C9" />
+	 <display value="Platinum" />
+ </level>
  
  <dependent value="1"/>
   

@@ -31,23 +31,23 @@
     <Coverage>
       <id value="coverage-1"/>
 	  <status value="active"/>
-      <issuerIdentifier>
-       
-        <system value="http://www.bindb.com/bin"/>
-        <value value="123456"/>
-       
-      </issuerIdentifier>
+      <issuer>
+	    <identifier>
+          <system value="http://www.bindb.com/bin"/>
+          <value value="123456"/>
+	    </identifier>
+      </issuer>
       <type>
         <system value="http://hl7.org/fhir/v3/ActCode"/>
         <code value="EHCPOL"/>
       </type>
-	  <planholderReference>
+	  <planholder>
 	     <reference value="#patient-1"/>
-      </planholderReference>
+      </planholder>
  
-      <beneficiaryReference>
+      <beneficiary>
 	     <reference value="#patient-1"/>
-      </beneficiaryReference>
+      </beneficiary>
  
       <relationship>
         <code value="self"/>
@@ -57,8 +57,20 @@
         <system value="http://benefitsinc.com/certificate"/>
         <value value="12345"/>
       </identifier>
-      <plan value="CBI35"/>
-      <subPlan value="123"/>
+      <!-- plan value="CBI35"/>
+      <subPlan value="123"/ -->
+      <level>
+        <system value="http://benefitsinc.com/plan" />
+	    <code value="CBI35" />
+	    <display value="Corporate Baker's Inc. Plan#35" />
+      </level>
+
+      <level>
+        <system value="http://benefitsinc.com/subplan" />
+	    <code value="123" />
+	    <display value="Trainee Part-time Benefits" />
+      </level>
+	  
       <dependent value="1"/>
       <sequence value="1"/>
     </Coverage>
