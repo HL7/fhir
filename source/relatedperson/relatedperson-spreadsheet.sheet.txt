@@ -151,7 +151,7 @@
  -- Row 1 -----------------------------------
   Name = identifier
   Type = token
-  Description = A patient Identifier
+  Description = An Identifier of the RelatedPerson
   Path = RelatedPerson.identifier
 
  -- Row 2 -----------------------------------

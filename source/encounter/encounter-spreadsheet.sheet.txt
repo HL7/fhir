@@ -316,8 +316,8 @@
   Element = Encounter.participant.period
   Card. = 0..1
   Type = Period
-  Short Label = Period of time during the encounter participant was present
-  Definition = The period of time that the specified participant was present during the encounter. These can overlap or be sub-sets of the overall encounters period
+  Short Label = Period of time during the encounter that the participant participated
+  Definition = The period of time that the specified participant participated in the encounter. These can overlap or be sub-sets of the overall encounter\'s period
   v2 Mapping = ROL-5, ROL-6 (or maybe PRT-5)
   RIM Mapping = .time
 

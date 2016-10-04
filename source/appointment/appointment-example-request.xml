@@ -73,4 +73,8 @@
 		<required value="required" />
 		<status value="accepted" />
 	</participant>
+	<requestedPeriod>
+		<start value="2016-06-02"/>
+		<end value="2016-06-09"/>
+	</requestedPeriod>
 </Appointment>
