@@ -287,11 +287,12 @@ The server returns some or all of the following information:
  <li> properties of the code</li>
  <li> other designations for the code (a value, optionally with language and/or a use code)</li>
  <li> relationships between this code and other codes (parent/child properties)</li>
+ <li> Component properties of the specified code (e.g. to support reasoning)</li>
 </ul>
 <p>
-The recommended display for the code is a text representation of the code
-that the terminology server recommends as the default choice to show
-to the user, though a  client may choose out of the other designations if it has reason to.
+The recommended display for the code is a text representation of the code that the 
+terminology server recommends as the default choice to show to the user, though a
+client may choose out of the other designations if it has reason to.
 </p>
 <p>
 If the client does not ask for any particular properties to be returned, it is at the discretion
@@ -553,7 +554,7 @@ POST [base]/CodeSystem/$subsumes
   &lt;!-- Australian distribution --&gt;
   &lt;parameter&gt;
     &lt;name value=&quot;version&quot;/&gt;
-    &lt;valuString value=&quot;http://snomed.info/sct/32506021000036107/version/20160430&quot;/&gt;
+    &lt;valueString value=&quot;http://snomed.info/sct/32506021000036107/version/20160430&quot;/&gt;
   &lt;/parameter&gt;
   &lt;parameter&gt;
     &lt;name value=&quot;codingA&quot;/&gt;
