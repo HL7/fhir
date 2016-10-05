@@ -7093,7 +7093,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Transaction Response</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">The bundle is a transaction response. Because the response is a transaction response, the transactionhas succeeded, and all responses are error free.</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">The bundle is a transaction response. Because the response is a transaction response, the transaction has succeeded, and all responses are error free.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>
