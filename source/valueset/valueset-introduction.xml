@@ -36,7 +36,7 @@ an expansion given the composition rules.
  value set and code system resources.</li>
  <li>The value set resource is aligned with the <a href="http://wiki.hl7.org/index.php?title=Value_Set_Definition_Standard_Project">Value Set Definition</a> (VSD) project. 
  Not all of the elements defined by the VSD are part of the base resource - some are defined as part of the <a href="valueset-extensions.html">ValueSet Extensions</a>.
- In the ValueSet resource, the <code>lockedDate</code>, <code>compose</code> and <code>codeSystem</code> elements make up the VSD "Content Logical definition".</li>
+ In the ValueSet resource, the <code>compose</code> element is the VSD "Content Logical definition".</li>
 </ul>
 </div>
 

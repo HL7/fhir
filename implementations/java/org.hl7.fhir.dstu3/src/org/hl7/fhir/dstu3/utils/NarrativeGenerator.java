@@ -2570,13 +2570,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (vs.hasCompose())
       return false;
 
-    if (vs.getCompose().hasImport())
-      return true;
 
     // it's not fixed if it has any includes that are not version fixed
-    for (ConceptSetComponent cc : vs.getCompose().getInclude())
+    for (ConceptSetComponent cc : vs.getCompose().getInclude()) {
+      if (cc.hasValueSet())
+        return true;
       if (!cc.hasVersion())
         return true;
+    }
     return false;
   }
 
@@ -2911,11 +2912,6 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
     XhtmlNode ul = x.addTag("ul");
     XhtmlNode li;
-    for (UriType imp : vs.getCompose().getImport()) {
-      li = ul.addTag("li");
-      li.addText("Import all the codes that are contained in ");
-      AddVsRef(imp.getValue(), li);
-    }
     for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
       hasExtensions = genInclude(ul, inc, "Include", langs) || hasExtensions;
     }
@@ -2999,69 +2995,93 @@ public class NarrativeGenerator implements INarrativeGenerator {
     XhtmlNode li;
     li = ul.addTag("li");
     CodeSystem e = context.fetchCodeSystem(inc.getSystem());
-
-    if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) {
-      li.addText(type+" all codes defined in ");
-      addCsRef(inc, li, e);
-    } else {
-      if (inc.getConcept().size() > 0) {
-        li.addText(type+" these codes as defined in ");
+    
+    if (inc.hasSystem()) {
+      if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) {
+        li.addText(type+" all codes defined in ");
         addCsRef(inc, li, e);
+      } else {
+        if (inc.getConcept().size() > 0) {
+          li.addText(type+" these codes as defined in ");
+          addCsRef(inc, li, e);
 
-        XhtmlNode t = li.addTag("table");
-        boolean hasComments = false;
-        boolean hasDefinition = false;
-        for (ConceptReferenceComponent c : inc.getConcept()) {
-          hasComments = hasComments || ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_COMMENT);
-          hasDefinition = hasDefinition || ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_DEFINITION);
+          XhtmlNode t = li.addTag("table");
+          boolean hasComments = false;
+          boolean hasDefinition = false;
+          for (ConceptReferenceComponent c : inc.getConcept()) {
+            hasComments = hasComments || ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_COMMENT);
+            hasDefinition = hasDefinition || ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_DEFINITION);
+          }
+          if (hasComments || hasDefinition)
+            hasExtensions = true;
+          addTableHeaderRowStandard(t, false, true, hasDefinition, hasComments, false);
+          for (ConceptReferenceComponent c : inc.getConcept()) {
+            XhtmlNode tr = t.addTag("tr");
+            tr.addTag("td").addText(c.getCode());
+            ConceptDefinitionComponent cc = getConceptForCode(e, c.getCode(), inc);
+
+            XhtmlNode td = tr.addTag("td");
+            if (!Utilities.noString(c.getDisplay()))
+              td.addText(c.getDisplay());
+            else if (cc != null && !Utilities.noString(cc.getDisplay()))
+              td.addText(cc.getDisplay());
+
+            td = tr.addTag("td");
+            if (ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_DEFINITION))
+              smartAddText(td, ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_DEFINITION));
+            else if (cc != null && !Utilities.noString(cc.getDefinition()))
+              smartAddText(td, cc.getDefinition());
+
+            if (ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_COMMENT)) {
+              smartAddText(tr.addTag("td"), "Note: "+ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_COMMENT));
+            }
+            for (ConceptReferenceDesignationComponent cd : c.getDesignation()) {
+              if (cd.hasLanguage() && !langs.contains(cd.getLanguage()))
+                langs.add(cd.getLanguage());
+            }
+          }
         }
-        if (hasComments || hasDefinition)
-          hasExtensions = true;
-        addTableHeaderRowStandard(t, false, true, hasDefinition, hasComments, false);
-        for (ConceptReferenceComponent c : inc.getConcept()) {
-          XhtmlNode tr = t.addTag("tr");
-          tr.addTag("td").addText(c.getCode());
-          ConceptDefinitionComponent cc = getConceptForCode(e, c.getCode(), inc);
-
-          XhtmlNode td = tr.addTag("td");
-          if (!Utilities.noString(c.getDisplay()))
-            td.addText(c.getDisplay());
-          else if (cc != null && !Utilities.noString(cc.getDisplay()))
-            td.addText(cc.getDisplay());
-
-          td = tr.addTag("td");
-          if (ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_DEFINITION))
-            smartAddText(td, ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_DEFINITION));
-          else if (cc != null && !Utilities.noString(cc.getDefinition()))
-            smartAddText(td, cc.getDefinition());
-
-          if (ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_COMMENT)) {
-            smartAddText(tr.addTag("td"), "Note: "+ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_COMMENT));
-          }
-          for (ConceptReferenceDesignationComponent cd : c.getDesignation()) {
-            if (cd.hasLanguage() && !langs.contains(cd.getLanguage()))
-              langs.add(cd.getLanguage());
-          }
+        boolean first = true;
+        for (ConceptSetFilterComponent f : inc.getFilter()) {
+          if (first) {
+            li.addText(type+" codes from ");
+            first = false;
+          } else
+            li.addText(" and ");
+          addCsRef(inc, li, e);
+          li.addText(" where "+f.getProperty()+" "+describe(f.getOp())+" ");
+          if (e != null && codeExistsInValueSet(e, f.getValue())) {
+            XhtmlNode a = li.addTag("a");
+            a.addText(f.getValue());
+            a.setAttribute("href", prefix+getCsRef(e)+"#"+Utilities.nmtokenize(f.getValue()));
+          } else
+            li.addText(f.getValue());
+          String disp = ToolingExtensions.getDisplayHint(f);
+          if (disp != null)
+            li.addText(" ("+disp+")");
         }
       }
+      if (inc.hasValueSet()) {
+        li.addText(", where the codes are contained in ");
+        boolean first = true;
+        for (UriType vs : inc.getValueSet()) {
+          if (first) 
+            first = false;
+          else
+            li.addText(", ");
+          AddVsRef(vs.asStringValue(), li);
+        }
+      }
+    } else {
+      li = ul.addTag("li");
+      li.addText("Import all the codes that are contained in ");
       boolean first = true;
-      for (ConceptSetFilterComponent f : inc.getFilter()) {
-        if (first) {
-          li.addText(type+" codes from ");
+      for (UriType vs : inc.getValueSet()) {
+        if (first) 
           first = false;
-        } else
-          li.addText(" and ");
-        addCsRef(inc, li, e);
-        li.addText(" where "+f.getProperty()+" "+describe(f.getOp())+" ");
-        if (e != null && codeExistsInValueSet(e, f.getValue())) {
-          XhtmlNode a = li.addTag("a");
-          a.addText(f.getValue());
-          a.setAttribute("href", prefix+getCsRef(e)+"#"+Utilities.nmtokenize(f.getValue()));
-        } else
-          li.addText(f.getValue());
-        String disp = ToolingExtensions.getDisplayHint(f);
-        if (disp != null)
-          li.addText(" ("+disp+")");
+        else
+          li.addText(", ");
+        AddVsRef(vs.asStringValue(), li);
       }
     }
     return hasExtensions;

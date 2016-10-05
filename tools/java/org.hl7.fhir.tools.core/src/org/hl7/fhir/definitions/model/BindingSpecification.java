@@ -384,19 +384,11 @@ public class BindingSpecification {
 
   private void getAllCodesForValueSet(Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, boolean wantComplete, ValueSet vs) throws Exception {
     if (vs.hasCompose()) {
-      for (UriType ci : vs.getCompose().getImport()) {
-        if (valueSets != null) {
-          ValueSet vs1 = valueSets.get(ci.getValue());
-          if (vs1 != null) {
-            getAllCodesForValueSet(codeSystems, valueSets, wantComplete, vs1);
-          } else if (wantComplete)
-            throw new Exception("Unable to resolve valueset "+ci.asStringValue());
-        } else if (wantComplete)
-          throw new Exception("Unable to expand value set "); 
-      }
       for (ConceptSetComponent cc : vs.getCompose().getInclude()) {
         if (cc.hasFilter() && wantComplete)
           throw new Exception("Filters are not supported in this context (getting all codes for code generation");
+        if (cc.hasValueSet() && wantComplete)
+          throw new Exception("Value Sets are not supported in this context (getting all codes for code generation");
         if (!cc.hasConcept()) {
           if (codeSystems != null) {
             CodeSystem cs1 = codeSystems.get(cc.getSystem());

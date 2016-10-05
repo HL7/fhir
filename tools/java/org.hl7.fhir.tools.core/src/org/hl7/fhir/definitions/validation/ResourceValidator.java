@@ -861,7 +861,7 @@ public class ResourceValidator extends BaseValidator {
   private boolean hasInternalReference(ValueSet vs) {
 	  for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
 	    String url = inc.getSystem();
-	    if (url.startsWith("http://hl7.org/fhir") && !url.contains("/v2/") && !url.contains("/v3/"))
+	    if (!Utilities.noString(url) && url.startsWith("http://hl7.org/fhir") && !url.contains("/v2/") && !url.contains("/v3/"))
 	      return false;
 	  }
 	  return false;

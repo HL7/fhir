@@ -11,6 +11,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.EOperationOutcome;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
@@ -94,14 +95,28 @@ public class ValueSetRenderer extends BaseRenderer {
     
     for (String url : vsurls) {
       ValueSet vc = context.fetchResource(ValueSet.class, url);
-      for (UriType ed : vc.getCompose().getImport()) {
-        if (ed.getValueAsString().equals(vs.getUrl())) {
-          if (first) {
-            first = false;
-            b.append("<ul>\r\n");
+      for (ConceptSetComponent t : vc.getCompose().getInclude()) {
+        for (UriType ed : t.getValueSet()) {
+          if (ed.getValueAsString().equals(vs.getUrl())) {
+            if (first) {
+              first = false;
+              b.append("<ul>\r\n");
+            }
+            b.append(" <li>Included into <a href=\""+vc.getUserString("path")+"\">"+Utilities.escapeXml(vc.getName())+"</a></li>\r\n");
+            break;
           }
-          b.append(" <li><a href=\""+vc.getUserString("path")+"\">"+Utilities.escapeXml(vc.getName())+"</a></li>\r\n");
-          break;
+        }
+      }
+      for (ConceptSetComponent t : vc.getCompose().getExclude()) {
+        for (UriType ed : t.getValueSet()) {
+          if (ed.getValueAsString().equals(vs.getUrl())) {
+            if (first) {
+              first = false;
+              b.append("<ul>\r\n");
+            }
+            b.append(" <li>Excluded from <a href=\""+vc.getUserString("path")+"\">"+Utilities.escapeXml(vc.getName())+"</a></li>\r\n");
+            break;
+          }
         }
       }
     }

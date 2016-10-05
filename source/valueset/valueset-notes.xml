@@ -8,19 +8,30 @@ A value set can be a simple list of included codes, or it can be some kind of ge
 using the facilities provided by the code system. For these value sets:
 </p>
 <ul>
- <li>Within an include or exclude criterion, multiple filters and concept selections are intersected. All of the 
-   conditions specified SHALL be true.</li>
- <li>An include statement consists of any enumerated codes and any codes that meet the filter criteria.</li>
+ <li>Multiple <code>include</code> statements are cumulative - e.g. the value set contains the union of all the includes</li>
+ <li>Within an <code>include</code>, all the criterion apply -e.g. the value set contains the intersection of the criterion</li>
+ <li>Within an <code>include</code>, a single system with selection criteria may be listed, and/or one or more value sets may be listed. Rules for
+     interpretation:
+    <ul>
+     <li><b><code>System</code> only</b>: Codes are 'selected' for inclusion if they are selected by the code system selection (see next point)</li>
+     <li><b><code>valueSet</code> only</b>: Codes are 'selected' for inclusion if they are in all the referenced value sets</li>
+     <li><b><code>System</code> and <code>valueSet</code></b>: Codes are 'selected' for inclusion if they are selected by the code system selection and if they are in all the referenced value sets</li>
+    </ul>
+ </li>
+ <li>If a system is specified, the following rules apply: 
+    <ul>
+     <li><b>no <code>concept</code> or <code>filter</code></b>: All codes in the system are included</li>
+     <li><b><code>concept</code></b>: Only the enumerated codes are selected</li>
+     <li><b><code>filter</code></b>: Any codes meeting the filter criteria are selected</li>
+    </ul>
+ </li>
  <li>If the system reference is not version specific and filters are present, then the contents of the value set are open and change 
-    over time as the underlying code systems are updated.</li>
- <li>The content of the value set is constructed by unioning of all the import and include statements and then 
-  eliminating any of the 'excluded' codes.</li>
- <li>A value set needs to do something.  It can't simply import an existing value set without 
-   also including additional content or excluding content.</li>
+    over time as the underlying code systems are updated</li>
  <li>Using the property filters is only possible where the code system in use defines 
   the relevant properties. Note that in some cases the underlying code system defines the 
   logical concepts but not the syntax for exercising them. In such cases, the literal 
   definitions may be provided by a third party</li>
+ <li>In addition to include rules, codes may be excluded. Rules for interpretation of exclude statements match those for includes, but codes in the exlude statements are never in the value set</li>
  <li>Value sets may include abstract codes - that is, codes designated by the underlying code system as 
    not for use as a selectable concept in a particular context. These abstract codes are typically used as a grouping/searching mechanism,
    and can be included either by enumerating them, or by using a filter.</li>
@@ -43,21 +54,21 @@ For this reason, some contexts of use do not allow a display to be associated wi
 in a value set.
 </p>
 <p>
-The display name for the code in the value set is only used in the UI. The display in 
+Any display name for a concept provided in the value set is only used in the UI. The display in 
 a <a href="datatypes.html#Coding">Coding</a> must be taken from the underlying code system definition, 
-even if a value set is referenced explicitly in the Coding. The alternative display 
-specified in the value set would go in <a href="datatypes.html#CodeableConcept">CodeableConcept</a>.text, perhaps appended to the UI label for the element, in a UI context.
+even if a value set is referenced explicitly in the Coding (e.g. by an extension). The alternative display 
+specified in the value set would go in <a href="datatypes.html#CodeableConcept">CodeableConcept</a>.text, 
+perhaps appended to the UI label for the matching data element.
 </p>
  
 <a name="multiples"> </a>
 <h2>Value Sets with multiple code systems</h2> 
 <p>
 Value sets may select codes from multiple code systems - either 
-by including codes from different systems, importing other 
-value sets that include them.
-A typical use for crossing code systems is when including a set of codes, 
-and adding a few additional codes to cover cases not catered to by the 
-included codes (e.g. Data missing or workflow error codes). 
+by including codes from different systems, or importing other 
+value sets that include them. A typical use for crossing code systems is 
+when including a set of codes, and adding a few additional codes to cover 
+cases not catered to by the included codes (e.g. Data missing or workflow error codes). 
 </p> 
 <p>
 Best Practice Note: Mixing definitional systems offers the potential for 
@@ -115,7 +126,8 @@ How filters are used with various code systems:
 <p>
 A value set can be "expanded", where the definition of the value set is 
 used to create a simple collection of codes suitable for use for data 
-entry or validation. This is most useful when a value set includes 
+entry or validation. There is a <a href="valueset-operations.html">defined operation $expand</a> to ask a server to perform this expansion.
+Expansions are most useful when a value set includes 
 all the codes in a code system, or a set of codes by filter. 
 </p>
 <p>
@@ -136,22 +148,26 @@ the following process should be followed:
 </p>
 <ul>
  <li>If the value set already has an expansion (e.g., a stored expansion), simply take the existing expansion as it is. If not, then:</li>
- <li>For each <i>compose.import</i>, find the referenced value set by ValueSet.url, expand that (e.g., using the <a href="valueset-operations.html#expand">$expand</a> operation: GET [base]/ValueSet/$expand$identifier=[compose.import]), and add it to the result set. This means that expansion across imports is a recursive process.</li>
- <li>For each <i>compose.include</i>, identify the correct version of the code system, and then:
-  <ul>
-   <li>If there are no codes or filters, add every code in the code system to the result set.</li>
-   <li>If codes are listed, check that they are valid, and check their active status, and if ok, add them to the result set (the profile parameter to the $expand operation may be used to control whether active codes are included).</li>
-   <li>If any filters are present, process them in order (as explained above), and add the intersection of their results to the result set.</li>
-  </ul>
+ <li>For each <i>compose.include</i>:
+  <ol>
+   <li>If there is a system, identify the correct version of the code system, and then:
+     <ul>
+      <li>If there are no codes or filters, add every code in the code system to the result set.</li>   
+      <li>If codes are listed, check that they are valid, and check their active status, and if ok, add them to the result set (the profile parameter to the $expand operation may be used to control whether active codes are included).</li>
+      <li>If any filters are present, process them in order (as explained above), and add the intersection of their results to the result set.</li>
+   </ul></li>
+   <li>For each <code>valueSet</code>, find the referenced value set by ValueSet.url, expand that (e.g., using the <a href="valueset-operations.html#expand">$expand</a> operation: GET [base]/ValueSet/$expand$identifier=[compose.import]), and add it to the result set. This means that expansion across imports is a recursive process.</li>
+   <li>Add the intersection of the result set from the system and the result sets from the value sets to the expansion</li>
+  </ol>
  </li>
  <li>For each <i>compose.exclude</i>, follow the same process as for <i>compose.include</i>, but remove any codes from the result set, instead of adding them.</li>
- <li>Add any codes in the <i>codeSystem</i> to the result set.</li>
 </ul>
 <p>
-The "result set" is then represented in <i>expansion</i>. Note that the expansion structure is inherently ordered, and 
+The final "result set" is then represented in <i>expansion</i>. Note that the expansion structure is inherently ordered, and 
 also provides support for a hierarchical tree of items. This specification does not fix the meaning of use of either
-of these, and the conceptual approach described should not be understood to prohibit any implementation approach in
-these regards. There is a <a href="valueset-operations.html">defined operation $expand</a> to ask a server to perform this expansion.
+the order or the heirarchy, and the conceptual approach described should not be understood to prohibit any implementation approach in
+these regards. In addition, note that the method described above is a conceptual approach; individual servers may choose to follow
+alternative approaches that are more efficient, as long as the outcome is the same.
 </p>
 <p>
 An expansion may include entries in the expansion that only serve an arbitrary grouping purpose, to make it easier
@@ -161,7 +177,7 @@ extensions or other knowledge to introduce such groups as an implementation feat
 </p>
 <p>
 The codes in the expansion should be treated as case sensitive - implementers should use the correct 
-case. Implementers can consult the definition of the code system to determine whether the code system
+case. Implementers can consult the definition of the underlying code systems to determine whether the code system
 that defines the code is case sensitive or not. 
 </p>
 <p>

@@ -32,9 +32,15 @@
 "/>
 	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
 	<compose>
-		<import value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-substance-ndfrt"/>
-		<import value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-substance-rxnorm"/>
-		<import value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-substance-sct"/>
+		<include>
+      <valueSet value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-substance-ndfrt"/>
+    </include>
+		<include>
+      <valueSet value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-substance-rxnorm"/>
+    </include>
+		<include>
+      <valueSet value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-substance-sct"/>
+    </include>
 		<include>
 			<system value="http://snomed.info/sct"/>
 			<concept>

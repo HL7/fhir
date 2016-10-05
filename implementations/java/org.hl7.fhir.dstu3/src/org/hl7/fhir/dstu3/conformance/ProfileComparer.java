@@ -661,8 +661,6 @@ public class ProfileComparer {
   private ValueSet unite(ElementDefinition ed, ProfileComparison outcome, String path, ValueSet lvs, ValueSet rvs) {
     ValueSet vs = new ValueSet();
     if (lvs.hasCompose()) {
-      for (UriType imp : lvs.getCompose().getImport()) 
-        vs.getCompose().getImport().add(imp);
       for (ConceptSetComponent inc : lvs.getCompose().getInclude()) 
         vs.getCompose().getInclude().add(inc);
       if (lvs.getCompose().hasExclude()) {
@@ -671,9 +669,6 @@ public class ProfileComparer {
       }
     }
     if (rvs.hasCompose()) {
-      for (UriType imp : rvs.getCompose().getImport())
-        if (!vs.getCompose().hasImport(imp.getValue()))
-          vs.getCompose().getImport().add(imp);
       for (ConceptSetComponent inc : rvs.getCompose().getInclude())
         if (!mergeIntoExisting(vs.getCompose().getInclude(), inc))
           vs.getCompose().getInclude().add(inc);

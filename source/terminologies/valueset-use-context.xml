@@ -13,9 +13,13 @@
   </contact>
   <description value="This value set defines a base set of codes that can be used to indicate that the content in a resource was developed with a focus and intent of supporting use within particular contexts."/>
   <compose>
-    <import value="http://hl7.org/fhir/ValueSet/usps-state"/>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/usps-state"/>
+    </include>
   <!--   states   -->
-    <import value="http://hl7.org/fhir/ValueSet/practitioner-specialty"/>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/practitioner-specialty"/>
+    </include>
   <!--   specialties, assuming this will get fixed up   -->
     <include>
     <!--   ISO 2 letter country codes   -->

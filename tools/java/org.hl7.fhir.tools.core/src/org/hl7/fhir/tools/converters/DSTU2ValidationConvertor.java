@@ -58,7 +58,7 @@ public class DSTU2ValidationConvertor implements VersionConvertorAdvisor {
   public Resource convert(org.hl7.fhir.dstu3.model.Resource resource) throws FHIRException {
     if (resource instanceof ValueSet) {
       ValueSet vs = (ValueSet) resource;
-      if (vs.hasCompose() && vs.getCompose().getExclude().isEmpty() && vs.getCompose().getImport().isEmpty() && vs.getCompose().getInclude().size() == 1) {
+      if (vs.hasCompose() && vs.getCompose().getExclude().isEmpty() && vs.getCompose().getInclude().size() == 1 && !vs.getCompose().getInclude().get(0).hasValueSet()) {
         String url = vs.getCompose().getInclude().get(0).getSystem();
         CodeSystem cs = findCodeSystem(url);
         if (cs != null) {

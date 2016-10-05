@@ -29,19 +29,20 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Sep 30, 2016 10:35+1000 for FHIR v1.7.0
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+// Generated on Thu, Oct 6, 2016 04:12+1100 for FHIR v1.7.0
 
-import org.hl7.fhir.dstu3.model.Enumerations.AdministrativeGender;
-import org.hl7.fhir.dstu3.model.Enumerations.AdministrativeGenderEnumFactory;
-import org.hl7.fhir.exceptions.FHIRException;
+import java.util.*;
 
-import ca.uhn.fhir.model.api.annotation.Child;
-import ca.uhn.fhir.model.api.annotation.Description;
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
+import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
  */
@@ -896,17 +897,17 @@ public class RelatedPerson extends DomainResource {
  /**
    * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>A patient Identifier</b><br>
+   * Description: <b>An Identifier of the RelatedPerson</b><br>
    * Type: <b>token</b><br>
    * Path: <b>RelatedPerson.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="RelatedPerson.identifier", description="A patient Identifier", type="token" )
+  @SearchParamDefinition(name="identifier", path="RelatedPerson.identifier", description="An Identifier of the RelatedPerson", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>A patient Identifier</b><br>
+   * Description: <b>An Identifier of the RelatedPerson</b><br>
    * Type: <b>token</b><br>
    * Path: <b>RelatedPerson.identifier</b><br>
    * </p>

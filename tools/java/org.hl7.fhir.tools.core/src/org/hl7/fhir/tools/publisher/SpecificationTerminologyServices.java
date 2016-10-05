@@ -363,7 +363,6 @@ public class SpecificationTerminologyServices {
     // just the content logical definition is hashed
     ValueSet vsid = new ValueSet();
     vsid.setCompose(vs.getCompose());
-    vsid.setLockedDate(vs.getLockedDate());
     JsonParser parser = new JsonParser();
     parser.setOutputStyle(OutputStyle.NORMAL);
     ByteArrayOutputStream b = new  ByteArrayOutputStream();

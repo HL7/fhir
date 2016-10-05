@@ -12,7 +12,9 @@
   <requirements value="Limits the questions to the kinds of questions commonly supported by clinical decision support systems."/>
   <extensible value="false"/>
   <compose>
-    <import value="http://hl7.org/fhir/ValueSet/item-type"/>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/item-type"/>
+    </include>
     <exclude>
       <system value="http://hl7.org/fhir/item-type"/>
       <concept>

@@ -55,7 +55,10 @@
     </telecom>
   </contact>
   <date value="2015-06-22"/>
-<!--   
+  <description value="This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36."/>
+  <copyright value="This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
+  <compose>
+    <!--    
 	  if we didn't specify the version of LOINC on the include, then
 	  we could specify it implicitly by specifying the locked date for the value set
 		
@@ -63,11 +66,8 @@
     have LOINC version. Note: if you do what this example does, and specify both,
 		you better get it right, and specify the current version of LOINC at the time
     -->
-  <lockedDate value="2012-06-13"/>
-  <description value="This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36."/>
-  <copyright value="This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
-  <compose>
-  <!--   you could have multiple includes, if you wanted to include codes from more than
+    <lockedDate value="2012-06-13"/>
+    <!--   you could have multiple includes, if you wanted to include codes from more than
      one code system, or include codes with different modes. we don't, in this case   -->
     <include>
       <system value="http://loinc.org"/>

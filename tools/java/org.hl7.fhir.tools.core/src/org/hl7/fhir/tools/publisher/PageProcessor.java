@@ -2505,11 +2505,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (ValueSet vs : definitions.getValuesets().values()) {
       boolean uses = false;
       for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
-        if (inc.getSystem().equals(cs.getUrl())) 
+        if (inc.hasSystem() && inc.getSystem().equals(cs.getUrl())) 
           uses = true;
       }
       for (ConceptSetComponent inc : vs.getCompose().getExclude()) {
-        if (inc.getSystem().equals(cs.getUrl())) 
+        if (inc.hasSystem() && inc.getSystem().equals(cs.getUrl())) 
           uses = true;
       }
       if (uses) {
@@ -2597,9 +2597,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (ValueSet vsi : definitions.getValuesets().values()) {
       String path = (String) vsi.getUserData("path");
       if (vs.hasCompose()) {
-        for (UriType t : vs.getCompose().getImport()) {
-          if (t.getValue().equals(vs.getUrl())) 
-            b.append(" <li>Imported into Valueset <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>\r\n");
+        for (ConceptSetComponent t : vs.getCompose().getInclude()) {
+          for (UriType uri : t.getValueSet()) {
+            if (uri.getValue().equals(vs.getUrl())) 
+              b.append(" <li>Included into Valueset <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>\r\n");
+          }
+        }
+        for (ConceptSetComponent t : vs.getCompose().getExclude()) {
+          for (UriType uri : t.getValueSet()) {
+            if (uri.getValue().equals(vs.getUrl())) 
+              b.append(" <li>Excluded from Valueset <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>\r\n");
+          }
         }
 //        for (ConceptSetComponent t : vsi.getCompose().getInclude()) {
 //          if (vs.hasCodeSystem() && t.getSystem().equals(vs.getCodeSystem().getSystem())) 
@@ -4129,11 +4137,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (vs.hasExpansion())
       return true;
     if (vs.hasCompose()) {
-      if (vs.getCompose().hasImport())
-        return true;
-      for (ConceptSetComponent inc : vs.getCompose().getInclude())
+      for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
+        if (inc.hasValueSet())
+          return true;
         if (inc.hasFilter() || !inc.hasConcept())
           return true;
+      }
       for (ConceptSetComponent exc : vs.getCompose().getExclude())
         if (exc.hasFilter() || !exc.hasConcept())
           return true;
@@ -4183,18 +4192,20 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private boolean hasDynamicContent(ValueSet vs) {
     if (vs.hasCompose()) {
-      if (vs.getCompose().getImport().size() > 0)
-        return true;
       for (ConceptSetComponent t : vs.getCompose().getInclude()) {
-        if (t.getFilter().size() > 0)
+        if (t.hasValueSet())
           return true;
-        if (t.getConcept().size() == 0)
+        if (t.hasFilter())
+          return true;
+        if (!t.hasConcept())
           return true;
       }
       for (ConceptSetComponent t : vs.getCompose().getExclude()) {
-        if (t.getFilter().size() > 0)
+        if (t.hasValueSet())
           return true;
-        if (t.getConcept().size() == 0)
+        if (t.hasFilter())
+          return true;
+        if (!t.hasConcept())
           return true;
       }
     }
@@ -4345,7 +4356,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("example")) { 
         String[] parts = com[1].split("\\/");
         Example e = findExample(parts[0], parts[1]);
-        src = s1+genExample(e, 0, genlevel(level))+s3;
+        src = s1+genExample(e, com.length > 2 ? Integer.parseInt(com[2]) : 0, genlevel(level))+s3;
       } else if (com[0].equals("extension-diff")) {
         StructureDefinition ed = workerContext.getExtensionDefinitions().get(com[1]);
         src = s1+generateExtensionTable(ed, "extension-"+com[1], "false", genlevel(level))+s3;

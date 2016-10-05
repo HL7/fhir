@@ -57,7 +57,9 @@
     </concept>
   </codeSystem>
   <compose>
-    <import value="http://hl7.org/fhir/ValueSet/dicom-cid29"/>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/dicom-cid29"/>
+    </include>
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>

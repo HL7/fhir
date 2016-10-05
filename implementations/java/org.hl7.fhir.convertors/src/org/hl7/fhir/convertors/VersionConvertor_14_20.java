@@ -6626,8 +6626,6 @@ public class VersionConvertor_14_20 {
       tgt.addContact(convertValueSetContactComponent(t));
     if (src.hasDate())
       tgt.setDate(src.getDate());
-    if (src.hasLockedDate())
-      tgt.setLockedDate(src.getLockedDate());
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
@@ -6641,6 +6639,8 @@ public class VersionConvertor_14_20 {
     if (src.hasExtensible())
       tgt.setExtensible(src.getExtensible());
     tgt.setCompose(convertValueSetComposeComponent(src.getCompose()));
+    if (src.hasLockedDate())
+      tgt.getCompose().setLockedDate(src.getLockedDate());
     tgt.setExpansion(convertValueSetExpansionComponent(src.getExpansion()));
     return tgt;
   }
@@ -6667,8 +6667,8 @@ public class VersionConvertor_14_20 {
       tgt.addContact(convertValueSetContactComponent(t));
     if (src.hasDate())
       tgt.setDate(src.getDate());
-    if (src.hasLockedDate())
-      tgt.setLockedDate(src.getLockedDate());
+    if (src.getCompose().hasLockedDate())
+      tgt.setLockedDate(src.getCompose().getLockedDate());
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
@@ -6716,7 +6716,7 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent tgt = new org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent();
     copyElement(src, tgt);
     for (org.hl7.fhir.dstu2016may.model.UriType t : src.getImport())
-      tgt.addImport(t.getValue());
+      tgt.addInclude().addValueSet(t.getValue());
     for (org.hl7.fhir.dstu2016may.model.ValueSet.ConceptSetComponent t : src.getInclude())
       tgt.addInclude(convertConceptSetComponent(t));
     for (org.hl7.fhir.dstu2016may.model.ValueSet.ConceptSetComponent t : src.getExclude())
@@ -6729,10 +6729,11 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetComposeComponent tgt = new org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetComposeComponent();
     copyElement(src, tgt);
-    for (org.hl7.fhir.dstu3.model.UriType t : src.getImport())
-      tgt.addImport(t.getValue());
-    for (org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent t : src.getInclude())
+    for (org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent t : src.getInclude()) {
+      for (org.hl7.fhir.dstu3.model.UriType ti : t.getValueSet())
+        tgt.addImport(ti.getValue());
       tgt.addInclude(convertConceptSetComponent(t));
+    }
     for (org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent t : src.getExclude())
       tgt.addExclude(convertConceptSetComponent(t));
     return tgt;

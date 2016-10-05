@@ -197,10 +197,10 @@ public class ValueSetValidator extends BaseValidator {
       int i = 0;
       for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
         i++;
-        if (!context.getCodeSystems().containsKey(inc.getSystem()))
+        if (inc.hasSystem() && !context.getCodeSystems().containsKey(inc.getSystem()))
           rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isKnownCodeSystem(inc.getSystem()), "The system '"+inc.getSystem()+"' is not valid");
         
-        if (canValidate(inc.getSystem())) {
+        if (inc.hasSystem() && canValidate(inc.getSystem())) {
           for (ConceptReferenceComponent cc : inc.getConcept()) {
             if (inc.getSystem().equals("http://nema.org/dicom/dicm"))
               suppressedwarning(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isValidCode(cc.getCode(), inc.getSystem()), 
@@ -409,9 +409,11 @@ public class ValueSetValidator extends BaseValidator {
     Set<String> sources = new HashSet<String>();
     if (vs.hasCompose()) {
       for (ConceptSetComponent imp : vs.getCompose().getInclude()) 
-        sources.add(imp.getSystem());
+        if (imp.hasSystem())
+          sources.add(imp.getSystem());
       for (ConceptSetComponent imp : vs.getCompose().getExclude()) 
-        sources.add(imp.getSystem());
+        if (imp.hasSystem())
+          sources.add(imp.getSystem());
     }
     return sources;
   }

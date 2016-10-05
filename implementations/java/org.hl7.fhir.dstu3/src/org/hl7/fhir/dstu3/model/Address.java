@@ -29,17 +29,18 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Sep 30, 2016 10:35+1000 for FHIR v1.7.0
-import java.util.ArrayList;
-import java.util.List;
+// Generated on Thu, Oct 6, 2016 04:12+1100 for FHIR v1.7.0
 
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.instance.model.api.ICompositeType;
+import java.util.*;
+
 import org.hl7.fhir.utilities.Utilities;
-
 import ca.uhn.fhir.model.api.annotation.Child;
-import ca.uhn.fhir.model.api.annotation.DatatypeDef;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.DatatypeDef;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
+import org.hl7.fhir.exceptions.FHIRException;
 /**
  * An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations and which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.
  */

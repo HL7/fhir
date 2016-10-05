@@ -9,7 +9,9 @@
   <description value="This value set includes most codes from the  http://hl7.org/fhir/ValueSet/daf-ucum-vitals-common valueset and adds inches, pounds, grams and degree Fahrenheit to support English units of measures."/>
   <requirements value="Codes that are needed for implementation of the Argonaut Vital Signs IG and MU2015 certification."/>
   <compose>
-    <import value="http://hl7.org/fhir/ValueSet/daf-ucum-vitals-common"/>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/daf-ucum-vitals-common"/>
+    </include>
     <include>
       <system value="http://unitsofmeasure.org"/>
       <concept>

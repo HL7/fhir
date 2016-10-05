@@ -29,28 +29,25 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Sep 30, 2016 10:35+1000 for FHIR v1.7.0
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+// Generated on Thu, Oct 6, 2016 04:12+1100 for FHIR v1.7.0
 
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatusEnumFactory;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
+import java.util.*;
+
 import org.hl7.fhir.utilities.Utilities;
-
-import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.dstu3.model.Enumerations.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
-import ca.uhn.fhir.model.api.annotation.ResourceDef;
-import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
+import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A value set specifies a set of codes drawn from one or more code systems.
  */
 @ResourceDef(name="ValueSet", profile="http://hl7.org/fhir/Profile/ValueSet")
-@ChildOrder(names={"url", "identifier", "version", "name", "status", "experimental", "publisher", "contact", "date", "lockedDate", "description", "useContext", "immutable", "requirements", "copyright", "extensible", "compose", "expansion"})
+@ChildOrder(names={"url", "identifier", "version", "name", "status", "experimental", "publisher", "contact", "date", "description", "useContext", "immutable", "requirements", "copyright", "extensible", "compose", "expansion"})
 public class ValueSet extends BaseConformance {
 
     public enum FilterOperator {
@@ -458,27 +455,27 @@ public class ValueSet extends BaseConformance {
     @Block()
     public static class ValueSetComposeComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.url.
+         * If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.
          */
-        @Child(name = "import", type = {UriType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Import the contents of another value set", formalDefinition="Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.url." )
-        protected List<UriType> import_;
+        @Child(name = "lockedDate", type = {DateType.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Fixed date for all referenced code systems and value sets", formalDefinition="If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date." )
+        protected DateType lockedDate;
 
         /**
-         * Include one or more codes from a code system.
+         * Include one or more codes from a code system or other value set(s).
          */
-        @Child(name = "include", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Include one or more codes from a code system", formalDefinition="Include one or more codes from a code system." )
+        @Child(name = "include", type = {}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Include one or more codes from a code system or other value set(s)", formalDefinition="Include one or more codes from a code system or other value set(s)." )
         protected List<ConceptSetComponent> include;
 
         /**
-         * Exclude one or more codes from the value set.
+         * Exclude one or more codes from the value set based on code system filters and/or other value sets.
          */
         @Child(name = "exclude", type = {ConceptSetComponent.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Explicitly exclude codes", formalDefinition="Exclude one or more codes from the value set." )
+        @Description(shortDefinition="Explicitly exclude codes from a code system or other value sets", formalDefinition="Exclude one or more codes from the value set based on code system filters and/or other value sets." )
         protected List<ConceptSetComponent> exclude;
 
-        private static final long serialVersionUID = -703166694L;
+        private static final long serialVersionUID = -337636966L;
 
     /**
      * Constructor
@@ -488,68 +485,56 @@ public class ValueSet extends BaseConformance {
       }
 
         /**
-         * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.url.)
+         * @return {@link #lockedDate} (If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.). This is the underlying object with id, value and extensions. The accessor "getLockedDate" gives direct access to the value
          */
-        public List<UriType> getImport() { 
-          if (this.import_ == null)
-            this.import_ = new ArrayList<UriType>();
-          return this.import_;
+        public DateType getLockedDateElement() { 
+          if (this.lockedDate == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ValueSetComposeComponent.lockedDate");
+            else if (Configuration.doAutoCreate())
+              this.lockedDate = new DateType(); // bb
+          return this.lockedDate;
+        }
+
+        public boolean hasLockedDateElement() { 
+          return this.lockedDate != null && !this.lockedDate.isEmpty();
+        }
+
+        public boolean hasLockedDate() { 
+          return this.lockedDate != null && !this.lockedDate.isEmpty();
         }
 
         /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
+         * @param value {@link #lockedDate} (If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.). This is the underlying object with id, value and extensions. The accessor "getLockedDate" gives direct access to the value
          */
-        public ValueSetComposeComponent setImport(List<UriType> theImport) { 
-          this.import_ = theImport;
-          return this;
-        }
-
-        public boolean hasImport() { 
-          if (this.import_ == null)
-            return false;
-          for (UriType item : this.import_)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.url.)
-         */
-        public UriType addImportElement() {//2 
-          UriType t = new UriType();
-          if (this.import_ == null)
-            this.import_ = new ArrayList<UriType>();
-          this.import_.add(t);
-          return t;
-        }
-
-        /**
-         * @param value {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.url.)
-         */
-        public ValueSetComposeComponent addImport(String value) { //1
-          UriType t = new UriType();
-          t.setValue(value);
-          if (this.import_ == null)
-            this.import_ = new ArrayList<UriType>();
-          this.import_.add(t);
+        public ValueSetComposeComponent setLockedDateElement(DateType value) { 
+          this.lockedDate = value;
           return this;
         }
 
         /**
-         * @param value {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.url.)
+         * @return If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.
          */
-        public boolean hasImport(String value) { 
-          if (this.import_ == null)
-            return false;
-          for (UriType v : this.import_)
-            if (v.equals(value)) // uri
-              return true;
-          return false;
+        public Date getLockedDate() { 
+          return this.lockedDate == null ? null : this.lockedDate.getValue();
         }
 
         /**
-         * @return {@link #include} (Include one or more codes from a code system.)
+         * @param value If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.
+         */
+        public ValueSetComposeComponent setLockedDate(Date value) { 
+          if (value == null)
+            this.lockedDate = null;
+          else {
+            if (this.lockedDate == null)
+              this.lockedDate = new DateType();
+            this.lockedDate.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #include} (Include one or more codes from a code system or other value set(s).)
          */
         public List<ConceptSetComponent> getInclude() { 
           if (this.include == null)
@@ -602,7 +587,7 @@ public class ValueSet extends BaseConformance {
         }
 
         /**
-         * @return {@link #exclude} (Exclude one or more codes from the value set.)
+         * @return {@link #exclude} (Exclude one or more codes from the value set based on code system filters and/or other value sets.)
          */
         public List<ConceptSetComponent> getExclude() { 
           if (this.exclude == null)
@@ -656,15 +641,15 @@ public class ValueSet extends BaseConformance {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("import", "uri", "Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.url.", 0, java.lang.Integer.MAX_VALUE, import_));
-          childrenList.add(new Property("include", "", "Include one or more codes from a code system.", 0, java.lang.Integer.MAX_VALUE, include));
-          childrenList.add(new Property("exclude", "@ValueSet.compose.include", "Exclude one or more codes from the value set.", 0, java.lang.Integer.MAX_VALUE, exclude));
+          childrenList.add(new Property("lockedDate", "date", "If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.", 0, java.lang.Integer.MAX_VALUE, lockedDate));
+          childrenList.add(new Property("include", "", "Include one or more codes from a code system or other value set(s).", 0, java.lang.Integer.MAX_VALUE, include));
+          childrenList.add(new Property("exclude", "@ValueSet.compose.include", "Exclude one or more codes from the value set based on code system filters and/or other value sets.", 0, java.lang.Integer.MAX_VALUE, exclude));
         }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1184795739: /*import*/ return this.import_ == null ? new Base[0] : this.import_.toArray(new Base[this.import_.size()]); // UriType
+        case 1391591896: /*lockedDate*/ return this.lockedDate == null ? new Base[0] : new Base[] {this.lockedDate}; // DateType
         case 1942574248: /*include*/ return this.include == null ? new Base[0] : this.include.toArray(new Base[this.include.size()]); // ConceptSetComponent
         case -1321148966: /*exclude*/ return this.exclude == null ? new Base[0] : this.exclude.toArray(new Base[this.exclude.size()]); // ConceptSetComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -675,8 +660,8 @@ public class ValueSet extends BaseConformance {
       @Override
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1184795739: // import
-          this.getImport().add(castToUri(value)); // UriType
+        case 1391591896: // lockedDate
+          this.lockedDate = castToDate(value); // DateType
           break;
         case 1942574248: // include
           this.getInclude().add((ConceptSetComponent) value); // ConceptSetComponent
@@ -691,8 +676,8 @@ public class ValueSet extends BaseConformance {
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("import"))
-          this.getImport().add(castToUri(value));
+        if (name.equals("lockedDate"))
+          this.lockedDate = castToDate(value); // DateType
         else if (name.equals("include"))
           this.getInclude().add((ConceptSetComponent) value);
         else if (name.equals("exclude"))
@@ -704,7 +689,7 @@ public class ValueSet extends BaseConformance {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1184795739: throw new FHIRException("Cannot make property import as it is not a complex type"); // UriType
+        case 1391591896: throw new FHIRException("Cannot make property lockedDate as it is not a complex type"); // DateType
         case 1942574248:  return addInclude(); // ConceptSetComponent
         case -1321148966:  return addExclude(); // ConceptSetComponent
         default: return super.makeProperty(hash, name);
@@ -714,8 +699,8 @@ public class ValueSet extends BaseConformance {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("import")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ValueSet.import");
+        if (name.equals("lockedDate")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ValueSet.lockedDate");
         }
         else if (name.equals("include")) {
           return addInclude();
@@ -730,11 +715,7 @@ public class ValueSet extends BaseConformance {
       public ValueSetComposeComponent copy() {
         ValueSetComposeComponent dst = new ValueSetComposeComponent();
         copyValues(dst);
-        if (import_ != null) {
-          dst.import_ = new ArrayList<UriType>();
-          for (UriType i : import_)
-            dst.import_.add(i.copy());
-        };
+        dst.lockedDate = lockedDate == null ? null : lockedDate.copy();
         if (include != null) {
           dst.include = new ArrayList<ConceptSetComponent>();
           for (ConceptSetComponent i : include)
@@ -755,7 +736,7 @@ public class ValueSet extends BaseConformance {
         if (!(other instanceof ValueSetComposeComponent))
           return false;
         ValueSetComposeComponent o = (ValueSetComposeComponent) other;
-        return compareDeep(import_, o.import_, true) && compareDeep(include, o.include, true) && compareDeep(exclude, o.exclude, true)
+        return compareDeep(lockedDate, o.lockedDate, true) && compareDeep(include, o.include, true) && compareDeep(exclude, o.exclude, true)
           ;
       }
 
@@ -766,11 +747,11 @@ public class ValueSet extends BaseConformance {
         if (!(other instanceof ValueSetComposeComponent))
           return false;
         ValueSetComposeComponent o = (ValueSetComposeComponent) other;
-        return compareValues(import_, o.import_, true);
+        return compareValues(lockedDate, o.lockedDate, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(import_, include, exclude
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(lockedDate, include, exclude
           );
       }
 
@@ -786,7 +767,7 @@ public class ValueSet extends BaseConformance {
         /**
          * An absolute URI which is the code system from which the selected codes come from.
          */
-        @Child(name = "system", type = {UriType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "system", type = {UriType.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="The system the codes come from", formalDefinition="An absolute URI which is the code system from which the selected codes come from." )
         protected UriType system;
 
@@ -811,21 +792,20 @@ public class ValueSet extends BaseConformance {
         @Description(shortDefinition="Select codes/concepts by their properties (including relationships)", formalDefinition="Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true." )
         protected List<ConceptSetFilterComponent> filter;
 
-        private static final long serialVersionUID = -196054471L;
+        /**
+         * Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url.
+         */
+        @Child(name = "valueSet", type = {UriType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Select only contents included in this value set", formalDefinition="Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url." )
+        protected List<UriType> valueSet;
+
+        private static final long serialVersionUID = -1322183438L;
 
     /**
      * Constructor
      */
       public ConceptSetComponent() {
         super();
-      }
-
-    /**
-     * Constructor
-     */
-      public ConceptSetComponent(UriType system) {
-        super();
-        this.system = system;
       }
 
         /**
@@ -867,9 +847,13 @@ public class ValueSet extends BaseConformance {
          * @param value An absolute URI which is the code system from which the selected codes come from.
          */
         public ConceptSetComponent setSystem(String value) { 
+          if (Utilities.noString(value))
+            this.system = null;
+          else {
             if (this.system == null)
               this.system = new UriType();
             this.system.setValue(value);
+          }
           return this;
         }
 
@@ -1028,12 +1012,74 @@ public class ValueSet extends BaseConformance {
           return getFilter().get(0);
         }
 
+        /**
+         * @return {@link #valueSet} (Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url.)
+         */
+        public List<UriType> getValueSet() { 
+          if (this.valueSet == null)
+            this.valueSet = new ArrayList<UriType>();
+          return this.valueSet;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConceptSetComponent setValueSet(List<UriType> theValueSet) { 
+          this.valueSet = theValueSet;
+          return this;
+        }
+
+        public boolean hasValueSet() { 
+          if (this.valueSet == null)
+            return false;
+          for (UriType item : this.valueSet)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #valueSet} (Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url.)
+         */
+        public UriType addValueSetElement() {//2 
+          UriType t = new UriType();
+          if (this.valueSet == null)
+            this.valueSet = new ArrayList<UriType>();
+          this.valueSet.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #valueSet} (Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url.)
+         */
+        public ConceptSetComponent addValueSet(String value) { //1
+          UriType t = new UriType();
+          t.setValue(value);
+          if (this.valueSet == null)
+            this.valueSet = new ArrayList<UriType>();
+          this.valueSet.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #valueSet} (Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url.)
+         */
+        public boolean hasValueSet(String value) { 
+          if (this.valueSet == null)
+            return false;
+          for (UriType v : this.valueSet)
+            if (v.equals(value)) // uri
+              return true;
+          return false;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("system", "uri", "An absolute URI which is the code system from which the selected codes come from.", 0, java.lang.Integer.MAX_VALUE, system));
           childrenList.add(new Property("version", "string", "The version of the code system that the codes are selected from.", 0, java.lang.Integer.MAX_VALUE, version));
           childrenList.add(new Property("concept", "", "Specifies a concept to be included or excluded.", 0, java.lang.Integer.MAX_VALUE, concept));
           childrenList.add(new Property("filter", "", "Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.", 0, java.lang.Integer.MAX_VALUE, filter));
+          childrenList.add(new Property("valueSet", "uri", "Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url.", 0, java.lang.Integer.MAX_VALUE, valueSet));
         }
 
       @Override
@@ -1043,6 +1089,7 @@ public class ValueSet extends BaseConformance {
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 951024232: /*concept*/ return this.concept == null ? new Base[0] : this.concept.toArray(new Base[this.concept.size()]); // ConceptReferenceComponent
         case -1274492040: /*filter*/ return this.filter == null ? new Base[0] : this.filter.toArray(new Base[this.filter.size()]); // ConceptSetFilterComponent
+        case -1410174671: /*valueSet*/ return this.valueSet == null ? new Base[0] : this.valueSet.toArray(new Base[this.valueSet.size()]); // UriType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1063,6 +1110,9 @@ public class ValueSet extends BaseConformance {
         case -1274492040: // filter
           this.getFilter().add((ConceptSetFilterComponent) value); // ConceptSetFilterComponent
           break;
+        case -1410174671: // valueSet
+          this.getValueSet().add(castToUri(value)); // UriType
+          break;
         default: super.setProperty(hash, name, value);
         }
 
@@ -1078,6 +1128,8 @@ public class ValueSet extends BaseConformance {
           this.getConcept().add((ConceptReferenceComponent) value);
         else if (name.equals("filter"))
           this.getFilter().add((ConceptSetFilterComponent) value);
+        else if (name.equals("valueSet"))
+          this.getValueSet().add(castToUri(value));
         else
           super.setProperty(name, value);
       }
@@ -1089,6 +1141,7 @@ public class ValueSet extends BaseConformance {
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 951024232:  return addConcept(); // ConceptReferenceComponent
         case -1274492040:  return addFilter(); // ConceptSetFilterComponent
+        case -1410174671: throw new FHIRException("Cannot make property valueSet as it is not a complex type"); // UriType
         default: return super.makeProperty(hash, name);
         }
 
@@ -1107,6 +1160,9 @@ public class ValueSet extends BaseConformance {
         }
         else if (name.equals("filter")) {
           return addFilter();
+        }
+        else if (name.equals("valueSet")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ValueSet.valueSet");
         }
         else
           return super.addChild(name);
@@ -1127,6 +1183,11 @@ public class ValueSet extends BaseConformance {
           for (ConceptSetFilterComponent i : filter)
             dst.filter.add(i.copy());
         };
+        if (valueSet != null) {
+          dst.valueSet = new ArrayList<UriType>();
+          for (UriType i : valueSet)
+            dst.valueSet.add(i.copy());
+        };
         return dst;
       }
 
@@ -1138,7 +1199,7 @@ public class ValueSet extends BaseConformance {
           return false;
         ConceptSetComponent o = (ConceptSetComponent) other;
         return compareDeep(system, o.system, true) && compareDeep(version, o.version, true) && compareDeep(concept, o.concept, true)
-           && compareDeep(filter, o.filter, true);
+           && compareDeep(filter, o.filter, true) && compareDeep(valueSet, o.valueSet, true);
       }
 
       @Override
@@ -1148,12 +1209,13 @@ public class ValueSet extends BaseConformance {
         if (!(other instanceof ConceptSetComponent))
           return false;
         ConceptSetComponent o = (ConceptSetComponent) other;
-        return compareValues(system, o.system, true) && compareValues(version, o.version, true);
+        return compareValues(system, o.system, true) && compareValues(version, o.version, true) && compareValues(valueSet, o.valueSet, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, version, concept
-          , filter);
+          , filter, valueSet);
       }
 
   public String fhirType() {
@@ -1183,7 +1245,7 @@ public class ValueSet extends BaseConformance {
          * Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc.
          */
         @Child(name = "designation", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Additional representations for this valueset", formalDefinition="Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc." )
+        @Description(shortDefinition="Additional representations for this concept", formalDefinition="Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc." )
         protected List<ConceptReferenceDesignationComponent> designation;
 
         private static final long serialVersionUID = 260579971L;
@@ -2881,13 +2943,20 @@ public class ValueSet extends BaseConformance {
         protected StringType display;
 
         /**
+         * Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc. These are relevant when the conditions of the expansion do not fix to a single correct representation.
+         */
+        @Child(name = "designation", type = {ConceptReferenceDesignationComponent.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Additional representations for this item", formalDefinition="Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc. These are relevant when the conditions of the expansion do not fix to a single correct representation." )
+        protected List<ConceptReferenceDesignationComponent> designation;
+
+        /**
          * Other codes and entries contained under this entry in the hierarchy.
          */
-        @Child(name = "contains", type = {ValueSetExpansionContainsComponent.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "contains", type = {ValueSetExpansionContainsComponent.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Codes contained under this entry", formalDefinition="Other codes and entries contained under this entry in the hierarchy." )
         protected List<ValueSetExpansionContainsComponent> contains;
 
-        private static final long serialVersionUID = -2038349483L;
+        private static final long serialVersionUID = -1566559207L;
 
     /**
      * Constructor
@@ -3138,6 +3207,59 @@ public class ValueSet extends BaseConformance {
         }
 
         /**
+         * @return {@link #designation} (Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc. These are relevant when the conditions of the expansion do not fix to a single correct representation.)
+         */
+        public List<ConceptReferenceDesignationComponent> getDesignation() { 
+          if (this.designation == null)
+            this.designation = new ArrayList<ConceptReferenceDesignationComponent>();
+          return this.designation;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ValueSetExpansionContainsComponent setDesignation(List<ConceptReferenceDesignationComponent> theDesignation) { 
+          this.designation = theDesignation;
+          return this;
+        }
+
+        public boolean hasDesignation() { 
+          if (this.designation == null)
+            return false;
+          for (ConceptReferenceDesignationComponent item : this.designation)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public ConceptReferenceDesignationComponent addDesignation() { //3
+          ConceptReferenceDesignationComponent t = new ConceptReferenceDesignationComponent();
+          if (this.designation == null)
+            this.designation = new ArrayList<ConceptReferenceDesignationComponent>();
+          this.designation.add(t);
+          return t;
+        }
+
+        public ValueSetExpansionContainsComponent addDesignation(ConceptReferenceDesignationComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.designation == null)
+            this.designation = new ArrayList<ConceptReferenceDesignationComponent>();
+          this.designation.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #designation}, creating it if it does not already exist
+         */
+        public ConceptReferenceDesignationComponent getDesignationFirstRep() { 
+          if (getDesignation().isEmpty()) {
+            addDesignation();
+          }
+          return getDesignation().get(0);
+        }
+
+        /**
          * @return {@link #contains} (Other codes and entries contained under this entry in the hierarchy.)
          */
         public List<ValueSetExpansionContainsComponent> getContains() { 
@@ -3197,6 +3319,7 @@ public class ValueSet extends BaseConformance {
           childrenList.add(new Property("version", "string", "The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence.", 0, java.lang.Integer.MAX_VALUE, version));
           childrenList.add(new Property("code", "code", "The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and does not represent a valid code in the value set.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("display", "string", "The recommended display for this item in the expansion.", 0, java.lang.Integer.MAX_VALUE, display));
+          childrenList.add(new Property("designation", "@ValueSet.compose.include.concept.designation", "Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc. These are relevant when the conditions of the expansion do not fix to a single correct representation.", 0, java.lang.Integer.MAX_VALUE, designation));
           childrenList.add(new Property("contains", "@ValueSet.expansion.contains", "Other codes and entries contained under this entry in the hierarchy.", 0, java.lang.Integer.MAX_VALUE, contains));
         }
 
@@ -3208,6 +3331,7 @@ public class ValueSet extends BaseConformance {
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
         case 1671764162: /*display*/ return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
+        case -900931593: /*designation*/ return this.designation == null ? new Base[0] : this.designation.toArray(new Base[this.designation.size()]); // ConceptReferenceDesignationComponent
         case -567445985: /*contains*/ return this.contains == null ? new Base[0] : this.contains.toArray(new Base[this.contains.size()]); // ValueSetExpansionContainsComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -3232,6 +3356,9 @@ public class ValueSet extends BaseConformance {
         case 1671764162: // display
           this.display = castToString(value); // StringType
           break;
+        case -900931593: // designation
+          this.getDesignation().add((ConceptReferenceDesignationComponent) value); // ConceptReferenceDesignationComponent
+          break;
         case -567445985: // contains
           this.getContains().add((ValueSetExpansionContainsComponent) value); // ValueSetExpansionContainsComponent
           break;
@@ -3252,6 +3379,8 @@ public class ValueSet extends BaseConformance {
           this.code = castToCode(value); // CodeType
         else if (name.equals("display"))
           this.display = castToString(value); // StringType
+        else if (name.equals("designation"))
+          this.getDesignation().add((ConceptReferenceDesignationComponent) value);
         else if (name.equals("contains"))
           this.getContains().add((ValueSetExpansionContainsComponent) value);
         else
@@ -3266,6 +3395,7 @@ public class ValueSet extends BaseConformance {
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
         case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
+        case -900931593:  return addDesignation(); // ConceptReferenceDesignationComponent
         case -567445985:  return addContains(); // ValueSetExpansionContainsComponent
         default: return super.makeProperty(hash, name);
         }
@@ -3289,6 +3419,9 @@ public class ValueSet extends BaseConformance {
         else if (name.equals("display")) {
           throw new FHIRException("Cannot call addChild on a primitive type ValueSet.display");
         }
+        else if (name.equals("designation")) {
+          return addDesignation();
+        }
         else if (name.equals("contains")) {
           return addContains();
         }
@@ -3304,6 +3437,11 @@ public class ValueSet extends BaseConformance {
         dst.version = version == null ? null : version.copy();
         dst.code = code == null ? null : code.copy();
         dst.display = display == null ? null : display.copy();
+        if (designation != null) {
+          dst.designation = new ArrayList<ConceptReferenceDesignationComponent>();
+          for (ConceptReferenceDesignationComponent i : designation)
+            dst.designation.add(i.copy());
+        };
         if (contains != null) {
           dst.contains = new ArrayList<ValueSetExpansionContainsComponent>();
           for (ValueSetExpansionContainsComponent i : contains)
@@ -3320,8 +3458,8 @@ public class ValueSet extends BaseConformance {
           return false;
         ValueSetExpansionContainsComponent o = (ValueSetExpansionContainsComponent) other;
         return compareDeep(system, o.system, true) && compareDeep(abstract_, o.abstract_, true) && compareDeep(version, o.version, true)
-           && compareDeep(code, o.code, true) && compareDeep(display, o.display, true) && compareDeep(contains, o.contains, true)
-          ;
+           && compareDeep(code, o.code, true) && compareDeep(display, o.display, true) && compareDeep(designation, o.designation, true)
+           && compareDeep(contains, o.contains, true);
       }
 
       @Override
@@ -3337,7 +3475,7 @@ public class ValueSet extends BaseConformance {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, abstract_, version
-          , code, display, contains);
+          , code, display, designation, contains);
       }
 
   public String fhirType() {
@@ -3376,62 +3514,55 @@ public class ValueSet extends BaseConformance {
     protected List<ValueSetContactComponent> contact;
 
     /**
-     * If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.
-     */
-    @Child(name = "lockedDate", type = {DateType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Fixed date for all referenced code systems and value sets", formalDefinition="If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date." )
-    protected DateType lockedDate;
-
-    /**
      * A free text natural language description of the use of the value set - reason for definition, "the semantic space" to be included in the value set, conditions of use, etc. The description may include a list of expected usages for the value set and can also describe the approach taken to build the value set.
      */
-    @Child(name = "description", type = {MarkdownType.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "description", type = {MarkdownType.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Human language description of the value set", formalDefinition="A free text natural language description of the use of the value set - reason for definition, \"the semantic space\" to be included in the value set, conditions of use, etc. The description may include a list of expected usages for the value set and can also describe the approach taken to build the value set." )
     protected MarkdownType description;
 
     /**
      * If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
      */
-    @Child(name = "immutable", type = {BooleanType.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "immutable", type = {BooleanType.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Indicates whether or not any change to the content logical definition may occur", formalDefinition="If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change." )
     protected BooleanType immutable;
 
     /**
      * Explains why this value set is needed and why it has been constrained as it has.
      */
-    @Child(name = "requirements", type = {MarkdownType.class}, order=7, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "requirements", type = {MarkdownType.class}, order=6, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Why needed", formalDefinition="Explains why this value set is needed and why it has been constrained as it has." )
     protected MarkdownType requirements;
 
     /**
      * A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.
      */
-    @Child(name = "copyright", type = {StringType.class}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "copyright", type = {StringType.class}, order=7, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Use and/or publishing restrictions", formalDefinition="A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set." )
     protected StringType copyright;
 
     /**
      * Whether this is intended to be used with an extensible binding or not.
      */
-    @Child(name = "extensible", type = {BooleanType.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "extensible", type = {BooleanType.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Whether this is intended to be used with an extensible binding", formalDefinition="Whether this is intended to be used with an extensible binding or not." )
     protected BooleanType extensible;
 
     /**
-     * A set of criteria that provide the content logical definition of the value set by including or excluding codes from outside this value set.
+     * A set of criteria that define the content logical definition of the value set by including or excluding codes from outside this value set. This I also known as the "Content Logical Definition" (CLD).
      */
-    @Child(name = "compose", type = {}, order=10, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="When value set includes codes from elsewhere", formalDefinition="A set of criteria that provide the content logical definition of the value set by including or excluding codes from outside this value set." )
+    @Child(name = "compose", type = {}, order=9, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Definition of the content of the value set (CLD)", formalDefinition="A set of criteria that define the content logical definition of the value set by including or excluding codes from outside this value set. This I also known as the \"Content Logical Definition\" (CLD)." )
     protected ValueSetComposeComponent compose;
 
     /**
      * A value set can also be "expanded", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.
      */
-    @Child(name = "expansion", type = {}, order=11, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "expansion", type = {}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Used when the value set is \"expanded\"", formalDefinition="A value set can also be \"expanded\", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed." )
     protected ValueSetExpansionComponent expansion;
 
-    private static final long serialVersionUID = 1034294604L;
+    private static final long serialVersionUID = -776830970L;
 
   /**
    * Constructor
@@ -3715,55 +3846,6 @@ public class ValueSet extends BaseConformance {
     }
 
     /**
-     * @return {@link #lockedDate} (If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.). This is the underlying object with id, value and extensions. The accessor "getLockedDate" gives direct access to the value
-     */
-    public DateType getLockedDateElement() { 
-      if (this.lockedDate == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ValueSet.lockedDate");
-        else if (Configuration.doAutoCreate())
-          this.lockedDate = new DateType(); // bb
-      return this.lockedDate;
-    }
-
-    public boolean hasLockedDateElement() { 
-      return this.lockedDate != null && !this.lockedDate.isEmpty();
-    }
-
-    public boolean hasLockedDate() { 
-      return this.lockedDate != null && !this.lockedDate.isEmpty();
-    }
-
-    /**
-     * @param value {@link #lockedDate} (If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.). This is the underlying object with id, value and extensions. The accessor "getLockedDate" gives direct access to the value
-     */
-    public ValueSet setLockedDateElement(DateType value) { 
-      this.lockedDate = value;
-      return this;
-    }
-
-    /**
-     * @return If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.
-     */
-    public Date getLockedDate() { 
-      return this.lockedDate == null ? null : this.lockedDate.getValue();
-    }
-
-    /**
-     * @param value If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.
-     */
-    public ValueSet setLockedDate(Date value) { 
-      if (value == null)
-        this.lockedDate = null;
-      else {
-        if (this.lockedDate == null)
-          this.lockedDate = new DateType();
-        this.lockedDate.setValue(value);
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #description} (A free text natural language description of the use of the value set - reason for definition, "the semantic space" to be included in the value set, conditions of use, etc. The description may include a list of expected usages for the value set and can also describe the approach taken to build the value set.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public MarkdownType getDescriptionElement() { 
@@ -4001,7 +4083,7 @@ public class ValueSet extends BaseConformance {
     }
 
     /**
-     * @return {@link #compose} (A set of criteria that provide the content logical definition of the value set by including or excluding codes from outside this value set.)
+     * @return {@link #compose} (A set of criteria that define the content logical definition of the value set by including or excluding codes from outside this value set. This I also known as the "Content Logical Definition" (CLD).)
      */
     public ValueSetComposeComponent getCompose() { 
       if (this.compose == null)
@@ -4017,7 +4099,7 @@ public class ValueSet extends BaseConformance {
     }
 
     /**
-     * @param value {@link #compose} (A set of criteria that provide the content logical definition of the value set by including or excluding codes from outside this value set.)
+     * @param value {@link #compose} (A set of criteria that define the content logical definition of the value set by including or excluding codes from outside this value set. This I also known as the "Content Logical Definition" (CLD).)
      */
     public ValueSet setCompose(ValueSetComposeComponent value) { 
       this.compose = value;
@@ -4054,13 +4136,12 @@ public class ValueSet extends BaseConformance {
         childrenList.add(new Property("experimental", "boolean", "This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the value set.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("lockedDate", "date", "If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.", 0, java.lang.Integer.MAX_VALUE, lockedDate));
         childrenList.add(new Property("description", "markdown", "A free text natural language description of the use of the value set - reason for definition, \"the semantic space\" to be included in the value set, conditions of use, etc. The description may include a list of expected usages for the value set and can also describe the approach taken to build the value set.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("immutable", "boolean", "If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.", 0, java.lang.Integer.MAX_VALUE, immutable));
         childrenList.add(new Property("requirements", "markdown", "Explains why this value set is needed and why it has been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("extensible", "boolean", "Whether this is intended to be used with an extensible binding or not.", 0, java.lang.Integer.MAX_VALUE, extensible));
-        childrenList.add(new Property("compose", "", "A set of criteria that provide the content logical definition of the value set by including or excluding codes from outside this value set.", 0, java.lang.Integer.MAX_VALUE, compose));
+        childrenList.add(new Property("compose", "", "A set of criteria that define the content logical definition of the value set by including or excluding codes from outside this value set. This I also known as the \"Content Logical Definition\" (CLD).", 0, java.lang.Integer.MAX_VALUE, compose));
         childrenList.add(new Property("expansion", "", "A value set can also be \"expanded\", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.", 0, java.lang.Integer.MAX_VALUE, expansion));
       }
 
@@ -4076,7 +4157,6 @@ public class ValueSet extends BaseConformance {
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ValueSetContactComponent
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
-        case 1391591896: /*lockedDate*/ return this.lockedDate == null ? new Base[0] : new Base[] {this.lockedDate}; // DateType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
         case 1596987778: /*immutable*/ return this.immutable == null ? new Base[0] : new Base[] {this.immutable}; // BooleanType
@@ -4119,9 +4199,6 @@ public class ValueSet extends BaseConformance {
           break;
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
-          break;
-        case 1391591896: // lockedDate
-          this.lockedDate = castToDate(value); // DateType
           break;
         case -1724546052: // description
           this.description = castToMarkdown(value); // MarkdownType
@@ -4172,8 +4249,6 @@ public class ValueSet extends BaseConformance {
           this.getContact().add((ValueSetContactComponent) value);
         else if (name.equals("date"))
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("lockedDate"))
-          this.lockedDate = castToDate(value); // DateType
         else if (name.equals("description"))
           this.description = castToMarkdown(value); // MarkdownType
         else if (name.equals("useContext"))
@@ -4206,7 +4281,6 @@ public class ValueSet extends BaseConformance {
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
         case 951526432:  return addContact(); // ValueSetContactComponent
         case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case 1391591896: throw new FHIRException("Cannot make property lockedDate as it is not a complex type"); // DateType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
         case -669707736:  return addUseContext(); // CodeableConcept
         case 1596987778: throw new FHIRException("Cannot make property immutable as it is not a complex type"); // BooleanType
@@ -4248,9 +4322,6 @@ public class ValueSet extends BaseConformance {
         }
         else if (name.equals("date")) {
           throw new FHIRException("Cannot call addChild on a primitive type ValueSet.date");
-        }
-        else if (name.equals("lockedDate")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ValueSet.lockedDate");
         }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type ValueSet.description");
@@ -4307,7 +4378,6 @@ public class ValueSet extends BaseConformance {
             dst.contact.add(i.copy());
         };
         dst.date = date == null ? null : date.copy();
-        dst.lockedDate = lockedDate == null ? null : lockedDate.copy();
         dst.description = description == null ? null : description.copy();
         if (useContext != null) {
           dst.useContext = new ArrayList<CodeableConcept>();
@@ -4335,8 +4405,8 @@ public class ValueSet extends BaseConformance {
           return false;
         ValueSet o = (ValueSet) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(experimental, o.experimental, true)
-           && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(lockedDate, o.lockedDate, true)
-           && compareDeep(description, o.description, true) && compareDeep(immutable, o.immutable, true) && compareDeep(requirements, o.requirements, true)
+           && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true)
+           && compareDeep(immutable, o.immutable, true) && compareDeep(requirements, o.requirements, true)
            && compareDeep(copyright, o.copyright, true) && compareDeep(extensible, o.extensible, true) && compareDeep(compose, o.compose, true)
            && compareDeep(expansion, o.expansion, true);
       }
@@ -4349,15 +4419,14 @@ public class ValueSet extends BaseConformance {
           return false;
         ValueSet o = (ValueSet) other;
         return compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
-           && compareValues(lockedDate, o.lockedDate, true) && compareValues(description, o.description, true)
-           && compareValues(immutable, o.immutable, true) && compareValues(requirements, o.requirements, true)
+           && compareValues(description, o.description, true) && compareValues(immutable, o.immutable, true) && compareValues(requirements, o.requirements, true)
            && compareValues(copyright, o.copyright, true) && compareValues(extensible, o.extensible, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, experimental, publisher
-          , contact, lockedDate, description, immutable, requirements, copyright, extensible
-          , compose, expansion);
+          , contact, description, immutable, requirements, copyright, extensible, compose
+          , expansion);
       }
 
   @Override

@@ -482,7 +482,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
         Element part = XMLUtil.getFirstChild(XMLUtil.getNamedChild(content, "combinedContent"));
         while (part != null) {
           if (part.getNodeName().equals("unionWithContent"))
-            compose.addImport("http://hl7.org/fhir/ValueSet/v3-" + XMLUtil.getNamedChild(part, "valueSetRef").getAttribute("name"));
+            compose.addInclude().addValueSet("http://hl7.org/fhir/ValueSet/v3-" + XMLUtil.getNamedChild(part, "valueSetRef").getAttribute("name"));
           else
             throw new Exception("unknown value set construction method");
           part = XMLUtil.getNextSibling(part);

@@ -1,5 +1,38 @@
 package org.hl7.fhir.dstu3.model;
 
+/*
+  Copyright (c) 2011+, HL7, Inc.
+  All rights reserved.
+  
+  Redistribution and use in source and binary forms, with or without modification, 
+  are permitted provided that the following conditions are met:
+  
+   * Redistributions of source code must retain the above copyright notice, this 
+     list of conditions and the following disclaimer.
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
+     and/or other materials provided with the distribution.
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
+     prior written permission.
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+  POSSIBILITY OF SUCH DAMAGE.
+  
+*/
+
+// Generated on Thu, Oct 6, 2016 04:12+1100 for FHIR v1.7.0
+
+
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 
 public class Enumerations {
@@ -502,6 +535,10 @@ public class Enumerations {
 
     public enum ConceptMapEquivalence {
         /**
+         * The concepts are related to each other, and have at least some overlap in meaning, but the exact relationship is not known
+         */
+        RELATEDTO, 
+        /**
          * The definitions of the concepts mean the same thing (including when structural implications of meaning are considered) (i.e. extensionally identical).
          */
         EQUIVALENT, 
@@ -544,6 +581,8 @@ public class Enumerations {
         public static ConceptMapEquivalence fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("relatedto".equals(codeString))
+          return RELATEDTO;
         if ("equivalent".equals(codeString))
           return EQUIVALENT;
         if ("equal".equals(codeString))
@@ -566,6 +605,7 @@ public class Enumerations {
         }
         public String toCode() {
           switch (this) {
+            case RELATEDTO: return "relatedto";
             case EQUIVALENT: return "equivalent";
             case EQUAL: return "equal";
             case WIDER: return "wider";
@@ -580,6 +620,7 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
+            case RELATEDTO: return "http://hl7.org/fhir/concept-map-equivalence";
             case EQUIVALENT: return "http://hl7.org/fhir/concept-map-equivalence";
             case EQUAL: return "http://hl7.org/fhir/concept-map-equivalence";
             case WIDER: return "http://hl7.org/fhir/concept-map-equivalence";
@@ -594,6 +635,7 @@ public class Enumerations {
         }
         public String getDefinition() {
           switch (this) {
+            case RELATEDTO: return "The concepts are related to each other, and have at least some overlap in meaning, but the exact relationship is not known";
             case EQUIVALENT: return "The definitions of the concepts mean the same thing (including when structural implications of meaning are considered) (i.e. extensionally identical).";
             case EQUAL: return "The definitions of the concepts are exactly the same (i.e. only grammatical differences) and structural implications of meaning are identical or irrelevant (i.e. intentionally identical).";
             case WIDER: return "The target mapping is wider in meaning than the source concept.";
@@ -608,6 +650,7 @@ public class Enumerations {
         }
         public String getDisplay() {
           switch (this) {
+            case RELATEDTO: return "Related To";
             case EQUIVALENT: return "Equivalent";
             case EQUAL: return "Equal";
             case WIDER: return "Wider";
@@ -627,6 +670,8 @@ public class Enumerations {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("relatedto".equals(codeString))
+          return ConceptMapEquivalence.RELATEDTO;
         if ("equivalent".equals(codeString))
           return ConceptMapEquivalence.EQUIVALENT;
         if ("equal".equals(codeString))
@@ -653,6 +698,8 @@ public class Enumerations {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
+        if ("relatedto".equals(codeString))
+          return new Enumeration<ConceptMapEquivalence>(this, ConceptMapEquivalence.RELATEDTO);
         if ("equivalent".equals(codeString))
           return new Enumeration<ConceptMapEquivalence>(this, ConceptMapEquivalence.EQUIVALENT);
         if ("equal".equals(codeString))
@@ -674,6 +721,8 @@ public class Enumerations {
         throw new FHIRException("Unknown ConceptMapEquivalence code '"+codeString+"'");
         }
     public String toCode(ConceptMapEquivalence code) {
+      if (code == ConceptMapEquivalence.RELATEDTO)
+        return "relatedto";
       if (code == ConceptMapEquivalence.EQUIVALENT)
         return "equivalent";
       if (code == ConceptMapEquivalence.EQUAL)

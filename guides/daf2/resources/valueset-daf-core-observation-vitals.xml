@@ -9,7 +9,9 @@
   <description value="This value set includes most codes from the  http://hl7.org/fhir/ValueSet/daf-observation-CCDAVitalSignResult valueset and updates the O2 saturation and body weight codes  and removes the BSA  for use in the the Argonaut Project and MU2015 certification."/>
   <requirements value="Codes that are needed for implementation of the Argonaut Vital Signs IG."/>
   <compose>
-    <import value="http://hl7.org/fhir/ValueSet/daf-observation-CCDAVitalSignResult"/>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/daf-observation-CCDAVitalSignResult"/>
+    </include>
     <include>
       <system value="http://loinc.org"/>
       <concept>

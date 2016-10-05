@@ -362,10 +362,19 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
   private void loadValueSetDependencies(FetchedFile f, FetchedResource r) {
     ValueSet vs = (ValueSet) r.getResource();
-    for (UriType vsi : vs.getCompose().getImport()) {
-      FetchedFile fi = getFileForUri(vsi.getValue());
-      if (fi != null)
-        f.getDependencies().add(fi);
+    for (ConceptSetComponent cc : vs.getCompose().getInclude()) {
+      for (UriType vsi : cc.getValueSet()) {
+        FetchedFile fi = getFileForUri(vsi.getValue());
+        if (fi != null)
+          f.getDependencies().add(fi);
+      }
+    }
+    for (ConceptSetComponent cc : vs.getCompose().getExclude()) {
+      for (UriType vsi : cc.getValueSet()) {
+        FetchedFile fi = getFileForUri(vsi.getValue());
+        if (fi != null)
+          f.getDependencies().add(fi);
+      }
     }
     for (ConceptSetComponent vsc : vs.getCompose().getInclude()) {
       FetchedFile fi = getFileForUri(vsc.getSystem());

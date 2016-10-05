@@ -198,7 +198,6 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     // just the content logical definition is hashed
     ValueSet vsid = new ValueSet();
     vsid.setCompose(vs.getCompose());
-    vsid.setLockedDate(vs.getLockedDate());
     JsonParser parser = new JsonParser();
     parser.setOutputStyle(OutputStyle.NORMAL);
     ByteArrayOutputStream b = new  ByteArrayOutputStream();
@@ -263,8 +262,6 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   private String getVSSummary(ValueSet vs) {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-    for (UriType u : vs.getCompose().getImport())
-      b.append("Import "+u.asStringValue());
     for (ConceptSetComponent cc : vs.getCompose().getInclude())
       b.append("Include "+getIncSummary(cc));
     for (ConceptSetComponent cc : vs.getCompose().getExclude())
@@ -273,9 +270,13 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   }
 
   private String getIncSummary(ConceptSetComponent cc) {
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (UriType vs : cc.getValueSet())
+      b.append(vs.asStringValue());
+    String vsd = b.length() > 0 ? " where the codes are in the value sets ("+b.toString()+")" : "";
     String system = cc.getSystem();
     if (cc.hasConcept())
-      return Integer.toString(cc.getConcept().size())+" codes from "+system;;
+      return Integer.toString(cc.getConcept().size())+" codes from "+system+vsd;
     if (cc.hasFilter()) {
       String s = "";
       for (ConceptSetFilterComponent f : cc.getFilter()) {
@@ -283,9 +284,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
           s = s + " & ";
         s = s + f.getProperty()+" "+f.getOp().toCode()+" "+f.getValue();
       }
-      return "from "+system+" where "+s;
+      return "from "+system+" where "+s+vsd;
     }
-    return "All codes from "+system;
+    return "All codes from "+system+vsd;
   }
 
   private ValidationResult handleByCache(ValueSet vs, Coding coding, boolean tryCache) {

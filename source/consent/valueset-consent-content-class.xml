@@ -16,7 +16,9 @@
   <description value="This value set includes the FHIR resource types, along with some other important content class codes"/>
   <compose>
     <!-- CDA specific document types. Use these for IHE published CDA templates -->
-    <import value="http://hl7.org/fhir/ValueSet/formatcodes"/>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/formatcodes"/>
+    </include>
     
     <!-- FHIR Resource types -->
     <include>

@@ -14,9 +14,13 @@
   <extensible value="false"/>
   <compose>
   <!--    search parameters    -->
-    <import value="http://hl7.org/fhir/ValueSet/search-param-type"/>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/search-param-type"/>
+    </include>
   <!--    FHIR data types & Resources    -->
-    <import value="http://hl7.org/fhir/ValueSet/defined-types"/>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
+    </include>
     <include>
       <system value="http://hl7.org/fhir/special-types"/>
     </include>

@@ -5274,51 +5274,6 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Coverage convertCoverage(org.hl7.fhir.dstu2.model.Coverage src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.Coverage tgt = new org.hl7.fhir.dstu3.model.Coverage();
-    copyDomainResource(src, tgt);
-    tgt.setIssuer(convertType(src.getIssuer()));
-    tgt.setBin(src.getBin().getValue());
-    tgt.setPeriod(convertPeriod(src.getPeriod()));
-    tgt.setType(convertCoding(src.getType()));
-    tgt.setPlanholder(convertType(src.getSubscriber()));
-    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setGroup(src.getGroup());
-    tgt.setPlan(src.getPlan());
-    tgt.setSubPlan(src.getSubPlan());
-    tgt.setDependent(src.getDependent());
-    tgt.setSequence(src.getSequence());
-    for (org.hl7.fhir.dstu2.model.Reference t : src.getContract())
-      tgt.addContract(convertReference(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Coverage convertCoverage(org.hl7.fhir.dstu3.model.Coverage src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Coverage tgt = new org.hl7.fhir.dstu2.model.Coverage();
-    copyDomainResource(src, tgt);
-    if (src.hasIssuerReference())
-      tgt.setIssuer((org.hl7.fhir.dstu2.model.Reference) convertType(src.getIssuer()));
-    tgt.setBin(new org.hl7.fhir.dstu2.model.Identifier().setValue(src.getBin()));
-    tgt.setPeriod(convertPeriod(src.getPeriod()));
-    tgt.setType(convertCoding(src.getType()));
-    if (src.hasPlanholderIdentifier())
-      tgt.setSubscriberId((org.hl7.fhir.dstu2.model.Identifier) convertType(src.getPlanholder()));
-    for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setGroup(src.getGroup());
-    tgt.setPlan(src.getPlan());
-    tgt.setSubPlan(src.getSubPlan());
-    tgt.setDependent(src.getDependent());
-    tgt.setSequence(src.getSequence());
-    for (org.hl7.fhir.dstu3.model.Reference t : src.getContract())
-      tgt.addContract(convertReference(t));
-    return tgt;
-  }
 
   public org.hl7.fhir.dstu3.model.DataElement convertDataElement(org.hl7.fhir.dstu2.model.DataElement src) throws FHIRException {
     if (src == null || src.isEmpty())
@@ -6505,84 +6460,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.EligibilityRequest convertEligibilityRequest(org.hl7.fhir.dstu2.model.EligibilityRequest src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.EligibilityRequest tgt = new org.hl7.fhir.dstu3.model.EligibilityRequest();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-    tgt.setCreated(src.getCreated());
-//    tgt.setTarget(convertType(src.getTarget()));
-    tgt.setProvider(convertType(src.getProvider()));
-    tgt.setOrganization(convertType(src.getOrganization()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.EligibilityRequest convertEligibilityRequest(org.hl7.fhir.dstu3.model.EligibilityRequest src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.EligibilityRequest tgt = new org.hl7.fhir.dstu2.model.EligibilityRequest();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-    tgt.setCreated(src.getCreated());
-//    if (src.hasTargetReference())
-//      tgt.setTarget((org.hl7.fhir.dstu2.model.Reference) convertType(src.getTarget()));
-    if (src.hasProviderReference())
-      tgt.setProvider((org.hl7.fhir.dstu2.model.Reference) convertType(src.getProvider()));
-    if (src.hasOrganizationReference())
-      tgt.setOrganization((org.hl7.fhir.dstu2.model.Reference) convertType(src.getOrganization()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu3.model.EligibilityResponse convertEligibilityResponse(org.hl7.fhir.dstu2.model.EligibilityResponse src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.EligibilityResponse tgt = new org.hl7.fhir.dstu3.model.EligibilityResponse();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setRequest(convertType(src.getRequest()));
-//    tgt.setOutcome(convertRemittanceOutcome(src.getOutcome()));
-    tgt.setDisposition(src.getDisposition());
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-    tgt.setCreated(src.getCreated());
-    tgt.setOrganization(convertType(src.getOrganization()));
-    tgt.setRequestProvider(convertType(src.getRequestProvider()));
-    tgt.setRequestOrganization(convertType(src.getRequestOrganization()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.EligibilityResponse convertEligibilityResponse(org.hl7.fhir.dstu3.model.EligibilityResponse src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.EligibilityResponse tgt = new org.hl7.fhir.dstu2.model.EligibilityResponse();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    if (src.hasRequestReference())
-      tgt.setRequest((org.hl7.fhir.dstu2.model.Reference) convertType(src.getRequest()));
-//    tgt.setOutcome(convertRemittanceOutcome(src.getOutcome()));
-    tgt.setDisposition(src.getDisposition());
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-    tgt.setCreated(src.getCreated());
-    if (src.hasOrganization())
-      tgt.setOrganization((org.hl7.fhir.dstu2.model.Reference) convertType(src.getOrganization()));
-    if (src.hasRequestProvider())
-      tgt.setRequestProvider((org.hl7.fhir.dstu2.model.Reference) convertType(src.getRequestProvider()));
-    if (src.hasRequestOrganization())
-      tgt.setRequestOrganization((org.hl7.fhir.dstu2.model.Reference) convertType(src.getRequestOrganization()));
-    return tgt;
-  }
-
-
+ 
   public org.hl7.fhir.dstu3.model.Encounter convertEncounter(org.hl7.fhir.dstu2.model.Encounter src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
@@ -7022,21 +6900,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.ExplanationOfBenefit convertExplanationOfBenefit(org.hl7.fhir.dstu2.model.ExplanationOfBenefit src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.ExplanationOfBenefit tgt = new org.hl7.fhir.dstu3.model.ExplanationOfBenefit();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-    tgt.setCreated(src.getCreated());
-    tgt.setDisposition(src.getDisposition());
-    tgt.setOrganization(convertType(src.getOrganization()));
-    return tgt;
-  }
-
+ 
   public org.hl7.fhir.dstu3.model.FamilyMemberHistory convertFamilyMemberHistory(org.hl7.fhir.dstu2.model.FamilyMemberHistory src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
@@ -10527,156 +10391,6 @@ public class VersionConvertor_10_20 {
     }
   }
 
-  public org.hl7.fhir.dstu3.model.PaymentNotice convertPaymentNotice(org.hl7.fhir.dstu2.model.PaymentNotice src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.PaymentNotice tgt = new org.hl7.fhir.dstu3.model.PaymentNotice();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-    tgt.setCreated(src.getCreated());
-    tgt.setTarget(convertType(src.getTarget()));
-    tgt.setProvider(convertType(src.getProvider()));
-    tgt.setOrganization(convertType(src.getOrganization()));
-    tgt.setRequest(convertType(src.getRequest()));
-    tgt.setResponse(convertType(src.getResponse()));
-    tgt.setPaymentStatus(convertCoding(src.getPaymentStatus()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.PaymentNotice convertPaymentNotice(org.hl7.fhir.dstu3.model.PaymentNotice src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.PaymentNotice tgt = new org.hl7.fhir.dstu2.model.PaymentNotice();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-    tgt.setCreated(src.getCreated());
-    if (src.hasTargetReference())
-      tgt.setTarget((org.hl7.fhir.dstu2.model.Reference) convertType(src.getTarget()));
-    if (src.hasProviderReference())
-      tgt.setProvider((org.hl7.fhir.dstu2.model.Reference) convertType(src.getProvider()));
-    if (src.hasOrganizationReference())
-      tgt.setOrganization((org.hl7.fhir.dstu2.model.Reference) convertType(src.getOrganization()));
-    if (src.hasResponseReference())
-      tgt.setResponse((org.hl7.fhir.dstu2.model.Reference) convertType(src.getResponse()));
-    tgt.setPaymentStatus(convertCoding(src.getPaymentStatus()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu3.model.PaymentReconciliation convertPaymentReconciliation(org.hl7.fhir.dstu2.model.PaymentReconciliation src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.PaymentReconciliation tgt = new org.hl7.fhir.dstu3.model.PaymentReconciliation();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setRequest(convertType(src.getRequest()));
-    tgt.setDisposition(src.getDisposition());
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-    tgt.setCreated(src.getCreated());
-    tgt.setPeriod(convertPeriod(src.getPeriod()));
-    tgt.setOrganization(convertType(src.getOrganization()));
-    tgt.setRequestProvider(convertType(src.getRequestProvider()));
-    tgt.setRequestOrganization(convertType(src.getRequestOrganization()));
-    for (org.hl7.fhir.dstu2.model.PaymentReconciliation.DetailsComponent t : src.getDetail())
-      tgt.addDetail(convertDetailsComponent(t));
-    tgt.setForm(convertCoding(src.getForm()));
-    tgt.setTotal(convertMoney(src.getTotal()));
-    for (org.hl7.fhir.dstu2.model.PaymentReconciliation.NotesComponent t : src.getNote())
-      tgt.addNote(convertNotesComponent(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.PaymentReconciliation convertPaymentReconciliation(org.hl7.fhir.dstu3.model.PaymentReconciliation src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.PaymentReconciliation tgt = new org.hl7.fhir.dstu2.model.PaymentReconciliation();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    if (src.hasRequestReference())
-      tgt.setRequest((org.hl7.fhir.dstu2.model.Reference) convertType(src.getRequest()));
-    tgt.setDisposition(src.getDisposition());
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-    tgt.setCreated(src.getCreated());
-    tgt.setPeriod(convertPeriod(src.getPeriod()));
-    if (src.hasOrganizationReference())
-      tgt.setOrganization((org.hl7.fhir.dstu2.model.Reference) convertType(src.getOrganization()));
-    if (src.hasRequestProviderReference())
-      tgt.setRequestProvider((org.hl7.fhir.dstu2.model.Reference) convertType(src.getRequestProvider()));
-    if (src.hasRequestOrganizationReference())
-      tgt.setRequestOrganization((org.hl7.fhir.dstu2.model.Reference) convertType(src.getRequestOrganization()));
-    for (org.hl7.fhir.dstu3.model.PaymentReconciliation.DetailsComponent t : src.getDetail())
-      tgt.addDetail(convertDetailsComponent(t));
-    tgt.setForm(convertCoding(src.getForm()));
-    tgt.setTotal(convertMoney(src.getTotal()));
-    for (org.hl7.fhir.dstu3.model.PaymentReconciliation.NotesComponent t : src.getNote())
-      tgt.addNote(convertNotesComponent(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu3.model.PaymentReconciliation.DetailsComponent convertDetailsComponent(org.hl7.fhir.dstu2.model.PaymentReconciliation.DetailsComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.PaymentReconciliation.DetailsComponent tgt = new org.hl7.fhir.dstu3.model.PaymentReconciliation.DetailsComponent();
-    copyElement(src, tgt);
-    tgt.setType(convertCoding(src.getType()));
-    tgt.setRequest(convertType(src.getRequest()));
-    tgt.setResponse(convertType(src.getResponce()));
-    tgt.setSubmitter(convertType(src.getSubmitter()));
-    tgt.setPayee(convertType(src.getPayee()));
-    if (src.hasDate())
-      tgt.setDate(src.getDate());
-    tgt.setAmount(convertMoney(src.getAmount()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.PaymentReconciliation.DetailsComponent convertDetailsComponent(org.hl7.fhir.dstu3.model.PaymentReconciliation.DetailsComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.PaymentReconciliation.DetailsComponent tgt = new org.hl7.fhir.dstu2.model.PaymentReconciliation.DetailsComponent();
-    copyElement(src, tgt);
-    tgt.setType(convertCoding(src.getType()));
-    if (src.hasRequestReference())
-      tgt.setRequest((org.hl7.fhir.dstu2.model.Reference) convertType(src.getRequest()));
-    if (src.hasResponseReference())
-      tgt.setResponce((org.hl7.fhir.dstu2.model.Reference) convertType(src.getResponse()));
-    if (src.hasSubmitterReference())
-      tgt.setSubmitter((org.hl7.fhir.dstu2.model.Reference) convertType(src.getSubmitter()));
-    if (src.hasPayeeReference())
-      tgt.setPayee((org.hl7.fhir.dstu2.model.Reference) convertType(src.getPayee()));
-    if (src.hasDate())
-      tgt.setDate(src.getDate());
-    tgt.setAmount(convertMoney(src.getAmount()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu3.model.PaymentReconciliation.NotesComponent convertNotesComponent(org.hl7.fhir.dstu2.model.PaymentReconciliation.NotesComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.PaymentReconciliation.NotesComponent tgt = new org.hl7.fhir.dstu3.model.PaymentReconciliation.NotesComponent();
-    copyElement(src, tgt);
-    tgt.setType(convertCoding(src.getType()));
-    tgt.setText(src.getText());
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.PaymentReconciliation.NotesComponent convertNotesComponent(org.hl7.fhir.dstu3.model.PaymentReconciliation.NotesComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.PaymentReconciliation.NotesComponent tgt = new org.hl7.fhir.dstu2.model.PaymentReconciliation.NotesComponent();
-    copyElement(src, tgt);
-    tgt.setType(convertCoding(src.getType()));
-    tgt.setText(src.getText());
-    return tgt;
-  }
 
   public org.hl7.fhir.dstu3.model.Person convertPerson(org.hl7.fhir.dstu2.model.Person src) throws FHIRException {
     if (src == null || src.isEmpty())
@@ -11131,66 +10845,6 @@ public class VersionConvertor_10_20 {
     }
   }
 
-  public org.hl7.fhir.dstu3.model.ProcessRequest convertProcessRequest(org.hl7.fhir.dstu2.model.ProcessRequest src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.ProcessRequest tgt = new org.hl7.fhir.dstu3.model.ProcessRequest();
-    copyDomainResource(src, tgt);
-    tgt.setAction(convertActionList(src.getAction()));
-    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-    tgt.setCreated(src.getCreated());
-    tgt.setTarget(convertType(src.getTarget()));
-    tgt.setProvider(convertType(src.getProvider()));
-    tgt.setOrganization(convertType(src.getOrganization()));
-    tgt.setRequest(convertType(src.getRequest()));
-    tgt.setResponse(convertType(src.getResponse()));
-    tgt.setNullify(src.getNullify());
-    tgt.setReference(src.getReference());
-    for (org.hl7.fhir.dstu2.model.ProcessRequest.ItemsComponent t : src.getItem())
-      tgt.addItem(convertItemsComponent(t));
-    for (org.hl7.fhir.dstu2.model.StringType t : src.getInclude())
-      tgt.addInclude(t.getValue());
-    for (org.hl7.fhir.dstu2.model.StringType t : src.getExclude())
-      tgt.addExclude(t.getValue());
-    tgt.setPeriod(convertPeriod(src.getPeriod()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.ProcessRequest convertProcessRequest(org.hl7.fhir.dstu3.model.ProcessRequest src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.ProcessRequest tgt = new org.hl7.fhir.dstu2.model.ProcessRequest();
-    copyDomainResource(src, tgt);
-    tgt.setAction(convertActionList(src.getAction()));
-    for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-    tgt.setCreated(src.getCreated());
-    if (src.hasTargetReference())
-      tgt.setTarget((org.hl7.fhir.dstu2.model.Reference) convertType(src.getTarget()));
-    if (src.hasProviderReference())
-      tgt.setProvider((org.hl7.fhir.dstu2.model.Reference) convertType(src.getProvider()));
-    if (src.hasOrganizationReference())
-      tgt.setOrganization((org.hl7.fhir.dstu2.model.Reference) convertType(src.getOrganization()));
-    if (src.hasRequestReference())
-      tgt.setRequest((org.hl7.fhir.dstu2.model.Reference) convertType(src.getRequest()));
-    if (src.hasResponseReference())
-      tgt.setResponse((org.hl7.fhir.dstu2.model.Reference) convertType(src.getResponse()));
-    tgt.setNullify(src.getNullify());
-    tgt.setReference(src.getReference());
-    for (org.hl7.fhir.dstu3.model.ProcessRequest.ItemsComponent t : src.getItem())
-      tgt.addItem(convertItemsComponent(t));
-    for (org.hl7.fhir.dstu3.model.StringType t : src.getInclude())
-      tgt.addInclude(t.getValue());
-    for (org.hl7.fhir.dstu3.model.StringType t : src.getExclude())
-      tgt.addExclude(t.getValue());
-    tgt.setPeriod(convertPeriod(src.getPeriod()));
-    return tgt;
-  }
 
   public org.hl7.fhir.dstu3.model.ProcessRequest.ActionList convertActionList(org.hl7.fhir.dstu2.model.ProcessRequest.ActionList src) throws FHIRException {
     if (src == null)
@@ -11231,78 +10885,6 @@ public class VersionConvertor_10_20 {
     org.hl7.fhir.dstu2.model.ProcessRequest.ItemsComponent tgt = new org.hl7.fhir.dstu2.model.ProcessRequest.ItemsComponent();
     copyElement(src, tgt);
     tgt.setSequenceLinkId(src.getSequenceLinkId());
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu3.model.ProcessResponse convertProcessResponse(org.hl7.fhir.dstu2.model.ProcessResponse src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.ProcessResponse tgt = new org.hl7.fhir.dstu3.model.ProcessResponse();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setRequest(convertType(src.getRequest()));
-    tgt.setOutcome(convertCoding(src.getOutcome()));
-    tgt.setDisposition(src.getDisposition());
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-    tgt.setCreated(src.getCreated());
-    tgt.setOrganization(convertType(src.getOrganization()));
-    tgt.setRequestProvider(convertType(src.getRequestProvider()));
-    tgt.setRequestOrganization(convertType(src.getRequestOrganization()));
-    tgt.setForm(convertCoding(src.getForm()));
-    for (org.hl7.fhir.dstu2.model.ProcessResponse.ProcessResponseNotesComponent t : src.getNotes())
-      tgt.addNotes(convertProcessResponseNotesComponent(t));
-    for (org.hl7.fhir.dstu2.model.Coding t : src.getError())
-      tgt.addError(convertCoding(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.ProcessResponse convertProcessResponse(org.hl7.fhir.dstu3.model.ProcessResponse src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.ProcessResponse tgt = new org.hl7.fhir.dstu2.model.ProcessResponse();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    if (src.hasRequestReference())
-      tgt.setRequest((org.hl7.fhir.dstu2.model.Reference) convertType(src.getRequest()));
-    tgt.setOutcome(convertCoding(src.getOutcome()));
-    tgt.setDisposition(src.getDisposition());
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
-    tgt.setCreated(src.getCreated());
-    if (src.hasOrganizationReference())
-      tgt.setOrganization((org.hl7.fhir.dstu2.model.Reference) convertType(src.getOrganization()));
-    if (src.hasRequestProviderReference())
-      tgt.setRequestProvider((org.hl7.fhir.dstu2.model.Reference) convertType(src.getRequestProvider()));
-    if (src.hasRequestOrganizationReference())
-      tgt.setRequestOrganization((org.hl7.fhir.dstu2.model.Reference) convertType(src.getRequestOrganization()));
-    tgt.setForm(convertCoding(src.getForm()));
-    for (org.hl7.fhir.dstu3.model.ProcessResponse.ProcessResponseNotesComponent t : src.getNotes())
-      tgt.addNotes(convertProcessResponseNotesComponent(t));
-    for (org.hl7.fhir.dstu3.model.Coding t : src.getError())
-      tgt.addError(convertCoding(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu3.model.ProcessResponse.ProcessResponseNotesComponent convertProcessResponseNotesComponent(org.hl7.fhir.dstu2.model.ProcessResponse.ProcessResponseNotesComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.ProcessResponse.ProcessResponseNotesComponent tgt = new org.hl7.fhir.dstu3.model.ProcessResponse.ProcessResponseNotesComponent();
-    copyElement(src, tgt);
-    tgt.setType(convertCoding(src.getType()));
-    tgt.setText(src.getText());
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.ProcessResponse.ProcessResponseNotesComponent convertProcessResponseNotesComponent(org.hl7.fhir.dstu3.model.ProcessResponse.ProcessResponseNotesComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.ProcessResponse.ProcessResponseNotesComponent tgt = new org.hl7.fhir.dstu2.model.ProcessResponse.ProcessResponseNotesComponent();
-    copyElement(src, tgt);
-    tgt.setType(convertCoding(src.getType()));
-    tgt.setText(src.getText());
     return tgt;
   }
 
@@ -13523,7 +13105,6 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       tgt.addContact(convertValueSetContactComponent(t));
     if (src.hasDate())
       tgt.setDate(src.getDate());
-    tgt.setLockedDate(src.getLockedDate());
     tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
@@ -13557,6 +13138,7 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       advisor.handleCodeSystem(tgtcs);
     }
     tgt.setCompose(convertValueSetComposeComponent(src.getCompose()));
+    tgt.getCompose().setLockedDate(src.getLockedDate());
     tgt.setExpansion(convertValueSetExpansionComponent(src.getExpansion()));
     return tgt;
   }
@@ -13598,7 +13180,7 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       tgt.addContact(convertValueSetContactComponent(t));
     if (src.hasDate())
       tgt.setDate(src.getDate());
-    tgt.setLockedDate(src.getLockedDate());
+    tgt.setLockedDate(src.getCompose().getLockedDate());
     tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
@@ -13650,7 +13232,7 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
     org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent tgt = new org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent();
     copyElement(src, tgt);
     for (org.hl7.fhir.dstu2.model.UriType t : src.getImport())
-      tgt.addImport(t.getValue());
+      tgt.addInclude().addValueSet(t.getValue());
     for (org.hl7.fhir.dstu2.model.ValueSet.ConceptSetComponent t : src.getInclude())
       tgt.addInclude(convertConceptSetComponent(t));
     for (org.hl7.fhir.dstu2.model.ValueSet.ConceptSetComponent t : src.getExclude())
@@ -13663,10 +13245,11 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return null;
     org.hl7.fhir.dstu2.model.ValueSet.ValueSetComposeComponent tgt = new org.hl7.fhir.dstu2.model.ValueSet.ValueSetComposeComponent();
     copyElement(src, tgt);
-    for (org.hl7.fhir.dstu3.model.UriType t : src.getImport())
-      tgt.addImport(t.getValue());
-    for (org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent t : src.getInclude())
+    for (org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent t : src.getInclude()) {
+      for (org.hl7.fhir.dstu3.model.UriType ti : t.getValueSet())
+        tgt.addImport(ti.getValue());
       tgt.addInclude(convertConceptSetComponent(t));
+    }
     for (org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent t : src.getExclude())
       tgt.addExclude(convertConceptSetComponent(t));
     return tgt;
@@ -14167,8 +13750,6 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertConformance((org.hl7.fhir.dstu2.model.Conformance) src);
     if (src instanceof org.hl7.fhir.dstu2.model.Contract)
       return convertContract((org.hl7.fhir.dstu2.model.Contract) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.Coverage)
-      return convertCoverage((org.hl7.fhir.dstu2.model.Coverage) src);
     if (src instanceof org.hl7.fhir.dstu2.model.DataElement)
       return convertDataElement((org.hl7.fhir.dstu2.model.DataElement) src);
     if (src instanceof org.hl7.fhir.dstu2.model.DetectedIssue)
@@ -14191,10 +13772,6 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertDocumentManifest((org.hl7.fhir.dstu2.model.DocumentManifest) src);
     if (src instanceof org.hl7.fhir.dstu2.model.DocumentReference)
       return convertDocumentReference((org.hl7.fhir.dstu2.model.DocumentReference) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.EligibilityRequest)
-      return convertEligibilityRequest((org.hl7.fhir.dstu2.model.EligibilityRequest) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.EligibilityResponse)
-      return convertEligibilityResponse((org.hl7.fhir.dstu2.model.EligibilityResponse) src);
     if (src instanceof org.hl7.fhir.dstu2.model.Encounter)
       return convertEncounter((org.hl7.fhir.dstu2.model.Encounter) src);
     if (src instanceof org.hl7.fhir.dstu2.model.EnrollmentRequest)
@@ -14203,8 +13780,6 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertEnrollmentResponse((org.hl7.fhir.dstu2.model.EnrollmentResponse) src);
     if (src instanceof org.hl7.fhir.dstu2.model.EpisodeOfCare)
       return convertEpisodeOfCare((org.hl7.fhir.dstu2.model.EpisodeOfCare) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.ExplanationOfBenefit)
-      return convertExplanationOfBenefit((org.hl7.fhir.dstu2.model.ExplanationOfBenefit) src);
     if (src instanceof org.hl7.fhir.dstu2.model.FamilyMemberHistory)
       return convertFamilyMemberHistory((org.hl7.fhir.dstu2.model.FamilyMemberHistory) src);
     if (src instanceof org.hl7.fhir.dstu2.model.Flag)
@@ -14255,10 +13830,6 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertOrganization((org.hl7.fhir.dstu2.model.Organization) src);
     if (src instanceof org.hl7.fhir.dstu2.model.Patient)
       return convertPatient((org.hl7.fhir.dstu2.model.Patient) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.PaymentNotice)
-      return convertPaymentNotice((org.hl7.fhir.dstu2.model.PaymentNotice) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.PaymentReconciliation)
-      return convertPaymentReconciliation((org.hl7.fhir.dstu2.model.PaymentReconciliation) src);
     if (src instanceof org.hl7.fhir.dstu2.model.Person)
       return convertPerson((org.hl7.fhir.dstu2.model.Person) src);
     if (src instanceof org.hl7.fhir.dstu2.model.Practitioner)
@@ -14267,10 +13838,6 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertProcedure((org.hl7.fhir.dstu2.model.Procedure) src);
     if (src instanceof org.hl7.fhir.dstu2.model.ProcedureRequest)
       return convertProcedureRequest((org.hl7.fhir.dstu2.model.ProcedureRequest) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.ProcessRequest)
-      return convertProcessRequest((org.hl7.fhir.dstu2.model.ProcessRequest) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.ProcessResponse)
-      return convertProcessResponse((org.hl7.fhir.dstu2.model.ProcessResponse) src);
     if (src instanceof org.hl7.fhir.dstu2.model.Provenance)
       return convertProvenance((org.hl7.fhir.dstu2.model.Provenance) src);
     if (src instanceof org.hl7.fhir.dstu2.model.Questionnaire)
@@ -14349,8 +13916,6 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertConformance((org.hl7.fhir.dstu3.model.Conformance) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Contract)
       return convertContract((org.hl7.fhir.dstu3.model.Contract) src);
-    if (src instanceof org.hl7.fhir.dstu3.model.Coverage)
-      return convertCoverage((org.hl7.fhir.dstu3.model.Coverage) src);
     if (src instanceof org.hl7.fhir.dstu3.model.DataElement)
       return convertDataElement((org.hl7.fhir.dstu3.model.DataElement) src);
     if (src instanceof org.hl7.fhir.dstu3.model.DetectedIssue)
@@ -14373,10 +13938,6 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertDocumentManifest((org.hl7.fhir.dstu3.model.DocumentManifest) src);
     if (src instanceof org.hl7.fhir.dstu3.model.DocumentReference)
       return convertDocumentReference((org.hl7.fhir.dstu3.model.DocumentReference) src);
-    if (src instanceof org.hl7.fhir.dstu3.model.EligibilityRequest)
-      return convertEligibilityRequest((org.hl7.fhir.dstu3.model.EligibilityRequest) src);
-    if (src instanceof org.hl7.fhir.dstu3.model.EligibilityResponse)
-      return convertEligibilityResponse((org.hl7.fhir.dstu3.model.EligibilityResponse) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Encounter)
       return convertEncounter((org.hl7.fhir.dstu3.model.Encounter) src);
     if (src instanceof org.hl7.fhir.dstu3.model.EnrollmentRequest)
@@ -14435,10 +13996,6 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertOrganization((org.hl7.fhir.dstu3.model.Organization) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Patient)
       return convertPatient((org.hl7.fhir.dstu3.model.Patient) src);
-    if (src instanceof org.hl7.fhir.dstu3.model.PaymentNotice)
-      return convertPaymentNotice((org.hl7.fhir.dstu3.model.PaymentNotice) src);
-    if (src instanceof org.hl7.fhir.dstu3.model.PaymentReconciliation)
-      return convertPaymentReconciliation((org.hl7.fhir.dstu3.model.PaymentReconciliation) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Person)
       return convertPerson((org.hl7.fhir.dstu3.model.Person) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Practitioner)
@@ -14447,10 +14004,6 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertProcedure((org.hl7.fhir.dstu3.model.Procedure) src);
     if (src instanceof org.hl7.fhir.dstu3.model.ProcedureRequest)
       return convertProcedureRequest((org.hl7.fhir.dstu3.model.ProcedureRequest) src);
-    if (src instanceof org.hl7.fhir.dstu3.model.ProcessRequest)
-      return convertProcessRequest((org.hl7.fhir.dstu3.model.ProcessRequest) src);
-    if (src instanceof org.hl7.fhir.dstu3.model.ProcessResponse)
-      return convertProcessResponse((org.hl7.fhir.dstu3.model.ProcessResponse) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Provenance)
       return convertProvenance((org.hl7.fhir.dstu3.model.Provenance) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Questionnaire)
