@@ -19,7 +19,7 @@ Value sets have 2 aspects:
 </ul>
 <p>
 The <code>ValueSet</code> resource can carry either the <code>.compose</code> or the <code>.expansion</code>,
-or both. There is an <a href="valueset-operations.html#expand">"$expand" operation</a> which can be used to ask a server to generation 
+or both. There is a <a href="valueset-operations.html#expand">"$expand" operation</a> which can be used to ask a server to generate
 an expansion given the composition rules. 
 </p>
 </div>
