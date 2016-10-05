@@ -6,9 +6,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Miller,Michelle M</LastAuthor>
+  <LastAuthor>Melva Peters</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-05-13T14:12:26Z</LastSaved>
+  <LastSaved>2016-10-05T20:30:52Z</LastSaved>
   <Version>15.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -17,9 +17,9 @@
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>16680</WindowHeight>
   <WindowWidth>28800</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>460</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <WindowTopX>-240</WindowTopX>
+  <WindowTopY>9760</WindowTopY>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1366,7 +1366,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">MedicationAdministration.wasNotGiven</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">MedicationAdministration.notGiven</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -3748,13 +3748,12 @@
    </Print>
    <Zoom>80</Zoom>
    <PageLayoutZoom>0</PageLayoutZoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>21</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>12</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3762,7 +3761,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3770,8 +3768,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>22</ActiveRow>
-     <ActiveCol>16</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3851,9 +3849,9 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Not given reason</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">MedicationAdministration</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Reason not given is only permitted if wasNotGiven is true</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">reasonNotGiven.empty() or wasNotGiven = true</Data></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(f:reasonNotGiven) and f:wasNotGiven/@value=false())</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Reason not given is only permitted if NotGiven is true</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">reasonNotGiven.empty() or notGiven = true</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(f:reasonNotGiven) and f:notGiven/@value=false())</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28">
     <Cell ss:StyleID="s107"><Data ss:Type="Number">3</Data><NamedCell
@@ -3861,9 +3859,9 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Given reason</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">MedicationAdministration</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Reason given is only permitted if wasNotGiven is false</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">reasonGiven.empty() or wasNotGiven.empty() or wasNotGiven = 'false'</Data></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(f:reasonGiven) and f:wasNotGiven/@value=true())</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Reason given is only permitted if NotGiven is false</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">reasonGiven.empty() or notGiven.empty() or notGiven = 'false'</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(f:reasonGiven) and f:notGiven/@value=true())</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s107"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4294,6 +4292,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4394,10 +4393,10 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">Return administrations of this medication code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"><Data ss:Type="String">wasnotgiven</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">not-given</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">MedicationAdministration.wasNotGiven</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">MedicationAdministration.notGiven</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">Administrations that were not made</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4422,7 +4421,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">MedicationAdministration event status (for example one of active/paused/completed/nullified)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s118"><Data ss:Type="String">effectivetime</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">effective-time</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">MedicationAdministration.effectiveTime[x]</Data></Cell>
@@ -4433,21 +4432,21 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">MedicationAdministration.performer</Data></Cell>
-    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">The identify of the individual who administered the medication</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">reason-given</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">MedicationAdministration.reasonGiven</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Reasons for administering the medication</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s118"><Data ss:Type="String">reason-not-given</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">MedicationAdministration.reasonNotGiven</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Reasons for not administering the medication</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"/>
@@ -4602,7 +4601,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
@@ -5251,6 +5250,12 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R2C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -5842,6 +5847,12 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
@@ -8140,6 +8151,12 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>

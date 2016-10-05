@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationadministration.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationadministration.xsd"
  xmlns="http://hl7.org/fhir"> 
   <id value="medadminexample03"/>
   <contained>
@@ -33,14 +33,6 @@
   <prescription>
     <reference value="MedicationOrder/medrx0317"/>
   </prescription>
-  <wasNotGiven value="true"></wasNotGiven>
-  <reasonNotGiven>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-      <code value="373147003"/>
-      <display value="Medication not administered because contraindicated"/>
-      </coding>
-  </reasonNotGiven>
   <note>
     <text value="Patient started Bupropion this morning - will administer in a reduced dose tomorrow"/>
   </note>

@@ -110,16 +110,16 @@
  -- Row 2 -----------------------------------
   Id = 2
   Context = MedicationAdministration
-  English = Reason not given is only permitted if wasNotGiven is true
-  XPath = not(exists(f:reasonNotGiven) and f:wasNotGiven/@value=false())
-  Expression = reasonNotGiven.empty() or wasNotGiven = true
+  English = Reason not given is only permitted if NotGiven is true
+  XPath = not(exists(f:reasonNotGiven) and f:notGiven/@value=false())
+  Expression = reasonNotGiven.empty() or notGiven = true
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = MedicationAdministration
-  English = Reason given is only permitted if wasNotGiven is false
-  XPath = not(exists(f:reasonGiven) and f:wasNotGiven/@value=true())
-  Expression = reasonGiven.empty() or wasNotGiven.empty() or wasNotGiven = \'false\'
+  English = Reason given is only permitted if NotGiven is false
+  XPath = not(exists(f:reasonGiven) and f:notGiven/@value=true())
+  Expression = reasonGiven.empty() or notGiven.empty() or notGiven = \'false\'
 
 === Sheet Data Elements =====================================
 
@@ -220,7 +220,7 @@
   RIM Mapping = InFullfillmentOf->SubstanceAdministration
 
  -- Row 10 -----------------------------------
-  Element = MedicationAdministration.wasNotGiven
+  Element = MedicationAdministration.notGiven
   Card. = 0..1
   Is Modifier = Y
   Summary = y
@@ -378,10 +378,10 @@
   Path = MedicationAdministration.medicationCodeableConcept
 
  -- Row 6 -----------------------------------
-  Name = wasnotgiven
+  Name = not-given
   Type = token
   Description = Administrations that were not made
-  Path = MedicationAdministration.wasNotGiven
+  Path = MedicationAdministration.notGiven
 
  -- Row 7 -----------------------------------
   Name = patient
@@ -402,7 +402,7 @@
   Path = MedicationAdministration.status
 
  -- Row 10 -----------------------------------
-  Name = effectivetime
+  Name = effective-time
   Type = date
   Description = Date administration happened (or did not happen)
   Path = MedicationAdministration.effectiveTime[x]
@@ -410,7 +410,20 @@
  -- Row 11 -----------------------------------
   Name = performer
   Type = reference
+  Description = The identify of the individual who administered the medication
   Path = MedicationAdministration.performer
+
+ -- Row 12 -----------------------------------
+  Name = reason-given
+  Type = token
+  Description = Reasons for administering the medication
+  Path = MedicationAdministration.reasonGiven
+
+ -- Row 13 -----------------------------------
+  Name = reason-not-given
+  Type = token
+  Description = Reasons for not administering the medication
+  Path = MedicationAdministration.reasonNotGiven
 
 === Sheet Profiles =====================================
 
