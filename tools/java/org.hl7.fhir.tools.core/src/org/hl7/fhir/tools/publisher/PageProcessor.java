@@ -680,7 +680,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("example")) { 
         String[] parts = com[1].split("\\/");
         Example e = findExample(parts[0], parts[1]);
-        src = s1+genExample(e, genlevel(level))+s3;
+        src = s1+genExample(e, com.length > 2 ? Integer.parseInt(com[2]) : 0, genlevel(level))+s3;
       } else if (com[0].equals("diff-analysis")) { 
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();
@@ -1074,14 +1074,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return null;
   }
 
-  private String genExample(Example example, String genlevel) throws IOException, EOperationOutcome, FHIRException {
+  private String genExample(Example example, int headerLevelContext, String genlevel) throws IOException, EOperationOutcome, FHIRException {
     String xml = XMLUtil.elementToString(example.getXml().getDocumentElement());
     Resource res = new XmlParser().parse(xml);
     if (!(res instanceof DomainResource))
       return "";
     DomainResource dr = (DomainResource) res;
     if (!dr.hasText() || !dr.getText().hasDiv())
-      new NarrativeGenerator("", "", workerContext, this).generate(dr);
+      new NarrativeGenerator("", "", workerContext, this).setHeaderLevelContext(headerLevelContext).generate(dr);
     return new XhtmlComposer().compose(dr.getText().getDiv());
   }
 
@@ -4345,7 +4345,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("example")) { 
         String[] parts = com[1].split("\\/");
         Example e = findExample(parts[0], parts[1]);
-        src = s1+genExample(e, genlevel(level))+s3;
+        src = s1+genExample(e, 0, genlevel(level))+s3;
       } else if (com[0].equals("extension-diff")) {
         StructureDefinition ed = workerContext.getExtensionDefinitions().get(com[1]);
         src = s1+generateExtensionTable(ed, "extension-"+com[1], "false", genlevel(level))+s3;

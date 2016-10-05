@@ -43,7 +43,7 @@
   Id = 4
   Code = transaction-response
   Display = Transaction Response
-  Definition = The bundle is a transaction response. Because the response is a transaction response, the transactionhas succeeded, and all responses are error free.
+  Definition = The bundle is a transaction response. Because the response is a transaction response, the transaction has succeeded, and all responses are error free.
 
  -- Row 5 -----------------------------------
   Id = 8

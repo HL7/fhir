@@ -772,6 +772,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private String tooCostlyNoteEmpty;
   private String tooCostlyNoteNotEmpty;
   private IReferenceResolver resolver;
+  private int headerLevelContext;
 
   public NarrativeGenerator(String prefix, String basePath, IWorkerContext context) {
     super();
@@ -788,6 +789,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
     this.resolver = resolver;
   }
 
+
+  public int getHeaderLevelContext() {
+    return headerLevelContext;
+  }
+
+  public NarrativeGenerator setHeaderLevelContext(int headerLevelContext) {
+    this.headerLevelContext = headerLevelContext;
+    return this;
+  }
 
   public String getTooCostlyNoteEmpty() {
     return tooCostlyNoteEmpty;
@@ -910,7 +920,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
                     }
                   }
                 } else if (canDoTable(path, p, grandChildren)) {
-                  x.addTag("h3").addText(Utilities.capitalize(Utilities.camelCase(Utilities.pluralizeMe(p.getName()))));
+                  x.addTag(getHeader()).addText(Utilities.capitalize(Utilities.camelCase(Utilities.pluralizeMe(p.getName()))));
                   XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
                   XhtmlNode tr = tbl.addTag("tr");
                   tr.addTag("td").addText("-"); // work around problem with empty table rows
@@ -937,6 +947,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
         }
       }
     }
+  }
+
+  private String getHeader() {
+    int i = 3;
+    while (i <= headerLevelContext)
+      i++;
+    if (i > 6)
+      i = 6;
+    return "h"+Integer.toString(i);
   }
 
   private void filterGrandChildren(List<ElementDefinition> grandChildren,  String string, PropertyWrapper prop) {
@@ -2384,7 +2403,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 //    }
 
     if (header) {
-      XhtmlNode h = x.addTag("h3");
+      XhtmlNode h = x.addTag(getHeader());
       h.addText("Value Set Contents");
       if (IsNotFixedExpansion(vs))
         addMarkdown(x, vs.getDescription());
