@@ -44,7 +44,7 @@ resources, and provide background knowledge that is in many contexts, including
 In addition to <code>ConceptMap</code>, there is also the <a href="structuremap.html">StructureMap</a>
 resource. The ConceptMap resource defines relationships between concepts in their own right,
 along with grading of their equivalencies, while the StructureMap defines an exectuable 
-transform for instancss that conform to a known structure.
+transform for instances that conform to a known structure.
 </p>
 </div>
 
