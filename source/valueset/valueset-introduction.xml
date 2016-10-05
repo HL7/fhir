@@ -14,7 +14,7 @@ The FHIR terminology specification is based two key concepts, originally defined
 Value sets have 2 aspects:
 </p>
 <ul>
- <li><code>.compose</code>: A definition of what codes are in intended to be in the value set ("intension")</li>
+ <li><code>.compose</code>: A definition of which codes are intended to be in the value set ("intension")</li>
  <li><code>.expansion</code>: The list of codes that are actually in the value set under a given set of conditions ("extension")</li>
 </ul>
 <p>
