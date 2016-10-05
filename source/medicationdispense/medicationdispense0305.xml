@@ -176,14 +176,6 @@
             <code value="TAB"/> 
         </doseQuantity>
     </dosageInstruction>
-    <eventHistory>
-        <status value="completed"></status>
-        <dateTime value="2015-01-15T16:20:00Z"/>
-    </eventHistory>
-    <eventHistory>
-        <status value="in-progress"></status>
-        <dateTime value="2015-01-15T16:20:00Z"/>
-    </eventHistory>
 </MedicationDispense>
 
 

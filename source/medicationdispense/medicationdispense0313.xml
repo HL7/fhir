@@ -132,10 +132,6 @@
             </denominator>
         </rateRatio>
     </dosageInstruction>
-    <eventHistory>
-        <status value="completed"></status>
-        <dateTime value="2016-04-28T07:13:00+05:00"></dateTime>
-    </eventHistory>
 </MedicationDispense>
 
 

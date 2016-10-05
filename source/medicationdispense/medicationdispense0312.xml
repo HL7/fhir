@@ -93,10 +93,6 @@
             </high>
         </doseRange>
     </dosageInstruction>
-    <eventHistory>
-        <status value="completed"></status>
-        <dateTime value="2015-01-15T16:20:00Z"></dateTime>
-    </eventHistory>
 </MedicationDispense>
 
 

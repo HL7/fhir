@@ -120,12 +120,4 @@
             </coding>
         </reason>
     </substitution>
-    <eventHistory>
-        <status value="stopped"/>
-        <dateTime value="2016-04-01"/>
-        <actor>
-            <reference value="Practitioner/f007"/>
-            <display value="Patrick Pump"/>
-        </actor>
-    </eventHistory>
 </MedicationOrder>

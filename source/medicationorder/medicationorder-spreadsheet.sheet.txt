@@ -522,59 +522,10 @@
  -- Row 35 -----------------------------------
   Element = MedicationOrder.eventHistory
   Card. = 0..*
-  UML = 450;280
+  Type = Reference(Provenance)
   Short Label = A list of events of interest in the lifecycle
-  Definition = A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed
-  Comments = This is not the same as an audit trail. It is a view of the important things that happened in the past. Typically, there would only be one entry for any given status, and systems may not record all the status events
-  SCRIPT 10.6 Mapping = not mapped
-  RIM Mapping = not mapped
-
- -- Row 36 -----------------------------------
-  Element = MedicationOrder.eventHistory.status
-  Card. = 1..1
-  Type = code
-  Binding = MedicationOrderStatus
-  Short Label = active | on-hold | completed | entered-in-error | stopped | draft
-  Definition = The status for the event
-  SCRIPT 10.6 Mapping = not mapped
-  RIM Mapping = not mapped
-
- -- Row 37 -----------------------------------
-  Element = MedicationOrder.eventHistory.action
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = MedicationOrderAction
-  Short Label = Action taken (e.g. verify, discontinue)
-  Definition = The action that was taken (e.g. verify, discontinue)
-  SCRIPT 10.6 Mapping = not mapped
-  RIM Mapping = not mapped
-
- -- Row 38 -----------------------------------
-  Element = MedicationOrder.eventHistory.dateTime
-  Card. = 1..1
-  Type = dateTime
-  Short Label = The date at which the event happened
-  Definition = The date/time at which the event occurred
-  SCRIPT 10.6 Mapping = not mapped
-  RIM Mapping = not mapped
-
- -- Row 39 -----------------------------------
-  Element = MedicationOrder.eventHistory.actor
-  Card. = 0..1
-  Type = Reference(Practitioner)
-  Short Label = Who took the action
-  Definition = The person responsible for taking the action
-  SCRIPT 10.6 Mapping = not mapped
-  RIM Mapping = not mapped
-
- -- Row 40 -----------------------------------
-  Element = MedicationOrder.eventHistory.reason
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = MedicationOrderActionReason
-  Short Label = Reason the action was taken
-  Definition = The reason why the action was taken
-  RIM Mapping = not mapped
+  Definition = A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.
+  Comments = See usage notes in Request pattern in request history
 
 === Sheet Search =====================================
 
