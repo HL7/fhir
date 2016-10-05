@@ -5,12 +5,12 @@
  <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the coverage</div>
-  </text>
+ </text>
 
  <status value="active"/>
  
  <issuer>
-  <reference value="Organization/2"/>
+   <reference value="Organization/2"/>
  </issuer>
  
  <period> 
@@ -19,39 +19,66 @@
  </period>
 
  <type>
-      <system value="http://hl7.org/fhir/v3/ActCode"/>
-      <code value="EHCPOL"/>
-      <display value="extended healthcare"/>
+   <system value="http://hl7.org/fhir/v3/ActCode"/>
+   <code value="EHCPOL"/>
+   <display value="extended healthcare"/>
  </type>
  
  <planholder>
-	<reference value="Patient/4"/>
+   <reference value="Patient/4"/>
  </planholder>
  
  <beneficiary>
-	<reference value="Patient/4"/>
+   <reference value="Patient/4"/>
  </beneficiary>
  
  <relationship>
-      <code value="self"/>
+   <code value="self"/>
  </relationship>
  
  <identifier>
-    <system value="http://benefitsinc.com/certificate"/>
-    <value value="12345"/>
+   <system value="http://benefitsinc.com/certificate"/>
+   <value value="12345"/>
  </identifier>
  
  <level>
-     <system value="http://benefitsinc.com/plan" />
-	 <code value="CBI35" />
-	 <display value="Corporate Baker's Inc. Plan#35" />
+   <system value="http://benefitsinc.com/plan" />
+   <code value="CBI35" />
+   <display value="Corporate Baker's Inc. Plan#35" />
  </level>
 
  <level>
-     <system value="http://benefitsinc.com/subplan" />
-	 <code value="123" />
-	 <display value="Trainee Part-time Benefits" />
+   <system value="http://benefitsinc.com/subplan" />
+   <code value="123" />
+   <display value="Trainee Part-time Benefits" />
  </level>
+ 
+ <!-- or
+ <level>
+   <type>
+     <system value="http://hl7.org/fhir/coverage-level"/>
+	 <code value="plan"/>
+   </type>
+   <value value="CBI35"/>
+   <display value="Corporate Baker's Inc. Plan#35"/>
+ </level>
+
+ <level>
+   <type>
+     <system value="http://hl7.org/fhir/coverage-level"/>
+	 <code value="subplan"/>
+   </type>
+   <value value="123"/>
+   <display value="Trainee Part-time Benefits"/>
+ </level>
+ 
+  or
+  <plan value="CBI35"/>
+  <planDisplay value="Corporate Baker's Inc. Plan#35"/>
+  
+  <subplan value="123"/>
+  <subplanDisplay value="Trainee Part-time Benefits"/>
+ -->
  
  <dependent value="1"/>
  

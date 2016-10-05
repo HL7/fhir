@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Coverage xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
+ <id value="7547E"/>
+
+ <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the European Health Insurance Card</div>
+  </text>
+
+ <status value="active"/>
+  
+ <issuer>
+	<identifier>
+	  <system value="http://ehic.com/insurer"/>
+	  <value value="123456789"/>
+	</identifier>
+ </issuer>
+ 
+ <period> 
+   <end value="2012-03-17"/>
+ </period>
+
+ <type>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="EHCPOL"/>
+      <display value="extended healthcare"/>
+ </type>
+
+ <planholder>
+	<reference value="Patient/5"/>
+ </planholder>
+ 
+ <beneficiary>
+	<reference value="Patient/5"/>
+ </beneficiary>
+ 
+ <relationship>
+      <code value="self"/>
+ </relationship>
+
+  <identifier>
+    <system value="http://ehic.com/insurer/123456789/member"/>
+    <value value="A123456780"/>
+  </identifier>
+ 
+  <!-- <cardNumber value="75837593758377562475"/> Required? -->
+  
+</Coverage>

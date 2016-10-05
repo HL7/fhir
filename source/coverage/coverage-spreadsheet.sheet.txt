@@ -443,4 +443,10 @@
   Description = General Person Secondary Coverage Example
   Filename = coverage-example-2.xml
 
+ -- Row 3 -----------------------------------
+  Name = General-EHIC
+  Identity = 7547E
+  Description = European Health Insurance Card
+  Filename = coverage-example-ehic.xml
+
 === Sheet Examples =====================================
