@@ -93,7 +93,7 @@
     <Cell><Data ss:Type="String">boolean</Data><NamedCell ss:Name="boolean"/></Cell>
     <Cell><Data ss:Type="String">Value of &quot;true&quot; or &quot;false&quot;</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">boolean</Data></Cell>
-    <Cell><Data ss:Type="String">true | false</Data></Cell>
+    <Cell><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">BL</Data></Cell>
     <Cell><Data ss:Type="String">n/a</Data></Cell>
    </Row>
