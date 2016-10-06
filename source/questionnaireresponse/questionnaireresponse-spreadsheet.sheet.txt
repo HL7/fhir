@@ -337,7 +337,7 @@
  -- Row 4 -----------------------------------
   Name = Glasgow Coma Score
   Identity = gcs
-  Description = Glasgow Coma Score example asnswers
+  Description = Glasgow Coma Score example answers
   Filename = questionnaireresponse-example-gcs.xml
 
 === Sheet Examples =====================================

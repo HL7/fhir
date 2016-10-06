@@ -13,7 +13,7 @@
     </coding>
     <coding>
       <system value="http://hl7.org/fhir/condition-category"/>
-      <code value="finding"/>
+      <code value="problem-list-item"/>
     </coding>
   </category>
   <severity>

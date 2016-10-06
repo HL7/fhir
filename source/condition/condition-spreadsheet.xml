@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>763</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1151,7 +1151,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Condition.category</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">CodeableConcept</Data><NamedCell
@@ -1166,7 +1166,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">complaint | symptom | finding | diagnosis</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">problem-list-item | encounter-diagnosis</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A category assigned to the condition.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3696,11 +3696,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>3</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3713,11 +3712,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6279,7 +6279,7 @@
     <Cell ss:StyleID="s149"><Data ss:Type="String">ConditionCategory</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A category assigned to the condition.</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">valueset-condition-category</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
@@ -6695,6 +6695,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6714,8 +6715,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

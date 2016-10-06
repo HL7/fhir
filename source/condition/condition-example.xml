@@ -9,8 +9,8 @@
   <category>
     <coding>
       <system value="http://hl7.org/fhir/condition-category"/>
-      <code value="diagnosis"/>
-      <display value="Diagnosis"/>
+      <code value="encounter-diagnosis"/>
+      <display value="Encounter Diagnosis"/>
     </coding>
     <!-- and also a SNOMED CT coding -->
     <coding>

@@ -13,7 +13,7 @@
   Binding = value set
   Reference = valueset-condition-category
   Definition = A category assigned to the condition.
-  Conformance = preferred
+  Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = ConditionClinicalStatus
@@ -171,10 +171,10 @@
 
  -- Row 5 -----------------------------------
   Element = Condition.category
-  Card. = 0..1
+  Card. = 0..*
   Type = CodeableConcept
   Binding = ConditionCategory
-  Short Label = complaint | symptom | finding | diagnosis
+  Short Label = problem-list-item | encounter-diagnosis
   Definition = A category assigned to the condition.
   Comments = The categorization is often highly contextual and may appear poorly differentiated or not very useful in other contexts
   v2 Mapping = \'problem\' if from PRB-3. \'diagnosis\' if from DG1 segment in PV1 message

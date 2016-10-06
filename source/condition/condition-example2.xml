@@ -3,15 +3,15 @@
   <id value="example2"/>
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">Mild Asthma (Date: 21-Nov 2012)</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">Mild Asthma (Date: 12-Nov 2012)</div>
   </text>
   <clinicalStatus value="active"/>
   <verificationStatus value="confirmed"/>
   <category>
     <coding>
       <system value="http://hl7.org/fhir/condition-category"/>
-      <code value="finding"/>
-      <display value="Finding"/>
+      <code value="problem-list-item"/>
+      <display value="Problem List Item"/>
     </coding>
   </category>
   <severity>
