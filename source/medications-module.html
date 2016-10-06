@@ -99,7 +99,7 @@ This module is concerned with resources and functionality in 2 main domains:
 <a name="uses"> </a>
 <h3>Common Use Cases</h3>
 <ul>
-	<li>Placing a medication Order (aka Prescription). The MedicationOrder resource represents the details of
+	<li>Placing a Medication Order (aka Prescription). The MedicationOrder resource represents the details of
 		what medication the prescriber intends the patient to receive and other details such as the dose, timing and route.
 		However, while it represents that order, the actual workflow around the supply (dispensing) and administration
 		of that medication is
@@ -109,7 +109,7 @@ This module is concerned with resources and functionality in 2 main domains:
 	<li>Listing a patients current medications. This is represented using the <a href="list.html">List</a> resource, which allows an author
 		to construct a 'curated' list. This has features beyond a simple collection of resources - such as the ability
 		to state that the patient is not currently taking any medications at the time that the list is constructed,
-		or changes that are made at a point in time (sometimes called medicine reconciliation). FHIR defines a number of specific
+		or changes that are made at a point in time (sometimes called medication reconciliation). FHIR defines a number of specific
 		<a href="lifecycle.html#lists">functional lists</a> for this purpose, and a specific
 		<a href="list-operations.html#find">operation</a> to retrieve it. Note that FHIR does not describe how the
 		list should be maintained by the individual system, as that will vary widely between implementations.
@@ -123,8 +123,9 @@ This module is concerned with resources and functionality in 2 main domains:
 		would be represented by an ImmunizationRecommendation resource, but the determination of that recommendation is a
 		part of <a href="clinicalreasoning-module.html">Decision Support</a>, with the actual immunization schedule being represented by a generic
 		<a href="plandefinition.html">Plan Definition</a>, individual <a href="careplan.html">Care Plan</a> or some other record.
-
 	</li>
+	<li>Dispensing a medication based on a Medication Order (aka Prescription).  The MedicationDispense resource represents the details of the dispensing event including the actual product provided to the patient and the dosage to be administered or consumed.</li>
+	<li>Retrieving the planned medication therapy for specific patient at a poin in time.  The intended medication therapy may be represented by an individual <a href="careplan.html">Care Plan</a>. </li>
 
 
 </ul>
@@ -151,14 +152,6 @@ This module is concerned with resources and functionality in 2 main domains:
 
 <p>For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.</p>
 
-
-
-
-<h3>Correcting errors</h3>
-
-<p>
-In this section: common problems in the space of the module, ways to go about solving them, or references to additional problem based links
-</p>
 
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>
