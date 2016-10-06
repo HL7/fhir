@@ -232,14 +232,14 @@
  -- Row 7 -----------------------------------
   Element = MedicationStatement.informationSource
   Card. = 0..1
-  Type = Reference(Patient | Practitioner | RelatedPerson)
-  Short Label = Person who provided the information about the taking of this medication
-  Definition = The person who provided the information about the taking of this medication.  Note:  A MedicationStatement may be derived from supportingInformation e.g claims or medicationOrder.
+  Type = Reference(Patient | Practitioner | RelatedPerson |Organization)
+  Short Label = Person or organization that provided the information about the taking of this medication
+  Definition = The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.
   RIM Mapping = .participation[typeCode=INF].role[classCode=PAT, or  codes for Practioner or Related Person (if PAT is the informer, then syntax for self-reported =true)
   w5 = who.source
 
  -- Row 8 -----------------------------------
-  Element = MedicationStatement.supportingInformation
+  Element = MedicationStatement.derivedFrom
   Card. = 0..*
   Type = Reference(Any)
   Short Label = Additional supporting information
@@ -449,7 +449,7 @@
  -- Row 7 -----------------------------------
   Name = source
   Type = reference
-  Description = Who the information in the statement came from
+  Description = Who or where the information in the statement came from
   Path = MedicationStatement.informationSource
 
 === Sheet Profiles =====================================
