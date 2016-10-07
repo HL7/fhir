@@ -40,6 +40,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
@@ -64,7 +65,7 @@ public class JsonGenerator  {
 	public JsonGenerator(Definitions definitions, BuildWorkerContext workerContext, List<TypeRef> types) throws UnsupportedEncodingException {
 		this.definitions = definitions;
 		this.workerContext = workerContext;
-    datatypes.addAll(types);
+		datatypes.addAll(types);
 	}
   
 	public JsonObject generate(ElementDefn root, String version, String genDate, JsonObject mainSchema) throws Exception {
@@ -72,17 +73,18 @@ public class JsonGenerator  {
 		enumDefs.clear();
 
 		JsonObject schema = mainSchema;
-    JsonObject definitions;
+		JsonObject definitions;
+		
 		if (schema == null) {
-		  schema = new JsonObject();
-		  schema.addProperty("$schema", "http://json-schema.org/draft-04/schema#");
-		  schema.addProperty("id", "http://hl7.org/fhir/json-schema/"+root.getName());
-		  schema.addProperty("$ref", "#/definitions/"+root.getName());
-		  schema.addProperty("description", "see http://hl7.org/fhir/json.html#schema for information about the FHIR Json Schemas");
-      definitions = new JsonObject();
-		  schema.add("definitions", definitions);
+			schema = new JsonObject();
+			schema.addProperty("$schema", "http://json-schema.org/draft-04/schema#");
+			schema.addProperty("id", "http://hl7.org/fhir/json-schema/"+root.getName());
+			schema.addProperty("$ref", "#/definitions/"+root.getName().replace(".",  "_"));
+			schema.addProperty("description", "see http://hl7.org/fhir/json.html#schema for information about the FHIR Json Schemas");
+			definitions = new JsonObject();
+			schema.add("definitions", definitions);
 		} else 
-		  definitions = schema.getAsJsonObject("definitions");
+			definitions = schema.getAsJsonObject("definitions");
     
 		scanTypes(root, root);
 		
@@ -98,12 +100,21 @@ public class JsonGenerator  {
     String parent = isResource ? root.typeCode() : "BackboneElement"; 
 
     JsonObject r = new JsonObject();
+	
+	name = name.replace(".",  "_");
     base.add(name, r);
+	
     JsonArray ao = new JsonArray();
     r.add("allOf", ao);
-    JsonObject sup = new JsonObject();
-    ao.add(sup);
-    sup.addProperty("$ref", (relative ? "#" : parent+".schema.json") +"/definitions/"+parent);
+	// If a root element, do not include reference
+	if(!name.equals("Element")) {
+		JsonObject sup = new JsonObject();
+		ao.add(sup);
+		// The Element is Type, Structure or blank, then it is Element
+		if( (parent == null) || (parent.isEmpty()) || (parent.equals("Type")) || (parent.equals("Structure")))
+			parent="Element";
+		sup.addProperty("$ref", (relative ? "#" : parent.replace(".",  "_")+".schema.json#") +"/definitions/"+parent.replace(".",  "_"));
+	}
     JsonObject self = new JsonObject();
     ao.add(self);
     self.addProperty("description", root.getDefinition());
@@ -140,35 +151,34 @@ public class JsonGenerator  {
 
 	private void generateAny(ElementDefn root, ElementDefn e, String prefix, JsonObject props, boolean relative) throws Exception {
 		for (TypeRef t : datatypes) {
-      JsonObject property = new JsonObject();
-      JsonObject property_ = null;
-      String en = e.getName().replace("[x]",  "");
-      props.add(en+upFirst(t.getName()), property);
-      property.addProperty("description", e.getDefinition());
-      String tref = null;
-      String type = null;
-      String pattern = null;
-      if (definitions.getPrimitives().containsKey(t.getName())) {
-        DefinedCode def = definitions.getPrimitives().get(t.getName());
-        type = def.getJsonType();
-        pattern = def.getRegex();
-        if (!Utilities.noString(pattern))
-          property.addProperty("pattern", pattern);
-        property.addProperty("type", type);
-        property_ = new JsonObject();
-        props.add(en+upFirst(t.getName())+"_", property_);
-        property_.addProperty("description", "Extensions for "+en+upFirst(t.getName()));
-        tref = (relative ? "#" : "Element.schema.json") +"/definitions/Element";
-        property_.addProperty("$ref", tref);
-      } else {
-        String tn = encodeType(e, t, true);
-        tref = (relative ? "#" : tn+".schema.json") +"/definitions/"+tn;
-        property.addProperty("$ref", tref);
-      }
+			JsonObject property = new JsonObject();
+			JsonObject property_ = null;
+			String en = e.getName().replace("[x]",  "");
+			props.add(en+upFirst(t.getName()), property);
+			property.addProperty("description", e.getDefinition());
+			String tref = null;
+			String type = null;
+			String pattern = null;
+			if (definitions.getPrimitives().containsKey(t.getName())) {
+				DefinedCode def = definitions.getPrimitives().get(t.getName());
+				type = def.getJsonType();
+				pattern = def.getRegex();
+				if (!Utilities.noString(pattern))
+					property.addProperty("pattern", pattern);
+				
+				property.addProperty("type", type);
+				property_ = new JsonObject();
+				props.add("_"+en+upFirst(t.getName()), property_);
+				property_.addProperty("description", "Extensions for "+en+upFirst(t.getName()));
+				tref = (relative ? "#" : "Element.schema.json#") +"/definitions/Element";
+				property_.addProperty("$ref", tref);
+			} else {
+				String tn = encodeType(e, t, true);
+				tref = (relative ? "#" : tn.replace(".",  "_")+".schema.json#") +"/definitions/"+tn.replace(".",  "_");
+				property.addProperty("$ref", tref);
+			}
 		}
 	}
-
-
 
 	private void generateElement(ElementDefn root, ElementDefn e, Set<String> required, JsonObject props, boolean relative) throws Exception {
 		if (e.getTypes().size() > 1 || (e.getTypes().size() == 1 && e.getTypes().get(0).isWildcardType())) {
@@ -178,103 +188,119 @@ public class JsonGenerator  {
 				generateAny(root, e, e.getName().replace("[x]", ""), props, relative);
 			else {
 				for (TypeRef t : e.getTypes()) {
-	        JsonObject property = new JsonObject();
-	        JsonObject property_ = null;
-	        String en = e.getName().replace("[x]",  "");
-	        props.add(en+upFirst(t.getName()), property);
-	        property.addProperty("description", e.getDefinition());
-	        String tref = null;
-	        String type = null;
-	        String pattern = null;
-	        if (definitions.getPrimitives().containsKey(t.getName())) {
-	          DefinedCode def = definitions.getPrimitives().get(t.getName());
-	          type = def.getJsonType();
-	          pattern = def.getRegex();
-            if (!Utilities.noString(pattern))
-              property.addProperty("pattern", pattern);
-            property.addProperty("type", type);
-	          property_ = new JsonObject();
-	          props.add(en+upFirst(t.getName())+"_", property_);
-	          property_.addProperty("description", "Extensions for "+en+upFirst(t.getName()));
-	          tref = (relative ? "#" : "Element.schema.json") +"/definitions/Element";
-            property_.addProperty("$ref", tref);
-	        } else {
-	          String tn = encodeType(e, t, true);
-	          tref = (relative ? "#" : tn+".schema.json") +"/definitions/"+tn;
-            property.addProperty("$ref", tref);
-	        }
-	      }
+					JsonObject property = new JsonObject();
+					JsonObject property_ = null;
+					String en = e.getName().replace("[x]",  "");
+					props.add(en+upFirst(t.getName()), property);
+					property.addProperty("description", e.getDefinition());
+					String tref = null;
+					String type = null;
+					String pattern = null;
+					if (definitions.getPrimitives().containsKey(t.getName())) {
+						DefinedCode def = definitions.getPrimitives().get(t.getName());
+						type = def.getJsonType();
+						pattern = def.getRegex();
+						if (!Utilities.noString(pattern))
+							property.addProperty("pattern", pattern);
+						
+						property.addProperty("type", type);
+						property_ = new JsonObject();
+						props.add("_"+en+upFirst(t.getName()), property_);
+						property_.addProperty("description", "Extensions for "+en+upFirst(t.getName()));
+						tref = (relative ? "#" : "Element.schema.json#") +"/definitions/Element";
+						property_.addProperty("$ref", tref);
+					} else {
+						String tn = encodeType(e, t, true);
+						tref = (relative ? "#" : tn.replace(".",  "_")+".schema.json#") +"/definitions/"+tn.replace(".",  "_");
+						property.addProperty("$ref", tref);
+					}
+				}
 			}
 		} else {
-      JsonObject property = new JsonObject();
-      JsonObject property_ = null;
-	    props.add(e.getName(), property);
-	    property.addProperty("description", e.getDefinition());
-      String tref = null;
-      String type = null;
-      String pattern = null;
+			JsonObject property = new JsonObject();
+			JsonObject property_ = null;
+			props.add(e.getName(), property);
+			property.addProperty("description", e.getDefinition());
+			String tref = null;
+			String type = null;
+			String pattern = null;
 
 			if (e.usesCompositeType()/* && types.containsKey(root.getElementByName(e.typeCode().substring(1)))*/) {
 				ElementDefn ref = root.getElementByName(definitions, e.typeCode().substring(1), true, false);
 				String rtn = types.get(ref);
 				if (rtn == null)
-				  throw new Exception("logic error in schema generator (null composite reference in "+types.toString()+")");
-				tref = "#/definitions/"+rtn;
+					throw new Exception("logic error in schema generator (null composite reference in "+types.toString()+")");
+				
+				if(rtn == "Type")
+					rtn = "Element";
+				type=rtn;
+				tref = "#/definitions/"+rtn.replace(".",  "_");
 			} else if (e.getTypes().size() == 0 && e.getElements().size() > 0){
-			  tref = "#/definitions/"+types.get(e);
+				tref = "#/definitions/"+types.get(e).replace(".",  "_");
+				type=types.get(e).replace(".",  "_");
 			}	else if (e.getTypes().size() == 1) {
-			  if (definitions.getPrimitives().containsKey(e.typeCode())) {
-			    DefinedCode def = definitions.getPrimitives().get(e.typeCode());
-			    type = def.getJsonType();
-   	      pattern = def.getRegex();
-		      property_ = new JsonObject();
-		      props.add(e.getName()+"_", property_);
-		      property_.addProperty("description", "Extensions for "+e.getName());
-			    tref = (relative ? "#" : "Element.schema.json") +"/definitions/Element";
-			    if (e.getBinding() != null) {
-			      ValueSet vs = enums.get(e.getBinding().getName());
-			      if (vs!= null) {
-			        ValueSet ex = workerContext.expandVS(vs, true, false).getValueset();
-			        JsonArray enums = new JsonArray();
-			        for (ValueSetExpansionContainsComponent cc : ex.getExpansion().getContains()) {
-			          enums.add(new JsonPrimitive(cc.getCode()));
-			        }
-			        property.add("enum", enums);
-			        pattern = null;
-			      }
-			    } 
-			  } else {
-	        String tn = encodeType(e, e.getTypes().get(0), true);
-          tref = (relative ? "#" : tn+".schema.json") +"/definitions/"+tn;
-			  }
+					String tn = encodeType(e, e.getTypes().get(0), true); 
+					type=tn;
+					if (definitions.getPrimitives().containsKey(e.typeCode())) {
+						DefinedCode def = definitions.getPrimitives().get(e.typeCode());
+						type = def.getJsonType();
+						pattern = def.getRegex();
+						property_ = new JsonObject();
+						props.add("_"+e.getName(), property_);
+						property_.addProperty("description", "Extensions for "+e.getName());
+						tref = (relative ? "#" : "Element.schema.json#") +"/definitions/Element";
+						BindingSpecification cd = e.getBinding();
+							
+						if (cd != null && (cd.getBinding() == BindingSpecification.BindingMethod.CodeList)) {
+							ValueSet vs = cd.getValueSet();
+							if (vs!= null) {
+								ValueSet ex = workerContext.expandVS(vs, true, false).getValueset();
+								JsonArray enums = new JsonArray();
+								for (ValueSetExpansionContainsComponent cc : ex.getExpansion().getContains()) {
+									enums.add(new JsonPrimitive(cc.getCode()));
+								}
+								property.add("enum", enums);
+								pattern = null;
+							}
+						}
+					} else {
+						tref = (relative ? "#" : tn.replace(".",  "_")+".schema.json#") +"/definitions/"+tn.replace(".",  "_");
+					}
 			} else
 				throw new Exception("how do we get here? "+e.getName()+" in "+root.getName()+" "+Integer.toString(e.getTypes().size()));
 
-      if (e.unbounded()) {
-        property.addProperty("type", "array");
-        if (property_ != null) {
-          JsonObject items = new JsonObject();
-          property.add("items", items);
-          items.addProperty("type", type);
-          if (!Utilities.noString(pattern))
-            items.addProperty("pattern", pattern);
-          items = new JsonObject();
-          property_.add("items", items);
-          items.addProperty("$ref", tref);
-        } else { 
-          JsonObject items = new JsonObject();
-          property.add("items", items);
-          items.addProperty("$ref", tref);
-        }
-      } else {
-        if (property_ != null) {
-          property.addProperty("type", type);
-          if (!Utilities.noString(pattern))
-            property.addProperty("pattern", pattern);
-          property_.addProperty("$ref", tref);
-        } else
-        property.addProperty("$ref", tref);
-      }
+			if (e.unbounded()) {
+				property.addProperty("type", "array");
+				if (property_ != null) {
+					property_.addProperty("type", "array");
+					JsonObject items = new JsonObject();
+					property.add("items", items);
+					items.addProperty("type", type);
+					if (!Utilities.noString(pattern))
+						items.addProperty("pattern", pattern);
+
+					items = new JsonObject();
+					property_.add("items", items);
+					items.addProperty("$ref", tref);
+				} else { 
+					JsonObject items = new JsonObject();
+					property.add("items", items);
+					items.addProperty("$ref", tref);
+				}
+			} else {
+				if (property_ != null) {
+					property.addProperty("type", type);
+					if (!Utilities.noString(pattern))
+						property.addProperty("pattern", pattern);
+					
+					property_.addProperty("$ref", tref);
+				} else if("div".equals(e.getName()) && "xhtml".equals(type)) {
+					// Is there a better type, or ref for html?
+					property.addProperty("type", "string");
+				} else {
+					property.addProperty("$ref", tref);
+				}
+			}
 			if (e.getMinCardinality() > 0 && property_ == null)
 			  required.add(e.getName());
 		}
@@ -328,7 +354,11 @@ public class JsonGenerator  {
 
 		} else if (!type.hasParams() || !params) {
 			if (type.getName().equals("Resource"))
-			  return "ResourceContainer";
+			  return "ResourceList";
+			else if (definitions.getConstraints().containsKey(type.getName())) {
+			  ProfiledType pt = definitions.getConstraints().get(type.getName());
+			  return pt.getBaseType();
+			}
 			else
 			  return type.getName();
 		} else if (type.getParams().size() > 1)
