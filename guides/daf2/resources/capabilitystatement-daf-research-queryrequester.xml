@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
-  <id value="conformance-daf-research-queryrequester"/>
+<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
+  <id value="capabilitystatement-daf-research-queryrequester"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -48,7 +48,7 @@
 	  
 	  <h2>REST  behavior</h2>
       
-      <p>The Research Query Requester SHALL implement REST behavior according to the <a href="http://hl7-fhir.github.io/http.html">FHIR</a> specification.  The Research Query Requester SHALL support both json and xml resource formats for all DAF interactions. The Research Query Requester SHALL identify the DAF profile(s) supported as part of the FHIR BaseResource.Meta.profile attribute for each instance. The Research Query Requester SHALL declare a Conformance statement and identify the list of profiles, operations, search parameters supported.
+      <p>The Research Query Requester SHALL implement REST behavior according to the <a href="http://hl7-fhir.github.io/http.html">FHIR</a> specification.  The Research Query Requester SHALL support both json and xml resource formats for all DAF interactions. The Research Query Requester SHALL identify the DAF profile(s) supported as part of the FHIR BaseResource.Meta.profile attribute for each instance. The Research Query Requester SHALL declare a Capability statement and identify the list of profiles, operations, search parameters supported.
       </p>
       
       <p>
@@ -433,7 +433,7 @@
 	  <h3>DAF-Research Specific Operations</h3>
 	  
 	  <p>Research Query Requester SHALL support <a href="http://hl7.org/fhir/current/daf/OperationDefinition-daf-execute-query.html">daf-execute-query</a> operation on the ROOT URL of the system.</p>
-	  <p>Research Query Requester SHALL publish their Conformance statement using the DAF-Conformance profile and identify the specific operations supported.</p>
+	  <p>Research Query Requester SHALL publish their Capability statement using the DAF-Capability profile and identify the specific operations supported.</p>
 	  
     </div>
   </text>
@@ -468,7 +468,7 @@
   </profile>
   <rest>
     <mode value="server"/>
-    <documentation value="The Research Query Requester SHALL support the DAF-Task, DAF-Conformance, DAF-OperationDefinition profiles along with the daf-execute-query operation"/>
+    <documentation value="The Research Query Requester SHALL support the DAF-Task, DAF-Capability, DAF-OperationDefinition profiles along with the daf-execute-query operation"/>
     <security>
       <description value="Data Mart SHALL use appropriate security protocols for executing queries."/>
     </security>
@@ -645,4 +645,4 @@
       </definition>
     </operation>
   </rest>
-</Conformance>
+</CapabilityStatement>

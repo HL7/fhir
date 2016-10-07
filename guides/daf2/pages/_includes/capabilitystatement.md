@@ -26,11 +26,11 @@ Research Query Requester | [DAF Research Query Requester]
 Research Query Responder | [DAF Research Query Responder]
 
 
-[DAF Requestor Conformance]: conformance-daf-query-requestor.html
-[DAF Responder Conformance]: conformance-daf-query-responder.html
-[DAF Research Data Source]: conformance-daf-datasource.html
-[DAF Research Data Mart]: conformance-daf-datamart.html
-[DAF Research Query Requester]: conformance-daf-research-queryrequester.html
-[DAF Research Query Responder]: conformance-daf-research-queryresponder.html
+[DAF Requestor Conformance]: capabilitystatement-daf-query-requestor.html
+[DAF Responder Conformance]: capabilitystatement-daf-query-responder.html
+[DAF Research Data Source]: capabilitystatement-daf-datasource.html
+[DAF Research Data Mart]: capabilitystatement-daf-datamart.html
+[DAF Research Query Requester]: capabilitystatement-daf-research-queryrequester.html
+[DAF Research Query Responder]: capabilitystatement-daf-research-queryresponder.html
 
 

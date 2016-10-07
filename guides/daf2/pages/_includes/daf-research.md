@@ -16,8 +16,8 @@ The following table outlines the various DAF-Research Capabilities specified as 
 
 |Capability|Actors|Conformance Requirements|
 |------------------|----------------|---------------------|
-|C1: Standardize data extraction mechanism from clinical data sources to populate data marts which can then be accessed by Researchers.|Data Source|[Data Source Conformance](conformance-daf-datasource.html)|
-||Data Mart|[Data Mart Conformance](conformance-daf-datamart.html)|
-|C2: Publish Metadata about data sources useful for Researchers to access data.|Data Mart|[Data Mart Conformance](conformance-daf-datamart.html)|
-|C3: Standardize Query Distribution mechanism from Researchers to Data Marts facilitating workflows.|Research Query Requester|[Research Query Requester Conformance](conformance-daf-research-queryrequester.html)|
-|C4: Standardize Aggregate Query Results return from Data Marts back to Researchers in response to a C3 query.|Research Query Responder|[Research Query Responder Conformance](conformance-daf-research-queryresponder.html)|
+|C1: Standardize data extraction mechanism from clinical data sources to populate data marts which can then be accessed by Researchers.|Data Source|[Data Source Conformance](capabilitystatement-daf-datasource.html)|
+||Data Mart|[Data Mart Conformance](capabilitystatement-daf-datamart.html)|
+|C2: Publish Metadata about data sources useful for Researchers to access data.|Data Mart|[Data Mart Conformance](capabilitystatement-daf-datamart.html)|
+|C3: Standardize Query Distribution mechanism from Researchers to Data Marts facilitating workflows.|Research Query Requester|[Research Query Requester Conformance](capabilitystatement-daf-research-queryrequester.html)|
+|C4: Standardize Aggregate Query Results return from Data Marts back to Researchers in response to a C3 query.|Research Query Responder|[Research Query Responder Conformance](capabilitystatement-daf-research-queryresponder.html)|

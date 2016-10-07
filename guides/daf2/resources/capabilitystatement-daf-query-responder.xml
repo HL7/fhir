@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
-	<id value="conformance-daf-query-responder"/>
+<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
+	<id value="capabilitystatement-daf-query-responder"/>
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
@@ -29,7 +29,7 @@
 			<h2>REST  behavior</h2>
 			<p>The DAF Responder SHALL support the <a href="daf-core-patient.html">DAF-core-patient</a> resource profile. In addition to the DAF-core-patient, the DAF Responder SHALL support at least one additional resource profile from the list of <a href="daf-core.html#daf-core-profiles">DAF-Core profiles</a>.  
 	  The DAF Responder SHALL implement REST behavior according to the <a href="http://hl7-fhir.github.io/http.html">FHIR</a> specification.
-	  The DAF Responder SHALL support both json and xml resource formats for all DAF interactions. The DAF Responder SHALL identify the DAF profile(s) supported as part of the FHIR BaseResource.Meta.profile attribute for each instance. The DAF Responder SHALL declare a Conformance statement and identify the list of profiles, operations, search parameter supported.
+	  The DAF Responder SHALL support both json and xml resource formats for all DAF interactions. The DAF Responder SHALL identify the DAF profile(s) supported as part of the FHIR BaseResource.Meta.profile attribute for each instance. The DAF Responder SHALL declare a Capability statement and identify the list of profiles, operations, search parameter supported.
       </p>
 			<p>
 				<b>Security:</b>
@@ -1543,4 +1543,4 @@
 			</definition>
 		</operation>
 	</rest>
-</Conformance>
+</CapabilityStatement>

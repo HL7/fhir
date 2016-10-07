@@ -146,7 +146,7 @@
 		<resource>
 			<example value="false"/>
 			<sourceReference>
-				<reference value="StructureDefinition/daf-conformance"/>
+				<reference value="StructureDefinition/daf-capabilitystatement"/>
 			</sourceReference>
 		</resource>
 		<resource>
@@ -446,47 +446,47 @@
 				<reference value="SearchParameter/familymemberhistory-daf-FamilyMemberHistory-relationship"/>
 			</sourceReference>
 		</resource>
-		<!--  conformance resources -->
+		<!--  CapabilityStatement resources -->
 		<resource>
 			<example value="true"/>
 			<name value="DAF Responder"/>
 			<sourceReference>
-				<reference value="Conformance/conformance-daf-query-responder"/>
+				<reference value="CapabilityStatement/capabilitystatement-daf-query-responder"/>
 			</sourceReference>
 		</resource>
 		<resource>
 			<example value="true"/>
 			<name value="DAF Requestor"/>
 			<sourceReference>
-				<reference value="Conformance/conformance-daf-query-requestor"/>
+				<reference value="CapabilityStatement/capabilitystatement-daf-query-requestor"/>
 			</sourceReference>
 		</resource>
 		<resource>
 			<example value="true"/>
 			<name value="DAF-Research Data Source"/>
 			<sourceReference>
-				<reference value="Conformance/conformance-daf-datasource"/>
+				<reference value="CapabilityStatement/capabilitystatement-daf-datasource"/>
 			</sourceReference>
 		</resource>
 		<resource>
 			<example value="true"/>
 			<name value="DAF-Research Data Mart"/>
 			<sourceReference>
-				<reference value="Conformance/conformance-daf-datamart"/>
+				<reference value="CapabilityStatement/capabilitystatement-daf-datamart"/>
 			</sourceReference>
 		</resource>
 		<resource>
 			<example value="true"/>
 			<name value="DAF-Research Query Requester"/>
 			<sourceReference>
-				<reference value="Conformance/conformance-daf-research-queryrequester"/>
+				<reference value="CapabilityStatement/capabilitystatement-daf-research-queryrequester"/>
 			</sourceReference>
 		</resource>
 		<resource>
 			<example value="true"/>
 			<name value="DAF Research Query Responder"/>
 			<sourceReference>
-				<reference value="Conformance/conformance-daf-research-queryresponder"/>
+				<reference value="CapabilityStatement/capabilitystatement-daf-research-queryresponder"/>
 			</sourceReference>
 		</resource>
 		<!--************************EXAMPLES EXAMPLES EXAMPLES **************************************  -->
@@ -684,37 +684,37 @@
 		</page>
 	</page>
 		<page>
-			<source value="conformance-daf-query-responder.html"/>
+			<source value="capabilitystatement-daf-query-responder.html"/>
 			<title value="DAF-Core Query Responder"/>
 			<kind value="resource"/>
 			<format value="generated"/>
 		</page>
 		<page>
-			<source value="conformance-daf-query-requestor.html"/>
+			<source value="capabilitystatement-daf-query-requestor.html"/>
 			<title value="DAF-Core Query Requestor"/>
 			<kind value="resource"/>
 			<format value="generated"/>
 		</page>
 		<page>
-			<source value="conformance-daf-datasource.html"/>
+			<source value="capabilitystatement-daf-datasource.html"/>
 			<title value="DAF-Research Data Source"/>
 			<kind value="resource"/>
 			<format value="generated"/>
 		</page>
 		<page>
-			<source value="conformance-daf-datamart.html"/>
+			<source value="capabilitystatement-daf-datamart.html"/>
 			<title value="DAF-Research Data Mart"/>
 			<kind value="resource"/>
 			<format value="generated"/>
 		</page>
 		<page>
-			<source value="conformance-daf-research-queryrequester.html"/>
+			<source value="capabilitystatement-daf-research-queryrequester.html"/>
 			<title value="DAF-Research Query Requester"/>
 			<kind value="resource"/>
 			<format value="generated"/>
 		</page>
 		<page>
-			<source value="conformance-daf-research-queryresponder.html"/>
+			<source value="capabilitystatement-daf-research-queryresponder.html"/>
 			<title value="DAF-Research Query Responder"/>
 			<kind value="resource"/>
 			<format value="generated"/>

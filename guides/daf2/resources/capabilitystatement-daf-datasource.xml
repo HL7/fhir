@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
-  <id value="conformance-daf-datasource"/>
+<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
+  <id value="capabilitystatement-daf-datasource"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -48,7 +48,7 @@
 	  
 	  <h2>REST  behavior</h2>
       
-      <p>The Data Source SHALL implement REST behavior according to the <a href="http://hl7-fhir.github.io/http.html">FHIR</a> specification. The Data Source SHALL use either DAF-Core or DAF-Research profiles as needed to extract data. The Data Source SHALL support both json and xml resource formats for all DAF interactions. The Data Source SHALL identify the DAF profile(s) supported as part of the FHIR BaseResource.Meta.profile attribute for each instance. The Data Source SHALL declare a Conformance statement and identify the list of profiles, operations, search parameter supported.
+      <p>The Data Source SHALL implement REST behavior according to the <a href="http://hl7-fhir.github.io/http.html">FHIR</a> specification. The Data Source SHALL use either DAF-Core or DAF-Research profiles as needed to extract data. The Data Source SHALL support both json and xml resource formats for all DAF interactions. The Data Source SHALL identify the DAF profile(s) supported as part of the FHIR BaseResource.Meta.profile attribute for each instance. The Data Source SHALL declare a Capability statement and identify the list of profiles, operations, search parameter supported.
       </p>
       
       <p>
@@ -330,7 +330,7 @@
 	  
 	  <p>Data Sources SHALL support <a href="http://hl7.org/fhir/OperationDefinition/patient-everything">Patient/$everything</a> operation using the DAF-Core profiles.</p>
 	  <p>Data Sources SHALL support <a href="http://hl7.org/fhir/current/daf/OperationDefinition-daf-extract-operation.html">daf-extract-operation</a> on the ROOT URL of the system.</p>
-	  <p>Data Marts SHALL publish their Conformance statement using the DAF-Conformance profile and identify the specific operations supported.</p>
+	  <p>Data Marts SHALL publish their Capability statement using the DAF-Capability profile and identify the specific operations supported.</p>
 	  
     </div>
   </text>
@@ -515,4 +515,4 @@
       </definition>
     </operation>
   </rest>
-</Conformance>
+</CapabilityStatement>

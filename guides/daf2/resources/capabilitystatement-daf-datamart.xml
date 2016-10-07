@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
-  <id value="conformance-daf-research-queryresponder"/>
+<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
+  <id value="capabilitystatement-daf-datamart"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
-      <h2>DAF Research Query Responder</h2>
+      <h2>Data Mart</h2>
       
 	  <p>Published: 2016-08-10</p>
       
@@ -19,7 +19,7 @@
       
       </p>
       
-      <p>This profile defines the expected capabilities of the <i>Research Query Responder</i> actor when conforming to the <a href="daf-research.html">DAF-Research IG</a>. The statement includes the complete list of actual profiles, RESTful operations, search parameters supported by a Research Query Responder.
+      <p>This profile defines the expected capabilities of the <i>Data Mart</i> actor when conforming to the <a href="daf-research.html">DAF-Research IG</a>. The statement includes the complete list of actual profiles, RESTful operations, search parameters supported by a Data Mart.
       </p>
 	  
 	  <h2>General</h2>
@@ -48,7 +48,7 @@
 	  
 	  <h2>REST  behavior</h2>
       
-      <p>The Research Query Responder SHALL implement REST behavior according to the <a href="http://hl7-fhir.github.io/http.html">FHIR</a> specification. The Research Query Responder SHALL use either DAF-Core or DAF-Research profiles as needed to create query results. The Research Query Responder SHALL support both json and xml resource formats for all DAF interactions. The Research Query Responder SHALL identify the DAF profile(s) supported as part of the FHIR BaseResource.Meta.profile attribute for each instance. The Research Query Responder SHALL declare a Conformance statement and identify the list of profiles, operations, search parameters supported.
+      <p>The Data Mart SHALL implement REST behavior according to the <a href="http://hl7-fhir.github.io/http.html">FHIR</a> specification. The Data Mart SHALL use either DAF-Core or DAF-Research profiles as needed to load data. The Data Mart SHALL support both json and xml resource formats for all DAF interactions. The Data Mart SHALL identify the DAF profile(s) supported as part of the FHIR BaseResource.Meta.profile attribute for each instance. The Data Mart SHALL declare a Capability statement and identify the list of profiles, operations, search parameters supported.
       </p>
       
       <p>
@@ -57,7 +57,7 @@
       
       </p>
       
-      <p>Research Query Responder are advised to implement security requirements according to their existing protocols for query execution and returning results. However Research Query Responders implementing DAF-Core IG can reuse their security protocols for data translation and loading purposes as applicable.
+      <p>Data Marts are advised to implement security requirements according to their existing protocols for data translation and loading purposes. However Data Marts implementing DAF-Core IG can reuse their security protocols for data translation and loading purposes as applicable.
       </p>
 	  
 	  <h3>RESTful Operations Summary</h3>
@@ -139,50 +139,6 @@
 			<td>
               
               <a title="Allows updates to DAF-Task">SHALL</a>
-            
-            </td>
-          
-          </tr>
-		  
-		  <tr>
-            
-            <th>
-              <a href="daf-queryresults.html">DAF-QueryResults</a>
-            </th>
-            
-            <td>
-              
-              <a title="Allows discovery of DAF-QueryResults resources based on different search criteria" href="#DAFQueryResultsSearch">SHALL</a>
-            
-            </td>
-            
-            <td>
-              
-              <a title="Allows retrieval of a specific DAF-QueryResults by resource id">SHALL</a>
-            
-            </td>
-            
-            <td>
-              
-              <a title="Allows retrieval of a historical version of a DAF-QueryResults">SHALL</a>
-            
-            </td>
-            
-            <td>
-              
-              <a title="Allows review of changes to DAF-QueryResults over time">SHALL</a>
-            
-            </td>
-			
-			<td>
-              
-              <a title="Allows creation of DAF-QueryResults">SHALL</a>
-            
-            </td>
-			
-			<td>
-              
-              <a title="Allows updates to DAF-QueryResults">SHALL</a>
             
             </td>
           
@@ -284,9 +240,9 @@
       
       <br/>
 	  
-      <h3>Research Query Responder Search Parameters</h3>
+      <h3>Data Mart Search Parameters</h3>
 	  
-      <p>Research Query Responder SHALL support the following common parameters as part of queries related to DAF-Research profiles:</p>
+      <p>Data Marts SHALL support the following common parameters as part of queries related to DAF-Research profiles:</p>
 	  
       <ul>
 	     
@@ -312,7 +268,7 @@
 	  
       </ul>
 	 
-      <p>Research Query Responders SHALL support the following search contexts defined within the 
+      <p>Data Marts SHALL support the following search contexts defined within the 
         <a href="http://hl7-fhir.github.io/search.html#Introduction">FHIR</a>specification.
       </p> 
 	
@@ -322,8 +278,8 @@
 	
       </ul>
 	
-      <p>Research Query Responders SHALL support 
-        <a href="http://hl7-fhir.github.io/search.html#Modifiers">Modifiers</a> as applicable to the data types of the search parameters. Research Query Responders SHALL also support 
+      <p>Data Marts SHALL support 
+        <a href="http://hl7-fhir.github.io/search.html#Modifiers">Modifiers</a> as applicable to the data types of the search parameters. Data Marts SHALL also support 
         <a href="http://hl7-fhir.github.io/search.html#Composite Search Parameters">Composite Search Parameters</a> as defined in the FHIR specification.
       </p>
 	  
@@ -432,13 +388,13 @@
 	
 	  <h3>DAF-Research Specific Operations</h3>
 	  
-	  <p>Data Marts SHALL support <a href="http://hl7.org/fhir/current/daf/OperationDefinition-daf-execute-query.html">daf-execute-query</a> operation on the ROOT URL of the system.</p>
-	  <p>Data Marts SHALL publish their Conformance statement using the DAF-Conformance profile and identify the specific operations supported.</p>
+	  <p>Data Marts SHALL support <a href="http://hl7.org/fhir/current/daf/OperationDefinition-daf-load-operation.html">daf-load-operation</a> on the ROOT URL of the system.</p>
+	  <p>Data Marts SHALL publish their Capability statement using the DAF-Capability profile and identify the specific operations supported.</p>
 	  
     </div>
   </text>
   
-  <name value="Research Query Responder"/>
+  <name value="Data Mart"/>
   <status value="draft"/>
   <date value="2016-08-10"/>
   <publisher value="U.S. Office of the National Coordinator (ONC)"/>
@@ -448,7 +404,7 @@
       <value value="http://www.healthit.gov/"/>
     </telecom>
   </contact>
-  <description value="This profile defines the expected capabilities of the Research Query Responder actor when conforming to the DAF-Research IG."/>
+  <description value="This profile defines the expected capabilities of the Data Mart actor when conforming to the DAF-Research IG."/>
   <kind value="requirements"/>
   <fhirVersion value="1.0.0"/>
   <acceptUnknown value="extensions"/>
@@ -463,14 +419,11 @@
   <profile>
     <reference value="http://hl7.org/fhir/current/daf/daf-operationdefinition.html"/>
   </profile>
-  <profile>
-    <reference value="http://hl7.org/fhir/current/daf/daf-queryresults.html"/>
-  </profile>
   <rest>
     <mode value="server"/>
-    <documentation value="The Research Query Responder SHALL support the DAF-Task, DAF-Conformance, DAF-OperationDefinition profiles along with the daf-execute-query operation"/>
+    <documentation value="The Data Mart SHALL support the DAF-Task, DAF-Capability, DAF-OperationDefinition profiles along with the daf-load-operation"/>
     <security>
-      <description value="Research Query Responder SHALL use appropriate security protocols for data tranlation and loading."/>
+      <description value="Data Mart SHALL use appropriate security protocols for data tranlation and loading."/>
     </security>
     <resource>
       <type value="Task"/>
@@ -639,10 +592,10 @@
       </searchParam>
     </resource>
 	<operation>
-      <name value="daf-execute-query"/>
+      <name value="daf-load-operation"/>
       <definition>
-        <reference value="http://hl7.org/fhir/current/daf/OperationDefinition-daf-execute-query.html"/>
+        <reference value="http://hl7.org/fhir/current/daf/OperationDefinition-daf-load-operation.html"/>
       </definition>
     </operation>
   </rest>
-</Conformance>
+</CapabilityStatement>

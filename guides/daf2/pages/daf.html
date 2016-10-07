@@ -40,7 +40,7 @@ This implementation guide is prepared as a U.S. Realm Specification on behalf of
 
 <h3><span class="sectioncount">D.0.1<a name="D.0.1"> </a></span> Draft Standard for Trial Use (DSTU) <a title="link to here" class="self-link" href="daf.html#D.0.1"><img src="target.png"/></a></h3>
 <p>
-This DAF FHIR IG is submitted as a DSTU.  The focus of the implementation guide is limited in scope to the profiles, operations, value sets and conformance
+This DAF FHIR IG is submitted as a DSTU.  The focus of the implementation guide is limited in scope to the profiles, operations, value sets and capability
 statements it defines.  This guide is based on FHIR DSTU 2 and will be published separately from the FHIR specification itself.  For full details of the DAF profiles please refer to <a href="daf-toc.html">DAF FHIR IG Table of Contents</a>. For DAF background readers can also access the <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">DAF Project wiki <img style="text-align: baseline" src="external.png"/></a> containing development materials and discussions. The DAF project wiki contents are not part of the normative implementation guide content but is provided as additional background reading material.
 </p>
 
@@ -52,7 +52,7 @@ statements it defines.  This guide is based on FHIR DSTU 2 and will be published
 The DAF FHIR IG contains four sections:
 <ul>
  <li>Definitions, Interpretations and Requirements common to all DAF actors</li>
- <li>Conformance Requirements for each DAF actor</li>
+ <li>CapabilityStatement Requirements for each DAF actor</li>
  <li>DAF profiles, extensions and constraints</li>
  <li>Security Implementation Guidance</li>
 </ul>
@@ -62,18 +62,18 @@ The DAF FHIR IG contains four sections:
 <h4><span class="sectioncount">D.0.3.1<a name="D.0.3.1"> </a></span> Definitions, Interpretations and Requirements common to all DAF actors <a title="link to here" class="self-link" href="daf.html#D.0.3.1"><img src="target.png"/></a></h4>
 <p>
 This section outlines important definitions used in the DAF FHIR IG including interpretations that need to be used in the context of DAF and conformance requirements common to all DAF actors.
-The conformance verbs used are defined in <a href="{{site.data.fhir.path}}conformance-rules.html">FHIR Conformance Rules</a>.
+The conformance verbs used are defined in <a href="{{site.data.fhir.path}}capabilitystatement-rules.html">FHIR Conformance Rules</a>.
 </p>
 <p>
 In the context of DAF profiles, <i>Supported</i> on any data element SHALL be interpreted as follows:
 <ul>
-      <li>DAF Responders SHALL be capable of including the data element as part of the query results as specified by the DAF conformance resources.</li>
+      <li>DAF Responders SHALL be capable of including the data element as part of the query results as specified by the DAF CapabilityStatement resources.</li>
    <li>DAF Requestors SHALL be capable of processing resource instances containing the data elements. In other words DAF Requestors SHOULD be capable of displaying the data elements for human use or storing it for other purposes. </li>
    <li>In situations where information on a particular data element is not present and the <b>reason for absence</b> is unknown, DAF Responders SHALL NOT include the data elements in the resource instance returned as part of the query results.</li>
    <li>When querying DAF Responders, DAF Requestors SHALL interpret missing data elements within resource instances as data not present in the DAF Responder's systems.</li>
    <li>In situations where information on a particular data element is missing and the DAF Responder knows the precise reason for the absence of data, DAF Responders SHALL send the reason for the missing information using values from the value set where they exist or using the <a href="{{site.data.fhir.path}}extension-data-absent-reason.html">dataAbsentReason</a> extension.</li>
    <li>DAF Requestors SHALL be able to process resource instances containing data elements asserting missing information.</li>
-   <li>NOTE: DAF Responders who do not have the capability to store or return a data element tagged as Supported in DAF profiles can still claim conformance to the DAF profiles using the DAF conformance resources.</li>
+   <li>NOTE: DAF Responders who do not have the capability to store or return a data element tagged as Supported in DAF profiles can still claim conformance to the DAF profiles using the DAF CapabilityStatement resources.</li>
    <li>NOTE: The above definition of Supported is derived from HL7v2 concept &quot;Required by may be empty - RE&quot; described in HL7v2 V28_CH02B_Conformance.doc.</li>
 </ul>
 </p>
@@ -100,15 +100,15 @@ The DAF FHIR IG does not require specific algorithms to be used as part of the i
 <div>
 <h4><span class="sectioncount">D.0.3.2<a name="D.0.3.2"> </a></span> Conformance Requirements for each DAF actor <a title="link to here" class="self-link" href="daf.html#D.0.3.2"><img src="target.png"/></a></h4>
 <p>
-This section outlines conformance requirements for each of the DAF actors identifying the specific profiles that need to be supported, the specific RESTful operations that need to be supported,
+This section outlines CapabilityStatement requirements for each of the DAF actors identifying the specific profiles that need to be supported, the specific RESTful operations that need to be supported,
 and the search parameters that need to be supported.
-Note: The individual DAF profiles identify the structural constraints, terminology bindings and invariants, however, implementers must refer to the conformance requirements for details on the RESTful operations,
+Note: The individual DAF profiles identify the structural constraints, terminology bindings and invariants, however, implementers must refer to the CapabilityStatement requirements for details on the RESTful operations,
 specific profiles and the search parameters applicable to each of the DAF actors.
 </p>
 <ul>
-      <li>Conformance requirements for <a href="conformance-daf-query-requestor.html">DAF Requestor actor</a>, which is responsible for creating and initiating the queries for information about an individual patient or a set of patients.</li>
-   <li>Conformance requirements for <a href="conformance-daf-query-responder.html">DAF Responder actor</a>, which is responsible for providing responses to the queries submitted by the DAF Requestors.</li>
-   <li>(DRAFT) Conformance requirements for <a href="conformance-daf-query-responder-core.html">DAF Responder actor core</a>, which are the core requirements for for providing responses to the queries submitted by the DAF Requestor for basic provider and patient access.</li>
+      <li>CapabilityStatement requirements for <a href="capabilitystatement-daf-query-requestor.html">DAF Requestor actor</a>, which is responsible for creating and initiating the queries for information about an individual patient or a set of patients.</li>
+   <li>CapabilityStatement requirements for <a href="capabilitystatement-daf-query-responder.html">DAF Responder actor</a>, which is responsible for providing responses to the queries submitted by the DAF Requestors.</li>
+   <li>(DRAFT) CapabilityStatement requirements for <a href="capabilitystatement-daf-query-responder-core.html">DAF Responder actor core</a>, which are the core requirements for for providing responses to the queries submitted by the DAF Requestor for basic provider and patient access.</li>
 </ul>
 </div>
 

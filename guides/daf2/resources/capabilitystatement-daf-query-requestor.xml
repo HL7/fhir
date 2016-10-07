@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
-  <id value="conformance-daf-query-requestor"/>
+<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
+  <id value="capabilitystatement-daf-query-requestor"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -757,7 +757,7 @@
 	
       <p>DAF Requestors MAY use 
         <a href="http://hl7-fhir.github.io/search.html#Modifiers">Modifiers</a> as applicable to the data types of the search parameters to access data.
-		DAF Requestors MAY use any search parameters that are appropriate for querying a particular FHIR resource, however they can only count on the search parameters that are identified as SHALL within the <a href="conformance-daf-query-responder.html">DAF Responder's conformance statement</a> to be used in the execution of the search. For a complete list of search parameters that are available, please refer to <a href="conformance-daf-query-responder.html">DAF Responder's conformance statement</a> and the search parameters supported by the base FHIR resources profiled by DAF.
+		DAF Requestors MAY use any search parameters that are appropriate for querying a particular FHIR resource, however they can only count on the search parameters that are identified as SHALL within the <a href="capabilitystatement-daf-query-responder.html">DAF Responder's Capability statement</a> to be used in the execution of the search. For a complete list of search parameters that are available, please refer to <a href="capabilitystatement-daf-query-responder.html">DAF Responder's Capability statement</a> and the search parameters supported by the base FHIR resources profiled by DAF.
       </p>
 	  
       <br/>
@@ -1310,4 +1310,4 @@
     </operation>
 	
   </rest>
-</Conformance>
+</CapabilityStatement>

@@ -1798,7 +1798,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s104"><Data ss:Type="String">11/17/2014 EH:  Must support if specimen collection date is known. </Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">create conformance rule in conformance resource</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">create conformance rule in CapabilityStatement resource</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.specimen</Data><NamedCell
@@ -2114,7 +2114,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s104"><Data ss:Type="String">11/17/2014 EH: Value sets should be bound to each laboratory's compendium of service.  This is done during implementation</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">create conformance rule in conformance resource</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">create conformance rule in CapabilityStatement resource</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Requires at least a code, code system an d display text.</Data></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">!DiagnosticRequest.item.code</Data><NamedCell

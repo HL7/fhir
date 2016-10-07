@@ -370,10 +370,10 @@ These results would then be made available for the Researcher for further analys
 [DAF-Research]: daf-research.html
 [DAF-Research-intro]: daf-research-intro.html
 [C1, C2, C3, C4]: daf-research-intro.html
-[Data Source Conformance]: conformance-daf-datasource.html
-[Data Mart Conformance]: conformance-daf-datamart.html
-[Research Query Composer Conformance]: conformance-daf-datasource.html
-[Research Query Responder Conformance]: conformance-daf-datasource.html
+[Data Source Conformance]: capabilitystatement-daf-datasource.html
+[Data Mart Conformance]: capabilitystatement-daf-datamart.html
+[Research Query Composer Conformance]: capabilitystatement-daf-datasource.html
+[Research Query Responder Conformance]: capabilitystatement-daf-datasource.html
 [DAF-Task]: daf-task.html
 [DAF-Provenance]: daf-provenance.html
 [DAF-OperationDefinition]: daf-operationdefinition.html

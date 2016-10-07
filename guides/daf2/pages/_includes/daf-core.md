@@ -71,8 +71,8 @@ DAF actors must implement applicable security requirements identified in the [DA
 [DAF]: daf.html
 [DAF-Core]: daf-core.html
 [DAF-Research]: daf-research.html
-[Conformance requirements for the DAF Requestor actor]: conformance-daf-query-requestor.html 
-[Conformance requirements for the DAF Responder actor]: conformance-daf-query-responder.html
+[Conformance requirements for the DAF Requestor actor]: capabilitystatement-daf-query-requestor.html 
+[Conformance requirements for the DAF Responder actor]: capabilitystatement-daf-query-responder.html
 [DAF-Core Security]: daf-security.html
 [ONC]: http://www.healthit.gov/newsroom/about-onc 
 [Data Access Framework (DAF)]: http://wiki.siframework.org/Data+Access+Framework+Homepage
@@ -86,7 +86,7 @@ DAF actors must implement applicable security requirements identified in the [DA
 [CodeSystem]: http://hl7-fhir.github.io/codesystem.html
 [ConceptMap]: http://hl7-fhir.github.io/conceptmap.html
 [NamingSystem]: http://hl7-fhir.github.io/namingsystem.html
-[FHIR Conformance Rules]: http://hl7-fhir.github.io/conformance-rules.html
+[FHIR Conformance Rules]: http://hl7-fhir.github.io/capabilitystatement-rules.html
 [dataAbsentReason]: http://hl7-fhir.github.io/extension-data-absent-reason.html
 [FHIR Terminology]: http://hl7-fhir.github.io/terminologies.html
 [FHIR RESTful API]: http://hl7-fhir.github.io/http.html
