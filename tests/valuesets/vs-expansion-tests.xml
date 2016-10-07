@@ -1,0 +1,189 @@
+<Bundle xmlns="http://hl7.org/fhir"> 
+ <type value="collection"/>
+ <id value="ff340203-a4fd-4ce1-8284-1d1f134e26b2"/>
+ 
+ <!-- return mon, tues -->
+  <entry>
+   <fullUrl value="http://hl7.org/fhir/ValueSet/test-expand-import-1"/>
+   <resource>
+    <ValueSet xmlns="http://hl7.org/fhir"> 
+     <url value="http://hl7.org/fhir/ValueSet/test-expand-import-1"/>
+     <name value="Test Suite; for import, 1"/>
+     <status value="draft"/>
+     <experimental value="true"/>
+     <compose>  
+      <include>  
+       <system value="http://hl7.org/fhir/days-of-week"/>
+       <concept>  
+        <code value="mon"/>
+       </concept>
+       <concept>  
+        <code value="tue"/>
+       </concept>
+      </include>
+     </compose>
+    </ValueSet>   
+   </resource>
+  </entry>
+
+  <!-- return tues, wed -->
+  <entry>
+   <fullUrl value="http://hl7.org/fhir/ValueSet/test-expand-import-2"/>
+   <resource>
+    <ValueSet xmlns="http://hl7.org/fhir"> 
+     <url value="http://hl7.org/fhir/ValueSet/test-expand-import-2"/>
+     <name value="Test Suite; for import, 2"/>
+     <status value="draft"/>
+     <experimental value="true"/>
+     <compose>  
+      <include>  
+       <system value="http://hl7.org/fhir/days-of-week"/>
+       <concept>  
+        <code value="tue"/>
+       </concept>
+       <concept>  
+        <code value="wed"/>
+       </concept>
+      </include>
+     </compose>
+    </ValueSet>   
+   </resource>
+ </entry>
+
+ <!-- return mon ..sun -->
+ <entry>
+   <fullUrl value="http://hl7.org/fhir/ValueSet/test-expand-all"/>
+   <resource>
+    <ValueSet xmlns="http://hl7.org/fhir"> 
+     <url value="http://hl7.org/fhir/ValueSet/test-expand-all"/>
+     <name value="Test Suite; for import, all"/>
+     <status value="draft"/>
+     <experimental value="true"/>
+     <compose>  
+      <include>  
+       <system value="http://hl7.org/fhir/days-of-week"/>
+      </include>
+     </compose>
+    </ValueSet>   
+   </resource>
+ </entry>
+ 
+ <!-- mon, tue, wed -->
+ <entry>
+   <fullUrl value="http://hl7.org/fhir/ValueSet/test-expand-include-all"/>
+   <resource>
+    <ValueSet xmlns="http://hl7.org/fhir"> 
+     <url value="http://hl7.org/fhir/ValueSet/test-expand-include-all"/>
+     <name value="Test Suite; for import, all"/>
+     <status value="draft"/>
+     <experimental value="true"/>
+     <compose>  
+      <include>  
+       <system value="http://hl7.org/fhir/days-of-week"/>
+       <concept>
+         <code value="mon"/>
+       </concept>
+       <concept>
+         <code value="tue"/>
+       </concept>
+       <concept>
+         <code value="wed"/>
+       </concept>
+      </include>
+     </compose>
+    </ValueSet>   
+   </resource>
+ </entry>
+ 
+ <!-- tue -->
+ <entry>
+   <fullUrl value="http://hl7.org/fhir/ValueSet/test-expand-intersection"/>
+   <resource>
+    <ValueSet xmlns="http://hl7.org/fhir"> 
+     <url value="http://hl7.org/fhir/ValueSet/test-expand-intersection"/>
+     <name value="Test Suite; intersection test"/>
+     <status value="draft"/>
+     <experimental value="true"/>
+     <compose>  
+      <include>  
+        <valueSet value="http://hl7.org/fhir/ValueSet/test-expand-import-1"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/test-expand-import-2"/>
+      </include>
+     </compose>
+    </ValueSet>   
+   </resource>
+ </entry>
+
+ <!-- mon..wed --> 
+ <entry>
+   <fullUrl value="http://hl7.org/fhir/ValueSet/test-expand-union"/>
+   <resource>
+    <ValueSet xmlns="http://hl7.org/fhir"> 
+     <url value="http://hl7.org/fhir/ValueSet/test-expand-union"/>
+     <name value="Test Suite; for import, all"/>
+     <status value="draft"/>
+     <experimental value="true"/>
+     <compose>  
+      <include>  
+        <valueSet value="http://hl7.org/fhir/ValueSet/test-expand-import-1"/>
+      </include>
+      <include>  
+        <valueSet value="http://hl7.org/fhir/ValueSet/test-expand-import-2"/>
+      </include>
+     </compose>
+    </ValueSet>   
+   </resource>
+ </entry>
+ 
+ <!-- empty -->
+ <entry>
+   <fullUrl value="http://hl7.org/fhir/ValueSet/test-expand-intersection1"/>
+   <resource>
+    <ValueSet xmlns="http://hl7.org/fhir"> 
+     <url value="http://hl7.org/fhir/ValueSet/test-expand-intersection1"/>
+     <name value="Test Suite; system/valueset intersection"/>
+     <status value="draft"/>
+     <experimental value="true"/>
+     <compose>  
+      <include>  
+        <system value="http://hl7.org/fhir/days-of-week"/>
+        <concept>  
+          <code value="wed"/>
+        </concept>
+        <concept>  
+          <code value="thu"/>
+        </concept>
+        <valueSet value="http://hl7.org/fhir/ValueSet/test-expand-import-1"/>
+       </include>
+     </compose>
+    </ValueSet>   
+   </resource>
+ </entry>
+
+ <!-- wed -->
+ <entry>
+   <fullUrl value="http://hl7.org/fhir/ValueSet/test-expand-intersection2"/>
+   <resource>
+    <ValueSet xmlns="http://hl7.org/fhir"> 
+     <url value="http://hl7.org/fhir/ValueSet/test-expand-intersection2"/>
+     <name value="Test Suite; system/valueset intersection"/>
+     <status value="draft"/>
+     <experimental value="true"/>
+     <compose>  
+      <include>  
+        <system value="http://hl7.org/fhir/days-of-week"/>
+        <concept>  
+          <code value="wed"/>
+        </concept>
+        <concept>  
+          <code value="thu"/>
+        </concept>
+        <valueSet value="http://hl7.org/fhir/ValueSet/test-expand-import-2"/>
+       </include>
+     </compose>
+    </ValueSet>   
+   </resource>
+ </entry>
+
+
+</Bundle>
