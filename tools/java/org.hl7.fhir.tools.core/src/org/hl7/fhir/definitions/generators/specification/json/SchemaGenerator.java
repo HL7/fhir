@@ -81,23 +81,26 @@ public class SchemaGenerator {
 	    if (!definitions.getPrimitives().containsKey(tr.getName()) && !definitions.getConstraints().containsKey(tr.getName())) {
         TypeDefn root = definitions.getElementDefn(tr.getName());
         JsonObject s = new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root, version, genDate, null);
-        save(s, xsdDir+root.getName()+".schema.json");
+        save(s, xsdDir+root.getName().replace(".",  "_")+".schema.json");
         new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root, version, genDate, schema);
       }
     }
 
     List<String> names = new ArrayList<String>();
     names.addAll(definitions.getResources().keySet());
+	names.addAll(definitions.getBaseResources().keySet());
+	
     names.add("Parameters");
     Collections.sort(names);
     for (String name : names) {
       ResourceDefn root = definitions.getResourceByName(name);
       JsonObject s = new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root.getRoot(), version, genDate, null);
-      save(s, xsdDir+root.getName()+".schema.json");
+      save(s, xsdDir+root.getName().replace(".",  "_")+".schema.json");
       new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root.getRoot(), version, genDate, schema);
 	  }
 
     addAllResourcesChoice(schema, names);
+	save(generateAllResourceChoice(names), xsdDir+"ResourceList.schema.json");
     save(schema, xsdDir+"fhir.schema.json");
 
 	  dir = new CSFile(xsdDir);
@@ -119,6 +122,30 @@ public class SchemaGenerator {
       ref.addProperty("$ref", "#/definitions/"+n);
       oneOf.add(ref);
     }
+  }
+  
+  private JsonObject generateAllResourceChoice(List<String> names) {
+		JsonObject definitions;
+		JsonObject schema;
+		
+		schema = new JsonObject();
+		schema.addProperty("$schema", "http://json-schema.org/draft-04/schema#");
+		schema.addProperty("id", "http://hl7.org/fhir/json-schema/ResourceList");
+		schema.addProperty("$ref", "#/definitions/ResourceList");
+		schema.addProperty("description", "see http://hl7.org/fhir/json.html#schema for information about the FHIR Json Schemas");
+		definitions = new JsonObject();
+		schema.add("definitions", definitions);
+		
+		JsonObject rlist = new JsonObject();
+		definitions.add("ResourceList", rlist);
+		JsonArray oneOf = new JsonArray();
+		rlist.add("oneOf", oneOf);
+		for (String n : names) {
+			JsonObject ref = new JsonObject();
+			ref.addProperty("$ref", n.replace(".",  "_")+".schema.json#/definitions/"+n);
+			oneOf.add(ref);
+		}
+		return schema;
   }
 
   private void save(JsonObject s, String filename) throws IOException {
