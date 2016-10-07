@@ -2,7 +2,7 @@ package org.hl7.fhir.dstu3.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Thu, Oct 6, 2016 04:12+1100 for FHIR v1.7.0
+// Generated on Fri, Oct 7, 2016 14:20+1100 for FHIR v1.7.0
 
 public enum ResourceType {
     Account,
@@ -16,6 +16,7 @@ public enum ResourceType {
     Binary,
     BodySite,
     Bundle,
+    CapabilityStatement,
     CarePlan,
     CareTeam,
     Claim,
@@ -28,7 +29,6 @@ public enum ResourceType {
     Composition,
     ConceptMap,
     Condition,
-    Conformance,
     Consent,
     Contract,
     Coverage,
@@ -143,6 +143,8 @@ public enum ResourceType {
       return "bodysite";
     case Bundle:
       return "bundle";
+    case CapabilityStatement:
+      return "capabilitystatement";
     case CarePlan:
       return "careplan";
     case CareTeam:
@@ -167,8 +169,6 @@ public enum ResourceType {
       return "conceptmap";
     case Condition:
       return "condition";
-    case Conformance:
-      return "conformance";
     case Consent:
       return "consent";
     case Contract:
@@ -373,6 +373,8 @@ public enum ResourceType {
       return BodySite;
     if ("Bundle".equals(code))
       return Bundle;
+    if ("CapabilityStatement".equals(code))
+      return CapabilityStatement;
     if ("CarePlan".equals(code))
       return CarePlan;
     if ("CareTeam".equals(code))
@@ -397,8 +399,6 @@ public enum ResourceType {
       return ConceptMap;
     if ("Condition".equals(code))
       return Condition;
-    if ("Conformance".equals(code))
-      return Conformance;
     if ("Consent".equals(code))
       return Consent;
     if ("Contract".equals(code))

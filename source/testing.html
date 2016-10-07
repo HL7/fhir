@@ -1055,7 +1055,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 </metadata>
 </xmp></div>
 
-<p>The contents of PatientCreateDelete.xml would be a minimal conformance statement to indicate what sections need to be present in server conformance statement:</p>
+<p>The contents of PatientCreateDelete.xml would be a minimal capability statement to indicate what sections need to be present in server capability statement:</p>
 <div class="xmlCode"><xmp>
 <Conformance xmlns="http://hl7.org/fhir">
   <rest>
@@ -1073,7 +1073,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 </Conformance>
 </xmp></div>
 
-<p>When the metadata capabilities section is defined at <a href="testscript-definitions.html#TestScript.metadata">TestScript.metadata</a> and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.</p>
+<p>When the metadata capabilities section is defined at <a href="testscript-definitions.html#TestScript.metadata">TestScript.metadata</a> and the server's capability statement does not contain the elements defined in the minimal capability statement, then all the tests in the TestScript are skipped.</p>
 
 <p>The "metadata.capabilities.required" and "metadata.capabilities.validated" elements only indicate whether the capabilities are the primary focus of the test script or not. The do not impact the skipping logic. Capabilities whose "metadata.capabilities.validated" flag is true are the primary focus of the test script.</p>
 

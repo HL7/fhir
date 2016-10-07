@@ -795,28 +795,28 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-core-patient.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-core-patient resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-core-patients by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-core-patient instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -829,28 +829,28 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-core-allergyintolerance.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-core-AllergyIntolerance resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-core-AllergyIntolerance by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-core-AllergyIntolerance instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -863,28 +863,28 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-core-careplan.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-core-careplan resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-core-careplan by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-core-careplan instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -897,28 +897,28 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-core-careteam.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-core-careteam resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-core-careteam by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-core-careteam instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -931,28 +931,28 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-core-condition.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-core-condition resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-core-condition by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-core-condition instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -965,28 +965,28 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-core-device.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-core-device resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-core-device by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-core-device instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -999,28 +999,28 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-core-goal.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-core-goal resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-core-goal by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-core-goal instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1033,28 +1033,28 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-core-immunization.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-core-immunization resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-core-immunization by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-core-immunization instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1067,28 +1067,28 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-core-diagnosticreport.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-core-diagnosticreport resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-core-diagnosticreport by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-core-diagnosticreport instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1101,28 +1101,28 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-core-resultobs.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-core-resultobs resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-core-resultobs by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-core-resultobs instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1135,28 +1135,28 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-core-medicationstatement.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-core-medicationstatement resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-core-medicationstatement by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-core-medicationstatement instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1169,28 +1169,28 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-core-medicationorder.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-core-medicationorder resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-core-medicationorder by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-core-medicationorder instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1203,28 +1203,28 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-core-smokingstatus.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-core-smokingstatus resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-core-smokingstatus by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-core-smokingstatus instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1237,28 +1237,28 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-core-vitalsigns.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-core-vitalsigns resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-core-vitalsigns by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-core-vitalsigns instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1271,28 +1271,28 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-core-procedure.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-core-procedure resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-core-procedure by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-core-procedure instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -1300,7 +1300,7 @@
       </interaction>
     </resource>
 	<operation>
-	  <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+	  <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
       </extension>
       <name value="patient-everything"/>

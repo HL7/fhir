@@ -81,7 +81,7 @@ can be used to represent and share the decisions that have been made, and allows
 resources are known as the conformance resources. These conformance resources allow implementers to:
 </p>
 <ul>
- <li>Indicate that <a href="http.html">some API calls</a> are not used for a particular situation, and provide additional details about how API calls are used (<a href="conformance.html">Conformance</a> Resource)</li>
+ <li>Indicate that <a href="http.html">some API calls</a> are not used for a particular situation, and provide additional details about how API calls are used (<a href="capabilitystatement.html">Capability Statement</a>)</li>
  <li>Add additional <a href="operations.html">operations</a> or <a href="search.html">search parameters</a> not in the base specification
    (using the <a href="operationdefinition.html">OperationDefinition</a> resource or the <a href="searchparameter.html">SearchParameter</a> Resource</li>
  <li>Define how a particular structure (Resource, Extension or Data Type) is used (<a href="structuredefinition.html">StructureDefinition</a> Resource):
@@ -105,17 +105,17 @@ For implementer convenience, the specification itself publishes its base definit
 <a name="profile-uses"> </a>
 <h3>Two uses of Profiles</h3>
 <p>
-The <a href="conformance.html">Conformance</a> resource describes two different uses for profiles on resources:
-Resource Profiles and System Profiles. Resource Profiles are specified using the <i>Conformance.rest.resource.profile</i> element 
-and System Profiles are specified using the <i>Conformance.profile</i> element. 
+The <a href="capabilitystatement.html">CapabilityStatement</a> resource describes two different uses for profiles on resources:
+Resource Profiles and System Profiles. Resource Profiles are specified using the <i>CapabilityStatement.rest.resource.profile</i> element 
+and System Profiles are specified using the <i>CapabilityStatement.profile</i> element. 
 </p>
-<h4>Conformance.rest.resource.profile</h4>
+<h4>CapabilityStatement.rest.resource.profile</h4>
 <p>
 These profiles describe the general features that are supported by the system for each kind of 
 resource. Typically, this is the superset of all the different use-cases implemented by the system. 
 This is a resource-level perspective of a system's functionality. 
 </p>
-<h4>Conformance.profile</h4>
+<h4>CapabilityStatement.profile</h4>
 <p>
 These profiles describe the information handled/produced by the system on a per use case basis.
 Some examples of the uses for these kind of profiles:
@@ -183,10 +183,10 @@ Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedbac
 <a name="api"> </a>
 <h3>Extending and Restricting the API</h3>
 <p>
-A conformance resource lists the REST interactions (read, update, search, etc.) that a server provides or that a client uses, along with 
+A CapabilityStatement resource lists the REST interactions (read, update, search, etc.) that a server provides or that a client uses, along with 
 some supporting information for each. It can also be used to define a set of desired behavior (e.g. as part of a specification or
-a Request for Proposal).  The only interaction that servers are required to support is the <a href="http.html#conformance">Conformance</a>
-interaction itself - to retrieve the server's conformance statement. Beyond that, servers and clients support and use whichever
+a Request for Proposal).  The only interaction that servers are required to support is the <a href="http.html#capabilities">capabilities</a>
+interaction itself - to retrieve the server's CapabilityStatement. Beyond that, servers and clients support and use whichever
 API calls are relevant to their use case.
 </p>
 <p>

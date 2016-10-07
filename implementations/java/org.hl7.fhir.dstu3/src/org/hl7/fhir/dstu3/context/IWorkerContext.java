@@ -177,7 +177,7 @@ public interface IWorkerContext {
    * expansion and code validation for the terminology. Corresponds
    * to the extension 
    * 
-   * http://hl7.org/fhir/StructureDefinition/conformance-supported-system
+   * http://hl7.org/fhir/StructureDefinition/capabilitystatement-supported-system
    * 
    * in the Conformance resource
    * 

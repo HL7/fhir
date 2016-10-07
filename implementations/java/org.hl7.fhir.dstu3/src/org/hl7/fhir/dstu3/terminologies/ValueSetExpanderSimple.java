@@ -122,10 +122,9 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 			codes.add(n);
 			map.put(s, n);
 		}
-		if (canBeHeirarchy) {
-		  if (parent != null)
+		if (canBeHeirarchy && parent != null) {
 		    parent.getContains().add(n);
-		  else
+		} else {
 		    roots.add(n);
 		}
 		return n;

@@ -6,13 +6,13 @@ import java.util.List;
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.dstu2.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.model.Annotation;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.SystemRestfulInteraction;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
-import org.hl7.fhir.dstu3.model.Conformance.SystemRestfulInteraction;
 import org.hl7.fhir.dstu3.model.NutritionRequest.NutritionOrderStatus;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
@@ -4213,10 +4213,10 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance convertConformance(org.hl7.fhir.dstu2.model.Conformance src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement convertConformance(org.hl7.fhir.dstu2.model.Conformance src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.Conformance tgt = new org.hl7.fhir.dstu3.model.Conformance();
+    org.hl7.fhir.dstu3.model.CapabilityStatement tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement();
     copyDomainResource(src, tgt);
     tgt.setUrl(src.getUrl());
     tgt.setVersion(src.getVersion());
@@ -4250,7 +4250,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance convertConformance(org.hl7.fhir.dstu3.model.Conformance src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance convertConformance(org.hl7.fhir.dstu3.model.CapabilityStatement src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.Conformance tgt = new org.hl7.fhir.dstu2.model.Conformance();
@@ -4264,7 +4264,7 @@ public class VersionConvertor_10_20 {
     if (src.hasDate())
       tgt.setDate(src.getDate());
     tgt.setPublisher(src.getPublisher());
-    for (org.hl7.fhir.dstu3.model.Conformance.ConformanceContactComponent t : src.getContact())
+    for (org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementContactComponent t : src.getContact())
       tgt.addContact(convertConformanceContactComponent(t));
     tgt.setDescription(src.getDescription());
     tgt.setRequirements(src.getRequirements());
@@ -4278,27 +4278,27 @@ public class VersionConvertor_10_20 {
       tgt.addFormat(t.getValue());
     for (org.hl7.fhir.dstu3.model.Reference t : src.getProfile())
       tgt.addProfile(convertReference(t));
-    for (org.hl7.fhir.dstu3.model.Conformance.ConformanceRestComponent t : src.getRest())
+    for (org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestComponent t : src.getRest())
       tgt.addRest(convertConformanceRestComponent(t));
-    for (org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingComponent t : src.getMessaging())
+    for (org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementMessagingComponent t : src.getMessaging())
       tgt.addMessaging(convertConformanceMessagingComponent(t));
-    for (org.hl7.fhir.dstu3.model.Conformance.ConformanceDocumentComponent t : src.getDocument())
+    for (org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementDocumentComponent t : src.getDocument())
       tgt.addDocument(convertConformanceDocumentComponent(t));
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ConformanceStatementKind convertConformanceStatementKind(org.hl7.fhir.dstu2.model.Conformance.ConformanceStatementKind src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementKind convertConformanceStatementKind(org.hl7.fhir.dstu2.model.Conformance.ConformanceStatementKind src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case INSTANCE: return org.hl7.fhir.dstu3.model.Conformance.ConformanceStatementKind.INSTANCE;
-    case CAPABILITY: return org.hl7.fhir.dstu3.model.Conformance.ConformanceStatementKind.CAPABILITY;
-    case REQUIREMENTS: return org.hl7.fhir.dstu3.model.Conformance.ConformanceStatementKind.REQUIREMENTS;
-    default: return org.hl7.fhir.dstu3.model.Conformance.ConformanceStatementKind.NULL;
+    case INSTANCE: return org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementKind.INSTANCE;
+    case CAPABILITY: return org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementKind.CAPABILITY;
+    case REQUIREMENTS: return org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementKind.REQUIREMENTS;
+    default: return org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementKind.NULL;
     }
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ConformanceStatementKind convertConformanceStatementKind(org.hl7.fhir.dstu3.model.Conformance.ConformanceStatementKind src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ConformanceStatementKind convertConformanceStatementKind(org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementKind src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
@@ -4309,19 +4309,19 @@ public class VersionConvertor_10_20 {
     }
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.UnknownContentCode convertUnknownContentCode(org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.UnknownContentCode convertUnknownContentCode(org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case NO: return org.hl7.fhir.dstu3.model.Conformance.UnknownContentCode.NO;
-    case EXTENSIONS: return org.hl7.fhir.dstu3.model.Conformance.UnknownContentCode.EXTENSIONS;
-    case ELEMENTS: return org.hl7.fhir.dstu3.model.Conformance.UnknownContentCode.ELEMENTS;
-    case BOTH: return org.hl7.fhir.dstu3.model.Conformance.UnknownContentCode.BOTH;
-    default: return org.hl7.fhir.dstu3.model.Conformance.UnknownContentCode.NULL;
+    case NO: return org.hl7.fhir.dstu3.model.CapabilityStatement.UnknownContentCode.NO;
+    case EXTENSIONS: return org.hl7.fhir.dstu3.model.CapabilityStatement.UnknownContentCode.EXTENSIONS;
+    case ELEMENTS: return org.hl7.fhir.dstu3.model.CapabilityStatement.UnknownContentCode.ELEMENTS;
+    case BOTH: return org.hl7.fhir.dstu3.model.CapabilityStatement.UnknownContentCode.BOTH;
+    default: return org.hl7.fhir.dstu3.model.CapabilityStatement.UnknownContentCode.NULL;
     }
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode convertUnknownContentCode(org.hl7.fhir.dstu3.model.Conformance.UnknownContentCode src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode convertUnknownContentCode(org.hl7.fhir.dstu3.model.CapabilityStatement.UnknownContentCode src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
@@ -4333,10 +4333,10 @@ public class VersionConvertor_10_20 {
     }
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ConformanceContactComponent convertConformanceContactComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceContactComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementContactComponent convertConformanceContactComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.Conformance.ConformanceContactComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceContactComponent();
+    org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementContactComponent tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementContactComponent();
     copyElement(src, tgt);
     tgt.setName(src.getName());
     for (org.hl7.fhir.dstu2.model.ContactPoint t : src.getTelecom())
@@ -4344,7 +4344,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ConformanceContactComponent convertConformanceContactComponent(org.hl7.fhir.dstu3.model.Conformance.ConformanceContactComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ConformanceContactComponent convertConformanceContactComponent(org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.Conformance.ConformanceContactComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.ConformanceContactComponent();
@@ -4355,10 +4355,10 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ConformanceSoftwareComponent convertConformanceSoftwareComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceSoftwareComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementSoftwareComponent convertConformanceSoftwareComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceSoftwareComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.Conformance.ConformanceSoftwareComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceSoftwareComponent();
+    org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementSoftwareComponent tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementSoftwareComponent();
     copyElement(src, tgt);
     tgt.setName(src.getName());
     tgt.setVersion(src.getVersion());
@@ -4366,7 +4366,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ConformanceSoftwareComponent convertConformanceSoftwareComponent(org.hl7.fhir.dstu3.model.Conformance.ConformanceSoftwareComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ConformanceSoftwareComponent convertConformanceSoftwareComponent(org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementSoftwareComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.Conformance.ConformanceSoftwareComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.ConformanceSoftwareComponent();
@@ -4377,17 +4377,17 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ConformanceImplementationComponent convertConformanceImplementationComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceImplementationComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementImplementationComponent convertConformanceImplementationComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceImplementationComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.Conformance.ConformanceImplementationComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceImplementationComponent();
+    org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementImplementationComponent tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementImplementationComponent();
     copyElement(src, tgt);
     tgt.setDescription(src.getDescription());
     tgt.setUrl(src.getUrl());
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ConformanceImplementationComponent convertConformanceImplementationComponent(org.hl7.fhir.dstu3.model.Conformance.ConformanceImplementationComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ConformanceImplementationComponent convertConformanceImplementationComponent(org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementImplementationComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.Conformance.ConformanceImplementationComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.ConformanceImplementationComponent();
@@ -4397,10 +4397,10 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ConformanceRestComponent convertConformanceRestComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceRestComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestComponent convertConformanceRestComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceRestComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.Conformance.ConformanceRestComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceRestComponent();
+    org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestComponent tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestComponent();
     copyElement(src, tgt);
     tgt.setMode(convertRestfulConformanceMode(src.getMode()));
     tgt.setDocumentation(src.getDocumentation());
@@ -4420,7 +4420,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ConformanceRestComponent convertConformanceRestComponent(org.hl7.fhir.dstu3.model.Conformance.ConformanceRestComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ConformanceRestComponent convertConformanceRestComponent(org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.Conformance.ConformanceRestComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.ConformanceRestComponent();
@@ -4428,11 +4428,11 @@ public class VersionConvertor_10_20 {
     tgt.setMode(convertRestfulConformanceMode(src.getMode()));
     tgt.setDocumentation(src.getDocumentation());
     tgt.setSecurity(convertConformanceRestSecurityComponent(src.getSecurity()));
-    for (org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceComponent t : src.getResource())
+    for (org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceComponent t : src.getResource())
       tgt.addResource(convertConformanceRestResourceComponent(t));
     boolean batch = false;
     boolean transaction = false;
-    for (org.hl7.fhir.dstu3.model.Conformance.SystemInteractionComponent t : src.getInteraction()) {
+    for (org.hl7.fhir.dstu3.model.CapabilityStatement.SystemInteractionComponent t : src.getInteraction()) {
       if (t.getCode().equals(SystemRestfulInteraction.BATCH))
         batch = true;
       else
@@ -4444,26 +4444,26 @@ public class VersionConvertor_10_20 {
       tgt.setTransactionMode(transaction ? org.hl7.fhir.dstu2.model.Conformance.TransactionMode.BOTH : org.hl7.fhir.dstu2.model.Conformance.TransactionMode.BATCH);
     else
       tgt.setTransactionMode(transaction ? org.hl7.fhir.dstu2.model.Conformance.TransactionMode.TRANSACTION : org.hl7.fhir.dstu2.model.Conformance.TransactionMode.NOTSUPPORTED);
-    for (org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceSearchParamComponent t : src.getSearchParam())
+    for (org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceSearchParamComponent t : src.getSearchParam())
       tgt.addSearchParam(convertConformanceRestResourceSearchParamComponent(t));
-    for (org.hl7.fhir.dstu3.model.Conformance.ConformanceRestOperationComponent t : src.getOperation())
+    for (org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestOperationComponent t : src.getOperation())
       tgt.addOperation(convertConformanceRestOperationComponent(t));
     for (org.hl7.fhir.dstu3.model.UriType t : src.getCompartment())
       tgt.addCompartment(t.getValue());
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.RestfulConformanceMode convertRestfulConformanceMode(org.hl7.fhir.dstu2.model.Conformance.RestfulConformanceMode src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.RestfulCapabilityMode convertRestfulConformanceMode(org.hl7.fhir.dstu2.model.Conformance.RestfulConformanceMode src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case CLIENT: return org.hl7.fhir.dstu3.model.Conformance.RestfulConformanceMode.CLIENT;
-    case SERVER: return org.hl7.fhir.dstu3.model.Conformance.RestfulConformanceMode.SERVER;
-    default: return org.hl7.fhir.dstu3.model.Conformance.RestfulConformanceMode.NULL;
+    case CLIENT: return org.hl7.fhir.dstu3.model.CapabilityStatement.RestfulCapabilityMode.CLIENT;
+    case SERVER: return org.hl7.fhir.dstu3.model.CapabilityStatement.RestfulCapabilityMode.SERVER;
+    default: return org.hl7.fhir.dstu3.model.CapabilityStatement.RestfulCapabilityMode.NULL;
     }
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.RestfulConformanceMode convertRestfulConformanceMode(org.hl7.fhir.dstu3.model.Conformance.RestfulConformanceMode src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.RestfulConformanceMode convertRestfulConformanceMode(org.hl7.fhir.dstu3.model.CapabilityStatement.RestfulCapabilityMode src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
@@ -4474,10 +4474,10 @@ public class VersionConvertor_10_20 {
   }
 
 
-  public org.hl7.fhir.dstu3.model.Conformance.ConformanceRestSecurityComponent convertConformanceRestSecurityComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestSecurityComponent convertConformanceRestSecurityComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.Conformance.ConformanceRestSecurityComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceRestSecurityComponent();
+    org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestSecurityComponent tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestSecurityComponent();
     copyElement(src, tgt);
     tgt.setCors(src.getCors());
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getService())
@@ -4488,7 +4488,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityComponent convertConformanceRestSecurityComponent(org.hl7.fhir.dstu3.model.Conformance.ConformanceRestSecurityComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityComponent convertConformanceRestSecurityComponent(org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestSecurityComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityComponent();
@@ -4497,22 +4497,22 @@ public class VersionConvertor_10_20 {
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getService())
       tgt.addService(convertCodeableConcept(t));
     tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.Conformance.ConformanceRestSecurityCertificateComponent t : src.getCertificate())
+    for (org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent t : src.getCertificate())
       tgt.addCertificate(convertConformanceRestSecurityCertificateComponent(t));
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ConformanceRestSecurityCertificateComponent convertConformanceRestSecurityCertificateComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityCertificateComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent convertConformanceRestSecurityCertificateComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityCertificateComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.Conformance.ConformanceRestSecurityCertificateComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceRestSecurityCertificateComponent();
+    org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent();
     copyElement(src, tgt);
     tgt.setType(src.getType());
     tgt.setBlob(src.getBlob());
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityCertificateComponent convertConformanceRestSecurityCertificateComponent(org.hl7.fhir.dstu3.model.Conformance.ConformanceRestSecurityCertificateComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityCertificateComponent convertConformanceRestSecurityCertificateComponent(org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityCertificateComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityCertificateComponent();
@@ -4522,10 +4522,10 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceComponent convertConformanceRestResourceComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceRestResourceComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceComponent convertConformanceRestResourceComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceRestResourceComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceComponent();
+    org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceComponent tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceComponent();
     copyElement(src, tgt);
     tgt.setType(src.getType());
     tgt.setProfile(convertReference(src.getProfile()));
@@ -4546,14 +4546,14 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ConformanceRestResourceComponent convertConformanceRestResourceComponent(org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ConformanceRestResourceComponent convertConformanceRestResourceComponent(org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.Conformance.ConformanceRestResourceComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.ConformanceRestResourceComponent();
     copyElement(src, tgt);
     tgt.setType(src.getType());
     tgt.setProfile(convertReference(src.getProfile()));
-    for (org.hl7.fhir.dstu3.model.Conformance.ResourceInteractionComponent t : src.getInteraction())
+    for (org.hl7.fhir.dstu3.model.CapabilityStatement.ResourceInteractionComponent t : src.getInteraction())
       tgt.addInteraction(convertResourceInteractionComponent(t));
     tgt.setVersioning(convertResourceVersionPolicy(src.getVersioning()));
     tgt.setReadHistory(src.getReadHistory());
@@ -4565,23 +4565,23 @@ public class VersionConvertor_10_20 {
       tgt.addSearchInclude(t.getValue());
     for (org.hl7.fhir.dstu3.model.StringType t : src.getSearchRevInclude())
       tgt.addSearchRevInclude(t.getValue());
-    for (org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceSearchParamComponent t : src.getSearchParam())
+    for (org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceSearchParamComponent t : src.getSearchParam())
       tgt.addSearchParam(convertConformanceRestResourceSearchParamComponent(t));
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ResourceVersionPolicy convertResourceVersionPolicy(org.hl7.fhir.dstu2.model.Conformance.ResourceVersionPolicy src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.ResourceVersionPolicy convertResourceVersionPolicy(org.hl7.fhir.dstu2.model.Conformance.ResourceVersionPolicy src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case NOVERSION: return org.hl7.fhir.dstu3.model.Conformance.ResourceVersionPolicy.NOVERSION;
-    case VERSIONED: return org.hl7.fhir.dstu3.model.Conformance.ResourceVersionPolicy.VERSIONED;
-    case VERSIONEDUPDATE: return org.hl7.fhir.dstu3.model.Conformance.ResourceVersionPolicy.VERSIONEDUPDATE;
-    default: return org.hl7.fhir.dstu3.model.Conformance.ResourceVersionPolicy.NULL;
+    case NOVERSION: return org.hl7.fhir.dstu3.model.CapabilityStatement.ResourceVersionPolicy.NOVERSION;
+    case VERSIONED: return org.hl7.fhir.dstu3.model.CapabilityStatement.ResourceVersionPolicy.VERSIONED;
+    case VERSIONEDUPDATE: return org.hl7.fhir.dstu3.model.CapabilityStatement.ResourceVersionPolicy.VERSIONEDUPDATE;
+    default: return org.hl7.fhir.dstu3.model.CapabilityStatement.ResourceVersionPolicy.NULL;
     }
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ResourceVersionPolicy convertResourceVersionPolicy(org.hl7.fhir.dstu3.model.Conformance.ResourceVersionPolicy src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ResourceVersionPolicy convertResourceVersionPolicy(org.hl7.fhir.dstu3.model.CapabilityStatement.ResourceVersionPolicy src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
@@ -4592,18 +4592,18 @@ public class VersionConvertor_10_20 {
     }
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ConditionalDeleteStatus convertConditionalDeleteStatus(org.hl7.fhir.dstu2.model.Conformance.ConditionalDeleteStatus src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.ConditionalDeleteStatus convertConditionalDeleteStatus(org.hl7.fhir.dstu2.model.Conformance.ConditionalDeleteStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case NOTSUPPORTED: return org.hl7.fhir.dstu3.model.Conformance.ConditionalDeleteStatus.NOTSUPPORTED;
-    case SINGLE: return org.hl7.fhir.dstu3.model.Conformance.ConditionalDeleteStatus.SINGLE;
-    case MULTIPLE: return org.hl7.fhir.dstu3.model.Conformance.ConditionalDeleteStatus.MULTIPLE;
-    default: return org.hl7.fhir.dstu3.model.Conformance.ConditionalDeleteStatus.NULL;
+    case NOTSUPPORTED: return org.hl7.fhir.dstu3.model.CapabilityStatement.ConditionalDeleteStatus.NOTSUPPORTED;
+    case SINGLE: return org.hl7.fhir.dstu3.model.CapabilityStatement.ConditionalDeleteStatus.SINGLE;
+    case MULTIPLE: return org.hl7.fhir.dstu3.model.CapabilityStatement.ConditionalDeleteStatus.MULTIPLE;
+    default: return org.hl7.fhir.dstu3.model.CapabilityStatement.ConditionalDeleteStatus.NULL;
     }
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ConditionalDeleteStatus convertConditionalDeleteStatus(org.hl7.fhir.dstu3.model.Conformance.ConditionalDeleteStatus src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ConditionalDeleteStatus convertConditionalDeleteStatus(org.hl7.fhir.dstu3.model.CapabilityStatement.ConditionalDeleteStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
@@ -4614,17 +4614,17 @@ public class VersionConvertor_10_20 {
     }
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ResourceInteractionComponent convertResourceInteractionComponent(org.hl7.fhir.dstu2.model.Conformance.ResourceInteractionComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.ResourceInteractionComponent convertResourceInteractionComponent(org.hl7.fhir.dstu2.model.Conformance.ResourceInteractionComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.Conformance.ResourceInteractionComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ResourceInteractionComponent();
+    org.hl7.fhir.dstu3.model.CapabilityStatement.ResourceInteractionComponent tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement.ResourceInteractionComponent();
     copyElement(src, tgt);
     tgt.setCode(convertTypeRestfulInteraction(src.getCode()));
     tgt.setDocumentation(src.getDocumentation());
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ResourceInteractionComponent convertResourceInteractionComponent(org.hl7.fhir.dstu3.model.Conformance.ResourceInteractionComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ResourceInteractionComponent convertResourceInteractionComponent(org.hl7.fhir.dstu3.model.CapabilityStatement.ResourceInteractionComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.Conformance.ResourceInteractionComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.ResourceInteractionComponent();
@@ -4634,23 +4634,23 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction convertTypeRestfulInteraction(org.hl7.fhir.dstu2.model.Conformance.TypeRestfulInteraction src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.TypeRestfulInteraction convertTypeRestfulInteraction(org.hl7.fhir.dstu2.model.Conformance.TypeRestfulInteraction src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case READ: return org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction.READ;
-    case VREAD: return org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction.VREAD;
-    case UPDATE: return org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction.UPDATE;
-    case DELETE: return org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction.DELETE;
-    case HISTORYINSTANCE: return org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction.HISTORYINSTANCE;
-    case HISTORYTYPE: return org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction.HISTORYTYPE;
-    case CREATE: return org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction.CREATE;
-    case SEARCHTYPE: return org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction.SEARCHTYPE;
-    default: return org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction.NULL;
+    case READ: return org.hl7.fhir.dstu3.model.CapabilityStatement.TypeRestfulInteraction.READ;
+    case VREAD: return org.hl7.fhir.dstu3.model.CapabilityStatement.TypeRestfulInteraction.VREAD;
+    case UPDATE: return org.hl7.fhir.dstu3.model.CapabilityStatement.TypeRestfulInteraction.UPDATE;
+    case DELETE: return org.hl7.fhir.dstu3.model.CapabilityStatement.TypeRestfulInteraction.DELETE;
+    case HISTORYINSTANCE: return org.hl7.fhir.dstu3.model.CapabilityStatement.TypeRestfulInteraction.HISTORYINSTANCE;
+    case HISTORYTYPE: return org.hl7.fhir.dstu3.model.CapabilityStatement.TypeRestfulInteraction.HISTORYTYPE;
+    case CREATE: return org.hl7.fhir.dstu3.model.CapabilityStatement.TypeRestfulInteraction.CREATE;
+    case SEARCHTYPE: return org.hl7.fhir.dstu3.model.CapabilityStatement.TypeRestfulInteraction.SEARCHTYPE;
+    default: return org.hl7.fhir.dstu3.model.CapabilityStatement.TypeRestfulInteraction.NULL;
     }
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.TypeRestfulInteraction convertTypeRestfulInteraction(org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.TypeRestfulInteraction convertTypeRestfulInteraction(org.hl7.fhir.dstu3.model.CapabilityStatement.TypeRestfulInteraction src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
@@ -4666,10 +4666,10 @@ public class VersionConvertor_10_20 {
     }
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceSearchParamComponent convertConformanceRestResourceSearchParamComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceRestResourceSearchParamComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceSearchParamComponent convertConformanceRestResourceSearchParamComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceRestResourceSearchParamComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceSearchParamComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceSearchParamComponent();
+    org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceSearchParamComponent tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceSearchParamComponent();
     copyElement(src, tgt);
     tgt.setName(src.getName());
     tgt.setDefinition(src.getDefinition());
@@ -4684,7 +4684,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ConformanceRestResourceSearchParamComponent convertConformanceRestResourceSearchParamComponent(org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceSearchParamComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ConformanceRestResourceSearchParamComponent convertConformanceRestResourceSearchParamComponent(org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceSearchParamComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.Conformance.ConformanceRestResourceSearchParamComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.ConformanceRestResourceSearchParamComponent();
@@ -4695,32 +4695,32 @@ public class VersionConvertor_10_20 {
     tgt.setDocumentation(src.getDocumentation());
     for (org.hl7.fhir.dstu3.model.CodeType t : src.getTarget())
       tgt.addTarget(t.getValue());
-    for (org.hl7.fhir.dstu3.model.Enumeration<org.hl7.fhir.dstu3.model.Conformance.SearchModifierCode> t : src.getModifier())
+    for (org.hl7.fhir.dstu3.model.Enumeration<org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode> t : src.getModifier())
       tgt.addModifier(convertSearchModifierCode(t.getValue()));
     for (org.hl7.fhir.dstu3.model.StringType t : src.getChain())
       tgt.addChain(t.getValue());
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.SearchModifierCode convertSearchModifierCode(org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode convertSearchModifierCode(org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case MISSING: return org.hl7.fhir.dstu3.model.Conformance.SearchModifierCode.MISSING;
-    case EXACT: return org.hl7.fhir.dstu3.model.Conformance.SearchModifierCode.EXACT;
-    case CONTAINS: return org.hl7.fhir.dstu3.model.Conformance.SearchModifierCode.CONTAINS;
-    case NOT: return org.hl7.fhir.dstu3.model.Conformance.SearchModifierCode.NOT;
-    case TEXT: return org.hl7.fhir.dstu3.model.Conformance.SearchModifierCode.TEXT;
-    case IN: return org.hl7.fhir.dstu3.model.Conformance.SearchModifierCode.IN;
-    case NOTIN: return org.hl7.fhir.dstu3.model.Conformance.SearchModifierCode.NOTIN;
-    case BELOW: return org.hl7.fhir.dstu3.model.Conformance.SearchModifierCode.BELOW;
-    case ABOVE: return org.hl7.fhir.dstu3.model.Conformance.SearchModifierCode.ABOVE;
-    case TYPE: return org.hl7.fhir.dstu3.model.Conformance.SearchModifierCode.TYPE;
-    default: return org.hl7.fhir.dstu3.model.Conformance.SearchModifierCode.NULL;
+    case MISSING: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.MISSING;
+    case EXACT: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.EXACT;
+    case CONTAINS: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.CONTAINS;
+    case NOT: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.NOT;
+    case TEXT: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.TEXT;
+    case IN: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.IN;
+    case NOTIN: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.NOTIN;
+    case BELOW: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.BELOW;
+    case ABOVE: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.ABOVE;
+    case TYPE: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.TYPE;
+    default: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.NULL;
     }
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode convertSearchModifierCode(org.hl7.fhir.dstu3.model.Conformance.SearchModifierCode src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode convertSearchModifierCode(org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
@@ -4738,17 +4738,17 @@ public class VersionConvertor_10_20 {
     }
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.SystemInteractionComponent convertSystemInteractionComponent(org.hl7.fhir.dstu2.model.Conformance.SystemInteractionComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.SystemInteractionComponent convertSystemInteractionComponent(org.hl7.fhir.dstu2.model.Conformance.SystemInteractionComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.Conformance.SystemInteractionComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.SystemInteractionComponent();
+    org.hl7.fhir.dstu3.model.CapabilityStatement.SystemInteractionComponent tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement.SystemInteractionComponent();
     copyElement(src, tgt);
     tgt.setCode(convertSystemRestfulInteraction(src.getCode()));
     tgt.setDocumentation(src.getDocumentation());
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.SystemInteractionComponent convertSystemInteractionComponent(org.hl7.fhir.dstu3.model.Conformance.SystemInteractionComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.SystemInteractionComponent convertSystemInteractionComponent(org.hl7.fhir.dstu3.model.CapabilityStatement.SystemInteractionComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.Conformance.SystemInteractionComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.SystemInteractionComponent();
@@ -4758,18 +4758,18 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.SystemRestfulInteraction convertSystemRestfulInteraction(org.hl7.fhir.dstu2.model.Conformance.SystemRestfulInteraction src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.SystemRestfulInteraction convertSystemRestfulInteraction(org.hl7.fhir.dstu2.model.Conformance.SystemRestfulInteraction src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case TRANSACTION: return org.hl7.fhir.dstu3.model.Conformance.SystemRestfulInteraction.TRANSACTION;
-    case SEARCHSYSTEM: return org.hl7.fhir.dstu3.model.Conformance.SystemRestfulInteraction.SEARCHSYSTEM;
-    case HISTORYSYSTEM: return org.hl7.fhir.dstu3.model.Conformance.SystemRestfulInteraction.HISTORYSYSTEM;
-    default: return org.hl7.fhir.dstu3.model.Conformance.SystemRestfulInteraction.NULL;
+    case TRANSACTION: return org.hl7.fhir.dstu3.model.CapabilityStatement.SystemRestfulInteraction.TRANSACTION;
+    case SEARCHSYSTEM: return org.hl7.fhir.dstu3.model.CapabilityStatement.SystemRestfulInteraction.SEARCHSYSTEM;
+    case HISTORYSYSTEM: return org.hl7.fhir.dstu3.model.CapabilityStatement.SystemRestfulInteraction.HISTORYSYSTEM;
+    default: return org.hl7.fhir.dstu3.model.CapabilityStatement.SystemRestfulInteraction.NULL;
     }
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.SystemRestfulInteraction convertSystemRestfulInteraction(org.hl7.fhir.dstu3.model.Conformance.SystemRestfulInteraction src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.SystemRestfulInteraction convertSystemRestfulInteraction(org.hl7.fhir.dstu3.model.CapabilityStatement.SystemRestfulInteraction src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
@@ -4780,17 +4780,17 @@ public class VersionConvertor_10_20 {
     }
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ConformanceRestOperationComponent convertConformanceRestOperationComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceRestOperationComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestOperationComponent convertConformanceRestOperationComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceRestOperationComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.Conformance.ConformanceRestOperationComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceRestOperationComponent();
+    org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestOperationComponent tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestOperationComponent();
     copyElement(src, tgt);
     tgt.setName(src.getName());
     tgt.setDefinition(convertReference(src.getDefinition()));
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ConformanceRestOperationComponent convertConformanceRestOperationComponent(org.hl7.fhir.dstu3.model.Conformance.ConformanceRestOperationComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ConformanceRestOperationComponent convertConformanceRestOperationComponent(org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestOperationComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.Conformance.ConformanceRestOperationComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.ConformanceRestOperationComponent();
@@ -4800,10 +4800,10 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingComponent convertConformanceMessagingComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementMessagingComponent convertConformanceMessagingComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingComponent();
+    org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementMessagingComponent tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementMessagingComponent();
     copyElement(src, tgt);
     for (org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingEndpointComponent t : src.getEndpoint())
       tgt.addEndpoint(convertConformanceMessagingEndpointComponent(t));
@@ -4814,31 +4814,31 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingComponent convertConformanceMessagingComponent(org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingComponent convertConformanceMessagingComponent(org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementMessagingComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingComponent();
     copyElement(src, tgt);
-    for (org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingEndpointComponent t : src.getEndpoint())
+    for (org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementMessagingEndpointComponent t : src.getEndpoint())
       tgt.addEndpoint(convertConformanceMessagingEndpointComponent(t));
     tgt.setReliableCache(src.getReliableCache());
     tgt.setDocumentation(src.getDocumentation());
-    for (org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingEventComponent t : src.getEvent())
+    for (org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementMessagingEventComponent t : src.getEvent())
       tgt.addEvent(convertConformanceMessagingEventComponent(t));
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingEndpointComponent convertConformanceMessagingEndpointComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingEndpointComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementMessagingEndpointComponent convertConformanceMessagingEndpointComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingEndpointComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingEndpointComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingEndpointComponent();
+    org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementMessagingEndpointComponent tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementMessagingEndpointComponent();
     copyElement(src, tgt);
     tgt.setProtocol(convertCoding(src.getProtocol()));
     tgt.setAddress(src.getAddress());
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingEndpointComponent convertConformanceMessagingEndpointComponent(org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingEndpointComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingEndpointComponent convertConformanceMessagingEndpointComponent(org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementMessagingEndpointComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingEndpointComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingEndpointComponent();
@@ -4848,10 +4848,10 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingEventComponent convertConformanceMessagingEventComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingEventComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementMessagingEventComponent convertConformanceMessagingEventComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingEventComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingEventComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingEventComponent();
+    org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementMessagingEventComponent tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementMessagingEventComponent();
     copyElement(src, tgt);
     tgt.setCode(convertCoding(src.getCode()));
     tgt.setCategory(convertMessageSignificanceCategory(src.getCategory()));
@@ -4863,7 +4863,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingEventComponent convertConformanceMessagingEventComponent(org.hl7.fhir.dstu3.model.Conformance.ConformanceMessagingEventComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingEventComponent convertConformanceMessagingEventComponent(org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementMessagingEventComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingEventComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.ConformanceMessagingEventComponent();
@@ -4878,18 +4878,18 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.MessageSignificanceCategory convertMessageSignificanceCategory(org.hl7.fhir.dstu2.model.Conformance.MessageSignificanceCategory src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.MessageSignificanceCategory convertMessageSignificanceCategory(org.hl7.fhir.dstu2.model.Conformance.MessageSignificanceCategory src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case CONSEQUENCE: return org.hl7.fhir.dstu3.model.Conformance.MessageSignificanceCategory.CONSEQUENCE;
-    case CURRENCY: return org.hl7.fhir.dstu3.model.Conformance.MessageSignificanceCategory.CURRENCY;
-    case NOTIFICATION: return org.hl7.fhir.dstu3.model.Conformance.MessageSignificanceCategory.NOTIFICATION;
-    default: return org.hl7.fhir.dstu3.model.Conformance.MessageSignificanceCategory.NULL;
+    case CONSEQUENCE: return org.hl7.fhir.dstu3.model.CapabilityStatement.MessageSignificanceCategory.CONSEQUENCE;
+    case CURRENCY: return org.hl7.fhir.dstu3.model.CapabilityStatement.MessageSignificanceCategory.CURRENCY;
+    case NOTIFICATION: return org.hl7.fhir.dstu3.model.CapabilityStatement.MessageSignificanceCategory.NOTIFICATION;
+    default: return org.hl7.fhir.dstu3.model.CapabilityStatement.MessageSignificanceCategory.NULL;
     }
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.MessageSignificanceCategory convertMessageSignificanceCategory(org.hl7.fhir.dstu3.model.Conformance.MessageSignificanceCategory src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.MessageSignificanceCategory convertMessageSignificanceCategory(org.hl7.fhir.dstu3.model.CapabilityStatement.MessageSignificanceCategory src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
@@ -4900,17 +4900,17 @@ public class VersionConvertor_10_20 {
     }
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ConformanceEventMode convertConformanceEventMode(org.hl7.fhir.dstu2.model.Conformance.ConformanceEventMode src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.EventCapabilityMode convertConformanceEventMode(org.hl7.fhir.dstu2.model.Conformance.ConformanceEventMode src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case SENDER: return org.hl7.fhir.dstu3.model.Conformance.ConformanceEventMode.SENDER;
-    case RECEIVER: return org.hl7.fhir.dstu3.model.Conformance.ConformanceEventMode.RECEIVER;
-    default: return org.hl7.fhir.dstu3.model.Conformance.ConformanceEventMode.NULL;
+    case SENDER: return org.hl7.fhir.dstu3.model.CapabilityStatement.EventCapabilityMode.SENDER;
+    case RECEIVER: return org.hl7.fhir.dstu3.model.CapabilityStatement.EventCapabilityMode.RECEIVER;
+    default: return org.hl7.fhir.dstu3.model.CapabilityStatement.EventCapabilityMode.NULL;
     }
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ConformanceEventMode convertConformanceEventMode(org.hl7.fhir.dstu3.model.Conformance.ConformanceEventMode src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ConformanceEventMode convertConformanceEventMode(org.hl7.fhir.dstu3.model.CapabilityStatement.EventCapabilityMode src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
@@ -4920,10 +4920,10 @@ public class VersionConvertor_10_20 {
     }
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.ConformanceDocumentComponent convertConformanceDocumentComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceDocumentComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementDocumentComponent convertConformanceDocumentComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceDocumentComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.Conformance.ConformanceDocumentComponent tgt = new org.hl7.fhir.dstu3.model.Conformance.ConformanceDocumentComponent();
+    org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementDocumentComponent tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementDocumentComponent();
     copyElement(src, tgt);
     tgt.setMode(convertDocumentMode(src.getMode()));
     tgt.setDocumentation(src.getDocumentation());
@@ -4931,7 +4931,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.ConformanceDocumentComponent convertConformanceDocumentComponent(org.hl7.fhir.dstu3.model.Conformance.ConformanceDocumentComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.ConformanceDocumentComponent convertConformanceDocumentComponent(org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementDocumentComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.Conformance.ConformanceDocumentComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.ConformanceDocumentComponent();
@@ -4942,17 +4942,17 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Conformance.DocumentMode convertDocumentMode(org.hl7.fhir.dstu2.model.Conformance.DocumentMode src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.CapabilityStatement.DocumentMode convertDocumentMode(org.hl7.fhir.dstu2.model.Conformance.DocumentMode src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case PRODUCER: return org.hl7.fhir.dstu3.model.Conformance.DocumentMode.PRODUCER;
-    case CONSUMER: return org.hl7.fhir.dstu3.model.Conformance.DocumentMode.CONSUMER;
-    default: return org.hl7.fhir.dstu3.model.Conformance.DocumentMode.NULL;
+    case PRODUCER: return org.hl7.fhir.dstu3.model.CapabilityStatement.DocumentMode.PRODUCER;
+    case CONSUMER: return org.hl7.fhir.dstu3.model.CapabilityStatement.DocumentMode.CONSUMER;
+    default: return org.hl7.fhir.dstu3.model.CapabilityStatement.DocumentMode.NULL;
     }
   }
 
-  public org.hl7.fhir.dstu2.model.Conformance.DocumentMode convertDocumentMode(org.hl7.fhir.dstu3.model.Conformance.DocumentMode src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.Conformance.DocumentMode convertDocumentMode(org.hl7.fhir.dstu3.model.CapabilityStatement.DocumentMode src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
@@ -13912,8 +13912,8 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertConceptMap((org.hl7.fhir.dstu3.model.ConceptMap) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Condition)
       return convertCondition((org.hl7.fhir.dstu3.model.Condition) src);
-    if (src instanceof org.hl7.fhir.dstu3.model.Conformance)
-      return convertConformance((org.hl7.fhir.dstu3.model.Conformance) src);
+    if (src instanceof org.hl7.fhir.dstu3.model.CapabilityStatement)
+      return convertConformance((org.hl7.fhir.dstu3.model.CapabilityStatement) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Contract)
       return convertContract((org.hl7.fhir.dstu3.model.Contract) src);
     if (src instanceof org.hl7.fhir.dstu3.model.DataElement)

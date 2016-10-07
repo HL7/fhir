@@ -40,7 +40,7 @@ implementation's level of adherence to the FHIR specification.
 </p>
 <p>
 TestScript is a part of the conformance framework and is used to validate the behavior of FHIR systems, specifically their correct
-implementation of StructureDefinition, ValueSet, OperationDefinition, Conformance and other FHIR resources that govern system behavior.
+implementation of StructureDefinition, ValueSet, OperationDefinition, CapabilityStatement and other FHIR resources that govern system behavior.
 TestScript instances may be included as part of ImplementationGuides to help define and test the desired behavior of systems that
 choose to comply with the implementation guide.
 </p>
@@ -52,7 +52,7 @@ The following resources represent the FHIR conformance framework that are used t
   <li><a title="A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models." href="conceptmap.html">ConceptMap</a> </li>
   <li><a title="A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types." href="structuredefinition.html">StructureDefinition</a> </li>
   <li><a title="The formal description of a single piece of information that can be gathered and reported." href="dataelement.html">DataElement</a> </li>
-  <li><a title="A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation." href="conformance.html">Conformance</a> </li>
+  <li><a title="A capability statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation." href="capabilitystatement.html">CapabilityStatement</a> </li>
   <li><a title="A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction)." href="operationdefinition.html">OperationDefinition</a> </li>
   <li><a title="A Search Parameter that defines a named search item that can be used to search/filter on a resource." href="searchparameter.html">SearchParameter</a> </li>
   <li><a title="A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts." href="implementationguide.html">ImplementationGuide</a> </li>

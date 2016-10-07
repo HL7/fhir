@@ -2,10 +2,10 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = RestfulConformanceMode
+  Binding Name = RestfulCapabilityMode
   Binding = code list
-  Reference = #restful-conformance-mode
-  Definition = The mode of a RESTful conformance statement.
+  Reference = #restful-capability-mode
+  Definition = The mode of a RESTful capability statement.
 
  -- Row 2 -----------------------------------
   Binding Name = RestfulSecurityService
@@ -27,10 +27,10 @@
   Definition = Operations supported by REST at the system level.
 
  -- Row 5 -----------------------------------
-  Binding Name = ConformanceEventMode
+  Binding Name = EventCapabilityMode
   Binding = code list
-  Reference = #message-conformance-event-mode
-  Definition = The mode of a message conformance statement.
+  Reference = #event-capability-mode
+  Definition = The mode of a message capability statement.
 
  -- Row 6 -----------------------------------
   Binding Name = MessageTransport
@@ -82,10 +82,10 @@
   Definition = A code that indicates whether an application accepts unknown elements or extensions when reading resources.
 
  -- Row 14 -----------------------------------
-  Binding Name = ConformanceStatementKind
+  Binding Name = CapabilityStatementKind
   Binding = code list
-  Reference = #conformance-statement-kind
-  Definition = How a conformance statement is intended to be used.
+  Reference = #capability-statement-kind
+  Definition = How a capability statement is intended to be used.
 
  -- Row 15 -----------------------------------
   Binding Name = ConditionalReadStatus
@@ -99,7 +99,7 @@
   Reference = #reference-handling-policy
   Definition = A set of flags that defines how references are supported
 
-=== Sheet restful-conformance-mode =====================================
+=== Sheet restful-capability-mode =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -203,7 +203,7 @@
   System = http://hl7.org/fhir/restful-interaction
   Code = history-system
 
-=== Sheet message-conformance-event-mode =====================================
+=== Sheet event-capability-mode =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -425,23 +425,23 @@
   Display = Unknown Elements and Extensions
   Definition = The application accepts unknown elements and extensions.
 
-=== Sheet conformance-statement-kind =====================================
+=== Sheet capability-statement-kind =====================================
 
  -- Row 1 -----------------------------------
   Code = instance
   Display = Instance
-  Definition = The Conformance instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point.
+  Definition = The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point.
 
  -- Row 2 -----------------------------------
   Code = capability
   Display = Capability
-  Definition = The Conformance instance represents the capabilities of a system or piece of software, independent of a particular installation.
+  Definition = The CapabilityStatement instance represents the capabilities of a system or piece of software, independent of a particular installation.
   Comment = Elements marked as \'optional\' represent configurable capabilities
 
  -- Row 3 -----------------------------------
   Code = requirements
   Display = Requirements
-  Definition = The Conformance instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or \'request for proposal\'.
+  Definition = The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or \'request for proposal\'.
 
 === Sheet conditional-read-status =====================================
 
@@ -505,171 +505,171 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Context = Conformance
-  English = A Conformance statement SHALL have at least one of REST, messaging or document
+  Context = CapabilityStatement
+  English = A Capability Statement SHALL have at least one of REST, messaging or document
   XPath = exists(f:rest) or exists(f:messaging) or exists(f:document)
   Expression = rest.exists() or messaging.exists() or document.exists()
 
  -- Row 2 -----------------------------------
   Id = 2
-  Context = Conformance
-  English = A Conformance statement SHALL have at least one of description, software, or implementation
+  Context = CapabilityStatement
+  English = A Capability Statement SHALL have at least one of description, software, or implementation
   XPath = count(f:software | f:implementation | f:description) > 0
   Expression = (description.count() + software.count() + implementation.count()) > 0
 
  -- Row 3 -----------------------------------
   Id = 3
-  Context = Conformance
+  Context = CapabilityStatement
   English = Messaging end-point is required (and is only permitted) when statement is for an implementation
   XPath = not(exists(f:messaging/f:endpoint)) or f:kind/@value = \'instance\'
   Expression = messaging.endpoint.empty() or kind = \'instance\'
 
  -- Row 4 -----------------------------------
   Id = 7
-  Context = Conformance
+  Context = CapabilityStatement
   English = The set of documents must be unique by the combination of profile & mode
   XPath = count(f:document[f:mode/@value=\'producer\'])=count(distinct-values(f:document[f:mode/@value=\'producer\']/f:profile/f:reference/@value)) and count(f:document[f:mode/@value=\'consumer\'])=count(distinct-values(f:document[f:mode/@value=\'consumer\']/f:profile/f:reference/@value))
   Expression = document.select(profile.reference&mode).isDistinct()
 
  -- Row 5 -----------------------------------
   Id = 8
-  Context = Conformance
+  Context = CapabilityStatement
   English = There can only be one REST declaration per mode
   XPath = count(f:rest)=count(distinct-values(f:rest/f:mode/@value))
   Expression = rest.select(mode).isDistinct()
 
  -- Row 6 -----------------------------------
   Id = 9
-  Context = Conformance.rest
+  Context = CapabilityStatement.rest
   English = A given resource can only be described once per RESTful mode
   XPath = count(f:resource)=count(distinct-values(f:resource/f:type/@value))
   Expression = resource.select(type).isDistinct()
 
  -- Row 7 -----------------------------------
   Id = !10
-  Context = Conformance.rest
+  Context = CapabilityStatement.rest
   English = A given operation can only be described once per RESTful mode
   XPath = count(f:operation)=count(distinct-values(f:operation/f:name/@value))
   Expression = operation.select(name).isDistinct()
 
  -- Row 8 -----------------------------------
   Id = 12
-  Context = Conformance.rest.resource
+  Context = CapabilityStatement.rest.resource
   English = Search parameter names must be unique in the context of a resource
   XPath = count(f:searchParam)=count(distinct-values(f:searchParam/f:name/@value))
   Expression = searchParam.select(name).isDistinct()
 
  -- Row 9 -----------------------------------
   Id = 13
-  Context = Conformance.rest.resource.searchParam
+  Context = CapabilityStatement.rest.resource.searchParam
   English = Search parameters can only have chain names when the search parameter type is \'reference\'
   XPath = not(exists(f:chain)) or (f:type/@value = \'reference\')
   Expression = chain.empty() or type = \'reference\'
 
  -- Row 10 -----------------------------------
   Id = 14
-  Context = Conformance
-  English = Conformance statements of kind \'requirements\' do not have software or implementation elements
+  Context = CapabilityStatement
+  English = Capability Statements of kind \'requirements\' do not have software or implementation elements
   XPath = not(exists(f:software) or exists(f:implementation)) or (f:kind/@value != \'requirements\')
   Expression = (software.empty() and implementation.empty()) or kind != \'requirements\'
 
  -- Row 11 -----------------------------------
   Id = 15
-  Context = Conformance
-  English = Conformance statements of kind \'software\' do not have implementation elements
+  Context = CapabilityStatement
+  English = Capability Statements of kind \'software\' do not have implementation elements
   XPath = not(exists(f:implementation)) or (f:kind/@value != \'capability\')
   Expression = implementation.empty() or kind != \'capability\'
 
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
-  Element = Conformance
+  Element = CapabilityStatement
   Card. = 1..1
   UML = 230;160
   Type = DomainResource
-  Short Label = A conformance statement
-  Definition = A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+  Short Label = A statement of system Capabilities
+  Definition = A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
   Object Impl = BaseConformance
   w5 = conformance.behavior
 
  -- Row 2 -----------------------------------
-  Element = Conformance.url
+  Element = CapabilityStatement.url
   Card. = 0..1
   Summary = y
   Type = uri
   Short Label = Logical uri to reference this statement
-  Definition = An absolute URL that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this conformance statement is (or will be) published
+  Definition = An absolute URL that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published
   Object Impl = BaseConformance.url
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Conformance.version
+  Element = CapabilityStatement.version
   Card. = 0..1
   Summary = y
   Type = string
   Short Label = Logical id for this version of the statement
-  Definition = The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp
-  Comments = There may be multiple different instances of a conformance statement that have the same identifier but different versions
+  Definition = The identifier that is used to identify this version of the capability statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp
+  Comments = There may be multiple different instances of a capability statement that have the same identifier but different versions
   Object Impl = BaseConformance.version
   w5 = id.version
 
  -- Row 4 -----------------------------------
-  Element = Conformance.name
+  Element = CapabilityStatement.name
   Card. = 0..1
   Summary = y
   Type = string
-  Short Label = Informal name for this conformance statement
-  Definition = A free text natural language name identifying the conformance statement
+  Short Label = Informal name for this capability statement
+  Definition = A free text natural language name identifying the capability statement
   Comments = The name is not expected to be globally unique
   Object Impl = BaseConformance.name
 
  -- Row 5 -----------------------------------
-  Element = Conformance.status
+  Element = CapabilityStatement.status
   Card. = 1..1
   Is Modifier = yes
   Summary = y
   Type = code
   Binding = ConformanceResourceStatus
   Short Label = draft | active | retired
-  Definition = The status of this conformance statement
-  Comments = This is not intended for use with actual conformance statements, but where conformance statements are used to describe possible or desired systems
+  Definition = The status of this capability statement
+  Comments = This is not intended for use with actual capability statements, but where capability statements are used to describe possible or desired systems
   Object Impl = BaseConformance.status
   w5 = status
 
  -- Row 6 -----------------------------------
-  Element = Conformance.experimental
+  Element = CapabilityStatement.experimental
   Card. = 0..1
   Summary = y
   Type = boolean
   Short Label = If for testing purposes, not real usage
-  Definition = A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
-  Comments = Allows filtering of conformance statements that are appropriate for use vs. not
+  Definition = A flag to indicate that this capability statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+  Comments = Allows filtering of capability statements that are appropriate for use vs. not
   w5 = class
 
  -- Row 7 -----------------------------------
-  Element = Conformance.date
+  Element = CapabilityStatement.date
   Card. = 1..1
   Summary = y
   Type = dateTime
   Short Label = Publication Date(/time)
-  Definition = The date  (and optionally time) when the conformance statement was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the conformance statement changes
+  Definition = The date  (and optionally time) when the capability statement was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the capability statement changes
   Comments = Additional specific dates may be added as extensions
   Object Impl = BaseConformance.date
   w5 = when.recorded
 
  -- Row 8 -----------------------------------
-  Element = Conformance.publisher
+  Element = CapabilityStatement.publisher
   Card. = 0..1
   Summary = y
   Type = string
   Short Label = Name of the publisher (Organization or individual)
-  Definition = The name of the individual or organization that published the conformance
-  Requirements = Helps establish the \"authority/credibility\" of the conformance.  May also allow for contact
+  Definition = The name of the individual or organization that published the Capability Statement
+  Requirements = Helps establish the \"authority/credibility\" of the Capability Statement.  May also allow for contact
   Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
   w5 = who.author
 
  -- Row 9 -----------------------------------
-  Element = Conformance.contact
+  Element = CapabilityStatement.contact
   Card. = 0..*
   Summary = y
   UML = 70;0
@@ -678,16 +678,16 @@
   Comments = May be a web site, an email address, a telephone number (tel:), etc.
 
  -- Row 10 -----------------------------------
-  Element = Conformance.contact.name
+  Element = CapabilityStatement.contact.name
   Card. = 0..1
   Summary = Y
   Type = string
   Short Label = Name of an individual to contact
-  Definition = The name of an individual to contact regarding the conformance
+  Definition = The name of an individual to contact regarding the Capability Statement
   Comments = If there is no named individual, the telecom is for the organization as a whole
 
  -- Row 11 -----------------------------------
-  Element = Conformance.contact.telecom
+  Element = CapabilityStatement.contact.telecom
   Card. = 0..*
   Summary = Y
   Type = ContactPoint
@@ -695,72 +695,72 @@
   Definition = Contact details for individual (if a name was provided) or the publisher
 
  -- Row 12 -----------------------------------
-  Element = Conformance.description
+  Element = CapabilityStatement.description
   Card. = 0..1
   Summary = y
   Inv. = 2
   Type = markdown
-  Short Label = Human description of the conformance statement
-  Definition = A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP
-  Comments = This field may include the purpose of this conformance statement, comments about its context etc. This does not need to be populated if the description is adequately implied by the software or implementation details
+  Short Label = Human description of the capability statement
+  Definition = A free text natural language description of the capability statement and its use. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP
+  Comments = This field may include the purpose of this capability statement, comments about its context etc. This does not need to be populated if the description is adequately implied by the software or implementation details
 
  -- Row 13 -----------------------------------
-  Element = Conformance.useContext
+  Element = CapabilityStatement.useContext
   Card. = 0..*
   Summary = y
   Type = CodeableConcept
   Binding = ConformanceUseContext
   Short Label = Content intends to support these contexts
-  Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of conformance statements.
+  Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of capability statements.
   Requirements = Assist in searching for appropriate content
   Object Impl = BaseConformance.useContext
 
  -- Row 14 -----------------------------------
-  Element = Conformance.requirements
+  Element = CapabilityStatement.requirements
   Card. = 0..1
   Type = markdown
   Short Label = Why this resource has been created
-  Definition = Explains why this conformance statement is needed and why it\'s been constrained as it has
-  Comments = This element does not describe the usage of the conformance statement (that\'s done in comments), rather it\'s for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
+  Definition = Explains why this capability statement is needed and why it\'s been constrained as it has
+  Comments = This element does not describe the usage of the capability statement (that\'s done in comments), rather it\'s for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
 
  -- Row 15 -----------------------------------
-  Element = Conformance.copyright
+  Element = CapabilityStatement.copyright
   Card. = 0..1
   Aliases = License,Restrictions
   Type = string
   Short Label = Use and/or publishing restrictions
-  Definition = A copyright statement relating to the conformance statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement
+  Definition = A copyright statement relating to the capability statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the capability statement
 
  -- Row 16 -----------------------------------
-  Element = Conformance.kind
+  Element = CapabilityStatement.kind
   Card. = 1..1
   Summary = Y
   Type = code
-  Binding = ConformanceStatementKind
+  Binding = CapabilityStatementKind
   Short Label = instance | capability | requirements
   Definition = The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase)
   Requirements = Allow searching the 3 modes
 
  -- Row 17 -----------------------------------
-  Element = Conformance.instantiates
+  Element = CapabilityStatement.instantiates
   Card. = 0..*
   Summary = y
   Type = uri
   Short Label = Canonical URL of service implemented/used by software
-  Definition = Reference to a canonical URL of another conformance that this software implements or uses. This conformance statement is a published API description that corresponds to a business service. The rest of the conformance statement does not need to repeat the details of the referenced Conformance resource, but can do so
+  Definition = Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so
   Comments = HL7 defines the following Services: [[[Terminology Service]]]\n\nMany [Implementation Guides](http://fhir.org/guides/registry) define additional services
 
  -- Row 18 -----------------------------------
-  Element = Conformance.software
+  Element = CapabilityStatement.software
   Card. = 0..1
   Summary = y
   UML = 230;0
   Inv. = 2
-  Short Label = Software that is covered by this conformance statement
-  Definition = Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.
+  Short Label = Software that is covered by this capability statement
+  Definition = Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation.
 
  -- Row 19 -----------------------------------
-  Element = Conformance.software.name
+  Element = CapabilityStatement.software.name
   Card. = 1..1
   Summary = y
   Type = string
@@ -768,7 +768,7 @@
   Definition = Name software is known by
 
  -- Row 20 -----------------------------------
-  Element = Conformance.software.version
+  Element = CapabilityStatement.software.version
   Card. = 0..1
   Summary = y
   Type = string
@@ -777,7 +777,7 @@
   Comments = If possible, version should be specified, as statements are likely to be different for different versions of software
 
  -- Row 21 -----------------------------------
-  Element = Conformance.software.releaseDate
+  Element = CapabilityStatement.software.releaseDate
   Card. = 0..1
   Summary = y
   Type = dateTime
@@ -785,24 +785,24 @@
   Definition = Date this version of the software released
 
  -- Row 22 -----------------------------------
-  Element = Conformance.implementation
+  Element = CapabilityStatement.implementation
   Card. = 0..1
   Summary = y
   UML = 370;0
   Inv. = 2
   Short Label = If this describes a specific instance
-  Definition = Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program
+  Definition = Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program
 
  -- Row 23 -----------------------------------
-  Element = Conformance.implementation.description
+  Element = CapabilityStatement.implementation.description
   Card. = 1..1
   Summary = y
   Type = string
   Short Label = Describes this specific instance
-  Definition = Information about the specific installation that this conformance statement relates to
+  Definition = Information about the specific installation that this capability statement relates to
 
  -- Row 24 -----------------------------------
-  Element = Conformance.implementation.url
+  Element = CapabilityStatement.implementation.url
   Card. = 0..1
   Summary = y
   Type = uri
@@ -810,15 +810,15 @@
   Definition = An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
 
  -- Row 25 -----------------------------------
-  Element = Conformance.fhirVersion
+  Element = CapabilityStatement.fhirVersion
   Card. = 1..1
   Summary = y
   Type = id
   Short Label = FHIR Version the system uses
-  Definition = The version of the FHIR specification on which this conformance statement is based
+  Definition = The version of the FHIR specification on which this capability statement is based
 
  -- Row 26 -----------------------------------
-  Element = Conformance.acceptUnknown
+  Element = CapabilityStatement.acceptUnknown
   Card. = 1..1
   Summary = Y
   Type = code
@@ -828,7 +828,7 @@
   Comments = Unknown elements in a resource can only arise as later versions of the specification are published, because this is the only place where such elements can be defined. Hence accepting unknown elements is about inter-version compatibility.\n\nApplications are recommended to accept unknown extensions and elements (\'both\'), but this is not always possible
 
  -- Row 27 -----------------------------------
-  Element = Conformance.format
+  Element = CapabilityStatement.format
   Card. = 1..*
   Summary = y
   Type = code
@@ -838,7 +838,7 @@
   Comments = \"xml\" or \"json\" are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here
 
  -- Row 28 -----------------------------------
-  Element = Conformance.profile
+  Element = CapabilityStatement.profile
   Card. = 0..*
   Summary = y
   Type = Reference(StructureDefinition)
@@ -847,7 +847,7 @@
   Comments = Supported profiles are different to the profiles that apply to a particular resource in rest.resource.profile. The resource profile is a general statement of what features of the resource are supported overall by the system - the sum total of the facilities it supports. A supported profile is a deeper statement about the functionality of the data and services provided by the server (or used by the client). A typical case is a laboratory system that produces a set of different reports - this is the list of types of data that it publishes. A key aspect of declaring profiles here is the question of how the client converts knowledge that the server publishes this data into working with the data; the client can inspect individual resources to determine whether they conform to a particular profile, but how does it find the ones that does? It does so by searching using the _profile parameter, so any resources listed here must be valid values for the _profile resource (using the identifier in the target profile).  Typical supported profiles cross resource types to describe a network of related resources, so they are listed here rather than by resource. However, they do not need to describe more than one resource
 
  -- Row 29 -----------------------------------
-  Element = Conformance.rest
+  Element = CapabilityStatement.rest
   Card. = 0..*
   Summary = Y
   UML = 230;460
@@ -857,23 +857,23 @@
   Comments = Multiple repetitions allow definition of both client and / or server behaviors or possibly behaviors under different configuration settings (for software or requirements statements)
 
  -- Row 30 -----------------------------------
-  Element = Conformance.rest.mode
+  Element = CapabilityStatement.rest.mode
   Card. = 1..1
   Summary = Y
   Type = code
-  Binding = RestfulConformanceMode
+  Binding = RestfulCapabilityMode
   Short Label = client | server
   Definition = Identifies whether this portion of the statement is describing ability to initiate or receive restful operations
 
  -- Row 31 -----------------------------------
-  Element = Conformance.rest.documentation
+  Element = CapabilityStatement.rest.documentation
   Card. = 0..1
   Type = string
   Short Label = General description of implementation
   Definition = Information about the system\'s restful capabilities that apply across all applications, such as security
 
  -- Row 32 -----------------------------------
-  Element = Conformance.rest.security
+  Element = CapabilityStatement.rest.security
   Card. = 0..1
   Summary = Y
   UML = 550;380
@@ -881,7 +881,7 @@
   Definition = Information about security implementation from an interface perspective - what a client needs to know
 
  -- Row 33 -----------------------------------
-  Element = Conformance.rest.security.cors
+  Element = CapabilityStatement.rest.security.cors
   Card. = 0..1
   Summary = Y
   Type = boolean
@@ -890,7 +890,7 @@
   Comments = The easiest CORS headers to add are Access-Control-Allow-Origin: * & Access-Control-Request-Method: GET, POST, PUT, DELETE. All servers SHOULD support CORS
 
  -- Row 34 -----------------------------------
-  Element = Conformance.rest.security.service
+  Element = CapabilityStatement.rest.security.service
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
@@ -899,21 +899,21 @@
   Definition = Types of security services are supported/required by the system
 
  -- Row 35 -----------------------------------
-  Element = Conformance.rest.security.description
+  Element = CapabilityStatement.rest.security.description
   Card. = 0..1
   Type = string
   Short Label = General description of how security works
   Definition = General description of how security works
 
  -- Row 36 -----------------------------------
-  Element = Conformance.rest.security.certificate
+  Element = CapabilityStatement.rest.security.certificate
   Card. = 0..*
   UML = up
   Short Label = Certificates associated with security profiles
   Definition = Certificates associated with security profiles
 
  -- Row 37 -----------------------------------
-  Element = Conformance.rest.security.certificate.type
+  Element = CapabilityStatement.rest.security.certificate.type
   Card. = 0..1
   Type = code
   Binding = MimeType
@@ -921,14 +921,14 @@
   Definition = Mime type for certificate
 
  -- Row 38 -----------------------------------
-  Element = Conformance.rest.security.certificate.blob
+  Element = CapabilityStatement.rest.security.certificate.blob
   Card. = 0..1
   Type = base64Binary
   Short Label = Actual certificate
   Definition = Actual certificate
 
  -- Row 39 -----------------------------------
-  Element = Conformance.rest.resource
+  Element = CapabilityStatement.rest.resource
   Card. = 0..*
   Summary = Y
   UML = 230;600
@@ -937,7 +937,7 @@
   Comments = Max of one repetition per resource type
 
  -- Row 40 -----------------------------------
-  Element = Conformance.rest.resource.type
+  Element = CapabilityStatement.rest.resource.type
   Card. = 1..1
   Summary = Y
   Type = code
@@ -946,7 +946,7 @@
   Definition = A type of resource exposed via the restful interface
 
  -- Row 41 -----------------------------------
-  Element = Conformance.rest.resource.profile
+  Element = CapabilityStatement.rest.resource.profile
   Card. = 0..1
   Summary = y
   Type = Reference(StructureDefinition)
@@ -955,14 +955,14 @@
   Comments = The profile applies to all  resources of this type - i.e. it is the superset of what is supported by the system
 
  -- Row 42 -----------------------------------
-  Element = Conformance.rest.resource.documentation
+  Element = CapabilityStatement.rest.resource.documentation
   Card. = 0..1
   Type = markdown
   Short Label = Additional information about the use of the resource type
   Definition = Additional information about the resource type is used by the system
 
  -- Row 43 -----------------------------------
-  Element = Conformance.rest.resource.interaction
+  Element = CapabilityStatement.rest.resource.interaction
   Card. = 1..*
   UML = -20;560
   Type = =ResourceInteraction
@@ -970,7 +970,7 @@
   Definition = Identifies a restful operation supported by the solution
 
  -- Row 44 -----------------------------------
-  Element = Conformance.rest.resource.interaction.code
+  Element = CapabilityStatement.rest.resource.interaction.code
   Card. = 1..1
   Type = code
   Binding = TypeRestfulInteraction
@@ -978,7 +978,7 @@
   Definition = Coded identifier of the operation, supported by the system resource
 
  -- Row 45 -----------------------------------
-  Element = Conformance.rest.resource.interaction.documentation
+  Element = CapabilityStatement.rest.resource.interaction.documentation
   Card. = 0..1
   Type = string
   Short Label = Anything special about operation behavior
@@ -986,7 +986,7 @@
   Requirements = REST allows a degree of variability in the implementation of RESTful solutions that is useful for exchange partners to be aware of.
 
  -- Row 46 -----------------------------------
-  Element = Conformance.rest.resource.versioning
+  Element = CapabilityStatement.rest.resource.versioning
   Card. = 0..1
   Type = code
   Binding = ResourceVersionPolicy
@@ -995,7 +995,7 @@
   Comments = If a server supports versionIds correctly, it SHOULD support vread too, but is not required to do so
 
  -- Row 47 -----------------------------------
-  Element = Conformance.rest.resource.readHistory
+  Element = CapabilityStatement.rest.resource.readHistory
   Card. = 0..1
   Type = boolean
   Short Label = Whether vRead can return past versions
@@ -1003,7 +1003,7 @@
   Comments = It is useful to support the vRead operation for current operations, even if past versions aren\'t available
 
  -- Row 48 -----------------------------------
-  Element = Conformance.rest.resource.updateCreate
+  Element = CapabilityStatement.rest.resource.updateCreate
   Card. = 0..1
   Type = boolean
   Short Label = If update can commit to a new identity
@@ -1011,7 +1011,7 @@
   Comments = Allowing the clients to create new identities on the server means that the system administrator needs to have confidence that the clients do not create clashing identities between them. Obviously, if there is only one client, this won\'t happen. While creating identities on the client means that the clients need to be managed, it\'s much more convenient for many scenarios if such management can be put in place
 
  -- Row 49 -----------------------------------
-  Element = Conformance.rest.resource.conditionalCreate
+  Element = CapabilityStatement.rest.resource.conditionalCreate
   Card. = 0..1
   Type = boolean
   Short Label = If allows/uses conditional create
@@ -1019,7 +1019,7 @@
   Comments = Conditional Create is mainly appropriate for interface engine scripts converting from other formats, such as v2
 
  -- Row 50 -----------------------------------
-  Element = Conformance.rest.resource.conditionalRead
+  Element = CapabilityStatement.rest.resource.conditionalRead
   Card. = 0..1
   Type = code
   Binding = ConditionalReadStatus
@@ -1028,7 +1028,7 @@
   Comments = Conditional Read is mainly appropriate for interface engine scripts converting from other formats, such as v2
 
  -- Row 51 -----------------------------------
-  Element = Conformance.rest.resource.conditionalUpdate
+  Element = CapabilityStatement.rest.resource.conditionalUpdate
   Card. = 0..1
   Type = boolean
   Short Label = If allows/uses conditional update
@@ -1036,7 +1036,7 @@
   Comments = Conditional Update is mainly appropriate for interface engine scripts converting from other formats, such as v2
 
  -- Row 52 -----------------------------------
-  Element = Conformance.rest.resource.conditionalDelete
+  Element = CapabilityStatement.rest.resource.conditionalDelete
   Card. = 0..1
   Type = code
   Binding = ConditionalDeleteStatus
@@ -1045,7 +1045,7 @@
   Comments = Conditional Delete is mainly appropriate for interface engine scripts converting from other formats, such as v2
 
  -- Row 53 -----------------------------------
-  Element = Conformance.rest.resource.referencePolicy
+  Element = CapabilityStatement.rest.resource.referencePolicy
   Card. = 0..*
   Type = code
   Binding = ReferenceHandlingPolicy
@@ -1053,7 +1053,7 @@
   Definition = A set of flags that defines how references are supported
 
  -- Row 54 -----------------------------------
-  Element = Conformance.rest.resource.searchInclude
+  Element = CapabilityStatement.rest.resource.searchInclude
   Card. = 0..*
   Type = string
   Short Label = _include values supported by the server
@@ -1061,7 +1061,7 @@
   Comments = If this list is empty, the server does not support includes
 
  -- Row 55 -----------------------------------
-  Element = Conformance.rest.resource.searchRevInclude
+  Element = CapabilityStatement.rest.resource.searchRevInclude
   Card. = 0..*
   Type = string
   Short Label = _revinclude values supported by the server
@@ -1069,14 +1069,14 @@
   Comments = If this list is empty, the server does not support includes
 
  -- Row 56 -----------------------------------
-  Element = Conformance.rest.resource.searchParam
+  Element = CapabilityStatement.rest.resource.searchParam
   Card. = 0..*
   UML = right
   Short Label = Search params supported by implementation
   Definition = Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation
 
  -- Row 57 -----------------------------------
-  Element = Conformance.rest.resource.searchParam.name
+  Element = CapabilityStatement.rest.resource.searchParam.name
   Card. = 1..1
   Type = string
   Short Label = Name of search parameter
@@ -1084,7 +1084,7 @@
   Comments = Parameter names cannot overlap with standard parameter names, and standard parameters cannot be redefined
 
  -- Row 58 -----------------------------------
-  Element = Conformance.rest.resource.searchParam.definition
+  Element = CapabilityStatement.rest.resource.searchParam.definition
   Card. = 0..1
   Type = uri
   Short Label = Source of definition for parameter
@@ -1092,23 +1092,23 @@
   Comments = This SHOULD be present, and matches SearchParameter.url
 
  -- Row 59 -----------------------------------
-  Element = Conformance.rest.resource.searchParam.type
+  Element = CapabilityStatement.rest.resource.searchParam.type
   Card. = 1..1
   Type = code
   Binding = SearchParamType
   Short Label = number | date | string | token | reference | composite | quantity | uri
   Definition = The type of value a search parameter refers to, and how the content is interpreted
-  Comments = While this can be looked up from the definition, it is included here as a convenience for systems that autogenerate a query interface based on the server conformance statement.  It SHALL be the same as the type in the search parameter definition
+  Comments = While this can be looked up from the definition, it is included here as a convenience for systems that autogenerate a query interface based on the server capability statement.  It SHALL be the same as the type in the search parameter definition
 
  -- Row 60 -----------------------------------
-  Element = Conformance.rest.resource.searchParam.documentation
+  Element = CapabilityStatement.rest.resource.searchParam.documentation
   Card. = 0..1
   Type = string
   Short Label = Server-specific usage
   Definition = This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.
 
  -- Row 61 -----------------------------------
-  Element = Conformance.rest.resource.searchParam.target
+  Element = CapabilityStatement.rest.resource.searchParam.target
   Card. = 0..*
   Type = code
   Binding = ResourceType
@@ -1117,7 +1117,7 @@
   Comments = This SHALL be the same as or a proper subset of the resources listed in the search parameter definition.
 
  -- Row 62 -----------------------------------
-  Element = Conformance.rest.resource.searchParam.modifier
+  Element = CapabilityStatement.rest.resource.searchParam.modifier
   Card. = 0..*
   Type = code
   Binding = SearchModifierCode
@@ -1125,15 +1125,15 @@
   Definition = A modifier supported for the search parameter
 
  -- Row 63 -----------------------------------
-  Element = Conformance.rest.resource.searchParam.chain
+  Element = CapabilityStatement.rest.resource.searchParam.chain
   Card. = 0..*
   Type = string
   Short Label = Chained names supported
-  Definition = Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type
+  Definition = Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from CapabilityStatement.rest.resource.searchParam.name on the target resource type
   Comments = Systems are not required to list all the chain names they support, but if they don\'t list them, clients may not know to use them
 
  -- Row 64 -----------------------------------
-  Element = Conformance.rest.interaction
+  Element = CapabilityStatement.rest.interaction
   Card. = 0..*
   UML = -20;430
   Type = =SystemInteraction
@@ -1141,7 +1141,7 @@
   Definition = A specification of restful operations supported by the system
 
  -- Row 65 -----------------------------------
-  Element = Conformance.rest.interaction.code
+  Element = CapabilityStatement.rest.interaction.code
   Card. = 1..1
   Type = code
   Binding = SystemRestfulInteraction
@@ -1149,14 +1149,14 @@
   Definition = A coded identifier of the operation, supported by the system
 
  -- Row 66 -----------------------------------
-  Element = Conformance.rest.interaction.documentation
+  Element = CapabilityStatement.rest.interaction.documentation
   Card. = 0..1
   Type = string
   Short Label = Anything special about operation behavior
   Definition = Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented
 
  -- Row 67 -----------------------------------
-  Element = !Conformance.rest.transactionMode
+  Element = !CapabilityStatement.rest.transactionMode
   Card. = 0..1
   Type = code
   Binding = TransactionMode
@@ -1165,16 +1165,16 @@
   Default Value = not-supported
 
  -- Row 68 -----------------------------------
-  Element = Conformance.rest.searchParam
+  Element = CapabilityStatement.rest.searchParam
   Card. = 0..*
   UML = right
-  Type = @Conformance.rest.resource.searchParam
+  Type = @CapabilityStatement.rest.resource.searchParam
   Short Label = Search params for searching all resources
   Definition = Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation
   Comments = Typically, the only search parameters supported for all parameters are search parameters that apply to all resources - tags, profiles, text search etc.
 
  -- Row 69 -----------------------------------
-  Element = Conformance.rest.operation
+  Element = CapabilityStatement.rest.operation
   Card. = 0..*
   Summary = Y
   UML = right
@@ -1182,7 +1182,7 @@
   Definition = Definition of an operation or a named query and with its parameters and their meaning and type
 
  -- Row 70 -----------------------------------
-  Element = Conformance.rest.operation.name
+  Element = CapabilityStatement.rest.operation.name
   Card. = 1..1
   Type = string
   Short Label = Name by which the operation/query is invoked
@@ -1190,7 +1190,7 @@
   Comments = The name here SHOULD be the same as the name in the definition, unless there is a name clash and the name cannot be used. The name does not include the \"$\" portion that is always included in the URL
 
  -- Row 71 -----------------------------------
-  Element = Conformance.rest.operation.definition
+  Element = CapabilityStatement.rest.operation.definition
   Card. = 1..1
   Summary = Y
   Type = Reference(OperationDefinition)
@@ -1199,7 +1199,7 @@
   Comments = This can be used to build an HTML form to invoke the operation, for instance
 
  -- Row 72 -----------------------------------
-  Element = Conformance.rest.compartment
+  Element = CapabilityStatement.rest.compartment
   Card. = 0..*
   Type = uri
   Short Label = Compartments served/used by system
@@ -1207,7 +1207,7 @@
   Comments = At present, the only defined compartments are at [CompartmentDefinition](compartmentdefinition.html)
 
  -- Row 73 -----------------------------------
-  Element = Conformance.messaging
+  Element = CapabilityStatement.messaging
   Card. = 0..*
   Summary = Y
   UML = 0;240
@@ -1217,7 +1217,7 @@
   Comments = Multiple repetitions allow the documentation of multiple endpoints per solution
 
  -- Row 74 -----------------------------------
-  Element = Conformance.messaging.endpoint
+  Element = CapabilityStatement.messaging.endpoint
   Card. = 0..*
   Aliases = 3
   UML = 0;330
@@ -1225,7 +1225,7 @@
   Definition = An endpoint (network accessible address) to which messages and/or replies are to be sent.
 
  -- Row 75 -----------------------------------
-  Element = Conformance.messaging.endpoint.protocol
+  Element = CapabilityStatement.messaging.endpoint.protocol
   Card. = 1..1
   Type = Coding
   Binding = MessageTransport
@@ -1233,14 +1233,14 @@
   Definition = A list of the messaging transport protocol(s) identifiers, supported by this endpoint
 
  -- Row 76 -----------------------------------
-  Element = Conformance.messaging.endpoint.address
+  Element = CapabilityStatement.messaging.endpoint.address
   Card. = 1..1
   Type = uri
   Short Label = Address of end-point
   Definition = The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier
 
  -- Row 77 -----------------------------------
-  Element = Conformance.messaging.reliableCache
+  Element = CapabilityStatement.messaging.reliableCache
   Card. = 0..1
   Type = unsignedInt
   Short Label = Reliable Message Cache Length (min)
@@ -1248,14 +1248,14 @@
   Comments = If this value is missing then the application does not implement (receiver) or depend on (sender) reliable messaging
 
  -- Row 78 -----------------------------------
-  Element = Conformance.messaging.documentation
+  Element = CapabilityStatement.messaging.documentation
   Card. = 0..1
   Type = string
   Short Label = Messaging interface behavior details
-  Definition = Documentation about the system\'s messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.
+  Definition = Documentation about the system\'s messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, process for becoming an authorized messaging exchange partner.
 
  -- Row 79 -----------------------------------
-  Element = Conformance.messaging.event
+  Element = CapabilityStatement.messaging.event
   Card. = 1..*
   Summary = Y
   UML = -20;80
@@ -1265,7 +1265,7 @@
   To Do = Need to add follow-ups and need to do more to flesh out messaging dynamic model
 
  -- Row 80 -----------------------------------
-  Element = Conformance.messaging.event.code
+  Element = CapabilityStatement.messaging.event.code
   Card. = 1..1
   Summary = Y
   Type = Coding
@@ -1275,7 +1275,7 @@
   To Do = May need a profile id as well if profiles can define message events
 
  -- Row 81 -----------------------------------
-  Element = Conformance.messaging.event.category
+  Element = CapabilityStatement.messaging.event.category
   Card. = 0..1
   Type = code
   Binding = MessageSignificanceCategory
@@ -1283,15 +1283,15 @@
   Definition = The impact of the content of the message
 
  -- Row 82 -----------------------------------
-  Element = Conformance.messaging.event.mode
+  Element = CapabilityStatement.messaging.event.mode
   Card. = 1..1
   Type = code
-  Binding = ConformanceEventMode
+  Binding = EventCapabilityMode
   Short Label = sender | receiver
   Definition = The mode of this event declaration - whether application is sender or receiver
 
  -- Row 83 -----------------------------------
-  Element = Conformance.messaging.event.focus
+  Element = CapabilityStatement.messaging.event.focus
   Card. = 1..1
   Type = code
   Binding = ResourceType
@@ -1300,7 +1300,7 @@
   Comments = This SHALL be provided if the event type supports multiple different resource types
 
  -- Row 84 -----------------------------------
-  Element = Conformance.messaging.event.request
+  Element = CapabilityStatement.messaging.event.request
   Card. = 1..1
   Summary = Y
   Type = Reference(StructureDefinition)
@@ -1308,7 +1308,7 @@
   Definition = Information about the request for this event
 
  -- Row 85 -----------------------------------
-  Element = Conformance.messaging.event.response
+  Element = CapabilityStatement.messaging.event.response
   Card. = 1..1
   Summary = Y
   Type = Reference(StructureDefinition)
@@ -1316,14 +1316,14 @@
   Definition = Information about the response for this event
 
  -- Row 86 -----------------------------------
-  Element = Conformance.messaging.event.documentation
+  Element = CapabilityStatement.messaging.event.documentation
   Card. = 0..1
   Type = string
   Short Label = Endpoint-specific event documentation
   Definition = Guidance on how this event is handled, such as internal system trigger points, business rules, etc.
 
  -- Row 87 -----------------------------------
-  Element = Conformance.document
+  Element = CapabilityStatement.document
   Card. = 0..*
   Summary = Y
   UML = 550;50
@@ -1332,7 +1332,7 @@
   Definition = A document definition
 
  -- Row 88 -----------------------------------
-  Element = Conformance.document.mode
+  Element = CapabilityStatement.document.mode
   Card. = 1..1
   Type = code
   Binding = DocumentMode
@@ -1340,14 +1340,14 @@
   Definition = Mode of this document declaration - whether application is producer or consumer
 
  -- Row 89 -----------------------------------
-  Element = Conformance.document.documentation
+  Element = CapabilityStatement.document.documentation
   Card. = 0..1
   Type = string
   Short Label = Description of document support
   Definition = A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.
 
  -- Row 90 -----------------------------------
-  Element = Conformance.document.profile
+  Element = CapabilityStatement.document.profile
   Card. = 1..1
   Summary = Y
   Type = Reference(StructureDefinition)
@@ -1360,108 +1360,108 @@
  -- Row 1 -----------------------------------
   Name = url
   Type = uri
-  Description = The uri that identifies the conformance statement
-  Path = Conformance.url
+  Description = The uri that identifies the capability statement
+  Path = CapabilityStatement.url
 
  -- Row 2 -----------------------------------
   Name = version
   Type = token
-  Description = The version identifier of the conformance statement
-  Path = Conformance.version
+  Description = The version identifier of the capability statement
+  Path = CapabilityStatement.version
 
  -- Row 3 -----------------------------------
   Name = name
   Type = string
-  Description = Name of the conformance statement
-  Path = Conformance.name
+  Description = Name of the capability statement
+  Path = CapabilityStatement.name
 
  -- Row 4 -----------------------------------
   Name = publisher
   Type = string
-  Description = Name of the publisher of the conformance statement
-  Path = Conformance.publisher
+  Description = Name of the publisher of the capability statement
+  Path = CapabilityStatement.publisher
 
  -- Row 5 -----------------------------------
   Name = description
   Type = string
-  Description = Text search in the description of the conformance statement
-  Path = Conformance.description
+  Description = Text search in the description of the capability statement
+  Path = CapabilityStatement.description
 
  -- Row 6 -----------------------------------
   Name = status
   Type = token
-  Description = The current status of the conformance statement
-  Path = Conformance.status
+  Description = The current status of the capability statement
+  Path = CapabilityStatement.status
 
  -- Row 7 -----------------------------------
   Name = date
   Type = date
-  Description = The conformance statement publication date
-  Path = Conformance.date
+  Description = The capability statement publication date
+  Path = CapabilityStatement.date
 
  -- Row 8 -----------------------------------
   Name = software
   Type = string
   Description = Part of a the name of a software application
-  Path = Conformance.software.name
+  Path = CapabilityStatement.software.name
 
  -- Row 9 -----------------------------------
   Name = fhirversion
   Type = token
   Description = The version of FHIR
-  Path = Conformance.version
+  Path = CapabilityStatement.version
 
  -- Row 10 -----------------------------------
   Name = resource
   Type = token
-  Description = Name of a resource mentioned in a conformance statement
-  Path = Conformance.rest.resource.type
+  Description = Name of a resource mentioned in a capability statement
+  Path = CapabilityStatement.rest.resource.type
 
  -- Row 11 -----------------------------------
   Name = event
   Type = token
-  Description = Event code in a conformance statement
-  Path = Conformance.messaging.event.code
+  Description = Event code in a capability statement
+  Path = CapabilityStatement.messaging.event.code
 
  -- Row 12 -----------------------------------
   Name = mode
   Type = token
   Description = Mode - restful (server/client) or messaging (sender/receiver)
-  Path = Conformance.rest.mode
+  Path = CapabilityStatement.rest.mode
 
  -- Row 13 -----------------------------------
   Name = resourceprofile
   Type = reference
-  Description = A profile id invoked in a conformance statement
-  Path = Conformance.rest.resource.profile
+  Description = A profile id invoked in a capability statement
+  Path = CapabilityStatement.rest.resource.profile
 
  -- Row 14 -----------------------------------
   Name = format
   Type = token
-  Path = Conformance.format
+  Path = CapabilityStatement.format
 
  -- Row 15 -----------------------------------
   Name = securityservice
   Type = token
-  Path = Conformance.rest.security.service
+  Path = CapabilityStatement.rest.security.service
 
  -- Row 16 -----------------------------------
   Name = supported-profile
   Type = reference
-  Path = Conformance.profile
+  Path = CapabilityStatement.profile
 
  -- Row 17 -----------------------------------
   Name = context
   Type = token
-  Description = A use context assigned to the conformance statement
-  Path = Conformance.useContext
+  Description = A use context assigned to the capability statement
+  Path = CapabilityStatement.useContext
 
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
-  Name = Conformance Extensions
+  Name = CapabilityStatement Extensions
   IG Name = core
-  Filename = conformance-extensions-spreadsheet.xml
+  Filename = capabilitystatement-extensions-spreadsheet.xml
   Type = spreadsheet
 
 === Sheet Examples =====================================
@@ -1470,42 +1470,42 @@
   Name = General
   Identity = example
   Description = General Condition Example
-  Filename = conformance-example.xml
+  Filename = capabilitystatement-example.xml
 
  -- Row 2 -----------------------------------
   Name = PHR
   Identity = phr
   Description = PHR Example
-  Filename = conformance-phr-example.xml
+  Filename = capabilitystatement-phr-example.xml
 
  -- Row 3 -----------------------------------
   Name = Base
-  Identity = conformance-base
-  Description = Complete Conformance Statement
-  Filename = conformance-base.xml
+  Identity = capabilitystatement-base
+  Description = Complete Capability Statement
+  Filename = capabilitystatement-base.xml
   Type = tool
 
  -- Row 4 -----------------------------------
   Name = Base2
-  Identity = conformance-base2
-  Description = EmptyConformanceStatement
-  Filename = conformance-base2.xml
+  Identity = capabilitystatement-base2
+  Description = EmptyCapabilityStatement
+  Filename = capabilitystatement-base2.xml
   Type = tool
 
  -- Row 5 -----------------------------------
   Name = TerminologyServer
   Identity = terminology-server
-  Description = Terminology Server Base Conformance Statement
-  Filename = conformance-terminology-server.xml
+  Description = Terminology Server Base Capability Statement
+  Filename = capabilitystatement-terminology-server.xml
 
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
   Name = subset
   Use = Resource | Instance
-  Documentation = This operation asks the server to return a subset of the conformance resource - just the REST parts that relate to a set of nominated resources - the resources that the client is interested in
+  Documentation = This operation asks the server to return a subset of the CapabilityStatement resource - just the REST parts that relate to a set of nominated resources - the resources that the client is interested in
   Type = operation
-  Title = Fetch a subset of the conformance resource
+  Title = Fetch a subset of the CapabilityStatement resource
 
  -- Row 2 -----------------------------------
   Name = subset.server
@@ -1526,23 +1526,23 @@
  -- Row 4 -----------------------------------
   Name = subset.return
   Use = out
-  Documentation = The subsetted conformance resource that is returned. This should be tagged with the SUBSETTED code
-  Type = Conformance
+  Documentation = The subsetted CapabilityStatement resource that is returned. This should be tagged with the SUBSETTED code
+  Type = CapabilityStatement
   Min = 1
   Max = 1
 
  -- Row 5 -----------------------------------
   Name = implements
   Use = Resource | Instance
-  Documentation = This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in it\'s conformance statement. The client provides it\'s conformance statement inline, or by referring the server to the canonical URL of it\'s conformance statement
+  Documentation = This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in it\'s capability statement. The client provides it\'s capability statement inline, or by referring the server to the canonical URL of it\'s capability statement
   Type = operation
   Title = Test if a server implements a client\'s required operations
-  Footer = The operation does not perform a full conformance check; in particular it does not check that the profiles align. It merely checks that the behaviors the client wishes to use are provided\n\nTechnically, this operation is implemented as follows:\n * The server\'s conformance statement must have an entry for each resource in the client\'s conformance statement \n * The servers\' resource support must have matching flags for updateCreate, conditionalCreate, conditionalRead, conditionalUpdate, conditionalDelete, searchInclude, searchRevInclude\n * The server conformance statement must have a matching interaction for each interaction in the client conformance statement (whether or not it is on a resource)\n * The server must have a search parameter with matching name and definition for any search parameters in the client conformance statement\n * The server must have an operation definitions with a matching reference for any operations in the client conformance statement\n\nIf the conformance statements match by these rules, then the return value is a 200 OK with an operation outcome that contains no issues with severity >= error. If the conformance statement doesn\'t match, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity >= error
+  Footer = The operation does not perform a full conformance check; in particular it does not check that the profiles align. It merely checks that the behaviors the client wishes to use are provided\n\nTechnically, this operation is implemented as follows:\n * The server\'s capability statement must have an entry for each resource in the client\'s capability statement \n * The servers\' resource support must have matching flags for updateCreate, conditionalCreate, conditionalRead, conditionalUpdate, conditionalDelete, searchInclude, searchRevInclude\n * The server capability statement must have a matching interaction for each interaction in the client capability statement (whether or not it is on a resource)\n * The server must have a search parameter with matching name and definition for any search parameters in the client capability statement\n * The server must have an operation definitions with a matching reference for any operations in the client capability statement\n\nIf the capability statements match by these rules, then the return value is a 200 OK with an operation outcome that contains no issues with severity >= error. If the capability statement doesn\'t match, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity >= error
 
  -- Row 6 -----------------------------------
   Name = implements.server
   Use = in
-  Documentation = The canonical URL for the server conformance statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)
+  Documentation = The canonical URL for the server capability statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)
   Type = uri
   Min = 0
   Max = 1
@@ -1550,7 +1550,7 @@
  -- Row 7 -----------------------------------
   Name = implements.client
   Use = in
-  Documentation = The canonical URL for the client conformance statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)
+  Documentation = The canonical URL for the client capability statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)
   Type = uri
   Min = 0
   Max = 1
@@ -1558,15 +1558,15 @@
  -- Row 8 -----------------------------------
   Name = implements.resource
   Use = in
-  Documentation = The client conformance statement, provided inline
-  Type = Conformance
+  Documentation = The client capability statement, provided inline
+  Type = CapabilityStatement
   Min = 0
   Max = 1
 
  -- Row 9 -----------------------------------
   Name = implements.return
   Use = out
-  Documentation = Outcome of the conformance test
+  Documentation = Outcome of the CapabilityStatement test
   Type = OperationOutcome
   Min = 1
   Max = 1
@@ -1574,15 +1574,15 @@
  -- Row 10 -----------------------------------
   Name = conforms
   Use = Resource
-  Documentation = This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in it\'s conformance statement. The client provides both conformance statements by reference, and must ensure that all the referenced resources are available to the conformance server
+  Documentation = This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in it\'s capability statement. The client provides both capability statements by reference, and must ensure that all the referenced resources are available to the conformance server
   Type = operation
   Title = Test if a server implements a client\'s required operations
-  Footer = The operation performs a full comparison of the functionality described by the two conformance statements, including the profiles and value sets they reference, and also including concept maps and structure maps. \n\nThe full execution of this operation is still a matter of research, but it is intended to support comparison of systems to see if they will interoperate\n\nIf the conformance statements can be successfully compared, then the return value is a 200 OK with an OperationOutcome along with intersection and union conformance statements. The operation outcome can contain errors relating to differences between the conformance statements. If the conformance statements cannot be compared, because dependencies cannot be located, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity >= error
+  Footer = The operation performs a full comparison of the functionality described by the two capability statements, including the profiles and value sets they reference, and also including concept maps and structure maps. \n\nThe full execution of this operation is still a matter of research, but it is intended to support comparison of systems to see if they will interoperate\n\nIf the capability statements can be successfully compared, then the return value is a 200 OK with an OperationOutcome along with intersection and union capability statements. The operation outcome can contain errors relating to differences between the capability statements. If the capability statements cannot be compared, because dependencies cannot be located, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity >= error
 
  -- Row 11 -----------------------------------
   Name = conforms.left
   Use = in
-  Documentation = The canonical URL for the server conformance statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)
+  Documentation = The canonical URL for the server capability statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)
   Type = uri
   Min = 0
   Max = 1
@@ -1590,7 +1590,7 @@
  -- Row 12 -----------------------------------
   Name = conforms.right
   Use = in
-  Documentation = The canonical URL for the client conformance statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)
+  Documentation = The canonical URL for the client capability statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)
   Type = uri
   Min = 0
   Max = 1
@@ -1606,7 +1606,7 @@
  -- Row 14 -----------------------------------
   Name = implements.issues
   Use = out
-  Documentation = Outcome of the conformance test
+  Documentation = Outcome of the CapabilityStatement test
   Type = OperationOutcome
   Min = 1
   Max = 1
@@ -1614,7 +1614,7 @@
  -- Row 15 -----------------------------------
   Name = implements.union
   Use = out
-  Documentation = The intersection of the functionality described by the conformance resources
+  Documentation = The intersection of the functionality described by the CapabilityStatement resources
   Type = Bundle
   Min = 0
   Max = 1
@@ -1622,7 +1622,7 @@
  -- Row 16 -----------------------------------
   Name = implements.intersection
   Use = out
-  Documentation = The union of the functionality described by the conformance resources
+  Documentation = The union of the functionality described by the CapabilityStatement resources
   Type = Bundle
   Min = 0
   Max = 1

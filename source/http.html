@@ -28,7 +28,7 @@ collection - for further information, see the <a href="security.html">Security P
 The API describes the FHIR resources as a set of operations (known as "interactions") on resources where 
 individual resource instances are managed in collections by their type. Servers can choose which of
 these interactions are made available and which resource types they support. Servers SHALL
-provide a <a href="conformance.html">conformance statement</a> that specifies which interactions and
+provide a <a href="capabilitystatement.html">Capability Statement</a> that specifies which interactions and
 resources are supported.
 </p>
 <p>
@@ -48,7 +48,7 @@ The following logical interactions are defined:
   <tr><td><a href="#search">search</a></td><td>Search the resource type based on some filter criteria</td></tr>
   <tr><td><a href="#history">history</a></td><td>Retrieve the change history for a particular resource type</td></tr>
   <tr><td colspan="2"><b>Whole System Interactions</b></td></tr>
-  <tr><td><a href="#conformance">conformance</a></td><td>Get a conformance statement for the system</td></tr>
+  <tr><td><a href="#capabilities">capabilities</a></td><td>Get a capability statement for the system</td></tr>
   <tr><td><a href="#transaction">batch/transaction</a></td><td>Update, create or delete a set of resources in a single interaction</td></tr>
   <tr><td><a href="#history">history</a></td><td>Retrieve the change history for all resources</td></tr>
   <tr><td><a href="#search">search</a></td><td>Search across all resource types based on some filter criteria</td></tr>
@@ -322,7 +322,7 @@ do this, and cannot easily be re-engineered to do so.
 For this reason, servers are allowed to not provide versioning support and this API does not enforce
 that versioning is supported. Clients may elect to only interact with servers that do provide full
 versioning support. Systems declare their support for versioning
-in their <a href="conformance-definitions.html#Conformance.rest.resource.versioning">conformance statement</a>.
+in their <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.versioning">Capability Statements</a>.
 </p>
 <p>
 Server should always return the default timezone for <a href="search.html#date">date searches</a> 
@@ -474,7 +474,7 @@ where clashes do not arise.
 </p>
 <p>
 Servers can choose whether or not to support client defined ids, and indicate such to the clients 
-using <a href="conformance-definitions.html#Conformance.rest.resource.updateCreate">Conformance.rest.resource.updateCreate</a>.
+using <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.updateCreate">CapabilityStatement.rest.resource.updateCreate</a>.
 </p>
 
 <h4>Rejecting Updates</h4>
@@ -634,7 +634,7 @@ on how many matches are found:
 <ul>
  <li><b>No matches</b> or <b>One Match</b>: The server performs an ordinary <code>delete</code> on the matching resource</li>
  <li><b>Multiple matches</b>: Servers may choose to delete all the matching resources, or it may choose to return a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough.
-   A server indicates whether it can delete multiple resources in its <a href="conformance-definitions.html#Conformance.rest.resource.conditionalDelete">Conformance Statement (.rest.resource.conditionalDelete)</a>.
+   A server indicates whether it can delete multiple resources in its <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.conditionalDelete">Capability Statement (.rest.resource.conditionalDelete)</a>.
    if there are multiple matches, either all must deleted, or the server SHALL return an error</li>
 </ul>
 <p>
@@ -815,17 +815,17 @@ can be used.
 </p>
 
 
-<a name="conformance"> </a>
-<h3>conformance</h3>
+<a name="capabilities"> </a>
+<h3>capabilities</h3>
 <p>
-The <code>conformance</code> interaction retrieves the server's conformance statement that defines how it supports resources.
+The <code>capabilities</code> interaction retrieves the server's Capability Statement that defines how it supports resources.
 The interaction is performed by an HTTP <code>GET</code> command as shown:
 </p>
 <pre>
   GET [base]/metadata {?_format=[mime-type]}
 </pre>
 <p>
-In addition, there is another method to get the conformance statement, using the HTTP <code>OPTIONS</code> command:
+In addition, there is another method to get the capability statement, using the HTTP <code>OPTIONS</code> command:
 </p>
 <pre>
   OPTIONS [base] {?_format=[mime-type]}
@@ -835,33 +835,33 @@ However as of STU3, this method is deprecated, and will be removed in a future v
 is not conformant with HTTP, and creates challenges for <a href="http://enable-cors.org/">cross-origin resource sharing</a> support).
 </p>
 <p>
-Applications SHALL return a <a href="conformance.html">Conformance Resource</a> that specifies which resource types and interactions are supported
+Applications SHALL return a <a href="capabilitystatement.html">Capability Statement</a> that specifies which resource types and interactions are supported
 for the <code>GET</code> command, and SHOULD do so for the <code>OPTIONS</code> command. If a <code>404</code> Unknown is returned from the <code>GET</code>, FHIR is not supported on the
 nominated service url. The <code>GET</code> command is defined because not all client libraries are able to perform an <code>OPTIONS</code> command.
-An <code>ETag</code> header SHOULD be returned with the conformance resource. The value of the header SHALL change if the
-conformance statement itself changes. Additional parameters that are required to be returned with
+An <code>ETag</code> header SHOULD be returned with the CapabilityStatement. The value of the header SHALL change if the
+CapabilityStatement itself changes. Additional parameters that are required to be returned with
 the <code>OPTIONS</code> command are defined in the <a href="#hdata">OMG hData RESTful Transport</a> specification.
 </p>
 <p>
-The Conformance statement returned typically has an arbitrary id, and no meta element, though it is not prohibited.
-Conformance statements can become quite large; Servers are encouraged to support the 
+The Capability statement returned typically has an arbitrary id, and no meta element, though it is not prohibited.
+Capability statements can become quite large; Servers are encouraged to support the 
 <a href="search.html#summary"><code>_summary</code></a> and <a href="search.html#elements"><code>_elements</code></a> 
-parameters on the conformance interaction, though this is not required. In addition, servers are encouraged to 
-implement the <a href="conformance-operations.html#subset">$subset</a> and <a href="conformance-operations.html#implements">$implements</a> 
+parameters on the capabilities interaction, though this is not required. In addition, servers are encouraged to 
+implement the <a href="capabilitystatement-operations.html#subset">$subset</a> and <a href="capabilitystatement-operations.html#implements">$implements</a> 
 operations to make it easy for a client to check conformance.
 </p>
 <p>
-In addition to this <code>conformance</code> interaction, a server may also choose to provide the
+In addition to this <code>capabilities</code> interaction, a server may also choose to provide the
 standard set of interactions (<code>read</code>, <code>search</code>, <code>create</code>, <code>update</code>) defined on this page
-for the <a href="conformance.html">Conformance Resource</a> end-point.
-This is different from the <code>conformance</code> interaction:
+for the <a href="capabilitystatement.html">CapabilityStatement Resource</a> end-point.
+This is different from the <code>capabilities</code> interaction:
 </p>
 <table class="grid">
- <tr><td><code>conformance</code> interaction</td><td>returns a conformance statement describing the server's current operational functionality</td></tr>
- <tr><td>conformance end-point</td><td>manages a repository of conformance statements (e.g. the HL7 conformance statement registry)</td></tr>
+ <tr><td><code>capabilities</code> interaction</td><td>returns a capability statement describing the server's current operational functionality</td></tr>
+ <tr><td>CapabilityStatement end-point</td><td>manages a repository of capability statements (e.g. the HL7 capability statement registry)</td></tr>
 </table>
 <p>
-All servers are required to support the <code>conformance</code> interaction, but servers may choose whether they wish to support the conformance end-point, 
+All servers are required to support the <code>capabilities</code> interaction, but servers may choose whether they wish to support the CapabilityStatement end-point, 
 just like any other end-point.
 </p>
 
@@ -1198,7 +1198,7 @@ Note that there is no general purpose method to make merging with existing conte
 altering the content by business rules safe or predictable - what is possible,
 safe and/or required is highly context dependent. These kinds of behaviors may
 be driven by security considerations. With regard to incomplete support, clients can consult the server's
-base conformance statement profile references to determine which features or
+base Capability statement profile references to determine which features or
 values the server does not support.
 </p>
 <p>
@@ -1253,7 +1253,7 @@ integrity is handled.
 <a name="dstu-4"> </a>
 <p>
 <b>DSTU Note:</b>  For now, the only way to document how transaction integrity
-is handled is as text in the narrative portions of the <a href="conformance.html">Conformance</a>
+is handled is as text in the narrative portions of the <a href="capabilitystatement.html">CapabilityStatement</a>
 resource. Feedback during the Trial use period on what - if any - of this information
 should be computable is welcome.
 </p>
@@ -1373,7 +1373,7 @@ In this regard, FHIR functions as a Record Format Profile as described in that s
  though <a href="compartmentdefinition.html">compartments</a> behave somewhat like sections</li>
  <li>Because clients cannot submit new sections (<code>POST</code> to service URL), <code>POST</code> to the service URL has been re-used for <a href="#transaction">the transaction
  interaction</a> (difference under review)</li>
- <li>FHIR does not (yet) define a root document. When defined, it will contain information about what the FHIR server has done (as opposed to a conformance statement, which describes what it is capable of doing)</li>
+ <li>FHIR does not (yet) define a root document. When defined, it will contain information about what the FHIR server has done (as opposed to a Capability Statement, which describes what it is capable of doing)</li>
  <li>Note that this specification does not repeat the rules in the hData RESTful Transport concerning the <code>OPTIONS</code> command on the service URL, but these rules (extra headers etc.) still apply</li>
 </ul>
 
@@ -1396,7 +1396,7 @@ Note that <i>all</i> requests may include an optional <code>Accept</code> header
 <tr><td rowspan="2"><code>search</code></td>         <td><code>/[type]?</code></td>                       <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>	  <td>N/A</td>			<td>N/A</td></tr>
 <tr><td><code>/[type]/_search?</code></td>               <td><code>POST</code></td>           <td><code>application/x-www-form-urlencoded</code></td>         <td>form data</td> <td>N/A</td>  <td>N/A</td></tr>
 <tr><td><code>search-all</code></td>     <td><code>/_search?</code></td>                      <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>              <td>N/A</td>  <td>N/A</td></tr>
-<tr><td><code>conformance</code></td>                <td><code>/</code> or <code>/metadata</code></td>                 <td><code>OPTIONS</code> or <code>GET</code></td>  <td>N/A</td>           <td>N/A</td>	   <td>N/A</td>			   	<td>N/A</td></tr>
+<tr><td><code>capabilities</code></td>               <td><code>/metadata</code></td>                      <td><code>GET</code></td>            <td>N/A</td>           <td>N/A</td>	   <td>N/A</td>			   	<td>N/A</td></tr>
 <tr><td><code>transaction</code></td>                <td><code>/</code></td>                              <td><code>POST</code></td>           <td>R</td>              <td><code>Bundle</code></td>    <td>O</td>        <td>N/A</td></tr>
 <tr><td><code>history</code></td>                    <td><code>/[type]/[id]/_history</code></td>          <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>       <td>N/A</td>         <td>N/A</td></tr>
 <tr><td><code>history-type</code></td>               <td><code>/[type]/_history</code></td>               <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>       <td>N/A</td>         <td>N/A</td></tr>
@@ -1425,7 +1425,7 @@ Notes:
 <tr><td><code>create</code></td>         <td>R if body</td>    <td>O : Resource (Prefer)</td>  <td>R</td>			    <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>201</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>422</code></td></tr>
 <tr><td><code>search</code></td>         <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>401</code>?</td></tr>
 <tr><td><code>search-all</code></td>     <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>401</code>?</td></tr>
-<tr><td><code>conformance</code></td>    <td>R</td>            <td>R: Conformance</td>        <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>404</code></td></tr>
+<tr><td><code>capabilities</code></td>   <td>R</td>            <td>R: CapabilityStatement</td><td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>404</code></td></tr>
 <tr><td><code>transaction</code></td>    <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
 <tr><td><code>history</code></td>        <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>     		<td>N/A</td>							<td><code>200</code></td></tr>
 <tr><td><code>history-type</code></td>   <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code></td></tr>

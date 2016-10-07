@@ -28,7 +28,7 @@ IHE, national programs, jurisdictions and vendors are able to publish additional
 OperationDefinition resources are referred to from two different places:
 </p>
 <ul>
- <li>From a <a href="conformance.html">Conformance Statement</a>, to declare what operations a system does or should implement</li>
+ <li>From a <a href="capabilitystatement.html">Capability Statement</a>, to declare what operations a system does or should implement</li>
  <li>From another OperationDefinition resource. This allows for a server to describe a limited implementation of a standard operation, or to allow traceability if the server has to rename the operation due to a name clash</li>
 </ul>
 </div>

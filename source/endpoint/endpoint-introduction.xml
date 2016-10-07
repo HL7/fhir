@@ -6,7 +6,7 @@
     <p>
         An endpoint describes the technical details of a location that can be connected to for the delivery/retrieval of information.
         Sufficient information is required to ensure that a connection can be made securely, and appropriate data transmitted as
-        defined by the endpoint owner. This is not a description of details of the current system, as found in conformance, but of
+        defined by the endpoint owner. This is not a description of details of the current system, as found in <a href="capabilitystatement.html">CapabilityStatement</a>, but of
         another (potentially external) system.<br/>
         These may be locally hosted services, regional services, or national service.
     </p>
@@ -35,7 +35,7 @@
    <h2>Boundaries and Relationships</h2>
  <a name="bnr"> </a>
     <p>
-      The endpoint is distinct from a conformance statement in that the Conformance stataement describes the entire capability
+      The endpoint is distinct from a capability statement in that the CapabilityStatement statement describes the entire capability
       of a server (and in the metadata case, just this server)<br/>
       Where the endpoint resource describes the technical details for how to connect, and for what purposes 
       (which could be a small sub-set of the server's capabilities, and may not be a FHIR endpoint).

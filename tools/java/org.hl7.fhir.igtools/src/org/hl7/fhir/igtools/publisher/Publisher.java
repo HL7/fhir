@@ -60,7 +60,7 @@ import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
-import org.hl7.fhir.dstu3.model.Conformance;
+import org.hl7.fhir.dstu3.model.CapabilityStatement;
 import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1213,7 +1213,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     load("DataElement");
     load("StructureDefinition");
     load("OperationDefinition");
-    load("Conformance");
+    load("CapabilityStatement");
     generateSnapshots();
     generateLogicalMaps();
     load("StructureMap");
@@ -2408,8 +2408,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
             case DataElement:
               break;
-            case Conformance:
-              generateOutputsConformance(f, r, (Conformance) r.getResource(), vars);
+            case CapabilityStatement:
+              generateOutputsCapabilityStatement(f, r, (CapabilityStatement) r.getResource(), vars);
               break;
             case StructureDefinition:
               generateOutputsStructureDefinition(f, r, (StructureDefinition) r.getResource(), vars, regen);
@@ -2652,12 +2652,12 @@ public class Publisher implements IWorkerContext.ILoggingService {
       fragmentError("ConceptMap-"+cm.getId()+"-xref", "yet to be done: list of all places where concept map is used", f.getOutputNames());
   }
 
-  private void generateOutputsConformance(FetchedFile f, FetchedResource r, Conformance conf, Map<String, String> vars) throws Exception {
+  private void generateOutputsCapabilityStatement(FetchedFile f, FetchedResource r, CapabilityStatement cpbs, Map<String, String> vars) throws Exception {
     if (igpkp.wantGen(r, "swagger")) {
       String path = Utilities.path(tempDir, r.getId()+"-swagger.yaml");
       f.getOutputNames().add(path);
       SwaggerGenerator sg = new SwaggerGenerator(context, version);
-      sg.generate(conf);
+      sg.generate(cpbs);
       sg.save(path);
     }
   }

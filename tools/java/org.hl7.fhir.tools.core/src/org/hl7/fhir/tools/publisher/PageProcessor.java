@@ -1202,8 +1202,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String getTypePluralDesc(String type) {
-    if (type.equals("Conformance"))
-      return "Conformance Statements";
+    if (type.equals("CapabilityStatement"))
+      return "Capability Statements";
     return Utilities.pluralizeMe(type);
   }
 
@@ -5541,7 +5541,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private void produceExampleListEntry(StringBuilder s, Example e, Profile pack, ImplementationGuideDefn ig) {
     String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator; 
-    if (e.getTitle().equals("conformance-base") || e.getTitle().equals("conformance-base2") || e.getTitle().equals("profiles-resources"))
+    if (e.getTitle().equals("capabilitystatement-base") || e.getTitle().equals("capabilitystatement-base2") || e.getTitle().equals("profiles-resources"))
       s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
     else
       s.append("<tr><td><a href=\""+prefix+e.getTitle()+".html\">"+Utilities.escapeXml(e.getDescription())+"</a></td>");
@@ -6556,7 +6556,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (!started)
           s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
         started = true;
-        if (e.getFileTitle().equals("conformance-base") || e.getFileTitle().equals("conformance-base2") || e.getFileTitle().equals("profiles-resources"))
+        if (e.getFileTitle().equals("capabilitystatement-base") || e.getFileTitle().equals("capabilitystatement-base2") || e.getFileTitle().equals("profiles-resources"))
           s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
         else
           s.append("<tr><td><a href=\""+e.getFileTitle()+".html\">"+Utilities.escapeXml(e.getDescription())+"</a></td>");

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Oct 6, 2016 04:12+1100 for FHIR v1.7.0
+// Generated on Fri, Oct 7, 2016 14:20+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1889,14 +1889,14 @@ public class TestScript extends BaseConformance {
         /**
          * Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.
          */
-        @Child(name = "conformance", type = {Conformance.class}, order=7, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "conformance", type = {CapabilityStatement.class}, order=7, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Required Conformance", formalDefinition="Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped." )
         protected Reference conformance;
 
         /**
          * The actual object that is the target of the reference (Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.)
          */
-        protected Conformance conformanceTarget;
+        protected CapabilityStatement conformanceTarget;
 
         private static final long serialVersionUID = 500671983L;
 
@@ -2248,19 +2248,19 @@ public class TestScript extends BaseConformance {
         /**
          * @return {@link #conformance} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.)
          */
-        public Conformance getConformanceTarget() { 
+        public CapabilityStatement getConformanceTarget() { 
           if (this.conformanceTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptMetadataCapabilityComponent.conformance");
             else if (Configuration.doAutoCreate())
-              this.conformanceTarget = new Conformance(); // aa
+              this.conformanceTarget = new CapabilityStatement(); // aa
           return this.conformanceTarget;
         }
 
         /**
          * @param value {@link #conformance} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.)
          */
-        public TestScriptMetadataCapabilityComponent setConformanceTarget(Conformance value) { 
+        public TestScriptMetadataCapabilityComponent setConformanceTarget(CapabilityStatement value) { 
           this.conformanceTarget = value;
           return this;
         }

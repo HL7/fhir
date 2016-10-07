@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Conformance xmlns="http://hl7.org/fhir">
+<CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="example"/>
   <text>
     <status value="generated"/>
@@ -16,16 +16,16 @@
     
     </div>
   </text>
-<!--   the identifier for this conformance statement. 
+<!--   the identifier for this capability statement. 
     The identifier and version establish identifiers that other specifications etc.may use to 
-    refer to the conformance statement that this resource represents in a logical manner 
+    refer to the capability statement that this resource represents in a logical manner 
     rather than in a literal (URL) fashion 
 
     The identifier should be globally unique - a UUID, an OID, or a URL/URI
     -->
   <url value="68D043B5-9ECF-4559-A57A-396E0D452311"/>
   <version value="20130510"/>
-  <name value="ACME EHR Conformance statement"/>
+  <name value="ACME EHR capability statement"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2012-01-04"/>
@@ -37,8 +37,8 @@
       <value value="wile@acme.org"/>
     </telecom>
   </contact>
-  <description value="This is the FHIR conformance statement for the main EHR at ACME for the private interface - it does not describe the public interface"/>
-  <requirements value="Main EHR conformance statement, published for contracting and operational support"/>
+  <description value="This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface"/>
+  <requirements value="Main EHR capability statement, published for contracting and operational support"/>
   <copyright value="Copyright © Acme Healthcare and GoodCorp EHR Systems"/>
   <kind value="instance"/>
   <software>
@@ -59,11 +59,11 @@
   <!--  this system can do either xml or json. (Listing both implies full support for either, with interconversion)  -->
   <format value="xml"/>
   <format value="json"/>
-  <!--  in a real conformance statement, it's unlikely that a single conformance statement 
-    would declare conformance for REST, messaging and documents, though it is legal. 
-    This example does so in order to show all the parts of a conformance statement  -->
+  <!--  in a real capability statement, it's unlikely that a single capability statement 
+    would declare capability for REST, messaging and documents, though it is legal. 
+    This example does so in order to show all the parts of a capability statement  -->
   <rest>
-  <!--  this is a server conformance statement. Note that servers are required to provide 
+  <!--  this is a server capability statement. Note that servers are required to provide 
       one of these. It can easily be edited by hand - copy this, replace the metadata above, 
       delete the messaging and document stuff below, and then replace the details appropriately.  -->
     <mode value="server"/>
@@ -153,7 +153,7 @@
    
     <compartment value="http://hl7.org/fhir/compartment/Patient"/>
   </rest>
-<!--  a messaging conformance statement. Applications are not required to make a conformance 
+<!--  a messaging capability statement. Applications are not required to make a capability 
     statement with regard to messaging, though there is active argument that they should.   -->
  
   <messaging>
@@ -189,7 +189,7 @@
     </event>
   </messaging>
   
-<!--  a document conformance statement  -->
+<!--  a document capability statement  -->
   <document>
     <mode value="consumer"/>
     <documentation value="Basic rules for all documents in the EHR system"/>
@@ -199,4 +199,4 @@
       <reference value="http://fhir.hl7.org/base/Profilebc054d23-75e1-4dc6-aca5-838b6b1ac81d/_history/b5fdd9fc-b021-4ea1-911a-721a60663796"/>
     </profile>
   </document>
-</Conformance>
+</CapabilityStatement>

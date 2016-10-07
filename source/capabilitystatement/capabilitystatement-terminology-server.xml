@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Conformance xmlns="http://hl7.org/fhir">
+<CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="terminology-server"/>
 <!-- 
     in addition to the code systems defined in line in value sets, 
@@ -10,11 +10,11 @@
 		These extra code systems are declared here in this extension. It's a todo 
 		for a future version to standardise things like which versions are supported etc. 
 	 -->
-  <extension url="http://hl7.org/fhir/StructureDefinition/conformance-supported-system">
+  <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-supported-system">
     <valueUri value="http://loinc.org"/>
   </extension>
   <url value="http://hl7.org/fhir/terminology-server"/>
-  <name value="Terminology Service Conformance Statement"/>
+  <name value="Terminology Service Capability Statement"/>
   <status value="draft"/>
   <date value="2015-07-05"/>
   <publisher value="HL7, Inc"/>
@@ -25,7 +25,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Basic conformance statement for a Terminology Server. A server can support more fucntionality than defined here, but this is the minimum amount"/>
+  <description value="Basic capability statement for a Terminology Server. A server can support more fucntionality than defined here, but this is the minimum amount"/>
   <kind value="capability"/>
   <software>
     <name value="ACME Terminology Server"/>
@@ -241,4 +241,4 @@
       </definition>
     </operation>
   </rest>
-</Conformance>
+</CapabilityStatement>

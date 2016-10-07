@@ -17,9 +17,9 @@ This specification includes support for the provision of a terminology service -
 service that lets healthcare applications make use of codes and value sets without having to become
 experts in the fine details of the code system, value set and concept map resources, and the underlying 
 code systems and terminological principles. A server that supports all the functionality described here 
-can be described as a "FHIR Terminology Service", and SHALL conform to the <a href="conformance-terminology-server.html">
-terminology server conformance statement</a>. Note that servers can declare that they provide 
-terminology services in their conformance statement:
+can be described as a "FHIR Terminology Service", and SHALL conform to the <a href="capabilitystatement-terminology-server.html">
+terminology server Capability statement</a>. Note that servers can declare that they provide 
+terminology services in their Capability statement:
 </p>
 <div class="example">
 <pre class="xml">
@@ -91,20 +91,20 @@ content of these code systems are externally known to the terminology server.
 Most useful terminology servers will make one or more of these external code systems available for use
 within the value sets that they manage. The list of additional terminologies that a terminology server supports
 beyond those defined in its value sets is published to clients by referencing code system resources in 
-the server's <a href="conformance.html">Conformance Statement</a>.
+the server's <a href="capabilitystatement.html">Capability Statement</a>.
 </p>
 <pre class="json">
 {
- "resourceType" : "Conformance",
+ "resourceType" : "CapabilityStatement",
  "extension" : [
    { 
-     "url" : "http://hl7.org/fhir/StructureDefinition/conformance-supported-system",
+     "url" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-supported-system",
      "valueUri" : "http://loinc.org" 
    }]  
 }
 </pre>
 <p>
-This extension is added to the root <a href="conformance.html">Conformance Statement</a>.
+This extension is added to the root <a href="capabilitystatement.html">Capability Statement</a>.
 </p>
 
 <h4>Implementation Note</h4>

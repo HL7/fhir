@@ -54,9 +54,9 @@
     <definition value="Update, create or delete a set of resources as a single transaction."/>
   </concept>
   <concept>
-    <code value="conformance"/>
-    <display value="Conformance"/>
-    <definition value="Get a conformance statement for the system."/>
+    <code value="capabilities"/>
+    <display value="Capabilities"/>
+    <definition value="Get a capability statement for the system."/>
   </concept>
   <concept>
     <code value="apply"/>
@@ -236,7 +236,7 @@
   <concept>
     <code value="subset"/>
     <display value="$subset"/>
-    <definition value="Fetch a subset of the conformance resource"/>
+    <definition value="Fetch a subset of the CapabilityStatement resource"/>
   </concept>
   <concept>
     <code value="subsumes"/>

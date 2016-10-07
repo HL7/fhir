@@ -50,7 +50,7 @@ Decision-support generated issues can result from calling a decision-support eng
 In those circumstances where requested operations are rejected as a result of a detected issue, the workflow may support allowing the operation to be re-tried, provided that the identified issue is included as part of the submission (possibly also including a mitigation).  In doing so, the sender acknowledges the issue and takes responsibility for it, thus allowing the requested operation to proceed.  See <a href="#linking">Linking to Detected Issues</a> for guidance on how a <b>DetectedIssue</b> instance might be included as part of another operation.
 </p>
 <p>
-Systems that require such workflows should document expected behavior as part of their <a href="conformance.html">Conformance</a> declarations.
+Systems that require such workflows should document expected behavior as part of their <a href="capabilitystatement.html">CapabilityStatement</a> declarations.
 </p>
 
 </div>

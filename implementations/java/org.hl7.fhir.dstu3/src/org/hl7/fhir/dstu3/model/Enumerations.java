@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Oct 6, 2016 04:12+1100 for FHIR v1.7.0
+// Generated on Fri, Oct 7, 2016 14:20+1100 for FHIR v1.7.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2330,6 +2330,10 @@ public class Enumerations {
          */
         BUNDLE, 
         /**
+         * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+         */
+        CAPABILITYSTATEMENT, 
+        /**
          * Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.
          */
         CAREPLAN, 
@@ -2377,10 +2381,6 @@ public class Enumerations {
          * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.
          */
         CONDITION, 
-        /**
-         * A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
-         */
-        CONFORMANCE, 
         /**
          * A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
          */
@@ -2884,6 +2884,8 @@ public class Enumerations {
           return BODYSITE;
         if ("Bundle".equals(codeString))
           return BUNDLE;
+        if ("CapabilityStatement".equals(codeString))
+          return CAPABILITYSTATEMENT;
         if ("CarePlan".equals(codeString))
           return CAREPLAN;
         if ("CareTeam".equals(codeString))
@@ -2908,8 +2910,6 @@ public class Enumerations {
           return CONCEPTMAP;
         if ("Condition".equals(codeString))
           return CONDITION;
-        if ("Conformance".equals(codeString))
-          return CONFORMANCE;
         if ("Consent".equals(codeString))
           return CONSENT;
         if ("Contract".equals(codeString))
@@ -3162,6 +3162,7 @@ public class Enumerations {
             case BINARY: return "Binary";
             case BODYSITE: return "BodySite";
             case BUNDLE: return "Bundle";
+            case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CLAIM: return "Claim";
@@ -3174,7 +3175,6 @@ public class Enumerations {
             case COMPOSITION: return "Composition";
             case CONCEPTMAP: return "ConceptMap";
             case CONDITION: return "Condition";
-            case CONFORMANCE: return "Conformance";
             case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
@@ -3336,6 +3336,7 @@ public class Enumerations {
             case BINARY: return "http://hl7.org/fhir/resource-types";
             case BODYSITE: return "http://hl7.org/fhir/resource-types";
             case BUNDLE: return "http://hl7.org/fhir/resource-types";
+            case CAPABILITYSTATEMENT: return "http://hl7.org/fhir/resource-types";
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
             case CARETEAM: return "http://hl7.org/fhir/resource-types";
             case CLAIM: return "http://hl7.org/fhir/resource-types";
@@ -3348,7 +3349,6 @@ public class Enumerations {
             case COMPOSITION: return "http://hl7.org/fhir/resource-types";
             case CONCEPTMAP: return "http://hl7.org/fhir/resource-types";
             case CONDITION: return "http://hl7.org/fhir/resource-types";
-            case CONFORMANCE: return "http://hl7.org/fhir/resource-types";
             case CONSENT: return "http://hl7.org/fhir/resource-types";
             case CONTRACT: return "http://hl7.org/fhir/resource-types";
             case COVERAGE: return "http://hl7.org/fhir/resource-types";
@@ -3510,6 +3510,7 @@ public class Enumerations {
             case BINARY: return "A binary resource can contain any content, whether text, image, pdf, zip archive, etc.";
             case BODYSITE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
             case BUNDLE: return "A container for a collection of resources.";
+            case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
@@ -3522,7 +3523,6 @@ public class Enumerations {
             case COMPOSITION: return "A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.";
             case CONCEPTMAP: return "A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.";
             case CONDITION: return "Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.";
-            case CONFORMANCE: return "A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CONSENT: return "A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.";
             case CONTRACT: return "A formal agreement between parties regarding the conduct of business, exchange of information or other matters.";
             case COVERAGE: return "Financial instrument which may be used to pay for or reimburse health care products and services.";
@@ -3684,6 +3684,7 @@ public class Enumerations {
             case BINARY: return "Binary";
             case BODYSITE: return "BodySite";
             case BUNDLE: return "Bundle";
+            case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CLAIM: return "Claim";
@@ -3696,7 +3697,6 @@ public class Enumerations {
             case COMPOSITION: return "Composition";
             case CONCEPTMAP: return "ConceptMap";
             case CONDITION: return "Condition";
-            case CONFORMANCE: return "Conformance";
             case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
@@ -3927,6 +3927,8 @@ public class Enumerations {
           return FHIRAllTypes.BODYSITE;
         if ("Bundle".equals(codeString))
           return FHIRAllTypes.BUNDLE;
+        if ("CapabilityStatement".equals(codeString))
+          return FHIRAllTypes.CAPABILITYSTATEMENT;
         if ("CarePlan".equals(codeString))
           return FHIRAllTypes.CAREPLAN;
         if ("CareTeam".equals(codeString))
@@ -3951,8 +3953,6 @@ public class Enumerations {
           return FHIRAllTypes.CONCEPTMAP;
         if ("Condition".equals(codeString))
           return FHIRAllTypes.CONDITION;
-        if ("Conformance".equals(codeString))
-          return FHIRAllTypes.CONFORMANCE;
         if ("Consent".equals(codeString))
           return FHIRAllTypes.CONSENT;
         if ("Contract".equals(codeString))
@@ -4273,6 +4273,8 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.BODYSITE);
         if ("Bundle".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.BUNDLE);
+        if ("CapabilityStatement".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CAPABILITYSTATEMENT);
         if ("CarePlan".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CAREPLAN);
         if ("CareTeam".equals(codeString))
@@ -4297,8 +4299,6 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CONCEPTMAP);
         if ("Condition".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CONDITION);
-        if ("Conformance".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CONFORMANCE);
         if ("Consent".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CONSENT);
         if ("Contract".equals(codeString))
@@ -4614,6 +4614,8 @@ public class Enumerations {
         return "BodySite";
       if (code == FHIRAllTypes.BUNDLE)
         return "Bundle";
+      if (code == FHIRAllTypes.CAPABILITYSTATEMENT)
+        return "CapabilityStatement";
       if (code == FHIRAllTypes.CAREPLAN)
         return "CarePlan";
       if (code == FHIRAllTypes.CARETEAM)
@@ -4638,8 +4640,6 @@ public class Enumerations {
         return "ConceptMap";
       if (code == FHIRAllTypes.CONDITION)
         return "Condition";
-      if (code == FHIRAllTypes.CONFORMANCE)
-        return "Conformance";
       if (code == FHIRAllTypes.CONSENT)
         return "Consent";
       if (code == FHIRAllTypes.CONTRACT)
@@ -5089,6 +5089,10 @@ public class Enumerations {
          */
         BUNDLE, 
         /**
+         * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+         */
+        CAPABILITYSTATEMENT, 
+        /**
          * Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.
          */
         CAREPLAN, 
@@ -5136,10 +5140,6 @@ public class Enumerations {
          * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.
          */
         CONDITION, 
-        /**
-         * A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
-         */
-        CONFORMANCE, 
         /**
          * A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
          */
@@ -5635,6 +5635,8 @@ public class Enumerations {
           return BODYSITE;
         if ("Bundle".equals(codeString))
           return BUNDLE;
+        if ("CapabilityStatement".equals(codeString))
+          return CAPABILITYSTATEMENT;
         if ("CarePlan".equals(codeString))
           return CAREPLAN;
         if ("CareTeam".equals(codeString))
@@ -5659,8 +5661,6 @@ public class Enumerations {
           return CONCEPTMAP;
         if ("Condition".equals(codeString))
           return CONDITION;
-        if ("Conformance".equals(codeString))
-          return CONFORMANCE;
         if ("Consent".equals(codeString))
           return CONSENT;
         if ("Contract".equals(codeString))
@@ -5909,6 +5909,7 @@ public class Enumerations {
             case BINARY: return "Binary";
             case BODYSITE: return "BodySite";
             case BUNDLE: return "Bundle";
+            case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CLAIM: return "Claim";
@@ -5921,7 +5922,6 @@ public class Enumerations {
             case COMPOSITION: return "Composition";
             case CONCEPTMAP: return "ConceptMap";
             case CONDITION: return "Condition";
-            case CONFORMANCE: return "Conformance";
             case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
@@ -6081,6 +6081,7 @@ public class Enumerations {
             case BINARY: return "http://hl7.org/fhir/resource-types";
             case BODYSITE: return "http://hl7.org/fhir/resource-types";
             case BUNDLE: return "http://hl7.org/fhir/resource-types";
+            case CAPABILITYSTATEMENT: return "http://hl7.org/fhir/resource-types";
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
             case CARETEAM: return "http://hl7.org/fhir/resource-types";
             case CLAIM: return "http://hl7.org/fhir/resource-types";
@@ -6093,7 +6094,6 @@ public class Enumerations {
             case COMPOSITION: return "http://hl7.org/fhir/resource-types";
             case CONCEPTMAP: return "http://hl7.org/fhir/resource-types";
             case CONDITION: return "http://hl7.org/fhir/resource-types";
-            case CONFORMANCE: return "http://hl7.org/fhir/resource-types";
             case CONSENT: return "http://hl7.org/fhir/resource-types";
             case CONTRACT: return "http://hl7.org/fhir/resource-types";
             case COVERAGE: return "http://hl7.org/fhir/resource-types";
@@ -6253,6 +6253,7 @@ public class Enumerations {
             case BINARY: return "A binary resource can contain any content, whether text, image, pdf, zip archive, etc.";
             case BODYSITE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
             case BUNDLE: return "A container for a collection of resources.";
+            case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
@@ -6265,7 +6266,6 @@ public class Enumerations {
             case COMPOSITION: return "A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.";
             case CONCEPTMAP: return "A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.";
             case CONDITION: return "Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.";
-            case CONFORMANCE: return "A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CONSENT: return "A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.";
             case CONTRACT: return "A formal agreement between parties regarding the conduct of business, exchange of information or other matters.";
             case COVERAGE: return "Financial instrument which may be used to pay for or reimburse health care products and services.";
@@ -6425,6 +6425,7 @@ public class Enumerations {
             case BINARY: return "Binary";
             case BODYSITE: return "BodySite";
             case BUNDLE: return "Bundle";
+            case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CLAIM: return "Claim";
@@ -6437,7 +6438,6 @@ public class Enumerations {
             case COMPOSITION: return "Composition";
             case CONCEPTMAP: return "ConceptMap";
             case CONDITION: return "Condition";
-            case CONFORMANCE: return "Conformance";
             case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
@@ -6666,6 +6666,8 @@ public class Enumerations {
           return FHIRDefinedType.BODYSITE;
         if ("Bundle".equals(codeString))
           return FHIRDefinedType.BUNDLE;
+        if ("CapabilityStatement".equals(codeString))
+          return FHIRDefinedType.CAPABILITYSTATEMENT;
         if ("CarePlan".equals(codeString))
           return FHIRDefinedType.CAREPLAN;
         if ("CareTeam".equals(codeString))
@@ -6690,8 +6692,6 @@ public class Enumerations {
           return FHIRDefinedType.CONCEPTMAP;
         if ("Condition".equals(codeString))
           return FHIRDefinedType.CONDITION;
-        if ("Conformance".equals(codeString))
-          return FHIRDefinedType.CONFORMANCE;
         if ("Consent".equals(codeString))
           return FHIRDefinedType.CONSENT;
         if ("Contract".equals(codeString))
@@ -7008,6 +7008,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.BODYSITE);
         if ("Bundle".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.BUNDLE);
+        if ("CapabilityStatement".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CAPABILITYSTATEMENT);
         if ("CarePlan".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CAREPLAN);
         if ("CareTeam".equals(codeString))
@@ -7032,8 +7034,6 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CONCEPTMAP);
         if ("Condition".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CONDITION);
-        if ("Conformance".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CONFORMANCE);
         if ("Consent".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CONSENT);
         if ("Contract".equals(codeString))
@@ -7345,6 +7345,8 @@ public class Enumerations {
         return "BodySite";
       if (code == FHIRDefinedType.BUNDLE)
         return "Bundle";
+      if (code == FHIRDefinedType.CAPABILITYSTATEMENT)
+        return "CapabilityStatement";
       if (code == FHIRDefinedType.CAREPLAN)
         return "CarePlan";
       if (code == FHIRDefinedType.CARETEAM)
@@ -7369,8 +7371,6 @@ public class Enumerations {
         return "ConceptMap";
       if (code == FHIRDefinedType.CONDITION)
         return "Condition";
-      if (code == FHIRDefinedType.CONFORMANCE)
-        return "Conformance";
       if (code == FHIRDefinedType.CONSENT)
         return "Consent";
       if (code == FHIRDefinedType.CONTRACT)
@@ -8041,6 +8041,10 @@ public class Enumerations {
          */
         BUNDLE, 
         /**
+         * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+         */
+        CAPABILITYSTATEMENT, 
+        /**
          * Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.
          */
         CAREPLAN, 
@@ -8088,10 +8092,6 @@ public class Enumerations {
          * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.
          */
         CONDITION, 
-        /**
-         * A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
-         */
-        CONFORMANCE, 
         /**
          * A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
          */
@@ -8481,6 +8481,8 @@ public class Enumerations {
           return BODYSITE;
         if ("Bundle".equals(codeString))
           return BUNDLE;
+        if ("CapabilityStatement".equals(codeString))
+          return CAPABILITYSTATEMENT;
         if ("CarePlan".equals(codeString))
           return CAREPLAN;
         if ("CareTeam".equals(codeString))
@@ -8505,8 +8507,6 @@ public class Enumerations {
           return CONCEPTMAP;
         if ("Condition".equals(codeString))
           return CONDITION;
-        if ("Conformance".equals(codeString))
-          return CONFORMANCE;
         if ("Consent".equals(codeString))
           return CONSENT;
         if ("Contract".equals(codeString))
@@ -8702,6 +8702,7 @@ public class Enumerations {
             case BINARY: return "Binary";
             case BODYSITE: return "BodySite";
             case BUNDLE: return "Bundle";
+            case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CLAIM: return "Claim";
@@ -8714,7 +8715,6 @@ public class Enumerations {
             case COMPOSITION: return "Composition";
             case CONCEPTMAP: return "ConceptMap";
             case CONDITION: return "Condition";
-            case CONFORMANCE: return "Conformance";
             case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
@@ -8821,6 +8821,7 @@ public class Enumerations {
             case BINARY: return "http://hl7.org/fhir/resource-types";
             case BODYSITE: return "http://hl7.org/fhir/resource-types";
             case BUNDLE: return "http://hl7.org/fhir/resource-types";
+            case CAPABILITYSTATEMENT: return "http://hl7.org/fhir/resource-types";
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
             case CARETEAM: return "http://hl7.org/fhir/resource-types";
             case CLAIM: return "http://hl7.org/fhir/resource-types";
@@ -8833,7 +8834,6 @@ public class Enumerations {
             case COMPOSITION: return "http://hl7.org/fhir/resource-types";
             case CONCEPTMAP: return "http://hl7.org/fhir/resource-types";
             case CONDITION: return "http://hl7.org/fhir/resource-types";
-            case CONFORMANCE: return "http://hl7.org/fhir/resource-types";
             case CONSENT: return "http://hl7.org/fhir/resource-types";
             case CONTRACT: return "http://hl7.org/fhir/resource-types";
             case COVERAGE: return "http://hl7.org/fhir/resource-types";
@@ -8940,6 +8940,7 @@ public class Enumerations {
             case BINARY: return "A binary resource can contain any content, whether text, image, pdf, zip archive, etc.";
             case BODYSITE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
             case BUNDLE: return "A container for a collection of resources.";
+            case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
@@ -8952,7 +8953,6 @@ public class Enumerations {
             case COMPOSITION: return "A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.";
             case CONCEPTMAP: return "A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.";
             case CONDITION: return "Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.";
-            case CONFORMANCE: return "A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CONSENT: return "A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.";
             case CONTRACT: return "A formal agreement between parties regarding the conduct of business, exchange of information or other matters.";
             case COVERAGE: return "Financial instrument which may be used to pay for or reimburse health care products and services.";
@@ -9059,6 +9059,7 @@ public class Enumerations {
             case BINARY: return "Binary";
             case BODYSITE: return "BodySite";
             case BUNDLE: return "Bundle";
+            case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CLAIM: return "Claim";
@@ -9071,7 +9072,6 @@ public class Enumerations {
             case COMPOSITION: return "Composition";
             case CONCEPTMAP: return "ConceptMap";
             case CONDITION: return "Condition";
-            case CONFORMANCE: return "Conformance";
             case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
@@ -9194,6 +9194,8 @@ public class Enumerations {
           return ResourceType.BODYSITE;
         if ("Bundle".equals(codeString))
           return ResourceType.BUNDLE;
+        if ("CapabilityStatement".equals(codeString))
+          return ResourceType.CAPABILITYSTATEMENT;
         if ("CarePlan".equals(codeString))
           return ResourceType.CAREPLAN;
         if ("CareTeam".equals(codeString))
@@ -9218,8 +9220,6 @@ public class Enumerations {
           return ResourceType.CONCEPTMAP;
         if ("Condition".equals(codeString))
           return ResourceType.CONDITION;
-        if ("Conformance".equals(codeString))
-          return ResourceType.CONFORMANCE;
         if ("Consent".equals(codeString))
           return ResourceType.CONSENT;
         if ("Contract".equals(codeString))
@@ -9430,6 +9430,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.BODYSITE);
         if ("Bundle".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.BUNDLE);
+        if ("CapabilityStatement".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.CAPABILITYSTATEMENT);
         if ("CarePlan".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.CAREPLAN);
         if ("CareTeam".equals(codeString))
@@ -9454,8 +9456,6 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.CONCEPTMAP);
         if ("Condition".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.CONDITION);
-        if ("Conformance".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.CONFORMANCE);
         if ("Consent".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.CONSENT);
         if ("Contract".equals(codeString))
@@ -9661,6 +9661,8 @@ public class Enumerations {
         return "BodySite";
       if (code == ResourceType.BUNDLE)
         return "Bundle";
+      if (code == ResourceType.CAPABILITYSTATEMENT)
+        return "CapabilityStatement";
       if (code == ResourceType.CAREPLAN)
         return "CarePlan";
       if (code == ResourceType.CARETEAM)
@@ -9685,8 +9687,6 @@ public class Enumerations {
         return "ConceptMap";
       if (code == ResourceType.CONDITION)
         return "Condition";
-      if (code == ResourceType.CONFORMANCE)
-        return "Conformance";
       if (code == ResourceType.CONSENT)
         return "Consent";
       if (code == ResourceType.CONTRACT)

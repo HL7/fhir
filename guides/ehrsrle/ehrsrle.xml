@@ -42,7 +42,7 @@
 			<source value="registry.html"/>
 			<title value="Registry"/>
 			<kind value="list"/>
-			<type value="Conformance"/>
+			<type value="CapabilityStatement"/>
 			<type value="StructureDefinition"/>
 			<type value="ValueSet"/>
 			<type value="ConceptMap"/>

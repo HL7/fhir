@@ -153,7 +153,7 @@ functionality.
 If the sender of the message implements reliable messaging, it SHALL do
 the following when it receives no response to a message within a
 configured timeout period based on the value specified in the
-<a href="conformance.html">Conformance</a> <code>messaging.event.category</code>
+<a href="capabilitystatement.html">CapabilityStatement</a> <code>messaging.event.category</code>
 for the event associated with the message:
 </p>
 <table class="grid">
@@ -179,7 +179,7 @@ be longer depending on the re-sending policies of the sending system.
 </p>
 <p>
 Applications that implement reliable messaging declare their reliable cache
-period in their <a href="conformance.html">conformance statement</a>.
+period in their <a href="capabilitystatement.html">Capability Statement</a>.
 </p>
 
 <h4>Example: Consequence</h4>
@@ -250,17 +250,15 @@ here.
 
 <a name="conf"> </a>
 
-<h2>Conformance Statement</h2>
+<h2>Capability Statement</h2>
 <p>
 Applications may only assert conformance to "FHIR messaging" if they
-publish a conformance statement so the claim may be verified. A
-conformance statement lists all the message events supported (either
+publish a <a href="capabilitystatement.html">Capability statement</a> so the claim may be verified. A
+Capability statement lists all the message events supported (either
 as sender or receiver) and for each event, a
 profile that states which resources are bundled (sender), or
 are required to be bundled (receiver), and any rules about the
-information content of the individual resources. The conformance
-statement is a <a href="conformance.html">resource with the name
-"Conformance"</a>.
+information content of the individual resources. 
 </p>
 
 <a name="process"></a>

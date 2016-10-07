@@ -25,7 +25,7 @@ Implementation Guides contain two different types of resource references: .
  <li>Examples: Examples that illustrate the intent of the profiles defined in the implementation guide. These can be any kind of resource</li>
 </ul>
 <p>
-An applications <a href="conformance.html">Conformance Statement</a> may identify one or more implementation guides that an application conforms to.
+An applications <a href="capabilitystatement.html">Capability Statement</a> may identify one or more implementation guides that an application conforms to.
 </p>
 </div>
 

@@ -290,22 +290,22 @@
   Id = 7
   Context = TestScript.setup.action.operation
   English = Setup operation SHALL contain either sourceId or targetId or params or url.
-  XPath = f:sourceId or ((f:targetId or f:url or f:params) and (count(f:targetId) + count(f:url) + count(f:params) =1)) or (f:type/f:code/@value=\'conformance\' or f:type/f:code/@value=\'search\' or f:type/f:code/@value=\'transaction\' or f:type/f:code/@value=\'history\')
-  Expression = sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in (\'conformance\' |\'search\' | \'transaction\' | \'history\'))
+  XPath = f:sourceId or ((f:targetId or f:url or f:params) and (count(f:targetId) + count(f:url) + count(f:params) =1)) or (f:type/f:code/@value=\'capabilities\' or f:type/f:code/@value=\'search\' or f:type/f:code/@value=\'transaction\' or f:type/f:code/@value=\'history\')
+  Expression = sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in (\'capabilities\' |\'search\' | \'transaction\' | \'history\'))
 
  -- Row 8 -----------------------------------
   Id = 8
   Context = TestScript.test.action.operation
   English = Test operation SHALL contain either sourceId or targetId or params or url.
-  XPath = f:sourceId or (f:targetId or f:url or f:params) and (count(f:targetId) + count(f:url) + count(f:params) =1) or (f:type/f:code/@value=\'conformance\' or f:type/f:code/@value=\'search\' or f:type/f:code/@value=\'transaction\' or f:type/f:code/@value=\'history\')
-  Expression = sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in (\'conformance\' | \'search\' | \'transaction\' | \'history\'))
+  XPath = f:sourceId or (f:targetId or f:url or f:params) and (count(f:targetId) + count(f:url) + count(f:params) =1) or (f:type/f:code/@value=\'capabilities\' or f:type/f:code/@value=\'search\' or f:type/f:code/@value=\'transaction\' or f:type/f:code/@value=\'history\')
+  Expression = sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in (\'capabilities\' | \'search\' | \'transaction\' | \'history\'))
 
  -- Row 9 -----------------------------------
   Id = 9
   Context = TestScript.teardown.action.operation
   English = Teardown operation SHALL contain either sourceId or targetId or params or url.
-  XPath = f:sourceId or (f:targetId or f:url or (f:params and f:resource)) and (count(f:targetId) + count(f:url) + count(f:params) =1) or (f:type/f:code/@value=\'conformance\' or f:type/f:code/@value=\'search\' or f:type/f:code/@value=\'transaction\' or f:type/f:code/@value=\'history\')
-  Expression = sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in (\'conformance\' | \'search\' | \'transaction\' | \'history\'))
+  XPath = f:sourceId or (f:targetId or f:url or (f:params and f:resource)) and (count(f:targetId) + count(f:url) + count(f:params) =1) or (f:type/f:code/@value=\'capabilities\' or f:type/f:code/@value=\'search\' or f:type/f:code/@value=\'transaction\' or f:type/f:code/@value=\'history\')
+  Expression = sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in (\'capabilities\' | \'search\' | \'transaction\' | \'history\'))
 
  -- Row 10 -----------------------------------
   Id = 10
@@ -612,11 +612,11 @@
   Definition = Links to the FHIR specification that describes this interaction and the resources involved in more detail.
 
  -- Row 34 -----------------------------------
-  Element = TestScript.metadata.capability.conformance
+  Element = TestScript.metadata.capability.capabilities
   Card. = 1..1
-  Type = Reference(Conformance)
-  Short Label = Required Conformance
-  Definition = Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.
+  Type = Reference(CapabilityStatement)
+  Short Label = Required Capability Statement
+  Definition = Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.
   Comments = The conformance statement of the server has to contain at a minimum the contents of the reference pointed to by this element.
 
  -- Row 35 -----------------------------------

@@ -1098,7 +1098,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">The status of this search parameter definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">This is not intended for use with actual conformance statements, but where conformance statements are used to describe possible or desired systems</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">This is not intended for use with actual Capability statements, but where Capability statements are used to describe possible or desired systems</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>

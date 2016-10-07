@@ -710,11 +710,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">id</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">conformance-common</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">capabilitystatement-common</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">name</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Common Conformance extensions</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Common CapabilityStatement extensions</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">author.name</Data></Cell>
@@ -731,7 +731,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69.75">
     <Cell ss:StyleID="s74"><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Common extensions for use with the Conformance resource</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Common extensions for use with the CapabilityStatement resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">status</Data></Cell>
@@ -751,8 +751,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/StructureDefinition/conformance-"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/conformance-</Data></Cell>
+    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/StructureDefinition/capabilitystatement-"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/capabilitystatement-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>
@@ -930,7 +930,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Conformance.rest.resource.interaction;Conformance.rest.resource.searchParam;Conformance.rest.operation;Conformance.messaging.event;Conformance.document;Conformance.rest.interaction</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">CapabilityStatement.rest.resource.interaction;CapabilityStatement.rest.resource.searchParam;CapabilityStatement.rest.operation;CapabilityStatement.messaging.event;CapabilityStatement.document;CapabilityStatement.rest.interaction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Conformance expectation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -951,7 +951,7 @@
     <Cell ss:StyleID="s93"><Data ss:Type="String">Defines the level of expectation associated with a given system capability.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">If &quot;SHALL NOT&quot; is desired, use the &quot;prohibited&quot; modifier extension.  This extension should only be used with conformance profiles documenting requirements, not those documenting actual system capabilities</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">If &quot;SHALL NOT&quot; is desired, use the &quot;prohibited&quot; modifier extension.  This extension should only be used with CapabilityStatements documenting requirements, not those documenting actual system capabilities</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">N/A</Data><NamedCell
@@ -967,7 +967,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Conformance.rest.resource.interaction;Conformance.rest.resource.searchParam;Conformance.rest.operation;Conformance.messaging.event;Conformance.document;Conformance.rest.interaction</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">CapabilityStatement.rest.resource.interaction;CapabilityStatement.rest.resource.searchParam;CapabilityStatement.rest.operation;CapabilityStatement.messaging.event;CapabilityStatement.document;CapabilityStatement.rest.interaction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Conformance prohibition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1003,7 +1003,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Conformance</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">CapabilityStatement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Supported Code System</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1038,7 +1038,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Conformance.rest.resource</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">CapabilityStatement.rest.resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Search Parameter Combination</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

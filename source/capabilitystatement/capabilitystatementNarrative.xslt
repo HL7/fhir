@@ -9,7 +9,7 @@
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
   </xsl:template>
-  <xsl:template match="/Conformance">
+  <xsl:template match="/CapabilityStatement">
     <xsl:copy>
       <xsl:copy-of select="@*|id"/>
       <text xmlns="http://hl7.org/fhir">
@@ -23,10 +23,10 @@
           <p>
             <xsl:text>(</xsl:text>
             <xsl:choose>
-              <xsl:when test="kind/@value='instance'">Implementation Instance Conformance Statement</xsl:when>
-              <xsl:when test="kind/@value='capability'">Software Capability Conformance Statement</xsl:when>
+              <xsl:when test="kind/@value='instance'">Implementation Instance Capability Statement</xsl:when>
+              <xsl:when test="kind/@value='capability'">Software Capability Capability Statement</xsl:when>
               <xsl:when test="kind/@value='requirements'">Requirements Definition</xsl:when>
-              <xsl:otherwise>**Unknown Conformance Kind**</xsl:otherwise>
+              <xsl:otherwise>**Unknown Capability Statement Kind**</xsl:otherwise>
             </xsl:choose>
             <xsl:text>)</xsl:text>
           </p>
@@ -193,46 +193,46 @@
                     </th>
                     <td>
                       <xsl:for-each select="interaction[code/@value='search-type']">
-                        <xsl:call-template name="doConformance"/>
+                        <xsl:call-template name="doCapabilityStatement"/>
                       </xsl:for-each>
                     </td>
                     <td>
                       <xsl:for-each select="interaction[code/@value='read']">
-                        <xsl:call-template name="doConformance"/>
+                        <xsl:call-template name="doCapabilityStatement"/>
                       </xsl:for-each>
                     </td>
                     <td>
                       <xsl:for-each select="interaction[code/@value='vread']">
-                        <xsl:call-template name="doConformance"/>
+                        <xsl:call-template name="doCapabilityStatement"/>
                       </xsl:for-each>
                       <xsl:if test="readHistory/@value='false'">(current only)</xsl:if>
                     </td>
                     <td>
                       <xsl:for-each select="interaction[code/@value='history-instance']">
-                        <xsl:call-template name="doConformance"/>
+                        <xsl:call-template name="doCapabilityStatement"/>
                       </xsl:for-each>
                     </td>
                     <td>
                       <xsl:for-each select="interaction[code/@value='history-type']">
-                        <xsl:call-template name="doConformance"/>
+                        <xsl:call-template name="doCapabilityStatement"/>
                       </xsl:for-each>
                     </td>
                     <td>
                       <xsl:for-each select="interaction[code/@value='create']">
-                        <xsl:call-template name="doConformance"/>
+                        <xsl:call-template name="doCapabilityStatement"/>
                       </xsl:for-each>
                       <xsl:if test="conditionalCreate/@value='true'">(conditional supported)</xsl:if>
                     </td>
                     <td>
                       <xsl:for-each select="interaction[code/@value='update']">
-                        <xsl:call-template name="doConformance"/>
+                        <xsl:call-template name="doCapabilityStatement"/>
                       </xsl:for-each>
                       <xsl:if test="updateCreate/@value='false'">(existing only)</xsl:if>
                       <xsl:if test="conditionalUpdate/@value='true'">(conditional supported)</xsl:if>
                     </td>
                     <td>
                       <xsl:for-each select="interaction[code/@value='delete']">
-                        <xsl:call-template name="doConformance"/>
+                        <xsl:call-template name="doCapabilityStatement"/>
                       </xsl:for-each>
                       <xsl:if test="conditionalDelete/@value='true'">(conditional supported)</xsl:if>
                     </td>
@@ -255,21 +255,21 @@
               </p>
             </xsl:if>
             <xsl:if test="interaction">
-              <xsl:variable name="doConformance" as="xs:boolean" select="exists(interaction/extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value)"/>
+              <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(interaction/extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value)"/>
               <h3>General interactions</h3>
               <table class="list">
                 <thead>
                   <tr>
                     <th>Name</th>
-                    <xsl:if test="$doConformance">
-                      <th>Conformance</th>
+                    <xsl:if test="$doCapabilityStatement">
+                      <th>Capability Statement</th>
                     </xsl:if>
                     <th>Description</th>
                   </tr>
                 </thead>
                 <tbody>
                   <xsl:apply-templates select="interaction">
-                    <xsl:with-param name="doConformance" select="$doConformance"/>
+                    <xsl:with-param name="doCapabilityStatement" select="$doCapabilityStatement"/>
                   </xsl:apply-templates>
                 </tbody>
               </table>
@@ -295,11 +295,11 @@
               </xsl:copy-of>
               <h4>Interactions</h4>
               <table class="list">
-                <xsl:variable name="doConformance" as="xs:boolean" select="exists(interaction/extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value)"/>
+                <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(interaction/extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value)"/>
                 <thead>
                   <tr>
                     <th>Name</th>
-                    <xsl:if test="$doConformance">
+                    <xsl:if test="$doCapabilityStatement">
                       <th>Conformance</th>
                     </xsl:if>
                     <th>Description</th>
@@ -307,7 +307,7 @@
                 </thead>
                 <tbody>
                   <xsl:apply-templates select="interaction[documentation]">
-                    <xsl:with-param name="doConformance" select="$doConformance"/>
+                    <xsl:with-param name="doCapabilityStatement" select="$doCapabilityStatement"/>
                   </xsl:apply-templates>
                 </tbody>
               </table>
@@ -447,12 +447,12 @@
     </xsl:copy>
   </xsl:template>
   <xsl:template name="doParams" as="element(xhtml:table)">
-    <xsl:variable name="doConformance" as="xs:boolean" select="exists(*[self::searchParam or self::parameter]/extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value)"/>
+    <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(*[self::searchParam or self::parameter]/extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value)"/>
     <table class="list">
       <thead>
         <tr>
           <th>Parameter</th>
-          <xsl:if test="$doConformance">
+          <xsl:if test="$doCapabilityStatement">
             <th>Conformance</th>
           </xsl:if>
           <th>Type</th>
@@ -475,7 +475,7 @@
                 </xsl:otherwise>
               </xsl:choose>
             </th>
-            <xsl:if test="$doConformance">
+            <xsl:if test="$doCapabilityStatement">
               <td>
                 <xsl:value-of select="extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value"/>
               </td>
@@ -498,7 +498,7 @@
     </table>
   </xsl:template>
   <xsl:template match="interaction">
-    <xsl:param name="doConformance" as="xs:boolean" required="yes"/>
+    <xsl:param name="doCapabilityStatement" as="xs:boolean" required="yes"/>
     <tr>
       <th>
         <a name="{ancestor::resource/type/@value}-{code/@value}">
@@ -509,7 +509,7 @@
           <xsl:value-of select="code/@value"/>
         </span>
       </th>
-      <xsl:if test="$doConformance">
+      <xsl:if test="$doCapabilityStatement">
         <td>
           <xsl:value-of select="extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value"/>
         </td>
@@ -524,7 +524,7 @@
       </td>
     </tr>
   </xsl:template>
-  <xsl:template name="doConformance" as="node()">
+  <xsl:template name="doCapabilityStatement" as="node()">
     <xsl:variable name="documentation" as="xs:string">
       <xsl:copy-of select="string-join(fn:markDownToString(fn:handleMarkdown(documentation/@value)), '')"/>
     </xsl:variable>

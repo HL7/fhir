@@ -39,10 +39,10 @@ import java.util.Map;
 import org.apache.http.Header;
 import org.apache.http.HttpHost;
 import org.hl7.fhir.dstu3.model.Bundle;
+import org.hl7.fhir.dstu3.model.CapabilityStatement;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ConceptMap;
-import org.hl7.fhir.dstu3.model.Conformance;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.Parameters;
 import org.hl7.fhir.dstu3.model.Parameters.ParametersParameterComponent;
@@ -90,7 +90,7 @@ public class FHIRToolingClient {
 	private ResourceFormat preferredResourceFormat;
 	private HttpHost proxy;
 	private int maxResultSetSize = -1;//_count
-	private Conformance conf;
+	private CapabilityStatement capabilities;
 	
 	//Pass enpoint for client - URI
 	public FHIRToolingClient(String baseServiceUrl) throws URISyntaxException {
@@ -129,7 +129,7 @@ public class FHIRToolingClient {
 	
 	private void checkConformance() {
 	  try {
-      conf = getConformanceStatementQuick();
+      capabilities = getConformanceStatementQuick();
 	  } catch (Throwable e) {
 	  }
    }
@@ -150,39 +150,29 @@ public class FHIRToolingClient {
 		this.maxResultSetSize = maxResultSetSize;
 	}
 	
-	public Conformance getConformanceStatement() throws EFhirClientException {
-		if (conf != null)
-			return conf;
-		return getConformanceStatement(false);
-	}
-	
-	public Conformance getConformanceStatement(boolean useOptionsVerb) {
-		Conformance conformance = null;
+	public CapabilityStatement getConformanceStatement() {
+	  CapabilityStatement conformance = null;
 		try {
-			if(useOptionsVerb) {
-				conformance = (Conformance)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat(), proxy).getReference();//TODO fix this
-			} else {
-				conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(false), getPreferredResourceFormat(), proxy).getReference();
-			}
+  		conformance = (CapabilityStatement)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(false), getPreferredResourceFormat(), proxy).getReference();
 		} catch(Exception e) {
 			handleException("An error has occurred while trying to fetch the server's conformance statement", e);
 		}
 		return conformance;
 	}
 	
-  public Conformance getConformanceStatementQuick() throws EFhirClientException {
-    if (conf != null)
-      return conf;
-    return getConformanceStatementQuick(false);
+  public CapabilityStatement getConformanceStatementQuick() throws EFhirClientException {
+    if (capabilities != null)
+      return capabilities;
+    return getConformanceStatementQuick();
   }
   
-  public Conformance getConformanceStatementQuick(boolean useOptionsVerb) {
-    Conformance conformance = null;
+  public CapabilityStatement getConformanceStatementQuick(boolean useOptionsVerb) {
+    CapabilityStatement conformance = null;
     try {
       if(useOptionsVerb) {
-        conformance = (Conformance)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat(), proxy).getReference();//TODO fix this
+        conformance = (CapabilityStatement)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat(), proxy).getReference();//TODO fix this
       } else {
-        conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(true), getPreferredResourceFormat(), proxy).getReference();
+        conformance = (CapabilityStatement)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(true), getPreferredResourceFormat(), proxy).getReference();
       }
     } catch(Exception e) {
       handleException("An error has occurred while trying to fetch the server's conformance statement", e);

@@ -431,91 +431,91 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-task.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-Task resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-Task by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-Task instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="vread"/>
         <documentation value="Allows retrieval of a historical version of a DAF-Task instance"/>
       </interaction>
 	  <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows creation of a DAF-Task instance"/>
       </interaction>
 	  <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows updation of a DAF-Task instance"/>
       </interaction>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="status"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="code"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="parent"/>
         <type value="reference"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="owner"/>
         <type value="reference"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="performer"/>
         <type value="reference"/>
       </searchParam>
 	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="requester"/>
@@ -528,63 +528,63 @@
         <reference value="http://hl7.org/fhir/current/daf/daf-provenance.html"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing DAF-Provenance resources using different search criteria"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific DAF-Provenance by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to DAF-Provenance instance over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="vread"/>
         <documentation value="Allows retrieval of a historical version of a DAF-Provenance instance"/>
       </interaction>
 	  <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows creation of a DAF-Provenance instance"/>
       </interaction>
 	  <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows updation of a DAF-Provenance instance"/>
       </interaction>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="target"/>
         <type value="reference"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="start"/>
         <type value="date"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="end"/>

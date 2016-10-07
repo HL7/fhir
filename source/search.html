@@ -255,7 +255,7 @@ In addition to the <code>_id</code> parameter which exists for all resources, ea
 FHIR resource type defines its own set of search parameters with
 their names, types, and meanings. These search parameters are on the
 same page as the resource definitions, and are also published as part
-of the standard conformance statement (<a href="conformance-base.xml.html">XML</a> or <a href="conformance-base.json.html">JSON</a>).
+of the standard Capability statement (<a href="capabilitystatement-base.xml.html">XML</a> or <a href="capabilitystatement-base.json.html">JSON</a>).
 </p>
 <p>
 In general, the defined search parameters correspond to a
@@ -1553,7 +1553,7 @@ to supporting search:
 <ul>
  <li>Servers can choose which parameters to support (other than <code>_id</code> above).</li>
  <li>Servers can choose when and where to implement parameter chaining, and when and where they support the <code>_include</code> parameter.</li>
- <li>Servers are able to declare additional parameters in the profiles referenced from their conformance statements. Servers should define search parameters
+ <li>Servers are able to declare additional parameters in the profiles referenced from their Capability statements. Servers should define search parameters
     starting with a "-" character to ensure that the names they choose do not clash with future parameters defined by this specification.</li>
  <li>Servers are not required to enforce case sensitivity on parameter names, though the names are case sensitive (and URLs are generally case-sensitive).</li>
  <li>Servers may choose how many results to return, though the client can use <code>_count</code> as above</li>

@@ -258,23 +258,27 @@ public class SourceParser {
     
     for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       if (!Utilities.noString(ig.getSource())) {
-        new IgParser(page, page.getWorkerContext(), page.getGenDate(), page, definitions.getCommonBindings(), ig.getCommittee(), definitions.getMapTypes(), definitions.getProfileIds(), definitions.getCodeSystems(), registry, page.getConceptMaps()).load(rootDir, ig, issues, igNames);
-        // register what needs registering
-        for (ValueSet vs : ig.getValueSets()) {
-          definitions.getExtraValuesets().put(vs.getId(), vs);
-          context.getValueSets().put(vs.getUrl(), vs);
+        try {
+          new IgParser(page, page.getWorkerContext(), page.getGenDate(), page, definitions.getCommonBindings(), ig.getCommittee(), definitions.getMapTypes(), definitions.getProfileIds(), definitions.getCodeSystems(), registry, page.getConceptMaps()).load(rootDir, ig, issues, igNames);
+          // register what needs registering
+          for (ValueSet vs : ig.getValueSets()) {
+            definitions.getExtraValuesets().put(vs.getId(), vs);
+            context.getValueSets().put(vs.getUrl(), vs);
+          }
+          for (Example ex : ig.getExamples())
+            definitions.getResourceByName(ex.getResourceName()).getExamples().add(ex);
+          for (Profile p : ig.getProfiles()) {
+            if (definitions.getPackMap().containsKey(p.getId()))
+              throw new Exception("Duplicate Pack id "+p.getId());
+            definitions.getPackList().add(p);
+            definitions.getPackMap().put(p.getId(), p);
+          }
+          for (Dictionary d : ig.getDictionaries())
+            definitions.getDictionaries().put(d.getId(), d);
+        } catch (Exception e) {
+          throw new Exception("Error reading IG "+ig.getSource()+": "+e.getMessage(), e);
         }
-        for (Example ex : ig.getExamples())
-          definitions.getResourceByName(ex.getResourceName()).getExamples().add(ex);
-        for (Profile p : ig.getProfiles()) {
-          if (definitions.getPackMap().containsKey(p.getId()))
-            throw new Exception("Duplicate Pack id "+p.getId());
-          definitions.getPackList().add(p);
-          definitions.getPackMap().put(p.getId(), p);
-        }
-        for (Dictionary d : ig.getDictionaries())
-          definitions.getDictionaries().put(d.getId(), d);
-      }
+      }        
     }
   }
 

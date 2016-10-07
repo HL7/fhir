@@ -29,7 +29,7 @@ required to. Systems may publish <code>CompartmentDefinition</code> resources so
 other systems may make use of compartments properly.
 </p>
 <ul>
- <li>CompartmentDefinitions are used by <a href="conformance.html">Conformance</a> instances for specifying how resources are accessed</li>
+ <li>CompartmentDefinitions are used by <a href="capabilitystatement.html">CapabilityStatement</a> instances for specifying how resources are accessed</li>
 </ul>
 
 </div> 

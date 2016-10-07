@@ -3,7 +3,7 @@ package org.hl7.fhir.igtools.renderers;
 import java.io.IOException;
 
 import org.hl7.fhir.dstu3.context.IWorkerContext;
-import org.hl7.fhir.dstu3.model.Conformance;
+import org.hl7.fhir.dstu3.model.CapabilityStatement;
 import org.hl7.fhir.utilities.TextFile;
 
 public class SwaggerGenerator {
@@ -19,42 +19,42 @@ public class SwaggerGenerator {
     yaml.append("swagger: 2.0\r\n\r\n");
   }
 
-  public void generate(Conformance conf) {
-    generateInfo(conf);
+  public void generate(CapabilityStatement cpbs) {
+    generateInfo(cpbs);
     yaml.append("# host: [user to provide]\r\n");
     yaml.append("# basePath: [user to provide]\r\n");
     yaml.append("schemes:\r\n");
     yaml.append("  - https\r\n");
     yaml.append("  # - http this would not normally be allowed (see doco)\r\n");
     yaml.append("consumes:\r\n");
-    genMimeTypes(conf);
+    genMimeTypes(cpbs);
     yaml.append("produces:\r\n");
-    genMimeTypes(conf);
+    genMimeTypes(cpbs);
   }
 
-  private void genMimeTypes(Conformance conf) {
+  private void genMimeTypes(CapabilityStatement cpbs) {
     String jt = version.equals("1.4.0") ? "application/json+fhir" : "application/fhir+json"; 
     String xt = version.equals("1.4.0") ? "application/json+xml" : "application/fhir+xml";
-    if (!conf.hasFormat()) {
+    if (!cpbs.hasFormat()) {
       yaml.append("  - "+jt+"\r\n");
       yaml.append("  - "+xt+"\r\n");
     } else {
-      if (conf.hasFormat("json")) 
+      if (cpbs.hasFormat("json")) 
         yaml.append("  - "+jt+"\r\n");
-      if (conf.hasFormat("xml")) 
+      if (cpbs.hasFormat("xml")) 
         yaml.append("  - "+xt+"\r\n");
     }
   }
 
-  private void generateInfo(Conformance conf) {
+  private void generateInfo(CapabilityStatement cpbs) {
     yaml.append("info:");
-    yaml.append("  title: "+conf.getName()+"\r\n");
-    yaml.append("  description: "+conf.getDescription()+"\r\n");
-    yaml.append("  version: "+conf.getVersion()+"\r\n");
+    yaml.append("  title: "+cpbs.getName()+"\r\n");
+    yaml.append("  description: "+cpbs.getDescription()+"\r\n");
+    yaml.append("  version: "+cpbs.getVersion()+"\r\n");
     yaml.append("  # contact:\r\n");
     yaml.append("    # end user to fill out\r\n");
     yaml.append("  license:\r\n");
-    yaml.append("    name: "+ conf.getCopyright()+"\r\n\r\n");
+    yaml.append("    name: "+ cpbs.getCopyright()+"\r\n\r\n");
   }
 
   public void save(String path) throws IOException {

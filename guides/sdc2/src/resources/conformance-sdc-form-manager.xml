@@ -583,49 +583,49 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows a user to search for existing forms"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific known form"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="vread"/>
         <documentation value="Allows retrieval of a specific version of a form"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to a form over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows defining a new form.  Repositories requiring curation of submitted forms may require all new data elements to have a status of 'draft'."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows an existing form to be updated.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new questionnaire (and potentially the retiring of the existing questionnaire).  Servers may also limit who can change particular forms."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>
@@ -633,7 +633,7 @@
       </interaction>
       <searchInclude value="Questionnaire.group.question.options"/>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="code"/>
@@ -641,7 +641,7 @@
         <type value="token"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="context"/>
@@ -649,7 +649,7 @@
         <type value="token"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="date"/>
@@ -657,7 +657,7 @@
         <type value="date"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
@@ -665,7 +665,7 @@
         <type value="token"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="publisher"/>
@@ -673,7 +673,7 @@
         <type value="string"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="status"/>
@@ -681,7 +681,7 @@
         <type value="token"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="title"/>
@@ -689,7 +689,7 @@
         <type value="string"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="version"/>
@@ -697,7 +697,7 @@
         <type value="string"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="deReference"/>
@@ -711,49 +711,49 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/sdc-codesystem"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing code systems for use in authoring questionnaires"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific code system referenced within a questionnaire"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="vread"/>
         <documentation value="Allows retrieval of a historical version of a code system as referenced within a questionnaire"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to a code system over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows definition of a new code system used by one or more questionnaires"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows existing code systems referenced by one or more questionnaires to be maintained"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>
@@ -761,7 +761,7 @@
       </interaction>
       <!--  Should we include this in the conformance statement at all?  -->
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="code"/>
@@ -769,7 +769,7 @@
         <type value="token"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="date"/>
@@ -777,7 +777,7 @@
         <type value="date"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="description"/>
@@ -785,7 +785,7 @@
         <type value="string"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="name"/>
@@ -793,7 +793,7 @@
         <type value="string"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="status"/>
@@ -801,7 +801,7 @@
         <type value="token"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="system"/>
@@ -809,7 +809,7 @@
         <type value="uri"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="url"/>
@@ -823,49 +823,49 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/sdc-valueset"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing value sets for use in authoring questionnaires"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific value set referenced within a questionnaire"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="vread"/>
         <documentation value="Allows retrieval of a historical version of a value set as referenced within a questionnaire"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to a value set over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows definition of a new value set used by one or more questionnaires"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows existing value sets referenced by one or more questionnaires to be maintained"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>
@@ -874,7 +874,7 @@
       <!--  Should we include this in the conformance statement at all?  -->
       <searchInclude value="ValueSet.compose.import"/>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="date"/>
@@ -882,7 +882,7 @@
         <type value="date"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="description"/>
@@ -890,7 +890,7 @@
         <type value="string"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="name"/>
@@ -898,7 +898,7 @@
         <type value="string"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="reference"/>
@@ -906,7 +906,7 @@
         <type value="string"/>
       </searchParam>
       <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="status"/>
@@ -915,7 +915,7 @@
       </searchParam>
     </resource>
     <operation>
-      <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="MAY"/>
       </extension>
       <name value="populate"/>
@@ -925,7 +925,7 @@
       </definition>
     </operation>
     <operation>
-      <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="MAY"/>
       </extension>
       <name value="populate"/>
@@ -935,7 +935,7 @@
       </definition>
     </operation>
     <operation>
-      <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="MAY"/>
       </extension>
       <name value="populate"/>

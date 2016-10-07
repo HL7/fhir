@@ -317,7 +317,7 @@ public class BookMaker {
     //    list.add("MessageHeader");
     //    list.add("DocumentHeader");
     //    list.add("ValueSet");
-    //    list.add("Conformance");
+    //    list.add("CapabilityStatement");
     //    list.add("Agent");
     //    list.add("Animal");
     //    list.add("AssessmentScale");

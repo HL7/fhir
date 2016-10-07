@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Conformance xmlns="http://hl7.org/fhir">
+<CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="conformance-ehrs-rle"/>
   <text>
     <status value="generated"/>
@@ -290,7 +290,7 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/provenance-ehr-rle"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="create"/>
@@ -303,7 +303,7 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/auditevent-ehr-rle"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="create"/>
@@ -311,4 +311,4 @@
       </interaction>
     </resource>
   </rest>
-</Conformance>
+</CapabilityStatement>

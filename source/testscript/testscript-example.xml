@@ -40,9 +40,9 @@
 			<link value="http://hl7.org/fhir/http.html#read"/>
 			<link value="http://hl7.org/fhir/http.html#update"/>
 			<link value="http://hl7.org/fhir/patient.html"/>
-			<conformance>
-				<reference value="Conformance/example" />
-			</conformance>
+			<capabilities>
+				<reference value="CapabilityStatement/example" />
+			</capabilities>
 		</capability>
 	</metadata>
 

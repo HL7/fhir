@@ -72,9 +72,9 @@
     </concept>
   </concept>
   <concept>
-    <code value="conformance"/>
-    <display value="conformance"/>
-    <definition value="Get a conformance statement for the system."/>
+    <code value="capabilities"/>
+    <display value="capabilities"/>
+    <definition value="Get a Capability Statement for the system."/>
   </concept>
   <concept>
     <code value="transaction"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Thu, Oct 6, 2016 04:12+1100 for FHIR v1.7.0
+// Generated on Fri, Oct 7, 2016 14:20+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1893,6 +1893,374 @@ public class RdfParser extends RdfParserBase {
       composeResource(t, "Bundle", "outcome", element.getOutcome(), -1);
   }
 
+  protected void composeCapabilityStatement(Complex parent, String parentType, String name, CapabilityStatement element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "CapabilityStatement", name, element, index);
+    if (element.hasUrlElement())
+      composeUri(t, "CapabilityStatement", "url", element.getUrlElement(), -1);
+    if (element.hasVersionElement())
+      composeString(t, "CapabilityStatement", "version", element.getVersionElement(), -1);
+    if (element.hasNameElement())
+      composeString(t, "CapabilityStatement", "name", element.getNameElement(), -1);
+    if (element.hasStatusElement())
+      composeEnum(t, "CapabilityStatement", "status", element.getStatusElement(), -1);
+    if (element.hasExperimentalElement())
+      composeBoolean(t, "CapabilityStatement", "experimental", element.getExperimentalElement(), -1);
+    if (element.hasDateElement())
+      composeDateTime(t, "CapabilityStatement", "date", element.getDateElement(), -1);
+    if (element.hasPublisherElement())
+      composeString(t, "CapabilityStatement", "publisher", element.getPublisherElement(), -1);
+    for (int i = 0; i < element.getContact().size(); i++)
+      composeCapabilityStatementCapabilityStatementContactComponent(t, "CapabilityStatement", "contact", element.getContact().get(i), i);
+    if (element.hasDescriptionElement())
+      composeMarkdown(t, "CapabilityStatement", "description", element.getDescriptionElement(), -1);
+    for (int i = 0; i < element.getUseContext().size(); i++)
+      composeCodeableConcept(t, "CapabilityStatement", "useContext", element.getUseContext().get(i), i);
+    if (element.hasRequirementsElement())
+      composeMarkdown(t, "CapabilityStatement", "requirements", element.getRequirementsElement(), -1);
+    if (element.hasCopyrightElement())
+      composeString(t, "CapabilityStatement", "copyright", element.getCopyrightElement(), -1);
+    if (element.hasKindElement())
+      composeEnum(t, "CapabilityStatement", "kind", element.getKindElement(), -1);
+    for (int i = 0; i < element.getInstantiates().size(); i++)
+      composeUri(t, "CapabilityStatement", "instantiates", element.getInstantiates().get(i), i);
+    if (element.hasSoftware())
+      composeCapabilityStatementCapabilityStatementSoftwareComponent(t, "CapabilityStatement", "software", element.getSoftware(), -1);
+    if (element.hasImplementation())
+      composeCapabilityStatementCapabilityStatementImplementationComponent(t, "CapabilityStatement", "implementation", element.getImplementation(), -1);
+    if (element.hasFhirVersionElement())
+      composeId(t, "CapabilityStatement", "fhirVersion", element.getFhirVersionElement(), -1);
+    if (element.hasAcceptUnknownElement())
+      composeEnum(t, "CapabilityStatement", "acceptUnknown", element.getAcceptUnknownElement(), -1);
+    for (int i = 0; i < element.getFormat().size(); i++)
+      composeCode(t, "CapabilityStatement", "format", element.getFormat().get(i), i);
+    for (int i = 0; i < element.getProfile().size(); i++)
+      composeReference(t, "CapabilityStatement", "profile", element.getProfile().get(i), i);
+    for (int i = 0; i < element.getRest().size(); i++)
+      composeCapabilityStatementCapabilityStatementRestComponent(t, "CapabilityStatement", "rest", element.getRest().get(i), i);
+    for (int i = 0; i < element.getMessaging().size(); i++)
+      composeCapabilityStatementCapabilityStatementMessagingComponent(t, "CapabilityStatement", "messaging", element.getMessaging().get(i), i);
+    for (int i = 0; i < element.getDocument().size(); i++)
+      composeCapabilityStatementCapabilityStatementDocumentComponent(t, "CapabilityStatement", "document", element.getDocument().get(i), i);
+  }
+
+  protected void composeCapabilityStatementCapabilityStatementContactComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementContactComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "contact", name, element, index);
+    if (element.hasNameElement())
+      composeString(t, "CapabilityStatement", "name", element.getNameElement(), -1);
+    for (int i = 0; i < element.getTelecom().size(); i++)
+      composeContactPoint(t, "CapabilityStatement", "telecom", element.getTelecom().get(i), i);
+  }
+
+  protected void composeCapabilityStatementCapabilityStatementSoftwareComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementSoftwareComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "software", name, element, index);
+    if (element.hasNameElement())
+      composeString(t, "CapabilityStatement", "name", element.getNameElement(), -1);
+    if (element.hasVersionElement())
+      composeString(t, "CapabilityStatement", "version", element.getVersionElement(), -1);
+    if (element.hasReleaseDateElement())
+      composeDateTime(t, "CapabilityStatement", "releaseDate", element.getReleaseDateElement(), -1);
+  }
+
+  protected void composeCapabilityStatementCapabilityStatementImplementationComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementImplementationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "implementation", name, element, index);
+    if (element.hasDescriptionElement())
+      composeString(t, "CapabilityStatement", "description", element.getDescriptionElement(), -1);
+    if (element.hasUrlElement())
+      composeUri(t, "CapabilityStatement", "url", element.getUrlElement(), -1);
+  }
+
+  protected void composeCapabilityStatementCapabilityStatementRestComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementRestComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "rest", name, element, index);
+    if (element.hasModeElement())
+      composeEnum(t, "CapabilityStatement", "mode", element.getModeElement(), -1);
+    if (element.hasDocumentationElement())
+      composeString(t, "CapabilityStatement", "documentation", element.getDocumentationElement(), -1);
+    if (element.hasSecurity())
+      composeCapabilityStatementCapabilityStatementRestSecurityComponent(t, "CapabilityStatement", "security", element.getSecurity(), -1);
+    for (int i = 0; i < element.getResource().size(); i++)
+      composeCapabilityStatementCapabilityStatementRestResourceComponent(t, "CapabilityStatement", "resource", element.getResource().get(i), i);
+    for (int i = 0; i < element.getInteraction().size(); i++)
+      composeCapabilityStatementSystemInteractionComponent(t, "CapabilityStatement", "interaction", element.getInteraction().get(i), i);
+    for (int i = 0; i < element.getSearchParam().size(); i++)
+      composeCapabilityStatementCapabilityStatementRestResourceSearchParamComponent(t, "CapabilityStatement", "searchParam", element.getSearchParam().get(i), i);
+    for (int i = 0; i < element.getOperation().size(); i++)
+      composeCapabilityStatementCapabilityStatementRestOperationComponent(t, "CapabilityStatement", "operation", element.getOperation().get(i), i);
+    for (int i = 0; i < element.getCompartment().size(); i++)
+      composeUri(t, "CapabilityStatement", "compartment", element.getCompartment().get(i), i);
+  }
+
+  protected void composeCapabilityStatementCapabilityStatementRestSecurityComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementRestSecurityComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "security", name, element, index);
+    if (element.hasCorsElement())
+      composeBoolean(t, "CapabilityStatement", "cors", element.getCorsElement(), -1);
+    for (int i = 0; i < element.getService().size(); i++)
+      composeCodeableConcept(t, "CapabilityStatement", "service", element.getService().get(i), i);
+    if (element.hasDescriptionElement())
+      composeString(t, "CapabilityStatement", "description", element.getDescriptionElement(), -1);
+    for (int i = 0; i < element.getCertificate().size(); i++)
+      composeCapabilityStatementCapabilityStatementRestSecurityCertificateComponent(t, "CapabilityStatement", "certificate", element.getCertificate().get(i), i);
+  }
+
+  protected void composeCapabilityStatementCapabilityStatementRestSecurityCertificateComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "certificate", name, element, index);
+    if (element.hasTypeElement())
+      composeCode(t, "CapabilityStatement", "type", element.getTypeElement(), -1);
+    if (element.hasBlobElement())
+      composeBase64Binary(t, "CapabilityStatement", "blob", element.getBlobElement(), -1);
+  }
+
+  protected void composeCapabilityStatementCapabilityStatementRestResourceComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementRestResourceComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "resource", name, element, index);
+    if (element.hasTypeElement())
+      composeCode(t, "CapabilityStatement", "type", element.getTypeElement(), -1);
+    if (element.hasProfile())
+      composeReference(t, "CapabilityStatement", "profile", element.getProfile(), -1);
+    if (element.hasDocumentationElement())
+      composeMarkdown(t, "CapabilityStatement", "documentation", element.getDocumentationElement(), -1);
+    for (int i = 0; i < element.getInteraction().size(); i++)
+      composeCapabilityStatementResourceInteractionComponent(t, "CapabilityStatement", "interaction", element.getInteraction().get(i), i);
+    if (element.hasVersioningElement())
+      composeEnum(t, "CapabilityStatement", "versioning", element.getVersioningElement(), -1);
+    if (element.hasReadHistoryElement())
+      composeBoolean(t, "CapabilityStatement", "readHistory", element.getReadHistoryElement(), -1);
+    if (element.hasUpdateCreateElement())
+      composeBoolean(t, "CapabilityStatement", "updateCreate", element.getUpdateCreateElement(), -1);
+    if (element.hasConditionalCreateElement())
+      composeBoolean(t, "CapabilityStatement", "conditionalCreate", element.getConditionalCreateElement(), -1);
+    if (element.hasConditionalReadElement())
+      composeEnum(t, "CapabilityStatement", "conditionalRead", element.getConditionalReadElement(), -1);
+    if (element.hasConditionalUpdateElement())
+      composeBoolean(t, "CapabilityStatement", "conditionalUpdate", element.getConditionalUpdateElement(), -1);
+    if (element.hasConditionalDeleteElement())
+      composeEnum(t, "CapabilityStatement", "conditionalDelete", element.getConditionalDeleteElement(), -1);
+    for (int i = 0; i < element.getReferencePolicy().size(); i++)
+      composeEnum(t, "CapabilityStatement", "referencePolicy", element.getReferencePolicy().get(i), i);
+    for (int i = 0; i < element.getSearchInclude().size(); i++)
+      composeString(t, "CapabilityStatement", "searchInclude", element.getSearchInclude().get(i), i);
+    for (int i = 0; i < element.getSearchRevInclude().size(); i++)
+      composeString(t, "CapabilityStatement", "searchRevInclude", element.getSearchRevInclude().get(i), i);
+    for (int i = 0; i < element.getSearchParam().size(); i++)
+      composeCapabilityStatementCapabilityStatementRestResourceSearchParamComponent(t, "CapabilityStatement", "searchParam", element.getSearchParam().get(i), i);
+  }
+
+  protected void composeCapabilityStatementResourceInteractionComponent(Complex parent, String parentType, String name, CapabilityStatement.ResourceInteractionComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "interaction", name, element, index);
+    if (element.hasCodeElement())
+      composeEnum(t, "CapabilityStatement", "code", element.getCodeElement(), -1);
+    if (element.hasDocumentationElement())
+      composeString(t, "CapabilityStatement", "documentation", element.getDocumentationElement(), -1);
+  }
+
+  protected void composeCapabilityStatementCapabilityStatementRestResourceSearchParamComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementRestResourceSearchParamComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "searchParam", name, element, index);
+    if (element.hasNameElement())
+      composeString(t, "CapabilityStatement", "name", element.getNameElement(), -1);
+    if (element.hasDefinitionElement())
+      composeUri(t, "CapabilityStatement", "definition", element.getDefinitionElement(), -1);
+    if (element.hasTypeElement())
+      composeEnum(t, "CapabilityStatement", "type", element.getTypeElement(), -1);
+    if (element.hasDocumentationElement())
+      composeString(t, "CapabilityStatement", "documentation", element.getDocumentationElement(), -1);
+    for (int i = 0; i < element.getTarget().size(); i++)
+      composeCode(t, "CapabilityStatement", "target", element.getTarget().get(i), i);
+    for (int i = 0; i < element.getModifier().size(); i++)
+      composeEnum(t, "CapabilityStatement", "modifier", element.getModifier().get(i), i);
+    for (int i = 0; i < element.getChain().size(); i++)
+      composeString(t, "CapabilityStatement", "chain", element.getChain().get(i), i);
+  }
+
+  protected void composeCapabilityStatementSystemInteractionComponent(Complex parent, String parentType, String name, CapabilityStatement.SystemInteractionComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "interaction", name, element, index);
+    if (element.hasCodeElement())
+      composeEnum(t, "CapabilityStatement", "code", element.getCodeElement(), -1);
+    if (element.hasDocumentationElement())
+      composeString(t, "CapabilityStatement", "documentation", element.getDocumentationElement(), -1);
+  }
+
+  protected void composeCapabilityStatementCapabilityStatementRestOperationComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementRestOperationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "operation", name, element, index);
+    if (element.hasNameElement())
+      composeString(t, "CapabilityStatement", "name", element.getNameElement(), -1);
+    if (element.hasDefinition())
+      composeReference(t, "CapabilityStatement", "definition", element.getDefinition(), -1);
+  }
+
+  protected void composeCapabilityStatementCapabilityStatementMessagingComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementMessagingComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "messaging", name, element, index);
+    for (int i = 0; i < element.getEndpoint().size(); i++)
+      composeCapabilityStatementCapabilityStatementMessagingEndpointComponent(t, "CapabilityStatement", "endpoint", element.getEndpoint().get(i), i);
+    if (element.hasReliableCacheElement())
+      composeUnsignedInt(t, "CapabilityStatement", "reliableCache", element.getReliableCacheElement(), -1);
+    if (element.hasDocumentationElement())
+      composeString(t, "CapabilityStatement", "documentation", element.getDocumentationElement(), -1);
+    for (int i = 0; i < element.getEvent().size(); i++)
+      composeCapabilityStatementCapabilityStatementMessagingEventComponent(t, "CapabilityStatement", "event", element.getEvent().get(i), i);
+  }
+
+  protected void composeCapabilityStatementCapabilityStatementMessagingEndpointComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementMessagingEndpointComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "endpoint", name, element, index);
+    if (element.hasProtocol())
+      composeCoding(t, "CapabilityStatement", "protocol", element.getProtocol(), -1);
+    if (element.hasAddressElement())
+      composeUri(t, "CapabilityStatement", "address", element.getAddressElement(), -1);
+  }
+
+  protected void composeCapabilityStatementCapabilityStatementMessagingEventComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementMessagingEventComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "event", name, element, index);
+    if (element.hasCode())
+      composeCoding(t, "CapabilityStatement", "code", element.getCode(), -1);
+    if (element.hasCategoryElement())
+      composeEnum(t, "CapabilityStatement", "category", element.getCategoryElement(), -1);
+    if (element.hasModeElement())
+      composeEnum(t, "CapabilityStatement", "mode", element.getModeElement(), -1);
+    if (element.hasFocusElement())
+      composeCode(t, "CapabilityStatement", "focus", element.getFocusElement(), -1);
+    if (element.hasRequest())
+      composeReference(t, "CapabilityStatement", "request", element.getRequest(), -1);
+    if (element.hasResponse())
+      composeReference(t, "CapabilityStatement", "response", element.getResponse(), -1);
+    if (element.hasDocumentationElement())
+      composeString(t, "CapabilityStatement", "documentation", element.getDocumentationElement(), -1);
+  }
+
+  protected void composeCapabilityStatementCapabilityStatementDocumentComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementDocumentComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "document", name, element, index);
+    if (element.hasModeElement())
+      composeEnum(t, "CapabilityStatement", "mode", element.getModeElement(), -1);
+    if (element.hasDocumentationElement())
+      composeString(t, "CapabilityStatement", "documentation", element.getDocumentationElement(), -1);
+    if (element.hasProfile())
+      composeReference(t, "CapabilityStatement", "profile", element.getProfile(), -1);
+  }
+
   protected void composeCarePlan(Complex parent, String parentType, String name, CarePlan element, int index) {
     if (element == null) 
       return;
@@ -3495,374 +3863,6 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "Condition", "code", element.getCode(), -1);
     for (int i = 0; i < element.getDetail().size(); i++)
       composeReference(t, "Condition", "detail", element.getDetail().get(i), i);
-  }
-
-  protected void composeConformance(Complex parent, String parentType, String name, Conformance element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeDomainResource(t, "Conformance", name, element, index);
-    if (element.hasUrlElement())
-      composeUri(t, "Conformance", "url", element.getUrlElement(), -1);
-    if (element.hasVersionElement())
-      composeString(t, "Conformance", "version", element.getVersionElement(), -1);
-    if (element.hasNameElement())
-      composeString(t, "Conformance", "name", element.getNameElement(), -1);
-    if (element.hasStatusElement())
-      composeEnum(t, "Conformance", "status", element.getStatusElement(), -1);
-    if (element.hasExperimentalElement())
-      composeBoolean(t, "Conformance", "experimental", element.getExperimentalElement(), -1);
-    if (element.hasDateElement())
-      composeDateTime(t, "Conformance", "date", element.getDateElement(), -1);
-    if (element.hasPublisherElement())
-      composeString(t, "Conformance", "publisher", element.getPublisherElement(), -1);
-    for (int i = 0; i < element.getContact().size(); i++)
-      composeConformanceConformanceContactComponent(t, "Conformance", "contact", element.getContact().get(i), i);
-    if (element.hasDescriptionElement())
-      composeMarkdown(t, "Conformance", "description", element.getDescriptionElement(), -1);
-    for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "Conformance", "useContext", element.getUseContext().get(i), i);
-    if (element.hasRequirementsElement())
-      composeMarkdown(t, "Conformance", "requirements", element.getRequirementsElement(), -1);
-    if (element.hasCopyrightElement())
-      composeString(t, "Conformance", "copyright", element.getCopyrightElement(), -1);
-    if (element.hasKindElement())
-      composeEnum(t, "Conformance", "kind", element.getKindElement(), -1);
-    for (int i = 0; i < element.getInstantiates().size(); i++)
-      composeUri(t, "Conformance", "instantiates", element.getInstantiates().get(i), i);
-    if (element.hasSoftware())
-      composeConformanceConformanceSoftwareComponent(t, "Conformance", "software", element.getSoftware(), -1);
-    if (element.hasImplementation())
-      composeConformanceConformanceImplementationComponent(t, "Conformance", "implementation", element.getImplementation(), -1);
-    if (element.hasFhirVersionElement())
-      composeId(t, "Conformance", "fhirVersion", element.getFhirVersionElement(), -1);
-    if (element.hasAcceptUnknownElement())
-      composeEnum(t, "Conformance", "acceptUnknown", element.getAcceptUnknownElement(), -1);
-    for (int i = 0; i < element.getFormat().size(); i++)
-      composeCode(t, "Conformance", "format", element.getFormat().get(i), i);
-    for (int i = 0; i < element.getProfile().size(); i++)
-      composeReference(t, "Conformance", "profile", element.getProfile().get(i), i);
-    for (int i = 0; i < element.getRest().size(); i++)
-      composeConformanceConformanceRestComponent(t, "Conformance", "rest", element.getRest().get(i), i);
-    for (int i = 0; i < element.getMessaging().size(); i++)
-      composeConformanceConformanceMessagingComponent(t, "Conformance", "messaging", element.getMessaging().get(i), i);
-    for (int i = 0; i < element.getDocument().size(); i++)
-      composeConformanceConformanceDocumentComponent(t, "Conformance", "document", element.getDocument().get(i), i);
-  }
-
-  protected void composeConformanceConformanceContactComponent(Complex parent, String parentType, String name, Conformance.ConformanceContactComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "contact", name, element, index);
-    if (element.hasNameElement())
-      composeString(t, "Conformance", "name", element.getNameElement(), -1);
-    for (int i = 0; i < element.getTelecom().size(); i++)
-      composeContactPoint(t, "Conformance", "telecom", element.getTelecom().get(i), i);
-  }
-
-  protected void composeConformanceConformanceSoftwareComponent(Complex parent, String parentType, String name, Conformance.ConformanceSoftwareComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "software", name, element, index);
-    if (element.hasNameElement())
-      composeString(t, "Conformance", "name", element.getNameElement(), -1);
-    if (element.hasVersionElement())
-      composeString(t, "Conformance", "version", element.getVersionElement(), -1);
-    if (element.hasReleaseDateElement())
-      composeDateTime(t, "Conformance", "releaseDate", element.getReleaseDateElement(), -1);
-  }
-
-  protected void composeConformanceConformanceImplementationComponent(Complex parent, String parentType, String name, Conformance.ConformanceImplementationComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "implementation", name, element, index);
-    if (element.hasDescriptionElement())
-      composeString(t, "Conformance", "description", element.getDescriptionElement(), -1);
-    if (element.hasUrlElement())
-      composeUri(t, "Conformance", "url", element.getUrlElement(), -1);
-  }
-
-  protected void composeConformanceConformanceRestComponent(Complex parent, String parentType, String name, Conformance.ConformanceRestComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "rest", name, element, index);
-    if (element.hasModeElement())
-      composeEnum(t, "Conformance", "mode", element.getModeElement(), -1);
-    if (element.hasDocumentationElement())
-      composeString(t, "Conformance", "documentation", element.getDocumentationElement(), -1);
-    if (element.hasSecurity())
-      composeConformanceConformanceRestSecurityComponent(t, "Conformance", "security", element.getSecurity(), -1);
-    for (int i = 0; i < element.getResource().size(); i++)
-      composeConformanceConformanceRestResourceComponent(t, "Conformance", "resource", element.getResource().get(i), i);
-    for (int i = 0; i < element.getInteraction().size(); i++)
-      composeConformanceSystemInteractionComponent(t, "Conformance", "interaction", element.getInteraction().get(i), i);
-    for (int i = 0; i < element.getSearchParam().size(); i++)
-      composeConformanceConformanceRestResourceSearchParamComponent(t, "Conformance", "searchParam", element.getSearchParam().get(i), i);
-    for (int i = 0; i < element.getOperation().size(); i++)
-      composeConformanceConformanceRestOperationComponent(t, "Conformance", "operation", element.getOperation().get(i), i);
-    for (int i = 0; i < element.getCompartment().size(); i++)
-      composeUri(t, "Conformance", "compartment", element.getCompartment().get(i), i);
-  }
-
-  protected void composeConformanceConformanceRestSecurityComponent(Complex parent, String parentType, String name, Conformance.ConformanceRestSecurityComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "security", name, element, index);
-    if (element.hasCorsElement())
-      composeBoolean(t, "Conformance", "cors", element.getCorsElement(), -1);
-    for (int i = 0; i < element.getService().size(); i++)
-      composeCodeableConcept(t, "Conformance", "service", element.getService().get(i), i);
-    if (element.hasDescriptionElement())
-      composeString(t, "Conformance", "description", element.getDescriptionElement(), -1);
-    for (int i = 0; i < element.getCertificate().size(); i++)
-      composeConformanceConformanceRestSecurityCertificateComponent(t, "Conformance", "certificate", element.getCertificate().get(i), i);
-  }
-
-  protected void composeConformanceConformanceRestSecurityCertificateComponent(Complex parent, String parentType, String name, Conformance.ConformanceRestSecurityCertificateComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "certificate", name, element, index);
-    if (element.hasTypeElement())
-      composeCode(t, "Conformance", "type", element.getTypeElement(), -1);
-    if (element.hasBlobElement())
-      composeBase64Binary(t, "Conformance", "blob", element.getBlobElement(), -1);
-  }
-
-  protected void composeConformanceConformanceRestResourceComponent(Complex parent, String parentType, String name, Conformance.ConformanceRestResourceComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "resource", name, element, index);
-    if (element.hasTypeElement())
-      composeCode(t, "Conformance", "type", element.getTypeElement(), -1);
-    if (element.hasProfile())
-      composeReference(t, "Conformance", "profile", element.getProfile(), -1);
-    if (element.hasDocumentationElement())
-      composeMarkdown(t, "Conformance", "documentation", element.getDocumentationElement(), -1);
-    for (int i = 0; i < element.getInteraction().size(); i++)
-      composeConformanceResourceInteractionComponent(t, "Conformance", "interaction", element.getInteraction().get(i), i);
-    if (element.hasVersioningElement())
-      composeEnum(t, "Conformance", "versioning", element.getVersioningElement(), -1);
-    if (element.hasReadHistoryElement())
-      composeBoolean(t, "Conformance", "readHistory", element.getReadHistoryElement(), -1);
-    if (element.hasUpdateCreateElement())
-      composeBoolean(t, "Conformance", "updateCreate", element.getUpdateCreateElement(), -1);
-    if (element.hasConditionalCreateElement())
-      composeBoolean(t, "Conformance", "conditionalCreate", element.getConditionalCreateElement(), -1);
-    if (element.hasConditionalReadElement())
-      composeEnum(t, "Conformance", "conditionalRead", element.getConditionalReadElement(), -1);
-    if (element.hasConditionalUpdateElement())
-      composeBoolean(t, "Conformance", "conditionalUpdate", element.getConditionalUpdateElement(), -1);
-    if (element.hasConditionalDeleteElement())
-      composeEnum(t, "Conformance", "conditionalDelete", element.getConditionalDeleteElement(), -1);
-    for (int i = 0; i < element.getReferencePolicy().size(); i++)
-      composeEnum(t, "Conformance", "referencePolicy", element.getReferencePolicy().get(i), i);
-    for (int i = 0; i < element.getSearchInclude().size(); i++)
-      composeString(t, "Conformance", "searchInclude", element.getSearchInclude().get(i), i);
-    for (int i = 0; i < element.getSearchRevInclude().size(); i++)
-      composeString(t, "Conformance", "searchRevInclude", element.getSearchRevInclude().get(i), i);
-    for (int i = 0; i < element.getSearchParam().size(); i++)
-      composeConformanceConformanceRestResourceSearchParamComponent(t, "Conformance", "searchParam", element.getSearchParam().get(i), i);
-  }
-
-  protected void composeConformanceResourceInteractionComponent(Complex parent, String parentType, String name, Conformance.ResourceInteractionComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "interaction", name, element, index);
-    if (element.hasCodeElement())
-      composeEnum(t, "Conformance", "code", element.getCodeElement(), -1);
-    if (element.hasDocumentationElement())
-      composeString(t, "Conformance", "documentation", element.getDocumentationElement(), -1);
-  }
-
-  protected void composeConformanceConformanceRestResourceSearchParamComponent(Complex parent, String parentType, String name, Conformance.ConformanceRestResourceSearchParamComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "searchParam", name, element, index);
-    if (element.hasNameElement())
-      composeString(t, "Conformance", "name", element.getNameElement(), -1);
-    if (element.hasDefinitionElement())
-      composeUri(t, "Conformance", "definition", element.getDefinitionElement(), -1);
-    if (element.hasTypeElement())
-      composeEnum(t, "Conformance", "type", element.getTypeElement(), -1);
-    if (element.hasDocumentationElement())
-      composeString(t, "Conformance", "documentation", element.getDocumentationElement(), -1);
-    for (int i = 0; i < element.getTarget().size(); i++)
-      composeCode(t, "Conformance", "target", element.getTarget().get(i), i);
-    for (int i = 0; i < element.getModifier().size(); i++)
-      composeEnum(t, "Conformance", "modifier", element.getModifier().get(i), i);
-    for (int i = 0; i < element.getChain().size(); i++)
-      composeString(t, "Conformance", "chain", element.getChain().get(i), i);
-  }
-
-  protected void composeConformanceSystemInteractionComponent(Complex parent, String parentType, String name, Conformance.SystemInteractionComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "interaction", name, element, index);
-    if (element.hasCodeElement())
-      composeEnum(t, "Conformance", "code", element.getCodeElement(), -1);
-    if (element.hasDocumentationElement())
-      composeString(t, "Conformance", "documentation", element.getDocumentationElement(), -1);
-  }
-
-  protected void composeConformanceConformanceRestOperationComponent(Complex parent, String parentType, String name, Conformance.ConformanceRestOperationComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "operation", name, element, index);
-    if (element.hasNameElement())
-      composeString(t, "Conformance", "name", element.getNameElement(), -1);
-    if (element.hasDefinition())
-      composeReference(t, "Conformance", "definition", element.getDefinition(), -1);
-  }
-
-  protected void composeConformanceConformanceMessagingComponent(Complex parent, String parentType, String name, Conformance.ConformanceMessagingComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "messaging", name, element, index);
-    for (int i = 0; i < element.getEndpoint().size(); i++)
-      composeConformanceConformanceMessagingEndpointComponent(t, "Conformance", "endpoint", element.getEndpoint().get(i), i);
-    if (element.hasReliableCacheElement())
-      composeUnsignedInt(t, "Conformance", "reliableCache", element.getReliableCacheElement(), -1);
-    if (element.hasDocumentationElement())
-      composeString(t, "Conformance", "documentation", element.getDocumentationElement(), -1);
-    for (int i = 0; i < element.getEvent().size(); i++)
-      composeConformanceConformanceMessagingEventComponent(t, "Conformance", "event", element.getEvent().get(i), i);
-  }
-
-  protected void composeConformanceConformanceMessagingEndpointComponent(Complex parent, String parentType, String name, Conformance.ConformanceMessagingEndpointComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "endpoint", name, element, index);
-    if (element.hasProtocol())
-      composeCoding(t, "Conformance", "protocol", element.getProtocol(), -1);
-    if (element.hasAddressElement())
-      composeUri(t, "Conformance", "address", element.getAddressElement(), -1);
-  }
-
-  protected void composeConformanceConformanceMessagingEventComponent(Complex parent, String parentType, String name, Conformance.ConformanceMessagingEventComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "event", name, element, index);
-    if (element.hasCode())
-      composeCoding(t, "Conformance", "code", element.getCode(), -1);
-    if (element.hasCategoryElement())
-      composeEnum(t, "Conformance", "category", element.getCategoryElement(), -1);
-    if (element.hasModeElement())
-      composeEnum(t, "Conformance", "mode", element.getModeElement(), -1);
-    if (element.hasFocusElement())
-      composeCode(t, "Conformance", "focus", element.getFocusElement(), -1);
-    if (element.hasRequest())
-      composeReference(t, "Conformance", "request", element.getRequest(), -1);
-    if (element.hasResponse())
-      composeReference(t, "Conformance", "response", element.getResponse(), -1);
-    if (element.hasDocumentationElement())
-      composeString(t, "Conformance", "documentation", element.getDocumentationElement(), -1);
-  }
-
-  protected void composeConformanceConformanceDocumentComponent(Complex parent, String parentType, String name, Conformance.ConformanceDocumentComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "document", name, element, index);
-    if (element.hasModeElement())
-      composeEnum(t, "Conformance", "mode", element.getModeElement(), -1);
-    if (element.hasDocumentationElement())
-      composeString(t, "Conformance", "documentation", element.getDocumentationElement(), -1);
-    if (element.hasProfile())
-      composeReference(t, "Conformance", "profile", element.getProfile(), -1);
   }
 
   protected void composeConsent(Complex parent, String parentType, String name, Consent element, int index) {
@@ -12275,6 +12275,8 @@ public class RdfParser extends RdfParserBase {
       composeBodySite(parent, null, "BodySite", (BodySite)resource, -1);
     else if (resource instanceof Bundle)
       composeBundle(parent, null, "Bundle", (Bundle)resource, -1);
+    else if (resource instanceof CapabilityStatement)
+      composeCapabilityStatement(parent, null, "CapabilityStatement", (CapabilityStatement)resource, -1);
     else if (resource instanceof CarePlan)
       composeCarePlan(parent, null, "CarePlan", (CarePlan)resource, -1);
     else if (resource instanceof CareTeam)
@@ -12299,8 +12301,6 @@ public class RdfParser extends RdfParserBase {
       composeConceptMap(parent, null, "ConceptMap", (ConceptMap)resource, -1);
     else if (resource instanceof Condition)
       composeCondition(parent, null, "Condition", (Condition)resource, -1);
-    else if (resource instanceof Conformance)
-      composeConformance(parent, null, "Conformance", (Conformance)resource, -1);
     else if (resource instanceof Consent)
       composeConsent(parent, null, "Consent", (Consent)resource, -1);
     else if (resource instanceof Contract)

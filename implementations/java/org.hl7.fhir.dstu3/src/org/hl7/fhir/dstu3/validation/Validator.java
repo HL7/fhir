@@ -99,7 +99,7 @@ public class Validator {
       System.out.println("      default value is http://hl7.org/fhir. This parameter can only appear once");
       System.out.println("-ig [file|url]: an IG or profile definition to load. Can be the URL of an ");
       System.out.println("     implementation guide or a direct reference to the igpack.zip for a built");
-      System.out.println("     implementation guide or a local folder that contains a set of conformance ");
+      System.out.println("     implementation guide or a local folder that contains a set of conformance resources.");
       System.out.println("     no default value. This parameter can appear any number of times");
       System.out.println("-tx [url]: the [base] url of a FHIR terminology service");
       System.out.println("     Default value is http://fhir3.healthintersections.com.au/open");

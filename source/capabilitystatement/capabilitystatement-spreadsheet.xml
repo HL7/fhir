@@ -1005,7 +1005,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Conformance</Data><NamedCell
+    <Cell ss:StyleID="s78"><Data ss:Type="String">CapabilityStatement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1022,9 +1022,9 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">A conformance statement</Data><NamedCell
+    <Cell ss:StyleID="s79"><Data ss:Type="String">A statement of system Capabilities</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.</Data><NamedCell
+    <Cell ss:StyleID="s81"><Data ss:Type="String">A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1040,7 +1040,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.url</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.url</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1060,7 +1060,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Logical uri to reference this statement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">An absolute URL that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this conformance statement is (or will be) published</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">An absolute URL that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1075,7 +1075,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.version</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.version</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1095,10 +1095,10 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Logical id for this version of the statement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The identifier that is used to identify this version of the capability statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">There may be multiple different instances of a conformance statement that have the same identifier but different versions</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">There may be multiple different instances of a capability statement that have the same identifier but different versions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1111,7 +1111,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.name</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1128,9 +1128,9 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Informal name for this conformance statement</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Informal name for this capability statement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">A free text natural language name identifying the conformance statement</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A free text natural language name identifying the capability statement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The name is not expected to be globally unique</Data><NamedCell
@@ -1146,7 +1146,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.status</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1168,10 +1168,10 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">draft | active | retired </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The status of this conformance statement</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The status of this capability statement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">This is not intended for use with actual conformance statements, but where conformance statements are used to describe possible or desired systems</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">This is not intended for use with actual capability statements, but where capability statements are used to describe possible or desired systems</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1184,7 +1184,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.experimental</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.experimental</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1204,10 +1204,10 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">If for testing purposes, not real usage</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A flag to indicate that this capability statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Allows filtering of conformance statements that are appropriate for use vs. not</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Allows filtering of capability statements that are appropriate for use vs. not</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1219,7 +1219,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.date</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.date</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1239,7 +1239,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Publication Date(/time)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The date  (and optionally time) when the conformance statement was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the conformance statement changes</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The date  (and optionally time) when the capability statement was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the capability statement changes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Additional specific dates may be added as extensions</Data><NamedCell
@@ -1255,7 +1255,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.publisher</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.publisher</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1275,9 +1275,9 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Name of the publisher (Organization or individual)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The name of the individual or organization that published the conformance</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The name of the individual or organization that published the Capability Statement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Helps establish the &quot;authority/credibility&quot; of the conformance.  May also allow for contact</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Helps establish the &quot;authority/credibility&quot; of the Capability Statement.  May also allow for contact</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1291,7 +1291,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.contact</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.contact</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1325,7 +1325,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.contact.name</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.contact.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1344,7 +1344,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Name of an individual to contact</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The name of an individual to contact regarding the conformance</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The name of an individual to contact regarding the Capability Statement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">If there is no named individual, the telecom is for the organization as a whole</Data><NamedCell
@@ -1359,7 +1359,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.contact.telecom</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.contact.telecom</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1392,7 +1392,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.description</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1410,12 +1410,12 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Human description of the conformance statement</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Human description of the capability statement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A free text natural language description of the capability statement and its use. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">This field may include the purpose of this conformance statement, comments about its context etc. This does not need to be populated if the description is adequately implied by the software or implementation details</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">This field may include the purpose of this capability statement, comments about its context etc. This does not need to be populated if the description is adequately implied by the software or implementation details</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1427,7 +1427,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.useContext</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.useContext</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1447,7 +1447,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Content intends to support these contexts</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of conformance statements.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of capability statements.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Assist in searching for appropriate content</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1467,7 +1467,7 @@
     <Cell ss:StyleID="s93"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.requirements</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.requirements</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1485,10 +1485,10 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Why this resource has been created</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Explains why this conformance statement is needed and why it's been constrained as it has</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Explains why this capability statement is needed and why it's been constrained as it has</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">This element does not describe the usage of the conformance statement (that's done in comments), rather it's for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">This element does not describe the usage of the capability statement (that's done in comments), rather it's for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1503,7 +1503,7 @@
     <Cell ss:StyleID="s93"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.copyright</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.copyright</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">License,Restrictions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1522,7 +1522,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Use and/or publishing restrictions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">A copyright statement relating to the conformance statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A copyright statement relating to the capability statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the capability statement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1539,7 +1539,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.kind</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.kind</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1550,7 +1550,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">ConformanceStatementKind</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">CapabilityStatementKind</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1576,7 +1576,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.instantiates</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.instantiates</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1595,7 +1595,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Canonical URL of service implemented/used by software</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Reference to a canonical URL of another conformance that this software implements or uses. This conformance statement is a published API description that corresponds to a business service. The rest of the conformance statement does not need to repeat the details of the referenced Conformance resource, but can do so</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">HL7 defines the following Services: [[[Terminology Service]]]&#10;&#10;Many [Implementation Guides](http://fhir.org/guides/registry) define additional services</Data><NamedCell
@@ -1612,7 +1612,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.software</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.software</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1629,9 +1629,9 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Software that is covered by this conformance statement</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Software that is covered by this capability statement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1646,7 +1646,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.software.name</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.software.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1679,7 +1679,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.software.version</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.software.version</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1713,7 +1713,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.software.releaseDate</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.software.releaseDate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1746,7 +1746,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.implementation</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.implementation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1765,7 +1765,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">If this describes a specific instance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1780,7 +1780,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.implementation.description</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.implementation.description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1799,7 +1799,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Describes this specific instance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Information about the specific installation that this conformance statement relates to </Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Information about the specific installation that this capability statement relates to </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1813,7 +1813,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.implementation.url</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.implementation.url</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1846,7 +1846,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.fhirVersion</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.fhirVersion</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1865,7 +1865,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">FHIR Version the system uses</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The version of the FHIR specification on which this conformance statement is based</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The version of the FHIR specification on which this capability statement is based</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1879,7 +1879,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.acceptUnknown</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.acceptUnknown</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1914,7 +1914,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.format</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.format</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..*</Data><NamedCell
@@ -1949,7 +1949,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="409.5">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.profile</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.profile</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1983,7 +1983,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2018,7 +2018,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.mode</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.mode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2029,7 +2029,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">RestfulConformanceMode</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">RestfulCapabilityMode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2052,7 +2052,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.documentation</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.documentation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2084,7 +2084,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.security</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.security</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2117,7 +2117,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.security.cors</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.security.cors</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2151,7 +2151,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.security.service</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.security.service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2185,7 +2185,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.security.description</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.security.description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2217,7 +2217,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.security.certificate</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.security.certificate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2249,7 +2249,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.security.certificate.type</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.security.certificate.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2282,7 +2282,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.security.certificate.blob</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.security.certificate.blob</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2314,7 +2314,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2348,7 +2348,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.type</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2382,7 +2382,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.profile</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.profile</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2416,7 +2416,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.documentation</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.documentation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2448,7 +2448,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.interaction</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.interaction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..*</Data><NamedCell
@@ -2481,7 +2481,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.interaction.code</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.interaction.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2514,7 +2514,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.interaction.documentation</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.interaction.documentation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2547,7 +2547,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.versioning</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.versioning</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2581,7 +2581,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.readHistory</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.readHistory</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2614,7 +2614,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="240">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.updateCreate</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.updateCreate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2647,7 +2647,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.conditionalCreate</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.conditionalCreate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2680,7 +2680,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.conditionalRead</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.conditionalRead</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2714,7 +2714,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.conditionalUpdate</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.conditionalUpdate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2747,7 +2747,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.conditionalDelete</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.conditionalDelete</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2781,7 +2781,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.referencePolicy</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.referencePolicy</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2814,7 +2814,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.searchInclude</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.searchInclude</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2847,7 +2847,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.searchRevInclude</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.searchRevInclude</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2880,7 +2880,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.searchParam</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.searchParam</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2912,7 +2912,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.searchParam.name</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.searchParam.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2945,7 +2945,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.searchParam.definition</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.searchParam.definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2978,7 +2978,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="165">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.searchParam.type</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.searchParam.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3000,7 +3000,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">The type of value a search parameter refers to, and how the content is interpreted</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">While this can be looked up from the definition, it is included here as a convenience for systems that autogenerate a query interface based on the server conformance statement.  It SHALL be the same as the type in the search parameter definition</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">While this can be looked up from the definition, it is included here as a convenience for systems that autogenerate a query interface based on the server capability statement.  It SHALL be the same as the type in the search parameter definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3012,7 +3012,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.searchParam.documentation</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.searchParam.documentation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -3044,7 +3044,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.searchParam.target</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.searchParam.target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -3078,7 +3078,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.searchParam.modifier</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.searchParam.modifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -3111,7 +3111,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.resource.searchParam.chain</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.resource.searchParam.chain</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -3129,7 +3129,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Chained names supported</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from CapabilityStatement.rest.resource.searchParam.name on the target resource type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Systems are not required to list all the chain names they support, but if they don't list them, clients may not know to use them</Data><NamedCell
@@ -3144,7 +3144,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.interaction</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.interaction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -3177,7 +3177,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.interaction.code</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.interaction.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3210,7 +3210,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.interaction.documentation</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.interaction.documentation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -3242,7 +3242,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">!Conformance.rest.transactionMode</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!CapabilityStatement.rest.transactionMode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -3276,13 +3276,13 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.searchParam</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.searchParam</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String" x:Ticked="1">@Conformance.rest.resource.searchParam</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String" x:Ticked="1">@CapabilityStatement.rest.resource.searchParam</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3310,7 +3310,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.operation</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.operation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -3343,7 +3343,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.operation.name</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.operation.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3376,7 +3376,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.operation.definition</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.operation.definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3410,7 +3410,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.rest.compartment</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.rest.compartment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -3443,7 +3443,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.messaging</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.messaging</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -3478,7 +3478,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.messaging.endpoint</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.messaging.endpoint</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="Number">3</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3511,7 +3511,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.messaging.endpoint.protocol</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.messaging.endpoint.protocol</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3544,7 +3544,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.messaging.endpoint.address</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.messaging.endpoint.address</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3576,7 +3576,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.messaging.reliableCache</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.messaging.reliableCache</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -3609,7 +3609,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.messaging.documentation</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.messaging.documentation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -3627,7 +3627,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Messaging interface behavior details</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, process for becoming an authorized messaging exchange partner.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3641,7 +3641,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.messaging.event</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.messaging.event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..*</Data><NamedCell
@@ -3676,7 +3676,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.messaging.event.code</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.messaging.event.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3711,7 +3711,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.messaging.event.category</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.messaging.event.category</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -3744,7 +3744,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.messaging.event.mode</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.messaging.event.mode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3754,7 +3754,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">ConformanceEventMode</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">EventCapabilityMode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3777,7 +3777,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.messaging.event.focus</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.messaging.event.focus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3811,7 +3811,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.messaging.event.request</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.messaging.event.request</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3844,7 +3844,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.messaging.event.response</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.messaging.event.response</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3877,7 +3877,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.messaging.event.documentation</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.messaging.event.documentation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -3909,7 +3909,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.document</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
@@ -3943,7 +3943,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.document.mode</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.document.mode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3976,7 +3976,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.document.documentation</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.document.documentation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -4008,7 +4008,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Conformance.document.profile</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CapabilityStatement.document.profile</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -4865,9 +4865,9 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Content Required</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Conformance</Data><NamedCell
+    <Cell ss:StyleID="s84"><Data ss:Type="String">CapabilityStatement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">A Conformance statement SHALL have at least one of REST, messaging or document</Data><NamedCell
+    <Cell ss:StyleID="s84"><Data ss:Type="String">A Capability Statement SHALL have at least one of REST, messaging or document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">rest.exists() or messaging.exists() or document.exists()</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4879,8 +4879,8 @@
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Details</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">A Conformance statement SHALL have at least one of description, software, or implementation</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">CapabilityStatement</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">A Capability Statement SHALL have at least one of description, software, or implementation</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">(description.count() + software.count() + implementation.count()) &gt; 0</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">count(f:software | f:implementation | f:description) &gt; 0</Data></Cell>
    </Row>
@@ -4889,7 +4889,7 @@
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">End points for Implementations</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">CapabilityStatement</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Messaging end-point is required (and is only permitted) when statement is for an implementation</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">messaging.endpoint.empty() or kind = 'instance'</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">not(exists(f:messaging/f:endpoint)) or f:kind/@value = 'instance'</Data></Cell>
@@ -4899,7 +4899,7 @@
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Document unique</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">CapabilityStatement</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">The set of documents must be unique by the combination of profile &amp; mode</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">document.select(profile.reference&amp;mode).isDistinct()</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">count(f:document[f:mode/@value='producer'])=count(distinct-values(f:document[f:mode/@value='producer']/f:profile/f:reference/@value)) and count(f:document[f:mode/@value='consumer'])=count(distinct-values(f:document[f:mode/@value='consumer']/f:profile/f:reference/@value))</Data></Cell>
@@ -4909,7 +4909,7 @@
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Rest unique by mode</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">CapabilityStatement</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">There can only be one REST declaration per mode</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">rest.select(mode).isDistinct()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">count(f:rest)=count(distinct-values(f:rest/f:mode/@value))</Data></Cell>
@@ -4919,7 +4919,7 @@
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Resource unique in rest mode</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance.rest</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">CapabilityStatement.rest</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">A given resource can only be described once per RESTful mode</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">resource.select(type).isDistinct()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">count(f:resource)=count(distinct-values(f:resource/f:type/@value))</Data></Cell>
@@ -4929,7 +4929,7 @@
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Operation unique in rest mode</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance.rest</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">CapabilityStatement.rest</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">A given operation can only be described once per RESTful mode</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">operation.select(name).isDistinct()</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">count(f:operation)=count(distinct-values(f:operation/f:name/@value))</Data></Cell>
@@ -4940,7 +4940,7 @@
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">SearchParam unique in resource</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance.rest.resource</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">CapabilityStatement.rest.resource</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Search parameter names must be unique in the context of a resource</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">searchParam.select(name).isDistinct()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">count(f:searchParam)=count(distinct-values(f:searchParam/f:name/@value))</Data></Cell>
@@ -4950,7 +4950,7 @@
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Chain names only when search parameter type is 'reference'</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Conformance.rest.resource.searchParam</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">CapabilityStatement.rest.resource.searchParam</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Search parameters can only have chain names when the search parameter type is 'reference'</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">chain.empty() or type = 'reference'</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:chain)) or (f:type/@value = 'reference')</Data></Cell>
@@ -4960,8 +4960,8 @@
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Kind rules #1</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance statements of kind 'requirements' do not have software or implementation elements</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">CapabilityStatement</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Capability Statements of kind 'requirements' do not have software or implementation elements</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">(software.empty() and implementation.empty()) or kind != 'requirements'</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:software) or exists(f:implementation)) or (f:kind/@value != 'requirements')</Data></Cell>
    </Row>
@@ -4970,8 +4970,8 @@
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Kind rules #2</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance statements of kind 'software' do not have implementation elements</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">CapabilityStatement</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Capability Statements of kind 'software' do not have implementation elements</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">implementation.empty() or kind != 'capability'</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:implementation)) or (f:kind/@value != 'capability')</Data></Cell>
    </Row>
@@ -5361,120 +5361,120 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">url</Data></Cell>
     <Cell><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">Conformance.url</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">The uri that identifies the conformance statement</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">CapabilityStatement.url</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">The uri that identifies the capability statement</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">version</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance.version</Data></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">The version identifier of the conformance statement</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement.version</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">The version identifier of the capability statement</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">name</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance.name</Data></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">Name of the conformance statement</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement.name</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">Name of the capability statement</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">publisher</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance.publisher</Data></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">Name of the publisher of the conformance statement</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement.publisher</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">Name of the publisher of the capability statement</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">description</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance.description</Data></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">Text search in the description of the conformance statement</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement.description</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">Text search in the description of the capability statement</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">status</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance.status</Data></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">The current status of the conformance statement</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement.status</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">The current status of the capability statement</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance.date</Data></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">The conformance statement publication date</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement.date</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">The capability statement publication date</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">software</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance.software.name</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement.software.name</Data></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="String">Part of a the name of a software application</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">fhirversion</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance.version</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement.version</Data></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="String">The version of FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">resource</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance.rest.resource.type</Data></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">Name of a resource mentioned in a conformance statement</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement.rest.resource.type</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">Name of a resource mentioned in a capability statement</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">event</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance.messaging.event.code</Data></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">Event code in a conformance statement</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement.messaging.event.code</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">Event code in a capability statement</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">mode</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance.rest.mode</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement.rest.mode</Data></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="String">Mode - restful (server/client) or messaging (sender/receiver)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">resourceprofile</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance.rest.resource.profile</Data></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">A profile id invoked in a conformance statement</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement.rest.resource.profile</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">A profile id invoked in a capability statement</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">format</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance.format</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement.format</Data></Cell>
     <Cell ss:StyleID="s125"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">securityservice</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance.rest.security.service</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement.rest.security.service</Data></Cell>
     <Cell ss:StyleID="s125"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s123"><Data ss:Type="String">supported-profile</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance.profile</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement.profile</Data></Cell>
     <Cell ss:StyleID="s125"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">context</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance.useContext</Data></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">A use context assigned to the conformance statement</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement.useContext</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">A use context assigned to the capability statement</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"/>
@@ -5660,9 +5660,9 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">operation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">Fetch a subset of the conformance resource</Data><NamedCell
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Fetch a subset of the CapabilityStatement resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">This operation asks the server to return a subset of the conformance resource - just the REST parts that relate to a set of nominated resources - the resources that the client is interested in</Data><NamedCell
+    <Cell ss:StyleID="s135"><Data ss:Type="String">This operation asks the server to return a subset of the CapabilityStatement resource - just the REST parts that relate to a set of nominated resources - the resources that the client is interested in</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s136"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -5693,10 +5693,10 @@
     <Cell ss:StyleID="s124"><Data ss:Type="String">out</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">The subsetted conformance resource that is returned. This should be tagged with the SUBSETTED code</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The subsetted CapabilityStatement resource that is returned. This should be tagged with the SUBSETTED code</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5707,8 +5707,8 @@
     <Cell ss:StyleID="s124"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"><Data ss:Type="String">Test if a server implements a client's required operations</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in it's conformance statement. The client provides it's conformance statement inline, or by referring the server to the canonical URL of it's conformance statement</Data></Cell>
-    <Cell ss:StyleID="s139"><Data ss:Type="String">The operation does not perform a full conformance check; in particular it does not check that the profiles align. It merely checks that the behaviors the client wishes to use are provided&#10;&#10;Technically, this operation is implemented as follows:&#10; * The server's conformance statement must have an entry for each resource in the client's conformance statement &#10; * The servers' resource support must have matching flags for updateCreate, conditionalCreate, conditionalRead, conditionalUpdate, conditionalDelete, searchInclude, searchRevInclude&#10; * The server conformance statement must have a matching interaction for each interaction in the client conformance statement (whether or not it is on a resource)&#10; * The server must have a search parameter with matching name and definition for any search parameters in the client conformance statement&#10; * The server must have an operation definitions with a matching reference for any operations in the client conformance statement&#10;&#10;If the conformance statements match by these rules, then the return value is a 200 OK with an operation outcome that contains no issues with severity &gt;= error. If the conformance statement doesn't match, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in it's capability statement. The client provides it's capability statement inline, or by referring the server to the canonical URL of it's capability statement</Data></Cell>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">The operation does not perform a full conformance check; in particular it does not check that the profiles align. It merely checks that the behaviors the client wishes to use are provided&#10;&#10;Technically, this operation is implemented as follows:&#10; * The server's capability statement must have an entry for each resource in the client's capability statement &#10; * The servers' resource support must have matching flags for updateCreate, conditionalCreate, conditionalRead, conditionalUpdate, conditionalDelete, searchInclude, searchRevInclude&#10; * The server capability statement must have a matching interaction for each interaction in the client capability statement (whether or not it is on a resource)&#10; * The server must have a search parameter with matching name and definition for any search parameters in the client capability statement&#10; * The server must have an operation definitions with a matching reference for any operations in the client capability statement&#10;&#10;If the capability statements match by these rules, then the return value is a 200 OK with an operation outcome that contains no issues with severity &gt;= error. If the capability statement doesn't match, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">implements.server</Data></Cell>
@@ -5718,7 +5718,7 @@
     <Cell ss:StyleID="s124"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">The canonical URL for the server conformance statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The canonical URL for the server capability statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5729,7 +5729,7 @@
     <Cell ss:StyleID="s124"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">The canonical URL for the client conformance statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The canonical URL for the client capability statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5737,10 +5737,10 @@
     <Cell ss:StyleID="s124"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Conformance</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">CapabilityStatement</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">The client conformance statement, provided inline</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The client capability statement, provided inline</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5751,7 +5751,7 @@
     <Cell ss:StyleID="s124"><Data ss:Type="String">OperationOutcome</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">Outcome of the conformance test</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Outcome of the CapabilityStatement test</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5762,8 +5762,8 @@
     <Cell ss:StyleID="s124"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"><Data ss:Type="String">Test if a server implements a client's required operations</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in it's conformance statement. The client provides both conformance statements by reference, and must ensure that all the referenced resources are available to the conformance server</Data></Cell>
-    <Cell ss:StyleID="s139"><Data ss:Type="String">The operation performs a full comparison of the functionality described by the two conformance statements, including the profiles and value sets they reference, and also including concept maps and structure maps. &#10;&#10;The full execution of this operation is still a matter of research, but it is intended to support comparison of systems to see if they will interoperate&#10;&#10;If the conformance statements can be successfully compared, then the return value is a 200 OK with an OperationOutcome along with intersection and union conformance statements. The operation outcome can contain errors relating to differences between the conformance statements. If the conformance statements cannot be compared, because dependencies cannot be located, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in it's capability statement. The client provides both capability statements by reference, and must ensure that all the referenced resources are available to the conformance server</Data></Cell>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">The operation performs a full comparison of the functionality described by the two capability statements, including the profiles and value sets they reference, and also including concept maps and structure maps. &#10;&#10;The full execution of this operation is still a matter of research, but it is intended to support comparison of systems to see if they will interoperate&#10;&#10;If the capability statements can be successfully compared, then the return value is a 200 OK with an OperationOutcome along with intersection and union capability statements. The operation outcome can contain errors relating to differences between the capability statements. If the capability statements cannot be compared, because dependencies cannot be located, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">conforms.left</Data></Cell>
@@ -5773,7 +5773,7 @@
     <Cell ss:StyleID="s124"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">The canonical URL for the server conformance statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The canonical URL for the server capability statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5784,7 +5784,7 @@
     <Cell ss:StyleID="s124"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">The canonical URL for the client conformance statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The canonical URL for the client capability statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5806,7 +5806,7 @@
     <Cell ss:StyleID="s124"><Data ss:Type="String">OperationOutcome</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">Outcome of the conformance test</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Outcome of the CapabilityStatement test</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5817,7 +5817,7 @@
     <Cell ss:StyleID="s124"><Data ss:Type="String">Bundle</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">The intersection of the functionality described by the conformance resources</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The intersection of the functionality described by the CapabilityStatement resources</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5828,7 +5828,7 @@
     <Cell ss:StyleID="s124"><Data ss:Type="String">Bundle</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">The union of the functionality described by the conformance resources</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The union of the functionality described by the CapabilityStatement resources</Data></Cell>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6582,9 +6582,9 @@
     <Cell><Data ss:Type="String">IG Name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Conformance Extensions</Data><NamedCell
+    <Cell ss:StyleID="s120"><Data ss:Type="String">CapabilityStatement Extensions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">conformance-extensions-spreadsheet.xml</Data><NamedCell
+    <Cell ss:StyleID="s121"><Data ss:Type="String">capabilitystatement-extensions-spreadsheet.xml</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">spreadsheet</Data><NamedCell
@@ -6908,7 +6908,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">example</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">conformance-example.xml</Data><NamedCell
+    <Cell ss:StyleID="s79"><Data ss:Type="String">capabilitystatement-example.xml</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s134"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">y</Data><NamedCell
@@ -6919,34 +6919,34 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s89"><Data ss:Type="String">PHR Example</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">phr</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">conformance-phr-example.xml</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">capabilitystatement-phr-example.xml</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s147"><Data ss:Type="String">Base</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">tool</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Complete Conformance Statement</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">conformance-base</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">conformance-base.xml</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Complete Capability Statement</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">capabilitystatement-base</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">capabilitystatement-base.xml</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s147"><Data ss:Type="String">Base2</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">tool</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">EmptyConformanceStatement</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">conformance-base2</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">conformance-base2.xml</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">EmptyCapabilityStatement</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">capabilitystatement-base2</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">capabilitystatement-base2.xml</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s147"><Data ss:Type="String">TerminologyServer</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Terminology Server Base Conformance Statement</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Terminology Server Base Capability Statement</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">terminology-server</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">conformance-terminology-server.xml</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">capabilitystatement-terminology-server.xml</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">n</Data></Cell>
    </Row>
@@ -7260,11 +7260,11 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s152"><Data ss:Type="String">RestfulConformanceMode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The mode of a RESTful conformance statement.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">RestfulCapabilityMode</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The mode of a RESTful capability statement.</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">#restful-conformance-mode</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">#restful-capability-mode</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"/>
@@ -7320,11 +7320,11 @@
     <Cell ss:StyleID="s125"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s153"><Data ss:Type="String">ConformanceEventMode</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The mode of a message conformance statement.</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">EventCapabilityMode</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The mode of a message capability statement.</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">#message-conformance-event-mode</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">#event-capability-mode</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
@@ -7455,11 +7455,11 @@
     <Cell ss:StyleID="s125"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">ConformanceStatementKind</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">How a conformance statement is intended to be used.</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">CapabilityStatementKind</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">How a capability statement is intended to be used.</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">#conformance-statement-kind</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">#capability-statement-kind</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
@@ -7708,10 +7708,10 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="restful-conformance-mode">
+ <Worksheet ss:Name="restful-capability-mode">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='restful-conformance-mode'!R1C1:R1C9" ss:Hidden="1"/>
+    ss:RefersTo="='restful-capability-mode'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s143" ss:DefaultRowHeight="15">
@@ -9594,10 +9594,10 @@
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="message-conformance-event-mode">
+ <Worksheet ss:Name="event-capability-mode">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='message-conformance-event-mode'!R1C1:R1C9" ss:Hidden="1"/>
+    ss:RefersTo="='event-capability-mode'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s143" ss:DefaultRowHeight="15">
@@ -15349,7 +15349,7 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="conformance-statement-kind">
+ <Worksheet ss:Name="capability-statement-kind">
   <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="327.5"/>
@@ -15382,18 +15382,18 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">instance</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Instance</Data></Cell>
-    <Cell><Data ss:Type="String">The Conformance instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point.</Data></Cell>
+    <Cell><Data ss:Type="String">The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">capability</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Capability</Data></Cell>
-    <Cell><Data ss:Type="String">The Conformance instance represents the capabilities of a system or piece of software, independent of a particular installation.</Data></Cell>
+    <Cell><Data ss:Type="String">The CapabilityStatement instance represents the capabilities of a system or piece of software, independent of a particular installation.</Data></Cell>
     <Cell><Data ss:Type="String">Elements marked as 'optional' represent configurable capabilities</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">requirements</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Requirements</Data></Cell>
-    <Cell><Data ss:Type="String"> The Conformance instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'.</Data></Cell>
+    <Cell><Data ss:Type="String"> The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'.</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

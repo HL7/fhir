@@ -195,7 +195,7 @@ notes: do not list revision in the version
           <ul>
            <li>Change the <a href="http.html#mime-type">FHIR mime type</a> to application/fhir+xml|json instead of application/xml|json+fhir (<b>breaking change</b>, for conformance to W3C+IETF rules)</li>
            <li>Add new uses for the Prefer header (return OperationOutcome, and manage behavior related to unknown / unsupported search parameters</li>
-           <li>Deprecate use of the OPTIONS command to retrieve the conformance statement</li>
+           <li>Deprecate use of the OPTIONS command to retrieve the CapabilityStatement</li>
            <li>Add support for conditional references to the transaction interaction</li>
            <li>Add reverse chaining</li>
           </ul>
@@ -252,7 +252,7 @@ notes: do not list revision in the version
          <li><a href="claimresponse.html">ClaimResponse</a></li>
          <li><a href="device.html">Device</a></li>
          <li><a href="conceptmap.html">ConceptMap</a></li>
-         <li><a href="conformance.html">Conformance</a></li>
+         <li><a href="capabilitystatement.html">Conformance</a> (now CapabilityStatement)</li>
          <li><a href="contract.html">Contract</a></li>
          <li><a href="device.html">Device</a></li>
          <li><a href="diagnosticrequest.html">DiagnosticRequest</a></li>
@@ -462,7 +462,7 @@ notes: do not list revision in the version
         <li><a href="composition.html">Composition</a> - change .section.content to refer to List only, not any </li>
         <li><a href="conceptmap.html">ConceptMap</a> - change identifier to url, add useContext, change telecom to contact, </li>
         <li><a href="condition.html">Condition</a> - rename subject to patient, rename status to clinicalStatus, change to bodySite = code or Reference(BodySite), rename .codeableConcept to .code</li>
-        <li><a href="conformance.html">Conformance</a> - change identifier to url, add useContext, change telecom to contact, add requirements and copyright, add support for conditional operations, </li>
+        <li><a href="capabilitystatement.html">Conformance</a> (now CapabilityStatement) - change identifier to url, add useContext, change telecom to contact, add requirements and copyright, add support for conditional operations, </li>
         <li><a href="contract.html">Contract</a> - extensive rewrite</li>
         <li><a href="coverage.html">Coverage</a> - add bin, subscriberId</li>
         <li><a href="dataelement.html">DataElement</a> - total rewrite to use ElementDefinition</li>
@@ -626,7 +626,7 @@ notes: do not list revision in the version
        <li>Add <a href="datatypes.html#time">time</a> data type</li>
        <li>Define RPC-type <a href="operations.html">operations</a> on the RESTful interface, and add <a href="operationdefinition.html">Operation Definition</a></li>
        <li>Defined operations on several resources including <a href="conceptmap.html">ConceptMap</a>, <a href="questionnaire.html">Questionnaire</a> and <a href="valueset.html">ValueSet</a></li>
-       <li><a href="conformance.html">Conformance</a>: Change Conformance.rest.operation to Conformance.rest.interaction and Conformance.rest.resource.operation to Conformance.rest.resource.interaction, and add Conformance.rest.operation to point to <a href="operationdefinition.html">Operation Definition</a></li>
+       <li><a href="capabilitystatement.html">Conformance</a> (now CapabilityStatement): Change Conformance.rest.operation to Conformance.rest.interaction and Conformance.rest.resource.operation to Conformance.rest.resource.interaction, and add Conformance.rest.operation to point to <a href="operationdefinition.html">Operation Definition</a></li>
        <li><a href="profile.html">Profile</a>: add Profile.url, Profile.structure.snapshot and Profile.structure.differential, and remove query definition (now in OperationDefinition)</li>
        <li>Add pages for <a href="loinc.html">LOINC</a>, <a href="rxnorm.html">RxNorm</a>, and <a href="snomedct.html">SNOMED CT</a></li>
        <li>Significant rework for <a href="conceptmap.html">ConceptMap</a> so it can be used to map between structures as well as value sets</li>

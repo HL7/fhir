@@ -38,7 +38,7 @@ DSTU-level content, applications may wish to use <a href="resource.html#tags">re
 manage this during the period of trial use.
 </p>
 <p>
-The conformance layer (<a href="conformance.html">Conformance</a> and <a href="structuredefinition.html">StructureDefinition</a>)
+The conformance layer (<a href="capabilitystatement.html">CapabilityStatement</a> and <a href="structuredefinition.html">StructureDefinition</a>)
 has mandatory properties declaring the FHIR specification version, and these may be used to determine
 which version of FHIR an implementation is using to aid in validation.
 </p>
@@ -68,7 +68,7 @@ However, in a healthcare context, many application vendors are unwilling to
 consider this approach because of concerns about clinical risk or 
 technical limitations in their software (e.g. schema based processing). 
 Applications are not required to ignore unknown elements, but SHALL
-declare whether they will do so in their <a href="conformance.html">conformance statements</a>.
+declare whether they will do so in their <a href="capabilitystatement.html">Capability Statements</a>.
 </p>
 <p>
 Unrecognized search criteria SHALL always be ignored.  (Search criteria supported in a query

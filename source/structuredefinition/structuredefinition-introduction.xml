@@ -22,7 +22,7 @@ set of structure definitions</a> for all resources and data types is published.
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2> 
 <ul>
- <li>StructureDefinitions are used by <a href="conformance.html">Conformance</a> instances for specifying how resources are used</li>
+ <li>StructureDefinitions are used by <a href="capabilitystatement.html">CapabilityStatement</a> instances for specifying how resources are used</li>
  <li>StructureDefinitions use <a href="valueset.html">Value Sets</a> to specify the content of coded elements</li>
  <li>StructureDefinitions define concrete elements and structures for use with FHIR alone and that have defined wire representations (XML, JSON, etc.).
  This is distinct from <a href="dataelement.html">DataElement</a> which defines abstract elements that might appear anywhere - FHIR,
@@ -44,7 +44,7 @@ before working with this resource.
 <h3>Metadata</h3>
 <p>
 The StructureDefinition resource has a set of metadata that is mostly shared with the <a href="valueset.html">Value Set</a>,
-<a href="conformance.html">Conformance</a> and other infrastructure resources. The metadata describes the structure, and helps 
+<a href="capabilitystatement.html">CapabilityStatement</a> and other infrastructure resources. The metadata describes the structure, and helps 
 find the structure when registered in profile repositories. 
 </p>
 

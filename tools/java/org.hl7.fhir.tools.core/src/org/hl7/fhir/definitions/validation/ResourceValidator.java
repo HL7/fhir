@@ -435,7 +435,7 @@ public class ResourceValidator extends BaseValidator {
         name.equals("Binary") || 
         name.equals("Bundle") || 
         name.equals("ConceptMap") || 
-        name.equals("Conformance") || 
+        name.equals("CapabilityStatement") || 
         name.equals("MessageHeader") || 
         name.equals("Subscription") || 
         name.equals("ImplementationGuide") ||

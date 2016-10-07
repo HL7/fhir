@@ -19,8 +19,8 @@ The SearchParameter resource declares:
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2> 
 <ul>
- <li>Search Parameters are referred to by <a href="conformance.html">Conformance</a> resources via the canonical URL for a search 
-    parameter (<a href="conformance-definitions.html#Conformance.rest.resource.searchParam.definition">Conformance.rest.resource.searchParam.definition</a>)</li>
+ <li>Search Parameters are referred to by <a href="capabilitystatement.html">CapabilityStatement</a> resources via the canonical URL for a search 
+    parameter (<a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchParam.definition">CapabilityStatement.rest.resource.searchParam.definition</a>)</li>
  <li>Search Parameters can appear in an <a href="implementationguide.html">Implementation Guide</a> to specify how resources can be found</li>
 </ul>
 

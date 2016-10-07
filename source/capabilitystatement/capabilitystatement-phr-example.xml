@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Conformance xmlns="http://hl7.org/fhir">
+<CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="phr"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
      
-      <p>Prototype Conformance Statement for September 2013 Connectathon</p>
+      <p>Prototype Capability Statement for September 2013 Connectathon</p>
      
       <p>The server offers read and search support on the following resource types:</p>
      
@@ -34,7 +34,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Prototype Conformance Statement for September 2013 Connectathon"/>
+  <description value="Prototype Capability Statement for September 2013 Connectathon"/>
   <kind value="capability"/>
   <software>
     <name value="ACME PHR Server"/>
@@ -50,7 +50,7 @@
   <format value="xml"/>
   <rest>
     <mode value="server"/>
-    <documentation value="Protoype server conformance statement for September 2013 Connectathon"/>
+    <documentation value="Protoype server Capability Statement for September 2013 Connectathon"/>
     <security>
       <service>
         <text value="OAuth"/>
@@ -120,4 +120,4 @@
       </searchParam>
     </resource>
   </rest>
-</Conformance>
+</CapabilityStatement>

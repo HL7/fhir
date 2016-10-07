@@ -149,11 +149,11 @@
         <translation lang="en">Contract</translation>
         <translation lang="fr">Contrat</translation>
     </item>
-    <item id="Conformance">
-        <translation lang="en">Conformance</translation>
-        <translation lang="zh">遵从</translation>
+    <item id="CapabilityStatement">
+        <translation lang="en">CapabilityStatement</translation>
+<!--        <translation lang="zh">遵从</translation>
         <translation lang="es">Conformidad</translation>
-        <translation lang="fr">Conformité</translation>
+        <translation lang="fr">Conformité</translation> -->
     </item>
     <item id="Consent">
         <translation lang="en">Consent</translation>

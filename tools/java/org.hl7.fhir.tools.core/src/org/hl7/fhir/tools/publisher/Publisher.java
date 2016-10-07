@@ -134,19 +134,19 @@ import org.hl7.fhir.dstu3.model.CompartmentDefinition;
 import org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionResourceComponent;
 import org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentType;
 import org.hl7.fhir.dstu3.model.ConceptMap;
-import org.hl7.fhir.dstu3.model.Conformance;
-import org.hl7.fhir.dstu3.model.Conformance.ConditionalDeleteStatus;
-import org.hl7.fhir.dstu3.model.Conformance.ConformanceRestComponent;
-import org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceComponent;
-import org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceSearchParamComponent;
-import org.hl7.fhir.dstu3.model.Conformance.ConformanceStatementKind;
-import org.hl7.fhir.dstu3.model.Conformance.ReferenceHandlingPolicy;
-import org.hl7.fhir.dstu3.model.Conformance.ResourceInteractionComponent;
-import org.hl7.fhir.dstu3.model.Conformance.RestfulConformanceMode;
-import org.hl7.fhir.dstu3.model.Conformance.SystemInteractionComponent;
-import org.hl7.fhir.dstu3.model.Conformance.SystemRestfulInteraction;
-import org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction;
-import org.hl7.fhir.dstu3.model.Conformance.UnknownContentCode;
+import org.hl7.fhir.dstu3.model.CapabilityStatement;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.ConditionalDeleteStatus;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestComponent;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceComponent;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceSearchParamComponent;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementKind;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.ReferenceHandlingPolicy;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.ResourceInteractionComponent;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.RestfulCapabilityMode;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.SystemInteractionComponent;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.SystemRestfulInteraction;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.TypeRestfulInteraction;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.UnknownContentCode;
 import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu3.model.DataElement;
@@ -1103,7 +1103,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void loadValueSets2() throws Exception {
-    page.log(" ...default conformance statements", LogMessageType.Process);
+    page.log(" ...default Capability Statements", LogMessageType.Process);
 
     if (isGenerate) {
       generateConformanceStatement(true, "base", false);
@@ -1321,58 +1321,58 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
   
   private void generateConformanceStatement(boolean full, String name, boolean register) throws Exception {
-    Conformance conf = new Conformance();
-    conf.setId(FormatUtilities.makeId(name));
-    conf.setUrl("http://hl7.org/fhir/Conformance/" + name);
-    conf.setVersion(page.getVersion() + "-" + page.getSvnRevision());
-    conf.setName("Base FHIR Conformance Statement " + (full ? "(Full)" : "(Empty)"));
-    conf.setStatus(ConformanceResourceStatus.DRAFT);
-    conf.setExperimental(true);
-    conf.setDate(page.getGenDate().getTime());
-    conf.setPublisher("FHIR Project Team");
-    conf.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
-    conf.setKind(ConformanceStatementKind.CAPABILITY);
-    conf.getSoftware().setName("Insert your softwware name here...");
-    conf.setFhirVersion(page.getVersion());
-    conf.setAcceptUnknown(full ? UnknownContentCode.BOTH : UnknownContentCode.NO);
-    conf.getFormat().add(Factory.newCode("xml"));
-    conf.getFormat().add(Factory.newCode("json"));
-    ConformanceRestComponent rest = new Conformance.ConformanceRestComponent();
-    conf.getRest().add(rest);
-    rest.setMode(RestfulConformanceMode.SERVER);
+    CapabilityStatement cpbs = new CapabilityStatement();
+    cpbs.setId(FormatUtilities.makeId(name));
+    cpbs.setUrl("http://hl7.org/fhir/CapabilityStatement/" + name);
+    cpbs.setVersion(page.getVersion() + "-" + page.getSvnRevision());
+    cpbs.setName("Base FHIR Capability Statement " + (full ? "(Full)" : "(Empty)"));
+    cpbs.setStatus(ConformanceResourceStatus.DRAFT);
+    cpbs.setExperimental(true);
+    cpbs.setDate(page.getGenDate().getTime());
+    cpbs.setPublisher("FHIR Project Team");
+    cpbs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
+    cpbs.setKind(CapabilityStatementKind.CAPABILITY);
+    cpbs.getSoftware().setName("Insert your softwware name here...");
+    cpbs.setFhirVersion(page.getVersion());
+    cpbs.setAcceptUnknown(full ? UnknownContentCode.BOTH : UnknownContentCode.NO);
+    cpbs.getFormat().add(Factory.newCode("xml"));
+    cpbs.getFormat().add(Factory.newCode("json"));
+    CapabilityStatementRestComponent rest = new CapabilityStatement.CapabilityStatementRestComponent();
+    cpbs.getRest().add(rest);
+    rest.setMode(RestfulCapabilityMode.SERVER);
     if (full) {
       rest.setDocumentation("All the functionality defined in FHIR");
-      conf.setDescription("This is the base conformance statement for FHIR. It represents a server that provides the full set of functionality defined by FHIR. It is provided to use as a template for system designers to build their own conformance statements from");
+      cpbs.setDescription("This is the base Capability Statement for FHIR. It represents a server that provides the full set of functionality defined by FHIR. It is provided to use as a template for system designers to build their own Capability Statements from");
     } else {
-      rest.setDocumentation("An empty conformance statement");
-      conf.setDescription("This is the base conformance statement for FHIR. It represents a server that provides the none of the functionality defined by FHIR. It is provided to use as a template for system designers to build their own conformance statements from. A conformance profile has to contain something, so this contains a read of a Conformance Statement");
+      rest.setDocumentation("An empty Capability Statement");
+      cpbs.setDescription("This is the base Capability Statement for FHIR. It represents a server that provides the none of the functionality defined by FHIR. It is provided to use as a template for system designers to build their own Capability Statements from. A capability statement has to contain something, so this contains a read of a Capability Statement");
     }
     rest.getSecurity().setCors(true);
     rest.getSecurity().addService().setText("See http://docs.smarthealthit.org/").addCoding().setSystem("http://hl7.org/fhir/restful-security-service").setCode("SMART-on-FHIR").setDisplay("SMART-on-FHIR");
-    rest.getSecurity().setDescription("This is the conformance statement to declare that the server supports SMART-on-FHIR. See the SMART-on-FHIR docs for the extension that would go with such a server");
+    rest.getSecurity().setDescription("This is the Capability Statement to declare that the server supports SMART-on-FHIR. See the SMART-on-FHIR docs for the extension that would go with such a server");
 
     if (full) {
       for (String rn : page.getDefinitions().sortedResourceNames()) {
         ResourceDefn rd = page.getDefinitions().getResourceByName(rn);
-        ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
+        CapabilityStatementRestResourceComponent res = new CapabilityStatement.CapabilityStatementRestResourceComponent();
         rest.getResource().add(res);
         res.setType(rn);
         res.setProfile(Factory.makeReference("http://hl7.org/fhir/StructureDefinition/" + rn));
-        genConfInteraction(conf, res, TypeRestfulInteraction.READ, "Implemented per the specification (or Insert other doco here)");
-        genConfInteraction(conf, res, TypeRestfulInteraction.VREAD, "Implemented per the specification (or Insert other doco here)");
-        genConfInteraction(conf, res, TypeRestfulInteraction.UPDATE, "Implemented per the specification (or Insert other doco here)");
-        genConfInteraction(conf, res, TypeRestfulInteraction.DELETE, "Implemented per the specification (or Insert other doco here)");
-        genConfInteraction(conf, res, TypeRestfulInteraction.HISTORYINSTANCE, "Implemented per the specification (or Insert other doco here)");
-        genConfInteraction(conf, res, TypeRestfulInteraction.HISTORYTYPE, "Implemented per the specification (or Insert other doco here)");
-        genConfInteraction(conf, res, TypeRestfulInteraction.CREATE, "Implemented per the specification (or Insert other doco here)");
-        genConfInteraction(conf, res, TypeRestfulInteraction.SEARCHTYPE, "Implemented per the specification (or Insert other doco here)");
+        genConfInteraction(cpbs, res, TypeRestfulInteraction.READ, "Implemented per the specification (or Insert other doco here)");
+        genConfInteraction(cpbs, res, TypeRestfulInteraction.VREAD, "Implemented per the specification (or Insert other doco here)");
+        genConfInteraction(cpbs, res, TypeRestfulInteraction.UPDATE, "Implemented per the specification (or Insert other doco here)");
+        genConfInteraction(cpbs, res, TypeRestfulInteraction.DELETE, "Implemented per the specification (or Insert other doco here)");
+        genConfInteraction(cpbs, res, TypeRestfulInteraction.HISTORYINSTANCE, "Implemented per the specification (or Insert other doco here)");
+        genConfInteraction(cpbs, res, TypeRestfulInteraction.HISTORYTYPE, "Implemented per the specification (or Insert other doco here)");
+        genConfInteraction(cpbs, res, TypeRestfulInteraction.CREATE, "Implemented per the specification (or Insert other doco here)");
+        genConfInteraction(cpbs, res, TypeRestfulInteraction.SEARCHTYPE, "Implemented per the specification (or Insert other doco here)");
         res.setConditionalCreate(true);
         res.setConditionalUpdate(true);
         res.setConditionalDelete(ConditionalDeleteStatus.MULTIPLE);
         res.addReferencePolicy(ReferenceHandlingPolicy.LITERAL);
         res.addReferencePolicy(ReferenceHandlingPolicy.LOGICAL);
         for (SearchParameterDefn i : rd.getSearchParams().values()) {
-          res.getSearchParam().add(makeSearchParam(conf, rn, i));
+          res.getSearchParam().add(makeSearchParam(cpbs, rn, i));
           if (i.getType().equals(SearchType.reference))
             res.getSearchInclude().add(new StringType(rn+"."+i.getCode()));
         }
@@ -1385,14 +1385,14 @@ public class Publisher implements URIResolver, SectionNumberer {
         }
       }
 
-      genConfInteraction(conf, rest, SystemRestfulInteraction.TRANSACTION, "Implemented per the specification (or Insert other doco here)");
-      genConfInteraction(conf, rest, SystemRestfulInteraction.BATCH, "Implemented per the specification (or Insert other doco here)");
-      genConfInteraction(conf, rest, SystemRestfulInteraction.HISTORYSYSTEM, "Implemented per the specification (or Insert other doco here)");
-      genConfInteraction(conf, rest, SystemRestfulInteraction.SEARCHSYSTEM, "Implemented per the specification (or Insert other doco here)");
+      genConfInteraction(cpbs, rest, SystemRestfulInteraction.TRANSACTION, "Implemented per the specification (or Insert other doco here)");
+      genConfInteraction(cpbs, rest, SystemRestfulInteraction.BATCH, "Implemented per the specification (or Insert other doco here)");
+      genConfInteraction(cpbs, rest, SystemRestfulInteraction.HISTORYSYSTEM, "Implemented per the specification (or Insert other doco here)");
+      genConfInteraction(cpbs, rest, SystemRestfulInteraction.SEARCHSYSTEM, "Implemented per the specification (or Insert other doco here)");
 
       for (ResourceDefn rd : page.getDefinitions().getBaseResources().values()) {
         for (SearchParameterDefn i : rd.getSearchParams().values())
-          rest.getSearchParam().add(makeSearchParam(conf, rd.getName(), i));
+          rest.getSearchParam().add(makeSearchParam(cpbs, rd.getName(), i));
         for (Operation op : rd.getOperations())
           rest.addOperation().setName(op.getName()).setDefinition(new Reference().setReference("http://hl7.org/fhir/OperationDefinition/"+rd.getName().toLowerCase()+"-"+op.getName()));
       }
@@ -1402,45 +1402,45 @@ public class Publisher implements URIResolver, SectionNumberer {
           rest.addOperation().setName(op.getName()).setDefinition(new Reference().setReference("http://hl7.org/fhir/OperationDefinition/"+r.getName().toLowerCase()+"-"+op.getName()));
       }
     } else {
-      ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
+      CapabilityStatementRestResourceComponent res = new CapabilityStatement.CapabilityStatementRestResourceComponent();
       rest.getResource().add(res);
-      res.setType("Conformance");
-      genConfInteraction(conf, res, TypeRestfulInteraction.READ, "Read Conformance Resource");
+      res.setType("CapabilityStatement");
+      genConfInteraction(cpbs, res, TypeRestfulInteraction.READ, "Read CapabilityStatement Resource");
     }
 
     if (register) {
       NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
-      gen.generate(conf);
-      FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "conformance-" + name + ".xml");
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, conf);
+      gen.generate(cpbs);
+      FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "capabilitystatement-" + name + ".xml");
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, cpbs);
       s.close();
-      s = new FileOutputStream(page.getFolders().dstDir + "conformance-" + name + ".canonical.xml");
-      new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(s, conf);
+      s = new FileOutputStream(page.getFolders().dstDir + "capabilitystatement-" + name + ".canonical.xml");
+      new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(s, cpbs);
       s.close();
-      cloneToXhtml("conformance-" + name + "", "Basic Conformance Statement", true, "resource-instance:Conformance", "Conformance Statement");
-      s = new FileOutputStream(page.getFolders().dstDir + "conformance-" + name + ".json");
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, conf);
+      cloneToXhtml("capabilitystatement-" + name + "", "Basic Capability Statement", true, "resource-instance:CapabilityStatement", "Capability Statement");
+      s = new FileOutputStream(page.getFolders().dstDir + "capabilitystatement-" + name + ".json");
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, cpbs);
       s.close();
-      s = new FileOutputStream(page.getFolders().dstDir + "conformance-" + name + ".canonical.json");
-      new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(s, conf);
+      s = new FileOutputStream(page.getFolders().dstDir + "capabilitystatement-" + name + ".canonical.json");
+      new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(s, cpbs);
       s.close();
-      jsonToXhtml("conformance-" + name, "Base Conformance Statement", resource2Json(conf), "resource-instance:Conformance", "Conformance Statement");
-      s = new FileOutputStream(page.getFolders().dstDir + "conformance-" + name + ".ttl");
-      new RdfParser().setOutputStyle(OutputStyle.PRETTY).compose(s, conf);
+      jsonToXhtml("capabilitystatement-" + name, "Base Capability Statement", resource2Json(cpbs), "resource-instance:CapabilityStatement", "Capability Statement");
+      s = new FileOutputStream(page.getFolders().dstDir + "capabilitystatement-" + name + ".ttl");
+      new RdfParser().setOutputStyle(OutputStyle.PRETTY).compose(s, cpbs);
       s.close();
-      ttlToXhtml("conformance-" + name, "Base Conformance Statement", resource2Ttl(conf), "resource-instance:Conformance", "Conformance Statement");
+      ttlToXhtml("capabilitystatement-" + name, "Base Capability Statement", resource2Ttl(cpbs), "resource-instance:CapabilityStatement", "Capability Statement");
 
-      Utilities.copyFile(new CSFile(page.getFolders().dstDir + "conformance-" + name + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator
-          + "conformance-" + name + ".xml"));
+      Utilities.copyFile(new CSFile(page.getFolders().dstDir + "capabilitystatement-" + name + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator
+          + "capabilitystatement-" + name + ".xml"));
     }
     if (buildFlags.get("all")) {
-      deletefromFeed(ResourceType.Conformance, name, page.getResourceBundle());
-      addToResourceFeed(conf, page.getResourceBundle());
+      deletefromFeed(ResourceType.CapabilityStatement, name, page.getResourceBundle());
+      addToResourceFeed(cpbs, page.getResourceBundle());
     }
   }
 
-  private ConformanceRestResourceSearchParamComponent makeSearchParam(Conformance p, String rn, SearchParameterDefn i) throws Exception {
-    ConformanceRestResourceSearchParamComponent result = new Conformance.ConformanceRestResourceSearchParamComponent();
+  private CapabilityStatementRestResourceSearchParamComponent makeSearchParam(CapabilityStatement p, String rn, SearchParameterDefn i) throws Exception {
+    CapabilityStatementRestResourceSearchParamComponent result = new CapabilityStatement.CapabilityStatementRestResourceSearchParamComponent();
     result.setName(i.getCode());
     result.setDefinition("http://hl7.org/fhir/SearchParameter/"+rn.toLowerCase()+"-"+i.getCode().replace("-[x]", "").replace("_", ""));
     result.setType(getSearchParamType(i.getType()));
@@ -1471,14 +1471,14 @@ public class Publisher implements URIResolver, SectionNumberer {
     return null;
   }
 
-  private void genConfInteraction(Conformance conf, ConformanceRestResourceComponent res, TypeRestfulInteraction op, String doco) {
+  private void genConfInteraction(CapabilityStatement conf, CapabilityStatementRestResourceComponent res, TypeRestfulInteraction op, String doco) {
     ResourceInteractionComponent t = new ResourceInteractionComponent();
     t.setCode(op);
     t.setDocumentation(doco);
     res.getInteraction().add(t);
   }
 
-  private void genConfInteraction(Conformance conf, ConformanceRestComponent res, SystemRestfulInteraction op, String doco) {
+  private void genConfInteraction(CapabilityStatement conf, CapabilityStatementRestComponent res, SystemRestfulInteraction op, String doco) {
     SystemInteractionComponent t = new SystemInteractionComponent();
     t.setCode(op);
     t.setDocumentation(doco);
@@ -3848,14 +3848,14 @@ public class Publisher implements URIResolver, SectionNumberer {
       if (!page.getDefinitions().getBaseResources().containsKey(rt) && !id.equals(e.getId()))
         throw new Error("Resource in "+prefix +n + ".xml needs an id of value=\""+e.getId()+"\"");
       page.getDefinitions().addNs("http://hl7.org/fhir/"+rt+"/"+id, "Example", prefix +n + ".html");
-      if (rt.equals("ValueSet") || rt.equals("CodeSystem") || rt.equals("ConceptMap") || rt.equals("Conformance")) {
+      if (rt.equals("ValueSet") || rt.equals("CodeSystem") || rt.equals("ConceptMap") || rt.equals("CapabilityStatement")) {
         // for these, we use the reference implementation directly
         DomainResource res = (DomainResource) new XmlParser().parse(new FileInputStream(file));
         boolean wantSave = false;
-        if (res instanceof Conformance) {
-          ((Conformance) res).setFhirVersion(page.getVersion());
+        if (res instanceof CapabilityStatement) {
+          ((CapabilityStatement) res).setFhirVersion(page.getVersion());
           if (res.hasText() && res.getText().hasDiv())
-            wantSave = updateVersion(((Conformance) res).getText().getDiv());
+            wantSave = updateVersion(((CapabilityStatement) res).getText().getDiv());
         }
         if (!res.hasText() || !res.getText().hasDiv()) {
           gen.generate(res);
@@ -4258,18 +4258,18 @@ public class Publisher implements URIResolver, SectionNumberer {
     dest.getEntry().add(new BundleEntryComponent().setResource(cd).setFullUrl(cd.getUrl()));
   }
 
-  private void addToResourceFeed(Conformance conf, Bundle dest) throws Exception {
-    if (conf.getId() == null)
+  private void addToResourceFeed(CapabilityStatement cs, Bundle dest) throws Exception {
+    if (cs.getId() == null)
       throw new Exception("Resource has no id");
-    if (ResourceUtilities.getById(dest, ResourceType.ValueSet, conf.getId()) != null)
-      throw new Exception("Attempt to add duplicate Conformance " + conf.getId());
-    if (conf.getText() == null || conf.getText().getDiv() == null)
-      throw new Exception("Example Conformance " + conf.getId() + " does not have any narrative");
+    if (ResourceUtilities.getById(dest, ResourceType.ValueSet, cs.getId()) != null)
+      throw new Exception("Attempt to add duplicate Conformance " + cs.getId());
+    if (cs.getText() == null || cs.getText().getDiv() == null)
+      throw new Exception("Example CapabilityStatement " + cs.getId() + " does not have any narrative");
 
-    ResourceUtilities.meta(conf).setLastUpdated(page.getGenDate().getTime());
-    if (!conf.getUrl().equals("http://hl7.org/fhir/"+conf.getResourceType().toString()+"/"+conf.getId()))
-      throw new Exception("URL mismatch on conformance stmt");
-    dest.getEntry().add(new BundleEntryComponent().setResource(conf).setFullUrl(conf.getUrl()));
+    ResourceUtilities.meta(cs).setLastUpdated(page.getGenDate().getTime());
+    if (!cs.getUrl().equals("http://hl7.org/fhir/"+cs.getResourceType().toString()+"/"+cs.getId()))
+      throw new Exception("URL mismatch on CapabilityStatement");
+    dest.getEntry().add(new BundleEntryComponent().setResource(cs).setFullUrl(cs.getUrl()));
   }
 
   private void produceConformancePackage(String resourceName, Profile pack, SectionTracker st) throws Exception {

@@ -285,7 +285,7 @@
   Summary = Y
   UML = 490;220
   Short Label = Resource in the implementation guide
-  Definition = A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource
+  Definition = A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource
 
  -- Row 23 -----------------------------------
   Element = ImplementationGuide.package.resource.example

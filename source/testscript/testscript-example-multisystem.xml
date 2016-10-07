@@ -59,9 +59,9 @@
 			<origin value="1"/>
 			<destination value="1"/>
 			<link value="http://hl7.org/fhir/http.html#read"/>
-			<conformance>
-				<reference value="Conformance/example" />
-			</conformance>
+			<capabilities>
+				<reference value="CapabilityStatement/example" />
+			</capabilities>
 		</capability>
 		<capability>
 			<required value="true"/>
@@ -70,9 +70,9 @@
 			<origin value="1"/>
 			<destination value="2"/>
 			<link value="http://hl7.org/fhir/http.html#read"/>
-			<conformance>
-				<reference value="Conformance/example" />
-			</conformance>
+			<capabilities>
+				<reference value="CapabilityStatement/example" />
+			</capabilities>
 		</capability>
 	</metadata>
 

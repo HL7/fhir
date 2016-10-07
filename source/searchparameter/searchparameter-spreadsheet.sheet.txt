@@ -95,7 +95,7 @@
   Binding = ConformanceResourceStatus
   Short Label = draft | active | retired
   Definition = The status of this search parameter definition
-  Comments = This is not intended for use with actual conformance statements, but where conformance statements are used to describe possible or desired systems
+  Comments = This is not intended for use with actual Capability statements, but where Capability statements are used to describe possible or desired systems
   Object Impl = BaseConformance.status
   w5 = status
 

@@ -525,49 +525,49 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing questionnaires for editing"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific questionnaire by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows submission of a new form design"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows revision of an existing form design.  Note that certain types of updates may necessitate retiring the existing form and defining a new one."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to questionnaire over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
         <documentation value="Allows retrieval of a historical version of a questionnaire"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>
@@ -581,49 +581,49 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/sdc-valueset"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing value sets for use by questions in a form"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific value set by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows definition of a new value set used by one or more questions"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows existing value sets referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing value set and defining a new one."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to a value set over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
         <documentation value="Allows retrieval of a historical version of a value set"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>
@@ -636,49 +636,49 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/sdc-codesystem"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing code systems for use by questions in a form"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific code system by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows definition of a new code system used by one or more questions"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows existing code systems referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing code system and defining a new one."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to a code system over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
         <documentation value="Allows retrieval of a historical version of a code system"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>
@@ -692,21 +692,21 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows a user to search for existing data elements for re-use in a form design"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of data elements referenced in an existing form design"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -714,28 +714,28 @@
       </interaction>
       <!--  Do we need this to be SHALL too?  -->
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to a data element over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows defining new data elements for subsequent re-use while creating and editing forms"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows maintaining data elements while creating and editing forms.  Note that certain types of updates may necessitate retiring the existing data element and defining a new one."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>

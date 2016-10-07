@@ -204,7 +204,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         hierarchy = supertype + " implements IBaseHasExtensions, IBaseHasModifierExtensions, IDomainResource";        
       } else if ("Binary".equals(upFirst(name))) {
         hierarchy = "BaseBinary implements IBaseBinary";
-      } else if ("Conformance".equals(upFirst(name))) {
+      } else if ("CapabilityStatement".equals(upFirst(name))) {
         hierarchy = supertype + " implements IBaseConformance";
       } else if ("OperationOutcome".equals(upFirst(name))) {
         hierarchy = supertype + " implements IBaseOperationOutcome";

@@ -332,21 +332,21 @@
         <reference value="http://hl7.org/fhir/StructureDefinition/sdc-response"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows archiving (storing) a completed or partially-completed form"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows updating a previously archived form.  (Systems may place rules on who can update forms and under what circumstances)."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>
@@ -356,21 +356,21 @@
     <resource>
       <type value="Binary"/>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows storage of a binary (generally containing information used in the completion of a [[QuestionnaireResponse]]).  The data might be in a variety of forms."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows updating a previously submitted binary data.  (Systems may place rules on who can update binary data and under what circumstances)."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>
@@ -380,21 +380,21 @@
     <resource>
       <type value="DocumentReference"/>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows storage of a document reference (generally containing information used in the completion of a [[QuestionnaireResponse]])."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows updating a previously submitted document reference.  (Systems may place rules on who can update document references and under what circumstances)."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>
@@ -404,7 +404,7 @@
     <resource>
       <type value="Provenance"/>
       <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="create"/>
@@ -412,7 +412,7 @@
       </interaction>
     </resource>
     <interaction>
-      <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHOULD"/>
       </extension>
       <code value="transaction"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Oct 6, 2016 04:12+1100 for FHIR v1.7.0
+// Generated on Fri, Oct 7, 2016 14:20+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -52,6 +52,8 @@ public class ResourceFactory extends Factory {
             return new EnrollmentRequest();
         if ("Consent".equals(name))
             return new Consent();
+        if ("CapabilityStatement".equals(name))
+            return new CapabilityStatement();
         if ("Medication".equals(name))
             return new Medication();
         if ("Measure".equals(name))
@@ -66,8 +68,6 @@ public class ResourceFactory extends Factory {
             return new ImagingManifest();
         if ("Parameters".equals(name))
             return new Parameters();
-        if ("Conformance".equals(name))
-            return new Conformance();
         if ("MeasureReport".equals(name))
             return new MeasureReport();
         if ("PractitionerRole".equals(name))
@@ -352,6 +352,8 @@ public class ResourceFactory extends Factory {
             return new EnrollmentRequest();
         if ("Consent".equals(name))
             return new Consent();
+        if ("CapabilityStatement".equals(name))
+            return new CapabilityStatement();
         if ("Medication".equals(name))
             return new Medication();
         if ("Measure".equals(name))
@@ -366,8 +368,6 @@ public class ResourceFactory extends Factory {
             return new ImagingManifest();
         if ("Parameters".equals(name))
             return new Parameters();
-        if ("Conformance".equals(name))
-            return new Conformance();
         if ("MeasureReport".equals(name))
             return new MeasureReport();
         if ("PractitionerRole".equals(name))

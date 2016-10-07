@@ -5,20 +5,20 @@
 Notes:
 </h2>
 <ul>
- <li>The Conformance resource provides for an application to describe its use of the RESTful
+ <li>The CapabilityStatement resource provides for an application to describe its use of the RESTful
   paradigm messaging events, or FHIR documents. Usually, an application would only describe one, 
   but more than one may be described</li>
- <li>RESTful conformance rules:
+ <li>RESTful CapabilityStatement rules:
   <ul class="dense">
-   <li>RESTful servers are required to provide <a href="http.html#conformance">this resource on demand</a>. 
+   <li>RESTful servers are required to provide <a href="http.html#capabilities">this resource on demand</a>. 
    Servers SHALL specify what resource types and operations are supported, and SHOULD also 
    specify profiles for each resource type.</li>
-   <li>RESTful clients SHOULD publish a conformance statement</li>
-   <li>The search parameters that a server supports (or a client makes use of) are specified in the resource profile that the conformance statement references</li>
+   <li>RESTful clients SHOULD publish a capability statement</li>
+   <li>The search parameters that a server supports (or a client makes use of) are specified in the resource profile that the capability statement references</li>
    <li>Resource Types or operations that are not listed are not supported</li>
   </ul>  
  </li>
- <li>Messaging conformance rules:
+ <li>Messaging CapabilityStatement rules:
   <ul class="dense">
    <li>The interpretation of request and response depends on the mode. If the mode is sender, 
    then request specifies what the application sends, and response specifies what it accepts. 
@@ -27,13 +27,13 @@ Notes:
    <li>Events that are not listed are not supported</li>
   </ul>  
  </li>
- <li>Document conformance rules:
+ <li>Document CapabilityStatement rules:
   <ul class="dense">
    <li>Document profiles should directly constrain the Document.information.class &amp; type elements so  
     that there is no ambiguity concerning which profile any given document conforms to.</li>
   </ul>  
  </li>
- <li>Other service based use of resources: Due to the variability of these services, the <i>Conformance</i> resource 
+ <li>Other service based use of resources: Due to the variability of these services, the <code>CapabilityStatement</code> resource 
    does not attempt to describe service based use of resources. The various service specifications will need to describe this usage in their own way.</li>
 </ul>  
 
@@ -41,7 +41,7 @@ Notes:
 <h3>Supporting Profiles</h3>
 <a name="tags"> </a>
 <p>
-A conformance profile declares two different kinds of profiles for the functionality it describes. 
+A CapabilityStatement declares two different kinds of profiles for the functionality it describes. 
 For a discussion of the use of these two types of resources, see <a href="profiling.html">two uses for profiles</a>.
 </p>
 

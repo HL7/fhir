@@ -157,7 +157,7 @@ signatures.html
         <page title="Examples" filename="profiling-examples.html"/>
       </page>
       <page type="resource" resource="ImplementationGuide"/>
-      <page type="resource" resource="Conformance"/>
+      <page type="resource" resource="CapabilityStatement"/>
       <page type="resource" resource="StructureDefinition"/>
       <page type="resource" resource="StructureMap"/>
       <page type="resource" resource="OperationDefinition"/>

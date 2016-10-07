@@ -149,7 +149,7 @@ A client can declare its intention to listen via Web Sockets:
 
 <p>
 The client would then initiate a Web Socket connection to the server, at a URL advertised 
-in the FHIR server's conformance statement (subscriptions/webSocketUrl (todo)). A simple 
+in the FHIR server's Capability statement (subscriptions/webSocketUrl (todo)). A simple 
 protocol is used to listen for notifications:
 </p>
 <ul>

@@ -71,13 +71,13 @@ import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.OtherElementComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent;
-import org.hl7.fhir.dstu3.model.Conformance;
-import org.hl7.fhir.dstu3.model.Conformance.ConformanceRestComponent;
-import org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceComponent;
-import org.hl7.fhir.dstu3.model.Conformance.ResourceInteractionComponent;
-import org.hl7.fhir.dstu3.model.Conformance.SystemInteractionComponent;
-import org.hl7.fhir.dstu3.model.Conformance.SystemRestfulInteraction;
-import org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction;
+import org.hl7.fhir.dstu3.model.CapabilityStatement;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestComponent;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceComponent;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.ResourceInteractionComponent;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.SystemInteractionComponent;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.SystemRestfulInteraction;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.TypeRestfulInteraction;
 import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -161,8 +161,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       generate((CodeSystem) r, true); // Maintainer = Grahame
     } else if (r instanceof OperationOutcome) {
       generate((OperationOutcome) r); // Maintainer = Grahame
-    } else if (r instanceof Conformance) {
-      generate((Conformance) r);   // Maintainer = Grahame
+    } else if (r instanceof CapabilityStatement) {
+      generate((CapabilityStatement) r);   // Maintainer = Grahame
     } else if (r instanceof CompartmentDefinition) {
       generate((CompartmentDefinition) r);   // Maintainer = Grahame
     } else if (r instanceof OperationDefinition) {
@@ -3414,11 +3414,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
   
-  public void generate(Conformance conf) throws FHIRFormatError, DefinitionException, IOException {
+  public void generate(CapabilityStatement conf) throws FHIRFormatError, DefinitionException, IOException {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("h2").addText(conf.getName());
     addMarkdown(x, conf.getDescription());
-    ConformanceRestComponent rest = conf.getRest().get(0);
+    CapabilityStatementRestComponent rest = conf.getRest().get(0);
     XhtmlNode t = x.addTag("table");
     addTableRow(t, "Mode", rest.getMode().toString());
     addTableRow(t, "Description", rest.getDocumentation());
@@ -3440,7 +3440,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     tr.addTag("th").addTag("b").addText("Delete");
     tr.addTag("th").addTag("b").addText("History");
 
-    for (ConformanceRestResourceComponent r : rest.getResource()) {
+    for (CapabilityStatementRestResourceComponent r : rest.getResource()) {
       tr = t.addTag("tr");
       tr.addTag("td").addText(r.getType());
       if (r.hasProfile()) {
@@ -3461,7 +3461,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     inject(conf, x, NarrativeStatus.GENERATED);
   }
 
-  private String showOp(ConformanceRestResourceComponent r, TypeRestfulInteraction on) {
+  private String showOp(CapabilityStatementRestResourceComponent r, TypeRestfulInteraction on) {
     for (ResourceInteractionComponent op : r.getInteraction()) {
       if (op.getCode() == on)
         return "y";
@@ -3469,7 +3469,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return "";
   }
 
-  private String showOp(ConformanceRestComponent r, SystemRestfulInteraction on) {
+  private String showOp(CapabilityStatementRestComponent r, SystemRestfulInteraction on) {
     for (SystemInteractionComponent op : r.getInteraction()) {
       if (op.getCode() == on)
         return "y";
