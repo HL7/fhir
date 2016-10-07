@@ -8,6 +8,36 @@
   </text>
   
   <contained>
+    <Organization>
+      <id value="org-insurer"/>
+      <identifier>
+        <system value="http://www.bindb.com/bin"/>
+        <value value="123456"/>
+      </identifier>
+    </Organization>
+  </contained>
+
+  <contained>
+    <Organization>
+      <id value="org-org"/>
+      <identifier>
+        <system value="http://www.jurisdiction.com/oralhealthoffices"/>
+        <value value="3456"/>
+      </identifier>
+    </Organization>
+  </contained>
+
+  <contained>
+    <Practitioner>
+      <id value="provider-1"/>
+      <identifier>
+        <system value="http://www.jurisdiction.com/oralhealthproviders"/>
+        <value value="123456789"/>
+      </identifier>
+    </Practitioner>
+  </contained>
+ 
+  <contained>
     <Patient>
       <id value="patient-1"/>
       <name>
@@ -30,7 +60,7 @@
   <contained>
     <Coverage>
       <id value="coverage-1"/>
-	  <status value="active"/>
+      <status value="active"/>
       <issuer>
 	    <identifier>
           <system value="http://www.bindb.com/bin"/>
@@ -41,12 +71,12 @@
         <system value="http://hl7.org/fhir/v3/ActCode"/>
         <code value="EHCPOL"/>
       </type>
-	  <planholder>
-	     <reference value="#patient-1"/>
+      <planholder>
+        <reference value="#patient-1"/>
       </planholder>
  
       <beneficiary>
-	     <reference value="#patient-1"/>
+        <reference value="#patient-1"/>
       </beneficiary>
  
       <relationship>
@@ -57,18 +87,20 @@
         <system value="http://benefitsinc.com/certificate"/>
         <value value="12345"/>
       </identifier>
-      <!-- plan value="CBI35"/>
-      <subPlan value="123"/ -->
+      <!-- 
+	  plan value="CBI35"/>
+      <subPlan value="123"/
+	  -->
       <level>
         <system value="http://benefitsinc.com/plan" />
-	    <code value="CBI35" />
-	    <display value="Corporate Baker's Inc. Plan#35" />
+        <code value="CBI35" />
+        <display value="Corporate Baker's Inc. Plan#35" />
       </level>
 
       <level>
         <system value="http://benefitsinc.com/subplan" />
-	    <code value="123" />
-	    <display value="Trainee Part-time Benefits" />
+        <code value="123" />
+        <display value="Trainee Part-time Benefits" />
       </level>
 	  
       <dependent value="1"/>
@@ -91,17 +123,11 @@
   <created value="2014-08-16"/>
   
   <insurer>
-     <identifier>
-        <system value="http://www.bindb.com/bin"/>
-        <value value="123456"/>
-     </identifier>
+    <reference value="#org-insurer"/>
   </insurer>
   
   <organization>
-     <identifier>
-        <system value="http://www.jurisdiction.com/oralhealthoffices"/>
-        <value value="3456"/>
-      </identifier>
+    <reference value="#org-org"/>
   </organization>
   
   <use value="complete"/>
@@ -139,10 +165,7 @@
     <sequence value="1"/>
    <careTeam>
     <provider>
-      <identifier>
-        <system value="http://www.jurisdiction.com/oralhealthproviders"/>
-        <value value="123456789"/>
-      </identifier>
+      <reference value="#provider-1"/>
     </provider>
    </careTeam>
     <service>

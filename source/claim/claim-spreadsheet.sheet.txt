@@ -1481,7 +1481,7 @@
  -- Row 3 -----------------------------------
   Name = General-Claim-Oral-Contained
   Identity = 100152
-  Description = SOA Dental Claim
+  Description = SOA Dental Claim (Contained)
   Filename = claim-example-oral-contained.xml
 
  -- Row 4 -----------------------------------
