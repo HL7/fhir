@@ -455,7 +455,7 @@ func (m *MongoSearcher) createQuantityQueryObject(q *QuantityParam) bson.M {
 				bson.M{"unit": ci(q.Code)},
 			}
 		} else {
-			criteria["code"] = ci(q.Code)
+			criteria["code"] = q.Code
 			criteria["system"] = ci(q.System)
 		}
 		return buildBSON(p.Path, criteria)
@@ -561,23 +561,23 @@ func (m *MongoSearcher) createTokenQueryObject(t *TokenParam) bson.M {
 		switch p.Type {
 		case "Coding":
 			criteria = bson.M{}
-			criteria["code"] = ci(t.Code)
+			criteria["code"] = t.Code
 			if !t.AnySystem {
 				criteria["system"] = ci(t.System)
 			}
 		case "CodeableConcept":
 			if t.AnySystem {
-				criteria["coding.code"] = ci(t.Code)
+				criteria["coding.code"] = t.Code
 			} else {
-				criteria["coding"] = bson.M{"$elemMatch": bson.M{"system": ci(t.System), "code": ci(t.Code)}}
+				criteria["coding"] = bson.M{"$elemMatch": bson.M{"system": ci(t.System), "code": t.Code}}
 			}
 		case "Identifier":
-			criteria["value"] = ci(t.Code)
+			criteria["value"] = t.Code
 			if !t.AnySystem {
 				criteria["system"] = ci(t.System)
 			}
 		case "ContactPoint":
-			criteria["value"] = ci(t.Code)
+			criteria["value"] = t.Code
 			if !t.AnySystem {
 				criteria["use"] = ci(t.System)
 			}
@@ -591,11 +591,13 @@ func (m *MongoSearcher) createTokenQueryObject(t *TokenParam) bson.M {
 				panic(createInvalidSearchError("MSG_PARAM_INVALID", fmt.Sprintf("Parameter \"%s\" content is invalid", t.Name)))
 			}
 		case "code", "string":
-			// criteria isn't a bson, so just return the right answer
+			// We do case-insensitive matching for any string parameter. The "codes" that fall-through to this case
+			// are also case-insensitive matched. In practice only the "gender" code falls into this category. Case-sensitive
+			// codes are in violation of the FHIR spec but are a necessary performance tradeoff to avoid the use of regular expressions.
 			return buildBSON(p.Path, ci(t.Code))
 
 		case "id":
-			// id does not need the case-insensitive match
+			// IDs do not need the case-insensitive match.
 			return buildBSON(p.Path, t.Code)
 		}
 
