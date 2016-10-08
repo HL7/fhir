@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 7, 2016 14:20+1100 for FHIR v1.7.0
+// Generated on Sun, Oct 9, 2016 06:52+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -48,7 +48,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  */
 @ResourceDef(name="CapabilityStatement", profile="http://hl7.org/fhir/Profile/CapabilityStatement")
 @ChildOrder(names={"url", "version", "name", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "requirements", "copyright", "kind", "instantiates", "software", "implementation", "fhirVersion", "acceptUnknown", "format", "profile", "rest", "messaging", "document"})
-public class CapabilityStatement extends BaseConformance {
+public class CapabilityStatement extends BaseConformance implements IBaseConformance {
 
     public enum CapabilityStatementKind {
         /**

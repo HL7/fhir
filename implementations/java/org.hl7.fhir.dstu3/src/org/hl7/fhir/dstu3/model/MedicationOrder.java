@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 7, 2016 14:20+1100 for FHIR v1.7.0
+// Generated on Sun, Oct 9, 2016 06:52+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1601,391 +1601,6 @@ public class MedicationOrder extends DomainResource {
 
   }
 
-    @Block()
-    public static class MedicationOrderEventHistoryComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * The status for the event.
-         */
-        @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="active | on-hold | completed | entered-in-error | stopped | draft", formalDefinition="The status for the event." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-order-status")
-        protected Enumeration<MedicationOrderStatus> status;
-
-        /**
-         * The action that was taken (e.g. verify, discontinue).
-         */
-        @Child(name = "action", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Action taken (e.g. verify, discontinue)", formalDefinition="The action that was taken (e.g. verify, discontinue)." )
-        protected CodeableConcept action;
-
-        /**
-         * The date/time at which the event occurred.
-         */
-        @Child(name = "dateTime", type = {DateTimeType.class}, order=3, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="The date at which the event happened", formalDefinition="The date/time at which the event occurred." )
-        protected DateTimeType dateTime;
-
-        /**
-         * The person responsible for taking the action.
-         */
-        @Child(name = "actor", type = {Practitioner.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Who took the action", formalDefinition="The person responsible for taking the action." )
-        protected Reference actor;
-
-        /**
-         * The actual object that is the target of the reference (The person responsible for taking the action.)
-         */
-        protected Practitioner actorTarget;
-
-        /**
-         * The reason why the action was taken.
-         */
-        @Child(name = "reason", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Reason the action was taken", formalDefinition="The reason why the action was taken." )
-        protected CodeableConcept reason;
-
-        private static final long serialVersionUID = -1282522846L;
-
-    /**
-     * Constructor
-     */
-      public MedicationOrderEventHistoryComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public MedicationOrderEventHistoryComponent(Enumeration<MedicationOrderStatus> status, DateTimeType dateTime) {
-        super();
-        this.status = status;
-        this.dateTime = dateTime;
-      }
-
-        /**
-         * @return {@link #status} (The status for the event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-         */
-        public Enumeration<MedicationOrderStatus> getStatusElement() { 
-          if (this.status == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderEventHistoryComponent.status");
-            else if (Configuration.doAutoCreate())
-              this.status = new Enumeration<MedicationOrderStatus>(new MedicationOrderStatusEnumFactory()); // bb
-          return this.status;
-        }
-
-        public boolean hasStatusElement() { 
-          return this.status != null && !this.status.isEmpty();
-        }
-
-        public boolean hasStatus() { 
-          return this.status != null && !this.status.isEmpty();
-        }
-
-        /**
-         * @param value {@link #status} (The status for the event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-         */
-        public MedicationOrderEventHistoryComponent setStatusElement(Enumeration<MedicationOrderStatus> value) { 
-          this.status = value;
-          return this;
-        }
-
-        /**
-         * @return The status for the event.
-         */
-        public MedicationOrderStatus getStatus() { 
-          return this.status == null ? null : this.status.getValue();
-        }
-
-        /**
-         * @param value The status for the event.
-         */
-        public MedicationOrderEventHistoryComponent setStatus(MedicationOrderStatus value) { 
-            if (this.status == null)
-              this.status = new Enumeration<MedicationOrderStatus>(new MedicationOrderStatusEnumFactory());
-            this.status.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #action} (The action that was taken (e.g. verify, discontinue).)
-         */
-        public CodeableConcept getAction() { 
-          if (this.action == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderEventHistoryComponent.action");
-            else if (Configuration.doAutoCreate())
-              this.action = new CodeableConcept(); // cc
-          return this.action;
-        }
-
-        public boolean hasAction() { 
-          return this.action != null && !this.action.isEmpty();
-        }
-
-        /**
-         * @param value {@link #action} (The action that was taken (e.g. verify, discontinue).)
-         */
-        public MedicationOrderEventHistoryComponent setAction(CodeableConcept value) { 
-          this.action = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #dateTime} (The date/time at which the event occurred.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
-         */
-        public DateTimeType getDateTimeElement() { 
-          if (this.dateTime == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderEventHistoryComponent.dateTime");
-            else if (Configuration.doAutoCreate())
-              this.dateTime = new DateTimeType(); // bb
-          return this.dateTime;
-        }
-
-        public boolean hasDateTimeElement() { 
-          return this.dateTime != null && !this.dateTime.isEmpty();
-        }
-
-        public boolean hasDateTime() { 
-          return this.dateTime != null && !this.dateTime.isEmpty();
-        }
-
-        /**
-         * @param value {@link #dateTime} (The date/time at which the event occurred.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
-         */
-        public MedicationOrderEventHistoryComponent setDateTimeElement(DateTimeType value) { 
-          this.dateTime = value;
-          return this;
-        }
-
-        /**
-         * @return The date/time at which the event occurred.
-         */
-        public Date getDateTime() { 
-          return this.dateTime == null ? null : this.dateTime.getValue();
-        }
-
-        /**
-         * @param value The date/time at which the event occurred.
-         */
-        public MedicationOrderEventHistoryComponent setDateTime(Date value) { 
-            if (this.dateTime == null)
-              this.dateTime = new DateTimeType();
-            this.dateTime.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #actor} (The person responsible for taking the action.)
-         */
-        public Reference getActor() { 
-          if (this.actor == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderEventHistoryComponent.actor");
-            else if (Configuration.doAutoCreate())
-              this.actor = new Reference(); // cc
-          return this.actor;
-        }
-
-        public boolean hasActor() { 
-          return this.actor != null && !this.actor.isEmpty();
-        }
-
-        /**
-         * @param value {@link #actor} (The person responsible for taking the action.)
-         */
-        public MedicationOrderEventHistoryComponent setActor(Reference value) { 
-          this.actor = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person responsible for taking the action.)
-         */
-        public Practitioner getActorTarget() { 
-          if (this.actorTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderEventHistoryComponent.actor");
-            else if (Configuration.doAutoCreate())
-              this.actorTarget = new Practitioner(); // aa
-          return this.actorTarget;
-        }
-
-        /**
-         * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person responsible for taking the action.)
-         */
-        public MedicationOrderEventHistoryComponent setActorTarget(Practitioner value) { 
-          this.actorTarget = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #reason} (The reason why the action was taken.)
-         */
-        public CodeableConcept getReason() { 
-          if (this.reason == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderEventHistoryComponent.reason");
-            else if (Configuration.doAutoCreate())
-              this.reason = new CodeableConcept(); // cc
-          return this.reason;
-        }
-
-        public boolean hasReason() { 
-          return this.reason != null && !this.reason.isEmpty();
-        }
-
-        /**
-         * @param value {@link #reason} (The reason why the action was taken.)
-         */
-        public MedicationOrderEventHistoryComponent setReason(CodeableConcept value) { 
-          this.reason = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("status", "code", "The status for the event.", 0, java.lang.Integer.MAX_VALUE, status));
-          childrenList.add(new Property("action", "CodeableConcept", "The action that was taken (e.g. verify, discontinue).", 0, java.lang.Integer.MAX_VALUE, action));
-          childrenList.add(new Property("dateTime", "dateTime", "The date/time at which the event occurred.", 0, java.lang.Integer.MAX_VALUE, dateTime));
-          childrenList.add(new Property("actor", "Reference(Practitioner)", "The person responsible for taking the action.", 0, java.lang.Integer.MAX_VALUE, actor));
-          childrenList.add(new Property("reason", "CodeableConcept", "The reason why the action was taken.", 0, java.lang.Integer.MAX_VALUE, reason));
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationOrderStatus>
-        case -1422950858: /*action*/ return this.action == null ? new Base[0] : new Base[] {this.action}; // CodeableConcept
-        case 1792749467: /*dateTime*/ return this.dateTime == null ? new Base[0] : new Base[] {this.dateTime}; // DateTimeType
-        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
-        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // CodeableConcept
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case -892481550: // status
-          this.status = new MedicationOrderStatusEnumFactory().fromType(value); // Enumeration<MedicationOrderStatus>
-          break;
-        case -1422950858: // action
-          this.action = castToCodeableConcept(value); // CodeableConcept
-          break;
-        case 1792749467: // dateTime
-          this.dateTime = castToDateTime(value); // DateTimeType
-          break;
-        case 92645877: // actor
-          this.actor = castToReference(value); // Reference
-          break;
-        case -934964668: // reason
-          this.reason = castToCodeableConcept(value); // CodeableConcept
-          break;
-        default: super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("status"))
-          this.status = new MedicationOrderStatusEnumFactory().fromType(value); // Enumeration<MedicationOrderStatus>
-        else if (name.equals("action"))
-          this.action = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("dateTime"))
-          this.dateTime = castToDateTime(value); // DateTimeType
-        else if (name.equals("actor"))
-          this.actor = castToReference(value); // Reference
-        else if (name.equals("reason"))
-          this.reason = castToCodeableConcept(value); // CodeableConcept
-        else
-          super.setProperty(name, value);
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<MedicationOrderStatus>
-        case -1422950858:  return getAction(); // CodeableConcept
-        case 1792749467: throw new FHIRException("Cannot make property dateTime as it is not a complex type"); // DateTimeType
-        case 92645877:  return getActor(); // Reference
-        case -934964668:  return getReason(); // CodeableConcept
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationOrder.status");
-        }
-        else if (name.equals("action")) {
-          this.action = new CodeableConcept();
-          return this.action;
-        }
-        else if (name.equals("dateTime")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationOrder.dateTime");
-        }
-        else if (name.equals("actor")) {
-          this.actor = new Reference();
-          return this.actor;
-        }
-        else if (name.equals("reason")) {
-          this.reason = new CodeableConcept();
-          return this.reason;
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public MedicationOrderEventHistoryComponent copy() {
-        MedicationOrderEventHistoryComponent dst = new MedicationOrderEventHistoryComponent();
-        copyValues(dst);
-        dst.status = status == null ? null : status.copy();
-        dst.action = action == null ? null : action.copy();
-        dst.dateTime = dateTime == null ? null : dateTime.copy();
-        dst.actor = actor == null ? null : actor.copy();
-        dst.reason = reason == null ? null : reason.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof MedicationOrderEventHistoryComponent))
-          return false;
-        MedicationOrderEventHistoryComponent o = (MedicationOrderEventHistoryComponent) other;
-        return compareDeep(status, o.status, true) && compareDeep(action, o.action, true) && compareDeep(dateTime, o.dateTime, true)
-           && compareDeep(actor, o.actor, true) && compareDeep(reason, o.reason, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof MedicationOrderEventHistoryComponent))
-          return false;
-        MedicationOrderEventHistoryComponent o = (MedicationOrderEventHistoryComponent) other;
-        return compareValues(status, o.status, true) && compareValues(dateTime, o.dateTime, true);
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(status, action, dateTime
-          , actor, reason);
-      }
-
-  public String fhirType() {
-    return "MedicationOrder.eventHistory";
-
-  }
-
-  }
-
     /**
      * External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records have to be tracked through an entire system.
      */
@@ -2123,11 +1738,16 @@ public class MedicationOrder extends DomainResource {
     /**
      * A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.
      */
-    @Child(name = "eventHistory", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "eventHistory", type = {Provenance.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A list of events of interest in the lifecycle", formalDefinition="A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed." )
-    protected List<MedicationOrderEventHistoryComponent> eventHistory;
+    protected List<Reference> eventHistory;
+    /**
+     * The actual objects that are the target of the reference (A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.)
+     */
+    protected List<Provenance> eventHistoryTarget;
 
-    private static final long serialVersionUID = -714737742L;
+
+    private static final long serialVersionUID = -1475654859L;
 
   /**
    * Constructor
@@ -2850,16 +2470,16 @@ public class MedicationOrder extends DomainResource {
     /**
      * @return {@link #eventHistory} (A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.)
      */
-    public List<MedicationOrderEventHistoryComponent> getEventHistory() { 
+    public List<Reference> getEventHistory() { 
       if (this.eventHistory == null)
-        this.eventHistory = new ArrayList<MedicationOrderEventHistoryComponent>();
+        this.eventHistory = new ArrayList<Reference>();
       return this.eventHistory;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationOrder setEventHistory(List<MedicationOrderEventHistoryComponent> theEventHistory) { 
+    public MedicationOrder setEventHistory(List<Reference> theEventHistory) { 
       this.eventHistory = theEventHistory;
       return this;
     }
@@ -2867,25 +2487,25 @@ public class MedicationOrder extends DomainResource {
     public boolean hasEventHistory() { 
       if (this.eventHistory == null)
         return false;
-      for (MedicationOrderEventHistoryComponent item : this.eventHistory)
+      for (Reference item : this.eventHistory)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public MedicationOrderEventHistoryComponent addEventHistory() { //3
-      MedicationOrderEventHistoryComponent t = new MedicationOrderEventHistoryComponent();
+    public Reference addEventHistory() { //3
+      Reference t = new Reference();
       if (this.eventHistory == null)
-        this.eventHistory = new ArrayList<MedicationOrderEventHistoryComponent>();
+        this.eventHistory = new ArrayList<Reference>();
       this.eventHistory.add(t);
       return t;
     }
 
-    public MedicationOrder addEventHistory(MedicationOrderEventHistoryComponent t) { //3
+    public MedicationOrder addEventHistory(Reference t) { //3
       if (t == null)
         return this;
       if (this.eventHistory == null)
-        this.eventHistory = new ArrayList<MedicationOrderEventHistoryComponent>();
+        this.eventHistory = new ArrayList<Reference>();
       this.eventHistory.add(t);
       return this;
     }
@@ -2893,11 +2513,33 @@ public class MedicationOrder extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #eventHistory}, creating it if it does not already exist
      */
-    public MedicationOrderEventHistoryComponent getEventHistoryFirstRep() { 
+    public Reference getEventHistoryFirstRep() { 
       if (getEventHistory().isEmpty()) {
         addEventHistory();
       }
       return getEventHistory().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Provenance> getEventHistoryTarget() { 
+      if (this.eventHistoryTarget == null)
+        this.eventHistoryTarget = new ArrayList<Provenance>();
+      return this.eventHistoryTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public Provenance addEventHistoryTarget() { 
+      Provenance r = new Provenance();
+      if (this.eventHistoryTarget == null)
+        this.eventHistoryTarget = new ArrayList<Provenance>();
+      this.eventHistoryTarget.add(r);
+      return r;
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -2917,7 +2559,7 @@ public class MedicationOrder extends DomainResource {
         childrenList.add(new Property("dispenseRequest", "", "Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.", 0, java.lang.Integer.MAX_VALUE, dispenseRequest));
         childrenList.add(new Property("substitution", "", "Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.", 0, java.lang.Integer.MAX_VALUE, substitution));
         childrenList.add(new Property("priorPrescription", "Reference(MedicationOrder)", "A link to a resource representing an earlier order related order or prescription.", 0, java.lang.Integer.MAX_VALUE, priorPrescription));
-        childrenList.add(new Property("eventHistory", "", "A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.", 0, java.lang.Integer.MAX_VALUE, eventHistory));
+        childrenList.add(new Property("eventHistory", "Reference(Provenance)", "A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.", 0, java.lang.Integer.MAX_VALUE, eventHistory));
       }
 
       @Override
@@ -2938,7 +2580,7 @@ public class MedicationOrder extends DomainResource {
         case 824620658: /*dispenseRequest*/ return this.dispenseRequest == null ? new Base[0] : new Base[] {this.dispenseRequest}; // MedicationOrderDispenseRequestComponent
         case 826147581: /*substitution*/ return this.substitution == null ? new Base[0] : new Base[] {this.substitution}; // MedicationOrderSubstitutionComponent
         case -486355964: /*priorPrescription*/ return this.priorPrescription == null ? new Base[0] : new Base[] {this.priorPrescription}; // Reference
-        case 1835190426: /*eventHistory*/ return this.eventHistory == null ? new Base[0] : this.eventHistory.toArray(new Base[this.eventHistory.size()]); // MedicationOrderEventHistoryComponent
+        case 1835190426: /*eventHistory*/ return this.eventHistory == null ? new Base[0] : this.eventHistory.toArray(new Base[this.eventHistory.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2993,7 +2635,7 @@ public class MedicationOrder extends DomainResource {
           this.priorPrescription = castToReference(value); // Reference
           break;
         case 1835190426: // eventHistory
-          this.getEventHistory().add((MedicationOrderEventHistoryComponent) value); // MedicationOrderEventHistoryComponent
+          this.getEventHistory().add(castToReference(value)); // Reference
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -3033,7 +2675,7 @@ public class MedicationOrder extends DomainResource {
         else if (name.equals("priorPrescription"))
           this.priorPrescription = castToReference(value); // Reference
         else if (name.equals("eventHistory"))
-          this.getEventHistory().add((MedicationOrderEventHistoryComponent) value);
+          this.getEventHistory().add(castToReference(value));
         else
           super.setProperty(name, value);
       }
@@ -3056,7 +2698,7 @@ public class MedicationOrder extends DomainResource {
         case 824620658:  return getDispenseRequest(); // MedicationOrderDispenseRequestComponent
         case 826147581:  return getSubstitution(); // MedicationOrderSubstitutionComponent
         case -486355964:  return getPriorPrescription(); // Reference
-        case 1835190426:  return addEventHistory(); // MedicationOrderEventHistoryComponent
+        case 1835190426:  return addEventHistory(); // Reference
         default: return super.makeProperty(hash, name);
         }
 
@@ -3171,8 +2813,8 @@ public class MedicationOrder extends DomainResource {
         dst.substitution = substitution == null ? null : substitution.copy();
         dst.priorPrescription = priorPrescription == null ? null : priorPrescription.copy();
         if (eventHistory != null) {
-          dst.eventHistory = new ArrayList<MedicationOrderEventHistoryComponent>();
-          for (MedicationOrderEventHistoryComponent i : eventHistory)
+          dst.eventHistory = new ArrayList<Reference>();
+          for (Reference i : eventHistory)
             dst.eventHistory.add(i.copy());
         };
         return dst;

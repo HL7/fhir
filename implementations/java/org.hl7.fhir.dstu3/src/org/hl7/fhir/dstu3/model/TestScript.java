@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 7, 2016 14:20+1100 for FHIR v1.7.0
+// Generated on Sun, Oct 9, 2016 06:52+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1887,18 +1887,18 @@ public class TestScript extends BaseConformance {
         protected List<UriType> link;
 
         /**
-         * Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.
+         * Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.
          */
-        @Child(name = "conformance", type = {CapabilityStatement.class}, order=7, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Required Conformance", formalDefinition="Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped." )
-        protected Reference conformance;
+        @Child(name = "capabilities", type = {CapabilityStatement.class}, order=7, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Required Capability Statement", formalDefinition="Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped." )
+        protected Reference capabilities;
 
         /**
-         * The actual object that is the target of the reference (Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.)
+         * The actual object that is the target of the reference (Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.)
          */
-        protected CapabilityStatement conformanceTarget;
+        protected CapabilityStatement capabilitiesTarget;
 
-        private static final long serialVersionUID = 500671983L;
+        private static final long serialVersionUID = -106110735L;
 
     /**
      * Constructor
@@ -1910,9 +1910,9 @@ public class TestScript extends BaseConformance {
     /**
      * Constructor
      */
-      public TestScriptMetadataCapabilityComponent(Reference conformance) {
+      public TestScriptMetadataCapabilityComponent(Reference capabilities) {
         super();
-        this.conformance = conformance;
+        this.capabilities = capabilities;
       }
 
         /**
@@ -2222,46 +2222,46 @@ public class TestScript extends BaseConformance {
         }
 
         /**
-         * @return {@link #conformance} (Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.)
+         * @return {@link #capabilities} (Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.)
          */
-        public Reference getConformance() { 
-          if (this.conformance == null)
+        public Reference getCapabilities() { 
+          if (this.capabilities == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TestScriptMetadataCapabilityComponent.conformance");
+              throw new Error("Attempt to auto-create TestScriptMetadataCapabilityComponent.capabilities");
             else if (Configuration.doAutoCreate())
-              this.conformance = new Reference(); // cc
-          return this.conformance;
+              this.capabilities = new Reference(); // cc
+          return this.capabilities;
         }
 
-        public boolean hasConformance() { 
-          return this.conformance != null && !this.conformance.isEmpty();
+        public boolean hasCapabilities() { 
+          return this.capabilities != null && !this.capabilities.isEmpty();
         }
 
         /**
-         * @param value {@link #conformance} (Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.)
+         * @param value {@link #capabilities} (Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.)
          */
-        public TestScriptMetadataCapabilityComponent setConformance(Reference value) { 
-          this.conformance = value;
+        public TestScriptMetadataCapabilityComponent setCapabilities(Reference value) { 
+          this.capabilities = value;
           return this;
         }
 
         /**
-         * @return {@link #conformance} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.)
+         * @return {@link #capabilities} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.)
          */
-        public CapabilityStatement getConformanceTarget() { 
-          if (this.conformanceTarget == null)
+        public CapabilityStatement getCapabilitiesTarget() { 
+          if (this.capabilitiesTarget == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TestScriptMetadataCapabilityComponent.conformance");
+              throw new Error("Attempt to auto-create TestScriptMetadataCapabilityComponent.capabilities");
             else if (Configuration.doAutoCreate())
-              this.conformanceTarget = new CapabilityStatement(); // aa
-          return this.conformanceTarget;
+              this.capabilitiesTarget = new CapabilityStatement(); // aa
+          return this.capabilitiesTarget;
         }
 
         /**
-         * @param value {@link #conformance} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.)
+         * @param value {@link #capabilities} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.)
          */
-        public TestScriptMetadataCapabilityComponent setConformanceTarget(CapabilityStatement value) { 
-          this.conformanceTarget = value;
+        public TestScriptMetadataCapabilityComponent setCapabilitiesTarget(CapabilityStatement value) { 
+          this.capabilitiesTarget = value;
           return this;
         }
 
@@ -2273,7 +2273,7 @@ public class TestScript extends BaseConformance {
           childrenList.add(new Property("origin", "integer", "Which origin server these requirements apply to.", 0, java.lang.Integer.MAX_VALUE, origin));
           childrenList.add(new Property("destination", "integer", "Which server these requirements apply to.", 0, java.lang.Integer.MAX_VALUE, destination));
           childrenList.add(new Property("link", "uri", "Links to the FHIR specification that describes this interaction and the resources involved in more detail.", 0, java.lang.Integer.MAX_VALUE, link));
-          childrenList.add(new Property("conformance", "Reference(Conformance)", "Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.", 0, java.lang.Integer.MAX_VALUE, conformance));
+          childrenList.add(new Property("capabilities", "Reference(CapabilityStatement)", "Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.", 0, java.lang.Integer.MAX_VALUE, capabilities));
         }
 
       @Override
@@ -2285,7 +2285,7 @@ public class TestScript extends BaseConformance {
         case -1008619738: /*origin*/ return this.origin == null ? new Base[0] : this.origin.toArray(new Base[this.origin.size()]); // IntegerType
         case -1429847026: /*destination*/ return this.destination == null ? new Base[0] : new Base[] {this.destination}; // IntegerType
         case 3321850: /*link*/ return this.link == null ? new Base[0] : this.link.toArray(new Base[this.link.size()]); // UriType
-        case 1374858133: /*conformance*/ return this.conformance == null ? new Base[0] : new Base[] {this.conformance}; // Reference
+        case -1487597642: /*capabilities*/ return this.capabilities == null ? new Base[0] : new Base[] {this.capabilities}; // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2312,8 +2312,8 @@ public class TestScript extends BaseConformance {
         case 3321850: // link
           this.getLink().add(castToUri(value)); // UriType
           break;
-        case 1374858133: // conformance
-          this.conformance = castToReference(value); // Reference
+        case -1487597642: // capabilities
+          this.capabilities = castToReference(value); // Reference
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -2334,8 +2334,8 @@ public class TestScript extends BaseConformance {
           this.destination = castToInteger(value); // IntegerType
         else if (name.equals("link"))
           this.getLink().add(castToUri(value));
-        else if (name.equals("conformance"))
-          this.conformance = castToReference(value); // Reference
+        else if (name.equals("capabilities"))
+          this.capabilities = castToReference(value); // Reference
         else
           super.setProperty(name, value);
       }
@@ -2349,7 +2349,7 @@ public class TestScript extends BaseConformance {
         case -1008619738: throw new FHIRException("Cannot make property origin as it is not a complex type"); // IntegerType
         case -1429847026: throw new FHIRException("Cannot make property destination as it is not a complex type"); // IntegerType
         case 3321850: throw new FHIRException("Cannot make property link as it is not a complex type"); // UriType
-        case 1374858133:  return getConformance(); // Reference
+        case -1487597642:  return getCapabilities(); // Reference
         default: return super.makeProperty(hash, name);
         }
 
@@ -2375,9 +2375,9 @@ public class TestScript extends BaseConformance {
         else if (name.equals("link")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.link");
         }
-        else if (name.equals("conformance")) {
-          this.conformance = new Reference();
-          return this.conformance;
+        else if (name.equals("capabilities")) {
+          this.capabilities = new Reference();
+          return this.capabilities;
         }
         else
           return super.addChild(name);
@@ -2400,7 +2400,7 @@ public class TestScript extends BaseConformance {
           for (UriType i : link)
             dst.link.add(i.copy());
         };
-        dst.conformance = conformance == null ? null : conformance.copy();
+        dst.capabilities = capabilities == null ? null : capabilities.copy();
         return dst;
       }
 
@@ -2413,7 +2413,7 @@ public class TestScript extends BaseConformance {
         TestScriptMetadataCapabilityComponent o = (TestScriptMetadataCapabilityComponent) other;
         return compareDeep(required, o.required, true) && compareDeep(validated, o.validated, true) && compareDeep(description, o.description, true)
            && compareDeep(origin, o.origin, true) && compareDeep(destination, o.destination, true) && compareDeep(link, o.link, true)
-           && compareDeep(conformance, o.conformance, true);
+           && compareDeep(capabilities, o.capabilities, true);
       }
 
       @Override
@@ -2430,7 +2430,7 @@ public class TestScript extends BaseConformance {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(required, validated, description
-          , origin, destination, link, conformance);
+          , origin, destination, link, capabilities);
       }
 
   public String fhirType() {

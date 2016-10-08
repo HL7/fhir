@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 7, 2016 14:20+1100 for FHIR v1.7.0
+// Generated on Sun, Oct 9, 2016 06:52+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1077,27 +1077,27 @@ public class MedicationStatement extends DomainResource {
     protected Type effective;
 
     /**
-     * The person who provided the information about the taking of this medication.  Note:  A MedicationStatement may be derived from supportingInformation e.g claims or medicationOrder.
+     * The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.
      */
-    @Child(name = "informationSource", type = {Patient.class, Practitioner.class, RelatedPerson.class}, order=5, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Person who provided the information about the taking of this medication", formalDefinition="The person who provided the information about the taking of this medication.  Note:  A MedicationStatement may be derived from supportingInformation e.g claims or medicationOrder." )
+    @Child(name = "informationSource", type = {Patient.class, Practitioner.class, RelatedPerson.class, Organization.class}, order=5, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Person or organization that provided the information about the taking of this medication", formalDefinition="The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder." )
     protected Reference informationSource;
 
     /**
-     * The actual object that is the target of the reference (The person who provided the information about the taking of this medication.  Note:  A MedicationStatement may be derived from supportingInformation e.g claims or medicationOrder.)
+     * The actual object that is the target of the reference (The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.)
      */
     protected Resource informationSourceTarget;
 
     /**
      * Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports or is used to derive the MedicationStatement.
      */
-    @Child(name = "supportingInformation", type = {Reference.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "derivedFrom", type = {Reference.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Additional supporting information", formalDefinition="Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports or is used to derive the MedicationStatement." )
-    protected List<Reference> supportingInformation;
+    protected List<Reference> derivedFrom;
     /**
      * The actual objects that are the target of the reference (Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports or is used to derive the MedicationStatement.)
      */
-    protected List<Resource> supportingInformationTarget;
+    protected List<Resource> derivedFromTarget;
 
 
     /**
@@ -1163,7 +1163,7 @@ public class MedicationStatement extends DomainResource {
     @Description(shortDefinition="Details of how medication was taken", formalDefinition="Indicates how the medication is/was used by the patient." )
     protected List<MedicationStatementDosageComponent> dosage;
 
-    private static final long serialVersionUID = 410293359L;
+    private static final long serialVersionUID = 873267951L;
 
   /**
    * Constructor
@@ -1415,7 +1415,7 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return {@link #informationSource} (The person who provided the information about the taking of this medication.  Note:  A MedicationStatement may be derived from supportingInformation e.g claims or medicationOrder.)
+     * @return {@link #informationSource} (The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.)
      */
     public Reference getInformationSource() { 
       if (this.informationSource == null)
@@ -1431,7 +1431,7 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @param value {@link #informationSource} (The person who provided the information about the taking of this medication.  Note:  A MedicationStatement may be derived from supportingInformation e.g claims or medicationOrder.)
+     * @param value {@link #informationSource} (The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.)
      */
     public MedicationStatement setInformationSource(Reference value) { 
       this.informationSource = value;
@@ -1439,14 +1439,14 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return {@link #informationSource} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person who provided the information about the taking of this medication.  Note:  A MedicationStatement may be derived from supportingInformation e.g claims or medicationOrder.)
+     * @return {@link #informationSource} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.)
      */
     public Resource getInformationSourceTarget() { 
       return this.informationSourceTarget;
     }
 
     /**
-     * @param value {@link #informationSource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person who provided the information about the taking of this medication.  Note:  A MedicationStatement may be derived from supportingInformation e.g claims or medicationOrder.)
+     * @param value {@link #informationSource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.)
      */
     public MedicationStatement setInformationSourceTarget(Resource value) { 
       this.informationSourceTarget = value;
@@ -1454,66 +1454,66 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return {@link #supportingInformation} (Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports or is used to derive the MedicationStatement.)
+     * @return {@link #derivedFrom} (Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports or is used to derive the MedicationStatement.)
      */
-    public List<Reference> getSupportingInformation() { 
-      if (this.supportingInformation == null)
-        this.supportingInformation = new ArrayList<Reference>();
-      return this.supportingInformation;
+    public List<Reference> getDerivedFrom() { 
+      if (this.derivedFrom == null)
+        this.derivedFrom = new ArrayList<Reference>();
+      return this.derivedFrom;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationStatement setSupportingInformation(List<Reference> theSupportingInformation) { 
-      this.supportingInformation = theSupportingInformation;
+    public MedicationStatement setDerivedFrom(List<Reference> theDerivedFrom) { 
+      this.derivedFrom = theDerivedFrom;
       return this;
     }
 
-    public boolean hasSupportingInformation() { 
-      if (this.supportingInformation == null)
+    public boolean hasDerivedFrom() { 
+      if (this.derivedFrom == null)
         return false;
-      for (Reference item : this.supportingInformation)
+      for (Reference item : this.derivedFrom)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addSupportingInformation() { //3
+    public Reference addDerivedFrom() { //3
       Reference t = new Reference();
-      if (this.supportingInformation == null)
-        this.supportingInformation = new ArrayList<Reference>();
-      this.supportingInformation.add(t);
+      if (this.derivedFrom == null)
+        this.derivedFrom = new ArrayList<Reference>();
+      this.derivedFrom.add(t);
       return t;
     }
 
-    public MedicationStatement addSupportingInformation(Reference t) { //3
+    public MedicationStatement addDerivedFrom(Reference t) { //3
       if (t == null)
         return this;
-      if (this.supportingInformation == null)
-        this.supportingInformation = new ArrayList<Reference>();
-      this.supportingInformation.add(t);
+      if (this.derivedFrom == null)
+        this.derivedFrom = new ArrayList<Reference>();
+      this.derivedFrom.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #supportingInformation}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #derivedFrom}, creating it if it does not already exist
      */
-    public Reference getSupportingInformationFirstRep() { 
-      if (getSupportingInformation().isEmpty()) {
-        addSupportingInformation();
+    public Reference getDerivedFromFirstRep() { 
+      if (getDerivedFrom().isEmpty()) {
+        addDerivedFrom();
       }
-      return getSupportingInformation().get(0);
+      return getDerivedFrom().get(0);
     }
 
     /**
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Resource> getSupportingInformationTarget() { 
-      if (this.supportingInformationTarget == null)
-        this.supportingInformationTarget = new ArrayList<Resource>();
-      return this.supportingInformationTarget;
+    public List<Resource> getDerivedFromTarget() { 
+      if (this.derivedFromTarget == null)
+        this.derivedFromTarget = new ArrayList<Resource>();
+      return this.derivedFromTarget;
     }
 
     /**
@@ -1953,8 +1953,8 @@ public class MedicationStatement extends DomainResource {
         childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("patient", "Reference(Patient)", "The person or animal who is/was taking the medication.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("effective[x]", "dateTime|Period", "The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).", 0, java.lang.Integer.MAX_VALUE, effective));
-        childrenList.add(new Property("informationSource", "Reference(Patient|Practitioner|RelatedPerson)", "The person who provided the information about the taking of this medication.  Note:  A MedicationStatement may be derived from supportingInformation e.g claims or medicationOrder.", 0, java.lang.Integer.MAX_VALUE, informationSource));
-        childrenList.add(new Property("supportingInformation", "Reference(Any)", "Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports or is used to derive the MedicationStatement.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
+        childrenList.add(new Property("informationSource", "Reference(Patient|Practitioner|RelatedPerson|Organization)", "The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.", 0, java.lang.Integer.MAX_VALUE, informationSource));
+        childrenList.add(new Property("derivedFrom", "Reference(Any)", "Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports or is used to derive the MedicationStatement.", 0, java.lang.Integer.MAX_VALUE, derivedFrom));
         childrenList.add(new Property("dateAsserted", "dateTime", "The date when the medication statement was asserted by the information source.", 0, java.lang.Integer.MAX_VALUE, dateAsserted));
         childrenList.add(new Property("notTaken", "boolean", "Set this to true if the record is saying that the medication was NOT taken.", 0, java.lang.Integer.MAX_VALUE, notTaken));
         childrenList.add(new Property("reasonNotTaken", "CodeableConcept", "A code indicating why the medication was not taken.", 0, java.lang.Integer.MAX_VALUE, reasonNotTaken));
@@ -1974,7 +1974,7 @@ public class MedicationStatement extends DomainResource {
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
         case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
         case -2123220889: /*informationSource*/ return this.informationSource == null ? new Base[0] : new Base[] {this.informationSource}; // Reference
-        case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
+        case 1077922663: /*derivedFrom*/ return this.derivedFrom == null ? new Base[0] : this.derivedFrom.toArray(new Base[this.derivedFrom.size()]); // Reference
         case -1980855245: /*dateAsserted*/ return this.dateAsserted == null ? new Base[0] : new Base[] {this.dateAsserted}; // DateTimeType
         case 1565822388: /*notTaken*/ return this.notTaken == null ? new Base[0] : new Base[] {this.notTaken}; // BooleanType
         case 2112880664: /*reasonNotTaken*/ return this.reasonNotTaken == null ? new Base[0] : this.reasonNotTaken.toArray(new Base[this.reasonNotTaken.size()]); // CodeableConcept
@@ -2009,8 +2009,8 @@ public class MedicationStatement extends DomainResource {
         case -2123220889: // informationSource
           this.informationSource = castToReference(value); // Reference
           break;
-        case -1248768647: // supportingInformation
-          this.getSupportingInformation().add(castToReference(value)); // Reference
+        case 1077922663: // derivedFrom
+          this.getDerivedFrom().add(castToReference(value)); // Reference
           break;
         case -1980855245: // dateAsserted
           this.dateAsserted = castToDateTime(value); // DateTimeType
@@ -2055,8 +2055,8 @@ public class MedicationStatement extends DomainResource {
           this.effective = castToType(value); // Type
         else if (name.equals("informationSource"))
           this.informationSource = castToReference(value); // Reference
-        else if (name.equals("supportingInformation"))
-          this.getSupportingInformation().add(castToReference(value));
+        else if (name.equals("derivedFrom"))
+          this.getDerivedFrom().add(castToReference(value));
         else if (name.equals("dateAsserted"))
           this.dateAsserted = castToDateTime(value); // DateTimeType
         else if (name.equals("notTaken"))
@@ -2086,7 +2086,7 @@ public class MedicationStatement extends DomainResource {
         case -791418107:  return getPatient(); // Reference
         case 247104889:  return getEffective(); // Type
         case -2123220889:  return getInformationSource(); // Reference
-        case -1248768647:  return addSupportingInformation(); // Reference
+        case 1077922663:  return addDerivedFrom(); // Reference
         case -1980855245: throw new FHIRException("Cannot make property dateAsserted as it is not a complex type"); // DateTimeType
         case 1565822388: throw new FHIRException("Cannot make property notTaken as it is not a complex type"); // BooleanType
         case 2112880664:  return addReasonNotTaken(); // CodeableConcept
@@ -2132,8 +2132,8 @@ public class MedicationStatement extends DomainResource {
           this.informationSource = new Reference();
           return this.informationSource;
         }
-        else if (name.equals("supportingInformation")) {
-          return addSupportingInformation();
+        else if (name.equals("derivedFrom")) {
+          return addDerivedFrom();
         }
         else if (name.equals("dateAsserted")) {
           throw new FHIRException("Cannot call addChild on a primitive type MedicationStatement.dateAsserted");
@@ -2181,10 +2181,10 @@ public class MedicationStatement extends DomainResource {
         dst.patient = patient == null ? null : patient.copy();
         dst.effective = effective == null ? null : effective.copy();
         dst.informationSource = informationSource == null ? null : informationSource.copy();
-        if (supportingInformation != null) {
-          dst.supportingInformation = new ArrayList<Reference>();
-          for (Reference i : supportingInformation)
-            dst.supportingInformation.add(i.copy());
+        if (derivedFrom != null) {
+          dst.derivedFrom = new ArrayList<Reference>();
+          for (Reference i : derivedFrom)
+            dst.derivedFrom.add(i.copy());
         };
         dst.dateAsserted = dateAsserted == null ? null : dateAsserted.copy();
         dst.notTaken = notTaken == null ? null : notTaken.copy();
@@ -2230,7 +2230,7 @@ public class MedicationStatement extends DomainResource {
         MedicationStatement o = (MedicationStatement) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(medication, o.medication, true)
            && compareDeep(patient, o.patient, true) && compareDeep(effective, o.effective, true) && compareDeep(informationSource, o.informationSource, true)
-           && compareDeep(supportingInformation, o.supportingInformation, true) && compareDeep(dateAsserted, o.dateAsserted, true)
+           && compareDeep(derivedFrom, o.derivedFrom, true) && compareDeep(dateAsserted, o.dateAsserted, true)
            && compareDeep(notTaken, o.notTaken, true) && compareDeep(reasonNotTaken, o.reasonNotTaken, true)
            && compareDeep(reasonForUseCode, o.reasonForUseCode, true) && compareDeep(reasonForUseReference, o.reasonForUseReference, true)
            && compareDeep(note, o.note, true) && compareDeep(category, o.category, true) && compareDeep(dosage, o.dosage, true)
@@ -2250,9 +2250,8 @@ public class MedicationStatement extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, medication
-          , patient, effective, informationSource, supportingInformation, dateAsserted, notTaken
-          , reasonNotTaken, reasonForUseCode, reasonForUseReference, note, category, dosage
-          );
+          , patient, effective, informationSource, derivedFrom, dateAsserted, notTaken, reasonNotTaken
+          , reasonForUseCode, reasonForUseReference, note, category, dosage);
       }
 
   @Override
@@ -2375,17 +2374,17 @@ public class MedicationStatement extends DomainResource {
  /**
    * Search parameter: <b>source</b>
    * <p>
-   * Description: <b>Who the information in the statement came from</b><br>
+   * Description: <b>Who or where the information in the statement came from</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>MedicationStatement.informationSource</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="source", path="MedicationStatement.informationSource", description="Who the information in the statement came from", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="source", path="MedicationStatement.informationSource", description="Who or where the information in the statement came from", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_SOURCE = "source";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>source</b>
    * <p>
-   * Description: <b>Who the information in the statement came from</b><br>
+   * Description: <b>Who or where the information in the statement came from</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>MedicationStatement.informationSource</b><br>
    * </p>

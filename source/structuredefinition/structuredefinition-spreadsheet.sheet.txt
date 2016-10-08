@@ -227,6 +227,14 @@
   XPath = count(*/f:element)=count(*/f:element/@id)
   Expression = differential.element.id.trace(\'ids\').isDistinct()
 
+ -- Row 18 -----------------------------------
+  Id = 18
+  Requirements = contextInvariant
+  Context = StructureDefinition
+  English = Context Invariants can only be used for extensions
+  XPath = not(exists(f:contextInvariant)) or (f:type/@value = \'Extension\')
+  Expression = contextInvariant.exists() implies type = \'Extension\'
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -505,6 +513,16 @@
   Comments = If the context is an element that can have multiple types, then use (e.g.) value[x] if the extension works on all choice types, or otherwise an enumeration of explicitly named elements if not. Note that a context of \"string\" doesn\'t mean that the extension can be used with one of the string patterns such as \"id\" etc.
 
  -- Row 29 -----------------------------------
+  Element = StructureDefinition.contextInvariant
+  Card. = 0..*
+  Summary = y
+  Inv. = 18
+  Type = string
+  Short Label = FluentPath invariants - when the extension can be used
+  Definition = A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurance variants for the extension)
+  Comments = All the rules must be true
+
+ -- Row 30 -----------------------------------
   Element = StructureDefinition.type
   Card. = 1..1
   Summary = Y
@@ -515,7 +533,7 @@
   Definition = The type this structure is describes. If the derivation kind is \'specialization\' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type)
   Comments = Note that in the case of constraints, the type could be determined by chasing through the baseDefinition references until a concrete structure (derivation = specialization) is reached, or by looking at the path of the first element in the snapshot - if present - but providing the type directly makes for simpler tooling and indexing
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = StructureDefinition.baseDefinition
   Card. = 0..1
   Summary = Y
@@ -525,7 +543,7 @@
   Definition = An absolute URI that is the base structure from which this type is derived, either by specialization or constraint
   Comments = If differential constraints are specified in this structure, they are applied to the base in a \"differential\" fashion. If there is no base, then the differential constraints cannot be provided (snapshot only). Differential structures are useful for the editing perspective, and snapshot structures are suitable for operational use. The FHIR Project provides a number of tools/services to populate snapshots from differential constraints. Logical Models have a base of \"Element\" or another logical model
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = StructureDefinition.derivation
   Card. = 0..1
   Summary = y
@@ -536,7 +554,7 @@
   Definition = How the type relates to the baseDefinition.
   Comments = If the definition is a specialization, then it adds new elements in the differential, and the snapshot includes the inherited elements.\n\nIf the definition is a constraint, then it can not define new elements, it can only make new rules about existing content (see [Profiling Resources](profiling.html#resources))
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = StructureDefinition.snapshot
   Card. = 0..1
   UML = 400;190
@@ -544,7 +562,7 @@
   Short Label = Snapshot view of the structure
   Definition = A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = StructureDefinition.snapshot.element
   Card. = 1..*
   Inv. = 3
@@ -553,7 +571,7 @@
   Definition = Captures constraints on each element within the resource
   11179 Mapping = --
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = StructureDefinition.differential
   Card. = 0..1
   UML = 400;270
@@ -561,7 +579,7 @@
   Short Label = Differential view of the structure
   Definition = A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = StructureDefinition.differential.element
   Card. = 1..*
   Type = ElementDefinition
@@ -569,14 +587,14 @@
   Definition = Captures constraints on each element within the resource
   11179 Mapping = --
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = !StructureDefinition.searchParam
   Card. = 0..*
   UML = 400;0
   Short Label = Additional Search params defined by this StructureDefinition
   Definition = Additional search parameters defined for this structure that implementations can support and/or make use of
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = !StructureDefinition.searchParam.name
   Card. = 1..1
   Inv. = 3
@@ -585,7 +603,7 @@
   Definition = The name of the standard or custom search parameter
   Requirements = Parameter names cannot overlap with standard parameter names, and standard parameters cannot be redefined
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = !StructureDefinition.searchParam.type
   Card. = 1..1
   Type = code
@@ -593,14 +611,14 @@
   Short Label = number | date | string | token | reference | composite | quantity
   Definition = The type of value a search parameter refers to, and how the content is interpreted
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = !StructureDefinition.searchParam.documentation
   Card. = 1..1
   Type = string
   Short Label = Contents and meaning of search parameter
   Definition = A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = !StructureDefinition.searchParam.xpath
   Card. = 0..1
   Type = string
@@ -609,7 +627,7 @@
   Requirements = Note that the elements are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system
   Comments = The XPath expression may use parent references, but this technique should be avoided except in the special case of an extension making rules about its use with other extensions. Parent references SHALL not refer to content outside the resouce that contains the content
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = !StructureDefinition.searchParam.target
   Card. = 0..*
   Type = code

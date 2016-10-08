@@ -5889,7 +5889,7 @@ public class VersionConvertor_14_20 {
       tgt.setDestination(src.getDestination());
     for (org.hl7.fhir.dstu2016may.model.UriType t : src.getLink())
       tgt.addLink(t.getValue());
-    tgt.setConformance(convertReference(src.getConformance()));
+    tgt.setCapabilities(convertReference(src.getConformance()));
     return tgt;
   }
 
@@ -5910,7 +5910,7 @@ public class VersionConvertor_14_20 {
       tgt.setDestination(src.getDestination());
     for (org.hl7.fhir.dstu3.model.UriType t : src.getLink())
       tgt.addLink(t.getValue());
-    tgt.setConformance(convertReference(src.getConformance()));
+    tgt.setConformance(convertReference(src.getCapabilities()));
     return tgt;
   }
 

@@ -2900,9 +2900,12 @@ public class ProfileUtilities {
           if (!card.endsWith(".0")) {
             List<String> refProfiles = listReferenceProfiles(ed);
             if (refProfiles.size() > 0) {
-              StructureDefinition sd = context.fetchResource(StructureDefinition.class, refProfiles.get(0));
-              if (sd != null && (!onlyConstraints || (sd.getDerivation() == TypeDerivationRule.CONSTRAINT && (constraintPrefix == null || sd.getUrl().startsWith(constraintPrefix))))) {
-                res.getChildren().add(buildSpanningTable(nameForElement(ed), card, sd, processed, onlyConstraints, constraintPrefix));
+              String uri = refProfiles.get(0);
+              if (uri != null) {
+                StructureDefinition sd = context.fetchResource(StructureDefinition.class, uri);
+                if (sd != null && (!onlyConstraints || (sd.getDerivation() == TypeDerivationRule.CONSTRAINT && (constraintPrefix == null || sd.getUrl().startsWith(constraintPrefix))))) {
+                  res.getChildren().add(buildSpanningTable(nameForElement(ed), card, sd, processed, onlyConstraints, constraintPrefix));
+                }
               }
             }
           }

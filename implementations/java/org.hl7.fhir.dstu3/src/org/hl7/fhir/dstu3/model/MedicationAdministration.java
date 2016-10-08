@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 7, 2016 14:20+1100 for FHIR v1.7.0
+// Generated on Sun, Oct 9, 2016 06:52+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -618,391 +618,6 @@ public class MedicationAdministration extends DomainResource {
 
   }
 
-    @Block()
-    public static class MedicationAdministrationEventHistoryComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * The status for the event.
-         */
-        @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="in-progress | on-hold | completed | entered-in-error | stopped", formalDefinition="The status for the event." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-admin-status")
-        protected Enumeration<MedicationAdministrationStatus> status;
-
-        /**
-         * The action that was taken (e.g. verify).
-         */
-        @Child(name = "action", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Action taken (e.g. verify)", formalDefinition="The action that was taken (e.g. verify)." )
-        protected CodeableConcept action;
-
-        /**
-         * The date/time at which the event occurred.
-         */
-        @Child(name = "dateTime", type = {DateTimeType.class}, order=3, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="The date at which the event happened", formalDefinition="The date/time at which the event occurred." )
-        protected DateTimeType dateTime;
-
-        /**
-         * The person responsible for taking the action.
-         */
-        @Child(name = "actor", type = {Practitioner.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Who took the action", formalDefinition="The person responsible for taking the action." )
-        protected Reference actor;
-
-        /**
-         * The actual object that is the target of the reference (The person responsible for taking the action.)
-         */
-        protected Practitioner actorTarget;
-
-        /**
-         * The reason why the action was taken.
-         */
-        @Child(name = "reason", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Reason the action was taken", formalDefinition="The reason why the action was taken." )
-        protected CodeableConcept reason;
-
-        private static final long serialVersionUID = 1371667422L;
-
-    /**
-     * Constructor
-     */
-      public MedicationAdministrationEventHistoryComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public MedicationAdministrationEventHistoryComponent(Enumeration<MedicationAdministrationStatus> status, DateTimeType dateTime) {
-        super();
-        this.status = status;
-        this.dateTime = dateTime;
-      }
-
-        /**
-         * @return {@link #status} (The status for the event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-         */
-        public Enumeration<MedicationAdministrationStatus> getStatusElement() { 
-          if (this.status == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationAdministrationEventHistoryComponent.status");
-            else if (Configuration.doAutoCreate())
-              this.status = new Enumeration<MedicationAdministrationStatus>(new MedicationAdministrationStatusEnumFactory()); // bb
-          return this.status;
-        }
-
-        public boolean hasStatusElement() { 
-          return this.status != null && !this.status.isEmpty();
-        }
-
-        public boolean hasStatus() { 
-          return this.status != null && !this.status.isEmpty();
-        }
-
-        /**
-         * @param value {@link #status} (The status for the event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-         */
-        public MedicationAdministrationEventHistoryComponent setStatusElement(Enumeration<MedicationAdministrationStatus> value) { 
-          this.status = value;
-          return this;
-        }
-
-        /**
-         * @return The status for the event.
-         */
-        public MedicationAdministrationStatus getStatus() { 
-          return this.status == null ? null : this.status.getValue();
-        }
-
-        /**
-         * @param value The status for the event.
-         */
-        public MedicationAdministrationEventHistoryComponent setStatus(MedicationAdministrationStatus value) { 
-            if (this.status == null)
-              this.status = new Enumeration<MedicationAdministrationStatus>(new MedicationAdministrationStatusEnumFactory());
-            this.status.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #action} (The action that was taken (e.g. verify).)
-         */
-        public CodeableConcept getAction() { 
-          if (this.action == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationAdministrationEventHistoryComponent.action");
-            else if (Configuration.doAutoCreate())
-              this.action = new CodeableConcept(); // cc
-          return this.action;
-        }
-
-        public boolean hasAction() { 
-          return this.action != null && !this.action.isEmpty();
-        }
-
-        /**
-         * @param value {@link #action} (The action that was taken (e.g. verify).)
-         */
-        public MedicationAdministrationEventHistoryComponent setAction(CodeableConcept value) { 
-          this.action = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #dateTime} (The date/time at which the event occurred.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
-         */
-        public DateTimeType getDateTimeElement() { 
-          if (this.dateTime == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationAdministrationEventHistoryComponent.dateTime");
-            else if (Configuration.doAutoCreate())
-              this.dateTime = new DateTimeType(); // bb
-          return this.dateTime;
-        }
-
-        public boolean hasDateTimeElement() { 
-          return this.dateTime != null && !this.dateTime.isEmpty();
-        }
-
-        public boolean hasDateTime() { 
-          return this.dateTime != null && !this.dateTime.isEmpty();
-        }
-
-        /**
-         * @param value {@link #dateTime} (The date/time at which the event occurred.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
-         */
-        public MedicationAdministrationEventHistoryComponent setDateTimeElement(DateTimeType value) { 
-          this.dateTime = value;
-          return this;
-        }
-
-        /**
-         * @return The date/time at which the event occurred.
-         */
-        public Date getDateTime() { 
-          return this.dateTime == null ? null : this.dateTime.getValue();
-        }
-
-        /**
-         * @param value The date/time at which the event occurred.
-         */
-        public MedicationAdministrationEventHistoryComponent setDateTime(Date value) { 
-            if (this.dateTime == null)
-              this.dateTime = new DateTimeType();
-            this.dateTime.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #actor} (The person responsible for taking the action.)
-         */
-        public Reference getActor() { 
-          if (this.actor == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationAdministrationEventHistoryComponent.actor");
-            else if (Configuration.doAutoCreate())
-              this.actor = new Reference(); // cc
-          return this.actor;
-        }
-
-        public boolean hasActor() { 
-          return this.actor != null && !this.actor.isEmpty();
-        }
-
-        /**
-         * @param value {@link #actor} (The person responsible for taking the action.)
-         */
-        public MedicationAdministrationEventHistoryComponent setActor(Reference value) { 
-          this.actor = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person responsible for taking the action.)
-         */
-        public Practitioner getActorTarget() { 
-          if (this.actorTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationAdministrationEventHistoryComponent.actor");
-            else if (Configuration.doAutoCreate())
-              this.actorTarget = new Practitioner(); // aa
-          return this.actorTarget;
-        }
-
-        /**
-         * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person responsible for taking the action.)
-         */
-        public MedicationAdministrationEventHistoryComponent setActorTarget(Practitioner value) { 
-          this.actorTarget = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #reason} (The reason why the action was taken.)
-         */
-        public CodeableConcept getReason() { 
-          if (this.reason == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationAdministrationEventHistoryComponent.reason");
-            else if (Configuration.doAutoCreate())
-              this.reason = new CodeableConcept(); // cc
-          return this.reason;
-        }
-
-        public boolean hasReason() { 
-          return this.reason != null && !this.reason.isEmpty();
-        }
-
-        /**
-         * @param value {@link #reason} (The reason why the action was taken.)
-         */
-        public MedicationAdministrationEventHistoryComponent setReason(CodeableConcept value) { 
-          this.reason = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("status", "code", "The status for the event.", 0, java.lang.Integer.MAX_VALUE, status));
-          childrenList.add(new Property("action", "CodeableConcept", "The action that was taken (e.g. verify).", 0, java.lang.Integer.MAX_VALUE, action));
-          childrenList.add(new Property("dateTime", "dateTime", "The date/time at which the event occurred.", 0, java.lang.Integer.MAX_VALUE, dateTime));
-          childrenList.add(new Property("actor", "Reference(Practitioner)", "The person responsible for taking the action.", 0, java.lang.Integer.MAX_VALUE, actor));
-          childrenList.add(new Property("reason", "CodeableConcept", "The reason why the action was taken.", 0, java.lang.Integer.MAX_VALUE, reason));
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationAdministrationStatus>
-        case -1422950858: /*action*/ return this.action == null ? new Base[0] : new Base[] {this.action}; // CodeableConcept
-        case 1792749467: /*dateTime*/ return this.dateTime == null ? new Base[0] : new Base[] {this.dateTime}; // DateTimeType
-        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
-        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // CodeableConcept
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case -892481550: // status
-          this.status = new MedicationAdministrationStatusEnumFactory().fromType(value); // Enumeration<MedicationAdministrationStatus>
-          break;
-        case -1422950858: // action
-          this.action = castToCodeableConcept(value); // CodeableConcept
-          break;
-        case 1792749467: // dateTime
-          this.dateTime = castToDateTime(value); // DateTimeType
-          break;
-        case 92645877: // actor
-          this.actor = castToReference(value); // Reference
-          break;
-        case -934964668: // reason
-          this.reason = castToCodeableConcept(value); // CodeableConcept
-          break;
-        default: super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("status"))
-          this.status = new MedicationAdministrationStatusEnumFactory().fromType(value); // Enumeration<MedicationAdministrationStatus>
-        else if (name.equals("action"))
-          this.action = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("dateTime"))
-          this.dateTime = castToDateTime(value); // DateTimeType
-        else if (name.equals("actor"))
-          this.actor = castToReference(value); // Reference
-        else if (name.equals("reason"))
-          this.reason = castToCodeableConcept(value); // CodeableConcept
-        else
-          super.setProperty(name, value);
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<MedicationAdministrationStatus>
-        case -1422950858:  return getAction(); // CodeableConcept
-        case 1792749467: throw new FHIRException("Cannot make property dateTime as it is not a complex type"); // DateTimeType
-        case 92645877:  return getActor(); // Reference
-        case -934964668:  return getReason(); // CodeableConcept
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationAdministration.status");
-        }
-        else if (name.equals("action")) {
-          this.action = new CodeableConcept();
-          return this.action;
-        }
-        else if (name.equals("dateTime")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationAdministration.dateTime");
-        }
-        else if (name.equals("actor")) {
-          this.actor = new Reference();
-          return this.actor;
-        }
-        else if (name.equals("reason")) {
-          this.reason = new CodeableConcept();
-          return this.reason;
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public MedicationAdministrationEventHistoryComponent copy() {
-        MedicationAdministrationEventHistoryComponent dst = new MedicationAdministrationEventHistoryComponent();
-        copyValues(dst);
-        dst.status = status == null ? null : status.copy();
-        dst.action = action == null ? null : action.copy();
-        dst.dateTime = dateTime == null ? null : dateTime.copy();
-        dst.actor = actor == null ? null : actor.copy();
-        dst.reason = reason == null ? null : reason.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof MedicationAdministrationEventHistoryComponent))
-          return false;
-        MedicationAdministrationEventHistoryComponent o = (MedicationAdministrationEventHistoryComponent) other;
-        return compareDeep(status, o.status, true) && compareDeep(action, o.action, true) && compareDeep(dateTime, o.dateTime, true)
-           && compareDeep(actor, o.actor, true) && compareDeep(reason, o.reason, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof MedicationAdministrationEventHistoryComponent))
-          return false;
-        MedicationAdministrationEventHistoryComponent o = (MedicationAdministrationEventHistoryComponent) other;
-        return compareValues(status, o.status, true) && compareValues(dateTime, o.dateTime, true);
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(status, action, dateTime
-          , actor, reason);
-      }
-
-  public String fhirType() {
-    return "MedicationAdministration.eventHistory";
-
-  }
-
-  }
-
     /**
      * External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
      */
@@ -1084,9 +699,9 @@ public class MedicationAdministration extends DomainResource {
     /**
      * Set this to true if the record is saying that the medication was NOT administered.
      */
-    @Child(name = "wasNotGiven", type = {BooleanType.class}, order=8, min=0, max=1, modifier=true, summary=true)
+    @Child(name = "notGiven", type = {BooleanType.class}, order=8, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="True if medication not administered", formalDefinition="Set this to true if the record is saying that the medication was NOT administered." )
-    protected BooleanType wasNotGiven;
+    protected BooleanType notGiven;
 
     /**
      * A code indicating why the administration was not performed.
@@ -1133,11 +748,16 @@ public class MedicationAdministration extends DomainResource {
     /**
      * A summary of the events of interest that have occurred, such as when the administration was verified.
      */
-    @Child(name = "eventHistory", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "eventHistory", type = {Provenance.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A list of events of interest in the lifecycle", formalDefinition="A summary of the events of interest that have occurred, such as when the administration was verified." )
-    protected List<MedicationAdministrationEventHistoryComponent> eventHistory;
+    protected List<Reference> eventHistory;
+    /**
+     * The actual objects that are the target of the reference (A summary of the events of interest that have occurred, such as when the administration was verified.)
+     */
+    protected List<Provenance> eventHistoryTarget;
 
-    private static final long serialVersionUID = 1979568003L;
+
+    private static final long serialVersionUID = 1287082377L;
 
   /**
    * Constructor
@@ -1517,47 +1137,47 @@ public class MedicationAdministration extends DomainResource {
     }
 
     /**
-     * @return {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT administered.). This is the underlying object with id, value and extensions. The accessor "getWasNotGiven" gives direct access to the value
+     * @return {@link #notGiven} (Set this to true if the record is saying that the medication was NOT administered.). This is the underlying object with id, value and extensions. The accessor "getNotGiven" gives direct access to the value
      */
-    public BooleanType getWasNotGivenElement() { 
-      if (this.wasNotGiven == null)
+    public BooleanType getNotGivenElement() { 
+      if (this.notGiven == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationAdministration.wasNotGiven");
+          throw new Error("Attempt to auto-create MedicationAdministration.notGiven");
         else if (Configuration.doAutoCreate())
-          this.wasNotGiven = new BooleanType(); // bb
-      return this.wasNotGiven;
+          this.notGiven = new BooleanType(); // bb
+      return this.notGiven;
     }
 
-    public boolean hasWasNotGivenElement() { 
-      return this.wasNotGiven != null && !this.wasNotGiven.isEmpty();
+    public boolean hasNotGivenElement() { 
+      return this.notGiven != null && !this.notGiven.isEmpty();
     }
 
-    public boolean hasWasNotGiven() { 
-      return this.wasNotGiven != null && !this.wasNotGiven.isEmpty();
+    public boolean hasNotGiven() { 
+      return this.notGiven != null && !this.notGiven.isEmpty();
     }
 
     /**
-     * @param value {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT administered.). This is the underlying object with id, value and extensions. The accessor "getWasNotGiven" gives direct access to the value
+     * @param value {@link #notGiven} (Set this to true if the record is saying that the medication was NOT administered.). This is the underlying object with id, value and extensions. The accessor "getNotGiven" gives direct access to the value
      */
-    public MedicationAdministration setWasNotGivenElement(BooleanType value) { 
-      this.wasNotGiven = value;
+    public MedicationAdministration setNotGivenElement(BooleanType value) { 
+      this.notGiven = value;
       return this;
     }
 
     /**
      * @return Set this to true if the record is saying that the medication was NOT administered.
      */
-    public boolean getWasNotGiven() { 
-      return this.wasNotGiven == null || this.wasNotGiven.isEmpty() ? false : this.wasNotGiven.getValue();
+    public boolean getNotGiven() { 
+      return this.notGiven == null || this.notGiven.isEmpty() ? false : this.notGiven.getValue();
     }
 
     /**
      * @param value Set this to true if the record is saying that the medication was NOT administered.
      */
-    public MedicationAdministration setWasNotGiven(boolean value) { 
-        if (this.wasNotGiven == null)
-          this.wasNotGiven = new BooleanType();
-        this.wasNotGiven.setValue(value);
+    public MedicationAdministration setNotGiven(boolean value) { 
+        if (this.notGiven == null)
+          this.notGiven = new BooleanType();
+        this.notGiven.setValue(value);
       return this;
     }
 
@@ -1822,16 +1442,16 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #eventHistory} (A summary of the events of interest that have occurred, such as when the administration was verified.)
      */
-    public List<MedicationAdministrationEventHistoryComponent> getEventHistory() { 
+    public List<Reference> getEventHistory() { 
       if (this.eventHistory == null)
-        this.eventHistory = new ArrayList<MedicationAdministrationEventHistoryComponent>();
+        this.eventHistory = new ArrayList<Reference>();
       return this.eventHistory;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationAdministration setEventHistory(List<MedicationAdministrationEventHistoryComponent> theEventHistory) { 
+    public MedicationAdministration setEventHistory(List<Reference> theEventHistory) { 
       this.eventHistory = theEventHistory;
       return this;
     }
@@ -1839,25 +1459,25 @@ public class MedicationAdministration extends DomainResource {
     public boolean hasEventHistory() { 
       if (this.eventHistory == null)
         return false;
-      for (MedicationAdministrationEventHistoryComponent item : this.eventHistory)
+      for (Reference item : this.eventHistory)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public MedicationAdministrationEventHistoryComponent addEventHistory() { //3
-      MedicationAdministrationEventHistoryComponent t = new MedicationAdministrationEventHistoryComponent();
+    public Reference addEventHistory() { //3
+      Reference t = new Reference();
       if (this.eventHistory == null)
-        this.eventHistory = new ArrayList<MedicationAdministrationEventHistoryComponent>();
+        this.eventHistory = new ArrayList<Reference>();
       this.eventHistory.add(t);
       return t;
     }
 
-    public MedicationAdministration addEventHistory(MedicationAdministrationEventHistoryComponent t) { //3
+    public MedicationAdministration addEventHistory(Reference t) { //3
       if (t == null)
         return this;
       if (this.eventHistory == null)
-        this.eventHistory = new ArrayList<MedicationAdministrationEventHistoryComponent>();
+        this.eventHistory = new ArrayList<Reference>();
       this.eventHistory.add(t);
       return this;
     }
@@ -1865,11 +1485,33 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #eventHistory}, creating it if it does not already exist
      */
-    public MedicationAdministrationEventHistoryComponent getEventHistoryFirstRep() { 
+    public Reference getEventHistoryFirstRep() { 
       if (getEventHistory().isEmpty()) {
         addEventHistory();
       }
       return getEventHistory().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Provenance> getEventHistoryTarget() { 
+      if (this.eventHistoryTarget == null)
+        this.eventHistoryTarget = new ArrayList<Provenance>();
+      return this.eventHistoryTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public Provenance addEventHistoryTarget() { 
+      Provenance r = new Provenance();
+      if (this.eventHistoryTarget == null)
+        this.eventHistoryTarget = new ArrayList<Provenance>();
+      this.eventHistoryTarget.add(r);
+      return r;
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1882,13 +1524,13 @@ public class MedicationAdministration extends DomainResource {
         childrenList.add(new Property("effectiveTime[x]", "dateTime|Period", "A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.", 0, java.lang.Integer.MAX_VALUE, effectiveTime));
         childrenList.add(new Property("performer", "Reference(Practitioner|Patient|RelatedPerson)", "The individual who was responsible for giving the medication to the patient.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("prescription", "Reference(MedicationOrder)", "The original request, instruction or authority to perform the administration.", 0, java.lang.Integer.MAX_VALUE, prescription));
-        childrenList.add(new Property("wasNotGiven", "boolean", "Set this to true if the record is saying that the medication was NOT administered.", 0, java.lang.Integer.MAX_VALUE, wasNotGiven));
+        childrenList.add(new Property("notGiven", "boolean", "Set this to true if the record is saying that the medication was NOT administered.", 0, java.lang.Integer.MAX_VALUE, notGiven));
         childrenList.add(new Property("reasonNotGiven", "CodeableConcept", "A code indicating why the administration was not performed.", 0, java.lang.Integer.MAX_VALUE, reasonNotGiven));
         childrenList.add(new Property("reasonGiven", "CodeableConcept", "A code indicating why the medication was given.", 0, java.lang.Integer.MAX_VALUE, reasonGiven));
         childrenList.add(new Property("device", "Reference(Device)", "The device used in administering the medication to the patient.  For example, a particular infusion pump.", 0, java.lang.Integer.MAX_VALUE, device));
         childrenList.add(new Property("note", "Annotation", "Extra information about the medication administration that is not conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("dosage", "", "Describes the medication dosage information details e.g. dose, rate, site, route, etc.", 0, java.lang.Integer.MAX_VALUE, dosage));
-        childrenList.add(new Property("eventHistory", "", "A summary of the events of interest that have occurred, such as when the administration was verified.", 0, java.lang.Integer.MAX_VALUE, eventHistory));
+        childrenList.add(new Property("eventHistory", "Reference(Provenance)", "A summary of the events of interest that have occurred, such as when the administration was verified.", 0, java.lang.Integer.MAX_VALUE, eventHistory));
       }
 
       @Override
@@ -1902,13 +1544,13 @@ public class MedicationAdministration extends DomainResource {
         case -929905388: /*effectiveTime*/ return this.effectiveTime == null ? new Base[0] : new Base[] {this.effectiveTime}; // Type
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
         case 460301338: /*prescription*/ return this.prescription == null ? new Base[0] : new Base[] {this.prescription}; // Reference
-        case -1050911117: /*wasNotGiven*/ return this.wasNotGiven == null ? new Base[0] : new Base[] {this.wasNotGiven}; // BooleanType
+        case 1554065514: /*notGiven*/ return this.notGiven == null ? new Base[0] : new Base[] {this.notGiven}; // BooleanType
         case 2101123790: /*reasonNotGiven*/ return this.reasonNotGiven == null ? new Base[0] : this.reasonNotGiven.toArray(new Base[this.reasonNotGiven.size()]); // CodeableConcept
         case 914964377: /*reasonGiven*/ return this.reasonGiven == null ? new Base[0] : this.reasonGiven.toArray(new Base[this.reasonGiven.size()]); // CodeableConcept
         case -1335157162: /*device*/ return this.device == null ? new Base[0] : this.device.toArray(new Base[this.device.size()]); // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         case -1326018889: /*dosage*/ return this.dosage == null ? new Base[0] : new Base[] {this.dosage}; // MedicationAdministrationDosageComponent
-        case 1835190426: /*eventHistory*/ return this.eventHistory == null ? new Base[0] : this.eventHistory.toArray(new Base[this.eventHistory.size()]); // MedicationAdministrationEventHistoryComponent
+        case 1835190426: /*eventHistory*/ return this.eventHistory == null ? new Base[0] : this.eventHistory.toArray(new Base[this.eventHistory.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1941,8 +1583,8 @@ public class MedicationAdministration extends DomainResource {
         case 460301338: // prescription
           this.prescription = castToReference(value); // Reference
           break;
-        case -1050911117: // wasNotGiven
-          this.wasNotGiven = castToBoolean(value); // BooleanType
+        case 1554065514: // notGiven
+          this.notGiven = castToBoolean(value); // BooleanType
           break;
         case 2101123790: // reasonNotGiven
           this.getReasonNotGiven().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1960,7 +1602,7 @@ public class MedicationAdministration extends DomainResource {
           this.dosage = (MedicationAdministrationDosageComponent) value; // MedicationAdministrationDosageComponent
           break;
         case 1835190426: // eventHistory
-          this.getEventHistory().add((MedicationAdministrationEventHistoryComponent) value); // MedicationAdministrationEventHistoryComponent
+          this.getEventHistory().add(castToReference(value)); // Reference
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -1985,8 +1627,8 @@ public class MedicationAdministration extends DomainResource {
           this.performer = castToReference(value); // Reference
         else if (name.equals("prescription"))
           this.prescription = castToReference(value); // Reference
-        else if (name.equals("wasNotGiven"))
-          this.wasNotGiven = castToBoolean(value); // BooleanType
+        else if (name.equals("notGiven"))
+          this.notGiven = castToBoolean(value); // BooleanType
         else if (name.equals("reasonNotGiven"))
           this.getReasonNotGiven().add(castToCodeableConcept(value));
         else if (name.equals("reasonGiven"))
@@ -1998,7 +1640,7 @@ public class MedicationAdministration extends DomainResource {
         else if (name.equals("dosage"))
           this.dosage = (MedicationAdministrationDosageComponent) value; // MedicationAdministrationDosageComponent
         else if (name.equals("eventHistory"))
-          this.getEventHistory().add((MedicationAdministrationEventHistoryComponent) value);
+          this.getEventHistory().add(castToReference(value));
         else
           super.setProperty(name, value);
       }
@@ -2014,13 +1656,13 @@ public class MedicationAdministration extends DomainResource {
         case -272263444:  return getEffectiveTime(); // Type
         case 481140686:  return getPerformer(); // Reference
         case 460301338:  return getPrescription(); // Reference
-        case -1050911117: throw new FHIRException("Cannot make property wasNotGiven as it is not a complex type"); // BooleanType
+        case 1554065514: throw new FHIRException("Cannot make property notGiven as it is not a complex type"); // BooleanType
         case 2101123790:  return addReasonNotGiven(); // CodeableConcept
         case 914964377:  return addReasonGiven(); // CodeableConcept
         case -1335157162:  return addDevice(); // Reference
         case 3387378:  return addNote(); // Annotation
         case -1326018889:  return getDosage(); // MedicationAdministrationDosageComponent
-        case 1835190426:  return addEventHistory(); // MedicationAdministrationEventHistoryComponent
+        case 1835190426:  return addEventHistory(); // Reference
         default: return super.makeProperty(hash, name);
         }
 
@@ -2066,8 +1708,8 @@ public class MedicationAdministration extends DomainResource {
           this.prescription = new Reference();
           return this.prescription;
         }
-        else if (name.equals("wasNotGiven")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationAdministration.wasNotGiven");
+        else if (name.equals("notGiven")) {
+          throw new FHIRException("Cannot call addChild on a primitive type MedicationAdministration.notGiven");
         }
         else if (name.equals("reasonNotGiven")) {
           return addReasonNotGiven();
@@ -2112,7 +1754,7 @@ public class MedicationAdministration extends DomainResource {
         dst.effectiveTime = effectiveTime == null ? null : effectiveTime.copy();
         dst.performer = performer == null ? null : performer.copy();
         dst.prescription = prescription == null ? null : prescription.copy();
-        dst.wasNotGiven = wasNotGiven == null ? null : wasNotGiven.copy();
+        dst.notGiven = notGiven == null ? null : notGiven.copy();
         if (reasonNotGiven != null) {
           dst.reasonNotGiven = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : reasonNotGiven)
@@ -2135,8 +1777,8 @@ public class MedicationAdministration extends DomainResource {
         };
         dst.dosage = dosage == null ? null : dosage.copy();
         if (eventHistory != null) {
-          dst.eventHistory = new ArrayList<MedicationAdministrationEventHistoryComponent>();
-          for (MedicationAdministrationEventHistoryComponent i : eventHistory)
+          dst.eventHistory = new ArrayList<Reference>();
+          for (Reference i : eventHistory)
             dst.eventHistory.add(i.copy());
         };
         return dst;
@@ -2156,7 +1798,7 @@ public class MedicationAdministration extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(medication, o.medication, true)
            && compareDeep(patient, o.patient, true) && compareDeep(encounter, o.encounter, true) && compareDeep(effectiveTime, o.effectiveTime, true)
            && compareDeep(performer, o.performer, true) && compareDeep(prescription, o.prescription, true)
-           && compareDeep(wasNotGiven, o.wasNotGiven, true) && compareDeep(reasonNotGiven, o.reasonNotGiven, true)
+           && compareDeep(notGiven, o.notGiven, true) && compareDeep(reasonNotGiven, o.reasonNotGiven, true)
            && compareDeep(reasonGiven, o.reasonGiven, true) && compareDeep(device, o.device, true) && compareDeep(note, o.note, true)
            && compareDeep(dosage, o.dosage, true) && compareDeep(eventHistory, o.eventHistory, true);
       }
@@ -2168,12 +1810,12 @@ public class MedicationAdministration extends DomainResource {
         if (!(other instanceof MedicationAdministration))
           return false;
         MedicationAdministration o = (MedicationAdministration) other;
-        return compareValues(status, o.status, true) && compareValues(wasNotGiven, o.wasNotGiven, true);
+        return compareValues(status, o.status, true) && compareValues(notGiven, o.notGiven, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, medication
-          , patient, encounter, effectiveTime, performer, prescription, wasNotGiven, reasonNotGiven
+          , patient, encounter, effectiveTime, performer, prescription, notGiven, reasonNotGiven
           , reasonGiven, device, note, dosage, eventHistory);
       }
 
@@ -2225,17 +1867,17 @@ public class MedicationAdministration extends DomainResource {
  /**
    * Search parameter: <b>performer</b>
    * <p>
-   * Description: <b>Who administered substance</b><br>
+   * Description: <b>The identify of the individual who administered the medication</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>MedicationAdministration.performer</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="performer", path="MedicationAdministration.performer", description="Who administered substance", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="performer", path="MedicationAdministration.performer", description="The identify of the individual who administered the medication", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_PERFORMER = "performer";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>performer</b>
    * <p>
-   * Description: <b>Who administered substance</b><br>
+   * Description: <b>The identify of the individual who administered the medication</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>MedicationAdministration.performer</b><br>
    * </p>
@@ -2249,96 +1891,24 @@ public class MedicationAdministration extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("MedicationAdministration:performer").toLocked();
 
  /**
-   * Search parameter: <b>prescription</b>
-   * <p>
-   * Description: <b>The identity of a prescription to list administrations from</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.prescription</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="prescription", path="MedicationAdministration.prescription", description="The identity of a prescription to list administrations from", type="reference", target={MedicationOrder.class } )
-  public static final String SP_PRESCRIPTION = "prescription";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>prescription</b>
-   * <p>
-   * Description: <b>The identity of a prescription to list administrations from</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.prescription</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRESCRIPTION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRESCRIPTION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationAdministration:prescription</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRESCRIPTION = new ca.uhn.fhir.model.api.Include("MedicationAdministration:prescription").toLocked();
-
- /**
-   * Search parameter: <b>effectivetime</b>
-   * <p>
-   * Description: <b>Date administration happened (or did not happen)</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>MedicationAdministration.effectiveTime[x]</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="effectivetime", path="MedicationAdministration.effectiveTime", description="Date administration happened (or did not happen)", type="date" )
-  public static final String SP_EFFECTIVETIME = "effectivetime";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>effectivetime</b>
-   * <p>
-   * Description: <b>Date administration happened (or did not happen)</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>MedicationAdministration.effectiveTime[x]</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam EFFECTIVETIME = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_EFFECTIVETIME);
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>The identity of a patient to list administrations  for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.patient</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="MedicationAdministration.patient", description="The identity of a patient to list administrations  for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>The identity of a patient to list administrations  for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.patient</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationAdministration:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MedicationAdministration:patient").toLocked();
-
- /**
-   * Search parameter: <b>wasnotgiven</b>
+   * Search parameter: <b>not-given</b>
    * <p>
    * Description: <b>Administrations that were not made</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>MedicationAdministration.wasNotGiven</b><br>
+   * Path: <b>MedicationAdministration.notGiven</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="wasnotgiven", path="MedicationAdministration.wasNotGiven", description="Administrations that were not made", type="token" )
-  public static final String SP_WASNOTGIVEN = "wasnotgiven";
+  @SearchParamDefinition(name="not-given", path="MedicationAdministration.notGiven", description="Administrations that were not made", type="token" )
+  public static final String SP_NOT_GIVEN = "not-given";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>wasnotgiven</b>
+   * <b>Fluent Client</b> search parameter constant for <b>not-given</b>
    * <p>
    * Description: <b>Administrations that were not made</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>MedicationAdministration.wasNotGiven</b><br>
+   * Path: <b>MedicationAdministration.notGiven</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam WASNOTGIVEN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_WASNOTGIVEN);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam NOT_GIVEN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_NOT_GIVEN);
 
  /**
    * Search parameter: <b>medication</b>
@@ -2367,6 +1937,26 @@ public class MedicationAdministration extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_MEDICATION = new ca.uhn.fhir.model.api.Include("MedicationAdministration:medication").toLocked();
 
  /**
+   * Search parameter: <b>reason-given</b>
+   * <p>
+   * Description: <b>Reasons for administering the medication</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationAdministration.reasonGiven</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="reason-given", path="MedicationAdministration.reasonGiven", description="Reasons for administering the medication", type="token" )
+  public static final String SP_REASON_GIVEN = "reason-given";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>reason-given</b>
+   * <p>
+   * Description: <b>Reasons for administering the medication</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationAdministration.reasonGiven</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam REASON_GIVEN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REASON_GIVEN);
+
+ /**
    * Search parameter: <b>encounter</b>
    * <p>
    * Description: <b>Return administrations that share this encounter</b><br>
@@ -2391,6 +1981,98 @@ public class MedicationAdministration extends DomainResource {
    * the path value of "<b>MedicationAdministration:encounter</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("MedicationAdministration:encounter").toLocked();
+
+ /**
+   * Search parameter: <b>prescription</b>
+   * <p>
+   * Description: <b>The identity of a prescription to list administrations from</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.prescription</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="prescription", path="MedicationAdministration.prescription", description="The identity of a prescription to list administrations from", type="reference", target={MedicationOrder.class } )
+  public static final String SP_PRESCRIPTION = "prescription";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>prescription</b>
+   * <p>
+   * Description: <b>The identity of a prescription to list administrations from</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.prescription</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRESCRIPTION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRESCRIPTION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationAdministration:prescription</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRESCRIPTION = new ca.uhn.fhir.model.api.Include("MedicationAdministration:prescription").toLocked();
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>The identity of a patient to list administrations  for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.patient</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="MedicationAdministration.patient", description="The identity of a patient to list administrations  for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>The identity of a patient to list administrations  for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.patient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationAdministration:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MedicationAdministration:patient").toLocked();
+
+ /**
+   * Search parameter: <b>effective-time</b>
+   * <p>
+   * Description: <b>Date administration happened (or did not happen)</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>MedicationAdministration.effectiveTime[x]</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="effective-time", path="MedicationAdministration.effectiveTime", description="Date administration happened (or did not happen)", type="date" )
+  public static final String SP_EFFECTIVE_TIME = "effective-time";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>effective-time</b>
+   * <p>
+   * Description: <b>Date administration happened (or did not happen)</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>MedicationAdministration.effectiveTime[x]</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam EFFECTIVE_TIME = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_EFFECTIVE_TIME);
+
+ /**
+   * Search parameter: <b>reason-not-given</b>
+   * <p>
+   * Description: <b>Reasons for not administering the medication</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationAdministration.reasonNotGiven</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="reason-not-given", path="MedicationAdministration.reasonNotGiven", description="Reasons for not administering the medication", type="token" )
+  public static final String SP_REASON_NOT_GIVEN = "reason-not-given";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>reason-not-given</b>
+   * <p>
+   * Description: <b>Reasons for not administering the medication</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationAdministration.reasonNotGiven</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam REASON_NOT_GIVEN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REASON_NOT_GIVEN);
 
  /**
    * Search parameter: <b>device</b>

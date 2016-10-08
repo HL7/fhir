@@ -4094,7 +4094,7 @@ public class VersionConvertor_10_20 {
     if (src.hasDateRecorded())
       tgt.setDateRecorded(src.getDateRecorded());
     tgt.setCode(convertCodeableConcept(src.getCode()));
-    tgt.setCategory(convertCodeableConcept(src.getCategory()));
+    tgt.addCategory(convertCodeableConcept(src.getCategory()));
     try {
       tgt.setClinicalStatus(org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus.fromCode(src.getClinicalStatus()));
     } catch (org.hl7.fhir.exceptions.FHIRException e) {
@@ -4126,7 +4126,8 @@ public class VersionConvertor_10_20 {
     if (src.hasDateRecorded())
       tgt.setDateRecorded(src.getDateRecorded());
     tgt.setCode(convertCodeableConcept(src.getCode()));
-    tgt.setCategory(convertCodeableConcept(src.getCategory()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getCategory())
+      tgt.setCategory(convertCodeableConcept(t));
     tgt.setClinicalStatus(src.getClinicalStatus().toCode());
     tgt.setVerificationStatus(convertConditionVerificationStatus(src.getVerificationStatus()));
     tgt.setSeverity(convertCodeableConcept(src.getSeverity()));
@@ -8562,7 +8563,7 @@ public class VersionConvertor_10_20 {
     tgt.setEffectiveTime(convertType(src.getEffectiveTime()));
 //    tgt.setPractitioner(convertReference(src.getPractitioner()));
     tgt.setPrescription(convertReference(src.getPrescription()));
-    tgt.setWasNotGiven(src.getWasNotGiven());
+    tgt.setNotGiven(src.getWasNotGiven());
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReasonNotGiven())
       tgt.addReasonNotGiven(convertCodeableConcept(t));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReasonGiven())
@@ -8589,7 +8590,7 @@ public class VersionConvertor_10_20 {
     tgt.setEffectiveTime(convertType(src.getEffectiveTime()));
 //    tgt.setPractitioner(convertReference(src.getPractitioner()));
     tgt.setPrescription(convertReference(src.getPrescription()));
-    tgt.setWasNotGiven(src.getWasNotGiven());
+    tgt.setWasNotGiven(src.getNotGiven());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReasonNotGiven())
       tgt.addReasonNotGiven(convertCodeableConcept(t));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReasonGiven())
@@ -8983,7 +8984,7 @@ public class VersionConvertor_10_20 {
     tgt.setEffective(convertType(src.getEffective()));
     tgt.setInformationSource(convertReference(src.getInformationSource()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getSupportingInformation())
-      tgt.addSupportingInformation(convertReference(t));
+      tgt.addDerivedFrom(convertReference(t));
     if (src.hasDateAsserted())
       tgt.setDateAsserted(src.getDateAsserted());
     tgt.setNotTaken(src.getWasNotTaken());
@@ -9009,7 +9010,7 @@ public class VersionConvertor_10_20 {
     tgt.setPatient(convertReference(src.getPatient()));
     tgt.setEffective(convertType(src.getEffective()));
     tgt.setInformationSource(convertReference(src.getInformationSource()));
-    for (org.hl7.fhir.dstu3.model.Reference t : src.getSupportingInformation())
+    for (org.hl7.fhir.dstu3.model.Reference t : src.getDerivedFrom())
       tgt.addSupportingInformation(convertReference(t));
     if (src.hasDateAsserted())
       tgt.setDateAsserted(src.getDateAsserted());
@@ -12623,7 +12624,7 @@ public class VersionConvertor_10_20 {
     tgt.setDestination(src.getDestination());
     for (org.hl7.fhir.dstu2.model.UriType t : src.getLink())
       tgt.addLink(t.getValue());
-    tgt.setConformance(convertReference(src.getConformance()));
+    tgt.setCapabilities(convertReference(src.getConformance()));
     return tgt;
   }
 
@@ -12638,7 +12639,7 @@ public class VersionConvertor_10_20 {
     tgt.setDestination(src.getDestination());
     for (org.hl7.fhir.dstu3.model.UriType t : src.getLink())
       tgt.addLink(t.getValue());
-    tgt.setConformance(convertReference(src.getConformance()));
+    tgt.setConformance(convertReference(src.getCapabilities()));
     return tgt;
   }
 
