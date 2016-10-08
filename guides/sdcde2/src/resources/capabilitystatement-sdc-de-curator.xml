@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
-  <id value="conformance-sdc-de-curator"/>
+<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
+  <id value="capabilitystatement-sdc-de-curator"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <h2>SDC Data Element Curator</h2>
       <p>(Requirements Definition)</p>
-      <p>http://hl7.org/fhir/us/sdcde/Conformance/conformance-sdc-de-curator Published: 2014-07-06 (draft)</p>
+      <p>http://hl7.org/fhir/us/sdcde/CapabilityStatement/capabilitystatement-sdc-de-curator Published: 2014-07-06 (draft)</p>
       <p>Published by: <b>U.S. Office of the National Coordinator (ONC)</b>
       </p>
       <p>This profile defines the expected capabilities of the <i>SDC Data Element Curator</i> role when conforming to the S&amp;I Framework's <a href="{{site.data.refs.sdc}}sdc.html">Structured Data Capture FHIR Data Element Exchange implementation guide</a>.  This role is responsible for defining and updating data elements stored in a repository.</p>
@@ -385,7 +385,7 @@
       </table>
     </div>
   </text>
-  <url value="http://hl7.org/fhir/us/sdcde/Conformance/conformance-sdc-de-curator"/>
+  <url value="http://hl7.org/fhir/us/sdcde/CapabilityStatement/capabilitystatement-sdc-de-curator"/>
   <name value="SDC Data Element Curator"/>
   <status value="draft"/>
   <date value="2014-07-06"/>
@@ -574,4 +574,4 @@
       </interaction>
     </resource>
   </rest>
-</Conformance>
+</CapabilityStatement>

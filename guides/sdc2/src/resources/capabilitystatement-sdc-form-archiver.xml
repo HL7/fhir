@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
-  <id value="conformance-sdc-form-archiver"/>
+<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
+  <id value="capabilitystatement-sdc-form-archiver"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -419,4 +419,4 @@
       <documentation value="Allows submission of a [[QuestionnaireResponse]] together with [[Provenance]] and other supporting resources as a single unit of work."/>
     </interaction>
   </rest>
-</Conformance>
+</CapabilityStatement>

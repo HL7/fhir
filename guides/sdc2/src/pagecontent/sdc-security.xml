@@ -74,9 +74,9 @@
   <h4>Consent</h4>
   <p>
     The SDC workflow envisions the sharing of patient-identifiable healthcare information from 
-    <a href="conformance-sdc-form-filler.html">SDC Form Filler</a> systems to <a href="conformance-sdc-form-manager.html">SDC Form Manager</a>.
-    It also envisions transmitting completed forms from <a href="conformance-sdc-form-filler.html">SDC Form Filler</a> to
-    <a href="conformance-sdc-form-receiver.html">SDC Form Receiver</a> systems.
+    <a href="capabilitystatement-sdc-form-filler.html">SDC Form Filler</a> systems to <a href="capabilitystatement-sdc-form-manager.html">SDC Form Manager</a>.
+    It also envisions transmitting completed forms from <a href="capabilitystatement-sdc-form-filler.html">SDC Form Filler</a> to
+    <a href="capabilitystatement-sdc-form-receiver.html">SDC Form Receiver</a> systems.
     Where such exchanges take place across organizational or other custodial boundaries, patient consent may be required.  Furthermore,
     use of C-CDA data for completing questionnaires for purposes unrelated to the initial population of the C-CDA may also require patient
     consent.  It is the responsibility of the client systems to ensure that any necessary consent records exist and are reviewed prior to

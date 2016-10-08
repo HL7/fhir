@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
-  <id value="conformance-sdc-form-manager"/>
+<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
+  <id value="capabilitystatement-sdc-form-manager"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -759,7 +759,7 @@
         <code value="delete"/>
         <documentation value="Not all servers will support deletion of code systems.  Status change to 'retired' will be more typical, though deletion of draft code systems may keep repositories cleaner."/>
       </interaction>
-      <!--  Should we include this in the conformance statement at all?  -->
+      <!--  Should we include this in the CapabilityStatement at all?  -->
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
@@ -871,7 +871,7 @@
         <code value="delete"/>
         <documentation value="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."/>
       </interaction>
-      <!--  Should we include this in the conformance statement at all?  -->
+      <!--  Should we include this in the CapabilityStatement at all?  -->
       <searchInclude value="ValueSet.compose.import"/>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
@@ -945,4 +945,4 @@
       </definition>
     </operation>
   </rest>
-</Conformance>
+</CapabilityStatement>

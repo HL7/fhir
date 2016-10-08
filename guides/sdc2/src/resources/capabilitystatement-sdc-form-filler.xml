@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
-  <id value="conformance-sdc-form-filler"/>
+<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
+  <id value="capabilitystatement-sdc-form-filler"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -10,7 +10,7 @@
       <p>Published by: <b>U.S. Office of the National Coordinator (ONC)</b>
       </p>
       <p>This profile defines the expected capabilities of the <i>SDC Form Filler</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for retrieving pre-defined forms, requesting pre-population of forms and/or auto-populating forms, guiding the user through verifying populated data and submitting completed or partially-completed forms.</p>
-      <p>Note that Form Fillers may also take on the role of <a href="conformance-sdc-form-archiver.html">Form Archiver</a> if they have a requirement to retain the completed version of a form (and potentially the source data that was used to complete it).</p>
+      <p>Note that Form Fillers may also take on the role of <a href="capabilitystatement-sdc-form-archiver.html">Form Archiver</a> if they have a requirement to retain the completed version of a form (and potentially the source data that was used to complete it).</p>
       <h2>General</h2>
       <table>
         <tbody>
@@ -447,7 +447,7 @@
       <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
     </telecom>
   </contact>
-  <description value="This profile defines the expected capabilities of the ''SDC Form Filler'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for retrieving pre-defined forms, requesting pre-population of forms and/or auto-populating forms, guiding the user through verifying populated data and submitting completed or partially-completed forms.&lt;br/&gt;Note that Form Fillers may also take on the role of [[conformance-sdc-form-archiver|Form Archiver]] if they have a requirement to retain the completed version of a form (and potentially the source data that was used to complete it)."/>
+  <description value="This profile defines the expected capabilities of the ''SDC Form Filler'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for retrieving pre-defined forms, requesting pre-population of forms and/or auto-populating forms, guiding the user through verifying populated data and submitting completed or partially-completed forms.&lt;br/&gt;Note that Form Fillers may also take on the role of [[capabilitystatement-sdc-form-archiver|Form Archiver]] if they have a requirement to retain the completed version of a form (and potentially the source data that was used to complete it)."/>
   <kind value="requirements"/>
   <fhirVersion value="1.0.0"/>
   <acceptUnknown value="extensions"/>
@@ -629,4 +629,4 @@
       </definition>
     </operation>
   </rest>
-</Conformance>
+</CapabilityStatement>

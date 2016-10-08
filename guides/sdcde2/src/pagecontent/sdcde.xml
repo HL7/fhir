@@ -56,7 +56,7 @@
     <li>
       <a href="#background">Background</a> provides links to background and implementation information including security guidelines and the SDC wiki</li>
     <li>
-      <a href="#conformance">Conformance Statements</a> describes the different roles systems wishing to conform to this implementation guide can take on and summarizes how 
+      <a href="#capabilitystatement">Capability Statements</a> describes the different roles systems wishing to conform to this implementation guide can take on and summarizes how 
         those roles interact.</li>
     <li>
       <a href="#resources">Resources</a> describes the resources used as part of this implementation guide, including profiles placed on those resources to constrain and extend 
@@ -123,17 +123,17 @@
   </p>
   <h3>Specification</h3>
   <p>The following sections describe the artifacts that set expectations for systems wishing to be conformant to the FHIR SDC implementation guide.</p>
-  <a name="conformance"> </a>
-  <h4>Conformance Statements</h4>
+  <a name="capabilitystatement"> </a>
+  <h4>Capability Statements</h4>
   <p>
-    FHIR Conformance statements define the expectations for particular system "roles" within an SDC environment.  To be considered SDC-conformant, a system 
+    FHIR Capability statements define the expectations for particular system "roles" within an SDC environment.  To be considered SDC-conformant, a system 
     must adhere to the requirements defined by at least one of these statements.  Some systems might choose to comply with more than one.
   </p>
   <ul>
     <li>
-      <a href="conformance-sdc-de-registry.html">SDC Data Element Registry</a> - Repository for data elements</li>
+      <a href="capabilitystatement-sdc-de-registry.html">SDC Data Element Registry</a> - Repository for data elements</li>
     <li>
-      <a href="conformance-sdc-de-curator.html">SDC Data Element Curator</a> - System responsible for creating and updating data elements</li>
+      <a href="capabilitystatement-sdc-de-curator.html">SDC Data Element Curator</a> - System responsible for creating and updating data elements</li>
   </ul>
   <p>
     Systems supporting the <i>SDC Data Element Registry</i> role SHALL be capable of accepting, persisting and returning all DataElement properties marked as

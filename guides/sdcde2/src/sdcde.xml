@@ -35,7 +35,7 @@
 			<name value="SDC DE Registry"/>
 			<description value="SDC Repository for Data Elements"/>
 			<sourceReference>
-        <reference value="Conformance/conformance-sdc-de-registry"/>
+        <reference value="CapabilityStatement/capabilitystatement-sdc-de-registry"/>
 			</sourceReference>
 		</resource>
 		<resource>
@@ -43,7 +43,7 @@
 			<name value="SDC DE Curator"/>
 			<description value="SDC Data Elements author/maintenance system"/>
 			<sourceReference>
-        <reference value="Conformance/conformance-sdc-de-curator"/>
+        <reference value="CapabilityStatement/capabilitystatement-sdc-de-curator"/>
 			</sourceReference>
 		</resource>
 <!--		<resource>
@@ -71,13 +71,13 @@
 		<title value="Home Page"/>
 		<kind value="page"/>
 		<page>
-      <source value="conformance-sdc-de-registry.html"/>
+      <source value="capabilitystatement-sdc-de-registry.html"/>
       <title value="SDC Repository for Data Elements"/>
       <kind value="resource"/>
       <format value="generated"/>
     </page>
 		<page>
-      <source value="conformance-sdc-de-curator.html"/>
+      <source value="capabilitystatement-sdc-de-curator.html"/>
       <title value="SDC Data Elements author/maintenance system"/>
       <kind value="resource"/>
       <format value="generated"/>
@@ -127,7 +127,7 @@
 			<source value="registry.html"/>
 			<title value="Registry"/>
 			<kind value="list"/>
-			<type value="Conformance"/>
+			<type value="CapabilityStatement"/>
 			<type value="StructureDefinition"/>
 			<type value="ValueSet"/>
 			<type value="ConceptMap"/>

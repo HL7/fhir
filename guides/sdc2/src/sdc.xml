@@ -41,7 +41,7 @@
 			<name value="SDC Form Designer"/>
 			<description value="SDC Form authoring system"/>
 			<sourceReference>
-				<reference value="Conformance/conformance-sdc-form-designer"/>
+				<reference value="CapabilityStatement/capabilitystatement-sdc-form-designer"/>
 			</sourceReference>
 		</resource>
 		<resource>
@@ -49,7 +49,7 @@
 			<name value="SDC Form Filler"/>
 			<description value="SDC System for completing forms"/>
 			<sourceReference>
-				<reference value="Conformance/conformance-sdc-form-filler"/>
+				<reference value="CapabilityStatement/capabilitystatement-sdc-form-filler"/>
 			</sourceReference>
 		</resource>
 		<resource>
@@ -57,7 +57,7 @@
 			<name value="SDC Form Manager"/>
 			<description value="SDC Repository for forms"/>
 			<sourceReference>
-				<reference value="Conformance/conformance-sdc-form-manager"/>
+				<reference value="CapabilityStatement/capabilitystatement-sdc-form-manager"/>
 			</sourceReference>
 		</resource>
 		<resource>
@@ -65,7 +65,7 @@
 			<name value="SDC Form Receiver"/>
 			<description value="SDC Repository for completed forms"/>
 			<sourceReference>
-				<reference value="Conformance/conformance-sdc-form-receiver"/>
+				<reference value="CapabilityStatement/capabilitystatement-sdc-form-receiver"/>
 			</sourceReference>
 		</resource>
 		<resource>
@@ -73,7 +73,7 @@
 			<name value="SDC Form Archiver"/>
 			<description value="SDC System for archiving and retrieving the completed forms"/>
 			<sourceReference>
-				<reference value="Conformance/conformance-sdc-form-archiver"/>
+				<reference value="CapabilityStatement/capabilitystatement-sdc-form-archiver"/>
 			</sourceReference>
 		</resource>
 <!--    <resource>
@@ -247,31 +247,31 @@
 			<kind value="page"/>
 		</page>
 		<page>
-			<source value="conformance-sdc-form-designer.html"/>
+			<source value="capabilitystatement-sdc-form-designer.html"/>
 			<title value="Form Designer"/>
 			<kind value="resource"/>
 			<format value="generated"/>
 		</page>
 		<page>
-			<source value="conformance-sdc-form-filler.html"/>
+			<source value="capabilitystatement-sdc-form-filler.html"/>
 			<title value="Form Filler"/>
 			<kind value="resource"/>
 			<format value="generated"/>
 		</page>
 		<page>
-			<source value="conformance-sdc-form-manager.html"/>
+			<source value="capabilitystatement-sdc-form-manager.html"/>
 			<title value="Form Manager"/>
 			<kind value="resource"/>
 			<format value="generated"/>
 		</page>
 		<page>
-			<source value="conformance-sdc-form-receiver.html"/>
+			<source value="capabilitystatement-sdc-form-receiver.html"/>
 			<title value="Form Receiver"/>
 			<kind value="resource"/>
 			<format value="generated"/>
 		</page>
 		<page>
-			<source value="conformance-sdc-form-archiver.html"/>
+			<source value="capabilitystatement-sdc-form-archiver.html"/>
 			<title value="Form Archiver"/>
 			<kind value="resource"/>
 			<format value="generated"/>
@@ -414,7 +414,7 @@
 			<source value="registry.html"/>
 			<title value="List of Artifacts"/>
 			<kind value="list"/>
-			<type value="Conformance"/>
+			<type value="CapabilityStatement"/>
 			<type value="StructureDefinition"/>
 			<type value="ValueSet"/>
 			<type value="ConceptMap"/>
