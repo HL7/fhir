@@ -113,6 +113,8 @@ import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.model.Base;
+import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem;
@@ -131,6 +133,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingCompon
 import org.hl7.fhir.dstu3.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumerations.SearchParamType;
+import org.hl7.fhir.dstu3.model.ExpressionNode.CollectionStatus;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageComponent;
@@ -149,6 +152,7 @@ import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.ExtensionContext;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.Type;
+import org.hl7.fhir.dstu3.model.TypeDetails;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
@@ -156,6 +160,7 @@ import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.EOperationOutcome;
+import org.hl7.fhir.dstu3.utils.FluentPathEngine.IEvaluationContext;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator.IReferenceResolver;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator.ResourceWithReference;
@@ -166,11 +171,13 @@ import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.exceptions.UcumException;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
+import org.hl7.fhir.tools.publisher.PageProcessor.PageEvaluationContext;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -192,6 +199,45 @@ import org.w3c.dom.Document;
 import com.github.rjeschke.txtmark.Processor;
 
 public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferenceResolver  {
+
+  public class PageEvaluationContext implements IEvaluationContext {
+
+    @Override
+    public Base resolveConstant(Object appContext, String name) throws PathEngineException {
+      return null;
+    }
+
+    @Override
+    public TypeDetails resolveConstantType(Object appContext, String name) throws PathEngineException {
+      return null;
+    }
+
+    @Override
+    public boolean Log(String argument, List<Base> focus) {
+      return false;
+    }
+
+    @Override
+    public FunctionDetails resolveFunction(String functionName) {
+      if (functionName.equals("htmlchecks"))
+        return new FunctionDetails("check HTML structure", 0, 0);
+      return null;
+    }
+
+    @Override
+    public TypeDetails checkFunction(Object appContext, String functionName, List<TypeDetails> parameters) throws PathEngineException {
+      return new TypeDetails(CollectionStatus.SINGLETON, "boolean");
+    }
+
+    @Override
+    public List<Base> executeFunction(Object appContext, String functionName, List<List<Base>> parameters) {
+      List<Base> list = new ArrayList<Base>();
+      Base b = new BooleanType(true);
+      list.add(b);
+      return list;
+    }
+
+  }
 
   public class SectionSorter implements Comparator<String> {
 
@@ -7870,6 +7916,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   public void setResourceBundle(Bundle resourceBundle) {
     this.resourceBundle = resourceBundle;
+  }
+
+  private IEvaluationContext evaluationContext;
+  
+  public IEvaluationContext getExpressionResolver() {
+    if (evaluationContext == null)
+      evaluationContext = new PageEvaluationContext();
+    return evaluationContext;
   }
 
 }

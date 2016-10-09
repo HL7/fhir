@@ -799,6 +799,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     page.log(" ...Check FHIR Path Expressions", LogMessageType.Process);
     StringBuilder b = new StringBuilder();
     FluentPathEngine fp = new FluentPathEngine(page.getWorkerContext());
+    fp.setHostServices(page.getExpressionResolver());
     for (FHIRPathUsage p : fpUsages) {
       checkExpression(b, fp, p);
     }

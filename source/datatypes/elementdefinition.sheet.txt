@@ -716,7 +716,7 @@
 
  -- Row 44 -----------------------------------
   Element = ElementDefinition.constraint.expression
-  Card. = 0..1
+  Card. = 1..1
   Type = string
   Short Label = FluentPath expression of constraint
   Definition = A [FluentPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met
@@ -724,12 +724,12 @@
 
  -- Row 45 -----------------------------------
   Element = ElementDefinition.constraint.xpath
-  Card. = 1..1
+  Card. = 0..1
   Type = string
   Short Label = XPath expression of constraint
   Definition = An XPath expression of constraint that can be executed to see if this constraint is met
   Requirements = Used in Schematron tests of the validity of the resource
-  Comments = Elements SHALL use \"f\" as the namespace prefix for the FHIR namespace, and \"x\" for the xhtml namespace, and SHALL NOT use any other prefixes
+  Comments = Elements SHALL use \"f\" as the namespace prefix for the FHIR namespace, and \"x\" for the xhtml namespace, and SHALL NOT use any other prefixes. \n\nNote: we are considering deprecating the xpath element. Implementer feedback is welcome
 
  -- Row 46 -----------------------------------
   Element = ElementDefinition.mustSupport

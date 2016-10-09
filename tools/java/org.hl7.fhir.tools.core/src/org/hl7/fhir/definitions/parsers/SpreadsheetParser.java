@@ -706,6 +706,9 @@ public class SpreadsheetParser {
 			  inv.setEnglish(sheet.getColumn(row, "English"));
         inv.setXpath(sheet.getColumn(row, "XPath"));
         inv.setExpression(sheet.getColumn(row, "Expression"));
+        if (Utilities.noString(inv.getExpression()))
+          throw new Exception("missing expression "+ getLocation(row));
+          
 			  
 			  inv.setSeverity(sheet.getColumn(row, "Severity"));
         inv.setTurtle(sheet.getColumn(row, "RDF"));
