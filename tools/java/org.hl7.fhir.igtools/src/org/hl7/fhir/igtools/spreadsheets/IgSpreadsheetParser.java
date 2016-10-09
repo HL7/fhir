@@ -995,6 +995,9 @@ public class IgSpreadsheetParser {
     
     if (context == null) {
       ex.setContextType(readContextType(sheet.getColumn(row, "Context Type"), row));
+      if (sheet.hasColumn("Context Invariant"))
+        for (String s : sheet.getColumn(row, "Context Invariant").split("~"))
+          ex.addContextInvariant(s);
       String cc = sheet.getColumn(row, "Context");
       if (!Utilities.noString(cc))
         for (String c : cc.split("\\;")) {
