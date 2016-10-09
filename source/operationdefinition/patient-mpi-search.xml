@@ -18,8 +18,9 @@
   <idempotent value="true"/>
   <code value="mpi"/>
   <comment value="All the standard search parameters apply, and are interpreted as inputs to the MPI algorithm. The _sort parameter is not used. Matches are returned in order of highest match to lowest match, with both a % in the score, and an asessement of the match using the extension http://hl7.org/fhir/StructureDefinition/patient-mpi-match"/>
+  <resource value="Patient"/>
   <system value="false"/>
-  <type value="Patient"/>
+  <type value="true"/>
   <instance value="false"/>
   <!-- in addition to all the standard patient parameters, this one: -->
   <parameter> 

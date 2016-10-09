@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Oct 9, 2016 06:52+1100 for FHIR v1.7.0
+// Generated on Sun, Oct 9, 2016 19:10+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
  */
 @ResourceDef(name="OperationDefinition", profile="http://hl7.org/fhir/Profile/OperationDefinition")
-@ChildOrder(names={"url", "version", "name", "status", "kind", "experimental", "date", "publisher", "contact", "description", "useContext", "requirements", "idempotent", "code", "comment", "base", "system", "type", "instance", "parameter"})
+@ChildOrder(names={"url", "version", "name", "status", "kind", "experimental", "date", "publisher", "contact", "description", "useContext", "requirements", "idempotent", "code", "comment", "base", "resource", "system", "type", "instance", "parameter", "overload"})
 public class OperationDefinition extends BaseConformance {
 
     public enum OperationKind {
@@ -1450,6 +1450,248 @@ public class OperationDefinition extends BaseConformance {
 
   }
 
+    @Block()
+    public static class OperationDefinitionOverloadComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Name of parameter to include in overload.
+         */
+        @Child(name = "parameterName", type = {StringType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Name of parameter to include in overload", formalDefinition="Name of parameter to include in overload." )
+        protected List<StringType> parameterName;
+
+        /**
+         * Comments to go on overload.
+         */
+        @Child(name = "comment", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Comments to go on overload", formalDefinition="Comments to go on overload." )
+        protected StringType comment;
+
+        private static final long serialVersionUID = -907948545L;
+
+    /**
+     * Constructor
+     */
+      public OperationDefinitionOverloadComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #parameterName} (Name of parameter to include in overload.)
+         */
+        public List<StringType> getParameterName() { 
+          if (this.parameterName == null)
+            this.parameterName = new ArrayList<StringType>();
+          return this.parameterName;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public OperationDefinitionOverloadComponent setParameterName(List<StringType> theParameterName) { 
+          this.parameterName = theParameterName;
+          return this;
+        }
+
+        public boolean hasParameterName() { 
+          if (this.parameterName == null)
+            return false;
+          for (StringType item : this.parameterName)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #parameterName} (Name of parameter to include in overload.)
+         */
+        public StringType addParameterNameElement() {//2 
+          StringType t = new StringType();
+          if (this.parameterName == null)
+            this.parameterName = new ArrayList<StringType>();
+          this.parameterName.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #parameterName} (Name of parameter to include in overload.)
+         */
+        public OperationDefinitionOverloadComponent addParameterName(String value) { //1
+          StringType t = new StringType();
+          t.setValue(value);
+          if (this.parameterName == null)
+            this.parameterName = new ArrayList<StringType>();
+          this.parameterName.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #parameterName} (Name of parameter to include in overload.)
+         */
+        public boolean hasParameterName(String value) { 
+          if (this.parameterName == null)
+            return false;
+          for (StringType v : this.parameterName)
+            if (v.equals(value)) // string
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #comment} (Comments to go on overload.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
+         */
+        public StringType getCommentElement() { 
+          if (this.comment == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionOverloadComponent.comment");
+            else if (Configuration.doAutoCreate())
+              this.comment = new StringType(); // bb
+          return this.comment;
+        }
+
+        public boolean hasCommentElement() { 
+          return this.comment != null && !this.comment.isEmpty();
+        }
+
+        public boolean hasComment() { 
+          return this.comment != null && !this.comment.isEmpty();
+        }
+
+        /**
+         * @param value {@link #comment} (Comments to go on overload.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
+         */
+        public OperationDefinitionOverloadComponent setCommentElement(StringType value) { 
+          this.comment = value;
+          return this;
+        }
+
+        /**
+         * @return Comments to go on overload.
+         */
+        public String getComment() { 
+          return this.comment == null ? null : this.comment.getValue();
+        }
+
+        /**
+         * @param value Comments to go on overload.
+         */
+        public OperationDefinitionOverloadComponent setComment(String value) { 
+          if (Utilities.noString(value))
+            this.comment = null;
+          else {
+            if (this.comment == null)
+              this.comment = new StringType();
+            this.comment.setValue(value);
+          }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("parameterName", "string", "Name of parameter to include in overload.", 0, java.lang.Integer.MAX_VALUE, parameterName));
+          childrenList.add(new Property("comment", "string", "Comments to go on overload.", 0, java.lang.Integer.MAX_VALUE, comment));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -379607596: /*parameterName*/ return this.parameterName == null ? new Base[0] : this.parameterName.toArray(new Base[this.parameterName.size()]); // StringType
+        case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case -379607596: // parameterName
+          this.getParameterName().add(castToString(value)); // StringType
+          break;
+        case 950398559: // comment
+          this.comment = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("parameterName"))
+          this.getParameterName().add(castToString(value));
+        else if (name.equals("comment"))
+          this.comment = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -379607596: throw new FHIRException("Cannot make property parameterName as it is not a complex type"); // StringType
+        case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("parameterName")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.parameterName");
+        }
+        else if (name.equals("comment")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.comment");
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public OperationDefinitionOverloadComponent copy() {
+        OperationDefinitionOverloadComponent dst = new OperationDefinitionOverloadComponent();
+        copyValues(dst);
+        if (parameterName != null) {
+          dst.parameterName = new ArrayList<StringType>();
+          for (StringType i : parameterName)
+            dst.parameterName.add(i.copy());
+        };
+        dst.comment = comment == null ? null : comment.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof OperationDefinitionOverloadComponent))
+          return false;
+        OperationDefinitionOverloadComponent o = (OperationDefinitionOverloadComponent) other;
+        return compareDeep(parameterName, o.parameterName, true) && compareDeep(comment, o.comment, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof OperationDefinitionOverloadComponent))
+          return false;
+        OperationDefinitionOverloadComponent o = (OperationDefinitionOverloadComponent) other;
+        return compareValues(parameterName, o.parameterName, true) && compareValues(comment, o.comment, true)
+          ;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(parameterName, comment);
+      }
+
+  public String fhirType() {
+    return "OperationDefinition.overload";
+
+  }
+
+  }
+
     /**
      * Whether this is an operation or a named query.
      */
@@ -1527,35 +1769,49 @@ public class OperationDefinition extends BaseConformance {
     protected OperationDefinition baseTarget;
 
     /**
+     * The types on which this operation can be executed.
+     */
+    @Child(name = "resource", type = {CodeType.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Types this operation applies to", formalDefinition="The types on which this operation can be executed." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-types")
+    protected List<CodeType> resource;
+
+    /**
      * Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).
      */
-    @Child(name = "system", type = {BooleanType.class}, order=10, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "system", type = {BooleanType.class}, order=11, min=1, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Invoke at the system level?", formalDefinition="Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context)." )
     protected BooleanType system;
 
     /**
-     * Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).
+     * Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context).
      */
-    @Child(name = "type", type = {CodeType.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Invoke at resource level for these type", formalDefinition="Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context)." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-types")
-    protected List<CodeType> type;
+    @Child(name = "type", type = {BooleanType.class}, order=12, min=1, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Invole at the type level?", formalDefinition="Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context)." )
+    protected BooleanType type;
 
     /**
      * Indicates whether this operation can be invoked on a particular instance of one of the given types.
      */
-    @Child(name = "instance", type = {BooleanType.class}, order=12, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "instance", type = {BooleanType.class}, order=13, min=1, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Invoke on an instance?", formalDefinition="Indicates whether this operation can be invoked on a particular instance of one of the given types." )
     protected BooleanType instance;
 
     /**
      * The parameters for the operation/query.
      */
-    @Child(name = "parameter", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "parameter", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Parameters for the operation/query", formalDefinition="The parameters for the operation/query." )
     protected List<OperationDefinitionParameterComponent> parameter;
 
-    private static final long serialVersionUID = -597504387L;
+    /**
+     * Defines an appropriate combination of parameters to use when invoking this operation.
+     */
+    @Child(name = "overload", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="For generating overloaded methods in code", formalDefinition="Defines an appropriate combination of parameters to use when invoking this operation." )
+    protected List<OperationDefinitionOverloadComponent> overload;
+
+    private static final long serialVersionUID = -1286295510L;
 
   /**
    * Constructor
@@ -1567,13 +1823,14 @@ public class OperationDefinition extends BaseConformance {
   /**
    * Constructor
    */
-    public OperationDefinition(StringType name, Enumeration<ConformanceResourceStatus> status, Enumeration<OperationKind> kind, CodeType code, BooleanType system, BooleanType instance) {
+    public OperationDefinition(StringType name, Enumeration<ConformanceResourceStatus> status, Enumeration<OperationKind> kind, CodeType code, BooleanType system, BooleanType type, BooleanType instance) {
       super();
       this.name = name;
       this.status = status;
       this.kind = kind;
       this.code = code;
       this.system = system;
+      this.type = type;
       this.instance = instance;
     }
 
@@ -2113,6 +2370,67 @@ public class OperationDefinition extends BaseConformance {
     }
 
     /**
+     * @return {@link #resource} (The types on which this operation can be executed.)
+     */
+    public List<CodeType> getResource() { 
+      if (this.resource == null)
+        this.resource = new ArrayList<CodeType>();
+      return this.resource;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public OperationDefinition setResource(List<CodeType> theResource) { 
+      this.resource = theResource;
+      return this;
+    }
+
+    public boolean hasResource() { 
+      if (this.resource == null)
+        return false;
+      for (CodeType item : this.resource)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #resource} (The types on which this operation can be executed.)
+     */
+    public CodeType addResourceElement() {//2 
+      CodeType t = new CodeType();
+      if (this.resource == null)
+        this.resource = new ArrayList<CodeType>();
+      this.resource.add(t);
+      return t;
+    }
+
+    /**
+     * @param value {@link #resource} (The types on which this operation can be executed.)
+     */
+    public OperationDefinition addResource(String value) { //1
+      CodeType t = new CodeType();
+      t.setValue(value);
+      if (this.resource == null)
+        this.resource = new ArrayList<CodeType>();
+      this.resource.add(t);
+      return this;
+    }
+
+    /**
+     * @param value {@link #resource} (The types on which this operation can be executed.)
+     */
+    public boolean hasResource(String value) { 
+      if (this.resource == null)
+        return false;
+      for (CodeType v : this.resource)
+        if (v.equals(value)) // code
+          return true;
+      return false;
+    }
+
+    /**
      * @return {@link #system} (Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
     public BooleanType getSystemElement() { 
@@ -2158,64 +2476,48 @@ public class OperationDefinition extends BaseConformance {
     }
 
     /**
-     * @return {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
+     * @return {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public List<CodeType> getType() { 
+    public BooleanType getTypeElement() { 
       if (this.type == null)
-        this.type = new ArrayList<CodeType>();
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.type");
+        else if (Configuration.doAutoCreate())
+          this.type = new BooleanType(); // bb
       return this.type;
     }
 
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public OperationDefinition setType(List<CodeType> theType) { 
-      this.type = theType;
-      return this;
+    public boolean hasTypeElement() { 
+      return this.type != null && !this.type.isEmpty();
     }
 
     public boolean hasType() { 
-      if (this.type == null)
-        return false;
-      for (CodeType item : this.type)
-        if (!item.isEmpty())
-          return true;
-      return false;
+      return this.type != null && !this.type.isEmpty();
     }
 
     /**
-     * @return {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
+     * @param value {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public CodeType addTypeElement() {//2 
-      CodeType t = new CodeType();
-      if (this.type == null)
-        this.type = new ArrayList<CodeType>();
-      this.type.add(t);
-      return t;
-    }
-
-    /**
-     * @param value {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
-     */
-    public OperationDefinition addType(String value) { //1
-      CodeType t = new CodeType();
-      t.setValue(value);
-      if (this.type == null)
-        this.type = new ArrayList<CodeType>();
-      this.type.add(t);
+    public OperationDefinition setTypeElement(BooleanType value) { 
+      this.type = value;
       return this;
     }
 
     /**
-     * @param value {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
+     * @return Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context).
      */
-    public boolean hasType(String value) { 
-      if (this.type == null)
-        return false;
-      for (CodeType v : this.type)
-        if (v.equals(value)) // code
-          return true;
-      return false;
+    public boolean getType() { 
+      return this.type == null || this.type.isEmpty() ? false : this.type.getValue();
+    }
+
+    /**
+     * @param value Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context).
+     */
+    public OperationDefinition setType(boolean value) { 
+        if (this.type == null)
+          this.type = new BooleanType();
+        this.type.setValue(value);
+      return this;
     }
 
     /**
@@ -2316,6 +2618,59 @@ public class OperationDefinition extends BaseConformance {
       return getParameter().get(0);
     }
 
+    /**
+     * @return {@link #overload} (Defines an appropriate combination of parameters to use when invoking this operation.)
+     */
+    public List<OperationDefinitionOverloadComponent> getOverload() { 
+      if (this.overload == null)
+        this.overload = new ArrayList<OperationDefinitionOverloadComponent>();
+      return this.overload;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public OperationDefinition setOverload(List<OperationDefinitionOverloadComponent> theOverload) { 
+      this.overload = theOverload;
+      return this;
+    }
+
+    public boolean hasOverload() { 
+      if (this.overload == null)
+        return false;
+      for (OperationDefinitionOverloadComponent item : this.overload)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public OperationDefinitionOverloadComponent addOverload() { //3
+      OperationDefinitionOverloadComponent t = new OperationDefinitionOverloadComponent();
+      if (this.overload == null)
+        this.overload = new ArrayList<OperationDefinitionOverloadComponent>();
+      this.overload.add(t);
+      return t;
+    }
+
+    public OperationDefinition addOverload(OperationDefinitionOverloadComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.overload == null)
+        this.overload = new ArrayList<OperationDefinitionOverloadComponent>();
+      this.overload.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #overload}, creating it if it does not already exist
+     */
+    public OperationDefinitionOverloadComponent getOverloadFirstRep() { 
+      if (getOverload().isEmpty()) {
+        addOverload();
+      }
+      return getOverload().get(0);
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("kind", "code", "Whether this is an operation or a named query.", 0, java.lang.Integer.MAX_VALUE, kind));
@@ -2328,10 +2683,12 @@ public class OperationDefinition extends BaseConformance {
         childrenList.add(new Property("code", "code", "The name used to invoke the operation.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("comment", "string", "Additional information about how to use this operation or named query.", 0, java.lang.Integer.MAX_VALUE, comment));
         childrenList.add(new Property("base", "Reference(OperationDefinition)", "Indicates that this operation definition is a constraining profile on the base.", 0, java.lang.Integer.MAX_VALUE, base));
+        childrenList.add(new Property("resource", "code", "The types on which this operation can be executed.", 0, java.lang.Integer.MAX_VALUE, resource));
         childrenList.add(new Property("system", "boolean", "Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).", 0, java.lang.Integer.MAX_VALUE, system));
-        childrenList.add(new Property("type", "code", "Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("type", "boolean", "Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context).", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("instance", "boolean", "Indicates whether this operation can be invoked on a particular instance of one of the given types.", 0, java.lang.Integer.MAX_VALUE, instance));
         childrenList.add(new Property("parameter", "", "The parameters for the operation/query.", 0, java.lang.Integer.MAX_VALUE, parameter));
+        childrenList.add(new Property("overload", "", "Defines an appropriate combination of parameters to use when invoking this operation.", 0, java.lang.Integer.MAX_VALUE, overload));
       }
 
       @Override
@@ -2353,10 +2710,12 @@ public class OperationDefinition extends BaseConformance {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
         case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
         case 3016401: /*base*/ return this.base == null ? new Base[0] : new Base[] {this.base}; // Reference
+        case -341064690: /*resource*/ return this.resource == null ? new Base[0] : this.resource.toArray(new Base[this.resource.size()]); // CodeType
         case -887328209: /*system*/ return this.system == null ? new Base[0] : new Base[] {this.system}; // BooleanType
-        case 3575610: /*type*/ return this.type == null ? new Base[0] : this.type.toArray(new Base[this.type.size()]); // CodeType
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // BooleanType
         case 555127957: /*instance*/ return this.instance == null ? new Base[0] : new Base[] {this.instance}; // BooleanType
         case 1954460585: /*parameter*/ return this.parameter == null ? new Base[0] : this.parameter.toArray(new Base[this.parameter.size()]); // OperationDefinitionParameterComponent
+        case 529823674: /*overload*/ return this.overload == null ? new Base[0] : this.overload.toArray(new Base[this.overload.size()]); // OperationDefinitionOverloadComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2413,17 +2772,23 @@ public class OperationDefinition extends BaseConformance {
         case 3016401: // base
           this.base = castToReference(value); // Reference
           break;
+        case -341064690: // resource
+          this.getResource().add(castToCode(value)); // CodeType
+          break;
         case -887328209: // system
           this.system = castToBoolean(value); // BooleanType
           break;
         case 3575610: // type
-          this.getType().add(castToCode(value)); // CodeType
+          this.type = castToBoolean(value); // BooleanType
           break;
         case 555127957: // instance
           this.instance = castToBoolean(value); // BooleanType
           break;
         case 1954460585: // parameter
           this.getParameter().add((OperationDefinitionParameterComponent) value); // OperationDefinitionParameterComponent
+          break;
+        case 529823674: // overload
+          this.getOverload().add((OperationDefinitionOverloadComponent) value); // OperationDefinitionOverloadComponent
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -2464,14 +2829,18 @@ public class OperationDefinition extends BaseConformance {
           this.comment = castToString(value); // StringType
         else if (name.equals("base"))
           this.base = castToReference(value); // Reference
+        else if (name.equals("resource"))
+          this.getResource().add(castToCode(value));
         else if (name.equals("system"))
           this.system = castToBoolean(value); // BooleanType
         else if (name.equals("type"))
-          this.getType().add(castToCode(value));
+          this.type = castToBoolean(value); // BooleanType
         else if (name.equals("instance"))
           this.instance = castToBoolean(value); // BooleanType
         else if (name.equals("parameter"))
           this.getParameter().add((OperationDefinitionParameterComponent) value);
+        else if (name.equals("overload"))
+          this.getOverload().add((OperationDefinitionOverloadComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -2495,10 +2864,12 @@ public class OperationDefinition extends BaseConformance {
         case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
         case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
         case 3016401:  return getBase(); // Reference
+        case -341064690: throw new FHIRException("Cannot make property resource as it is not a complex type"); // CodeType
         case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // BooleanType
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // BooleanType
         case 555127957: throw new FHIRException("Cannot make property instance as it is not a complex type"); // BooleanType
         case 1954460585:  return addParameter(); // OperationDefinitionParameterComponent
+        case 529823674:  return addOverload(); // OperationDefinitionOverloadComponent
         default: return super.makeProperty(hash, name);
         }
 
@@ -2555,6 +2926,9 @@ public class OperationDefinition extends BaseConformance {
           this.base = new Reference();
           return this.base;
         }
+        else if (name.equals("resource")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.resource");
+        }
         else if (name.equals("system")) {
           throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.system");
         }
@@ -2566,6 +2940,9 @@ public class OperationDefinition extends BaseConformance {
         }
         else if (name.equals("parameter")) {
           return addParameter();
+        }
+        else if (name.equals("overload")) {
+          return addOverload();
         }
         else
           return super.addChild(name);
@@ -2603,17 +2980,23 @@ public class OperationDefinition extends BaseConformance {
         dst.code = code == null ? null : code.copy();
         dst.comment = comment == null ? null : comment.copy();
         dst.base = base == null ? null : base.copy();
-        dst.system = system == null ? null : system.copy();
-        if (type != null) {
-          dst.type = new ArrayList<CodeType>();
-          for (CodeType i : type)
-            dst.type.add(i.copy());
+        if (resource != null) {
+          dst.resource = new ArrayList<CodeType>();
+          for (CodeType i : resource)
+            dst.resource.add(i.copy());
         };
+        dst.system = system == null ? null : system.copy();
+        dst.type = type == null ? null : type.copy();
         dst.instance = instance == null ? null : instance.copy();
         if (parameter != null) {
           dst.parameter = new ArrayList<OperationDefinitionParameterComponent>();
           for (OperationDefinitionParameterComponent i : parameter)
             dst.parameter.add(i.copy());
+        };
+        if (overload != null) {
+          dst.overload = new ArrayList<OperationDefinitionOverloadComponent>();
+          for (OperationDefinitionOverloadComponent i : overload)
+            dst.overload.add(i.copy());
         };
         return dst;
       }
@@ -2632,8 +3015,9 @@ public class OperationDefinition extends BaseConformance {
         return compareDeep(kind, o.kind, true) && compareDeep(experimental, o.experimental, true) && compareDeep(publisher, o.publisher, true)
            && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true) && compareDeep(requirements, o.requirements, true)
            && compareDeep(idempotent, o.idempotent, true) && compareDeep(code, o.code, true) && compareDeep(comment, o.comment, true)
-           && compareDeep(base, o.base, true) && compareDeep(system, o.system, true) && compareDeep(type, o.type, true)
-           && compareDeep(instance, o.instance, true) && compareDeep(parameter, o.parameter, true);
+           && compareDeep(base, o.base, true) && compareDeep(resource, o.resource, true) && compareDeep(system, o.system, true)
+           && compareDeep(type, o.type, true) && compareDeep(instance, o.instance, true) && compareDeep(parameter, o.parameter, true)
+           && compareDeep(overload, o.overload, true);
       }
 
       @Override
@@ -2646,14 +3030,14 @@ public class OperationDefinition extends BaseConformance {
         return compareValues(kind, o.kind, true) && compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
            && compareValues(description, o.description, true) && compareValues(requirements, o.requirements, true)
            && compareValues(idempotent, o.idempotent, true) && compareValues(code, o.code, true) && compareValues(comment, o.comment, true)
-           && compareValues(system, o.system, true) && compareValues(type, o.type, true) && compareValues(instance, o.instance, true)
-          ;
+           && compareValues(resource, o.resource, true) && compareValues(system, o.system, true) && compareValues(type, o.type, true)
+           && compareValues(instance, o.instance, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, experimental, publisher
-          , contact, description, requirements, idempotent, code, comment, base, system
-          , type, instance, parameter);
+          , contact, description, requirements, idempotent, code, comment, base, resource
+          , system, type, instance, parameter, overload);
       }
 
   @Override
@@ -2744,17 +3128,17 @@ public class OperationDefinition extends BaseConformance {
  /**
    * Search parameter: <b>type</b>
    * <p>
-   * Description: <b>Invoke at resource level for these type</b><br>
+   * Description: <b>Invole at the type level?</b><br>
    * Type: <b>token</b><br>
    * Path: <b>OperationDefinition.type</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="type", path="OperationDefinition.type", description="Invoke at resource level for these type", type="token" )
+  @SearchParamDefinition(name="type", path="OperationDefinition.type", description="Invole at the type level?", type="token" )
   public static final String SP_TYPE = "type";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>type</b>
    * <p>
-   * Description: <b>Invoke at resource level for these type</b><br>
+   * Description: <b>Invole at the type level?</b><br>
    * Type: <b>token</b><br>
    * Path: <b>OperationDefinition.type</b><br>
    * </p>

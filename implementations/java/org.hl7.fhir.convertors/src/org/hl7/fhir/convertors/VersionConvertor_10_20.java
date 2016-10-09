@@ -9831,7 +9831,8 @@ public class VersionConvertor_10_20 {
     tgt.setBase(convertReference(src.getBase()));
     tgt.setSystem(src.getSystem());
     for (org.hl7.fhir.dstu2.model.CodeType t : src.getType())
-      tgt.addType(t.getValue());
+      tgt.addResource(t.getValue());
+    tgt.setType(tgt.hasResource());
     tgt.setInstance(src.getInstance());
     for (org.hl7.fhir.dstu2.model.OperationDefinition.OperationDefinitionParameterComponent t : src.getParameter())
       tgt.addParameter(convertOperationDefinitionParameterComponent(t));
@@ -9862,8 +9863,9 @@ public class VersionConvertor_10_20 {
     tgt.setNotes(src.getComment());
     tgt.setBase(convertReference(src.getBase()));
     tgt.setSystem(src.getSystem());
-    for (org.hl7.fhir.dstu3.model.CodeType t : src.getType())
-      tgt.addType(t.getValue());
+    if (src.getType())
+      for (org.hl7.fhir.dstu3.model.CodeType t : src.getResource())
+        tgt.addType(t.getValue());
     tgt.setInstance(src.getInstance());
     for (org.hl7.fhir.dstu3.model.OperationDefinition.OperationDefinitionParameterComponent t : src.getParameter())
       tgt.addParameter(convertOperationDefinitionParameterComponent(t));

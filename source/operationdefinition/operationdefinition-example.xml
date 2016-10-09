@@ -22,8 +22,9 @@
   <base>
     <reference value="OperationDefinition/Questionnaire-populate"/>
   </base>
+  <resource value="Questionnaire"/>
   <system value="false"/>
-  <type value="Questionnaire"/>
+  <type value="false"/>
   <instance value="true"/>
   <parameter>
     <name value="subject"/>
@@ -44,5 +45,4 @@
     <documentation value="The partially (or fully)-populated set of answers for the specified Questionnaire"/>
     <type value="QuestionnaireResponse"/>
   </parameter>
-  
 </OperationDefinition>

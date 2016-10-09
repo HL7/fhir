@@ -239,29 +239,36 @@
   Comments = A constrained profile can make optional parameters required or not used and clarify documentation
 
  -- Row 20 -----------------------------------
+  Element = OperationDefinition.resource
+  Card. = 0..*
+  Type = code
+  Binding = ResourceType
+  Short Label = Types this operation applies to
+  Definition = The types on which this operation can be executed
+  Comments = If the type is an abstract resource (\"Resource\" or \"DomainResource\") then the operation can be invoked on any concrete specialization
+
+ -- Row 21 -----------------------------------
   Element = OperationDefinition.system
   Card. = 1..1
   Type = boolean
   Short Label = Invoke at the system level?
   Definition = Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context)
 
- -- Row 21 -----------------------------------
-  Element = OperationDefinition.type
-  Card. = 0..*
-  Type = code
-  Binding = ResourceType
-  Short Label = Invoke at resource level for these type
-  Definition = Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context)
-  Comments = If the type is an abstract resource (\"Resource\" or \"DomainResource\") then the operation can be invoked on any concrete specialization
-
  -- Row 22 -----------------------------------
+  Element = OperationDefinition.type
+  Card. = 1..1
+  Type = boolean
+  Short Label = Invole at the type level?
+  Definition = Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context)
+
+ -- Row 23 -----------------------------------
   Element = OperationDefinition.instance
   Card. = 1..1
   Type = boolean
   Short Label = Invoke on an instance?
   Definition = Indicates whether this operation can be invoked on a particular instance of one of the given types
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = OperationDefinition.parameter
   Card. = 0..*
   UML = 400;0
@@ -269,7 +276,7 @@
   Definition = The parameters for the operation/query
   Comments = Query Definitions only have one output parameter, named \"result\". This may not be described, but can be to allow a profile to be defined
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = OperationDefinition.parameter.name
   Card. = 1..1
   Type = code
@@ -278,7 +285,7 @@
   Definition = The name of used to identify the parameter
   Comments = This name must be a token (start with a letter in a..z, and only contain letters, numerals, and underscore. Note that for search parameters (type = string, with a search type), the name may be altered by the search modifiers
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = OperationDefinition.parameter.use
   Card. = 1..1
   Type = code
@@ -287,28 +294,28 @@
   Definition = Whether this is an input or an output parameter
   Comments = If a parameter name is used for both an input and an output parameter, the parameter should be defined twice
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = OperationDefinition.parameter.min
   Card. = 1..1
   Type = integer
   Short Label = Minimum Cardinality
   Definition = The minimum number of times this parameter SHALL appear in the request or response
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = OperationDefinition.parameter.max
   Card. = 1..1
   Type = string
   Short Label = Maximum Cardinality (a number or *)
   Definition = The maximum number of times this element is permitted to appear in the request or response
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = OperationDefinition.parameter.documentation
   Card. = 0..1
   Type = string
   Short Label = Description of meaning/use
   Definition = Describes the meaning or use of this parameter
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = OperationDefinition.parameter.type
   Card. = 0..1
   Inv. = 1
@@ -318,7 +325,7 @@
   Definition = The type for this parameter
   Comments = if there is no stated parameter, then the parameter is a multi-part parameter; type and must have at least one part defined
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = OperationDefinition.parameter.searchType
   Card. = 0..1
   Inv. = 2
@@ -327,21 +334,21 @@
   Short Label = number | date | string | token | reference | composite | quantity | uri
   Definition = How the parameter is understood as a search parameter. This is only used if the parameter type is \'string\'
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = OperationDefinition.parameter.profile
   Card. = 0..1
   Type = Reference(StructureDefinition)
   Short Label = Profile on the type
   Definition = A profile the specifies the rules that this parameter must conform to
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = OperationDefinition.parameter.binding
   Card. = 0..1
   UML = 400;180
   Short Label = ValueSet details if this is coded
   Definition = Binds to a value set if this parameter is coded (code, Coding, CodeableConcept)
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = OperationDefinition.parameter.binding.strength
   Card. = 1..1
   Aliases = conformance; extensibility
@@ -351,7 +358,7 @@
   Definition = Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances
   Comments = For further discussion, see [[[Using Terminologies]]]
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = OperationDefinition.parameter.binding.valueSet[x]
   Card. = 1..1
   Type = uri | Reference(ValueSet)
@@ -359,7 +366,7 @@
   Definition = Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used
   Comments = For value sets with a referenceResource, the display can contain the value set description.  The reference may be version-specific or not
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = OperationDefinition.parameter.part
   Card. = 0..*
   UML = right
@@ -369,50 +376,27 @@
   Definition = The parts of a nested Parameter
   Comments = Query Definitions only have one output parameter, named \"result\". This may not be described, but can be to allow a profile to be defined
 
- -- Row 36 -----------------------------------
-  Element = !OperationDefinition.parameter.part.name
-  Card. = 1..1
-  Type = code
-  Binding = !
-  Short Label = Name of the parameter
-  Definition = The name of used to identify the parameter
-  Comments = This name must be a token (start with a letter in a..z, and only contain letters, numerals, and underscore
-
  -- Row 37 -----------------------------------
-  Element = !OperationDefinition.parameter.part.min
-  Card. = 1..1
-  Type = unsignedInt
-  Short Label = Minimum Cardinality
-  Definition = The minimum number of times this parameter SHALL appear in the request or response
+  Element = OperationDefinition.overload
+  Card. = 0..*
+  UML = left
+  Short Label = For generating overloaded methods in code
+  Definition = Defines an appropriate combination of parameters to use when invoking this operation
+  Comments = This element is intended for generating overloaded methods in code, and the combinations are not authoritative
 
  -- Row 38 -----------------------------------
-  Element = !OperationDefinition.parameter.part.max
-  Card. = 1..1
+  Element = OperationDefinition.overload.parameterName
+  Card. = 0..*
   Type = string
-  Short Label = Maximum Cardinality (a number or *)
-  Definition = The maximum number of times this element is permitted to appear in the request or response
+  Short Label = Name of parameter to include in overload
+  Definition = Name of parameter to include in overload
 
  -- Row 39 -----------------------------------
-  Element = !OperationDefinition.parameter.part.documentation
+  Element = OperationDefinition.overload.comment
   Card. = 0..1
   Type = string
-  Short Label = Description of meaning/use
-  Definition = Describes the meaning or use of this parameter
-
- -- Row 40 -----------------------------------
-  Element = !OperationDefinition.parameter.part.type
-  Card. = 1..1
-  Type = code
-  Binding = OperationParameterType
-  Short Label = What type this parameter has
-  Definition = The type for this parameter
-
- -- Row 41 -----------------------------------
-  Element = !OperationDefinition.parameter.part.profile
-  Card. = 0..1
-  Type = Reference(StructureDefinition)
-  Short Label = Profile on the type
-  Definition = A profile the specifies the rules that this parameter must conform to
+  Short Label = Comments to go on overload
+  Definition = Comments to go on overload
 
 === Sheet Search =====================================
 

@@ -1290,8 +1290,10 @@ public class IgSpreadsheetParser {
             op.setSystem(system);
             op.setInstance(istype);
             String s = sheet.getColumn(row, "Type");
-            if (!Utilities.noString(s)) 
-              op.addType(s);
+            if (!Utilities.noString(s)) { 
+              op.addResource(s);
+              op.setType(true);
+            }
             s = sheet.getColumn(row, "Title");
             if (!Utilities.noString(s)) 
               op.setName(s);

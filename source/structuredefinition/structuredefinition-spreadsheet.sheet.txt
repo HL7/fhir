@@ -520,7 +520,7 @@
   Type = string
   Short Label = FluentPath invariants - when the extension can be used
   Definition = A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurance variants for the extension)
-  Comments = All the rules must be true
+  Comments = All the rules must be true. When evaluating the invariant, the fluentpath focus is the element that holds the extension, and %extension refers to the extension itself
 
  -- Row 30 -----------------------------------
   Element = StructureDefinition.type

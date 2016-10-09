@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sun, Oct 9, 2016 06:52+1100 for FHIR v1.7.0
+// Generated on Sun, Oct 9, 2016 19:10+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -8715,14 +8715,18 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "OperationDefinition", "comment", element.getCommentElement(), -1);
     if (element.hasBase())
       composeReference(t, "OperationDefinition", "base", element.getBase(), -1);
+    for (int i = 0; i < element.getResource().size(); i++)
+      composeCode(t, "OperationDefinition", "resource", element.getResource().get(i), i);
     if (element.hasSystemElement())
       composeBoolean(t, "OperationDefinition", "system", element.getSystemElement(), -1);
-    for (int i = 0; i < element.getType().size(); i++)
-      composeCode(t, "OperationDefinition", "type", element.getType().get(i), i);
+    if (element.hasTypeElement())
+      composeBoolean(t, "OperationDefinition", "type", element.getTypeElement(), -1);
     if (element.hasInstanceElement())
       composeBoolean(t, "OperationDefinition", "instance", element.getInstanceElement(), -1);
     for (int i = 0; i < element.getParameter().size(); i++)
       composeOperationDefinitionOperationDefinitionParameterComponent(t, "OperationDefinition", "parameter", element.getParameter().get(i), i);
+    for (int i = 0; i < element.getOverload().size(); i++)
+      composeOperationDefinitionOperationDefinitionOverloadComponent(t, "OperationDefinition", "overload", element.getOverload().get(i), i);
   }
 
   protected void composeOperationDefinitionOperationDefinitionContactComponent(Complex parent, String parentType, String name, OperationDefinition.OperationDefinitionContactComponent element, int index) {
@@ -8787,6 +8791,22 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "OperationDefinition", "strength", element.getStrengthElement(), -1);
     if (element.hasValueSet())
       composeType(t, "OperationDefinition", "valueSet", element.getValueSet(), -1);
+  }
+
+  protected void composeOperationDefinitionOperationDefinitionOverloadComponent(Complex parent, String parentType, String name, OperationDefinition.OperationDefinitionOverloadComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "overload", name, element, index);
+    for (int i = 0; i < element.getParameterName().size(); i++)
+      composeString(t, "OperationDefinition", "parameterName", element.getParameterName().get(i), i);
+    if (element.hasCommentElement())
+      composeString(t, "OperationDefinition", "comment", element.getCommentElement(), -1);
   }
 
   protected void composeOperationOutcome(Complex parent, String parentType, String name, OperationOutcome element, int index) {

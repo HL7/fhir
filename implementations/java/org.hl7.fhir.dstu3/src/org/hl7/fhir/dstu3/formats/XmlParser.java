@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sun, Oct 9, 2016 06:52+1100 for FHIR v1.7.0
+// Generated on Sun, Oct 9, 2016 19:10+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -11852,14 +11852,18 @@ public class XmlParser extends XmlParserBase {
         res.setCommentElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("base")) {
         res.setBase(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("resource")) {
+        res.getResource().add(parseCode(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("system")) {
         res.setSystemElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
-        res.getType().add(parseCode(xpp));
+        res.setTypeElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("instance")) {
         res.setInstanceElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("parameter")) {
         res.getParameter().add(parseOperationDefinitionOperationDefinitionParameterComponent(xpp, res));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("overload")) {
+        res.getOverload().add(parseOperationDefinitionOperationDefinitionOverloadComponent(xpp, res));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
         return false;
     return true;
@@ -11951,6 +11955,31 @@ public class XmlParser extends XmlParserBase {
         res.setStrengthElement(parseEnumeration(xpp, Enumerations.BindingStrength.NULL, new Enumerations.BindingStrengthEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "valueSet")) {
         res.setValueSet(parseType("valueSet", xpp));
+      } else if (!parseBackboneContent(eventType, xpp, res))
+        return false;
+    return true;
+  }
+
+  protected OperationDefinition.OperationDefinitionOverloadComponent parseOperationDefinitionOperationDefinitionOverloadComponent(XmlPullParser xpp, OperationDefinition owner) throws XmlPullParserException, IOException, FHIRFormatError {
+    OperationDefinition.OperationDefinitionOverloadComponent res = new OperationDefinition.OperationDefinitionOverloadComponent();
+    parseBackboneAttributes(xpp, res);
+    next(xpp);
+    int eventType = nextNoWhitespace(xpp);
+    while (eventType != XmlPullParser.END_TAG) {
+  if (!parseOperationDefinitionOperationDefinitionOverloadComponentContent(eventType, xpp, owner, res))
+        unknownContent(xpp);
+      eventType = nextNoWhitespace(xpp);
+    }
+    next(xpp);
+    parseElementClose(res);
+    return res;
+  }
+
+  protected boolean parseOperationDefinitionOperationDefinitionOverloadComponentContent(int eventType, XmlPullParser xpp, OperationDefinition owner, OperationDefinition.OperationDefinitionOverloadComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("parameterName")) {
+        res.getParameterName().add(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("comment")) {
+        res.setCommentElement(parseString(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
     return true;
@@ -29681,12 +29710,15 @@ public class XmlParser extends XmlParserBase {
       if (element.hasBase()) {
         composeReference("base", element.getBase());
       }
+      if (element.hasResource()) { 
+        for (CodeType e : element.getResource()) 
+          composeCode("resource", e);
+      }
       if (element.hasSystemElement()) {
         composeBoolean("system", element.getSystemElement());
       }
-      if (element.hasType()) { 
-        for (CodeType e : element.getType()) 
-          composeCode("type", e);
+      if (element.hasTypeElement()) {
+        composeBoolean("type", element.getTypeElement());
       }
       if (element.hasInstanceElement()) {
         composeBoolean("instance", element.getInstanceElement());
@@ -29694,6 +29726,10 @@ public class XmlParser extends XmlParserBase {
       if (element.hasParameter()) { 
         for (OperationDefinition.OperationDefinitionParameterComponent e : element.getParameter()) 
           composeOperationDefinitionOperationDefinitionParameterComponent("parameter", e);
+      }
+      if (element.hasOverload()) { 
+        for (OperationDefinition.OperationDefinitionOverloadComponent e : element.getOverload()) 
+          composeOperationDefinitionOperationDefinitionOverloadComponent("overload", e);
       }
   }
 
@@ -29778,6 +29814,27 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueSet()) {
         composeType("valueSet", element.getValueSet());
       }  }
+
+  protected void composeOperationDefinitionOperationDefinitionOverloadComponent(String name, OperationDefinition.OperationDefinitionOverloadComponent element) throws IOException {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.enter(FHIR_NS, name);
+      composeOperationDefinitionOperationDefinitionOverloadComponentElements(element);
+      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
+    }
+  }
+
+  protected void composeOperationDefinitionOperationDefinitionOverloadComponentElements(OperationDefinition.OperationDefinitionOverloadComponent element) throws IOException {
+      composeBackboneElements(element);
+      if (element.hasParameterName()) { 
+        for (StringType e : element.getParameterName()) 
+          composeString("parameterName", e);
+      }
+      if (element.hasCommentElement()) {
+        composeString("comment", element.getCommentElement());
+      }
+  }
 
   protected void composeOperationOutcome(String name, OperationOutcome element) throws IOException {
     if (element != null) {

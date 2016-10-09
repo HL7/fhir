@@ -3300,8 +3300,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
     if (opd.getSystem())
       x.addTag("p").addText("URL: [base]/$"+opd.getCode());
-    for (CodeType c : opd.getType()) {
-      x.addTag("p").addText("URL: [base]/"+c.getValue()+"/$"+opd.getCode());
+    for (CodeType c : opd.getResource()) {
+      if (opd.getType())
+        x.addTag("p").addText("URL: [base]/"+c.getValue()+"/$"+opd.getCode());
       if (opd.getInstance())
         x.addTag("p").addText("URL: [base]/"+c.getValue()+"/[id]/$"+opd.getCode());
     }

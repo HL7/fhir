@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sun, Oct 9, 2016 06:52+1100 for FHIR v1.7.0
+// Generated on Sun, Oct 9, 2016 19:10+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -12687,25 +12687,29 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentElement());
     if (json.has("base"))
       res.setBase(parseReference(json.getAsJsonObject("base")));
+    if (json.has("resource")) {
+      JsonArray array = json.getAsJsonArray("resource");
+      for (int i = 0; i < array.size(); i++) {
+        res.getResource().add(parseCode(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_resource")) {
+      JsonArray array = json.getAsJsonArray("_resource");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getResource().size())
+          res.getResource().add(parseCode(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getResource().get(i));
+      }
+    };
     if (json.has("system"))
       res.setSystemElement(parseBoolean(json.get("system").getAsBoolean()));
     if (json.has("_system"))
       parseElementProperties(json.getAsJsonObject("_system"), res.getSystemElement());
-    if (json.has("type")) {
-      JsonArray array = json.getAsJsonArray("type");
-      for (int i = 0; i < array.size(); i++) {
-        res.getType().add(parseCode(array.get(i).getAsString()));
-      }
-    };
-    if (json.has("_type")) {
-      JsonArray array = json.getAsJsonArray("_type");
-      for (int i = 0; i < array.size(); i++) {
-        if (i == res.getType().size())
-          res.getType().add(parseCode(null));
-        if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getType().get(i));
-      }
-    };
+    if (json.has("type"))
+      res.setTypeElement(parseBoolean(json.get("type").getAsBoolean()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
     if (json.has("instance"))
       res.setInstanceElement(parseBoolean(json.get("instance").getAsBoolean()));
     if (json.has("_instance"))
@@ -12714,6 +12718,12 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("parameter");
       for (int i = 0; i < array.size(); i++) {
         res.getParameter().add(parseOperationDefinitionOperationDefinitionParameterComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("overload")) {
+      JsonArray array = json.getAsJsonArray("overload");
+      for (int i = 0; i < array.size(); i++) {
+        res.getOverload().add(parseOperationDefinitionOperationDefinitionOverloadComponent(array.get(i).getAsJsonObject(), res));
       }
     };
   }
@@ -12801,6 +12811,35 @@ public class JsonParser extends JsonParserBase {
     Type valueSet = parseType("valueSet", json);
     if (valueSet != null)
       res.setValueSet(valueSet);
+  }
+
+  protected OperationDefinition.OperationDefinitionOverloadComponent parseOperationDefinitionOperationDefinitionOverloadComponent(JsonObject json, OperationDefinition owner) throws IOException, FHIRFormatError {
+    OperationDefinition.OperationDefinitionOverloadComponent res = new OperationDefinition.OperationDefinitionOverloadComponent();
+    parseOperationDefinitionOperationDefinitionOverloadComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseOperationDefinitionOperationDefinitionOverloadComponentProperties(JsonObject json, OperationDefinition owner, OperationDefinition.OperationDefinitionOverloadComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("parameterName")) {
+      JsonArray array = json.getAsJsonArray("parameterName");
+      for (int i = 0; i < array.size(); i++) {
+        res.getParameterName().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_parameterName")) {
+      JsonArray array = json.getAsJsonArray("_parameterName");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getParameterName().size())
+          res.getParameterName().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getParameterName().get(i));
+      }
+    };
+    if (json.has("comment"))
+      res.setCommentElement(parseString(json.get("comment").getAsString()));
+    if (json.has("_comment"))
+      parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentElement());
   }
 
   protected OperationOutcome parseOperationOutcome(JsonObject json) throws IOException, FHIRFormatError {
@@ -32700,22 +32739,26 @@ public class JsonParser extends JsonParserBase {
       if (element.hasBase()) {
         composeReference("base", element.getBase());
       }
-      if (element.hasSystemElement()) {
-        composeBooleanCore("system", element.getSystemElement(), false);
-        composeBooleanExtras("system", element.getSystemElement(), false);
-      }
-      if (element.hasType()) {
-        openArray("type");
-        for (CodeType e : element.getType()) 
+      if (element.hasResource()) {
+        openArray("resource");
+        for (CodeType e : element.getResource()) 
           composeCodeCore(null, e, true);
         closeArray();
-        if (anyHasExtras(element.getType())) {
-          openArray("_type");
-          for (CodeType e : element.getType()) 
+        if (anyHasExtras(element.getResource())) {
+          openArray("_resource");
+          for (CodeType e : element.getResource()) 
             composeCodeExtras(null, e, true);
           closeArray();
         }
       };
+      if (element.hasSystemElement()) {
+        composeBooleanCore("system", element.getSystemElement(), false);
+        composeBooleanExtras("system", element.getSystemElement(), false);
+      }
+      if (element.hasTypeElement()) {
+        composeBooleanCore("type", element.getTypeElement(), false);
+        composeBooleanExtras("type", element.getTypeElement(), false);
+      }
       if (element.hasInstanceElement()) {
         composeBooleanCore("instance", element.getInstanceElement(), false);
         composeBooleanExtras("instance", element.getInstanceElement(), false);
@@ -32724,6 +32767,12 @@ public class JsonParser extends JsonParserBase {
         openArray("parameter");
         for (OperationDefinition.OperationDefinitionParameterComponent e : element.getParameter()) 
           composeOperationDefinitionOperationDefinitionParameterComponent(null, e);
+        closeArray();
+      };
+      if (element.hasOverload()) {
+        openArray("overload");
+        for (OperationDefinition.OperationDefinitionOverloadComponent e : element.getOverload()) 
+          composeOperationDefinitionOperationDefinitionOverloadComponent(null, e);
         closeArray();
       };
   }
@@ -32818,6 +32867,34 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasValueSet()) {
         composeType("valueSet", element.getValueSet());
+      }
+  }
+
+  protected void composeOperationDefinitionOperationDefinitionOverloadComponent(String name, OperationDefinition.OperationDefinitionOverloadComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeOperationDefinitionOperationDefinitionOverloadComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeOperationDefinitionOperationDefinitionOverloadComponentInner(OperationDefinition.OperationDefinitionOverloadComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasParameterName()) {
+        openArray("parameterName");
+        for (StringType e : element.getParameterName()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getParameterName())) {
+          openArray("_parameterName");
+          for (StringType e : element.getParameterName()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasCommentElement()) {
+        composeStringCore("comment", element.getCommentElement(), false);
+        composeStringExtras("comment", element.getCommentElement(), false);
       }
   }
 

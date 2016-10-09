@@ -1656,8 +1656,8 @@ public class ProfileGenerator {
     opd.setCode(op.getName());
     opd.setComment(op.getFooter());
     opd.setSystem(op.isSystem());
-    if (op.isType())
-      opd.addType(resourceName);
+    opd.addResource(resourceName);
+    opd.setType(op.isType()); 
     opd.setInstance(op.isInstance());
     for (OperationParameter p : op.getParameters()) {
       produceOpParam(op.getName(), opd.getParameter(), p, null);
