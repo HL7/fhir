@@ -951,6 +951,8 @@ public class ProfileGenerator {
     if (context.getSearchParameters().containsKey(sp.getUrl()))
       throw new Exception("Duplicated Search Parameter "+sp.getUrl());
     context.getSearchParameters().put(sp.getUrl(), sp);
+    sp.setStatus(p.getStatus());
+    sp.setExperimental(p.getExperimental());
 
     sp.setName(spd.getCode());
     sp.setCode(spd.getCode());

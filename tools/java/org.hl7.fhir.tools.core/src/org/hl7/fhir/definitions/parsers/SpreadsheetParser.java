@@ -756,6 +756,16 @@ public class SpreadsheetParser {
 //          throw new Exception("Search Param "+pack.getTitle()+"/"+n+" must be all lowercase "+ getLocation(row));
         sp.setName(n);
         sp.setCode(n);
+        
+        if (pack.getProfiles().size() > 0 && pack.getProfiles().get(0).getResource() != null) {
+          sp.setStatus(pack.getProfiles().get(0).getResource().getStatus());
+          sp.setExperimental(pack.getProfiles().get(0).getResource().getExperimental());
+        } else {
+          // we just guess
+          sp.setStatus(ConformanceResourceStatus.DRAFT);
+          sp.setExperimental(true);
+        }
+        
         String d = sheet.getColumn(row, "Description");
         sp.setType(SearchParamType.fromCode(sheet.getColumn(row, "Type")));
         List<String> pn = new ArrayList<String>();

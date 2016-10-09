@@ -88,7 +88,7 @@
 
  -- Row 4 -----------------------------------
   Element = SearchParameter.status
-  Card. = 0..1
+  Card. = 1..1
   Is Modifier = yes
   Summary = y
   Type = code

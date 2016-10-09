@@ -349,7 +349,8 @@ public class IgSpreadsheetParser {
           sp.setId(sd.getId()+"-"+n);
           sp.setName("Search Parameter "+n);
           sp.setUrl(base+"/SearchParameter/"+sp.getId());
-          
+          sp.setStatus(sd.getStatus());
+          sp.setExperimental(sd.getExperimental());
           if (!sheet.hasColumn(row, "Type"))
             throw new Exception("Search Param "+sd.getId()+"-"+n+" has no type "+ getLocation(row));
           sp.setType(readSearchType(sheet.getColumn(row, "Type"), row));
@@ -1196,6 +1197,8 @@ public class IgSpreadsheetParser {
           sp.setId(sd.getId()+"-"+n);
           sp.setName("Search Parameter "+n);
           sp.setUrl(base+"/SearchParameter/"+sp.getId());
+          sp.setStatus(sd.getStatus());
+          sp.setExperimental(sd.getExperimental());
           
           if (!sheet.hasColumn(row, "Type"))
             throw new Exception("Search Param "+sd.getName()+"/"+n+" has no type "+ getLocation(row));
